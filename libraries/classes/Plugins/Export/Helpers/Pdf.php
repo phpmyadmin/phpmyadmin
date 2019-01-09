@@ -112,7 +112,7 @@ class Pdf extends PdfLib
         }
         $current_page = $this->page;
         if ((($y + $h) > $this->PageBreakTrigger)
-            && (!$this->InFooter)
+            && (! $this->InFooter)
             && ($this->AcceptPageBreak())
         ) {
             if ($addpage) {
@@ -163,7 +163,7 @@ class Pdf extends PdfLib
         // FIXME: Better approach might be to try to compact the content
         $this->SetAutoPageBreak(false);
         // Check if header for this page already exists
-        if (!isset($this->headerset[$this->page])) {
+        if (! isset($this->headerset[$this->page])) {
             $fullwidth = 0;
             foreach ($this->tablewidths as $width) {
                 $fullwidth += $width;
@@ -277,7 +277,7 @@ class Pdf extends PdfLib
                     $l += $this->tablewidths[$col];
                 }
 
-                if (!isset($tmpheight[$row . '-' . $this->page])) {
+                if (! isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
@@ -436,7 +436,7 @@ class Pdf extends PdfLib
                     $l += $this->tablewidths[$col];
                 }
 
-                if (!isset($tmpheight[$row . '-' . $this->page])) {
+                if (! isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
@@ -529,7 +529,7 @@ class Pdf extends PdfLib
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = $this->relation->getForeigners($db, $table);
-            $have_rel = !empty($res_rel);
+            $have_rel = ! empty($res_rel);
         } else {
             $have_rel = false;
         } // end if
@@ -626,34 +626,34 @@ class Pdf extends PdfLib
                 $type = ' ';
             }
 
-            if (!isset($column['Default'])) {
+            if (! isset($column['Default'])) {
                 if ($column['Null'] != 'NO') {
                     $column['Default'] = 'NULL';
                 }
             }
-            $data [] = $column['Field'];
-            $data [] = $type;
-            $data [] = $column['Null'] == '' || $column['Null'] == 'NO'
+            $data[] = $column['Field'];
+            $data[] = $type;
+            $data[] = $column['Null'] == '' || $column['Null'] == 'NO'
                 ? 'No'
                 : 'Yes';
-            $data [] = isset($column['Default']) ? $column['Default'] : '';
+            $data[] = isset($column['Default']) ? $column['Default'] : '';
 
             $field_name = $column['Field'];
 
             if ($do_relation && $have_rel) {
-                $data [] = isset($res_rel[$field_name])
+                $data[] = isset($res_rel[$field_name])
                     ? $res_rel[$field_name]['foreign_table']
                     . ' (' . $res_rel[$field_name]['foreign_field']
                     . ')'
                     : '';
             }
             if ($do_comments) {
-                $data [] = isset($comments[$field_name])
+                $data[] = isset($comments[$field_name])
                     ? $comments[$field_name]
                     : '';
             }
             if ($do_mime) {
-                $data [] = isset($mime_map[$field_name])
+                $data[] = isset($mime_map[$field_name])
                     ? $mime_map[$field_name]['mimetype']
                     : '';
             }
@@ -676,7 +676,7 @@ class Pdf extends PdfLib
                     $l += $this->tablewidths[$col];
                 }
 
-                if (!isset($tmpheight[$row . '-' . $this->page])) {
+                if (! isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
@@ -758,7 +758,7 @@ class Pdf extends PdfLib
             $col_as = $this->fields[$i]->name;
             $db = $this->currentDb;
             $table = $this->currentTable;
-            if (!empty($this->aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($this->aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $this->aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $stringWidth = $this->GetStringWidth($col_as) + 6;
@@ -850,7 +850,7 @@ class Pdf extends PdfLib
         }
 
         for ($i = 0; $i < $this->numFields; $i++) {
-            if (!array_key_exists($i, $colFits)) {
+            if (! array_key_exists($i, $colFits)) {
                 $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
             }
             if ($this->display_column[$i] == false) {

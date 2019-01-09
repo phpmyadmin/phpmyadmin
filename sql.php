@@ -16,11 +16,15 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries
  */
-require_once 'libraries/common.inc.php';
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 PageSettings::showGroup('Browse');
 
@@ -145,7 +149,7 @@ list(
 // @todo: possibly refactor
 extract($analyzed_sql_results);
 
-if ($table != $table_from_sql && !empty($table_from_sql)) {
+if ($table != $table_from_sql && ! empty($table_from_sql)) {
     $table = $table_from_sql;
 }
 
@@ -196,7 +200,7 @@ if ($goto == 'sql.php') {
         [
             'db' => $db,
             'table' => $table,
-            'sql_query' => $sql_query
+            'sql_query' => $sql_query,
         ]
     );
 } // end if

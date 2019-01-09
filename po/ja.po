@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-09-14 08:43+0000\n"
-"Last-Translator: yutk <ekr48ktq@gmail.com>\n"
+"PO-Revision-Date: 2019-01-08 23:55+0000\n"
+"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -331,16 +331,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "最低 1 つは表示するカラムを選択してください！"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "クエリをシミュレート"
+msgstr "複数テーブルクエリ"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "問い合わせ失敗"
+msgstr "例によるクエリ"
 
 #: db_qbe.php:171
 #, php-format
@@ -672,6 +668,8 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"サーバーは制御ユーザー 'pma' とデフォルトのパスワード 'controlpass' で実行されており、侵入者に開かれた状態です。 "
+"あなたは真剣にこの脆弱なパスワードを変更することによるセキュリティの弱点の修正に取り組むべきです。"
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -809,7 +807,7 @@ msgstr "保存していない編集がありますが、このページを離れ
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
-msgstr ""
+msgstr "行数を減らす処理で対象の行にはデータが存在しています。処理を行うと対象行のデータが失われますが、続行しますか？"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1695,9 +1693,7 @@ msgstr "エラーテキスト：%s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
-"サーバーとの接続が失われているようです。ネットワーク接続とサーバーの状態を確"
-"認してください。"
+msgstr "ネットワーク接続が失われているようです。接続状況とサーバーの状態を確認してください。"
 
 #: js/messages.php:375
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:221
@@ -1905,7 +1901,7 @@ msgstr "選択"
 
 #: js/messages.php:434
 msgid "Column selector"
-msgstr "カラムセレクター"
+msgstr "カラムの選択"
 
 #: js/messages.php:435
 msgid "Search this list"
@@ -1916,7 +1912,7 @@ msgstr "このリストの検索"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
+msgstr "中央のリストの列はありません。データベース「%s」の中央列リストが現在のテーブルの列が存在しないことを確認してください。"
 
 #: js/messages.php:440
 msgid "See more"
@@ -1971,33 +1967,28 @@ msgid "Done"
 msgstr "決定"
 
 #: js/messages.php:457
-#, fuzzy
 msgid "Confirm partial dependencies"
-msgstr "部分従属の確認"
+msgstr "部分依存関係の確認"
 
 #: js/messages.php:458
-#, fuzzy
 msgid "Selected partial dependencies are as follows:"
-msgstr "選択された部分従属は以下の通りです："
+msgstr "選択された部分的な依存は以下の通りです："
 
 #: js/messages.php:460
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
-msgstr ""
+msgstr "備考：a, b -> d, f は、列「a」と列「b」の値を合わせれば、列「d」と列「f」の値を決定することが出来ます。"
 
 #: js/messages.php:463
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "部分従属が選択されていません!"
+msgstr "部分的な依存が選択されていません!"
 
 #: js/messages.php:466
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "テーブル内のデータに基づいて可能な部分的な依存関係を表示"
 
 #: js/messages.php:467
-#, fuzzy
 msgid "Hide partial dependencies list"
 msgstr "部分従属の一覧を隠す"
 
@@ -2015,7 +2006,7 @@ msgstr "手順"
 
 #: js/messages.php:474
 msgid "The following actions will be performed:"
-msgstr "次のアクションが行われます："
+msgstr "次のクエリを実行されます："
 
 #: js/messages.php:475
 #, php-format
@@ -2032,7 +2023,7 @@ msgstr "第三正規化(3NF)"
 
 #: js/messages.php:480
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "過渡的依存性の確認"
 
 #: js/messages.php:481
 msgid "Selected dependencies are as follows:"
@@ -2198,18 +2189,16 @@ msgid "Encryption key"
 msgstr "暗号化キー"
 
 #: js/messages.php:541
-#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
-msgstr "MySQLはスライダーで選択できない値を直接キー入力することもできます。"
+msgstr "MySQLはスライダーで選択できない追加の値を直接キー入力することもできます。"
 
 #: js/messages.php:547
-#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
-msgstr "MySQLは日付ピッカーで選択できない値を直接キー入力することもできます。"
+msgstr "MySQLは日付ピッカー以外の値も求めらます。必要に応じて入力してください"
 
 #: js/messages.php:553
 msgid ""
@@ -2246,14 +2235,12 @@ msgstr ""
 
 #: js/messages.php:567
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "値・サブクエリは空です"
 
 #: js/messages.php:568 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "このデータベースにはテーブルがありません。"
+msgstr "他のデータベースからテーブルを追加"
 
 #: js/messages.php:569
 msgid "Page name"
@@ -2283,10 +2270,8 @@ msgid "Untitled"
 msgstr "無題"
 
 #: js/messages.php:575
-#, fuzzy
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "編集するページを選択してください"
+msgstr "ページを選択してください"
 
 #: js/messages.php:576
 msgid "Please enter a valid page name"
@@ -2353,8 +2338,6 @@ msgstr ""
 "ク）すると、この列をORDER BY句から削除します"
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "クリックでカラムを反転/解除"
 
@@ -2363,10 +2346,8 @@ msgid "Double-click to copy column name."
 msgstr "ダブルクリックでカラム名をコピーします。"
 
 #: js/messages.php:604
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "クリックでカラムの表示／非表示<br />ができるドロップダウンを表示"
+msgstr "カラムの表示／非表示<br />状態を変更する場合、「▼」をクリック。"
 
 #: js/messages.php:606 libraries/classes/BrowseForeigners.php:350
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -2444,8 +2425,6 @@ msgid "Go to link:"
 msgstr "リンク先へ移動する:"
 
 #: js/messages.php:648
-#, fuzzy
-#| msgid "Copy column name"
 msgid "Copy column name."
 msgstr "カラム名のコピー。"
 
@@ -2466,8 +2445,6 @@ msgid "More"
 msgstr "その他"
 
 #: js/messages.php:661
-#, fuzzy
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "パネルを表示"
 
@@ -2563,8 +2540,6 @@ msgid "Please look at the bottom of this window."
 msgstr "このウィンドウの一番下を見てください。"
 
 #: js/messages.php:710 libraries/classes/ErrorHandler.php:386
-#, fuzzy
-#| msgid "Ignore"
 msgid "Ignore All"
 msgstr "全て無視"
 
@@ -2628,14 +2603,10 @@ msgid "Copy tables to"
 msgstr "テーブルのコピー先"
 
 #: js/messages.php:742
-#, fuzzy
-#| msgid "Add table prefix"
 msgid "Add table prefix"
 msgstr "テーブル接頭辞の追加"
 
 #: js/messages.php:743
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "テーブル名の接頭辞を付け替える"
 
@@ -2665,12 +2636,12 @@ msgstr "強固"
 
 #: js/messages.php:754
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "セキュリティキーを有効化している最中にタイムアウトされました。"
 
 #: js/messages.php:755
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "セキュリティキー「%s」の有効化が失敗しました。"
 
 #: js/messages.php:784
 msgctxt "Previous month"
@@ -3004,10 +2975,9 @@ msgid "Error"
 msgstr "エラー"
 
 #: libraries/classes/Advisor.php:257
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "PDF を作成中にエラーが発生しました："
+msgstr "評価中にエラーが発生しました：%s"
 
 #: libraries/classes/Advisor.php:288
 #, php-format
@@ -3038,7 +3008,7 @@ msgstr "読み込みエラー: ファイル '%s' は存在しないか、読み�
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr ""
+msgstr "無効な事象定義（行：%1$s）。前の事象定義の行「%2$s」は予想しました。"
 
 #: libraries/classes/Advisor.php:548
 #, php-format
@@ -3105,7 +3075,7 @@ msgstr "ページ番号:"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "構成ストレージは、カラムの中央リスト機能の準備ができていません。"
 
 #: libraries/classes/CentralColumns.php:393
 #, php-format
@@ -3113,10 +3083,8 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
 #: libraries/classes/CentralColumns.php:409
-#, fuzzy
-#| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "設定が保存できません"
+msgstr "カラムを追加できませんでした！"
 
 #: libraries/classes/CentralColumns.php:486
 #, php-format
@@ -3125,10 +3093,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/CentralColumns.php:499
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "最近使用したテーブルが保存できません"
+msgstr "カラムを削除できませんでした！"
 
 #: libraries/classes/CentralColumns.php:662
 msgid "YES"
@@ -3285,11 +3251,9 @@ msgid "Greek"
 msgstr "ギリシア語"
 
 #: libraries/classes/Charsets.php:406
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "チェコのスロバキア語"
+msgstr "チェコ・スロバキア語"
 
 #: libraries/classes/Charsets.php:409 libraries/classes/Charsets.php:560
 msgctxt "Collation"
@@ -3490,10 +3454,8 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
 #: libraries/classes/Config.php:1172
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "設定ファイルの読み込みに失敗しました"
+msgstr "設定ファイルの読み込みに失敗しました！"
 
 #: libraries/classes/Config.php:1175
 msgid ""
@@ -3509,20 +3471,14 @@ msgid "Invalid server index: %s"
 msgstr "サーバのインデックスが不正です: %s"
 
 #: libraries/classes/Config.php:1715
-#, fuzzy, php-format
-#| msgid "Server"
+#, php-format
 msgid "Server %d"
-msgstr "サーバ"
+msgstr "サーバ %d"
 
 #: libraries/classes/Config/Descriptions.php:63
-#, fuzzy
-#| msgid ""
-#| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
-msgstr ""
-"有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の "
-"MySQL サーバを入力できるようになります。"
+msgstr "有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の MySQL サーバを入力できるようになります。"
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
@@ -3533,7 +3489,7 @@ msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
-msgstr ""
+msgstr "MySQLサーバのIPアドレスまたはホスト名を指定した正規表現によりユーザがログイン出来るサーバを制限されます。"
 
 #: libraries/classes/Config/Descriptions.php:70
 #, fuzzy
@@ -3598,14 +3554,8 @@ msgid "Highlight pointer"
 msgstr "ポインタを目立たせる"
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"インポートおよびエクスポートの操作に対して [a@https://ja.wikipedia.org/wiki/"
-"Bzip2]bzip2[/a] 圧縮を有効にします。"
+msgstr "インポート操作に対して [a@https://ja.wikipedia.org/wiki/Bzip2]bzip2[/a] 圧縮を有効にします。"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Bzip2"
@@ -3650,7 +3600,7 @@ msgstr "CodeMirror を有効にする"
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr ""
+msgstr "実行前にクエリのエラーを検出します。コードミラーを有効化する必要があります。"
 
 #: libraries/classes/Config/Descriptions.php:108
 #, fuzzy
@@ -3747,7 +3697,7 @@ msgstr "DROP クエリの確認"
 #: libraries/classes/Config/Descriptions.php:134
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "SQLクエリと実行した時間をコンソールに表示する"
 
 #: libraries/classes/Config/Descriptions.php:135
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3810,7 +3760,7 @@ msgstr "テーブルのコメント"
 
 #: libraries/classes/Config/Descriptions.php:146
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "コラムのコメントをテーブルの構造に表示するか"
 
 #: libraries/classes/Config/Descriptions.php:147
 msgid "Hide table structure actions"
@@ -3834,7 +3784,7 @@ msgstr "デフォルトの並び順"
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
-msgstr ""
+msgstr "変換オプションのデフォールトです。テーブル構造ページで設定した場合、オーバーライドされます。"
 
 #: libraries/classes/Config/Descriptions.php:150
 #, fuzzy
@@ -4167,7 +4117,7 @@ msgstr "BLOB に 16 進数表記を利用する"
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
-msgstr ""
+msgstr "IF NOT EXISTSを追加（テーブル作成中にインデックスが生成されるので、効率が悪い）"
 
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
@@ -4235,7 +4185,7 @@ msgstr "外部キー制限"
 
 #: libraries/classes/Config/Descriptions.php:278
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "クエリ実行時の外部キーのチェックボックスのデフォルト値です。"
 
 #: libraries/classes/Config/Descriptions.php:279
 #, fuzzy
@@ -4671,7 +4621,7 @@ msgstr "INSERT エラーで中断しない"
 #: libraries/classes/Config/Descriptions.php:398
 #: libraries/classes/Config/Descriptions.php:410
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "ON DUPLICATE KEY UPDATEを追加する"
 
 #: libraries/classes/Config/Descriptions.php:399
 #: libraries/classes/Config/Descriptions.php:411
@@ -4880,7 +4830,7 @@ msgstr "最初のテーブルを全スキャンした結合の数。"
 
 #: libraries/classes/Config/Descriptions.php:460
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "項目の最大数"
 
 #: libraries/classes/Config/Descriptions.php:462
 msgid ""
@@ -4922,7 +4872,7 @@ msgstr "メモリ制限"
 
 #: libraries/classes/Config/Descriptions.php:475
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "ナビゲーション画面でデータベースツリーをセレクタで置き換えます"
 
 #: libraries/classes/Config/Descriptions.php:476
 #, fuzzy
@@ -4944,7 +4894,7 @@ msgstr "ナビゲーションパネル内にロゴを表示します。"
 
 #: libraries/classes/Config/Descriptions.php:479
 msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
+msgstr "現在のデータベースまたはテーブルを強調表示してメインパネルとリンクします。"
 
 #: libraries/classes/Config/Descriptions.php:481
 msgid "Show logo in navigation panel."
@@ -5027,7 +4977,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Group items in the tree"
-msgstr ""
+msgstr "ツリー内項目をグループ化"
 
 #: libraries/classes/Config/Descriptions.php:505
 #, fuzzy
@@ -5106,7 +5056,7 @@ msgstr "関数項目を表示する"
 
 #: libraries/classes/Config/Descriptions.php:519
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "ナビゲーションツリーのデータベース下の関数を表示するかどうか"
 
 #: libraries/classes/Config/Descriptions.php:520
 #, fuzzy
@@ -5116,7 +5066,7 @@ msgstr "MySQL プロセスの表示"
 
 #: libraries/classes/Config/Descriptions.php:521
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "ナビゲーションツリーのデータベース下のプロシージャを表示するかどうか"
 
 #: libraries/classes/Config/Descriptions.php:522
 #, fuzzy
@@ -5177,11 +5127,11 @@ msgstr "テーブルの行リンクを表示する場所"
 
 #: libraries/classes/Config/Descriptions.php:532
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "ユニークキーがなくても、テーブルの行リンクを表示する。"
 
 #: libraries/classes/Config/Descriptions.php:533
 msgid "Show row links anyway"
-msgstr ""
+msgstr "行リンクを表示"
 
 #: libraries/classes/Config/Descriptions.php:534
 #: libraries/classes/Config/Descriptions.php:535
@@ -5281,7 +5231,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:559
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "MySQL予約単語警告"
 
 #: libraries/classes/Config/Descriptions.php:561
 msgid "How to display the menu tabs"
@@ -5289,7 +5239,7 @@ msgstr "メニュータブの表示方法"
 
 #: libraries/classes/Config/Descriptions.php:563
 msgid "How to display various action links"
-msgstr ""
+msgstr "操作リンクの表示方法"
 
 #: libraries/classes/Config/Descriptions.php:564
 #, fuzzy
@@ -5368,7 +5318,7 @@ msgstr "カラム名の差し込み間隔"
 
 #: libraries/classes/Config/Descriptions.php:583
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "編集セルのトリガー操作"
 
 #: libraries/classes/Config/Descriptions.php:584
 #, fuzzy
@@ -5436,7 +5386,7 @@ msgstr "セッション値"
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
-msgstr ""
+msgstr "タイムゾーンを設定します。(サーバのタイムゾーンと異なっても可能)"
 
 #: libraries/classes/Config/Descriptions.php:600
 #, fuzzy
@@ -5999,12 +5949,12 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"ユーザメニュー設定機能を有効するため、このテーブルとユーザグループテーブルは必要です。いずれか空の状態になっている場合、ユーザメニュー設定機能が無効化され"
+"ます。[kbd]pma__users[/kbd]としておくのがいいでしょう。"
 
 #: libraries/classes/Config/Descriptions.php:761
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Users table"
-msgstr "利用するテーブル"
+msgstr "ユーザテーブル"
 
 #: libraries/classes/Config/Descriptions.php:763
 msgid ""
@@ -6012,12 +5962,12 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"ユーザメニュー設定機能を有効するため、このテーブルとユーザテーブルは必要です。いずれか空の状態になっている場合、ユーザメニュー設定機能が無効化されます。["
+"kbd]pma__usergroups[/kbd]としておくのがいいでしょう。"
 
 #: libraries/classes/Config/Descriptions.php:767
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "ホストテーブルを使う"
+msgstr "ユーザグループテーブル"
 
 #: libraries/classes/Config/Descriptions.php:769
 #, fuzzy
@@ -6033,7 +5983,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:772
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "隠されたナビゲーション項目テーブル"
 
 #: libraries/classes/Config/Descriptions.php:774
 msgid "User for config auth"
@@ -6491,10 +6441,12 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"エラー報告を送信する時・phpMyAdminの最新バージョン情報通信時のプロキシサーバ設定です。phpMyAdminが直接にインターネットへ接続が出来ない"
+"場合、必要となります。URL形式：「ホスト名:ポート番号」。"
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Proxy url"
-msgstr ""
+msgstr "プロキシURL"
 
 #: libraries/classes/Config/Descriptions.php:881
 msgid ""
@@ -6502,6 +6454,8 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"プロキシサーバで認証するユーザ名。デフォルトでは認証は行われません。ユーザー名が供給される場合、基本認証が利用されます。現在、他の認証種類はサポートされて"
+"いません。"
 
 #: libraries/classes/Config/Descriptions.php:886
 #, fuzzy
@@ -6511,7 +6465,7 @@ msgstr "ユーザ名"
 
 #: libraries/classes/Config/Descriptions.php:887
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "プロキシサーバへログインする為のパスワード。"
 
 #: libraries/classes/Config/Descriptions.php:888
 #, fuzzy
@@ -6535,19 +6489,19 @@ msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:892
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "ドメインのreCaptchaサービスの公開キーを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:893
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "reCaptchaの公開キー"
 
 #: libraries/classes/Config/Descriptions.php:894
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "ドメインのreCaptchaサービスの秘密キーを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:895
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "reCaptchaの秘密キー"
 
 #: libraries/classes/Config/Descriptions.php:897
 msgid "Choose the default action when sending error reports."
@@ -6563,7 +6517,7 @@ msgstr "サーバのポート"
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
-msgstr ""
+msgstr "クエリは、Ctrl + Enterの代わりにEnterキーを押して実行されます。新しい行はShift + Enterで挿入されます。"
 
 #: libraries/classes/Config/Descriptions.php:904
 #, fuzzy
@@ -6595,16 +6549,16 @@ msgstr "SQL クエリ履歴テーブル"
 #: libraries/classes/Config/Descriptions.php:912
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
-msgstr ""
+msgstr "クエリメッセージを常に展開する"
 
 #: libraries/classes/Config/Descriptions.php:913
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
-msgstr ""
+msgstr "現在のクエリを表示"
 
 #: libraries/classes/Config/Descriptions.php:914
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
+msgstr "Enterでクエリを実行し、Shift + Enterで新しい行を挿入します"
 
 #: libraries/classes/Config/Descriptions.php:915
 #: templates/console/display.twig:168
@@ -7211,11 +7165,11 @@ msgstr "変数の設定に失敗しました"
 #: libraries/classes/Controllers/Table/TableChartController.php:90
 #: libraries/classes/Controllers/Table/TableGisVisualizationController.php:106
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "SQLクエリはデータを取得するために設定されませんでした。"
 
 #: libraries/classes/Controllers/Table/TableChartController.php:169
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "テーブルには数字コラムがない理由でチャートを表示するデータポイントないです。"
 
 #: libraries/classes/Controllers/Table/TableChartController.php:236
 #, fuzzy
@@ -7422,7 +7376,7 @@ msgstr "エラー: リレーションを追加できませんでした。"
 
 #: libraries/classes/Database/Designer/Common.php:649
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "エラー：カラムのインデックスがない。"
 
 #: libraries/classes/Database/Designer/Common.php:654
 msgid "Error: Relational features are disabled!"
@@ -8781,10 +8735,8 @@ msgid "Central columns"
 msgstr "textarea の 1 行の文字数"
 
 #: libraries/classes/Menu.php:613
-#, fuzzy
-#| msgid "Users"
 msgid "User accounts"
-msgstr "ユーザグループ"
+msgstr "ユーザアカウント"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:4043 templates/server/sub_page_header.twig:2
@@ -9265,7 +9217,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:385
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "部分的な依存を見つける"
 
 #: libraries/classes/Normalization.php:408
 #, php-format
@@ -11002,10 +10954,8 @@ msgid "User preferences"
 msgstr "ユーザ環境設定"
 
 #: libraries/classes/Relation.php:330
-#, fuzzy
-#| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "設定：%s"
+msgstr "ユーザメニュー設定"
 
 #: libraries/classes/Relation.php:341
 #, fuzzy
@@ -11118,7 +11068,7 @@ msgstr "スレーブレプリケーションのユーザ追加"
 
 #: libraries/classes/ReplicationGui.php:115
 msgid "Master configuration"
-msgstr "マスタ設定"
+msgstr "マスター設定"
 
 #: libraries/classes/ReplicationGui.php:117
 #, fuzzy
@@ -12555,10 +12505,8 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4720
 #: libraries/classes/Server/Users.php:32
-#, fuzzy
-#| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "ユーザ概略"
+msgstr "ユーザアカウント概要"
 
 #: libraries/classes/Server/Privileges.php:4795
 msgid ""
@@ -15673,10 +15621,8 @@ msgid "Select binary log to view"
 msgstr "表示するバイナリログを選択してください"
 
 #: templates/database/central_columns/main.twig:4
-#, fuzzy
-#| msgid "Add column"
 msgid "Add new column"
-msgstr "カラムを追加する"
+msgstr "新しいカラムを追加する"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
@@ -15704,8 +15650,6 @@ msgid "Add column"
 msgstr "カラムを追加する"
 
 #: templates/database/central_columns/main.twig:201
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a table"
 msgstr "テーブルを選択してください"
 

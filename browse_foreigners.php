@@ -12,14 +12,18 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * Sets globals from $_POST
  */
 $request_params = [
     'data',
-    'field'
+    'field',
 ];
 
 foreach ($request_params as $one_request_param) {

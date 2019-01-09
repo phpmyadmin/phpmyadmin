@@ -54,7 +54,7 @@ class CheckUserPrivileges
             }
         }
 
-        if (!$tblname_start_offset) {
+        if (! $tblname_start_offset) {
             $tblname_start_offset = mb_strpos($row, '.', $db_name_offset);
         }
 
@@ -82,7 +82,7 @@ class CheckUserPrivileges
         return [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
+            $show_grants_tblname,
         ];
     }
 

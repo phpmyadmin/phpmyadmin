@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-
 /**
  * Class for generating the top menu
  *
@@ -270,7 +269,8 @@ class Menu
                     ),
                     Url::getCommon(
                         [
-                            'db' => $this->_db, 'table' => $this->_table
+                            'db' => $this->_db,
+                            'table' => $this->_table,
                         ]
                     ),
                     str_replace(' ', '&nbsp;', htmlspecialchars($this->_table)),
@@ -357,7 +357,10 @@ class Menu
         $tabs['structure']['text'] = __('Structure');
         $tabs['structure']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            ['tbl_structure.php', 'tbl_relation.php']
+            [
+                'tbl_structure.php',
+                'tbl_relation.php',
+            ]
         );
 
         $tabs['sql']['icon'] = 'b_sql';
@@ -369,7 +372,11 @@ class Menu
         $tabs['search']['link'] = 'tbl_select.php';
         $tabs['search']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            ['tbl_select.php', 'tbl_zoom_select.php', 'tbl_find_replace.php']
+            [
+                'tbl_select.php',
+                'tbl_zoom_select.php',
+                'tbl_find_replace.php',
+            ]
         );
 
         if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
@@ -480,10 +487,10 @@ class Menu
         $tabs['query']['link'] = 'db_multi_table_query.php';
         $tabs['query']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            array(
+            [
                 'db_multi_table_query.php',
                 'db_qbe.php',
-            )
+            ]
         );
         if ($num_tables == 0) {
             $tabs['query']['warning'] = __('Database seems to be empty!');
@@ -598,7 +605,7 @@ class Menu
                 'server_status_monitor.php',
                 'server_status_queries.php',
                 'server_status_variables.php',
-                'server_status_processes.php'
+                'server_status_processes.php',
             ]
         );
 
@@ -608,7 +615,10 @@ class Menu
             $tabs['rights']['text'] = __('User accounts');
             $tabs['rights']['active'] = in_array(
                 basename($GLOBALS['PMA_PHP_SELF']),
-                ['server_privileges.php', 'server_user_groups.php']
+                [
+                    'server_privileges.php',
+                    'server_user_groups.php',
+                ]
             );
             $tabs['rights']['args']['viewing_mode'] = 'server';
         }
@@ -626,7 +636,10 @@ class Menu
         $tabs['settings']['text']   = __('Settings');
         $tabs['settings']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            ['prefs_forms.php', 'prefs_manage.php']
+            [
+                'prefs_forms.php',
+                'prefs_manage.php',
+            ]
         );
 
         if (! empty($binary_logs)) {

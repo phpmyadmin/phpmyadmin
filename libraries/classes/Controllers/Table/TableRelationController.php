@@ -120,7 +120,7 @@ class TableRelationController extends TableController
         $this->response->getHeader()->getScripts()->addFiles(
             [
                 'tbl_relation.js',
-                'indexes.js'
+                'indexes.js',
             ]
         );
 
@@ -266,7 +266,7 @@ class TableRelationController extends TableController
             Core::previewSQL($preview_sql_data);
         }
 
-        if (!empty($display_query) && !$seen_error) {
+        if (! empty($display_query) && ! $seen_error) {
             $GLOBALS['display_query'] = $display_query;
             $this->response->addHTML(
                 Util::getMessage(

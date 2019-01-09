@@ -49,7 +49,10 @@ $server_slave_replication = $GLOBALS['dbi']->fetchResult('SHOW SLAVE STATUS');
 /**
  * replication types
  */
-$replication_types = ['master', 'slave'];
+$replication_types = [
+    'master',
+    'slave',
+];
 
 
 /**

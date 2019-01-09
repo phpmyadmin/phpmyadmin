@@ -91,7 +91,7 @@ class MultSubmits
                 $urlParams['selected'][] = $selectedValue;
             }
         }
-        if ($what == 'drop_tbl' && !empty($views)) {
+        if ($what == 'drop_tbl' && ! empty($views)) {
             foreach ($views as $current) {
                 $urlParams['views'][] = $current;
             }
@@ -169,7 +169,7 @@ class MultSubmits
                 case 'drop_tbl':
                     $this->relationCleanup->table($db, $selected[$i]);
                     $current = $selected[$i];
-                    if (!empty($views) && in_array($current, $views)) {
+                    if (! empty($views) && in_array($current, $views)) {
                         $sqlQueryViews .= (empty($sqlQueryViews) ? 'DROP VIEW ' : ', ')
                             . Util::backquote($current);
                     } else {
@@ -338,7 +338,7 @@ class MultSubmits
                         false,
                         'one_table'
                     );
-                    if (isset($_POST['adjust_privileges']) && !empty($_POST['adjust_privileges'])) {
+                    if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                         $this->operations->adjustPrivilegesCopyTable(
                             $db,
                             $selected[$i],
@@ -351,7 +351,7 @@ class MultSubmits
 
             // All "DROP TABLE", "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
             // statements will be run at once below
-            if ($runParts && !$copyTable) {
+            if ($runParts && ! $copyTable) {
                 $sqlQuery .= $aQuery . ';' . "\n";
                 if ($queryType != 'drop_db') {
                     $GLOBALS['dbi']->selectDb($db);
@@ -384,7 +384,7 @@ class MultSubmits
             $runParts,
             $executeQueryLater,
             $sqlQuery,
-            $sqlQueryViews
+            $sqlQueryViews,
         ];
     }
 
@@ -580,7 +580,7 @@ class MultSubmits
 
                 case 'drop_tbl':
                     $current = $selectedValue;
-                    if (!empty($views) && in_array($current, $views)) {
+                    if (! empty($views) && in_array($current, $views)) {
                         $fullQueryViews .= (empty($fullQueryViews) ? 'DROP VIEW ' : ', ')
                         . Util::backquote(htmlspecialchars($current));
                     } else {
@@ -631,10 +631,10 @@ class MultSubmits
         }
 
         if ($what == 'drop_tbl') {
-            if (!empty($fullQuery)) {
+            if (! empty($fullQuery)) {
                 $fullQuery .= ';<br>' . "\n";
             }
-            if (!empty($fullQueryViews)) {
+            if (! empty($fullQueryViews)) {
                 $fullQuery .= $fullQueryViews . ';<br>' . "\n";
             }
             unset($fullQueryViews);
@@ -642,6 +642,10 @@ class MultSubmits
 
         $fullQueryViews = isset($fullQueryViews) ? $fullQueryViews : null;
 
-        return [$fullQuery, $reload, $fullQueryViews];
+        return [
+            $fullQuery,
+            $reload,
+            $fullQueryViews,
+        ];
     }
 }

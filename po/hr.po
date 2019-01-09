@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-11-09 00:34+0000\n"
+"PO-Revision-Date: 2018-12-31 07:44+0000\n"
 "Last-Translator: Marino <mrabach@gmail.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/hr/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -152,7 +152,7 @@ msgstr "Zadano"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:691
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
 msgid "Links to"
-msgstr "Poveznice na"
+msgstr "Veze do"
 
 #: db_datadict.php:129 libraries/classes/Config/Descriptions.php:207
 #: libraries/classes/Config/Descriptions.php:222
@@ -249,7 +249,7 @@ msgstr "Prikaži shemu (shemu) baze podataka"
 #: libraries/classes/Database/Qbe.php:359
 #: libraries/classes/Navigation/NavigationTree.php:925
 msgid "No tables found in database."
-msgstr "Tabele nisu pronađene u bazi podataka."
+msgstr "Tablice nisu pronađene u bazi podataka."
 
 #: db_export.php:72 libraries/classes/Config/Descriptions.php:308
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:371
@@ -259,7 +259,7 @@ msgstr "Tabele nisu pronađene u bazi podataka."
 #: libraries/classes/Server/Status/Data.php:130
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
-msgstr "Tabele"
+msgstr "Tablice"
 
 #: db_export.php:73 libraries/classes/Config/Forms/User/ExportForm.php:58
 #: libraries/classes/Config/Forms/User/ExportForm.php:105
@@ -311,7 +311,7 @@ msgstr ""
 #: db_operations.php:164
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Baza podataka %1$s preimenovana je u %2$s."
+msgstr "Bazi podataka %1$s je izmijenjen naziv u %2$s."
 
 #: db_operations.php:176
 #, php-format
@@ -323,8 +323,8 @@ msgstr "Baza podataka %1$s je kopirana u %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Pohrana konfiguracije za phpMyAdmin-a je deaktivirana. Kako biste saznali "
-"razloge deaktivacije, kliknite %sovdje%s."
+"Pohrana konfiguracije za phpMyAdmin je deaktivirana. Kako biste saznali "
+"razloge deaktivacije, kliknite %s ovdje %s."
 
 #: db_qbe.php:136
 msgid "You have to choose at least one column to display!"
@@ -332,7 +332,7 @@ msgstr "Morate odabrati najmanje jedan stupac za prikazivanje!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "Multin-tabelarni upit"
+msgstr "Više-tabelarni upit"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
@@ -341,7 +341,7 @@ msgstr "Upit po primjeru"
 #: db_qbe.php:171
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Prebaci se na %s vizualnu izradu %s"
+msgstr "Prebaci se na %svizuelnu izradu%s"
 
 #: db_search.php:33 libraries/classes/Plugins/Auth/AuthenticationConfig.php:94
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:109
@@ -16013,10 +16013,9 @@ msgid "Point %d:"
 msgstr "Točka %d"
 
 #: templates/gis_data_editor_form.twig:112
-#, fuzzy, php-format
-#| msgid "Linestring"
+#, php-format
 msgid "Linestring %d:"
-msgstr "Linija teksta"
+msgstr "Linija teksta %d:"
 
 #: templates/gis_data_editor_form.twig:114
 #: templates/gis_data_editor_form.twig:169

@@ -117,7 +117,10 @@ class FormDisplayTemplateTest extends TestCase
     public function testDisplayFieldsetTop()
     {
         $attributes = ['name' => 'attrname'];
-        $errors = ['e1', 'e2'];
+        $errors = [
+            'e1',
+            'e2',
+        ];
 
         $result = $this->formDisplayTemplate->displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
 
@@ -318,7 +321,10 @@ class FormDisplayTemplateTest extends TestCase
 
         // select case 1
         $opts['values_escaped'] = true;
-        $opts['values_disabled'] = [1, 2];
+        $opts['values_disabled'] = [
+            1,
+            2,
+        ];
         $opts['values'] = [
             1 => 'test',
             'key1' => true,
@@ -355,7 +361,10 @@ class FormDisplayTemplateTest extends TestCase
 
         // select case 2
         $opts['values_escaped'] = false;
-        $opts['values_disabled'] = [1, 2];
+        $opts['values_disabled'] = [
+            1,
+            2,
+        ];
         $opts['values'] = [
             'a<b' => 'c&d',
             'key1' => true,
@@ -387,7 +396,10 @@ class FormDisplayTemplateTest extends TestCase
             'test/path',
             'testName',
             'list',
-            ['foo', 'bar'],
+            [
+                'foo',
+                'bar',
+            ],
             '',
             true,
             $opts
@@ -529,8 +541,11 @@ class FormDisplayTemplateTest extends TestCase
     public function testAddJsValidate()
     {
         $validators = [
-            'one' => ['\\\';', '\r\n\\\'<scrIpt></\' + \'script>'],
-            'two' => []
+            'one' => [
+                '\\\';',
+                '\r\n\\\'<scrIpt></\' + \'script>',
+            ],
+            'two' => [],
         ];
 
         $js = [];
@@ -542,7 +557,7 @@ class FormDisplayTemplateTest extends TestCase
                 'validateField(\'testID\', \'PMA_\\\';\', true, '
                     . '[\'\\\\r\\\\n\\\\\\\''
                     . '<scrIpt></\\\' + \\\'script>\'])',
-                'validateField(\'testID\', \'PMA_\', true)'
+                'validateField(\'testID\', \'PMA_\', true)',
             ],
             $js
         );
@@ -585,7 +600,10 @@ class FormDisplayTemplateTest extends TestCase
      */
     public function testDisplayErrors()
     {
-        $errors = ['<err1>', '&err2'];
+        $errors = [
+            '<err1>',
+            '&err2',
+        ];
 
         $result = $this->formDisplayTemplate->displayErrors('err"Name1"', $errors);
 

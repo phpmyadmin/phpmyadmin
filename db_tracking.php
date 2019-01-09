@@ -15,10 +15,14 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Run common work
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 //Get some js files needed for Ajax requests
 $response = Response::getInstance();
@@ -32,7 +36,7 @@ $tracking = new Tracking();
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
-require 'libraries/db_common.inc.php';
+require ROOT_PATH . 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';
 $url_params['back'] = 'db_tracking.php';

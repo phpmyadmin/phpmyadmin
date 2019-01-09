@@ -210,7 +210,7 @@ class ExportHtmlword extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (!$this->export->outputHandler(
+        if (! $this->export->outputHandler(
             '<h2>'
             . __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
             . '</h2>'
@@ -218,7 +218,7 @@ class ExportHtmlword extends ExportPlugin
         ) {
             return false;
         }
-        if (!$this->export->outputHandler(
+        if (! $this->export->outputHandler(
             '<table class="width100" cellspacing="1">'
         )
         ) {
@@ -238,7 +238,7 @@ class ExportHtmlword extends ExportPlugin
             $schema_insert = '<tr class="print-category">';
             for ($i = 0; $i < $fields_cnt; $i++) {
                 $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-                if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+                if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
                 $col_as = stripslashes($col_as);
@@ -247,7 +247,7 @@ class ExportHtmlword extends ExportPlugin
                     . '</strong></td>';
             } // end for
             $schema_insert .= '</tr>';
-            if (!$this->export->outputHandler($schema_insert)) {
+            if (! $this->export->outputHandler($schema_insert)) {
                 return false;
             }
         } // end if
@@ -256,7 +256,7 @@ class ExportHtmlword extends ExportPlugin
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $schema_insert = '<tr class="print-category">';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || is_null($row[$j])) {
                     $value = $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     $value = $row[$j];
@@ -268,7 +268,7 @@ class ExportHtmlword extends ExportPlugin
                     . '</td>';
             } // end for
             $schema_insert .= '</tr>';
-            if (!$this->export->outputHandler($schema_insert)) {
+            if (! $this->export->outputHandler($schema_insert)) {
                 return false;
             }
         } // end while
@@ -319,7 +319,7 @@ class ExportHtmlword extends ExportPlugin
         $columns = $GLOBALS['dbi']->getColumns($db, $view);
         foreach ($columns as $column) {
             $col_as = $column['Field'];
-            if (!empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
             }
             $schema_insert .= $this->formatOneColumnDefinition(
@@ -376,7 +376,7 @@ class ExportHtmlword extends ExportPlugin
 
         // Check if we can use Relations
         list($res_rel, $have_rel) = $this->relation->getRelationsAndStatus(
-            $do_relation && !empty($cfgRelation['relation']),
+            $do_relation && ! empty($cfgRelation['relation']),
             $db,
             $table
         );
@@ -431,7 +431,7 @@ class ExportHtmlword extends ExportPlugin
         }
         foreach ($columns as $column) {
             $col_as = $column['Field'];
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $schema_insert .= $this->formatOneColumnDefinition(
@@ -637,7 +637,7 @@ class ExportHtmlword extends ExportPlugin
             $type = '&nbsp;';
         }
 
-        if (!isset($column['Default'])) {
+        if (! isset($column['Default'])) {
             if ($column['Null'] != 'NO') {
                 $column['Default'] = 'NULL';
             }

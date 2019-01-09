@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for checkbox.phtml
+ * * Test for checkbox.phtml
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -14,7 +14,7 @@ use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
- ** Test for checkbox.phtml
+ * * Test for checkbox.phtml
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests

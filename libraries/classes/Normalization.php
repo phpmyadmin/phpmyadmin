@@ -355,7 +355,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra,
-            'primary_key' => json_encode($pk)
+            'primary_key' => json_encode($pk),
         ];
     }
 
@@ -423,7 +423,7 @@ class Normalization
                 );
                 $cnt = 0;
                 foreach ($columns as $column) {
-                    if (!in_array($column, $pk)) {
+                    if (! in_array($column, $pk)) {
                         $cnt++;
                         $extra .= "<b>" . sprintf(
                             __('\'%1$s\' depends on:'),
@@ -450,7 +450,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra,
-            'primary_key' => $key
+            'primary_key' => $key,
         ];
     }
 
@@ -506,10 +506,11 @@ class Normalization
             __('The second step of normalization is complete for table \'%1$s\'.'),
             htmlspecialchars($table)
         ) . '</h3>';
-        if (count((array)$partialDependencies) == 1) {
+        if (count((array) $partialDependencies) == 1) {
             return [
-                'legendText' => __('End of step'), 'headText' => $headText,
-                'queryError' => $error
+                'legendText' => __('End of step'),
+                'headText' => $headText,
+                'queryError' => $error,
             ];
         }
         $message = '';
@@ -542,7 +543,7 @@ class Normalization
             $queries[] = 'DROP TABLE ' . Util::backquote($table);
         }
         foreach ($queries as $query) {
-            if (!$this->dbi->tryQuery($query)) {
+            if (! $this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
@@ -604,7 +605,7 @@ class Normalization
                 }
                 $tmpTableCols = array_merge(explode(', ', $key), $dependents);
                 sort($tmpTableCols);
-                if (!in_array($tmpTableCols, $columnList)) {
+                if (! in_array($tmpTableCols, $columnList)) {
                     $columnList[] = $tmpTableCols;
                         $html .= '<p><input type="text" name="'
                             . htmlspecialchars($tableName)
@@ -613,14 +614,19 @@ class Normalization
                             . (count($dependents) > 0 ? ', ' : '')
                             . htmlspecialchars(implode(', ', $dependents)) . ' )';
                         $newTables[$table][$tableName] = [
-                            "pk" => $key, "nonpk" => implode(', ', $dependents)
+                            "pk" => $key,
+                            "nonpk" => implode(', ', $dependents),
                         ];
                         $i++;
                         $tableName = 'table' . $i;
                 }
             }
         }
-        return ['html' => $html, 'newTables' => $newTables, 'success' => true];
+        return [
+            'html' => $html,
+            'newTables' => $newTables,
+            'success' => true
+        ];
     }
 
     /**
@@ -639,10 +645,11 @@ class Normalization
         $headText = '<h3>' .
             __('The third step of normalization is complete.')
             . '</h3>';
-        if (count((array)$newTables) == 0) {
+        if (count((array) $newTables) == 0) {
             return [
-                'legendText' => __('End of step'), 'headText' => $headText,
-                'queryError' => $error
+                'legendText' => __('End of step'),
+                'headText' => $headText,
+                'queryError' => $error,
             ];
         }
         $message = '';
@@ -679,7 +686,7 @@ class Normalization
                 );
                 $query = 'ALTER TABLE ' . Util::backquote($originalTable);
                 foreach ($columns as $col) {
-                    if (!in_array($col, $colPresent)) {
+                    if (! in_array($col, $colPresent)) {
                         $query .= ' DROP ' . Util::backquote($col) . ',';
                     }
                 }
@@ -692,7 +699,7 @@ class Normalization
             $dropCols = false;
         }
         foreach ($queries as $query) {
-            if (!$this->dbi->tryQuery($query)) {
+            if (! $this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
@@ -733,7 +740,7 @@ class Normalization
         $table,
         $db
     ) {
-        $repeatingColumnsArr = (array)Util::backquote(
+        $repeatingColumnsArr = (array) Util::backquote(
             explode(', ', $repeatingColumns)
         );
         $primaryColumns = implode(
@@ -751,7 +758,7 @@ class Normalization
         $first = true;
         $error = false;
         foreach ($repeatingColumnsArr as $repeatingColumn) {
-            if (!$first) {
+            if (! $first) {
                 $query1 .= ' UNION ';
             }
             $first = false;
@@ -761,10 +768,13 @@ class Normalization
             $query2 .= ' DROP ' . $repeatingColumn . ',';
         }
         $query2 = trim($query2, ',');
-        $queries = [$query1, $query2];
+        $queries = [
+            $query1,
+            $query2,
+        ];
         $this->dbi->selectDb($db);
         foreach ($queries as $query) {
-            if (!$this->dbi->tryQuery($query)) {
+            if (! $this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
@@ -777,7 +787,8 @@ class Normalization
             }
         }
         return [
-            'queryError' => $error, 'message' => $message
+            'queryError' => $error,
+            'message' => $message
         ];
     }
 
@@ -823,14 +834,14 @@ class Normalization
                 continue;
             }
             foreach ($columns as $column) {
-                if (!in_array($column, $pk)) {
+                if (! in_array($column, $pk)) {
                     $selectTdForm .= '<input type="checkbox" name="pd" value="'
                     . htmlspecialchars($column) . '">'
                     . '<span>' . htmlspecialchars($column) . '</span>';
                 }
             }
             foreach ($columns as $column) {
-                if (!in_array($column, $pk)) {
+                if (! in_array($column, $pk)) {
                     $cnt++;
                     $extra .= "<b>" . sprintf(
                         __('\'%1$s\' depends on:'),
@@ -880,9 +891,10 @@ class Normalization
         $htmlOutput .= '<h3>' . __('Select up to what step you want to normalize')
             . '</h3>';
         $choices = [
-                '1nf' => __('First step of normalization (1NF)'),
-                '2nf'      => __('Second step of normalization (1NF+2NF)'),
-                '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')];
+            '1nf' => __('First step of normalization (1NF)'),
+            '2nf'      => __('Second step of normalization (1NF+2NF)'),
+            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')
+        ];
 
         $htmlOutput .= Util::getRadioFields(
             'normalizeTo',
@@ -919,7 +931,7 @@ class Normalization
             $db,
             $table
         );
-        $columns = (array)Util::backquote($columns);
+        $columns = (array) Util::backquote($columns);
         $totalRowsRes = $this->dbi->fetchResult(
             'SELECT COUNT(*) FROM (SELECT * FROM '
             . Util::backquote($table) . ' LIMIT 500) as dt;'
@@ -939,7 +951,7 @@ class Normalization
             $table
         );
         foreach ($columns as $column) {
-            if (!in_array($column, $pk)) {
+            if (! in_array($column, $pk)) {
                 foreach ($partialKeys as $partialKey) {
                     if ($partialKey
                         && $this->checkPartialDependency(

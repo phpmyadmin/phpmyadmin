@@ -99,7 +99,7 @@ class Advisor
             function () {
             },
             function ($arguments, $value) {
-                if (!isset($this->runResult['fired'])) {
+                if (! isset($this->runResult['fired'])) {
                     return 0;
                 }
 
@@ -237,7 +237,7 @@ class Advisor
 
         return [
             'parse' => ['errors' => $this->parseResult['errors']],
-            'run'   => $this->runResult
+            'run'   => $this->runResult,
         ];
     }
 
@@ -375,7 +375,10 @@ class Advisor
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
-            return [$jst[0], $jst[1]];
+            return [
+                $jst[0],
+                $jst[1],
+            ];
         }
         return [$rule['justification']];
     }
@@ -421,14 +424,20 @@ class Advisor
                 // linking to server_variables.php
                 $rule['recommendation'] = preg_replace_callback(
                     '/\{([a-z_0-9]+)\}/Ui',
-                    [$this, 'replaceVariable'],
+                    [
+                        $this,
+                        'replaceVariable',
+                    ],
                     $this->translate($rule['recommendation'])
                 );
 
                 // Replaces external Links with Core::linkURL() generated links
                 $rule['recommendation'] = preg_replace_callback(
                     '#href=("|\')(https?://[^\1]+)\1#i',
-                    [$this, 'replaceLinkURL'],
+                    [
+                        $this,
+                        'replaceLinkURL',
+                    ],
                     $rule['recommendation']
                 );
                 break;
@@ -504,11 +513,20 @@ class Advisor
                 __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
                 $filename
             );
-            return ['rules' => $rules, 'lines' => $lines, 'errors' => $errors];
+            return [
+                'rules' => $rules,
+                'lines' => $lines,
+                'errors' => $errors,
+            ];
         }
 
         $ruleSyntax = [
-            'name', 'formula', 'test', 'issue', 'recommendation', 'justification'
+            'name',
+            'formula',
+            'test',
+            'issue',
+            'recommendation',
+            'justification',
         ];
         $numRules = count($ruleSyntax);
         $numLines = count($file);
@@ -561,7 +579,7 @@ class Advisor
 
             // Reading rule lines
             if ($ruleLine > 0) {
-                if (!isset($line[0])) {
+                if (! isset($line[0])) {
                     continue; // Empty lines are ok
                 }
                 // Non tabbed lines are not
@@ -589,7 +607,11 @@ class Advisor
             }
         }
 
-        return ['rules' => $rules, 'lines' => $lines, 'errors' => $errors];
+        return [
+            'rules' => $rules,
+            'lines' => $lines,
+            'errors' => $errors,
+        ];
     }
 
     /**

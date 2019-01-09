@@ -487,9 +487,15 @@ class Relation
 
         $workToTable = [
             'relwork' => 'relation',
-            'displaywork' => ['relation', 'table_info'],
+            'displaywork' => [
+                'relation',
+                'table_info',
+            ],
             'bookmarkwork' => 'bookmarktable',
-            'pdfwork' => ['table_coords', 'pdf_pages'],
+            'pdfwork' => [
+                'table_coords',
+                'pdf_pages',
+            ],
             'commwork' => 'column_info',
             'mimework' => 'column_info',
             'historywork' => 'history',
@@ -498,7 +504,10 @@ class Relation
             'uiprefswork' => 'table_uiprefs',
             'trackingwork' => 'tracking',
             'userconfigwork' => 'userconfig',
-            'menuswork' => ['users', 'usergroups'],
+            'menuswork' => [
+                'users',
+                'usergroups',
+            ],
             'navwork' => 'navigationhiding',
             'savedsearcheswork' => 'savedsearches',
             'centralcolumnswork' => 'central_columns',
@@ -711,7 +720,7 @@ class Relation
         // Check whether column_info table has input transformation columns
         $new_cols = [
             "input_transformation",
-            "input_transformation_options"
+            "input_transformation_options",
         ];
         $query = 'SHOW COLUMNS FROM '
             . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
@@ -753,10 +762,12 @@ class Relation
             );
             $this->dbi->tryMultiQuery($query, DatabaseInterface::CONNECT_CONTROL);
             // skips result sets of query as we are not interested in it
-            while ($this->dbi->moreResults(DatabaseInterface::CONNECT_CONTROL)
-                && $this->dbi->nextResult(DatabaseInterface::CONNECT_CONTROL)
-            ) {
-            }
+            do {
+                $hasResult = (
+                    $this->dbi->moreResults(DatabaseInterface::CONNECT_CONTROL)
+                    && $this->dbi->nextResult(DatabaseInterface::CONNECT_CONTROL)
+                );
+            } while ($hasResult);
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
             // return true if no error exists otherwise false
             return empty($error);
@@ -832,10 +843,10 @@ class Relation
         ) {
             if ($isInformationSchema) {
                 $relations_key = 'information_schema_relations';
-                include_once './libraries/information_schema_relations.inc.php';
+                include_once ROOT_PATH . 'libraries/information_schema_relations.inc.php';
             } else {
                 $relations_key = 'mysql_relations';
-                include_once './libraries/mysql_relations.inc.php';
+                include_once ROOT_PATH . 'libraries/mysql_relations.inc.php';
             }
             if (isset($GLOBALS[$relations_key][$table])) {
                 foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
@@ -874,8 +885,8 @@ class Relation
                 SELECT `display_field`
                 FROM ' . Util::backquote($cfgRelation['db'])
                     . '.' . Util::backquote($cfgRelation['table_info']) . '
-                WHERE `db_name`    = \'' . $this->dbi->escapeString((string)$db) . '\'
-                    AND `table_name` = \'' . $this->dbi->escapeString((string)$table)
+                WHERE `db_name`    = \'' . $this->dbi->escapeString((string) $db) . '\'
+                    AND `table_name` = \'' . $this->dbi->escapeString((string) $table)
                 . '\'';
 
             $row = $this->dbi->fetchSingleRow(
@@ -1262,7 +1273,7 @@ class Relation
             $data = (string) $data;
 
             if (mb_check_encoding($key, 'utf-8')
-                && !preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)
+                && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)
             ) {
                 $selected = ($key == $data);
                 // show as text if it's valid utf-8
@@ -1278,7 +1289,7 @@ class Relation
             }
 
             if (mb_check_encoding($value, 'utf-8')
-                && !preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $value)
+                && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $value)
             ) {
                 if (mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
                 ) {
@@ -1461,7 +1472,7 @@ class Relation
                 ->checkIfMinRecordsExist($GLOBALS['cfg']['ForeignKeyMaxLimit']);
 
             if ($override_total == true
-                || !$moreThanLimit
+                || ! $moreThanLimit
             ) {
                 // foreign_display can be false if no display field defined:
                 $foreign_display = $this->getDisplayField($foreign_db, $foreign_table);
@@ -1490,7 +1501,7 @@ class Relation
 
                 $f_query_limit = ! empty($foreign_limit) ?: '';
 
-                if (!empty($foreign_filter)) {
+                if (! empty($foreign_filter)) {
                     $the_total = $this->dbi->fetchValue(
                         'SELECT COUNT(*)' . $f_query_from . $f_query_filter
                     );
@@ -1832,7 +1843,10 @@ class Relation
 
             $child_references = $this->dbi->fetchResult(
                 $rel_query,
-                ['referenced_column_name', null]
+                [
+                    'referenced_column_name',
+                    null,
+                ]
             );
         }
         return $child_references;
@@ -2153,7 +2167,10 @@ class Relation
             $have_rel = false;
             $res_rel = [];
         } // end if
-        return [$res_rel, $have_rel];
+        return [
+            $res_rel,
+            $have_rel,
+        ];
     }
 
     /**

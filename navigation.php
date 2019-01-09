@@ -12,7 +12,11 @@ use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 
-require_once './libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // Also initialises the collapsible tree class
 $response = Response::getInstance();

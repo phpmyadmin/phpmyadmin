@@ -3,9 +3,9 @@
 
 /**
  * Holds the PhpMyAdmin\Controllers\Server\ServerPluginsController
-*
-* @package PhpMyAdmin\Controllers
-*/
+ *
+ * @package PhpMyAdmin\Controllers
+ */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -45,7 +45,7 @@ class ServerPluginsController extends Controller
      */
     public function indexAction()
     {
-        include 'libraries/server_common.inc.php';
+        include ROOT_PATH . 'libraries/server_common.inc.php';
 
         $header  = $this->response->getHeader();
         $scripts = $header->getScripts();

@@ -34,7 +34,10 @@ class SysInfo
     public static function getOs($php_os = PHP_OS)
     {
         // look for common UNIX-like systems
-        $unix_like = ['FreeBSD', 'DragonFly'];
+        $unix_like = [
+            'FreeBSD',
+            'DragonFly',
+        ];
         if (in_array($php_os, $unix_like)) {
             $php_os = 'Linux';
         }
@@ -50,7 +53,11 @@ class SysInfo
     public static function get()
     {
         $php_os = self::getOs();
-        $supported = ['Linux', 'WINNT', 'SunOS'];
+        $supported = [
+            'Linux',
+            'WINNT',
+            'SunOS',
+        ];
 
         if (in_array($php_os, $supported)) {
             $class_name = 'PhpMyAdmin\SysInfo' . $php_os;

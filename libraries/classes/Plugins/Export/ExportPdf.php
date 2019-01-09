@@ -69,7 +69,7 @@ class ExportPdf extends ExportPlugin
      */
     protected function initSpecificVariables()
     {
-        if (!empty($_POST['pdf_report_title'])) {
+        if (! empty($_POST['pdf_report_title'])) {
             $this->_setPdfReportTitle($_POST['pdf_report_title']);
         }
         $this->_setPdf(new Pdf('L', 'pt', 'A3'));
@@ -140,7 +140,10 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
         $pdf->Open();
 
-        $attr = ['titleFontSize' => 18, 'titleText' => $pdf_report_title];
+        $attr = [
+            'titleFontSize' => 18,
+            'titleText' => $pdf_report_title
+        ];
         $pdf->setAttributes($attr);
         $pdf->setTopMargin(30);
 
@@ -229,7 +232,7 @@ class ExportPdf extends ExportPlugin
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
-            'purpose'      => __('Dumping data')
+            'purpose'      => __('Dumping data'),
         ];
         $pdf->setAttributes($attr);
         $pdf->mysqlReport($sql_query);

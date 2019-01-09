@@ -128,7 +128,8 @@ class UserGroupsTest extends TestCase
         $url_tag = '<a class="" href="server_user_groups.php" data-post="'
             . Url::getCommon(
                 [
-                    'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')
+                    'viewUsers' => 1,
+                    'userGroup' => htmlspecialchars('usergroup'),
                 ],
                 ''
             );

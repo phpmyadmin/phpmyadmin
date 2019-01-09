@@ -20,6 +20,10 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
 if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
     define('PMA_ENABLE_LDI', 1);
@@ -28,7 +32,7 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
 /**
  * Get the variables sent or posted to this script and a core script
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $import = new Import();
 
@@ -101,7 +105,7 @@ $post_params = [
     'message_to_show',
     'noplugin',
     'skip_queries',
-    'local_import_file'
+    'local_import_file',
 ];
 
 foreach ($post_params as $one_post_param) {
@@ -118,7 +122,7 @@ $GLOBALS['reload'] = false;
 
 // Use to identify current cycle is executing
 // a multiquery statement or stored routine
-if (!isset($_SESSION['is_multi_query'])) {
+if (! isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
 }
 
@@ -242,7 +246,7 @@ if (! in_array(
         'ods',
         'shp',
         'sql',
-        'xml'
+        'xml',
     ]
 )
 ) {
@@ -253,7 +257,7 @@ if (! in_array(
 
 $post_patterns = [
     '/^force_file_/',
-    '/^' . $format . '_/'
+    '/^' . $format . '_/',
 ];
 
 Core::setPostAsGlobal($post_patterns);
@@ -265,7 +269,10 @@ PhpMyAdmin\Util::checkParameters(['import_type', 'format']);
 $format = Core::securePath($format);
 
 if (strlen($table) > 0 && strlen($db) > 0) {
-    $urlparams = ['db' => $db, 'table' => $table];
+    $urlparams = [
+        'db' => $db,
+        'table' => $table,
+    ];
 } elseif (strlen($db) > 0) {
     $urlparams = ['db' => $db];
 } else {
@@ -280,7 +287,7 @@ if ($import_type == 'table') {
 } elseif ($import_type == 'server') {
     $goto = 'server_import.php';
 } else {
-    if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
+    if (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
         if (strlen($table) > 0 && strlen($db) > 0) {
             $goto = 'tbl_structure.php';
         } elseif (strlen($db) > 0) {
@@ -336,7 +343,7 @@ $msg = 'Sorry an unexpected error happened!';
 
 // Bookmark Support: get a query back from bookmark if required
 if (! empty($_POST['id_bookmark'])) {
-    $id_bookmark = (int)$_POST['id_bookmark'];
+    $id_bookmark = (int) $_POST['id_bookmark'];
     switch ($_POST['action_bookmark']) {
         case 0: // bookmarked query that have to be run
             $bookmark = Bookmark::get(
@@ -534,7 +541,10 @@ if (! $error && isset($_POST['skip'])) {
 
 // This array contain the data like numberof valid sql queries in the statement
 // and complete valid sql statement (which affected for rows)
-$sql_data = ['valid_sql' => [], 'valid_queries' => 0];
+$sql_data = [
+    'valid_sql' => [],
+    'valid_queries' => 0,
+];
 
 if (! $error) {
     /**
@@ -666,7 +676,7 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
     // @todo: possibly refactor
     extract($analyzed_sql_results);
 
-    if ($table != $table_from_sql && !empty($table_from_sql)) {
+    if ($table != $table_from_sql && ! empty($table_from_sql)) {
         $table = $table_from_sql;
     }
 }
@@ -719,7 +729,7 @@ if ($go_sql) {
             return;
         } // end if
 
-        if ($table != $table_from_sql && !empty($table_from_sql)) {
+        if ($table != $table_from_sql && ! empty($table_from_sql)) {
             $table = $table_from_sql;
         }
 
@@ -786,7 +796,7 @@ if ($go_sql) {
     $response->addJSON('message', PhpMyAdmin\Message::error($msg));
 } else {
     $active_page = $goto;
-    include '' . $goto;
+    include ROOT_PATH . $goto;
 }
 
 // If there is request for ROLLBACK in the end.

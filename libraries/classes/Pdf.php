@@ -79,7 +79,7 @@ class Pdf extends TCPDF
     public function Footer()
     {
         // Check if footer for this page already exists
-        if (!isset($this->footerset[$this->page])) {
+        if (! isset($this->footerset[$this->page])) {
             $this->SetY(-15);
             $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
             $this->Cell(

@@ -81,37 +81,26 @@ class InnodbTest extends PmaTestCase
                 'innodb_buffer_pool_awe_mem_mb' => [
                     'type'  => 1,
                 ],
-                'innodb_checksums' => [
-                ],
-                'innodb_commit_concurrency' => [
-                ],
+                'innodb_checksums' => [],
+                'innodb_commit_concurrency' => [],
                 'innodb_concurrency_tickets' => [
                     'type'  => 2,
                 ],
-                'innodb_doublewrite' => [
-                ],
-                'innodb_fast_shutdown' => [
-                ],
+                'innodb_doublewrite' => [],
+                'innodb_fast_shutdown' => [],
                 'innodb_file_io_threads' => [
                     'type'  => 2,
                 ],
-                'innodb_file_per_table' => [
-                ],
-                'innodb_flush_log_at_trx_commit' => [
-                ],
-                'innodb_flush_method' => [
-                ],
-                'innodb_force_recovery' => [
-                ],
+                'innodb_file_per_table' => [],
+                'innodb_flush_log_at_trx_commit' => [],
+                'innodb_flush_method' => [],
+                'innodb_force_recovery' => [],
                 'innodb_lock_wait_timeout' => [
                     'type'  => 2,
                 ],
-                'innodb_locks_unsafe_for_binlog' => [
-                ],
-                'innodb_log_arch_dir' => [
-                ],
-                'innodb_log_archive' => [
-                ],
+                'innodb_locks_unsafe_for_binlog' => [],
+                'innodb_log_arch_dir' => [],
+                'innodb_log_archive' => [],
                 'innodb_log_buffer_size' => [
                     'type'  => 1,
                 ],
@@ -121,21 +110,18 @@ class InnodbTest extends PmaTestCase
                 'innodb_log_files_in_group' => [
                     'type'  => 2,
                 ],
-                'innodb_log_group_home_dir' => [
-                ],
+                'innodb_log_group_home_dir' => [],
                 'innodb_max_dirty_pages_pct' => [
                     'type'  => 2,
                 ],
-                'innodb_max_purge_lag' => [
-                ],
+                'innodb_max_purge_lag' => [],
                 'innodb_mirrored_log_groups' => [
                     'type'  => 2,
                 ],
                 'innodb_open_files' => [
                     'type'  => 2,
                 ],
-                'innodb_support_xa' => [
-                ],
+                'innodb_support_xa' => [],
                 'innodb_sync_spin_loops' => [
                     'type'  => 2,
                 ],
@@ -182,7 +168,7 @@ class InnodbTest extends PmaTestCase
             [
                 'Bufferpool' => 'Buffer Pool',
                 'Status' => 'InnoDB Status'
-             ],
+            ],
             $this->object->getInfoPages()
         );
     }

@@ -221,7 +221,7 @@ class Export
     public function getMemoryLimit(): int
     {
         $memory_limit = trim(ini_get('memory_limit'));
-        $memory_limit_num = (int)substr($memory_limit, 0, -1);
+        $memory_limit_num = (int) substr($memory_limit, 0, -1);
         $lowerLastChar = strtolower(substr($memory_limit, -1));
         // 2 MB as default
         if (empty($memory_limit) || '-1' == $memory_limit) {
@@ -233,7 +233,7 @@ class Export
         } elseif ($lowerLastChar == 'g') {
             $memory_limit = $memory_limit_num * 1024 * 1024 * 1024;
         } else {
-            $memory_limit = (int)$memory_limit;
+            $memory_limit = (int) $memory_limit;
         }
 
         // Some of memory is needed for other things and as threshold.
@@ -322,7 +322,10 @@ class Export
             $filename  .= '.zip';
             $mime_type = 'application/zip';
         }
-        return [$filename, $mime_type];
+        return [
+            $filename,
+            $mime_type,
+        ];
     }
 
     /**
@@ -339,7 +342,7 @@ class Export
         $message = '';
         $doNotSaveItOver = true;
 
-        if(isset($_POST['quick_export_onserver_overwrite'])) {
+        if (isset($_POST['quick_export_onserver_overwrite'])) {
             $doNotSaveItOver = $_POST['quick_export_onserver_overwrite'] != 'saveitover';
         }
 
@@ -375,7 +378,11 @@ class Export
             );
             $message->addParam($save_filename);
         }
-        return [$save_filename, $message, $file_handle];
+        return [
+            $save_filename,
+            $message,
+            $file_handle,
+        ];
     }
 
     /**
@@ -489,7 +496,10 @@ class Export
             $back_button .= 'db_export.php" data-post="' . Url::getCommon(['db' => $db], '');
         } else {
             $back_button .= 'tbl_export.php" data-post="' . Url::getCommon(
-                ['db' => $db, 'table' => $table],
+                [
+                    'db' => $db,
+                    'table' => $table,
+                ],
                 ''
             );
         }
@@ -506,7 +516,7 @@ class Export
         }
 
         foreach ($_POST as $name => $value) {
-            if (!is_array($value)) {
+            if (! is_array($value)) {
                 $back_button .= '&amp;' . urlencode((string) $name) . '=' . urlencode((string) $value);
             }
         }
@@ -517,11 +527,10 @@ class Export
         $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">' . __('Refresh') . '</a> ]';
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {
-                foreach($value as $val) {
+                foreach ($value as $val) {
                     $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '[]" value="' . urlencode((string) $val) . '">';
                 }
-            }
-            else {
+            } else {
                 $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '" value="' . urlencode((string) $value) . '">';
             }
         }
@@ -532,7 +541,11 @@ class Export
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';
 
-        return [$html, $back_button, $refreshButton];
+        return [
+            $html,
+            $back_button,
+            $refreshButton,
+        ];
     }
 
     /**
@@ -639,7 +652,7 @@ class Export
         array $aliases,
         string $separate_files
     ): void {
-        $db_alias = !empty($aliases[$db]['alias'])
+        $db_alias = ! empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
 
         if (! $export_plugin->exportDBHeader($db, $db_alias)) {
@@ -892,7 +905,7 @@ class Export
         string $sql_query,
         array $aliases
     ): void {
-        $db_alias = !empty($aliases[$db]['alias'])
+        $db_alias = ! empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
         if (! $export_plugin->exportDBHeader($db, $db_alias)) {
             return;
@@ -1031,13 +1044,13 @@ class Export
         global $cfg;
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            include_once 'server_export.php';
+            include_once ROOT_PATH . 'server_export.php';
         } elseif ($export_type == 'database') {
             $active_page = 'db_export.php';
-            include_once 'db_export.php';
+            include_once ROOT_PATH . 'db_export.php';
         } else {
             $active_page = 'tbl_export.php';
-            include_once 'tbl_export.php';
+            include_once ROOT_PATH . 'tbl_export.php';
         }
         exit();
     }
@@ -1068,7 +1081,7 @@ class Export
                 $aliases[$db_name]['alias']
                     = empty($val2) ? $val1 : $val2;
             }
-            if (!isset($db['tables'])) {
+            if (! isset($db['tables'])) {
                 continue;
             }
             foreach ($db['tables'] as $tbl_name => $tbl) {
@@ -1079,7 +1092,7 @@ class Export
                     $aliases[$db_name]['tables'][$tbl_name]['alias']
                         = empty($val2) ? $val1 : $val2;
                 }
-                if (!isset($tbl['columns'])) {
+                if (! isset($tbl['columns'])) {
                     continue;
                 }
                 foreach ($tbl['columns'] as $col => $col_as) {

@@ -21,7 +21,7 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Util;
 
 /* Can't do server export */
-if (!isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
+if (! isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -242,7 +242,7 @@ class ExportXml extends ExportPlugin
             . '- https://www.phpmyadmin.net' . $crlf
             . '-' . $crlf
             . '- ' . __('Host:') . ' ' . htmlspecialchars($cfg['Server']['host']);
-        if (!empty($cfg['Server']['port'])) {
+        if (! empty($cfg['Server']['port'])) {
             $head .= ':' . $cfg['Server']['port'];
         }
         $head .= $crlf
@@ -297,11 +297,11 @@ class ExportXml extends ExportPlugin
                     $type = 'table';
                 }
 
-                if ($is_view && !isset($GLOBALS['xml_export_views'])) {
+                if ($is_view && ! isset($GLOBALS['xml_export_views'])) {
                     continue;
                 }
 
-                if (!$is_view && !isset($GLOBALS['xml_export_tables'])) {
+                if (! $is_view && ! isset($GLOBALS['xml_export_tables'])) {
                     continue;
                 }
 
@@ -504,7 +504,7 @@ class ExportXml extends ExportPlugin
 
             $buffer = '        <!-- ' . __('Table') . ' '
                 . htmlspecialchars($table_alias) . ' -->' . $crlf;
-            if (!$this->export->outputHandler($buffer)) {
+            if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
 
@@ -513,24 +513,24 @@ class ExportXml extends ExportPlugin
                     . htmlspecialchars($table_alias) . '">' . $crlf;
                 for ($i = 0; $i < $columns_cnt; $i++) {
                     $col_as = $columns[$i];
-                    if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])
+                    if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])
                     ) {
                         $col_as
                             = $aliases[$db]['tables'][$table]['columns'][$col_as];
                     }
                     // If a cell is NULL, still export it to preserve
                     // the XML structure
-                    if (!isset($record[$i]) || is_null($record[$i])) {
+                    if (! isset($record[$i]) || is_null($record[$i])) {
                         $record[$i] = 'NULL';
                     }
                     $buffer .= '            <column name="'
                         . htmlspecialchars($col_as) . '">'
-                        . htmlspecialchars((string)$record[$i])
+                        . htmlspecialchars((string) $record[$i])
                         . '</column>' . $crlf;
                 }
                 $buffer .= '        </table>' . $crlf;
 
-                if (!$this->export->outputHandler($buffer)) {
+                if (! $this->export->outputHandler($buffer)) {
                     return false;
                 }
             }

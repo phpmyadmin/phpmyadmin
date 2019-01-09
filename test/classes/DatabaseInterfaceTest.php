@@ -77,9 +77,30 @@ class DatabaseInterfaceTest extends PmaTestCase
     public function currentUserData()
     {
         return [
-            [[['pma@localhost']], 'pma@localhost', ['pma', 'localhost']],
-            [[['@localhost']], '@localhost', ['', 'localhost']],
-            [false, '@', ['', '']],
+            [
+                [['pma@localhost']],
+                'pma@localhost',
+                [
+                    'pma',
+                    'localhost',
+                ],
+            ],
+            [
+                [['@localhost']],
+                '@localhost',
+                [
+                    '',
+                    'localhost',
+                ],
+            ],
+            [
+                false,
+                '@',
+                [
+                    '',
+                    '',
+                ],
+            ],
         ];
     }
 
@@ -112,7 +133,8 @@ class DatabaseInterfaceTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        $meta1, $meta2
+                        $meta1,
+                        $meta2,
                     ]
                 )
             );
@@ -121,7 +143,8 @@ class DatabaseInterfaceTest extends PmaTestCase
 
         $sql_query = "PMA_sql_query";
         $view_columns = [
-            "view_columns1", "view_columns2"
+            "view_columns1",
+            "view_columns2",
         ];
 
         $column_map = $dbi->getColumnMapFromSql(
@@ -277,7 +300,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
-                    ]
+                    ],
                 ],
             ],
             [
@@ -293,7 +316,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => false,
                         'compress' => false,
-                    ]
+                    ],
                 ],
             ],
             [
@@ -313,7 +336,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
-                    ]
+                    ],
                 ],
             ],
             [
@@ -329,7 +352,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
-                    ]
+                    ],
                 ],
             ],
             [
@@ -350,7 +373,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
                         'control_ssl' => true,
-                    ]
+                    ],
                 ],
             ],
             [
@@ -366,7 +389,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
-                    ]
+                    ],
                 ],
             ],
         ];
@@ -397,12 +420,36 @@ class DatabaseInterfaceTest extends PmaTestCase
     public function errorData()
     {
         return [
-            [2002, 'msg', 'The server is not responding'],
-            [2003, 'msg', 'The server is not responding'],
-            [1698, 'msg', 'logout.php'],
-            [1005, 'msg', 'server_engines.php'],
-            [1005, 'errno: 13', 'Please check privileges'],
-            [-1, 'error message', 'error message'],
+            [
+                2002,
+                'msg',
+                'The server is not responding',
+            ],
+            [
+                2003,
+                'msg',
+                'The server is not responding',
+            ],
+            [
+                1698,
+                'msg',
+                'logout.php',
+            ],
+            [
+                1005,
+                'msg',
+                'server_engines.php',
+            ],
+            [
+                1005,
+                'errno: 13',
+                'Please check privileges',
+            ],
+            [
+                -1,
+                'error message',
+                'error message',
+            ],
         ];
     }
 
@@ -439,10 +486,22 @@ class DatabaseInterfaceTest extends PmaTestCase
     public function isAmazonRdsData()
     {
         return [
-            [[['/usr']], false],
-            [[['E:/mysql']], false],
-            [[['/rdsdbbin/mysql/']], true],
-            [[['/rdsdbbin/mysql-5.7.18/']], true],
+            [
+                [['/usr']],
+                false,
+            ],
+            [
+                [['E:/mysql']],
+                false,
+            ],
+            [
+                [['/rdsdbbin/mysql/']],
+                true,
+            ],
+            [
+                [['/rdsdbbin/mysql-5.7.18/']],
+                true,
+            ],
         ];
     }
 
@@ -462,7 +521,7 @@ class DatabaseInterfaceTest extends PmaTestCase
     {
         $ver_int = DatabaseInterface::versionToInt($version);
         $this->assertEquals($expected, $ver_int);
-        $this->assertEquals($major, (int)($ver_int / 10000));
+        $this->assertEquals($major, (int) ($ver_int / 10000));
         $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
     }
 
@@ -472,10 +531,30 @@ class DatabaseInterfaceTest extends PmaTestCase
     public function versionData()
     {
         return [
-            ['5.0.5', 50005, 5, true],
-            ['5.05.01', 50501, 5, false],
-            ['5.6.35', 50635, 5, false],
-            ['10.1.22-MariaDB-', 100122, 10, false],
+            [
+                '5.0.5',
+                50005,
+                5,
+                true,
+            ],
+            [
+                '5.05.01',
+                50501,
+                5,
+                false,
+            ],
+            [
+                '5.6.35',
+                50635,
+                5,
+                false,
+            ],
+            [
+                '10.1.22-MariaDB-',
+                100122,
+                10,
+                false,
+            ],
         ];
     }
 
@@ -532,7 +611,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                 'COLUMN_NAME' => 'idtable2',
                 'REFERENCED_TABLE_NAME' => 'table1',
                 'REFERENCED_COLUMN_NAME' => 'idtable1',
-            ]
-        ], $this->_dbi->getForeignKeyConstrains('test',['table1', 'table2']));
+            ],
+        ], $this->_dbi->getForeignKeyConstrains('test', ['table1', 'table2']));
     }
 }

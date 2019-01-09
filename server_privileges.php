@@ -16,15 +16,19 @@ use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * include common file
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 $relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
@@ -56,12 +60,12 @@ if ((isset($_GET['viewing_mode'])
 
 $post_patterns = [
     '/_priv$/i',
-    '/^max_/i'
+    '/^max_/i',
 ];
 
 Core::setPostAsGlobal($post_patterns);
 
-require 'libraries/server_common.inc.php';
+require ROOT_PATH . 'libraries/server_common.inc.php';
 
 /**
  * Messages are built using the message name
@@ -136,8 +140,8 @@ list(
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
-    && !$GLOBALS['is_createuser']
+if (! $GLOBALS['dbi']->isSuperuser() && ! $GLOBALS['is_grantuser']
+    && ! $GLOBALS['is_createuser']
 ) {
     $response->addHTML(
         $template->render('server/sub_page_header', [
@@ -151,7 +155,7 @@ if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
     );
     exit;
 }
-if (! $GLOBALS['is_grantuser'] && !$GLOBALS['is_createuser']) {
+if (! $GLOBALS['is_grantuser'] && ! $GLOBALS['is_createuser']) {
     $response->addHTML(Message::notice(
         __('You do not have the privileges to administrate the users!')
     )->getDisplay());
@@ -435,8 +439,14 @@ if (isset($_GET['adduser'])) {
     if (isset($dbname) && ! is_array($dbname)) {
         $url_dbname = urlencode(
             str_replace(
-                ['\_', '\%'],
-                ['_', '%'],
+                [
+                    '\_',
+                    '\%',
+                ],
+                [
+                    '_',
+                    '%',
+                ],
                 $dbname
             )
         );
@@ -447,7 +457,7 @@ if (isset($_GET['adduser'])) {
         $response->addHTML(
             $serverPrivileges->getHtmlForUserOverview($pmaThemeImage, $text_dir)
         );
-    } elseif (!empty($routinename)) {
+    } elseif (! empty($routinename)) {
         $response->addHTML(
             $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
                 $username,

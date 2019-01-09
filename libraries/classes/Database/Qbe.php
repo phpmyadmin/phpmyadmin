@@ -995,7 +995,7 @@ class Qbe
         for ($column_index = 0;
             $column_index < $this->_criteria_column_count;
             $column_index++) {
-            if (!empty($this->_criteriaColumnInsert)
+            if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
@@ -1007,7 +1007,7 @@ class Qbe
                 $html_output .= '</td>';
                 $new_column_count++;
             } // end if
-            if (!empty($this->_criteriaColumnDelete)
+            if (! empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$column_index])
                 && $this->_criteriaColumnDelete[$column_index] == 'on'
             ) {
@@ -1025,7 +1025,7 @@ class Qbe
                 . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
                 . ' style="width: ' . $this->_realwidth . '" size="20">';
             $html_output .= '</td>';
-            if (!empty(${$or}) && isset(${$or}[$column_index])) {
+            if (! empty(${$or}) && isset(${$or}[$column_index])) {
                 $GLOBALS[${'cur' . $or}][$new_column_count]
                     = ${$or}[$column_index];
             }
@@ -1121,7 +1121,7 @@ class Qbe
                 $select_clauses[] = $select;
             }
         } // end for
-        if (!empty($select_clauses)) {
+        if (! empty($select_clauses)) {
             $select_clause = 'SELECT '
                 . htmlspecialchars(implode(", ", $select_clauses)) . "\n";
         }
@@ -1230,7 +1230,7 @@ class Qbe
         $columns = $this->_formColumns;
         $sort = $this->_formSorts;
         $sortOrder = $this->_formSortOrders;
-        if (!empty($sortOrder)
+        if (! empty($sortOrder)
             && count($sortOrder) == count($sort)
             && count($sortOrder) == count($columns)
         ) {
@@ -1259,7 +1259,7 @@ class Qbe
                     . $sort[$column_index];
             }
         } // end for
-        if (!empty($orderby_clauses)) {
+        if (! empty($orderby_clauses)) {
             $orderby_clause = 'ORDER BY '
                 . htmlspecialchars(implode(", ", $orderby_clauses)) . "\n";
         }
@@ -1437,7 +1437,7 @@ class Qbe
         // Of course the actual query would be faster if we check for
         // the Criteria which gives the smallest result set in its table,
         // but it would take too much time to check this
-        if (!(count($candidate_columns) > 1)) {
+        if (! (count($candidate_columns) > 1)) {
             // Only one single candidate
             return reset($candidate_columns);
         }
@@ -1496,7 +1496,7 @@ class Qbe
         } // end for
         return [
             'where_clause_tables' => $where_clause_tables,
-            'where_clause_columns' => $where_clause_columns
+            'where_clause_columns' => $where_clause_columns,
         ];
     }
 
@@ -1679,8 +1679,8 @@ class Qbe
     /**
      * Loads relations for a given table into the $relations array
      *
-     * @param array  &$relations array of relations
-     * @param string $oneTable   the table
+     * @param array  $relations array of relations
+     * @param string $oneTable  the table
      *
      * @return void
      */
@@ -1719,7 +1719,7 @@ class Qbe
     /**
      * Fills the $finalized arrays with JOIN clauses for each of the tables
      *
-     * @param array &$finalized   JOIN clauses for each table
+     * @param array $finalized    JOIN clauses for each table
      * @param array $relations    Relations among tables
      * @param array $searchTables Tables involved in the search
      *
@@ -1890,7 +1890,7 @@ class Qbe
         }
         $html_output .= '</select>';
         $html_output .= '<input type="text" name="searchName" id="searchName" '
-            . 'value="' . htmlspecialchars((string)$currentSearchName) . '">';
+            . 'value="' . htmlspecialchars((string) $currentSearchName) . '">';
         $html_output .= '<input type="hidden" name="action" id="action" value="">';
         $html_output .= '<input class="btn btn-secondary" type="submit" name="saveSearch" id="saveSearch" '
             . 'value="' . __('Create bookmark') . '">';
@@ -1958,19 +1958,31 @@ class Qbe
         if (isset($unique_columns) && count($unique_columns) > 0) {
             $candidate_columns = $unique_columns;
             $needsort = 1;
-            return [$candidate_columns, $needsort];
+            return [
+                $candidate_columns,
+                $needsort,
+            ];
         } elseif (isset($index_columns) && count($index_columns) > 0) {
             $candidate_columns = $index_columns;
             $needsort = 1;
-            return [$candidate_columns, $needsort];
+            return [
+                $candidate_columns,
+                $needsort,
+            ];
         } elseif (isset($where_clause_columns) && count($where_clause_columns) > 0) {
             $candidate_columns = $where_clause_columns;
             $needsort = 0;
-            return [$candidate_columns, $needsort];
+            return [
+                $candidate_columns,
+                $needsort,
+            ];
         }
 
         $candidate_columns = $search_tables;
         $needsort = 0;
-        return [$candidate_columns, $needsort];
+        return [
+            $candidate_columns,
+            $needsort,
+        ];
     }
 }

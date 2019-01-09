@@ -53,7 +53,7 @@ class ConfigTest extends PmaTestCase
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config("./config.sample.inc.php");
+        $this->permTestObj = new Config(ROOT_PATH . "config.sample.inc.php");
     }
 
     /**
@@ -262,7 +262,7 @@ class ConfigTest extends PmaTestCase
 
         $this->object->set('GD2Available', 'auto');
 
-        if (!function_exists('imagecreatetruecolor')) {
+        if (! function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
             $this->assertEquals(
                 0,
@@ -439,7 +439,7 @@ class ConfigTest extends PmaTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->source_mtime);
 
-        $this->object->setSource('libraries/config.default.php');
+        $this->object->setSource(ROOT_PATH . 'libraries/config.default.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -470,10 +470,10 @@ class ConfigTest extends PmaTestCase
 
         $this->assertEmpty($this->object->getSource(), "Source is null by default");
 
-        $this->object->setSource("config.sample.inc.php");
+        $this->object->setSource(ROOT_PATH . "config.sample.inc.php");
 
         $this->assertEquals(
-            "config.sample.inc.php",
+            ROOT_PATH . "config.sample.inc.php",
             $this->object->getSource(),
             "Cant set new source"
         );
@@ -517,15 +517,96 @@ class ConfigTest extends PmaTestCase
     public function httpsParams()
     {
         return [
-            ['http', '', '', '', '', 'http', 80, false],
-            ['http', '', 'http://', '', '', 'http', 80, false],
-            ['http', '', '', '', '', 'http', 443, true],
-            ['http', '', '', '', '', 'https', 80, true],
-            ['http', '', '', '', 'on', 'http', 80, true],
-            ['http', '', '', 'on', '', 'http', 80, true],
-            ['http', '', 'https://', '', '', 'http', 80, true],
-            ['http', 'on', '', '', '', 'http', 80, true],
-            ['https', '', '', '', '', 'http', 80, true],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                false,
+            ],
+            [
+                'http',
+                '',
+                'http://',
+                '',
+                '',
+                'http',
+                80,
+                false,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                443,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'https',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                'on',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                'on',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                'https://',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                'on',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'https',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
         ];
     }
 
@@ -551,8 +632,8 @@ class ConfigTest extends PmaTestCase
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT'
-            ];
+            'PMA_USR_BROWSER_AGENT',
+        ];
 
         foreach ($defines as $define) {
             $this->assertTrue(defined($define));
@@ -697,15 +778,15 @@ class ConfigTest extends PmaTestCase
     {
         return [
             [
-                './test/test_data/config.inc.php',
+                ROOT_PATH . 'test/test_data/config.inc.php',
                 true,
             ],
             [
-                './test/test_data/config-nonexisting.inc.php',
+                ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
             ],
             [
-                './libraries/config.default.php',
+                ROOT_PATH . 'libraries/config.default.php',
                 true,
             ],
         ];
@@ -779,12 +860,12 @@ class ConfigTest extends PmaTestCase
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
         //testing for permissions for no configuration file
-        $this->assertFalse(!($perms === false) && ($perms & 2));
+        $this->assertFalse(! ($perms === false) && ($perms & 2));
 
         //load file permissions for the current permissions file
         $perms = @fileperms($this->permTestObj->getSource());
 
-        if (!($perms === false) && ($perms & 2)) {
+        if (! ($perms === false) && ($perms & 2)) {
             $this->assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
         } else {
             $this->assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
@@ -909,7 +990,7 @@ class ConfigTest extends PmaTestCase
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        file_put_contents('.git/config','');
+        file_put_contents('.git/config', '');
 
         $this->assertTrue(
             $this->object->isGitRevision()
@@ -943,7 +1024,7 @@ class ConfigTest extends PmaTestCase
         mkdir($test_dir);
         chdir($test_dir);
 
-        file_put_contents('.git','gitdir: ./.customgitdir');
+        file_put_contents('.git', 'gitdir: ./.customgitdir');
         $this->assertFalse(
             $this->object->isGitRevision()
         );
@@ -970,7 +1051,7 @@ class ConfigTest extends PmaTestCase
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        file_put_contents('.git','random data here');
+        file_put_contents('.git', 'random data here');
 
         $this->assertFalse(
             $this->object->isGitRevision()
@@ -1005,7 +1086,7 @@ class ConfigTest extends PmaTestCase
         chdir($test_dir);
 
         mkdir('.git');
-        file_put_contents('.git/config','');
+        file_put_contents('.git/config', '');
 
         $this->object->checkGitRevision();
 
@@ -1018,17 +1099,18 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/packed-refs',
-        '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
-        'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
-        '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
-        '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
+        file_put_contents(
+            '.git/packed-refs',
+            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $this->object->checkGitRevision();
@@ -1068,7 +1150,7 @@ class ConfigTest extends PmaTestCase
         chdir($test_dir);
 
         mkdir('.git');
-        file_put_contents('.git/config','');
+        file_put_contents('.git/config', '');
 
         $this->object->checkGitRevision();
 
@@ -1081,9 +1163,9 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
         mkdir('.git/refs/remotes/origin', 0777, true);
-        file_put_contents('.git/refs/remotes/origin/master','c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
+        file_put_contents('.git/refs/remotes/origin/master', 'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $this->object->checkGitRevision();
 
@@ -1123,7 +1205,7 @@ class ConfigTest extends PmaTestCase
         chdir($test_dir);
 
         mkdir('.git');
-        file_put_contents('.git/config','');
+        file_put_contents('.git/config', '');
 
         $this->object->checkGitRevision();
 
@@ -1136,20 +1218,22 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/packed-refs',
+        file_put_contents(
+            '.git/packed-refs',
             '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
             'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
             '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
             '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
-        mkdir('.git/objects/info', 0777 ,true);
-        file_put_contents('.git/objects/info/packs',
+        mkdir('.git/objects/info', 0777, true);
+        file_put_contents(
+            '.git/objects/info/packs',
             'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack' . PHP_EOL .
             '  pack-.pack' . PHP_EOL .
             PHP_EOL .
@@ -1299,12 +1383,15 @@ class ConfigTest extends PmaTestCase
             ],
             'empty_host' => [
                 [1 => ['host' => '']],
-                ['verbose' => 'Server 1', 'host' => ''],
+                [
+                    'verbose' => 'Server 1',
+                    'host' => ''
+                ],
             ],
             'invalid' => [
                 ['invalid' => ['host' => '127.0.0.1']],
                 ['host' => '127.0.0.1'],
-                true
+                true,
             ],
         ];
     }
@@ -1353,14 +1440,24 @@ class ConfigTest extends PmaTestCase
                 2,
             ],
             'verbose' => [
-                [1 => ['verbose' => 'Server 1', 'host' => '']],
+                [
+                    1 => [
+                        'verbose' => 'Server 1',
+                        'host' => ''
+                    ],
+                ],
                 'Server 1',
-                1
+                1,
             ],
             'md5' => [
-                [66 => ['verbose' => 'Server 1', 'host' => '']],
+                [
+                    66 => [
+                        'verbose' => 'Server 1',
+                        'host' => ''
+                    ],
+                ],
                 '753f173bd4ac8a45eae0fe9a4fbe0fc0',
-                66
+                66,
             ],
             'nonexisting_string' => [
                 [1 => []],

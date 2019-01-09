@@ -125,7 +125,11 @@ class Theme
             return false;
         }
         // Check that all required data are there
-        $members = ['name', 'version', 'supports'];
+        $members = [
+            'name',
+            'version',
+            'supports',
+        ];
         foreach ($members as $member) {
             if (! isset($data[$member])) {
                 return false;

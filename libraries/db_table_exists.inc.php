@@ -56,8 +56,8 @@ if (empty($is_db)) {
 } // end if (ensures db exists)
 
 if (empty($is_table)
-    && !defined('PMA_SUBMIT_MULT')
-    && !defined('TABLE_MAY_BE_ABSENT')
+    && ! defined('PMA_SUBMIT_MULT')
+    && ! defined('TABLE_MAY_BE_ABSENT')
 ) {
     // Not a valid table name -> back to the db_sql.php
 
@@ -79,7 +79,7 @@ if (empty($is_table)
     }
 
     if (! $is_table) {
-        if (!defined('IS_TRANSFORMATION_WRAPPER')) {
+        if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             if (strlen($table) > 0) {
                 // SHOW TABLES doesn't show temporary tables, so try select
                 // (as it can happen just in case temporary table, it should be
@@ -100,7 +100,7 @@ if (empty($is_table)
             }
 
             if (! $is_table) {
-                include './db_sql.php';
+                include ROOT_PATH . 'db_sql.php';
                 exit;
             }
         }

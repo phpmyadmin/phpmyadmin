@@ -63,7 +63,7 @@ class ServerVariablesController extends Controller
             return;
         }
 
-        include 'libraries/server_common.inc.php';
+        include ROOT_PATH . 'libraries/server_common.inc.php';
 
         $header   = $this->response->getHeader();
         $scripts  = $header->getScripts();
@@ -155,7 +155,7 @@ class ServerVariablesController extends Controller
             } else {
                 throw new KBException("Not a type=byte");
             }
-        } catch (KBException $e){
+        } catch (KBException $e) {
             $this->response->addJSON(
                 'message',
                 $varValue[1]
@@ -185,7 +185,7 @@ class ServerVariablesController extends Controller
                     'mb' => 2,
                     'mib' => 2,
                     'gb' => 3,
-                    'gib' => 3
+                    'gib' => 3,
                 ];
                 $value = floatval($matches[1]) * pow(
                     1024,
@@ -194,7 +194,7 @@ class ServerVariablesController extends Controller
             } else {
                 throw new KBException("Not a type=byte or regex not matching");
             }
-        } catch (KBException $e){
+        } catch (KBException $e) {
             $value = $this->dbi->escapeString($value);
         }
 
@@ -268,14 +268,14 @@ class ServerVariablesController extends Controller
                 } else {
                     throw new KBException("Not a type=byte or regex not matching");
                 }
-            } catch (KBException $e){
+            } catch (KBException $e) {
                 $formattedValue = Util::formatNumber($value, 0);
             }
         }
 
         return [
             $formattedValue,
-            $isHtmlFormatted
+            $isHtmlFormatted,
         ];
     }
 
@@ -369,7 +369,7 @@ class ServerVariablesController extends Controller
                 'is_html_formatted' => $isHtmlFormatted,
                 'has_session_value' => $has_session_value,
                 'session_value' => isset($sessionFormattedValue)?$sessionFormattedValue:null,
-                'session_is_html_formated' => isset($sessionIsHtmlFormatted)?$sessionIsHtmlFormatted:null
+                'session_is_html_formated' => isset($sessionIsHtmlFormatted)?$sessionIsHtmlFormatted:null,
             ]);
         }
 

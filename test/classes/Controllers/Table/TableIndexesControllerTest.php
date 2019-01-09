@@ -44,7 +44,7 @@ class TableIndexesControllerTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['url_params'] = [
             'db' => 'db',
-            'server' => 1
+            'server' => 1,
         ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -55,17 +55,17 @@ class TableIndexesControllerTest extends PmaTestCase
             [
                 "Schema" => "Schema1",
                 "Key_name" => "Key_name1",
-                "Column_name" => "Column_name1"
+                "Column_name" => "Column_name1",
             ],
             [
                 "Schema" => "Schema2",
                 "Key_name" => "Key_name2",
-                "Column_name" => "Column_name2"
+                "Column_name" => "Column_name2",
             ],
             [
                 "Schema" => "Schema3",
                 "Key_name" => "Key_name3",
-                "Column_name" => "Column_name3"
+                "Column_name" => "Column_name3",
             ],
         ];
 

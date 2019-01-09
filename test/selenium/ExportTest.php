@@ -118,7 +118,7 @@ class ExportTest extends TestBase
         return [
             [
                 'CSV',
-                ['"1","2"']
+                ['"1","2"'],
             ],
             [
                 'SQL',
@@ -126,12 +126,12 @@ class ExportTest extends TestBase
                     "CREATE TABLE IF NOT EXISTS `test_table`",
                     "INSERT INTO `test_table` (`id`, `val`) VALUES",
                     "(1, 2)",
-                ]
+                ],
             ],
             [
                 'JSON',
-                ['{"id":"1","val":"2"}']
-            ]
+                ['{"id":"1","val":"2"}'],
+            ],
         ];
     }
 

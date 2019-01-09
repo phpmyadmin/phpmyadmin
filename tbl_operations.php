@@ -16,15 +16,19 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  *
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
@@ -39,7 +43,7 @@ $scripts->addFile('tbl_operations.js');
 /**
  * Runs common work
  */
-require 'libraries/tbl_common.inc.php';
+require ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_operations.php&amp;back=tbl_operations.php';
 $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 
@@ -112,7 +116,7 @@ if (isset($_POST['submit_move']) || isset($_POST['submit_copy'])) {
  * If the table has to be maintained
  */
 if (isset($_POST['table_maintenance'])) {
-    include_once 'sql.php';
+    include_once ROOT_PATH . 'sql.php';
     unset($result);
 }
 /**
@@ -259,7 +263,7 @@ if (isset($result) && empty($message_to_show)) {
         if ($response->isAjax()) {
             $response->setRequestStatus($_message->isSuccess());
             $response->addJSON('message', $_message);
-            if (!empty($sql_query)) {
+            if (! empty($sql_query)) {
                 $response->addJSON(
                     'sql_query',
                     Util::getMessage(null, $sql_query)
@@ -280,7 +284,7 @@ if (isset($result) && empty($message_to_show)) {
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
-            if (!empty($sql_query)) {
+            if (! empty($sql_query)) {
                 $response->addJSON(
                     'sql_query',
                     Util::getMessage(null, $sql_query)

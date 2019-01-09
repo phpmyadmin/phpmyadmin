@@ -41,7 +41,20 @@ class Processes
         $retval .= Data::getHtmlForRefreshList(
             'refreshRate',
             5,
-            [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200]
+            [
+                2,
+                3,
+                4,
+                5,
+                10,
+                20,
+                40,
+                60,
+                120,
+                300,
+                600,
+                1200,
+            ]
         );
         $retval .= '</label>';
         $retval .= '<a id="toggleRefresh" href="#">';
@@ -78,40 +91,40 @@ class Processes
         $sortable_columns = [
             [
                 'column_name' => __('ID'),
-                'order_by_field' => 'Id'
+                'order_by_field' => 'Id',
             ],
             [
                 'column_name' => __('User'),
-                'order_by_field' => 'User'
+                'order_by_field' => 'User',
             ],
             [
                 'column_name' => __('Host'),
-                'order_by_field' => 'Host'
+                'order_by_field' => 'Host',
             ],
             [
                 'column_name' => __('Database'),
-                'order_by_field' => 'db'
+                'order_by_field' => 'db',
             ],
             [
                 'column_name' => __('Command'),
-                'order_by_field' => 'Command'
+                'order_by_field' => 'Command',
             ],
             [
                 'column_name' => __('Time'),
-                'order_by_field' => 'Time'
+                'order_by_field' => 'Time',
             ],
             [
                 'column_name' => __('Status'),
-                'order_by_field' => 'State'
+                'order_by_field' => 'State',
             ],
             [
                 'column_name' => __('Progress'),
-                'order_by_field' => 'Progress'
+                'order_by_field' => 'Progress',
             ],
             [
                 'column_name' => __('SQL query'),
-                'order_by_field' => 'Info'
-            ]
+                'order_by_field' => 'Info',
+            ],
         ];
         $sortableColCount = count($sortable_columns);
 
@@ -127,7 +140,7 @@ class Processes
         if (! empty($_POST['showExecuting'])) {
             $sql_query .= ' WHERE state != "" ';
         }
-        if (!empty($_POST['order_by_field']) && !empty($_POST['sort_order'])) {
+        if (! empty($_POST['order_by_field']) && ! empty($_POST['sort_order'])) {
             $sql_query .= ' ORDER BY '
                 . Util::backquote($_POST['order_by_field'])
                 . ' ' . $_POST['sort_order'];
@@ -180,11 +193,17 @@ class Processes
             if (0 === --$sortableColCount) {
                 $retval .= '<a href="' . $full_text_link . '">';
                 if ($show_full_sql) {
-                    $retval .= Util::getImage('s_partialtext',
-                        __('Truncate Shown Queries'), ['class' => 'icon_fulltext']);
+                    $retval .= Util::getImage(
+                        's_partialtext',
+                        __('Truncate Shown Queries'),
+                        ['class' => 'icon_fulltext']
+                    );
                 } else {
-                    $retval .= Util::getImage('s_fulltext',
-                        __('Show Full Queries'), ['class' => 'icon_fulltext']);
+                    $retval .= Util::getImage(
+                        's_fulltext',
+                        __('Show Full Queries'),
+                        ['class' => 'icon_fulltext']
+                    );
                 }
                 $retval .= '</a>';
             }

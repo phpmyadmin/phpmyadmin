@@ -40,7 +40,10 @@ class FormTest extends PmaTestCase
         $GLOBALS['server'] = 0;
         $this->object = new Form(
             'pma_form_name',
-            ['pma_form1','pma_form2'],
+            [
+                'pma_form1',
+                'pma_form2',
+            ],
             new ConfigFile(),
             1
         );
@@ -110,7 +113,10 @@ class FormTest extends PmaTestCase
     public function testGetOptionValueList()
     {
         $this->assertEquals(
-            ['NHibernate C# DO', 'NHibernate XML'],
+            [
+                'NHibernate C# DO',
+                'NHibernate XML',
+            ],
             $this->object->getOptionValueList("Export/codegen_format")
         );
 
@@ -150,8 +156,8 @@ class FormTest extends PmaTestCase
                 "bar" => [
                     'test' => 1,
                     1 => ':group:end'
-                ]
-            ]
+                ],
+            ],
         ];
 
         $method->invoke($this->object, $array, 'foo', 'pref');
@@ -202,8 +208,8 @@ class FormTest extends PmaTestCase
                 "bar" => [
                     'test' => 1,
                     1 => ':group:end'
-                ]
-            ]
+                ],
+            ],
         ];
 
         $method->invoke($this->object, $array);

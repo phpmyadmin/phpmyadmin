@@ -38,7 +38,7 @@ class GisGeometryCollection extends GisGeometry
      */
     public static function singleton()
     {
-        if (!isset(self::$_instance)) {
+        if (! isset(self::$_instance)) {
             $class = __CLASS__;
             self::$_instance = new $class;
         }
@@ -77,29 +77,29 @@ class GisGeometryCollection extends GisGeometry
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
-            if (!$gis_obj) {
+            if (! $gis_obj) {
                 continue;
             }
             $scale_data = $gis_obj->scaleRow($sub_part);
 
             // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = (float)$scale_data['maxX'];
-            if (!isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
+            $c_maxX = (float) $scale_data['maxX'];
+            if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
                 $min_max['maxX'] = $c_maxX;
             }
 
-            $c_minX = (float)$scale_data['minX'];
-            if (!isset($min_max['minX']) || $c_minX < $min_max['minX']) {
+            $c_minX = (float) $scale_data['minX'];
+            if (! isset($min_max['minX']) || $c_minX < $min_max['minX']) {
                 $min_max['minX'] = $c_minX;
             }
 
-            $c_maxY = (float)$scale_data['maxY'];
-            if (!isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
+            $c_maxY = (float) $scale_data['maxY'];
+            if (! isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
                 $min_max['maxY'] = $c_maxY;
             }
 
-            $c_minY = (float)$scale_data['minY'];
-            if (!isset($min_max['minY']) || $c_minY < $min_max['minY']) {
+            $c_minY = (float) $scale_data['minY'];
+            if (! isset($min_max['minY']) || $c_minY < $min_max['minY']) {
                 $min_max['minY'] = $c_minY;
             }
         }
@@ -139,7 +139,7 @@ class GisGeometryCollection extends GisGeometry
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
-            if (!$gis_obj) {
+            if (! $gis_obj) {
                 continue;
             }
             $image = $gis_obj->prepareRowAsPng(
@@ -186,7 +186,7 @@ class GisGeometryCollection extends GisGeometry
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
-            if (!$gis_obj) {
+            if (! $gis_obj) {
                 continue;
             }
             $pdf = $gis_obj->prepareRowAsPdf(
@@ -234,7 +234,7 @@ class GisGeometryCollection extends GisGeometry
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
-            if (!$gis_obj) {
+            if (! $gis_obj) {
                 continue;
             }
             $row .= $gis_obj->prepareRowAsSvg(
@@ -283,7 +283,7 @@ class GisGeometryCollection extends GisGeometry
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
-            if (!$gis_obj) {
+            if (! $gis_obj) {
                 continue;
             }
             $row .= $gis_obj->prepareRowAsOl(
@@ -352,7 +352,7 @@ class GisGeometryCollection extends GisGeometry
             if (isset($gis_data[$i]['gis_type'])) {
                 $type = $gis_data[$i]['gis_type'];
                 $gis_obj = GisFactory::factory($type);
-                if (!$gis_obj) {
+                if (! $gis_obj) {
                     continue;
                 }
                 $wkt .= $gis_obj->generateWkt($gis_data, $i, $empty) . ',';
@@ -408,7 +408,7 @@ class GisGeometryCollection extends GisGeometry
              * @var GisMultiPolygon|GisPolygon|GisMultiPoint|GisPoint|GisMultiLineString|GisLineString $gis_obj
              */
             $gis_obj = GisFactory::factory($type);
-            if (!$gis_obj) {
+            if (! $gis_obj) {
                 continue;
             }
             $params = array_merge($params, $gis_obj->generateParams($sub_part, $i));

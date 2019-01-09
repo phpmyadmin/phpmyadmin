@@ -310,7 +310,11 @@ class Data
                 $sectionUsed['other'] = true;
             }
         }
-        return [$allocationMap, $sectionUsed, $used_queries];
+        return [
+            $allocationMap,
+            $sectionUsed,
+            $used_queries,
+        ];
     }
 
     /**
@@ -456,7 +460,7 @@ class Data
             [
                 'name' => __('Advisor'),
                 'url' => 'server_status_advisor.php'
-            ]
+            ],
         ];
 
         $retval  = '<ul id="topmenu2">';
@@ -490,7 +494,18 @@ class Data
     public static function getHtmlForRefreshList(
         $name,
         $defaultRate = 5,
-        array $refreshRates = [1, 2, 5, 10, 20, 40, 60, 120, 300, 600]
+        array $refreshRates = [
+            1,
+            2,
+            5,
+            10,
+            20,
+            40,
+            60,
+            120,
+            300,
+            600,
+        ]
     ) {
         $return = '<select name="' . $name . '" id="id_' . $name
             . '" class="refreshRate">';

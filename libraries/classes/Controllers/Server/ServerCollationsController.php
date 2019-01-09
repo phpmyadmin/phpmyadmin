@@ -34,7 +34,7 @@ class ServerCollationsController extends Controller
         /**
          * Does the common work
          */
-        include_once 'libraries/server_common.inc.php';
+        include_once ROOT_PATH . 'libraries/server_common.inc.php';
 
         $this->response->addHTML(
             $this->template->render('server/sub_page_header', [

@@ -13,10 +13,14 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Core libraries.
  */
-require './lib/common.inc.php';
+require ROOT_PATH . 'setup/lib/common.inc.php';
 
 $form_display = new ConfigForm($GLOBALS['ConfigFile']);
 $form_display->save('Config');

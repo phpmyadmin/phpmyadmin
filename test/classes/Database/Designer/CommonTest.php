@@ -40,9 +40,9 @@ class CommonTest extends TestCase
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true,
-                    'table_coords' => 'table_coords'
-                ]
-            ]
+                    'table_coords' => 'table_coords',
+                ],
+            ],
         ];
     }
 

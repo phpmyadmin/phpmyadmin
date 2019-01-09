@@ -147,7 +147,10 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*tbl_operations.php(.|[\n])*Alter table order by([\n]|.)*order_order.*/m',
             $this->operations->getHtmlForOrderTheTable(
-                [['Field' => "column1"], ['Field' => "column2"]]
+                [
+                    ['Field' => "column1"],
+                    ['Field' => "column2"],
+                ]
             )
         );
     }
@@ -180,9 +183,12 @@ class OperationsTest extends TestCase
         $method->setAccessible(true);
         $result = $method->invokeArgs($this->operations, [
             'post',
-            ['name' => 'foo', 'value' => 'bar'],
+            [
+                'name' => 'foo',
+                'value' => 'bar',
+            ],
             [],
-            'doclink'
+            'doclink',
         ]);
 
         $this->assertRegExp(
@@ -235,8 +241,14 @@ class OperationsTest extends TestCase
     public function testGetHtmlForPartitionMaintenance()
     {
         $html = $this->operations->getHtmlForPartitionMaintenance(
-            ["partition1", "partion2"],
-            ["param1" => 'foo', "param2" => 'bar']
+            [
+                "partition1",
+                "partion2",
+            ],
+            [
+                "param1" => 'foo',
+                "param2" => 'bar',
+            ]
         );
         $this->assertRegExp('/.*action="tbl_operations.php".*/', $html);
         $this->assertRegExp('/.*ANALYZE.*/', $html);
@@ -258,10 +270,13 @@ class OperationsTest extends TestCase
                     [
                         'foreign_db'    => 'db1',
                         'foreign_table' => "foreign1",
-                        'foreign_field' => "foreign2"
-                    ]
+                        'foreign_field' => "foreign2",
+                    ],
                 ],
-                ["param1" => 'a', "param2" => 'b']
+                [
+                    "param1" => 'a',
+                    "param2" => 'b',
+                ]
             )
         );
     }

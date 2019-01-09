@@ -95,7 +95,7 @@ class Core
      * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
      * </code>
      *
-     * @param mixed &$var    param to check
+     * @param mixed $var     param to check
      * @param mixed $default default value
      * @param mixed $type    var type or array of values to check against $var
      *
@@ -145,7 +145,7 @@ class Core
      *
      * to avoid this we set this var to null if not isset
      *
-     * @param mixed &$var    variable to check
+     * @param mixed $var     variable to check
      * @param mixed $type    var type or array of valid values to check against $var
      * @param mixed $compare var to compare with $var
      *
@@ -274,7 +274,7 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (!is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
+        if (! is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
@@ -294,7 +294,7 @@ class Core
             $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
 
             // Displays the error message
-            include './libraries/error.inc.php';
+            include ROOT_PATH . 'libraries/error.inc.php';
         }
         if (! defined('TESTSUITE')) {
             exit;
@@ -314,7 +314,18 @@ class Core
     {
         /* List of PHP documentation translations */
         $php_doc_languages = [
-            'pt_BR', 'zh', 'fr', 'de', 'it', 'ja', 'pl', 'ro', 'ru', 'fa', 'es', 'tr'
+            'pt_BR',
+            'zh',
+            'fr',
+            'de',
+            'it',
+            'ja',
+            'pl',
+            'ro',
+            'ru',
+            'fa',
+            'es',
+            'tr',
         ];
 
         $lang = 'en';
@@ -432,7 +443,7 @@ class Core
      * Checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string  &$page     page to check
+     * @param string  $page      page to check
      * @param array   $whitelist whitelist to check page against
      * @param boolean $include   whether the page is going to be included
      *
@@ -623,7 +634,7 @@ class Core
         }
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
-        if (!empty($filename)) {
+        if (! empty($filename)) {
             header('Content-Description: File Transfer');
             header('Content-Disposition: attachment; filename="' . $filename . '"');
         }
@@ -668,9 +679,9 @@ class Core
     /**
      * Stores value in an array
      *
-     * @param string $path   path in the array
-     * @param array  &$array the array
-     * @param mixed  $value  value to store
+     * @param string $path  path in the array
+     * @param array  $array the array
+     * @param mixed  $value value to store
      *
      * @return void
      */
@@ -691,8 +702,8 @@ class Core
     /**
      * Removes value from an array
      *
-     * @param string $path   path in the array
-     * @param array  &$array the array
+     * @param string $path  path in the array
+     * @param array  $array the array
      *
      * @return void
      */
@@ -739,7 +750,7 @@ class Core
      */
     public static function linkURL(string $url): string
     {
-        if (!preg_match('#^https?://#', $url)) {
+        if (! preg_match('#^https?://#', $url)) {
             return $url;
         }
 
@@ -752,7 +763,7 @@ class Core
         parse_str($arr["query"], $vars);
         $query = http_build_query(["url" => $vars["url"]]);
 
-        if (!is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
+        if (! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
             $url = '../url.php?' . $query;
         } else {
             $url = './url.php?' . $query;
@@ -778,7 +789,11 @@ class Core
             return false;
         }
         // We do not want these to be present
-        $blocked = ['user', 'pass', 'port'];
+        $blocked = [
+            'user',
+            'pass',
+            'port',
+        ];
         foreach ($blocked as $part) {
             if (isset($arr[$part]) && strlen((string) $arr[$part]) != 0) {
                 return false;
@@ -795,14 +810,17 @@ class Core
             'demo.phpmyadmin.net',
             'docs.phpmyadmin.net',
             /* mysql.com domains */
-            'dev.mysql.com','bugs.mysql.com',
+            'dev.mysql.com',
+            'bugs.mysql.com',
             /* mariadb domains */
-            'mariadb.org', 'mariadb.com',
+            'mariadb.org',
+            'mariadb.com',
             /* php.net domains */
             'php.net',
             'secure.php.net',
             /* Github domains*/
-            'github.com','www.github.com',
+            'github.com',
+            'www.github.com',
             /* Percona domains */
             'www.percona.com',
             /* Following are doubtful ones. */
@@ -1020,7 +1038,7 @@ class Core
         $direct_ip = $_SERVER['REMOTE_ADDR'];
 
         /* Do we trust this IP as a proxy? If yes we will use it's header. */
-        if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
+        if (! isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
             /* Return true IP */
             return $direct_ip;
         }
@@ -1210,7 +1228,7 @@ class Core
          * We specifically use empty here as we are looking for anything else than
          * empty value or 0.
          */
-        if (extension_loaded('mbstring') && !empty(ini_get('mbstring.func_overload'))) {
+        if (extension_loaded('mbstring') && ! empty(ini_get('mbstring.func_overload'))) {
             self::fatalError(
                 __(
                     'You have enabled mbstring.func_overload in your PHP '

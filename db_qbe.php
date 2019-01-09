@@ -17,10 +17,14 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * requirements
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $relation = new Relation($GLOBALS['dbi']);
@@ -42,7 +46,7 @@ if ($cfgRelation['savedsearcheswork']) {
     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
         ->setDbname($GLOBALS['db']);
 
-    if (!empty($_POST['searchId'])) {
+    if (! empty($_POST['searchId'])) {
         $savedSearch->setId($_POST['searchId']);
     }
 
@@ -115,7 +119,7 @@ if (isset($_POST['submit_sql']) && ! empty($sql_query)) {
 }
 
 $sub_part  = '_qbe';
-require 'libraries/db_common.inc.php';
+require ROOT_PATH . 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
 

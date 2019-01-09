@@ -7,7 +7,11 @@
  */
 declare(strict_types=1);
 
-if (!defined('TESTSUITE')) {
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
+if (! defined('TESTSUITE')) {
     chdir('..');
 
     // Send correct type:
@@ -21,7 +25,7 @@ if (!defined('TESTSUITE')) {
     // non-js-compatible stuff like DOCTYPE
     define('PMA_MINIMUM_COMMON', true);
     define('PMA_PATH_TO_BASEDIR', '../');
-    require_once './libraries/common.inc.php';
+    require_once ROOT_PATH . 'libraries/common.inc.php';
     // Close session early as we won't write anything there
     session_write_close();
 }
@@ -31,7 +35,7 @@ use PhpMyAdmin\Sanitize;
 
 $buffer = PhpMyAdmin\OutputBuffering::getInstance();
 $buffer->start();
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
             echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();
@@ -774,7 +778,7 @@ echo "var mysql_doc_template = '" , PhpMyAdmin\Util::getMySQLDocuURL('%s')
 //Max input vars allowed by PHP.
 $maxInputVars = ini_get('max_input_vars');
 echo 'var maxInputVars = '
-    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int)$maxInputVars)
+    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int) $maxInputVars)
     , ';' . "\n";
 
 echo "if ($.datepicker) {\n";
@@ -806,7 +810,7 @@ Sanitize::printJsValue(
         __('September'),
         __('October'),
         __('November'),
-        __('December')
+        __('December'),
     ]
 );
 Sanitize::printJsValue(
@@ -835,7 +839,7 @@ Sanitize::printJsValue(
         /* l10n: Short month name */
         __('Nov'),
         /* l10n: Short month name */
-        __('Dec')
+        __('Dec'),
     ]
 );
 Sanitize::printJsValue(
@@ -847,7 +851,7 @@ Sanitize::printJsValue(
         __('Wednesday'),
         __('Thursday'),
         __('Friday'),
-        __('Saturday')
+        __('Saturday'),
     ]
 );
 Sanitize::printJsValue(
@@ -866,7 +870,7 @@ Sanitize::printJsValue(
         /* l10n: Short week day name */
         __('Fri'),
         /* l10n: Short week day name */
-        __('Sat')
+        __('Sat'),
     ]
 );
 Sanitize::printJsValue(
@@ -885,7 +889,7 @@ Sanitize::printJsValue(
         /* l10n: Minimal week day name */
         __('Fr'),
         /* l10n: Minimal week day name */
-        __('Sa')
+        __('Sa'),
     ]
 );
 /* l10n: Column header for week of the year in calendar */

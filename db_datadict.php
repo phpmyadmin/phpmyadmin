@@ -12,13 +12,17 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 if (! isset($selected_tbl)) {
-    include 'libraries/db_common.inc.php';
+    include ROOT_PATH . 'libraries/db_common.inc.php';
     list(
         $tables,
         $num_tables,
@@ -109,7 +113,7 @@ foreach ($tables as $table) {
     /**
      * Displays the comments of the table if MySQL >= 3.23
      */
-    if (!empty($show_comment)) {
+    if (! empty($show_comment)) {
         echo __('Table comments:') , ' ';
         echo htmlspecialchars($show_comment) , '<br><br>';
     }

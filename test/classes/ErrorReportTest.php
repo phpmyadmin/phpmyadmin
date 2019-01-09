@@ -151,7 +151,10 @@ class ErrorReportTest extends TestCase
         $form = $this->errorReport->getForm();
         $this->assertContains('<pre class="report-data">[]</pre>', $form);
 
-        $_POST['exception'] = ['stack' => [], 'url' => 'http://localhost/index.php'];
+        $_POST['exception'] = [
+            'stack' => [],
+            'url' => 'http://localhost/index.php'
+        ];
         $_POST['microhistory'] = '';
         $_POST['description'] = 'description';
 
@@ -166,7 +169,10 @@ class ErrorReportTest extends TestCase
             'configuration_storage' => 'disabled',
             'php_version' => phpversion(),
             'exception_type' => 'js',
-            'exception' => ['stack' => [], 'uri' => 'index.php?'],
+            'exception' => [
+                'stack' => [],
+                'uri' => 'index.php?'
+            ],
             'script_name' => 'index.php',
             'microhistory' => $_POST['microhistory'],
             'steps' => $_POST['description'],

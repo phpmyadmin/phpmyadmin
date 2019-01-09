@@ -78,7 +78,7 @@ class Navigation
             // closes the tags that were opened by the navigation header
             $retval .= '</div>'; // pma_navigation_tree
             $retval .= '<div id="pma_navi_settings_container">';
-            if (!defined('PMA_DISABLE_NAVI_SETTINGS')) {
+            if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
                 $retval .= PageSettings::getNaviSettings();
             }
             $retval .= '</div>'; //pma_navi_settings_container

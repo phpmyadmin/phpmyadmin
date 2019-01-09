@@ -15,10 +15,15 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
@@ -35,7 +40,7 @@ $template = new Template();
 /**
  * Runs common work
  */
-require './libraries/tbl_common.inc.php';
+require ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 

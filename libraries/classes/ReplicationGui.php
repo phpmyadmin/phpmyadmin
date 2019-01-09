@@ -432,7 +432,10 @@ class ReplicationGui
         $html .= '<pre>server-id=' . time() . '</pre>';
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text' => __('User name:'), 'for' => "text_username"],
+            [
+                'text' => __('User name:'),
+                'for' => "text_username"
+            ],
             [
                 'type' => 'text',
                 'name' => 'username',
@@ -444,18 +447,24 @@ class ReplicationGui
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text' => __('Password:'), 'for' => "text_pma_pw"],
+            [
+                'text' => __('Password:'),
+                'for' => "text_pma_pw"
+            ],
             [
                 'type' => 'password',
                 'name' => 'pma_pw',
                 'id' => 'text_pma_pw',
                 'title' => __('Password'),
-                'required' => 'required'
+                'required' => 'required',
             ]
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text' => __('Host:'), 'for' => "text_hostname"],
+            [
+                'text' => __('Host:'),
+                'for' => "text_hostname"
+            ],
             [
                 'type' => 'text',
                 'name' => 'hostname',
@@ -467,7 +476,10 @@ class ReplicationGui
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text' => __('Port:'), 'for' => "text_port"],
+            [
+                'text' => __('Port:'),
+                'for' => "text_port"
+            ],
             [
                 'type' => 'number',
                 'name' => 'text_port',
@@ -475,7 +487,7 @@ class ReplicationGui
                 'maxlength' => 6,
                 'value' => '3306',
                 'required' => 'required'
-             ]
+            ]
         );
 
         $html .= ' </fieldset>';
@@ -590,9 +602,13 @@ class ReplicationGui
             }
             // allow wrapping long table lists into multiple lines
             $variables_wrap = [
-                'Replicate_Do_DB', 'Replicate_Ignore_DB',
-                'Replicate_Do_Table', 'Replicate_Ignore_Table',
-                'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table'];
+                'Replicate_Do_DB',
+                'Replicate_Ignore_DB',
+                'Replicate_Do_Table',
+                'Replicate_Ignore_Table',
+                'Replicate_Wild_Do_Table',
+                'Replicate_Wild_Ignore_Table',
+            ];
             if (in_array($variable, $variables_wrap)) {
                 $html .= htmlspecialchars(str_replace(
                     ',',
@@ -689,7 +705,10 @@ class ReplicationGui
                 }
             }
         }
-        return [$username_length, $hostname_length];
+        return [
+            $username_length,
+            $hostname_length,
+        ];
     }
 
     /**
@@ -766,7 +785,7 @@ class ReplicationGui
             ? ' selected="selected"' : '') . '>' . __('Local')
             . '</option>';
 
-        if (!empty($thishost)) {
+        if (! empty($thishost)) {
             $html .= '        <option value="thishost"'
                 . ((isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'thishost')

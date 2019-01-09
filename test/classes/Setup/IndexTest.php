@@ -39,8 +39,8 @@ class IndexTest extends TestCase
         $_SESSION['messages'] = [
             [
                 ['foo'],
-                ['bar']
-            ]
+                ['bar'],
+            ],
         ];
 
         SetupIndex::messagesBegin();
@@ -51,14 +51,14 @@ class IndexTest extends TestCase
                     [
                         0 => 'foo',
                         'fresh' => false,
-                        'active' => false
+                        'active' => false,
                     ],
                     [
                         0 => 'bar',
                         'fresh' => false,
-                        'active' => false
-                    ]
-                ]
+                        'active' => false,
+                    ],
+                ],
             ],
             $_SESSION['messages']
         );
@@ -70,7 +70,7 @@ class IndexTest extends TestCase
         $this->assertEquals(
             [
                 'error' => [],
-                'notice' => []
+                'notice' => [],
             ],
             $_SESSION['messages']
         );
@@ -90,7 +90,7 @@ class IndexTest extends TestCase
                 'fresh' => true,
                 'active' => true,
                 'title' => 'testTitle',
-                'message' => 'msg'
+                'message' => 'msg',
             ],
             $_SESSION['messages']['type']['123']
         );
@@ -105,9 +105,15 @@ class IndexTest extends TestCase
     {
         $_SESSION['messages'] = [
             [
-                ['msg' => 'foo', 'active' => false],
-                ['msg' => 'bar', 'active' => true],
-            ]
+                [
+                    'msg' => 'foo',
+                    'active' => false,
+                ],
+                [
+                    'msg' => 'bar',
+                    'active' => true,
+                ],
+            ],
         ];
 
         SetupIndex::messagesEnd();
@@ -117,9 +123,9 @@ class IndexTest extends TestCase
                 [
                     '1' => [
                         'msg' => 'bar',
-                        'active' => 1
-                    ]
-                ]
+                        'active' => 1,
+                    ],
+                ],
             ],
             $_SESSION['messages']
         );
@@ -134,9 +140,17 @@ class IndexTest extends TestCase
     {
         $_SESSION['messages'] = [
             'type' => [
-                ['title' => 'foo', 'message' => '123', 'fresh' => false],
-                ['title' => 'bar', 'message' => '321', 'fresh' => true],
-            ]
+                [
+                    'title' => 'foo',
+                    'message' => '123',
+                    'fresh' => false
+                ],
+                [
+                    'title' => 'bar',
+                    'message' => '321',
+                    'fresh' => true
+                ],
+            ],
         ];
 
         ob_start();

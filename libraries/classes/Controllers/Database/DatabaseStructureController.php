@@ -121,7 +121,7 @@ class DatabaseStructureController extends DatabaseController
         $response = Response::getInstance();
 
         // Add/Remove favorite tables using Ajax request.
-        if ($response->isAjax() && !empty($_REQUEST['favorite_table'])) {
+        if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
             $this->addRemoveFavoriteTablesAction();
             return;
         }
@@ -159,12 +159,12 @@ class DatabaseStructureController extends DatabaseController
             $uri = './db_structure.php' . Url::getCommonRaw([
                 'db' => $this->db,
                 'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
-                'reload' => 1
+                'reload' => 1,
             ]);
             Core::sendHeaderLocation($uri);
         }
 
-        include_once 'libraries/replication.inc.php';
+        include_once ROOT_PATH . 'libraries/replication.inc.php';
 
         PageSettings::showGroup('DbStructure');
 
@@ -187,7 +187,8 @@ class DatabaseStructureController extends DatabaseController
         $this->response->addHTML('<div id="tableslistcontainer">');
         $_url_params = [
             'pos' => $this->_pos,
-            'db'  => $this->db];
+            'db'  => $this->db,
+        ];
 
         // Add the sort options if they exists
         if (isset($_REQUEST['sort'])) {
@@ -235,7 +236,7 @@ class DatabaseStructureController extends DatabaseController
                 'url_query' => Url::getCommon([
                     'db' => $this->db,
                     'goto' => 'db_structure.php',
-                ])
+                ]),
             ])
         );
 
@@ -280,7 +281,7 @@ class DatabaseStructureController extends DatabaseController
                 $already_favorite = false; // for favorite_anchor template
             }
         } elseif (isset($_REQUEST['add_favorite'])) {
-            if (!$already_favorite) {
+            if (! $already_favorite) {
                 $nbTables = count($fav_instance->getTables());
                 if ($nbTables == $GLOBALS['cfg']['NumFavoriteTables']) {
                     $changes = false;
@@ -294,7 +295,7 @@ class DatabaseStructureController extends DatabaseController
 
         $favorite_tables[$user] = $fav_instance->getTables();
         $this->response->addJSON('changes', $changes);
-        if (!$changes) {
+        if (! $changes) {
             $this->response->addJSON(
                 'message',
                 $this->template->render('components/error_message', [
@@ -304,10 +305,11 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
         // Check if current table is already in favorite list.
-        $favParams = ['db' => $this->db,
+        $favParams = [
+            'db' => $this->db,
             'ajax_request' => true,
             'favorite_table' => $favorite_table,
-            (($already_favorite ? 'remove' : 'add') . '_favorite') => true
+            (($already_favorite ? 'remove' : 'add') . '_favorite') => true,
         ];
         $this->response->addJSON([
             'user' => $user,
@@ -332,7 +334,7 @@ class DatabaseStructureController extends DatabaseController
     {
         $ajax_response = $this->response;
         // If there is a request to update all table's row count.
-        if (!isset($_REQUEST['real_row_count_all'])) {
+        if (! isset($_REQUEST['real_row_count_all'])) {
             // Get the real row count for the table.
             $real_row_count = $this->dbi
                 ->getTable($this->db, $_REQUEST['table'])
@@ -352,7 +354,7 @@ class DatabaseStructureController extends DatabaseController
                 ->getRealRowCountTable();
             $real_row_count_all[] = [
                 'table' => $table['TABLE_NAME'],
-                'row_count' => $row_count
+                'row_count' => $row_count,
             ];
         }
 
@@ -379,7 +381,7 @@ class DatabaseStructureController extends DatabaseController
         // -> db_structure.php and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($_POST['error']) || false === $_POST['error']) {
-            include 'libraries/mult_submits.inc.php';
+            include ROOT_PATH . 'libraries/mult_submits.inc.php';
         }
         if (empty($_POST['message'])) {
             $_POST['message'] = Message::success();
@@ -439,7 +441,10 @@ class DatabaseStructureController extends DatabaseController
             $table_is_view = false;
             // Sets parameters for links
             $tbl_url_query = Url::getCommon(
-                ['db' => $this->db, 'table' => $current_table['TABLE_NAME']]
+                [
+                    'db' => $this->db,
+                    'table' => $current_table['TABLE_NAME'],
+                ]
             );
             // do not list the previous table's size info for a view
 
@@ -453,7 +458,7 @@ class DatabaseStructureController extends DatabaseController
 
             $curTable = $this->dbi
                 ->getTable($this->db, $current_table['TABLE_NAME']);
-            if (!$curTable->isMerge()) {
+            if (! $curTable->isMerge()) {
                 $sum_entries += $current_table['TABLE_ROWS'];
             }
 
@@ -491,7 +496,7 @@ class DatabaseStructureController extends DatabaseController
                 $create_time = isset($current_table['Create_time'])
                     ? $current_table['Create_time'] : '';
                 if ($create_time
-                    && (!$create_time_all
+                    && (! $create_time_all
                     || $create_time < $create_time_all)
                 ) {
                     $create_time_all = $create_time;
@@ -502,7 +507,7 @@ class DatabaseStructureController extends DatabaseController
                 $update_time = isset($current_table['Update_time'])
                     ? $current_table['Update_time'] : '';
                 if ($update_time
-                    && (!$update_time_all
+                    && (! $update_time_all
                     || $update_time < $update_time_all)
                 ) {
                     $update_time_all = $update_time;
@@ -513,14 +518,14 @@ class DatabaseStructureController extends DatabaseController
                 $check_time = isset($current_table['Check_time'])
                     ? $current_table['Check_time'] : '';
                 if ($check_time
-                    && (!$check_time_all
+                    && (! $check_time_all
                     || $check_time < $check_time_all)
                 ) {
                     $check_time_all = $check_time;
                 }
             }
 
-            $truename = !empty($tooltip_truename)
+            $truename = ! empty($tooltip_truename)
                     && isset($tooltip_truename[$current_table['TABLE_NAME']])
                 ? $tooltip_truename[$current_table['TABLE_NAME']]
                 : $current_table['TABLE_NAME'];
@@ -546,7 +551,7 @@ class DatabaseStructureController extends DatabaseController
             $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
             $titles = Util::buildActionTitles();
 
-            if (!$this->_db_is_system_schema) {
+            if (! $this->_db_is_system_schema) {
                 $drop_query = sprintf(
                     'DROP %s %s',
                     $table_is_view || $current_table['ENGINE'] == null ? 'VIEW'
@@ -765,9 +770,9 @@ class DatabaseStructureController extends DatabaseController
             && ($current_table['ENGINE'] != null || $table_is_view)
         ) {
             // InnoDB/TokuDB table: we did not get an accurate row count
-            $approx_rows = !$table_is_view
+            $approx_rows = ! $table_is_view
                 && in_array($current_table['ENGINE'], ['InnoDB', 'TokuDB'])
-                && !$current_table['COUNTED'];
+                && ! $current_table['COUNTED'];
 
             if ($table_is_view
                 && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
@@ -788,7 +793,10 @@ class DatabaseStructureController extends DatabaseController
             }
         }
 
-        return [$approx_rows, $show_superscript];
+        return [
+            $approx_rows,
+            $show_superscript,
+        ];
     }
 
     /**
@@ -841,7 +849,10 @@ class DatabaseStructureController extends DatabaseController
                 );
         }
 
-        return [$do, $ignored];
+        return [
+            $do,
+            $ignored,
+        ];
     }
 
     /**
@@ -1016,8 +1027,15 @@ class DatabaseStructureController extends DatabaseController
             $table_is_view = true;
         }
 
-        return [$current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $table_is_view, $sum_size
+        return [
+            $current_table,
+            $formatted_size,
+            $unit,
+            $formatted_overhead,
+            $overhead_unit,
+            $overhead_size,
+            $table_is_view,
+            $sum_size,
         ];
     }
 
@@ -1070,8 +1088,14 @@ class DatabaseStructureController extends DatabaseController
                 $overhead_size += $current_table['Data_free'];
             }
         }
-        return [$current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $sum_size
+        return [
+            $current_table,
+            $formatted_size,
+            $unit,
+            $formatted_overhead,
+            $overhead_unit,
+            $overhead_size,
+            $sum_size,
         ];
     }
 
@@ -1091,7 +1115,7 @@ class DatabaseStructureController extends DatabaseController
 
         if ((in_array($current_table['ENGINE'], ['InnoDB', 'TokuDB'])
             && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
-            || !isset($current_table['TABLE_ROWS'])
+            || ! isset($current_table['TABLE_ROWS'])
         ) {
             $current_table['COUNTED'] = true;
             $current_table['TABLE_ROWS'] = $this->dbi
@@ -1112,6 +1136,11 @@ class DatabaseStructureController extends DatabaseController
             );
         }
 
-        return [$current_table, $formatted_size, $unit, $sum_size];
+        return [
+            $current_table,
+            $formatted_size,
+            $unit,
+            $sum_size,
+        ];
     }
 }

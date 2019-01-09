@@ -108,7 +108,7 @@ class ErrorReport
             }
             $exception = $_POST['exception'];
             $exception["stack"] = $this->translateStacktrace($exception["stack"]);
-            list($uri, $scriptName) = $this->sanitizeUrl((string)$exception["url"]);
+            list($uri, $scriptName) = $this->sanitizeUrl((string) $exception["url"]);
             $exception["uri"] = $uri;
             unset($exception["url"]);
 
@@ -124,7 +124,7 @@ class ErrorReport
             $errors = [];
             // create php error report
             $i = 0;
-            if (!isset($_SESSION['prev_errors'])
+            if (! isset($_SESSION['prev_errors'])
                 || $_SESSION['prev_errors'] == ''
             ) {
                 return [];
@@ -203,7 +203,10 @@ class ErrorReport
         }
 
         $uri = $scriptName . "?" . $query;
-        return [$uri, $scriptName];
+        return [
+            $uri,
+            $scriptName,
+        ];
     }
 
     /**
@@ -265,7 +268,7 @@ class ErrorReport
         ];
 
         $reportData = $this->getData();
-        if (!empty($reportData)) {
+        if (! empty($reportData)) {
             $datas['hidden_fields'] = Url::getHiddenFields($reportData, '', true);
         }
 

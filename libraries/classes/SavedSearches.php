@@ -77,7 +77,7 @@ class SavedSearches
      */
     public function setId($searchId)
     {
-        $searchId = (int)$searchId;
+        $searchId = (int) $searchId;
         if (empty($searchId)) {
             $searchId = null;
         }
@@ -165,7 +165,7 @@ class SavedSearches
             'criteriaAndOrRow',
             'criteriaAndOrColumn',
             'rows',
-            'TableList'
+            'TableList',
         ];
 
         $data = [];
@@ -179,7 +179,7 @@ class SavedSearches
         }
 
         /* Limit amount of rows */
-        if (!isset($data['rows'])) {
+        if (! isset($data['rows'])) {
             $data['rows'] = 0;
         } else {
             $data['rows'] = min(
@@ -296,7 +296,7 @@ class SavedSearches
             ];
             $existingSearches = $this->getList($wheres);
 
-            if (!empty($existingSearches)) {
+            if (! empty($existingSearches)) {
                 $message = Message::error(
                     __('An entry with this name already exists.')
                 );
@@ -317,7 +317,7 @@ class SavedSearches
                 . "')";
 
             $result = (bool) $this->relation->queryAsControlUser($sqlQuery);
-            if (!$result) {
+            if (! $result) {
                 return false;
             }
 
@@ -329,11 +329,11 @@ class SavedSearches
         //Else, it's an update.
         $wheres = [
             "id != " . $this->getId(),
-            "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "'"
+            "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "'",
         ];
         $existingSearches = $this->getList($wheres);
 
-        if (!empty($existingSearches)) {
+        if (! empty($existingSearches)) {
             $message = Message::error(
                 __('An entry with this name already exists.')
             );

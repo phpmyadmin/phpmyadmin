@@ -50,7 +50,7 @@ class TrackingTest extends TestCase
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking',
-            'trackingwork' => true
+            'trackingwork' => true,
         ];
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
@@ -85,12 +85,12 @@ class TrackingTest extends TestCase
             [
                 "date" => "20120102",
                 "username" => "username1",
-                "statement" => "statement1"
+                "statement" => "statement1",
             ],
             [
                 "date" => "20130102",
                 "username" => "username2",
-                "statement" => "statement2"
+                "statement" => "statement2",
             ],
         ];
         $filter_ts_from = 0;
@@ -128,16 +128,16 @@ class TrackingTest extends TestCase
                 "lovely_" => [
                     "is_group" => 1,
                     "hello_lovely_world" => [
-                        "Name" => "hello_lovely_world"
+                        "Name" => "hello_lovely_world",
                     ],
                     "hello_lovely_world2" => [
-                        "Name" => "hello_lovely_world2"
-                    ]
+                        "Name" => "hello_lovely_world2",
+                    ],
                 ],
                 "hello_world" => [
-                    "Name" => "hello_world"
-                ]
-            ]
+                    "Name" => "hello_world",
+                ],
+            ],
         ];
         $untracked_tables = $this->tracking->extractTableNames($table_list, 'db', true);
         $this->assertContains(
@@ -226,12 +226,12 @@ class TrackingTest extends TestCase
          * test versions table
          */
          $this->assertContains(
-                "<td>date_created</td>",
-                $html
+             "<td>date_created</td>",
+             $html
          );
          $this->assertContains(
-                __('Delete version'),
-                $html
+             __('Delete version'),
+             $html
          );
 
         /*
@@ -293,10 +293,10 @@ class TrackingTest extends TestCase
             $text_dir,
             $last_version
         );
-       $this->assertContains(
-           'Activate now',
-           $html
-       );
+        $this->assertContains(
+            'Activate now',
+            $html
+        );
 
         //restore DBI
         $GLOBALS['dbi'] = $dbi_old;
@@ -571,7 +571,7 @@ class TrackingTest extends TestCase
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
-                ]
+                ],
             ],
             'ddlog' => ['ddlog']
         ];
@@ -635,7 +635,7 @@ class TrackingTest extends TestCase
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
-                ]
+                ],
             ],
             'dmlog' => ['dmlog']
         ];
@@ -822,14 +822,14 @@ class TrackingTest extends TestCase
                     'statement' => 'statement1',
                     'date' => 'date2',
                     'username' => 'username3',
-                ]
+                ],
             ],
             'dmlog' =>  [
                 [
                     'statement' => 'statement1',
                     'date' => 'date2',
                     'username' => 'username3',
-                ]
+                ],
             ],
         ];
         $filter_users = ["*"];

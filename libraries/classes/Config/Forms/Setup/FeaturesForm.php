@@ -20,19 +20,23 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
      */
     public static function getForms()
     {
+        // phpcs:disable Squiz.Arrays.ArrayDeclaration.KeySpecified,Squiz.Arrays.ArrayDeclaration.NoKeySpecified
         $result = parent::getForms();
         /* Remove only_db/hide_db, we have proper Server form in setup */
         $result['Databases'] = array_diff(
             $result['Databases'],
-            ['Servers/1/only_db', 'Servers/1/hide_db']
+            [
+                'Servers/1/only_db',
+                'Servers/1/hide_db',
+            ]
         );
         /* Following are not available to user */
         $result['Import_export'] = [
             'UploadDir',
             'SaveDir',
             'RecodingEngine' => ':group',
-                'IconvExtraParams',
-                ':group:end',
+            'IconvExtraParams',
+            ':group:end',
             'ZipDump',
             'GZipDump',
             'BZipDump',
@@ -49,7 +53,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'LoginCookieStore',
             'LoginCookieDeleteAll',
             'CaptchaLoginPublicKey',
-            'CaptchaLoginPrivateKey'
+            'CaptchaLoginPrivateKey',
         ];
         $result['Developer'] = [
             'UserprefsDeveloperTab',
@@ -68,5 +72,6 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'ZeroConf',
         ];
         return $result;
+        // phpcs:enable
     }
 }

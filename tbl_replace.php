@@ -24,10 +24,14 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 global $url_params;
 
@@ -57,7 +61,11 @@ $insertEdit = new InsertEdit($GLOBALS['dbi']);
 // check whether insert row mode, if so include tbl_change.php
 $insertEdit->isInsertRow();
 
-$after_insert_actions = ['new_insert', 'same_insert', 'edit_next'];
+$after_insert_actions = [
+    'new_insert',
+    'same_insert',
+    'edit_next',
+];
 if (isset($_POST['after_insert'])
     && in_array($_POST['after_insert'], $after_insert_actions)
 ) {
@@ -221,8 +229,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $current_value = $possibly_uploaded_val;
         }
         // Apply Input Transformation if defined
-        if (!empty($mime_map[$column_name])
-            && !empty($mime_map[$column_name]['input_transformation'])
+        if (! empty($mime_map[$column_name])
+            && ! empty($mime_map[$column_name]['input_transformation'])
         ) {
             $filename = 'libraries/classes/Plugins/Transformations/'
                 . $mime_map[$column_name]['input_transformation'];
@@ -241,7 +249,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
                     // check if transformation was successful or not
                     // and accordingly set error messages & insert_fail
                     if (method_exists($transformation_plugin, 'isSuccess')
-                        && !$transformation_plugin->isSuccess()
+                        && ! $transformation_plugin->isSuccess()
                     ) {
                         $insert_fail = true;
                         $row_skipped = true;
@@ -317,7 +325,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
     if ($insert_fail) {
         $unsaved_values[$rownumber] = $multi_edit_columns;
     }
-    if (!$insert_fail && count($query_values) > 0) {
+    if (! $insert_fail && count($query_values) > 0) {
         if ($is_insert) {
             $value_sets[] = implode(', ', $query_values);
         } else {
@@ -350,7 +358,7 @@ unset(
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {
     $query = $insertEdit->buildSqlQuery($is_insertignore, $query_fields, $value_sets);
-} elseif (empty($query) && ! isset($_POST['preview_sql']) && !$row_skipped) {
+} elseif (empty($query) && ! isset($_POST['preview_sql']) && ! $row_skipped) {
     // No change -> move back to the calling script
     //
     // Note: logic passes here for inline edit
@@ -360,7 +368,7 @@ if ($is_insert && count($value_sets) > 0) {
         $goto_include = 'tbl_change.php';
     }
     $active_page = $goto_include;
-    include '' . Core::securePath($goto_include);
+    include ROOT_PATH . Core::securePath($goto_include);
     exit;
 }
 unset($multi_edit_columns, $is_insertignore);
@@ -465,7 +473,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         }
         $transformation_types = [
             "input_transformation",
-            "transformation"
+            "transformation",
         ];
         foreach ($mime_map as $transformation) {
             $column_name = $transformation['column_name'];
@@ -535,5 +543,5 @@ if (isset($_POST['after_insert']) && 'new_insert' == $_POST['after_insert']) {
 /**
  * Load target page.
  */
-require '' . Core::securePath($goto_include);
+require ROOT_PATH . Core::securePath($goto_include);
 exit;

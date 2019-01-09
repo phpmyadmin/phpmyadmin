@@ -25,7 +25,7 @@ class ConfigForm extends BaseForm
         return [
             'Config' => [
                 'DefaultLang',
-                'ServerDefault'
+                'ServerDefault',
             ],
         ];
     }

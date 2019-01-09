@@ -27,7 +27,7 @@ class MenuTest extends PmaTestCase
      */
     protected function setUp()
     {
-        if (!defined('PMA_IS_WINDOWS')) {
+        if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

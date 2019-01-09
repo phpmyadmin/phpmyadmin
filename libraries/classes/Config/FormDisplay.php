@@ -103,7 +103,8 @@ class FormDisplay
             'error_nan_nneg' => __('Not a non-negative number!'),
             'error_incorrect_port' => __('Not a valid port number!'),
             'error_invalid_value' => __('Incorrect value!'),
-            'error_value_lte' => __('Value must be equal or lower than %s!')];
+            'error_value_lte' => __('Value must be equal or lower than %s!')
+        ];
         $this->_configFile = $cf;
         // initialize validators
         Validator::getValidators($this->_configFile);
@@ -157,7 +158,7 @@ class FormDisplay
      */
     public function process($allowPartialSave = true, $checkFormSubmit = true)
     {
-        if ($checkFormSubmit && !isset($_POST['submit_save'])) {
+        if ($checkFormSubmit && ! isset($_POST['submit_save'])) {
             return false;
         }
 
@@ -221,9 +222,9 @@ class FormDisplay
      *
      * @param bool  $showRestoreDefault whether to show "restore default"
      *                                  button besides the input field
-     * @param array &$jsDefault         stores JavaScript code
+     * @param array $jsDefault          stores JavaScript code
      *                                  to be displayed
-     * @param array &$js                will be updated with javascript code
+     * @param array $js                 will be updated with javascript code
      * @param bool  $showButtons        whether show submit and reset button
      *
      * @return string
@@ -254,7 +255,7 @@ class FormDisplay
                 // always true/false for user preferences display
                 // otherwise null
                 $userPrefsAllow = isset($this->_userprefsKeys[$path])
-                    ? !isset($this->_userprefsDisallow[$path])
+                    ? ! isset($this->_userprefsDisallow[$path])
                     : null;
                 // display input
                 $htmlOutput .= $this->_displayFieldInput(
@@ -375,7 +376,7 @@ class FormDisplay
      * @param bool|null $userPrefsAllow     whether user preferences are enabled
      *                                      for this field (null - no support,
      *                                      true/false - enabled/disabled)
-     * @param array     &$jsDefault         array which stores JavaScript code
+     * @param array     $jsDefault          array which stores JavaScript code
      *                                      to be displayed
      *
      * @return string HTML for input field
@@ -467,7 +468,7 @@ class FormDisplay
         // TrustedProxies requires changes before displaying
         if ($systemPath == 'TrustedProxies') {
             foreach ($value as $ip => &$v) {
-                if (!preg_match('/^-\d+$/', $ip)) {
+                if (! preg_match('/^-\d+$/', $ip)) {
                     $v = $ip . ': ' . $v;
                 }
             }
@@ -550,7 +551,7 @@ class FormDisplay
 
         $cf = $this->_configFile;
         foreach (array_keys($this->_errors) as $workPath) {
-            if (!isset($this->_systemPaths[$workPath])) {
+            if (! isset($this->_systemPaths[$workPath])) {
                 continue;
             }
             $canonicalPath = $this->_systemPaths[$workPath];
@@ -561,7 +562,7 @@ class FormDisplay
     /**
      * Validates select field and casts $value to correct type
      *
-     * @param string &$value  Current value
+     * @param string $value   Current value
      * @param array  $allowed List of allowed values
      *
      * @return bool
@@ -575,11 +576,11 @@ class FormDisplay
             // equality comparison only if both values are numeric or not numeric
             // (allows to skip 0 == 'string' equalling to true)
             // or identity (for string-string)
-            if (($vk == $value && !(is_numeric($valueCmp) xor is_numeric($vk)))
+            if (($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk)))
                 || $vk === $value
             ) {
                 // keep boolean value as boolean
-                if (!is_bool($value)) {
+                if (! is_bool($value)) {
                     settype($value, gettype($vk));
                 }
                 return true;
@@ -633,7 +634,7 @@ class FormDisplay
                 }
 
                 // ensure the value is set
-                if (!isset($_POST[$key])) {
+                if (! isset($_POST[$key])) {
                     // checkboxes aren't set by browsers if they're off
                     if ($type == 'boolean') {
                         $_POST[$key] = false;
@@ -655,7 +656,7 @@ class FormDisplay
                         && isset($_POST[$key . '-userprefs-allow'])
                     ) {
                         unset($this->_userprefsDisallow[$systemPath]);
-                    } elseif (!isset($_POST[$key . '-userprefs-allow'])) {
+                    } elseif (! isset($_POST[$key . '-userprefs-allow'])) {
                         $this->_userprefsDisallow[$systemPath] = true;
                     }
                 }
@@ -713,7 +714,7 @@ class FormDisplay
         }
 
         // save forms
-        if (!$allowPartialSave && !empty($this->_errors)) {
+        if (! $allowPartialSave && ! empty($this->_errors)) {
             // don't look for non-critical errors
             $this->_validate();
             return $result;
@@ -823,7 +824,7 @@ class FormDisplay
      * Sets field comments and warnings based on current environment
      *
      * @param string $systemPath Path to settings
-     * @param array  &$opts      Chosen options
+     * @param array  $opts       Chosen options
      *
      * @return void
      */
@@ -832,7 +833,7 @@ class FormDisplay
         // RecodingEngine - mark unavailable types
         if ($systemPath == 'RecodingEngine') {
             $comment = '';
-            if (!function_exists('iconv')) {
+            if (! function_exists('iconv')) {
                 $opts['values']['iconv'] .= ' (' . __('unavailable') . ')';
                 $comment = sprintf(
                     __('"%s" requires %s extension'),
@@ -840,7 +841,7 @@ class FormDisplay
                     'iconv'
                 );
             }
-            if (!function_exists('recode_string')) {
+            if (! function_exists('recode_string')) {
                 $opts['values']['recode'] .= ' (' . __('unavailable') . ')';
                 $comment .= ($comment ? ", " : '') . sprintf(
                     __('"%s" requires %s extension'),
@@ -859,10 +860,20 @@ class FormDisplay
         ) {
             $comment = '';
             $funcs = [
-                'ZipDump'  => ['zip_open', 'gzcompress'],
-                'GZipDump' => ['gzopen', 'gzencode'],
-                'BZipDump' => ['bzopen', 'bzcompress']];
-            if (!function_exists($funcs[$systemPath][0])) {
+                'ZipDump'  => [
+                    'zip_open',
+                    'gzcompress',
+                ],
+                'GZipDump' => [
+                    'gzopen',
+                    'gzencode',
+                ],
+                'BZipDump' => [
+                    'bzopen',
+                    'bzcompress',
+                ],
+            ];
+            if (! function_exists($funcs[$systemPath][0])) {
                 $comment = sprintf(
                     __(
                         'Compressed import will not work due to missing function %s.'
@@ -870,7 +881,7 @@ class FormDisplay
                     $funcs[$systemPath][0]
                 );
             }
-            if (!function_exists($funcs[$systemPath][1])) {
+            if (! function_exists($funcs[$systemPath][1])) {
                 $comment .= ($comment ? '; ' : '') . sprintf(
                     __(
                         'Compressed export will not work due to missing function %s.'

@@ -81,7 +81,7 @@ class ConfigGenerator
      */
     private static function _getVarExport($var_name, $var_value, $crlf)
     {
-        if (!is_array($var_value) || empty($var_value)) {
+        if (! is_array($var_value) || empty($var_value)) {
             return "\$cfg['$var_name'] = "
                 . var_export($var_value, true) . ';' . $crlf;
         }

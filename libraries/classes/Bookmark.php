@@ -82,7 +82,7 @@ class Bookmark
      */
     public function getId(): int
     {
-        return (int)$this->_id;
+        return (int) $this->_id;
     }
 
     /**
@@ -261,7 +261,7 @@ class Bookmark
         array $bkm_fields,
         bool $all_users = false
     ) {
-        if (!(isset($bkm_fields['bkm_sql_query'])
+        if (! (isset($bkm_fields['bkm_sql_query'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
             && isset($bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_label']) > 0)

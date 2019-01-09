@@ -12,10 +12,14 @@ use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  *
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 PageSettings::showGroup('Export');
 
@@ -39,7 +43,7 @@ if (isset($_POST['templateAction']) && $cfgRelation['exporttemplateswork']) {
 /**
  * Gets tables information and displays top links
  */
-require_once 'libraries/tbl_common.inc.php';
+require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_export.php&amp;back=tbl_export.php';
 
 // Dump of a table
@@ -52,14 +56,14 @@ $export_page_title = __('View dump (schema) of table');
 if (! empty($sql_query)) {
     $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
 
-    if ((!empty($parser->statements[0]))
+    if ((! empty($parser->statements[0]))
         && ($parser->statements[0] instanceof PhpMyAdmin\SqlParser\Statements\SelectStatement)
     ) {
         // Finding aliases and removing them, but we keep track of them to be
         // able to replace them in select expression too.
         $aliases = [];
         foreach ($parser->statements[0]->from as $from) {
-            if ((!empty($from->table)) && (!empty($from->alias))) {
+            if ((! empty($from->table)) && (! empty($from->alias))) {
                 $aliases[$from->alias] = $from->table;
                 // We remove the alias of the table because they are going to
                 // be replaced anyway.
@@ -74,7 +78,8 @@ if (! empty($sql_query)) {
         ) {
             $replaces = [
                 [
-                    'FROM', 'FROM ' . PhpMyAdmin\SqlParser\Components\ExpressionArray::build(
+                    'FROM',
+                    'FROM ' . PhpMyAdmin\SqlParser\Components\ExpressionArray::build(
                         $parser->statements[0]->from
                     ),
                 ],
@@ -82,14 +87,18 @@ if (! empty($sql_query)) {
         }
 
         // Checking if the WHERE clause has to be replaced.
-        if ((!empty($where_clause)) && (is_array($where_clause))) {
+        if ((! empty($where_clause)) && (is_array($where_clause))) {
             $replaces[] = [
-                'WHERE', 'WHERE (' . implode(') OR (', $where_clause) . ')'
+                'WHERE',
+                'WHERE (' . implode(') OR (', $where_clause) . ')',
             ];
         }
 
         // Preparing to remove the LIMIT clause.
-        $replaces[] = ['LIMIT', ''];
+        $replaces[] = [
+            'LIMIT',
+            '',
+        ];
 
         // Replacing the clauses.
         $sql_query = PhpMyAdmin\SqlParser\Utils\Query::replaceClauses(
@@ -110,11 +119,11 @@ if (! empty($sql_query)) {
                     [
                         'type' => PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR,
                         'value_str' => '.',
-                    ]
+                    ],
                 ],
                 [
                     new PhpMyAdmin\SqlParser\Token($table),
-                    new PhpMyAdmin\SqlParser\Token('.', PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR)
+                    new PhpMyAdmin\SqlParser\Token('.', PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR),
                 ]
             );
         }

@@ -168,7 +168,7 @@ class Privileges
     /**
      * Parses privileges into an array, it modifies the array
      *
-     * @param array &$row Results row from
+     * @param array $row Results row from
      *
      * @return void
      */
@@ -291,42 +291,42 @@ class Privileges
             [
                 'Delete',
                 'DELETE',
-                $GLOBALS['strPrivDescDelete']
+                $GLOBALS['strPrivDescDelete'],
             ],
             [
                 'Create',
                 'CREATE',
-                $GLOBALS['strPrivDescCreateTbl']
+                $GLOBALS['strPrivDescCreateTbl'],
             ],
             [
                 'Drop',
                 'DROP',
-                $GLOBALS['strPrivDescDropTbl']
+                $GLOBALS['strPrivDescDropTbl'],
             ],
             [
                 'Index',
                 'INDEX',
-                $GLOBALS['strPrivDescIndex']
+                $GLOBALS['strPrivDescIndex'],
             ],
             [
                 'Alter',
                 'ALTER',
-                $GLOBALS['strPrivDescAlter']
+                $GLOBALS['strPrivDescAlter'],
             ],
             [
                 'Create View',
                 'CREATE_VIEW',
-                $GLOBALS['strPrivDescCreateView']
+                $GLOBALS['strPrivDescCreateView'],
             ],
             [
                 'Show view',
                 'SHOW_VIEW',
-                $GLOBALS['strPrivDescShowView']
+                $GLOBALS['strPrivDescShowView'],
             ],
             [
                 'Trigger',
                 'TRIGGER',
-                $GLOBALS['strPrivDescTrigger']
+                $GLOBALS['strPrivDescTrigger'],
             ],
         ];
     }
@@ -343,72 +343,72 @@ class Privileges
             [
                 'Select_priv',
                 'SELECT',
-                __('Allows reading data.')
+                __('Allows reading data.'),
             ],
             [
                 'Insert_priv',
                 'INSERT',
-                __('Allows inserting and replacing data.')
+                __('Allows inserting and replacing data.'),
             ],
             [
                 'Update_priv',
                 'UPDATE',
-                __('Allows changing data.')
+                __('Allows changing data.'),
             ],
             [
                 'Delete_priv',
                 'DELETE',
-                __('Allows deleting data.')
+                __('Allows deleting data.'),
             ],
             [
                 'Create_priv',
                 'CREATE',
-                __('Allows creating new databases and tables.')
+                __('Allows creating new databases and tables.'),
             ],
             [
                 'Drop_priv',
                 'DROP',
-                __('Allows dropping databases and tables.')
+                __('Allows dropping databases and tables.'),
             ],
             [
                 'Reload_priv',
                 'RELOAD',
-                __('Allows reloading server settings and flushing the server\'s caches.')
+                __('Allows reloading server settings and flushing the server\'s caches.'),
             ],
             [
                 'Shutdown_priv',
                 'SHUTDOWN',
-                __('Allows shutting down the server.')
+                __('Allows shutting down the server.'),
             ],
             [
                 'Process_priv',
                 'PROCESS',
-                __('Allows viewing processes of all users.')
+                __('Allows viewing processes of all users.'),
             ],
             [
                 'File_priv',
                 'FILE',
-                __('Allows importing data from and exporting data into files.')
+                __('Allows importing data from and exporting data into files.'),
             ],
             [
                 'References_priv',
                 'REFERENCES',
-                __('Has no effect in this MySQL version.')
+                __('Has no effect in this MySQL version.'),
             ],
             [
                 'Index_priv',
                 'INDEX',
-                __('Allows creating and dropping indexes.')
+                __('Allows creating and dropping indexes.'),
             ],
             [
                 'Alter_priv',
                 'ALTER',
-                __('Allows altering the structure of existing tables.')
+                __('Allows altering the structure of existing tables.'),
             ],
             [
                 'Show_db_priv',
                 'SHOW DATABASES',
-                __('Gives access to the complete list of databases.')
+                __('Gives access to the complete list of databases.'),
             ],
             [
                 'Super_priv',
@@ -417,79 +417,79 @@ class Privileges
                     'Allows connecting, even if maximum number of connections '
                     . 'is reached; required for most administrative operations '
                     . 'like setting global variables or killing threads of other users.'
-                )
+                ),
             ],
             [
                 'Create_tmp_table_priv',
                 'CREATE TEMPORARY TABLES',
-                __('Allows creating temporary tables.')
+                __('Allows creating temporary tables.'),
             ],
             [
                 'Lock_tables_priv',
                 'LOCK TABLES',
-                __('Allows locking tables for the current thread.')
+                __('Allows locking tables for the current thread.'),
             ],
             [
                 'Repl_slave_priv',
                 'REPLICATION SLAVE',
-                __('Needed for the replication slaves.')
+                __('Needed for the replication slaves.'),
             ],
             [
                 'Repl_client_priv',
                 'REPLICATION CLIENT',
-                __('Allows the user to ask where the slaves / masters are.')
+                __('Allows the user to ask where the slaves / masters are.'),
             ],
             [
                 'Create_view_priv',
                 'CREATE VIEW',
-                __('Allows creating new views.')
+                __('Allows creating new views.'),
             ],
             [
                 'Event_priv',
                 'EVENT',
-                __('Allows to set up events for the event scheduler.')
+                __('Allows to set up events for the event scheduler.'),
             ],
             [
                 'Trigger_priv',
                 'TRIGGER',
-                __('Allows creating and dropping triggers.')
+                __('Allows creating and dropping triggers.'),
             ],
             // for table privs:
             [
                 'Create View_priv',
                 'CREATE VIEW',
-                __('Allows creating new views.')
+                __('Allows creating new views.'),
             ],
             [
                 'Show_view_priv',
                 'SHOW VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.')
+                __('Allows performing SHOW CREATE VIEW queries.'),
             ],
             // for table privs:
             [
                 'Show view_priv',
                 'SHOW VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.')
+                __('Allows performing SHOW CREATE VIEW queries.'),
             ],
             [
                 'Create_routine_priv',
                 'CREATE ROUTINE',
-                __('Allows creating stored routines.')
+                __('Allows creating stored routines.'),
             ],
             [
                 'Alter_routine_priv',
                 'ALTER ROUTINE',
-                __('Allows altering and dropping stored routines.')
+                __('Allows altering and dropping stored routines.'),
             ],
             [
                 'Create_user_priv',
                 'CREATE USER',
-                __('Allows creating, dropping and renaming user accounts.')
+                __('Allows creating, dropping and renaming user accounts.'),
             ],
             [
                 'Execute_priv',
                 'EXECUTE',
-                __('Allows executing stored routines.')
+                __('Allows executing stored routines.'),
             ],
         ];
     }
@@ -524,7 +524,7 @@ class Privileges
             'priv_for_header' => $priv_for_header,
             'name' => $name,
             'name_for_dfn' => $name_for_dfn,
-            'name_for_current' => $name_for_current
+            'name_for_current' => $name_for_current,
         ]);
     }
 
@@ -732,7 +732,7 @@ class Privileges
                         'Select' => false,
                         'Insert' => false,
                         'Update' => false,
-                        'References' => false
+                        'References' => false,
                     ];
                 }
                 $this->dbi->freeResult($res);
@@ -789,7 +789,7 @@ class Privileges
                     : ''
                 ),
                 'disabled'    => false,
-                'radio'       => true
+                'radio'       => true,
             ],
             [
                 'name'        => 'ssl_type',
@@ -803,7 +803,7 @@ class Privileges
                     : ''
                 ),
                 'disabled'    => false,
-                'radio'       => true
+                'radio'       => true,
             ],
             [
                 'name'        => 'ssl_type',
@@ -817,7 +817,7 @@ class Privileges
                     : ''
                 ),
                 'disabled'    => false,
-                'radio'       => true
+                'radio'       => true,
             ],
             [
                 'name'        => 'ssl_type',
@@ -826,7 +826,7 @@ class Privileges
                 'label'       => 'SPECIFIED',
                 'checked'     => ($specified ? 'checked="checked"' : ''),
                 'disabled'    => false,
-                'radio'       => true
+                'radio'       => true,
             ],
             [
                 'name'        => 'ssl_cipher',
@@ -839,7 +839,7 @@ class Privileges
                 'label'       => 'REQUIRE CIPHER',
                 'checked'     => '',
                 'disabled'    => ! $specified,
-                'radio'       => false
+                'radio'       => false,
             ],
             [
                 'name'        => 'x509_issuer',
@@ -852,7 +852,7 @@ class Privileges
                 'label'       => 'REQUIRE ISSUER',
                 'checked'     => '',
                 'disabled'    => ! $specified,
-                'radio'       => false
+                'radio'       => false,
             ],
             [
                 'name'        => 'x509_subject',
@@ -865,12 +865,12 @@ class Privileges
                 'label'       => 'REQUIRE SUBJECT',
                 'checked'     => '',
                 'disabled'    => ! $specified,
-                'radio'       => false
+                'radio'       => false,
             ],
         ];
 
         return $this->template->render('server/privileges/require_options', [
-            'require_options' => $require_options
+            'require_options' => $require_options,
         ]);
     }
 
@@ -890,7 +890,7 @@ class Privileges
                 'value'       => (isset($row['max_questions']) ? $row['max_questions'] : '0'),
                 'description' => __(
                     'Limits the number of queries the user may send to the server per hour.'
-                )
+                ),
             ],
             [
                 'input_name'  => 'max_updates',
@@ -899,7 +899,7 @@ class Privileges
                 'description' => __(
                     'Limits the number of commands that change any table '
                     . 'or database the user may execute per hour.'
-                )
+                ),
             ],
             [
                 'input_name'  => 'max_connections',
@@ -907,7 +907,7 @@ class Privileges
                 'value'       => (isset($row['max_connections']) ? $row['max_connections'] : '0'),
                 'description' => __(
                     'Limits the number of new connections the user may open per hour.'
-                )
+                ),
             ],
             [
                 'input_name'  => 'max_user_connections',
@@ -917,12 +917,12 @@ class Privileges
                 'description' => __(
                     'Limits the number of simultaneous connections '
                     . 'the user may have.'
-                )
-            ]
+                ),
+            ],
         ];
 
         $html_output = $this->template->render('server/privileges/resource_limits', [
-            'limits' => $limits
+            'limits' => $limits,
         ]);
 
         $html_output .= '</fieldset>' . "\n";
@@ -1002,18 +1002,18 @@ class Privileges
                 __(
                     'Allows user to give to other users or remove from other users '
                     . 'privileges that user possess on this routine.'
-                )
+                ),
             ],
             [
                 'Alter_routine',
                 'ALTER ROUTINE',
-                __('Allows altering and dropping this routine.')
+                __('Allows altering and dropping this routine.'),
             ],
             [
                 'Execute',
                 'EXECUTE',
-                __('Allows executing this routine.')
-            ]
+                __('Allows executing this routine.'),
+            ],
         ];
         return $routinePrivTable;
     }
@@ -1229,9 +1229,10 @@ class Privileges
      */
     public function getHtmlForGlobalOrDbSpecificPrivs($db, $table, array $row)
     {
-        $privTable_names = [0 => __('Data'),
+        $privTable_names = [
+            0 => __('Data'),
             1 => __('Structure'),
-            2 => __('Administration')
+            2 => __('Administration'),
         ];
         $privTable = [];
         $privTable[0] = $this->getDataPrivilegeTable($db);
@@ -1293,16 +1294,33 @@ class Privileges
     public function getDataPrivilegeTable($db)
     {
         $data_privTable = [
-            ['Select', 'SELECT', __('Allows reading data.')],
-            ['Insert', 'INSERT', __('Allows inserting and replacing data.')],
-            ['Update', 'UPDATE', __('Allows changing data.')],
-            ['Delete', 'DELETE', __('Allows deleting data.')]
+            [
+                'Select',
+                'SELECT',
+                __('Allows reading data.'),
+            ],
+            [
+                'Insert',
+                'INSERT',
+                __('Allows inserting and replacing data.'),
+            ],
+            [
+                'Update',
+                'UPDATE',
+                __('Allows changing data.'),
+            ],
+            [
+                'Delete',
+                'DELETE',
+                __('Allows deleting data.'),
+            ],
         ];
         if ($db == '*') {
             $data_privTable[]
-                = ['File',
+                = [
+                    'File',
                     'FILE',
-                    __('Allows importing data from and exporting data into files.')
+                    __('Allows importing data from and exporting data into files.'),
                 ];
         }
         return $data_privTable;
@@ -1319,66 +1337,85 @@ class Privileges
     public function getStructurePrivilegeTable($table, array $row)
     {
         $structure_privTable = [
-            ['Create',
+            [
+                'Create',
                 'CREATE',
                 ($table == '*'
                     ? __('Allows creating new databases and tables.')
                     : __('Allows creating new tables.')
-                )
+                ),
             ],
-            ['Alter',
+            [
+                'Alter',
                 'ALTER',
-                __('Allows altering the structure of existing tables.')
+                __('Allows altering the structure of existing tables.'),
             ],
-            ['Index', 'INDEX', __('Allows creating and dropping indexes.')],
-            ['Drop',
+            [
+                'Index',
+                'INDEX',
+                __('Allows creating and dropping indexes.'),
+            ],
+            [
+                'Drop',
                 'DROP',
                 ($table == '*'
                     ? __('Allows dropping databases and tables.')
                     : __('Allows dropping tables.')
-                )
+                ),
             ],
-            ['Create_tmp_table',
+            [
+                'Create_tmp_table',
                 'CREATE TEMPORARY TABLES',
-                __('Allows creating temporary tables.')
+                __('Allows creating temporary tables.'),
             ],
-            ['Show_view',
+            [
+                'Show_view',
                 'SHOW VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.')
+                __('Allows performing SHOW CREATE VIEW queries.'),
             ],
-            ['Create_routine',
+            [
+                'Create_routine',
                 'CREATE ROUTINE',
-                __('Allows creating stored routines.')
+                __('Allows creating stored routines.'),
             ],
-            ['Alter_routine',
+            [
+                'Alter_routine',
                 'ALTER ROUTINE',
-                __('Allows altering and dropping stored routines.')
+                __('Allows altering and dropping stored routines.'),
             ],
-            ['Execute', 'EXECUTE', __('Allows executing stored routines.')],
+            [
+                'Execute',
+                'EXECUTE',
+                __('Allows executing stored routines.'),
+            ],
         ];
         // this one is for a db-specific priv: Create_view_priv
         if (isset($row['Create_view_priv'])) {
-            $structure_privTable[] = ['Create_view',
+            $structure_privTable[] = [
+                'Create_view',
                 'CREATE VIEW',
-                __('Allows creating new views.')
+                __('Allows creating new views.'),
             ];
         }
         // this one is for a table-specific priv: Create View_priv
         if (isset($row['Create View_priv'])) {
-            $structure_privTable[] = ['Create View',
+            $structure_privTable[] = [
+                'Create View',
                 'CREATE VIEW',
-                __('Allows creating new views.')
+                __('Allows creating new views.'),
             ];
         }
         if (isset($row['Event_priv'])) {
             // MySQL 5.1.6
-            $structure_privTable[] = ['Event',
+            $structure_privTable[] = [
+                'Event',
                 'EVENT',
-                __('Allows to set up events for the event scheduler.')
+                __('Allows to set up events for the event scheduler.'),
             ];
-            $structure_privTable[] = ['Trigger',
+            $structure_privTable[] = [
+                'Trigger',
                 'TRIGGER',
-                __('Allows creating and dropping triggers.')
+                __('Allows creating and dropping triggers.'),
             ];
         }
         return $structure_privTable;
@@ -1395,70 +1432,82 @@ class Privileges
     {
         if ($db == '*') {
             $adminPrivTable = [
-                ['Grant',
+                [
+                    'Grant',
                     'GRANT',
                     __(
                         'Allows adding users and privileges '
                         . 'without reloading the privilege tables.'
-                    )
+                    ),
                 ],
             ];
-            $adminPrivTable[] = ['Super',
+            $adminPrivTable[] = [
+                'Super',
                 'SUPER',
                 __(
                     'Allows connecting, even if maximum number '
                     . 'of connections is reached; required for '
                     . 'most administrative operations like '
                     . 'setting global variables or killing threads of other users.'
-                )
+                ),
             ];
-            $adminPrivTable[] = ['Process',
+            $adminPrivTable[] = [
+                'Process',
                 'PROCESS',
-                __('Allows viewing processes of all users.')
+                __('Allows viewing processes of all users.'),
             ];
-            $adminPrivTable[] = ['Reload',
+            $adminPrivTable[] = [
+                'Reload',
                 'RELOAD',
-                __('Allows reloading server settings and flushing the server\'s caches.')
+                __('Allows reloading server settings and flushing the server\'s caches.'),
             ];
-            $adminPrivTable[] = ['Shutdown',
+            $adminPrivTable[] = [
+                'Shutdown',
                 'SHUTDOWN',
-                __('Allows shutting down the server.')
+                __('Allows shutting down the server.'),
             ];
-            $adminPrivTable[] = ['Show_db',
+            $adminPrivTable[] = [
+                'Show_db',
                 'SHOW DATABASES',
-                __('Gives access to the complete list of databases.')
+                __('Gives access to the complete list of databases.'),
             ];
         } else {
             $adminPrivTable = [
-                ['Grant',
+                [
+                    'Grant',
                     'GRANT',
                     __(
                         'Allows user to give to other users or remove from other'
                         . ' users the privileges that user possess yourself.'
-                    )
+                    ),
                 ],
             ];
         }
-        $adminPrivTable[] = ['Lock_tables',
+        $adminPrivTable[] = [
+            'Lock_tables',
             'LOCK TABLES',
-            __('Allows locking tables for the current thread.')
+            __('Allows locking tables for the current thread.'),
         ];
-        $adminPrivTable[] = ['References',
+        $adminPrivTable[] = [
+            'References',
             'REFERENCES',
-            __('Has no effect in this MySQL version.')
+            __('Has no effect in this MySQL version.'),
         ];
         if ($db == '*') {
-            $adminPrivTable[] = ['Repl_client',
+            $adminPrivTable[] = [
+                'Repl_client',
                 'REPLICATION CLIENT',
-                __('Allows the user to ask where the slaves / masters are.')
+                __('Allows the user to ask where the slaves / masters are.'),
             ];
-            $adminPrivTable[] = ['Repl_slave',
+            $adminPrivTable[] = [
+                'Repl_slave',
                 'REPLICATION SLAVE',
-                __('Needed for the replication slaves.')
+                __('Needed for the replication slaves.'),
             ];
-            $adminPrivTable[] = ['Create_user',
+            $adminPrivTable[] = [
+                'Create_user',
                 'CREATE USER',
-                __('Allows creating, dropping and renaming user accounts.')
+                __('Allows creating, dropping and renaming user accounts.'),
             ];
         }
         return $adminPrivTable;
@@ -1513,7 +1562,7 @@ class Privileges
             }
         } else {
             $active_auth_plugins = [
-                'mysql_native_password' => __('Native MySQL authentication')
+                'mysql_native_password' => __('Native MySQL authentication'),
             ];
         }
 
@@ -1858,7 +1907,10 @@ class Privileges
                 $hostname_length = $val['CHARACTER_MAXIMUM_LENGTH'];
             }
         }
-        return [$username_length, $hostname_length];
+        return [
+            $username_length,
+            $hostname_length,
+        ];
     }
 
     /**
@@ -2051,7 +2103,7 @@ class Privileges
                     . $hostname . "';";
 
                 // Update the plugin for the user
-                if (!$this->dbi->tryQuery($update_plugin_query)) {
+                if (! $this->dbi->tryQuery($update_plugin_query)) {
                     Util::mysqlDie(
                         $this->dbi->getError(),
                         $update_plugin_query,
@@ -2085,7 +2137,7 @@ class Privileges
                     . '(\'' . $this->dbi->escapeString($_POST['pma_pw']) . '\')');
             }
 
-            if (!$this->dbi->tryQuery($local_query)) {
+            if (! $this->dbi->tryQuery($local_query)) {
                 Util::mysqlDie(
                     $this->dbi->getError(),
                     $sql_query,
@@ -2149,7 +2201,10 @@ class Privileges
         );
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
-        return [$message, $sql_query];
+        return [
+            $message,
+            $sql_query,
+        ];
     }
 
     /**
@@ -2207,19 +2262,19 @@ class Privileges
         }
         if (isset($_POST['max_questions']) || isset($GLOBALS['max_questions'])) {
             $max_questions = isset($_POST['max_questions'])
-                ? (int)$_POST['max_questions'] : (int)$GLOBALS['max_questions'];
+                ? (int) $_POST['max_questions'] : (int) $GLOBALS['max_questions'];
             $max_questions = max(0, $max_questions);
             $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
         }
         if (isset($_POST['max_connections']) || isset($GLOBALS['max_connections'])) {
             $max_connections = isset($_POST['max_connections'])
-                ? (int)$_POST['max_connections'] : (int)$GLOBALS['max_connections'];
+                ? (int) $_POST['max_connections'] : (int) $GLOBALS['max_connections'];
             $max_connections = max(0, $max_connections);
             $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
         }
         if (isset($_POST['max_updates']) || isset($GLOBALS['max_updates'])) {
             $max_updates = isset($_POST['max_updates'])
-                ? (int)$_POST['max_updates'] : (int)$GLOBALS['max_updates'];
+                ? (int) $_POST['max_updates'] : (int) $GLOBALS['max_updates'];
             $max_updates = max(0, $max_updates);
             $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
         }
@@ -2227,12 +2282,12 @@ class Privileges
             || isset($GLOBALS['max_user_connections'])
         ) {
             $max_user_connections = isset($_POST['max_user_connections'])
-                ? (int)$_POST['max_user_connections']
-                : (int)$GLOBALS['max_user_connections'];
+                ? (int) $_POST['max_user_connections']
+                : (int) $GLOBALS['max_user_connections'];
             $max_user_connections = max(0, $max_user_connections);
             $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
         }
-        return (!empty($sql_query) ? ' WITH' . $sql_query : '');
+        return (! empty($sql_query) ? ' WITH' . $sql_query : '');
     }
 
     /**
@@ -2353,7 +2408,10 @@ class Privileges
         $listOfComparedPrivs .=
             ' AND `Event_priv` = \'N\''
             . ' AND `Trigger_priv` = \'N\'';
-        return [$list_of_privileges, $listOfComparedPrivs];
+        return [
+            $list_of_privileges,
+            $listOfComparedPrivs,
+        ];
     }
 
     /**
@@ -2614,8 +2672,8 @@ class Privileges
     /**
      * merge privilege map and rows from resultset
      *
-     * @param array  &$privMap the privilege map reference
-     * @param object $result   the resultset of query
+     * @param array  $privMap the privilege map reference
+     * @param object $result  the resultset of query
      *
      * @return void
      */
@@ -2897,7 +2955,7 @@ class Privileges
         }
         $params = [
             'username' => $username,
-            'hostname' => $hostname
+            'hostname' => $hostname,
         ];
         switch ($linktype) {
             case 'edit':
@@ -3086,7 +3144,7 @@ class Privileges
             // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
             // enabled
             $cfgRelation = $this->relation->getRelationsParam();
-            if (!empty($cfgRelation['users']) && !empty($cfgRelation['usergroups'])) {
+            if (! empty($cfgRelation['users']) && ! empty($cfgRelation['usergroups'])) {
                 $new_user_string .= '<td class="usrGroup"></td>';
             }
 
@@ -3187,7 +3245,7 @@ class Privileges
             '3' => __(
                 '… delete the old one from the user tables '
                 . 'and reload the privileges afterwards.'
-            )
+            ),
         ];
 
         $html_output = '<form action="server_privileges.php" '
@@ -3253,7 +3311,7 @@ class Privileges
             . Url::getCommon(
                 [
                     'db' => $url_dbname,
-                    'reload' => 1
+                    'reload' => 1,
                 ]
             )
             . '">'
@@ -3306,18 +3364,20 @@ class Privileges
 
         if ($type == 'database') {
             $tables_to_search_for_users = [
-                'tables_priv', 'columns_priv', 'procs_priv'
+                'tables_priv',
+                'columns_priv',
+                'procs_priv',
             ];
             $dbOrTableName = 'Db';
         } elseif ($type == 'table') {
             $user_host_condition .= " AND `Db` LIKE '"
                 . $this->dbi->escapeString($dbname) . "'";
-            $tables_to_search_for_users = ['columns_priv',];
+            $tables_to_search_for_users = ['columns_priv'];
             $dbOrTableName = 'Table_name';
         } else { // routine
             $user_host_condition .= " AND `Db` LIKE '"
                 . $this->dbi->escapeString($dbname) . "'";
-            $tables_to_search_for_users = ['procs_priv',];
+            $tables_to_search_for_users = ['procs_priv'];
             $dbOrTableName = 'Routine_name';
         }
 
@@ -3554,7 +3614,10 @@ class Privileges
             // we already have the list of databases from libraries/common.inc.php
             // via $pma = new PMA;
             $pred_db_array = $GLOBALS['dblist']->databases;
-            $databases_to_skip = ['information_schema', 'performance_schema'];
+            $databases_to_skip = [
+                'information_schema',
+                'performance_schema',
+            ];
 
             $databases = [];
             if (! empty($pred_db_array)) {
@@ -3889,7 +3952,11 @@ class Privileges
         $tables = $this->dbi->fetchResult('SHOW TABLES FROM `mysql`;');
 
         $tablesSearchForUsers = [
-            'user', 'db', 'tables_priv', 'columns_priv', 'procs_priv',
+            'user',
+            'db',
+            'tables_priv',
+            'columns_priv',
+            'procs_priv',
         ];
 
         $db_rights_sqls = [];
@@ -3966,7 +4033,10 @@ class Privileges
                 );
             }
         }
-        return [$sql_query, $message];
+        return [
+            $sql_query,
+            $message,
+        ];
     }
 
     /**
@@ -4040,7 +4110,10 @@ class Privileges
         $message = Message::success(__('You have updated the privileges for %s.'));
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
-        return [$sql_query, $message];
+        return [
+            $sql_query,
+            $message,
+        ];
     }
 
     /**
@@ -4111,7 +4184,10 @@ class Privileges
             }
         }
 
-        return [$queries, $password];
+        return [
+            $queries,
+            $password,
+        ];
     }
 
     /**
@@ -4232,9 +4308,13 @@ class Privileges
         $queries_for_display = null;
         $sql_query = null;
 
-        if (!isset($_POST['adduser_submit']) && !isset($_POST['change_copy'])) {
+        if (! isset($_POST['adduser_submit']) && ! isset($_POST['change_copy'])) {
             return [
-                $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+                $message,
+                $queries,
+                $queries_for_display,
+                $sql_query,
+                $_add_user_error,
             ];
         }
 
@@ -4275,7 +4355,7 @@ class Privileges
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error
+                $_add_user_error,
             ];
         }
 
@@ -4298,10 +4378,10 @@ class Privileges
             $_error = false;
 
             if (! is_null($create_user_real)) {
-                if (!$this->dbi->tryQuery($create_user_real)) {
+                if (! $this->dbi->tryQuery($create_user_real)) {
                     $_error = true;
                 }
-                if (isset($password_set_real) && !empty($password_set_real)
+                if (isset($password_set_real) && ! empty($password_set_real)
                     && isset($_POST['authentication_plugin'])
                 ) {
                     $this->setProperPasswordHashing(
@@ -4324,7 +4404,7 @@ class Privileges
                 $alter_real_sql_query,
                 $alter_sql_query
             );
-            if (!empty($_POST['userGroup']) && $is_menuwork) {
+            if (! empty($_POST['userGroup']) && $is_menuwork) {
                 $this->setUserGroup($GLOBALS['username'], $_POST['userGroup']);
             }
 
@@ -4333,7 +4413,7 @@ class Privileges
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error
+                $_add_user_error,
             ];
         }
 
@@ -4372,7 +4452,11 @@ class Privileges
         }
 
         return [
-            $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+            $message,
+            $queries,
+            $queries_for_display,
+            $sql_query,
+            $_add_user_error,
         ];
     }
 
@@ -4511,7 +4595,8 @@ class Privileges
         }
 
         return [
-            $username, $hostname,
+            $username,
+            $hostname,
             isset($dbname) ? $dbname : null,
             isset($tablename) ? $tablename : null,
             isset($routinename) ? $routinename : null,
@@ -4569,7 +4654,10 @@ class Privileges
 
         $export .= '</textarea>';
 
-        return [$title, $export];
+        return [
+            $title,
+            $export,
+        ];
     }
 
     /**
@@ -4582,19 +4670,19 @@ class Privileges
      */
     public function getAddUserHtmlFieldset($db = '', $table = '')
     {
-        if (!$GLOBALS['is_createuser']) {
+        if (! $GLOBALS['is_createuser']) {
             return '';
         }
         $rel_params = [];
         $url_params = [
-            'adduser' => 1
+            'adduser' => 1,
         ];
-        if (!empty($db)) {
+        if (! empty($db)) {
             $url_params['dbname']
                 = $rel_params['checkprivsdb']
                     = $db;
         }
-        if (!empty($table)) {
+        if (! empty($table)) {
             $url_params['tablename']
                 = $rel_params['checkprivstable']
                     = $table;
@@ -4602,7 +4690,7 @@ class Privileges
 
         return $this->template->render('server/privileges/add_user_fieldset', [
             'url_params' => $url_params,
-            'rel_params' => $rel_params
+            'rel_params' => $rel_params,
         ]);
     }
 
@@ -5046,7 +5134,7 @@ class Privileges
                 'Select' => [],
                 'Insert' => [],
                 'Update' => [],
-                'References' => []
+                'References' => [],
             ];
 
             while ($row2 = $this->dbi->fetchAssoc($res2)) {
@@ -5159,13 +5247,13 @@ class Privileges
         $alter_real_sql_query,
         $alter_sql_query
     ) {
-        if ($_error || (!empty($real_sql_query)
-            && !$this->dbi->tryQuery($real_sql_query))
+        if ($_error || (! empty($real_sql_query)
+            && ! $this->dbi->tryQuery($real_sql_query))
         ) {
             $_POST['createdb-1'] = $_POST['createdb-2']
                 = $_POST['createdb-3'] = null;
             $message = Message::rawError($this->dbi->getError());
-        } elseif ($alter_real_sql_query !== '' && !$this->dbi->tryQuery($alter_real_sql_query)) {
+        } elseif ($alter_real_sql_query !== '' && ! $this->dbi->tryQuery($alter_real_sql_query)) {
             $_POST['createdb-1'] = $_POST['createdb-2']
                 = $_POST['createdb-3'] = null;
             $message = Message::rawError($this->dbi->getError());
@@ -5234,7 +5322,10 @@ class Privileges
                 $message = Message::rawError($this->dbi->getError());
             }
         }
-        return [$sql_query, $message];
+        return [
+            $sql_query,
+            $message,
+        ];
     }
 
     /**
@@ -5264,7 +5355,7 @@ class Privileges
     public function checkIfMariaDBPwdCheckPluginActive()
     {
         $serverVersion = $this->dbi->getVersion();
-        if (!(Util::getServerType() == 'MariaDB' && $serverVersion >= 100002)) {
+        if (! (Util::getServerType() == 'MariaDB' && $serverVersion >= 100002)) {
             return false;
         }
 
@@ -5503,7 +5594,7 @@ class Privileges
         $real_sql_query .= ';';
         $sql_query .= ';';
         // No Global GRANT_OPTION privilege
-        if (!$GLOBALS['is_grantuser']) {
+        if (! $GLOBALS['is_grantuser']) {
             $real_sql_query = '';
             $sql_query = '';
         }

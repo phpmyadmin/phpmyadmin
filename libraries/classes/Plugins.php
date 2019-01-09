@@ -72,7 +72,7 @@ class Plugins
         $GLOBALS['plugin_param'] = $plugin_param;
         /* Scan for plugins */
         $plugin_list = [];
-        if (!($handle = @opendir($plugins_dir))) {
+        if (! ($handle = @opendir($plugins_dir))) {
             return $plugin_list;
         }
 
@@ -173,13 +173,13 @@ class Plugins
             return htmlspecialchars($_REQUEST[$opt]);
         }
 
-        if (!isset($GLOBALS['cfg'][$section][$opt])) {
+        if (! isset($GLOBALS['cfg'][$section][$opt])) {
             return '';
         }
 
         $matches = [];
         /* Possibly replace localised texts */
-        if (!preg_match_all(
+        if (! preg_match_all(
             '/(str[A-Z][A-Za-z0-9]*)/',
             (string) $GLOBALS['cfg'][$section][$opt],
             $matches
@@ -268,10 +268,10 @@ class Plugins
     /**
      * Returns single option in a list element
      *
-     * @param string                                    $section        name of config section in $GLOBALS['cfg'][$section] for plugin
-     * @param string                                    $plugin_name    unique plugin name
-     * @param array|\PhpMyAdmin\Properties\PropertyItem &$propertyGroup options property main group instance
-     * @param boolean                                   $is_subgroup    if this group is a subgroup
+     * @param string                                             $section       name of config section in $GLOBALS['cfg'][$section] for plugin
+     * @param string                                             $plugin_name   unique plugin name
+     * @param \PhpMyAdmin\Properties\Options\OptionsPropertyItem $propertyGroup options property main group instance
+     * @param boolean                                            $is_subgroup   if this group is a subgroup
      *
      * @return string  table row with option
      */

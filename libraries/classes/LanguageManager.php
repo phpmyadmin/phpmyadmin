@@ -693,7 +693,7 @@ class LanguageManager
         $result = ['en'];
 
         /* Check for existing directory */
-        if (!is_dir(LOCALE_PATH)) {
+        if (! is_dir(LOCALE_PATH)) {
             return $result;
         }
 

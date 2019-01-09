@@ -436,7 +436,7 @@ class Response
                     [
                         'db' => Core::ifSetOr($GLOBALS['db'], ''),
                         'table' => Core::ifSetOr($GLOBALS['table'], ''),
-                        'sql_query' => $query
+                        'sql_query' => $query,
                     ]
                 );
                 if (! empty($GLOBALS['focus_querywindow'])) {
@@ -572,7 +572,7 @@ class Response
         }
     }
 
-   /**
+    /**
      * Generate header for 303
      *
      * @param string $location will set location to redirect.
@@ -583,7 +583,7 @@ class Response
     {
         $this->setHttpResponseCode(303);
         $this->header('Location: ' . $location);
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             exit;
         }
     }

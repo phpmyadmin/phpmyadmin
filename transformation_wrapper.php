@@ -12,6 +12,10 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  *
  */
@@ -20,7 +24,7 @@ define('IS_TRANSFORMATION_WRAPPER', true);
 /**
  * Gets a core script and starts output buffering work
  */
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $transformations = new Transformations();
 $relation = new Relation($GLOBALS['dbi']);
@@ -29,7 +33,7 @@ $cfgRelation = $relation->getRelationsParam();
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once './libraries/db_table_exists.inc.php';
+require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 
 
 /**
@@ -40,7 +44,7 @@ $request_params = [
     'ct',
     'sql_query',
     'transform_key',
-    'where_clause'
+    'where_clause',
 ];
 $size_params = [
     'newHeight',
@@ -110,7 +114,7 @@ $response->getHeader()->sendHttpHeaders();
 if (isset($ct) && ! empty($ct)) {
     $mime_type = $ct;
 } else {
-    $mime_type = (!empty($mime_map[$transform_key]['mimetype'])
+    $mime_type = (! empty($mime_map[$transform_key]['mimetype'])
         ? str_replace('_', '/', $mime_map[$transform_key]['mimetype'])
         : $default_ct)
     . (isset($mime_options['charset']) ? $mime_options['charset'] : '');

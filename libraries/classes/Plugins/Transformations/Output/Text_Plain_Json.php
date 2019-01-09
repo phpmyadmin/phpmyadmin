@@ -28,7 +28,7 @@ class Text_Plain_Json extends TransformationsPlugin
      */
     public function __construct()
     {
-        if (!empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+        if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
             $response = Response::getInstance();
             $scripts = $response->getHeader()
                 ->getScripts();

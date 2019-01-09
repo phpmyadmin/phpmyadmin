@@ -16,7 +16,7 @@ use ReflectionClass;
 /**
  * Tests for PhpMyAdmin\Database\Qbe class
  *
- *  @package PhpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 class QbeTest extends PmaTestCase
 {
@@ -116,7 +116,10 @@ class QbeTest extends PmaTestCase
             'value="ASC" selected="selected">',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
-                [1, 'ASC']
+                [
+                    1,
+                    'ASC',
+                ]
             )
         );
     }
@@ -333,7 +336,13 @@ class QbeTest extends PmaTestCase
             . 'value="or" checked="checked"></td></tr></table></td>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCell',
-                [3, ['and' => '', 'or' => ' checked="checked"']]
+                [
+                    3,
+                    [
+                        'and' => '',
+                        'or' => ' checked="checked"'
+                    ],
+                ]
             )
         );
     }
@@ -384,7 +393,10 @@ class QbeTest extends PmaTestCase
             . '"textfield" style="width: 12ex" size="20"></td></tr>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCriteriaRows',
-                [2,3]
+                [
+                    2,
+                    3,
+                ]
             )
         );
     }
@@ -452,9 +464,16 @@ class QbeTest extends PmaTestCase
             $this->_callProtectedFunction(
                 '_getIndexes',
                 [
-                    ['`table1`','table2'],
-                    ['column1', 'column2', 'column3'],
-                    ['column2']
+                    [
+                        '`table1`',
+                        'table2',
+                    ],
+                    [
+                        'column1',
+                        'column2',
+                        'column3',
+                    ],
+                    ['column2'],
                 ]
             )
         );
@@ -469,14 +488,21 @@ class QbeTest extends PmaTestCase
     {
         $this->assertEquals(
             [
-                0 => 'column2'
+                0 => 'column2',
             ],
             $this->_callProtectedFunction(
                 '_getLeftJoinColumnCandidates',
                 [
-                    ['`table1`','table2'],
-                    ['column1', 'column2', 'column3'],
-                    ['column2']
+                    [
+                        '`table1`',
+                        'table2',
+                    ],
+                    [
+                        'column1',
+                        'column2',
+                        'column3',
+                    ],
+                    ['column2'],
                 ]
             )
         );
@@ -494,10 +520,17 @@ class QbeTest extends PmaTestCase
             $this->_callProtectedFunction(
                 '_getMasterTable',
                 [
-                    ['table1','table2'],
-                    ['column1', 'column2', 'column3'],
+                    [
+                        'table1',
+                        'table2',
+                    ],
+                    [
+                        'column1',
+                        'column2',
+                        'column3',
+                    ],
                     ['column2'],
-                    ['qbe_test']
+                    ['qbe_test'],
                 ]
             )
         );
@@ -514,12 +547,12 @@ class QbeTest extends PmaTestCase
             'table1.id',
             'table1.value',
             'table1.name',
-            'table1.deleted'
+            'table1.deleted',
         ];
         $this->assertEquals(
             [
                 'where_clause_tables' => [],
-                'where_clause_columns' => []
+                'where_clause_columns' => [],
             ],
             $this->_callProtectedFunction(
                 '_getWhereClauseTablesAndColumns',
@@ -539,7 +572,7 @@ class QbeTest extends PmaTestCase
             'table1.id',
             'table1.value',
             'table1.name',
-            'table1.deleted'
+            'table1.deleted',
         ];
         $this->assertEquals(
             '`table1`',
@@ -561,7 +594,7 @@ class QbeTest extends PmaTestCase
             'table1.id',
             'table1.value',
             'table1.name',
-            'table1.deleted'
+            'table1.deleted',
         ];
         $this->assertEquals(
             'FROM `table1`

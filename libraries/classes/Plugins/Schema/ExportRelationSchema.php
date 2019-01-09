@@ -269,7 +269,7 @@ class ExportRelationSchema
     {
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
-        if ($this->pageNumber != -1 && !$this->offline) {
+        if ($this->pageNumber != -1 && ! $this->offline) {
             $_name_sql = 'SELECT page_descr FROM '
                 . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                 . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
@@ -296,7 +296,7 @@ class ExportRelationSchema
     public static function dieSchema($pageNumber, $type = '', $error_message = '')
     {
         echo "<p><strong>" , __("SCHEMA ERROR: ") , $type , "</strong></p>" , "\n";
-        if (!empty($error_message)) {
+        if (! empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
         }
         echo '<p>' , "\n";

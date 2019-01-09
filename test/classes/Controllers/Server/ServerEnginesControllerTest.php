@@ -159,7 +159,10 @@ class ServerEnginesControllerTest extends PmaTestCase
         );
         $this->assertContains(
             Url::getCommon(
-                ['engine' => $_REQUEST['engine'], 'page' => "Documentation"]
+                [
+                    'engine' => $_REQUEST['engine'],
+                    'page' => "Documentation"
+                ]
             ),
             $html
         );

@@ -67,7 +67,7 @@ class ImportShp extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
@@ -133,8 +133,8 @@ class ImportShp extends ImportPlugin
                         }
                     }
                 }
-            } elseif (!empty($local_import_file)
-                && !empty($GLOBALS['cfg']['UploadDir'])
+            } elseif (! empty($local_import_file)
+                && ! empty($GLOBALS['cfg']['UploadDir'])
                 && $compression == 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
@@ -226,7 +226,7 @@ class ImportShp extends ImportPlugin
                     foreach ($shp->getDBFHeader() as $c) {
                         $cell = trim($record->DBFData[$c[0]]);
 
-                        if (!strcmp($cell, '')) {
+                        if (! strcmp($cell, '')) {
                             $cell = 'NULL';
                         }
 
@@ -260,7 +260,13 @@ class ImportShp extends ImportPlugin
         } else {
             $table_name = 'TBL_NAME';
         }
-        $tables = [[$table_name, $col_names, $rows]];
+        $tables = [
+            [
+                $table_name,
+                $col_names,
+                $rows,
+            ],
+        ];
 
         // Use data from shape file to chose best-fit MySQL types for each column
         $analyses = [];

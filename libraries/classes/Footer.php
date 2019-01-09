@@ -72,8 +72,8 @@ class Footer
     private function _getDemoMessage(): string
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
-        if (@file_exists('./revision-info.php')) {
-            include './revision-info.php';
+        if (@file_exists(ROOT_PATH . 'revision-info.php')) {
+            include ROOT_PATH . 'revision-info.php';
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
                 '<a target="_blank" rel="noopener noreferrer" href="' . $repobase . $fullrevision . '">'
@@ -91,9 +91,9 @@ class Footer
     /**
      * Remove recursions and iterator objects from an object
      *
-     * @param object|array &$object Object to clean
-     * @param array        $stack   Stack used to keep track of recursion,
-     *                              need not be passed for the first time
+     * @param object|array $object Object to clean
+     * @param array        $stack  Stack used to keep track of recursion,
+     *                             need not be passed for the first time
      *
      * @return object Reference passed object
      */
@@ -102,7 +102,7 @@ class Footer
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {
                 $object = "***ITERATOR***";
-            } elseif (!in_array($object, $stack, true)) {
+            } elseif (! in_array($object, $stack, true)) {
                 $stack[] = $object;
                 foreach ($object as &$subobject) {
                     self::_removeRecursion($subobject, $stack);
@@ -124,7 +124,7 @@ class Footer
         $retval = '\'null\'';
         if ($GLOBALS['cfg']['DBG']['sql']
             && empty($_REQUEST['no_debug'])
-            && !empty($_SESSION['debug'])
+            && ! empty($_SESSION['debug'])
         ) {
             // Remove recursions and iterators from $_SESSION['debug']
             self::_removeRecursion($_SESSION['debug']);
@@ -151,7 +151,7 @@ class Footer
             'db' => $db,
             'table' => $table,
             'server' => $GLOBALS['server'],
-            'target' => $target
+            'target' => $target,
         ];
         // needed for server privileges tabs
         if (isset($_GET['viewing_mode'])

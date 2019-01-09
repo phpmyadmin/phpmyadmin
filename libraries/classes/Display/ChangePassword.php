@@ -25,15 +25,15 @@ use PhpMyAdmin\Util;
 class ChangePassword
 {
     /**
-      * Get HTML for the Change password dialog
-      *
-      * @param string $mode     where is the function being called?
-      *                         values : 'change_pw' or 'edit_other'
-      * @param string $username username
-      * @param string $hostname hostname
-      *
-      * @return string html snippet
-      */
+     * Get HTML for the Change password dialog
+     *
+     * @param string $mode     where is the function being called?
+     *                         values : 'change_pw' or 'edit_other'
+     * @param string $username username
+     * @param string $hostname hostname
+     *
+     * @return string html snippet
+     */
     public static function getHtml($mode, $username, $hostname)
     {
         $relation = new Relation($GLOBALS['dbi']);

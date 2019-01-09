@@ -443,7 +443,7 @@ class DbiMysqli implements DbiExtension
 
         $fields = $result->fetch_fields();
 
-        if (!is_array($fields)) {
+        if (! is_array($fields)) {
             return false;
         }
 

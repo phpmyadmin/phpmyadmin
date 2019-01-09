@@ -168,7 +168,7 @@ class ServerConfigChecks
             // $cfg['Servers'][$i]['ssl']
             // should be enabled if possible
             //
-            if (!$this->cfg->getValue("Servers/$i/ssl")) {
+            if (! $this->cfg->getValue("Servers/$i/ssl")) {
                 $title = Descriptions::get('Servers/1/ssl') . " ($serverName)";
                 SetupIndex::messagesSet(
                     'notice',
@@ -241,7 +241,11 @@ class ServerConfigChecks
                 );
             }
         }
-        return [$cookieAuthUsed, $blowfishSecret, $blowfishSecretSet];
+        return [
+            $cookieAuthUsed,
+            $blowfishSecret,
+            $blowfishSecretSet,
+        ];
     }
 
     /**
@@ -262,7 +266,10 @@ class ServerConfigChecks
             $blowfishSecretSet = true;
             $this->cfg->set('blowfish_secret', Util::generateRandom(32));
         }
-        return [$blowfishSecret, $blowfishSecretSet];
+        return [
+            $blowfishSecret,
+            $blowfishSecretSet,
+        ];
     }
 
     /**
@@ -307,7 +314,7 @@ class ServerConfigChecks
         // $cfg['ZipDump']
         // requires zip_open in import
         //
-        if ($this->cfg->getValue('ZipDump') && !$this->functionExists('zip_open')) {
+        if ($this->cfg->getValue('ZipDump') && ! $this->functionExists('zip_open')) {
             SetupIndex::messagesSet(
                 'error',
                 'ZipDump_import',
@@ -328,7 +335,7 @@ class ServerConfigChecks
         // $cfg['ZipDump']
         // requires gzcompress in export
         //
-        if ($this->cfg->getValue('ZipDump') && !$this->functionExists('gzcompress')) {
+        if ($this->cfg->getValue('ZipDump') && ! $this->functionExists('gzcompress')) {
             SetupIndex::messagesSet(
                 'error',
                 'ZipDump_export',
@@ -388,10 +395,10 @@ class ServerConfigChecks
                     );
                 }
                 // check used characters
-                $hasDigits = (bool)preg_match('/\d/', $blowfishSecret);
-                $hasChars = (bool)preg_match('/\S/', $blowfishSecret);
-                $hasNonword = (bool)preg_match('/\W/', $blowfishSecret);
-                if (!$hasDigits || !$hasChars || !$hasNonword) {
+                $hasDigits = (bool) preg_match('/\d/', $blowfishSecret);
+                $hasChars = (bool) preg_match('/\S/', $blowfishSecret);
+                $hasNonword = (bool) preg_match('/\W/', $blowfishSecret);
+                if (! $hasDigits || ! $hasChars || ! $hasNonword) {
                     $blowfishWarnings[] = Sanitize::sanitize(
                         __(
                             'Key should contain letters, numbers [em]and[/em] '
@@ -399,7 +406,7 @@ class ServerConfigChecks
                         )
                     );
                 }
-                if (!empty($blowfishWarnings)) {
+                if (! empty($blowfishWarnings)) {
                     SetupIndex::messagesSet(
                         'error',
                         'blowfish_warnings' . count($blowfishWarnings),
@@ -504,7 +511,7 @@ class ServerConfigChecks
         // requires bzip2 functions
         //
         if ($this->cfg->getValue('BZipDump')
-            && (!$this->functionExists('bzopen') || !$this->functionExists('bzcompress'))
+            && (! $this->functionExists('bzopen') || ! $this->functionExists('bzcompress'))
         ) {
             $functions = $this->functionExists('bzopen')
                 ? '' :
@@ -543,7 +550,7 @@ class ServerConfigChecks
         // requires zlib functions
         //
         if ($this->cfg->getValue('GZipDump')
-            && (!$this->functionExists('gzopen') || !$this->functionExists('gzencode'))
+            && (! $this->functionExists('gzopen') || ! $this->functionExists('gzencode'))
         ) {
             SetupIndex::messagesSet(
                 'error',

@@ -57,7 +57,7 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
-        include_once 'libraries/check_user_privileges.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
         $response = Response::getInstance();
 
@@ -69,7 +69,7 @@ class ServerDatabasesController extends Controller
             return;
         }
 
-        include_once 'libraries/replication.inc.php';
+        include_once ROOT_PATH . 'libraries/replication.inc.php';
 
         if (isset($_POST['new_db'])
             && $response->isAjax()
@@ -78,7 +78,7 @@ class ServerDatabasesController extends Controller
             return;
         }
 
-        include_once 'libraries/server_common.inc.php';
+        include_once ROOT_PATH . 'libraries/server_common.inc.php';
 
         $header  = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -223,7 +223,7 @@ class ServerDatabasesController extends Controller
             $GLOBALS['submit_mult'] = 'drop_db';
             $GLOBALS['mult_btn'] = __('Yes');
 
-            include 'libraries/mult_submits.inc.php';
+            include ROOT_PATH . 'libraries/mult_submits.inc.php';
 
             if (empty($message)) { // no error message
                 $number_of_databases = count($selected);
@@ -262,7 +262,7 @@ class ServerDatabasesController extends Controller
                 'SCHEMA_DATA_LENGTH',
                 'SCHEMA_INDEX_LENGTH',
                 'SCHEMA_LENGTH',
-                'SCHEMA_DATA_FREE'
+                'SCHEMA_DATA_FREE',
             ];
             if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
                 $this->_sort_by = $_REQUEST['sort_by'];
@@ -360,7 +360,10 @@ class ServerDatabasesController extends Controller
         $column_order = [];
         $column_order['DEFAULT_COLLATION_NAME'] = [
             'disp_name' => __('Collation'),
-            'description_function' => [Charsets::class, 'getCollationDescr'],
+            'description_function' => [
+                Charsets::class,
+                'getCollationDescr',
+            ],
             'format'    => 'string',
             'footer'    => '',
         ];

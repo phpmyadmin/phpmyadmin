@@ -258,18 +258,30 @@ class SqlTest extends TestCase
         $col3 = new stdClass();
         $col3->table = 'table3';
 
-        $fields_meta = [$col1, $col2, $col3];
+        $fields_meta = [
+            $col1,
+            $col2,
+            $col3,
+        ];
         $this->assertFalse(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
 
         // should not matter on where the odd column occurs
-        $fields_meta = [$col2, $col3, $col1];
+        $fields_meta = [
+            $col2,
+            $col3,
+            $col1,
+        ];
         $this->assertFalse(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
 
-        $fields_meta = [$col3, $col1, $col2];
+        $fields_meta = [
+            $col3,
+            $col1,
+            $col2,
+        ];
         $this->assertFalse(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
@@ -288,7 +300,11 @@ class SqlTest extends TestCase
         $col2->table = 'table1';
         $col3 = new stdClass();
         $col3->table = 'table1';
-        $fields_meta = [$col1, $col2, $col3];
+        $fields_meta = [
+            $col1,
+            $col2,
+            $col3,
+        ];
 
         $this->assertTrue(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
@@ -310,18 +326,30 @@ class SqlTest extends TestCase
         $col3 = new stdClass();
         $col3->table = 'table1';
 
-        $fields_meta = [$col1, $col2, $col3];
+        $fields_meta = [
+            $col1,
+            $col2,
+            $col3,
+        ];
         $this->assertTrue(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
 
         // should not matter on where the function column occurs
-        $fields_meta = [$col2, $col3, $col1];
+        $fields_meta = [
+            $col2,
+            $col3,
+            $col1,
+        ];
         $this->assertTrue(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
 
-        $fields_meta = [$col3, $col1, $col2];
+        $fields_meta = [
+            $col3,
+            $col1,
+            $col2,
+        ];
         $this->assertTrue(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
@@ -341,7 +369,11 @@ class SqlTest extends TestCase
         $col2->table = '';
         $col3 = new stdClass();
         $col3->table = '';
-        $fields_meta = [$col1, $col2, $col3];
+        $fields_meta = [
+            $col1,
+            $col2,
+            $col3,
+        ];
 
         $this->assertFalse(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])

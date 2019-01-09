@@ -103,7 +103,7 @@ class ImportSql extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
@@ -126,7 +126,7 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while ((!$error) && (!$timeout_passed)) {
+        while ((! $error) && (! $timeout_passed)) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
@@ -160,9 +160,9 @@ class ImportSql extends ImportPlugin
         }
 
         // Extracting remaining statements.
-        while ((!$error) && (!$timeout_passed) && (!empty($bq->query))) {
+        while ((! $error) && (! $timeout_passed) && (! empty($bq->query))) {
             $statement = $bq->extract(true);
-            if (!empty($statement)) {
+            if (! empty($statement)) {
                 $this->import->runQuery($statement, $statement, $sql_data);
             }
         }

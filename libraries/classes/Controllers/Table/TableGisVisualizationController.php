@@ -68,8 +68,8 @@ class TableGisVisualizationController extends TableController
     ) {
         parent::__construct($response, $dbi, $db, $table);
 
-        require_once 'libraries/common.inc.php';
-        require_once 'libraries/db_common.inc.php';
+        require_once ROOT_PATH . 'libraries/common.inc.php';
+        require_once ROOT_PATH . 'libraries/db_common.inc.php';
 
         $this->sql_query = $sql_query;
         $this->url_params = $url_params;
@@ -128,7 +128,7 @@ class TableGisVisualizationController extends TableController
             $this->visualizationSettings = $_REQUEST['visualizationSettings'];
         }
 
-        if (!isset($this->visualizationSettings['labelColumn'])
+        if (! isset($this->visualizationSettings['labelColumn'])
             && isset($labelCandidates[0])
         ) {
             $this->visualizationSettings['labelColumn'] = '';

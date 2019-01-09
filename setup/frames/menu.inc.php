@@ -10,7 +10,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -21,7 +21,10 @@ echo '<li><a href="index.php' , Url::getCommon() , '"'
     , ($formset_id === null ? ' class="active' : '')
     , '">' , __('Overview') , '</a></li>';
 
-$ignored = ['Config', 'Servers'];
+$ignored = [
+    'Config',
+    'Servers',
+];
 foreach (SetupFormList::getAll() as $formset) {
     if (in_array($formset, $ignored)) {
         continue;

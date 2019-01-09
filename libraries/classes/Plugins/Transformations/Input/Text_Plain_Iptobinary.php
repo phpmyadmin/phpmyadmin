@@ -84,7 +84,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
     ) {
         $html = '';
         $val = '';
-        if (!empty($value)) {
+        if (! empty($value)) {
             $length = strlen($value);
             if ($length == 4 || $length == 16) {
                 $ip = @inet_ntop(pack('A' . $length, $value));

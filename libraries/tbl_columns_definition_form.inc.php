@@ -17,7 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -25,7 +25,13 @@ if (!defined('PHPMYADMIN')) {
  * Check parameters
  */
 Util::checkParameters(
-    ['server', 'db', 'table', 'action', 'num_fields']
+    [
+        'server',
+        'db',
+        'table',
+        'action',
+        'num_fields',
+    ]
 );
 
 global $db, $table;
@@ -38,13 +44,13 @@ $template = new Template();
  * Initialize to avoid code execution path warnings
  */
 
-if (!isset($num_fields)) {
+if (! isset($num_fields)) {
     $num_fields = 0;
 }
-if (!isset($mime_map)) {
+if (! isset($mime_map)) {
     $mime_map = null;
 }
-if (!isset($columnMeta)) {
+if (! isset($columnMeta)) {
     $columnMeta = [];
 }
 
@@ -54,7 +60,7 @@ $content_cells = [];
 
 /** @var string $db */
 $form_params = [
-    'db' => $db
+    'db' => $db,
 ];
 
 if ($action == 'tbl_create.php') {
@@ -64,7 +70,8 @@ if ($action == 'tbl_create.php') {
         $form_params = array_merge(
             $form_params,
             [
-            'field_where' => Util::getValueByKey($_POST, 'field_where')]
+                'field_where' => Util::getValueByKey($_POST, 'field_where'),
+            ]
         );
         if (isset($_POST['field_where'])) {
             $form_params['after_field'] = $_POST['after_field'];
@@ -111,13 +118,18 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 }
 
 // this will be used on templates/columns_definitions/transformation.twig
-$mime_type = 'input_transformation';
-if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
-    foreach ($available_mime[$mime_type] as $mimekey => $transform) {
-        $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
-            $available_mime[$mime_type . '_file'][$mimekey],
-            '@'
-        );
+$mime_types = [
+    'input_transformation',
+    'transformation',
+];
+foreach ($mime_types as $mime_type) {
+    if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
+        foreach ($available_mime[$mime_type] as $mimekey => $transform) {
+            $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
+                $available_mime[$mime_type . '_file'][$mimekey],
+                '@'
+            );
+        }
     }
 }
 
@@ -151,7 +163,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     $submit_attribute = null;
     $extracted_columnspec = [];
 
-    if (!empty($regenerate)) {
+    if (! empty($regenerate)) {
         $columnMeta = array_merge(
             $columnMeta,
             [
@@ -270,7 +282,10 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = $fields_meta[$columnNumber];
         $virtual = [
-            'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+            'VIRTUAL',
+            'PERSISTENT',
+            'VIRTUAL GENERATED',
+            'STORED GENERATED',
         ];
         if (in_array($columnMeta['Extra'], $virtual)) {
             $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
@@ -355,7 +370,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $form_params['field_orig[' . $columnNumber . ']']
                 = $columnMeta['Field'];
             if (isset($columnMeta['column_status'])
-                && !$columnMeta['column_status']['isEditable']
+                && ! $columnMeta['column_status']['isEditable']
             ) {
                 $form_params['field_name[' . $columnNumber . ']']
                     = $columnMeta['Field'];
@@ -369,7 +384,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             // keep in uppercase because the new type will be in uppercase
             $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
             if (isset($columnMeta['column_status'])
-                && !$columnMeta['column_status']['isEditable']
+                && ! $columnMeta['column_status']['isEditable']
             ) {
                 $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
             }
@@ -463,7 +478,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     ];
 } // end for
 
-include 'libraries/tbl_partition_definition.inc.php';
+include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
 $html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,
@@ -504,7 +519,7 @@ $response = Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     [
         'vendor/jquery/jquery.uitablefilter.js',
-        'indexes.js'
+        'indexes.js',
     ]
 );
 $response->addHTML($html);

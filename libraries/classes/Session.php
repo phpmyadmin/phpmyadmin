@@ -115,11 +115,11 @@ class Session
     public static function setUp(Config $config, ErrorHandler $errorHandler)
     {
         // verify if PHP supports session, die if it does not
-        if (!function_exists('session_name')) {
+        if (! function_exists('session_name')) {
             Core::warnMissingExtension('session', true);
         } elseif (! empty(ini_get('session.auto_start'))
             && session_name() != 'phpMyAdmin'
-            && !empty(session_id())) {
+            && ! empty(session_id())) {
             // Do not delete the existing non empty session, it might be used by
             // other applications; instead just close it.
             if (empty($_SESSION)) {
@@ -148,7 +148,7 @@ class Session
 
         // optionally set session_save_path
         $path = $config->get('SessionSavePath');
-        if (!empty($path)) {
+        if (! empty($path)) {
             session_save_path($path);
             // We can not do this unconditionally as this would break
             // any more complex setup (eg. cluster), see

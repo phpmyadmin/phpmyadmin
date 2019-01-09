@@ -7,6 +7,10 @@
  */
 declare(strict_types=1);
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 // rfc2616 - Section 14.21
 header('Expires: ' . gmdate(DATE_RFC1123));
 // HTTP/1.1
@@ -28,7 +32,7 @@ if (isset($_SERVER['HTTP_USER_AGENT'])
 }
 header('Content-Type: text/html; charset=utf-8');
 
-require 'libraries/vendor_config.php';
+require ROOT_PATH . 'libraries/vendor_config.php';
 
 error_reporting(E_ALL);
 /**

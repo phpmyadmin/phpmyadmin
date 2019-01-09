@@ -17,7 +17,7 @@ use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 
-require_once 'libraries/config.default.php';
+require_once ROOT_PATH . 'libraries/config.default.php';
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationCookie class
@@ -123,7 +123,7 @@ class AuthenticationCookieTest extends PmaTestCase
                     'setBodyId',
                     'setTitle',
                     'disableMenuAndConsole',
-                    'disableWarnings'
+                    'disableWarnings',
                 ]
             )
             ->getMock();
@@ -157,7 +157,10 @@ class AuthenticationCookieTest extends PmaTestCase
             ->will($this->returnValue($mockHeader));
 
         $GLOBALS['pmaThemeImage'] = 'test';
-        $GLOBALS['cfg']['Servers'] = [1, 2];
+        $GLOBALS['cfg']['Servers'] = [
+            1,
+            2,
+        ];
 
         // mock error handler
 
@@ -372,7 +375,11 @@ class AuthenticationCookieTest extends PmaTestCase
     public function testAuthHeaderPartial()
     {
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
-        $GLOBALS['cfg']['Servers'] = [1, 2, 3];
+        $GLOBALS['cfg']['Servers'] = [
+            1,
+            2,
+            3,
+        ];
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
 

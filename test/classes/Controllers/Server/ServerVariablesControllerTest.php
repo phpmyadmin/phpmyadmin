@@ -77,7 +77,7 @@ class ServerVariablesControllerTest extends PmaTestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_session_variable
+                $server_session_variable,
             ],
             [
                 "SHOW GLOBAL VARIABLES;",
@@ -85,8 +85,8 @@ class ServerVariablesControllerTest extends PmaTestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_global_variables
-            ]
+                $server_global_variables,
+            ],
         ];
 
         $dbi->expects($this->any())->method('fetchResult')
@@ -133,7 +133,10 @@ class ServerVariablesControllerTest extends PmaTestCase
         KBSearch::loadTestData($slimData);
 
         //name is_numeric and the value type is byte
-        $args = [$nameForValueByte, "3"];
+        $args = [
+            $nameForValueByte,
+            "3",
+        ];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
@@ -142,7 +145,10 @@ class ServerVariablesControllerTest extends PmaTestCase
         $this->assertEquals(true, $isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
-        $args = [$nameForValueNotByte, "3"];
+        $args = [
+            $nameForValueNotByte,
+            "3",
+        ];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '3',
@@ -151,7 +157,10 @@ class ServerVariablesControllerTest extends PmaTestCase
         $this->assertEquals(false, $isHtmlFormatted);
 
         //value is not a number
-        $args = [$nameForValueNotByte, "value"];
+        $args = [
+            $nameForValueNotByte,
+            "value",
+        ];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             'value',
@@ -311,7 +320,10 @@ class ServerVariablesControllerTest extends PmaTestCase
         $formatVariable = $class->getMethod('_formatVariable');
         $formatVariable->setAccessible(true);
 
-        $args = [$name, "12"];
+        $args = [
+            $name,
+            "12",
+        ];
         list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
         $this->assertContains(
             $value,
@@ -324,7 +336,10 @@ class ServerVariablesControllerTest extends PmaTestCase
             $html
         );
 
-        $args = [$name, "13"];
+        $args = [
+            $name,
+            "13",
+        ];
         list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
         $this->assertContains(
             $value,

@@ -175,7 +175,7 @@ class CreateAddField
         bool $isCreateTable = true
     ): array {
         $statement = [];
-        if (!count($index)) {
+        if (! count($index)) {
             return $statement;
         }
 
@@ -468,12 +468,12 @@ class CreateAddField
             . Util::backquote(trim($table)) . ' (' . $sqlStatement . ')';
 
         // Adds table type, character set, comments and partition definition
-        if (!empty($_POST['tbl_storage_engine'])
+        if (! empty($_POST['tbl_storage_engine'])
             && ($_POST['tbl_storage_engine'] != 'Default')
         ) {
             $sqlQuery .= ' ENGINE = ' . $_POST['tbl_storage_engine'];
         }
-        if (!empty($_POST['tbl_collation'])) {
+        if (! empty($_POST['tbl_collation'])) {
             $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation']);
         }
         if (! empty($_POST['connection'])
@@ -483,7 +483,7 @@ class CreateAddField
             $sqlQuery .= " CONNECTION = '"
                 . $this->dbi->escapeString($_POST['connection']) . "'";
         }
-        if (!empty($_POST['comment'])) {
+        if (! empty($_POST['comment'])) {
             $sqlQuery .= ' COMMENT = \''
                 . $this->dbi->escapeString($_POST['comment']) . '\'';
         }
@@ -537,7 +537,7 @@ class CreateAddField
 
         // To allow replication, we first select the db to use and then run queries
         // on this db.
-        if (!$this->dbi->selectDb($db)) {
+        if (! $this->dbi->selectDb($db)) {
             Util::mysqlDie(
                 $this->dbi->getError(),
                 'USE ' . Util::backquote($db),
@@ -551,6 +551,9 @@ class CreateAddField
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($sqlQuery);
         }
-        return [$this->dbi->tryQuery($sqlQuery), $sqlQuery];
+        return [
+            $this->dbi->tryQuery($sqlQuery),
+            $sqlQuery,
+        ];
     }
 }

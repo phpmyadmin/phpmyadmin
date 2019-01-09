@@ -11,11 +11,15 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\MoTranslator\Loader;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
 define('PHPMYADMIN', true);
 define('TESTSUITE', true);
 
-require_once 'libraries/config.default.php';
-require_once 'libraries/vendor_config.php';
+require_once ROOT_PATH . 'libraries/config.default.php';
+require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 $GLOBALS['cfg'] = $cfg;
 $GLOBALS['server'] = 0;

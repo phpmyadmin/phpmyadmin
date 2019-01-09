@@ -146,7 +146,11 @@ class BrowseForeigners
 
         $output .= '</tr>';
 
-        return [$output, $horizontal_count, $indexByDescription];
+        return [
+            $output,
+            $horizontal_count,
+            $indexByDescription,
+        ];
     }
 
     /**
@@ -209,7 +213,7 @@ class BrowseForeigners
 
         $output .= '<table width="100%" id="browse_foreign_table">';
 
-        if (!is_array($foreignData['disp_row'])) {
+        if (! is_array($foreignData['disp_row'])) {
             $output .= '</tbody>'
                 . '</table>';
 
@@ -295,7 +299,10 @@ class BrowseForeigners
                 . '...'
             );
         }
-        return [$description, $descriptionTitle];
+        return [
+            $description,
+            $descriptionTitle,
+        ];
     }
 
     /**
@@ -309,7 +316,7 @@ class BrowseForeigners
     {
         $gotopage = '';
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
-        if (!is_array($foreignData['disp_row'])) {
+        if (! is_array($foreignData['disp_row'])) {
             return $gotopage;
         }
 

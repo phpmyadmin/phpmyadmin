@@ -18,10 +18,14 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Get the variables sent or posted to this script and a core script
  */
-include_once 'libraries/common.inc.php';
+include_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -52,123 +56,123 @@ if (isset($_GET['check_time_out'])) {
  * without checking
  */
 $post_params = [
-        'db',
-        'table',
-        'what',
-        'single_table',
-        'export_type',
-        'export_method',
-        'quick_or_custom',
-        'db_select',
-        'table_select',
-        'table_structure',
-        'table_data',
-        'limit_to',
-        'limit_from',
-        'allrows',
-        'lock_tables',
-        'output_format',
-        'filename_template',
-        'maxsize',
-        'remember_template',
-        'charset',
-        'compression',
-        'as_separate_files',
-        'knjenc',
-        'xkana',
-        'htmlword_structure_or_data',
-        'htmlword_null',
-        'htmlword_columns',
-        'mediawiki_headers',
-        'mediawiki_structure_or_data',
-        'mediawiki_caption',
-        'pdf_structure_or_data',
-        'odt_structure_or_data',
-        'odt_relation',
-        'odt_comments',
-        'odt_mime',
-        'odt_columns',
-        'odt_null',
-        'codegen_structure_or_data',
-        'codegen_format',
-        'excel_null',
-        'excel_removeCRLF',
-        'excel_columns',
-        'excel_edition',
-        'excel_structure_or_data',
-        'yaml_structure_or_data',
-        'ods_null',
-        'ods_structure_or_data',
-        'ods_columns',
-        'json_structure_or_data',
-        'json_pretty_print',
-        'json_unicode',
-        'xml_structure_or_data',
-        'xml_export_events',
-        'xml_export_functions',
-        'xml_export_procedures',
-        'xml_export_tables',
-        'xml_export_triggers',
-        'xml_export_views',
-        'xml_export_contents',
-        'texytext_structure_or_data',
-        'texytext_columns',
-        'texytext_null',
-        'phparray_structure_or_data',
-        'sql_include_comments',
-        'sql_header_comment',
-        'sql_dates',
-        'sql_relation',
-        'sql_mime',
-        'sql_use_transaction',
-        'sql_disable_fk',
-        'sql_compatibility',
-        'sql_structure_or_data',
-        'sql_create_database',
-        'sql_drop_table',
-        'sql_procedure_function',
-        'sql_create_table',
-        'sql_create_view',
-        'sql_create_trigger',
-        'sql_view_current_user',
-        'sql_if_not_exists',
-        'sql_or_replace_view',
-        'sql_auto_increment',
-        'sql_backquotes',
-        'sql_truncate',
-        'sql_delayed',
-        'sql_ignore',
-        'sql_type',
-        'sql_insert_syntax',
-        'sql_max_query_size',
-        'sql_hex_for_binary',
-        'sql_utc_time',
-        'sql_drop_database',
-        'sql_views_as_tables',
-        'sql_metadata',
-        'csv_separator',
-        'csv_enclosed',
-        'csv_escaped',
-        'csv_terminated',
-        'csv_null',
-        'csv_removeCRLF',
-        'csv_columns',
-        'csv_structure_or_data',
-        // csv_replace should have been here but we use it directly from $_POST
-        'latex_caption',
-        'latex_structure_or_data',
-        'latex_structure_caption',
-        'latex_structure_continued_caption',
-        'latex_structure_label',
-        'latex_relation',
-        'latex_comments',
-        'latex_mime',
-        'latex_columns',
-        'latex_data_caption',
-        'latex_data_continued_caption',
-        'latex_data_label',
-        'latex_null',
-        'aliases'
+    'db',
+    'table',
+    'what',
+    'single_table',
+    'export_type',
+    'export_method',
+    'quick_or_custom',
+    'db_select',
+    'table_select',
+    'table_structure',
+    'table_data',
+    'limit_to',
+    'limit_from',
+    'allrows',
+    'lock_tables',
+    'output_format',
+    'filename_template',
+    'maxsize',
+    'remember_template',
+    'charset',
+    'compression',
+    'as_separate_files',
+    'knjenc',
+    'xkana',
+    'htmlword_structure_or_data',
+    'htmlword_null',
+    'htmlword_columns',
+    'mediawiki_headers',
+    'mediawiki_structure_or_data',
+    'mediawiki_caption',
+    'pdf_structure_or_data',
+    'odt_structure_or_data',
+    'odt_relation',
+    'odt_comments',
+    'odt_mime',
+    'odt_columns',
+    'odt_null',
+    'codegen_structure_or_data',
+    'codegen_format',
+    'excel_null',
+    'excel_removeCRLF',
+    'excel_columns',
+    'excel_edition',
+    'excel_structure_or_data',
+    'yaml_structure_or_data',
+    'ods_null',
+    'ods_structure_or_data',
+    'ods_columns',
+    'json_structure_or_data',
+    'json_pretty_print',
+    'json_unicode',
+    'xml_structure_or_data',
+    'xml_export_events',
+    'xml_export_functions',
+    'xml_export_procedures',
+    'xml_export_tables',
+    'xml_export_triggers',
+    'xml_export_views',
+    'xml_export_contents',
+    'texytext_structure_or_data',
+    'texytext_columns',
+    'texytext_null',
+    'phparray_structure_or_data',
+    'sql_include_comments',
+    'sql_header_comment',
+    'sql_dates',
+    'sql_relation',
+    'sql_mime',
+    'sql_use_transaction',
+    'sql_disable_fk',
+    'sql_compatibility',
+    'sql_structure_or_data',
+    'sql_create_database',
+    'sql_drop_table',
+    'sql_procedure_function',
+    'sql_create_table',
+    'sql_create_view',
+    'sql_create_trigger',
+    'sql_view_current_user',
+    'sql_if_not_exists',
+    'sql_or_replace_view',
+    'sql_auto_increment',
+    'sql_backquotes',
+    'sql_truncate',
+    'sql_delayed',
+    'sql_ignore',
+    'sql_type',
+    'sql_insert_syntax',
+    'sql_max_query_size',
+    'sql_hex_for_binary',
+    'sql_utc_time',
+    'sql_drop_database',
+    'sql_views_as_tables',
+    'sql_metadata',
+    'csv_separator',
+    'csv_enclosed',
+    'csv_escaped',
+    'csv_terminated',
+    'csv_null',
+    'csv_removeCRLF',
+    'csv_columns',
+    'csv_structure_or_data',
+    // csv_replace should have been here but we use it directly from $_POST
+    'latex_caption',
+    'latex_structure_or_data',
+    'latex_structure_caption',
+    'latex_structure_continued_caption',
+    'latex_structure_label',
+    'latex_relation',
+    'latex_comments',
+    'latex_mime',
+    'latex_columns',
+    'latex_data_caption',
+    'latex_data_continued_caption',
+    'latex_data_label',
+    'latex_null',
+    'aliases',
 ];
 
 foreach ($post_params as $one_post_param) {
@@ -192,7 +196,7 @@ $export_plugin = Plugins::getPlugin(
     'libraries/classes/Plugins/Export/',
     [
         'export_type' => $export_type,
-        'single_table' => isset($single_table)
+        'single_table' => isset($single_table),
     ]
 );
 
@@ -206,7 +210,7 @@ if (empty($export_plugin)) {
  */
 $compression_methods = [
     'zip',
-    'gzip'
+    'gzip',
 ];
 
 /**
@@ -287,7 +291,8 @@ if ($export_type == 'server') {
 } elseif ($export_type == 'table' && strlen($db) > 0 && strlen($table) > 0) {
     $err_url = 'tbl_export.php' . Url::getCommon(
         [
-            'db' => $db, 'table' => $table
+            'db' => $db,
+            'table' => $table,
         ]
     );
 } else {
@@ -299,12 +304,12 @@ if ($export_type == 'server') {
 // preference over SQL Query aliases.
 $parser = new \PhpMyAdmin\SqlParser\Parser($sql_query);
 $aliases = [];
-if ((!empty($parser->statements[0]))
+if ((! empty($parser->statements[0]))
     && ($parser->statements[0] instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement)
 ) {
     $aliases = \PhpMyAdmin\SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
 }
-if (!empty($_POST['aliases'])) {
+if (! empty($_POST['aliases'])) {
     $aliases = $export->mergeAliases($aliases, $_POST['aliases']);
     $_SESSION['tmpval']['aliases'] = $_POST['aliases'];
 }
@@ -398,7 +403,7 @@ if ($save_on_server) {
                     __('No tables found in database.')
                 );
                 $active_page = 'db_export.php';
-                include 'db_export.php';
+                include ROOT_PATH . 'db_export.php';
                 exit();
             }
         }
@@ -462,13 +467,13 @@ do {
             $separate_files
         );
     } elseif ($export_type == 'database') {
-        if (!isset($table_structure) || !is_array($table_structure)) {
+        if (! isset($table_structure) || ! is_array($table_structure)) {
             $table_structure = [];
         }
-        if (!isset($table_data) || !is_array($table_data)) {
+        if (! isset($table_data) || ! is_array($table_data)) {
             $table_data = [];
         }
-        if (!empty($_POST['structure_or_data_forced'])) {
+        if (! empty($_POST['structure_or_data_forced'])) {
             $table_structure = $tables;
             $table_data = $tables;
         }

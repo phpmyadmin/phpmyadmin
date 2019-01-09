@@ -11,7 +11,7 @@ use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\ConfigGenerator;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 

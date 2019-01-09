@@ -488,7 +488,7 @@ class Index
     {
         return [
             'BTREE',
-            'HASH'
+            'HASH',
         ];
     }
 

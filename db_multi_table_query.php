@@ -10,7 +10,11 @@ declare(strict_types=1);
 use PhpMyAdmin\Database\MultiTableQuery;
 use PhpMyAdmin\Response;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 if (isset($_POST['sql_query'])) {
     MultiTableQuery::displayResults(
@@ -24,7 +28,7 @@ if (isset($_POST['sql_query'])) {
         $_GET['tables']
     );
     $response = Response::getInstance();
-    $response->addJSON('foreignKeyConstrains',$constrains);
+    $response->addJSON('foreignKeyConstrains', $constrains);
 } else {
     $response = Response::getInstance();
 

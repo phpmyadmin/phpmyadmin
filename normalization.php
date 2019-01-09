@@ -12,7 +12,11 @@ use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $normalization = new Normalization($GLOBALS['dbi']);
 
@@ -37,7 +41,10 @@ if (isset($_POST['splitColumn'])) {
 }
 if (isset($_POST['addNewPrimary'])) {
     $num_fields = 1;
-    $columnMeta = ['Field' => $table . "_id", 'Extra' => 'auto_increment'];
+    $columnMeta = [
+        'Field' => $table . "_id",
+        'Extra' => 'auto_increment',
+    ];
     $html = $normalization->getHtmlForCreateNewColumn(
         $num_fields,
         $db,

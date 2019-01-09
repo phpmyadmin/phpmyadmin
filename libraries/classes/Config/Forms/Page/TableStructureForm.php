@@ -24,7 +24,7 @@ class TableStructureForm extends BaseForm
     public static function getForms()
     {
         return [
-            'TableStructure' => MainForm::getForms()['TableStructure']
+            'TableStructure' => MainForm::getForms()['TableStructure'],
         ];
     }
 }

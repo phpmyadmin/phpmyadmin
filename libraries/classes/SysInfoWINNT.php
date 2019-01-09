@@ -27,7 +27,7 @@ class SysInfoWINNT extends SysInfoBase
      */
     public function __construct()
     {
-        if (!class_exists('COM')) {
+        if (! class_exists('COM')) {
             $this->_wmi = null;
         } else {
             // initialize the wmi object
@@ -63,7 +63,7 @@ class SysInfoWINNT extends SysInfoBase
      */
     public function supported()
     {
-        return !is_null($this->_wmi);
+        return ! is_null($this->_wmi);
     }
 
     /**
@@ -105,7 +105,10 @@ class SysInfoWINNT extends SysInfoBase
     {
         $buffer = $this->_getWMI(
             "Win32_OperatingSystem",
-            ['TotalVisibleMemorySize', 'FreePhysicalMemory']
+            [
+                'TotalVisibleMemorySize',
+                'FreePhysicalMemory',
+            ]
         );
         $mem = [];
         $mem['MemTotal'] = $buffer[0]['TotalVisibleMemorySize'];

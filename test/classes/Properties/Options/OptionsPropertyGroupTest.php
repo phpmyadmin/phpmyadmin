@@ -60,7 +60,12 @@ class OptionsPropertyGroupTest extends TestCase
         $this->stub->addProperty('2');
 
         $this->assertEquals(
-            [1, 2, 3, '2'],
+            [
+                1,
+                2,
+                3,
+                '2',
+            ],
             $properties->getValue($this->stub)
         );
     }
@@ -82,7 +87,7 @@ class OptionsPropertyGroupTest extends TestCase
             [
                 0 => 1,
                 1 => 2,
-                3 => 3
+                3 => 3,
             ],
             $properties->getValue($this->stub)
         );
@@ -113,7 +118,11 @@ class OptionsPropertyGroupTest extends TestCase
         $properties->setValue($this->stub, [1, 2, 3]);
 
         $this->assertEquals(
-            [1, 2, 3],
+            [
+                1,
+                2,
+                3,
+            ],
             $this->stub->getProperties()
         );
     }

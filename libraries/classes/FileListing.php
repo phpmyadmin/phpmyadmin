@@ -26,7 +26,7 @@ class FileListing
      */
     public function getDirContent(string $dir, string $expression = '')
     {
-        if (!@file_exists($dir) || !($handle = @opendir($dir))) {
+        if (! @file_exists($dir) || ! ($handle = @opendir($dir))) {
             return false;
         }
 
@@ -91,13 +91,13 @@ class FileListing
             $compressions = 'gz';
         }
         if ($cfg['BZipDump'] && function_exists('bzopen')) {
-            if (!empty($compressions)) {
+            if (! empty($compressions)) {
                 $compressions .= '|';
             }
             $compressions .= 'bz2';
         }
         if ($cfg['ZipDump'] && function_exists('gzinflate')) {
-            if (!empty($compressions)) {
+            if (! empty($compressions)) {
                 $compressions .= '|';
             }
             $compressions .= 'zip';

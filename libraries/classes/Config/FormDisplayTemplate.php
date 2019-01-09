@@ -81,7 +81,7 @@ class FormDisplayTemplate
                 . ' id="check_page_refresh" value="">' . "\n";
         }
         $htmlOutput .= Url::getHiddenInputs('', '', 0, 'server') . "\n";
-        $htmlOutput .= Url::getHiddenFields((array)$hiddenFields, '', true);
+        $htmlOutput .= Url::getHiddenFields((array) $hiddenFields, '', true);
         return $htmlOutput;
     }
 
@@ -193,10 +193,22 @@ class FormDisplayTemplate
             // The first element contains the filename and the second
             // element is used for the "alt" and "title" attributes.
             $iconInit = [
-                'edit'   => ['b_edit', ''],
-                'help'   => ['b_help', __('Documentation')],
-                'reload' => ['s_reload', ''],
-                'tblops' => ['b_tblops', '']
+                'edit'   => [
+                    'b_edit',
+                    '',
+                ],
+                'help'   => [
+                    'b_help',
+                    __('Documentation'),
+                ],
+                'reload' => [
+                    's_reload',
+                    '',
+                ],
+                'tblops' => [
+                    'b_tblops',
+                    '',
+                ],
             ];
             if ($isSetupScript) {
                 // When called from the setup script, we don't have access to the
@@ -224,7 +236,7 @@ class FormDisplayTemplate
                 }
             }
         }
-        $hasErrors = isset($opts['errors']) && !empty($opts['errors']);
+        $hasErrors = isset($opts['errors']) && ! empty($opts['errors']);
         $optionIsDisabled = ! $isSetupScript && isset($opts['userprefs_allow'])
             && ! $opts['userprefs_allow'];
         $nameId = 'name="' . htmlspecialchars($path) . '" id="'
@@ -269,7 +281,7 @@ class FormDisplayTemplate
             $htmlOutput .= '">' . __('Disabled') . "</span>";
         }
 
-        if (!empty($description)) {
+        if (! empty($description)) {
             $htmlOutput .= '<small>' . $description . '</small>';
         }
 
@@ -305,7 +317,7 @@ class FormDisplayTemplate
                 break;
             case 'select':
                 $htmlOutput .= '<select class="all85" ' . $nameId . $fieldClass . '>';
-                $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
+                $escape = ! (isset($opts['values_escaped']) && $opts['values_escaped']);
                 $valuesDisabled = isset($opts['values_disabled'])
                 ? array_flip($opts['values_disabled']) : [];
                 foreach ($opts['values'] as $optValueKey => $optValue) {
@@ -468,14 +480,14 @@ class FormDisplayTemplate
      *
      * @param string       $fieldId    ID of field to validate
      * @param string|array $validators validators callback
-     * @param array        &$jsArray   will be updated with javascript code
+     * @param array        $jsArray    will be updated with javascript code
      *
      * @return void
      */
     public function addJsValidate($fieldId, $validators, array &$jsArray): void
     {
-        foreach ((array)$validators as $validator) {
-            $validator = (array)$validator;
+        foreach ((array) $validators as $validator) {
+            $validator = (array) $validator;
             $vName = array_shift($validator);
             $vName = "PMA_" . $vName;
             $vArgs = [];

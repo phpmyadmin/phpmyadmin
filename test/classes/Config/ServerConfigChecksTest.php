@@ -64,7 +64,7 @@ class ServerConfigChecksTest extends PmaTestCase
                 'password' => 'password',
                 'AllowRoot' => true,
                 'AllowNoPassword' => true,
-            ]
+            ],
         ];
 
         $_SESSION[$this->sessionID]['AllowArbitraryServer'] = true;
@@ -121,8 +121,8 @@ class ServerConfigChecksTest extends PmaTestCase
                 'host' => 'localhost',
                 'ssl' => true,
                 'auth_type' => 'cookie',
-                'AllowRoot' => false
-            ]
+                'AllowRoot' => false,
+            ],
         ];
 
         $_SESSION[$this->sessionID]['AllowArbitraryServer'] = false;
@@ -158,8 +158,8 @@ class ServerConfigChecksTest extends PmaTestCase
         $_SESSION[$this->sessionID]['Servers'] = [
             '1' => [
                 'host' => 'localhost',
-                'auth_type' => 'cookie'
-            ]
+                'auth_type' => 'cookie',
+            ],
         ];
 
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);

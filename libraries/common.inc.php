@@ -71,7 +71,7 @@ define('PHPMYADMIN', true);
 /**
  * Load vendor configuration.
  */
-require_once './libraries/vendor_config.php';
+require_once ROOT_PATH . 'libraries/vendor_config.php';
 
 /**
  * Activate autoloader
@@ -387,12 +387,15 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if ($GLOBALS['dbi']->getVersion() < $cfg['MysqlMinVersion']['internal']) {
             Core::fatalError(
                 __('You should upgrade to %s %s or later.'),
-                ['MySQL', $cfg['MysqlMinVersion']['human']]
+                [
+                    'MySQL',
+                    $cfg['MysqlMinVersion']['human'],
+                ]
             );
         }
 
         // Sets the default delimiter (if specified).
-        if (!empty($_REQUEST['sql_delimiter'])) {
+        if (! empty($_REQUEST['sql_delimiter'])) {
             PhpMyAdmin\SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
         }
 

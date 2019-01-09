@@ -88,7 +88,7 @@ class Operations
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
             . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
-        if (!is_null($db_collation)) {
+        if (! is_null($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
                 . 'value="' . $db_collation
                 . '">' . "\n";
@@ -197,7 +197,7 @@ class Operations
         $choices = [
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only')
+            'dataonly'  => __('Data only'),
         ];
 
         $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
@@ -208,7 +208,7 @@ class Operations
             . 'method="post" action="db_operations.php" '
             . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
 
-        if (!is_null($db_collation)) {
+        if (! is_null($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
             . 'value="' . $db_collation . '">' . "\n";
         }
@@ -314,7 +314,7 @@ class Operations
                 $GLOBALS['cfg']['Server']['DisableIS'],
                 'db_collation',
                 'select_db_collation',
-                !is_null($db_collation) ? $db_collation : '',
+                ! is_null($db_collation) ? $db_collation : '',
                 false
             )
             . '<br>'
@@ -441,7 +441,7 @@ class Operations
             // to be able to rename a db containing views,
             // first all the views are collected and a stand-in is created
             // the real views are created after the tables
-            if ($this->dbi->getTable($db, (string)$each_table)->isView()) {
+            if ($this->dbi->getTable($db, (string) $each_table)->isView()) {
                 // If view exists, and 'add drop view' is selected: Drop it!
                 if ($_POST['what'] != 'nocopy'
                     && isset($_POST['drop_if_exists'])
@@ -484,7 +484,7 @@ class Operations
         $sqlContraints = [];
         foreach ($tables_full as $each_table => $tmp) {
             // skip the views; we have created stand-in definitions
-            if ($this->dbi->getTable($db, (string)$each_table)->isView()) {
+            if ($this->dbi->getTable($db, (string) $each_table)->isView()) {
                 continue;
             }
 
@@ -493,7 +493,7 @@ class Operations
 
             // do not copy the data from a Merge table
             // note: on the calling FORM, 'data' means 'structure and data'
-            if ($this->dbi->getTable($db, (string)$each_table)->isMerge()) {
+            if ($this->dbi->getTable($db, (string) $each_table)->isMerge()) {
                 if ($this_what == 'data') {
                     $this_what = 'structure';
                 }
@@ -506,7 +506,7 @@ class Operations
                 // keep the triggers from the original db+table
                 // (third param is empty because delimiters are only intended
                 //  for importing via the mysql client or our Import feature)
-                $triggers = $this->dbi->getTriggers($db, (string)$each_table, '');
+                $triggers = $this->dbi->getTriggers($db, (string) $each_table, '');
 
                 if (! Table::moveCopy(
                     $db,
@@ -795,7 +795,11 @@ class Operations
     public function duplicateBookmarks($_error, $db)
     {
         if (! $_error && $db != $_POST['newname']) {
-            $get_fields = ['user', 'label', 'query'];
+            $get_fields = [
+                'user',
+                'label',
+                'query',
+            ];
             $where_fields = ['dbase' => $db];
             $new_fields = ['dbase' => $_POST['newname']];
             Table::duplicateInfo(
@@ -1234,7 +1238,7 @@ class Operations
             . '</td>'
             . '<td>'
             . '<input type="checkbox" name="' . $attribute . '" id="' . $attribute . '"'
-            . ' value="1"' . (!empty($val) && $val == 1 ? ' checked="checked"' : '')
+            . ' value="1"' . (! empty($val) && $val == 1 ? ' checked="checked"' : '')
             . '>'
             . '</td>'
             . '</tr>';
@@ -1265,23 +1269,23 @@ class Operations
                 'PAGE'      => 'PAGE'
             ],
             'MYISAM' => [
-                 'FIXED'    => 'FIXED',
-                 'DYNAMIC'  => 'DYNAMIC'
+                'FIXED'    => 'FIXED',
+                'DYNAMIC'  => 'DYNAMIC'
             ],
             'PBXT'   => [
-                 'FIXED'    => 'FIXED',
-                 'DYNAMIC'  => 'DYNAMIC'
+                'FIXED'    => 'FIXED',
+                'DYNAMIC'  => 'DYNAMIC'
             ],
             'INNODB' => [
-                 'COMPACT'  => 'COMPACT',
-                 'REDUNDANT' => 'REDUNDANT'
+                'COMPACT'  => 'COMPACT',
+                'REDUNDANT' => 'REDUNDANT',
             ]
         ];
 
         /** @var Innodb $innodbEnginePlugin */
         $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
         $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
-        if (!empty($innodbPluginVersion)) {
+        if (! empty($innodbPluginVersion)) {
             $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat();
         } else {
             $innodb_file_format = '';
@@ -1333,7 +1337,7 @@ class Operations
         $choices = [
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only')
+            'dataonly'  => __('Data only'),
         ];
 
         $html_output .= Util::getRadioFields(
@@ -1484,7 +1488,7 @@ class Operations
             $params = [
                 'sql_query' => 'ALTER TABLE '
                 . Util::backquote($GLOBALS['table'])
-                . ' ENGINE = InnoDB;'
+                . ' ENGINE = InnoDB;',
             ];
             $html_output .= $this->getMaintainActionlink(
                 __('Defragment table'),
@@ -1592,7 +1596,7 @@ class Operations
                 'truncate_tbl_anchor'
             );
         }
-        if (!empty($dropTableUrlParams)) {
+        if (! empty($dropTableUrlParams)) {
             $html_output .= $this->getDeleteDataOrTablelink(
                 $dropTableUrlParams,
                 'DROP_TABLE',
@@ -1620,7 +1624,10 @@ class Operations
         return '<li>' . Util::linkOrButton(
             'sql.php' . Url::getCommon($url_params),
             $link,
-            ['id' => $htmlId, 'class' => 'ajax']
+            [
+                'id' => $htmlId,
+                'class' => 'ajax',
+            ]
         )
             . Util::showMySQLDocu($syntax)
             . '</li>';
@@ -1642,7 +1649,7 @@ class Operations
             'OPTIMIZE' => __('Optimize'),
             'REBUILD' => __('Rebuild'),
             'REPAIR' => __('Repair'),
-            'TRUNCATE' => __('Truncate')
+            'TRUNCATE' => __('Truncate'),
         ];
 
         $partition_method = Partition::getPartitionMethod(
@@ -1699,7 +1706,7 @@ class Operations
             [
                 'sql_query' => 'ALTER TABLE '
                 . Util::backquote($GLOBALS['table'])
-                . ' REMOVE PARTITIONING;'
+                . ' REMOVE PARTITIONING;',
             ]
         );
         $html_output .= '<div class="clearfloat"><br>';
@@ -1806,7 +1813,10 @@ class Operations
         $sql_query .= ';';
         $result = $this->dbi->query($sql_query);
 
-        return [$sql_query, $result];
+        return [
+            $sql_query,
+            $result,
+        ];
     }
 
     /**
@@ -1860,7 +1870,7 @@ class Operations
 
         if ($pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])
             && isset($_POST['new_pack_keys'])
-            && $_POST['new_pack_keys'] != (string)$pack_keys
+            && $_POST['new_pack_keys'] != (string) $pack_keys
         ) {
             $table_alters[] = 'pack_keys = ' . $_POST['new_pack_keys'];
         }
@@ -1968,7 +1978,10 @@ class Operations
 
         $result = $this->dbi->query($sql_query);
 
-        return [$sql_query, $result];
+        return [
+            $sql_query,
+            $result,
+        ];
     }
 
     /**
@@ -2200,12 +2213,6 @@ class Operations
                 $new = Util::backquote($_POST['target_db']) . '.'
                     . Util::backquote($new_name);
                 $message->addParam($new);
-
-                /* Check: Work on new table or on old table? */
-                if (isset($_POST['submit_move'])
-                    || Core::isValid($_POST['switch_to_new'])
-                ) {
-                }
             }
         } else {
             /**

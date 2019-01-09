@@ -87,10 +87,10 @@ class Sql
     /**
      * Handle remembered sorting order, only for single table query
      *
-     * @param string $db                    database name
-     * @param string $table                 table name
-     * @param array  &$analyzed_sql_results the analyzed query results
-     * @param string &$full_sql_query       SQL query
+     * @param string $db                   database name
+     * @param string $table                table name
+     * @param array  $analyzed_sql_results the analyzed query results
+     * @param string $full_sql_query       SQL query
      *
      * @return void
      */
@@ -141,7 +141,7 @@ class Sql
     /**
      * Append limit clause to SQL query
      *
-     * @param array &$analyzed_sql_results the analyzed query results
+     * @param array $analyzed_sql_results the analyzed query results
      *
      * @return string limit clause appended SQL query
      */
@@ -235,9 +235,9 @@ class Sql
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
             $_url_params = [
-                    'db' => $db,
-                    'table' => $table,
-                    'field' => $column
+                'db' => $db,
+                'table' => $table,
+                'field' => $column,
             ];
 
             $dropdown = '<span class="curr_value">'
@@ -329,7 +329,6 @@ EOT;
             $profiling_table .= "</div>";
             $profiling_table .= "<div class='clearfloat'></div>";
 
-            //require_once 'libraries/chart.lib.php';
             $profiling_table .= '<div id="profilingChartData" class="hide">';
             $profiling_table .= json_encode($chart_json);
             $profiling_table .= '</div>';
@@ -396,7 +395,11 @@ EOT;
                     = $one_result['Duration'];
             }
         }
-        return [$table, $chart_json, $profiling_stats];
+        return [
+            $table,
+            $chart_json,
+            $profiling_stats,
+        ];
     }
 
     /**
@@ -747,7 +750,7 @@ EOT;
      */
     private function isDeleteTransformationInfo(array $analyzed_sql_results)
     {
-        return !empty($analyzed_sql_results['querytype'])
+        return ! empty($analyzed_sql_results['querytype'])
             && (($analyzed_sql_results['querytype'] == 'ALTER')
                 || ($analyzed_sql_results['querytype'] == 'DROP'));
     }
@@ -1116,7 +1119,10 @@ EOT;
         // reopen session
         session_start();
 
-        return [$result, $querytime_after - $querytime_before];
+        return [
+            $result,
+            $querytime_after - $querytime_before,
+        ];
     }
 
     /**
@@ -1208,7 +1214,7 @@ EOT;
             return 0;
         }
 
-        if (!$this->isAppendLimitClause($analyzed_sql_results)) {
+        if (! $this->isAppendLimitClause($analyzed_sql_results)) {
             // if we did not append a limit, set this to get a correct
             // "Showing rows..." message
             // $_SESSION['tmpval']['max_rows'] = 'all';
@@ -1390,8 +1396,12 @@ EOT;
             }
         }
 
-        return [$result, $num_rows, $unlim_num_rows,
-            isset($profiling_results) ? $profiling_results : null, $extra_data
+        return [
+            $result,
+            $num_rows,
+            $unlim_num_rows,
+            isset($profiling_results) ? $profiling_results : null,
+            $extra_data,
         ];
     }
     /**
@@ -1410,10 +1420,10 @@ EOT;
         }
         $statement = $analyzed_sql_results['statement'];
         if ($statement instanceof AlterStatement) {
-            if (!empty($statement->altered[0])
+            if (! empty($statement->altered[0])
                 && $statement->altered[0]->options->has('DROP')
             ) {
-                if (!empty($statement->altered[0]->field->column)) {
+                if (! empty($statement->altered[0]->field->column)) {
                     $this->transformations->clear(
                         $db,
                         $table,
@@ -1563,7 +1573,7 @@ EOT;
             'success'
         );
         $html_output .= $html_message;
-        if (!isset($GLOBALS['show_as_php'])) {
+        if (! isset($GLOBALS['show_as_php'])) {
             if (! empty($GLOBALS['reload'])) {
                 $extra_data['reload'] = 1;
                 $extra_data['db'] = $GLOBALS['db'];
@@ -1580,8 +1590,8 @@ EOT;
             $response = Response::getInstance();
             $response->addJSON(isset($extra_data) ? $extra_data : []);
 
-            if (!empty($analyzed_sql_results['is_select']) &&
-                    !isset($extra_data['error'])) {
+            if (! empty($analyzed_sql_results['is_select']) &&
+                    ! isset($extra_data['error'])) {
                 $url_query = isset($url_query) ? $url_query : null;
 
                 $displayParts = [
@@ -1591,7 +1601,7 @@ EOT;
                     'nav_bar'  => '0',
                     'bkm_form' => '1',
                     'text_btn' => '1',
-                    'pview_lnk' => '1'
+                    'pview_lnk' => '1',
                 ];
 
                 $html_output .= $this->getHtmlForSqlQueryResultsTable(
@@ -1788,7 +1798,7 @@ EOT;
                         'nav_bar'  => '1',
                         'bkm_form' => '1',
                         'text_btn' => '1',
-                        'pview_lnk' => '1'
+                        'pview_lnk' => '1',
                     ];
 
                     $table_html .= $displayResultsObject->getTable(
@@ -1887,7 +1897,7 @@ EOT;
      */
     private function getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
     {
-        if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
+        if (! empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable)) {
             $missing_unique_column_msg = Message::notice(
                 sprintf(
                     __(
@@ -1978,10 +1988,10 @@ EOT;
      * @param array|null          $profiling_results    profiling results
      * @param string|null         $query_type           query type
      * @param array|null          $selectedTables       array of table names selected
-     *                                                     from the database structure page, for
-     *                                                     an action like check table,
-     *                                                     optimize table, analyze table or
-     *                                                     repair table
+     *                                                  from the database structure page, for
+     *                                                  an action like check table,
+     *                                                  optimize table, analyze table or
+     *                                                  repair table
      * @param string              $sql_query            sql query
      * @param string|null         $complete_query       complete sql query
      *
@@ -2041,7 +2051,7 @@ EOT;
 
         $statement = isset($analyzed_sql_results['statement']) ? $analyzed_sql_results['statement'] : null;
         if ($statement instanceof SelectStatement) {
-            if (!empty($statement->expr)) {
+            if (! empty($statement->expr)) {
                 if ($statement->expr[0]->expr === '*') {
                     $_table = new Table($table, $db);
                     $updatableView = $_table->isUpdatableView();
@@ -2076,10 +2086,10 @@ EOT;
             'nav_bar'  => '1',
             'bkm_form' => '1',
             'text_btn' => '0',
-            'pview_lnk' => '1'
+            'pview_lnk' => '1',
         ];
 
-        if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
+        if ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable) {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
@@ -2087,7 +2097,7 @@ EOT;
                 'nav_bar'  => '1',
                 'bkm_form' => '1',
                 'text_btn' => '1',
-                'pview_lnk' => '1'
+                'pview_lnk' => '1',
             ];
         }
         if (isset($_POST['printview']) && $_POST['printview'] == '1') {
@@ -2098,7 +2108,7 @@ EOT;
                 'nav_bar'  => '0',
                 'bkm_form' => '0',
                 'text_btn' => '0',
-                'pview_lnk' => '0'
+                'pview_lnk' => '0',
             ];
         }
 
@@ -2132,7 +2142,7 @@ EOT;
             }
         }
 
-        if (!isset($_POST['printview']) || $_POST['printview'] != '1') {
+        if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             unset($GLOBALS['message']);
@@ -2232,9 +2242,9 @@ EOT;
      * @param string         $query_type             query type
      * @param string         $sql_query              sql query
      * @param array|null     $selectedTables         array of table names selected from the
-     *                                                   database structure page, for an action
-     *                                                   like check table, optimize table,
-     *                                                   analyze table or repair table
+     *                                               database structure page, for an action
+     *                                               like check table, optimize table,
+     *                                               analyze table or repair table
      * @param string         $complete_query         complete query
      *
      * @return void
@@ -2269,7 +2279,7 @@ EOT;
             // @todo: possibly refactor
             extract($analyzed_sql_results);
 
-            if ($table != $table_from_sql && !empty($table_from_sql)) {
+            if ($table != $table_from_sql && ! empty($table_from_sql)) {
                 $table = $table_from_sql;
             }
         }

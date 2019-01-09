@@ -11,13 +11,17 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/server_common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/server_common.inc.php';
 
 /**
  * Replication library
  */
-require_once 'libraries/replication.inc.php';
+require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 $serverStatusData = new Data();
 $response = Response::getInstance();
@@ -26,7 +30,7 @@ $response = Response::getInstance();
  * Kills a selected process
  * on ajax request
  */
-if ($response->isAjax() && !empty($_POST['kill'])) {
+if ($response->isAjax() && ! empty($_POST['kill'])) {
     $kill = intval($_POST['kill']);
     $query = $GLOBALS['dbi']->getKillQuery($kill);
     if ($GLOBALS['dbi']->tryQuery($query)) {
@@ -45,7 +49,7 @@ if ($response->isAjax() && !empty($_POST['kill'])) {
     }
     $message->addParam($kill);
     $response->addJSON('message', $message);
-} elseif ($response->isAjax() && !empty($_POST['refresh'])) {
+} elseif ($response->isAjax() && ! empty($_POST['refresh'])) {
     // Only sends the process list table
     $response->addHTML(Processes::getHtmlForServerProcesslist());
 } else {

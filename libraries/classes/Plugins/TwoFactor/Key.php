@@ -38,7 +38,7 @@ class Key extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
-        if (!isset($this->_twofactor->config['settings']['registrations'])) {
+        if (! isset($this->_twofactor->config['settings']['registrations'])) {
             $this->_twofactor->config['settings']['registrations'] = [];
         }
     }
@@ -71,7 +71,7 @@ class Key extends TwoFactorPlugin
     public function check()
     {
         $this->_provided = false;
-        if (!isset($_POST['u2f_authentication_response']) || !isset($_SESSION['authenticationRequest'])) {
+        if (! isset($_POST['u2f_authentication_response']) || ! isset($_SESSION['authenticationRequest'])) {
             return false;
         }
         $this->_provided = true;

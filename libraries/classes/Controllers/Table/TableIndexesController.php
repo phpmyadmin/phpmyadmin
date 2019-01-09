@@ -146,7 +146,7 @@ class TableIndexesController extends TableController
                 'sql_data',
                 $this->template->render('preview_sql', ['query_data' => $sql_query])
             );
-        } elseif (!$error) {
+        } elseif (! $error) {
             $this->dbi->query($sql_query);
             $response = Response::getInstance();
             if ($response->isAjax()) {
@@ -166,7 +166,7 @@ class TableIndexesController extends TableController
                     )
                 );
             } else {
-                include 'tbl_structure.php';
+                include ROOT_PATH . 'tbl_structure.php';
             }
         } else {
             $this->response->setRequestStatus(false);

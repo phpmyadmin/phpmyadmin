@@ -24,15 +24,19 @@ use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * requirements
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = Response::getInstance();
@@ -99,7 +103,7 @@ if (strlen($GLOBALS['db']) > 0
                 'libraries/classes/Plugins/Export/',
                 [
                     'single_table' => isset($single_table),
-                    'export_type'  => 'database'
+                    'export_type'  => 'database',
                 ]
             );
 
@@ -228,7 +232,7 @@ if (isset($_POST['comment'])) {
     $relation->setDbComment($GLOBALS['db'], $_POST['comment']);
 }
 
-require 'libraries/db_common.inc.php';
+require ROOT_PATH . 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_operations.php';
 
 // Gets the database structure
@@ -256,7 +260,7 @@ if (isset($message)) {
 $db_collation = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
 $is_information_schema = $GLOBALS['dbi']->isSystemSchema($GLOBALS['db']);
 
-if (!$is_information_schema) {
+if (! $is_information_schema) {
     if ($cfgRelation['commwork']) {
         /**
          * database comment
@@ -307,7 +311,7 @@ if (!$is_information_schema) {
         $message->addParamHtml('<a href="./chk_rel.php" data-post="' . $url_query . '">');
         $message->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
-        if (!empty($cfg['Servers'][$server]['pmadb'])) {
+        if (! empty($cfg['Servers'][$server]['pmadb'])) {
             $message->isError(true);
         }
     } // end if

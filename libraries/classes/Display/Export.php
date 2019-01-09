@@ -86,7 +86,7 @@ class Export
                 if (in_array($currentDb, $_POST['db_select'])) {
                     $isSelected = true;
                 }
-            } elseif (!empty($tmpSelect)) {
+            } elseif (! empty($tmpSelect)) {
                 if (mb_strpos(
                     ' ' . $tmpSelect,
                     '|' . $currentDb . '|'
@@ -183,7 +183,7 @@ class Export
 
         return $this->template->render('display/export/template_options', [
             'templates' => $templates,
-            'selected_template' => !empty($_POST['template_id']) ? $_POST['template_id'] : null,
+            'selected_template' => ! empty($_POST['template_id']) ? $_POST['template_id'] : null,
         ]);
     }
 
@@ -483,14 +483,14 @@ class Export
         global $cfg;
 
         $hasAliases = isset($_SESSION['tmpval']['aliases'])
-            && !Core::emptyRecursive($_SESSION['tmpval']['aliases']);
+            && ! Core::emptyRecursive($_SESSION['tmpval']['aliases']);
         unset($_SESSION['tmpval']['aliases']);
 
         $isCheckedLockTables = $this->checkboxCheck('lock_tables');
         $isCheckedAsfile = $this->checkboxCheck('asfile');
 
         $optionsOutputSaveDir = '';
-        if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
+        if (isset($cfg['SaveDir']) && ! empty($cfg['SaveDir'])) {
             $optionsOutputSaveDir = $this->getHtmlForOptionsOutputSaveDir();
         }
         $optionsOutputFormat = $this->getHtmlForOptionsOutputFormat($exportType);
@@ -557,7 +557,7 @@ class Export
             $html .= $this->getHtmlForOptionsRows($db, $table, $unlimNumRows);
         }
 
-        if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
+        if (isset($cfg['SaveDir']) && ! empty($cfg['SaveDir'])) {
             $html .= $this->getHtmlForOptionsQuickExport();
         }
 
@@ -618,7 +618,10 @@ class Export
 
         // Empty row for javascript manipulations
         $result .= '</tbody><tfoot class="hide">' . $template->render([
-            'type' => '', 'name' => '', 'field' => 'aliases_new', 'value' => ''
+            'type' => '',
+            'name' => '',
+            'field' => 'aliases_new',
+            'value' => '',
         ]) . '</tfoot>';
 
         return $result . '</table>';
@@ -681,7 +684,7 @@ class Export
             'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $exportType,
-                'single_table' => isset($GLOBALS['single_table'])
+                'single_table' => isset($GLOBALS['single_table']),
             ]
         );
 

@@ -24,12 +24,18 @@ declare(strict_types=1);
 function get_login_credentials($user)
 {
     /* Optionally we can use passed username */
-    if (!empty($user)) {
-        return [$user, 'password'];
+    if (! empty($user)) {
+        return [
+            $user,
+            'password',
+        ];
     }
 
     /* Here we would retrieve the credentials */
-    $credentials = ['root', ''];
+    $credentials = [
+        'root',
+        '',
+    ];
 
     return $credentials;
 }

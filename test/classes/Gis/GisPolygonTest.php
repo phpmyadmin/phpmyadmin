@@ -62,20 +62,47 @@ class GisPolygonTest extends GisGeomTestCase
                 'no_of_lines' => 2,
                 0 => [
                     'no_of_points' => 5,
-                    0 => ['x' => 35, 'y' => 10],
-                    1 => ['x' => 10, 'y' => 20],
-                    2 => ['x' => 15, 'y' => 40],
-                    3 => ['x' => 45, 'y' => 45],
-                    4 => ['x' => 35, 'y' => 10],
+                    0 => [
+                        'x' => 35,
+                        'y' => 10,
+                    ],
+                    1 => [
+                        'x' => 10,
+                        'y' => 20,
+                    ],
+                    2 => [
+                        'x' => 15,
+                        'y' => 40,
+                    ],
+                    3 => [
+                        'x' => 45,
+                        'y' => 45,
+                    ],
+                    4 => [
+                        'x' => 35,
+                        'y' => 10,
+                    ],
                 ],
                 1 => [
                     'no_of_points' => 4,
-                    0 => ['x' => 20, 'y' => 30],
-                    1 => ['x' => 35, 'y' => 32],
-                    2 => ['x' => 30, 'y' => 20],
-                    3 => ['x' => 20, 'y' => 30],
+                    0 => [
+                        'x' => 20,
+                        'y' => 30,
+                    ],
+                    1 => [
+                        'x' => 35,
+                        'y' => 32,
+                    ],
+                    2 => [
+                        'x' => 30,
+                        'y' => 20,
+                    ],
+                    3 => [
+                        'x' => 20,
+                        'y' => 30,
+                    ],
                 ]
-            ]
+            ],
         ];
     }
 
@@ -87,7 +114,7 @@ class GisPolygonTest extends GisGeomTestCase
     public function providerForTestGenerateWkt()
     {
         $temp = [
-            0 => $this->_getData()
+            0 => $this->_getData(),
         ];
 
         $temp1 = $temp;
@@ -104,42 +131,42 @@ class GisPolygonTest extends GisGeomTestCase
                 $temp,
                 0,
                 null,
-                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))'
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))',
             ],
             // values at undefined index
             [
                 $temp,
                 1,
                 null,
-                'POLYGON(( , , , ))'
+                'POLYGON(( , , , ))',
             ],
             // if a coordinate is missing, default is empty string
             [
                 $temp1,
                 0,
                 null,
-                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 ))'
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 ))',
             ],
             // missing coordinates are replaced with provided values (3rd parameter)
             [
                 $temp1,
                 0,
                 '0',
-                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 0))'
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 0))',
             ],
             // should have at least one ring
             [
                 $temp2,
                 0,
                 '0',
-                'POLYGON((35 10,10 20,15 40,45 45,35 10))'
+                'POLYGON((35 10,10 20,15 40,45 45,35 10))',
             ],
             // a ring should have at least four points
             [
                 $temp3,
                 0,
                 '0',
-                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))'
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))',
             ],
         ];
     }
@@ -164,15 +191,15 @@ class GisPolygonTest extends GisGeomTestCase
                 [
                     'srid' => '124',
                     0 => $temp
-                ]
+                ],
             ],
             [
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))',
                 2,
                 [
-                    2 => $temp1
-                ]
-            ]
+                    2 => $temp1,
+                ],
+            ],
         ];
     }
 
@@ -200,31 +227,61 @@ class GisPolygonTest extends GisGeomTestCase
         return [
             [
                 [
-                    0 => ['x' => 35, 'y' => 10],
-                    1 => ['x' => 10, 'y' => 10],
-                    2 => ['x' => 15, 'y' => 40]
+                    0 => [
+                        'x' => 35,
+                        'y' => 10,
+                    ],
+                    1 => [
+                        'x' => 10,
+                        'y' => 10,
+                    ],
+                    2 => [
+                        'x' => 15,
+                        'y' => 40,
+                    ],
                 ],
-                -375.00
+                -375.00,
             ],
             // first point of the ring repeated as the last point
             [
                 [
-                    0 => ['x' => 35, 'y' => 10],
-                    1 => ['x' => 10, 'y' => 10],
-                    2 => ['x' => 15, 'y' => 40],
-                    3 => ['x' => 35, 'y' => 10]
+                    0 => [
+                        'x' => 35,
+                        'y' => 10,
+                    ],
+                    1 => [
+                        'x' => 10,
+                        'y' => 10,
+                    ],
+                    2 => [
+                        'x' => 15,
+                        'y' => 40,
+                    ],
+                    3 => [
+                        'x' => 35,
+                        'y' => 10,
+                    ],
                 ],
-                -375.00
+                -375.00,
             ],
             // anticlockwise gives positive area
             [
                 [
-                    0 => ['x' => 15, 'y' => 40],
-                    1 => ['x' => 10, 'y' => 10],
-                    2 => ['x' => 35, 'y' => 10]
+                    0 => [
+                        'x' => 15,
+                        'y' => 40,
+                    ],
+                    1 => [
+                        'x' => 10,
+                        'y' => 10,
+                    ],
+                    2 => [
+                        'x' => 35,
+                        'y' => 10,
+                    ],
                 ],
-                375.00
-            ]
+                375.00,
+            ],
         ];
     }
 
@@ -254,36 +311,60 @@ class GisPolygonTest extends GisGeomTestCase
     public function providerForTestIsPointInsidePolygon()
     {
         $ring = [
-            0 => ['x' => 35, 'y' => 10],
-            1 => ['x' => 10, 'y' => 10],
-            2 => ['x' => 15, 'y' => 40],
-            3 => ['x' => 35, 'y' => 10]
+            0 => [
+                'x' => 35,
+                'y' => 10,
+            ],
+            1 => [
+                'x' => 10,
+                'y' => 10,
+            ],
+            2 => [
+                'x' => 15,
+                'y' => 40,
+            ],
+            3 => [
+                'x' => 35,
+                'y' => 10,
+            ],
         ];
 
         return [
             // point inside the ring
             [
-                ['x' => 20, 'y' => 15],
+                [
+                    'x' => 20,
+                    'y' => 15,
+                ],
                 $ring,
-                true
+                true,
             ],
             // point on an edge of the ring
             [
-                ['x' => 20, 'y' => 10],
+                [
+                    'x' => 20,
+                    'y' => 10,
+                ],
                 $ring,
-                false
+                false,
             ],
             // point on a vertex of the ring
             [
-                ['x' => 10, 'y' => 10],
+                [
+                    'x' => 10,
+                    'y' => 10,
+                ],
                 $ring,
-                false
+                false,
             ],
             // point outside the ring
             [
-                ['x' => 5, 'y' => 10],
+                [
+                    'x' => 5,
+                    'y' => 10,
+                ],
                 $ring,
-                false
+                false,
             ],
         ];
     }
@@ -324,7 +405,7 @@ class GisPolygonTest extends GisGeomTestCase
             ],
             [
                 $temp['POLYGON'][1]
-            ]
+            ],
         ];
     }
 
@@ -343,7 +424,7 @@ class GisPolygonTest extends GisGeomTestCase
                     'maxX' => 123,
                     'minY' => 0,
                     'maxY' => 63,
-                ]
+                ],
             ],
             [
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),'
@@ -352,8 +433,8 @@ class GisPolygonTest extends GisGeomTestCase
                     'minX' => 10,
                     'maxX' => 45,
                     'minY' => 10,
-                    'maxY' => 45
-                ]
+                    'maxY' => 45,
+                ],
             ],
         ];
     }
@@ -406,10 +487,10 @@ class GisPolygonTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
-                imagecreatetruecolor(120, 150)
-            ]
+                imagecreatetruecolor(120, 150),
+            ],
         ];
     }
 
@@ -458,10 +539,10 @@ class GisPolygonTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 new TCPDF(),
-            ]
+            ],
         ];
     }
 
@@ -509,13 +590,13 @@ class GisPolygonTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 '/^(<path d=" M 222, 288 L 22, 228 L 10, 162 Z " name="svg" '
                 . 'id="svg)(\d+)(" class="polygon vector" stroke="black" '
                 . 'stroke-width="0.5" fill="#B02EE0" fill-rule="evenodd" '
-                . 'fill-opacity="0.8"\/>)$/'
-            ]
+                . 'fill-opacity="0.8"\/>)$/',
+            ],
         ];
     }
 
@@ -587,8 +668,8 @@ class GisPolygonTest extends GisGeomTestCase
                 . 'Geometry.Point(123,0)).transform(new OpenLayers.Projection'
                 . '("EPSG:4326"), map.getProjectionObject()))))), null, {"stroke'
                 . 'Color":"#000000","strokeWidth":0.5,"fillColor":"#B02EE0",'
-                . '"fillOpacity":0.8,"label":"Ol","fontSize":10}));'
-            ]
+                . '"fillOpacity":0.8,"label":"Ol","fontSize":10}));',
+            ],
         ];
     }
 
@@ -615,12 +696,24 @@ class GisPolygonTest extends GisGeomTestCase
         return [
             [
                 [
-                    ['x' => 0, 'y' => 0],
-                    ['x' => 0, 'y' => 1],
-                    ['x' => 1, 'y' => 1],
-                    ['x' => 1, 'y' => 0]
+                    [
+                        'x' => 0,
+                        'y' => 0,
+                    ],
+                    [
+                        'x' => 0,
+                        'y' => 1,
+                    ],
+                    [
+                        'x' => 1,
+                        'y' => 1,
+                    ],
+                    [
+                        'x' => 1,
+                        'y' => 0,
+                    ],
                 ],
-            ]
+            ],
         ];
     }
 }
