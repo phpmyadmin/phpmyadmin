@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2018-11-02 01:00+0000\n"
+"PO-Revision-Date: 2019-01-10 18:17+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1211
 msgid "Bad type!"
@@ -1936,15 +1936,11 @@ msgid "Are you sure?"
 msgstr "Emin misiniz?"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Bu eylem bazı sütunların tanımını değiştirebilir.<br/>Devam etmek "
+"Bu eylem bazı sütunların tanımını değiştirebilir.<br>Devam etmek "
 "istediğinize emin misiniz?"
 
 #: js/messages.php:450
@@ -2359,19 +2355,14 @@ msgid "Click to sort results by this column."
 msgstr "Sonuçları bu sütuna göre sıralamak için tıklayın."
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Bu sütunu ORDER BY yan tümcesine eklemek ya da ASC/DESC değiştirmek için "
-"Shift+Tıklayın.<br />- Sütunu ORDER BY yan tümcesinden kaldırmak için Ctrl"
-"+Tıklayın ya da Alt+Tıklayın (Mac: Shift+Option+Tıklayın)"
+"Shift+Tıklayın.<br>- Sütunu ORDER BY yan tümcesinden kaldırmak için Ctrl+"
+"Tıklayın ya da Alt+Tıklayın (Mac: Shift+Option+Tıklayın)"
 
 #: js/messages.php:605
 msgid "Click to mark/unmark."
@@ -2382,11 +2373,9 @@ msgid "Double-click to copy column name."
 msgstr "Sütun adını kopyalamak için çift tıklayın."
 
 #: js/messages.php:608
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
-"Sütunların görünürlüğünü değiştirmek<br />için aşağı açılır okuna tıklayın."
+"Sütunların görünürlüğünü değiştirmek<br>için aşağı açılır okuna tıklayın."
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
 #: templates/server/privileges/initials_row.twig:20
@@ -2453,21 +2442,15 @@ msgid "Print"
 msgstr "Yazdır"
 
 #: js/messages.php:640
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Aynı zamanda çoğu değeri, onlara doğrudan<br />çift tıklayarak "
+"Aynı zamanda çoğu değeri, onlara doğrudan<br>çift tıklayarak "
 "düzenleyebilirsiniz."
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Aynı zamanda çoğu değeri, onlara doğrudan<br />tıklayarak "
-"düzenleyebilirsiniz."
+"Aynı zamanda çoğu değeri, onlara doğrudan<br>tıklayarak düzenleyebilirsiniz."
 
 #: js/messages.php:651
 msgid "Go to link:"
@@ -2600,16 +2583,12 @@ msgid ""
 msgstr "Ayarlarınıza göre, bunlar şu anda gönderiliyor, lütfen sabırlı olun."
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Sayfa başarılı olarak silindi"
+msgstr "Başarılı olarak kopyalandı!"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Veritabanı kopyalanıyor"
+msgstr "Kopyalama başarısız oldu!"
 
 #: js/messages.php:734
 msgid "Execute this query again?"
@@ -7962,10 +7941,8 @@ msgid "Binary"
 msgstr "İkili Değer"
 
 #: libraries/classes/InsertEdit.php:764
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir."
+msgstr "Uzunluğu nedeniyle,<br> bu sütun düzenlenebilir olmayabilir."
 
 #: libraries/classes/InsertEdit.php:1382
 msgid "Binary - do not edit"
@@ -8321,7 +8298,7 @@ msgstr "Görünümler:"
 
 #: libraries/classes/Navigation/Navigation.php:246
 msgid "Unhide"
-msgstr ""
+msgstr "Gizleme"
 
 #: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
@@ -8539,15 +8516,11 @@ msgid "Primary key already exists."
 msgstr "Birincil anahtar zaten var."
 
 #: libraries/classes/Normalization.php:253
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Birincil anahtar yok; lütfen bir tane ekleyin.<br/>İpucu: Birincil anahtar, "
+"Birincil anahtar yok; lütfen bir tane ekleyin.<br>İpucu: Birincil anahtar, "
 "tüm satırları benzersiz olarak tanımlayan bir sütundur (ya da sütunların "
 "birleşimi)."
 
@@ -8741,12 +8714,6 @@ msgid "Find transitive dependencies"
 msgstr "Karşılıklı bağımlılıkları bul"
 
 #: libraries/classes/Normalization.php:812
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -8755,7 +8722,7 @@ msgid ""
 msgstr ""
 "Aşağıdaki her sütun için lütfen sütunun değerini yeteri kadar belirleyen "
 "değerlerle birlikte birleştirilip verilen küme arasındaki sütunların <b>en "
-"az olan kümesini</b> seçin.<br />Not: Bir sütun karşılıklı bağımlılıklara "
+"az olan kümesini</b> seçin.<br>Not: Bir sütun karşılıklı bağımlılıklara "
 "sahip olamayabilir, bu durumda hiç seçmemek zorundasınız."
 
 #: libraries/classes/Normalization.php:861
@@ -9506,57 +9473,39 @@ msgid "Syntax to use when inserting data:"
 msgstr "Veri eklenirken kullanılacak sözdizimi:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"her <code>INSERT</code> ifadesine sütun adlarını dahil et <br /> &nbsp; "
-"&nbsp; &nbsp; Örnek: <code>INSERT INTO tbl_adı (sütun_A,sütun_B,sütun_C) "
-"VALUES (1,2,3)</code>"
+"her <code>INSERT</code> ifadesine sütun adlarını dahil et <br> &nbsp; &nbsp; "
+"&nbsp; Örnek: <code>INSERT INTO tbl_adı (sütun_A,sütun_B,sütun_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"her <code>INSERT</code> ifadesine çoklu satırları ekle<br /> &nbsp; &nbsp; "
-"&nbsp; Örnek: <code>INSERT INTO tbl_adı VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"her <code>INSERT</code> ifadesine çoklu satırları ekle<br> &nbsp; &nbsp; "
+"&nbsp; Örnek: <code>INSERT INTO tbl_adı VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"yukarıdakilerin ikisi birden<br /> &nbsp; &nbsp; &nbsp; Örnek: <code>INSERT "
+"yukarıdakilerin ikisi birden<br> &nbsp; &nbsp; &nbsp; Örnek: <code>INSERT "
 "INTO tbl_adı (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"yukarıdakilerin hiçbiri<br /> &nbsp; &nbsp; &nbsp; Örnek: <code>INSERT INTO "
+"yukarıdakilerin hiçbiri<br> &nbsp; &nbsp; &nbsp; Örnek: <code>INSERT INTO "
 "tbl_adı VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
@@ -9779,10 +9728,9 @@ msgid "MediaWiki Table"
 msgstr "MedyaViki Tablosu"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Medyaviki girdisinin biçimi geçersiz olan satır: <br />%s."
+msgstr "Medyaviki girdisinin biçimi geçersiz olan satır: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10529,16 +10477,13 @@ msgid "Change or reconfigure master server"
 msgstr "Asıl sunucuyu değiştir veya yeniden yapılandır"
 
 #: libraries/classes/ReplicationGui.php:308
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Bu sunucu, kopya etme işlemi sırasında bağımlı sunucu olarak "
-"yapılandırılmaz. Bunu <a href=\"%s\">yapılandırmak</a> ister misiniz?"
+"yapılandırılmaz. Bunu %syapılandırmak%s ister misiniz?"
 
 #: libraries/classes/ReplicationGui.php:331
 msgid "Error management:"
@@ -10558,16 +10503,13 @@ msgid "Skip next %s errors."
 msgstr "Sonraki %s hatayı atla."
 
 #: libraries/classes/ReplicationGui.php:370
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Bu sunucu, kopya etme işlemi sırasında asıl sunucu olarak yapılandırılmaz. "
-"Bunu <a href=\"%s\">yapılandırmak</a> ister misiniz?"
+"Bunu %syapılandırmak%s ister misiniz?"
 
 #: libraries/classes/ReplicationGui.php:404
 #: templates/display/export/select_options.twig:8
@@ -15861,12 +15803,6 @@ msgid "None"
 msgstr "Yok"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
@@ -15874,7 +15810,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Eğer sütun türü \"enum\" veya \"set\" ise lütfen değerleri bu biçimi "
-"kullanarak girin: 'a','b','c'…<br />Eğer bu değerler arasına hep ters eğik "
+"kullanarak girin: 'a','b','c'…<br>Eğer bu değerler arasına hep ters eğik "
 "çizgi (\"\") veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik "
 "çizgi koyun (örneğin '\\\\xyz' veya 'a\\'b')."
 
@@ -15905,12 +15841,6 @@ msgstr "Tarayıcı görüntüleme dönüşümü seçenekleri"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -15918,9 +15848,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Lütfen dönüşüm seçenekleri için değerleri bu biçimi kullanarak giriniz: 'a', "
-"100, b,'c'…<br />Eğer bu değerler arasına hep ters eğik çizgi (\"\\\") veya "
-"tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik çizgi koyun "
-"(örneğin '\\\\xyz' veya 'a\\'b')."
+"100, b,'c'…<br>Eğer bu değerler arasına hep ters eğik çizgi (\"\\\") veya "
+"tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik çizgi koyun ("
+"örneğin '\\\\xyz' veya 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
