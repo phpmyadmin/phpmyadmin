@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2018-11-18 04:31+0000\n"
+"PO-Revision-Date: 2019-01-10 07:10+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1211
 msgid "Bad type!"
@@ -1955,16 +1955,12 @@ msgid "Are you sure?"
 msgstr "Você tem certeza?"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Esta ação pode mudar alguns de definição colunas. <br/> Tem certeza de que "
-"deseja continuar?"
+"Essa ação pode alterar algumas das definições de colunas.<br>Tem certeza de "
+"que deseja continuar?"
 
 #: js/messages.php:450
 msgid "Continue"
@@ -2376,11 +2372,6 @@ msgid "Click to sort results by this column."
 msgstr "Clique para ordenar os resultados por esta coluna."
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -2388,8 +2379,8 @@ msgid ""
 msgstr ""
 "Shift+Clique para adicionar esta coluna à cláusula ORDER BY(ORDEM POR) ou "
 "para alternar a exibição desta coluna nas ordens ASC/DESC (ASCENDENTE/"
-"DECRESCENTE) .<br />- Ctrl+Clique ou Alt+Clique (Mac: Shift+Opção+Clique) "
-"para remover a coluna da ORDER BY (ORDEM POR) da cláusula"
+"DECRESCENTE) .<br>- Ctrl+Clique ou Alt+Clique (Mac: Shift+Opção+Clique) para "
+"remover a coluna da ORDER BY (ORDEM POR) da cláusula"
 
 #: js/messages.php:605
 msgid "Click to mark/unmark."
@@ -2400,10 +2391,8 @@ msgid "Double-click to copy column name."
 msgstr "Clique duas vezes para copiar o nome da coluna."
 
 #: js/messages.php:608
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Clique na seta<br />para alternar a visibilidade da coluna."
+msgstr "Clique na seta<br>para alternar a visibilidade da coluna."
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
 #: templates/server/privileges/initials_row.twig:20
@@ -2471,20 +2460,15 @@ msgid "Print"
 msgstr "Imprimir"
 
 #: js/messages.php:640
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Você também pode editar a maioria dos valores<br/>clicando duas vezes sobre "
+"Você também pode editar a maioria dos valores<br>clicando duas vezes sobre "
 "eles."
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Você também pode editar a maioria dos valores<br/>clicando diretamente sobre "
+"Você também pode editar a maioria dos valores<br>clicando diretamente sobre "
 "eles."
 
 #: js/messages.php:651
@@ -2623,16 +2607,12 @@ msgstr ""
 "favor, seja paciente."
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Página apagada com sucesso :)"
+msgstr "Copiado com sucesso!"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Copiando o banco de dados"
+msgstr "A cópia falhou!"
 
 #: js/messages.php:734
 msgid "Execute this query again?"
@@ -8007,10 +7987,8 @@ msgid "Binary"
 msgstr "Binário"
 
 #: libraries/classes/InsertEdit.php:764
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Por causa da sua largura,<br/> esta coluna pode não ser editável."
+msgstr "Por causa de seu comprimento,<br> esta coluna pode não ser editável."
 
 #: libraries/classes/InsertEdit.php:1382
 msgid "Binary - do not edit"
@@ -8369,7 +8347,7 @@ msgstr "Views:"
 
 #: libraries/classes/Navigation/Navigation.php:246
 msgid "Unhide"
-msgstr ""
+msgstr "Mostrar"
 
 #: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
@@ -8589,15 +8567,11 @@ msgid "Primary key already exists."
 msgstr "Já existe uma chave primária."
 
 #: libraries/classes/Normalization.php:253
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Não existe uma chave primária; por favor, adicione uma. <br/>Dica: A chave "
+"Não existe uma chave primária; por favor, adicione uma.<br>Dica: A chave "
 "primária é uma coluna (ou combinação de colunas) que identificam unicamente "
 "todas as linhas."
 
@@ -8794,12 +8768,6 @@ msgid "Find transitive dependencies"
 msgstr "Localizar dependências transitivas"
 
 #: libraries/classes/Normalization.php:812
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -8808,9 +8776,8 @@ msgid ""
 msgstr ""
 "Para cada coluna abaixo, por favor selecione a <b>configuração mínima</b> de "
 "colunas dadas entre configurações cujos valores combinados são suficientes "
-"para determinar o valor da coluna. <br />Nota: uma coluna pode não ter "
-"nenhuma dependência transitiva, nesse caso você não terá que selecionar "
-"qualquer uma."
+"para determinar o valor da coluna.<br>Nota: uma coluna pode não ter nenhuma "
+"dependência transitiva, nesse caso você não terá que selecionar qualquer uma."
 
 #: libraries/classes/Normalization.php:861
 msgid ""
@@ -9562,56 +9529,40 @@ msgid "Syntax to use when inserting data:"
 msgstr "Sintaxe a usar para inserimento de dados:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"incluir nomes de columas em cada declaração <code>INSERT</code> <br/> "
-"Exemplo: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"incluir nomes de colunas em cada declaração <code>INSERT</code> <br> &nbsp; "
+"&nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"inserir múltiplas linhas em cada declaração <code>INSERT</code><br/> "
-"Exemplo: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"inserir múltiplas linhas em cada declaração <code>INSERT</code><br> &nbsp; "
+"&nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"ambos acima<br/> &nbsp; &nbsp; &nbsp;  Exemplo: <code>INSERT INTO tbl_name "
+"ambos acima<br> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name "
 "(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"nenhuma das opções acima<br/> Exemplo: <code>INSERT INTO tbl_name VALUES "
-"(1,2,3)</code>"
+"nenhuma das opções acima<br> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO "
+"tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
 msgid ""
@@ -9832,10 +9783,9 @@ msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Formato inválido de input mediawiki na linha: <br/>%s."
+msgstr "Formato inválido de input mediawiki na linha: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10587,16 +10537,13 @@ msgid "Change or reconfigure master server"
 msgstr "Alterar ou reconfigurar o servidor mestre"
 
 #: libraries/classes/ReplicationGui.php:308
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Este servidor não está configurado como escravo em um processo de "
-"replicação. Deseja <a href=\"%s\">configurá-lo</a> para tal?"
+"replicação. Deseja %sconfigurá-lo%s para tal?"
 
 #: libraries/classes/ReplicationGui.php:331
 msgid "Error management:"
@@ -10616,16 +10563,13 @@ msgid "Skip next %s errors."
 msgstr "Pular próximos %s erros."
 
 #: libraries/classes/ReplicationGui.php:370
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Esse servidor não está configurado como mestre em um processo de replicação. "
-"Deseja <a href=\"%s\">configurá-lo</a> assim?"
+"Deseja %sconfigurá-lo%s assim?"
 
 #: libraries/classes/ReplicationGui.php:404
 #: templates/display/export/select_options.twig:8
@@ -15941,12 +15885,6 @@ msgid "None"
 msgstr "Nenhum"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
@@ -15954,8 +15892,8 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Se o tipo de campo é \"enum\" ou \"set\", por favor entre com valores usando "
-"este formato: 'a','b','c'…<br />Se você precisar colocar uma barra contrária "
-"(\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma barra "
+"este formato: 'a','b','c'…<br>Se você precisar colocar uma barra contrária ("
+"\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma barra "
 "contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
@@ -15985,12 +15923,6 @@ msgstr "Opções de transformação de visualização do navegador"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -15998,7 +15930,7 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Por favor, digite os valores para as opções de transformação usando este "
-"formato: 'a', 100, b,'c'…<br />Se por acaso precisar inserir uma barra "
+"formato: 'a', 100, b,'c'…<br>Se por acaso precisar inserir uma barra "
 "invertida (\"\\\") ou aspas simples (\"'\") entre esses valores, faça-o "
 "precedendo-as com uma barra invertida (por exemplo '\\\\xyz' ou 'a\\'b')."
 
