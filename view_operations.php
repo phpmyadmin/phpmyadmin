@@ -109,7 +109,7 @@ $drop_view_url_params = array_merge(
         'purge' => '1',
         'message_to_show' => sprintf(
             __('View %s has been dropped.'),
-            htmlspecialchars($GLOBALS['table'])
+            $GLOBALS['table']
         ),
         'table' => $GLOBALS['table']
     ]
@@ -117,7 +117,7 @@ $drop_view_url_params = array_merge(
 
 echo $template->render('table/operations/view', [
     'hidden_inputs' => Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']),
-    'table_name_in_html_entities' => htmlspecialchars($GLOBALS['table']),
+    'table' => $GLOBALS['table'],
     'delete_data_or_table_link' => $operations->getDeleteDataOrTablelink(
         $drop_view_url_params,
         'DROP VIEW',
