@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - issue #13788 Exporting a view structure based on another view with a sub-query throws no database selected error
 - issue #14635 Fix PHP error in GitRevision, error in processing request, error code 200
 - issue #14787 Cannot execute stored procedure
+- issue        Add Burmese language
 
 4.8.4.1 (not yet released)
 - issue #14794 Not responding to click, frozen interface, plugin Text_Plain_Sql error
