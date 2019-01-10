@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:37-0200\n"
-"PO-Revision-Date: 2018-11-03 09:24+0000\n"
+"PO-Revision-Date: 2019-01-10 19:08+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-8/fr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -10632,16 +10632,13 @@ msgid "Change or reconfigure master server"
 msgstr "Changer ou reconfigurer le serveur maître"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Ce serveur n'est pas configuré comme esclave dans un processus de "
-"réplication. Faut-il le <a href=\"%s\">configurer</a> ?"
+"réplication. Faut-il le %sconfigurer%s ?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10663,16 +10660,13 @@ msgid "Skip next %s errors."
 msgstr "Ignorer les %s erreurs suivantes."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Ce serveur n'est pas configuré comme maître dans un processus de "
-"réplication. Faut-il le <a href=\"%s\">configurer</a> ?"
+"réplication. Faut-il le %sconfigurer%s ?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/database/search/selection_form.twig:35

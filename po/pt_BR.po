@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:37-0200\n"
-"PO-Revision-Date: 2018-11-18 16:07+0000\n"
+"PO-Revision-Date: 2019-01-10 19:08+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2972,7 +2972,7 @@ msgstr "Sem"
 #.
 #: js/messages.php:892
 msgid "calendar-month-year"
-msgstr "calendário-mês-ano"
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:895
@@ -10571,16 +10571,13 @@ msgid "Change or reconfigure master server"
 msgstr "Alterar ou reconfigurar o servidor mestre"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Este servidor não está configurado como escravo em um processo de "
-"replicação. Deseja <a href=\"%s\">configurá-lo</a> para tal?"
+"replicação. Deseja %sconfigurá-lo%s para tal?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10600,16 +10597,13 @@ msgid "Skip next %s errors."
 msgstr "Pular próximos %s erros."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Esse servidor não está configurado como mestre em um processo de replicação. "
-"Deseja <a href=\"%s\">configurá-lo</a> assim?"
+"Deseja %sconfigurá-lo%s assim?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/database/search/selection_form.twig:35
