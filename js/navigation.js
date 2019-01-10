@@ -309,19 +309,16 @@ $(function () {
      */
     $(document).on('click', '#pma_navigation_reload', function (event) {
         event.preventDefault();
-        // reload icon object
         var $icon = $(this).find('img');
-        // source of the hidden throbber icon
-        var icon_throbber_src = $('#pma_navigation').find('.throbber').attr('src');
-        // source of the reload icon
-        var icon_reload_src = $icon.attr('src');
-        // replace the source of the reload icon with the one for throbber
-        $icon.attr('src', icon_throbber_src);
-        PMA_reloadNavigation();
-        // after one second, put back the reload icon
-        setTimeout(function () {
-            $icon.attr('src', icon_reload_src);
-        }, 1000);
+        var icon_throbber_src = $('#pma_navigation').find('.throbber');
+        // By default hidden by jQuery
+        icon_throbber_src.show();
+        // set visibility from none
+        icon_throbber_src.css('visibility', 'visible');
+        // hide reload icon upon reload complete (using callback)
+        PMA_reloadNavigation(() => {
+            icon_throbber_src.hide();
+        })
     });
 
     $(document).on('change', '#navi_db_select',  function (event) {
