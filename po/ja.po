@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-09 22:37-0200\n"
-"PO-Revision-Date: 2019-01-09 11:38+0000\n"
-"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
+"POT-Creation-Date: 2018-10-31 21:57-0300\n"
+"PO-Revision-Date: 2019-01-10 00:38+0000\n"
+"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -7712,22 +7712,18 @@ msgstr "パスワード:"
 
 #: libraries/classes/Display/ChangePassword.php:79
 msgid "Enter:"
-msgstr ""
+msgstr "パスワード："
 
 #: libraries/classes/Display/ChangePassword.php:86
 #: libraries/classes/ReplicationGui.php:874
 #: libraries/classes/Server/Privileges.php:1695
-#, fuzzy
-#| msgid "Re-type"
 msgid "Re-type:"
-msgstr "もう一度入力してください"
+msgstr "再度入力："
 
 #: libraries/classes/Display/ChangePassword.php:117
 #: libraries/classes/Display/ChangePassword.php:150
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "パスワードハッシュ"
+msgstr "パスワードハッシュ："
 
 #: libraries/classes/Display/ChangePassword.php:130
 #: libraries/classes/Server/Privileges.php:1739
@@ -7735,7 +7731,7 @@ msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
-msgstr ""
+msgstr "このメソッドは、<i> SSL接続</i>'、または<i>非暗号化接続の場合、RSA パスワードを利用する</i>必要があります。"
 
 #: libraries/classes/Display/Export.php:332
 msgid "@SERVER@ will become the server name"
@@ -7763,12 +7759,12 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:571
 msgid "Defined aliases"
-msgstr ""
+msgstr "定義されたエイリアス"
 
 #: libraries/classes/Display/Export.php:627
 #: templates/display/export/options_output.twig:7
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "エクスポートされた データベース・テーブル・カラムの名前を変更"
 
 #: libraries/classes/Display/Export.php:684
 msgid "Could not load export plugins, please check your installation!"
