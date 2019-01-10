@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2018-11-02 01:00+0000\n"
+"PO-Revision-Date: 2019-01-10 23:03+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1211
 msgid "Bad type!"
@@ -1959,15 +1959,11 @@ msgid "Are you sure?"
 msgstr "Tu es secur?"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Iste action pote modificar alcun definition de columnas.<br/>Tu es secur que "
+"Iste action pote modificar alcun definition de columnas.<br>Tu es secur que "
 "tu vole continuar?"
 
 #: js/messages.php:450
@@ -2382,18 +2378,13 @@ msgid "Click to sort results by this column."
 msgstr "Pulsa pro ordinar exitos per iste columna."
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Shift+Click (Pulsar) pro adder iste columna al clausula de ORDER BY (ordina "
-"per) o pro commutar inter ASC/DESC.<br />- Ctrl+Clickr o Alt+Click (Mac: "
+"per) o pro commutar inter ASC/DESC.<br >- Ctrl+Clickr o Alt+Click (Mac: "
 "Shift+Option+Click) pro remover columna ab le clausula de ORDER BY"
 
 #: js/messages.php:605
@@ -2405,12 +2396,9 @@ msgid "Double-click to copy column name."
 msgstr "Duple pulsa pro copiar le nomine de columna."
 
 #: js/messages.php:608
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
-"Pulsa sur le flecha de disrolar<br /> pro commutar le visibilitate del "
-"columna."
+"Pulsa sur le flecha de disrolar<br> pro commutar le visibilitate del columna."
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
 #: templates/server/privileges/initials_row.twig:20
@@ -2478,20 +2466,15 @@ msgid "Print"
 msgstr "Imprime"
 
 #: js/messages.php:640
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Tu pote anque modificar plure de valores<br /> per duple pulsar directemente "
+"Tu pote anque modificar plure de valores<br> per duple pulsar directemente "
 "super illos."
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Tu anque pote modificar plure de valores<br /> per pulsar directemente super "
+"Tu anque pote modificar plure de valores<br> per pulsar directemente super "
 "illos."
 
 #: js/messages.php:651
@@ -2632,16 +2615,12 @@ msgstr ""
 "currentemente, pro favor tu es patiente."
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "On ha delite successosemente le pagina"
+msgstr "On ha copiate successosemente le pagina!"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Copiante base de datos"
+msgstr "Copiar ha fallite!"
 
 #: js/messages.php:734
 msgid "Execute this query again?"
@@ -8043,10 +8022,8 @@ msgid "Binary"
 msgstr "Binari"
 
 #: libraries/classes/InsertEdit.php:764
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Per su longitudine,<br /> iste columna poterea non esser modificabile."
+msgstr "Per su longitudine,<br> iste columna poterea non esser modificabile."
 
 #: libraries/classes/InsertEdit.php:1382
 msgid "Binary - do not edit"
@@ -8630,15 +8607,11 @@ msgid "Primary key already exists."
 msgstr "Clave primari ja existe."
 
 #: libraries/classes/Normalization.php:253
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Il ha necun clave primari, pro favor tu adde un.<br/> Insinuation: un clave "
+"Il ha necun clave primari, pro favor tu adde un.<br> Insinuation: un clave "
 "primari es un columna (o un combination de columnas) que unicamente "
 "identifica omne rangos."
 
@@ -8837,12 +8810,6 @@ msgid "Find transitive dependencies"
 msgstr "Trova dependentias transitive"
 
 #: libraries/classes/Normalization.php:812
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -8851,7 +8818,7 @@ msgid ""
 msgstr ""
 "Pro cata columna a basso, pro favor selige le <b>minime insimul</b> inter le "
 "date insimul cuje valores combinate insimul es sufficiente pro determinar le "
-"valor del columna.<br />Nota: un columna pote haber nulle dependentia "
+"valor del columna.<br>Nota: un columna pote haber nulle dependentia "
 "transitive, in ille caso tu non debe seliger ulle."
 
 #: libraries/classes/Normalization.php:861
@@ -9603,58 +9570,40 @@ msgid "Syntax to use when inserting data:"
 msgstr "Le syntaxe de usar quando on inserta datos:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"include nomines de columna in cata declaration <code>INSERT</code>  <br /> "
+"include nomines de columna in cata declaration <code>INSERT</code>  <br> "
 "&nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"inserta multiple rangos in cata declaration <code>INSERT</code> <br /> "
-"&nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-"(4,5,6), (7,8,9)</code>"
+"inserta multiple rangos in cata declaration <code>INSERT</code> <br> &nbsp; "
+"&nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"ambes le de cuje super <br /> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT "
-"INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"ambes le de cuje super <br> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO "
+"tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"necun de le cuje super above<br /> &nbsp; &nbsp; &nbsp; Exemplo: "
-"<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
+"necun de le cuje super above<br> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
 msgid ""
@@ -9874,10 +9823,9 @@ msgid "MediaWiki Table"
 msgstr "Tabella MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Invalide formato de ingresso de mediawiki al rango: <br />%s."
+msgstr "Invalide formato de ingresso de mediawiki al rango: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
