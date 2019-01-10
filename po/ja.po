@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-09 23:45+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
+"PO-Revision-Date: 2019-01-10 07:10+0000\n"
+"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
 "Language: ja\n"
@@ -1538,16 +1538,12 @@ msgid "Please select the file you want to import."
 msgstr "インポートするファイルを選択してください。"
 
 #: js/messages.php:337
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "有効なページ名を入力してください"
+msgstr "有効なテーブル名を入力してください。"
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "有効なページ名を入力してください"
+msgstr "有効なデータベース名を入力してください。"
 
 #: js/messages.php:340
 msgid "No files available on server for import!"
@@ -1931,10 +1927,6 @@ msgid "Are you sure?"
 msgstr "本当ですか?"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
@@ -2343,19 +2335,13 @@ msgid "Click to sort results by this column."
 msgstr "クリックすると、結果をこのカラムを使ってソートします。"
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
-"Shift+クリックでこの列を ORDER BY句に追加するか、または ASC/DESCを切り替えま"
-"す<br /> Ctrl+クリック（またはAlt+クリック、（Macの場合はShift+Option+クリッ"
-"ク）すると、この列をORDER BY句から削除します"
+"Shift+クリックでこの列を ORDER BY句に追加するか、または ASC/DESCを切り替えます<br /> "
+"Ctrl+クリック（またはAlt+クリック、（Macの場合はShift+Option+クリック）すると、この列をORDER BY句から削除します"
 
 #: js/messages.php:605
 msgid "Click to mark/unmark."
@@ -2366,8 +2352,6 @@ msgid "Double-click to copy column name."
 msgstr "ダブルクリックでカラム名をコピーします。"
 
 #: js/messages.php:608
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "カラムの表示／非表示<br />状態を変更する場合、「▼」をクリック。"
 
@@ -2435,15 +2419,10 @@ msgid "Print"
 msgstr "印刷"
 
 #: js/messages.php:640
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "ほとんどの値は、直接ダブルクリック<br />することでも、編集できます。"
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "ほとんどの値は、直接クリック<br />することでも、編集できます。"
 
@@ -2576,16 +2555,12 @@ msgid ""
 msgstr "設定に従って現在これらを送信しています。気長にお待ちください。"
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "ページの削除に成功しました"
+msgstr "ページのコピーに成功しました！"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "データベースをコピーしています"
+msgstr "データベースのコピーに失敗しました！"
 
 #: js/messages.php:734
 msgid "Execute this query again?"
@@ -3129,7 +3104,7 @@ msgstr "カラムを追加できませんでした！"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "「%1$s」は張横リストに存在しないので、カラムの削除ができませんでした！"
+msgstr "Central columns list に存在しないため、 カラム %1$s を削除できませんでした！"
 
 #: libraries/classes/CentralColumns.php:490
 msgid "Could not remove columns!"
@@ -3194,7 +3169,6 @@ msgstr "属性"
 #: libraries/classes/CentralColumns.php:1014
 #: templates/database/central_columns/main.twig:45
 #: templates/database/central_columns/main.twig:262
-#, fuzzy
 msgid "A_I"
 msgstr "オート・インクリメント"
 
@@ -3213,11 +3187,9 @@ msgid "Binary"
 msgstr "バイナリ"
 
 #: libraries/classes/Charsets.php:338 libraries/classes/Charsets.php:568
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
-msgstr "UNICODE"
+msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:348 libraries/classes/Charsets.php:519
 msgctxt "Collation"
@@ -3465,11 +3437,9 @@ msgid "accent-sensitive"
 msgstr "アクセントを区別する"
 
 #: libraries/classes/Charsets.php:644
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "多言語"
+msgstr "マルチレベル"
 
 #: libraries/classes/Charsets.php:647
 msgctxt "Collation variant"
@@ -3585,8 +3555,6 @@ msgid "Row marker"
 msgstr "行のマーカ"
 
 #: libraries/classes/Config/Descriptions.php:91
-#, fuzzy
-#| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "マウスカーソルで指し示された行を目立たせます。"
 
@@ -3624,16 +3592,12 @@ msgid "CHAR columns editing"
 msgstr "CHAR 系カラムの編集"
 
 #: libraries/classes/Config/Descriptions.php:105
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"構文の色分けや行番号の付加といった分かりやすいエディタ ([a@https://"
-"codemirror.net/]CodeMirror[/a]) を、SQL クエリの編集の際に使用します。"
+"構文の色分けや行番号機能がある親切なエディタ ([a@https://codemirror.net/]CodeMirror[/a]) を、SQL "
+"クエリの編集の際に使用します。"
 
 #: libraries/classes/Config/Descriptions.php:109
 msgid "Enable CodeMirror"
@@ -3647,16 +3611,10 @@ msgstr ""
 "実行前にクエリのエラーを検出します。コードミラーを有効化する必要があります。"
 
 #: libraries/classes/Config/Descriptions.php:114
-#, fuzzy
-#| msgid "Enable SQL Validator"
 msgid "Enable linter"
 msgstr "SQL 検証を有効にする"
 
 #: libraries/classes/Config/Descriptions.php:116
-#, fuzzy
-#| msgid ""
-#| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
-#| "columns"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -3667,10 +3625,6 @@ msgid "Minimum size for input field"
 msgstr "入力項目の最小サイズ"
 
 #: libraries/classes/Config/Descriptions.php:121
-#, fuzzy
-#| msgid ""
-#| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
-#| "columns"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -3681,8 +3635,6 @@ msgid "Maximum size for input field"
 msgstr "入力項目の最大サイズ"
 
 #: libraries/classes/Config/Descriptions.php:125
-#, fuzzy
-#| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR 用 textarea の 1 行の文字数"
 
@@ -3759,8 +3711,6 @@ msgid "Default database tab"
 msgstr "デフォルトのデータベースタブ"
 
 #: libraries/classes/Config/Descriptions.php:144
-#, fuzzy
-#| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
 msgstr "サーバが選択されたときに表示されるタブ"
 
@@ -7629,22 +7579,19 @@ msgstr "サーバが応答しません。"
 
 #: libraries/classes/DatabaseInterface.php:2268
 msgid "Logout and try as another user."
-msgstr "別のユーザーとしてログアウトしてみてください。"
+msgstr "ログアウトし、別のユーザーとして試してみてください。"
 
 #: libraries/classes/DatabaseInterface.php:2274
 msgid "Please check privileges of directory containing database."
-msgstr ""
-"データベースを含んでいるディレクトリのパーミッションを確認してください。"
+msgstr "データベースがあるディレクトリの権限を確認してください。"
 
 #: libraries/classes/DatabaseInterface.php:2288
 msgid "Details…"
 msgstr "詳細…"
 
 #: libraries/classes/DatabaseInterface.php:2612
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "パラメータがありません："
+msgstr "接続パラメータが不足しています！"
 
 #: libraries/classes/DatabaseInterface.php:2641
 msgid "Connection for controluser as defined in your configuration failed."
@@ -7658,7 +7605,7 @@ msgstr "詳しくは%sドキュメンテーション%sを参照してくださ�
 
 #: libraries/classes/Dbi/DbiMysqli.php:136
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "サーバーが強制的にSSL接続されています。自動的に有効にします。"
+msgstr "サーバーによりSSL接続が自動的に有効に（強制）されています。"
 
 #: libraries/classes/Display/ChangePassword.php:81
 #: libraries/classes/ReplicationGui.php:896
@@ -7682,7 +7629,7 @@ msgstr "パスワード："
 #: libraries/classes/ReplicationGui.php:907
 #: libraries/classes/Server/Privileges.php:1821
 msgid "Re-type:"
-msgstr "再度入力："
+msgstr "再入力："
 
 #: libraries/classes/Display/ChangePassword.php:132
 #: libraries/classes/Display/ChangePassword.php:167
@@ -7866,7 +7813,7 @@ msgstr "行 %1s - %2s の表示"
 #: libraries/classes/Display/Results.php:4844
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "合計 %1$d, クエリで %2$d"
 
 #: libraries/classes/Display/Results.php:4849
 #, php-format
@@ -8468,13 +8415,13 @@ msgstr "ビュー %s に移動"
 
 #: libraries/classes/Import.php:1380
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "１つのテーブルのUPDATEとDELETEクエリをシミュレートすることができます。"
 
 #: libraries/classes/Import.php:1607
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
-msgstr ""
+msgstr "トランザクションエンジンテーブルを含むINSERT、UPDATE、DELETE、およびREPLACE SQLクエリのみをロールバックできます。"
 
 #: libraries/classes/Index.php:657
 #, php-format
@@ -8674,7 +8621,7 @@ msgstr ""
 #: libraries/classes/Linter.php:170
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s （もしかして <code>%2$s</code>）"
 
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Navigation/Nodes/NodeView.php:32 tbl_operations.php:73
@@ -8687,7 +8634,7 @@ msgstr "ビュー"
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:316
 #, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "“%s”"
 
 #: libraries/classes/Menu.php:351
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
@@ -8978,6 +8925,8 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"ナビゲーションパネルに大きな項目グループがあり、パフォーマンスに影響を与える可能性があります。ナビゲーションパネルで項目のグループ化を無効にすることを検討"
+"してください。"
 
 #: libraries/classes/Navigation/NavigationTree.php:958
 #, php-format
@@ -8988,7 +8937,7 @@ msgstr[0] ""
 #: libraries/classes/Navigation/NavigationTree.php:1381
 #: libraries/classes/Navigation/NavigationTree.php:1413
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "フィルタをここに入力し、Enterで検索"
 
 #: libraries/classes/Navigation/NavigationTree.php:1383
 #: libraries/classes/Navigation/NavigationTree.php:1414
@@ -8999,13 +8948,13 @@ msgstr "系列をクリアする"
 
 #: libraries/classes/Navigation/NavigationTree.php:1440
 msgid "Collapse all"
-msgstr ""
+msgstr "すべて折りたたむ"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:36
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "\"%1$s\" は、デフォルトの \"Node\" を含む無効なクラス名です"
 
 #: libraries/classes/Navigation/NodeFactory.php:63
 #, fuzzy, php-format
@@ -9015,7 +8964,7 @@ msgstr "設定が保存できません"
 
 #: libraries/classes/Navigation/Nodes/Node.php:803
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "展開/折りたたみ"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:28
@@ -9126,25 +9075,25 @@ msgstr "新規作成"
 
 #: libraries/classes/Normalization.php:189
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "すべてのカラムをアトミックにする"
 
 #: libraries/classes/Normalization.php:191
 #: libraries/classes/Normalization.php:894
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "正規化(1NF)の最初のステップ"
 
 #: libraries/classes/Normalization.php:194
 #: libraries/classes/Normalization.php:245
 #: libraries/classes/Normalization.php:293
 #: libraries/classes/Normalization.php:329
 msgid "Step 1."
-msgstr ""
+msgstr "ステップ １"
 
 #: libraries/classes/Normalization.php:196
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
-msgstr ""
+msgstr "複数に分割できるカラムはありませんか？ 例えば、「住所」は「番地」、「市区町村」、「都道府県」、「郵便番号」、「国」などに分割できます。"
 
 #: libraries/classes/Normalization.php:203
 msgid "Show me the central list of columns that are not already in this table"
@@ -9154,7 +9103,7 @@ msgstr ""
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
-msgstr ""
+msgstr "分割可能なカラムを選択（もしくは ’カラムがありません’ を選択）し、次のステップに進みます。"
 
 #: libraries/classes/Normalization.php:213 normalization.php:24
 #, fuzzy
@@ -9176,7 +9125,7 @@ msgstr "文字列"
 
 #: libraries/classes/Normalization.php:221
 msgid "split into "
-msgstr ""
+msgstr "分割します "
 
 #: libraries/classes/Normalization.php:242
 #, fuzzy
@@ -9198,12 +9147,12 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:261
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "既存のカラムにプライマリーキーを設定します"
 
 #: libraries/classes/Normalization.php:266
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
-msgstr ""
+msgstr "プライマリキーとして既存のカラムの組み合わせを設定することができない場合"
 
 #: libraries/classes/Normalization.php:270
 #, fuzzy
@@ -17121,8 +17070,6 @@ msgstr "長さ/値"
 
 #: templates/database/central_columns/main.twig:37
 #: templates/database/central_columns/main.twig:254
-#, fuzzy
-#| msgid "Attributes"
 msgid "Attribute"
 msgstr "属性"
 
