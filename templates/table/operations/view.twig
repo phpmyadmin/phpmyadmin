@@ -1,11 +1,10 @@
 <!-- VIEW operations -->
 <div>
     <form method="post" action="view_operations.php">
-        {{ hidden_inputs | raw }}
+        {{ get_hidden_inputs(db, table) }}
         <input type="hidden" name="reload" value="1">
         <fieldset>
             <legend>{% trans 'Operations' %}</legend>
-
             <table>
                 <!-- Change view name -->
                 <tr>

@@ -116,7 +116,7 @@ $drop_view_url_params = array_merge(
 );
 
 echo $template->render('table/operations/view', [
-    'hidden_inputs' => Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']),
+    'db' => $GLOBALS['db'],
     'table' => $GLOBALS['table'],
     'delete_data_or_table_link' => $operations->getDeleteDataOrTablelink(
         $drop_view_url_params,
