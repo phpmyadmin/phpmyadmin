@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-10 07:10+0000\n"
-"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
+"PO-Revision-Date: 2019-01-10 18:17+0000\n"
+"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
 "Language: ja\n"
@@ -9097,7 +9097,7 @@ msgstr "複数に分割できるカラムはありませんか？ 例えば、�
 
 #: libraries/classes/Normalization.php:203
 msgid "Show me the central list of columns that are not already in this table"
-msgstr ""
+msgstr "このテーブルに存在しないカラムの中央リストを表示"
 
 #: libraries/classes/Normalization.php:206
 msgid ""
@@ -9172,12 +9172,13 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"複数のカラムを統合して既に存在しているカラムの値になりますか？例：３つのカラムがあります：「姓」、「名」、「氏名」。この場合、「氏名」は不要です。"
 
 #: libraries/classes/Normalization.php:301
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
-msgstr ""
+msgstr "不要なカラムにチェックを入れて「削除」をクリック。不要なカラムがない場合、「不要カラムなし」をクリック"
 
 #: libraries/classes/Normalization.php:306
 #, fuzzy
@@ -9186,14 +9187,12 @@ msgid "Remove selected"
 msgstr "選択したユーザを削除する"
 
 #: libraries/classes/Normalization.php:307
-#, fuzzy
-#| msgid "Add column"
 msgid "No redundant column"
-msgstr "カラムを追加する"
+msgstr "不要カラムなし"
 
 #: libraries/classes/Normalization.php:328
 msgid "Move repeating groups"
-msgstr ""
+msgstr "連続グループを移動"
 
 #: libraries/classes/Normalization.php:331
 msgid ""
@@ -9203,20 +9202,22 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"２つ以上近い関係のカラムが同じ特性を繰り返していますか？例：あるテーブルが「本」のデータが入っています。カラムは「book_id」、「author1」、「"
+"author2」、「author3」、等々で「連絡グループ」が作られています。この場合、新しいテーブルを作成すべきです。"
 
 #: libraries/classes/Normalization.php:339
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
-msgstr ""
+msgstr "連続グループのカラムを選択してください。存在していない場合、「連続グループ無し」をクリック"
 
 #: libraries/classes/Normalization.php:345
 msgid "No repeating group"
-msgstr ""
+msgstr "連続グループ無し"
 
 #: libraries/classes/Normalization.php:372
 msgid "Step 2."
-msgstr ""
+msgstr "ステップ 2"
 
 #: libraries/classes/Normalization.php:372
 msgid "Find partial dependencies"
