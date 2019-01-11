@@ -312,7 +312,7 @@ $(function () {
         var icon_throbber_src = $('#pma_navigation').find('.throbber');
         icon_throbber_src.show();
         icon_throbber_src.css('visibility', 'visible');
-        PMA_reloadNavigation(() => {
+        PMA_reloadNavigation(function () {
             icon_throbber_src.hide();
         });
     });
