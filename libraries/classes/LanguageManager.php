@@ -425,6 +425,13 @@ class LanguageManager
             'ms|malay',
             'ms_MY',
         ],
+        'my' => [
+            'my',
+            'Burmese',
+            'မြန်မာ',
+            'my|burmese',
+            '',
+        ],
         'ne' => [
             'ne',
             'Nepali',

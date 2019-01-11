@@ -317,13 +317,14 @@ class RteList
                     $execute_action = 'execute_dialog';
                     break;
                 }
+                $query_part = $execute_action . '=1&amp;item_name='
+                    . urlencode($routine['name']) . '&amp;' . $type_link;
                 $retval .= '                <a class="ajax exec_anchor"'
                                                  . ' href="db_routines.php'
                                                  . $url_query
-                                                 . '&amp;' . $execute_action . '=1'
-                                                 . '&amp;item_name='
-                                                 . urlencode($routine['name'])
-                                                 . '&amp;' . $type_link
+                                                 . ($execute_action == 'execute_routine'
+                                                     ? '" data-post="' . $query_part
+                                                     : '&amp;' . $query_part)
                                                  . '">' . $titles['Execute'] . "</a>\n";
             } else {
                 $retval .= "                {$titles['NoExecute']}\n";

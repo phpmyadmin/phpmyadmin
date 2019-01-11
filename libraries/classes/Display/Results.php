@@ -47,9 +47,6 @@ class Results
     public const POSITION_BOTH = 'both';
     public const POSITION_NONE = 'none';
 
-    public const PLACE_TOP_DIRECTION_DROPDOWN = 'top_direction_dropdown';
-    public const PLACE_BOTTOM_DIRECTION_DROPDOWN = 'bottom_direction_dropdown';
-
     public const DISPLAY_FULL_TEXT = 'F';
     public const DISPLAY_PARTIAL_TEXT = 'P';
 
@@ -4357,7 +4354,6 @@ class Results
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
-
         /**
          * The statement this table is built for.
          * @var \PhpMyAdmin\SqlParser\Statements\SelectStatement
@@ -4368,7 +4364,6 @@ class Results
             $statement = null;
         }
 
-        $table_html = '';
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
         $fields_meta = $this->__get('fields_meta');
@@ -4384,7 +4379,6 @@ class Results
 
         $sql = new Sql();
         if ($is_innodb && $sql->isJustBrowsing($analyzed_sql_results, true)) {
-            // "j u s t   b r o w s i n g"
             $pre_count = '~';
             $after_count = Util::showHint(
                 Sanitize::sanitize(
@@ -4444,6 +4438,7 @@ class Results
         // 2. ----- Prepare to display the top of the page -----
 
         // 2.1 Prepares a messages with position information
+        $sqlQueryMessage = '';
         if (($displayParts['nav_bar'] == '1') && isset($pos_next)) {
             $message = $this->_setMessageInformation(
                 $sorted_column_message,
@@ -4454,13 +4449,13 @@ class Results
                 $after_count
             );
 
-            $table_html .= Util::getMessage(
+            $sqlQueryMessage = Util::getMessage(
                 $message,
                 $this->__get('sql_query'),
                 'success'
             );
         } elseif ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
-            $table_html .= Util::getMessage(
+            $sqlQueryMessage = Util::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $this->__get('sql_query'),
                 'success'
@@ -4491,11 +4486,11 @@ class Results
             $sort_by_key_html = $unsorted_sql_query = '';
         }
 
+        $navigation = '';
         if (($displayParts['nav_bar'] == '1') && ! is_null($statement) && (empty($statement->limit))) {
-            $table_html .= $this->_getPlacedTableNavigations(
+            $navigation = $this->_getTableNavigation(
                 $pos_next,
                 $pos_prev,
-                self::PLACE_TOP_DIRECTION_DROPDOWN,
                 $is_innodb,
                 $sort_by_key_html
             );
@@ -4534,11 +4529,7 @@ class Results
         // end 2b
 
         // 3. ----- Prepare the results table -----
-        if ($is_limited_display) {
-            $table_html .= "<br>";
-        }
-
-        $table_html .= $this->_getTableHeaders(
+        $headers = $this->_getTableHeaders(
             $displayParts,
             $analyzed_sql_results,
             $unsorted_sql_query,
@@ -4548,9 +4539,7 @@ class Results
             $is_limited_display
         );
 
-        $table_html .= '<tbody>' . "\n";
-
-        $table_html .= $this->_getTableBody(
+        $body = $this->_getTableBody(
             $dt_result,
             $displayParts,
             $map,
@@ -4560,44 +4549,36 @@ class Results
 
         $this->__set('display_params', null);
 
-        $table_html .= '</tbody>' . "\n" . '</table></div>';
-
         // 4. ----- Prepares the link for multi-fields edit and delete
-
+        $multiRowOperationLinks = '';
         if ($displayParts['del_lnk'] == self::DELETE_ROW
             && $displayParts['del_lnk'] != self::KILL_PROCESS
         ) {
-            $table_html .= $this->_getMultiRowOperationLinks(
+            $multiRowOperationLinks = $this->_getMultiRowOperationLinks(
                 $dt_result,
                 $analyzed_sql_results,
                 $displayParts['del_lnk']
             );
         }
 
-        // 5. ----- Get the navigation bar at the bottom if required -----
-        if (($displayParts['nav_bar'] == '1') && ! is_null($statement) && empty($statement->limit)) {
-            $table_html .= $this->_getPlacedTableNavigations(
-                $pos_next,
-                $pos_prev,
-                self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
-                $is_innodb,
-                $sort_by_key_html
-            );
-        } elseif (! isset($printview) || ($printview != '1')) {
-            $table_html .= "\n" . '<br><br>' . "\n";
-        }
-
-        // 6. ----- Prepare "Query results operations"
+        // 5. ----- Prepare "Query results operations"
+        $operations = '';
         if ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
-            $table_html .= $this->_getResultsOperations(
+            $operations = $this->_getResultsOperations(
                 $displayParts,
                 $analyzed_sql_results
             );
         }
 
-        return $table_html;
-    } // end of the 'getTable()' function
-
+        return $this->template->render('display/results/table', [
+            'sql_query_message' => $sqlQueryMessage,
+            'navigation' => $navigation,
+            'headers' => $headers,
+            'body' => $body,
+            'multi_row_operation_links' => $multiRowOperationLinks,
+            'operations' => $operations,
+        ]);
+    }
 
     /**
      * Get offsets for next page and previous page
@@ -5041,51 +5022,7 @@ class Results
         $links_html .= '</form>' . "\n";
 
         return $links_html;
-    } // end of the '_getMultiRowOperationLinks()' function
-
-
-    /**
-     * Prepare table navigation bar at the top or bottom
-     *
-     * @param integer $pos_next         the offset for the "next" page
-     * @param integer $pos_prev         the offset for the "previous" page
-     * @param string  $place            the place to show navigation
-     * @param boolean $is_innodb        whether its InnoDB or not
-     * @param string  $sort_by_key_html the sort by key dialog
-     *
-     * @return  string  html content of navigation bar
-     *
-     * @access  private
-     *
-     * @see     _getTable()
-     */
-    private function _getPlacedTableNavigations(
-        $pos_next,
-        $pos_prev,
-        $place,
-        $is_innodb,
-        $sort_by_key_html
-    ) {
-
-        $navigation_html = '';
-
-        if ($place == self::PLACE_BOTTOM_DIRECTION_DROPDOWN) {
-            $navigation_html .= '<br>' . "\n";
-        }
-
-        $navigation_html .= $this->_getTableNavigation(
-            $pos_next,
-            $pos_prev,
-            $is_innodb,
-            $sort_by_key_html
-        );
-
-        if ($place == self::PLACE_TOP_DIRECTION_DROPDOWN) {
-            $navigation_html .= "\n";
-        }
-
-        return $navigation_html;
-    } // end of the '_getPlacedTableNavigations()' function
+    }
 
     /**
      * Generates HTML to display the Create view in span tag
