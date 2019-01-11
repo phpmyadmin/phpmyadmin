@@ -344,7 +344,7 @@ class Bookmark
             $query .= ")";
         }
         $query .= " AND " . Util::backquote($id_field)
-            . " = " . $GLOBALS['dbi']->escapeString($id) . " LIMIT 1";
+            . " = '" . $GLOBALS['dbi']->escapeString($id) . "' LIMIT 1";
 
         $result = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', $controllink);
         if (! empty($result)) {
