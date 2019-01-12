@@ -2047,8 +2047,7 @@ class Results
             // $name_to_use_in_sort might contain a space due to
             // formatting of function expressions like "COUNT(name )"
             // so we remove the space in this situation
-            $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);
-            $name_to_use_in_sort = str_replace('``', '`', $name_to_use_in_sort);
+            $name_to_use_in_sort = str_replace([' )', '``'], [')', '`'], $name_to_use_in_sort);
             $name_to_use_in_sort = trim($name_to_use_in_sort, '`');
 
             // If this the first column name in the order by clause add

@@ -146,9 +146,19 @@ class ExportCsv extends ExportPlugin
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
-                $csv_terminated = str_replace('\\r', "\015", $csv_terminated);
-                $csv_terminated = str_replace('\\n', "\012", $csv_terminated);
-                $csv_terminated = str_replace('\\t', "\011", $csv_terminated);
+                $csv_terminated = str_replace(
+                    [
+                        '\\r',
+                        '\\n',
+                        '\\t',
+                    ],
+                    [
+                        "\015",
+                        "\012",
+                        "\011",
+                    ],
+                    $csv_terminated
+                );
             } // end if
             $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
@@ -283,13 +293,12 @@ class ExportCsv extends ExportPlugin
                         && $GLOBALS[$what . '_removeCRLF']
                     ) {
                         $row[$j] = str_replace(
-                            "\n",
-                            "",
-                            str_replace(
+                            [
                                 "\r",
-                                "",
-                                $row[$j]
-                            )
+                                "\n",
+                            ],
+                            "",
+                            $row[$j]
                         );
                     }
                     if ($csv_enclosed == '') {

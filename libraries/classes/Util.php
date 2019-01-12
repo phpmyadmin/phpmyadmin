@@ -1867,8 +1867,7 @@ class Util
         // on most places separator is still hard coded ...
         if ($separator !== '&') {
             // ... so always replace & with $separator
-            $url = str_replace(htmlentities('&'), $separator, $url);
-            $url = str_replace('&', $separator, $url);
+            $url = str_replace([htmlentities('&'), '&'], [$separator, $separator], $url);
         }
 
         $url = str_replace(htmlentities($separator), $separator, $url);
