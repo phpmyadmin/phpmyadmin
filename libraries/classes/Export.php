@@ -60,16 +60,11 @@ class Export
         $chromeAndGreaterThan43 = PMA_USR_BROWSER_AGENT == 'CHROME'
             && PMA_USR_BROWSER_VER >= 43; // see bug #4942
 
-        if (function_exists('gzencode')
+        return function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')
-            && ! $this->isGzHandlerEnabled())
-            || $GLOBALS['save_on_server']
-            || $chromeAndGreaterThan43)
-        ) {
-            return true;
-        }
-
-        return false;
+                    && ! $this->isGzHandlerEnabled())
+                || $GLOBALS['save_on_server']
+                || $chromeAndGreaterThan43);
     }
 
     /**
