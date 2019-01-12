@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-12 00:10+0000\n"
+"PO-Revision-Date: 2019-01-12 15:04+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -9365,11 +9365,11 @@ msgstr "ヒント：正しい正規化を得るために慎重に手順に従っ
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr ""
+msgstr "この一覧はテーブルのデータサブセットの元で作成されたので、必ずしも正確ではありません。 "
 
 #: libraries/classes/Normalization.php:989
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "部分的な依存が見つかりませんでした!"
 
 #: libraries/classes/Operations.php:105
 #, fuzzy
@@ -9423,7 +9423,7 @@ msgstr "テーブルのキャプション (続き)"
 
 #: libraries/classes/Operations.php:330
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "すべてのテーブルのカラム照合順序を変更する"
 
 #: libraries/classes/Operations.php:832
 msgid "Alter table order by"
@@ -9456,7 +9456,7 @@ msgstr "ストレージエンジン"
 
 #: libraries/classes/Operations.php:1148
 msgid "Change all column collations"
-msgstr ""
+msgstr "すべてのカラムの照合順序を変更する"
 
 #: libraries/classes/Operations.php:1321
 msgid "Copy table to (database<b>.</b>table)"
@@ -9554,7 +9554,7 @@ msgstr "修復"
 #: libraries/classes/Operations.php:1652
 #: templates/table/structure/display_structure.twig:460
 msgid "Truncate"
-msgstr ""
+msgstr "Truncate"
 
 #: libraries/classes/Operations.php:1667
 #, fuzzy
@@ -9655,11 +9655,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:163
 msgid "Retry to connect"
-msgstr ""
+msgstr "接続を再試行"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:168
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "セッションが期限切れです。もう一度ログインしてください。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:193
 msgid "Log in"
@@ -9689,11 +9689,11 @@ msgstr "対象先のデータベースに接続できませんでした"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "入力されたCAPTCHAは間違っている、もう一度お試しください！"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:365
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "recaptcha検証がない。adblockによってブロックされている可能性があります。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:390
 #, fuzzy
@@ -9728,7 +9728,7 @@ msgstr "MySQL サーバにログインできません"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:356
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "二要素認証が有効化しています。認証コードを入力してください。"
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
 #: templates/display/import/import.twig:168
@@ -9869,11 +9869,11 @@ msgstr "ビュー用の代替構造"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:92
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "JSONをプリティプリント出力する（人間が読める書式を利用）"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:98
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "エスケープしないでUnicode文字を出力する"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:53
 msgid "Content of table @TABLE@"
@@ -10061,7 +10061,7 @@ msgstr "%s コマンドを追加する"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:292
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "（テーブル作成中にインデックスが生成されるので、効率が悪い）"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:300
 #, fuzzy, php-format
@@ -10178,13 +10178,13 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:543
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "データベースはルーチンを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:546
 #: libraries/classes/Plugins/Export/ExportSql.php:1597
 #: libraries/classes/Plugins/Export/ExportSql.php:2118
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "エイリアスエクスポートは確実に動作しない場合があります。"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1033
 #, fuzzy
@@ -10227,7 +10227,7 @@ msgstr "テーブルの構造"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1594
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "データベースはビューを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1770
 msgid "Constraints for dumped tables"
@@ -10273,7 +10273,7 @@ msgstr "テーブルのリレーション"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2115
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "データベースはトリガを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2152
 #, fuzzy, php-format
@@ -10283,7 +10283,7 @@ msgstr "ビュー用の構造"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2176
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(実際のビューを参照するには下にあります)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2256
 #, fuzzy, php-format
@@ -10307,7 +10307,7 @@ msgstr "テーブル"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:187
 msgid "Purpose:"
-msgstr ""
+msgstr "目的："
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:568
 #, fuzzy
@@ -10318,7 +10318,7 @@ msgstr "MIME タイプ"
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:61
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
-msgstr ""
+msgstr "インポート中に重複したキーが見つかった場合も更新する(「ON DUPLICATE KEY UPDATE」を追加)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
