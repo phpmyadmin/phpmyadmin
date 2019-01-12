@@ -219,7 +219,7 @@ class GisMultiPoint extends GisGeometry
             if ($point[0] != '' && $point[1] != '') {
                 $row .= '<circle cx="' . $point[0] . '" cy="'
                     . $point[1] . '" r="3"';
-                $point_options['id'] = $label . rand();
+                $point_options['id'] = $label . mt_rand();
                 foreach ($point_options as $option => $val) {
                     $row .= ' ' . $option . '="' . trim((string) $val) . '"';
                 }

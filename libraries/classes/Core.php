@@ -975,7 +975,7 @@ class Core
             // as there is nothing sane to do
         }
 
-        $PMA_PHP_SELF = htmlspecialchars('/' . join('/', $path));
+        $PMA_PHP_SELF = htmlspecialchars('/' . implode('/', $path));
     }
 
     /**

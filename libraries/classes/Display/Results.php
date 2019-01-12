@@ -223,7 +223,7 @@ class Results
         $this->__set('table', $table);
         $this->__set('goto', $goto);
         $this->__set('sql_query', $sql_query);
-        $this->__set('unique_id', rand());
+        $this->__set('unique_id', mt_rand());
     }
 
     /**

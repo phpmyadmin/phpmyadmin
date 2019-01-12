@@ -221,7 +221,7 @@ class GisPolygon extends GisGeometry
     {
         $polygon_options = [
             'name'         => $label,
-            'id'           => $label . rand(),
+            'id'           => $label . mt_rand(),
             'class'        => 'polygon vector',
             'stroke'       => 'black',
             'stroke-width' => 0.5,

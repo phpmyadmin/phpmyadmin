@@ -310,7 +310,7 @@ if (isset($_POST['delete'])
 if (isset($_POST['change_copy'])) {
     $queries = $serverPrivileges->getDataForQueries($queries, $queries_for_display);
     $message = Message::success();
-    $sql_query = join("\n", $queries);
+    $sql_query = implode("\n", $queries);
 }
 
 /**
