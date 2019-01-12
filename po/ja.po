@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-10 18:17+0000\n"
+"PO-Revision-Date: 2019-01-12 00:10+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -1951,7 +1951,7 @@ msgstr "次のステップに進みます…"
 #: js/messages.php:457
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "テーブル '%s' の第一正規化が完了しました。"
+msgstr "テーブル「%s」の第１正規形は完了しました。"
 
 #: js/messages.php:458 libraries/classes/Normalization.php:511
 #: libraries/classes/Normalization.php:559
@@ -1962,7 +1962,7 @@ msgstr "最後のステップ"
 
 #: js/messages.php:459
 msgid "Second step of normalization (2NF)"
-msgstr "第2正規化 (2NF)"
+msgstr "第２正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:460 js/messages.php:786
@@ -2025,7 +2025,7 @@ msgstr "以下のテーブルを作成します"
 
 #: js/messages.php:483
 msgid "Third step of normalization (3NF)"
-msgstr "第三正規化(3NF)"
+msgstr "第３正規化(3NF)"
 
 #: js/messages.php:484
 msgid "Confirm transitive dependencies"
@@ -9080,7 +9080,7 @@ msgstr "すべてのカラムをアトミックにする"
 #: libraries/classes/Normalization.php:191
 #: libraries/classes/Normalization.php:894
 msgid "First step of normalization (1NF)"
-msgstr "正規化(1NF)の最初のステップ"
+msgstr "第1正規化(1NF)"
 
 #: libraries/classes/Normalization.php:194
 #: libraries/classes/Normalization.php:245
@@ -9203,17 +9203,17 @@ msgid ""
 "should be created."
 msgstr ""
 "２つ以上近い関係のカラムが同じ特性を繰り返していますか？例：あるテーブルが「本」のデータが入っています。カラムは「book_id」、「author1」、「"
-"author2」、「author3」、等々で「連絡グループ」が作られています。この場合、新しいテーブルを作成すべきです。"
+"author2」、「author3」、等々で「繰り返しグループ」が作られています。この場合、新しいテーブルを作成すべきです。"
 
 #: libraries/classes/Normalization.php:339
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
-msgstr "連続グループのカラムを選択してください。存在していない場合、「連続グループ無し」をクリック"
+msgstr "繰り返しグループのカラムを選択してください。存在していない場合、「繰り返しグループ無し」をクリック"
 
 #: libraries/classes/Normalization.php:345
 msgid "No repeating group"
-msgstr "連続グループ無し"
+msgstr "繰り返しグループ無し"
 
 #: libraries/classes/Normalization.php:372
 msgid "Step 2."
@@ -9228,62 +9228,62 @@ msgstr "部分的な依存を見つける"
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
-msgstr ""
+msgstr "部分依存関係は不可能。理由：主キーのないカラムが存在しない。主キー「%1$s」はテーブルの全てのカラムになっている。"
 
 #: libraries/classes/Normalization.php:401
 #: libraries/classes/Normalization.php:446
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "テーブルは既に第2正規形になっている。"
 
 #: libraries/classes/Normalization.php:406
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
-msgstr ""
+msgstr "主キー「%1$s」は複数カラムで作成されています。部分依存関係カラムを確認する必要があります。"
 
 #: libraries/classes/Normalization.php:411
 #: libraries/classes/Normalization.php:808
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr ""
+msgstr "正しい正規化を得るために慎重に次の質問に答えてください。"
 
 #: libraries/classes/Normalization.php:415
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ テーブル内のデータに基づいて可能な部分的な依存関係を表示"
 
 #: libraries/classes/Normalization.php:419
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
-msgstr ""
+msgstr "以下の各カラムで、カラムの値を決定するために<b>最小限</b>のカラム組み合わせを指定してください。"
 
 #: libraries/classes/Normalization.php:429
 #: libraries/classes/Normalization.php:847
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s'が次に依存します:"
 
 #: libraries/classes/Normalization.php:441
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr ""
+msgstr "部分依存関係は不可能。理由：主キー「%1$s」は１つのカラムしかない。"
 
 #: libraries/classes/Normalization.php:469
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
-msgstr ""
+msgstr "元テーブル「%1$s」を第2正規形になる為、次のテーブルを作成する必要があります："
 
 #: libraries/classes/Normalization.php:506
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "テーブル「%1$s」の第２正規形は完了しました。"
 
 #: libraries/classes/Normalization.php:547
 #: libraries/classes/Normalization.php:703
@@ -9298,17 +9298,16 @@ msgstr "要求処理中でのエラー"
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
-msgstr ""
+msgstr "元のテーブル「%1$s」を第３正規形になる為、次のテーブルを作成する必要があります："
 
 #: libraries/classes/Normalization.php:646
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "第３正規化が完了しました。"
 
 #: libraries/classes/Normalization.php:754
-#, fuzzy, php-format
-#| msgid "Selected target tables have been synchronized with source tables."
+#, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "選択された対象先のテーブルは、元のテーブルと同期されています。"
+msgstr "選択された繰り返しグループが「%s」のテーブルへ移動されました"
 
 #: libraries/classes/Normalization.php:805
 #, fuzzy
@@ -9318,7 +9317,7 @@ msgstr "9 月"
 
 #: libraries/classes/Normalization.php:805
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "過渡的依存性を検知"
 
 #: libraries/classes/Normalization.php:812
 msgid ""
@@ -9332,11 +9331,11 @@ msgstr ""
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
-msgstr ""
+msgstr "テーブルには主キーカラムがないので、過渡的依存性は不可能"
 
 #: libraries/classes/Normalization.php:865
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "テーブルは既に第3正規形になっている!"
 
 #: libraries/classes/Normalization.php:890
 #, fuzzy
@@ -9346,21 +9345,21 @@ msgstr "テーブル構造の操作欄を折り畳む"
 
 #: libraries/classes/Normalization.php:891
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "どのステップまでに正規化するかを選択してください"
 
 #: libraries/classes/Normalization.php:895
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "第２正規化(1NF+2NF)"
 
 #: libraries/classes/Normalization.php:896
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "第３正規化(1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:907
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
-msgstr ""
+msgstr "ヒント：正しい正規化を得るために慎重に手順に従ってください"
 
 #: libraries/classes/Normalization.php:973
 msgid ""
