@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2018-11-23 19:07+0000\n"
+"PO-Revision-Date: 2019-01-13 08:01+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1211
 msgid "Bad type!"
@@ -1929,15 +1929,11 @@ msgid "Are you sure?"
 msgstr "Oled sa kindel?"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"See tulemusel võivad muutuda mõnede veergude kirjeldused.<br/>Kas sa oled "
+"See tulemusel võivad muutuda mõnede veergude kirjeldused.<br>Kas sa oled "
 "kindel, et jätkata?"
 
 #: js/messages.php:450
@@ -2349,18 +2345,13 @@ msgid "Click to sort results by this column."
 msgstr "Klõpsa selle veeru järgi sortimiseks."
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Shit+klõps lisab selle veeru ORDER BY klauslisse või vahetab ASC/DESC "
-"režiimi.<br />- Ctrl+klõps või Alt+klõps (Mac: Shift+Option+klõps) eemaldab "
+"režiimi.<br>- Ctrl+klõps või Alt+klõps (Mac: Shift+Option+klõps) eemaldab "
 "veeru ORDER BY klauslist"
 
 #: js/messages.php:605
@@ -2372,10 +2363,8 @@ msgid "Double-click to copy column name."
 msgstr "Veeru nime kopeerimiseks tee sellel topeltklõps."
 
 #: js/messages.php:608
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Veeru nähtavuse muutmiseks<br />vajuta alla suunatud noolele."
+msgstr "Veeru nähtavuse muutmiseks<br>vajuta alla suunatud noolele."
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
 #: templates/server/privileges/initials_row.twig:20
@@ -2442,18 +2431,13 @@ msgid "Print"
 msgstr "Prindi"
 
 #: js/messages.php:640
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Sa saad ka muuta enamikke väärtuseid,<br />kui teed nende sisul topeltkliki."
+"Sa saad ka muuta enamikke väärtuseid,<br>kui teed nende sisul topeltkliki."
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "Sa saad ka muuta enamikke väärtuseid,<br />kui klikid nende peal."
+msgstr "Sa saad muuta ka enamikke<br>väärtuseid nendel klõpsates."
 
 #: js/messages.php:651
 msgid "Go to link:"
@@ -2584,16 +2568,12 @@ msgid ""
 msgstr "Palun oota, sinu sätteid saadetakse hetkel."
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Lehekülje kustutamine õnnestus"
+msgstr "Kopeerimine õnnestus!"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Andmebaasi kopeeritakse"
+msgstr "Kopeerimine nurjus!"
 
 #: js/messages.php:734
 msgid "Execute this query again?"
@@ -7868,10 +7848,8 @@ msgid "Binary"
 msgstr "Binaarne"
 
 #: libraries/classes/InsertEdit.php:764
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Oma pikkuse tõttu ei pruugi<br />see veerg olla muudetav."
+msgstr "Oma pikkuse tõttu ei pruugi<br>see veerg olla muudetav."
 
 #: libraries/classes/InsertEdit.php:1382
 msgid "Binary - do not edit"
@@ -8228,7 +8206,7 @@ msgstr "Vaated:"
 
 #: libraries/classes/Navigation/Navigation.php:246
 msgid "Unhide"
-msgstr ""
+msgstr "Näita"
 
 #: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
@@ -8448,15 +8426,11 @@ msgid "Primary key already exists."
 msgstr "Primaarvõti on juba olemas."
 
 #: libraries/classes/Normalization.php:253
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Puudub primaarvõti; palun lisa üks.<br />Vihje: primaarvõti on veerg (või "
+"Puudub primaarvõti; palun lisa üks.<br>Vihje: primaarvõti on veerg (või "
 "veergude kombinatsioon), mis identifitseerib kõik read ainulaadselt."
 
 #: libraries/classes/Normalization.php:261
@@ -8650,12 +8624,6 @@ msgid "Find transitive dependencies"
 msgstr "Leia transitiivsed sõltuvused"
 
 #: libraries/classes/Normalization.php:812
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -8663,9 +8631,9 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 "Palun vali alljärgnevatest veergudest <b>vähim arv</b> veerge, mille "
-"väärtused kombineeritult on piisavad, et määrata veeru väärtus.<br /> "
-"Märkus: veerul võib transitiivne sõltuvus puududa, sellisel juhul ei pea sa "
-"valima mitte midagi."
+"väärtused kombineeritult on piisavad, et määrata veeru väärtus.<br> Märkus: "
+"veerul võib transitiivne sõltuvus puududa, sellisel juhul ei pea sa valima "
+"mitte midagi."
 
 #: libraries/classes/Normalization.php:861
 msgid ""
@@ -9408,57 +9376,39 @@ msgid "Syntax to use when inserting data:"
 msgstr "Andmete lisamiseks kasutatav süntaks:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"kaasa veeru nimed igasse <code>INSERT</code> käsku <br /> &nbsp; &nbsp; "
-"&nbsp; Näide: <code>INSERT INTO tabeli_nimi (veerg_A,veerg_B,veerg_C) VALUES "
+"kaasa veeru nimed igasse <code>INSERT</code> käsku <br> &nbsp; &nbsp; &nbsp; "
+"Näide: <code>INSERT INTO tabeli_nimi (veerg_A,veerg_B,veerg_C) VALUES "
 "(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"lisa mitu rida igas <code>INSERT</code> käsus<br /> &nbsp; &nbsp; &nbsp; "
-"Näide: <code>INSERT INTO tabeli_nimi VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"lisa mitu rida igas <code>INSERT</code> käsus<br> &nbsp; &nbsp; &nbsp; Näide:"
+" <code>INSERT INTO tabeli_nimi VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"mõlemad ülal nimetatuist<br /> &nbsp; &nbsp; &nbsp; Näide: <code>INSERT INTO "
-"tabeli_nimi (veerg_A,veerg_B, veerg_C) VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"mõlemad ülal nimetatuist<br> &nbsp; &nbsp; &nbsp; Näide: <code>INSERT INTO "
+"tabeli_nimi (veerg_A,veerg_B, veerg_C) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"mitte ükski ülal nimetatuist<br /> &nbsp; &nbsp; &nbsp; Näide: <code>INSERT "
+"mitte ükski ülal nimetatuist<br> &nbsp; &nbsp; &nbsp; Näide: <code>INSERT "
 "INTO tabeli_nimi VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
@@ -9680,10 +9630,9 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki tabel"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Vale mediawiki sisendi formaat real: <br />%s."
+msgstr "Vale mediawiki sisendi vorming real: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10417,16 +10366,13 @@ msgid "Change or reconfigure master server"
 msgstr "Muuda või seadista ülemserver uuesti"
 
 #: libraries/classes/ReplicationGui.php:308
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"See server ei ole paljundamisel seadistatud alluvaks. Kas soovid seda <a "
-"href=\"%s\">teha</a>?"
+"See server ei ole seadistatud paljundamise alluvaks. Kas soovid seda "
+"%smuuta%s?"
 
 #: libraries/classes/ReplicationGui.php:331
 msgid "Error management:"
@@ -10446,16 +10392,13 @@ msgid "Skip next %s errors."
 msgstr "Jäta järgmised %s viga vahele."
 
 #: libraries/classes/ReplicationGui.php:370
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"See server ei ole paljundamisel seatud ülemaks. Kas soovid seda <a href=\"%s"
-"\">teha</a>?"
+"See server ei ole seadistatud paljundamise ülemaks. Kas soovid seda "
+"%smuuta%s?"
 
 #: libraries/classes/ReplicationGui.php:404
 #: templates/display/export/select_options.twig:8
@@ -15711,12 +15654,6 @@ msgid "None"
 msgstr "Puudub"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
@@ -15724,7 +15661,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Kui veeru tüüp on \"enum\" või \"set\", siis palun sisesta väärtused "
-"formaadis: 'a','b','c'…<br />Kui pead nende väärtuste vahele lisama "
+"formaadis: 'a','b','c'…<br>Kui pead nende väärtuste vahele lisama "
 "kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
 "kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
@@ -15755,12 +15692,6 @@ msgstr "Veebilehitseja kuva transformatsiooni sätted"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -15768,7 +15699,7 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Palun sisesta teisenduse valikute jaoks vajalikud väärtused, kasutades "
-"formaati: 'a', 100, b,'c'…<br />Kui pead nende väärtuste vahele lisama "
+"formaati: 'a', 100, b,'c'…<br>Kui pead nende väärtuste vahele lisama "
 "kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
 "kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
