@@ -1778,7 +1778,7 @@ class Table
                 }
 
                 if (strpos($column['Extra'], 'GENERATED') === false && strpos($column['Extra'], 'VIRTUAL') === false) {
-                    array_push($ret, $value);
+                    $ret[] = $value;
                 }
             }
         }

@@ -1071,10 +1071,7 @@ class Normalization
         $results = [''];
         foreach ($primaryKey as $element) {
             foreach ($results as $combination) {
-                array_push(
-                    $results,
-                    trim($element . ',' . $combination, ',')
-                );
+                $results[] = trim($element . ',' . $combination, ',');
             }
         }
         array_pop($results); //remove key which consist of all primary key columns
