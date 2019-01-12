@@ -602,11 +602,11 @@ class ExportTexytext extends ExportPlugin
         $fmt_post = '';
         if (in_array($column['Field'], $unique_keys)) {
             $fmt_pre = '**' . $fmt_pre;
-            $fmt_post = $fmt_post . '**';
+            $fmt_post .= '**';
         }
         if ($column['Key'] == 'PRI') {
             $fmt_pre = '//' . $fmt_pre;
-            $fmt_post = $fmt_post . '//';
+            $fmt_post .= '//';
         }
         $definition = '|'
             . $fmt_pre . htmlspecialchars($col_alias) . $fmt_post;

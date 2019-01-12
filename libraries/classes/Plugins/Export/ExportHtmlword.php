@@ -647,11 +647,11 @@ class ExportHtmlword extends ExportPlugin
         $fmt_post = '';
         if (in_array($column['Field'], $unique_keys)) {
             $fmt_pre = '<strong>' . $fmt_pre;
-            $fmt_post = $fmt_post . '</strong>';
+            $fmt_post .= '</strong>';
         }
         if ($column['Key'] == 'PRI') {
             $fmt_pre = '<em>' . $fmt_pre;
-            $fmt_post = $fmt_post . '</em>';
+            $fmt_post .= '</em>';
         }
         $definition .= '<td class="print">' . $fmt_pre
             . htmlspecialchars($col_alias) . $fmt_post . '</td>';

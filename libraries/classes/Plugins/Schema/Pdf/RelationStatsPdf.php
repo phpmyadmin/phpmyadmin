@@ -69,7 +69,7 @@ class RelationStatsPdf extends RelationStats
         if ($showColor) {
             $d = $i % 6;
             $j = ($i - $d) / 6;
-            $j = $j % 4;
+            $j %= 4;
             $j++;
             $case = [
                 [

@@ -627,7 +627,7 @@ class Advisor
         if ($num >= 1) { // per second
             $per = __('per second');
         } elseif ($num * 60 >= 1) { // per minute
-            $num = $num * 60;
+            $num *= 60;
             $per = __('per minute');
         } elseif ($num * 60 * 60 >= 1) { // per hour
             $num = $num * 60 * 60;

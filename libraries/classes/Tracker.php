@@ -814,7 +814,7 @@ class Tracker
         }
 
         if (! (substr($query, -1) == ';')) {
-            $query = $query . ";\n";
+            $query .= ";\n";
         }
         // Get some information about query
         $result = self::parseQuery($query);
