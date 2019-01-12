@@ -571,6 +571,10 @@ class Export
      * Generate Html For currently defined aliases
      *
      * @return string
+     * @throws \Throwable
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     private function getHtmlForCurrentAlias()
     {

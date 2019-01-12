@@ -68,6 +68,9 @@ class Application extends TwoFactorPlugin
      * Checks authentication, returns true on success
      *
      * @return boolean
+     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      */
     public function check()
     {
@@ -116,6 +119,9 @@ class Application extends TwoFactorPlugin
      * Performs backend configuration
      *
      * @return boolean
+     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      */
     public function configure()
     {
