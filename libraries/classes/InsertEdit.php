@@ -188,7 +188,7 @@ class InsertEdit
         // No row returned
         if (! $rows[$key_id]) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
-            Response::getInstance()->addHtml(
+            Response::getInstance()->addHTML(
                 Util::getMessage(
                     __('MySQL returned an empty result set (i.e. zero rows).'),
                     $local_query

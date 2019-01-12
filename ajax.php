@@ -20,7 +20,7 @@ $_GET['ajax_request'] = 'true';
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
-$response->setAJAX(true);
+$response->setAjax(true);
 
 if (empty($_POST['type'])) {
     Core::fatalError(__('Bad type!'));

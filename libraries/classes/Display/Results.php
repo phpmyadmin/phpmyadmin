@@ -4041,7 +4041,7 @@ class Results
         $field_flags = $GLOBALS['dbi']->fieldFlags($dt_result, $col_index);
 
         $bIsText = gettype($transformation_plugin) === 'object'
-            && strpos($transformation_plugin->getMIMEtype(), 'Text')
+            && strpos($transformation_plugin->getMIMEType(), 'Text')
             === false;
 
         // disable inline grid editing
