@@ -465,7 +465,7 @@ AJAX.registerOnload('sql.js', function () {
         } else {
             Cookies.set('auto_saved_sql', '');
         }
-        var isShowQuery =  $('input[name="show_query"').is(':checked');
+        var isShowQuery =  $('input[name="show_query"]').is(':checked');
         if (isShowQuery) {
             window.localStorage.show_this_query = '1';
             var db = $('input[name="db"]').val();
