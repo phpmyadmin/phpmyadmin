@@ -78,4 +78,4 @@ $html = $browseForeigners->getHtmlForRelationalFieldSelection(
     isset($data) ? $data : ''
 );
 
-$response->addHtml($html);
+$response->addHTML($html);

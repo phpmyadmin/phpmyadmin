@@ -96,12 +96,12 @@ class ServerVariablesController extends Controller
             /**
              * Link templates
             */
-            $this->response->addHtml($this->_getHtmlForLinkTemplates());
+            $this->response->addHTML($this->_getHtmlForLinkTemplates());
 
             /**
              * Displays the page
             */
-            $this->response->addHtml(
+            $this->response->addHTML(
                 $this->_getHtmlForServerVariables($serverVars, $serverVarsSession)
             );
         } else {

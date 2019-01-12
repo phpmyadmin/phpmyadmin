@@ -143,7 +143,7 @@ class ImportXml extends ImportPlugin
         /**
          * Analyze the data in each table
          */
-        $namespaces = $xml->getNameSpaces(true);
+        $namespaces = $xml->getNamespaces(true);
 
         /**
          * Get the database name, collation and charset
