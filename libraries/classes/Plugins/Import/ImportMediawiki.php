@@ -431,7 +431,7 @@ class ImportMediawiki extends ImportPlugin
         $partial_separator = false;
 
         // Parse text char by char
-        for ($i = 0; $i < strlen($subject); $i++) {
+        for ($i = 0, $iMax = strlen($subject); $i < $iMax; $i++) {
             $cur_char = $subject[$i];
             // Check for separators
             if ($cur_char == '|') {

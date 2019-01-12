@@ -1235,7 +1235,7 @@ class Import
             $inTables = false;
         }
 
-        $params = ['db' => (string) $db_name];
+        $params = ['db' => $db_name];
         $db_url = 'db_structure.php' . Url::getCommon($params);
         $db_ops_url = 'db_operations.php' . Url::getCommon($params);
 
@@ -1271,11 +1271,10 @@ class Import
 
         unset($params);
 
-        $num_tables = count($tables);
-        for ($i = 0; $i < $num_tables; ++$i) {
+        foreach ($tables as $table) {
             $params = [
-                'db' => (string) $db_name,
-                'table' => (string) $tables[$i][self::TBL_NAME],
+                'db' => $db_name,
+                'table' => (string) $table[self::TBL_NAME],
             ];
             $tbl_url = 'sql.php' . Url::getCommon($params);
             $tbl_struct_url = 'tbl_structure.php' . Url::getCommon($params);
@@ -1283,7 +1282,7 @@ class Import
 
             unset($params);
 
-            $_table = new Table($tables[$i][self::TBL_NAME], $db_name);
+            $_table = new Table($table[self::TBL_NAME], $db_name);
             if (! $_table->isView()) {
                 $message .= sprintf(
                     '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
@@ -1293,22 +1292,22 @@ class Import
                     sprintf(
                         __('Go to table: %s'),
                         htmlspecialchars(
-                            Util::backquote($tables[$i][self::TBL_NAME])
+                            Util::backquote($table[self::TBL_NAME])
                         )
                     ),
-                    htmlspecialchars($tables[$i][self::TBL_NAME]),
+                    htmlspecialchars($table[self::TBL_NAME]),
                     $tbl_struct_url,
                     sprintf(
                         __('Structure of %s'),
                         htmlspecialchars(
-                            Util::backquote($tables[$i][self::TBL_NAME])
+                            Util::backquote($table[self::TBL_NAME])
                         )
                     ),
                     $tbl_ops_url,
                     sprintf(
                         __('Edit settings for %s'),
                         htmlspecialchars(
-                            Util::backquote($tables[$i][self::TBL_NAME])
+                            Util::backquote($table[self::TBL_NAME])
                         )
                     )
                 );
@@ -1319,10 +1318,10 @@ class Import
                     sprintf(
                         __('Go to view: %s'),
                         htmlspecialchars(
-                            Util::backquote($tables[$i][self::TBL_NAME])
+                            Util::backquote($table[self::TBL_NAME])
                         )
                     ),
-                    htmlspecialchars($tables[$i][self::TBL_NAME])
+                    htmlspecialchars($table[self::TBL_NAME])
                 );
             }
         }

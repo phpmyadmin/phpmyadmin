@@ -3545,10 +3545,7 @@ class Util
             'geometrycollection',
         ];
         if ($upper_case) {
-            for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
-                $gis_data_types[$i]
-                    = mb_strtoupper($gis_data_types[$i]);
-            }
+            $gis_data_types = array_map('mb_strtoupper', $gis_data_types);
         }
         return $gis_data_types;
     }
