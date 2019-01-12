@@ -923,7 +923,7 @@ class Qbe
             $html_output .= $this->_getAndOrColCell(
                 $new_column_count,
                 $checked_options,
-                ($column_index + 1 == $this->_criteria_column_count)
+                $column_index + 1 == $this->_criteria_column_count
             );
             $new_column_count++;
         } // end for

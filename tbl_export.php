@@ -56,14 +56,14 @@ $export_page_title = __('View dump (schema) of table');
 if (! empty($sql_query)) {
     $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
 
-    if ((! empty($parser->statements[0]))
+    if (! empty($parser->statements[0])
         && ($parser->statements[0] instanceof PhpMyAdmin\SqlParser\Statements\SelectStatement)
     ) {
         // Finding aliases and removing them, but we keep track of them to be
         // able to replace them in select expression too.
         $aliases = [];
         foreach ($parser->statements[0]->from as $from) {
-            if ((! empty($from->table)) && (! empty($from->alias))) {
+            if (! empty($from->table) && ! empty($from->alias)) {
                 $aliases[$from->alias] = $from->table;
                 // We remove the alias of the table because they are going to
                 // be replaced anyway.
@@ -87,7 +87,7 @@ if (! empty($sql_query)) {
         }
 
         // Checking if the WHERE clause has to be replaced.
-        if ((! empty($where_clause)) && (is_array($where_clause))) {
+        if (! empty($where_clause) && is_array($where_clause)) {
             $replaces[] = [
                 'WHERE',
                 'WHERE (' . implode(') OR (', $where_clause) . ')',

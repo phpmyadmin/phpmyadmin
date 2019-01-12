@@ -749,8 +749,8 @@ class ExportSql extends ExportPlugin
 
         // We want exported AUTO_INCREMENT columns to have still same value,
         // do this only for recent MySQL exports
-        if ((! isset($GLOBALS['sql_compatibility'])
-            || $GLOBALS['sql_compatibility'] == 'NONE')
+        if (! isset($GLOBALS['sql_compatibility'])
+            || $GLOBALS['sql_compatibility'] == 'NONE'
         ) {
             $head .= 'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";' . $crlf;
         }
@@ -1794,7 +1794,7 @@ class ExportSql extends ExportPlugin
                         ) . $alter_footer;
                 }
 
-                if (! empty($indexes) || (! empty($indexes_fulltext))) {
+                if (! empty($indexes) || ! empty($indexes_fulltext)) {
                     $sql_indexes = $this->generateComment(
                         $crlf,
                         $sql_indexes,
@@ -1813,7 +1813,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Generating auto-increment-related query.
-                if (! empty($auto_increment) && ($update_indexes_increments)) {
+                if (! empty($auto_increment) && $update_indexes_increments) {
                     $sql_auto_increments_query = $alter_header . $crlf . '  MODIFY '
                         . implode(',' . $crlf . '  MODIFY ', $auto_increment);
                     if (isset($GLOBALS['sql_auto_increment'])
@@ -2827,9 +2827,9 @@ class ExportSql extends ExportPlugin
         }
 
         if ($statement->options->has('TRIGGER')
-            || ($statement->options->has('PROCEDURE'))
-            || ($statement->options->has('FUNCTION'))
-            || ($statement->options->has('VIEW'))
+            || $statement->options->has('PROCEDURE')
+            || $statement->options->has('FUNCTION')
+            || $statement->options->has('VIEW')
         ) {
             // Repalcing the body.
             for ($i = 0, $count = count($statement->body); $i < $count; ++$i) {

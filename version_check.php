@@ -42,8 +42,8 @@ if (empty($versionDetails)) {
     }
     echo json_encode(
         [
-            'version' => (! empty($version) ? $version : ''),
-            'date' => (! empty($date) ? $date : ''),
+            'version' => ! empty($version) ? $version : '',
+            'date' => ! empty($date) ? $date : '',
         ]
     );
 }

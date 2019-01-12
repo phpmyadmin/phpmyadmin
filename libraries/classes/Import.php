@@ -560,8 +560,8 @@ class Import
     {
         return (int) substr(
             $last_cumulative_size,
-            (strpos($last_cumulative_size, ",") + 1),
-            (strlen($last_cumulative_size) - strpos($last_cumulative_size, ","))
+            strpos($last_cumulative_size, ",") + 1,
+            strlen($last_cumulative_size) - strpos($last_cumulative_size, ",")
         );
     }
 
@@ -586,7 +586,7 @@ class Import
         return [
             $m,
             $d,
-            ($m . "," . $d),
+            $m . "," . $d,
         ];
     }
 
@@ -1145,11 +1145,11 @@ class Import
                             $is_varchar = false;
                         }
 
-                        $tempSQLStr .= (($is_varchar) ? "'" : "");
+                        $tempSQLStr .= $is_varchar ? "'" : "";
                         $tempSQLStr .= $GLOBALS['dbi']->escapeString(
                             (string) $tables[$i][self::ROWS][$j][$k]
                         );
-                        $tempSQLStr .= (($is_varchar) ? "'" : "");
+                        $tempSQLStr .= $is_varchar ? "'" : "";
                     }
 
                     if ($k != ($num_cols - 1)) {
@@ -1398,7 +1398,7 @@ class Import
 
             if ((! (($statement instanceof UpdateStatement)
                 || ($statement instanceof DeleteStatement)))
-                || (! empty($statement->join))
+                || ! empty($statement->join)
             ) {
                 $error = $error_msg;
                 break;

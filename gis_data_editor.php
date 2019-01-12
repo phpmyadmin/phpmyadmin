@@ -56,7 +56,7 @@ if (! isset($gis_data['gis_type'])) {
             mb_strpos($_POST['value'], "(") - $start
         );
     }
-    if ((! isset($gis_data['gis_type']))
+    if (! isset($gis_data['gis_type'])
         || (! in_array($gis_data['gis_type'], $gis_types))
     ) {
         $gis_data['gis_type'] = $gis_types[0];
@@ -111,7 +111,7 @@ if (isset($_POST['generate']) && $_POST['generate'] == true) {
 
 $geom_count = 1;
 if ($geom_type == 'GEOMETRYCOLLECTION') {
-    $geom_count = (isset($gis_data[$geom_type]['geom_count']))
+    $geom_count = isset($gis_data[$geom_type]['geom_count'])
         ? intval($gis_data[$geom_type]['geom_count']) : 1;
     if (isset($gis_data[$geom_type]['add_geom'])) {
         $geom_count++;

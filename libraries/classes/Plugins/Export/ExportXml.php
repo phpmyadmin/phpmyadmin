@@ -253,7 +253,7 @@ class ExportXml extends ExportPlugin
             . '-->' . $crlf . $crlf;
 
         $head .= '<pma_xml_export version="1.0"'
-            . (($export_struct)
+            . ($export_struct
                 ? ' xmlns:pma="https://www.phpmyadmin.net/some_doc_url/"'
                 : '')
             . '>' . $crlf;

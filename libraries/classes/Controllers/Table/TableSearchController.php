@@ -570,9 +570,9 @@ class TableSearchController extends TableController
                 'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
                 'sql_types' => $this->dbi->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
-                'max_plot_limit' => (! empty($_POST['maxPlotLimit'])
+                'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
                     ? intval($_POST['maxPlotLimit'])
-                    : intval($GLOBALS['cfg']['maxRowPlotLimit'])),
+                    : intval($GLOBALS['cfg']['maxRowPlotLimit']),
             ])
         );
     }

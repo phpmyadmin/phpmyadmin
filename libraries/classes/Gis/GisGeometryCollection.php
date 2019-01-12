@@ -322,7 +322,7 @@ class GisGeometryCollection extends GisGeometry
                         = mb_substr(
                             $geom_col,
                             $start,
-                            ($count + 1 - $start)
+                            $count + 1 - $start
                         );
                     $start = $count + 2;
                 }
@@ -345,7 +345,7 @@ class GisGeometryCollection extends GisGeometry
      */
     public function generateWkt(array $gis_data, $index, $empty = '')
     {
-        $geom_count = (isset($gis_data['GEOMETRYCOLLECTION']['geom_count']))
+        $geom_count = isset($gis_data['GEOMETRYCOLLECTION']['geom_count'])
             ? $gis_data['GEOMETRYCOLLECTION']['geom_count'] : 1;
         $wkt = 'GEOMETRYCOLLECTION(';
         for ($i = 0; $i < $geom_count; $i++) {

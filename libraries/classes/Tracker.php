@@ -287,7 +287,7 @@ class Tracker
 
         if ($result) {
             // Deactivate previous version
-            self::deactivateTracking($dbname, $tablename, ($version - 1));
+            self::deactivateTracking($dbname, $tablename, $version - 1);
         }
 
         return $result;

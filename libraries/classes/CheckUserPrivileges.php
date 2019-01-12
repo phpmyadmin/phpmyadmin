@@ -69,7 +69,7 @@ class CheckUserPrivileges
         $show_grants_str = mb_substr(
             $row,
             6,
-            (mb_strpos($row, ' ON ') - 6)
+            mb_strpos($row, ' ON ') - 6
         );
 
         $show_grants_tblname = mb_substr(

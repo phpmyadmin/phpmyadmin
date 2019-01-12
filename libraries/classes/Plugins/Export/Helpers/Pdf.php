@@ -113,7 +113,7 @@ class Pdf extends PdfLib
         $current_page = $this->page;
         if ((($y + $h) > $this->PageBreakTrigger)
             && (! $this->InFooter)
-            && ($this->AcceptPageBreak())
+            && $this->AcceptPageBreak()
         ) {
             if ($addpage) {
                 //Automatic page break

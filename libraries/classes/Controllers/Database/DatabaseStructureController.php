@@ -309,7 +309,7 @@ class DatabaseStructureController extends DatabaseController
             'db' => $this->db,
             'ajax_request' => true,
             'favorite_table' => $favorite_table,
-            (($already_favorite ? 'remove' : 'add') . '_favorite') => true,
+            ($already_favorite ? 'remove' : 'add') . '_favorite' => true,
         ];
         $this->response->addJSON([
             'user' => $user,
@@ -644,12 +644,12 @@ class DatabaseStructureController extends DatabaseController
                     'formatted_size' => $formatted_size,
                     'unit' => $unit,
                     'overhead' => $overhead,
-                    'create_time' => (isset($create_time) && $create_time
-                        ? Util::localisedDate(strtotime($create_time)) : '-'),
-                    'update_time' => (isset($update_time) && $update_time
-                        ? Util::localisedDate(strtotime($update_time)) : '-'),
-                    'check_time' => (isset($check_time) && $check_time
-                        ? Util::localisedDate(strtotime($check_time)) : '-'),
+                    'create_time' => isset($create_time) && $create_time
+                        ? Util::localisedDate(strtotime($create_time)) : '-',
+                    'update_time' => isset($update_time) && $update_time
+                        ? Util::localisedDate(strtotime($update_time)) : '-',
+                    'check_time' => isset($check_time) && $check_time
+                        ? Util::localisedDate(strtotime($check_time)) : '-',
                     'charset' => isset($charset)
                         ? $charset : '',
                     'is_show_stats' => $this->_is_show_stats,
@@ -691,9 +691,9 @@ class DatabaseStructureController extends DatabaseController
                 'db_charset' => $db_charset,
                 'sum_size' => $sum_size,
                 'overhead_size' => $overhead_size,
-                'create_time_all' => ($create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-'),
-                'update_time_all' => ($update_time_all ? Util::localisedDate(strtotime($update_time_all)) : '-'),
-                'check_time_all' => ($check_time_all ? Util::localisedDate(strtotime($check_time_all)) : '-'),
+                'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
+                'update_time_all' => $update_time_all ? Util::localisedDate(strtotime($update_time_all)) : '-',
+                'check_time_all' => $check_time_all ? Util::localisedDate(strtotime($check_time_all)) : '-',
                 'approx_rows' => $overall_approx_rows,
                 'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                 'db' => $GLOBALS['db'],

@@ -1423,7 +1423,7 @@ class Results
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 0;
 
             $button_html .= '<td ' . $colspan . '></td>';
-        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE)) {
+        } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
             $button_html .= '<th class="column_action"></th>';
@@ -1451,7 +1451,7 @@ class Results
     private function _getTableCommentsArray(array $analyzed_sql_results)
     {
         if (! $GLOBALS['cfg']['ShowBrowseComments']
-            || (empty($analyzed_sql_results['statement']->from))
+            || empty($analyzed_sql_results['statement']->from)
         ) {
             return [];
         }
@@ -2893,7 +2893,7 @@ class Results
             include_once ROOT_PATH . 'libraries/special_schema_links.inc.php';
 
             if (isset($GLOBALS['special_schema_links'])
-                && (! empty($GLOBALS['special_schema_links'][$dbLower][$tblLower][$nameLower]))
+                && ! empty($GLOBALS['special_schema_links'][$dbLower][$tblLower][$nameLower])
             ) {
                 $linking_url = $this->_getSpecialLinkUrl(
                     $row[$i],
@@ -3315,7 +3315,7 @@ class Results
                 'table'     => $this->__get('table'),
                 'sql_query' => $url_sql_query,
                 'message_to_show' => __('The row has been deleted.'),
-                'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
+                'goto'      => empty($goto) ? 'tbl_sql.php' : $goto,
             ];
 
             $lnk_goto = 'sql.php' . Url::getCommonRaw($_url_params);
@@ -4250,7 +4250,7 @@ class Results
         }
 
         $navigation = '';
-        if (($displayParts['nav_bar'] == '1') && ! is_null($statement) && (empty($statement->limit))) {
+        if ($displayParts['nav_bar'] == '1' && ! is_null($statement) && empty($statement->limit)) {
             $navigation = $this->_getTableNavigation(
                 $pos_next,
                 $pos_prev,
@@ -5272,7 +5272,7 @@ class Results
 
         if (! empty($analyzed_sql_results['statement']->expr)) {
             foreach ($analyzed_sql_results['statement']->expr as $expr) {
-                if (empty($expr->alias) || (empty($expr->column))) {
+                if (empty($expr->alias) || empty($expr->column)) {
                     continue;
                 }
                 if (strcasecmp($meta->name, $expr->alias) == 0) {

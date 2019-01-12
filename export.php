@@ -304,7 +304,7 @@ if ($export_type == 'server') {
 // preference over SQL Query aliases.
 $parser = new \PhpMyAdmin\SqlParser\Parser($sql_query);
 $aliases = [];
-if ((! empty($parser->statements[0]))
+if (! empty($parser->statements[0])
     && ($parser->statements[0] instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement)
 ) {
     $aliases = \PhpMyAdmin\SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
