@@ -659,7 +659,7 @@ class TableStructureController extends TableController
 
         $partitionDetails['partitions'] = [];
 
-        for ($i = 0; $i < intval($partitionDetails['partition_count']); $i++) {
+        for ($i = 0, $iMax = (int) $partitionDetails['partition_count']; $i < $iMax; $i++) {
             if (! isset($stmt->partitions[$i])) {
                 $partitionDetails['partitions'][$i] = [
                     'name' => 'p' . $i,
@@ -704,7 +704,7 @@ class TableStructureController extends TableController
                 $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
                 $partition['subpartitions'] = [];
 
-                for ($j = 0; $j < intval($partitionDetails['subpartition_count']); $j++) {
+                for ($j = 0, $jMax = (int) $partitionDetails['subpartition_count']; $j < $jMax; $j++) {
                     if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
                         $partition['subpartitions'][$j] = [
                             'name' => $partition['name'] . '_s' . $j,
