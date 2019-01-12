@@ -9,8 +9,12 @@ additonal themes from our website at <https://www.phpmyadmin.net/themes/>.
 Configuration
 -------------
 
+.. versionchanged:: 5.0.0
+
+    Before phpMyAdmin 5.0.0 the themes was located at :file:`./themes/`.
+
 Themes are configured with :config:option:`$cfg['ThemeManager']` and
-:config:option:`$cfg['ThemeDefault']`.  Under :file:`./themes/`, you should not
+:config:option:`$cfg['ThemeDefault']`.  Under :file:`./public/themes/`, you should not
 delete the directory ``pmahomme`` or its underlying structure, because this is
 the system theme used by phpMyAdmin. ``pmahomme`` contains all images and
 styles, for backwards compatibility and for all themes that would not include
@@ -23,7 +27,7 @@ Creating custom theme
 
 To create a theme:
 
-* make a new subdirectory (for example "your\_theme\_name") under :file:`./themes/`.
+* make a new subdirectory (for example "your\_theme\_name") under :file:`./public/themes/`.
 * copy the files and directories from ``pmahomme`` to "your\_theme\_name"
 * edit the css-files in "your\_theme\_name/css"
 * put your new images in "your\_theme\_name/img"

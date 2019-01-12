@@ -1087,6 +1087,16 @@ are always ways to make your installation more secure:
   possible session based attacks against it. You can use
   :config:option:`$cfg['SessionSavePath']` to achieve this.
 
+.. versionchanged:: 5.0.0
+
+    Since phpMyAdmin 5.0.0 all public files have been moved to the
+    :file:`./public/` directory. That way, the :file:`./public/` directory must
+    be the root directory on your http server.
+
+    .. code-block:: apache
+
+      DocumentRoot /var/www/html/phpmyadmin/public
+
 .. _ssl:
 
 Using SSL for connection to database server
