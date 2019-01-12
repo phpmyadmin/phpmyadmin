@@ -157,9 +157,7 @@ class Util
 
         // generate the IMG tag
         $template = '<img src="themes/dot.gif" title="%s" alt="%s"%s>';
-        $retval = sprintf($template, $title, $alt, $attr_str);
-
-        return $retval;
+        return sprintf($template, $title, $alt, $attr_str);
     }
 
     /**
@@ -3524,8 +3522,7 @@ class Util
      */
     public static function unsupportedDatatypes()
     {
-        $no_support_types = [];
-        return $no_support_types;
+        return [];
     }
 
     /**

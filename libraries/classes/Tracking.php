@@ -1280,8 +1280,8 @@ class Tracking
     public function getUntrackedTables($db)
     {
         $table_list = Util::getTableList($db);
-        $untracked_tables = $this->extractTableNames($table_list, $db);  //Use helper function to get table list recursively.
-        return $untracked_tables;
+        //Use helper function to get table list recursively.
+        return $this->extractTableNames($table_list, $db);
     }
 
     /**

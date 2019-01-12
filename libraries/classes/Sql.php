@@ -553,9 +553,7 @@ EOT;
             DatabaseInterface::QUERY_STORE
         );
 
-        $values = Util::parseEnumSetValues($field_info_result[0]['Type']);
-
-        return $values;
+        return Util::parseEnumSetValues($field_info_result[0]['Type']);
     }
 
     /**

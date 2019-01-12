@@ -32,10 +32,8 @@ function get_login_credentials($user)
     }
 
     /* Here we would retrieve the credentials */
-    $credentials = [
+    return [
         'root',
         '',
     ];
-
-    return $credentials;
 }
