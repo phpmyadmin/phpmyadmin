@@ -136,7 +136,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->setCMargin(0);
         }
 
-        $this->diagram->Addpage();
+        $this->diagram->AddPage();
 
         if ($this->_withDoc) {
             $this->diagram->SetLink($this->diagram->PMA_links['RT']['-'], -1);
@@ -490,7 +490,7 @@ class PdfRelationSchema extends ExportRelationSchema
     public function dataDictionaryDoc(array $alltables)
     {
          // TOC
-        $this->diagram->addpage($this->orientation);
+        $this->diagram->AddPage($this->orientation);
         $this->diagram->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
         $this->diagram->Ln(15);
         $i = 1;
@@ -561,7 +561,7 @@ class PdfRelationSchema extends ExportRelationSchema
         foreach ($alltables as $table) {
             $z++;
             $this->diagram->SetAutoPageBreak(true, 15);
-            $this->diagram->addpage($this->orientation);
+            $this->diagram->AddPage($this->orientation);
             $this->diagram->Bookmark($table);
             $this->diagram->setAlias(
                 '{' . sprintf("%02d", $z) . '}',
@@ -585,7 +585,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->PMA_links['RT'][$table]['-']
             );
             $this->diagram->SetFont($this->_ff, '', 8);
-            $this->diagram->ln();
+            $this->diagram->Ln();
 
             $cfgRelation = $this->relation->getRelationsParam();
             $comments = $this->relation->getComments($this->db, $table);
