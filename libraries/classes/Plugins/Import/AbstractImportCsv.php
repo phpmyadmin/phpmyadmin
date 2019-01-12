@@ -26,14 +26,6 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 abstract class AbstractImportCsv extends ImportPlugin
 {
     /**
-     * AbstractImportCsv constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Sets the import plugin properties.
      * Called in the constructor.
      *
