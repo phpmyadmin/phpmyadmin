@@ -3002,7 +3002,7 @@ class InsertEdit
             'sql_query' => $_POST['sql_query'],
         ];
 
-        if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
+        if (0 === strpos($GLOBALS['goto'], "tbl_")) {
             $url_params['table'] = $table;
         }
 

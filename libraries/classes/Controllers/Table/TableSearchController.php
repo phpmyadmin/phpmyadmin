@@ -158,7 +158,7 @@ class TableSearchController extends TableController
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
                 // this would be a BINARY or VARBINARY column type
                 if (! preg_match('@BINARY[\(]@i', $type)) {
-                    $type = preg_replace('@BINARY@i', '', $type);
+                    $type = str_ireplace("BINARY", '', $type);
                 }
                 $type = preg_replace('@ZEROFILL@i', '', $type);
                 $type = preg_replace('@UNSIGNED@i', '', $type);

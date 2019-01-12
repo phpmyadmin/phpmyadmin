@@ -62,7 +62,7 @@ $target_blacklist =  [
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
-    && ! preg_match('/^index/', $_REQUEST['target'])
+    && 0 !== strpos($_REQUEST['target'], "index")
     && ! in_array($_REQUEST['target'], $target_blacklist)
     && Core::checkPageValidity($_REQUEST['target'], [], true)
 ) {

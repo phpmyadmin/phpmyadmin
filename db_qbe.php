@@ -90,7 +90,7 @@ if ($cfgRelation['savedsearcheswork']) {
  */
 $message_to_display = false;
 if (isset($_POST['submit_sql']) && ! empty($sql_query)) {
-    if (! preg_match('@^SELECT@i', $sql_query)) {
+    if (0 !== stripos($sql_query, "SELECT")) {
         $message_to_display = true;
     } else {
         $goto = 'db_sql.php';

@@ -2894,7 +2894,7 @@ class Util
             // this would be a BINARY or VARBINARY column type;
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
-            if (preg_match('@binary@', $printtype)
+            if (false !== strpos($printtype, "binary")
                 && ! preg_match('@binary[\(]@', $printtype)
             ) {
                 $printtype = preg_replace('@binary@', '', $printtype);
