@@ -354,20 +354,18 @@ class Index
         }
         if (isset($params['Index_choice'])) {
             $this->_choice = $params['Index_choice'];
+        } elseif ('PRIMARY' == $this->_name) {
+            $this->_choice = 'PRIMARY';
+        } elseif ('FULLTEXT' == $this->_type) {
+            $this->_choice = 'FULLTEXT';
+            $this->_type = '';
+        } elseif ('SPATIAL' == $this->_type) {
+            $this->_choice = 'SPATIAL';
+            $this->_type = '';
+        } elseif ('0' == $this->_non_unique) {
+            $this->_choice = 'UNIQUE';
         } else {
-            if ('PRIMARY' == $this->_name) {
-                $this->_choice = 'PRIMARY';
-            } elseif ('FULLTEXT' == $this->_type) {
-                $this->_choice = 'FULLTEXT';
-                $this->_type = '';
-            } elseif ('SPATIAL' == $this->_type) {
-                $this->_choice = 'SPATIAL';
-                $this->_type = '';
-            } elseif ('0' == $this->_non_unique) {
-                $this->_choice = 'UNIQUE';
-            } else {
-                $this->_choice = 'INDEX';
-            }
+            $this->_choice = 'INDEX';
         }
         if (isset($params['Key_block_size'])) {
             $this->_key_block_size = $params['Key_block_size'];

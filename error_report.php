@@ -131,11 +131,9 @@ if (isset($_POST['send_error_report'])
     }
 } elseif (! empty($_POST['get_settings'])) {
     $response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
+} elseif ($_POST['exception_type'] == 'js') {
+    $response->addHTML($errorReport->getForm());
 } else {
-    if ($_POST['exception_type'] == 'js') {
-        $response->addHTML($errorReport->getForm());
-    } else {
-        // clear previous errors & save new ones.
-        $GLOBALS['error_handler']->savePreviousErrors();
-    }
+    // clear previous errors & save new ones.
+    $GLOBALS['error_handler']->savePreviousErrors();
 }

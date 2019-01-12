@@ -398,15 +398,13 @@ class Config
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
                 return false;
+            } elseif (@is_dir($gitmatch[1])) {
+                //Detected git external folder location
+                $git_location = $gitmatch[1];
             } else {
-                if (@is_dir($gitmatch[1])) {
-                    //Detected git external folder location
-                    $git_location = $gitmatch[1];
-                } else {
-                    $_SESSION['git_location'] = null;
-                    $_SESSION['is_git_revision'] = false;
-                    return false;
-                }
+                $_SESSION['git_location'] = null;
+                $_SESSION['is_git_revision'] = false;
+                return false;
             }
         } else {
             $_SESSION['git_location'] = null;

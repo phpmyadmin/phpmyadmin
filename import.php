@@ -286,15 +286,13 @@ if ($import_type == 'table') {
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
     $goto = 'server_import.php';
-} else {
-    if (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
-        if (strlen($table) > 0 && strlen($db) > 0) {
-            $goto = 'tbl_structure.php';
-        } elseif (strlen($db) > 0) {
-            $goto = 'db_structure.php';
-        } else {
-            $goto = 'server_sql.php';
-        }
+} elseif (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
+    if (strlen($table) > 0 && strlen($db) > 0) {
+        $goto = 'tbl_structure.php';
+    } elseif (strlen($db) > 0) {
+        $goto = 'db_structure.php';
+    } else {
+        $goto = 'server_sql.php';
     }
 }
 $err_url = $goto . Url::getCommon($urlparams);

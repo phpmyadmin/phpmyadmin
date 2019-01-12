@@ -791,17 +791,15 @@ class CentralColumns
         $meta = [];
         if (! isset($row['col_default']) || $row['col_default'] == '') {
             $meta['DefaultType'] = 'NONE';
+        } elseif ($row['col_default'] == 'CURRENT_TIMESTAMP'
+            || $row['col_default'] == 'current_timestamp()'
+        ) {
+            $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
+        } elseif ($row['col_default'] == 'NULL') {
+            $meta['DefaultType'] = $row['col_default'];
         } else {
-            if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                || $row['col_default'] == 'current_timestamp()'
-            ) {
-                $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
-            } elseif ($row['col_default'] == 'NULL') {
-                $meta['DefaultType'] = $row['col_default'];
-            } else {
-                $meta['DefaultType'] = 'USER_DEFINED';
-                $meta['DefaultValue'] = $row['col_default'];
-            }
+            $meta['DefaultType'] = 'USER_DEFINED';
+            $meta['DefaultValue'] = $row['col_default'];
         }
         $tableHtml .=
             '<td class="nowrap" name="col_default">'
