@@ -1904,11 +1904,8 @@ class Relation
             if (sizeof($child_references, 0) > 0) {
                 $column_status['isReferenced'] = true;
                 foreach ($child_references as $columns) {
-                    array_push(
-                        $column_status['references'],
-                        Util::backquote($columns['table_schema'])
-                        . '.' . Util::backquote($columns['table_name'])
-                    );
+                    $column_status['references'][] = Util::backquote($columns['table_schema'])
+                        . '.' . Util::backquote($columns['table_name']);
                 }
             }
 
