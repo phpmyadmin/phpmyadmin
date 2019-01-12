@@ -28,7 +28,6 @@ abstract class TransformationsPlugin implements TransformationsInterface
      */
     public function applyTransformationNoWrap(array $options = [])
     {
-        ;
     }
 
     /**
