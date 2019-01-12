@@ -2650,8 +2650,7 @@ class Table
                 $sql .= " AND  `COLUMN_NAME` = '" . $this->_dbi->escapeString($column)
                     . "'";
             }
-            $columns = $this->_dbi->fetchResult($sql, 'Field', 'Expression');
-            return $columns;
+            return $this->_dbi->fetchResult($sql, 'Field', 'Expression');
         }
 
         $createTable = $this->showCreate();

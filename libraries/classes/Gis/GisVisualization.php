@@ -319,9 +319,7 @@ class GisVisualization
      */
     public function asSVG()
     {
-        $output = $this->_svg();
-
-        return $output;
+        return $this->_svg();
     }
 
     /**

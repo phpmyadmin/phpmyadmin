@@ -5341,9 +5341,7 @@ class Privileges
             "SELECT PASSWORD('" . $password . "') AS `password`;"
         );
 
-        $hashedPassword = $result['password'];
-
-        return $hashedPassword;
+        return $result['password'];
     }
 
     /**

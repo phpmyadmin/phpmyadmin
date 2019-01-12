@@ -876,8 +876,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($this->_use_openssl) {
             return openssl_cipher_iv_length('AES-128-CBC');
         }
-        $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
-        return $cipher->block_size;
+        return (new Crypt\AES(Crypt\Base::MODE_CBC))->block_size;
     }
 
     /**

@@ -55,8 +55,6 @@ class UploadNoplugin implements UploadInterface
                 'plugin'   => UploadNoplugin::getIdKey(),
             ];
         }
-        $ret = $_SESSION[$SESSION_KEY][$id];
-
-        return $ret;
+        return $_SESSION[$SESSION_KEY][$id];
     }
 }

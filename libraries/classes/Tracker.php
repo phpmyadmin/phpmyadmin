@@ -320,9 +320,7 @@ class Tracker
             $sql_query .= " AND `version` = '"
                 . $GLOBALS['dbi']->escapeString($version) . "'";
         }
-        $result = $relation->queryAsControlUser($sql_query);
-
-        return $result;
+        return $relation->queryAsControlUser($sql_query);
     }
 
     /**
@@ -387,9 +385,7 @@ class Tracker
         '" . $GLOBALS['dbi']->escapeString($tracking_set)
         . "' )";
 
-        $result = $relation->queryAsControlUser($sql_query);
-
-        return $result;
+        return $relation->queryAsControlUser($sql_query);
     }
 
 
@@ -420,9 +416,7 @@ class Tracker
         " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
         " AND `version` = '" . $GLOBALS['dbi']->escapeString((string) $version) . "' ";
 
-        $result = $relation->queryAsControlUser($sql_query);
-
-        return $result;
+        return $relation->queryAsControlUser($sql_query);
     }
 
     /**
