@@ -168,9 +168,6 @@ class Session
         // delete session/cookies when browser is closed
         ini_set('session.cookie_lifetime', '0');
 
-        // use more secure session ids
-        ini_set('session.hash_function', '1');
-
         // some pages (e.g. stylesheet) may be cached on clients, but not in shared
         // proxy servers
         session_cache_limiter('private');
