@@ -11,7 +11,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Template;
 
-
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
@@ -22,7 +21,7 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
-$header   = $response->getHeader();
+$header = $response->getHeader();
 $header->disableMenuAndConsole();
 
 $transformations = new Transformations();
@@ -43,19 +42,19 @@ $labels = [
  */
 $tableHeadLabels = [
     'transformation' => __('Browser display transformation'),
-    'input_transformation' => __('Input transformation')
+    'input_transformation' => __('Input transformation'),
 ];
 
 $transformation_types = [
     'transformation' => [],
-    'input_transformation' => []
+    'input_transformation' => [],
 ];
 
 /**
  * Looping over transformations and preparing labels, titles, text and transformation types to prepare
  * nested array so that view template can easily get all required information.
  */
-foreach( ['transformation', 'input_transformation'] as $ttype ) {
+foreach (['transformation', 'input_transformation'] as $ttype) {
     // settings title, text and labels for transformation
     $transformation_types[$ttype]['title'] = $ttype;
     $transformation_types[$ttype]['_pgettext'] = _pgettext('for MIME transformation', 'Description');
@@ -67,7 +66,7 @@ foreach( ['transformation', 'input_transformation'] as $ttype ) {
     foreach ($types[$ttype] as $key => $transform) {
         $transformation_types[$ttype]['types'][] = [
             'transform' => $transform,
-            'description' => $transformations->getDescription($types[$ttype . '_file'][$key])
+            'description' => $transformations->getDescription($types[$ttype . '_file'][$key]),
         ];
     }
 }
@@ -77,5 +76,5 @@ echo $template->render('transformation_overview', [
     'label' => $labels,
     'types' => $transformations->getAvailableMimeTypes(),
     'transformation_types' => $transformation_types,
-    'table_headings_label' => $tableHeadLabels
+    'table_headings_label' => $tableHeadLabels,
 ]);
