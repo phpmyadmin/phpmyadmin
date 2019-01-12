@@ -511,7 +511,7 @@ class TableStructureController extends TableController
      * @param array  $selected the selected columns
      * @param string $action   target script to call
      *
-     * @return boolean true if error occurred
+     * @return void
      *
      */
     protected function displayHtmlForColumnChange($selected, $action)
@@ -563,7 +563,7 @@ class TableStructureController extends TableController
     /**
      * Displays HTML for partition change
      *
-     * @return string HTML for partition change
+     * @return void
      */
     protected function displayHtmlForPartitionChange()
     {

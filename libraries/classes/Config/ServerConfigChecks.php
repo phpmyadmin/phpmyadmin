@@ -360,7 +360,7 @@ class ServerConfigChecks
      * @param boolean $blowfishSecretSet Blowfish secret set
      * @param string  $blowfishSecret    Blowfish secret
      *
-     * @return array
+     * @return void
      */
     protected function performConfigChecksCookieAuthUsed(
         $cookieAuthUsed,

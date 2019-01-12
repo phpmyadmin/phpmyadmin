@@ -352,6 +352,7 @@ class Advisor
      * @param string $param the parameters
      *
      * @return string
+     * @throws Exception
      */
     public function translate(string $str, ?string $param = null): string
     {
@@ -390,6 +391,7 @@ class Advisor
      * @param array  $rule rule itself
      *
      * @return void
+     * @throws Exception
      */
     public function addRule(string $type, array $rule): void
     {

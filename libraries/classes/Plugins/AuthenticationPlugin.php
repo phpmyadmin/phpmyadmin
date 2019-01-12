@@ -332,7 +332,7 @@ abstract class AuthenticationPlugin
      * Checks whether two factor authentication is active
      * for given user and performs it.
      *
-     * @return void
+     * @return boolean|void
      */
     public function checkTwoFactor()
     {

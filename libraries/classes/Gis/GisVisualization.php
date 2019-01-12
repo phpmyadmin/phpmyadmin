@@ -204,7 +204,7 @@ class GisVisualization
     /**
      * Returns raw data for GIS visualization.
      *
-     * @return string the raw data.
+     * @return array the raw data.
      */
     private function _fetchRawData()
     {

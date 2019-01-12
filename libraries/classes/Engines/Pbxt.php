@@ -142,7 +142,7 @@ class Pbxt extends StorageEngine
      *
      * @param string $formatted_size the size expression (for example 8MB)
      *
-     * @return string the formatted value and its unit
+     * @return array the formatted value and its unit
      */
     public function resolveTypeSize($formatted_size)
     {

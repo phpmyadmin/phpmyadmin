@@ -1529,7 +1529,7 @@ class InsertEdit
      * @param string $vkey   [multi_edit]['row_id']
      * @param array  $column description of column in given table
      *
-     * @return string|void an html snippet
+     * @return string|null an html snippet
      */
     private function getSelectOptionForUpload($vkey, array $column)
     {

@@ -1001,7 +1001,7 @@ class Relation
      *
      * @access  public
      *
-     * @return string   comment
+     * @return array comments
      */
     public function getDbComments()
     {

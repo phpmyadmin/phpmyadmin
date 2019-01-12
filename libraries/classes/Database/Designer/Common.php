@@ -148,7 +148,7 @@ class Common
     /**
      * Returns JavaScript code for initializing vars
      *
-     * @return string   JavaScript code
+     * @return array   JavaScript code
      */
     public function getScriptContr()
     {
@@ -257,7 +257,7 @@ class Common
     /**
      * Return script to create j_tab and h_tab arrays
      *
-     * @return string
+     * @return array
      */
     public function getScriptTabs()
     {

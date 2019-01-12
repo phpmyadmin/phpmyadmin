@@ -303,7 +303,7 @@ class StorageEngine
      *
      * @param integer $value Value to format
      *
-     * @return string the formatted value and its unit
+     * @return array the formatted value and its unit
      */
     public function resolveTypeSize($value)
     {

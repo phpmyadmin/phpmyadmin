@@ -74,7 +74,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets the values
      *
-     * @return string
+     * @return array
      */
     public function getValues()
     {
@@ -96,7 +96,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets MySQL documentation pointer
      *
-     * @return array
+     * @return string
      */
     public function getDoc()
     {
