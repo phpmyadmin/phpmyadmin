@@ -467,7 +467,7 @@ class Import
 
         if ($num > 26) {
             $div = (int) ($num / 26);
-            $remain = (int) ($num % 26);
+            $remain = $num % 26;
 
             // subtract 1 of divided value in case the modulus is 0,
             // this is necessary because A-Z has no 'zero'
