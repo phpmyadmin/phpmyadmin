@@ -4014,7 +4014,7 @@ class Privileges
     /**
      * @return mixed
      */
-    public function getDataForUserOverviewPart2():
+    public function getDataForUserOverviewPart2()
     {
         $sql_query = 'SELECT * FROM `mysql`.`user`';
         $res = $this->dbi->tryQuery(
