@@ -1667,17 +1667,16 @@ EOT;
      * Returns a message for successful creation of a bookmark or null if a bookmark
      * was not created
      *
-     * @return Message
+     * @return Message|null
      */
     private function getBookmarkCreatedMessage()
     {
+        $bookmark_created_msg = null;
         if (isset($_GET['label'])) {
             $bookmark_created_msg = Message::success(
                 __('Bookmark %s has been created.')
             );
             $bookmark_created_msg->addParam($_GET['label']);
-        } else {
-            $bookmark_created_msg = null;
         }
 
         return $bookmark_created_msg;
@@ -1857,10 +1856,11 @@ EOT;
      * @param boolean $editable   whether the results table can be editable or not
      * @param boolean $has_unique whether there is a unique key
      *
-     * @return Message
+     * @return Message|null
      */
     private function getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
     {
+        $missing_unique_column_msg = null;
         if (! empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable)) {
             $missing_unique_column_msg = Message::notice(
                 sprintf(
@@ -1889,8 +1889,6 @@ EOT;
                     )
                 )
             );
-        } else {
-            $missing_unique_column_msg = null;
         }
 
         return $missing_unique_column_msg;
