@@ -605,68 +605,24 @@ EOT;
         $table,
         ?string $complete_query,
         $bkm_user
-    ) {
+    ): string {
         if ($displayParts['bkm_form'] == '1'
             && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
             && ! empty($sql_query)
         ) {
-            $goto = 'sql.php'
-                . Url::getCommon(
-                    [
-                        'db' => $db,
-                        'table' => $table,
-                        'sql_query' => $sql_query,
-                        'id_bookmark' => 1,
-                    ]
-                );
-            $bkm_sql_query = isset($complete_query) ? $complete_query : $sql_query;
-            $html = '<form action="sql.php" method="post"'
-                . ' onsubmit="return ! emptyCheckTheField(this,'
-                . '\'bkm_fields[bkm_label]\');"'
-                . ' class="bookmarkQueryForm print_ignore">';
-            $html .= Url::getHiddenInputs();
-            $html .= '<input type="hidden" name="db"'
-                . ' value="' . htmlspecialchars($db) . '">';
-            $html .= '<input type="hidden" name="goto" value="' . $goto . '">';
-            $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
-                . ' value="' . htmlspecialchars($db) . '">';
-            $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
-                . ' value="' . $bkm_user . '">';
-            $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"'
-                . ' value="'
-                . htmlspecialchars($bkm_sql_query)
-                . '">';
-            $html .= '<fieldset>';
-            $html .= '<legend>';
-            $html .= Util::getIcon(
-                'b_bookmark',
-                __('Bookmark this SQL query'),
-                true
-            );
-            $html .= '</legend>';
-            $html .= '<div class="formelement">';
-            $html .= '<label>' . __('Label:');
-            $html .= '<input type="text" name="bkm_fields[bkm_label]" value="">' .
-                '</label>';
-            $html .= '</div>';
-            $html .= '<div class="formelement">';
-            $html .= '<label>' .
-                '<input type="checkbox" name="bkm_all_users" value="true">';
-            $html .=  __('Let every user access this bookmark') . '</label>';
-            $html .= '</div>';
-            $html .= '<div class="clearfloat"></div>';
-            $html .= '</fieldset>';
-            $html .= '<fieldset class="tblFooters">';
-            $html .= '<input type="hidden" name="store_bkm" value="1">';
-            $html .= '<input class="btn btn-secondary" type="submit"'
-                . ' value="' . __('Bookmark this SQL query') . '">';
-            $html .= '</fieldset>';
-            $html .= '</form>';
-        } else {
-            $html = null;
+            return $this->template->render('sql/bookmark', [
+                'db' => $db,
+                'goto' => 'sql.php' . Url::getCommon([
+                    'db' => $db,
+                    'table' => $table,
+                    'sql_query' => $sql_query,
+                    'id_bookmark' => 1,
+                ]),
+                'user' => $bkm_user,
+                'sql_query' => isset($complete_query) ? $complete_query : $sql_query,
+            ]);
         }
-
-        return $html;
+        return '';
     }
 
     /**
@@ -2155,6 +2111,7 @@ EOT;
         );
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+        $bookmark_support_html = '';
         if ($cfgBookmark) {
             $bookmark_support_html = $this->getHtmlForBookmark(
                 $displayParts,
@@ -2165,8 +2122,6 @@ EOT;
                 isset($complete_query) ? $complete_query : $sql_query,
                 $cfgBookmark['user']
             );
-        } else {
-            $bookmark_support_html = '';
         }
 
         $html_output = isset($table_maintenance_html) ? $table_maintenance_html : '';
