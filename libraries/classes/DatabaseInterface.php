@@ -2313,6 +2313,24 @@ class DatabaseInterface
     }
 
     /**
+     * gets the user with host
+     *
+     * @return string the user i.e. user@host
+     */
+    public function getUser(): string
+    {
+        if (Util::cacheExists('mysql_user')) {
+            return Util::cacheGet('mysql_user');
+        }
+        $user = $this->fetchValue('SELECT USER();');
+        if ($user !== false) {
+            Util::cacheSet('mysql_user', $user);
+            return $user;
+        }
+        return '@';
+    }
+
+    /**
      * Checks if current user is superuser
      *
      * @return bool Whether user is a superuser

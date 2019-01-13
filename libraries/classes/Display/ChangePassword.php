@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\Server\HtmlPrivilegesTemplateManager;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -38,11 +39,11 @@ class ChangePassword
     {
         $relation = new Relation($GLOBALS['dbi']);
         $serverPrivileges = new Privileges(
-            new Template(),
             $GLOBALS['dbi'],
             $relation,
             new RelationCleanup($GLOBALS['dbi'], $relation)
         );
+        $serverPrivilegesTemplateManager = new HtmlPrivilegesTemplateManager($serverPrivileges, new Template());
 
         /**
          * autocomplete feature of IE kills the "onchange" event handler and it

@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Server\HtmlPrivilegesTemplateManager;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -32,10 +33,10 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
-$template = new Template();
 $relation = new Relation($GLOBALS['dbi']);
 $relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
-$serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
+$serverPrivileges = new Privileges($GLOBALS['dbi'], $relation, $relationCleanup);
+$serverPrivilegesTemplateManager = new HtmlPrivilegesTemplateManager($serverPrivileges, new Template());
 $userPassword = new UserPassword($serverPrivileges);
 
 /**

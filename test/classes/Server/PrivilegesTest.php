@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\Server\HtmlPrivilegesTemplateManager;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -31,6 +32,11 @@ class PrivilegesTest extends TestCase
      * @var Privileges $serverPrivileges
      */
     private $serverPrivileges;
+
+    /**
+     * @var HtmlPrivilegesTemplateManager
+     */
+    private $serverPrivilegesTemplateManager;
 
     /**
      * Prepares environment for the test.
@@ -86,11 +92,11 @@ class PrivilegesTest extends TestCase
 
         $relation = new Relation($GLOBALS['dbi']);
         $this->serverPrivileges = new Privileges(
-            new Template(),
             $GLOBALS['dbi'],
             $relation,
             new RelationCleanup($GLOBALS['dbi'], $relation)
         );
+        $this->serverPrivilegesTemplateManager($this->serverPrivileges, new Template());
 
         //$_POST
         $_POST['pred_password'] = 'none';

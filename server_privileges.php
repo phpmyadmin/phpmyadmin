@@ -12,6 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\HtmlPrivilegesTemplateManager;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
@@ -44,7 +45,8 @@ $scripts->addFile('vendor/zxcvbn.js');
 
 $template = new Template();
 $relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
-$serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
+$serverPrivileges = new Privileges($GLOBALS['dbi'], $relation, $relationCleanup);
+$serverPrivilegesTemplateManager = new HtmlPrivilegesTemplateManager($serverPrivileges, $template);
 
 if ((isset($_GET['viewing_mode'])
     && $_GET['viewing_mode'] == 'server')
