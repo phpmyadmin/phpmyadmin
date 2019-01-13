@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-12 15:04+0000\n"
+"PO-Revision-Date: 2019-01-13 13:28+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -10529,7 +10529,7 @@ msgstr "縦向き"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:64
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:63
 msgid "Same width for all tables"
-msgstr ""
+msgstr "すべてのテーブルは同じ幅を利用"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:89
 msgid "Show grid"
@@ -10573,6 +10573,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"ブール値をTEXTに変換します。 デフォルトは 「T」と 「F」です。 最初のオプションはTRUE、2番目のオプションはFALSEです。 0以外の値= "
+"TRUE。"
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:33
 msgid ""
@@ -10670,11 +10672,11 @@ msgstr "この画像をダウンロードするためのリンクを表示しま
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
-msgstr ""
+msgstr "イメージアップロード機能です。サムネールも表示します。サムネールの設定はpx単位で幅と高さです。既定値は100X100。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:90
 msgid "Image preview here"
-msgstr ""
+msgstr "イメージプレビューはこちら"
 
 #: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:31
 msgid ""
@@ -10702,17 +10704,19 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"文字列の先頭または末尾にテキストを追加します。 "
+"最初のオプションは先頭に追加するテキスト、2番目のオプションは末尾に追加します（一重引用符で囲み、デフォルトは空の文字列）。"
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:33
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
-msgstr ""
+msgstr "正規表現を使用して文字列を検証し、文字列がそれに一致する場合にのみ挿入を実行します。 最初のオプションは正規表現です。"
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "入力文字列%sで検証が失敗しました。"
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:32
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10735,7 +10739,7 @@ msgstr ""
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
-msgstr ""
+msgstr "「TEXT」カラムのファイルアップロード機能です、textarea入力がありません。"
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:32
 msgid ""
@@ -10759,19 +10763,19 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:33
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "( IPv 4 / IPv 6 )形式のインターネットネットワークアドレスをバイナリに変換する"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "JSONの構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "SQLの構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "XML(またHTML)の構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:33
 #, fuzzy
@@ -10807,16 +10811,16 @@ msgstr "認証"
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
-msgstr ""
+msgstr "FreeOTP、Google Authenticator、AuthyなどのHOTPおよびTOTPアプリケーションを使用した認証を提供します。"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:191
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "ハードウェアセキュリティキー(FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:201
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
-msgstr ""
+msgstr "FIDO U2Fをサポートするハードウェアセキュリティトークンを使用して認証を行います。"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:56
 #, fuzzy
@@ -10826,7 +10830,7 @@ msgstr "サインオン認証"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:66
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "テスト目的のみ！"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:81
 #, fuzzy, php-format
@@ -10842,11 +10846,11 @@ msgstr "ハードウェア認証に失敗しました！"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
 msgid "No Two-Factor"
-msgstr ""
+msgstr "二要素認証なし"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
-msgstr ""
+msgstr "パスワードのみログインを使用します。"
 
 #: libraries/classes/RecentFavoriteTable.php:141
 #, fuzzy
@@ -10982,11 +10986,11 @@ msgstr "ナビゲーションフレームの再読み込み"
 
 #: libraries/classes/Relation.php:344
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "「例によるクエリ」検索を保存しています"
 
 #: libraries/classes/Relation.php:355
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "中央リストカラムの管理"
 
 #: libraries/classes/Relation.php:366
 #, fuzzy
@@ -11037,6 +11041,8 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"「phpMyAdmin」という名前のデータベースを作成するのに必要な権限はありません。任意のデータベースの「操作」タブで、phpMyAdmin環境保管領域"
+"を設定が出来ます。"
 
 #: libraries/classes/Relation.php:2118
 #, fuzzy, php-format
