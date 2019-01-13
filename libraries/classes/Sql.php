@@ -57,6 +57,11 @@ class Sql
     private $operations;
 
     /**
+     * @var Template
+     */
+    private $template;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -65,6 +70,7 @@ class Sql
         $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $this->relation);
         $this->operations = new Operations($GLOBALS['dbi'], $this->relation);
         $this->transformations = new Transformations();
+        $this->template = new Template();
     }
 
     /**
@@ -1658,46 +1664,6 @@ EOT;
     }
 
     /**
-     * Function to get html for the sql query results div
-     *
-     * @param string|null  $previous_update_query_html html for the previously executed query
-     * @param string|null  $profiling_chart_html       html for profiling
-     * @param Message|null $missing_unique_column_msg  message for the missing unique column
-     * @param Message|null $bookmark_created_msg       message for bookmark creation
-     * @param string       $table_html                 html for the table for displaying sql
-     *                                                 results
-     * @param string|null  $indexes_problems_html      html for displaying errors in indexes
-     * @param string|null  $bookmark_support_html      html for displaying bookmark form
-     *
-     * @return string
-     */
-    private function getHtmlForSqlQueryResults(
-        ?string $previous_update_query_html,
-        ?string $profiling_chart_html,
-        ?Message $missing_unique_column_msg,
-        ?Message $bookmark_created_msg,
-        $table_html,
-        ?string $indexes_problems_html,
-        ?string $bookmark_support_html
-    ) {
-        //begin the sqlqueryresults div here. container div
-        $html_output = '<div class="sqlqueryresults ajax">';
-        $html_output .= isset($previous_update_query_html)
-            ? $previous_update_query_html : '';
-        $html_output .= isset($profiling_chart_html) ? $profiling_chart_html : '';
-        $html_output .= isset($missing_unique_column_msg)
-            ? $missing_unique_column_msg->getDisplay() : '';
-        $html_output .= isset($bookmark_created_msg)
-            ? $bookmark_created_msg->getDisplay() : '';
-        $html_output .= $table_html;
-        $html_output .= isset($indexes_problems_html) ? $indexes_problems_html : '';
-        $html_output .= isset($bookmark_support_html) ? $bookmark_support_html : '';
-        $html_output .= '</div>'; // end sqlqueryresults div
-
-        return $html_output;
-    }
-
-    /**
      * Returns a message for successful creation of a bookmark or null if a bookmark
      * was not created
      *
@@ -2207,15 +2173,15 @@ EOT;
 
         $html_output = isset($table_maintenance_html) ? $table_maintenance_html : '';
 
-        $html_output .= $this->getHtmlForSqlQueryResults(
-            $previous_update_query_html,
-            $profiling_chart_html,
-            $missing_unique_column_msg,
-            $bookmark_created_msg,
-            $table_html,
-            $indexes_problems_html,
-            $bookmark_support_html
-        );
+        $html_output .= $this->template->render('sql/sql_query_results', [
+            'previous_update_query' => $previous_update_query_html,
+            'profiling_chart' => $profiling_chart_html,
+            'missing_unique_column_message' => isset($missing_unique_column_msg) ? $missing_unique_column_msg->getDisplay() : '',
+            'bookmark_created_message' => isset($bookmark_created_msg) ? $bookmark_created_msg->getDisplay() : '',
+            'table' => $table_html,
+            'indexes_problems' => $indexes_problems_html,
+            'bookmark_support' => $bookmark_support_html,
+        ]);
 
         return $html_output;
     }
