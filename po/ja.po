@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-13 13:28+0000\n"
+"PO-Revision-Date: 2019-01-14 04:34+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -11395,7 +11395,7 @@ msgstr "パスワードを生成する"
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
-msgstr ""
+msgstr "サーバーへの接続が無効になっています。phpMyAdmin設定で$cfg['AllowArbitraryServer']を有効にしてください。"
 
 #: libraries/classes/ReplicationGui.php:956
 #, fuzzy
@@ -11435,7 +11435,7 @@ msgstr "マスタレプリケーション"
 
 #: libraries/classes/ReplicationGui.php:968
 msgid "Success."
-msgstr ""
+msgstr "成功しました。"
 
 #: libraries/classes/ReplicationGui.php:969
 #, fuzzy
@@ -11697,7 +11697,7 @@ msgstr "DETERMINISTIC"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr ""
+msgstr "この操作を行うのに十分な権限はありません。詳細についてはドキュメンテーションを参照してください"
 
 #: libraries/classes/Rte/Routines.php:1113
 msgid "Security type"
@@ -11845,14 +11845,14 @@ msgstr "ルーチンを作成する特権がありません"
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
-msgstr ""
+msgstr "データベース「%2$s」で「%1$s」のルーチンはありません。このルーチンを編集する為に必要な権限がない可能性があります。"
 
 #: libraries/classes/Rte/Words.php:46
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
-msgstr ""
+msgstr "データベース「%2$s」で「%1$s」のルーチンはありません。このルーチンを表示・エクスポートする為に必要な権限がない可能性があります。"
 
 #: libraries/classes/Rte/Words.php:49
 #, fuzzy, php-format
@@ -11941,7 +11941,7 @@ msgstr "ユーザ %s は既に存在します!"
 
 #: libraries/classes/SavedSearches.php:365
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "この検索を削除する為、情報に誤りがあります。"
 
 #: libraries/classes/SavedSearches.php:393
 msgid "Missing information to load the search."
@@ -12129,19 +12129,19 @@ msgstr "永続的な接続"
 
 #: libraries/classes/Server/Privileges.php:812
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:837
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "接続に特定の暗号方式を使用する必要があります。"
 
 #: libraries/classes/Server/Privileges.php:850
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "CAによって発行された有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:863
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "この「SUBJECT」を持つ有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:892 server_privileges.php:99
 msgid "Limits the number of queries the user may send to the server per hour."
