@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2019-01-10 19:08+0000\n"
+"PO-Revision-Date: 2019-01-14 20:37+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -2023,7 +2023,7 @@ msgstr "次のステップに進みます…"
 #: js/messages.php:448
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "テーブル '%s' の第一正規化が完了しました。"
+msgstr "テーブル「%s」の第１正規形は完了しました。"
 
 #: js/messages.php:449 libraries/classes/Normalization.php:510
 #: libraries/classes/Normalization.php:557
@@ -2034,7 +2034,7 @@ msgstr "最後のステップ"
 
 #: js/messages.php:450
 msgid "Second step of normalization (2NF)"
-msgstr "第2正規化 (2NF)"
+msgstr "第２正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:451 js/messages.php:775
@@ -2097,7 +2097,7 @@ msgstr "以下のテーブルを作成します"
 
 #: js/messages.php:474
 msgid "Third step of normalization (3NF)"
-msgstr "第三正規化(3NF)"
+msgstr "第３正規化(3NF)"
 
 #: js/messages.php:475
 msgid "Confirm transitive dependencies"
@@ -9139,7 +9139,7 @@ msgstr "すべてのカラムをアトミックにする"
 #: libraries/classes/Normalization.php:184
 #: libraries/classes/Normalization.php:883
 msgid "First step of normalization (1NF)"
-msgstr "正規化(1NF)の最初のステップ"
+msgstr "第1正規化(1NF)"
 
 #: libraries/classes/Normalization.php:187
 #: libraries/classes/Normalization.php:238
@@ -9264,17 +9264,17 @@ msgid ""
 "should be created."
 msgstr ""
 "２つ以上近い関係のカラムが同じ特性を繰り返していますか？例：あるテーブルが「本」のデータが入っています。カラムは「book_id」、「author1」、「"
-"author2」、「author3」、等々で「連絡グループ」が作られています。この場合、新しいテーブルを作成すべきです。"
+"author2」、「author3」、等々で「繰り返しグループ」が作られています。この場合、新しいテーブルを作成すべきです。"
 
 #: libraries/classes/Normalization.php:335
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
-msgstr "連続グループのカラムを選択してください。存在していない場合、「連続グループ無し」をクリック"
+msgstr "繰り返しグループのカラムを選択してください。存在していない場合、「繰り返しグループ無し」をクリック"
 
 #: libraries/classes/Normalization.php:341
 msgid "No repeating group"
-msgstr "連続グループ無し"
+msgstr "繰り返しグループ無し"
 
 #: libraries/classes/Normalization.php:370
 msgid "Step 2."
@@ -9289,62 +9289,62 @@ msgstr "部分的な依存を見つける"
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
-msgstr ""
+msgstr "部分依存関係は不可能。理由：主キーのないカラムが存在しない。主キー「%1$s」はテーブルの全てのカラムになっている。"
 
 #: libraries/classes/Normalization.php:399
 #: libraries/classes/Normalization.php:444
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "テーブルは既に第2正規形になっている。"
 
 #: libraries/classes/Normalization.php:404
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
-msgstr ""
+msgstr "主キー「%1$s」は複数カラムで作成されています。部分依存関係カラムを確認する必要があります。"
 
 #: libraries/classes/Normalization.php:409
 #: libraries/classes/Normalization.php:796
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr ""
+msgstr "正しい正規化を得るために慎重に次の質問に答えてください。"
 
 #: libraries/classes/Normalization.php:413
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ テーブル内のデータに基づいて可能な部分的な依存関係を表示"
 
 #: libraries/classes/Normalization.php:417
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
-msgstr ""
+msgstr "以下の各カラムで、カラムの値を決定するために<b>最小限</b>のカラム組み合わせを指定してください。"
 
 #: libraries/classes/Normalization.php:427
 #: libraries/classes/Normalization.php:835
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s'が次に依存します:"
 
 #: libraries/classes/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr ""
+msgstr "部分依存関係は不可能。理由：主キー「%1$s」は１つのカラムしかない。"
 
 #: libraries/classes/Normalization.php:468
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
-msgstr ""
+msgstr "元テーブル「%1$s」を第2正規形になる為、次のテーブルを作成する必要があります："
 
 #: libraries/classes/Normalization.php:505
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "テーブル「%1$s」の第２正規形は完了しました。"
 
 #: libraries/classes/Normalization.php:545
 #: libraries/classes/Normalization.php:695
@@ -9359,17 +9359,16 @@ msgstr "要求処理中でのエラー"
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
-msgstr ""
+msgstr "元のテーブル「%1$s」を第３正規形になる為、次のテーブルを作成する必要があります："
 
 #: libraries/classes/Normalization.php:639
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "第３正規化が完了しました。"
 
 #: libraries/classes/Normalization.php:746
-#, fuzzy, php-format
-#| msgid "Selected target tables have been synchronized with source tables."
+#, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "選択された対象先のテーブルは、元のテーブルと同期されています。"
+msgstr "選択された繰り返しグループが「%s」のテーブルへ移動されました"
 
 #: libraries/classes/Normalization.php:793
 #, fuzzy
@@ -9379,7 +9378,7 @@ msgstr "9 月"
 
 #: libraries/classes/Normalization.php:793
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "過渡的依存性を検知"
 
 #: libraries/classes/Normalization.php:800
 msgid ""
@@ -9388,16 +9387,18 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"以下の各カラムで、カラムの値を決定するために<b>最小限</b>のカラム組み合わせを指定してください。<br "
+"/>※カラムは過渡的依存がない場合、選択する必要がありません。"
 
 #: libraries/classes/Normalization.php:849
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
-msgstr ""
+msgstr "テーブルには主キーカラムがないので、過渡的依存性は不可能"
 
 #: libraries/classes/Normalization.php:853
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "テーブルは既に第3正規形になっている!"
 
 #: libraries/classes/Normalization.php:879
 #, fuzzy
@@ -9407,31 +9408,31 @@ msgstr "テーブル構造の操作欄を折り畳む"
 
 #: libraries/classes/Normalization.php:880
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "どのステップまでに正規化するかを選択してください"
 
 #: libraries/classes/Normalization.php:884
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "第２正規化(1NF+2NF)"
 
 #: libraries/classes/Normalization.php:885
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "第３正規化(1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:895
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
-msgstr ""
+msgstr "ヒント：正しい正規化を得るために慎重に手順に従ってください"
 
 #: libraries/classes/Normalization.php:961
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr ""
+msgstr "この一覧はテーブルのデータサブセットの元で作成されたので、必ずしも正確ではありません。 "
 
 #: libraries/classes/Normalization.php:977
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "部分的な依存が見つかりませんでした!"
 
 #: libraries/classes/Operations.php:104
 #, fuzzy
@@ -9485,7 +9486,7 @@ msgstr "テーブルのキャプション (続き)"
 
 #: libraries/classes/Operations.php:326
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "すべてのテーブルのカラム照合順序を変更する"
 
 #: libraries/classes/Operations.php:803
 msgid "Alter table order by"
@@ -9518,7 +9519,7 @@ msgstr "ストレージエンジン"
 
 #: libraries/classes/Operations.php:1097
 msgid "Change all column collations"
-msgstr ""
+msgstr "すべてのカラムの照合順序を変更する"
 
 #: libraries/classes/Operations.php:1268
 msgid "Copy table to (database<b>.</b>table)"
@@ -9616,7 +9617,7 @@ msgstr "修復"
 #: libraries/classes/Operations.php:1593
 #: templates/table/structure/display_structure.twig:179
 msgid "Truncate"
-msgstr ""
+msgstr "Truncate"
 
 #: libraries/classes/Operations.php:1607
 #, fuzzy
@@ -9717,11 +9718,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:153
 msgid "Retry to connect"
-msgstr ""
+msgstr "接続を再試行"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:134
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "セッションが期限切れです。もう一度ログインしてください。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:154
 msgid "Log in"
@@ -9751,11 +9752,11 @@ msgstr "対象先のデータベースに接続できませんでした"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:315
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "入力されたCAPTCHAは間違っている、もう一度お試しください！"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "recaptcha検証がない。adblockによってブロックされている可能性があります。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
 #, fuzzy
@@ -9790,7 +9791,7 @@ msgstr "MySQL サーバにログインできません"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:335
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "二要素認証が有効化しています。認証コードを入力してください。"
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/export/format_dropdown.twig:2
@@ -9925,11 +9926,11 @@ msgstr "ビュー用の代替構造"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:89
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "JSONをプリティプリント出力する（人間が読める書式を利用）"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:95
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "エスケープしないでUnicode文字を出力する"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "Content of table @TABLE@"
@@ -10117,7 +10118,7 @@ msgstr "%s コマンドを追加する"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:290
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "（テーブル作成中にインデックスが生成されるので、効率が悪い）"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
 #, fuzzy, php-format
@@ -10220,13 +10221,13 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:520
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "データベースはルーチンを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:523
 #: libraries/classes/Plugins/Export/ExportSql.php:1550
 #: libraries/classes/Plugins/Export/ExportSql.php:2072
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "エイリアスエクスポートは確実に動作しない場合があります。"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1010
 #, fuzzy
@@ -10269,7 +10270,7 @@ msgstr "テーブルの構造"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "データベースはビューを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1724
 msgid "Constraints for dumped tables"
@@ -10315,7 +10316,7 @@ msgstr "テーブルのリレーション"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "データベースはトリガを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
 #, fuzzy, php-format
@@ -10325,7 +10326,7 @@ msgstr "ビュー用の構造"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(実際のビューを参照するには下にあります)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #, fuzzy, php-format
@@ -10349,7 +10350,7 @@ msgstr "テーブル"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:160
 msgid "Purpose:"
-msgstr ""
+msgstr "目的："
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:541
 #, fuzzy
@@ -10360,7 +10361,7 @@ msgstr "MIME タイプ"
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:51
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
-msgstr ""
+msgstr "インポート中に重複したキーが見つかった場合も更新する(「ON DUPLICATE KEY UPDATE」を追加)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:63
 #: libraries/classes/Plugins/Import/ImportOds.php:64
@@ -10553,7 +10554,7 @@ msgstr "縦向き"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:62
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:61
 msgid "Same width for all tables"
-msgstr ""
+msgstr "すべてのテーブルは同じ幅を利用"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:87
 msgid "Show grid"
@@ -10597,6 +10598,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"ブール値をTEXTに変換します。 デフォルトは 「T」と 「F」です。 最初のオプションはTRUE、2番目のオプションはFALSEです。 0以外の値= "
+"TRUE。"
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:30
 msgid ""
@@ -10694,11 +10697,11 @@ msgstr "この画像をダウンロードするためのリンクを表示しま
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
-msgstr ""
+msgstr "イメージアップロード機能です。サムネールも表示します。サムネールの設定はpx単位で幅と高さです。既定値は100X100。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:87
 msgid "Image preview here"
-msgstr ""
+msgstr "イメージプレビューはこちら"
 
 #: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:32
 msgid ""
@@ -10726,17 +10729,19 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"文字列の先頭または末尾にテキストを追加します。 "
+"最初のオプションは先頭に追加するテキスト、2番目のオプションは末尾に追加します（一重引用符で囲み、デフォルトは空の文字列）。"
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:30
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
-msgstr ""
+msgstr "正規表現を使用して文字列を検証し、文字列がそれに一致する場合にのみ挿入を実行します。 最初のオプションは正規表現です。"
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:52
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "入力文字列%sで検証が失敗しました。"
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:29
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10759,7 +10764,7 @@ msgstr ""
 msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
-msgstr ""
+msgstr "「TEXT」カラムのファイルアップロード機能です、textarea入力がありません。"
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:33
 msgid ""
@@ -10783,19 +10788,19 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "( IPv 4 / IPv 6 )形式のインターネットネットワークアドレスをバイナリに変換する"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "JSONの構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "SQLの構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "XML(またHTML)の構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:30
 #, fuzzy
@@ -10825,7 +10830,7 @@ msgstr "テキストの内容を SQL クエリとみなし、構文ハイライ�
 msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
-msgstr ""
+msgstr "GD PHP拡張モジュールが見つかりませんでした。QRcodeはGD PHP拡張モジュールがないと表示できません。"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 #, fuzzy
@@ -10837,16 +10842,16 @@ msgstr "認証"
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
-msgstr ""
+msgstr "FreeOTP、Google Authenticator、AuthyなどのHOTPおよびTOTPアプリケーションを使用した認証を提供します。"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "ハードウェアセキュリティキー(FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
-msgstr ""
+msgstr "FIDO U2Fをサポートするハードウェアセキュリティトークンを使用して認証を行います。"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 #, fuzzy
@@ -10856,7 +10861,7 @@ msgstr "サインオン認証"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "テスト目的のみ！"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, fuzzy, php-format
@@ -10872,11 +10877,11 @@ msgstr "ハードウェア認証に失敗しました！"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr ""
+msgstr "二要素認証なし"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "パスワードのみログインを使用します。"
 
 #: libraries/classes/RecentFavoriteTable.php:145
 #, fuzzy
@@ -11012,11 +11017,11 @@ msgstr "ナビゲーションフレームの再読み込み"
 
 #: libraries/classes/Relation.php:329
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "「例によるクエリ」検索を保存しています"
 
 #: libraries/classes/Relation.php:340
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "中央リストカラムの管理"
 
 #: libraries/classes/Relation.php:351
 #, fuzzy
@@ -11067,6 +11072,8 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"「phpMyAdmin」という名前のデータベースを作成するのに必要な権限はありません。任意のデータベースの「操作」タブで、phpMyAdmin環境保管領域"
+"を設定が出来ます。"
 
 #: libraries/classes/Relation.php:2003
 #, fuzzy, php-format
@@ -11419,7 +11426,7 @@ msgstr "パスワードを生成する"
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
-msgstr ""
+msgstr "サーバーへの接続が無効になっています。phpMyAdmin設定で$cfg['AllowArbitraryServer']を有効にしてください。"
 
 #: libraries/classes/ReplicationGui.php:923
 #, fuzzy
@@ -11459,7 +11466,7 @@ msgstr "マスタレプリケーション"
 
 #: libraries/classes/ReplicationGui.php:935
 msgid "Success."
-msgstr ""
+msgstr "成功しました。"
 
 #: libraries/classes/ReplicationGui.php:936
 #, fuzzy
@@ -11720,7 +11727,7 @@ msgstr "DETERMINISTIC"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr ""
+msgstr "この操作を行うのに十分な権限はありません。詳細についてはドキュメンテーションを参照してください"
 
 #: libraries/classes/Rte/Routines.php:1050
 msgid "Security type"
@@ -11868,14 +11875,14 @@ msgstr "ルーチンを作成する特権がありません"
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
-msgstr ""
+msgstr "データベース「%2$s」で「%1$s」のルーチンはありません。このルーチンを編集する為に必要な権限がない可能性があります。"
 
 #: libraries/classes/Rte/Words.php:44
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
-msgstr ""
+msgstr "データベース「%2$s」で「%1$s」のルーチンはありません。このルーチンを表示・エクスポートする為に必要な権限がない可能性があります。"
 
 #: libraries/classes/Rte/Words.php:47
 #, fuzzy, php-format
@@ -11964,7 +11971,7 @@ msgstr "ユーザ %s は既に存在します!"
 
 #: libraries/classes/SavedSearches.php:368
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "この検索を削除する為、情報に誤りがあります。"
 
 #: libraries/classes/SavedSearches.php:396
 msgid "Missing information to load the search."
@@ -12152,19 +12159,19 @@ msgstr "永続的な接続"
 
 #: libraries/classes/Server/Privileges.php:758
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:783
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "接続に特定の暗号方式を使用する必要があります。"
 
 #: libraries/classes/Server/Privileges.php:796
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "CAによって発行された有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:809
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "この「SUBJECT」を持つ有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
 msgid "Limits the number of queries the user may send to the server per hour."
@@ -12199,7 +12206,7 @@ msgstr "ルーチン"
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
-msgstr ""
+msgstr "ユーザがこのルーチン内で他のユーザの権限を編集するための権限をユーザに付与することを許可します。"
 
 #: libraries/classes/Server/Privileges.php:949
 #, fuzzy
@@ -12266,7 +12273,7 @@ msgstr "特権テーブルの再読み込みなしでユーザ・特権の追加
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
-msgstr ""
+msgstr "ユーザがこのルーチン内で自分を持っている権限でも他のユーザの権限を編集するための権限をユーザに付与することを許可します。"
 
 #: libraries/classes/Server/Privileges.php:1431
 #: libraries/classes/Server/Privileges.php:1462
@@ -12297,7 +12304,7 @@ msgstr "テキスト入力項目の値を利用する"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
-msgstr ""
+msgstr "同じユーザ名のアカウントが既に存在していますが、別のホスト名が設定している可能性があります。"
 
 #: libraries/classes/Server/Privileges.php:1556
 #, fuzzy
@@ -12386,7 +12393,7 @@ msgstr "権限委譲"
 
 #: libraries/classes/Server/Privileges.php:2585
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "ユーザを表示する為に十分な権限はありません。"
 
 #: libraries/classes/Server/Privileges.php:2604
 #: libraries/classes/Server/Privileges.php:3978
@@ -12476,7 +12483,7 @@ msgstr "このカラムに固有の特権"
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
-msgstr ""
+msgstr "ユーザグループ"
 
 #: libraries/classes/Server/Privileges.php:3676
 #: libraries/classes/Server/Privileges.php:4811
@@ -12541,7 +12548,7 @@ msgstr "ユーザグループ"
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr ""
+msgstr "注意:現在ログインしているユーザーの権限を編集しようとしています。"
 
 #: libraries/classes/Server/Privileges.php:4626
 #: libraries/classes/Server/Users.php:30
@@ -13006,7 +13013,7 @@ msgstr "コマンド"
 
 #: libraries/classes/Server/Status/Processes.php:105
 msgid "Progress"
-msgstr ""
+msgstr "進捗"
 
 #: libraries/classes/Server/Status/Processes.php:232
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
@@ -13739,11 +13746,11 @@ msgstr "スリープしていないスレッドの数。"
 #: libraries/classes/Server/UserGroups.php:32
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "「%s 」ユーザグループのユーザ"
 
 #: libraries/classes/Server/UserGroups.php:45
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "このユーザグループにユーザが存在しません。"
 
 #: libraries/classes/Server/UserGroups.php:75
 #: libraries/classes/Server/Users.php:38
@@ -13786,7 +13793,7 @@ msgstr "ユーザを追加する"
 #: libraries/classes/Server/UserGroups.php:228
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "ユーザグループ「%s」を編集"
 
 #: libraries/classes/Server/UserGroups.php:244
 #, fuzzy

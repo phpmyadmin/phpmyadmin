@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:37-0200\n"
-"PO-Revision-Date: 2019-01-10 19:08+0000\n"
-"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
+"PO-Revision-Date: 2019-01-14 20:37+0000\n"
+"Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -9161,7 +9161,7 @@ msgstr "傾印 TIMESTAMP 欄位時，使用 UTC 時間 <i>(令 TIMESTAMP 欄位�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:520
 msgid "It appears your database uses routines;"
-msgstr "資料庫使用了預存程序(routine)；"
+msgstr "資料庫使用了預存程序(routine);"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:523
 #: libraries/classes/Plugins/Export/ExportSql.php:1550
@@ -9205,7 +9205,7 @@ msgstr "讀取資料表 %s 的結構時出現錯誤："
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
-msgstr "資料庫使用了檢視表(view)；"
+msgstr "資料庫使用了檢視表(view);"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1724
 msgid "Constraints for dumped tables"
@@ -9241,7 +9241,7 @@ msgstr "資料表的關聯"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "It appears your table uses triggers;"
-msgstr "資料表使用了觸發(trigger)；"
+msgstr "資料表使用了觸發(trigger);"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
 #, php-format
@@ -14145,11 +14145,9 @@ msgstr "立即停用"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
-msgstr "查詢數量"
+msgstr "#"
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
