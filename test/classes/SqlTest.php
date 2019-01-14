@@ -47,6 +47,7 @@ class SqlTest extends TestCase
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $this->sql = new Sql();

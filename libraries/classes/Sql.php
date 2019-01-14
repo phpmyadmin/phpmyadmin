@@ -272,85 +272,33 @@ class Sql
      * Get the HTML for the profiling table and accompanying chart if profiling is set.
      * Otherwise returns null
      *
-     * @param string $url_query         url query
-     * @param string $db                current database
-     * @param array  $profiling_results array containing the profiling info
+     * @param string|null $urlQuery         url query
+     * @param string      $database         current database
+     * @param array       $profilingResults array containing the profiling info
      *
      * @return string html for the profiling table and chart
      */
-    private function getHtmlForProfilingChart($url_query, $db, $profiling_results)
+    private function getHtmlForProfilingChart($urlQuery, $database, $profilingResults): string
     {
-        if (! empty($profiling_results)) {
-            $url_query = isset($url_query)
-                ? $url_query
-                : Url::getCommon(['db' => $db]);
+        if (! empty($profilingResults)) {
+            $urlQuery = isset($urlQuery) ? $urlQuery : Url::getCommon(['db' => $database]);
 
-            $profiling_table = '';
-            $profiling_table .= '<fieldset><legend>' . __('Profiling')
-                . '</legend>' . "\n";
-            $profiling_table .= '<div class="floatleft">';
-            $profiling_table .= '<h3>' . __('Detailed profile') . '</h3>';
-            $profiling_table .= '<table id="profiletable"><thead>' . "\n";
-            $profiling_table .= ' <tr>' . "\n";
-            $profiling_table .= '  <th>' . __('Order')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('State')
-                . Util::showMySQLDocu('general-thread-states')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('Time')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= ' </tr></thead><tbody>' . "\n";
-            list($detailed_table, $chart_json, $profiling_stats)
-                = $this->analyzeAndGetTableHtmlForProfilingResults($profiling_results);
-            $profiling_table .= $detailed_table;
-            $profiling_table .= '</tbody></table>' . "\n";
-            $profiling_table .= '</div>';
+            list(
+                $detailedTable,
+                $chartJson,
+                $profilingStats
+            ) = $this->analyzeAndGetTableHtmlForProfilingResults($profilingResults);
 
-            $profiling_table .= '<div class="floatleft">';
-            $profiling_table .= '<h3>' . __('Summary by state') . '</h3>';
-            $profiling_table .= '<table id="profilesummarytable"><thead>' . "\n";
-            $profiling_table .= ' <tr>' . "\n";
-            $profiling_table .= '  <th>' . __('State')
-                . Util::showMySQLDocu('general-thread-states')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('Total Time')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('% Time')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('Calls')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('ø Time')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= ' </tr></thead><tbody>' . "\n";
-            $profiling_table .= $this->getTableHtmlForProfilingSummaryByState(
-                $profiling_stats
-            );
-            $profiling_table .= '</tbody></table>' . "\n";
+            $summaryByState = $this->getTableHtmlForProfilingSummaryByState($profilingStats);
 
-            $profiling_table .= <<<EOT
-<script type="text/javascript">
-    url_query = '$url_query';
-</script>
-EOT;
-            $profiling_table .= "</div>";
-            $profiling_table .= "<div class='clearfloat'></div>";
-
-            $profiling_table .= '<div id="profilingChartData" class="hide">';
-            $profiling_table .= json_encode($chart_json);
-            $profiling_table .= '</div>';
-            $profiling_table .= '<div id="profilingchart" class="hide">';
-            $profiling_table .= '</div>';
-            $profiling_table .= '<script type="text/javascript">';
-            $profiling_table .= "AJAX.registerOnload('sql.js', function () {";
-            $profiling_table .= 'makeProfilingChart();';
-            $profiling_table .= 'initProfilingTables();';
-            $profiling_table .= '});';
-            $profiling_table .= '</script>';
-            $profiling_table .= '</fieldset>' . "\n";
-        } else {
-            $profiling_table = null;
+            return $this->template->render('sql/profiling_chart', [
+                'url_query' => $urlQuery,
+                'detailed_table' => $detailedTable,
+                'summary_by_state' => $summaryByState,
+                'chart_json' => $chartJson,
+            ]);
         }
-        return $profiling_table;
+        return '';
     }
 
     /**
@@ -1853,39 +1801,37 @@ EOT;
     /**
      * Function to get html to display problems in indexes
      *
-     * @param string|null $query_type     query type
+     * @param string|null $queryType      query type
      * @param array|null  $selectedTables array of table names selected from the
      *                                    database structure page, for an action
      *                                    like check table, optimize table,
      *                                    analyze table or repair table
-     * @param string      $db             current database
+     * @param string      $database       current database
      *
      * @return string
      */
-    private function getHtmlForIndexesProblems(?string $query_type, ?array $selectedTables, string $db)
+    private function getHtmlForIndexesProblems(?string $queryType, ?array $selectedTables, string $database): string
     {
         // BEGIN INDEX CHECK See if indexes should be checked.
-        if (isset($query_type)
-            && $query_type == 'check_tbl'
+        $output = '';
+        if (isset($queryType)
+            && $queryType == 'check_tbl'
             && isset($selectedTables)
             && is_array($selectedTables)
         ) {
-            $indexes_problems_html = '';
-            foreach ($selectedTables as $tbl_name) {
-                $check = Index::findDuplicates($tbl_name, $db);
+            foreach ($selectedTables as $table) {
+                $check = Index::findDuplicates($table, $database);
                 if (! empty($check)) {
-                    $indexes_problems_html .= sprintf(
+                    $output .= sprintf(
                         __('Problems with indexes of table `%s`'),
-                        $tbl_name
+                        $table
                     );
-                    $indexes_problems_html .= $check;
+                    $output .= $check;
                 }
             }
-        } else {
-            $indexes_problems_html = null;
         }
 
-        return $indexes_problems_html;
+        return $output;
     }
 
     /**
@@ -2312,18 +2258,22 @@ EOT;
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
         $GLOBALS['dbi']->selectDb($db);
 
-        // Execute the query
-        list($result, $num_rows, $unlim_num_rows, $profiling_results, $extra_data)
-            = $this->executeTheQuery(
-                $analyzed_sql_results,
-                $full_sql_query,
-                $is_gotofile,
-                $db,
-                $table,
-                isset($find_real_end) ? $find_real_end : null,
-                isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
-                isset($extra_data) ? $extra_data : null
-            );
+        list(
+            $result,
+            $num_rows,
+            $unlim_num_rows,
+            $profiling_results,
+            $extra_data
+        ) = $this->executeTheQuery(
+            $analyzed_sql_results,
+            $full_sql_query,
+            $is_gotofile,
+            $db,
+            $table,
+            isset($find_real_end) ? $find_real_end : null,
+            isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
+            isset($extra_data) ? $extra_data : null
+        );
 
         $warning_messages = $this->operations->getWarningMessagesArray();
 
