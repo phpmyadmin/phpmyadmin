@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-14 04:34+0000\n"
+"PO-Revision-Date: 2019-01-15 01:53+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -12176,7 +12176,7 @@ msgstr "ルーチン"
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
-msgstr ""
+msgstr "ユーザがこのルーチン内で他のユーザの権限を編集するための権限をユーザに付与することを許可します。"
 
 #: libraries/classes/Server/Privileges.php:1010
 #, fuzzy
@@ -12255,7 +12255,7 @@ msgstr "特権テーブルの再読み込みなしでユーザ・特権の追加
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
-msgstr ""
+msgstr "ユーザがこのルーチン内で自分を持っている権限でも他のユーザの権限を編集するための権限をユーザに付与することを許可します。"
 
 #: libraries/classes/Server/Privileges.php:1565
 #: libraries/classes/Server/Privileges.php:1596
@@ -12286,7 +12286,7 @@ msgstr "テキスト入力項目の値を利用する"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
-msgstr ""
+msgstr "同じユーザ名のアカウントが既に存在していますが、別のホスト名が設定している可能性があります。"
 
 #: libraries/classes/Server/Privileges.php:1688
 #, fuzzy
@@ -12375,7 +12375,7 @@ msgstr "権限委譲"
 
 #: libraries/classes/Server/Privileges.php:2724
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "ユーザを表示する為に十分な権限はありません。"
 
 #: libraries/classes/Server/Privileges.php:2743
 #: libraries/classes/Server/Privileges.php:4140
@@ -12465,7 +12465,7 @@ msgstr "このカラムに固有の特権"
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group"
-msgstr ""
+msgstr "ユーザグループ"
 
 #: libraries/classes/Server/Privileges.php:3834
 #: libraries/classes/Server/Privileges.php:5014
@@ -12530,7 +12530,7 @@ msgstr "ユーザグループ"
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr ""
+msgstr "注意:現在ログインしているユーザーの権限を編集しようとしています。"
 
 #: libraries/classes/Server/Privileges.php:4814
 #: libraries/classes/Server/Users.php:32
@@ -12995,7 +12995,7 @@ msgstr "コマンド"
 
 #: libraries/classes/Server/Status/Processes.php:121
 msgid "Progress"
-msgstr ""
+msgstr "進捗"
 
 #: libraries/classes/Server/Status/Processes.php:253
 #: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
@@ -13728,11 +13728,11 @@ msgstr "スリープしていないスレッドの数。"
 #: libraries/classes/Server/UserGroups.php:34
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "「%s 」ユーザグループのユーザ"
 
 #: libraries/classes/Server/UserGroups.php:47
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "このユーザグループにユーザが存在しません。"
 
 #: libraries/classes/Server/UserGroups.php:77
 #: libraries/classes/Server/Users.php:40
@@ -13775,7 +13775,7 @@ msgstr "ユーザを追加する"
 #: libraries/classes/Server/UserGroups.php:233
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "ユーザグループ「%s」を編集"
 
 #: libraries/classes/Server/UserGroups.php:249
 #, fuzzy
