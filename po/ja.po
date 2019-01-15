@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-15 01:53+0000\n"
+"PO-Revision-Date: 2019-01-15 05:51+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -12543,6 +12543,8 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"localhostから任意のユーザーに接続を許可するユーザが存在します。 "
+"これにより、そのアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、他のユーザーは接続できなくなります。"
 
 #: libraries/classes/Server/Privileges.php:4934
 #, fuzzy, php-format
@@ -13937,7 +13939,7 @@ msgstr "クリア"
 
 #: libraries/classes/SqlQueryForm.php:267
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "自動保存されたクエリを取得"
 
 #: libraries/classes/SqlQueryForm.php:273
 #, fuzzy
@@ -13963,7 +13965,7 @@ msgstr "実行したクエリをここに表示する"
 
 #: libraries/classes/SqlQueryForm.php:376
 msgid "Rollback when finished"
-msgstr ""
+msgstr "完了した後、ロールバック"
 
 #: libraries/classes/SqlQueryForm.php:421
 msgid "shared"
