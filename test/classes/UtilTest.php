@@ -1122,7 +1122,7 @@ class UtilTest extends PmaTestCase
                 0.00003,
                 3,
                 2,
-                '30 &micro;',
+                '30 µ',
             ],
             [
                 0.003,
@@ -1134,7 +1134,7 @@ class UtilTest extends PmaTestCase
                 -0.003,
                 6,
                 0,
-                '-3,000 &micro;',
+                '-3,000 µ',
             ],
             [
                 100.98,
