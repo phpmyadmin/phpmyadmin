@@ -165,7 +165,7 @@ class Language
     /**
      * Activates given translation
      *
-     * @return bool
+     * @return void
      */
     public function activate()
     {

@@ -328,7 +328,7 @@ class DatabaseStructureController extends DatabaseController
     /**
      * Handles request for real row count on database level view page.
      *
-     * @return boolean true
+     * @return void
      */
     public function handleRealRowCountRequestAction()
     {

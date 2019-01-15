@@ -1289,7 +1289,7 @@ class Privileges
      *
      * @param string $db the database
      *
-     * @return string data privilege table
+     * @return array data privilege table
      */
     public function getDataPrivilegeTable($db)
     {
@@ -1332,7 +1332,7 @@ class Privileges
      * @param string $table the table
      * @param array  $row   first row from result or boolean false
      *
-     * @return string structure privilege table
+     * @return array structure privilege table
      */
     public function getStructurePrivilegeTable($table, array $row)
     {
@@ -1426,7 +1426,7 @@ class Privileges
      *
      * @param string $db the table
      *
-     * @return string administration privilege table
+     * @return array administration privilege table
      */
     public function getAdministrationPrivilegeTable($db)
     {
@@ -4048,7 +4048,7 @@ class Privileges
      * @param string $dbname    database name
      * @param string $itemType  item type
      *
-     * @return Message success message or error message for update
+     * @return array success message or error message for update
      */
     public function updatePrivileges($username, $hostname, $tablename, $dbname, $itemType)
     {
@@ -4238,7 +4238,7 @@ class Privileges
     /**
      * update Message For Reload
      *
-     * @return array
+     * @return Message|null
      */
     public function updateMessageForReload()
     {

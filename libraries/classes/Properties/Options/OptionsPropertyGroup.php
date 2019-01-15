@@ -65,7 +65,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
     /**
      * Gets the instance of the class
      *
-     * @return array
+     * @return OptionsPropertyGroup
      */
     public function getGroup()
     {

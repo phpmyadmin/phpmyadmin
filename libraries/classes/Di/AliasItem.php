@@ -40,6 +40,8 @@ class AliasItem implements Item
      *
      * @param array $params Parameters
      * @return mixed
+     * @throws ContainerException
+     * @throws NotFoundException
      */
     public function get(array $params = [])
     {

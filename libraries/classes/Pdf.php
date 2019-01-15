@@ -43,6 +43,7 @@ class Pdf extends TCPDF
      *                             temporary data on filesystem (slower).
      * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
      *
+     * @throws \Exception
      * @access public
      */
     public function __construct(

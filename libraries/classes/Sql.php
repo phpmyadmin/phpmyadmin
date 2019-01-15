@@ -1079,7 +1079,7 @@ class Sql
      * @param string|null $column current column
      * @param bool        $purge  whether purge set or not
      *
-     * @return array
+     * @return void
      */
     private function cleanupRelations($db, $table, ?string $column, $purge)
     {

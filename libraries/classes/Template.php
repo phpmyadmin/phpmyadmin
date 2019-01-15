@@ -89,6 +89,9 @@ class Template
      * @param string $templateName Template path name
      *
      * @return \Twig_TemplateWrapper
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function load(string $templateName): \Twig_TemplateWrapper
     {
@@ -120,6 +123,10 @@ class Template
      * @param array  $data     Associative array of template variables
      *
      * @return string
+     * @throws \Throwable
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function render(string $template, array $data = []): string
     {

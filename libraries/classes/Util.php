@@ -2769,7 +2769,7 @@ class Util
      * @param string $var variable name
      * @param mixed  $val value
      *
-     * @return mixed
+     * @return void
      */
     public static function cacheSet($var, $val = null)
     {
