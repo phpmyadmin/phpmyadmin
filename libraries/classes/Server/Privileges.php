@@ -253,7 +253,7 @@ class Privileges
                     );
 
                     $privs[] = $this->formatPrivilege($current_grant, $enableHTML)
-                        . ' (' . join(', ', $grant_cols) . ')';
+                        . ' (' . implode(', ', $grant_cols) . ')';
                 } else {
                     $allPrivileges = false;
                 }
@@ -2856,14 +2856,14 @@ class Privileges
                     }
                 }
                 $html_output .= '<code>'
-                    . join(
+                    . implode(
                         ',',
                         $this->extractPrivInfo($privs, true, true)
                     )
                     . '</code>';
             } else {
                 $html_output .= '<code>'
-                    . join(
+                    . implode(
                         ',',
                         $this->extractPrivInfo($current, true, false)
                     )
@@ -3138,7 +3138,7 @@ class Privileges
 
             $new_user_string .= '</td>' . "\n";
             $new_user_string .= '<td>'
-                . '<code>' . join(', ', $this->extractPrivInfo(null, true)) . '</code>'
+                . '<code>' . implode(', ', $this->extractPrivInfo(null, true)) . '</code>'
                 . '</td>'; //Fill in privileges here
 
             // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
@@ -3205,7 +3205,7 @@ class Privileges
                 $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
                 $extra_data['db_wildcard_privs'] = $dbname_is_wildcard;
             }
-            $new_privileges = join(', ', $this->extractPrivInfo(null, true));
+            $new_privileges = implode(', ', $this->extractPrivInfo(null, true));
 
             $extra_data['new_privileges'] = $new_privileges;
         }
@@ -3542,7 +3542,7 @@ class Privileges
                 $onePrivilege['grant']        = $row['Grant_priv'] == 'Y';
                 $onePrivilege['table_privs']   = ! empty($row['Table_priv'])
                     || ! empty($row['Column_priv']);
-                $onePrivilege['privileges'] = join(',', $this->extractPrivInfo($row, true));
+                $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
 
                 $paramDbName = $row['Db'];
             } elseif ($type == 'table') {
@@ -3552,7 +3552,7 @@ class Privileges
                     explode(',', $row['Table_priv'])
                 );
                 $onePrivilege['column_privs']  = ! empty($row['Column_priv']);
-                $onePrivilege['privileges'] = join(',', $this->extractPrivInfo($row, true));
+                $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
 
                 $paramDbName = $dbname;
                 $paramTableName = $row['Table_name'];
@@ -3564,7 +3564,7 @@ class Privileges
                 );
 
                 $privs = $this->parseProcPriv($row['Proc_priv']);
-                $onePrivilege['privileges'] = join(
+                $onePrivilege['privileges'] = implode(
                     ',',
                     $this->extractPrivInfo($privs, true)
                 );
@@ -4024,7 +4024,7 @@ class Privileges
             // tracking sets this, causing the deleted db to be shown in navi
             unset($GLOBALS['db']);
 
-            $sql_query = join("\n", $queries);
+            $sql_query = implode("\n", $queries);
             if (! empty($drop_user_error)) {
                 $message = Message::rawError($drop_user_error);
             } else {
@@ -4071,7 +4071,7 @@ class Privileges
         if (! (strlen($tablename) > 0
             && 'USAGE' == implode('', $this->extractPrivInfo()))
         ) {
-            $sql_query2 = 'GRANT ' . join(', ', $this->extractPrivInfo())
+            $sql_query2 = 'GRANT ' . implode(', ', $this->extractPrivInfo())
                 . ' ON ' . $itemType . ' ' . $db_and_table
                 . ' TO \'' . $this->dbi->escapeString($username) . '\'@\''
                 . $this->dbi->escapeString($hostname) . '\'';
@@ -5153,22 +5153,22 @@ class Privileges
                 }
             }
             if (count($tmp_privs2['Select']) > 0 && ! in_array('SELECT', $tmp_privs1)) {
-                $tmp_privs1[] = 'SELECT (`' . join('`, `', $tmp_privs2['Select']) . '`)';
+                $tmp_privs1[] = 'SELECT (`' . implode('`, `', $tmp_privs2['Select']) . '`)';
             }
             if (count($tmp_privs2['Insert']) > 0 && ! in_array('INSERT', $tmp_privs1)) {
-                $tmp_privs1[] = 'INSERT (`' . join('`, `', $tmp_privs2['Insert']) . '`)';
+                $tmp_privs1[] = 'INSERT (`' . implode('`, `', $tmp_privs2['Insert']) . '`)';
             }
             if (count($tmp_privs2['Update']) > 0 && ! in_array('UPDATE', $tmp_privs1)) {
-                $tmp_privs1[] = 'UPDATE (`' . join('`, `', $tmp_privs2['Update']) . '`)';
+                $tmp_privs1[] = 'UPDATE (`' . implode('`, `', $tmp_privs2['Update']) . '`)';
             }
             if (count($tmp_privs2['References']) > 0
                 && ! in_array('REFERENCES', $tmp_privs1)
             ) {
                 $tmp_privs1[]
-                    = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
+                    = 'REFERENCES (`' . implode('`, `', $tmp_privs2['References']) . '`)';
             }
 
-            $queries[] = 'GRANT ' . join(', ', $tmp_privs1)
+            $queries[] = 'GRANT ' . implode(', ', $tmp_privs1)
                 . ' ON ' . Util::backquote($row['Db']) . '.'
                 . Util::backquote($row['Table_name'])
                 . ' TO \'' . $this->dbi->escapeString($username)
@@ -5204,7 +5204,7 @@ class Privileges
         );
 
         while ($row = $this->dbi->fetchAssoc($res)) {
-            $queries[] = 'GRANT ' . join(', ', $this->extractPrivInfo($row))
+            $queries[] = 'GRANT ' . implode(', ', $this->extractPrivInfo($row))
                 . ' ON ' . Util::backquote($row['Db']) . '.*'
                 . ' TO \'' . $this->dbi->escapeString($username)
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\''
@@ -5438,7 +5438,7 @@ class Privileges
 
         $sql_query_stmt = sprintf(
             'GRANT %s ON *.* TO \'%s\'@\'%s\'',
-            join(', ', $this->extractPrivInfo()),
+            implode(', ', $this->extractPrivInfo()),
             $slashedUsername,
             $slashedHostname
         );

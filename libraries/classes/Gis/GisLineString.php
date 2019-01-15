@@ -209,7 +209,7 @@ class GisLineString extends GisGeometry
     {
         $line_options = [
             'name'         => $label,
-            'id'           => $label . rand(),
+            'id'           => $label . mt_rand(),
             'class'        => 'linestring vector',
             'fill'         => 'none',
             'stroke'       => $line_color,

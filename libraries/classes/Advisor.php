@@ -596,7 +596,7 @@ class Advisor
                     );
                     continue;
                 }
-                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = chop(
+                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = rtrim(
                     mb_substr($line, 1)
                 );
                 $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;

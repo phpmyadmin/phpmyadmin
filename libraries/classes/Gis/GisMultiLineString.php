@@ -256,7 +256,7 @@ class GisMultiLineString extends GisGeometry
                 $row .= $point[0] . ',' . $point[1] . ' ';
             }
             $row .= '"';
-            $line_options['id'] = $label . rand();
+            $line_options['id'] = $label . mt_rand();
             foreach ($line_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';
             }

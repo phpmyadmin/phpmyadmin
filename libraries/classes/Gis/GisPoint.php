@@ -208,7 +208,7 @@ class GisPoint extends GisGeometry
     {
         $point_options = [
             'name'         => $label,
-            'id'           => $label . rand(),
+            'id'           => $label . mt_rand(),
             'class'        => 'point vector',
             'fill'         => 'white',
             'stroke'       => $point_color,

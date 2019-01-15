@@ -174,7 +174,7 @@ class Innodb extends StorageEngine
             )
             . '&nbsp;' . __('pages')
             . ' / '
-            . join(
+            . implode(
                 '&nbsp;',
                 Util::formatByteDown(
                     $status['Innodb_buffer_pool_pages_total']

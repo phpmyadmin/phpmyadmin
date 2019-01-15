@@ -295,7 +295,7 @@ class GisMultiPolygon extends GisGeometry
                     $row .= $this->_drawPath($inner_poly, $scale_data);
                 }
             }
-            $polygon_options['id'] = $label . rand();
+            $polygon_options['id'] = $label . mt_rand();
             $row .= '"';
             foreach ($polygon_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';
