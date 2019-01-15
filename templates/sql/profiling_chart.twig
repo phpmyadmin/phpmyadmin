@@ -55,7 +55,25 @@
       </tr>
       </thead>
       <tbody>
-        {{ summary_by_state|raw }}
+        {% for name, stats in states %}
+          <tr>
+            <td>{{ name }}</td>
+            <td align="right">
+              {{ format_number(stats['total_time'], 3, 1) }}s
+              <span class="rawvalue hide">{{ stats['total_time'] }}</span>
+            </td>
+            <td align="right">
+              {{ format_number(100 * (stats['total_time'] / total_time), 0, 2) }}%
+            </td>
+            <td align="right">{{ stats['calls'] }}</td>
+            <td align="right">
+              {{ format_number(stats['total_time'] / stats['calls'], 3, 1) }}s
+              <span class="rawvalue hide">
+                {{ (stats['total_time'] / stats['calls'])|number_format(8, '.', '') }}
+              </span>
+            </td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
 

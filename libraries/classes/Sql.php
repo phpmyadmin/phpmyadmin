@@ -235,7 +235,13 @@ class Sql
     {
         $foreigners = $this->relation->getForeigners($db, $table, $column);
 
-        $foreignData = $this->relation->getForeignData($foreigners, $column, false, '', '');
+        $foreignData = $this->relation->getForeignData(
+            $foreigners,
+            $column,
+            false,
+            '',
+            ''
+        );
 
         if ($foreignData['disp_row'] == null) {
             //Handle the case when number of values
@@ -246,14 +252,10 @@ class Sql
                 'field' => $column,
             ];
 
-            $dropdown = '<span class="curr_value">'
-                . htmlspecialchars($_POST['curr_value'])
-                . '</span>'
-                . '<a href="browse_foreigners.php" data-post="'
-                . Url::getCommon($_url_params, '') . '"'
-                . 'class="ajax browse_foreign" ' . '>'
-                . __('Browse foreign values')
-                . '</a>';
+            $dropdown = $this->template->render('sql/relational_column_dropdown', [
+                'current_value' => $_POST['curr_value'],
+                'params' => $_url_params,
+            ]);
         } else {
             $dropdown = $this->relation->foreignDropdown(
                 $foreignData['disp_row'],
@@ -289,12 +291,11 @@ class Sql
                 $profilingStats
             ) = $this->analyzeAndGetTableHtmlForProfilingResults($profilingResults);
 
-            $summaryByState = $this->getTableHtmlForProfilingSummaryByState($profilingStats);
-
             return $this->template->render('sql/profiling_chart', [
                 'url_query' => $urlQuery,
                 'detailed_table' => $detailedTable,
-                'summary_by_state' => $summaryByState,
+                'states' => $profilingStats['states'],
+                'total_time' => $profilingStats['total_time'],
                 'chart_json' => $chartJson,
             ]);
         }
@@ -333,14 +334,12 @@ class Sql
             }
             $profiling_stats['total_time'] += $one_result['Duration'];
 
-            $table .= ' <tr>' . "\n";
-            $table .= '<td>' . $i++ . '</td>' . "\n";
-            $table .= '<td>' . ucwords($one_result['Status'])
-                . '</td>' . "\n";
-            $table .= '<td class="right">'
-                . (Util::formatNumber($one_result['Duration'], 3, 1))
-                . 's<span class="rawvalue hide">'
-                . $one_result['Duration'] . '</span></td>' . "\n";
+            $table .= $this->template->render('sql/detailed_table', [
+                'index' => $i++,
+                'status' => $one_result['Status'],
+                'duration' => $one_result['Duration'],
+            ]);
+
             if (isset($chart_json[ucwords($one_result['Status'])])) {
                 $chart_json[ucwords($one_result['Status'])]
                     += $one_result['Duration'];
@@ -354,46 +353,6 @@ class Sql
             $chart_json,
             $profiling_stats,
         ];
-    }
-
-    /**
-     * Function to get HTML for summary by state table
-     *
-     * @param array $profiling_stats profiling stats
-     *
-     * @return string html for the table
-     */
-    private function getTableHtmlForProfilingSummaryByState(array $profiling_stats)
-    {
-        $table = '';
-        foreach ($profiling_stats['states'] as $name => $stats) {
-            $table .= ' <tr>' . "\n";
-            $table .= '<td>' . $name . '</td>' . "\n";
-            $table .= '<td align="right">'
-                . Util::formatNumber($stats['total_time'], 3, 1)
-                . 's<span class="rawvalue hide">'
-                . $stats['total_time'] . '</span></td>' . "\n";
-            $table .= '<td align="right">'
-                . Util::formatNumber(
-                    100 * ($stats['total_time'] / $profiling_stats['total_time']),
-                    0,
-                    2
-                )
-            . '%</td>' . "\n";
-            $table .= '<td align="right">' . $stats['calls'] . '</td>'
-                . "\n";
-            $table .= '<td align="right">'
-                . Util::formatNumber(
-                    $stats['total_time'] / $stats['calls'],
-                    3,
-                    1
-                )
-                . 's<span class="rawvalue hide">'
-                . number_format($stats['total_time'] / $stats['calls'], 8, '.', '')
-                . '</span></td>' . "\n";
-            $table .= ' </tr>' . "\n";
-        }
-        return $table;
     }
 
     /**
@@ -411,10 +370,10 @@ class Sql
     private function getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
     {
         $values = $this->getValuesForColumn($db, $table, $column);
-        $dropdown = '<option value="">&nbsp;</option>';
-        $dropdown .= $this->getHtmlForOptionsList($values, [$curr_value]);
-        $dropdown = '<select>' . $dropdown . '</select>';
-        return $dropdown;
+        return $this->template->render('sql/enum_column_dropdown', [
+            'values' => $values,
+            'selected_values' => [$curr_value],
+        ]);
     }
 
     /**
@@ -448,14 +407,12 @@ class Sql
      *
      * @return string html for the set column
      */
-    private function getHtmlForSetColumn($db, $table, $column, $curr_value)
+    private function getHtmlForSetColumn($db, $table, $column, $curr_value): string
     {
         $values = $this->getValuesForColumn($db, $table, $column);
-        $dropdown = '';
-        $full_values =
-            isset($_POST['get_full_values']) ? $_POST['get_full_values'] : false;
-        $where_clause =
-            isset($_POST['where_clause']) ? $_POST['where_clause'] : null;
+
+        $full_values = isset($_POST['get_full_values']) ? $_POST['get_full_values'] : false;
+        $where_clause = isset($_POST['where_clause']) ? $_POST['where_clause'] : null;
 
         // If the $curr_value was truncated, we should
         // fetch the correct full values from the table
@@ -476,14 +433,13 @@ class Sql
         );
 
         $selected_values = explode(',', $converted_curr_value);
+        $select_size = (count($values) > 10) ? 10 : count($values);
 
-        $dropdown .= $this->getHtmlForOptionsList($values, $selected_values);
-
-        $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
-        $dropdown = '<select multiple="multiple" size="' . $select_size . '">'
-            . $dropdown . '</select>';
-
-        return $dropdown;
+        return $this->template->render('sql/set_column', [
+            'size' => $select_size,
+            'values' => $values,
+            'selected_values' => $selected_values,
+        ]);
     }
 
     /**
@@ -508,27 +464,6 @@ class Sql
         );
 
         return Util::parseEnumSetValues($field_info_result[0]['Type']);
-    }
-
-    /**
-     * Get HTML for options list
-     *
-     * @param array $values          set of values
-     * @param array $selected_values currently selected values
-     *
-     * @return string HTML for options list
-     */
-    private function getHtmlForOptionsList(array $values, array $selected_values)
-    {
-        $options = '';
-        foreach ($values as $value) {
-            $options .= '<option value="' . $value . '"';
-            if (in_array($value, $selected_values, true)) {
-                $options .= ' selected="selected" ';
-            }
-            $options .= '>' . $value . '</option>';
-        }
-        return $options;
     }
 
     /**
@@ -1571,19 +1506,20 @@ class Sql
      * Returns a message for successful creation of a bookmark or null if a bookmark
      * was not created
      *
-     * @return Message|null
+     * @return string
      */
-    private function getBookmarkCreatedMessage()
+    private function getBookmarkCreatedMessage(): string
     {
-        $bookmark_created_msg = null;
+        $output = '';
         if (isset($_GET['label'])) {
-            $bookmark_created_msg = Message::success(
+            $message = Message::success(
                 __('Bookmark %s has been created.')
             );
-            $bookmark_created_msg->addParam($_GET['label']);
+            $message->addParam($_GET['label']);
+            $output = $message->getDisplay();
         }
 
-        return $bookmark_created_msg;
+        return $output;
     }
 
     /**
@@ -1725,48 +1661,46 @@ class Sql
      * Function to get html for the previous query if there is such. If not will return
      * null
      *
-     * @param string|null    $disp_query   display query
-     * @param bool           $showSql      whether to show sql
-     * @param array          $sql_data     sql data
-     * @param Message|string $disp_message display message
+     * @param string|null    $displayQuery   display query
+     * @param bool           $showSql        whether to show sql
+     * @param array          $sqlData        sql data
+     * @param Message|string $displayMessage display message
      *
      * @return string
      */
     private function getHtmlForPreviousUpdateQuery(
-        ?string $disp_query,
+        ?string $displayQuery,
         $showSql,
-        $sql_data,
-        $disp_message
-    ) {
-        // previous update query (from tbl_replace)
-        if (isset($disp_query) && ($showSql == true) && empty($sql_data)) {
-            $previous_update_query_html = Util::getMessage(
-                $disp_message,
-                $disp_query,
+        $sqlData,
+        $displayMessage
+    ): string {
+        $output = '';
+        if (isset($displayQuery) && ($showSql == true) && empty($sqlData)) {
+            $output = Util::getMessage(
+                $displayMessage,
+                $displayQuery,
                 'success'
             );
-        } else {
-            $previous_update_query_html = null;
         }
 
-        return $previous_update_query_html;
+        return $output;
     }
 
     /**
      * To get the message if a column index is missing. If not will return null
      *
-     * @param string  $table      current table
-     * @param string  $db         current database
-     * @param boolean $editable   whether the results table can be editable or not
-     * @param boolean $has_unique whether there is a unique key
+     * @param string  $table        current table
+     * @param string  $database     current database
+     * @param boolean $editable     whether the results table can be editable or not
+     * @param boolean $hasUniqueKey whether there is a unique key
      *
-     * @return Message|null
+     * @return string
      */
-    private function getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
+    private function getMessageIfMissingColumnIndex($table, $database, $editable, $hasUniqueKey): string
     {
-        $missing_unique_column_msg = null;
-        if (! empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable)) {
-            $missing_unique_column_msg = Message::notice(
+        $output = '';
+        if (! empty($table) && ($GLOBALS['dbi']->isSystemSchema($database) || ! $editable)) {
+            $output = Message::notice(
                 sprintf(
                     __(
                         'Current selection does not contain a unique column.'
@@ -1778,9 +1712,9 @@ class Sql
                         'cfg_RowActionLinksWithoutUnique'
                     )
                 )
-            );
-        } elseif (! empty($table) && ! $has_unique) {
-            $missing_unique_column_msg = Message::notice(
+            )->getDisplay();
+        } elseif (! empty($table) && ! $hasUniqueKey) {
+            $output = Message::notice(
                 sprintf(
                     __(
                         'Current selection does not contain a unique column.'
@@ -1792,10 +1726,10 @@ class Sql
                         'cfg_RowActionLinksWithoutUnique'
                     )
                 )
-            );
+            )->getDisplay();
         }
 
-        return $missing_unique_column_msg;
+        return $output;
     }
 
     /**
@@ -1976,19 +1910,19 @@ class Sql
             ];
         }
 
+        $tableMaintenanceHtml = '';
         if (isset($_POST['table_maintenance'])) {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
-            $table_maintenance_html = '';
             if (isset($message)) {
                 $message = Message::success($message);
-                $table_maintenance_html = Util::getMessage(
+                $tableMaintenanceHtml = Util::getMessage(
                     $message,
                     $GLOBALS['sql_query'],
                     'success'
                 );
             }
-            $table_maintenance_html .= $this->getHtmlForSqlQueryResultsTable(
+            $tableMaintenanceHtml .= $this->getHtmlForSqlQueryResultsTable(
                 $displayResultsObject,
                 $pmaThemeImage,
                 $url_query,
@@ -2001,7 +1935,7 @@ class Sql
                 $analyzed_sql_results
             );
             if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
-                $response->addHTML($table_maintenance_html);
+                $response->addHTML($tableMaintenanceHtml);
                 exit();
             }
         }
@@ -2015,29 +1949,29 @@ class Sql
             $GLOBALS['buffer_message'] = false;
         }
 
-        $previous_update_query_html = $this->getHtmlForPreviousUpdateQuery(
+        $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             isset($disp_query) ? $disp_query : null,
             $GLOBALS['cfg']['ShowSQL'],
             isset($sql_data) ? $sql_data : null,
             isset($disp_message) ? $disp_message : null
         );
 
-        $profiling_chart_html = $this->getHtmlForProfilingChart(
+        $profilingChartHtml = $this->getHtmlForProfilingChart(
             $url_query,
             $db,
             isset($profiling_results) ? $profiling_results : []
         );
 
-        $missing_unique_column_msg = $this->getMessageIfMissingColumnIndex(
+        $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex(
             $table,
             $db,
             $editable,
             $has_unique
         );
 
-        $bookmark_created_msg = $this->getBookmarkCreatedMessage();
+        $bookmarkCreatedMessage = $this->getBookmarkCreatedMessage();
 
-        $table_html = $this->getHtmlForSqlQueryResultsTable(
+        $tableHtml = $this->getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
             $pmaThemeImage,
             $url_query,
@@ -2050,16 +1984,16 @@ class Sql
             $analyzed_sql_results
         );
 
-        $indexes_problems_html = $this->getHtmlForIndexesProblems(
+        $indexesProblemsHtml = $this->getHtmlForIndexesProblems(
             isset($query_type) ? $query_type : null,
             isset($selectedTables) ? $selectedTables : null,
             $db
         );
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-        $bookmark_support_html = '';
+        $bookmarkSupportHtml = '';
         if ($cfgBookmark) {
-            $bookmark_support_html = $this->getHtmlForBookmark(
+            $bookmarkSupportHtml = $this->getHtmlForBookmark(
                 $displayParts,
                 $cfgBookmark,
                 $sql_query,
@@ -2070,19 +2004,16 @@ class Sql
             );
         }
 
-        $html_output = isset($table_maintenance_html) ? $table_maintenance_html : '';
-
-        $html_output .= $this->template->render('sql/sql_query_results', [
-            'previous_update_query' => $previous_update_query_html,
-            'profiling_chart' => $profiling_chart_html,
-            'missing_unique_column_message' => isset($missing_unique_column_msg) ? $missing_unique_column_msg->getDisplay() : '',
-            'bookmark_created_message' => isset($bookmark_created_msg) ? $bookmark_created_msg->getDisplay() : '',
-            'table' => $table_html,
-            'indexes_problems' => $indexes_problems_html,
-            'bookmark_support' => $bookmark_support_html,
+        return $this->template->render('sql/sql_query_results', [
+            'table_maintenance' => $tableMaintenanceHtml,
+            'previous_update_query' => $previousUpdateQueryHtml,
+            'profiling_chart' => $profilingChartHtml,
+            'missing_unique_column_message' => $missingUniqueColumnMessage,
+            'bookmark_created_message' => $bookmarkCreatedMessage,
+            'table' => $tableHtml,
+            'indexes_problems' => $indexesProblemsHtml,
+            'bookmark_support' => $bookmarkSupportHtml,
         ]);
-
-        return $html_output;
     }
 
     /**
