@@ -796,14 +796,11 @@ class Results
     /**
      * Possibly return a page selector for table navigation
      *
-     * @param string $table_navigation_html the current navigation HTML
+     * @return array ($output, $nbTotalPage)
      *
-     * @return array ($table_navigation_html, $nbTotalPage)
-     *
-     * @access  private
-     *
+     * @access private
      */
-    private function _getHtmlPageSelector($table_navigation_html)
+    private function _getHtmlPageSelector(): array
     {
         $pageNow = @floor(
             $_SESSION['tmpval']['pos']
@@ -815,8 +812,8 @@ class Results
             / $_SESSION['tmpval']['max_rows']
         );
 
+        $output = '';
         if ($nbTotalPage > 1) {
-            $table_navigation_html .= '<td>';
             $_url_params = [
                 'db'                 => $this->__get('db'),
                 'table'              => $this->__get('table'),
@@ -825,28 +822,23 @@ class Results
                 'is_browse_distinct' => $this->__get('is_browse_distinct'),
             ];
 
-            //<form> to keep the form alignment of button < and <<
-            // and also to know what to execute when the selector changes
-            $table_navigation_html .= '<form action="sql.php" method="post">';
-            $table_navigation_html .= Url::getHiddenInputs($_url_params);
-
-            $table_navigation_html .= Util::pageselector(
-                'pos',
-                $_SESSION['tmpval']['max_rows'],
-                $pageNow,
-                $nbTotalPage,
-                200,
-                5,
-                5,
-                20,
-                10
-            );
-
-            $table_navigation_html .= '</form>'
-                . '</td>';
+            $output = $this->template->render('display/results/page_selector', [
+                'url_params' => $_url_params,
+                'page_selector' => Util::pageselector(
+                    'pos',
+                    $_SESSION['tmpval']['max_rows'],
+                    $pageNow,
+                    $nbTotalPage,
+                    200,
+                    5,
+                    5,
+                    20,
+                    10
+                ),
+            ]);
         }
         return [
-            $table_navigation_html,
+            $output,
             $nbTotalPage,
         ];
     }
@@ -854,165 +846,81 @@ class Results
     /**
      * Get a navigation bar to browse among the results of a SQL query
      *
-     * @param integer $pos_next         the offset for the "next" page
-     * @param integer $pos_prev         the offset for the "previous" page
-     * @param boolean $is_innodb        whether its InnoDB or not
-     * @param string  $sort_by_key_html the sort by key dialog
+     * @param integer $posNext       the offset for the "next" page
+     * @param integer $posPrevious   the offset for the "previous" page
+     * @param boolean $isInnodb      whether its InnoDB or not
+     * @param string  $sortByKeyHtml the sort by key dialog
      *
-     * @return string                            html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getTable()
+     * @see getTable()
      */
     private function _getTableNavigation(
-        $pos_next,
-        $pos_prev,
-        $is_innodb,
-        $sort_by_key_html
-    ) {
-
-        $table_navigation_html = '';
-
-        // here, using htmlentities() would cause problems if the query
-        // contains accented characters
-        $html_sql_query = htmlspecialchars($this->__get('sql_query'));
-
-        // Navigation bar
-        $table_navigation_html
-            .= '<table class="navigation nospacing nopadding print_ignore">'
-            . '<tr>'
-            . '<td class="navigation_separator"></td>';
+        $posNext,
+        $posPrevious,
+        $isInnodb,
+        $sortByKeyHtml
+    ): string {
+        $isShowingAll = $_SESSION['tmpval']['max_rows'] === self::ALL_ROWS;
 
         // Move to the beginning or to the previous page
-        if ($_SESSION['tmpval']['pos']
-            && ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS)
-        ) {
-            $table_navigation_html
-                .= $this->_getMoveBackwardButtonsForTableNavigation(
-                    $html_sql_query,
-                    $pos_prev
-                );
-        } // end move back
-
-        $nbTotalPage = 1;
-        //page redirection
-        // (unless we are showing all records)
-        if ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS) {
-            list(
-                $table_navigation_html,
-                $nbTotalPage
-            ) = $this->_getHtmlPageSelector($table_navigation_html);
+        $moveBackwardButtons = '';
+        if ($_SESSION['tmpval']['pos'] && ! $isShowingAll) {
+            $moveBackwardButtons = $this->_getMoveBackwardButtonsForTableNavigation(
+                htmlspecialchars($this->__get('sql_query')),
+                $posPrevious
+            );
         }
 
-        $showing_all = false;
-        if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
-            $showing_all = true;
+        $pageSelector = '';
+        $numberTotalPage = 1;
+        if (! $isShowingAll) {
+            list(
+                $pageSelector,
+                $numberTotalPage
+            ) = $this->_getHtmlPageSelector();
         }
 
         // Move to the next page or to the last one
+        $moveForwardButtons = '';
         if ($this->__get('unlim_num_rows') === false // view with unknown number of rows
-            || ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS
+            || (! $isShowingAll
             && $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'] < $this->__get('unlim_num_rows')
             && $this->__get('num_rows') >= $_SESSION['tmpval']['max_rows'])
         ) {
-            $table_navigation_html
-                .= $this->_getMoveForwardButtonsForTableNavigation(
-                    $html_sql_query,
-                    $pos_next,
-                    $is_innodb
-                );
-        } // end move toward
-
-        // show separator if pagination happen
-        if ($nbTotalPage > 1) {
-            $table_navigation_html
-                .= '<td><div class="navigation_separator">|</div></td>';
+            $moveForwardButtons = $this->_getMoveForwardButtonsForTableNavigation(
+                htmlspecialchars($this->__get('sql_query')),
+                $posNext,
+                $isInnodb
+            );
         }
 
-        // Display the "Show all" button if allowed
-        if ($GLOBALS['cfg']['ShowAll'] || ($this->__get('unlim_num_rows') <= 500)) {
-            $table_navigation_html .= $this->_getShowAllCheckboxForTableNavigation(
-                $showing_all,
-                $html_sql_query
-            );
+        $hiddenFields = [
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+            'sql_query' => $this->__get('sql_query'),
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'goto' => $this->__get('goto'),
+        ];
 
-            $table_navigation_html
-                .= '<td><div class="navigation_separator">|</div></td>';
-        } // end show all
-
-        $table_navigation_html .= '<td>'
-            . '<div class="save_edited hide">'
-            . '<input class="btn btn-link" type="submit" value="' . __('Save edited data') . '">'
-            . '<div class="navigation_separator">|</div>'
-            . '</div>'
-            . '</td>'
-            . '<td>'
-            . '<div class="restore_column hide">'
-            . '<input class="btn btn-link" type="submit" value="' . __('Restore column order') . '">'
-            . '<div class="navigation_separator">|</div>'
-            . '</div>'
-            . '</td>';
-
-        // if displaying a VIEW, $unlim_num_rows could be zero because
-        // of $cfg['MaxExactCountViews']; in this case, avoid passing
-        // the 5th parameter to checkFormElementInRange()
-        // (this means we can't validate the upper limit
-        $table_navigation_html .= '<td class="navigation_goto">';
-
-        $table_navigation_html .= '<form action="sql.php" method="post" '
-            . 'onsubmit="return '
-                . '(checkFormElementInRange('
-                    . 'this, '
-                    . '\'session_max_rows\', '
-                    . '\''
-                    . str_replace('\'', '\\\'', __('%d is not valid row number.'))
-                    . '\', '
-                    . '1)'
-                . ' &amp;&amp; '
-                . 'checkFormElementInRange('
-                    . 'this, '
-                    . '\'pos\', '
-                    . '\''
-                    . str_replace('\'', '\\\'', __('%d is not valid row number.'))
-                    . '\', '
-                    . '0'
-                    . ($this->__get('unlim_num_rows') > 0
-                        ? ', ' . ($this->__get('unlim_num_rows') - 1)
-                        : ''
-                    )
-                    . ')'
-                . ')'
-            . '">';
-
-        $table_navigation_html .= Url::getHiddenInputs(
-            $this->__get('db'),
-            $this->__get('table')
-        );
-
-        $table_navigation_html .= $this->_getAdditionalFieldsForTableNavigation(
-            $html_sql_query
-        );
-
-        $table_navigation_html .= '</form>'
-            . '</td>'
-            . '<td class="navigation_separator"></td>'
-            . '<td class="largescreenonly">'
-            . '<span>' . __('Filter rows') . ':</span>'
-            . '<input type="text" class="filter_rows"'
-            . ' placeholder="' . __('Search this table') . '"'
-            . ' data-for="' . $this->__get('unique_id') . '">'
-            . '</td>';
-
-        $table_navigation_html .= '<td class="largescreenonly">' . $sort_by_key_html . '</td>';
-
-        $table_navigation_html .= '<td class="navigation_separator"></td>'
-            . '</tr>'
-            . '</table>';
-
-        return $table_navigation_html;
-    } // end of the '_getTableNavigation()' function
-
+        return $this->template->render('display/results/table_navigation', [
+            'move_backward_buttons' => $moveBackwardButtons,
+            'page_selector' => $pageSelector,
+            'move_forward_buttons' => $moveForwardButtons,
+            'number_total_page' => $numberTotalPage,
+            'has_show_all' => $GLOBALS['cfg']['ShowAll'] || ($this->__get('unlim_num_rows') <= 500),
+            'hidden_fields' => $hiddenFields,
+            'session_max_rows' => $isShowingAll ? $GLOBALS['cfg']['MaxRows'] : 'all',
+            'unique_id' => $this->__get('unique_id'),
+            'is_showing_all' => $isShowingAll,
+            'unlim_num_rows' => $this->__get('unlim_num_rows'),
+            'max_rows' => $_SESSION['tmpval']['max_rows'],
+            'pos' => $_SESSION['tmpval']['pos'],
+            'sort_by_key' => $sortByKeyHtml,
+        ]);
+    }
 
     /**
      * Prepare move backward buttons - previous and first
@@ -1044,37 +952,7 @@ class Results
             $html_sql_query,
             true
         );
-    } // end of the '_getMoveBackwardButtonsForTableNavigation()' function
-
-
-    /**
-     * Prepare Show All checkbox for table navigation
-     *
-     * @param bool   $showing_all    whether all rows are shown currently
-     * @param string $html_sql_query the sql encoded by html special characters
-     *
-     * @return  string                          html content
-     *
-     * @access  private
-     *
-     * @see     _getTableNavigation()
-     */
-    private function _getShowAllCheckboxForTableNavigation(
-        $showing_all,
-        $html_sql_query
-    ) {
-        return $this->template->render('display/results/show_all_checkbox', [
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
-            'is_browse_distinct' => $this->__get('is_browse_distinct'),
-            'goto' => $this->__get('goto'),
-            'unique_id' => $this->__get('unique_id'),
-            'html_sql_query' => $html_sql_query,
-            'showing_all' => $showing_all,
-            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
-        ]);
-    } // end of the '_getShowAllButtonForTableNavigation()' function
-
+    }
 
     /**
      * Prepare move forward buttons - next and last
@@ -1141,45 +1019,6 @@ class Results
         );
 
         return $buttons_html;
-    } // end of the '_getMoveForwardButtonsForTableNavigation()' function
-
-
-    /**
-     * Prepare fields for table navigation
-     * Number of rows
-     *
-     * @param string $sqlQuery the sql encoded by htmlspecialchars()
-     *
-     * @return string html content
-     *
-     * @access  private
-     *
-     * @see     _getTableNavigation()
-     */
-    private function _getAdditionalFieldsForTableNavigation($sqlQuery)
-    {
-        $numberOfRowsPlaceholder = null;
-        if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
-            $numberOfRowsPlaceholder = __('All');
-        }
-
-        $numberOfRowsChoices = [
-            '25'  => 25,
-            '50'  => 50,
-            '100' => 100,
-            '250' => 250,
-            '500' => 500,
-        ];
-
-        return $this->template->render('display/results/additional_fields', [
-            'goto' => $this->__get('goto'),
-            'is_browse_distinct' => $this->__get('is_browse_distinct'),
-            'sql_query' => $sqlQuery,
-            'number_of_rows_choices' => $numberOfRowsChoices,
-            'number_of_rows_placeholder' => $numberOfRowsPlaceholder,
-            'pos' => $_SESSION['tmpval']['pos'],
-            'max_rows' => $_SESSION['tmpval']['max_rows'],
-        ]);
     }
 
     /**
