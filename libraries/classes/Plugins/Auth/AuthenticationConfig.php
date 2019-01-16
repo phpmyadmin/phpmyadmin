@@ -24,14 +24,6 @@ use PhpMyAdmin\Util;
 class AuthenticationConfig extends AuthenticationPlugin
 {
     /**
-     * AuthenticationConfig constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Displays authentication form
      *
      * @return boolean always true

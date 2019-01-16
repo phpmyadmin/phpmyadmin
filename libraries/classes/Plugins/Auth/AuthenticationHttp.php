@@ -25,14 +25,6 @@ use PhpMyAdmin\Core;
 class AuthenticationHttp extends AuthenticationPlugin
 {
     /**
-     * AuthenticationHttp constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Displays authentication form and redirect as necessary
      *
      * @return boolean   always true (no return indeed)
