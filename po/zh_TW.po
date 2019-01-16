@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-14 21:49+0000\n"
-"Last-Translator: Louies <louies0623@gmail.com>\n"
+"PO-Revision-Date: 2019-01-16 06:37+0000\n"
+"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -10372,7 +10372,7 @@ msgstr "事件排程狀態"
 
 #: libraries/classes/Rte/General.php:64
 msgid "The backed up query was:"
-msgstr "備份用的查詢是:"
+msgstr "備份了的查詢是："
 
 #: libraries/classes/Rte/Routines.php:145
 msgid ""
@@ -10381,9 +10381,8 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"您目前使用 PHP 已不建議使用的擴充套件 'mysql'，該擴充套件無法處理多查詢，並且"
-"[strong]在執行某些預存程序 (Stored routine) 的可能會導致失敗[/strong]，請使"
-"用 'mysqli' 擴充套件以避免發生錯誤。"
+"目前正在使用 PHP 已過時的 mysql 擴充套件，該擴充套件無法處理多重查詢，並且[strong]可能無法執行某些預存程序 (stored "
+"routine)[/strong]！請改用 mysqli 擴充套件以避免出錯。"
 
 #: libraries/classes/Rte/Routines.php:196
 msgid "Edit routine"
@@ -10393,16 +10392,16 @@ msgstr "編輯預存程序"
 #: libraries/classes/Rte/Routines.php:1198
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "無效的預存程序類型：\"%s\""
+msgstr "預存程序類型無效：\"%s\""
 
 #: libraries/classes/Rte/Routines.php:331
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "預存程序 %1$s 已建立。"
+msgstr "已建立預存程序 %1$s。"
 
 #: libraries/classes/Rte/Routines.php:450
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr "很抱歉，還原的被刪除的預存程序失敗。"
+msgstr "很抱歉，未能還原被刪除的預存程序。"
 
 #: libraries/classes/Rte/Routines.php:512
 #, php-format
@@ -10412,7 +10411,7 @@ msgstr "已修改預存程序 %1$s 。已調整權限。"
 #: libraries/classes/Rte/Routines.php:517
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "預存程序 %1$s 已被修改。"
+msgstr "已修改預存程序 %1$s。"
 
 #: libraries/classes/Rte/Routines.php:972
 msgid "Routine name"
@@ -10423,8 +10422,9 @@ msgid "Parameters"
 msgstr "參數"
 
 #: libraries/classes/Rte/Routines.php:1005
+#, fuzzy
 msgid "Direction"
-msgstr "I/O"
+msgstr "方向"
 
 #: libraries/classes/Rte/Routines.php:1026
 msgid "Add parameter"
@@ -10454,7 +10454,7 @@ msgstr "確定性"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr "您未有足夠的權限執行此操作，請參考說明文件了解詳情"
+msgstr "無足夠權限執行此操作，請參閱說明文件了解詳情"
 
 #: libraries/classes/Rte/Routines.php:1113
 msgid "Security type"
@@ -10466,7 +10466,7 @@ msgstr "SQL 資料存取"
 
 #: libraries/classes/Rte/Routines.php:1205
 msgid "You must provide a routine name!"
-msgstr "您必須填寫預存程序名稱！"
+msgstr "必須填寫預存程序名稱！"
 
 #: libraries/classes/Rte/Routines.php:1239
 #, php-format
@@ -10478,20 +10478,19 @@ msgstr "給予的參數方向 \"%s\" 無效。"
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr ""
-"您必須為預存程序提供長度/數值的參數型別為列舉、集合、VARCHAR 和 VARBINARY。"
+msgstr "必須為以下類型的預存程序參數，提供長度或值：列舉(ENUM)、集合(SET)、VARCHAR 和 VARBINARY。"
 
 #: libraries/classes/Rte/Routines.php:1289
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "你必須提供每個預存程序的參數名稱和類型。"
+msgstr "必須提供每個預存程序的參數名稱和類型。"
 
 #: libraries/classes/Rte/Routines.php:1309
 msgid "You must provide a valid return type for the routine."
-msgstr "您必須提供一個有效的返回類型的預存程序。"
+msgstr "必須為預存程序提供有效的返回類型。"
 
 #: libraries/classes/Rte/Routines.php:1370
 msgid "You must provide a routine definition."
-msgstr "您必須提供一個預存程序的定義。"
+msgstr "必須提供預存程序的定義。"
 
 #: libraries/classes/Rte/Routines.php:1483
 #, php-format
@@ -10520,17 +10519,17 @@ msgstr "返回"
 
 #: libraries/classes/Rte/Triggers.php:170
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "很抱歉，還原已刪除的觸發器失敗。"
+msgstr "很抱歉，未能還原已刪除的觸發器。"
 
 #: libraries/classes/Rte/Triggers.php:177
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "觸發器 %1$s 已被修改。"
+msgstr "已修改觸發器 %1$s。"
 
 #: libraries/classes/Rte/Triggers.php:197
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "建立觸發器 %1$s 成功。"
+msgstr "已建立觸發器 %1$s。"
 
 #: libraries/classes/Rte/Triggers.php:273
 msgid "Edit trigger"
@@ -10547,23 +10546,23 @@ msgstr "時間"
 
 #: libraries/classes/Rte/Triggers.php:499
 msgid "You must provide a trigger name!"
-msgstr "您必須填寫觸發器名稱！"
+msgstr "必須填寫觸發器名稱！"
 
 #: libraries/classes/Rte/Triggers.php:506
 msgid "You must provide a valid timing for the trigger!"
-msgstr "您必須為觸發器填寫有效的時間！"
+msgstr "必須為觸發器填寫有效的時間！"
 
 #: libraries/classes/Rte/Triggers.php:513
 msgid "You must provide a valid event for the trigger!"
-msgstr "您必須為事件填寫有效的觸發條件！"
+msgstr "必須為事件填寫有效的觸發條件！"
 
 #: libraries/classes/Rte/Triggers.php:521
 msgid "You must provide a valid table name!"
-msgstr "您必須填寫有效的資料表名稱！"
+msgstr "必須填寫有效的資料表名稱！"
 
 #: libraries/classes/Rte/Triggers.php:527
 msgid "You must provide a trigger definition."
-msgstr "您必須提供一個觸發器的定義。"
+msgstr "必須提供觸發器的定義。"
 
 #: libraries/classes/Rte/Words.php:34
 msgid "Add routine"
@@ -10580,7 +10579,7 @@ msgstr "預存程序"
 
 #: libraries/classes/Rte/Words.php:39
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "您無建立預存程序的權限。"
+msgstr "無建立預存程序的權限。"
 
 #: libraries/classes/Rte/Words.php:42
 #, php-format
@@ -10624,7 +10623,7 @@ msgstr "觸發器"
 
 #: libraries/classes/Rte/Words.php:61
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "您沒有建立觸發器所需的權限。"
+msgstr "沒有建立觸發器所需的權限。"
 
 #: libraries/classes/Rte/Words.php:63
 #, php-format
@@ -10650,12 +10649,12 @@ msgstr "事件"
 
 #: libraries/classes/Rte/Words.php:75
 msgid "You do not have the necessary privileges to create an event."
-msgstr "您沒有建立事件所需的權限。"
+msgstr "沒有建立事件所需的權限。"
 
 #: libraries/classes/Rte/Words.php:77
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的事件 (Event)。"
+msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的事件。"
 
 #: libraries/classes/Rte/Words.php:78
 msgid "There are no events to display."
@@ -10663,28 +10662,28 @@ msgstr "沒有事件可供顯示。"
 
 #: libraries/classes/SavedSearches.php:264
 msgid "Please provide a name for this bookmarked search."
-msgstr "請提供一個可以作為此查詢的書籤名稱。"
+msgstr "請提供可以作為此搜尋的書籤名稱。"
 
 #: libraries/classes/SavedSearches.php:279
 msgid "Missing information to save the bookmarked search."
-msgstr "遺失用來儲存加入查詢書籤的資訊。"
+msgstr "缺少用來儲存加入搜尋書籤的資訊。"
 
 #: libraries/classes/SavedSearches.php:301
 #: libraries/classes/SavedSearches.php:338
 msgid "An entry with this name already exists."
-msgstr "項目 %s 己存在。"
+msgstr "已有名為 %s 的項目。"
 
 #: libraries/classes/SavedSearches.php:365
 msgid "Missing information to delete the search."
-msgstr "遺失用來刪除查詢的資訊。"
+msgstr "缺少用來刪除搜尋的資訊。"
 
 #: libraries/classes/SavedSearches.php:393
 msgid "Missing information to load the search."
-msgstr "遺失用來讀取查詢的資訊。"
+msgstr "缺少用來載入搜尋的資訊。"
 
 #: libraries/classes/SavedSearches.php:412
 msgid "Error while loading the search."
-msgstr "載入查詢時發生錯誤。"
+msgstr "載入搜尋時發生錯誤。"
 
 #: libraries/classes/Server/Privileges.php:264 server_privileges.php:128
 msgid "No privileges."
@@ -10692,7 +10691,7 @@ msgstr "沒有權限。"
 
 #: libraries/classes/Server/Privileges.php:273 server_privileges.php:73
 msgid "Includes all privileges except GRANT."
-msgstr "除了GRANT以外的所有權限。"
+msgstr "除了 GRANT 以外的所有權限。"
 
 #: libraries/classes/Server/Privileges.php:346
 #: libraries/classes/Server/Privileges.php:1109
@@ -10710,7 +10709,7 @@ msgstr "允許新增與取代資料。"
 #: libraries/classes/Server/Privileges.php:1129
 #: libraries/classes/Server/Privileges.php:1310 server_privileges.php:127
 msgid "Allows changing data."
-msgstr "允許改變資料。"
+msgstr "允許更改資料。"
 
 #: libraries/classes/Server/Privileges.php:361
 #: libraries/classes/Server/Privileges.php:1315 server_privileges.php:82
@@ -10730,7 +10729,7 @@ msgstr "允許刪除資料庫和資料表。"
 #: libraries/classes/Server/Privileges.php:376
 #: libraries/classes/Server/Privileges.php:1462 server_privileges.php:111
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "允許重新載入伺服器設定並重新整理伺服器的快取。"
+msgstr "允許重新載入伺服器設定，並重新整理伺服器的快取。"
 
 #: libraries/classes/Server/Privileges.php:381
 #: libraries/classes/Server/Privileges.php:1467 server_privileges.php:120
@@ -10745,13 +10744,13 @@ msgstr "允許查看所有使用者的執行程序。"
 #: libraries/classes/Server/Privileges.php:391
 #: libraries/classes/Server/Privileges.php:1323 server_privileges.php:87
 msgid "Allows importing data from and exporting data into files."
-msgstr "允許從檔案中匯入資料以及將資料匯出至檔案。"
+msgstr "允許從檔案匯入資料，以及將資料匯出至檔案。"
 
 #: libraries/classes/Server/Privileges.php:396
 #: libraries/classes/Server/Privileges.php:1139
 #: libraries/classes/Server/Privileges.php:1494 server_privileges.php:109
 msgid "Has no effect in this MySQL version."
-msgstr "在此版本的 MySQL 中無效。"
+msgstr "在此版本的 MySQL 無效。"
 
 #: libraries/classes/Server/Privileges.php:401
 #: libraries/classes/Server/Privileges.php:1356 server_privileges.php:92
