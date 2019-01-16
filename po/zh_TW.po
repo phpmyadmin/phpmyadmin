@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:37-0200\n"
-"PO-Revision-Date: 2019-01-14 20:37+0000\n"
-"Last-Translator: Louies <louies0623@gmail.com>\n"
+"PO-Revision-Date: 2019-01-17 01:17+0000\n"
+"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -10362,7 +10362,7 @@ msgstr "事件排程狀態"
 
 #: libraries/classes/Rte/General.php:46
 msgid "The backed up query was:"
-msgstr "備份用的查詢是:"
+msgstr "備份了的查詢是："
 
 #: libraries/classes/Rte/Routines.php:92
 msgid ""
@@ -10371,9 +10371,8 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"您目前使用 PHP 已不建議使用的擴充套件 'mysql'，該擴充套件無法處理多查詢，並且"
-"[strong]在執行某些預存程序 (Stored routine) 的可能會導致失敗[/strong]，請使"
-"用 'mysqli' 擴充套件以避免發生錯誤。"
+"目前正在使用 PHP 已過時的 mysql 擴充套件，該擴充套件無法處理多重查詢，並且[strong]可能無法執行某些預存程序 (stored "
+"routine)[/strong]！請改用 mysqli 擴充套件以避免出錯。"
 
 #: libraries/classes/Rte/Routines.php:143
 msgid "Edit routine"
@@ -10383,16 +10382,16 @@ msgstr "編輯預存程序"
 #: libraries/classes/Rte/Routines.php:1135
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "無效的預存程序類型：\"%s\""
+msgstr "預存程序類型無效：\"%s\""
 
 #: libraries/classes/Rte/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "預存程序 %1$s 已建立。"
+msgstr "已建立預存程序 %1$s。"
 
 #: libraries/classes/Rte/Routines.php:393
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr "很抱歉，還原的被刪除的預存程序失敗。"
+msgstr "很抱歉，未能還原被刪除的預存程序。"
 
 #: libraries/classes/Rte/Routines.php:449
 #, php-format
@@ -10402,7 +10401,7 @@ msgstr "已修改預存程序 %1$s 。已調整權限。"
 #: libraries/classes/Rte/Routines.php:454
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "預存程序 %1$s 已被修改。"
+msgstr "已修改預存程序 %1$s。"
 
 #: libraries/classes/Rte/Routines.php:908
 msgid "Routine name"
@@ -10413,8 +10412,9 @@ msgid "Parameters"
 msgstr "參數"
 
 #: libraries/classes/Rte/Routines.php:942
+#, fuzzy
 msgid "Direction"
-msgstr "I/O"
+msgstr "方向"
 
 #: libraries/classes/Rte/Routines.php:963
 msgid "Add parameter"
@@ -10444,7 +10444,7 @@ msgstr "確定性"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr "您未有足夠的權限執行此操作，請參考說明文件了解詳情"
+msgstr "無足夠權限執行此操作，請參閱說明文件了解詳情"
 
 #: libraries/classes/Rte/Routines.php:1050
 msgid "Security type"
@@ -10456,7 +10456,7 @@ msgstr "SQL 資料存取"
 
 #: libraries/classes/Rte/Routines.php:1142
 msgid "You must provide a routine name!"
-msgstr "您必須填寫預存程序名稱！"
+msgstr "必須填寫預存程序名稱！"
 
 #: libraries/classes/Rte/Routines.php:1176
 #, php-format
@@ -10468,20 +10468,19 @@ msgstr "給予的參數方向 \"%s\" 無效。"
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr ""
-"您必須為預存程序提供長度/數值的參數型別為列舉、集合、VARCHAR 和 VARBINARY。"
+msgstr "必須為以下類型的預存程序參數，提供長度或值：列舉(ENUM)、集合(SET)、VARCHAR 和 VARBINARY。"
 
 #: libraries/classes/Rte/Routines.php:1226
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "你必須提供每個預存程序的參數名稱和類型。"
+msgstr "必須提供每個預存程序的參數名稱和類型。"
 
 #: libraries/classes/Rte/Routines.php:1245
 msgid "You must provide a valid return type for the routine."
-msgstr "您必須提供一個有效的返回類型的預存程序。"
+msgstr "必須為預存程序提供有效的返回類型。"
 
 #: libraries/classes/Rte/Routines.php:1305
 msgid "You must provide a routine definition."
-msgstr "您必須提供一個預存程序的定義。"
+msgstr "必須提供預存程序的定義。"
 
 #: libraries/classes/Rte/Routines.php:1417
 #, php-format
@@ -10510,17 +10509,17 @@ msgstr "返回"
 
 #: libraries/classes/Rte/Triggers.php:118
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "很抱歉，還原已刪除的觸發器失敗。"
+msgstr "很抱歉，未能還原已刪除的觸發器。"
 
 #: libraries/classes/Rte/Triggers.php:125
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "觸發器 %1$s 已被修改。"
+msgstr "已修改觸發器 %1$s。"
 
 #: libraries/classes/Rte/Triggers.php:145
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "建立觸發器 %1$s 成功。"
+msgstr "已建立觸發器 %1$s。"
 
 #: libraries/classes/Rte/Triggers.php:221
 msgid "Edit trigger"
@@ -10537,23 +10536,23 @@ msgstr "時間"
 
 #: libraries/classes/Rte/Triggers.php:445
 msgid "You must provide a trigger name!"
-msgstr "您必須填寫觸發器名稱！"
+msgstr "必須填寫觸發器名稱！"
 
 #: libraries/classes/Rte/Triggers.php:452
 msgid "You must provide a valid timing for the trigger!"
-msgstr "您必須為觸發器填寫有效的時間！"
+msgstr "必須為觸發器填寫有效的時間！"
 
 #: libraries/classes/Rte/Triggers.php:459
 msgid "You must provide a valid event for the trigger!"
-msgstr "您必須為事件填寫有效的觸發條件！"
+msgstr "必須為事件填寫有效的觸發條件！"
 
 #: libraries/classes/Rte/Triggers.php:467
 msgid "You must provide a valid table name!"
-msgstr "您必須填寫有效的資料表名稱！"
+msgstr "必須填寫有效的資料表名稱！"
 
 #: libraries/classes/Rte/Triggers.php:473
 msgid "You must provide a trigger definition."
-msgstr "您必須提供一個觸發器的定義。"
+msgstr "必須提供觸發器的定義。"
 
 #: libraries/classes/Rte/Words.php:32
 msgid "Add routine"
@@ -10570,7 +10569,7 @@ msgstr "預存程序"
 
 #: libraries/classes/Rte/Words.php:37
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "您無建立預存程序的權限。"
+msgstr "無建立預存程序的權限。"
 
 #: libraries/classes/Rte/Words.php:40
 #, php-format
@@ -10614,7 +10613,7 @@ msgstr "觸發器"
 
 #: libraries/classes/Rte/Words.php:59
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "您沒有建立觸發器所需的權限。"
+msgstr "沒有建立觸發器所需的權限。"
 
 #: libraries/classes/Rte/Words.php:61
 #, php-format
@@ -10640,12 +10639,12 @@ msgstr "事件"
 
 #: libraries/classes/Rte/Words.php:73
 msgid "You do not have the necessary privileges to create an event."
-msgstr "您沒有建立事件所需的權限。"
+msgstr "沒有建立事件所需的權限。"
 
 #: libraries/classes/Rte/Words.php:75
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的事件 (Event)。"
+msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的事件。"
 
 #: libraries/classes/Rte/Words.php:76
 msgid "There are no events to display."
@@ -10653,28 +10652,28 @@ msgstr "沒有事件可供顯示。"
 
 #: libraries/classes/SavedSearches.php:267
 msgid "Please provide a name for this bookmarked search."
-msgstr "請提供一個可以作為此查詢的書籤名稱。"
+msgstr "請提供可以作為此搜尋的書籤名稱。"
 
 #: libraries/classes/SavedSearches.php:282
 msgid "Missing information to save the bookmarked search."
-msgstr "遺失用來儲存加入查詢書籤的資訊。"
+msgstr "缺少用來儲存加入搜尋書籤的資訊。"
 
 #: libraries/classes/SavedSearches.php:304
 #: libraries/classes/SavedSearches.php:341
 msgid "An entry with this name already exists."
-msgstr "項目 %s 己存在。"
+msgstr "已有名為 %s 的項目。"
 
 #: libraries/classes/SavedSearches.php:368
 msgid "Missing information to delete the search."
-msgstr "遺失用來刪除查詢的資訊。"
+msgstr "缺少用來刪除搜尋的資訊。"
 
 #: libraries/classes/SavedSearches.php:396
 msgid "Missing information to load the search."
-msgstr "遺失用來讀取查詢的資訊。"
+msgstr "缺少用來載入搜尋的資訊。"
 
 #: libraries/classes/SavedSearches.php:415
 msgid "Error while loading the search."
-msgstr "載入查詢時發生錯誤。"
+msgstr "載入搜尋時發生錯誤。"
 
 #: libraries/classes/Server/Privileges.php:222 server_privileges.php:119
 msgid "No privileges."
@@ -10682,7 +10681,7 @@ msgstr "沒有權限。"
 
 #: libraries/classes/Server/Privileges.php:231 server_privileges.php:64
 msgid "Includes all privileges except GRANT."
-msgstr "除了GRANT以外的所有權限。"
+msgstr "除了 GRANT 以外的所有權限。"
 
 #: libraries/classes/Server/Privileges.php:304
 #: libraries/classes/Server/Privileges.php:1038
@@ -10700,7 +10699,7 @@ msgstr "允許新增與取代資料。"
 #: libraries/classes/Server/Privileges.php:1048
 #: libraries/classes/Server/Privileges.php:1214 server_privileges.php:118
 msgid "Allows changing data."
-msgstr "允許改變資料。"
+msgstr "允許更改資料。"
 
 #: libraries/classes/Server/Privileges.php:319
 #: libraries/classes/Server/Privileges.php:1215 server_privileges.php:73
@@ -10720,7 +10719,7 @@ msgstr "允許刪除資料庫和資料表。"
 #: libraries/classes/Server/Privileges.php:334
 #: libraries/classes/Server/Privileges.php:1337 server_privileges.php:102
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "允許重新載入伺服器設定並重新整理伺服器的快取。"
+msgstr "允許重新載入伺服器設定，並重新整理伺服器的快取。"
 
 #: libraries/classes/Server/Privileges.php:339
 #: libraries/classes/Server/Privileges.php:1341 server_privileges.php:111
@@ -10735,13 +10734,13 @@ msgstr "允許查看所有使用者的執行程序。"
 #: libraries/classes/Server/Privileges.php:349
 #: libraries/classes/Server/Privileges.php:1221 server_privileges.php:78
 msgid "Allows importing data from and exporting data into files."
-msgstr "允許從檔案中匯入資料以及將資料匯出至檔案。"
+msgstr "允許從檔案匯入資料，以及將資料匯出至檔案。"
 
 #: libraries/classes/Server/Privileges.php:354
 #: libraries/classes/Server/Privileges.php:1053
 #: libraries/classes/Server/Privileges.php:1365 server_privileges.php:100
 msgid "Has no effect in this MySQL version."
-msgstr "在此版本的 MySQL 中無效。"
+msgstr "在此版本的 MySQL 無效。"
 
 #: libraries/classes/Server/Privileges.php:359
 #: libraries/classes/Server/Privileges.php:1249 server_privileges.php:83
@@ -10764,9 +10763,7 @@ msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
-msgstr ""
-"允許在到達連線數量限制時仍可登入資料庫。擁有最高管理權限可設定全域變數或中止"
-"其他使用者的執行緒。"
+msgstr "允許在到達連線數量上限時，仍可登入資料庫。當要進行最高層級的動作，例如設定全域變數或中止其他使用者的執行緒，此權限是必須的。"
 
 #: libraries/classes/Server/Privileges.php:383
 #: libraries/classes/Server/Privileges.php:1259 server_privileges.php:70
@@ -10781,19 +10778,19 @@ msgstr "允許鎖定目前執行緒的資料表。"
 #: libraries/classes/Server/Privileges.php:393
 #: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
 msgid "Needed for the replication slaves."
-msgstr "使用次要(Slave)備援伺服器所需的權限。"
+msgstr "使用次要(slave)備援伺服器所需的權限。"
 
 #: libraries/classes/Server/Privileges.php:398
 #: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "允許使用者查詢次要(Slaves)/主要(masters)備援伺服器在哪。"
+msgstr "允許使用者查詢次要(slave)/主要(master)備援伺服器在哪。"
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
 #: libraries/classes/Server/Privileges.php:1279
 #: libraries/classes/Server/Privileges.php:1286 server_privileges.php:72
 msgid "Allows creating new views."
-msgstr "允許建立檢視表 (View)."
+msgstr "允許建立新的檢視表。"
 
 #: libraries/classes/Server/Privileges.php:408
 #: libraries/classes/Server/Privileges.php:1293 server_privileges.php:76
@@ -10803,7 +10800,7 @@ msgstr "允許為事件設定排程。"
 #: libraries/classes/Server/Privileges.php:413
 #: libraries/classes/Server/Privileges.php:1297 server_privileges.php:117
 msgid "Allows creating and dropping triggers."
-msgstr "允許建立和刪除觸發器(Trigger)。"
+msgstr "允許建立和刪除觸發器。"
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
@@ -10814,12 +10811,12 @@ msgstr "允許執行 SHOW CREATE VIEW 查詢。"
 #: libraries/classes/Server/Privileges.php:435
 #: libraries/classes/Server/Privileges.php:1267 server_privileges.php:68
 msgid "Allows creating stored routines."
-msgstr "允許建立預存程序 (Stored routine)。"
+msgstr "允許建立預存程序。"
 
 #: libraries/classes/Server/Privileges.php:440
 #: libraries/classes/Server/Privileges.php:1271 server_privileges.php:66
 msgid "Allows altering and dropping stored routines."
-msgstr "允許修改或刪除已預存程序 (Stored routine)。"
+msgstr "允許修改或刪除預存程序。"
 
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:1378 server_privileges.php:71
@@ -10829,19 +10826,19 @@ msgstr "允許建立、刪除和重新命名使用者帳號。"
 #: libraries/classes/Server/Privileges.php:450
 #: libraries/classes/Server/Privileges.php:1273 server_privileges.php:77
 msgid "Allows executing stored routines."
-msgstr "允許執行預存程序 (Stored routine)。"
+msgstr "允許執行預存程序。"
 
 #: libraries/classes/Server/Privileges.php:728
 msgid "Does not require SSL-encrypted connections."
-msgstr "不需要已加密的 SSL 連線。"
+msgstr "不需要 SSL 加密連線。"
 
 #: libraries/classes/Server/Privileges.php:744
 msgid "Requires SSL-encrypted connections."
-msgstr "需要已加密的 SSL 連線。"
+msgstr "需要 SSL 加密連線。"
 
 #: libraries/classes/Server/Privileges.php:758
 msgid "Requires a valid X509 certificate."
-msgstr "需要有效的 X509 憑証。"
+msgstr "需要有效 X509 憑證。"
 
 #: libraries/classes/Server/Privileges.php:783
 msgid "Requires that a specific cipher method be used for a connection."
@@ -10849,29 +10846,29 @@ msgstr "需要使用指定的加密方式連線。"
 
 #: libraries/classes/Server/Privileges.php:796
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr "需要由此 CA 發行且有效的 X509 憑証存在。"
+msgstr "需要有由此 CA 發行且有效的 X509 憑證。"
 
 #: libraries/classes/Server/Privileges.php:809
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr "需要使用此主旨且有效的 X509 憑証存在。"
+msgstr "需要有使用此主旨且有效的 X509 憑證。"
 
 #: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "使用者每小時可發送到伺服器的查詢數限制。"
+msgstr "限制使用者每小時可發送到伺服器的查詢數。"
 
 #: libraries/classes/Server/Privileges.php:847 server_privileges.php:93
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
-msgstr "使用者每小時可執行修改資料表或資料庫的指令數限制。"
+msgstr "限制使用者每小時可執行修改資料表或資料庫的指令數。"
 
 #: libraries/classes/Server/Privileges.php:856 server_privileges.php:87
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "使用者每小時可開啟的新連線數限制。"
+msgstr "限制使用者每小時可開啟的新連線數。"
 
 #: libraries/classes/Server/Privileges.php:865 server_privileges.php:97
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "使用者可同時連線的數量限制。"
+msgstr "限制使用者同一時間的連線數。"
 
 #: libraries/classes/Server/Privileges.php:910
 #: libraries/classes/Server/Privileges.php:3356
@@ -10885,7 +10882,7 @@ msgstr "預存程序"
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
-msgstr "使用者把在此區塊的權限給予或移除至其他使用者。"
+msgstr "允許使用者修改其他使用者對此預存程序的權限。"
 
 #: libraries/classes/Server/Privileges.php:949
 msgid "Allows altering and dropping this routine."
@@ -10907,7 +10904,7 @@ msgstr "指定資料表權限"
 #: libraries/classes/Server/Privileges.php:3549
 #: templates/privileges/edit_routine_privileges.twig:16
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "注意: MySQL 權限名稱會以英文表示。"
+msgstr "注意：MySQL 權限名稱會以英文表示。"
 
 #: libraries/classes/Server/Privileges.php:1147
 msgid "Administration"
@@ -10929,7 +10926,7 @@ msgstr "指定資料庫權限"
 
 #: libraries/classes/Server/Privileges.php:1242 server_privileges.php:69
 msgid "Allows creating new tables."
-msgstr "允許建立新資料表。"
+msgstr "允許建立新的資料表。"
 
 #: libraries/classes/Server/Privileges.php:1254 server_privileges.php:75
 msgid "Allows dropping tables."
@@ -10944,7 +10941,7 @@ msgstr "允許新增使用者和權限，但不允許重新載入權限表。"
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
-msgstr "允許使用者給予或移除其他讀者的權限。"
+msgstr "允許使用者將自己的權限，分派予其他使用者。"
 
 #: libraries/classes/Server/Privileges.php:1431
 #: libraries/classes/Server/Privileges.php:1462
@@ -10971,7 +10968,7 @@ msgstr "使用文字方塊"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
-msgstr "已存在與此帳號相同的使用者名稱，但可能使用不同的主機名稱。"
+msgstr "已有與此帳號相同名稱的使用者，但其主機名稱可能不同。"
 
 #: libraries/classes/Server/Privileges.php:1556
 msgid "Host name:"
@@ -10994,17 +10991,17 @@ msgstr "認證外掛程式"
 
 #: libraries/classes/Server/Privileges.php:1726
 msgid "Password Hashing Method"
-msgstr "密碼加密方式"
+msgstr "密碼雜湊方式"
 
 #: libraries/classes/Server/Privileges.php:2016
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "%s 的密碼已修改。"
+msgstr "已修改 %s 的密碼。"
 
 #: libraries/classes/Server/Privileges.php:2060
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "您已移除 %s 的權限。"
+msgstr "已收回 %s 的權限。"
 
 #: libraries/classes/Server/Privileges.php:2160
 #: templates/privileges/add_user_fieldset.twig:7
@@ -11017,7 +11014,7 @@ msgstr "使用者帳號的資料庫"
 
 #: libraries/classes/Server/Privileges.php:2175
 msgid "Create database with same name and grant all privileges."
-msgstr "建立與使用者同名的資料庫並授予所有權限。"
+msgstr "建立與使用者同名的資料庫，並授予所有權限。"
 
 #: libraries/classes/Server/Privileges.php:2186
 msgid "Grant all privileges on wildcard name (username\\_%)."
@@ -11032,7 +11029,7 @@ msgstr "授予資料庫 %s 的所有權限。"
 #: libraries/classes/Server/Privileges.php:2447
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr "可以存取 \"%s\" 的使用者"
+msgstr "可以存取「%s」的使用者"
 
 #: libraries/classes/Server/Privileges.php:2417
 msgid "User has been added."
@@ -11042,22 +11039,22 @@ msgstr "已新增使用者。"
 #: libraries/classes/Server/Privileges.php:3555
 #: templates/privileges/privileges_summary.twig:16
 msgid "Grant"
-msgstr "允許授權"
+msgstr "允許授權(Grant)"
 
 #: libraries/classes/Server/Privileges.php:2585
 msgid "Not enough privilege to view users."
-msgstr "權限不足檢視使用者。"
+msgstr "權限不足以檢視使用者。"
 
 #: libraries/classes/Server/Privileges.php:2604
 #: libraries/classes/Server/Privileges.php:3978
 msgid "No user found."
-msgstr "未找到使用者。"
+msgstr "找不到使用者。"
 
 #: libraries/classes/Server/Privileges.php:2635
 #: libraries/classes/Server/Privileges.php:2971
 #: libraries/classes/Server/Privileges.php:3637
 msgid "Any"
-msgstr "任意"
+msgstr "任何"
 
 #: libraries/classes/Server/Privileges.php:2686
 msgid "global"
@@ -11081,7 +11078,7 @@ msgstr "編輯權限"
 
 #: libraries/classes/Server/Privileges.php:2843
 msgid "Revoke"
-msgstr "移除"
+msgstr "收回"
 
 #: libraries/classes/Server/Privileges.php:2867
 msgid "Edit user group"
@@ -11098,7 +11095,7 @@ msgstr "… 從使用者資料表中刪除舊使用者。"
 #: libraries/classes/Server/Privileges.php:3088
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr "… 移除舊使用者的所有權限，然後刪除舊使用者。"
+msgstr "… 收回舊使用者的所有權限，然後將之刪除。"
 
 #: libraries/classes/Server/Privileges.php:3092
 msgid ""
@@ -11108,16 +11105,16 @@ msgstr "… 從使用者資料表中刪除舊使用者，然後重新載入權�
 
 #: libraries/classes/Server/Privileges.php:3114
 msgid "Change login information / Copy user account"
-msgstr "修改登入資訊/複製使用者帳號"
+msgstr "更改登入資訊／複製使用者帳號"
 
 #: libraries/classes/Server/Privileges.php:3120
 msgid "Create a new user account with the same privileges and …"
-msgstr "建立具有相同權限的新使用者帳號並且 …"
+msgstr "建立具有相同權限的新使用者帳號，並且 …"
 
 #: libraries/classes/Server/Privileges.php:3357
 #: templates/privileges/edit_routine_privileges.twig:12
 msgid "Routine-specific privileges"
-msgstr "程序特定的權限"
+msgstr "預存程序特定的權限"
 
 #: libraries/classes/Server/Privileges.php:3553
 #: libraries/classes/Server/UserGroups.php:89
@@ -11129,11 +11126,11 @@ msgstr "使用者群組"
 #: libraries/classes/Server/Privileges.php:3676
 #: libraries/classes/Server/Privileges.php:4811
 msgid "The selected user was not found in the privilege table."
-msgstr "在權限表內找不到選中的使用者。"
+msgstr "在權限表找不到所選的使用者。"
 
 #: libraries/classes/Server/Privileges.php:3854
 msgid "No users selected for deleting!"
-msgstr "沒有選擇要刪除的使用者！"
+msgstr "未有選擇要刪除的使用者！"
 
 #: libraries/classes/Server/Privileges.php:3857
 msgid "Reloading the privileges"
@@ -11141,12 +11138,12 @@ msgstr "重新載入權限"
 
 #: libraries/classes/Server/Privileges.php:3876
 msgid "The selected users have been deleted successfully."
-msgstr "已成功刪除選中的使用者。"
+msgstr "已成功刪除所選的使用者。"
 
 #: libraries/classes/Server/Privileges.php:3951
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "您已更新了 %s 的權限。"
+msgstr "已更新了 %s 的權限。"
 
 #: libraries/classes/Server/Privileges.php:4056
 #, php-format
@@ -11160,12 +11157,12 @@ msgstr "已成功重新載入權限。"
 #: libraries/classes/Server/Privileges.php:4177
 #, php-format
 msgid "The user %s already exists!"
-msgstr "使用者 %s 己存在！"
+msgstr "已有 %s 使用者！"
 
 #: libraries/classes/Server/Privileges.php:4454
 #, php-format
 msgid "Privileges for %s"
-msgstr "權限 %s"
+msgstr "%s 的權限"
 
 #: libraries/classes/Server/Privileges.php:4463
 #: libraries/classes/Server/Status/Processes.php:81
@@ -11185,7 +11182,7 @@ msgstr "使用者帳號"
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr "注意：您正嘗試編輯您目前登入使用者的權限。"
+msgstr "注意：正在嘗試編輯您目前登入使用者的權限。"
 
 #: libraries/classes/Server/Privileges.php:4626
 #: libraries/classes/Server/Users.php:30
@@ -11209,9 +11206,8 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
-"限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
-"在繼續前 %s重新載入權限%s。"
+"注意：phpMyAdmin 直接由 MySQL "
+"權限表取得使用者權限。若有使用者中途手動更改權限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應在繼續前 %s重新載入權限%s。"
 
 #: libraries/classes/Server/Privileges.php:4760
 msgid ""
@@ -11227,7 +11223,7 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:5045
 msgid "You have added a new user."
-msgstr "您已新增了一個新使用者。"
+msgstr "已新增了新的使用者。"
 
 #: libraries/classes/Server/Select.php:53
 #: libraries/classes/Server/Select.php:58
@@ -11237,29 +11233,27 @@ msgstr "目前伺服器："
 #: libraries/classes/Server/Status.php:68
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "自啟動後的累計網路流量: %s"
+msgstr "自啟動後的累計網路流量：%s"
 
 #: libraries/classes/Server/Status.php:81
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "自 %2$s 開始，此 MySQL 伺服器已經執行了 %1$s。"
+msgstr "自 %2$s 開始，此 MySQL 伺服器已經運行了 %1$s。"
 
 #: libraries/classes/Server/Status.php:102
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"此 MySQL 伺服器在<b>備援</b>程序中同時扮演<b>主要(Master)伺服器</b>和<b>次要"
-"(Slave)伺服器</b>的身份。"
+"此 MySQL 伺服器在<b>備援</b>程序中同時擔當<b>主要(Master)伺服器</b>和<b>次要(Slave)伺服器</b>的身份。"
 
 #: libraries/classes/Server/Status.php:107
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
-"此 MySQL 伺服器在<b>備援</b>程序中扮演<b>主要(Master)伺服器</b>的身份。"
+msgstr "此 MySQL 伺服器在<b>備援</b>程序中擔當<b>主要(Master)伺服器</b>的身份。"
 
 #: libraries/classes/Server/Status.php:112
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "此 MySQL 伺服器在<b>備援</b>程序中扮演<b>次要(Slave)伺服器</b>的身份。"
+msgstr "此 MySQL 伺服器在<b>備援</b>程序中擔當<b>次要(Slave)伺服器</b>的身份。"
 
 #: libraries/classes/Server/Status.php:124
 msgid "Replication status"
@@ -11269,9 +11263,7 @@ msgstr "備援狀態"
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
-msgstr ""
-"在高負載的伺服器上，字元計數器可能會溢出，因此由 MySQL 返回的統計值可能會不正"
-"確。"
+msgstr "在高負載的伺服器，字元計數器可能會溢出，因此由 MySQL 返回的統計值可能會不正確。"
 
 #: libraries/classes/Server/Status.php:165
 msgid "Received"
@@ -11287,7 +11279,7 @@ msgstr "最大同時連線數"
 
 #: libraries/classes/Server/Status.php:261
 msgid "Failed attempts"
-msgstr "嘗試失敗"
+msgstr "嘗試連線失敗數"
 
 #: libraries/classes/Server/Status/Advisor.php:29
 msgid "Instructions"
@@ -11297,7 +11289,7 @@ msgstr "說明"
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
-msgstr "建議系統可以在分析伺服器狀態後，提供伺服器參數的設定建議。"
+msgstr "「建議系統」可以在分析伺服器狀態後，提供伺服器參數的設定建議。"
 
 #: libraries/classes/Server/Status/Advisor.php:41
 msgid ""
@@ -11320,9 +11312,7 @@ msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
-msgstr ""
-"最好的調校您系統的方法是一次只更改一個設置，觀察比較您資料庫的效能，如果沒有"
-"明顯的改善，那麼還原這個變更。"
+msgstr "最好的調校方法，是一次只更改一個設置，觀察比較您資料庫的效能，如果沒有明顯改善，那麼就還原這個變更。"
 
 #: libraries/classes/Server/Status/Data.php:115
 #: libraries/classes/Server/Status/Processes.php:109
@@ -11331,7 +11321,7 @@ msgstr "SQL 查詢"
 
 #: libraries/classes/Server/Status/Data.php:118
 msgid "Handler"
-msgstr "處理器"
+msgstr "處理程序"
 
 #: libraries/classes/Server/Status/Data.php:119
 msgid "Query cache"
@@ -11355,7 +11345,7 @@ msgstr "鍵快取"
 
 #: libraries/classes/Server/Status/Data.php:125
 msgid "Joins"
-msgstr "多表查詢"
+msgstr "多表查詢(Joins)"
 
 #: libraries/classes/Server/Status/Data.php:127
 msgid "Sorting"
@@ -11380,11 +11370,11 @@ msgstr "顯示開啟的表"
 
 #: libraries/classes/Server/Status/Data.php:159
 msgid "Show slave hosts"
-msgstr "顯示次要(Slave)伺服器"
+msgstr "顯示次要(slave)伺服器"
 
 #: libraries/classes/Server/Status/Data.php:172
 msgid "Show slave status"
-msgstr "顯示次要(Slave)伺服器狀態"
+msgstr "顯示次要(slave)伺服器狀態"
 
 #: libraries/classes/Server/Status/Data.php:180
 msgid "Flush query cache"
@@ -11396,7 +11386,7 @@ msgstr "查詢統計"
 
 #: libraries/classes/Server/Status/Data.php:439
 msgid "All status variables"
-msgstr "伺服器狀態參數"
+msgstr "伺服器狀態變數"
 
 #: libraries/classes/Server/Status/Data.php:443
 msgid "Monitor"
@@ -11424,11 +11414,11 @@ msgstr "記錄統計"
 
 #: libraries/classes/Server/Status/Monitor.php:74
 msgid "Selected time range:"
-msgstr "選擇時間範圍:"
+msgstr "選擇時間範圍："
 
 #: libraries/classes/Server/Status/Monitor.php:82
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "只取得 SELECT、INSERT、UPDATE 和 DELETE 語句"
+msgstr "僅取得 SELECT、INSERT、UPDATE 和 DELETE 語句"
 
 #: libraries/classes/Server/Status/Monitor.php:88
 msgid "Remove variable data in INSERT statements for better grouping"
@@ -11440,7 +11430,7 @@ msgstr "選擇要從那個記錄來進行統計。"
 
 #: libraries/classes/Server/Status/Monitor.php:96
 msgid "Results are grouped by query text."
-msgstr "分組查詢本文的結果。"
+msgstr "分組查詢文本的結果。"
 
 #: libraries/classes/Server/Status/Monitor.php:100
 msgid "Query analyzer"
@@ -11458,22 +11448,19 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"phpMyAdmin 監測器可以幫您最佳化伺服器的配置和追蹤有耗時的查詢。對後者您需要"
-"將 log_output 設為 'TABLE'，並啟用 slow_query_log 或 general_log。但請注意 "
-"general_log 會產生大量的資料，並可能增加伺服器的負載達 15%。"
+"phpMyAdmin 監測器可以幫您最佳化伺服器的配置和追蹤有耗時的查詢。對後者，需要將 log_output 設為 TABLE，並啟用 "
+"slow_query_log 或 general_log。但請注意，general_log 會產生大量資料，並可能增加伺服器的負載達 15%。"
 
 #: libraries/classes/Server/Status/Monitor.php:135
 msgid "Using the monitor:"
-msgstr "使用即時監控:"
+msgstr "使用即時監控："
 
 #: libraries/classes/Server/Status/Monitor.php:138
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
-msgstr ""
-"您瀏覽器在固定的時間內會刷新顯示所有圖表。你可以增加圖表和更改 '設置' 下的更"
-"新率，或在各個圖表上用齒輪圖示來刪除該圖表。"
+msgstr "瀏覽器會在固定的時間間隔刷新顯示的所有圖表。您可以增加圖表和更改「設定」下的更新率，或在各個圖表上用齒輪圖示來刪除該圖表。"
 
 #: libraries/classes/Server/Status/Monitor.php:144
 msgid ""
@@ -11482,12 +11469,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
-"要從日誌中來顯示查詢，請在任何圖表上按下滑鼠左鍵並拖拽選擇一段時間範圍。確定"
-"後將會載入分好组別的查詢，然後您可以點選任意 SELECT 語句做進一步分析。"
+"若要從日誌顯示查詢，請在任何圖表上按下滑鼠左鍵並拖拽選擇一段時間範圍。確定後將會載入分好組別的查詢，然後可以點選任何 SELECT 語句做進一步分析。"
 
 #: libraries/classes/Server/Status/Monitor.php:154
 msgid "Please note:"
-msgstr "請注意:"
+msgstr "請注意："
 
 #: libraries/classes/Server/Status/Monitor.php:157
 msgid ""
@@ -11496,9 +11482,8 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"啟用 general_log 可能會增加伺服器的負載 5-15%。此外請注意從記錄生成統計資訊是"
-"沉重的任務，所以最好只選擇短的時間片段，並禁用 general_log，一但不再使用監控"
-"時應該要將這個表清空。"
+"啟用 general_log 可能會增加伺服器的負載 5-15%。此外，請注意從記錄生成統計資訊是沉重的任務，所以最好只選擇短的時間片段，並停用 "
+"general_log；一旦不再使用監控，應該要將這個表清空。"
 
 #: libraries/classes/Server/Status/Monitor.php:178
 #: libraries/classes/Server/Status/Monitor.php:286
@@ -11515,11 +11500,11 @@ msgstr "預設圖表"
 
 #: libraries/classes/Server/Status/Monitor.php:189
 msgid "Status variable(s)"
-msgstr "變數狀態"
+msgstr "狀態變數"
 
 #: libraries/classes/Server/Status/Monitor.php:192
 msgid "Select series:"
-msgstr "選擇序列:"
+msgstr "選擇序列："
 
 #: libraries/classes/Server/Status/Monitor.php:194
 msgid "Commonly monitored"
@@ -11527,7 +11512,7 @@ msgstr "常用的即時監控"
 
 #: libraries/classes/Server/Status/Monitor.php:210
 msgid "or type variable name:"
-msgstr "或變數型態名稱:"
+msgstr "或輸入變數名稱："
 
 #: libraries/classes/Server/Status/Monitor.php:217
 msgid "Display as differential value"
@@ -11539,11 +11524,11 @@ msgstr "用於除數"
 
 #: libraries/classes/Server/Status/Monitor.php:229
 msgid "Append unit to data values"
-msgstr "在資料後面增加單位"
+msgstr "在資料後面加入單位"
 
 #: libraries/classes/Server/Status/Monitor.php:235
 msgid "Add this series"
-msgstr "新增這個序列"
+msgstr "新增此序列"
 
 #: libraries/classes/Server/Status/Monitor.php:237
 msgid "Clear series"
@@ -11563,16 +11548,16 @@ msgstr "說明/安裝程式"
 
 #: libraries/classes/Server/Status/Monitor.php:270
 msgid "Done dragging (rearranging) charts"
-msgstr "完成拖拉 (重新排列) 圖表"
+msgstr "完成拖曳 (重新排列) 圖表"
 
 #: libraries/classes/Server/Status/Monitor.php:290
 msgid "Enable charts dragging"
-msgstr "啓用圖表拖放"
+msgstr "啓用圖表拖曳"
 
 #: libraries/classes/Server/Status/Monitor.php:294
 #: libraries/classes/Server/Status/Processes.php:38
 msgid "Refresh rate"
-msgstr "更新頻率"
+msgstr "更新率"
 
 #: libraries/classes/Server/Status/Monitor.php:303
 msgid "Chart columns"
@@ -11586,7 +11571,7 @@ msgstr "圖表排列"
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
-msgstr "圖表的排列存已儲到瀏覽器的本機儲存區。如果您的設定很複雜最好將之匯出。"
+msgstr "圖表的排列已儲存到瀏覽器的本機儲存區。如果設定很複雜，最好將之匯出。"
 
 #: libraries/classes/Server/Status/Monitor.php:332
 msgid "Reset to default"
@@ -11613,16 +11598,16 @@ msgstr "進度"
 #: libraries/classes/Server/Status/Processes.php:232
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
 msgid "Filters"
-msgstr "搜尋"
+msgstr "篩選"
 
 #: libraries/classes/Server/Status/Processes.php:240
 msgid "Show only active"
-msgstr "只顯示開啟的項目"
+msgstr "僅顯示開啟的項目"
 
 #: libraries/classes/Server/Status/Queries.php:40
 #, php-format
 msgid "Questions since startup: %s"
-msgstr "自啟動後的累計查詢次數: %s"
+msgstr "自啟動後的累計查詢次數：%s"
 
 #: libraries/classes/Server/Status/Queries.php:51
 msgid "per hour:"
@@ -11638,7 +11623,7 @@ msgstr "每秒："
 
 #: libraries/classes/Server/Status/Queries.php:98
 msgid "Statements"
-msgstr "說明"
+msgstr "敘述句"
 
 #. l10n: # = Amount of queries
 #: libraries/classes/Server/Status/Queries.php:101
@@ -11647,15 +11632,15 @@ msgstr "查詢數量"
 
 #: libraries/classes/Server/Status/Variables.php:52 templates/filter.twig:4
 msgid "Containing the word:"
-msgstr "包含這個字:"
+msgstr "包含這個字："
 
 #: libraries/classes/Server/Status/Variables.php:60
 msgid "Show only alert values"
-msgstr "只顯示警示值"
+msgstr "僅顯示警示值"
 
 #: libraries/classes/Server/Status/Variables.php:65
 msgid "Filter by category…"
-msgstr "依分類搜尋…"
+msgstr "依分類篩選…"
 
 #: libraries/classes/Server/Status/Variables.php:86
 msgid "Show unformatted values"
@@ -11663,7 +11648,7 @@ msgstr "顯示未格式化的值"
 
 #: libraries/classes/Server/Status/Variables.php:105
 msgid "Related links:"
-msgstr "相關連結:"
+msgstr "相關連結："
 
 #: libraries/classes/Server/Status/Variables.php:341
 msgid ""
@@ -11673,20 +11658,18 @@ msgstr "由於用戶端沒有正常關閉連線，這些連線已被中斷。"
 
 #: libraries/classes/Server/Status/Variables.php:345
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "無法連線到 MySQL 伺服器。"
+msgstr "無法正常連接 MySQL 伺服器的連線數。"
 
 #: libraries/classes/Server/Status/Variables.php:348
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
-msgstr ""
-"使用暫存二進位記錄快取的交易，但因超出 binlog_cache_size 限制而採用暫存檔案儲"
-"存交易指令的數量。"
+msgstr "使用暫存二進位記錄快取的交易數，但因超出 binlog_cache_size 限制而採用暫存檔案儲存交易指令的數量。"
 
 #: libraries/classes/Server/Status/Variables.php:353
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "交易使用暫存二進位記錄快取的數量。"
+msgstr "使用暫存二進位記錄快取的交易數。"
 
 #: libraries/classes/Server/Status/Variables.php:356
 msgid ""
@@ -11700,9 +11683,8 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
-"伺服器執行指令時自動在硬碟上建立的暫存表的數量。如果 Created_tmp_disk_tables "
-"很大，您可以增加 tmp_table_size 的值，讓伺服器使用記憶體來儲存暫存表而非硬"
-"碟。"
+"伺服器執行指令時，自動在硬碟建立的暫存表的數量。如果 Created_tmp_disk_tables 很大，您可以增加 tmp_table_size "
+"的值，令伺服器使用記憶體而非硬碟來儲存暫存表。"
 
 #: libraries/classes/Server/Status/Variables.php:367
 msgid "How many temporary files mysqld has created."
@@ -11712,7 +11694,7 @@ msgstr "mysqld 已建立的暫存檔案的數量。"
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
-msgstr "伺服器執行指令時自動在記憶體中建立的暫存表的數量。"
+msgstr "伺服器執行指令時，自動在記憶體建立的暫存表的數量。"
 
 #: libraries/classes/Server/Status/Variables.php:374
 msgid ""
@@ -11724,7 +11706,7 @@ msgstr "延遲新增 (INSERT DELAYED) 發生錯誤的列數 (可能為重複鍵�
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
-msgstr "正在使用的延遲新增處理程序的數量。每張使用延遲新增的表都有自己的程序。"
+msgstr "正在使用的延遲新增處理程序執行緒的數量。每張使用延遲新增的表都有自己的執行緒。"
 
 #: libraries/classes/Server/Status/Variables.php:383
 msgid "The number of INSERT DELAYED rows written."
@@ -11748,9 +11730,8 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"在已知資料表名稱的情況下，MySQL 伺服器可以詢問 NDB 叢集儲存引擎該資料表是否存"
-"在。這個動作稱作 \"探索(Discovery)\"。 Handler_discover 參數指的是資料表被探"
-"索到的次數。"
+"在已知資料表名稱的情況下，MySQL 伺服器可以詢問 NDB 叢集儲存引擎該資料表是否存在。這個動作稱為「探索(Discovery)」。"
+"Handler_discover 參數指的是資料表被探索到的次數。"
 
 #: libraries/classes/Server/Status/Variables.php:401
 msgid ""
@@ -11758,25 +11739,21 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"第一筆索引資料被讀取的次數。若這個值很大，說明您的伺服器執行了很多完整索引掃"
-"描，如以下例子: 欄位 col1 已經建立了索引，然後執行 SELECT col1 FROM foo。"
+"第一筆索引資料被讀取的次數。若這個值很大，代表您的伺服器執行了很多完整索引掃描。例子：欄位 col1 已經建立了索引，然後執行 SELECT col1 "
+"FROM foo。"
 
 #: libraries/classes/Server/Status/Variables.php:407
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
-msgstr ""
-"透過索引查詢到資料列的請求次數。若這個值很大，說明您的查詢條件和資料表都有正"
-"確的索引。"
+msgstr "根據鍵值查詢到資料列的請求次數。若這個值很大，代表您的查詢條件和資料表都有正確的索引。"
 
 #: libraries/classes/Server/Status/Variables.php:412
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
-msgstr ""
-"查詢下一筆索引資料的請求次數。若您的查詢條件使用了索引的欄位做一段區間範圍的"
-"查詢，或者您進行了索引的掃描，會使這個值不斷增加。"
+msgstr "查詢下一筆索引資料的請求次數。若查詢條件使用了索引的欄位做一段區間範圍的查詢，或者進行了索引掃描，會使這個值不斷增加。"
 
 #: libraries/classes/Server/Status/Variables.php:417
 msgid ""
@@ -11793,8 +11770,8 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
-"使用固定位置讀取資料列的請求次數。如果您執行很多需要排序的查詢，該值會很高。"
-"您可能有很多需要完整表掃描的查詢，或者您使用了不正確的索引用來多表查詢。"
+"使用固定位置讀取資料列的請求次數。如果執行很多需要排序的查詢，該值會很高。您可能有很多需要完整表掃描的查詢，或者您使用了不正確的索引用來多表查詢(join"
+"s)。"
 
 #: libraries/classes/Server/Status/Variables.php:428
 msgid ""
@@ -11803,13 +11780,12 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"查詢資料檔下一筆資料列的請求次數。此值會因掃描資料表的次數增加而增加。一般情"
-"況下這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已建立索引的"
+"查詢資料檔下一筆資料列的請求次數。此值會因掃描資料表的次數增加而增加。在一般情況，這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已建立索引的"
 "欄位。"
 
 #: libraries/classes/Server/Status/Variables.php:435
 msgid "The number of internal ROLLBACK statements."
-msgstr "使用內部還原 (ROLLBACK) 敘述句的次數。"
+msgstr "使用內部回滾(ROLLBACK)敘述句的次數。"
 
 #: libraries/classes/Server/Status/Variables.php:438
 msgid "The number of requests to update a row in a table."
@@ -11829,7 +11805,7 @@ msgstr "目前異動未儲存的頁數。"
 
 #: libraries/classes/Server/Status/Variables.php:450
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "請求更新的快取池頁數。"
+msgstr "請求更新的緩衝池頁數。"
 
 #: libraries/classes/Server/Status/Variables.php:454
 msgid "The number of free pages."
@@ -11840,9 +11816,7 @@ msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
 "reason."
-msgstr ""
-"InnoDB 快取池中鎖定頁的數量。這些頁是正在被讀取或寫入的，或者是因其他原因不能"
-"被重新整理或刪除的。"
+msgstr "InnoDB 緩衝池中鎖定頁的數量。這些頁是正在被讀取或寫入的，或者是因其他原因不能被重新整理或刪除的。"
 
 #: libraries/classes/Server/Status/Variables.php:462
 msgid ""
@@ -11851,21 +11825,18 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"負載頁的數量，像鎖定行或適應性的散列索引這樣的管理操作時分配的頁。該值可用此"
-"公式計算:  Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
-"Innodb_buffer_pool_pages_data。"
+"負載頁的數量，像鎖定行或適應性的散列索引這樣的管理操作時分配的頁。該值可用此公式計算：Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data。"
 
 #: libraries/classes/Server/Status/Variables.php:469
 msgid "Total size of buffer pool, in pages."
-msgstr "快取池總大小 (單位: 頁)。"
+msgstr "緩衝池總大小 (單位：頁)。"
 
 #: libraries/classes/Server/Status/Variables.php:472
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
-msgstr ""
-"InnoDB 初始化的“隨機”預讀數。這通常會在對一個資料表進行大範圍的隨機排序查詢時"
-"發生。"
+msgstr "InnoDB 初始化的「隨機」預讀數。這通常會在對一個資料表進行大範圍的隨機排序查詢時發生。"
 
 #: libraries/classes/Server/Status/Variables.php:477
 msgid ""
@@ -11876,13 +11847,13 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:481
 msgid "The number of logical read requests InnoDB has done."
-msgstr "InnoDB 完成的邏輯讀請求數。"
+msgstr "InnoDB 完成的邏輯讀取請求數。"
 
 #: libraries/classes/Server/Status/Variables.php:484
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
-msgstr "InnoDB 進行邏輯讀取時無法從快取池中取得而執行單頁讀取的次數。"
+msgstr "InnoDB 進行邏輯讀取時，無法從緩衝池取得，而執行單頁讀取的次數。"
 
 #: libraries/classes/Server/Status/Variables.php:488
 msgid ""
@@ -11892,13 +11863,12 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
-"寫入 InnoDB 快取池通常在後臺進行，但有必要在沒有乾淨頁的時候讀取或建立頁，有"
-"必要先等待頁被重新整理。該計數器統計了這種等待的數量。如果快取池大小設定正"
-"確，這個值應該會很小。"
+"寫入 InnoDB 緩衝池通常在背景進行，但有必要在沒有乾淨頁的時候讀取或建立頁，有必要先等待頁被重新整理。該計數器統計了這種等待的數量。如果緩衝池大小設"
+"定正確，這個值應該會很小。"
 
 #: libraries/classes/Server/Status/Variables.php:496
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr "寫入 InnoDB 快取池的次數。"
+msgstr "寫入 InnoDB 緩衝池的次數。"
 
 #: libraries/classes/Server/Status/Variables.php:499
 msgid "The number of fsync() operations so far."
@@ -11944,7 +11914,7 @@ msgstr "已經執行的雙寫入次數。"
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
-msgstr "因記錄快取太小而必須等待其被寫入所造成的等待數。"
+msgstr "因記錄緩衝太小而必須等待其被寫入所造成的等待數。"
 
 #: libraries/classes/Server/Status/Variables.php:534
 msgid "The number of log write requests."
@@ -11952,7 +11922,7 @@ msgstr "記錄寫入請求數。"
 
 #: libraries/classes/Server/Status/Variables.php:537
 msgid "The number of physical writes to the log file."
-msgstr "記錄物理寫入次數。"
+msgstr "記錄檔案物理寫入次數。"
 
 #: libraries/classes/Server/Status/Variables.php:540
 msgid "The number of fsync() writes done to the log file."
@@ -11964,7 +11934,7 @@ msgstr "在記錄檔案中待執行的 fsync 數。"
 
 #: libraries/classes/Server/Status/Variables.php:546
 msgid "Pending log file writes."
-msgstr "目前待執行的記錄寫入數。"
+msgstr "目前待執行的記錄檔案寫入數。"
 
 #: libraries/classes/Server/Status/Variables.php:549
 msgid "The number of bytes written to the log file."
@@ -11978,9 +11948,7 @@ msgstr "已建立的頁數。"
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
-msgstr ""
-"編譯的 InnoDB 頁大小 (預設 16KB)。許多值都以頁爲單位進行統計，頁大小可以很方"
-"便地將這些值轉化爲字元數。"
+msgstr "編譯的 InnoDB 頁大小 (預設 16KB)。許多值都以頁為單位進行統計，頁大小可以很容易地將這些值轉換為位元組數目。"
 
 #: libraries/classes/Server/Status/Variables.php:560
 msgid "The number of pages read."
@@ -11992,7 +11960,7 @@ msgstr "已寫入的頁數。"
 
 #: libraries/classes/Server/Status/Variables.php:566
 msgid "The number of row locks currently being waited for."
-msgstr "目前正等待列鎖定(Row Lock)的數量。"
+msgstr "目前正等待的列鎖定(Row Lock)數量。"
 
 #: libraries/classes/Server/Status/Variables.php:569
 msgid "The average time to acquire a row lock, in milliseconds."
@@ -12012,32 +11980,31 @@ msgstr "等待列鎖定(Row lock)的次數。"
 
 #: libraries/classes/Server/Status/Variables.php:581
 msgid "The number of rows deleted from InnoDB tables."
-msgstr "從 InnoDB 資料表中刪除的列數。"
+msgstr "從 InnoDB 資料表刪除的列數。"
 
 #: libraries/classes/Server/Status/Variables.php:584
 msgid "The number of rows inserted in InnoDB tables."
-msgstr "新增到 InnoDB 資料表中的列數。"
+msgstr "新增到 InnoDB 資料表的列數。"
 
 #: libraries/classes/Server/Status/Variables.php:587
 msgid "The number of rows read from InnoDB tables."
-msgstr "從 InnoDB 資料表中讀取的列數。"
+msgstr "從 InnoDB 資料表讀取的列數。"
 
 #: libraries/classes/Server/Status/Variables.php:590
 msgid "The number of rows updated in InnoDB tables."
-msgstr "InnoDB 中更新的列數。"
+msgstr "InnoDB 更新的列數。"
 
 #: libraries/classes/Server/Status/Variables.php:593
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr ""
-"鍵快取中還沒有被寫入到硬碟的鍵塊數。該值過去名爲 Not_flushed_key_blocks。"
+msgstr "鍵快取中還沒有被寫入到硬碟的鍵塊數。該值過去名為 Not_flushed_key_blocks。"
 
 #: libraries/classes/Server/Status/Variables.php:598
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
-msgstr "鍵快取中未使用的塊數。您可以根據這個值判斷目前使用了多少鍵快取。"
+msgstr "鍵快取中未使用的塊數。可以根據這個值判斷目前使用了多少鍵快取。"
 
 #: libraries/classes/Server/Status/Variables.php:602
 msgid ""
@@ -12048,7 +12015,7 @@ msgstr "鍵快取中已經使用的塊數。該值指示在某個時刻使用了
 
 #: libraries/classes/Server/Status/Variables.php:607
 msgid "Percentage of used key cache (calculated value)"
-msgstr "已使用鍵值緩存的百分比(計算值)"
+msgstr "已使用鍵值快取的百分比 (計算值)"
 
 #: libraries/classes/Server/Status/Variables.php:610
 msgid "The number of requests to read a key block from the cache."
@@ -12060,27 +12027,27 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
-"從硬碟中物理讀取鍵塊的次數。如果 Key_reads 很大，則說明您的 key_buffer_size "
-"可能設定得太小了。快取缺失率可以由 Key_reads/Key_read_requests 計算得出。"
+"從硬碟中物理讀取鍵塊的次數。如果 Key_reads 很大，則代表您的 key_buffer_size 可能設定得太小了。快取缺失率可以由 "
+"Key_reads/Key_read_requests 計算得出。"
 
 #: libraries/classes/Server/Status/Variables.php:619
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
-msgstr "由實際讀取數和讀取請求數相比計算出的鍵值快取未命中率 (計算值)"
+msgstr "由實際讀取數和讀取請求數比對，計算出的鍵值快取未命中率 (計算值)"
 
 #: libraries/classes/Server/Status/Variables.php:623
 msgid "The number of requests to write a key block to the cache."
-msgstr "將一個鍵塊寫入快取的請求數。"
+msgstr "將鍵塊寫入快取的請求數。"
 
 #: libraries/classes/Server/Status/Variables.php:626
 msgid "The number of physical writes of a key block to disk."
-msgstr "將鍵值資料區塊實體寫入到硬碟的次數。"
+msgstr "將鍵塊實體寫入到硬碟的次數。"
 
 #: libraries/classes/Server/Status/Variables.php:629
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
-msgstr "實際寫入數和寫入請求數的百分比值(計算值)"
+msgstr "實際寫入數和寫入請求數的百分比值 (計算值)"
 
 #: libraries/classes/Server/Status/Variables.php:633
 msgid ""
@@ -12095,7 +12062,7 @@ msgstr ""
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
-msgstr "自伺服器啟動以來的最大的同時連線數量。"
+msgstr "自伺服器啟動以來，最大的同時連線數量。"
 
 #: libraries/classes/Server/Status/Variables.php:643
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -12105,7 +12072,7 @@ msgstr "延遲新增等待寫入序列的列數。"
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
-msgstr "已經開啟的表個數。如果該值很大，則說明表快取大小可能設定過小。"
+msgstr "已經開啟的資料表數。如果該值很大，則代表資料表快取可能設得太小。"
 
 #: libraries/classes/Server/Status/Variables.php:650
 msgid "The number of files that are open."
@@ -12113,11 +12080,11 @@ msgstr "已開啟的檔案個數。"
 
 #: libraries/classes/Server/Status/Variables.php:653
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr "已開啟的stream個數 (主要用於記錄)。"
+msgstr "已開啟的串流數 (主要用於記錄)。"
 
 #: libraries/classes/Server/Status/Variables.php:656
 msgid "The number of tables that are open."
-msgstr "已開啟的資料表個數。"
+msgstr "已開啟的資料表數。"
 
 #: libraries/classes/Server/Status/Variables.php:659
 msgid ""
@@ -12130,7 +12097,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:664
 msgid "The amount of free memory for query cache."
-msgstr "查詢快取中空閒的記憶體總數。"
+msgstr "查詢快取中，空閒的記憶體總數。"
 
 #: libraries/classes/Server/Status/Variables.php:667
 msgid "The number of cache hits."
@@ -12146,17 +12113,13 @@ msgid ""
 "memory for caching new queries. This information can help you tune the query "
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
-msgstr ""
-"爲快取新的查詢而被刪除的已快取查詢的個數，由最近最少使用算法 (LRU) 確定應刪除"
-"哪個已快取的查詢。該資訊可幫助您調整查詢快取大小。"
+msgstr "為快取新的查詢而被刪除的已快取查詢的個數，由最近最少使用算法 (LRU) 確定應刪除哪個已快取的查詢。該資訊可幫助您調整查詢快取大小。"
 
 #: libraries/classes/Server/Status/Variables.php:680
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
-msgstr ""
-"未快取的查詢數 (包括不能被快取，或因爲 query_cache_type 的設定而沒有被快取的"
-"查詢)。"
+msgstr "未快取的查詢數 (包括不能被快取，或因為 query_cache_type 的設定而沒有被快取的查詢)。"
 
 #: libraries/classes/Server/Status/Variables.php:684
 msgid "The number of queries registered in the cache."
@@ -12174,9 +12137,7 @@ msgstr "備援失敗保護器的狀態 (尚未實作)。"
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
-msgstr ""
-"沒有使用索引的多表查詢數。如果該值不爲0，您應該仔細檢查是否已經爲表建立了適當"
-"的索引。"
+msgstr "沒有使用索引的多表查詢數。如果該值不為0，您應該仔細檢查是否已經為資料表建立了適當的索引。"
 
 #: libraries/classes/Server/Status/Variables.php:697
 msgid "The number of joins that used a range search on a reference table."
@@ -12186,17 +12147,13 @@ msgstr "使用在關聯表上使用範圍搜尋的多表查詢的數量。"
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr ""
-"沒有使用索引但在每行之後檢查索引使用的多表查詢數。(如果該值不爲 0，您應該仔細"
-"檢查是否已經爲表建立了適當的索引。)"
+msgstr "沒有使用索引但在每行之後檢查索引使用的多表查詢數 (如果該值不為 0，您應該仔細檢查是否已經為資料表建立了適當的索引)。"
 
 #: libraries/classes/Server/Status/Variables.php:705
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
-msgstr ""
-"在第一個資料表上使用範圍查詢的多表查詢數。(即使該值很大，通常也不會有致命的影"
-"響。)"
+msgstr "在第一個資料表上使用範圍查詢的多表查詢數 (即使該值很大，通常也不會有致命的影響)。"
 
 #: libraries/classes/Server/Status/Variables.php:709
 msgid "The number of joins that did a full scan of the first table."
@@ -12204,23 +12161,23 @@ msgstr "在第一個資料表上進行了完整表掃描的多表查詢數。"
 
 #: libraries/classes/Server/Status/Variables.php:712
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr "目前由從 SQL 程序開啟的暫存表的數量。"
+msgstr "目前由次要備援 SQL 執行緒開啟的暫存表的數量。"
 
 #: libraries/classes/Server/Status/Variables.php:716
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
-msgstr "自伺服器啟動開始從次要(Slave)備援伺服所接收到的交易(Transaction)總數。"
+msgstr "自伺服器啟動，次要備援伺服器執行緒重試的交易數。"
 
 #: libraries/classes/Server/Status/Variables.php:720
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "若此伺服器為次要伺服器，且已連線到主要伺服器時，此欄位值會顯示為 ON。"
+msgstr "若此伺服器為次要伺服器，且已連線到主要伺服器，此欄位值會顯示為 ON。"
 
 #: libraries/classes/Server/Status/Variables.php:723
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
-msgstr "使用了比 slow_launch_time 更多的時間來啓動的程序數量。"
+msgstr "使用了比 slow_launch_time 更多的時間來啓動的執行緒數量。"
 
 #: libraries/classes/Server/Status/Variables.php:727
 msgid ""
@@ -12258,9 +12215,7 @@ msgid ""
 "a wait was needed. If this is high, and you have performance problems, you "
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
-msgstr ""
-"無法立即取得鎖定表而必須等待的次數。如果該值很高，且您遇到了性能方面的問題，"
-"則應該首先檢查您的查詢指令，然後使用備援操作來分開表。"
+msgstr "無法立即取得鎖定表而必須等待的次數。如果該值很高，且遇到了性能方面的問題，則應該首先最佳化您的查詢指令，然後分割資料表，又或使用備援操作。"
 
 #: libraries/classes/Server/Status/Variables.php:754
 msgid ""
@@ -12268,8 +12223,8 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"執行緒快取中執行緒的數量。快取命中率可以由 Threads_created/Connections 計算得"
-"出如果該值是紅色的，則應該增加 thread_cache_size 的值。"
+"執行緒快取中執行緒的數量。快取命中率可以由 Threads_created/Connections 計算得出。如果該值是紅色的，則應該增加 "
+"thread_cache_size 的值。"
 
 #: libraries/classes/Server/Status/Variables.php:759
 msgid "The number of currently open connections."
@@ -12282,22 +12237,21 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
-"目前用於控制連線的執行緒數量。如果 Threads_created 很大，您可能需要增加 "
-"thread_cache_size 的值 (如果執行緒狀況良好，這麼做通常並不會帶來顯著的性能提"
-"升)"
+"目前用於處理連線的執行緒數量。如果 Threads_created 很大，您可能需要增加 thread_cache_size 的值 "
+"(如果執行緒狀況良好，這麼做通常並不會帶來顯著的性能提升)"
 
 #: libraries/classes/Server/Status/Variables.php:769
 msgid "Thread cache hit rate (calculated value)"
-msgstr "執行緒緩存命中率(計算值)"
+msgstr "執行緒快取命中率 (計算值)"
 
 #: libraries/classes/Server/Status/Variables.php:772
 msgid "The number of threads that are not sleeping."
-msgstr "非睡眠狀態的程序數量。"
+msgstr "非睡眠狀態的執行緒數量。"
 
 #: libraries/classes/Server/UserGroups.php:32
 #, php-format
 msgid "Users of '%s' user group"
-msgstr "使用者群組 '%s' 清單"
+msgstr "使用者群組「%s」清單"
 
 #: libraries/classes/Server/UserGroups.php:45
 msgid "No users were found belonging to this user group."
@@ -12310,15 +12264,15 @@ msgstr "使用者群組"
 
 #: libraries/classes/Server/UserGroups.php:90
 msgid "Server level tabs"
-msgstr "主機分頁"
+msgstr "伺服器級別分頁"
 
 #: libraries/classes/Server/UserGroups.php:91
 msgid "Database level tabs"
-msgstr "資料庫分頁"
+msgstr "資料庫級別分頁"
 
 #: libraries/classes/Server/UserGroups.php:92
 msgid "Table level tabs"
-msgstr "資料表分頁"
+msgstr "資料表級別分頁"
 
 #: libraries/classes/Server/UserGroups.php:121
 msgid "View users"
@@ -12332,7 +12286,7 @@ msgstr "新增使用者群組"
 #: libraries/classes/Server/UserGroups.php:228
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr "編輯使用者群組: '%s'"
+msgstr "編輯使用者群組：「%s」"
 
 #: libraries/classes/Server/UserGroups.php:244
 msgid "User group menu assignments"
@@ -12344,15 +12298,15 @@ msgstr "群組名稱："
 
 #: libraries/classes/Server/UserGroups.php:289
 msgid "Server-level tabs"
-msgstr "主機級別標籤頁"
+msgstr "伺服器級別分頁"
 
 #: libraries/classes/Server/UserGroups.php:292
 msgid "Database-level tabs"
-msgstr "資料庫級別標籤頁"
+msgstr "資料庫級別分頁"
 
 #: libraries/classes/Server/UserGroups.php:295
 msgid "Table-level tabs"
-msgstr "資料表級別標籤頁"
+msgstr "資料表級別分頁"
 
 #: libraries/classes/Sql.php:261 libraries/classes/Util.php:1145
 #: templates/console/display.twig:31 templates/console/display.twig:175
@@ -12389,7 +12343,7 @@ msgstr "ø 時間"
 
 #: libraries/classes/Sql.php:599 libraries/classes/Sql.php:617
 msgid "Bookmark this SQL query"
-msgstr "將此 SQL 查詢加爲書籤"
+msgstr "將此 SQL 查詢加為書籤"
 
 #: libraries/classes/Sql.php:603
 msgid "Label:"
@@ -12406,39 +12360,35 @@ msgstr "書籤尚未建立！"
 #: libraries/classes/Sql.php:936
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr "使用書籤 \"%s\" 作爲預設的查詢。"
+msgstr "使用書籤「%s」作為預設的瀏覽查詢。"
 
 #: libraries/classes/Sql.php:1413
 msgid "Showing as PHP code"
-msgstr "顯示的內容爲 PHP 程式碼"
+msgstr "顯示的內容為 PHP 程式碼"
 
 #: libraries/classes/Sql.php:1788
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
-msgstr ""
-"目前選擇的項目不含唯一(Unique)的資料欄位，將無法執行表格的編輯/核選、編輯、複"
-"製、刪除等相關的功能。%s"
+msgstr "目前選擇的項目不含獨一的資料欄位，以下功能無法執行：網格編輯、核選、編輯、複製、刪除。%s"
 
 #: libraries/classes/Sql.php:1802
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
-msgstr ""
-"目前選擇的項目不含唯一(Unique)的資料欄位，表格的編輯/核選、複製、刪除等相關的"
-"功能可能產生不如預期的結果。%s"
+msgstr "目前選擇的項目不含獨一的資料欄位，以下功能可能產生奇怪的結果：網格編輯、核選、複製、刪除。%s"
 
 #: libraries/classes/Sql.php:1844
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "資料表 `%s` 的索引存在問題"
+msgstr "資料表「%s」的索引有問題"
 
 #: libraries/classes/SqlQueryForm.php:140
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "在伺服器 “%s” 執行 SQL 查詢"
+msgstr "在伺服器「%s」執行 SQL 查詢"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
@@ -12448,7 +12398,7 @@ msgstr "在資料庫 %s 執行 SQL 查詢"
 #: libraries/classes/SqlQueryForm.php:178
 #, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "在資料庫 %s 執行 SQL 查詢"
+msgstr "在資料表 %s 執行 SQL 查詢"
 
 #: libraries/classes/SqlQueryForm.php:248 setup/frames/index.inc.php:254
 #: templates/console/display.twig:7
@@ -12465,7 +12415,7 @@ msgstr "繫結參數"
 
 #: libraries/classes/SqlQueryForm.php:308
 msgid "Bookmark this SQL query:"
-msgstr "將此 SQL 查詢加爲書籤："
+msgstr "將此 SQL 查詢加為書籤："
 
 #: libraries/classes/SqlQueryForm.php:322
 msgid "Replace existing bookmark of same name"
@@ -12481,7 +12431,7 @@ msgstr "在此再次顯示此查詢"
 
 #: libraries/classes/SqlQueryForm.php:363
 msgid "Rollback when finished"
-msgstr "當完成後還原"
+msgstr "完成後回滾(rollback)"
 
 #: libraries/classes/SqlQueryForm.php:410
 msgid "shared"
@@ -12489,7 +12439,7 @@ msgstr "已共享"
 
 #: libraries/classes/SqlQueryForm.php:423
 msgid "View only"
-msgstr "僅查看"
+msgstr "僅檢視"
 
 #: libraries/classes/StorageEngine.php:280
 msgid ""
@@ -12505,12 +12455,12 @@ msgstr "此 MySQL 伺服器的預設儲存引擎是 %s。"
 #: libraries/classes/StorageEngine.php:386
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "MySQL 伺服器支援 %s。"
+msgstr "此 MySQL 伺服器可使用 %s。"
 
 #: libraries/classes/StorageEngine.php:389
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "%s 在此 MySQL 伺服器上被停用。"
+msgstr "此 MySQL 伺服器已停用 %s。"
 
 #: libraries/classes/StorageEngine.php:394
 #, php-format
@@ -12519,7 +12469,7 @@ msgstr "此 MySQL 伺服器不支援 %s 儲存引擎。"
 
 #: libraries/classes/Table.php:338
 msgid "Unknown table status:"
-msgstr "資料表狀態不明:"
+msgstr "資料表狀態不明："
 
 #: libraries/classes/Table.php:893
 #, php-format
@@ -12533,16 +12483,16 @@ msgstr "找不到目標資料庫「%s」！"
 
 #: libraries/classes/Table.php:1444
 msgid "Invalid database:"
-msgstr "無效的資料庫："
+msgstr "資料庫無效："
 
 #: libraries/classes/Table.php:1461
 msgid "Invalid table name:"
-msgstr "無效的資料資料表名稱："
+msgstr "資料表名稱無效："
 
 #: libraries/classes/Table.php:1496
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "無法將資料表 %1$s 重新命名爲 %2$s!"
+msgstr "未能將資料表 %1$s 重新命名為 %2$s！"
 
 #: libraries/classes/Table.php:1515
 #, php-format
@@ -12551,16 +12501,14 @@ msgstr "資料表 %1$s 已重新命名為 %2$s。"
 
 #: libraries/classes/Table.php:1746
 msgid "Could not save table UI preferences!"
-msgstr "無法儲存「介面偏好」的資料表！"
+msgstr "無法儲存資料表的「介面偏好」！"
 
 #: libraries/classes/Table.php:1776
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
-msgstr ""
-"在清空資料表「介面偏好」時發生錯誤。（詳見 $cfg['Servers'][$i]"
-"['MaxTableUiprefs'] %s）"
+msgstr "未能清理資料表的「介面偏好」 (詳見 $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/classes/Table.php:1929
 #, php-format
@@ -12568,17 +12516,15 @@ msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
 "changed."
-msgstr ""
-"無法儲存介面偏好「%s」，這個修改在下次將不會生效。請檢查該資料表的架構是否被"
-"修改過。"
+msgstr "無法儲存介面偏好屬性「%s」。這個修改在更新頁面後會消失。請檢查該資料表的結構是否改了。"
 
 #: libraries/classes/Table.php:2065
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "主鍵的名稱必須稱爲 \"PRIMARY\"!"
+msgstr "主鍵名稱必須為 PRIMARY！"
 
 #: libraries/classes/Table.php:2076
 msgid "Can't rename index to PRIMARY!"
-msgstr "無法將索引更改爲主鍵(PRIMARY)!"
+msgstr "無法將索引改名為「主鍵(PRIMARY)」！"
 
 #: libraries/classes/Table.php:2098
 msgid "No index parts defined!"
@@ -12587,7 +12533,7 @@ msgstr "沒有定義的索引部分！"
 #: libraries/classes/Table.php:2406
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "建立外鍵 %1$s 時發生錯誤 (檢查資料類型)"
+msgstr "於 %1$s 建立外鍵時發生錯誤 (請檢查資料類型)"
 
 #: libraries/classes/Template.php:127
 #, php-format
@@ -12597,17 +12543,17 @@ msgstr "運用模版快取時發生錯誤：%s"
 #: libraries/classes/Theme.php:186
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "找不到佈景主題 %s 指定圖片路徑!"
+msgstr "找不到佈景主題 %s 的有效圖片路徑！"
 
 #: libraries/classes/ThemeManager.php:94
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "未找到預設佈景主題 %s ！"
+msgstr "找不到預設佈景主題 %s！"
 
 #: libraries/classes/ThemeManager.php:174
 #, php-format
 msgid "Theme %s not found!"
-msgstr "未找到佈景主題 %s ！"
+msgstr "找不到佈景主題 %s！"
 
 #: libraries/classes/ThemeManager.php:255
 #, php-format
@@ -12616,7 +12562,7 @@ msgstr "找不到佈景主題 %s 的路徑！"
 
 #: libraries/classes/ThemeManager.php:345
 msgid "Theme:"
-msgstr "主題："
+msgstr "佈景主題："
 
 #: libraries/classes/Tracking.php:159 templates/server/plugins/section.twig:11
 msgid "Version"
@@ -12644,7 +12590,7 @@ msgstr "追蹤報告"
 #: libraries/classes/Tracking.php:172 libraries/classes/Tracking.php:650
 #: templates/database/tracking/tracked_tables.twig:87
 msgid "Structure snapshot"
-msgstr "結構快照(Snapshot)"
+msgstr "結構快照"
 
 #: libraries/classes/Tracking.php:338
 msgid "Tracking statements"
@@ -12665,11 +12611,11 @@ msgstr "顯示自 %2$s 起至 %3$s 由使用者 %4$s 執行的 %1$s %5$s"
 
 #: libraries/classes/Tracking.php:513
 msgid "SQL dump (file download)"
-msgstr "SQL 匯出 (檔案下載)"
+msgstr "SQL 傾印 (檔案下載)"
 
 #: libraries/classes/Tracking.php:515
 msgid "SQL dump"
-msgstr "SQL 匯出"
+msgstr "SQL 傾印"
 
 #: libraries/classes/Tracking.php:518
 msgid "This option will replace your table and contained data."
@@ -12682,7 +12628,7 @@ msgstr "執行 SQL 指令"
 #: libraries/classes/Tracking.php:524
 #, php-format
 msgid "Export as %s"
-msgstr "匯出爲 %s"
+msgstr "匯出為 %s"
 
 #: libraries/classes/Tracking.php:550
 msgid "Data manipulation statement"
@@ -12695,35 +12641,34 @@ msgstr "資料定義指令"
 #: libraries/classes/Tracking.php:668
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr "版本 %s 的結構快照 (SQL 程式碼)"
+msgstr "版本 %s 的快照 (SQL 程式碼)"
 
 #: libraries/classes/Tracking.php:735
 msgid "Tracking data definition successfully deleted"
-msgstr "追蹤資料定義已刪除"
+msgstr "已刪除追蹤資料定義"
 
 #: libraries/classes/Tracking.php:745
 msgid "Tracking data manipulation successfully deleted"
-msgstr "追蹤資料操作已刪除"
+msgstr "已刪除追蹤資料操作"
 
 #: libraries/classes/Tracking.php:799
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
-msgstr ""
-"您可以透過建立與使用暫存資料庫來執行資料匯出，請先確認您是否有足夠的權限。"
+msgstr "可以透過建立與使用暫存資料庫來執行資料傾印。請先確認您有足夠權限。"
 
 #: libraries/classes/Tracking.php:803
 msgid "Comment out these two lines if you do not need them."
-msgstr "如果您不需要，請註解以下兩行。"
+msgstr "如果不需要，請將以下兩行註解掉。"
 
 #: libraries/classes/Tracking.php:813
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "已匯出 SQL 指令，您可以複製內容或者直接執行。"
+msgstr "已匯出 SQL 指令。可以複製傾印內容或者直接執行。"
 
 #: libraries/classes/Tracking.php:861
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr "資料表 `%s` 的追蹤報告"
+msgstr "資料表「%s」的追蹤報告"
 
 #: libraries/classes/Tracking.php:891
 #, php-format
@@ -12738,7 +12683,7 @@ msgstr "已停用 %1$s 版本 %2$s 的追蹤。"
 #: libraries/classes/Tracking.php:986
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "共 %2$s 中的 %1$s 的版本已刪除。"
+msgstr "已刪除 %2$s 的 %1$s 版本。"
 
 #: libraries/classes/Tracking.php:1017
 #, php-format
@@ -12758,37 +12703,34 @@ msgstr "停用"
 #: libraries/classes/Types.php:203
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
-msgstr "1 位元組整數，有號數範圍由 -128 至 127，無號數範圍由 0 至 255"
+msgstr "1 位元組整數：若允許負數，範圍由 -128 至 127；若不允許負數，範圍由 0 至 255"
 
 #: libraries/classes/Types.php:208
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
-msgstr "2 位元組整數，有號數範圍由 -32,768 至 32,767，無號數範圍由 0 至 65,535"
+msgstr "2 位元組整數：若允許負數，範圍由 -32,768 至 32,767；若不允許負數，範圍由 0 至 65,535"
 
 #: libraries/classes/Types.php:213
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
-msgstr ""
-"3 位元組整數，有號數範圍由 -8,388,608 至 8,388,607，無號數範圍由 0 至 "
-"16,777,215"
+msgstr "3 位元組整數：若允許負數，範圍由 -8,388,608 至 8,388,607；若不允許負數，範圍由 0 至 16,777,215"
 
 #: libraries/classes/Types.php:218
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
-"四個位元組的整數，如果包含負數，範圍將在-2147483648至2147483647，如果不包含負"
-"數，範圍則在0至4294967295"
+"4 位元組整數：若允許負數，範圍由 -2,147,483,648 至 2,147,483,647；若不允許負數，範圍由 0 至 4,294,967,295"
 
 #: libraries/classes/Types.php:224
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
-"8 位元組整數，有號數範圍由 -9,223,372,036,854,775,808 至 "
-"9,223,372,036,854,775,807，無號數範圍由 0 至 18,446,744,073,709,551,615"
+"8 位元組整數：若允許負數，範圍由 -9,223,372,036,854,775,808 至 "
+"9,223,372,036,854,775,807；若不允許負數，範圍由 0 至 18,446,744,073,709,551,615"
 
 #: libraries/classes/Types.php:230
 msgid ""
