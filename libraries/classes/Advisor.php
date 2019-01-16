@@ -570,13 +570,11 @@ class Advisor
                     );
                 }
                 continue;
-            } else {
-                if ($ruleLine == -1) {
-                    $errors[] = sprintf(
-                        __('Unexpected characters on line %s.'),
-                        $i + 1
-                    );
-                }
+            } elseif ($ruleLine == -1) {
+                $errors[] = sprintf(
+                    __('Unexpected characters on line %s.'),
+                    $i + 1
+                );
             }
 
             // Reading rule lines

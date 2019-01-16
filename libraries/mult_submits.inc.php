@@ -325,20 +325,18 @@ if (! empty($submit_mult) && ! empty($what)) {
         // when dropping a db from server_databases
         $GLOBALS['dblist']->databases->build();
     }
-} else {
-    if (isset($submit_mult)
-        && ($submit_mult == 'sync_unique_columns_central_list'
-        || $submit_mult == 'delete_unique_columns_central_list'
-        || $submit_mult == 'add_to_central_columns'
-        || $submit_mult == 'remove_from_central_columns'
-        || $submit_mult == 'make_consistent_with_central_list')
-    ) {
-        if (isset($centralColsError) && $centralColsError !== true) {
-            $message = $centralColsError;
-        } else {
-            $message = Message::success(__('Success!'));
-        }
+} elseif (isset($submit_mult)
+    && ($submit_mult == 'sync_unique_columns_central_list'
+    || $submit_mult == 'delete_unique_columns_central_list'
+    || $submit_mult == 'add_to_central_columns'
+    || $submit_mult == 'remove_from_central_columns'
+    || $submit_mult == 'make_consistent_with_central_list')
+) {
+    if (isset($centralColsError) && $centralColsError !== true) {
+        $message = $centralColsError;
     } else {
-        $message = Message::success(__('No change'));
+        $message = Message::success(__('Success!'));
     }
+} else {
+    $message = Message::success(__('No change'));
 }

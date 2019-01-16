@@ -272,24 +272,20 @@ class Import
             if ($go_sql) {
                 $complete_query .= $import_run_buffer['full'];
                 $display_query .= $import_run_buffer['full'];
-            } else {
-                if (! $sql_query_disabled) {
-                    $sql_query .= $import_run_buffer['full'];
-                }
+            } elseif (! $sql_query_disabled) {
+                $sql_query .= $import_run_buffer['full'];
             }
         }
         // check length of query unless we decided to pass it to sql.php
         // (if $run_query is false, we are just displaying so show
         // the complete query in the textarea)
-        if (! $go_sql && $run_query) {
-            if (! empty($sql_query)) {
-                if (mb_strlen($sql_query) > 50000
-                    || $executed_queries > 50
-                    || $max_sql_len > 1000
-                ) {
-                    $sql_query = '';
-                    $sql_query_disabled = true;
-                }
+        if (! $go_sql && $run_query && ! empty($sql_query)) {
+            if (mb_strlen($sql_query) > 50000
+                || $executed_queries > 50
+                || $max_sql_len > 1000
+            ) {
+                $sql_query = '';
+                $sql_query_disabled = true;
             }
         }
 

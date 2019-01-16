@@ -378,11 +378,9 @@ if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
     $content = ob_get_contents();
     ob_end_clean();
     $response->addHTML($content . "\n");
-} else {
-    if (! empty($GLOBALS['message'])) {
-        $response->addHTML(PhpMyAdmin\Util::getMessage($GLOBALS['message']));
-        unset($GLOBALS['message']);
-    }
+} elseif (! empty($GLOBALS['message'])) {
+    $response->addHTML(PhpMyAdmin\Util::getMessage($GLOBALS['message']));
+    unset($GLOBALS['message']);
 }
 
 /**

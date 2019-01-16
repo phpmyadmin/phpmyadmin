@@ -133,45 +133,43 @@ class Export
                     header('X-pmaPing: Pong');
                 } // end if
             }
-        } else {
-            if ($GLOBALS['asfile']) {
-                if ($GLOBALS['output_charset_conversion']) {
-                    $line = Encoding::convertString(
-                        'utf-8',
-                        $GLOBALS['charset'],
-                        $line
-                    );
-                }
-                if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
-                    if (! is_null($GLOBALS['file_handle'])) {
-                        $write_result = @fwrite($GLOBALS['file_handle'], $line);
-                    } else {
-                        $write_result = false;
-                    }
-                    // Here, use strlen rather than mb_strlen to get the length
-                    // in bytes to compare against the number of bytes written.
-                    if (! $write_result
-                        || $write_result != strlen($line)
-                    ) {
-                        $GLOBALS['message'] = Message::error(
-                            __('Insufficient space to save the file %s.')
-                        );
-                        $GLOBALS['message']->addParam($save_filename);
-                        return false;
-                    }
-                    $time_now = time();
-                    if ($time_start >= $time_now + 30) {
-                        $time_start = $time_now;
-                        header('X-pmaPing: Pong');
-                    } // end if
-                } else {
-                    // We export as file - output normally
-                    echo $line;
-                }
-            } else {
-                // We export as html - replace special chars
-                echo htmlspecialchars($line);
+        } elseif ($GLOBALS['asfile']) {
+            if ($GLOBALS['output_charset_conversion']) {
+                $line = Encoding::convertString(
+                    'utf-8',
+                    $GLOBALS['charset'],
+                    $line
+                );
             }
+            if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
+                if (! is_null($GLOBALS['file_handle'])) {
+                    $write_result = @fwrite($GLOBALS['file_handle'], $line);
+                } else {
+                    $write_result = false;
+                }
+                // Here, use strlen rather than mb_strlen to get the length
+                // in bytes to compare against the number of bytes written.
+                if (! $write_result
+                    || $write_result != strlen($line)
+                ) {
+                    $GLOBALS['message'] = Message::error(
+                        __('Insufficient space to save the file %s.')
+                    );
+                    $GLOBALS['message']->addParam($save_filename);
+                    return false;
+                }
+                $time_now = time();
+                if ($time_start >= $time_now + 30) {
+                    $time_start = $time_now;
+                    header('X-pmaPing: Pong');
+                } // end if
+            } else {
+                // We export as file - output normally
+                echo $line;
+            }
+        } else {
+            // We export as html - replace special chars
+            echo htmlspecialchars($line);
         }
         return true;
     }

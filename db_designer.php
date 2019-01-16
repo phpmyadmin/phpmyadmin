@@ -130,12 +130,10 @@ $selected_page = null;
 
 if (isset($_GET['query'])) {
     $display_page = $designerCommon->getDefaultPage($_GET['db']);
+} elseif (! empty($_GET['page'])) {
+    $display_page = $_GET['page'];
 } else {
-    if (! empty($_GET['page'])) {
-        $display_page = $_GET['page'];
-    } else {
-        $display_page = $designerCommon->getLoadingPage($_GET['db']);
-    }
+    $display_page = $designerCommon->getLoadingPage($_GET['db']);
 }
 if ($display_page != -1) {
     $selected_page = $designerCommon->getPageName($display_page);
