@@ -398,7 +398,7 @@ class FormDisplayTemplate
                 . '-userprefs-allow" ';
             if ($opts['userprefs_allow']) {
                 $htmlOutput .= 'checked="checked"';
-            };
+            }
             $htmlOutput .= '>';
             $htmlOutput .= '</td>';
         } elseif ($isSetupScript) {
