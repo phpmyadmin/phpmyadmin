@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-15 05:51+0000\n"
+"PO-Revision-Date: 2019-01-16 05:09+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13829,7 +13829,7 @@ msgstr "開始"
 
 #: libraries/classes/Sql.php:304
 msgid "Summary by state"
-msgstr ""
+msgstr "状態によってまとめ"
 
 #: libraries/classes/Sql.php:310
 #, fuzzy
@@ -14315,7 +14315,7 @@ msgstr ""
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr ""
+msgstr "ビットフィールドタイプ（M）。値ごとにMビットを保管します（デフォルトは1、最大は64です）"
 
 #: libraries/classes/Types.php:260
 msgid ""
