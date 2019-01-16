@@ -204,7 +204,7 @@ class ImportOds extends ImportPlugin
                     if (count($text) != 0) {
                         $attr = $cell->attributes('table', true);
                         $num_repeat = (int) $attr['number-columns-repeated'];
-                        $num_iterations = $num_repeat ? $num_repeat : 1;
+                        $num_iterations = $num_repeat ?: 1;
 
                         for ($k = 0; $k < $num_iterations; $k++) {
                             $value = $this->getValue($cell_attrs, $text);

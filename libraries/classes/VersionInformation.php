@@ -45,7 +45,7 @@ class VersionInformation
             $httpRequest = new HttpRequest();
             $response = $httpRequest->create($file, 'GET');
         }
-        $response = $response ? $response : '{}';
+        $response = $response ?: '{}';
         /* Parse response */
         $data = json_decode($response);
 
