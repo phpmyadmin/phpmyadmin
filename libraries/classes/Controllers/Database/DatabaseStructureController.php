@@ -924,8 +924,8 @@ class DatabaseStructureController extends DatabaseController
         foreach ($db as $db_table) {
             if ($this->db == $this->replication->extractDbOrTable($db_table)
                 && preg_match(
-                    "@^" .
-                    preg_quote(mb_substr($this->replication->extractDbOrTable($db_table, 'table'), 0, -1)) . "@",
+                    '@^' .
+                    preg_quote(mb_substr($this->replication->extractDbOrTable($db_table, 'table'), 0, -1), '@') . '@',
                     $truename
                 )
             ) {

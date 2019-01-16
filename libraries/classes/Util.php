@@ -1483,7 +1483,7 @@ class Util
         );
         // If we don't want any zeros, remove them now
         if ($noTrailingZero && strpos($formattedValue, $decimal_sep) !== false) {
-            $formattedValue = preg_replace('/' . preg_quote($decimal_sep) . '?0+$/', '', $formattedValue);
+            $formattedValue = preg_replace('/' . preg_quote($decimal_sep, '/') . '?0+$/', '', $formattedValue);
         }
 
         if ($originalValue != 0 && floatval($value) == 0) {
