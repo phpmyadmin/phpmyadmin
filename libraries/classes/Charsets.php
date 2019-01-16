@@ -527,7 +527,7 @@ class Charsets
                         $name = _pgettext('Collation', 'Sinhalese');
                         break;
                     case 'slovak':
-                    case 'sl':
+                    case 'sk':
                         $name = _pgettext('Collation', 'Slovak');
                         break;
                     case 'slovenian':
