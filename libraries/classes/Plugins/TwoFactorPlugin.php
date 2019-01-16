@@ -135,7 +135,7 @@ class TwoFactorPlugin
      */
     public static function getName()
     {
-        return __('No Two-Factor');
+        return __('No Two-Factor Authentication');
     }
 
     /**
