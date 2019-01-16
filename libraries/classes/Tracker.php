@@ -106,8 +106,7 @@ class Tracker
         $str = explode("\n", $tablename);
         $tablename = $str[0];
 
-        $tablename = str_replace(';', '', $tablename);
-        $tablename = str_replace('`', '', $tablename);
+        $tablename = str_replace([';', '`'], '', $tablename);
         $tablename = trim($tablename);
 
         return $tablename;

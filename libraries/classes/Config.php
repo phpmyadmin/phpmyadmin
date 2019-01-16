@@ -872,24 +872,28 @@ class Config
          */
         if (! empty($cfg['DefaultTabTable'])) {
             $cfg['DefaultTabTable'] = str_replace(
-                '_properties',
-                '',
-                str_replace(
+                [
                     'tbl_properties.php',
+                    '_properties',
+                ],
+                [
                     'tbl_sql.php',
-                    $cfg['DefaultTabTable']
-                )
+                    '',
+                ],
+                $cfg['DefaultTabTable']
             );
         }
         if (! empty($cfg['DefaultTabDatabase'])) {
             $cfg['DefaultTabDatabase'] = str_replace(
-                '_details',
-                '',
-                str_replace(
+                [
                     'db_details.php',
+                    '_details',
+                ],
+                [
                     'db_sql.php',
-                    $cfg['DefaultTabDatabase']
-                )
+                    '',
+                ],
+                $cfg['DefaultTabDatabase']
             );
         }
 
