@@ -53,7 +53,7 @@ class Transformations
         $result = [];
 
         if (strlen($option_string) === 0
-            || ! $transform_options = preg_split('/,/', $option_string)
+            || ! $transform_options = explode(",", $option_string)
         ) {
             return $result;
         }

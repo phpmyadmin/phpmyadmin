@@ -30,7 +30,7 @@ class SysInfoSunOS extends SysInfoBase
     private function _kstat($key)
     {
         if ($m = shell_exec('kstat -p d ' . $key)) {
-            list(, $value) = preg_split("/\t/", trim($m), 2);
+            list(, $value) = explode("\t", trim($m), 2);
 
             return $value;
         } else {

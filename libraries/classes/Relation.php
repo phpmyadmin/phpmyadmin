@@ -1280,7 +1280,7 @@ class Relation
                 $key = htmlspecialchars($key);
             } else {
                 $key = '0x' . bin2hex($key);
-                if (preg_match('/0x/', $data)) {
+                if (false !== strpos($data, "0x")) {
                     $selected = ($key == trim($data));
                 } else {
                     $selected = ($key == '0x' . $data);

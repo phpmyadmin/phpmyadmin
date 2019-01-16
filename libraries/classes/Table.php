@@ -526,7 +526,7 @@ class Table
             $query .= ' ' . $attribute;
 
             if ($is_timestamp
-                && preg_match('/TIMESTAMP/i', $attribute)
+                && false !== stripos($attribute, "TIMESTAMP")
                 && strlen($length) !== 0
                 && $length !== 0
             ) {
