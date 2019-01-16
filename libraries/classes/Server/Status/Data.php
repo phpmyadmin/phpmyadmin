@@ -518,7 +518,7 @@ class Data
                     $rate
                 );
             } else {
-                $rate = $rate / 60;
+                $rate /= 60;
                 $return .= sprintf(
                     _ngettext('%d minute', '%d minutes', $rate),
                     $rate

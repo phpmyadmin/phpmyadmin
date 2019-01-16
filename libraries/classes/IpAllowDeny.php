@@ -83,7 +83,7 @@ class IpAllowDeny
 
             for ($i = 0; $i < 31; $i++) {
                 if ($i < $regs[5] - 1) {
-                    $maskl = $maskl + pow(2, (30 - $i));
+                    $maskl += pow(2, 30 - $i);
                 } // end if
             } // end for
 

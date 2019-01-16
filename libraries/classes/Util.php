@@ -2820,7 +2820,7 @@ class Util
                     $printable = '0' . $printable;
                 } else {
                     $printable = '1' . $printable;
-                    $value = $value - pow(2, $i);
+                    $value -= pow(2, $i);
                 }
                 --$i;
             }
