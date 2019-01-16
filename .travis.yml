@@ -12,7 +12,6 @@ install:
   - yarn install --non-interactive
 
 before_script:
-  - vendor/bin/phpunit --dump-xdebug-filter build/xdebug-filter.php
   - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
   - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
   - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
@@ -22,7 +21,7 @@ before_script:
 
 script:
   - ./scripts/generate-mo --quiet
-  - vendor/bin/phpunit --prepend build/xdebug-filter.php --exclude-group selenium
+  - ./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium
 
 after_script:
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
@@ -146,7 +145,6 @@ jobs:
         - TESTSUITE_USER=root
         - TESTSUITE_URL=http://127.0.0.1:8000
       install:
-        - phpenv config-rm xdebug.ini
         - ./test/install-browserstack
         - composer install --no-interaction
         - yarn install --non-interactive
