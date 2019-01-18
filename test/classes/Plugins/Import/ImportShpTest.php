@@ -40,7 +40,7 @@ class ImportShpTest extends PmaTestCase
      */
     protected function setUp()
     {
-        if (!defined('PMA_IS_WINDOWS')) {
+        if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
         //setting
