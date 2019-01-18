@@ -106,6 +106,16 @@ jobs:
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php72/php.ini
         - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
 
+    - stage: "PHP Unit tests"
+      name: "With dbase extension"
+      php: 7.1
+      env: CI_MODE=test
+      install:
+        - pecl channel-update pecl.php.net
+        - pecl install dbase-7.0.0beta1
+        - composer install --no-interaction
+        - yarn install --non-interactive
+
     - stage: "Documentation"
       name: "Build docs"
       before_script: skip
