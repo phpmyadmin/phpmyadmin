@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:37-0200\n"
-"PO-Revision-Date: 2019-01-17 01:17+0000\n"
+"PO-Revision-Date: 2019-01-18 21:11+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hant/>\n"
@@ -17,14 +17,14 @@ msgstr ""
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
-msgstr "型態錯誤!"
+msgstr "類型錯誤！"
 
 #: changelog.php:39 license.php:34
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "系統上找不到 %s 檔案，詳情請參考 %s。"
+msgstr "在本系統找不到 %s 檔案，詳情請參閱 %s。"
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
@@ -37,7 +37,7 @@ msgstr "點選排序。"
 #: db_central_columns.php:177
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "顯示第 %1$s - %2$s 列。"
+msgstr "正在顯示第 %1$s - %2$s 列。"
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
@@ -104,7 +104,7 @@ msgstr "欄位"
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
-msgstr "型態"
+msgstr "類型"
 
 #: db_datadict.php:119 libraries/classes/CentralColumns.php:755
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Index.php:726
@@ -125,7 +125,7 @@ msgstr "型態"
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
-msgstr "空值"
+msgstr "空值(Null)"
 
 #: db_datadict.php:120 libraries/classes/CentralColumns.php:748
 #: libraries/classes/CentralColumns.php:1428
@@ -246,14 +246,14 @@ msgstr "是"
 
 #: db_export.php:48
 msgid "View dump (schema) of database"
-msgstr "檢視資料庫的匯出資料 (結構)"
+msgstr "檢視資料庫的傾印資料 (綱要)"
 
 #: db_export.php:53 db_tracking.php:105 export.php:388
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:161
 #: libraries/classes/Database/Qbe.php:341
 #: libraries/classes/Navigation/NavigationTree.php:926
 msgid "No tables found in database."
-msgstr "資料庫中沒有任何資料表。"
+msgstr "資料庫沒有資料表。"
 
 #: db_export.php:68 libraries/classes/Config/Descriptions.php:490
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
@@ -300,7 +300,7 @@ msgstr "資料"
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
 msgid "Select all"
-msgstr "選擇全部"
+msgstr "全選"
 
 #: db_operations.php:58 tbl_create.php:27
 msgid "The database name is empty!"
@@ -308,23 +308,23 @@ msgstr "請填寫資料庫名稱！"
 
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "無法複製為相同名稱的資料庫。改變名稱後再試。"
+msgstr "無法複製為相同名稱的資料庫。請更改名稱後再試。"
 
 #: db_operations.php:156
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "資料庫 %1$s 已重新命名為 %2$s。"
+msgstr "資料庫 %1$s 已改名為 %2$s。"
 
 #: db_operations.php:168
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "資料庫 %1$s 已複製爲 %2$s。"
+msgstr "資料庫 %1$s 已複製為 %2$s。"
 
 #: db_operations.php:297
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "phpMyAdmin 設定儲存空間已停用。 %s了解原因%s。"
+msgstr "已停用 phpMyAdmin 設定儲存空間。%s了解原因%s。"
 
 #: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
@@ -336,7 +336,7 @@ msgstr "多表格查詢"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
-msgstr "依範例查詢"
+msgstr "依範例查詢(QBE)"
 
 #: db_qbe.php:168
 #, php-format
@@ -348,21 +348,21 @@ msgstr "切換至 %svisual builder%s"
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:171
 msgid "Access denied!"
-msgstr "拒絕存取！"
+msgstr "存取遭拒！"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
-msgstr "追蹤資料已刪除。"
+msgstr "已刪除追蹤資料。"
 
 #: db_tracking.php:64
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "已建立版本 %1$s，已對選取的資料表啟用追蹤。"
+msgstr "已建立資料表的 %1$s 版本，已對所選的版本啟用追蹤。"
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr "尚未選擇任何資料表。"
+msgstr "尚未選擇資料表。"
 
 #: db_tracking.php:153
 msgid "Database Log"
@@ -382,7 +382,7 @@ msgstr "非常感謝您回報此錯誤。"
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "偵測到系統發生錯誤；並已產生錯誤報告，但未能傳送給開發團隊。"
+msgstr "偵測到系統發生錯誤；並已製作錯誤報告，但未能傳送給開發團隊。"
 
 #: error_report.php:86
 msgid "If you experience any problems please submit a bug report manually."
@@ -394,12 +394,12 @@ msgstr "需要重新整理頁面。"
 
 #: export.php:288
 msgid "Bad parameters!"
-msgstr "參數錯誤!"
+msgstr "參數出錯！"
 
 #: gis_data_editor.php:121
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "\"%s\" 欄位的值"
+msgstr "「%s」欄位的值"
 
 #: gis_data_editor.php:149
 #: templates/table/gis_visualization/gis_visualization.twig:38
@@ -414,11 +414,11 @@ msgstr "空間參考識別碼(SRID)："
 #: gis_data_editor.php:197
 #, php-format
 msgid "Geometry %d:"
-msgstr "幾何體 %d:"
+msgstr "幾何體 %d："
 
 #: gis_data_editor.php:219
 msgid "Point:"
-msgstr "點:"
+msgstr "點："
 
 #: gis_data_editor.php:220 gis_data_editor.php:247 gis_data_editor.php:303
 #: gis_data_editor.php:376 js/messages.php:519
@@ -444,16 +444,16 @@ msgstr "新增一個點"
 #: gis_data_editor.php:275
 #, php-format
 msgid "Linestring %d:"
-msgstr "一維折線 %d:"
+msgstr "一維折線 %d："
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 msgid "Outer ring:"
-msgstr "外環:"
+msgstr "外環："
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
 #, php-format
 msgid "Inner ring %d:"
-msgstr "內環 %d:"
+msgstr "內環 %d："
 
 #: gis_data_editor.php:317
 msgid "Add a linestring"
@@ -466,7 +466,7 @@ msgstr "新增內環"
 #: gis_data_editor.php:339
 #, php-format
 msgid "Polygon %d:"
-msgstr "多邊形 %d:"
+msgstr "多邊形 %d："
 
 #: gis_data_editor.php:403
 msgid "Add a polygon"
@@ -474,7 +474,7 @@ msgstr "新增多邊形"
 
 #: gis_data_editor.php:409
 msgid "Add geometry"
-msgstr "新增幾何形"
+msgstr "新增幾何圖形"
 
 #: gis_data_editor.php:415 js/messages.php:352
 #: libraries/classes/BrowseForeigners.php:199
@@ -530,16 +530,15 @@ msgstr "輸出"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr ""
-"從 \"函數\" 的欄位中選擇 \"GeomFromText\"，然後將下方的字串貼到 \"值\" 欄位。"
+msgstr "於「函式」欄位選擇「GeomFromText」，並將以下字串貼到「值」欄位。"
 
 #: import.php:73
 msgid "Succeeded"
-msgstr "已成功"
+msgstr "成功"
 
 #: import.php:77 js/messages.php:617
 msgid "Failed"
-msgstr "已失敗"
+msgstr "失敗"
 
 #: import.php:81
 msgid "Incomplete params"
@@ -550,7 +549,7 @@ msgstr "參數不完整"
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
-msgstr "上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
+msgstr "上傳的檔案過大，請參閱%s說明文件%s了解如何解決此問題。"
 
 #: import.php:382 import.php:584
 msgid "Showing bookmark"
@@ -566,12 +565,11 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"沒有接收到要匯入的資料。 可能是因為未附上檔案名稱，或是檔案大小超出 PHP 限"
-"制。 請參考 [doc@faq1-16]FAQ 1.16[/doc]。"
+"沒有接收到要匯入的資料。可能是因為未附上檔案名稱，或是檔案大小超出 PHP 限制。 請參閱 [doc@faq1-16]FAQ 1.16[/doc]。"
 
 #: import.php:547 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
-msgstr "無法載入匯入外掛程式，請檢查您的安裝！"
+msgstr "無法載入匯入外掛程式，請檢查安裝是否有誤！"
 
 #: import.php:587 libraries/classes/Sql.php:822 libraries/classes/Sql.php:1609
 #, php-format
@@ -582,32 +580,28 @@ msgstr "已建立書籤 %s。"
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "匯入成功完成，共執行了 %d 個查詢指令。"
+msgstr[0] "完成匯入，共執行了 %d 個查詢指令。"
 
 #: import.php:628
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr ""
-"Script 執行已逾時，若要繼續完成匯入，請%s重新上傳原來的檔案%s，匯入動作會繼續"
-"執行。"
+msgstr "Script 執行已逾時，若要完成匯入，請%s重新上傳原來的檔案%s，匯入會繼續進行。"
 
 #: import.php:638
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"最近一次執行的匯入沒有資料可以解析，通常是 phpMyAdmin 無法在指定時間內完成匯"
-"入的動作，您可增加 PHP 執行時間的限制。"
+msgstr "最近一次執行的匯入沒有資料可以解析，通常是因為 phpMyAdmin 無法在指定時間內完成匯入。可試試增加 PHP 執行時間上限。"
 
 #: import.php:706 sql.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "刪除資料庫 \"DROP DATABASE\" 指令已經被停用。"
+msgstr "刪除資料庫 DROP DATABASE 指令已經被停用。"
 
 #: import_status.php:107
 msgid "Could not load the progress of the import."
-msgstr "無法讀取匯入的進度。"
+msgstr "無法得知匯入進度。"
 
 #: import_status.php:116 js/messages.php:459 js/messages.php:625
 #: libraries/classes/Export.php:509
@@ -625,7 +619,7 @@ msgstr "已經登出一台伺服器；如要完全登出 phpMyAdmin，則需要�
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin 展示伺服器"
+msgstr "phpMyAdmin 演示伺服器"
 
 #: index.php:206 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
@@ -634,8 +628,7 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"正在使用展示主機，您可以在此做任何事情，但請勿更改 root、debian-sys-maint 及 "
-"pma 使用者。這兒有更多的資訊 %s。"
+"正在使用演示主機，您可以在此做任何事情，但請勿改動 root、debian-sys-maint 及 pma 使用者的設定。這兒有更多的資訊：%s。"
 
 #: index.php:216
 msgid "General settings"
@@ -646,7 +639,7 @@ msgstr "一般設定"
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:242
 msgid "Change password"
-msgstr "修改密碼"
+msgstr "更改密碼"
 
 #: index.php:262 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
@@ -670,7 +663,7 @@ msgstr "伺服器："
 
 #: index.php:347
 msgid "Server type:"
-msgstr "伺服器類別："
+msgstr "伺服器類型："
 
 #: index.php:351
 msgid "Server connection:"
@@ -754,16 +747,14 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"找不到 PHP 的 mbstring 擴充套件，且您正使用多位元組(Multibyte)字元編碼。 若沒"
-"有 mbstring 擴充套件 phpMyAdmin 將無法正確分割字串，這可能造成奇怪的錯誤。"
+"找不到 PHP 的 mbstring 擴充套件，且您正使用多位元組字元編碼。 若沒有 mbstring 擴充套件 phpMyAdmin "
+"將無法正確分割字串，這可能造成奇怪的錯誤。"
 
 #: index.php:526
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
-msgstr ""
-"找不到 curl 擴充功能且 allow_url_fopen 已停用；故某些功能，像是錯誤回報與版本"
-"檢查等將無法使用。"
+msgstr "找不到 curl 擴充功能，且 allow_url_fopen 已停用；故此某些功能，例如錯誤回報與版本檢查等，會無法使用。"
 
 #: index.php:541
 msgid ""
@@ -772,22 +763,22 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"在 PHP 設定參數中 [a@https://secure.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 所設定的時間"
-"短於在 phpMyAdmin 中設定的 Cookies 有效期間，因此登入連線有效期間可能比在 "
-"phpMyAdmin 中設定的時間要更短。"
+"在 PHP 設定參數 [a@https://secure.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] 所設定的時間短於在 phpMyAdmin 設定的 "
+"cookie 有效時間，因此登入連線有效時間可能比在 phpMyAdmin 設定的時間要短。"
 
 #: index.php:560
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"phpMyAdmin 中所設定的登入 cookie 儲存時間小於 cookie 有效期間，因此登入連線有"
-"效期間將會比在 phpMyAdmin 中設定的時間要更短。"
+"phpMyAdmin 所設定的登入 cookie 儲存時間小於 phpMyAdmin 的 cookie 有效時間，因此登入連線有效期間會比在 "
+"phpMyAdmin 設定的時間要短。"
 
 #: index.php:575
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "設定檔案需要設定一組加密密碼(blowfish_secret)。"
+msgstr "設定檔案需要設定加密密碼(blowfish_secret)。"
 
 #: index.php:582
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
@@ -815,14 +806,14 @@ msgstr ""
 #: index.php:621
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr "或者前往任一個資料庫的「操作」頁籤設定。"
+msgstr "或者前往任一個資料庫的「操作」分頁設定。"
 
 #: index.php:646
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
-msgstr "伺服器上執行了 Suhosin。請參考 %s說明文件%s 進一步了解可能造成的問題。"
+msgstr "伺服器執行了 Suhosin。請參閱%s說明文件%s進一步了解可能會有的問題。"
 
 #: index.php:660
 #, php-format
@@ -840,15 +831,15 @@ msgstr "確認"
 #: js/messages.php:44
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "確定要執行 \"%s\"？"
+msgstr "確定要執行「%s」？"
 
 #: js/messages.php:46 libraries/classes/MultSubmits.php:498
 msgid "You are about to DESTROY a complete database!"
-msgstr "即將刪除(DESTROY)一個完整的資料庫！"
+msgstr "即將刪除(DESTROY)整個資料庫！"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr "無法修改資料庫為相同名稱。改變名稱後再試"
+msgstr "無法修改資料庫為相同名稱。更改名稱後再試"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -864,7 +855,7 @@ msgstr "是否刪除此資料表的追蹤資料？"
 
 #: js/messages.php:55
 msgid "Delete tracking data for these tables?"
-msgstr "是否刪除這些資料表的追蹤資料？"
+msgstr "是否刪除此等資料表的追蹤資料？"
 
 #: js/messages.php:57
 msgid "Delete tracking data for this version?"
@@ -872,7 +863,7 @@ msgstr "是否刪除此版本的追蹤資料？"
 
 #: js/messages.php:59
 msgid "Delete tracking data for these versions?"
-msgstr "是否刪除這些版本的追蹤資料？"
+msgstr "是否刪除此時版本的追蹤資料？"
 
 #: js/messages.php:60
 msgid "Delete entry from tracking report?"
@@ -884,25 +875,25 @@ msgstr "刪除追蹤資料中"
 
 #: js/messages.php:62
 msgid "Dropping Primary Key/Index"
-msgstr "刪除主鍵(Primary Key)/索引(Index)中"
+msgstr "正在刪除主鍵／索引"
 
 #: js/messages.php:63
 msgid "Dropping Foreign key."
-msgstr "正在刪除外鍵(Foreign Key)。"
+msgstr "正在刪除外鍵。"
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "此操作將會花費較長的時間，請確定是否繼續執行?"
+msgstr "此操作會花費較長的時間，請確定是否繼續執行？"
 
 #: js/messages.php:67
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "確定要刪除群組「%s」？"
+msgstr "確定要刪除「%s」群組？"
 
 #: js/messages.php:69
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "確定要刪除查詢「%s」？"
+msgstr "確定要刪除「%s」搜尋？"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -916,7 +907,7 @@ msgstr "正要減少資料列的數目，但已輸入資料的列會丟失。要
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "確定要解除(Revoke)已選擇使用者的權限？"
+msgstr "確定要撤銷所選使用者的權限？"
 
 #: js/messages.php:77
 msgid "Do you really want to delete this central column?"
@@ -924,18 +915,17 @@ msgstr "確定要刪除此中央欄位？"
 
 #: js/messages.php:79
 msgid "Do you really want to delete the selected items?"
-msgstr "確定要刪除選擇的項目？"
+msgstr "確定要刪除所選項目？"
 
 #: js/messages.php:81
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
-msgstr ""
-"確定要移除(DROP)選擇的分區？ 這同時也會刪除(DELETE)與選擇分區相關的資料！"
+msgstr "確定要移除(DROP)所選分區？這同時也會刪除(DELETE)與所選分區相關的資料！"
 
 #: js/messages.php:85
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "確定要清空(TRUNCATE)選擇的分區？"
+msgstr "確定要清空(TRUNCATE)所選分區？"
 
 #: js/messages.php:87
 msgid "Do you really want to remove partitioning?"
@@ -943,7 +933,7 @@ msgstr "確定要移除分區？"
 
 #: js/messages.php:88
 msgid "Do you really want to RESET SLAVE?"
-msgstr "確定要執行 RESET SLAVE？"
+msgstr "確定要重設次要備援伺服器(RESET SLAVE)？"
 
 #: js/messages.php:90
 msgid ""
@@ -953,17 +943,16 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
-"此操作將會轉換您的資料至新的編碼與排序。在極少數的情況，特別是在新的編碼與排"
-"序沒有的字元，此程序可能造成資料在新的編碼與排序顯示不正確；若發生這種情況，"
-"建議您還原回原來的編碼與排序，並且參考以下文件的提示： "
+"此操作會將您的資料轉換至新的編碼與排序。在極少數的情況，特別是在新的編碼與排序沒有現有的字元，此程序可能造成資料在新的編碼與排序顯示不正確；若發生這種情況"
+"，建議您還原回原來的編碼與排序，並且參閱以下文件的提示： "
 
 #: js/messages.php:96
 msgid "Garbled Data"
-msgstr "部份資料"
+msgstr "亂碼(Garbled Data)"
 
 #: js/messages.php:98
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr "確定您要更改編碼與排序(Collation)並轉換資料？"
+msgstr "確定要更改編碼與排序並轉換資料？"
 
 #: js/messages.php:100
 msgid ""
@@ -974,16 +963,14 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"雖然 MySQL 在此操作會嘗試對應編碼與排序之間的資料值，但若字元集不完整可能會造"
-"成資料遺失，且因此遺失的資料將<b>無法</b>透過將欄位轉換回原編碼與排序來還原。"
-"<b>建議使用於資料表結構頁面的欄位編輯功能 (「更改」連結) 來轉換現有的資料。</"
-"b>"
+"雖然 MySQL 在此操作會嘗試對應編碼與排序之間的資料值，但若字元集不完整可能會造成資料丟失，且因此丟失的資料將<b>無法</b>透過將欄位轉換回原編碼"
+"與排序來還原。<b>建議使用於資料表結構頁面的欄位編輯功能 (「更改」連結) 來轉換現有的資料。</b>"
 
 #: js/messages.php:109
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr "確定您要更改所有欄位編碼與排序(Collation)並轉換資料？"
+msgstr "確定要更改所有欄位編碼與排序並轉換資料？"
 
 #: js/messages.php:113
 msgid "Save & close"
@@ -1005,15 +992,15 @@ msgstr "表單內尚有資料值未填寫！"
 
 #: js/messages.php:119
 msgid "Select at least one of the options!"
-msgstr "選至少選擇其中一個項目！"
+msgstr "請至少選擇其中一個項目！"
 
 #: js/messages.php:120
 msgid "Please enter a valid number!"
-msgstr "請輸入一個有效的數字！"
+msgstr "請輸入有效的數字！"
 
 #: js/messages.php:121
 msgid "Please enter a valid length!"
-msgstr "請輸入一個有效的長度！"
+msgstr "請輸入有效的長度！"
 
 #: js/messages.php:122
 msgid "Add index"
@@ -1074,7 +1061,7 @@ msgstr "尚未填寫主機名稱！"
 
 #: js/messages.php:144
 msgid "The user name is empty!"
-msgstr "尚未填寫使用者帳號！"
+msgstr "尚未填寫使用者名稱！"
 
 #: js/messages.php:145 libraries/classes/Server/Privileges.php:1878
 #: libraries/classes/UserPassword.php:66
@@ -1097,19 +1084,19 @@ msgstr "關閉"
 
 #: js/messages.php:151
 msgid "Template was created."
-msgstr "已建立樣板。"
+msgstr "已建立模板。"
 
 #: js/messages.php:152
 msgid "Template was loaded."
-msgstr "已載入樣板。"
+msgstr "已載入模板。"
 
 #: js/messages.php:153
 msgid "Template was updated."
-msgstr "已更新樣板。"
+msgstr "已更新模板。"
 
 #: js/messages.php:154
 msgid "Template was deleted."
-msgstr "已刪除樣板。"
+msgstr "已刪除模板。"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:157 libraries/classes/Server/Status/Data.php:132
@@ -1149,7 +1136,7 @@ msgstr ""
 
 #: js/messages.php:175
 msgid "Query cache efficiency"
-msgstr "查詢快取有效率"
+msgstr "查詢快取效率"
 
 #: js/messages.php:176
 msgid "Query cache usage"
@@ -1157,7 +1144,7 @@ msgstr "查詢快取使用率"
 
 #: js/messages.php:177
 msgid "Query cache used"
-msgstr "查詢快取已使用"
+msgstr "查詢快取使用次數"
 
 #: js/messages.php:179
 msgid "System CPU usage"
@@ -1169,7 +1156,7 @@ msgstr "系統記憶體"
 
 #: js/messages.php:181
 msgid "System swap"
-msgstr "系統暫存區"
+msgstr "系統置換記憶"
 
 #: js/messages.php:183
 msgid "Average load"
@@ -1197,27 +1184,27 @@ msgstr "已使用記憶體"
 
 #: js/messages.php:190
 msgid "Total swap"
-msgstr "交換空間總計"
+msgstr "置換記憶總計"
 
 #: js/messages.php:191
 msgid "Cached swap"
-msgstr "已快取交換空間"
+msgstr "已快取置換記憶"
 
 #: js/messages.php:192
 msgid "Used swap"
-msgstr "已使用交換空間"
+msgstr "已使用置換記憶"
 
 #: js/messages.php:193
 msgid "Free swap"
-msgstr "未使用交換空間"
+msgstr "閒置置換記憶"
 
 #: js/messages.php:195
 msgid "Bytes sent"
-msgstr "已送出的位元組"
+msgstr "已傳送位元組"
 
 #: js/messages.php:196
 msgid "Bytes received"
-msgstr "已接收的位元組"
+msgstr "已接收位元組"
 
 #: js/messages.php:197 libraries/classes/Server/Status.php:243
 msgid "Connections"
@@ -1355,8 +1342,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log 已啟用，但伺服器只記錄執行時間超過 %d 秒的查詢。建議根據您系統"
-"的狀況，將 long_query_time 設定為 0-2 秒之間。"
+"slow_query_log 已啟用，但伺服器只記錄執行時間超過 %d 秒的查詢。建議根據系統的狀況，將 long_query_time 設定為 0-2 "
+"秒之間。"
 
 #: js/messages.php:235
 #, php-format
@@ -1397,7 +1384,7 @@ msgstr "將 long_query_time 設定為 %d 秒。"
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
-msgstr "無法修改這些變數，請使用 root 帳號登入或是聯絡該資料庫的管理人員。"
+msgstr "無法更改這些變數，請使用 root 帳號登入，或是聯絡該資料庫的管理者。"
 
 #: js/messages.php:252
 msgid "Change settings"
@@ -1454,9 +1441,7 @@ msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
-msgstr ""
-"此欄位將完全相同的查詢合併以數量顯示。系統僅使用 SQL 查詢條件做為群組的依據其"
-"餘的查詢參數 (例如: 開始時間)，可能會有所不同。"
+msgstr "此欄位將完全相同的查詢合併以數量顯示。系統僅使用 SQL 查詢條件做為群組的依據；其餘的查詢參數 (例如：開始時間) 可能會有所不同。"
 
 #: js/messages.php:276
 msgid ""
@@ -1469,7 +1454,7 @@ msgstr ""
 
 #: js/messages.php:281
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "已讀取記錄資料，在此時間區間已執行查詢指令:"
+msgstr "已讀取記錄資料，在此時間區間已執行查詢指令："
 
 #: js/messages.php:283
 msgid "Jump to Log table"
@@ -1517,7 +1502,7 @@ msgstr "總計時間："
 
 #: js/messages.php:293
 msgid "Profiling results"
-msgstr "分析(Profiling)結果"
+msgstr "研判結果"
 
 #: js/messages.php:294
 msgctxt "Display format"
@@ -1546,20 +1531,20 @@ msgstr "欄位"
 #. l10n: A collection of available filters
 #: js/messages.php:302
 msgid "Log table filter options"
-msgstr "記錄資料表搜尋選項"
+msgstr "記錄資料表篩選選項"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:304
 msgid "Filter"
-msgstr "搜尋"
+msgstr "篩選"
 
 #: js/messages.php:305
 msgid "Filter queries by word/regexp:"
-msgstr "使用純文字或正規表式法(REGEXP)進行搜尋："
+msgstr "使用純文字或正規表式法(REGEXP)進行篩選："
 
 #: js/messages.php:307
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "依查詢分群顯示，忽略 WHERE 的條件中的變數資料"
+msgstr "依查詢分群顯示，忽略 WHERE 條件的變數資料"
 
 #: js/messages.php:308
 msgid "Sum of grouped rows:"
@@ -1571,20 +1556,18 @@ msgstr "總計："
 
 #: js/messages.php:311
 msgid "Loading logs"
-msgstr "讀取記錄中"
+msgstr "載入記錄中"
 
 #: js/messages.php:312
 msgid "Monitor refresh failed"
-msgstr "即時監控無法進行重新整理"
+msgstr "未能重新整理即時監控"
 
 #: js/messages.php:314
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
-msgstr ""
-"在向伺服器取得新的圖表資料時取得無效的回應，可能是您的連線階段已經失效。 請重"
-"新整理頁面並重新輸入帳號及密碼解決此問題。"
+msgstr "在向伺服器取得新的圖表資料時取得無效的回應，可能是連線階段已經失效。請重新整理頁面，並重新輸入帳號及密碼解決此問題。"
 
 #: js/messages.php:318
 msgid "Reload page"
@@ -1592,16 +1575,16 @@ msgstr "重新整理頁面"
 
 #: js/messages.php:320
 msgid "Affected rows:"
-msgstr "已影響的列數："
+msgstr "影響的列數："
 
 #: js/messages.php:323
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr "讀取設定檔時發生錯誤。 設定檔看起來不是有效的 JSON 格式。"
+msgstr "解析設定檔時發生錯誤。設定檔看來不是有效的 JSON 格式。"
 
 #: js/messages.php:326
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
-msgstr "無法使用匯入的設定檔建立圖表網格，將重設為預設的設定值…"
+msgstr "未能以匯入的設定檔建立圖表網格，將重設為預設的設定值…"
 
 #: js/messages.php:328 libraries/classes/Config/Forms/User/ImportForm.php:58
 #: libraries/classes/Menu.php:391 libraries/classes/Menu.php:500
@@ -1615,7 +1598,7 @@ msgstr "匯入"
 
 #: js/messages.php:329
 msgid "Import monitor configuration"
-msgstr "無法匯入即時監控的設定"
+msgstr "匯入即時監控設定"
 
 #: js/messages.php:331
 msgid "Please select the file you want to import."
@@ -1707,17 +1690,17 @@ msgstr "請求失敗!!"
 
 #: js/messages.php:364
 msgid "Error in processing request"
-msgstr "處理要求時發生錯誤"
+msgstr "處理請求時發生錯誤"
 
 #: js/messages.php:365
 #, php-format
 msgid "Error code: %s"
-msgstr "錯誤代碼: %s"
+msgstr "錯誤代碼：%s"
 
 #: js/messages.php:366
 #, php-format
 msgid "Error text: %s"
-msgstr "錯誤訊息: %s"
+msgstr "錯誤訊息：%s"
 
 #: js/messages.php:368
 msgid ""
@@ -1729,7 +1712,7 @@ msgstr "看來伺服器連線已中斷。請檢查網路及伺服器狀態。"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
 #: libraries/db_common.inc.php:72 libraries/db_table_exists.inc.php:34
 msgid "No databases selected."
-msgstr "尚未選擇任何資料庫。"
+msgstr "尚未選擇資料庫。"
 
 #: js/messages.php:372
 msgid "No accounts selected."
@@ -1771,11 +1754,11 @@ msgstr "更改字元編碼"
 
 #: js/messages.php:385 templates/fk_checkbox.twig:4
 msgid "Enable foreign key checks"
-msgstr "啟用外鍵(Foreign Key)檢查"
+msgstr "啟用外鍵檢查"
 
 #: js/messages.php:388
 msgid "Failed to get real row count."
-msgstr "取得實際列數失敗。"
+msgstr "未能取得實際列數。"
 
 #: js/messages.php:391
 msgid "Searching"
@@ -1804,7 +1787,7 @@ msgstr "刪除 %s 資料表中符合的資料？"
 
 #: js/messages.php:400
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr "Stored Function 的定義中必須要有 RETURN 敘述句！"
+msgstr "預存函式的定義必須要有 RETURN 敘述句！"
 
 #: js/messages.php:401 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Results.php:4709
@@ -1843,7 +1826,7 @@ msgstr "新欄位的值"
 
 #: js/messages.php:409
 msgid "Enter each value in a separate field."
-msgstr "請分別將資料填入以下欄位。"
+msgstr "請將資料分別填入以下欄位。"
 
 #: js/messages.php:410
 #, php-format
@@ -1920,7 +1903,7 @@ msgstr "選取"
 
 #: js/messages.php:429
 msgid "Column selector"
-msgstr "欄位選擇器"
+msgstr "欄位選取"
 
 #: js/messages.php:430
 msgid "Search this list"
@@ -1931,9 +1914,7 @@ msgstr "搜尋此清單"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
-"無欄位於中央清單。請確定資料庫 %s 的中央欄位清單中的欄位不存在於目前的資料"
-"表。"
+msgstr "中央清單沒有欄位。請確定 %s 資料庫的中央欄位清單中的欄位不存在於目前的資料表。"
 
 #: js/messages.php:435
 msgid "See more"
@@ -1959,7 +1940,7 @@ msgstr "新增主鍵"
 
 #: js/messages.php:445
 msgid "Primary key added."
-msgstr "已新增主鍵(Primary key)。"
+msgstr "已新增主鍵。"
 
 #: js/messages.php:446 libraries/classes/Normalization.php:242
 msgid "Taking you to next step…"
@@ -1968,7 +1949,7 @@ msgstr "正在前進至下一步驟…"
 #: js/messages.php:448
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "資料表 '%s' 正規化的第一步驟已經完成。"
+msgstr "「%s」資料表正規化的第一步已經完成。"
 
 #: js/messages.php:449 libraries/classes/Normalization.php:510
 #: libraries/classes/Normalization.php:557
@@ -1989,11 +1970,11 @@ msgstr "完成"
 
 #: js/messages.php:452
 msgid "Confirm partial dependencies"
-msgstr "確認部份相依"
+msgstr "確認部份依存"
 
 #: js/messages.php:453
 msgid "Selected partial dependencies are as follows:"
-msgstr "已選擇部份相依如下："
+msgstr "所選部份依存如下："
 
 #: js/messages.php:455
 msgid ""
@@ -2004,21 +1985,21 @@ msgstr ""
 
 #: js/messages.php:458
 msgid "No partial dependencies selected!"
-msgstr "尚未選擇部份相依！"
+msgstr "尚未選擇部份依存！"
 
 #: js/messages.php:461
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr "根據資料表中的資料顯示可能的部份相依"
+msgstr "根據資料表中的資料，顯示可能的部份依存"
 
 #: js/messages.php:462
 msgid "Hide partial dependencies list"
-msgstr "隱藏部份相依清單"
+msgstr "隱藏部份依存清單"
 
 #: js/messages.php:464
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
-msgstr "稍坐一下！這可能要花一些時間，實際時間將取決於資料大小以及欄位數目。"
+msgstr "稍等一下！這可能要花一些時間，實際時間將取決於資料大小以及欄位數目。"
 
 #: js/messages.php:467
 msgid "Step"
@@ -2043,15 +2024,15 @@ msgstr "第三正規化 (3NF)"
 
 #: js/messages.php:475
 msgid "Confirm transitive dependencies"
-msgstr "確認遞移相依"
+msgstr "確認遞移依存"
 
 #: js/messages.php:476
 msgid "Selected dependencies are as follows:"
-msgstr "已選擇的相依如下："
+msgstr "所選依存如下："
 
 #: js/messages.php:477
 msgid "No dependencies selected!"
-msgstr "尚未選擇任何相依！"
+msgstr "尚未選擇依存！"
 
 #: js/messages.php:480 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1809
@@ -3664,27 +3645,27 @@ msgstr "SQL 偵錯"
 
 #: libraries/classes/Config/Descriptions.php:171
 msgid "Tab that is displayed when entering a database."
-msgstr "在進入資料庫頁面時，預設顯示的頁籤。"
+msgstr "在進入資料庫頁面時，預設顯示的分頁。"
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Default database tab"
-msgstr "預設資料庫頁籤"
+msgstr "預設資料庫分頁"
 
 #: libraries/classes/Config/Descriptions.php:175
 msgid "Tab that is displayed when entering a server."
-msgstr "在進入伺服器頁面時預設顯示的頁籤。"
+msgstr "在進入伺服器頁面時預設顯示的分頁。"
 
 #: libraries/classes/Config/Descriptions.php:177
 msgid "Default server tab"
-msgstr "預設伺服器頁籤"
+msgstr "預設伺服器分頁"
 
 #: libraries/classes/Config/Descriptions.php:179
 msgid "Tab that is displayed when entering a table."
-msgstr "在進入資料表頁面時，預設顯示的頁籤。"
+msgstr "在進入資料表頁面時，預設顯示的分頁。"
 
 #: libraries/classes/Config/Descriptions.php:181
 msgid "Default table tab"
-msgstr "預設資料表頁籤"
+msgstr "預設資料表分頁"
 
 #: libraries/classes/Config/Descriptions.php:183
 msgid "Autocomplete of the table and column names in the SQL queries."
@@ -5496,7 +5477,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1265
 msgid "Show password change form"
-msgstr "顯示修改密碼"
+msgstr "顯示更改密碼表單"
 
 #: libraries/classes/Config/Descriptions.php:1267
 msgid "Show create database form"
@@ -5786,7 +5767,7 @@ msgstr "停用時，不管右側的複選框有何設定，使用者都不能設
 
 #: libraries/classes/Config/Descriptions.php:1404
 msgid "Enable the Developer tab in settings"
-msgstr "啓用設定選項中的開發人員頁籤"
+msgstr "啓用設定選項中的開發人員分頁"
 
 #: libraries/classes/Config/Descriptions.php:1406
 msgid "Enables check for latest version on main phpMyAdmin page."
@@ -9870,7 +9851,7 @@ msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
-msgstr "沒有權限建立名稱為「phpmyadmin」的資料庫。您可能需至「操作」頁籤設定 phpMyAdmin 設定儲存空間。"
+msgstr "沒有權限建立名稱為「phpmyadmin」的資料庫。您可能需至「操作」分頁設定 phpMyAdmin 設定儲存空間。"
 
 #: libraries/classes/Relation.php:2003
 #, php-format
@@ -10983,7 +10964,7 @@ msgstr "主機名稱"
 
 #: libraries/classes/Server/Privileges.php:1669
 msgid "Do not change the password"
-msgstr "不修改密碼"
+msgstr "不更改密碼"
 
 #: libraries/classes/Server/Privileges.php:1719
 msgid "Authentication Plugin"
@@ -12781,7 +12762,7 @@ msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE 的別名"
 #: libraries/classes/Types.php:265
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "日期的有效範圍爲 %1$s 至 %2$s"
+msgstr "日期的有效範圍為 %1$s 至 %2$s"
 
 #: libraries/classes/Types.php:270
 #, php-format
@@ -12793,8 +12774,8 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"時間戳記的有效範圍為 1970-01-01 00:00:01 UTC 至 2038-01-09 03:14:07 UTC，使用"
-"自 1970-01-01 00:00:00 UTC 計算的秒數儲存"
+"時間戳記的有效範圍為 1970-01-01 00:00:01 UTC 至 2038-01-09 03:14:07 UTC，以自 1970-01-01 "
+"00:00:00 UTC 計算的秒數儲存"
 
 #: libraries/classes/Types.php:281
 #, php-format
@@ -12820,7 +12801,7 @@ msgstr "固定長度 (0 至 255，預設為 1) 的字串，在儲存長度不足
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
-msgstr "可變長度 (%s) 的字串，最大的有效長度需視資料列大小限制而定"
+msgstr "可變長度 (%s) 的字串，實際的最大長度需視資料列大小限制而定"
 
 #: libraries/classes/Types.php:303
 msgid ""
@@ -12852,20 +12833,19 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"純文字(TEXT)欄位，最大長度為 4GiB (2^32 - 1) 個字元，儲存時會附加 4 個位元組"
-"在最前面用來記錄長度"
+"純文字(TEXT)欄位，最大長度為 4,294,967,295 或 4GiB (2^32 - 1) 個字元，儲存時會附加 4 個位元組在最前面用來記錄長度"
 
 #: libraries/classes/Types.php:327
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr "類似 CHAR 型態，但此類型以二進位的方式儲存字串 而不是字元"
+msgstr "類似 CHAR 型態，但此類型以二進位的方式儲存字串，而不是字元"
 
 #: libraries/classes/Types.php:332
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr "類似 VARCHAR 型態，但此類型以二進位的方式儲存字串 而不是字元"
+msgstr "類似 VARCHAR 型態，但此類型以二進位的方式儲存字串，而不是字元"
 
 #: libraries/classes/Types.php:337
 msgid ""
@@ -12896,14 +12876,14 @@ msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"大型二進位物件(BLOB)欄位，最大長度為 4,294,967,295 or 4GiB (2^32 - 1) 個位元"
-"組，儲存時會附加 4 個位元組在最前面用來記錄長度"
+"大型二進位物件(BLOB)欄位，最大長度為 4,294,967,295 或 4GiB (2^32 - 1) 個位元組，儲存時會附加 4 "
+"個位元組在最前面用來記錄長度"
 
 #: libraries/classes/Types.php:359
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
-msgstr "列舉型態(ENUM)在清單中最多可有 65,535 個值或錯誤值 ''"
+msgstr "列舉型態(ENUM)在清單中最多可有 65,535 個值或特殊 '' 錯誤值"
 
 #: libraries/classes/Types.php:363
 msgid "A single value chosen from a set of up to 64 members"
@@ -12911,7 +12891,7 @@ msgstr "可從最多可 64 個成員中複選組成的一個值"
 
 #: libraries/classes/Types.php:365
 msgid "A type that can store a geometry of any type"
-msgstr "類型可以存儲幾何的任何型態"
+msgstr "類型可以儲存幾何的任何型態"
 
 #: libraries/classes/Types.php:367
 msgid "A point in 2-dimensional space"
@@ -12923,11 +12903,11 @@ msgstr "點與點之間的線性插值曲線"
 
 #: libraries/classes/Types.php:371
 msgid "A polygon"
-msgstr "一個多邊形"
+msgstr "多邊形"
 
 #: libraries/classes/Types.php:373
 msgid "A collection of points"
-msgstr "一群點的集合"
+msgstr "點的集合"
 
 #: libraries/classes/Types.php:376
 msgid "A collection of curves with linear interpolation between points"
@@ -12935,7 +12915,7 @@ msgstr "點與點之間線性插值曲線的集合"
 
 #: libraries/classes/Types.php:379
 msgid "A collection of polygons"
-msgstr "一個多邊形的集合"
+msgstr "多邊形的集合"
 
 #: libraries/classes/Types.php:381
 msgid "A collection of geometry objects of any type"
@@ -12964,7 +12944,7 @@ msgstr "空間類型"
 
 #: libraries/classes/UserPassword.php:62
 msgid "The profile has been updated."
-msgstr "設定檔案己更新。"
+msgstr "已更新設定檔案。"
 
 #: libraries/classes/UserPassword.php:74
 msgid "Password is too long!"
@@ -12977,7 +12957,7 @@ msgstr "無法儲存設定"
 #: libraries/classes/Util.php:175
 #, php-format
 msgid "Max: %s%s"
-msgstr "上限: %s %s"
+msgstr "上限：%s %s"
 
 #: libraries/classes/Util.php:549
 msgid "Static analysis:"
@@ -13034,26 +13014,26 @@ msgstr "%s 天 %s 小時，%s 分 %s 秒"
 
 #: libraries/classes/Util.php:1878
 msgid "Missing parameter:"
-msgstr "未填寫必要的參數:"
+msgstr "未填寫必要的參數："
 
 #: libraries/classes/Util.php:2422
 #, php-format
 msgid "Jump to database “%s”."
-msgstr "跳至資料庫 “%s”。"
+msgstr "跳至「%s」資料庫。"
 
 #: libraries/classes/Util.php:2447
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr "%s 功能受到一個已知的問題影響，詳情請參考 %s"
+msgstr "%s 功能受到已知問題影響，詳情請參閱 %s"
 
 #: libraries/classes/Util.php:3235 prefs_manage.php:238
 msgid "Browse your computer:"
-msgstr "由電腦上傳:"
+msgstr "由電腦上傳："
 
 #: libraries/classes/Util.php:3260
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "由網頁伺服器上傳目錄中選擇 <b>%s</b>:"
+msgstr "從由網頁伺服器上傳目錄選擇 <b>%s</b>："
 
 #: libraries/classes/Util.php:3300
 msgid "There are no files to upload!"
@@ -13070,19 +13050,19 @@ msgstr "執行"
 
 #: libraries/classes/Util.php:3835
 msgid "SSL is not being used"
-msgstr ""
+msgstr "未有使用 SSL"
 
 #: libraries/classes/Util.php:3840
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "正在使用 SSL，但未有使用驗證"
 
 #: libraries/classes/Util.php:3842
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "正在使用 SSL，但沒有憑證授權"
 
 #: libraries/classes/Util.php:3845
 msgid "SSL is used"
-msgstr ""
+msgstr "正在使用 SSL"
 
 #: libraries/classes/Util.php:3966
 msgid "Users"
@@ -13095,30 +13075,30 @@ msgstr "排序"
 
 #: libraries/classes/ZipExtension.php:56
 msgid "No files found inside ZIP archive!"
-msgstr "ZIP 壓縮檔中查無任何檔案!"
+msgstr "ZIP 壓縮檔中沒有檔案！"
 
 #: libraries/classes/ZipExtension.php:84 libraries/classes/ZipExtension.php:91
 msgid "Error in ZIP archive:"
-msgstr "ZIP 壓縮檔錯誤:"
+msgstr "ZIP 壓縮檔出錯："
 
 #: libraries/common.inc.php:196
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
-msgstr ""
+msgstr "未能設定連線階段 cookie。可能正在以 HTTP 而非 HTTPS 存取 phpMyAdmin。"
 
 #: libraries/common.inc.php:340
 msgid "Invalid authentication method set in configuration:"
-msgstr "在設定檔中設定的認證方式無效:"
+msgstr "在設定檔中設定的認證方式無效："
 
 #: libraries/common.inc.php:393
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "您應升級到 %s %s 或更新版本。"
+msgstr "應升級到 %s %s 或更新版本。"
 
 #: libraries/common.inc.php:446
 msgid "Error: Token mismatch"
-msgstr "錯誤: 連線資訊失效，請重新連線"
+msgstr "錯誤：連線資訊失效，請重新連線"
 
 #: libraries/config.values.php:56 libraries/config.values.php:76
 #: libraries/config.values.php:88
@@ -13182,11 +13162,11 @@ msgstr "在傳送錯誤報告前詢問"
 
 #: libraries/config.values.php:129
 msgid "Always send error reports"
-msgstr "往後不詢問直接傳送錯誤報告"
+msgstr "往後不詢問，直接傳送錯誤報告"
 
 #: libraries/config.values.php:130
 msgid "Never send error reports"
-msgstr "永不傳送錯誤報告"
+msgstr "不會傳送錯誤報告"
 
 #: libraries/config.values.php:133
 msgid "Server default"
@@ -13249,16 +13229,15 @@ msgstr "已儲存設定值。"
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
-msgstr ""
-"您的偏好設定僅作用於本次連線。永久儲存需要開啟 %sphpMyAdmin 設定儲存空間%s。"
+msgstr "偏好設定僅作用於本次連線。若要永久儲存，先要開啟 %sphpMyAdmin 設定儲存空間%s。"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "嚴重錯誤: 導覽頁只能使用 AJAX 存取"
+msgstr "嚴重錯誤：導覽頁只能使用 AJAX 存取"
 
 #: prefs_forms.php:30 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "指定了不正確的表單！"
 
 #: prefs_forms.php:82
 msgid "Cannot save settings, submitted form contains errors!"
@@ -13278,7 +13257,7 @@ msgstr "無法匯入設定"
 
 #: prefs_manage.php:121
 msgid "Configuration contains incorrect data for some fields."
-msgstr "部分設定含有錯誤的資料。"
+msgstr "部分欄位含有錯誤的資料。"
 
 #: prefs_manage.php:140
 msgid "Do you want to import remaining settings?"
@@ -13286,7 +13265,7 @@ msgstr "是否匯入其餘的設定？"
 
 #: prefs_manage.php:221 prefs_manage.php:250
 msgid "Saved on: @DATE@"
-msgstr "儲存於: @DATE@"
+msgstr "儲存於：@DATE@"
 
 #: prefs_manage.php:236
 msgid "Import from file"
@@ -13302,11 +13281,11 @@ msgstr "將使用瀏覽器的本機儲存記錄匯入設定。"
 
 #: prefs_manage.php:253
 msgid "You have no saved settings!"
-msgstr "您尚未儲存設定！"
+msgstr "尚未儲存設定！"
 
 #: prefs_manage.php:258 prefs_manage.php:343
 msgid "This feature is not supported by your web browser"
-msgstr "您所使用的瀏覽器不支援此功能"
+msgstr "所使用的網頁瀏覽器不支援此功能"
 
 #: prefs_manage.php:264
 msgid "Merge with current configuration"
@@ -13317,9 +13296,7 @@ msgstr "合併至目前設定"
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
-msgstr ""
-"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程"
-"式%s 。"
+msgstr "藉著修改 config.inc.php 設定檔，可以調整更多的設定項目，如：使用 %s安裝程式%s 。"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -13339,7 +13316,7 @@ msgstr "現有設定將被覆蓋！"
 
 #: prefs_manage.php:362
 msgid "You can reset all your settings and restore them to default values."
-msgstr "您可以重新設定所有設定恢復爲預設值。"
+msgstr "可以將所有設定恢復為預設值。"
 
 #: prefs_twofactor.php:29
 msgid "Two-factor authentication has been removed."
@@ -13351,7 +13328,7 @@ msgstr "已設定雙因素認證。"
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
-msgstr "檢視資料庫的匯出資料 (結構)"
+msgstr "檢視資料庫的傾印資料 (綱要)"
 
 #: server_privileges.php:144 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
@@ -13366,34 +13343,34 @@ msgstr "沒有改動使用者的權限！"
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
-msgstr "用戶名與主機名稱尚未更改。如您只需要更改密碼，請使用「修改密碼」分頁。"
+msgstr "用戶名稱與主機名稱尚未更改。如只想更改密碼，應使用「更改密碼」分頁。"
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
-msgstr "權限不足檢視伺服器狀態。"
+msgstr "權限不足以檢視伺服器狀態。"
 
 #: server_status_advisor.php:33
 msgid "Not enough privilege to view the advisor."
-msgstr "權限不足檢視建議。"
+msgstr "權限不足以檢視建議。"
 
 #: server_status_processes.php:33
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "已中止程序 %s。"
+msgstr "已中止執行緒 %s。"
 
 #: server_status_processes.php:39
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "phpMyAdmin 無法中止程序 %s。該程序可能已經關閉。"
+msgstr "phpMyAdmin 無法中止執行緒 %s。該執行緒可能已經關閉。"
 
 #: server_status_queries.php:43
 msgid "Not enough privilege to view query statistics."
-msgstr "權限不足檢視查詢統計資訊。"
+msgstr "權限不足以檢視查詢統計資訊。"
 
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
-msgstr "權限不足檢視狀態變數。"
+msgstr "權限不足以檢視狀態變數。"
 
 #: setup/frames/config.inc.php:17 setup/frames/index.inc.php:189
 msgid "Configuration file"
@@ -13407,14 +13384,13 @@ msgstr "下載"
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
-msgstr "您現在未使用安全協定連線，所有資料(包括敏感資訊，如密碼)均未加密傳輸！"
+msgstr "現時未有使用安全協定連線；所有資料 (包括敏感資訊，例如密碼) 均未加密傳輸！"
 
 #: setup/frames/index.inc.php:54
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
-msgstr ""
-"如果您的伺服器已經設定為接受 HTTPS 協定，請依此處說明以使用安全協定連線。"
+msgstr "如果伺服器已經設定為接受 HTTPS 協定，請依此處說明以使用安全協定連線。"
 
 #: setup/frames/index.inc.php:58
 msgid "Insecure connection"
@@ -13428,9 +13404,7 @@ msgstr "設定已儲存。"
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
-msgstr ""
-"配置保存到 phpMyAdmin 目錄下的 config/config.inc.php 檔，請將它複製到上層後再"
-"刪除 config 目錄。"
+msgstr "配置已儲存到 phpMyAdmin 目錄下的 config/config.inc.php 檔，請將之複製到上層後再刪除 config 目錄。"
 
 #: setup/frames/index.inc.php:97
 msgid "Configuration not saved!"
@@ -13442,8 +13416,8 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"請在 phpMyAdmin 的根資料夾下建立 [doc@setup_script]檔案[/doc]中所述的網站伺服"
-"器可以寫入的 [em]config[/em] 資料夾。否則您只能下載或顯示設定。"
+"請在 phpMyAdmin 的根資料夾下建立 [doc@setup_script]說明文件[/doc]中所述的，網站伺服器可以寫入的 "
+"[em]config[/em] 資料夾。否則只能下載或顯示設定。"
 
 #: setup/frames/index.inc.php:112 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -13451,11 +13425,11 @@ msgstr "概要"
 
 #: setup/frames/index.inc.php:119
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "顯示隱藏資訊 (#MSG_COUNT)"
+msgstr "顯示隱藏訊息 (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:170
 msgid "There are no configured servers"
-msgstr "沒有設定好的伺服器"
+msgstr "未有已設定的伺服器"
 
 #: setup/frames/index.inc.php:179
 msgid "New server"
@@ -13491,11 +13465,11 @@ msgstr "phpMyAdmin 主頁 (外部連結，英文)"
 
 #: setup/frames/index.inc.php:266
 msgid "Donate"
-msgstr "贊助"
+msgstr "捐助"
 
 #: setup/frames/index.inc.php:268
 msgid "Check for latest version"
-msgstr "檢查是否有更新版本"
+msgstr "查看有否更新版本"
 
 #: setup/frames/servers.inc.php:27
 msgid "Edit server"
@@ -13507,7 +13481,7 @@ msgstr "新增伺服器"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
-msgstr "設定已存在，關閉安裝功能！"
+msgstr "設定已存在，無法設置！"
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
@@ -13523,7 +13497,7 @@ msgstr "送出的表單中有錯誤"
 
 #: setup/lib/FormProcessing.php:64
 msgid "Try to revert erroneous fields to their default values"
-msgstr "嘗試恢復錯誤參數爲預設值"
+msgstr "嘗試恢復錯誤參數為預設值"
 
 #: setup/lib/FormProcessing.php:69
 msgid "Ignore errors"
@@ -13537,11 +13511,11 @@ msgstr "顯示資料表單"
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
-msgstr "讀取版本資訊失敗。你可能為離線或是更新伺服器未回應。"
+msgstr "未能取得版本資訊。可能正在離線，或是更新伺服器未回應。"
 
 #: setup/lib/Index.php:146
 msgid "Got invalid version string from server"
-msgstr "從伺服器取得的版本資訊錯誤"
+msgstr "從伺服器取得的版本資訊無效"
 
 #: setup/lib/Index.php:159
 msgid "Unparsable version string"
@@ -13552,40 +13526,38 @@ msgstr "無法解析版本"
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
-msgstr ""
-"您現在使用的是 Git 開發版，請透過 [kbd]git pull[/kbd] 檢查更新 :-)[br]最新正"
-"式版爲 %s，於 %s 發佈。"
+msgstr "現在使用的是 Git 開發版，請以 [kbd]git pull[/kbd] 檢查更新 :-)[br]最新正式版為 %s，於 %s 發佈。"
 
 #: setup/lib/Index.php:186
 msgid "No newer stable version is available"
-msgstr "沒有更新的可用版本"
+msgstr "無更新版本提供"
 
 #: setup/validate.php:26
 msgid "Wrong data"
-msgstr "錯誤的資料"
+msgstr "資料錯誤"
 
 #: setup/validate.php:32
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr "資料錯誤或被 %s 審核未通過"
+msgstr "資料錯誤或未通過 %s 審核"
 
 #: tbl_create.php:36 tbl_get_field.php:31
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "資料庫 '%s' 不存在。"
+msgstr "沒有「%s」資料庫。"
 
 #: tbl_create.php:46
 #, php-format
 msgid "Table %s already exists!"
-msgstr "資料表 %s 已存在！"
+msgstr "已有 %s 資料表！"
 
 #: tbl_export.php:45
 msgid "View dump (schema) of table"
-msgstr "檢視資料表的匯出資料 (結構)"
+msgstr "檢視資料表的傾印資料 (綱要)"
 
 #: tbl_get_field.php:38
 msgid "Invalid table name"
-msgstr "無效的資料表名稱"
+msgstr "資料表名稱無效"
 
 #: tbl_replace.php:245
 #, php-format
@@ -13603,11 +13575,11 @@ msgstr "%s 的追蹤已啓用。"
 
 #: tbl_tracking.php:103
 msgid "Tracking versions deleted successfully."
-msgstr "已成功選取的追蹤版本。"
+msgstr "已成功刪除追蹤版本。"
 
 #: tbl_tracking.php:108
 msgid "No versions selected."
-msgstr "尚未選擇任何版本。"
+msgstr "尚未選擇版本。"
 
 #: tbl_tracking.php:139
 msgid "SQL statements executed."
@@ -13698,15 +13670,15 @@ msgstr "圖表標題："
 
 #: templates/table/chart/tbl_chart.twig:56
 msgid "X-Axis:"
-msgstr "X 軸座標:"
+msgstr "X 軸座標："
 
 #: templates/table/chart/tbl_chart.twig:71
 msgid "Series:"
-msgstr "資料序列:"
+msgstr "資料序列："
 
 #: templates/table/chart/tbl_chart.twig:102
 msgid "X-Axis label:"
-msgstr "X 軸標籤:"
+msgstr "X 軸標籤："
 
 #: templates/table/chart/tbl_chart.twig:104
 msgid "X Values"
@@ -13714,7 +13686,7 @@ msgstr "X 軸值"
 
 #: templates/table/chart/tbl_chart.twig:107
 msgid "Y-Axis label:"
-msgstr "Y 軸標籤:"
+msgstr "Y 軸標籤："
 
 #: templates/table/chart/tbl_chart.twig:109
 msgid "Y Values"
@@ -13730,7 +13702,7 @@ msgstr "序列欄位："
 
 #: templates/table/chart/tbl_chart.twig:132
 msgid "Value Column:"
-msgstr "資料欄位:"
+msgstr "資料欄位："
 
 #: templates/table/chart/tbl_chart.twig:153
 msgid "Save chart as image"
@@ -13740,7 +13712,7 @@ msgstr "另存圖表為影像"
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
-msgstr ""
+msgstr "並未使用 https 存取 phpMyAdmin，故 FIDO U2F 裝置很可能不會為您作認證。"
 
 #: templates/table/search/table_header.twig:9
 #: templates/database/designer/where_query_panel.twig:30
@@ -13759,7 +13731,7 @@ msgstr "繼續新增 %s 列"
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
-msgstr "分區依："
+msgstr "分割區依："
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
@@ -13768,20 +13740,20 @@ msgstr "表示法或欄位清單"
 
 #: templates/columns_definitions/partitions.twig:37
 msgid "Partitions:"
-msgstr "分區："
+msgstr "分割區："
 
 #: templates/columns_definitions/partitions.twig:45
 msgid "Subpartition by:"
-msgstr "子分區依："
+msgstr "子分割區依："
 
 #: templates/columns_definitions/partitions.twig:65
 msgid "Subpartitions:"
-msgstr "子分區依："
+msgstr "子分割區依："
 
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/structure/display_partitions.twig:24
 msgid "Partition"
-msgstr "分區"
+msgstr "分割區"
 
 #: templates/columns_definitions/partitions.twig:78
 msgid "Values"
@@ -13789,7 +13761,7 @@ msgstr "值"
 
 #: templates/columns_definitions/partitions.twig:82
 msgid "Subpartition"
-msgstr "子分區"
+msgstr "子分割區"
 
 #: templates/columns_definitions/partitions.twig:84
 msgid "Engine"
@@ -13833,16 +13805,16 @@ msgstr "隱藏/顯示沒有關聯的資料表"
 
 #: templates/database/designer/table_list.twig:55
 msgid "Number of tables:"
-msgstr "資料表數:"
+msgstr "資料表數："
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
-msgstr "索引名稱:"
+msgstr "索引名稱："
 
 #: templates/table/index_form.twig:16
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "“PRIMARY”<b>必須</b>而且<b>只能</b>作爲主鍵的名稱！"
+msgstr "PRIMARY <b>必須</b>而且<b>只能</b>作為主鍵的名稱！"
 
 #: templates/table/index_form.twig:34
 msgid "Index choice:"
@@ -13858,7 +13830,7 @@ msgstr "鍵值區塊大小："
 
 #: templates/table/index_form.twig:65
 msgid "Index type:"
-msgstr "索引類型:"
+msgstr "索引類型："
 
 #: templates/table/index_form.twig:77
 msgid "Parser:"
@@ -13866,7 +13838,7 @@ msgstr "分析器："
 
 #: templates/table/index_form.twig:93
 msgid "Comment:"
-msgstr "說明:"
+msgstr "備註："
 
 #: templates/table/index_form.twig:118
 #: templates/database/structure/table_header.twig:38
@@ -13911,7 +13883,7 @@ msgstr "認證碼："
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
-msgstr ""
+msgstr "於裝置開啟雙因素認證應用程式，以檢視認證碼並驗證身分。"
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
@@ -13921,11 +13893,11 @@ msgstr "未能提供所設定的雙因素認證，請安裝缺少的元件。"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
-msgstr "匯出資料庫為各別檔案"
+msgstr "將每個資料庫為匯出為不同的檔案"
 
 #: templates/display/export/options_output_separate_files.twig:9
 msgid "Export tables as separate files"
-msgstr "匯出資料表為各別檔案"
+msgstr "將每個資料表匯出為不同的檔案"
 
 #: templates/database/search/selection_form.twig:5
 msgid "Search in database"
@@ -13933,20 +13905,20 @@ msgstr "搜尋資料庫"
 
 #: templates/database/search/selection_form.twig:8
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "要搜尋的文字或欄位值 (萬用字元:  \"% \"):"
+msgstr "要搜尋的文字或欄位值 (萬用字元：%)："
 
 #: templates/database/search/selection_form.twig:15
 #: templates/table/search/search_and_replace.twig:1
 msgid "Find:"
-msgstr "搜尋:"
+msgstr "尋找："
 
 #: templates/database/search/selection_form.twig:29
 msgid "Inside tables:"
-msgstr "於下列資料表中:"
+msgstr "於以下資料表："
 
 #: templates/database/search/selection_form.twig:51
 msgid "Inside column:"
-msgstr "於下列欄位中:"
+msgstr "於以下欄位："
 
 #: templates/database/tracking/untracked_tables.twig:1
 msgid "Untracked tables"
@@ -13961,11 +13933,11 @@ msgstr "追蹤資料表"
 #: templates/display/export/options_output.twig:2
 #: templates/display/export/options_quick_export.twig:2
 msgid "Output:"
-msgstr "輸出:"
+msgstr "輸出："
 
 #: templates/display/export/options_output.twig:26
 msgid "Save output to a file"
-msgstr "儲存爲檔案"
+msgstr "將輸出儲存為檔案"
 
 #: templates/display/export/options_output.twig:51
 #, php-format
@@ -13974,35 +13946,35 @@ msgstr "略過超過 %s MiB 的資料表"
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
-msgstr "資料列數:"
+msgstr "資料列數："
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
-msgstr "匯出部份資料列"
+msgstr "傾印部份資料列"
 
 #: templates/display/export/options_rows.twig:10
 #: templates/start_and_number_of_rows_panel.twig:10
 #: templates/display/results/additional_fields.twig:6
 msgid "Number of rows:"
-msgstr "資料列數:"
+msgstr "資料列數："
 
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
-msgstr "起始列數:"
+msgstr "起始列數："
 
 #: templates/display/export/options_rows.twig:32
 msgid "Dump all rows"
-msgstr "匯出所有資料列"
+msgstr "傾印所有資料列"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
 msgid "Jump to database '%s'"
-msgstr "切換到資料庫 '%s'"
+msgstr "切換到「%s」資料庫"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr "檢查資料庫 「%s」 之權限."
+msgstr "檢查「%s」資料庫的權限。"
 
 #: templates/server/databases/table_row.twig:62
 msgid "Check privileges"
@@ -14025,20 +13997,20 @@ msgstr "雙因素認證狀態"
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
-msgstr ""
+msgstr "未能提供雙因素認證；請安裝所需元件，以啟用認證後端程式。"
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "缺少以下撰寫器套件："
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "可提供雙因素認證，並已設定給此帳號。"
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr ""
+msgstr "可提供雙因素認證，但並未設定給此帳號。"
 
 #: templates/prefs_twofactor.twig:24
 msgid ""
@@ -14048,7 +14020,7 @@ msgstr "未能提供雙因素認證；啟用 phpMyAdmin 設定儲存空間以使
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "已啟用雙因素認證。"
 
 #: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
 msgid "Disable two-factor authentication"
@@ -14097,7 +14069,7 @@ msgstr "日期"
 
 #: templates/table/tracking/report_table.twig:6
 msgid "Username"
-msgstr "使用者名"
+msgstr "使用者名稱"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
@@ -14137,7 +14109,7 @@ msgstr "資源限制"
 
 #: templates/privileges/resource_limits.twig:5
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "注意: 設定為 0 即代表無限制。"
+msgstr "注意：設定為 0 即代表無限制。"
 
 #: templates/database/designer/where_query_panel.twig:59
 #: templates/database/designer/having_query_panel.twig:90
@@ -14173,7 +14145,7 @@ msgstr "檢視資料表結構"
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
-msgstr "您的瀏覽器中有此網域的 phpMyAdmin 設定，是否匯入到目前的連線階段?"
+msgstr "瀏覽器有此網域的 phpMyAdmin 設定，是否匯入到目前的連線階段?"
 
 #: templates/prefs_autoload.twig:13
 msgid "Delete settings"
@@ -14181,7 +14153,7 @@ msgstr "刪除設定"
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
-msgstr "儲存至已選擇的頁面"
+msgstr "儲存至所選頁面"
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Create a page and save to it"
@@ -14195,8 +14167,7 @@ msgstr "新頁面名稱"
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
-msgstr ""
-"注意: 在此開啟資料庫統計可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
+msgstr "注意：在此開啟資料庫統計，可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
 
 #: templates/server/databases/databases_footer.twig:68
 #: templates/server/databases/databases_footer.twig:71
@@ -14205,21 +14176,21 @@ msgstr "開啟統計資訊"
 
 #: templates/display/export/option_header.twig:5
 msgid "Exporting databases from the current server"
-msgstr "從目前的伺服器中匯出資料庫"
+msgstr "從目前的伺服器匯出資料庫"
 
 #: templates/display/export/option_header.twig:7
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "正在匯出資料庫  \"%s \" 中的資料表"
+msgstr "正在匯出「%s」資料庫的資料表"
 
 #: templates/display/export/option_header.twig:9
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "正在匯出資料表  \"%s \" 中的資料列"
+msgstr "正在匯出「%s」資料表的資料列"
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
-msgstr "尋找和替換-預覽"
+msgstr "尋找和替換 - 預覽"
 
 #: templates/table/search/replace_preview.twig:17
 #: templates/console/display.twig:64 templates/console/display.twig:84
@@ -14259,11 +14230,11 @@ msgstr ""
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
-msgstr "您可以告訴我們您做了什麼步驟導致問題發生嗎？這將能幫助我們找出問題:"
+msgstr "可以告訴我們您做了什麼步驟導致問題發生嗎？這將能幫助我們找出問題："
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
-msgstr "您可以檢視錯誤報告內的資料："
+msgstr "可以檢視錯誤報告的資料："
 
 #: templates/database/tracking/tracked_tables.twig:2
 msgid "Tracked tables"
@@ -14288,7 +14259,7 @@ msgstr "以文字顯示輸出結果"
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
-msgstr "取代爲："
+msgstr "取代為："
 
 #: templates/table/search/search_and_replace.twig:19
 msgid "Use regular expression"
@@ -14349,7 +14320,7 @@ msgstr "另一個欄位"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "以文字方式加入準則"
 
 #: templates/database/multi_table_query/form.twig:148
 msgid "Remove this column"
@@ -14381,22 +14352,20 @@ msgid ""
 "Creating a foreign key over a non-indexed column would automatically create "
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
-msgstr ""
-"在非索引的欄位建立外鍵會自動在該欄位建立索引 (Index)，或者您可在建立外鍵之前"
-"先在下方定義索引。"
+msgstr "在沒有索引的欄位建立外鍵，該欄位會自動建立索引。或者您可在建立外鍵之前，先在下方定義索引。"
 
 #: templates/table/relation/common_form.twig:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr "僅顯示己建立索引的欄位。 您可以於下方定義索引。"
+msgstr "僅顯示已建立索引的欄位。您可以於下方定義索引。"
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
-msgstr "外鍵限制式"
+msgstr "外鍵限制"
 
 #: templates/table/relation/common_form.twig:89
 msgid "+ Add constraint"
-msgstr "加入限制(Constraint)"
+msgstr "+ 加入限制"
 
 #: templates/table/relation/common_form.twig:99
 #: templates/table/relation/common_form.twig:104
@@ -14411,11 +14380,11 @@ msgstr "內部關聯"
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr "當外鍵(FOREIGN KEY)關連存在時就不需要使用內部關聯。"
+msgstr "若有對應的外鍵關連，就不需要使用內部關聯。"
 
 #: templates/table/relation/common_form.twig:172
 msgid "Choose column to display:"
-msgstr "選擇要顯示的欄位:"
+msgstr "選擇要顯示的欄位："
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
@@ -14435,15 +14404,15 @@ msgstr "資料庫統計"
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
-msgstr "在下列預存程序新增權限："
+msgstr "在以下預存程序新增權限："
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
-msgstr "進階搜尋條件"
+msgstr "額外搜尋準則"
 
 #: templates/database/central_columns/add_column.twig:13
 msgid "Select a column."
-msgstr "選擇一個欄位。"
+msgstr "選擇欄位。"
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
@@ -14460,7 +14429,7 @@ msgstr "使用中"
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:84
 msgid "Rename to"
-msgstr "重新命名爲"
+msgstr "重新命名為"
 
 #: templates/database/designer/rename_to_panel.twig:30
 #: templates/database/designer/options_panel.twig:90
@@ -14470,7 +14439,7 @@ msgstr "新名稱"
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "已將 %s 設爲主鍵(Primary key)。"
+msgstr "已為 %s 加上主鍵。"
 
 #: templates/table/structure/actions_in_table_structure.twig:33
 #: templates/table/structure/actions_in_table_structure.twig:51
@@ -14478,7 +14447,7 @@ msgstr "已將 %s 設爲主鍵(Primary key)。"
 #: templates/table/structure/actions_in_table_structure.twig:103
 #, php-format
 msgid "An index has been added on %s."
-msgstr "已將 %s 設爲索引。"
+msgstr "已為 %s 加上索引。"
 
 #: templates/table/structure/actions_in_table_structure.twig:127
 #: templates/table/structure/check_all_table_column.twig:83
@@ -14492,7 +14461,7 @@ msgstr "新增至中央欄位"
 
 #: templates/privileges/delete_user_fieldset.twig:3
 msgid "Remove selected user accounts"
-msgstr "刪除已選擇的使用者帳號"
+msgstr "刪除所選的使用者帳號"
 
 #: templates/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -14513,7 +14482,7 @@ msgstr "無"
 #: templates/table/structure/table_structure_row.twig:55
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "已刪除欄位 %s。"
+msgstr "已刪除 %s 欄位。"
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
@@ -14522,24 +14491,24 @@ msgstr "無"
 
 #: templates/encoding/kanji_encoding_form.twig:17
 msgid "Convert to Kana"
-msgstr "轉換爲假名"
+msgstr "轉換為假名"
 
 #: templates/privileges/add_privileges_table.twig:3
 msgid "Add privileges on the following table:"
-msgstr "在下列資料表新增權限："
+msgstr "為以下資料表加上權限："
 
 #: templates/login/header.twig:12
 msgid ""
 "There is mismatch between HTTPS indicated on the server and client. This can "
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
-msgstr ""
+msgstr "伺服器和用戶端之間的 HTTPS 設定不相符。繼續使用可導致 phpMyAdmin 出錯或安全風除。請修正伺服器設定的 HTTPS 設定。"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
-msgstr ""
+msgstr "請將 FIDO U2F 裝置連接電腦的 USB 埠，然後在該裝置確認登記。"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -14581,12 +14550,12 @@ msgstr "建立時間"
 #: templates/table/structure/row_stats_table.twig:83
 #: templates/database/structure/table_header.twig:58
 msgid "Last update"
-msgstr "最後更新"
+msgstr "最後更新時間"
 
 #: templates/table/structure/row_stats_table.twig:90
 #: templates/database/structure/table_header.twig:63
 msgid "Last check"
-msgstr "最後檢查"
+msgstr "最後檢查時間"
 
 #: templates/toggle_button.twig:3
 msgid "Click to toggle"
@@ -14594,15 +14563,15 @@ msgstr "點此切換"
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
-msgstr "選擇要匯出關聯類型"
+msgstr "選擇要匯出的關聯類型"
 
 #: templates/table/search/options.twig:6
 msgid "Select columns (at least one):"
-msgstr "選擇欄位 (至少一個):"
+msgstr "選擇欄位 (至少一個)："
 
 #: templates/table/search/options.twig:26
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "新增搜尋條件 (\"where\" 子句的內容):"
+msgstr "新增搜尋條件 (where 子句的內容)："
 
 #: templates/table/search/options.twig:34
 msgid "Number of rows per page"
@@ -14610,7 +14579,7 @@ msgstr "每頁列數"
 
 #: templates/table/search/options.twig:45
 msgid "Display order:"
-msgstr "顯示順序:"
+msgstr "顯示次序："
 
 #: templates/table/structure/display_structure.twig:137
 #: templates/view_create.twig:13
@@ -14640,7 +14609,7 @@ msgstr "自訂 - 顯示所有可用的選項"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
-msgstr ""
+msgstr "定義新別名"
 
 #: templates/export/alias_add.twig:9
 msgid "Select database:"
@@ -14675,31 +14644,31 @@ msgstr "新欄位名稱"
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
-msgstr "追蹤已啓用。"
+msgstr "已啓用追蹤。"
 
 #: templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr "追蹤已停用。"
+msgstr "已停用追蹤。"
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
-msgstr ""
+msgstr "請將以下 QR 碼掃描入您裝置的雙因素認證應用程式，並輸入其產生的認證碼。"
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
-msgstr ""
+msgstr "請將以下密碼輸入您裝置的雙因素認證應用程式，並輸入其產生的認證碼。"
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP 網址："
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "密碼："
 
 #: templates/prefs_twofactor_configure.twig:8
 msgid "Enable two-factor authentication"
@@ -14742,11 +14711,11 @@ msgstr "欄位"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
-msgstr "編碼與排序:"
+msgstr "編碼與排序："
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
-msgstr "儲存引擎:"
+msgstr "儲存引擎："
 
 #: templates/columns_definitions/column_definitions_form.twig:82
 msgid "Connection:"
@@ -14760,26 +14729,24 @@ msgstr "PARTITION 定義:"
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-"可能為近似值，請點選數字以取得精確的數量。請參考 [doc@faq3-11]FAQ 3.11[/"
-"doc]。"
+msgstr "可能為近似值，請點選數字以取得精確的數量。請參閱 [doc@faq3-11]FAQ 3.11[/doc]。"
 
 #: templates/table/search/selection_form.twig:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "請選擇兩個不同欄位使用 \"QBE 查詢\" (萬用字元: \"%\")"
+msgstr "請選擇兩個不同欄位使用「QBE 查詢」(萬用字元：%)"
 
 #: templates/table/search/selection_form.twig:42
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "執行 \"QBE 查詢\" (萬用字元: \"%\")"
+msgstr "執行「QBE 查詢」(萬用字元：%)"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "己移除外鍵限制 %s"
+msgstr "已移除外鍵限制 %s"
 
 #: templates/table/relation/foreign_key_row.twig:38
 msgid "Constraint name"
-msgstr "限制式名稱"
+msgstr "限制名稱"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -14787,7 +14754,7 @@ msgstr "選擇頁面"
 
 #: templates/start_and_number_of_rows_panel.twig:3
 msgid "Start row:"
-msgstr "起始列號:"
+msgstr "起始列號："
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -14801,15 +14768,15 @@ msgstr "確認停用雙因素認證"
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
-msgstr ""
+msgstr "由於停用了雙因素認證，現在又再只能以密碼登入。"
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
-msgstr "在下列資料庫新增權限："
+msgstr "為以下資料庫加上權限："
 
 #: templates/privileges/add_privileges_database.twig:14
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr "要使用萬用字元 _ 和 % 本身，應使用用 \\ 轉義。"
+msgstr "要使用萬用字元 _ 和 % 本身，應使用 \\ 轉義。"
 
 #: templates/table/structure/display_partitions.twig:8
 msgid "No partitioning defined!"
@@ -14838,7 +14805,7 @@ msgstr "索引長度"
 
 #: templates/table/structure/display_partitions.twig:135
 msgid "Partition table"
-msgstr "分區資料表"
+msgstr "分區表"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
@@ -14904,12 +14871,12 @@ msgstr "對齊格線"
 #: templates/database/designer/side_menu.twig:129
 #: templates/database/designer/side_menu.twig:135
 msgid "Small/Big All"
-msgstr "全部折疊/展開"
+msgstr "全部摺疊/展開"
 
 #: templates/database/designer/side_menu.twig:139
 #: templates/database/designer/side_menu.twig:142
 msgid "Toggle small/big"
-msgstr "折疊/展開"
+msgstr "摺疊/展開"
 
 #: templates/database/designer/side_menu.twig:146
 #: templates/database/designer/side_menu.twig:149
@@ -14939,11 +14906,11 @@ msgstr "標記文字"
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
 msgid "Referenced by %s."
-msgstr "被 %s 參考。"
+msgstr "由 %s 參照。"
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
-msgstr "此為外鍵(Foreign Key)。"
+msgstr "此為外鍵。"
 
 #: templates/columns_definitions/column_name.twig:40
 msgid "Pick from Central Columns"
@@ -14956,7 +14923,7 @@ msgstr "新增"
 
 #: templates/database/qbe/footer_options.twig:3
 msgid "Add/Delete criteria rows"
-msgstr "新增/刪除基準列"
+msgstr "新增/刪除準則列"
 
 #: templates/database/qbe/footer_options.twig:5
 msgid "Add/Delete columns"
@@ -14964,7 +14931,7 @@ msgstr "新增/刪除欄位"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
-msgstr "檢視表名稱"
+msgstr "VIEW 名稱"
 
 #: templates/view_create.twig:79
 msgid "Column names"
@@ -14972,11 +14939,11 @@ msgstr "欄位名稱"
 
 #: templates/display/export/options_output_format.twig:3
 msgid "File name template:"
-msgstr "檔案名稱樣版:"
+msgstr "檔案名稱樣版："
 
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
-msgstr "以後也使用此設定"
+msgstr "以後匯出時，也使用此設定"
 
 #: templates/privileges/column_privileges.twig:21
 #: templates/privileges/column_privileges.twig:22
@@ -14998,7 +14965,7 @@ msgstr "聚合"
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
-msgstr ""
+msgstr "請將 FIDO U2F 裝置連接電腦的 USB 埠，然後於裝置確認登入。"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -15054,11 +15021,11 @@ msgstr "於目前連線階段"
 
 #: templates/console/display.twig:64
 msgid "ascending"
-msgstr "遞增"
+msgstr "順序"
 
 #: templates/console/display.twig:64
 msgid "descending"
-msgstr "遞減"
+msgstr "逆序"
 
 #: templates/console/display.twig:64
 msgid "Order:"
@@ -15066,7 +15033,7 @@ msgstr "排序："
 
 #: templates/console/display.twig:64
 msgid "Execution order"
-msgstr "執行順序"
+msgstr "執行排序"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
@@ -15106,19 +15073,17 @@ msgstr "分享此書籤"
 
 #: templates/console/display.twig:140
 msgid "Set default"
-msgstr "重設為預設值"
+msgstr "設為預設值"
 
 #: templates/console/display.twig:162
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
-msgstr ""
-"按 Enter 執行查詢或使用 Shift + Enter 輸入新的一行。要將永久使用此設定設為請"
-"檢視設定項目。"
+msgstr "按 Enter 執行查詢，或以 Shift + Enter 輸入新的一行。要永久儲存此設定，請檢視設定項目。"
 
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
-msgstr "新增至我的最愛"
+msgstr "新增至「最愛」"
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -15126,18 +15091,17 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"上傳的檔案可能超過了限制的大小，也可能是以 webkit 為基礎的瀏覽器 (Safari, "
-"Google Chrome, Arora 等) 的已知問題。"
+"上傳的檔案可能超過了限制的大小；這是以 webkit 為基礎的瀏覽器 (Safari, Google Chrome, Arora 等) 的已知問題。"
 
 #: templates/display/import/javascript.twig:16
 #, php-format
 msgid "%s of %s"
-msgstr "%s 之 %s"
+msgstr "%s / %s"
 
 #: templates/display/import/javascript.twig:17
 #, php-format
 msgid "%s/sec."
-msgstr "%s/每秒。"
+msgstr "每秒%s。"
 
 #: templates/display/import/javascript.twig:18
 msgid "About %MIN min. %SEC sec. remaining."
@@ -15149,7 +15113,7 @@ msgstr "約剩 %SEC 秒。"
 
 #: templates/display/import/javascript.twig:20
 msgid "The file is being processed, please be patient."
-msgstr "檔案正在處理中，請稍候。"
+msgstr "檔案正在處理，請稍候。"
 
 #: templates/display/import/javascript.twig:36
 msgid "Uploading your import file…"
@@ -15159,11 +15123,11 @@ msgstr "正在上傳您的匯入檔案…"
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr "正在上傳，沒有詳細資訊，請稍候。"
+msgstr "正在上傳，請稍候。沒有詳細資訊提供。"
 
 #: templates/display/export/options_output_compression.twig:4
 msgid "Compression:"
-msgstr "壓縮:"
+msgstr "壓縮："
 
 #: templates/display/export/options_output_compression.twig:11
 msgid "zipped"
@@ -15179,7 +15143,7 @@ msgstr "匯出樣板："
 
 #: templates/display/export/template_loading.twig:6
 msgid "New template:"
-msgstr "新樣板:"
+msgstr "新樣板："
 
 #: templates/display/export/template_loading.twig:8
 msgid "Template name"
@@ -15192,7 +15156,7 @@ msgstr "建立"
 
 #: templates/display/export/template_loading.twig:16
 msgid "Existing templates:"
-msgstr "已存在的樣板："
+msgstr "已有的樣板："
 
 #: templates/display/export/template_loading.twig:17
 msgid "Template:"
@@ -15209,12 +15173,12 @@ msgstr "匯入到目前伺服器"
 #: templates/display/import/import.twig:42
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr "匯入到資料庫  \"%s \""
+msgstr "匯入到「%s」資料庫"
 
 #: templates/display/import/import.twig:44
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr "匯入到資料表  \"%s \""
+msgstr "匯入到「%s」資料表"
 
 #: templates/display/import/import.twig:50
 msgid "File to import:"
@@ -15229,14 +15193,12 @@ msgstr "可使用已壓縮 (%s) 或未壓縮的檔案。"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"壓縮檔案名稱必須以 <strong>.[格式].[壓縮方式]</strong> 結尾。如: <strong>."
-"sql.zip</strong>"
+msgstr "壓縮檔案名稱必須以 <strong>.[格式].[壓縮方式]</strong> 結尾。如： <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
 msgid "You may also drag and drop a file on any page."
-msgstr "您也可以在任何一個頁面上拖曳檔案。"
+msgstr "也可以在任何頁面拖放檔案。"
 
 #: templates/display/import/import.twig:86
 msgid "File uploads are not allowed on this server."
@@ -15245,7 +15207,7 @@ msgstr "此伺服器不允許上傳檔案。"
 #: templates/display/import/import.twig:97
 #: templates/display/export/options_output_charset.twig:3
 msgid "Character set of the file:"
-msgstr "檔案編碼:"
+msgstr "檔案字元編碼："
 
 #: templates/display/import/import.twig:124
 msgid "Partial import:"
@@ -15263,13 +15225,12 @@ msgid ""
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"允許中斷匯入的動作，當偵測到執行時間已接近 PHP 執行時間的限制時。<em>(若要匯"
-"入大型檔案這是很好的方法之一，不過使用這種方法會破壞指令中的交易(Transaction)"
-"動作。)</em>"
+"當偵測到執行時間已接近 PHP "
+"執行時間的限制，允許中斷匯入的動作。<em>(若要匯入大型檔案，這是很好的方法，不過使用這種方法會破壞指令中的交易動作)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "由第一行開始跳過此數量的查詢 (SQL):"
+msgstr "由第一行開始跳過此數量的查詢 (SQL)："
 
 #: templates/display/import/import.twig:161
 msgid "Other options:"
@@ -15278,19 +15239,19 @@ msgstr "其他選項："
 #: templates/display/import/import.twig:174
 #: templates/display/export/options_format.twig:2
 msgid "Format-specific options:"
-msgstr "格式選項:"
+msgstr "格式選項："
 
 #: templates/display/import/import.twig:176
 #: templates/display/export/options_format.twig:4
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
-msgstr "請下拉至所選格式並設定選項，其它格式請忽略。"
+msgstr "請下拉至所選格式並設定選項，其他格式的選項不用理會。"
 
 #: templates/display/import/import.twig:185
 #: templates/display/export/options_format.twig:12
 msgid "Encoding Conversion:"
-msgstr "轉換編碼:"
+msgstr "轉換編碼："
 
 #: templates/table/secondary_tabs.twig:9
 msgid "Relation view"
@@ -15345,9 +15306,8 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如果欄位類型為 \"enum\" 或 \"set\"，請使用以下格式輸入值: 'a','b','c'…<br />"
-"如果需要輸入反斜線(\"\")或單引號(\"'\")，請在前面加上反斜線(如 '\\\\xyz' 或 "
-"'a\\'b')。"
+"如果欄位類型為 enum 或 set，請以此格式輸入值: 'a','b','c'…<br />如果需要輸入反斜線(\\"
+")或單引號(')，請在前面加上反斜線(如 \\\\xyz 或 a\\'b)。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15380,8 +15340,8 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"請使用此格式輸入轉換選項的值: 'a', 100, b, 'c'…<br />如果需要在值中輸入反斜"
-"槓 (\"\\\")或單引號(\"'\")，請在前面加上反斜槓 (如 '\\\\xyz' 或 'a\\'b')。"
+"請以此格式輸入轉換選項的值: 'a', 100, b, 'c'…<br />如果需要輸入反斜線(\\)或單引號(')，請在前面加上反斜線 (如 \\\\"
+"xyz 或 a\\'b)。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15405,7 +15365,7 @@ msgstr "字首"
 
 #: templates/database/structure/check_all_tables.twig:26
 msgid "Add prefix to table"
-msgstr "增加字首到資料表"
+msgstr "為資料表加上字首"
 
 #: templates/database/structure/check_all_tables.twig:27
 msgid "Replace table prefix"
@@ -15425,7 +15385,7 @@ msgstr "設為與中央清單一致"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "驗證"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15443,11 +15403,11 @@ msgstr "建立版本 %1$s"
 
 #: templates/table/tracking/create_version.twig:20
 msgid "Track these data definition statements:"
-msgstr "追蹤下列資料定義指令:"
+msgstr "追蹤此等資料定義指令："
 
 #: templates/table/tracking/create_version.twig:59
 msgid "Track these data manipulation statements:"
-msgstr "追蹤下列資料操作指令:"
+msgstr "追蹤此等資料操作指令："
 
 #: templates/table/tracking/create_version.twig:76
 msgid "Create version"
@@ -15459,7 +15419,7 @@ msgstr "分析資料表結構"
 
 #: templates/table/structure/optional_action_links.twig:22
 msgid "Normalize"
-msgstr ""
+msgstr "正規化"
 
 #: templates/table/structure/optional_action_links.twig:28
 msgid "Track view"
@@ -15471,7 +15431,7 @@ msgstr "資料庫："
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
-msgstr "選擇一個樣板"
+msgstr "選擇樣板"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
@@ -15501,7 +15461,7 @@ msgstr "無"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr "定義:"
+msgstr "定義："
 
 #: url.php:41
 msgid "Taking you to the target site."
@@ -15509,7 +15469,7 @@ msgstr "帶您至目標網站。"
 
 #: user_password.php:37
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "您現時還沒有足夠的權限！"
+msgstr "現時並沒有足夠權限！"
 
 #: view_create.php:46
 msgid "View name can not be empty!"
@@ -15561,7 +15521,7 @@ msgstr "讓伺服器執行較久一點的時間，直到執行更多的查詢指
 #: libraries/advisory_rules.txt:61
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "目前查詢的次數: %s"
+msgstr "目前查詢的次數：%s"
 
 #: libraries/advisory_rules.txt:63
 msgid "Percentage of slow queries"
@@ -15576,7 +15536,7 @@ msgstr "緩慢查詢佔全部的查詢數量比例過大。"
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
-msgstr "您可能需要增加 {long_query_time} 或最佳化緩慢查詢記錄中出現的查詢"
+msgstr "可能需要增加 {long_query_time} 或最佳化緩慢查詢記錄中出現的查詢"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
@@ -15597,7 +15557,7 @@ msgstr "伺服器執行期間產生的緩慢查詢比例過高。"
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
-msgstr "你的緩慢查詢率為每小時 %s，這個值應該低於每小時 1%%。"
+msgstr "緩慢查詢率為每小時 %s，這個值應該低於每小時 1%%。"
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -15629,31 +15589,27 @@ msgstr "緩慢查詢記錄"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 msgid "The slow query log is disabled."
-msgstr "未啟用緩慢查詢記錄(Slow query log)。"
+msgstr "未啟用「緩慢查詢記錄」。"
 
 #: libraries/advisory_rules.txt:88
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
-msgstr ""
-"要啟用緩慢查詢記錄請將 {log_slow_queries} 設為 'ON'，這將有助於不良查詢的故障"
-"排除。"
+msgstr "要啟用緩慢查詢記錄，請將 {log_slow_queries} 設為 ON，這將有助於不良查詢的故障排除。"
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries 目前設定為 'OFF'"
+msgstr "log_slow_queries 目前設定為 OFF"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
-msgstr ""
-"要啟用緩慢查詢記錄請將 {slow_query_log} 設為 'ON'，這將有助於不良查詢的故障排"
-"除。"
+msgstr "要啟用緩慢查詢記錄，請將 {slow_query_log} 設為 ON，這將有助於不良查詢的故障排除。"
 
 #: libraries/advisory_rules.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log 目前設定為 'OFF'"
+msgstr "slow_query_log 目前設定為 OFF"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -15667,13 +15623,13 @@ msgstr "MySQL 伺服器版本低於 5.1。"
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
-msgstr "您應該升級到 MySQL 5.1 或 5.5，以獲得更好的性能。"
+msgstr "應該升級到 MySQL 5.1，以獲得較好的性能；升級到 MySQL 5.5 更佳。"
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
 #, php-format
 msgid "Current version: %s"
-msgstr "目前版本: %s"
+msgstr "目前版本：%s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
 msgid "Minor Version"
@@ -15687,7 +15643,7 @@ msgstr "版本小於 5.1.30 (5.1 第一個釋出的正式版本)。"
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
-msgstr "您應該升級到 MySQL 5.1 或 5.5 最近的版本，以取得更好的性能。"
+msgstr "應該升級到 MySQL 5.1 最新的版本，以取得較好的性能；升級到 MySQL 5.5 更佳。"
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -15695,7 +15651,7 @@ msgstr "版本低於 5.5.8 (5.5 第一個釋出的正式版本)。"
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "您應升級到 MySQL 5.5 的穩定版本。"
+msgstr "應升級到 MySQL 5.5 的穩定版本。"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -15711,17 +15667,16 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"如果您並未自行編譯原始程式碼，那麼您可能是使用 Linux 發行版(Distribution)所修"
-"改的套件版本。而 MySQL 說明文件是依據的官方版本所撰寫，並不是依據發行版的套"
-"件 (例如 RedHat、Debian/Ubuntu 等)。"
+"如果您並未自行編譯原始程式碼，那麼您可能是使用 Linux 發行版所修改的套件版本。而 MySQL 說明文件是依據官方版本所撰寫，對發行版 (例如 "
+"RedHat、Debian/Ubuntu 等) 的套件可能不適用。"
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr "在 version_comment 中找到 'source'"
+msgstr "在 version_comment 中找到 'source' 字串"
 
 #: libraries/advisory_rules.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "MySQL 手冊的內容適用於官方編譯的版本。"
+msgstr "MySQL 手冊的內容，僅適用於官方編譯的版本。"
 
 #: libraries/advisory_rules.txt:132
 msgid ""
@@ -15733,7 +15688,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr "在 version_comment 中找到的 'percona'"
+msgstr "在 version_comment 中找到 'percona' 字串"
 
 #: libraries/advisory_rules.txt:135
 msgid "MySQL Architecture"
@@ -15741,7 +15696,7 @@ msgstr "MySQL 架構"
 
 #: libraries/advisory_rules.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr "MySQL 並非被編譯為 64 位元套件。"
+msgstr "MySQL 並非編譯成 64 位元套件。"
 
 #: libraries/advisory_rules.txt:139
 msgid ""
@@ -15755,15 +15710,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr "此主機上的可用記憶體: %s"
+msgstr "此主機的可用記憶體：%s"
 
 #: libraries/advisory_rules.txt:146
 msgid "Query cache disabled"
-msgstr "查詢快取未啟用"
+msgstr "已停用查詢快取"
 
 #: libraries/advisory_rules.txt:149
 msgid "The query cache is not enabled."
-msgstr "未啟用查詢快取(Query cache)。"
+msgstr "未啟用查詢快取。"
 
 #: libraries/advisory_rules.txt:150
 msgid ""
@@ -15772,13 +15727,12 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"正確的設定查詢快取可以大幅增進效能。將 {query_cache_size} 設定為兩位數的 MiB "
-"值，並將 {query_cache_type} 設定為 'ON'，即可啟用查詢快取。<b>注意:</b> 若您"
-"已啟用 memcached，則可忽略這個建議。"
+"正確的設定查詢快取，可以大幅增進效能。若要啟用查詢快取，請將 {query_cache_size} 設定為兩位數的 MiB 值，並將 "
+"{query_cache_type} 設定為 ON。<b>注意：</b>若已啟用 memcached，則可忽略這個建議。"
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr "query_cache_size 已設為 0 或 query_cache_type 已設為 'OFF'"
+msgstr "query_cache_size 已設為 0 或 query_cache_type 已設為 OFF"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query caching method"
@@ -15795,18 +15749,16 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"您在一台有相當大流量的資料庫上使用的 MySQL 查詢快取。除非您有多台資料庫，否則"
-"可以考慮使用 <a href=\"HTTP://dev.mysql.com/doc/refman/5.5/en/ha-memcached."
-"html\"> memcached</a> 來取代 MySQL 查詢快取。"
+"您正在於一台有相當大流量的資料庫使用 MySQL 查詢快取。可以考慮改用 <a href=\"HTTP://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\">memcached</a> 來取代 MySQL "
+"查詢快取，特別是當您使用多台次要備援資料庫，。"
 
 #: libraries/advisory_rules.txt:158
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
-msgstr ""
-"查詢快取已啟用，伺服器每秒收到 %d 個查詢。如果每秒超過 100 個查詢，將觸發此規"
-"則。"
+msgstr "已啟用查詢快取，伺服器每秒收到 %d 個查詢。如果每秒超過 100 個查詢，將觸發此規則。"
 
 #: libraries/advisory_rules.txt:160
 #, php-format
@@ -15815,7 +15767,7 @@ msgstr "查詢快取效能(%%)"
 
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr "查詢快取命中率過低，並不是有效。"
+msgstr "查詢快取命中率過低，效能不佳。"
 
 #: libraries/advisory_rules.txt:164
 msgid "Consider increasing {query_cache_limit}."
@@ -15839,15 +15791,14 @@ msgstr "查詢快取的使用比例低於 80%%。"
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
-msgstr ""
-"可能是 {query_cache_limit} 太低所引起的。清空查詢快取可能可以改善狀況。"
+msgstr "可能是 {query_cache_limit} 太低所引起的。清空查詢快取可能改善狀況。"
 
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
-msgstr "目前閒置查詢快取記憶體為全部查詢快取的大小的 %s%%，這個值應高於 80%%"
+msgstr "目前的閒置查詢快取記憶體，為全部查詢快取的大小的 %s%%；這個值應高於 80%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query cache fragmentation"
@@ -15868,12 +15819,10 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"快取資料嚴重分散會促使 Qcache_lowmem_prunes 增加。  這可能是因為 "
-"{query_cache_size} 太小導致太多查詢快取超出限制而被從記憶體刪除。 若要即時短"
-"暫的解決問題您可以清空(Flush)查詢快取 (可能會造成查詢快取被鎖定一段時間)。 小"
-"心調整將 {query_cache_min_res_unit} 降低也可以解決問題，註: 您可以可將其設為"
-"查詢大小的平均值，使用以下公式:  (query_cache_size - qcache_free_memory) / "
-"qcache_queries_in_cache"
+"快取資料嚴重分散會使得 Qcache_lowmem_prunes 增加。這可能是因為 {query_cache_size} "
+"太小，導致太多查詢快取超出限制而被從記憶體刪除。若要即時短暫的解決問題，可以清空(Flush)查詢快取 (可能會造成查詢快取被鎖定一段長時間)。小心將 "
+"{query_cache_min_res_unit} 調低也可以解決問題，例如您可以可將其設為查詢大小的平均值，使用以下公式：("
+"query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
 #: libraries/advisory_rules.txt:179
 #, php-format
@@ -15881,9 +15830,7 @@ msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
-msgstr ""
-"快取資料目前的分散率為 %s%%，當 100%% 分散時代表查詢快取變成直接替換資料無快"
-"取作用，此值應低於 20%%。"
+msgstr "快取資料目前的分散率為 %s%%；若分散率是 100%%，代表查詢快取變成直接替換資料，無快取作用。此值應低於 20%%。"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache low memory prunes"
@@ -15901,15 +15848,14 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
-"你可能需要增加 {query_cache_size}，但是請注意，維護快取額外消耗的資源通常的主"
-"因是過度增加快取，因此請小幅增加快取並監控結果。"
+"可能需要增加 {query_cache_size}；但是請注意，維護快取額外消耗的資源通常的主因是過度增加快取，因此請逐次小幅增加，並監視結果。"
 
 #: libraries/advisory_rules.txt:186
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
-msgstr "刪除與新增查詢的比例是 %s%%。此值越低是越好 (警戒比例: 0.1%%)"
+msgstr "刪除與新增查詢的比例是 %s%%。此值越低越好 (警戒比例：0.1%%)"
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
@@ -15919,18 +15865,18 @@ msgstr "查詢快取最大大小"
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
-msgstr "查詢快取超过 128 MB，過大的查詢快取可能會引起額外的維謢開銷。"
+msgstr "查詢快取超過 128 MB，過大的查詢快取可能會引起額外的維謢開銷。"
 
 #: libraries/advisory_rules.txt:192
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr "根據您的環境，減少這個值可能可以提高效能。"
+msgstr "視乎個別情況，減少這個值可能可以提高效能。"
 
 #: libraries/advisory_rules.txt:193
 #, php-format
 msgid "Current query cache size: %s"
-msgstr "目前查詢快取大小: %s"
+msgstr "目前查詢快取大小：%s"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache min result size"
@@ -15939,7 +15885,7 @@ msgstr "查詢快取最小結果大小"
 #: libraries/advisory_rules.txt:198
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr "查詢快取的上限為預設的 1 MB。"
+msgstr "查詢快取結果集的上限為預設的 1 MB。"
 
 #: libraries/advisory_rules.txt:199
 msgid ""
@@ -15952,13 +15898,9 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
-"更改 {query_cache_limit} 可以提高效率 (通常是增加)，這個變數用來限制可以儲存"
-"在查詢快取中的查詢結果。如果有許多超過 1 MB 的查詢是適合快取的 (讀取多，寫入"
-"少)，那麼增加 {query_cache_limit} 將會增加效率。反之，若許多超過 1 MB 的查詢"
-"結果是不適合快取的 (當資料表更新時快取就會無效) 那麼增加 {query_cache_limit} "
-"就會降地效率。如果許多查詢結果在 1 MB 以上存入快取狀態良好 (多次讀取、少量寫"
-"入)，那麼增加 {query_cache_limit} 可以提高效率。反之，在存入快取狀態是不良 "
-"(往往因資料表更新而失效) 的情況下，增加 {query_cache_limit} 反而會降低效率。"
+"更改 (通常是增加) {query_cache_limit} 可以提高效率。這個變數用來限制可以儲存在查詢快取中的查詢結果。如果有許多超過 1 MB "
+"的查詢是適合快取的 (讀取多，寫入少)，那麼增加 {query_cache_limit} 將會增加效率。反之，若許多超過 1 MB "
+"的查詢結果是不適合快取的 (往往因資料表更新而失效)，那麼增加 {query_cache_limit} 就反而會降低效率。"
 
 #: libraries/advisory_rules.txt:200
 msgid "query_cache_limit is set to 1 MiB"
@@ -15970,15 +15912,13 @@ msgstr "因排序建立的暫存表百分比"
 
 #: libraries/advisory_rules.txt:207 libraries/advisory_rules.txt:214
 msgid "Too many sorts are causing temporary tables."
-msgstr "太多排序產生的暫存表。"
+msgstr "太多因為排序而產生的暫存表。"
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
-msgstr ""
-"根據您的系統記憶體多寡，考慮增加 {sort_buffer_size} 和 "
-"{read_rnd_buffer_size}。"
+msgstr "根據系統記憶體多寡，考慮增加 {sort_buffer_size} 和 {read_rnd_buffer_size}。"
 
 #: libraries/advisory_rules.txt:209
 #, php-format
@@ -15995,7 +15935,7 @@ msgstr "排序產生的暫存表比率"
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "平均暫存表: %s，此值應每小時小於 1。"
+msgstr "平均暫存表數：%s，此值應小於每小時 1 個。"
 
 #: libraries/advisory_rules.txt:218
 msgid "Sort rows"
@@ -16003,7 +15943,7 @@ msgstr "資料列排序"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
-msgstr "有大量的資料列被排序。"
+msgstr "有大量資料列需要排序。"
 
 #: libraries/advisory_rules.txt:222
 msgid ""
@@ -16011,35 +15951,31 @@ msgid ""
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
-msgstr ""
-"大量的排序不是什麼嚴重的問題，但請您確保在 ORDER BY 子句中使用索引欄位來排"
-"序，以加速排序的執行速度。"
+msgstr "大量排序不是錯，但請確保 ORDER BY 子句使用有索引的欄位來排序，以加速排序的執行速度。"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr "平均排序列數: %s"
+msgstr "平均排序列數：%s"
 
 #: libraries/advisory_rules.txt:226
 msgid "Rate of joins without indexes"
-msgstr "未使用索引的資料表合併(Join)比率"
+msgstr "未使用索引的資料表連結(join)比率"
 
 #: libraries/advisory_rules.txt:229
 msgid "There are too many joins without indexes."
-msgstr "有太多的資料表合併(Join)未使用索引。"
+msgstr "有太多的資料表連結(join)未使用索引。"
 
 #: libraries/advisory_rules.txt:230
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
-msgstr ""
-"這代表資料表合併(Join)時會掃描完整的資料表內容，,將合併條件中所使用的欄位設定"
-"為索引欄位可大幅加快資料表合併時的速度。"
+msgstr "這代表資料表連結(join)時會掃描整個資料表。將連結條件所使用的欄位設定為有索引的欄位，可大幅加快資料表連結時的速度。"
 
 #: libraries/advisory_rules.txt:231
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "平均資料表合併次數: %s，此值每小時應小於 1"
+msgstr "平均資料表連結(join)次數: %s，此值應小於每小時 1 次"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of reading first index entry"
@@ -16058,15 +15994,14 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
-"這通常表示資料庫時常掃描全部索引(Full index scan)。雖然掃描全部索引會比掃描資"
-"料表速度還要快，但在擁有大量資料的資料表仍需消耗不少 CPU 時間，如果這些資料表"
-"有大量的更新和刪除操作，執行 'OPTIMIZE TABLE' 可以減少掃描全部索引的次數或提"
-"升速度，除此之外只能靠重寫查詢來減少掃描全部索引。"
+"這通常表示資料庫時常掃描全部索引。雖然掃描全部索引，會比掃描資料表速度要快，但在擁有大量資料的資料表仍需消耗不少 CPU "
+"時間，如果這些資料表有大量的更新和刪除操作，執行 OPTIMIZE TABLE "
+"可以減少掃描全部索引的次數或提升速度，除此之外只能靠重寫查詢來減少掃描全部索引。"
 
 #: libraries/advisory_rules.txt:238
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "平均掃瞄索引次數: %s，此值每小時應小於 1"
+msgstr "平均掃描索引次數：%s，此值應小於每小時 1 次"
 
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading fixed position"
@@ -16081,16 +16016,14 @@ msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
-msgstr ""
-"這表示許多查詢的結果需要排序或掃描全部資料表(Full table scan)，這包括未使用索"
-"引的資料表合併(Join)查詢。請在適當的地方增加索引。"
+msgstr "這表示許多查詢的結果需要排序，或掃描整個資料表，這包括未使用索引的資料表連結(join)查詢。請在適當的地方增加索引。"
 
 #: libraries/advisory_rules.txt:245
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
-msgstr "平均固定位置讀取次數: %s，這個值每小時應小於 1"
+msgstr "平均固定位置讀取次數：%s，這個值應小於每小時 1 次"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading next table row"
@@ -16104,17 +16037,17 @@ msgstr "讀取資料表下一筆資料比率過高。"
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
-msgstr "這表示有許多查詢做了整個資料表的掃描，請適時地增加索引。"
+msgstr "這表示有許多查詢需要掃描整個資料表。請適時增加索引。"
 
 #: libraries/advisory_rules.txt:252
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "平均讀取資料表下一筆資料次數: %s，此值每小時應小於 1"
+msgstr "平均讀取資料表下一筆資料次數：%s，此值應小於每小時 1 次"
 
 #: libraries/advisory_rules.txt:255
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size 與 max_heap_table_size 設定值不一制"
+msgstr "tmp_table_size 與 max_heap_table_size 設定值不一致"
 
 #: libraries/advisory_rules.txt:258
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
@@ -16126,14 +16059,12 @@ msgid ""
 "value of either to determine the maximum size of in-memory tables. So if you "
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
-msgstr ""
-"如果您是有意更改其中之一: 伺服器會使用較低的值來決定記憶體中資料表的最大大"
-"小。如果您想要增加的記憶體中資料表大小，您應該同時增加另一個值。"
+msgstr "如果有意更改其中之一的話：伺服器會使用當中較低的值來決定記憶體中資料表的上限。如果想要增加記憶體中資料表的上限，應該同時增加另一個值。"
 
 #: libraries/advisory_rules.txt:260
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr "目前的值是 tmp_table_size: %s，max_heap_table_size: %s"
+msgstr "目前 tmp_table_size 的值是 %s，max_heap_table_size 的值是 %s"
 
 #: libraries/advisory_rules.txt:262
 msgid "Percentage of temp tables on disk"
@@ -16143,7 +16074,7 @@ msgstr "暫存表在磁碟的比率"
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
-msgstr "太多的暫存資料表寫入至磁碟而非保存在記憶體。"
+msgstr "太多的暫存資料表寫入至磁碟，而非儲存在記憶體。"
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -16155,11 +16086,10 @@ msgid ""
 "mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助，但某些暫存資料表"
-"仍然會寫到磁碟與這些變數無關。要解決這個問題您必須重寫查詢條件避免在暫存資料"
-"表中儲存 BLOB 或 TEXT 型態的欄位或者使用長度大於 512 位元組的欄位，如 <a "
-"href=\"HTTP://www.facebook.com/note.php?note_id=10150111255065841&comments"
-"\">Pythian 小組文章</a> 文中所提到的狀況"
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能有所幫助。但某些暫存資料表仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存資料表中儲存 BLOB 或 TEXT "
+"型態的欄位，或者使用長度大於 512 位元組的欄位，如 <a href=\"HTTP://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">Pythian 小組文章</a>開首所提到的狀況"
 
 #: libraries/advisory_rules.txt:267
 #, php-format
@@ -16182,22 +16112,21 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助，但某些暫存資料表"
-"仍然會寫到磁碟與這些變數無關。要解決這個問題您必須重寫查詢條件避免在暫存資料"
-"表中儲存 BLOB 或 TEXT 型態的欄位或者使用長度大於 512 位元組的欄位，如 <a "
-"href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
-"\">MySQL 說明文件</a> 中所提到的狀況"
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能有所幫助，但某些暫存資料表仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存資料表中儲存 BLOB 或 TEXT "
+"型態的欄位，或者使用長度大於 512 位元組的欄位，如 <a href=\"https://dev.mysql.com/doc/refman/5.5/"
+"en/internal-temporary-tables.html\">MySQL 說明文件</a>所提到的狀況"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
-msgstr "暫存資料表寫入至磁碟的比率: %s，此值每小時應小於 1"
+msgstr "暫存資料表寫入至磁碟的比率：%s，此值應小於每小時 1 次"
 
 #: libraries/advisory_rules.txt:278
 msgid "MyISAM key buffer size"
-msgstr "MyISAM 鍵值緩衝區(Key buffer)大小"
+msgstr "MyISAM 鍵值緩衝區大小"
 
 #: libraries/advisory_rules.txt:281
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
@@ -16207,9 +16136,7 @@ msgstr "鍵值緩衝區未初始化。將無法快取 MyISAM 索引。"
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
-msgstr ""
-"請根據您的 MyISAM 索引的大小來設定 {key_buffer_size}。一開始通常會設定為 "
-"64M。"
+msgstr "請根據 MyISAM 索引的大小來設定 {key_buffer_size}。一開始通常會設定為 64M。"
 
 #: libraries/advisory_rules.txt:283
 msgid "key_buffer_size is 0"
@@ -16230,19 +16157,17 @@ msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
-msgstr ""
-"您可能需要減少 {key_buffer_size} 的值，重新檢查資料表是否曾刪除過索引或檢查查"
-"詢是否如預期的使用了索引。"
+msgstr "可能需要減少 {key_buffer_size} 的值，重新檢視資料表，是否曾經刪除過索引，或檢視查詢是否如預期的使用了索引。"
 
 #: libraries/advisory_rules.txt:290
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "MyISAM 鍵值緩衝區最大使用 %%: %s%%，此值應該要在 95%% 以上"
+msgstr "MyISAM 鍵值緩衝區最大使用 %%：%s%%，此值應該要在 95%% 以上"
 
 #: libraries/advisory_rules.txt:293
 msgid "Percentage of MyISAM key buffer used"
-msgstr "MyISAM 鍵值緩衝區使用比例"
+msgstr "MyISAM 鍵值緩衝區使用比率"
 
 #: libraries/advisory_rules.txt:298
 #, php-format
@@ -16251,21 +16176,21 @@ msgstr "MyISAM 鍵值緩衝區使用 %% : %s%%，此值應該在 95%% 以上"
 
 #: libraries/advisory_rules.txt:300
 msgid "Percentage of index reads from memory"
-msgstr "從記憶體中讀取索引的比例"
+msgstr "從記憶體中讀取索引的比率"
 
 #: libraries/advisory_rules.txt:303
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr "索引使用 MyISAM 鍵值緩衝區的比例太低。"
+msgstr "索引使用 MyISAM 鍵值緩衝區的比率太低。"
 
 #: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
-msgstr "您可能需要增加 {key_buffer_size} 的值。"
+msgstr "可能需要增加 {key_buffer_size} 的值。"
 
 #: libraries/advisory_rules.txt:305
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "從記憶體中讀取索引: %s%%, 這個值應該在 95%% 以上"
+msgstr "從記憶體中讀取索引：%s%%，這個值應該在 95%% 以上"
 
 #: libraries/advisory_rules.txt:309
 msgid "Rate of table open"
@@ -16279,39 +16204,35 @@ msgstr "資料表開啟比率過高。"
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
-msgstr ""
-"開啟資料表會大量使用磁碟存取，請增加 {table_open_cache} 可以避免此問題。"
+msgstr "開啟資料表會大量使用磁碟存取。增加 {table_open_cache} 或能避免此問題。"
 
 #: libraries/advisory_rules.txt:314
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "資料表開啟比率: %s，此值應該每小時低於 10"
+msgstr "資料表開啟比率：%s，此值應該低於每小時 10 次"
 
 #: libraries/advisory_rules.txt:316
 msgid "Percentage of used open files limit"
-msgstr "已使用檔案開啟限制比例"
+msgstr "已使用檔案開啟限制比率"
 
 #: libraries/advisory_rules.txt:319
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
-msgstr ""
-"檔案開啟的數量已接近限制，您可能會發生開啟過多檔案 \"Too many open files\" 的"
-"錯誤。"
+msgstr "檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open files)」的錯誤。"
 
 #: libraries/advisory_rules.txt:320 libraries/advisory_rules.txt:327
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
-"請評估增加 {open_files_limit}，並在更改  {open_files_limit} 設定值後重新啟動"
-"伺服器檢查錯誤記錄是否有異常。"
+"請考慮增加 {open_files_limit}，並在更改 {open_files_limit} 設定後，重新啟動伺服器，並檢查錯誤記錄是否有異常。"
 
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr "檔案開啟的數量已達允許的 %s%%，此值應低於 85%%"
+msgstr "檔案開啟的數量已達上限的 %s%%，此值應低於 85%%"
 
 #: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
@@ -16324,7 +16245,7 @@ msgstr "檔案開啟比率過高。"
 #: libraries/advisory_rules.txt:328
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "檔案開啟次數: %s，此值應該每小時低於 5"
+msgstr "檔案開啟次數：%s，此值應該低於每小時 5 次"
 
 #: libraries/advisory_rules.txt:330
 #, php-format
@@ -16337,12 +16258,12 @@ msgstr "太多的資料表鎖定並未立即給予。"
 
 #: libraries/advisory_rules.txt:334 libraries/advisory_rules.txt:341
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr "最佳化查詢或使用 InnoDB 來減少鎖定等待。"
+msgstr "最佳化查詢及／或使用 InnoDB 來減少鎖定等待。"
 
 #: libraries/advisory_rules.txt:335
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "立即資料表鎖定: %s%%，這個值應該在 95%% 以上"
+msgstr "立即資料表鎖定：%s%%，這個值應該在 95%% 以上"
 
 #: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
@@ -16351,7 +16272,7 @@ msgstr "資料表鎖定等待率"
 #: libraries/advisory_rules.txt:342
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "資料表鎖定等待率: %s，這個值應該每小時低於 1"
+msgstr "資料表鎖定等待率：%s，這個值應該低於每小時 1 次"
 
 #: libraries/advisory_rules.txt:344
 msgid "Thread cache"
@@ -16365,11 +16286,11 @@ msgstr "執行緒快取未啟用，將導致建立新的連線到 MySQL 時消�
 
 #: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr "設定 {thread_cache_size} > 0 以啟用執行緒快取。"
+msgstr "設定 {thread_cache_size} 大於 0 以啟用執行緒快取。"
 
 #: libraries/advisory_rules.txt:349
 msgid "The thread cache is set to 0"
-msgstr "執行緒快取(Thread cache)目前設定為 0"
+msgstr "執行緒快取目前設定為 0"
 
 #: libraries/advisory_rules.txt:351
 #, php-format
@@ -16387,21 +16308,21 @@ msgstr "增加 {thread_cache_size}。"
 #: libraries/advisory_rules.txt:356
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "執行緒快取命中率: %s%%，這個值應該在 80%% 以上"
+msgstr "執行緒快取命中率：%s%%，這個值應該在 80%% 以上"
 
 #: libraries/advisory_rules.txt:358
 msgid "Threads that are slow to launch"
-msgstr "執行緒為緩慢的啟動"
+msgstr "執行緒的緩慢啟動"
 
 #: libraries/advisory_rules.txt:361
 msgid "There are too many threads that are slow to launch."
-msgstr "有太多執行緒為緩慢的啟動。"
+msgstr "有太多執行緒啟動得很慢。"
 
 #: libraries/advisory_rules.txt:362
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
-msgstr "這通常發生在系統超載的情況下，您需要仔細地監控您的系統負載。"
+msgstr "因為這是很簡單的事件，所以發生通常是因為系統已經超越負荷。請仔細監控系統負載。"
 
 #: libraries/advisory_rules.txt:363
 #, php-format
@@ -16420,7 +16341,7 @@ msgstr "Slow_launch_time 已超過 2 秒。"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
-msgstr "設定 {slow_launch_time} 為 1 或 2 秒， 以校正緩慢啟動的執行緒數量。"
+msgstr "將 {slow_launch_time} 設為 1 或 2 秒， 以正確紀錄緩慢啟動的執行緒數量。"
 
 #: libraries/advisory_rules.txt:370
 #, php-format
@@ -16429,13 +16350,13 @@ msgstr "slow_launch_time 目前設定為 %s"
 
 #: libraries/advisory_rules.txt:374
 msgid "Percentage of used connections"
-msgstr "已使用的連線百分比"
+msgstr "連線百分比"
 
 #: libraries/advisory_rules.txt:377
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
-msgstr "最大已用連線數接近 {max_connections}。"
+msgstr "最大的連線數已經很接近 {max_connections}。"
 
 #: libraries/advisory_rules.txt:378
 msgid ""
@@ -16443,8 +16364,8 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"增加 {max_connections} 或減少 {wait_timeout} 可以使得未正常結束資料庫連線者更"
-"快速的被移除，以確保程式碼能正確的結束資料庫連線。"
+"增加 {max_connections} 或減少 {wait_timeout} "
+"可以使得未正常結束的資料庫連線者快一些被清除。並且確保用來連進來的程式能正確的結束資料庫連線。"
 
 #: libraries/advisory_rules.txt:379
 #, php-format
@@ -16454,7 +16375,7 @@ msgstr "Max_used_connections 已達 max_connections 的 %s%%，這個值應低�
 
 #: libraries/advisory_rules.txt:381
 msgid "Percentage of aborted connections"
-msgstr "已中斷的連線百分比"
+msgstr "斷線百分比"
 
 #: libraries/advisory_rules.txt:384 libraries/advisory_rules.txt:391
 msgid "Too many connections are aborted."
@@ -16466,9 +16387,8 @@ msgid ""
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"連線通常會因此無法取得授權而中斷，請參考 <a href=\"https://www.percona.com/"
-"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">此文章</"
-"a> 可能對您追查連線中斷的原因有所幫助。"
+"連線通常會因為無法取得授權而中斷。要追查連線中斷的原因，請參閱<a href=\"https://www.percona.com/blog/2008/"
+"08/23/how-to-track-down-the-source-of-aborted_connects/\">此文章</a>。"
 
 #: libraries/advisory_rules.txt:386
 #, php-format
@@ -16483,7 +16403,7 @@ msgstr "中斷連線比率"
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr "已中斷的連線的比率是 %s，此值應每小時小於 1"
+msgstr "斷線的比率是 %s，此值應小於每小時 1 次"
 
 #: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
@@ -16514,7 +16434,7 @@ msgstr "用戶端連線不正常中斷比率"
 #: libraries/advisory_rules.txt:407
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "用戶端連線不正常中斷比率為 %s，此值每小時應低於 1"
+msgstr "用戶端連線不正常中斷比率為 %s，此值應低於每小時 1 次"
 
 #: libraries/advisory_rules.txt:411
 msgid "Is InnoDB disabled?"
@@ -16522,7 +16442,7 @@ msgstr "是否已停用 InnoDB？"
 
 #: libraries/advisory_rules.txt:414
 msgid "You do not have InnoDB enabled."
-msgstr "您未啟用 InnoDB。"
+msgstr "未啟用 InnoDB。"
 
 #: libraries/advisory_rules.txt:415
 msgid "InnoDB is usually the better choice for table engines."
@@ -16555,12 +16475,11 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"特別在某些會大量寫入資料到 InnoDB 資料表的系統上，您應設定 "
-"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 25%%。不論如何，這個值"
-"越大，在資料庫當機時還原資料庫的時間將越長，所以這個值不應該高於 256 MB。請注"
-"意，修改這個數值必須關閉伺服器並刪除所有已存在的 InnoDB 的記錄檔，在 my.cnf "
-"設定檔中設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參考 <a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"特別在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 {innodb_log_file_size} 為 "
+"{innodb_buffer_pool_size} 的 25%%。不論如何，這個值越大，在資料庫當機時還原資料庫的時間將越長，所以這個值不應該高於 "
+"256 MB。請注意，若要修改這個值，必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href=\""
+"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules.txt:423
@@ -16568,15 +16487,15 @@ msgstr ""
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr "您的 InnoDB 記錄檔與 InnoDB 緩衝池大小比例為 %s%% ，此值不應低於 20%%"
+msgstr "InnoDB 記錄檔與 InnoDB 緩衝池大小比例為 %s%%，此值不應低於 20%%"
 
 #: libraries/advisory_rules.txt:425
 msgid "Max InnoDB log size"
-msgstr "InnoDB 記錄大小限制"
+msgstr "InnoDB 記錄上限"
 
 #: libraries/advisory_rules.txt:428
 msgid "The InnoDB log file size is inadequately large."
-msgstr "InnoDB 記錄檔大小不足。"
+msgstr "InnoDB 記錄檔不夠大。"
 
 #: libraries/advisory_rules.txt:429
 #, php-format
@@ -16591,19 +16510,17 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就已足"
-"夠。過大的 {innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參考 "
-"<a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">此篇文章</a>。修改這個數值必須關閉伺服器並刪除所有已"
-"存在的 InnoDB 的記錄檔，在 my.cnf 設定檔中設定新的值，然後啟動伺服器並檢查錯"
-"誤記錄查看是否一切順利。請參考 <a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
-"章</a>"
+"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就足夠。過大的 "
+"{innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參閱<a href=\"https://www.percona.com/"
+"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">此篇文章</a>。若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf 設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules.txt:430
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "你的 InnoDB 記錄檔固定大小為 %s MB"
+msgstr "InnoDB 記錄檔固定大小為 %s MB"
 
 #: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
@@ -16611,7 +16528,7 @@ msgstr "InnoDB 緩衝池大小"
 
 #: libraries/advisory_rules.txt:435
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "您的 InnoDB 緩衝池過小。"
+msgstr "InnoDB 緩衝池太小了。"
 
 #: libraries/advisory_rules.txt:436
 #, php-format
@@ -16627,13 +16544,11 @@ msgid ""
 "\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
-"InnoDB 緩衝池對 InnoDB 資料表的效能有重大影響，請將您剩餘的記憶體分配給此緩衝"
-"區。如果資料庫伺服器僅有 InnoDB 作為儲存引擎，並沒有運行的其他服務 (如網頁伺"
-"服器)，您可以將高達 80%% 的可用記憶體分配給它。如果情況並非如此，您需要仔細評"
-"估其他服務和非 InnoDB 資料表的記憶體消耗狀況，並相對應地設定此變數。如果將它"
-"設定得太高，您的系統將會開始記憶體和磁碟的切換，因而大大降低效能。請參考 <a "
-"href=\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">這篇文章</a>"
+"InnoDB 緩衝池對 InnoDB 資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝區。如果資料庫伺服器僅以 InnoDB 作為儲存引擎，"
+"又沒有運行其他服務 (如網頁伺服器)，可以將最高 80%% 的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服務和非 InnoDB "
+"資料表的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太高，系統會開始將記憶體資料置換到磁碟，因而大大降低效能。請參閱<a href=\""
+"https://www.mysqlperformanceblog.com/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">這篇文章</a>"
 
 #: libraries/advisory_rules.txt:437
 #, php-format
@@ -16643,17 +16558,16 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"您目前的 InnoDB 緩衝池已使用記憶體的 %s%%。如果您指派少於 60%% 將觸發此規則，"
-"然而也許因為沒有太多的 InnoDB 資料表或其他服務同時運行於此機器，所以這樣也許"
-"十分適用於您的系統。"
+"目前的 InnoDB 緩衝池已使用記憶體的 %s%%。如果指派少於 60%% 將觸發此規則，然而也許因為沒有太多的 InnoDB "
+"資料表或其他服務同時運行於此電腦，所以這樣也許十分適用於您的系統。"
 
 #: libraries/advisory_rules.txt:441
 msgid "MyISAM concurrent inserts"
-msgstr "MyISAM 同時新增"
+msgstr "MyISAM 並行新增"
 
 #: libraries/advisory_rules.txt:444
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "啟用 {concurrent_insert} 設定為 1"
+msgstr "將之設定為 1，以啟用 {concurrent_insert}"
 
 #: libraries/advisory_rules.txt:445
 msgid ""
@@ -16661,9 +16575,8 @@ msgid ""
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
-"將 {concurrent_insert} 設為 1 可以減少在相同表上的讀取和寫入衝突，請參考 <a "
-"href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html"
-"\">MySQL 文件</a>"
+"將 {concurrent_insert} 設為 1 可以減少在相同表上的讀取和寫入衝突，請參閱 <a href=\"https://dev.mysql."
+"com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL 說明文件</a>"
 
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
