@@ -38,6 +38,7 @@ jobs:
     - php: nightly
     - os: windows
     - os: osx
+    - name: "PHP 7.1 with dbase extension"
 
   include:
     - stage: "Lint and analyse code"
@@ -107,7 +108,7 @@ jobs:
         - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
 
     - stage: "PHP Unit tests"
-      name: "With dbase extension"
+      name: "PHP 7.1 with dbase extension"
       php: 7.1
       env: CI_MODE=test
       install:
