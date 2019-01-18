@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:23-0200\n"
-"PO-Revision-Date: 2019-01-16 05:09+0000\n"
+"PO-Revision-Date: 2019-01-18 20:25+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -14642,19 +14642,19 @@ msgstr "実行"
 
 #: libraries/classes/Util.php:4063
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSLは使用されていません"
 
 #: libraries/classes/Util.php:4068
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSLは無効な検証で使用されます"
 
 #: libraries/classes/Util.php:4070
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSLはCAなしで使用されます"
 
 #: libraries/classes/Util.php:4073
 msgid "SSL is used"
-msgstr ""
+msgstr "SSLを使用されています"
 
 #: libraries/classes/Util.php:4192
 msgid "Users"
@@ -14677,7 +14677,7 @@ msgstr "ZIP アーカイブにエラーがあります:"
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
-msgstr ""
+msgstr "セッションクッキーの設定に失敗しました。 phpMyAdminにアクセスするのにHTTPSの代わりにHTTPが使用されている可能性があります。"
 
 #: libraries/common.inc.php:336
 msgid "Invalid authentication method set in configuration:"
@@ -14850,7 +14850,7 @@ msgstr ""
 
 #: navigation.php:27
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "致命的なエラー：ナビゲーションへのアクセスに使用できるのはAjaxだけです"
 
 #: prefs_forms.php:36 setup/frames/form.inc.php:22
 msgid "Incorrect form specified!"
@@ -14979,15 +14979,15 @@ msgstr "トリガを作成する特権がありません"
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
-msgstr ""
+msgstr "ユーザ名とホスト名は変更されませんでした。パスワードを変更したい場合は、「パスワードを変更する」タブを使用してください。"
 
 #: server_status.php:40
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "サーバ状態を表示する為に十分な権限はありません。"
 
 #: server_status_advisor.php:38
 msgid "Not enough privilege to view the advisor."
-msgstr ""
+msgstr "アドバイザを表示する為に十分な権限はありません。"
 
 #: server_status_processes.php:38
 #, php-format
@@ -15002,11 +15002,11 @@ msgstr "スレッド %s の終了に失敗しました。すでに閉じてい�
 
 #: server_status_queries.php:48
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "クエリ統計を表示するのに十分な権限はありません。"
 
 #: server_status_variables.php:57
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "ステータス変数を表示する権限は十分ありません。"
 
 #: setup/frames/config.inc.php:20 setup/frames/index.inc.php:197
 msgid "Configuration file"
