@@ -1,0 +1,23 @@
+<input class="save_cells_at_once" type="hidden" value="{{ save_cells_at_once }}">
+<div class="common_hidden_inputs">
+  {{ get_hidden_inputs(db, table) }}
+</div>
+
+{{ data_for_resetting_column_order|raw }}
+{{ options_block|raw }}
+
+{% if delete_link == delete_row or delete_link == kill_process %}
+  <form method="post" action="tbl_row_action.php" name="resultsForm" id="resultsForm_{{ unique_id }}" class="ajax">
+    {{ get_hidden_inputs(db, table, 1) }}
+    <input type="hidden" name="goto" value="sql.php">
+{% endif %}
+
+<div class="responsivetable">
+  <table class="table_results data ajax" data-uniqueId="{{ unique_id }}">
+
+    {{ button|raw }}
+    {{ table_headers_for_columns|raw }}
+    {{ column_at_right_side|raw }}
+
+      </tr>
+    </thead>

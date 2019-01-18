@@ -1140,80 +1140,59 @@ class Results
     /**
      * Get the headers of the results table
      *
-     * @param array        $displayParts                which elements to display
-     * @param array        $analyzed_sql_results        analyzed sql results
-     * @param string       $unsorted_sql_query          the unsorted sql query
-     * @param array        $sort_expression             sort expression
-     * @param array|string $sort_expression_nodirection sort expression
-     *                                                  without direction
-     * @param array        $sort_direction              sort direction
-     * @param boolean      $is_limited_display          with limited operations
-     *                                                  or not
+     * @param array        $displayParts              which elements to display
+     * @param array        $analyzedSqlResults        analyzed sql results
+     * @param string       $unsortedSqlQuery          the unsorted sql query
+     * @param array        $sortExpression            sort expression
+     * @param array|string $sortExpressionNoDirection sort expression without direction
+     * @param array        $sortDirection             sort direction
+     * @param boolean      $isLimitedDisplay          with limited operations or not
      *
      * @return string html content
      *
      * @access private
      *
-     * @see    getTable()
+     * @see getTable()
      */
     private function _getTableHeaders(
         array &$displayParts,
-        array $analyzed_sql_results,
-        $unsorted_sql_query,
-        array $sort_expression = [],
-        $sort_expression_nodirection = '',
-        array $sort_direction = [],
-        $is_limited_display = false
-    ) {
-
-        $table_headers_html = '';
+        array $analyzedSqlResults,
+        $unsortedSqlQuery,
+        array $sortExpression = [],
+        $sortExpressionNoDirection = '',
+        array $sortDirection = [],
+        $isLimitedDisplay = false
+    ): string {
         // Needed for use in isset/empty or
         // use with array indexes/safe use in foreach
-        $printview = $this->__get('printview');
-        $display_params = $this->__get('display_params');
-
-        // Output data needed for grid editing
-        $table_headers_html .= '<input class="save_cells_at_once" type="hidden"'
-            . ' value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '">'
-            . '<div class="common_hidden_inputs">'
-            . Url::getHiddenInputs(
-                $this->__get('db'),
-                $this->__get('table')
-            )
-            . '</div>';
+        $printView = $this->__get('printview');
+        $displayParams = $this->__get('display_params');
 
         // Output data needed for column reordering and show/hide column
-        $table_headers_html .= $this->_getDataForResettingColumnOrder($analyzed_sql_results);
+        $dataForResettingColumnOrder = $this->_getDataForResettingColumnOrder($analyzedSqlResults);
 
-        $display_params['emptypre']   = 0;
-        $display_params['emptyafter'] = 0;
-        $display_params['textbtn']    = '';
-        $full_or_partial_text_link = null;
+        $displayParams['emptypre'] = 0;
+        $displayParams['emptyafter'] = 0;
+        $displayParams['textbtn'] = '';
+        $fullOrPartialTextLink = '';
 
-        $this->__set('display_params', $display_params);
+        $this->__set('display_params', $displayParams);
 
         // Display options (if we are not in print view)
-        if (! (isset($printview) && ($printview == '1')) && ! $is_limited_display) {
-            $table_headers_html .= $this->_getOptionsBlock();
+        $optionsBlock = '';
+        if (! (isset($printView) && ($printView == '1')) && ! $isLimitedDisplay) {
+            $optionsBlock = $this->_getOptionsBlock();
 
             // prepare full/partial text button or link
-            $full_or_partial_text_link = $this->_getFullOrPartialTextButtonOrLink();
+            $fullOrPartialTextLink = $this->_getFullOrPartialTextButtonOrLink();
         }
-
-        // Start of form for multi-rows edit/delete/export
-        $table_headers_html .= $this->_getFormForMultiRowOperations(
-            $displayParts['del_lnk']
-        );
 
         // 1. Set $colspan and generate html with full/partial
         // text button or link
-        list($colspan, $button_html)
-            = $this->_getFieldVisibilityParams(
-                $displayParts,
-                $full_or_partial_text_link
-            );
-
-        $table_headers_html .= $button_html;
+        list($colspan, $buttonHtml) = $this->_getFieldVisibilityParams(
+            $displayParts,
+            $fullOrPartialTextLink
+        );
 
         // 2. Displays the fields' name
         // 2.0 If sorting links should be used, checks if the query is a "JOIN"
@@ -1221,32 +1200,44 @@ class Results
 
         // See if we have to highlight any header fields of a WHERE query.
         // Uses SQL-Parser results.
-        $this->_setHighlightedColumnGlobalField($analyzed_sql_results);
+        $this->_setHighlightedColumnGlobalField($analyzedSqlResults);
 
         // Get the headers for all of the columns
-        $table_headers_html .= $this->_getTableHeadersForColumns(
+        $tableHeadersForColumns = $this->_getTableHeadersForColumns(
             $displayParts,
-            $analyzed_sql_results,
-            $sort_expression,
-            $sort_expression_nodirection,
-            $sort_direction,
-            $is_limited_display,
-            $unsorted_sql_query
+            $analyzedSqlResults,
+            $sortExpression,
+            $sortExpressionNoDirection,
+            $sortDirection,
+            $isLimitedDisplay,
+            $unsortedSqlQuery
         );
 
         // Display column at rightside - checkboxes or empty column
-        if (! $printview) {
-            $table_headers_html .= $this->_getColumnAtRightSide(
+        $columnAtRightSide = '';
+        if (! $printView) {
+            $columnAtRightSide = $this->_getColumnAtRightSide(
                 $displayParts,
-                $full_or_partial_text_link,
+                $fullOrPartialTextLink,
                 $colspan
             );
         }
-        $table_headers_html .= '</tr>' . '</thead>';
 
-        return $table_headers_html;
-    } // end of the '_getTableHeaders()' function
-
+        return $this->template->render('display/results/table_headers', [
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+            'unique_id' => $this->__get('unique_id'),
+            'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
+            'data_for_resetting_column_order' => $dataForResettingColumnOrder,
+            'options_block' => $optionsBlock,
+            'delete_link' => $displayParts['del_lnk'],
+            'delete_row' => self::DELETE_ROW,
+            'kill_process' => self::KILL_PROCESS,
+            'button' => $buttonHtml,
+            'table_headers_for_columns' => $tableHeadersForColumns,
+            'column_at_right_side' => $columnAtRightSide,
+        ]);
+    }
 
     /**
      * Prepare unsorted sql query and sort by key drop down
@@ -1648,30 +1639,6 @@ class Results
         $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
 
         return Util::linkOrButton($tmp_url, $tmp_image);
-    } // end of the '_getFullOrPartialTextButtonOrLink()' function
-
-
-    /**
-     * Prepare html form for multi row operations
-     *
-     * @param string $deleteLink the delete link of current row
-     *
-     * @return  string          html content
-     *
-     * @access  private
-     *
-     * @see     _getTableHeaders()
-     */
-    private function _getFormForMultiRowOperations($deleteLink)
-    {
-        return $this->template->render('display/results/multi_row_operations_form', [
-            'delete_link' => $deleteLink,
-            'delete_row' => self::DELETE_ROW,
-            'kill_process' => self::KILL_PROCESS,
-            'unique_id' => $this->__get('unique_id'),
-            'db' => $this->__get('db'),
-            'table' => $this->__get('table'),
-        ]);
     }
 
     /**
