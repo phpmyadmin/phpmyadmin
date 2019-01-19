@@ -1,5 +1,7 @@
-<textarea id="field_{{ column_number }}_{{ ci - ci_offset }}"
+<input id="field_{{ column_number }}_{{ ci - ci_offset }}"
     type="text"
     name="field_comments[{{ column_number }}]"
+    size="12"
     maxlength="{{ max_length }}"
-    rows="1">{{ value|raw }}</textarea>
+    value="{{ value|raw }}"
+    class="textfield">
