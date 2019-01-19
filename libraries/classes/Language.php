@@ -153,7 +153,7 @@ class Language
     }
 
     /**
-     * Checks whether langauge is RTL
+     * Checks whether language is RTL
      *
      * @return bool
      */
@@ -165,7 +165,7 @@ class Language
     /**
      * Activates given translation
      *
-     * @return bool
+     * @return void
      */
     public function activate()
     {

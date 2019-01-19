@@ -26,7 +26,7 @@ class SystemDatabase
     protected $dbi;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -39,7 +39,7 @@ class SystemDatabase
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation();
+        $this->relation = new Relation($this->dbi);
     }
 
     /**
@@ -74,7 +74,7 @@ class SystemDatabase
      * @param string $view_name               Name of the VIEW
      * @param string $db                      Database name of the VIEW
      *
-     * @return string $new_transformations_sql SQL query for new transformations
+     * @return string SQL query for new transformations
      */
     public function getNewTransformationDataSql(
         $pma_transformation_data,

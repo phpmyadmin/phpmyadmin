@@ -54,7 +54,7 @@ class Footer
     {
         global $db, $table, $url_query;
 
-        $icon = mb_strtolower($name) . '_add.png';
+        $icon = mb_strtolower($name) . '_add';
         $retval  = "";
         $retval .= "<!-- ADD " . $name . " FORM START -->\n";
         $retval .= "<fieldset class='left'>\n";
@@ -122,17 +122,17 @@ class Footer
         );
         $es_state = mb_strtolower($es_state);
         $options = [
-                        0 => [
-                            'label' => __('OFF'),
-                            'value' => "SET GLOBAL event_scheduler=\"OFF\"",
-                            'selected' => ($es_state != 'on')
-                        ],
-                        1 => [
-                            'label' => __('ON'),
-                            'value' => "SET GLOBAL event_scheduler=\"ON\"",
-                            'selected' => ($es_state == 'on')
-                        ]
-                   ];
+            0 => [
+                'label' => __('OFF'),
+                'value' => "SET GLOBAL event_scheduler=\"OFF\"",
+                'selected' => ($es_state != 'on'),
+            ],
+            1 => [
+                'label' => __('ON'),
+                'value' => "SET GLOBAL event_scheduler=\"ON\"",
+                'selected' => ($es_state == 'on'),
+            ],
+        ];
         // Generate output
         $retval  = "<!-- FOOTER LINKS START -->\n";
         $retval .= "<div class='doubleFieldset'>\n";

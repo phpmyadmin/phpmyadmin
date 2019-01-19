@@ -99,7 +99,7 @@ class ImportOds extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
@@ -115,15 +115,13 @@ class ImportOds extends ImportPlugin
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
-        while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
+        while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
             $data = $this->import->getNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
                 break;
-            } elseif ($data === true) {
-                /* Handle rest of buffer */
-            } else {
+            } elseif ($data !== true) {
                 /* Append new data to buffer */
                 $buffer .= $data;
                 unset($data);
@@ -205,12 +203,12 @@ class ImportOds extends ImportPlugin
 
                     if (count($text) != 0) {
                         $attr = $cell->attributes('table', true);
-                        $num_repeat = (int)$attr['number-columns-repeated'];
-                        $num_iterations = $num_repeat ? $num_repeat : 1;
+                        $num_repeat = (int) $attr['number-columns-repeated'];
+                        $num_iterations = $num_repeat ?: 1;
 
                         for ($k = 0; $k < $num_iterations; $k++) {
                             $value = $this->getValue($cell_attrs, $text);
-                            if (!$col_names_in_first_row) {
+                            if (! $col_names_in_first_row) {
                                 $tempRow[] = $value;
                             } else {
                                 // MySQL column names can't end with a space
@@ -229,10 +227,10 @@ class ImportOds extends ImportPlugin
                     }
 
                     $attr = $cell->attributes('table', true);
-                    $num_null = (int)$attr['number-columns-repeated'];
+                    $num_null = (int) $attr['number-columns-repeated'];
 
                     if ($num_null) {
-                        if (!$col_names_in_first_row) {
+                        if (! $col_names_in_first_row) {
                             for ($i = 0; $i < $num_null; ++$i) {
                                 $tempRow[] = 'NULL';
                                 ++$col_count;
@@ -246,7 +244,7 @@ class ImportOds extends ImportPlugin
                             }
                         }
                     } else {
-                        if (!$col_names_in_first_row) {
+                        if (! $col_names_in_first_row) {
                             $tempRow[] = 'NULL';
                         } else {
                             $col_names[] = $this->import->getColumnAlphaName(
@@ -264,7 +262,7 @@ class ImportOds extends ImportPlugin
                 }
 
                 /* Don't include a row that is full of NULL values */
-                if (!$col_names_in_first_row) {
+                if (! $col_names_in_first_row) {
                     if ($_REQUEST['ods_empty_rows']) {
                         foreach ($tempRow as $cell) {
                             if (strcmp('NULL', $cell)) {
@@ -311,10 +309,14 @@ class ImportOds extends ImportPlugin
 
             /* Store the table name so we know where to place the row set */
             $tbl_attr = $sheet->attributes('table', true);
-            $tables[] = [(string)$tbl_attr['name']];
+            $tables[] = [(string) $tbl_attr['name']];
 
             /* Store the current sheet in the accumulator */
-            $rows[] = [(string)$tbl_attr['name'], $col_names, $tempRows];
+            $rows[] = [
+                (string) $tbl_attr['name'],
+                $col_names,
+                $tempRows,
+            ];
             $tempRows = [];
             $col_names = [];
             $max_cols = 0;
@@ -337,7 +339,7 @@ class ImportOds extends ImportPlugin
                     continue;
                 }
 
-                if (!isset($tables[$i][Import::COL_NAMES])) {
+                if (! isset($tables[$i][Import::COL_NAMES])) {
                     $tables[$i][] = $rows[$j][Import::COL_NAMES];
                 }
 
@@ -397,7 +399,7 @@ class ImportOds extends ImportPlugin
     protected function getValue($cell_attrs, $text)
     {
         if ($_REQUEST['ods_recognize_percentages']
-            && !strcmp(
+            && ! strcmp(
                 'percentage',
                 (string) $cell_attrs['value-type']
             )
@@ -406,7 +408,7 @@ class ImportOds extends ImportPlugin
 
             return $value;
         } elseif ($_REQUEST['ods_recognize_currency']
-            && !strcmp('currency', (string) $cell_attrs['value-type'])
+            && ! strcmp('currency', (string) $cell_attrs['value-type'])
         ) {
             $value = (double) $cell_attrs['value'];
 

@@ -125,33 +125,37 @@ class UserGroupsTest extends TestCase
             '<td>usergroup</td>',
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php'
+        $url_tag = '<a class="" href="server_user_groups.php" data-post="'
             . Url::getCommon(
                 [
-                    'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')
-                ]
+                    'viewUsers' => 1,
+                    'userGroup' => htmlspecialchars('usergroup'),
+                ],
+                ''
             );
         $this->assertContains(
             $url_tag,
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php'
+        $url_tag = '<a class="" href="server_user_groups.php" data-post="'
             . Url::getCommon(
                 [
                     'editUserGroup' => 1,
                     'userGroup' => htmlspecialchars('usergroup')
-                ]
+                ],
+                ''
             );
         $this->assertContains(
             $url_tag,
             $html
         );
-        $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php'
+        $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php" data-post="'
             . Url::getCommon(
                 [
                     'deleteUserGroup' => 1,
                     'userGroup' => htmlspecialchars('usergroup')
-                ]
+                ],
+                ''
             );
         $this->assertContains(
             $url_tag,
@@ -250,12 +254,12 @@ class UserGroupsTest extends TestCase
         );
         $this->assertContains(
             '<input type="checkbox" class="checkall" checked="checked"'
-            . ' name="server_sql" value="Y" />',
+            . ' name="server_sql" value="Y">',
             $html
         );
         $this->assertContains(
             '<input type="checkbox" class="checkall"'
-            . ' name="server_databases" value="Y" />',
+            . ' name="server_databases" value="Y">',
             $html
         );
     }

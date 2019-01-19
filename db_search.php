@@ -13,10 +13,14 @@ use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
 * Gets some core libraries
 */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -25,7 +29,7 @@ $scripts->addFile('db_search.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('makegrid.js');
 
-require 'libraries/db_common.inc.php';
+require ROOT_PATH . 'libraries/db_common.inc.php';
 
 // If config variable $GLOBALS['cfg']['UseDbSearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
@@ -58,7 +62,7 @@ if (! $response->isAjax()) {
 }
 
 // Main search form has been submitted, get results
-if (isset($_REQUEST['submit_search'])) {
+if (isset($_POST['submit_search'])) {
     $response->addHTML($db_search->getSearchResults());
 }
 

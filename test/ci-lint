@@ -1,7 +1,0 @@
-#!/bin/sh
-
-./vendor/bin/phpcs --version &&
-./vendor/bin/phpcs --exclude=PSR1.Files.SideEffects,Generic.Metrics.NestingLevel &&
-
-echo "ESLint `./node_modules/.bin/eslint --version`" &&
-./node_modules/.bin/eslint --quiet ./js

@@ -1063,6 +1063,13 @@ $cfg['NavigationTreeShowEvents'] = true;
  */
 $cfg['NavigationWidth'] = 240;
 
+/**
+ * Automatically expands single database in navigation panel
+ *
+ * @global boolean $cfg['NavigationAutoexpandSingleDb']
+ */
+$cfg['NavigationTreeAutoexpandSingleDb'] = true;
+
 /*******************************************************************************
  * In the main panel, at startup...
  */
@@ -1293,7 +1300,10 @@ $cfg['InsertRows'] = 2;
  *
  * @global array $cfg['ForeignKeyDropdownOrder']
  */
-$cfg['ForeignKeyDropdownOrder'] = ['content-id', 'id-content'];
+$cfg['ForeignKeyDropdownOrder'] = [
+    'content-id',
+    'id-content',
+];
 
 /**
  * A drop-down list will be used if fewer items are present
@@ -1959,6 +1969,16 @@ $cfg['Export']['sql_drop_table'] = false;
 $cfg['Export']['sql_if_not_exists'] = false;
 
 /**
+ * @global boolean $cfg['Export']['sql_view_current_user']
+ */
+$cfg['Export']['sql_view_current_user'] = false;
+
+/**
+ * @global boolean $cfg['Export']['sql_or_replace']
+ */
+$cfg['Export']['sql_or_replace_view'] = false;
+
+/**
  *
  *
  * @global boolean $cfg['Export']['sql_procedure_function']
@@ -2509,7 +2529,13 @@ $cfg['Schema']['svg_all_tables_same_width'] = false;
  *
  * @global array $cfg['PDFPageSizes']
  */
-$cfg['PDFPageSizes'] = ['A3', 'A4', 'A5', 'letter', 'legal'];
+$cfg['PDFPageSizes'] = [
+    'A3',
+    'A4',
+    'A5',
+    'letter',
+    'legal',
+];
 
 /**
  *
@@ -2970,7 +2996,7 @@ $cfg['SaveDir'] = '';
 if (defined('TEMP_DIR')) {
     $cfg['TempDir'] = TEMP_DIR;
 } else {
-    $cfg['TempDir'] = './tmp/';
+    $cfg['TempDir'] = ROOT_PATH . 'tmp/';
 }
 
 
@@ -3167,28 +3193,43 @@ $cfg['DefaultTransformations'] = [];
  *
  * @global array $cfg['DefaultTransformations']['Substring']
  */
-$cfg['DefaultTransformations']['Substring'] = [0, 'all', '…'];
+$cfg['DefaultTransformations']['Substring'] = [
+    0,
+    'all',
+    '…',
+];
 
 /**
  * Default transformations for Bool2Text
  *
  * @global array $cfg['DefaultTransformations']['Bool2Text']
  */
-$cfg['DefaultTransformations']['Bool2Text'] = ['T', 'F'];
+$cfg['DefaultTransformations']['Bool2Text'] = [
+    'T',
+    'F',
+];
 
 /**
  * Default transformations for External
  *
  * @global array $cfg['DefaultTransformations']['External']
  */
-$cfg['DefaultTransformations']['External'] = [0, '-f /dev/null -i -wrap -q', 1, 1];
+$cfg['DefaultTransformations']['External'] = [
+    0,
+    '-f /dev/null -i -wrap -q',
+    1,
+    1,
+];
 
 /**
  * Default transformations for PreApPend
  *
  * @global array $cfg['DefaultTransformations']['PreApPend']
  */
-$cfg['DefaultTransformations']['PreApPend'] = ['', ''];
+$cfg['DefaultTransformations']['PreApPend'] = [
+    '',
+    '',
+];
 
 /**
  * Default transformations for Hex
@@ -3202,14 +3243,21 @@ $cfg['DefaultTransformations']['Hex'] = ['2'];
  *
  * @global array $cfg['DefaultTransformations']['DateFormat']
  */
-$cfg['DefaultTransformations']['DateFormat'] = [0, '', 'local'];
+$cfg['DefaultTransformations']['DateFormat'] = [
+    0,
+    '',
+    'local',
+];
 
 /**
  * Default transformations for Inline
  *
  * @global array $cfg['DefaultTransformations']['Inline']
  */
-$cfg['DefaultTransformations']['Inline'] = ['100', 100];
+$cfg['DefaultTransformations']['Inline'] = [
+    '100',
+    100,
+];
 $cfg['DefaultTransformations']['Inline']['wrapper_link'] = null;
 
 /**
@@ -3217,11 +3265,19 @@ $cfg['DefaultTransformations']['Inline']['wrapper_link'] = null;
  *
  * @global array $cfg['DefaultTransformations']['TextImageLink']
  */
-$cfg['DefaultTransformations']['TextImageLink'] = [null, 100, 50];
+$cfg['DefaultTransformations']['TextImageLink'] = [
+    null,
+    100,
+    50,
+];
 
 /**
  * Default transformations for TextLink
  *
  * @global array $cfg['DefaultTransformations']['TextLink']
  */
-$cfg['DefaultTransformations']['TextLink'] = [null, null, null];
+$cfg['DefaultTransformations']['TextLink'] = [
+    null,
+    null,
+    null,
+];

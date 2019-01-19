@@ -125,49 +125,49 @@ class Search
     {
         $this->tablesNamesOnly = $this->dbi->getTables($this->db);
 
-        if (empty($_REQUEST['criteriaSearchType'])
-            || ! is_string($_REQUEST['criteriaSearchType'])
+        if (empty($_POST['criteriaSearchType'])
+            || ! is_string($_POST['criteriaSearchType'])
             || ! array_key_exists(
-                $_REQUEST['criteriaSearchType'],
+                $_POST['criteriaSearchType'],
                 $this->searchTypes
             )
         ) {
             $this->criteriaSearchType = 1;
-            unset($_REQUEST['submit_search']);
+            unset($_POST['submit_search']);
         } else {
-            $this->criteriaSearchType = (int) $_REQUEST['criteriaSearchType'];
+            $this->criteriaSearchType = (int) $_POST['criteriaSearchType'];
             $this->searchTypeDescription
-                = $this->searchTypes[$_REQUEST['criteriaSearchType']];
+                = $this->searchTypes[$_POST['criteriaSearchType']];
         }
 
-        if (empty($_REQUEST['criteriaSearchString'])
-            || ! is_string($_REQUEST['criteriaSearchString'])
+        if (empty($_POST['criteriaSearchString'])
+            || ! is_string($_POST['criteriaSearchString'])
         ) {
             $this->criteriaSearchString = '';
-            unset($_REQUEST['submit_search']);
+            unset($_POST['submit_search']);
         } else {
-            $this->criteriaSearchString = $_REQUEST['criteriaSearchString'];
+            $this->criteriaSearchString = $_POST['criteriaSearchString'];
         }
 
         $this->criteriaTables = [];
-        if (empty($_REQUEST['criteriaTables'])
-            || ! is_array($_REQUEST['criteriaTables'])
+        if (empty($_POST['criteriaTables'])
+            || ! is_array($_POST['criteriaTables'])
         ) {
-            unset($_REQUEST['submit_search']);
+            unset($_POST['submit_search']);
         } else {
             $this->criteriaTables = array_intersect(
-                $_REQUEST['criteriaTables'],
+                $_POST['criteriaTables'],
                 $this->tablesNamesOnly
             );
         }
 
-        if (empty($_REQUEST['criteriaColumnName'])
-            || ! is_string($_REQUEST['criteriaColumnName'])
+        if (empty($_POST['criteriaColumnName'])
+            || ! is_string($_POST['criteriaColumnName'])
         ) {
             unset($this->criteriaColumnName);
         } else {
             $this->criteriaColumnName = $this->dbi->escapeString(
-                $_REQUEST['criteriaColumnName']
+                $_POST['criteriaColumnName']
             );
         }
     }
@@ -330,7 +330,7 @@ class Search
                 ),
             '3' => $this->searchTypes[3],
             '4' => $this->searchTypes[4],
-            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp')
+            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp'),
         ];
         return $this->template->render('database/search/main', [
             'db' => $this->db,

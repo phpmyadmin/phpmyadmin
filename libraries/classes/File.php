@@ -595,7 +595,7 @@ class File
     /**
      * Sets the file handle
      *
-     * @param object $handle file handle
+     * @param resource $handle file handle
      *
      * @return void
      */

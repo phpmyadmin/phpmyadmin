@@ -30,7 +30,7 @@ class TableStatsDia extends TableStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia" constructor
      *
-     * @param object  $diagram    The current dia document
+     * @param Dia     $diagram    The current dia document
      * @param string  $db         The database name
      * @param string  $tableName  The table name
      * @param integer $pageNumber The current page number (from the
@@ -102,7 +102,7 @@ class TableStatsDia extends TableStats
             $listOfColors = [
                 'FF0000',
                 '000099',
-                '00FF00'
+                '00FF00',
             ];
             shuffle($listOfColors);
             $this->tableColor =  '#' . $listOfColors[0] . '';

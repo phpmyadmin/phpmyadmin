@@ -11,10 +11,14 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Common functions.
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // we don't want the usual PhpMyAdmin\Response-generated HTML above the column's
 // data
@@ -23,11 +27,14 @@ $response->disable();
 
 /* Check parameters */
 PhpMyAdmin\Util::checkParameters(
-    ['db', 'table']
+    [
+        'db',
+        'table',
+    ]
 );
 
 /* Select database */
-if (!$GLOBALS['dbi']->selectDb($db)) {
+if (! $GLOBALS['dbi']->selectDb($db)) {
     PhpMyAdmin\Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
@@ -36,7 +43,7 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 }
 
 /* Check if table exists */
-if (!$GLOBALS['dbi']->getColumns($db, $table)) {
+if (! $GLOBALS['dbi']->getColumns($db, $table)) {
     PhpMyAdmin\Util::mysqlDie(__('Invalid table name'));
 }
 

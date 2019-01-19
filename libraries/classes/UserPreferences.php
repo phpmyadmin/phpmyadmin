@@ -26,7 +26,7 @@ use PhpMyAdmin\Util;
 class UserPreferences
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -40,7 +40,7 @@ class UserPreferences
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
     }
 
@@ -59,7 +59,7 @@ class UserPreferences
         $cf->setCfgUpdateReadMapping(
             [
                 'Server/hide_db' => 'Servers/1/hide_db',
-                'Server/only_db' => 'Servers/1/only_db'
+                'Server/only_db' => 'Servers/1/only_db',
             ]
         );
         $cf->updateWithGlobalConfig($GLOBALS['cfg']);
@@ -83,12 +83,14 @@ class UserPreferences
             if (! isset($_SESSION['userconfig'])) {
                 $_SESSION['userconfig'] = [
                     'db' => [],
-                    'ts' => time()];
+                    'ts' => time(),
+                ];
             }
             return [
                 'config_data' => $_SESSION['userconfig']['db'],
                 'mtime' => $_SESSION['userconfig']['ts'],
-                'type' => 'session'];
+                'type' => 'session'
+            ];
         }
         // load configuration from pmadb
         $query_table = Util::backquote($cfgRelation['db']) . '.'
@@ -103,7 +105,8 @@ class UserPreferences
         return [
             'config_data' => $row ? json_decode($row['config_data'], true) : [],
             'mtime' => $row ? $row['ts'] : time(),
-            'type' => 'db'];
+            'type' => 'db'
+        ];
     }
 
     /**
@@ -124,7 +127,8 @@ class UserPreferences
             // no pmadb table, use session storage
             $_SESSION['userconfig'] = [
                 'db' => $config_array,
-                'ts' => time()];
+                'ts' => time(),
+            ];
             if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
                 unset($_SESSION['cache'][$cache_key]['userprefs']);
             }
@@ -164,13 +168,13 @@ class UserPreferences
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
-        if (!$GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
-                '<br /><br />'
+                '<br><br>'
             );
             return $message;
         }

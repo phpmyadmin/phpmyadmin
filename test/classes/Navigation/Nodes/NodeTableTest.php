@@ -82,11 +82,26 @@ class NodeTableTest extends PmaTestCase
     public function providerForTestIcon()
     {
         return [
-            ['structure', 'b_props'],
-            ['search', 'b_search'],
-            ['insert', 'b_insrow'],
-            ['sql', 'b_sql'],
-            ['browse', 'b_browse'],
+            [
+                'structure',
+                'b_props',
+            ],
+            [
+                'search',
+                'b_search',
+            ],
+            [
+                'insert',
+                'b_insrow',
+            ],
+            [
+                'sql',
+                'b_sql',
+            ],
+            [
+                'browse',
+                'b_browse',
+            ],
         ];
     }
 }

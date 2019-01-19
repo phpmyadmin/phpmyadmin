@@ -36,9 +36,6 @@ class TrackingTest extends TestCase
         /**
          * SET these to avoid undefined index error
          */
-        $_REQUEST['db'] = "db";
-        $_REQUEST['table'] = "table";
-
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
@@ -53,7 +50,7 @@ class TrackingTest extends TestCase
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking',
-            'trackingwork' => true
+            'trackingwork' => true,
         ];
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
@@ -88,12 +85,12 @@ class TrackingTest extends TestCase
             [
                 "date" => "20120102",
                 "username" => "username1",
-                "statement" => "statement1"
+                "statement" => "statement1",
             ],
             [
                 "date" => "20130102",
                 "username" => "username2",
-                "statement" => "statement2"
+                "statement" => "statement2",
             ],
         ];
         $filter_ts_from = 0;
@@ -131,16 +128,16 @@ class TrackingTest extends TestCase
                 "lovely_" => [
                     "is_group" => 1,
                     "hello_lovely_world" => [
-                        "Name" => "hello_lovely_world"
+                        "Name" => "hello_lovely_world",
                     ],
                     "hello_lovely_world2" => [
-                        "Name" => "hello_lovely_world2"
-                    ]
+                        "Name" => "hello_lovely_world2",
+                    ],
                 ],
                 "hello_world" => [
-                    "Name" => "hello_world"
-                ]
-            ]
+                    "Name" => "hello_world",
+                ],
+            ],
         ];
         $untracked_tables = $this->tracking->extractTableNames($table_list, 'db', true);
         $this->assertContains(
@@ -165,7 +162,6 @@ class TrackingTest extends TestCase
      */
     public function testGetHtmlForMain()
     {
-        $sql_result = true;
         $last_version = 3;
         $url_params = [];
         $url_query = "select * from PMA";
@@ -230,12 +226,12 @@ class TrackingTest extends TestCase
          * test versions table
          */
          $this->assertContains(
-                "<td>date_created</td>",
-                $html
+             "<td>date_created</td>",
+             $html
          );
          $this->assertContains(
-                __('Delete version'),
-                $html
+             __('Delete version'),
+             $html
          );
 
         /*
@@ -267,7 +263,7 @@ class TrackingTest extends TestCase
         );
 
         $item = '<input type="checkbox" name="delete" value="true"'
-        . ' checked="checked">' . "\n" . '            DELETE<br/>';
+        . ' checked="checked">' . "\n" . '            DELETE<br>';
         $this->assertContains(
             $item,
             $html
@@ -297,10 +293,10 @@ class TrackingTest extends TestCase
             $text_dir,
             $last_version
         );
-       $this->assertContains(
-           'Activate now',
-           $html
-       );
+        $this->assertContains(
+            'Activate now',
+            $html
+        );
 
         //restore DBI
         $GLOBALS['dbi'] = $dbi_old;
@@ -462,11 +458,11 @@ class TrackingTest extends TestCase
      */
     public function testGetHtmlForTrackingReportr()
     {
-        $_REQUEST['version'] = 10;
-        $_REQUEST['date_from'] = "date_from";
-        $_REQUEST['date_to'] = "date_to";
-        $_REQUEST['users'] = "users";
-        $_REQUEST['logtype'] = 'logtype';
+        $_POST['version'] = 10;
+        $_POST['date_from'] = "date_from";
+        $_POST['date_to'] = "date_to";
+        $_POST['users'] = "users";
+        $_POST['logtype'] = 'logtype';
         $url_query = "select * from PMA";
         $data = [
             'tracking' => 'tracking',
@@ -513,12 +509,10 @@ class TrackingTest extends TestCase
             $html
         );
 
-        $version = '<form method="post" action="tbl_tracking.php'
-            . Url::getCommon(
-                $url_params + [
-                    'report' => 'true', 'version' => $_REQUEST['version']
-                ]
-            );
+        $version = Url::getHiddenInputs($url_params + [
+            'report' => 'true',
+            'version' => $_POST['version'],
+        ]);
 
         $this->assertContains(
             $version,
@@ -546,17 +540,17 @@ class TrackingTest extends TestCase
         );
 
         $this->assertContains(
-            htmlspecialchars($_REQUEST['date_from']),
+            htmlspecialchars($_POST['date_from']),
             $html
         );
 
         $this->assertContains(
-            htmlspecialchars($_REQUEST['date_to']),
+            htmlspecialchars($_POST['date_to']),
             $html
         );
 
         $this->assertContains(
-            htmlspecialchars($_REQUEST['users']),
+            htmlspecialchars($_POST['users']),
             $html
         );
     }
@@ -569,7 +563,7 @@ class TrackingTest extends TestCase
      */
     public function testGetHtmlForDataManipulationStatements()
     {
-        $_REQUEST['version'] = "10";
+        $_POST['version'] = "10";
         $data = [
             'tracking' => 'tracking',
             'dmlog' => [
@@ -577,7 +571,7 @@ class TrackingTest extends TestCase
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
-                ]
+                ],
             ],
             'ddlog' => ['ddlog']
         ];
@@ -632,7 +626,7 @@ class TrackingTest extends TestCase
      */
     public function testGetHtmlForDataDefinitionStatements()
     {
-        $_REQUEST['version'] = "10";
+        $_POST['version'] = "10";
 
         $data = [
             'tracking' => 'tracking',
@@ -641,7 +635,7 @@ class TrackingTest extends TestCase
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
-                ]
+                ],
             ],
             'dmlog' => ['dmlog']
         ];
@@ -775,16 +769,16 @@ class TrackingTest extends TestCase
      */
     public function testGetTrackingSet()
     {
-        $_REQUEST['alter_table'] = false;
-        $_REQUEST['rename_table'] = true;
-        $_REQUEST['create_table'] = true;
-        $_REQUEST['drop_table'] = true;
-        $_REQUEST['create_index'] = false;
-        $_REQUEST['drop_index'] = true;
-        $_REQUEST['insert'] = true;
-        $_REQUEST['update'] = false;
-        $_REQUEST['delete'] = true;
-        $_REQUEST['truncate'] = true;
+        $_POST['alter_table'] = false;
+        $_POST['rename_table'] = true;
+        $_POST['create_table'] = true;
+        $_POST['drop_table'] = true;
+        $_POST['create_index'] = false;
+        $_POST['drop_index'] = true;
+        $_POST['insert'] = true;
+        $_POST['update'] = false;
+        $_POST['delete'] = true;
+        $_POST['truncate'] = true;
 
         $tracking_set = $this->tracking->getTrackingSet();
         $this->assertEquals(
@@ -793,16 +787,16 @@ class TrackingTest extends TestCase
         );
 
         //other set to true
-        $_REQUEST['alter_table'] = true;
-        $_REQUEST['rename_table'] = false;
-        $_REQUEST['create_table'] = false;
-        $_REQUEST['drop_table'] = false;
-        $_REQUEST['create_index'] = true;
-        $_REQUEST['drop_index'] = false;
-        $_REQUEST['insert'] = false;
-        $_REQUEST['update'] = true;
-        $_REQUEST['delete'] = false;
-        $_REQUEST['truncate'] = false;
+        $_POST['alter_table'] = true;
+        $_POST['rename_table'] = false;
+        $_POST['create_table'] = false;
+        $_POST['drop_table'] = false;
+        $_POST['create_index'] = true;
+        $_POST['drop_index'] = false;
+        $_POST['insert'] = false;
+        $_POST['update'] = true;
+        $_POST['delete'] = false;
+        $_POST['truncate'] = false;
 
         $tracking_set = $this->tracking->getTrackingSet();
         $this->assertEquals(
@@ -820,7 +814,7 @@ class TrackingTest extends TestCase
      */
     public function testGetEntries()
     {
-        $_REQUEST['logtype'] = 'schema';
+        $_POST['logtype'] = 'schema';
         $data = [
             'tracking' => 'tracking',
             'ddlog' => [
@@ -828,14 +822,14 @@ class TrackingTest extends TestCase
                     'statement' => 'statement1',
                     'date' => 'date2',
                     'username' => 'username3',
-                ]
+                ],
             ],
             'dmlog' =>  [
                 [
                     'statement' => 'statement1',
                     'date' => 'date2',
                     'username' => 'username3',
-                ]
+                ],
             ],
         ];
         $filter_users = ["*"];

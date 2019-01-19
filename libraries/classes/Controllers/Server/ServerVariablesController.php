@@ -29,17 +29,6 @@ class ServerVariablesController extends Controller
 {
 
     /**
-     * Constructs ServerVariablesController
-     *
-     * @param \PhpMyAdmin\Response          $response Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
-     */
-    public function __construct($response, $dbi)
-    {
-        parent::__construct($response, $dbi);
-    }
-
-    /**
      * Index action
      *
      * @return void
@@ -48,22 +37,22 @@ class ServerVariablesController extends Controller
     {
         $response = Response::getInstance();
         if ($response->isAjax()
-            && isset($_REQUEST['type'])
-            && $_REQUEST['type'] === 'getval'
+            && isset($_GET['type'])
+            && $_GET['type'] === 'getval'
         ) {
             $this->getValueAction();
             return;
         }
 
         if ($response->isAjax()
-            && isset($_REQUEST['type'])
-            && $_REQUEST['type'] === 'setval'
+            && isset($_POST['type'])
+            && $_POST['type'] === 'setval'
         ) {
             $this->setValueAction();
             return;
         }
 
-        include 'libraries/server_common.inc.php';
+        include ROOT_PATH . 'libraries/server_common.inc.php';
 
         $header   = $this->response->getHeader();
         $scripts  = $header->getScripts();
@@ -96,12 +85,12 @@ class ServerVariablesController extends Controller
             /**
              * Link templates
             */
-            $this->response->addHtml($this->_getHtmlForLinkTemplates());
+            $this->response->addHTML($this->_getHtmlForLinkTemplates());
 
             /**
              * Displays the page
             */
-            $this->response->addHtml(
+            $this->response->addHTML(
                 $this->_getHtmlForServerVariables($serverVars, $serverVarsSession)
             );
         } else {
@@ -138,12 +127,12 @@ class ServerVariablesController extends Controller
         // when server is running in ANSI_QUOTES sql_mode
         $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
-            . $this->dbi->escapeString($_REQUEST['varName']) . '\';',
+            . $this->dbi->escapeString($_GET['varName']) . '\';',
             'NUM'
         );
 
         try {
-            $type = KBSearch::getVariableType($_REQUEST['varName']);
+            $type = KBSearch::getVariableType($_GET['varName']);
             if ($type === 'byte') {
                 $this->response->addJSON(
                     'message',
@@ -155,7 +144,7 @@ class ServerVariablesController extends Controller
             } else {
                 throw new KBException("Not a type=byte");
             }
-        } catch (KBException $e){
+        } catch (KBException $e) {
             $this->response->addJSON(
                 'message',
                 $varValue[1]
@@ -170,10 +159,10 @@ class ServerVariablesController extends Controller
      */
     public function setValueAction()
     {
-        $value = $_REQUEST['varValue'];
+        $value = $_POST['varValue'];
         $matches = [];
         try {
-            $type = KBSearch::getVariableType($_REQUEST['varName']);
+            $type = KBSearch::getVariableType($_POST['varName']);
             if ($type === 'byte' && preg_match(
                 '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
                 $value,
@@ -185,7 +174,7 @@ class ServerVariablesController extends Controller
                     'mb' => 2,
                     'mib' => 2,
                     'gb' => 3,
-                    'gib' => 3
+                    'gib' => 3,
                 ];
                 $value = floatval($matches[1]) * pow(
                     1024,
@@ -194,7 +183,7 @@ class ServerVariablesController extends Controller
             } else {
                 throw new KBException("Not a type=byte or regex not matching");
             }
-        } catch (KBException $e){
+        } catch (KBException $e) {
             $value = $this->dbi->escapeString($value);
         }
 
@@ -202,20 +191,20 @@ class ServerVariablesController extends Controller
             $value = "'" . $value . "'";
         }
 
-        if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
+        if (! preg_match("/[^a-zA-Z0-9_]+/", $_POST['varName'])
             && $this->dbi->query(
-                'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
+                'SET GLOBAL ' . $_POST['varName'] . ' = ' . $value
             )
         ) {
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . $this->dbi->escapeString($_REQUEST['varName'])
+                . $this->dbi->escapeString($_POST['varName'])
                 . '";',
                 'NUM'
             );
             list($formattedValue, $isHtmlFormatted) = $this->_formatVariable(
-                $_REQUEST['varName'],
+                $_POST['varName'],
                 $varValue[1]
             );
 
@@ -268,14 +257,14 @@ class ServerVariablesController extends Controller
                 } else {
                     throw new KBException("Not a type=byte or regex not matching");
                 }
-            } catch (KBException $e){
+            } catch (KBException $e) {
                 $formattedValue = Util::formatNumber($value, 0);
             }
         }
 
         return [
             $formattedValue,
-            $isHtmlFormatted
+            $isHtmlFormatted,
         ];
     }
 
@@ -369,7 +358,7 @@ class ServerVariablesController extends Controller
                 'is_html_formatted' => $isHtmlFormatted,
                 'has_session_value' => $has_session_value,
                 'session_value' => isset($sessionFormattedValue)?$sessionFormattedValue:null,
-                'session_is_html_formated' => isset($sessionIsHtmlFormatted)?$sessionIsHtmlFormatted:null
+                'session_is_html_formated' => isset($sessionIsHtmlFormatted)?$sessionIsHtmlFormatted:null,
             ]);
         }
 

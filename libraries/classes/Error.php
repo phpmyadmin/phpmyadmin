@@ -131,7 +131,12 @@ class Error extends Message
     {
         $result = [];
 
-        $members = ['line', 'function', 'class', 'type'];
+        $members = [
+            'line',
+            'function',
+            'class',
+            'type',
+        ];
 
         foreach ($backtrace as $idx => $step) {
             /* Create new backtrace entry */
@@ -324,8 +329,8 @@ class Error extends Message
     {
         return self::formatBacktrace(
             $this->getBacktrace(),
-            "<br />\n",
-            "<br />\n"
+            "<br>\n",
+            "<br>\n"
         );
     }
 
@@ -415,7 +420,7 @@ class Error extends Message
             'mysqli_connect',
             'mysqli_real_connect',
             'connect',
-            '_realConnect'
+            '_realConnect',
         ];
 
         if (in_array($function, $include_functions)) {
@@ -448,14 +453,14 @@ class Error extends Message
         if (! $this->isUserError()) {
             $retval .= '<strong>' . $this->getType() . '</strong>';
             $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();
-            $retval .= "<br />\n";
+            $retval .= "<br>\n";
         }
         $retval .= $this->getMessage();
         if (! $this->isUserError()) {
-            $retval .= "<br />\n";
-            $retval .= "<br />\n";
-            $retval .= "<strong>Backtrace</strong><br />\n";
-            $retval .= "<br />\n";
+            $retval .= "<br>\n";
+            $retval .= "<br>\n";
+            $retval .= "<strong>Backtrace</strong><br>\n";
+            $retval .= "<br>\n";
             $retval .= $this->getBacktraceDisplay();
         }
         $retval .= '</div>';

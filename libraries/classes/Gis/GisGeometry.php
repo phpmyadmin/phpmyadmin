@@ -34,18 +34,18 @@ abstract class GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS data object
-     * @param string $label      label for the GIS data object
-     * @param string $color      color for the GIS data object
-     * @param array  $scale_data array containing data related to scaling
-     * @param object $image      image object
+     * @param string      $spatial    GIS POLYGON object
+     * @param string|null $label      Label for the GIS POLYGON object
+     * @param string      $color      Color for the GIS POLYGON object
+     * @param array       $scale_data Array containing data related to scaling
+     * @param resource    $image      Image object
      *
-     * @return object the modified image object
+     * @return resource the modified image object
      * @access public
      */
     abstract public function prepareRowAsPng(
         $spatial,
-        $label,
+        ?string $label,
         $color,
         array $scale_data,
         $image
@@ -54,18 +54,18 @@ abstract class GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS data object
-     * @param string $label      label for the GIS data object
-     * @param string $color      color for the GIS data object
-     * @param array  $scale_data array containing data related to scaling
-     * @param TCPDF  $pdf        TCPDF instance
+     * @param string      $spatial    GIS data object
+     * @param string|null $label      label for the GIS data object
+     * @param string      $color      color for the GIS data object
+     * @param array       $scale_data array containing data related to scaling
+     * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
     abstract public function prepareRowAsPdf(
         $spatial,
-        $label,
+        ?string $label,
         $color,
         array $scale_data,
         $pdf
@@ -155,18 +155,18 @@ abstract class GisGeometry
             // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
-            $x = (float)$cordinates[0];
-            if (!isset($min_max['maxX']) || $x > $min_max['maxX']) {
+            $x = (float) $cordinates[0];
+            if (! isset($min_max['maxX']) || $x > $min_max['maxX']) {
                 $min_max['maxX'] = $x;
             }
-            if (!isset($min_max['minX']) || $x < $min_max['minX']) {
+            if (! isset($min_max['minX']) || $x < $min_max['minX']) {
                 $min_max['minX'] = $x;
             }
-            $y = (float)$cordinates[1];
-            if (!isset($min_max['maxY']) || $y > $min_max['maxY']) {
+            $y = (float) $cordinates[1];
+            if (! isset($min_max['maxY']) || $y > $min_max['maxY']) {
                 $min_max['maxY'] = $y;
             }
-            if (!isset($min_max['minY']) || $y < $min_max['minY']) {
+            if (! isset($min_max['minY']) || $y < $min_max['minY']) {
                 $min_max['minY'] = $y;
             }
         }
@@ -199,7 +199,10 @@ abstract class GisGeometry
             $wkt = $value;
         }
 
-        return ['srid' => $srid, 'wkt' => $wkt];
+        return [
+            'srid' => $srid,
+            'wkt' => $wkt
+        ];
     }
 
     /**
@@ -240,8 +243,11 @@ abstract class GisGeometry
                 $y = 0;
             }
 
-            if (!$linear) {
-                $points_arr[] = [$x, $y];
+            if (! $linear) {
+                $points_arr[] = [
+                    $x,
+                    $y,
+                ];
             } else {
                 $points_arr[] = $x;
                 $points_arr[] = $y;

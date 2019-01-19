@@ -68,7 +68,7 @@ class ReplicationGui
     public function getHtmlForMasterReplication()
     {
         $html = '';
-        if (! isset($_REQUEST['repl_clear_scr'])) {
+        if (! isset($_POST['repl_clear_scr'])) {
             $html .= '<fieldset>';
             $html .= '<legend>' . __('Master replication') . '</legend>';
             $html .= __('This server is configured as master in a replication process.');
@@ -87,16 +87,16 @@ class ReplicationGui
             $_url_params['mr_adduser'] = true;
             $_url_params['repl_clear_scr'] = true;
 
-            $html .= '  <li><a href="server_replication.php';
-            $html .= Url::getCommon($_url_params)
+            $html .= '  <li><a href="server_replication.php" data-post="';
+            $html .= Url::getCommon($_url_params, '')
                 . '" id="master_addslaveuser_href">';
             $html .= __('Add slave replication user') . '</a></li>';
         }
 
         // Display 'Add replication slave user' form
-        if (isset($_REQUEST['mr_adduser'])) {
+        if (isset($_POST['mr_adduser'])) {
             $html .= $this->getHtmlForReplicationMasterAddSlaveUser();
-        } elseif (! isset($_REQUEST['repl_clear_scr'])) {
+        } elseif (! isset($_POST['repl_clear_scr'])) {
             $html .= "</ul>";
             $html .= "</fieldset>";
         }
@@ -120,7 +120,7 @@ class ReplicationGui
             . 'replicate a majority of the databases) or you can choose to ignore '
             . 'all databases by default and allow only certain databases to be '
             . 'replicated. Please select the mode:'
-        ) . '<br /><br />';
+        ) . '<br><br>';
 
         $html .= '<select name="db_type" id="db_type">';
         $html .= '<option value="all">' . __('Replicate all databases; Ignore:');
@@ -128,14 +128,14 @@ class ReplicationGui
         $html .= '<option value="ign">' . __('Ignore all databases; Replicate:');
         $html .= '</option>';
         $html .= '</select>';
-        $html .= '<br /><br />';
-        $html .= __('Please select databases:') . '<br />';
+        $html .= '<br><br>';
+        $html .= __('Please select databases:') . '<br>';
         $html .= $this->getHtmlForReplicationDbMultibox();
-        $html .= '<br /><br />';
+        $html .= '<br><br>';
         $html .= __(
             'Now, add the following lines at the end of [mysqld] section'
             . ' in your my.cnf and please restart the MySQL server afterwards.'
-        ) . '<br />';
+        ) . '<br>';
         $html .= '<pre id="rep"></pre>';
         $html .= __(
             'Once you restarted MySQL server, please click on Go button. '
@@ -146,7 +146,7 @@ class ReplicationGui
         $html .= '<fieldset class="tblFooters">';
         $html .= ' <form method="post" action="server_replication.php" >';
         $html .= Url::getHiddenInputs('', '');
-        $html .= '  <input type="submit" value="' . __('Go') . '" id="goButton" />';
+        $html .= '  <input id="goButton" class="btn btn-primary" type="submit" value="' . __('Go') . '">';
         $html .= ' </form>';
         $html .= '</fieldset>';
 
@@ -180,15 +180,15 @@ class ReplicationGui
             $html .= ' <select name="master_connection">';
             $html .= '<option value="">' . __('Default') . '</option>';
             foreach ($server_slave_multi_replication as $server) {
-                $html .= '<option' . (isset($_REQUEST['master_connection'])
-                    && $_REQUEST['master_connection'] == $server['Connection_name'] ?
+                $html .= '<option' . (isset($_POST['master_connection'])
+                    && $_POST['master_connection'] == $server['Connection_name'] ?
                         ' selected="selected"' : '') . '>' . $server['Connection_name']
                     . '</option>';
             }
             $html .= '</select>';
-            $html .= ' <input type="submit" value="' . __('Go') . '" id="goButton" />';
+            $html .= ' <input class="btn btn-primary" type="submit" value="' . __('Go') . '" id="goButton">';
             $html .= '</form>';
-            $html .= '<br /><br />';
+            $html .= '<br><br>';
         }
         if ($server_slave_status) {
             $html .= '<div id="slave_configuration_gui">';
@@ -204,8 +204,7 @@ class ReplicationGui
             }
 
             $_url_params['sr_slave_control_parm'] = 'IO_THREAD';
-            $slave_control_io_link = 'server_replication.php'
-                . Url::getCommon($_url_params);
+            $slave_control_io_link = Url::getCommon($_url_params, '');
 
             if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
                 $_url_params['sr_slave_action'] = 'start';
@@ -214,8 +213,7 @@ class ReplicationGui
             }
 
             $_url_params['sr_slave_control_parm'] = 'SQL_THREAD';
-            $slave_control_sql_link = 'server_replication.php'
-                . Url::getCommon($_url_params);
+            $slave_control_sql_link = Url::getCommon($_url_params, '');
 
             if ($server_slave_replication[0]['Slave_IO_Running'] == 'No'
                 || $server_slave_replication[0]['Slave_SQL_Running'] == 'No'
@@ -226,18 +224,15 @@ class ReplicationGui
             }
 
             $_url_params['sr_slave_control_parm'] = null;
-            $slave_control_full_link = 'server_replication.php'
-                . Url::getCommon($_url_params);
+            $slave_control_full_link = Url::getCommon($_url_params, '');
 
             $_url_params['sr_slave_action'] = 'reset';
-            $slave_control_reset_link = 'server_replication.php'
-                . Url::getCommon($_url_params);
+            $slave_control_reset_link = Url::getCommon($_url_params, '');
 
             $_url_params = $GLOBALS['url_params'];
             $_url_params['sr_take_action'] = true;
             $_url_params['sr_slave_skip_error'] = true;
-            $slave_skip_error_link = 'server_replication.php'
-                . Url::getCommon($_url_params);
+            $slave_skip_error_link = Url::getCommon($_url_params, '');
 
             if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
                 $html .= Message::error(
@@ -254,14 +249,13 @@ class ReplicationGui
             $_url_params['sl_configure'] = true;
             $_url_params['repl_clear_scr'] = true;
 
-            $reconfiguremaster_link = 'server_replication.php'
-                . Url::getCommon($_url_params);
+            $reconfiguremaster_link =  Url::getCommon($_url_params, '');
 
             $html .= __(
                 'Server is configured as slave in a replication process. Would you ' .
                 'like to:'
             );
-            $html .= '<br />';
+            $html .= '<br>';
             $html .= '<ul>';
             $html .= ' <li><a href="#slave_status_href" id="slave_status_href">';
             $html .= __('See slave status table') . '</a>';
@@ -272,26 +266,26 @@ class ReplicationGui
             $html .= __('Control slave:') . '</a>';
             $html .= ' <div id="slave_control_gui" class="hide">';
             $html .= '  <ul>';
-            $html .= '   <li><a href="' . $slave_control_full_link . '">';
+            $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_full_link . '">';
             $html .= (($server_slave_replication[0]['Slave_IO_Running'] == 'No' ||
                        $server_slave_replication[0]['Slave_SQL_Running'] == 'No')
                      ? __('Full start')
                      : __('Full stop')) . ' </a></li>';
             $html .= '   <li><a class="ajax" id="reset_slave"'
-                . ' href="' . $slave_control_reset_link . '">';
+                . ' href="server_replication.php" data-post="' . $slave_control_reset_link . '">';
             $html .= __('Reset slave') . '</a></li>';
             if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
-                $html .= '   <li><a href="' . $slave_control_sql_link . '">';
+                $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_sql_link . '">';
                 $html .= __('Start SQL Thread only') . '</a></li>';
             } else {
-                $html .= '   <li><a href="' . $slave_control_sql_link . '">';
+                $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_sql_link . '">';
                 $html .= __('Stop SQL Thread only') . '</a></li>';
             }
             if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
-                $html .= '   <li><a href="' . $slave_control_io_link . '">';
+                $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_io_link . '">';
                 $html .= __('Start IO Thread only') . '</a></li>';
             } else {
-                $html .= '   <li><a href="' . $slave_control_io_link . '">';
+                $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_io_link . '">';
                 $html .= __('Stop IO Thread only') . '</a></li>';
             }
             $html .= '  </ul>';
@@ -300,11 +294,11 @@ class ReplicationGui
             $html .= ' <li>';
             $html .= $this->getHtmlForSlaveErrorManagement($slave_skip_error_link);
             $html .= ' </li>';
-            $html .= ' <li><a href="' . $reconfiguremaster_link . '">';
+            $html .= ' <li><a href="server_replication.php" data-post="' . $reconfiguremaster_link . '">';
             $html .=  __('Change or reconfigure master server') . '</a></li>';
             $html .= '</ul>';
             $html .= '</div>';
-        } elseif (! isset($_REQUEST['sl_configure'])) {
+        } elseif (! isset($_POST['sl_configure'])) {
             $_url_params = $GLOBALS['url_params'];
             $_url_params['sl_configure'] = true;
             $_url_params['repl_clear_scr'] = true;
@@ -312,9 +306,10 @@ class ReplicationGui
             $html .= sprintf(
                 __(
                     'This server is not configured as slave in a replication process. '
-                    . 'Would you like to <a href="%s">configure</a> it?'
+                    . 'Would you like to %sconfigure%s it?'
                 ),
-                'server_replication.php' . Url::getCommon($_url_params)
+                '<a href="server_replication.php" data-post="' . Url::getCommon($_url_params, '') . '">',
+                '</a>'
             );
         }
         $html .= '</fieldset>';
@@ -339,7 +334,7 @@ class ReplicationGui
             __('Skipping errors might lead into unsynchronized master and slave!')
         )->getDisplay();
         $html .= '  <ul>';
-        $html .= '   <li><a href="' . $slave_skip_error_link . '">';
+        $html .= '   <li><a href="server_replication.php" data-post="' . $slave_skip_error_link . '">';
         $html .= __('Skip current error') . '</a></li>';
         $html .= '   <li>';
         $html .= '    <form method="post" action="server_replication.php">';
@@ -347,11 +342,11 @@ class ReplicationGui
         $html .= sprintf(
             __('Skip next %s errors.'),
             '<input type="text" name="sr_skip_errors_count" value="1" '
-            . 'class = "repl_gui_skip_err_cnt" />'
+            . 'class = "repl_gui_skip_err_cnt">'
         );
-        $html .= '              <input type="submit" name="sr_slave_skip_error" ';
-        $html .= 'value="' . __('Go') . '" />';
-        $html .= '      <input type="hidden" name="sr_take_action" value="1" />';
+        $html .= '              <input class="btn btn-primary" type="submit" name="sr_slave_skip_error" ';
+        $html .= 'value="' . __('Go') . '">';
+        $html .= '      <input type="hidden" name="sr_take_action" value="1">';
         $html .= '    </form></li>';
         $html .= '  </ul>';
         $html .= ' </div>';
@@ -373,9 +368,10 @@ class ReplicationGui
         $html .= sprintf(
             __(
                 'This server is not configured as master in a replication process. '
-                . 'Would you like to <a href="%s">configure</a> it?'
+                . 'Would you like to %sconfigure%s it?'
             ),
-            'server_replication.php' . Url::getCommon($_url_params)
+            '<a href="server_replication.php" data-post="' . Url::getCommon($_url_params, '') . '">',
+            '</a>'
         );
         $html .= '</fieldset>';
         return $html;
@@ -402,7 +398,7 @@ class ReplicationGui
             $multi_values .= $current_db . '</option>';
         } // end while
 
-        $multi_values .= '</select><br />';
+        $multi_values .= '</select><br>';
         $multi_values .= '<a href="#" id="db_select_href">' . __('Select all') . '</a>';
         $multi_values .= '&nbsp;/&nbsp;';
         $multi_values .= '<a href="#" id="db_reset_href">' . __('Unselect all') . '</a>';
@@ -432,11 +428,14 @@ class ReplicationGui
             'Make sure you have a unique server-id in your configuration file (my.cnf). '
             . 'If not, please add the following line into [mysqld] section:'
         );
-        $html .= '<br />';
+        $html .= '<br>';
         $html .= '<pre>server-id=' . time() . '</pre>';
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text' => __('User name:'), 'for' => "text_username"],
+            [
+                'text' => __('User name:'),
+                'for' => "text_username"
+            ],
             [
                 'type' => 'text',
                 'name' => 'username',
@@ -448,18 +447,24 @@ class ReplicationGui
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text' => __('Password:'), 'for' => "text_pma_pw"],
+            [
+                'text' => __('Password:'),
+                'for' => "text_pma_pw"
+            ],
             [
                 'type' => 'password',
                 'name' => 'pma_pw',
                 'id' => 'text_pma_pw',
                 'title' => __('Password'),
-                'required' => 'required'
+                'required' => 'required',
             ]
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text' => __('Host:'), 'for' => "text_hostname"],
+            [
+                'text' => __('Host:'),
+                'for' => "text_hostname"
+            ],
             [
                 'type' => 'text',
                 'name' => 'hostname',
@@ -471,7 +476,10 @@ class ReplicationGui
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text' => __('Port:'), 'for' => "text_port"],
+            [
+                'text' => __('Port:'),
+                'for' => "text_port"
+            ],
             [
                 'type' => 'number',
                 'name' => 'text_port',
@@ -479,15 +487,15 @@ class ReplicationGui
                 'maxlength' => 6,
                 'value' => '3306',
                 'required' => 'required'
-             ]
+            ]
         );
 
         $html .= ' </fieldset>';
         $html .= ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
-        $html .= '    <input type="hidden" name="sr_take_action" value="true" />';
-        $html .= '     <input type="hidden" name="' . $submitname . '" value="1" />';
-        $html .= '     <input type="submit" id="confslave_submit" value="';
-        $html .= __('Go') . '" />';
+        $html .= '    <input type="hidden" name="sr_take_action" value="true">';
+        $html .= '     <input type="hidden" name="' . $submitname . '" value="1">';
+        $html .= '     <input class="btn btn-primary" type="submit" id="confslave_submit" value="';
+        $html .= __('Go') . '">';
         $html .= ' </fieldset>';
         $html .= '</form>';
 
@@ -512,7 +520,7 @@ class ReplicationGui
         foreach ($input_array as $key => $value) {
             $html .= ' ' . $key . '="' . $value . '" ';
         }
-        $html .= ' />';
+        $html .= '>';
         $html .= '  </div>';
         return $html;
     }
@@ -561,7 +569,7 @@ class ReplicationGui
                 $html .= __('Slave status') . '</h4>';
             }
         } else {
-            $html .= '<br />';
+            $html .= '<br>';
         }
 
         $html .= '   <table id="server' . $type . 'replicationsummary" class="data"> ';
@@ -594,9 +602,13 @@ class ReplicationGui
             }
             // allow wrapping long table lists into multiple lines
             $variables_wrap = [
-                'Replicate_Do_DB', 'Replicate_Ignore_DB',
-                'Replicate_Do_Table', 'Replicate_Ignore_Table',
-                'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table'];
+                'Replicate_Do_DB',
+                'Replicate_Ignore_DB',
+                'Replicate_Do_Table',
+                'Replicate_Ignore_Table',
+                'Replicate_Wild_Do_Table',
+                'Replicate_Wild_Ignore_Table',
+            ];
             if (in_array($variable, $variables_wrap)) {
                 $html .= htmlspecialchars(str_replace(
                     ',',
@@ -614,7 +626,7 @@ class ReplicationGui
 
         $html .= '   </tbody>';
         $html .= ' </table>';
-        $html .= ' <br />';
+        $html .= ' <br>';
         $html .= '</div>';
 
         return $html;
@@ -634,7 +646,7 @@ class ReplicationGui
         // Fetch data
         $data = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
 
-        $html .= '  <br />';
+        $html .= '  <br>';
         $html .= '  <div id="replication_slaves_section" style="';
         $html .=  ($hidden ? 'display: none;' : '') . '"> ';
         $html .= '    <table class="data">';
@@ -655,14 +667,14 @@ class ReplicationGui
 
         $html .= '    </tbody>';
         $html .= '    </table>';
-        $html .= '    <br />';
+        $html .= '    <br>';
         $html .= Message::notice(
             __(
                 'Only slaves started with the '
                 . '--report-host=host_name option are visible in this list.'
             )
         )->getDisplay();
-        $html .= '    <br />';
+        $html .= '    <br>';
         $html .= '  </div>';
 
         return $html;
@@ -693,7 +705,10 @@ class ReplicationGui
                 }
             }
         }
-        return [$username_length, $hostname_length];
+        return [
+            $username_length,
+            $hostname_length,
+        ];
     }
 
     /**
@@ -707,7 +722,7 @@ class ReplicationGui
         list($username_length, $hostname_length)
             = $this->getUsernameHostnameLength();
 
-        if (isset($_REQUEST['username']) && strlen($_REQUEST['username']) === 0) {
+        if (isset($_POST['username']) && strlen($_POST['username']) === 0) {
             $GLOBALS['pred_username'] = 'any';
         }
         $html .= '<div id="master_addslaveuser_gui">';
@@ -746,8 +761,8 @@ class ReplicationGui
         unset($_current_user);
 
         // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
-        if (! isset($GLOBALS['pred_hostname']) && isset($_REQUEST['hostname'])) {
-            switch (mb_strtolower($_REQUEST['hostname'])) {
+        if (! isset($GLOBALS['pred_hostname']) && isset($_POST['hostname'])) {
+            switch (mb_strtolower($_POST['hostname'])) {
                 case 'localhost':
                 case '127.0.0.1':
                     $GLOBALS['pred_hostname'] = 'localhost';
@@ -770,7 +785,7 @@ class ReplicationGui
             ? ' selected="selected"' : '') . '>' . __('Local')
             . '</option>';
 
-        if (!empty($thishost)) {
+        if (! empty($thishost)) {
             $html .= '        <option value="thishost"'
                 . ((isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'thishost')
@@ -795,15 +810,15 @@ class ReplicationGui
      */
     public function getHtmlForAddUserLoginForm($username_length)
     {
-        $html = '<input type="hidden" name="grant_count" value="25" />'
-            . '<input type="hidden" name="createdb" id="createdb_0" value="0" />'
+        $html = '<input type="hidden" name="grant_count" value="25">'
+            . '<input type="hidden" name="createdb" id="createdb_0" value="0">'
             . '<input id="checkbox_Repl_slave_priv" type="hidden"'
             . ' title="Needed for the replication slaves." '
-            . 'value="Y" name="Repl_slave_priv"/>'
+            . 'value="Y" name="Repl_slave_priv">'
             . '<input id="checkbox_Repl_client_priv" type="hidden" '
             . 'title="Needed for the replication slaves."'
-            . ' value="Y" name="Repl_client_priv"/> '
-            . '<input type="hidden" name="sr_take_action" value="true" />'
+            . ' value="Y" name="Repl_client_priv"> '
+            . '<input type="hidden" name="sr_take_action" value="true">'
             . '<div class="item">'
             . '<label for="select_pred_username">'
             . '    ' . __('User name:')
@@ -824,11 +839,11 @@ class ReplicationGui
             . '</span>'
             . '<input type="text" name="username" id="pma_username" maxlength="'
             . $username_length . '" title="' . __('User name') . '"'
-            . (empty($_REQUEST['username']) ? '' : ' value="'
+            . (empty($_POST['username']) ? '' : ' value="'
             . (isset($GLOBALS['new_username'])
                 ? $GLOBALS['new_username']
-                : htmlspecialchars($_REQUEST['username'])) . '"')
-            . ' />'
+                : htmlspecialchars($_POST['username'])) . '"')
+            . '>'
             . '</div>';
 
         return $html;
@@ -857,9 +872,9 @@ class ReplicationGui
             . '</span>'
             . '<input type="text" name="hostname" id="pma_hostname" maxlength="'
             . $hostname_length . '" value="'
-            . (isset($_REQUEST['hostname']) ? htmlspecialchars($_REQUEST['hostname']) : '')
+            . (isset($_POST['hostname']) ? htmlspecialchars($_POST['hostname']) : '')
             . '" title="' . __('Host')
-            . '" />'
+            . '">'
             . Util::showHint(
                 __(
                     'When Host table is used, this field is ignored '
@@ -875,17 +890,17 @@ class ReplicationGui
             . '    <select name="pred_password" id="select_pred_password" title="'
             . __('Password') . '">'
             . '        <option value="none"';
-        if (isset($_REQUEST['username'])) {
+        if (isset($_POST['username'])) {
             $html .= '  selected="selected"';
         }
         $html .= '>' . __('No Password') . '</option>'
             . '        <option value="userdefined"'
-            . (isset($_REQUEST['username']) ? '' : ' selected="selected"')
+            . (isset($_POST['username']) ? '' : ' selected="selected"')
             . '>' . __('Use text field:') . '</option>'
             . '    </select>'
             . '</span>'
             . '<input type="password" id="text_pma_pw" name="pma_pw" title="'
-            . __('Password') . '" />'
+            . __('Password') . '">'
             . '</div>'
             . '<div class="item">'
             . '<label for="text_pma_pw2">'
@@ -893,23 +908,23 @@ class ReplicationGui
             . '</label>'
             . '<span class="options">&nbsp;</span>'
             . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="'
-            . __('Re-type') . '" />'
+            . __('Re-type') . '">'
             . '</div>'
             . '<div class="item">'
             . '<label for="button_generate_password">'
             . '    ' . __('Generate password:')
             . '</label>'
             . '<span class="options">'
-            . '    <input type="button" class="button" '
+            . '    <input type="button" class="btn btn-secondary button" '
             . 'id="button_generate_password" value="' . __('Generate')
-            . '" onclick="suggestPassword(this.form)" />'
+            . '" onclick="suggestPassword(this.form)">'
             . '</span>'
-            . '<input type="text" name="generated_pw" id="generated_pw" />'
+            . '<input type="text" name="generated_pw" id="generated_pw">'
             . '</div>'
             . '</fieldset>';
         $html .= '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">'
-            . '    <input type="hidden" name="adduser_submit" value="1" />'
-            . '    <input type="submit" id="adduser_submit" value="' . __('Go') . '" />'
+            . '    <input type="hidden" name="adduser_submit" value="1">'
+            . '    <input class="btn btn-primary" type="submit" id="adduser_submit" value="' . __('Go') . '">'
             . '</fieldset>';
         return $html;
     }
@@ -921,22 +936,22 @@ class ReplicationGui
      */
     public function handleControlRequest()
     {
-        if (isset($_REQUEST['sr_take_action'])) {
+        if (isset($_POST['sr_take_action'])) {
             $refresh = false;
             $result = false;
             $messageSuccess = null;
             $messageError = null;
 
-            if (isset($_REQUEST['slave_changemaster']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
+            if (isset($_POST['slave_changemaster']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
                 $_SESSION['replication']['sr_action_info'] = __('Connection to server is disabled, please enable $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.');
-            } elseif (isset($_REQUEST['slave_changemaster'])) {
+            } elseif (isset($_POST['slave_changemaster'])) {
                 $result = $this->handleRequestForSlaveChangeMaster();
-            } elseif (isset($_REQUEST['sr_slave_server_control'])) {
+            } elseif (isset($_POST['sr_slave_server_control'])) {
                 $result = $this->handleRequestForSlaveServerControl();
                 $refresh = true;
 
-                switch ($_REQUEST['sr_slave_action']) {
+                switch ($_POST['sr_slave_action']) {
                     case 'start':
                         $messageSuccess = __('Replication started successfully.');
                         $messageError = __('Error starting replication.');
@@ -954,7 +969,7 @@ class ReplicationGui
                         $messageError = __('Error.');
                         break;
                 }
-            } elseif (isset($_REQUEST['sr_slave_skip_error'])) {
+            } elseif (isset($_POST['sr_slave_skip_error'])) {
                 $result = $this->handleRequestForSlaveSkipError();
             }
 
@@ -988,13 +1003,13 @@ class ReplicationGui
     {
         $sr = [];
         $_SESSION['replication']['m_username'] = $sr['username']
-            = $GLOBALS['dbi']->escapeString($_REQUEST['username']);
+            = $GLOBALS['dbi']->escapeString($_POST['username']);
         $_SESSION['replication']['m_password'] = $sr['pma_pw']
-            = $GLOBALS['dbi']->escapeString($_REQUEST['pma_pw']);
+            = $GLOBALS['dbi']->escapeString($_POST['pma_pw']);
         $_SESSION['replication']['m_hostname'] = $sr['hostname']
-            = $GLOBALS['dbi']->escapeString($_REQUEST['hostname']);
+            = $GLOBALS['dbi']->escapeString($_POST['hostname']);
         $_SESSION['replication']['m_port']     = $sr['port']
-            = $GLOBALS['dbi']->escapeString($_REQUEST['text_port']);
+            = $GLOBALS['dbi']->escapeString($_POST['text_port']);
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
@@ -1060,10 +1075,10 @@ class ReplicationGui
      */
     public function handleRequestForSlaveServerControl()
     {
-        if (empty($_REQUEST['sr_slave_control_parm'])) {
-            $_REQUEST['sr_slave_control_parm'] = null;
+        if (empty($_POST['sr_slave_control_parm'])) {
+            $_POST['sr_slave_control_parm'] = null;
         }
-        if ($_REQUEST['sr_slave_action'] == 'reset') {
+        if ($_POST['sr_slave_action'] == 'reset') {
             $qStop = $this->replication->slaveControl("STOP");
             $qReset = $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
             $qStart = $this->replication->slaveControl("START");
@@ -1073,8 +1088,8 @@ class ReplicationGui
                 $qStart !== false && $qStart !== -1);
         } else {
             $qControl = $this->replication->slaveControl(
-                $_REQUEST['sr_slave_action'],
-                $_REQUEST['sr_slave_control_parm']
+                $_POST['sr_slave_action'],
+                $_POST['sr_slave_control_parm']
             );
 
             $result = ($qControl !== false && $qControl !== -1);
@@ -1091,8 +1106,8 @@ class ReplicationGui
     public function handleRequestForSlaveSkipError()
     {
         $count = 1;
-        if (isset($_REQUEST['sr_skip_errors_count'])) {
-            $count = $_REQUEST['sr_skip_errors_count'] * 1;
+        if (isset($_POST['sr_skip_errors_count'])) {
+            $count = $_POST['sr_skip_errors_count'] * 1;
         }
 
         $qStop = $this->replication->slaveControl("STOP");

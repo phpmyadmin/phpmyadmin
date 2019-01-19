@@ -11,7 +11,7 @@ use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\ConfigGenerator;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -21,7 +21,7 @@ echo '<h2>' , __('Configuration file') , '</h2>';
 
 echo $formDisplayTemplate->displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
-    , htmlspecialchars(Core::ifSetOr($_GET['eol'], 'unix')) , '" />';
+    , htmlspecialchars(Core::ifSetOr($_GET['eol'], 'unix')) , '">';
 echo $formDisplayTemplate->displayFieldsetTop('config.inc.php', '', null, ['class' => 'simple']);
 echo '<tr>';
 echo '<td>';
@@ -34,7 +34,7 @@ echo '</tr>';
 echo '<tr>';
 echo '<td class="lastrow" style="text-align: left">';
 echo '<input type="submit" name="submit_download" value="'
-    , __('Download') , '" class="green" />';
+    , __('Download') , '" class="green">';
 echo '</td>';
 echo '</tr>';
 

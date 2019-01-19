@@ -27,13 +27,12 @@
     class="textfield"
     title="{{ title }}"
     size="10"
-    value="{{ column_meta['Field'] is defined ? column_meta['Field'] }}" />
+    value="{{ column_meta['Field'] is defined ? column_meta['Field'] }}">
 
 {% if cfg_relation['centralcolumnswork']
     and not (column_meta['column_status'] is defined
         and not column_meta['column_status']['isEditable']) %}
-    <p style="font-size:80%;margin:5px 2px"
-       id="central_columns_{{ column_number }}_{{ ci - ci_offset }}">
+    <p class="column_name" id="central_columns_{{ column_number }}_{{ ci - ci_offset }}">
         <a data-maxrows="{{ max_rows }}"
             href="#"
             class="central_columns_dialog">

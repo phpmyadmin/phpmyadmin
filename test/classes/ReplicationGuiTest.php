@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 /*
 * Include to test.
 */
-require_once 'libraries/replication.inc.php';
+require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 /**
  * PhpMyAdmin\Tests\ReplicationGuiTest class
@@ -42,10 +42,8 @@ class ReplicationGuiTest extends TestCase
      */
     protected function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-        $_REQUEST['mr_adduser'] = "mr_adduser";
+        //$_POST
+        $_POST['mr_adduser'] = "mr_adduser";
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -69,8 +67,14 @@ class ReplicationGuiTest extends TestCase
         //Mock DBI
 
         $slave_host = [
-            ['Server_id' => 'Server_id1', 'Host' => 'Host1'],
-            ['Server_id' => 'Server_id2', 'Host' => 'Host2'],
+            [
+                'Server_id' => 'Server_id1',
+                'Host' => 'Host1'
+            ],
+            [
+                'Server_id' => 'Server_id2',
+                'Host' => 'Host2'
+            ],
         ];
 
         $fetchResult = [
@@ -80,7 +84,7 @@ class ReplicationGuiTest extends TestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $slave_host
+                $slave_host,
             ],
         ];
 
@@ -96,7 +100,7 @@ class ReplicationGuiTest extends TestCase
                 "Field" => "host",
                 "Type" => "char(60)",
                 "Null" => "NO",
-            ]
+            ],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));

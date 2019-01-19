@@ -11,6 +11,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
+use \stdClass;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
@@ -23,11 +24,11 @@ class VersionInformation
     /**
      * Returns information with latest version from phpmyadmin.net
      *
-     * @return object JSON decoded object with the data
+     * @return stdClass|null JSON decoded object with the data
      */
-    public function getLatestVersion()
+    public function getLatestVersion(): ?stdClass
     {
-        if (!$GLOBALS['cfg']['VersionCheck']) {
+        if (! $GLOBALS['cfg']['VersionCheck']) {
             return null;
         }
 
@@ -44,7 +45,7 @@ class VersionInformation
             $httpRequest = new HttpRequest();
             $response = $httpRequest->create($file, 'GET');
         }
-        $response = $response ? $response : '{}';
+        $response = $response ?: '{}';
         /* Parse response */
         $data = json_decode($response);
 
@@ -60,7 +61,7 @@ class VersionInformation
         if ($save) {
             $_SESSION['cache']['version_check'] = [
                 'response' => $response,
-                'timestamp' => time()
+                'timestamp' => time(),
             ];
         }
         return $data;
@@ -101,7 +102,7 @@ class VersionInformation
             $result += 1 * $parts[3];
         }
 
-        if (!empty($suffix)) {
+        if (! empty($suffix)) {
             $matches = [];
             if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
                 $suffix = $matches[1];
@@ -156,7 +157,7 @@ class VersionInformation
                 $mysqlVersions = $release->mysql_versions;
                 $mysqlConditions = explode(",", $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {
-                    if (!$this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
+                    if (! $this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
                         continue 2;
                     }
                 }
@@ -183,7 +184,16 @@ class VersionInformation
     public function evaluateVersionCondition($type, $condition)
     {
         $operator = null;
-        $operators = ["<=", ">=", "!=", "<>", "<", ">", "="]; // preserve order
+        $version = null;
+        $operators = [
+            "<=",
+            ">=",
+            "!=",
+            "<>",
+            "<",
+            ">",
+            "=",
+        ]; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {
                 $operator = $oneOperator;

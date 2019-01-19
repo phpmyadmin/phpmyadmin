@@ -83,7 +83,7 @@ class IpAllowDeny
 
             for ($i = 0; $i < 31; $i++) {
                 if ($i < $regs[5] - 1) {
-                    $maskl = $maskl + pow(2, (30 - $i));
+                    $maskl += pow(2, 30 - $i);
                 } // end if
             } // end for
 
@@ -285,7 +285,7 @@ class IpAllowDeny
         // lookup table for some name shortcuts
         $shortcuts = [
             'all'       => '0.0.0.0/0',
-            'localhost' => '127.0.0.1/8'
+            'localhost' => '127.0.0.1/8',
         ];
 
         // Provide some useful shortcuts if server gives us address:

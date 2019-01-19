@@ -29,7 +29,7 @@ class RelationStatsPdf extends RelationStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Pdf\RelationStatsPdf" constructor
      *
-     * @param object $diagram       The PDF diagram
+     * @param Pdf    $diagram       The PDF diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name
@@ -69,15 +69,39 @@ class RelationStatsPdf extends RelationStats
         if ($showColor) {
             $d = $i % 6;
             $j = ($i - $d) / 6;
-            $j = $j % 4;
+            $j %= 4;
             $j++;
             $case = [
-                [1, 0, 0],
-                [0, 1, 0],
-                [0, 0, 1],
-                [1, 1, 0],
-                [1, 0, 1],
-                [0, 1, 1]
+                [
+                    1,
+                    0,
+                    0,
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                ],
+                [
+                    1,
+                    1,
+                    0,
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                ],
+                [
+                    0,
+                    1,
+                    1,
+                ],
             ];
             list ($a, $b, $c) = $case[$d];
             $e = (1 - ($j - 1) / 6);

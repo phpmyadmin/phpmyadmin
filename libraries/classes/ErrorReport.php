@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**
@@ -26,7 +23,7 @@ class ErrorReport
      *
      * @var string
      */
-    private $submissionUrl;
+    private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
     /**
      * @var HttpRequest
@@ -34,7 +31,7 @@ class ErrorReport
     private $httpRequest;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -51,9 +48,19 @@ class ErrorReport
     public function __construct(HttpRequest $httpRequest)
     {
         $this->httpRequest = $httpRequest;
-        $this->submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
+    }
+
+    /**
+     * Set the URL where to submit reports to
+     *
+     * @param string $submissionUrl Submission URL
+     * @return void
+     */
+    public function setSubmissionUrl(string $submissionUrl): void
+    {
+        $this->submissionUrl = $submissionUrl;
     }
 
     /**
@@ -96,28 +103,28 @@ class ErrorReport
         ];
 
         if ($exceptionType == 'js') {
-            if (empty($_REQUEST['exception'])) {
+            if (empty($_POST['exception'])) {
                 return [];
             }
-            $exception = $_REQUEST['exception'];
+            $exception = $_POST['exception'];
             $exception["stack"] = $this->translateStacktrace($exception["stack"]);
-            list($uri, $scriptName) = $this->sanitizeUrl((string)$exception["url"]);
+            list($uri, $scriptName) = $this->sanitizeUrl((string) $exception["url"]);
             $exception["uri"] = $uri;
             unset($exception["url"]);
 
             $report["exception_type"] = 'js';
             $report["exception"] = $exception;
             $report["script_name"] = $scriptName;
-            $report["microhistory"] = $_REQUEST['microhistory'];
+            $report["microhistory"] = $_POST['microhistory'];
 
-            if (! empty($_REQUEST['description'])) {
-                $report['steps'] = $_REQUEST['description'];
+            if (! empty($_POST['description'])) {
+                $report['steps'] = $_POST['description'];
             }
         } elseif ($exceptionType == 'php') {
             $errors = [];
             // create php error report
             $i = 0;
-            if (!isset($_SESSION['prev_errors'])
+            if (! isset($_SESSION['prev_errors'])
                 || $_SESSION['prev_errors'] == ''
             ) {
                 return [];
@@ -196,7 +203,10 @@ class ErrorReport
         }
 
         $uri = $scriptName . "?" . $query;
-        return [$uri, $scriptName];
+        return [
+            $uri,
+            $scriptName,
+        ];
     }
 
     /**
@@ -208,14 +218,13 @@ class ErrorReport
      */
     public function send(array $report): string
     {
-        $response = $this->httpRequest->create(
+        return $this->httpRequest->create(
             $this->submissionUrl,
             "POST",
             false,
             json_encode($report),
             "Content-Type: application/json"
         );
-        return $response;
     }
 
     /**
@@ -224,7 +233,7 @@ class ErrorReport
      *
      * @param array $stack the stack trace
      *
-     * @return array $stack the modified stack trace
+     * @return array the modified stack trace
      */
     private function translateStacktrace(array $stack): array
     {
@@ -259,7 +268,7 @@ class ErrorReport
         ];
 
         $reportData = $this->getData();
-        if (!empty($reportData)) {
+        if (! empty($reportData)) {
             $datas['hidden_fields'] = Url::getHiddenFields($reportData, '', true);
         }
 

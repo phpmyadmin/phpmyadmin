@@ -38,7 +38,7 @@ class GisMultiPoint extends GisGeometry
      */
     public static function singleton()
     {
-        if (!isset(self::$_instance)) {
+        if (! isset(self::$_instance)) {
             $class = __CLASS__;
             self::$_instance = new $class;
         }
@@ -70,18 +70,18 @@ class GisMultiPoint extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial     GIS MULTIPOINT object
-     * @param string $label       Label for the GIS MULTIPOINT object
-     * @param string $point_color Color for the GIS MULTIPOINT object
-     * @param array  $scale_data  Array containing data related to scaling
-     * @param object $image       Image object
+     * @param string      $spatial     GIS POLYGON object
+     * @param string|null $label       Label for the GIS POLYGON object
+     * @param string      $point_color Color for the GIS POLYGON object
+     * @param array       $scale_data  Array containing data related to scaling
+     * @param resource    $image       Image object
      *
-     * @return object the modified image object
+     * @return resource the modified image object
      * @access public
      */
     public function prepareRowAsPng(
         $spatial,
-        $label,
+        ?string $label,
         $point_color,
         array $scale_data,
         $image
@@ -128,18 +128,18 @@ class GisMultiPoint extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial     GIS MULTIPOINT object
-     * @param string $label       Label for the GIS MULTIPOINT object
-     * @param string $point_color Color for the GIS MULTIPOINT object
-     * @param array  $scale_data  Array containing data related to scaling
-     * @param TCPDF  $pdf         TCPDF instance
+     * @param string      $spatial     GIS MULTIPOINT object
+     * @param string|null $label       Label for the GIS MULTIPOINT object
+     * @param string      $point_color Color for the GIS MULTIPOINT object
+     * @param array       $scale_data  Array containing data related to scaling
+     * @param TCPDF       $pdf         TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
     public function prepareRowAsPdf(
         $spatial,
-        $label,
+        ?string $label,
         $point_color,
         array $scale_data,
         $pdf
@@ -148,7 +148,14 @@ class GisMultiPoint extends GisGeometry
         $red = hexdec(mb_substr($point_color, 1, 2));
         $green = hexdec(mb_substr($point_color, 3, 2));
         $blue = hexdec(mb_substr($point_color, 4, 2));
-        $line = ['width' => 1.25, 'color' => [$red, $green, $blue]];
+        $line = [
+            'width' => 1.25,
+            'color' => [
+                $red,
+                $green,
+                $blue,
+            ],
+        ];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
@@ -212,7 +219,7 @@ class GisMultiPoint extends GisGeometry
             if ($point[0] != '' && $point[1] != '') {
                 $row .= '<circle cx="' . $point[0] . '" cy="'
                     . $point[1] . '" r="3"';
-                $point_options['id'] = $label . rand();
+                $point_options['id'] = $label . mt_rand();
                 foreach ($point_options as $option => $val) {
                     $row .= ' ' . $option . '="' . trim((string) $val) . '"';
                 }
@@ -294,10 +301,10 @@ class GisMultiPoint extends GisGeometry
         $wkt = 'MULTIPOINT(';
         for ($i = 0; $i < $no_of_points; $i++) {
             $wkt .= ((isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
-                    && trim($gis_data[$index]['MULTIPOINT'][$i]['x']) != '')
+                    && trim((string) $gis_data[$index]['MULTIPOINT'][$i]['x']) != '')
                     ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : '')
                 . ' ' . ((isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
-                    && trim($gis_data[$index]['MULTIPOINT'][$i]['y']) != '')
+                    && trim((string) $gis_data[$index]['MULTIPOINT'][$i]['y']) != '')
                     ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') . ',';
         }
 

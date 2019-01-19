@@ -99,7 +99,7 @@ class Advisor
             function () {
             },
             function ($arguments, $value) {
-                if (!isset($this->runResult['fired'])) {
+                if (! isset($this->runResult['fired'])) {
                     return 0;
                 }
 
@@ -149,7 +149,7 @@ class Advisor
      * @param string|int $variable Variable to set
      * @param mixed      $value    Value to set
      *
-     * @return $this
+     * @return Advisor
      */
     public function setVariable($variable, $value): self
     {
@@ -237,7 +237,7 @@ class Advisor
 
         return [
             'parse' => ['errors' => $this->parseResult['errors']],
-            'run'   => $this->runResult
+            'run'   => $this->runResult,
         ];
     }
 
@@ -352,6 +352,7 @@ class Advisor
      * @param string $param the parameters
      *
      * @return string
+     * @throws Exception
      */
     public function translate(string $str, ?string $param = null): string
     {
@@ -375,7 +376,10 @@ class Advisor
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
-            return [$jst[0], $jst[1]];
+            return [
+                $jst[0],
+                $jst[1],
+            ];
         }
         return [$rule['justification']];
     }
@@ -387,6 +391,7 @@ class Advisor
      * @param array  $rule rule itself
      *
      * @return void
+     * @throws Exception
      */
     public function addRule(string $type, array $rule): void
     {
@@ -421,14 +426,20 @@ class Advisor
                 // linking to server_variables.php
                 $rule['recommendation'] = preg_replace_callback(
                     '/\{([a-z_0-9]+)\}/Ui',
-                    [$this, 'replaceVariable'],
+                    [
+                        $this,
+                        'replaceVariable',
+                    ],
                     $this->translate($rule['recommendation'])
                 );
 
                 // Replaces external Links with Core::linkURL() generated links
                 $rule['recommendation'] = preg_replace_callback(
                     '#href=("|\')(https?://[^\1]+)\1#i',
-                    [$this, 'replaceLinkURL'],
+                    [
+                        $this,
+                        'replaceLinkURL',
+                    ],
                     $rule['recommendation']
                 );
                 break;
@@ -504,11 +515,20 @@ class Advisor
                 __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
                 $filename
             );
-            return ['rules' => $rules, 'lines' => $lines, 'errors' => $errors];
+            return [
+                'rules' => $rules,
+                'lines' => $lines,
+                'errors' => $errors,
+            ];
         }
 
         $ruleSyntax = [
-            'name', 'formula', 'test', 'issue', 'recommendation', 'justification'
+            'name',
+            'formula',
+            'test',
+            'issue',
+            'recommendation',
+            'justification',
         ];
         $numRules = count($ruleSyntax);
         $numLines = count($file);
@@ -550,18 +570,16 @@ class Advisor
                     );
                 }
                 continue;
-            } else {
-                if ($ruleLine == -1) {
-                    $errors[] = sprintf(
-                        __('Unexpected characters on line %s.'),
-                        $i + 1
-                    );
-                }
+            } elseif ($ruleLine == -1) {
+                $errors[] = sprintf(
+                    __('Unexpected characters on line %s.'),
+                    $i + 1
+                );
             }
 
             // Reading rule lines
             if ($ruleLine > 0) {
-                if (!isset($line[0])) {
+                if (! isset($line[0])) {
                     continue; // Empty lines are ok
                 }
                 // Non tabbed lines are not
@@ -576,7 +594,7 @@ class Advisor
                     );
                     continue;
                 }
-                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = chop(
+                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = rtrim(
                     mb_substr($line, 1)
                 );
                 $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
@@ -589,7 +607,11 @@ class Advisor
             }
         }
 
-        return ['rules' => $rules, 'lines' => $lines, 'errors' => $errors];
+        return [
+            'rules' => $rules,
+            'lines' => $lines,
+            'errors' => $errors,
+        ];
     }
 
     /**
@@ -605,7 +627,7 @@ class Advisor
         if ($num >= 1) { // per second
             $per = __('per second');
         } elseif ($num * 60 >= 1) { // per minute
-            $num = $num * 60;
+            $num *= 60;
             $per = __('per minute');
         } elseif ($num * 60 * 60 >= 1) { // per hour
             $num = $num * 60 * 60;

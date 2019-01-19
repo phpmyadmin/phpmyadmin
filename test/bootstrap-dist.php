@@ -13,6 +13,10 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Theme;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Set precision to sane value, with higher values
  * things behave slightly unexpectedly, for example
@@ -41,6 +45,7 @@ $test_defaults = [
     'TESTSUITE_USER' => 'root',
     'TESTSUITE_PASSWORD' => '',
     'TESTSUITE_DATABASE' => 'test',
+    'TESTSUITE_PORT' => 3306,
     'TESTSUITE_URL' => 'http://localhost/phpmyadmin/',
     'TESTSUITE_SELENIUM_HOST' => '',
     'TESTSUITE_SELENIUM_PORT' => '4444',
@@ -62,7 +67,7 @@ if (PHP_SAPI == 'cli') {
     }
 }
 
-require_once 'libraries/vendor_config.php';
+require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 Loader::loadFunctions();
 $GLOBALS['PMA_Config'] = new Config();
@@ -93,6 +98,6 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
-$GLOBALS['PMA_Theme'] = Theme::load('./themes/pmahomme');
+$GLOBALS['PMA_Theme'] = Theme::load(ROOT_PATH . 'themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';

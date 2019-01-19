@@ -30,7 +30,7 @@ class Linter
      */
     public static function getLines($str)
     {
-        if ((!($str instanceof UtfString))
+        if ((! ($str instanceof UtfString))
             && (defined('USE_UTF_STRINGS')) && (USE_UTF_STRINGS)
         ) {
             // If the lexer uses UtfString for processing then the position will
@@ -80,7 +80,10 @@ class Linter
             }
             $line = $lineNo;
         }
-        return [$line, $pos - $lines[$line]];
+        return [
+            $line,
+            $pos - $lines[$line],
+        ];
     }
 
     /**
@@ -105,7 +108,7 @@ class Linter
                     'toLine' => 0,
                     'toColumn' => 0,
                     'severity' => 'warning',
-                ]
+                ],
             ];
         }
 
@@ -158,15 +161,15 @@ class Linter
             // Ending position of the string that caused the error.
             list($toLine, $toColumn) = static::findLineNumberAndColumn(
                 $lines,
-                $error[3] + mb_strlen((string)$error[2])
+                $error[3] + mb_strlen((string) $error[2])
             );
 
             // Building the response.
             $response[] = [
                 'message' => sprintf(
                     __('%1$s (near <code>%2$s</code>)'),
-                    htmlspecialchars((string)$error[0]),
-                    htmlspecialchars((string)$error[2])
+                    htmlspecialchars((string) $error[0]),
+                    htmlspecialchars((string) $error[2])
                 ),
                 'fromLine' => $fromLine,
                 'fromColumn' => $fromColumn,

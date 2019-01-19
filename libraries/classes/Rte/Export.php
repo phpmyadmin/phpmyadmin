@@ -97,7 +97,7 @@ class Export
      */
     public function events()
     {
-        global $_GET, $db;
+        global $db;
 
         if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
             $item_name = $_GET['item_name'];
@@ -117,7 +117,7 @@ class Export
      */
     public function routines()
     {
-        global $_GET, $db;
+        global $db;
 
         if (! empty($_GET['export_item'])
             && ! empty($_GET['item_name'])
@@ -130,7 +130,7 @@ class Export
                         $_GET['item_type'],
                         $_GET['item_name']
                     );
-                if (! $rtn_definition) {
+                if ($rtn_definition === null) {
                     $export_data = false;
                 } else {
                     $export_data = "DELIMITER $$\n"
@@ -151,7 +151,7 @@ class Export
      */
     public function triggers()
     {
-        global $_GET, $db, $table;
+        global $db, $table;
 
         if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
             $item_name = $_GET['item_name'];

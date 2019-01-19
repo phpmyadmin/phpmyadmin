@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -38,14 +40,14 @@ class PrivilegesTest extends TestCase
     protected function setUp()
     {
         //Constants
-        if (!defined("PMA_USR_BROWSER_AGENT")) {
+        if (! defined("PMA_USR_BROWSER_AGENT")) {
             define("PMA_USR_BROWSER_AGENT", "other");
         }
 
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
-        $_REQUEST['initial'] = null;
+        $_GET['initial'] = null;
 
         //$GLOBALS
         $GLOBALS['lang'] = 'en';
@@ -68,6 +70,7 @@ class PrivilegesTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
 
         $GLOBALS['cfgRelation'] = [];
         $GLOBALS['cfgRelation']['menuswork'] = false;
@@ -81,7 +84,13 @@ class PrivilegesTest extends TestCase
         $GLOBALS['text_dir'] = "text_dir";
         $GLOBALS['is_reload_priv'] = true;
 
-        $this->serverPrivileges = new Privileges(new Template());
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->serverPrivileges = new Privileges(
+            new Template(),
+            $GLOBALS['dbi'],
+            $relation,
+            new RelationCleanup($GLOBALS['dbi'], $relation)
+        );
 
         //$_POST
         $_POST['pred_password'] = 'none';
@@ -111,7 +120,7 @@ class PrivilegesTest extends TestCase
                 $this->returnValue(
                     [
                         'grant user1 select',
-                        'grant user2 delete'
+                        'grant user2 delete',
                     ]
                 )
             );
@@ -136,6 +145,8 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
+        $this->serverPrivileges->relation->dbi = $dbi;
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;
@@ -182,8 +193,8 @@ class PrivilegesTest extends TestCase
         );
 
         //pre variable have been defined
-        $_REQUEST['pred_tablename'] = "PMA_pred__tablename";
-        $_REQUEST['pred_dbname'] = ["PMA_pred_dbname"];
+        $_POST['pred_tablename'] = "PMA_pred__tablename";
+        $_POST['pred_dbname'] = ["PMA_pred_dbname"];
         list(
             ,, $dbname, $tablename, $routinename,
             $db_and_table, $dbname_is_wildcard
@@ -279,7 +290,7 @@ class PrivilegesTest extends TestCase
             [
                 'Delete',
                 'DELETE',
-                $GLOBALS['strPrivDescDelete']
+                $GLOBALS['strPrivDescDelete'],
             ],
             $ret[0]
         );
@@ -287,7 +298,7 @@ class PrivilegesTest extends TestCase
             [
                 'Create',
                 'CREATE',
-                $GLOBALS['strPrivDescCreateTbl']
+                $GLOBALS['strPrivDescCreateTbl'],
             ],
             $ret[1]
         );
@@ -305,7 +316,7 @@ class PrivilegesTest extends TestCase
             [
                 'Select_priv',
                 'SELECT',
-                __('Allows reading data.')
+                __('Allows reading data.'),
             ],
             $ret[0]
         );
@@ -313,7 +324,7 @@ class PrivilegesTest extends TestCase
             [
                 'Insert_priv',
                 'INSERT',
-                __('Allows inserting and replacing data.')
+                __('Allows inserting and replacing data.'),
             ],
             $ret[1]
         );
@@ -327,10 +338,10 @@ class PrivilegesTest extends TestCase
     public function testGetHtmlForColumnPrivileges()
     {
         $columns = [
-            'row1' => 'name1'
+            'row1' => 'name1',
         ];
         $row = [
-            'name_for_select' => 'Y'
+            'name_for_select' => 'Y',
         ];
         $name_for_select = 'name_for_select';
         $priv_for_header = 'priv_for_header';
@@ -389,7 +400,7 @@ class PrivilegesTest extends TestCase
         /* Assertion 1 */
         $row = [
             'ssl_type'   => '',
-            'ssh_cipher' => ''
+            'ssh_cipher' => '',
         ];
 
         $html = $this->serverPrivileges->getHtmlForRequires(
@@ -420,7 +431,7 @@ class PrivilegesTest extends TestCase
         /* Assertion 2 */
         $row = [
             'ssl_type'   => 'ANY',
-            'ssh_cipher' => ''
+            'ssh_cipher' => '',
         ];
 
         $html = $this->serverPrivileges->getHtmlForRequires(
@@ -451,7 +462,7 @@ class PrivilegesTest extends TestCase
         /* Assertion 3 */
         $row = [
             'ssl_type'   => 'X509',
-            'ssh_cipher' => ''
+            'ssh_cipher' => '',
         ];
 
         $html = $this->serverPrivileges->getHtmlForRequires(
@@ -482,7 +493,7 @@ class PrivilegesTest extends TestCase
         /* Assertion 4 */
         $row = [
             'ssl_type'   => 'SPECIFIED',
-            'ssh_cipher' => ''
+            'ssh_cipher' => '',
         ];
 
         $html = $this->serverPrivileges->getHtmlForRequires(
@@ -520,7 +531,7 @@ class PrivilegesTest extends TestCase
     {
         $username = "pma_username";
         $is_menuswork = true;
-        $_REQUEST['edit_user_group_dialog'] = "edit_user_group_dialog";
+        $_GET['edit_user_group_dialog'] = "edit_user_group_dialog";
 
         /* Assertion 1 */
         $html = $this->serverPrivileges->getHtmlForUserGroupDialog($username, $is_menuswork);
@@ -561,6 +572,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $actualHtml = $this->serverPrivileges->getHtmlForUserGroupDialog($username, $is_menuswork);
         $this->assertContains(
@@ -594,6 +606,7 @@ class PrivilegesTest extends TestCase
 
         /* reset original dbi */
         $GLOBALS['dbi'] = $oldDbi;
+        $this->serverPrivileges->dbi = $oldDbi;
     }
 
     /**
@@ -768,7 +781,7 @@ class PrivilegesTest extends TestCase
      */
     public function testGetDataForChangeOrCopyUser()
     {
-        //$_REQUEST['change_copy'] not set
+        //$_POST['change_copy'] not set
         list($queries, $password) = $this->serverPrivileges->getDataForChangeOrCopyUser();
         $this->assertEquals(
             null,
@@ -779,10 +792,10 @@ class PrivilegesTest extends TestCase
             $queries
         );
 
-        //$_REQUEST['change_copy'] is set
-        $_REQUEST['change_copy'] = true;
-        $_REQUEST['old_username'] = 'PMA_old_username';
-        $_REQUEST['old_hostname'] = 'PMA_old_hostname';
+        //$_POST['change_copy'] is set
+        $_POST['change_copy'] = true;
+        $_POST['old_username'] = 'PMA_old_username';
+        $_POST['old_hostname'] = 'PMA_old_hostname';
         list($queries, $password) = $this->serverPrivileges->getDataForChangeOrCopyUser();
         $this->assertEquals(
             'pma_password',
@@ -792,7 +805,7 @@ class PrivilegesTest extends TestCase
             [],
             $queries
         );
-        unset($_REQUEST['change_copy']);
+        unset($_POST['change_copy']);
     }
 
 
@@ -842,17 +855,18 @@ class PrivilegesTest extends TestCase
         // Case 1 : Test with Newer version
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50706));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_REQUEST['adduser_submit'] = true;
+        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['pred_password'] = 'keep';
-        $_REQUEST['createdb-3'] = true;
-        $_REQUEST['userGroup'] = "username";
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+        $_POST['createdb-3'] = true;
+        $_POST['userGroup'] = "username";
+        $_POST['authentication_plugin'] = 'mysql_native_password';
 
         list(
             $ret_message,,, $sql_query,
@@ -889,17 +903,18 @@ class PrivilegesTest extends TestCase
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50506));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_REQUEST['adduser_submit'] = true;
+        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['pred_password'] = 'keep';
-        $_REQUEST['createdb-3'] = true;
-        $_REQUEST['userGroup'] = "username";
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+        $_POST['createdb-3'] = true;
+        $_POST['userGroup'] = "username";
+        $_POST['authentication_plugin'] = 'mysql_native_password';
 
         list(
             $ret_message,,, $sql_query,
@@ -940,7 +955,7 @@ class PrivilegesTest extends TestCase
         $hostname = 'pma_hostname';
         $err_url = "error.php";
         $_POST['pma_pw'] = 'pma_pw';
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+        $_POST['authentication_plugin'] = 'mysql_native_password';
 
         $message = $this->serverPrivileges->updatePassword(
             $err_url,
@@ -966,10 +981,10 @@ class PrivilegesTest extends TestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
-        $_REQUEST['adduser_submit'] = true;
+        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
-        $_REQUEST['createdb-3'] = true;
+        $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
         list ($message, $sql_query)
@@ -1005,10 +1020,10 @@ class PrivilegesTest extends TestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
-        $_REQUEST['adduser_submit'] = true;
+        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
-        $_REQUEST['createdb-3'] = true;
+        $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
         list($sql_query, $message) = $this->serverPrivileges->updatePrivileges(
@@ -1071,7 +1086,11 @@ class PrivilegesTest extends TestCase
         $dbi->expects($this->any())->method('tryQuery')
             ->will($this->returnValue(true));
 
-        $columns = ['val1', 'replace1', 5];
+        $columns = [
+            'val1',
+            'replace1',
+            5,
+        ];
         $dbi->expects($this->at(0))
             ->method('fetchRow')
             ->will($this->returnValue($columns));
@@ -1083,6 +1102,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $html = $this->serverPrivileges->getHtmlToDisplayPrivilegesTable();
         $GLOBALS['username'] = "username";
@@ -1166,6 +1186,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1175,20 +1196,32 @@ class PrivilegesTest extends TestCase
      */
     public function testGetSqlQueriesForDisplayAndAddUser()
     {
-        $restoreMySQLVersion = "PMANORESTORE";
 
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50706));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $username = "PMA_username";
         $hostname = "PMA_hostname";
         $password = "pma_password";
         $_POST['pred_password'] = 'keep';
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+        $_POST['authentication_plugin'] = 'mysql_native_password';
         $dbname = "PMA_db";
 
-        list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-            = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
+        list(
+            $create_user_real,
+            $create_user_show,
+            $real_sql_query,
+            $sql_query,
+            ,
+            ,
+            $alter_real_sql_query,
+            $alter_sql_query
+        ) = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            $password
+        );
 
         //validate 1: $create_user_real
         $this->assertEquals(
@@ -1216,6 +1249,16 @@ class PrivilegesTest extends TestCase
             $sql_query
         );
 
+        $this->assertSame(
+            '',
+            $alter_real_sql_query
+        );
+
+        $this->assertSame(
+            '',
+            $alter_sql_query
+        );
+
         //Test for addUserAndCreateDatabase
         list($sql_query, $message) = $this->serverPrivileges->addUserAndCreateDatabase(
             false,
@@ -1223,7 +1266,9 @@ class PrivilegesTest extends TestCase
             $sql_query,
             $username,
             $hostname,
-            $dbname
+            $dbname,
+            $alter_real_sql_query,
+            $alter_sql_query
         );
 
         //validate 5: $sql_query
@@ -1253,7 +1298,7 @@ class PrivilegesTest extends TestCase
         $db = "PMA_db";
         $table = "PMA_table";
         $columns = [
-            'row1' => 'name1'
+            'row1' => 'name1',
         ];
         $row = [
             'Select_priv' => 'Y',
@@ -1331,8 +1376,14 @@ class PrivilegesTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = [
-            ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
-            ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
+            [
+                'COLUMN_NAME' => 'Host',
+                'CHARACTER_MAXIMUM_LENGTH' => 80,
+            ],
+            [
+                'COLUMN_NAME' => 'User',
+                'CHARACTER_MAXIMUM_LENGTH' => 40,
+            ],
         ];
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
@@ -1341,6 +1392,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $html = $this->serverPrivileges->getHtmlForLoginInformationFields();
 
@@ -1374,6 +1426,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1438,8 +1491,14 @@ class PrivilegesTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = [
-            ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
-            ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
+            [
+                'COLUMN_NAME' => 'Host',
+                'CHARACTER_MAXIMUM_LENGTH' => 80,
+            ],
+            [
+                'COLUMN_NAME' => 'User',
+                'CHARACTER_MAXIMUM_LENGTH' => 40,
+            ],
         ];
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
@@ -1448,6 +1507,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $dbname = "pma_dbname";
 
@@ -1497,6 +1557,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1511,8 +1572,14 @@ class PrivilegesTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = [
-            ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
-            ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
+            [
+                'COLUMN_NAME' => 'Host',
+                'CHARACTER_MAXIMUM_LENGTH' => 80,
+            ],
+            [
+                'COLUMN_NAME' => 'User',
+                'CHARACTER_MAXIMUM_LENGTH' => 40,
+            ],
         ];
         $dbi->expects($this->any())->method('isSuperuser')
             ->will($this->returnValue(true));
@@ -1523,6 +1590,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $db = "pma_dbname";
 
@@ -1577,6 +1645,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1591,8 +1660,14 @@ class PrivilegesTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = [
-            ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
-            ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
+            [
+                'COLUMN_NAME' => 'Host',
+                'CHARACTER_MAXIMUM_LENGTH' => 80,
+            ],
+            [
+                'COLUMN_NAME' => 'User',
+                'CHARACTER_MAXIMUM_LENGTH' => 40,
+            ],
         ];
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
@@ -1603,6 +1678,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $db = "pma_dbname";
         $table = "pma_table";
@@ -1660,12 +1736,16 @@ class PrivilegesTest extends TestCase
         );
         $this->assertContains(
             Url::getCommon(
-                ['checkprivsdb' => $db, 'checkprivstable' => $table]
+                [
+                    'checkprivsdb' => $db,
+                    'checkprivstable' => $table,
+                ]
             ),
             $html
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1689,11 +1769,21 @@ class PrivilegesTest extends TestCase
         $privMap = [
             "user1" => [
                 "hostname1" => [
-                    ['Type' => 'g', 'Grant_priv' => 'Y'],
-                    ['Type' => 'd', 'Db' => "dbname", 'Grant_priv' => 'Y'],
-                    ['Type' => 't', 'Grant_priv' => 'N'],
-                ]
-            ]
+                    [
+                        'Type' => 'g',
+                        'Grant_priv' => 'Y',
+                    ],
+                    [
+                        'Type' => 'd',
+                        'Db' => "dbname",
+                        'Grant_priv' => 'Y',
+                    ],
+                    [
+                        'Type' => 't',
+                        'Grant_priv' => 'N',
+                    ],
+                ],
+            ],
         ];
 
         $html = $this->serverPrivileges->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
@@ -1795,7 +1885,8 @@ class PrivilegesTest extends TestCase
                 'tablename' => $tablename,
                 'routinename' => '',
                 'revokeall' => 1,
-            ]
+            ],
+            ''
         );
         $this->assertContains(
             $url_html,
@@ -1838,10 +1929,11 @@ class PrivilegesTest extends TestCase
         $username = "pma_username";
         $hostname = "pma_hostname";
         $GLOBALS['dbname'] = "pma_dbname";
-        $_REQUEST['adduser_submit'] = "adduser_submit";
-        $_REQUEST['change_copy'] = "change_copy";
-        $_REQUEST['validate_username'] = "validate_username";
-        $_REQUEST['username'] = "username";
+        $_POST['adduser_submit'] = "adduser_submit";
+        $_POST['username'] = "username";
+        $_POST['change_copy'] = "change_copy";
+        $_GET['validate_username'] = "validate_username";
+        $_GET['username'] = "username";
         $_POST['update_privs'] = "update_privs";
 
         $extra_data = $this->serverPrivileges->getExtraDataForAjaxBehavior(
@@ -1914,8 +2006,14 @@ class PrivilegesTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = [
-            ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
-            ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
+            [
+                'COLUMN_NAME' => 'Host',
+                'CHARACTER_MAXIMUM_LENGTH' => 80,
+            ],
+            [
+                'COLUMN_NAME' => 'User',
+                'CHARACTER_MAXIMUM_LENGTH' => 40,
+            ],
         ];
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
@@ -1929,6 +2027,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $html = $this->serverPrivileges->getChangeLoginInformationHtmlForm($username, $hostname);
 
@@ -1955,7 +2054,7 @@ class PrivilegesTest extends TestCase
 
         $this->assertContains(
             '<input type="hidden" name="old_usergroup" value="'
-                . $expected_userGroup . '" />',
+                . $expected_userGroup . '">',
             $html
         );
 
@@ -1966,6 +2065,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1976,7 +2076,6 @@ class PrivilegesTest extends TestCase
     public function testGetUserGroupForUser()
     {
         $username = "pma_username";
-        $hostname = "pma_hostname";
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $dbi_old = $GLOBALS['dbi'];
@@ -1992,6 +2091,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $returned_userGroup = $this->serverPrivileges->getUserGroupForUser($username);
 
@@ -2001,6 +2101,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -2031,7 +2132,7 @@ class PrivilegesTest extends TestCase
         $item = Url::getCommon(
             [
                 'db' => $url_dbname,
-                'reload' => 1
+                'reload' => 1,
             ]
         );
         $this->assertContains(
@@ -2215,9 +2316,9 @@ class PrivilegesTest extends TestCase
      */
     public function testGetDataForDeleteUsers()
     {
-        $_REQUEST['change_copy'] = "change_copy";
-        $_REQUEST['old_hostname'] = "old_hostname";
-        $_REQUEST['old_username'] = "old_username";
+        $_POST['change_copy'] = "change_copy";
+        $_POST['old_hostname'] = "old_hostname";
+        $_POST['old_username'] = "old_username";
         $_SESSION['relation'][1] = [
             'PMA_VERSION' => PMA_VERSION,
             'bookmarkwork' => false,
@@ -2429,11 +2530,11 @@ class PrivilegesTest extends TestCase
         // Test case 1
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
         $this->assertContains(
-            '<input type="hidden" name="username" value="pma" />',
+            '<input type="hidden" name="username" value="pma">',
             $actual
         );
         $this->assertContains(
-            '<input type="hidden" name="hostname" value="host" />',
+            '<input type="hidden" name="hostname" value="host">',
             $actual
         );
         $this->assertContains(
@@ -2447,7 +2548,11 @@ class PrivilegesTest extends TestCase
 
         // Test case 2
         $GLOBALS['dblist'] = new \stdClass();
-        $GLOBALS['dblist']->databases = ['x', 'y', 'z'];
+        $GLOBALS['dblist']->databases = [
+            'x',
+            'y',
+            'z',
+        ];
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma2', 'host2', 'database', '');
         $this->assertContains(
             '<legend data-submenu-label="Database">',
@@ -2469,6 +2574,7 @@ class PrivilegesTest extends TestCase
         // Setup for the test
         $GLOBALS['dbi']->expects($this->any())->method('fetchRow')
             ->will($this->onConsecutiveCalls(['-']));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
         $actual = $this->serverPrivileges->getHtmlForInitials(['"' => true]);
         $this->assertContains('<td>A</td>', $actual);
         $this->assertContains('<td>Z</td>', $actual);
@@ -2505,7 +2611,7 @@ class PrivilegesTest extends TestCase
                 $this->onConsecutiveCalls(
                     [
                         'User' => 'pmauser',
-                        'Host' => 'local'
+                        'Host' => 'local',
                     ]
                 )
             );
@@ -2515,6 +2621,7 @@ class PrivilegesTest extends TestCase
 
         $_GET['initial'] = 'A';
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $expected = [
             'pmauser' => [
@@ -2524,8 +2631,8 @@ class PrivilegesTest extends TestCase
                     'Password' => '?',
                     'Grant_priv' => 'N',
                     'privs' => ['USAGE']
-                ]
-            ]
+                ],
+            ],
         ];
         $actual = $this->serverPrivileges->getDbRightsForUserOverview();
         $this->assertEquals($expected, $actual);
@@ -2551,12 +2658,12 @@ class PrivilegesTest extends TestCase
         $plugins = [
             [
                 'PLUGIN_NAME' => 'mysql_native_password',
-                'PLUGIN_DESCRIPTION' => 'Native MySQL authentication'
+                'PLUGIN_DESCRIPTION' => 'Native MySQL authentication',
             ],
             [
                 'PLUGIN_NAME' => 'sha256_password',
-                'PLUGIN_DESCRIPTION' => 'SHA256 password authentication'
-            ]
+                'PLUGIN_DESCRIPTION' => 'SHA256 password authentication',
+            ],
         ];
         $dbi->expects($this->any())
             ->method('fetchAssoc')
@@ -2571,6 +2678,7 @@ class PrivilegesTest extends TestCase
                 )
             );
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         /* Assertion 1 */
         $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
@@ -2643,6 +2751,7 @@ class PrivilegesTest extends TestCase
 
         // Restore old DBI
         $GLOBALS['dbi'] = $oldDbi;
+        $this->serverPrivileges->dbi = $oldDbi;
     }
 
     /**
@@ -2667,6 +2776,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         // Test case 1 : empty queries
         $queries = [];
@@ -2680,7 +2790,7 @@ class PrivilegesTest extends TestCase
         );
 
         // Test case 2 : all successful queries
-        $_REQUEST['mode'] = 3;
+        $_POST['mode'] = 3;
         $queries = ['foo'];
         $actual = $this->serverPrivileges->deleteUser($queries);
         $this->assertArrayHasKey(0, $actual);
@@ -2695,7 +2805,7 @@ class PrivilegesTest extends TestCase
         );
 
         // Test case 3 : failing queries
-        $_REQUEST['mode'] = 1;
+        $_POST['mode'] = 1;
         $queries = ['bar'];
         $actual = $this->serverPrivileges->deleteUser($queries);
         $this->assertArrayHasKey(0, $actual);

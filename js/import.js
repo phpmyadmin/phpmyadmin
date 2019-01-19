@@ -59,7 +59,9 @@ AJAX.registerOnload('import.js', function () {
     $(document).on('submit', '#import_file_form', function (event) {
         var radioLocalImport = $('#radio_local_import_file');
         var radioImport = $('#radio_import_file');
-        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strImportDialogMessage + '</div>';
+        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + PMA_messages.strImportDialogMessage + '</div>';
+        var wrongTblNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + PMA_messages.strTableNameDialogMessage + '</div>';
+        var wrongDBNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + PMA_messages.strDBNameDialogMessage + '</div>';
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
@@ -72,7 +74,7 @@ AJAX.registerOnload('import.js', function () {
 
             if (radioLocalImport.is(':checked')) {
                 if ($('#select_local_import_file').length === 0) {
-                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strNoImportFile + ' </div>', false);
+                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + PMA_messages.strNoImportFile + ' </div>', false);
                     return false;
                 }
 
@@ -88,6 +90,20 @@ AJAX.registerOnload('import.js', function () {
                 $('#input_import_file').trigger('focus');
                 PMA_ajaxShowMessage(fileMsg, false);
                 return false;
+            }
+            if ($('#text_csv_new_tbl_name').length > 0) {
+                var newTblName = $('#text_csv_new_tbl_name').val();
+                if (newTblName.length > 0 && $.trim(newTblName).length === 0) {
+                    PMA_ajaxShowMessage(wrongTblNameMsg, false);
+                    return false;
+                }
+            }
+            if ($('#text_csv_new_db_name').length > 0) {
+                var newDBName = $('#text_csv_new_db_name').val();
+                if (newDBName.length > 0 && $.trim(newDBName).length === 0) {
+                    PMA_ajaxShowMessage(wrongDBNameMsg, false);
+                    return false;
+                }
             }
         }
 

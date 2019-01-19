@@ -122,7 +122,7 @@ class Status
          * if the server works as master or slave in replication process,
          * display useful information
          */
-        $retval .= '<hr class="clearfloat" />';
+        $retval .= '<hr class="clearfloat">';
         $retval .= '<h3><a name="replication">';
         $retval .= __('Replication status');
         $retval .= '</a></h3>';

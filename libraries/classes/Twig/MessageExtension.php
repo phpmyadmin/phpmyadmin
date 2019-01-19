@@ -11,7 +11,7 @@ namespace PhpMyAdmin\Twig;
 
 use PhpMyAdmin\Message;
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
+use Twig\TwigFilter;
 
 /**
  * Class MessageExtension
@@ -21,22 +21,22 @@ use Twig\TwigFunction;
 class MessageExtension extends AbstractExtension
 {
     /**
-     * Returns a list of functions to add to the existing list.
+     * Returns a list of filters to add to the existing list.
      *
-     * @return TwigFunction[]
+     * @return TwigFilter[]
      */
-    public function getFunctions()
+    public function getFilters()
     {
         return [
-            new TwigFunction(
-                'Message_notice',
+            new TwigFilter(
+                'notice',
                 function ($string) {
                     return Message::notice($string)->getDisplay();
                 },
                 ['is_safe' => ['html']]
             ),
-            new TwigFunction(
-                'Message_error',
+            new TwigFilter(
+                'error',
                 function ($string) {
                     return Message::error($string)->getDisplay();
                 },

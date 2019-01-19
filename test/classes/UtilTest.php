@@ -130,9 +130,18 @@ class UtilTest extends PmaTestCase
     public function charsetQueryData()
     {
         return [
-            ["a_b_c_d", " CHARSET=a COLLATE a_b_c_d"],
-            ["a_", " CHARSET=a COLLATE a_"],
-            ["a", " CHARSET=a"],
+            [
+                "a_b_c_d",
+                " CHARSET=a COLLATE a_b_c_d",
+            ],
+            [
+                "a_",
+                " CHARSET=a COLLATE a_",
+            ],
+            [
+                "a",
+                " CHARSET=a",
+            ],
         ];
     }
 
@@ -168,10 +177,10 @@ class UtilTest extends PmaTestCase
             . '</label>'
             . '<div id="upload_form_status" class="hide"></div>'
             . '<div id="upload_form_status_info" class="hide"></div>'
-            . '<input type="file" name="import_file" id="input_import_file" />'
+            . '<input type="file" name="import_file" id="input_import_file">'
             . "(" . __('Max: ') . $res . $unit . ")" . "\n"
             . '<input type="hidden" name="MAX_FILE_SIZE" value="'
-            . $size . '" />' . "\n"
+            . $size . '">' . "\n"
         );
     }
 
@@ -183,13 +192,41 @@ class UtilTest extends PmaTestCase
     public function providerGetBrowseUploadFileBlock()
     {
         return [
-            [10, __('B'), "10"],
-            [100, __('B'), "100"],
-            [1024, __('B'), "1,024"],
-            [102400, __('KiB'), "100"],
-            [10240000, __('MiB'), "10"],
-            [2147483648, __('MiB'), "2,048"],
-            [21474836480, __('GiB'), "20"]
+            [
+                10,
+                __('B'),
+                "10",
+            ],
+            [
+                100,
+                __('B'),
+                "100",
+            ],
+            [
+                1024,
+                __('B'),
+                "1,024",
+            ],
+            [
+                102400,
+                __('KiB'),
+                "100",
+            ],
+            [
+                10240000,
+                __('MiB'),
+                "10",
+            ],
+            [
+                2147483648,
+                __('MiB'),
+                "2,048",
+            ],
+            [
+                21474836480,
+                __('GiB'),
+                "20",
+            ],
         ];
     }
 
@@ -352,7 +389,11 @@ class UtilTest extends PmaTestCase
         $this->expectOutputRegex("/Missing parameter: field/");
 
         Util::checkParameters(
-            ['db', 'table', 'field']
+            [
+                'db',
+                'table',
+                'field',
+            ]
         );
     }
 
@@ -377,43 +418,13 @@ class UtilTest extends PmaTestCase
 
         $this->expectOutputString("");
         Util::checkParameters(
-            ['db', 'table', 'field', 'sql_query']
+            [
+                'db',
+                'table',
+                'field',
+                'sql_query',
+            ]
         );
-    }
-
-    /**
-     * Test for Util::containsNonPrintableAscii
-     *
-     * @param string $str Value
-     * @param bool   $res Expected value
-     *
-     * @return void
-     *
-     * @covers \PhpMyAdmin\Util::containsNonPrintableAscii
-     * @dataProvider providerContainsNonPrintableAscii
-     */
-    public function testContainsNonPrintableAscii($str, $res)
-    {
-        $this->assertEquals(
-            $res,
-            Util::containsNonPrintableAscii($str)
-        );
-    }
-
-    /**
-     * Data provider for testContainsNonPrintableAscii
-     *
-     * @return array
-     */
-    public function providerContainsNonPrintableAscii()
-    {
-        return [
-            ["normal string", 0],
-            ["new\nline", 1],
-            ["tab\tspace", 1],
-            ["escape" . chr(27) . "char", 1],
-            ["chars%$\r\n", 1],
-        ];
     }
 
     /**
@@ -443,9 +454,18 @@ class UtilTest extends PmaTestCase
     public function providerConvertBitDefaultValue()
     {
         return [
-            ["b'",""],
-            ["b'01'","01"],
-            ["b'010111010'","010111010"]
+            [
+                "b'",
+                "",
+            ],
+            [
+                "b'01'",
+                "01",
+            ],
+            [
+                "b'010111010'",
+                "010111010",
+            ],
         ];
     }
 
@@ -457,14 +477,38 @@ class UtilTest extends PmaTestCase
     public function providerUnEscapeMysqlWildcards()
     {
         return [
-            ['\_test', '_test'],
-            ['\_\\', '_\\'],
-            ['\\_\%', '_%'],
-            ['\\\_', '\_'],
-            ['\\\_\\\%', '\_\%'],
-            ['\_\\%\_\_\%', '_%__%'],
-            ['\%\_', '%_'],
-            ['\\\%\\\_', '\%\_']
+            [
+                '\_test',
+                '_test',
+            ],
+            [
+                '\_\\',
+                '_\\',
+            ],
+            [
+                '\\_\%',
+                '_%',
+            ],
+            [
+                '\\\_',
+                '\_',
+            ],
+            [
+                '\\\_\\\%',
+                '\_\%',
+            ],
+            [
+                '\_\\%\_\_\%',
+                '_%__%',
+            ],
+            [
+                '\%\_',
+                '%_',
+            ],
+            [
+                '\\\%\\\_',
+                '\%\_',
+            ],
         ];
     }
 
@@ -525,7 +569,7 @@ class UtilTest extends PmaTestCase
             'Server' => [
                 'host' => 'host&',
                 'verbose' => 'verbose',
-            ]
+            ],
         ];
         $GLOBALS['db'] = 'database';
         $GLOBALS['table'] = 'table';
@@ -554,12 +598,30 @@ class UtilTest extends PmaTestCase
     public function providerExpandUserString()
     {
         return [
-            ['@SERVER@', 'host&'],
-            ['@VSERVER@', 'verbose'],
-            ['@DATABASE@', 'database'],
-            ['@TABLE@', 'table'],
-            ['@IGNORE@', '@IGNORE@'],
-            ['@PHPMYADMIN@', 'phpMyAdmin PMA_VERSION'],
+            [
+                '@SERVER@',
+                'host&',
+            ],
+            [
+                '@VSERVER@',
+                'verbose',
+            ],
+            [
+                '@DATABASE@',
+                'database',
+            ],
+            [
+                '@TABLE@',
+                'table',
+            ],
+            [
+                '@IGNORE@',
+                '@IGNORE@',
+            ],
+            [
+                '@PHPMYADMIN@',
+                'phpMyAdmin PMA_VERSION',
+            ],
         ];
     }
 
@@ -601,7 +663,10 @@ class UtilTest extends PmaTestCase
                     'unsigned' => false,
                     'zerofill' => false,
                     'spec_in_brackets' => "'a','b'",
-                    'enum_set_values' => ['a', 'b'],
+                    'enum_set_values' => [
+                        'a',
+                        'b',
+                    ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
                     'displayed_type' => "set('a', 'b')"
@@ -616,7 +681,10 @@ class UtilTest extends PmaTestCase
                     'unsigned' => false,
                     'zerofill' => false,
                     'spec_in_brackets' => "'\'a','b'",
-                    'enum_set_values' => ["'a", 'b'],
+                    'enum_set_values' => [
+                        "'a",
+                        'b',
+                    ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
                     'displayed_type' => "set('\'a', 'b')"
@@ -631,7 +699,10 @@ class UtilTest extends PmaTestCase
                     'unsigned' => false,
                     'zerofill' => false,
                     'spec_in_brackets' => "'''a','b'",
-                    'enum_set_values' => ["'a", 'b'],
+                    'enum_set_values' => [
+                        "'a",
+                        'b',
+                    ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
                     'displayed_type' => "set('''a', 'b')"
@@ -646,7 +717,11 @@ class UtilTest extends PmaTestCase
                     'unsigned' => false,
                     'zerofill' => false,
                     'spec_in_brackets' => "'a&b', 'b''c\\'d', 'e\\\\f'",
-                    'enum_set_values' => ['a&b', 'b\'c\'d', 'e\\f'],
+                    'enum_set_values' => [
+                        'a&b',
+                        'b\'c\'d',
+                        'e\\f',
+                    ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
                     'displayed_type' => "enum('a&amp;b', 'b''c\\'d', 'e\\\\f')"
@@ -727,10 +802,22 @@ class UtilTest extends PmaTestCase
     public function providerExtractValueFromFormattedSize()
     {
         return [
-            [100, -1],
-            ["10GB", 10737418240],
-            ["15MB", 15728640],
-            ["256K", 262144]
+            [
+                100,
+                -1,
+            ],
+            [
+                "10GB",
+                10737418240,
+            ],
+            [
+                "15MB",
+                15728640,
+            ],
+            [
+                "256K",
+                262144,
+            ],
         ];
     }
 
@@ -763,10 +850,22 @@ class UtilTest extends PmaTestCase
     public function providerIsForeignKeySupported()
     {
         return [
-            ['MyISAM', false],
-            ['innodb', true],
-            ['pBxT', true],
-            ['ndb', true]
+            [
+                'MyISAM',
+                false,
+            ],
+            [
+                'innodb',
+                true,
+            ],
+            [
+                'pBxT',
+                true,
+            ],
+            [
+                'ndb',
+                true,
+            ],
         ];
     }
 
@@ -813,7 +912,7 @@ class UtilTest extends PmaTestCase
     {
         $result = Util::formatByteDown($a, $b, $c);
         $result[0] = trim($result[0]);
-        $this->assertEquals($e, $result);
+        $this->assertSame($e, $result);
     }
 
     /**
@@ -824,15 +923,87 @@ class UtilTest extends PmaTestCase
     public function providerFormatByteDown()
     {
         return [
-            [10, 2, 2, ['10', __('B')]],
-            [100, 2, 0, ['0', __('KiB')]],
-            [100, 3, 0, ['100', __('B')]],
-            [100, 2, 2, ['0.10', __('KiB')]],
-            [1034, 3, 2, ['1.01', __('KiB')]],
-            [100233, 3, 3, ['97.884', __('KiB')]],
-            [2206451, 1, 2, ['2.10', __('MiB')]],
-            [21474836480, 4, 0, ['20', __('GiB')]],
-            [doubleval(52) + doubleval(2048), 3, 1, ['2.1', 'KiB']],
+            [
+                10,
+                2,
+                2,
+                [
+                    '10',
+                    __('B'),
+                ],
+            ],
+            [
+                100,
+                2,
+                0,
+                [
+                    '0',
+                    __('KiB'),
+                ],
+            ],
+            [
+                100,
+                3,
+                0,
+                [
+                    '100',
+                    __('B'),
+                ],
+            ],
+            [
+                100,
+                2,
+                2,
+                [
+                    '0.10',
+                    __('KiB'),
+                ],
+            ],
+            [
+                1034,
+                3,
+                2,
+                [
+                    '1.01',
+                    __('KiB'),
+                ],
+            ],
+            [
+                100233,
+                3,
+                3,
+                [
+                    '97.884',
+                    __('KiB'),
+                ],
+            ],
+            [
+                2206451,
+                1,
+                2,
+                [
+                    '2.10',
+                    __('MiB'),
+                ],
+            ],
+            [
+                21474836480,
+                4,
+                0,
+                [
+                    '20',
+                    __('GiB'),
+                ],
+            ],
+            [
+                doubleval(52) + doubleval(2048),
+                3,
+                1,
+                [
+                    '2.1',
+                    'KiB',
+                ],
+            ],
         ];
     }
 
@@ -923,21 +1094,96 @@ class UtilTest extends PmaTestCase
     public function providerFormatNumber()
     {
         return [
-            [10, 2, 2, '10  '],
-            [100, 2, 0, '100  '],
-            [100, 2, 2, '100  '],
-            [-1000.454, 4, 2, '-1,000.45  '],
-            [0.00003, 3, 2, '30 &micro;'],
-            [0.003, 3, 3, '3 m'],
-            [-0.003, 6, 0, '-3,000 &micro;'],
-            [100.98, 0, 2, '100.98'],
-            [21010101, 0, 2, '21,010,101.00'],
-            [1100000000, 5, 0, '1,100 M'],
-            [20000, 2, 2, '20 k'],
-            [20011, 2, 2, '20.01 k'],
-            [123456789, 6, 0, '123,457 k'],
-            [-123456789, 4, 2, '-123.46 M'],
-            [0, 6, 0, '0']
+            [
+                10,
+                2,
+                2,
+                '10  ',
+            ],
+            [
+                100,
+                2,
+                0,
+                '100  ',
+            ],
+            [
+                100,
+                2,
+                2,
+                '100  ',
+            ],
+            [
+                -1000.454,
+                4,
+                2,
+                '-1,000.45  ',
+            ],
+            [
+                0.00003,
+                3,
+                2,
+                '30 µ',
+            ],
+            [
+                0.003,
+                3,
+                3,
+                '3 m',
+            ],
+            [
+                -0.003,
+                6,
+                0,
+                '-3,000 µ',
+            ],
+            [
+                100.98,
+                0,
+                2,
+                '100.98',
+            ],
+            [
+                21010101,
+                0,
+                2,
+                '21,010,101.00',
+            ],
+            [
+                1100000000,
+                5,
+                0,
+                '1,100 M',
+            ],
+            [
+                20000,
+                2,
+                2,
+                '20 k',
+            ],
+            [
+                20011,
+                2,
+                2,
+                '20.01 k',
+            ],
+            [
+                123456789,
+                6,
+                0,
+                '123,457 k',
+            ],
+            [
+                -123456789,
+                4,
+                2,
+                '-123.46 M',
+            ],
+            [
+                0,
+                6,
+                0,
+                '0',
+            ],
         ];
     }
 
@@ -955,7 +1201,7 @@ class UtilTest extends PmaTestCase
     {
         $this->assertEquals(
             Util::generateHiddenMaxFileSize($size),
-            '<input type="hidden" name="MAX_FILE_SIZE" value="' . $size . '" />'
+            '<input type="hidden" name="MAX_FILE_SIZE" value="' . $size . '">'
         );
     }
 
@@ -972,7 +1218,7 @@ class UtilTest extends PmaTestCase
             [1024],
             ["1024Mb"],
             [2147483648],
-            ["some_string"]
+            ["some_string"],
         ];
     }
 
@@ -1174,7 +1420,10 @@ class UtilTest extends PmaTestCase
     public function testGetDropdown()
     {
         $name = "&test_dropdown_name";
-        $choices = ["value_1" => "label_1", "value&_2\"" => "label_2"];
+        $choices = [
+            "value_1" => "label_1",
+            "value&_2\"" => "label_2",
+        ];
         $active_choice = null;
         $id = "test_&lt;dropdown&gt;_name";
 
@@ -1210,7 +1459,10 @@ class UtilTest extends PmaTestCase
     public function testGetDropdownWithActive()
     {
         $name = "&test_dropdown_name";
-        $choices = ["value_1" => "label_1", "value&_2\"" => "label_2"];
+        $choices = [
+            "value_1" => "label_1",
+            "value&_2\"" => "label_2",
+        ];
         $active_choice = "value&_2\"";
         $id = "test_&lt;dropdown&gt;_name";
 
@@ -1266,13 +1518,41 @@ class UtilTest extends PmaTestCase
     public function providerGetFormattedMaximumUploadSize()
     {
         return [
-            [10, __('B'), "10"],
-            [100, __('B'), "100"],
-            [1024, __('B'), "1,024"],
-            [102400, __('KiB'), "100"],
-            [10240000, __('MiB'), "10"],
-            [2147483648, __('MiB'), "2,048"],
-            [21474836480, __('GiB'), "20"]
+            [
+                10,
+                __('B'),
+                "10",
+            ],
+            [
+                100,
+                __('B'),
+                "100",
+            ],
+            [
+                1024,
+                __('B'),
+                "1,024",
+            ],
+            [
+                102400,
+                __('KiB'),
+                "100",
+            ],
+            [
+                10240000,
+                __('MiB'),
+                "10",
+            ],
+            [
+                2147483648,
+                __('MiB'),
+                "2,048",
+            ],
+            [
+                21474836480,
+                __('GiB'),
+                "20",
+            ],
         ];
     }
 
@@ -1305,7 +1585,7 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
+            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
             Util::getIcon('b_comment')
         );
     }
@@ -1325,7 +1605,7 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" class="icon ic_b_comment" /></span>',
+            . '" class="icon ic_b_comment"></span>',
             Util::getIcon('b_comment', $alternate_text)
         );
     }
@@ -1347,7 +1627,7 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" class="icon ic_b_comment" />&nbsp;' . $alternate_text . '</span>',
+            . '" class="icon ic_b_comment">&nbsp;' . $alternate_text . '</span>',
             Util::getIcon('b_comment', $alternate_text, true, false)
         );
     }
@@ -1380,18 +1660,21 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFields()
     {
         $name = "test_display_radio";
-        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
+        $choices = [
+            'value_1' => 'choice_1',
+            'value_2' => 'choice_2',
+        ];
 
         $out = "";
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
                 . '" value="' . htmlspecialchars($choice_value) . '"';
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
         }
 
@@ -1411,7 +1694,10 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithChecked()
     {
         $name = "test_display_radio";
-        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
+        $choices = [
+            'value_1' => 'choice_1',
+            'value_2' => 'choice_2',
+        ];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1422,11 +1708,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
         }
 
@@ -1450,7 +1736,10 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithCheckedWithClass()
     {
         $name = "test_display_radio";
-        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
+        $choices = [
+            'value_1' => 'choice_1',
+            'value_2' => 'choice_2',
+        ];
         $checked_choice = "value_2";
         $class = "test_class";
 
@@ -1464,11 +1753,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
             $out .= '</div>';
             $out .= "\n";
@@ -1497,7 +1786,10 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithoutBR()
     {
         $name = "test_display_radio";
-        $choices = ['value_1' => 'choice_1', 'value&_&lt;2&gt;' => 'choice_2'];
+        $choices = [
+            'value_1' => 'choice_1',
+            'value&_&lt;2&gt;' => 'choice_2',
+        ];
         $checked_choice = "choice_2";
 
         $out = "";
@@ -1508,7 +1800,7 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
@@ -1535,7 +1827,10 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelEscapeLabel()
     {
         $name = "test_display_radio";
-        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
+        $choices = [
+            'value_1' => 'choice_1',
+            'value_&2' => 'choice&_&lt;2&gt;',
+        ];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1546,11 +1841,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">'
                 . htmlspecialchars($choice_label) . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
         }
 
@@ -1576,7 +1871,10 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelNotEscapeLabel()
     {
         $name = "test_display_radio";
-        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
+        $choices = [
+            'value_1' => 'choice_1',
+            'value_&2' => 'choice&_&lt;2&gt;',
+        ];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1587,11 +1885,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
         }
 
@@ -1617,7 +1915,10 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelEscapeLabelWithClass()
     {
         $name = "test_display_radio";
-        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
+        $choices = [
+            'value_1' => 'choice_1',
+            'value_&2' => 'choice&_&lt;2&gt;',
+        ];
         $checked_choice = "value_2";
         $class = "test_class";
 
@@ -1631,11 +1932,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">'
                 . htmlspecialchars($choice_label) . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
             $out .= '</div>';
             $out .= "\n";
@@ -1681,15 +1982,42 @@ class UtilTest extends PmaTestCase
     public function providerGetTitleForTarget()
     {
         return [
-            ['tbl_structure.php', __('Structure')],
-            ['tbl_sql.php', __('SQL'),],
-            ['tbl_select.php', __('Search'),],
-            ['tbl_change.php', __('Insert')],
-            ['sql.php', __('Browse')],
-            ['db_structure.php', __('Structure')],
-            ['db_sql.php', __('SQL')],
-            ['db_search.php', __('Search')],
-            ['db_operations.php', __('Operations')],
+            [
+                'tbl_structure.php',
+                __('Structure'),
+            ],
+            [
+                'tbl_sql.php',
+                __('SQL'),
+            ],
+            [
+                'tbl_select.php',
+                __('Search'),
+            ],
+            [
+                'tbl_change.php',
+                __('Insert'),
+            ],
+            [
+                'sql.php',
+                __('Browse'),
+            ],
+            [
+                'db_structure.php',
+                __('Structure'),
+            ],
+            [
+                'db_sql.php',
+                __('SQL'),
+            ],
+            [
+                'db_search.php',
+                __('Search'),
+            ],
+            [
+                'db_operations.php',
+                __('Operations'),
+            ],
         ];
     }
 
@@ -1726,8 +2054,16 @@ class UtilTest extends PmaTestCase
     public function providerLocalisedDate()
     {
         return [
-            [1227455558, '', 'Nov 23, 2008 at 03:52 PM'],
-            [1227455558, '%Y-%m-%d %H:%M:%S %a', '2008-11-23 15:52:38 Sun']
+            [
+                1227455558,
+                '',
+                'Nov 23, 2008 at 03:52 PM',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                '2008-11-23 15:52:38 Sun',
+            ],
         ];
     }
 
@@ -1764,8 +2100,14 @@ class UtilTest extends PmaTestCase
     public function providerTimespanFormat()
     {
         return [
-            [1258, '0 days, 0 hours, 20 minutes and 58 seconds'],
-            [821958, '9 days, 12 hours, 19 minutes and 18 seconds']
+            [
+                1258,
+                '0 days, 0 hours, 20 minutes and 58 seconds',
+            ],
+            [
+                821958,
+                '9 days, 12 hours, 19 minutes and 18 seconds',
+            ],
         ];
     }
 
@@ -1798,11 +2140,15 @@ class UtilTest extends PmaTestCase
     {
         return [
             [
-                '20131009',
+                20131009,
                 64,
-                '0000000000000000000000000000000000000001001100110010110011000001'
+                '0000000000000000000000000000000000000001001100110010110011000001',
             ],
-            ['5', 32, '00000000000000000000000000000101']
+            [
+                5,
+                32,
+                '00000000000000000000000000000101',
+            ],
         ];
     }
 
@@ -1833,10 +2179,22 @@ class UtilTest extends PmaTestCase
     public function providerUnQuote()
     {
         return [
-            ['"test\'"', "test'"],
-            ["'test''", "test'"],
-            ["`test'`", "test'"],
-            ["'test'test", "'test'test"]
+            [
+                '"test\'"',
+                "test'",
+            ],
+            [
+                "'test''",
+                "test'",
+            ],
+            [
+                "`test'`",
+                "test'",
+            ],
+            [
+                "'test'test",
+                "'test'test",
+            ],
         ];
     }
 
@@ -1867,10 +2225,22 @@ class UtilTest extends PmaTestCase
     public function providerUnQuoteSelectedChar()
     {
         return [
-            ['"test\'"', "test'"],
-            ["'test''", "'test''"],
-            ["`test'`", "`test'`"],
-            ["'test'test", "'test'test"]
+            [
+                '"test\'"',
+                "test'",
+            ],
+            [
+                "'test''",
+                "'test''",
+            ],
+            [
+                "`test'`",
+                "`test'`",
+            ],
+            [
+                "'test'test",
+                "'test'test",
+            ],
         ];
     }
 
@@ -1902,13 +2272,32 @@ class UtilTest extends PmaTestCase
     public function providerBackquote()
     {
         return [
-            ['0', '`0`'],
-            ['test', '`test`'],
-            ['te`st', '`te``st`'],
             [
-                ['test', 'te`st', '', '*'],
-                ['`test`', '`te``st`', '', '*']
-            ]
+                '0',
+                '`0`',
+            ],
+            [
+                'test',
+                '`test`',
+            ],
+            [
+                'te`st',
+                '`te``st`',
+            ],
+            [
+                [
+                    'test',
+                    'te`st',
+                    '',
+                    '*',
+                ],
+                [
+                    '`test`',
+                    '`te``st`',
+                    '',
+                    '*',
+                ],
+            ],
         ];
     }
 
@@ -1944,13 +2333,32 @@ class UtilTest extends PmaTestCase
     public function providerBackquoteCompat()
     {
         return [
-            ['0', '"0"'],
-            ['test', '"test"'],
-            ['te`st', '"te`st"'],
             [
-                ['test', 'te`st', '', '*'],
-                ['"test"', '"te`st"', '', '*']
-            ]
+                '0',
+                '"0"',
+            ],
+            [
+                'test',
+                '"test"',
+            ],
+            [
+                'te`st',
+                '"te`st"',
+            ],
+            [
+                [
+                    'test',
+                    'te`st',
+                    '',
+                    '*',
+                ],
+                [
+                    '"test"',
+                    '"te`st"',
+                    '',
+                    '*',
+                ],
+            ],
         ];
     }
 
@@ -1991,7 +2399,7 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help" /></a>',
+            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>',
             Util::showDocu('page', 'anchor')
         );
     }
@@ -2013,7 +2421,7 @@ class UtilTest extends PmaTestCase
         $expected = '<a href="./url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
-            . __('Documentation') . '" class="icon ic_b_help" /></a>';
+            . __('Documentation') . '" class="icon ic_b_help"></a>';
 
         $this->assertEquals(
             $expected,
@@ -2047,8 +2455,14 @@ class UtilTest extends PmaTestCase
     public function providerUserDir()
     {
         return [
-            ['/var/pma_tmp/%u/', "/var/pma_tmp/root/"],
-            ['/home/%u/pma', "/home/root/pma/"]
+            [
+                '/var/pma_tmp/%u/',
+                "/var/pma_tmp/root/",
+            ],
+            [
+                '/home/%u/pma',
+                "/home/root/pma/",
+            ],
         ];
     }
 
@@ -2079,10 +2493,22 @@ class UtilTest extends PmaTestCase
     public function providerDuplicateFirstNewline()
     {
         return [
-            ['test', 'test'],
-            ["\r\ntest", "\n\r\ntest"],
-            ["\ntest", "\ntest"],
-            ["\n\r\ntest", "\n\r\ntest"]
+            [
+                'test',
+                'test',
+            ],
+            [
+                "\r\ntest",
+                "\n\r\ntest",
+            ],
+            [
+                "\ntest",
+                "\ntest",
+            ],
+            [
+                "\n\r\ntest",
+                "\n\r\ntest",
+            ],
         ];
     }
 
@@ -2115,11 +2541,14 @@ class UtilTest extends PmaTestCase
      */
     public function testLinkOrButton(array $params, $limit, $match)
     {
-        $restore = isset($GLOBALS['cfg']['LinkLengthLimit']) ? $GLOBALS['cfg']['LinkLengthLimit'] : 1000;
+        $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
         $GLOBALS['cfg']['LinkLengthLimit'] = $limit;
         try {
             $result = call_user_func_array(
-                ['PhpMyAdmin\Util', 'linkOrButton'],
+                [
+                    'PhpMyAdmin\Util',
+                    'linkOrButton',
+                ],
                 $params
             );
             $this->assertEquals($match, $result);
@@ -2137,22 +2566,38 @@ class UtilTest extends PmaTestCase
     {
         return [
             [
-                ['index.php', 'text'],
+                [
+                    'index.php',
+                    'text',
+                ],
                 1000,
-                '<a href="index.php" >text</a>'
+                '<a href="index.php" >text</a>',
             ],
             [
-                ['index.php?some=parameter', 'text'],
+                [
+                    'index.php?some=parameter',
+                    'text',
+                ],
                 20,
                 '<a href="index.php" data-post="some=parameter">text</a>',
             ],
             [
-                ['index.php', 'text', [], 'target'],
+                [
+                    'index.php',
+                    'text',
+                    [],
+                    'target',
+                ],
                 1000,
                 '<a href="index.php" target="target">text</a>',
             ],
             [
-                ['url.php?url=http://phpmyadmin.net/', 'text', [], '_blank'],
+                [
+                    'url.php?url=http://phpmyadmin.net/',
+                    'text',
+                    [],
+                    '_blank',
+                ],
                 1000,
                 '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
             ],

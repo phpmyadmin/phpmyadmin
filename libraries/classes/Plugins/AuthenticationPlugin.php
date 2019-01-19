@@ -198,7 +198,7 @@ abstract class AuthenticationPlugin
         }
 
         $dbi_error = $GLOBALS['dbi']->getError();
-        if (!empty($dbi_error)) {
+        if (! empty($dbi_error)) {
             return htmlspecialchars($dbi_error);
         } elseif (isset($GLOBALS['errno'])) {
             return '#' . $GLOBALS['errno'] . ' '
@@ -230,7 +230,7 @@ abstract class AuthenticationPlugin
     public function setSessionAccessTime()
     {
         if (isset($_REQUEST['guid'])) {
-            $guid = (string)$_REQUEST['guid'];
+            $guid = (string) $_REQUEST['guid'];
         } else {
             $guid = 'default';
         }
@@ -332,7 +332,7 @@ abstract class AuthenticationPlugin
      * Checks whether two factor authentication is active
      * for given user and performs it.
      *
-     * @return void
+     * @return boolean|void
      */
     public function checkTwoFactor()
     {

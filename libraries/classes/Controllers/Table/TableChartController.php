@@ -13,9 +13,9 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -26,17 +26,17 @@ use PhpMyAdmin\Util;
 class TableChartController extends TableController
 {
     /**
-     * @var string $sql_query
+     * @var string
      */
     protected $sql_query;
 
     /**
-     * @var string $url_query
+     * @var string
      */
     protected $url_query;
 
     /**
-     * @var array $cfg
+     * @var array
      */
     protected $cfg;
 
@@ -84,7 +84,7 @@ class TableChartController extends TableController
         }
 
         // Throw error if no sql query is set
-        if (!isset($this->sql_query) || $this->sql_query == '') {
+        if (! isset($this->sql_query) || $this->sql_query == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))
@@ -105,7 +105,7 @@ class TableChartController extends TableController
                 'vendor/jqplot/plugins/jqplot.pointLabels.js',
                 'vendor/jqplot/plugins/jqplot.pieRenderer.js',
                 'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
-                'vendor/jqplot/plugins/jqplot.highlighter.js'
+                'vendor/jqplot/plugins/jqplot.highlighter.js',
             ]
         );
 
@@ -126,7 +126,7 @@ class TableChartController extends TableController
                 'table'
             );
             $url_params['back'] = 'tbl_sql.php';
-            include 'libraries/tbl_common.inc.php';
+            include ROOT_PATH . 'libraries/tbl_common.inc.php';
             $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($this->db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
@@ -134,14 +134,14 @@ class TableChartController extends TableController
                 'database'
             );
             $url_params['back'] = 'sql.php';
-            include 'libraries/db_common.inc.php';
+            include ROOT_PATH . 'libraries/db_common.inc.php';
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabServer'],
                 'server'
             );
             $url_params['back'] = 'sql.php';
-            include 'libraries/server_common.inc.php';
+            include ROOT_PATH . 'libraries/server_common.inc.php';
         }
 
         $data = [];
@@ -154,7 +154,10 @@ class TableChartController extends TableController
 
         $keys = array_keys($data[0]);
 
-        $numeric_types = ['int', 'real'];
+        $numeric_types = [
+            'int',
+            'real',
+        ];
         $numeric_column_count = 0;
         foreach ($keys as $idx => $key) {
             if (in_array($fields_meta[$idx]->type, $numeric_types)) {
@@ -205,10 +208,13 @@ class TableChartController extends TableController
         $table = &$this->table;
 
         if (strlen($this->table) > 0 && strlen($this->db) > 0) {
-            include './libraries/tbl_common.inc.php';
+            include ROOT_PATH . 'libraries/tbl_common.inc.php';
         }
 
         $parser = new Parser($this->sql_query);
+        /**
+         * @var SelectStatement $statement
+         */
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {
             $statement->limit = new Limit(
@@ -241,9 +247,8 @@ class TableChartController extends TableController
         foreach ($data as $data_row_number => $data_row) {
             $tmp_row = [];
             foreach ($data_row as $data_column => $data_value) {
-                $tmp_row[htmlspecialchars($data_column)] = htmlspecialchars(
-                    $data_value
-                );
+                $escaped_value = is_null($data_value) ? null : htmlspecialchars($data_value);
+                $tmp_row[htmlspecialchars($data_column)] = $escaped_value;
             }
             $sanitized_data[] = $tmp_row;
         }

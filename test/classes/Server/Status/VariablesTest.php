@@ -37,10 +37,6 @@ class VariablesTest extends TestCase
      */
     protected function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
@@ -89,7 +85,7 @@ class VariablesTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
             [
                 "SHOW GLOBAL VARIABLES",
@@ -97,7 +93,7 @@ class VariablesTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_variables
+                $server_variables,
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
@@ -106,7 +102,7 @@ class VariablesTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
         ];
 

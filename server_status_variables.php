@@ -12,22 +12,26 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Variables;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/server_common.inc.php';
-require_once 'libraries/replication.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/server_common.inc.php';
+require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 /**
  * flush status variables if requested
  */
-if (isset($_REQUEST['flush'])) {
+if (isset($_POST['flush'])) {
     $_flush_commands = [
         'STATUS',
         'TABLES',
         'QUERY CACHE',
     ];
 
-    if (in_array($_REQUEST['flush'], $_flush_commands)) {
-        $GLOBALS['dbi']->query('FLUSH ' . $_REQUEST['flush'] . ';');
+    if (in_array($_POST['flush'], $_flush_commands)) {
+        $GLOBALS['dbi']->query('FLUSH ' . $_POST['flush'] . ';');
     }
     unset($_flush_commands);
 }

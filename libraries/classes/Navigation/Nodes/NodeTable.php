@@ -93,19 +93,19 @@ class NodeTable extends NodeDatabaseChild
         $table = $this->real_name;
         switch ($type) {
             case 'columns':
-                if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+                if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                     $db = $GLOBALS['dbi']->escapeString($db);
                     $table = $GLOBALS['dbi']->escapeString($table);
                     $query = "SELECT COUNT(*) ";
                     $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                     $query .= "WHERE `TABLE_NAME`='$table' ";
                     $query .= "AND `TABLE_SCHEMA`='$db'";
-                    $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+                    $retval = (int) $GLOBALS['dbi']->fetchValue($query);
                 } else {
                     $db = Util::backquote($db);
                     $table = Util::backquote($table);
                     $query = "SHOW COLUMNS FROM $table FROM $db";
-                    $retval = (int)$GLOBALS['dbi']->numRows(
+                    $retval = (int) $GLOBALS['dbi']->numRows(
                         $GLOBALS['dbi']->tryQuery($query)
                     );
                 }
@@ -114,12 +114,12 @@ class NodeTable extends NodeDatabaseChild
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = "SHOW INDEXES FROM $table FROM $db";
-                $retval = (int)$GLOBALS['dbi']->numRows(
+                $retval = (int) $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
                 );
                 break;
             case 'triggers':
-                if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+                if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                     $db = $GLOBALS['dbi']->escapeString($db);
                     $table = $GLOBALS['dbi']->escapeString($table);
                     $query = "SELECT COUNT(*) ";
@@ -128,12 +128,12 @@ class NodeTable extends NodeDatabaseChild
                     . Util::getCollateForIS() . "='$db' ";
                     $query .= "AND `EVENT_OBJECT_TABLE` "
                     . Util::getCollateForIS() . "='$table'";
-                    $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+                    $retval = (int) $GLOBALS['dbi']->fetchValue($query);
                 } else {
                     $db = Util::backquote($db);
                     $table = $GLOBALS['dbi']->escapeString($table);
                     $query = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
-                    $retval = (int)$GLOBALS['dbi']->numRows(
+                    $retval = (int) $GLOBALS['dbi']->numRows(
                         $GLOBALS['dbi']->tryQuery($query)
                     );
                 }
@@ -165,7 +165,7 @@ class NodeTable extends NodeDatabaseChild
         $table = $this->real_name;
         switch ($type) {
             case 'columns':
-                if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+                if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                     $db = $GLOBALS['dbi']->escapeString($db);
                     $table = $GLOBALS['dbi']->escapeString($table);
                     $query = "SELECT `COLUMN_NAME` AS `name` ";
@@ -220,7 +220,7 @@ class NodeTable extends NodeDatabaseChild
                 }
                 break;
             case 'triggers':
-                if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+                if (! $GLOBALS['cfg']['Server']['DisableIS']) {
                     $db = $GLOBALS['dbi']->escapeString($db);
                     $table = $GLOBALS['dbi']->escapeString($table);
                     $query = "SELECT `TRIGGER_NAME` AS `name` ";

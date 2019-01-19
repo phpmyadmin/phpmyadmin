@@ -31,9 +31,9 @@ class ServerBinlogControllerTest extends PmaTestCase
      */
     protected function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
+        //$_POST
+        $_POST['log'] = "index1";
+        $_POST['pos'] = 3;
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -56,8 +56,14 @@ class ServerBinlogControllerTest extends PmaTestCase
         Util::cacheSet('profiling_supported', true);
 
         $binary_log_file_names = [];
-        $binary_log_file_names[] = ["Log_name" => "index1", "File_size" => 100];
-        $binary_log_file_names[] = ["Log_name" => "index2", "File_size" => 200];
+        $binary_log_file_names[] = [
+            "Log_name" => "index1",
+            "File_size" => 100,
+        ];
+        $binary_log_file_names[] = [
+            "Log_name" => "index2",
+            "File_size" => 200,
+        ];
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -138,23 +144,23 @@ class ServerBinlogControllerTest extends PmaTestCase
                 null,
                 1,
                 true,
-                ["log1" => "logd"]
+                ["log1" => "logd"],
             ],
             [
                 ["log2" => "logb"],
                 null,
                 0,
                 false,
-                'executed'
-            ]
+                'executed',
+            ],
         ];
         $value = [
-                'Info' => "index1_Info",
-                'Log_name' => "index1_Log_name",
-                'Pos' => "index1_Pos",
-                'Event_type' => "index1_Event_type",
-                'End_log_pos' => "index1_End_log_pos",
-                'Server_id' => "index1_Server_id",
+            'Info' => "index1_Info",
+            'Log_name' => "index1_Log_name",
+            'Pos' => "index1_Pos",
+            'Event_type' => "index1_Event_type",
+            'End_log_pos' => "index1_End_log_pos",
+            'Server_id' => "index1_Server_id",
         ];
         $count = 3;
 
@@ -195,7 +201,7 @@ class ServerBinlogControllerTest extends PmaTestCase
             $html
         );
         //validate 4: PMA_getNavigationRow is right
-        $urlNavigation = 'server_binlog.php?log=log&amp;dontlimitchars=1&amp;'
+        $urlNavigation = 'server_binlog.php" data-post="log=log&amp;dontlimitchars=1&amp;'
             . 'pos=3&amp;server=1&amp';
         $this->assertContains(
             $urlNavigation,

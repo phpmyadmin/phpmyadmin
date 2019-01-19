@@ -36,10 +36,10 @@ use PhpMyAdmin\Relation;
 class SvgRelationSchema extends ExportRelationSchema
 {
     /**
-     * @var \PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
+     * @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
      */
     private $_tables = [];
-    /** @var RelationStatsDia[] Relations */
+    /** @var RelationStatsSvg[] Relations */
     private $_relations = [];
     private $_xMax = 0;
     private $_yMax = 0;
@@ -80,7 +80,7 @@ class SvgRelationSchema extends ExportRelationSchema
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
-            if (!isset($this->_tables[$table])) {
+            if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new TableStatsSvg(
                     $this->diagram,
                     $this->db,
@@ -112,7 +112,7 @@ class SvgRelationSchema extends ExportRelationSchema
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
-            if (!$exist_rel) {
+            if (! $exist_rel) {
                 continue;
             }
 
@@ -139,7 +139,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 }
 
                 foreach ($rel as $one_key) {
-                    if (!in_array($one_key['ref_table_name'], $alltables)) {
+                    if (! in_array($one_key['ref_table_name'], $alltables)) {
                         continue;
                     }
 
@@ -178,7 +178,7 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
-     * @param string $table The table name
+     * @param TableStatsSvg $table The table
      *
      * @return void
      */
@@ -215,7 +215,7 @@ class SvgRelationSchema extends ExportRelationSchema
         $foreignField,
         $tableDimension
     ) {
-        if (!isset($this->_tables[$masterTable])) {
+        if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new TableStatsSvg(
                 $this->diagram,
                 $this->db,
@@ -229,7 +229,7 @@ class SvgRelationSchema extends ExportRelationSchema
             );
             $this->_setMinMax($this->_tables[$masterTable]);
         }
-        if (!isset($this->_tables[$foreignTable])) {
+        if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new TableStatsSvg(
                 $this->diagram,
                 $this->db,

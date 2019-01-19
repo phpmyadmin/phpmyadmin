@@ -1,7 +1,0 @@
-#!/bin/sh
-
-cd $(dirname $0)/../
-echo "Running in : $(pwd)"
-
-# 1G is a litte high, should use < 512M (less ram + a lot of code = bigger risk of crash)
-./vendor/bin/phpstan analyse ./ --configuration=phpstan.neon --level=0 --memory-limit=1G

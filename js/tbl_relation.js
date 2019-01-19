@@ -72,7 +72,7 @@ function getDropdownValues ($dropdown) {
     var $msgbox = PMA_ajaxShowMessage();
     var $form = $dropdown.parents('form');
     var argsep = PMA_commonParams.get('arg_separator');
-    var url = 'tbl_relation.php?getDropdownValues=true' + argsep + 'ajax_request=true' +
+    var params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
         argsep + 'db=' + $form.find('input[name="db"]').val() +
         argsep + 'table=' + $form.find('input[name="table"]').val() +
         argsep + 'foreign=' + (foreign !== '') +
@@ -82,11 +82,13 @@ function getDropdownValues ($dropdown) {
         );
     var $server = $form.find('input[name="server"]');
     if ($server.length > 0) {
-        url += argsep + 'server=' + $form.find('input[name="server"]').val();
+        params += argsep + 'server=' + $form.find('input[name="server"]').val();
     }
     $.ajax({
-        url: url,
-        datatype: 'json',
+        type: 'POST',
+        url: 'tbl_relation.php',
+        data: params,
+        dataType: 'json',
         success: function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success) {

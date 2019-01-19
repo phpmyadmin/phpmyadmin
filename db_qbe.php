@@ -13,18 +13,24 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /**
  * requirements
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
+$relation = new Relation($GLOBALS['dbi']);
+$template = new Template();
 
 // Gets the relation settings
-$relation = new Relation();
 $cfgRelation = $relation->getRelationsParam();
 
 $savedSearchList = [];
@@ -38,36 +44,36 @@ if ($cfgRelation['savedsearcheswork']) {
     //Get saved search list.
     $savedSearch = new SavedSearches($GLOBALS);
     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-        ->setDbname($_REQUEST['db']);
+        ->setDbname($GLOBALS['db']);
 
-    if (!empty($_REQUEST['searchId'])) {
-        $savedSearch->setId($_REQUEST['searchId']);
+    if (! empty($_POST['searchId'])) {
+        $savedSearch->setId($_POST['searchId']);
     }
 
     //Action field is sent.
-    if (isset($_REQUEST['action'])) {
-        $savedSearch->setSearchName($_REQUEST['searchName']);
-        if ('create' === $_REQUEST['action']) {
+    if (isset($_POST['action'])) {
+        $savedSearch->setSearchName($_POST['searchName']);
+        if ('create' === $_POST['action']) {
             $saveResult = $savedSearch->setId(null)
-                ->setCriterias($_REQUEST)
+                ->setCriterias($_POST)
                 ->save();
-        } elseif ('update' === $_REQUEST['action']) {
-            $saveResult = $savedSearch->setCriterias($_REQUEST)
+        } elseif ('update' === $_POST['action']) {
+            $saveResult = $savedSearch->setCriterias($_POST)
                 ->save();
-        } elseif ('delete' === $_REQUEST['action']) {
+        } elseif ('delete' === $_POST['action']) {
             $deleteResult = $savedSearch->delete();
             //After deletion, reset search.
             $savedSearch = new SavedSearches($GLOBALS);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-                ->setDbname($_REQUEST['db']);
-            $_REQUEST = [];
-        } elseif ('load' === $_REQUEST['action']) {
-            if (empty($_REQUEST['searchId'])) {
+                ->setDbname($GLOBALS['db']);
+            $_POST = [];
+        } elseif ('load' === $_POST['action']) {
+            if (empty($_POST['searchId'])) {
                 //when not loading a search, reset the object.
                 $savedSearch = new SavedSearches($GLOBALS);
                 $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-                    ->setDbname($_REQUEST['db']);
-                $_REQUEST = [];
+                    ->setDbname($GLOBALS['db']);
+                $_POST = [];
             } else {
                 $loadResult = $savedSearch->load();
             }
@@ -83,8 +89,8 @@ if ($cfgRelation['savedsearcheswork']) {
  * A query has been submitted -> (maybe) execute it
  */
 $message_to_display = false;
-if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
-    if (! preg_match('@^SELECT@i', $sql_query)) {
+if (isset($_POST['submit_sql']) && ! empty($sql_query)) {
+    if (0 !== stripos($sql_query, "SELECT")) {
         $message_to_display = true;
     } else {
         $goto = 'db_sql.php';
@@ -92,7 +98,7 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
-            $_REQUEST['db'], // db
+            $_POST['db'], // db
             null, // table
             false, // find_real_end
             null, // sql_query_for_bookmark
@@ -113,7 +119,7 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
 }
 
 $sub_part  = '_qbe';
-require 'libraries/db_common.inc.php';
+require ROOT_PATH . 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
 
@@ -127,7 +133,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
 
 if ($message_to_display) {
     Message::error(
@@ -139,6 +145,23 @@ unset($message_to_display);
 
 // create new qbe search instance
 $db_qbe = new Qbe($GLOBALS['dbi'], $GLOBALS['db'], $savedSearchList, $savedSearch);
+
+$secondaryTabs = [
+    'multi' => [
+        'link' => 'db_multi_table_query.php',
+        'text' => __('Multi-table query'),
+    ],
+    'qbe' => [
+        'link' => 'db_qbe.php',
+        'text' => __('Query by example'),
+    ],
+];
+$response->addHTML(
+    $template->render('secondary_tabs', [
+        'url_params' => $url_params,
+        'sub_tabs' => $secondaryTabs,
+    ])
+);
 
 $url = 'db_designer.php' . Url::getCommon(
     array_merge(

@@ -1,10 +1,10 @@
 {% for t_n in table_names %}
     {% set i = loop.index0 %}
     {% set t_n_url = table_names_url[i] %}
-    <input name="t_x[{{ t_n_url|url_encode }}]" type="hidden" id="t_x_{{ t_n_url|url_encode }}_" />
-    <input name="t_y[{{ t_n_url|url_encode }}]" type="hidden" id="t_y_{{ t_n_url|url_encode }}_" />
-    <input name="t_v[{{ t_n_url|url_encode }}]" type="hidden" id="t_v_{{ t_n_url|url_encode }}_" />
-    <input name="t_h[{{ t_n_url|url_encode }}]" type="hidden" id="t_h_{{ t_n_url|url_encode }}_" />
+    <input name="t_x[{{ t_n_url|url_encode }}]" type="hidden" id="t_x_{{ t_n_url|url_encode }}_">
+    <input name="t_y[{{ t_n_url|url_encode }}]" type="hidden" id="t_y_{{ t_n_url|url_encode }}_">
+    <input name="t_v[{{ t_n_url|url_encode }}]" type="hidden" id="t_v_{{ t_n_url|url_encode }}_">
+    <input name="t_h[{{ t_n_url|url_encode }}]" type="hidden" id="t_h_{{ t_n_url|url_encode }}_">
     <table id="{{ t_n_url|url_encode }}"
         cellpadding="0"
         cellspacing="0"
@@ -36,7 +36,7 @@
                 <td class="small_tab_pref small_tab_pref_1"
                     table_name_small="{{ table_names_small_url[i] }}">
                     <img src="{{ theme.getImgPath('designer/exec_small.png') }}"
-                        title="{% trans 'See table structure' %}" />
+                        title="{% trans 'See table structure' %}">
                 </td>
                 <td id="id_zag_{{ t_n_url|url_encode }}"
                     class="tab_zag nowrap tab_zag_noquery"
@@ -57,14 +57,14 @@
         </thead>
         <tbody id="id_tbody_{{ t_n_url|url_encode }}"
             {{- tab_pos[t_n] is defined and tab_pos[t_n]['V'] is empty ? ' style="display: none"' }}>
-            {% set display_field = Relation_getDisplayField(get_db, table_names_small[i]) %}
+            {% set display_field = get_display_field(get_db, table_names_small[i]) %}
             {% for j in 0..tab_column[t_n]['COLUMN_ID']|length - 1 %}
                 {% set tmp_column = t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j] %}
                 {% set click_field_param = [
                     table_names_small_url[i],
                     tab_column[t_n]['COLUMN_NAME'][j]|url_encode
                 ] %}
-                {% if not Util_isForeignKeySupported(table_types[i]) %}
+                {% if not is_foreign_key_supported(table_types[i]) %}
                     {% set click_field_param = click_field_param|merge([tables_pk_or_unique_keys[tmp_column] is defined ? 1 : 0]) %}
                 {% else %}
                     {# if foreign keys are supported, it's not necessary that the
@@ -92,7 +92,7 @@
                         {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
                         <div class="nowrap">
                             {% set type = columns_type[t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j]] %}
-                            <img src="{{ theme.getImgPath(type) }}.png" alt="*" />
+                            <img src="{{ theme.getImgPath(type) }}.png" alt="*">
                             {{ tab_column[t_n]['COLUMN_NAME'][j] }} : {{ tab_column[t_n]['TYPE'][j] }}
                         </div>
                     </td>
@@ -101,7 +101,7 @@
                             click_option_param="designer_optionse,
                                 {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }},
                                 {{- table_names_small_out[i] }}">
-                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="options" />
+                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="options">
                         </td>
                     {% endif %}
                 </tr>

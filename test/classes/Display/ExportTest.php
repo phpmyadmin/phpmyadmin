@@ -132,16 +132,16 @@ class ExportTest extends TestCase
         $multi_values_str = "multi_values_str";
         $num_tables_str = "10";
         $unlim_num_rows_str = "unlim_num_rows_str";
-        $single_table = "single_table";
+        //$single_table = "single_table";
         $GLOBALS['dbi']->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
         $columns_info = [
             'test_column1' => [
-                'COLUMN_NAME' => 'test_column1'
+                'COLUMN_NAME' => 'test_column1',
             ],
             'test_column2' => [
-                'COLUMN_NAME' => 'test_column2'
-            ]
+                'COLUMN_NAME' => 'test_column2',
+            ],
         ];
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -160,7 +160,7 @@ class ExportTest extends TestCase
             'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $export_type,
-                'single_table' => isset($single_table)
+                'single_table' => true,// isset($single_table)
             ]
         );
 
@@ -273,13 +273,13 @@ class ExportTest extends TestCase
             'test\'_db' => [
                 'test_<b>table' => [
                     'co"l1' => [
-                        'COLUMN_NAME' => 'co"l1'
+                        'COLUMN_NAME' => 'co"l1',
                     ],
                     'col<2' => [
-                        'COLUMN_NAME' => 'col<2'
-                    ]
-                ]
-            ]
+                        'COLUMN_NAME' => 'col<2',
+                    ],
+                ],
+            ],
         ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

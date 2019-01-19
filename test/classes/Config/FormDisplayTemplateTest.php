@@ -59,22 +59,22 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="tab_hash" value="" />',
+            '<input type="hidden" name="tab_hash" value="">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="lang" value="en" />',
+            '<input type="hidden" name="lang" value="en">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="token" value="token" />',
+            '<input type="hidden" name="token" value="token">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="0" value="1" />',
+            '<input type="hidden" name="0" value="1">',
             $result
         );
     }
@@ -117,7 +117,10 @@ class FormDisplayTemplateTest extends TestCase
     public function testDisplayFieldsetTop()
     {
         $attributes = ['name' => 'attrname'];
-        $errors = ['e1', 'e2'];
+        $errors = [
+            'e1',
+            'e2',
+        ];
 
         $result = $this->formDisplayTemplate->displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
 
@@ -194,7 +197,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<img src="themes/dot.gif" title="Documentation" ' .
-            'alt="Documentation" class="icon ic_b_help" /',
+            'alt="Documentation" class="icon ic_b_help"',
             $result
         );
 
@@ -210,7 +213,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<input type="text" class="all85" name="test/path" id="test/path" ' .
-            'class="custom field-error" value="val" />',
+            'class="custom field-error" value="val">',
             $result
         );
 
@@ -258,7 +261,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<input type="checkbox" name="test/path" id="test/path" ' .
-            'checked="checked" />',
+            'checked="checked">',
             $result
         );
 
@@ -295,7 +298,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<input type="text" size="25" name="test/path" id="test/path" ' .
-            'value="val" />',
+            'value="val">',
             $result
         );
 
@@ -312,13 +315,16 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<input type="number" name="test/path" ' .
-            'id="test/path" value="val" />',
+            'id="test/path" value="val">',
             $result
         );
 
         // select case 1
         $opts['values_escaped'] = true;
-        $opts['values_disabled'] = [1, 2];
+        $opts['values_disabled'] = [
+            1,
+            2,
+        ];
         $opts['values'] = [
             1 => 'test',
             'key1' => true,
@@ -355,7 +361,10 @@ class FormDisplayTemplateTest extends TestCase
 
         // select case 2
         $opts['values_escaped'] = false;
-        $opts['values_disabled'] = [1, 2];
+        $opts['values_disabled'] = [
+            1,
+            2,
+        ];
         $opts['values'] = [
             'a<b' => 'c&d',
             'key1' => true,
@@ -387,7 +396,10 @@ class FormDisplayTemplateTest extends TestCase
             'test/path',
             'testName',
             'list',
-            ['foo', 'bar'],
+            [
+                'foo',
+                'bar',
+            ],
             '',
             true,
             $opts
@@ -468,12 +480,12 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="submit" name="submit_save" value="Apply"',
+            '<input class="btn btn-primary green" type="submit" name="submit_save" value="Apply"',
             $result
         );
 
         $this->assertContains(
-            '<input type="button" name="submit_reset" value="Reset" />',
+            '<input class="btn btn-secondary" type="button" name="submit_reset" value="Reset">',
             $result
         );
 
@@ -529,8 +541,11 @@ class FormDisplayTemplateTest extends TestCase
     public function testAddJsValidate()
     {
         $validators = [
-            'one' => ['\\\';', '\r\n\\\'<scrIpt></\' + \'script>'],
-            'two' => []
+            'one' => [
+                '\\\';',
+                '\r\n\\\'<scrIpt></\' + \'script>',
+            ],
+            'two' => [],
         ];
 
         $js = [];
@@ -542,7 +557,7 @@ class FormDisplayTemplateTest extends TestCase
                 'validateField(\'testID\', \'PMA_\\\';\', true, '
                     . '[\'\\\\r\\\\n\\\\\\\''
                     . '<scrIpt></\\\' + \\\'script>\'])',
-                'validateField(\'testID\', \'PMA_\', true)'
+                'validateField(\'testID\', \'PMA_\', true)',
             ],
             $js
         );
@@ -585,7 +600,10 @@ class FormDisplayTemplateTest extends TestCase
      */
     public function testDisplayErrors()
     {
-        $errors = ['<err1>', '&err2'];
+        $errors = [
+            '<err1>',
+            '&err2',
+        ];
 
         $result = $this->formDisplayTemplate->displayErrors('err"Name1"', $errors);
 

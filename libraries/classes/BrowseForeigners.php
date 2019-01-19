@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\BrowseForeigners class
  *
@@ -66,7 +62,7 @@ class BrowseForeigners
      * @param integer $indexByDescription index by description
      * @param string  $current_value      current value on the edit form
      *
-     * @return array $html the generated html
+     * @return array the generated html
      */
     private function getHtmlForOneKey(
         int $horizontal_count,
@@ -131,7 +127,7 @@ class BrowseForeigners
 
         $output .= '<td width="20%">'
             . '<img src="' . $this->themeImage . 'spacer.png" alt=""'
-            . ' width="1" height="1" /></td>';
+            . ' width="1" height="1"></td>';
 
         $output .= $this->template->render('table/browse_foreigners/column_element', [
             'keyname' => $rightKeyname,
@@ -150,18 +146,22 @@ class BrowseForeigners
 
         $output .= '</tr>';
 
-        return [$output, $horizontal_count, $indexByDescription];
+        return [
+            $output,
+            $horizontal_count,
+            $indexByDescription,
+        ];
     }
 
     /**
      * Function to get html for relational field selection
      *
-     * @param string $db            current database
-     * @param string $table         current table
-     * @param string $field         field
-     * @param array  $foreignData   foreign column data
-     * @param string $fieldkey      field key
-     * @param string $current_value current columns's value
+     * @param string      $db            current database
+     * @param string      $table         current table
+     * @param string      $field         field
+     * @param array       $foreignData   foreign column data
+     * @param string|null $fieldkey      field key
+     * @param string      $current_value current columns's value
      *
      * @return string
      */
@@ -170,7 +170,7 @@ class BrowseForeigners
         string $table,
         string $field,
         array $foreignData,
-        string $fieldkey,
+        ?string $fieldkey,
         string $current_value
     ): string {
         $gotopage = $this->getHtmlForGotoPage($foreignData);
@@ -186,25 +186,25 @@ class BrowseForeigners
             . '<fieldset>'
             . Url::getHiddenInputs($db, $table)
             . '<input type="hidden" name="field" value="' . htmlspecialchars($field)
-            . '" />'
+            . '">'
             . '<input type="hidden" name="fieldkey" value="'
-            . (isset($fieldkey) ? htmlspecialchars($fieldkey) : '') . '" />';
+            . (isset($fieldkey) ? htmlspecialchars($fieldkey) : '') . '">';
 
-        if (isset($_REQUEST['rownumber'])) {
+        if (isset($_POST['rownumber'])) {
             $output .= '<input type="hidden" name="rownumber" value="'
-                . htmlspecialchars((string) $_REQUEST['rownumber']) . '" />';
+                . htmlspecialchars((string) $_POST['rownumber']) . '">';
         }
-        $filter_value = (isset($_REQUEST['foreign_filter'])
-            ? htmlspecialchars($_REQUEST['foreign_filter'])
+        $filter_value = (isset($_POST['foreign_filter'])
+            ? htmlspecialchars($_POST['foreign_filter'])
             : '');
         $output .= '<span class="formelement">'
             . '<label for="input_foreign_filter">' . __('Search:') . '</label>'
             . '<input type="text" name="foreign_filter" '
             . 'id="input_foreign_filter" '
             . 'value="' . $filter_value . '" data-old="' . $filter_value . '" '
-            . '/>'
-            . '<input type="submit" name="submit_foreign_filter" value="'
-            . __('Go') . '" />'
+            . '>'
+            . '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="'
+            . __('Go') . '">'
             . '</span>'
             . '<span class="formelement">' . $gotopage . '</span>'
             . '<span class="formelement">' . $foreignShowAll . '</span>'
@@ -213,7 +213,7 @@ class BrowseForeigners
 
         $output .= '<table width="100%" id="browse_foreign_table">';
 
-        if (!is_array($foreignData['disp_row'])) {
+        if (! is_array($foreignData['disp_row'])) {
             $output .= '</tbody>'
                 . '</table>';
 
@@ -299,7 +299,10 @@ class BrowseForeigners
                 . '...'
             );
         }
-        return [$description, $descriptionTitle];
+        return [
+            $description,
+            $descriptionTitle,
+        ];
     }
 
     /**
@@ -312,8 +315,8 @@ class BrowseForeigners
     private function getHtmlForGotoPage(?array $foreignData): string
     {
         $gotopage = '';
-        isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
-        if (!is_array($foreignData['disp_row'])) {
+        isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
+        if (! is_array($foreignData['disp_row'])) {
             return $gotopage;
         }
 
@@ -341,7 +344,7 @@ class BrowseForeigners
     /**
      * Function to get foreign limit
      *
-     * @param string $foreignShowAll foreign navigation
+     * @param string|null $foreignShowAll foreign navigation
      *
      * @return string
      */
@@ -350,7 +353,7 @@ class BrowseForeigners
         if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
             return null;
         }
-        isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
+        isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
         return 'LIMIT ' . $pos . ', ' . $this->maxRows . ' ';
     }
 }

@@ -15,7 +15,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -26,37 +25,37 @@ use PhpMyAdmin\Util;
 class TableRelationController extends TableController
 {
     /**
-     * @var array $options_array
+     * @var array
      */
     protected $options_array;
 
     /**
-     * @var array $cfgRelation
+     * @var array
      */
     protected $cfgRelation;
 
     /**
-     * @var array $existrel
+     * @var array
      */
     protected $existrel;
 
     /**
-     * @var string $tbl_storage_engine
+     * @var string
      */
     protected $tbl_storage_engine;
 
     /**
-     * @var array $existrel_foreign
+     * @var array
      */
     protected $existrel_foreign;
 
     /**
-     * @var Table $udp_query
+     * @var Table
      */
     protected $upd_query;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -94,7 +93,7 @@ class TableRelationController extends TableController
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
         $this->upd_query = $upd_query;
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
     }
 
     /**
@@ -106,11 +105,11 @@ class TableRelationController extends TableController
     {
         // Send table of column names to populate corresponding dropdowns depending
         // on the current selection
-        if (isset($_REQUEST['getDropdownValues'])
-            && $_REQUEST['getDropdownValues'] === 'true'
+        if (isset($_POST['getDropdownValues'])
+            && $_POST['getDropdownValues'] === 'true'
         ) {
             // if both db and table are selected
-            if (isset($_REQUEST['foreignTable'])) {
+            if (isset($_POST['foreignTable'])) {
                 $this->getDropdownValueForTableAction();
             } else { // if only the db is selected
                 $this->getDropdownValueForDbAction();
@@ -121,7 +120,7 @@ class TableRelationController extends TableController
         $this->response->getHeader()->getScripts()->addFiles(
             [
                 'tbl_relation.js',
-                'indexes.js'
+                'indexes.js',
             ]
         );
 
@@ -206,6 +205,7 @@ class TableRelationController extends TableController
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
                 'dbi' => $this->dbi,
+                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'foreignKeySupported' => $foreignKeySupported,
                 'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
             ])
@@ -241,8 +241,8 @@ class TableRelationController extends TableController
      */
     public function updateForForeignKeysAction()
     {
-        $multi_edit_columns_name = isset($_REQUEST['foreign_key_fields_name'])
-            ? $_REQUEST['foreign_key_fields_name']
+        $multi_edit_columns_name = isset($_POST['foreign_key_fields_name'])
+            ? $_POST['foreign_key_fields_name']
             : null;
 
         // (for now, one index name only; we keep the definitions if the
@@ -262,11 +262,11 @@ class TableRelationController extends TableController
         $this->response->addHTML($html);
 
         // If there is a request for SQL previewing.
-        if (isset($_REQUEST['preview_sql'])) {
+        if (isset($_POST['preview_sql'])) {
             Core::previewSQL($preview_sql_data);
         }
 
-        if (!empty($display_query) && !$seen_error) {
+        if (! empty($display_query) && ! $seen_error) {
             $GLOBALS['display_query'] = $display_query;
             $this->response->addHTML(
                 Util::getMessage(
@@ -285,8 +285,8 @@ class TableRelationController extends TableController
      */
     public function updateForInternalRelationAction()
     {
-        $multi_edit_columns_name = isset($_REQUEST['fields_name'])
-            ? $_REQUEST['fields_name']
+        $multi_edit_columns_name = isset($_POST['fields_name'])
+            ? $_POST['fields_name']
             : null;
 
         if ($this->upd_query->updateInternalRelations(
@@ -316,8 +316,8 @@ class TableRelationController extends TableController
      */
     public function getDropdownValueForTableAction()
     {
-        $foreignTable = $_REQUEST['foreignTable'];
-        $table_obj = $this->dbi->getTable($_REQUEST['foreignDb'], $foreignTable);
+        $foreignTable = $_POST['foreignTable'];
+        $table_obj = $this->dbi->getTable($_POST['foreignDb'], $foreignTable);
         // Since views do not have keys defined on them provide the full list of
         // columns
         if ($table_obj->isView()) {
@@ -335,7 +335,7 @@ class TableRelationController extends TableController
         $this->response->addJSON('columns', $columns);
 
         // @todo should be: $server->db($db)->table($table)->primary()
-        $primary = Index::getPrimary($foreignTable, $_REQUEST['foreignDb']);
+        $primary = Index::getPrimary($foreignTable, $_POST['foreignDb']);
         if (false === $primary) {
             return;
         }
@@ -352,11 +352,11 @@ class TableRelationController extends TableController
     public function getDropdownValueForDbAction()
     {
         $tables = [];
-        $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
+        $foreign = isset($_POST['foreign']) && $_POST['foreign'] === 'true';
 
         if ($foreign) {
             $query = 'SHOW TABLE STATUS FROM '
-                . Util::backquote($_REQUEST['foreignDb']);
+                . Util::backquote($_POST['foreignDb']);
             $tables_rs = $this->dbi->query(
                 $query,
                 DatabaseInterface::CONNECT_USER,
@@ -372,7 +372,7 @@ class TableRelationController extends TableController
             }
         } else {
             $query = 'SHOW TABLES FROM '
-                . Util::backquote($_REQUEST['foreignDb']);
+                . Util::backquote($_POST['foreignDb']);
             $tables_rs = $this->dbi->query(
                 $query,
                 DatabaseInterface::CONNECT_USER,

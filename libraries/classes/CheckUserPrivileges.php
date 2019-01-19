@@ -44,10 +44,24 @@ class CheckUserPrivileges
     public function getItemsFromShowGrantsRow(string $row): array
     {
         $db_name_offset = mb_strpos($row, ' ON ') + 4;
+
+        $tblname_end_offset = mb_strpos($row, ' TO ');
+        $tblname_start_offset = false;
+
+        if (($__tblname_start_offset = mb_strpos($row, '`.', $db_name_offset))
+            && $__tblname_start_offset
+            < $tblname_end_offset) {
+                $tblname_start_offset = $__tblname_start_offset + 1;
+        }
+
+        if (! $tblname_start_offset) {
+            $tblname_start_offset = mb_strpos($row, '.', $db_name_offset);
+        }
+
         $show_grants_dbname = mb_substr(
             $row,
             $db_name_offset,
-            mb_strpos($row, '.', $db_name_offset) - $db_name_offset
+            $tblname_start_offset - $db_name_offset
         );
 
         $show_grants_dbname = Util::unQuote($show_grants_dbname, '`');
@@ -58,21 +72,17 @@ class CheckUserPrivileges
             (mb_strpos($row, ' ON ') - 6)
         );
 
-        // extrac table from GRANT sytax
-        $tblname_start_offset = mb_strpos($row, '.') + 1;
-        $tblname_end_offset = mb_strpos($row, ' TO ');
-
         $show_grants_tblname = mb_substr(
             $row,
-            $tblname_start_offset,
-            $tblname_end_offset - $tblname_start_offset
+            $tblname_start_offset + 1,
+            $tblname_end_offset - $tblname_start_offset - 1
         );
         $show_grants_tblname = Util::unQuote($show_grants_tblname, '`');
 
         return [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
+            $show_grants_tblname,
         ];
     }
 

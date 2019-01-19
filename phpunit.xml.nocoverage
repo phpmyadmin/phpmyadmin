@@ -2,18 +2,8 @@
 <phpunit bootstrap="test/bootstrap-dist.php"
          backupGlobals="true"
          backupStaticAttributes="false"
-         strict="true"
-         timeoutForSmallTests="3"
          colors="true"
          verbose="true">
-
-    <selenium>
-        <browser name="Firefox on localhost"
-                 browser="*firefox"
-                 host="127.0.0.1"
-                 port="4444"
-                 timeout="30000"/>
-    </selenium>
 
     <testsuites>
         <testsuite name="Classes">
@@ -30,7 +20,7 @@
     </testsuites>
 
     <logging>
-        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+        <log type="junit" target="build/logs/junit.xml" />
         <log type="json" target="build/logs/phpunit.json" />
     </logging>
 </phpunit>

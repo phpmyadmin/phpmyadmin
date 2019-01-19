@@ -11,7 +11,11 @@ use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\Response;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 
@@ -19,18 +23,18 @@ $databaseDesigner = new Designer($GLOBALS['dbi']);
 $designerCommon = new Common($GLOBALS['dbi']);
 
 if (isset($_REQUEST['dialog'])) {
-    if ($_REQUEST['dialog'] == 'edit') {
+    if ($_GET['dialog'] == 'edit') {
         $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
-    } elseif ($_REQUEST['dialog'] == 'delete') {
+    } elseif ($_GET['dialog'] == 'delete') {
         $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
-    } elseif ($_REQUEST['dialog'] == 'save_as') {
+    } elseif ($_GET['dialog'] == 'save_as') {
         $html = $databaseDesigner->getHtmlForPageSaveAs($GLOBALS['db']);
-    } elseif ($_REQUEST['dialog'] == 'export') {
+    } elseif ($_GET['dialog'] == 'export') {
         $html = $databaseDesigner->getHtmlForSchemaExport(
             $GLOBALS['db'],
-            $_REQUEST['selected_page']
+            $_GET['selected_page']
         );
-    } elseif ($_REQUEST['dialog'] == 'add_table') {
+    } elseif ($_POST['dialog'] == 'add_table') {
         $script_display_field = $designerCommon->getTablesInfo();
         $required = $GLOBALS['db'] . '.' . $GLOBALS['table'];
         $tab_column = $designerCommon->getColumnsInfo();
@@ -61,58 +65,58 @@ if (isset($_REQUEST['dialog'])) {
     return;
 }
 
-if (isset($_REQUEST['operation'])) {
-    if ($_REQUEST['operation'] == 'deletePage') {
-        $success = $designerCommon->deletePage($_REQUEST['selected_page']);
+if (isset($_POST['operation'])) {
+    if ($_POST['operation'] == 'deletePage') {
+        $success = $designerCommon->deletePage($_POST['selected_page']);
         $response->setRequestStatus($success);
-    } elseif ($_REQUEST['operation'] == 'savePage') {
-        if ($_REQUEST['save_page'] == 'same') {
-            $page = $_REQUEST['selected_page'];
+    } elseif ($_POST['operation'] == 'savePage') {
+        if ($_POST['save_page'] == 'same') {
+            $page = $_POST['selected_page'];
         } else { // new
-            $page = $designerCommon->createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
+            $page = $designerCommon->createNewPage($_POST['selected_value'], $GLOBALS['db']);
             $response->addJSON('id', $page);
         }
         $success = $designerCommon->saveTablePositions($page);
         $response->setRequestStatus($success);
-    } elseif ($_REQUEST['operation'] == 'setDisplayField') {
+    } elseif ($_POST['operation'] == 'setDisplayField') {
         $designerCommon->saveDisplayField(
-            $_REQUEST['db'],
-            $_REQUEST['table'],
-            $_REQUEST['field']
+            $_POST['db'],
+            $_POST['table'],
+            $_POST['field']
         );
         $response->setRequestStatus(true);
-    } elseif ($_REQUEST['operation'] == 'addNewRelation') {
+    } elseif ($_POST['operation'] == 'addNewRelation') {
         list($success, $message) = $designerCommon->addNewRelation(
-            $_REQUEST['db'],
-            $_REQUEST['T1'],
-            $_REQUEST['F1'],
-            $_REQUEST['T2'],
-            $_REQUEST['F2'],
-            $_REQUEST['on_delete'],
-            $_REQUEST['on_update'],
-            $_REQUEST['DB1'],
-            $_REQUEST['DB2']
+            $_POST['db'],
+            $_POST['T1'],
+            $_POST['F1'],
+            $_POST['T2'],
+            $_POST['F2'],
+            $_POST['on_delete'],
+            $_POST['on_update'],
+            $_POST['DB1'],
+            $_POST['DB2']
         );
         $response->setRequestStatus($success);
         $response->addJSON('message', $message);
-    } elseif ($_REQUEST['operation'] == 'removeRelation') {
+    } elseif ($_POST['operation'] == 'removeRelation') {
         list($success, $message) = $designerCommon->removeRelation(
-            $_REQUEST['T1'],
-            $_REQUEST['F1'],
-            $_REQUEST['T2'],
-            $_REQUEST['F2']
+            $_POST['T1'],
+            $_POST['F1'],
+            $_POST['T2'],
+            $_POST['F2']
         );
         $response->setRequestStatus($success);
         $response->addJSON('message', $message);
-    } elseif ($_REQUEST['operation'] == 'save_setting_value') {
-        $success = $designerCommon->saveSetting($_REQUEST['index'], $_REQUEST['value']);
+    } elseif ($_POST['operation'] == 'save_setting_value') {
+        $success = $designerCommon->saveSetting($_POST['index'], $_POST['value']);
         $response->setRequestStatus($success);
     }
 
     return;
 }
 
-require 'libraries/db_common.inc.php';
+require ROOT_PATH . 'libraries/db_common.inc.php';
 
 $script_display_field = $designerCommon->getTablesInfo();
 $tab_column = $designerCommon->getColumnsInfo();
@@ -124,14 +128,12 @@ $classes_side_menu = $databaseDesigner->returnClassNamesFromMenuButtons();
 $display_page = -1;
 $selected_page = null;
 
-if (isset($_REQUEST['query'])) {
-    $display_page = $designerCommon->getDefaultPage($_REQUEST['db']);
+if (isset($_GET['query'])) {
+    $display_page = $designerCommon->getDefaultPage($_GET['db']);
+} elseif (! empty($_GET['page'])) {
+    $display_page = $_GET['page'];
 } else {
-    if (! empty($_REQUEST['page'])) {
-        $display_page = $_REQUEST['page'];
-    } else {
-        $display_page = $designerCommon->getLoadingPage($_REQUEST['db']);
-    }
+    $display_page = $designerCommon->getLoadingPage($_GET['db']);
 }
 if ($display_page != -1) {
     $selected_page = $designerCommon->getPageName($display_page);
@@ -180,7 +182,7 @@ $response->addHTML(
         $script_contr,
         $script_display_field,
         $display_page,
-        isset($_REQUEST['query']),
+        isset($_GET['query']),
         $selected_page,
         $classes_side_menu,
         $tab_pos,

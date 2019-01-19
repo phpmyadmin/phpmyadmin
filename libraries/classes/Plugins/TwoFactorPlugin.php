@@ -76,7 +76,7 @@ class TwoFactorPlugin
     public function getError()
     {
         if ($this->_provided) {
-            if (!empty($this->_message)) {
+            if (! empty($this->_message)) {
                 return Message::rawError(
                     sprintf(__('Two-factor authentication failed: %s'), $this->_message)
                 )->getDisplay();
@@ -135,7 +135,7 @@ class TwoFactorPlugin
      */
     public static function getName()
     {
-        return __('No Two-Factor');
+        return __('No Two-Factor Authentication');
     }
 
     /**
@@ -164,7 +164,7 @@ class TwoFactorPlugin
 
         $url = $PMA_Config->get('PmaAbsoluteUri');
         $parsed = [];
-        if (!empty($url)) {
+        if (! empty($url)) {
             $parsed = parse_url($url);
         }
         if (empty($parsed['scheme'])) {
@@ -174,7 +174,7 @@ class TwoFactorPlugin
             $parsed['host'] = Core::getenv('HTTP_HOST');
         }
         if ($return_url) {
-            return $parsed['scheme'] . '://' . $parsed['host'] . (!empty($parsed['port']) ? ':' . $parsed['port'] : '');
+            return $parsed['scheme'] . '://' . $parsed['host'] . (! empty($parsed['port']) ? ':' . $parsed['port'] : '');
         } else {
             return $parsed['host'];
         }

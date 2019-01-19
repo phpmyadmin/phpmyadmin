@@ -21,7 +21,8 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class NodeDatabaseChildTest extends PmaTestCase
 {
     /**
-     * @var NodeDatabaseChild
+     * Mock of NodeDatabaseChild
+     * @var \PHPUnit\Framework\MockObject\MockObject
      */
     protected $object;
 
@@ -81,7 +82,7 @@ class NodeDatabaseChildTest extends PmaTestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php?'
+            '<a href="navigation.php" data-post="'
             . 'hideNavItem=1&amp;itemType=itemType&amp;itemName=child'
             . '&amp;dbName=parent&amp;lang=en" class="hideNavItem ajax">',
             $html

@@ -40,7 +40,7 @@ class FilesTest extends TestCase
             'ServerDefault' => 1,
         ];
         $GLOBALS['cfg'] = $cfg;
-        require $name;
+        require ROOT_PATH . $name;
         $buffer->stop();
         $out = $buffer->getContents();
         $this->assertContains($expected, $out);
@@ -54,8 +54,14 @@ class FilesTest extends TestCase
     public function listScripts()
     {
         return [
-            ['js/whitelist.php', 'var PMA_gotoWhitelist'],
-            ['js/messages.php', 'var PMA_messages = new Array();'],
+            [
+                'js/whitelist.php',
+                'var PMA_gotoWhitelist',
+            ],
+            [
+                'js/messages.php',
+                'var PMA_messages = new Array();',
+            ],
         ];
     }
 }

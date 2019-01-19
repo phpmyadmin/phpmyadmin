@@ -1,0 +1,164 @@
+// configures general layout for detailed layout configuration please refer to the css files
+
+$navi-width: 250px;
+$font-family: "Open Sans", "Segoe UI", sans-serif;
+$font-family-light: "Open Sans Light", "Segoe UI Light", "Segoe UI", sans-serif;
+$font-family-bold: "Open Sans Bold", sans-serif;
+$font-family-extra-bold: "Open Sans Extrabold", "Segoe Black", sans-serif;
+$font-family-fixed: Consolas, "Lucida Grande", monospace;
+
+// Theme color scheme
+// Values: "teal", "redmond", "blueeyes", "mono", "win"
+// Default: "win"
+// Set this value for the desired color scheme
+$color-scheme: win !default;
+
+$navi-color: #eee;
+$navi-background: #377796;
+$navi-background-light: #428eb4;
+$navi-pointer-color: #333;
+$navi-pointer-background: #377796;
+$navi-database-name-color: #333;
+$navi-hover-background: #428eb4;
+$main-color: #444;
+$main-background: #fff;
+$browse-pointer-color: #377796;
+$browse-marker-color: #000;
+$browse-warning-color: #d44a26;
+$browse-success-color: #01a31c;
+$browse-gray-color: #ccc;
+$browse-marker-background: #eee;
+$border-color: #ddd;
+$button-color: #fff;
+$button-background: #377796;
+$button-hover: #428eb4;
+$th-background: #f7f7f7;
+$th-disabled-background: #f3f3f3;
+$th-color: #666;
+$th-pointer-color: #000;
+$bg-one: #f7f7f7;
+$bg-two: #fff;
+$blue-header: #3a7ead;
+
+@if $color-scheme == teal {
+  $navi-color: #fff;
+  $navi-background: #004d60;
+  $navi-background-light: #04627c;
+  $navi-pointer-color: #666;
+  $navi-pointer-background: #004d60;
+  $navi-database-name-color: #fff;
+  $navi-hover-background: #216475;
+  $main-color: #444;
+  $main-background: #fff;
+  $browse-pointer-color: #004d60;
+  $browse-marker-color: #000;
+  $browse-warning-color: #d44a26;
+  $browse-success-color: #01a31c;
+  $browse-gray-color: #ccc;
+  $browse-marker-background: #eee;
+  $border-color: #ddd;
+  $button-color: #fff;
+  $button-background: #aaa;
+  $button-hover: #000;
+  $th-background: #f7f7f7;
+  $th-disabled-background: #f3f3f3;
+  $th-color: #666;
+  $th-pointer-color: #000;
+  $bg-one: #f7f7f7;
+  $bg-two: #fff;
+  $blue-header: #3a7ead;
+} @else if $color-scheme == redmond {
+  $navi-color: #fff;
+  $navi-background: #780505;
+  $navi-background-light: #a10707;
+  $navi-pointer-color: #666;
+  $navi-pointer-background: #780505;
+  $navi-database-name-color: #fff;
+  $navi-hover-background: #a10707;
+  $main-color: #444;
+  $main-background: #fff;
+  $browse-pointer-color: #780505;
+  $browse-marker-color: #000;
+  $browse-warning-color: #d44a26;
+  $browse-success-color: #01a31c;
+  $browse-gray-color: #ccc;
+  $browse-marker-background: #eee;
+  $border-color: #ddd;
+  $button-color: #fff;
+  $button-background: #aaa;
+  $button-hover: #000;
+  $th-background: #f7f7f7;
+  $th-disabled-background: #f3f3f3;
+  $th-color: #666;
+  $th-pointer-color: #000;
+  $bg-one: #f7f7f7;
+  $bg-two: #fff;
+  $blue-header: #3a7ead;
+} @else if $color-scheme == blueeyes {
+  $navi-color: #fff;
+  $navi-background: #377796;
+  $navi-background-light: #428eb4;
+  $navi-pointer-color: #666;
+  $navi-pointer-background: #377796;
+  $navi-database-name-color: #fff;
+  $navi-hover-background: #428eb4;
+  $main-color: #444;
+  $main-background: #fff;
+  $browse-pointer-color: #377796;
+  $browse-marker-color: #000;
+  $browse-warning-color: #d44a26;
+  $browse-success-color: #01a31c;
+  $browse-gray-color: #ccc;
+  $browse-marker-background: #eee;
+  $border-color: #ddd;
+  $button-color: #fff;
+  $button-background: #377796;
+  $button-hover: #000;
+  $th-background: #f7f7f7;
+  $th-disabled-background: #f3f3f3;
+  $th-color: #666;
+  $th-pointer-color: #000;
+  $bg-one: #f7f7f7;
+  $bg-two: #fff;
+  $blue-header: #3a7ead;
+} @else if $color-scheme == mono {
+  $navi-color: #fff;
+  $navi-background: #666;
+  $navi-background-light: #999;
+  $navi-pointer-color: #666;
+  $navi-pointer-background: #666;
+  $navi-database-name-color: #fff;
+  $navi-hover-background: #999;
+  $main-color: #444;
+  $main-background: #fff;
+  $browse-pointer-color: #666;
+  $browse-marker-color: #000;
+  $browse-warning-color: #666;
+  $browse-success-color: #888;
+  $browse-gray-color: #ccc;
+  $browse-marker-background: #eee;
+  $border-color: #ddd;
+  $button-color: #fff;
+  $button-background: #aaa;
+  $button-hover: #000;
+  $th-background: #f7f7f7;
+  $th-disabled-background: #f3f3f3;
+  $th-color: #666;
+  $th-pointer-color: #000;
+  $bg-one: #f7f7f7;
+  $bg-two: #fff;
+  $blue-header: #555;
+}
+
+// Bootstrap
+
+$enable-transitions: false;
+
+$primary: $browse-pointer-color;
+$secondary: $browse-gray-color;
+
+$font-size-base: 0.8rem;
+
+$btn-border-radius: 0;
+$btn-line-height: 1;
+$btn-padding-x: 0.5rem;

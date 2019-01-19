@@ -10,13 +10,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Common;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -59,11 +57,11 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
-        include_once 'libraries/check_user_privileges.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
         $response = Response::getInstance();
 
-        if (isset($_REQUEST['drop_selected_dbs'])
+        if (isset($_POST['drop_selected_dbs'])
             && $response->isAjax()
             && ($this->dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
@@ -71,7 +69,7 @@ class ServerDatabasesController extends Controller
             return;
         }
 
-        include_once 'libraries/replication.inc.php';
+        include_once ROOT_PATH . 'libraries/replication.inc.php';
 
         if (isset($_POST['new_db'])
             && $response->isAjax()
@@ -80,7 +78,7 @@ class ServerDatabasesController extends Controller
             return;
         }
 
-        include_once 'libraries/server_common.inc.php';
+        include_once ROOT_PATH . 'libraries/server_common.inc.php';
 
         $header  = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -115,6 +113,9 @@ class ServerDatabasesController extends Controller
             'sort_order' => $this->_sort_order,
         ];
 
+        $column_order = null;
+        $first_database = null;
+
         if ($this->_database_count > 0 && ! empty($this->_databases)) {
             $first_database = reset($this->_databases);
             // table col order
@@ -127,7 +128,6 @@ class ServerDatabasesController extends Controller
             'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
             'dbstats' => $this->_dbstats,
             'db_to_create' => $GLOBALS['db_to_create'],
-            'server_collation' => $this->dbi->getServerCollation(),
             'databases' => isset($databases) ? $databases : null,
             'dbi' => $this->dbi,
             'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
@@ -214,7 +214,7 @@ class ServerDatabasesController extends Controller
      */
     public function dropDatabasesAction()
     {
-        if (! isset($_REQUEST['selected_dbs'])) {
+        if (! isset($_POST['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
         } else {
             $action = 'server_databases.php';
@@ -223,7 +223,7 @@ class ServerDatabasesController extends Controller
             $GLOBALS['submit_mult'] = 'drop_db';
             $GLOBALS['mult_btn'] = __('Yes');
 
-            include 'libraries/mult_submits.inc.php';
+            include ROOT_PATH . 'libraries/mult_submits.inc.php';
 
             if (empty($message)) { // no error message
                 $number_of_databases = count($selected);
@@ -262,7 +262,7 @@ class ServerDatabasesController extends Controller
                 'SCHEMA_DATA_LENGTH',
                 'SCHEMA_INDEX_LENGTH',
                 'SCHEMA_LENGTH',
-                'SCHEMA_DATA_FREE'
+                'SCHEMA_DATA_FREE',
             ];
             if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
                 $this->_sort_by = $_REQUEST['sort_by'];
@@ -360,9 +360,12 @@ class ServerDatabasesController extends Controller
         $column_order = [];
         $column_order['DEFAULT_COLLATION_NAME'] = [
             'disp_name' => __('Collation'),
-            'description_function' => [Charsets::class, 'getCollationDescr'],
+            'description_function' => [
+                Charsets::class,
+                'getCollationDescr',
+            ],
             'format'    => 'string',
-            'footer'    => $this->dbi->getServerCollation(),
+            'footer'    => '',
         ];
         $column_order['SCHEMA_TABLES'] = [
             'disp_name' => __('Tables'),
@@ -440,7 +443,7 @@ class ServerDatabasesController extends Controller
      * @param array  $replication_info  replication info
      * @param string $tr_class          HTMl class for the row
      *
-     * @return string $column_order, $out
+     * @return string
      */
     public function _buildHtmlForDb(
         array $current,

@@ -38,8 +38,8 @@ class TableRelationControllerTest extends PmaTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         //$_SESSION
 
-        $_REQUEST['foreignDb'] = 'db';
-        $_REQUEST['foreignTable'] = 'table';
+        $_POST['foreignDb'] = 'db';
+        $_POST['foreignTable'] = 'table';
 
         $GLOBALS['dblist'] = new \stdClass();
         $GLOBALS['dblist']->databases = new class
@@ -100,7 +100,9 @@ class TableRelationControllerTest extends PmaTestCase
     public function testGetDropdownValueForTableActionIsView()
     {
         $viewColumns = [
-            'viewCol', 'viewCol2', 'viewCol3'
+            'viewCol',
+            'viewCol2',
+            'viewCol3',
         ];
         $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
@@ -122,7 +124,7 @@ class TableRelationControllerTest extends PmaTestCase
             'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         /**
-         * @var PhpMyAdmin\Controllers\Table\TableRelationController
+         * @var \PhpMyAdmin\Controllers\Table\TableRelationController
          */
         $ctrl = $container->get('TableRelationController');
 
@@ -195,7 +197,10 @@ class TableRelationControllerTest extends PmaTestCase
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
-                            return ['Engine' => 'InnoDB', 'Name'   => 'table',];
+                            return [
+                                'Engine' => 'InnoDB',
+                                'Name' => 'table'
+                            ];
                         }
                         return null;
                     }
@@ -214,7 +219,7 @@ class TableRelationControllerTest extends PmaTestCase
             ['tbl_storage_engine' => 'INNODB']
         );
 
-        $_REQUEST['foreign'] = 'true';
+        $_POST['foreign'] = 'true';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
@@ -257,10 +262,10 @@ class TableRelationControllerTest extends PmaTestCase
         );
         $ctrl = $container->get(
             'TableRelationController',
-            ['tbl_storage_engine' => 'INNODB',]
+            ['tbl_storage_engine' => 'INNODB']
         );
 
-        $_REQUEST['foreign'] = 'false';
+        $_POST['foreign'] = 'false';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(

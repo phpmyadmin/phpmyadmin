@@ -14,17 +14,21 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 PageSettings::showGroup('Edit');
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once 'libraries/db_table_exists.inc.php';
+require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 
 $insertEdit = new InsertEdit($GLOBALS['dbi']);
 
@@ -40,7 +44,7 @@ list(
     $table
 );
 // Increase number of rows if unsaved rows are more
-if (!empty($unsaved_values) && count($rows) < count($unsaved_values)) {
+if (! empty($unsaved_values) && count($rows) < count($unsaved_values)) {
     $rows = array_fill(0, count($unsaved_values), false);
 }
 
@@ -91,7 +95,7 @@ if (! empty($disp_message)) {
 $table_columns = $insertEdit->getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $foreigners = $relation->getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
@@ -136,7 +140,12 @@ $has_blob_field = false;
 foreach ($table_columns as $column) {
     if ($insertEdit->isColumn(
         $column,
-        ['blob', 'tinyblob', 'mediumblob', 'longblob']
+        [
+            'blob',
+            'tinyblob',
+            'mediumblob',
+            'longblob',
+        ]
     )) {
         $has_blob_field = true;
         break;

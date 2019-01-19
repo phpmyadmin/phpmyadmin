@@ -399,10 +399,10 @@ function displayErrors (error_list) {
             // if error container doesn't exist, create it
             if ($errorCnt.length === 0) {
                 if (isFieldset) {
-                    $errorCnt = $('<dl class="errors" />');
+                    $errorCnt = $('<dl class="errors"></dl>');
                     $field.find('table').before($errorCnt);
                 } else {
-                    $errorCnt = $('<dl class="inline_errors" />');
+                    $errorCnt = $('<dl class="inline_errors"></dl>');
                     $field.closest('td').append($errorCnt);
                 }
             }

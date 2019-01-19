@@ -58,7 +58,7 @@ if (getcwd() == dirname(__FILE__)) {
  */
 if (version_compare(PHP_VERSION, '7.1.0', 'lt')) {
     die(
-        'PHP 7.1+ is required. <br /> Currently installed version is: '
+        'PHP 7.1+ is required. <br> Currently installed version is: '
         . phpversion()
     );
 }
@@ -71,14 +71,14 @@ define('PHPMYADMIN', true);
 /**
  * Load vendor configuration.
  */
-require_once './libraries/vendor_config.php';
+require_once ROOT_PATH . 'libraries/vendor_config.php';
 
 /**
  * Activate autoloader
  */
 if (! @is_readable(AUTOLOAD_FILE)) {
     die(
-        'File <tt>' . AUTOLOAD_FILE . '</tt> missing or not readable. <br />'
+        'File <tt>' . AUTOLOAD_FILE . '</tt> missing or not readable. <br>'
         . 'Most likely you did not run Composer to '
         . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">install library files</a>.'
     );
@@ -292,6 +292,8 @@ $GLOBALS['PMA_Config']->enableBc();
 
 ThemeManager::initializeTheme();
 
+$GLOBALS['dbi'] = null;
+
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * save some settings in cookies
@@ -302,7 +304,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     ThemeManager::getInstance()->setThemeCookie();
 
     if (! empty($cfg['Server'])) {
-
         /**
          * Loads the proper database interface for this server
          */
@@ -386,12 +387,15 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if ($GLOBALS['dbi']->getVersion() < $cfg['MysqlMinVersion']['internal']) {
             Core::fatalError(
                 __('You should upgrade to %s %s or later.'),
-                ['MySQL', $cfg['MysqlMinVersion']['human']]
+                [
+                    'MySQL',
+                    $cfg['MysqlMinVersion']['human'],
+                ]
             );
         }
 
         // Sets the default delimiter (if specified).
-        if (!empty($_REQUEST['sql_delimiter'])) {
+        if (! empty($_REQUEST['sql_delimiter'])) {
             PhpMyAdmin\SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
         }
 

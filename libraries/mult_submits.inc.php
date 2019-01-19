@@ -34,12 +34,12 @@ $request_params = [
     'submit_mult',
     'table_type',
     'to_prefix',
-    'url_query'
+    'url_query',
 ];
 
 foreach ($request_params as $one_request_param) {
-    if (isset($_REQUEST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+    if (isset($_POST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_POST[$one_request_param];
     }
 }
 $response = Response::getInstance();
@@ -57,16 +57,16 @@ $template = new Template();
  */
 if (! empty($submit_mult)
     && $submit_mult != __('With selected:')
-    && (! empty($_REQUEST['selected_dbs'])
+    && (! empty($_POST['selected_dbs'])
     || ! empty($_POST['selected_tbl'])
     || ! empty($selected_fld)
-    || ! empty($_REQUEST['rows_to_delete']))
+    || ! empty($_POST['rows_to_delete']))
 ) {
     define('PMA_SUBMIT_MULT', 1);
-    if (! empty($_REQUEST['selected_dbs'])) {
+    if (! empty($_POST['selected_dbs'])) {
         // coming from server database view - do something with
         // selected databases
-        $selected   = $_REQUEST['selected_dbs'];
+        $selected   = $_POST['selected_dbs'];
         $query_type = 'drop_db';
     } elseif (! empty($_POST['selected_tbl'])) {
         // coming from database structure view - do something with
@@ -93,7 +93,7 @@ if (! empty($submit_mult)
                 break;
             case 'export':
                 unset($submit_mult);
-                include 'db_export.php';
+                include ROOT_PATH . 'db_export.php';
                 exit;
             case 'copy_tbl':
                 $views = $GLOBALS['dbi']->getVirtualTables($db);
@@ -146,16 +146,12 @@ if (! empty($submit_mult)
                 );
                 break;
         } // end switch
-    } elseif (isset($selected_fld) && !empty($selected_fld)) {
-        // coming from table structure view - do something with
-        // selected columns
-        // handled in StructrueController
-    } else {
+    } elseif (! (isset($selected_fld) && ! empty($selected_fld))) {
         // coming from browsing - do something with selected rows
         $what = 'row_delete';
         $selected = $_REQUEST['rows_to_delete'];
     }
-} // end if
+}
 
 if (empty($db)) {
     $db = '';
@@ -168,14 +164,14 @@ $views = $GLOBALS['dbi']->getVirtualTables($db);
 /**
  * Displays the confirmation form if required
  */
-if (!empty($submit_mult) && !empty($what)) {
+if (! empty($submit_mult) && ! empty($what)) {
     unset($message);
 
     if (strlen($table) > 0) {
-        include './libraries/tbl_common.inc.php';
+        include ROOT_PATH . 'libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
     } elseif (strlen($db) > 0) {
-        include './libraries/db_common.inc.php';
+        include ROOT_PATH . 'libraries/db_common.inc.php';
 
         list(
             $tables,
@@ -189,7 +185,7 @@ if (!empty($submit_mult) && !empty($what)) {
             $pos
         ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
     } else {
-        include_once './libraries/server_common.inc.php';
+        include_once ROOT_PATH . 'libraries/server_common.inc.php';
     }
 
     // Builds the query
@@ -275,9 +271,9 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($query_type == 'drop_tbl') {
-        if (!empty($sql_query)) {
+        if (! empty($sql_query)) {
             $sql_query .= ';';
-        } elseif (!empty($sql_query_views)) {
+        } elseif (! empty($sql_query_views)) {
             $sql_query = $sql_query_views . ';';
             unset($sql_query_views);
         }
@@ -305,10 +301,10 @@ if (!empty($submit_mult) && !empty($what)) {
             $selected, // selectedTables
             null // complete_query
         );
-    } elseif (!$run_parts) {
+    } elseif (! $run_parts) {
         $GLOBALS['dbi']->selectDb($db);
         $result = $GLOBALS['dbi']->tryQuery($sql_query);
-        if ($result && !empty($sql_query_views)) {
+        if ($result && ! empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
             $result = $GLOBALS['dbi']->tryQuery($sql_query_views);
             unset($sql_query_views);
@@ -329,20 +325,18 @@ if (!empty($submit_mult) && !empty($what)) {
         // when dropping a db from server_databases
         $GLOBALS['dblist']->databases->build();
     }
-} else {
-    if (isset($submit_mult)
-        && ($submit_mult == 'sync_unique_columns_central_list'
-        || $submit_mult == 'delete_unique_columns_central_list'
-        || $submit_mult == 'add_to_central_columns'
-        || $submit_mult == 'remove_from_central_columns'
-        || $submit_mult == 'make_consistent_with_central_list')
-    ) {
-        if (isset($centralColsError) && $centralColsError !== true) {
-            $message = $centralColsError;
-        } else {
-            $message = Message::success(__('Success!'));
-        }
+} elseif (isset($submit_mult)
+    && ($submit_mult == 'sync_unique_columns_central_list'
+    || $submit_mult == 'delete_unique_columns_central_list'
+    || $submit_mult == 'add_to_central_columns'
+    || $submit_mult == 'remove_from_central_columns'
+    || $submit_mult == 'make_consistent_with_central_list')
+) {
+    if (isset($centralColsError) && $centralColsError !== true) {
+        $message = $centralColsError;
     } else {
-        $message = Message::success(__('No change'));
+        $message = Message::success(__('Success!'));
     }
+} else {
+    $message = Message::success(__('No change'));
 }

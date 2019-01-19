@@ -229,7 +229,7 @@ class ExportMediawiki extends ExportPlugin
                     . $this->_exportCRLF();
                     for ($i = 0; $i < $row_cnt; ++$i) {
                         $col_as = $columns[$i]['Field'];
-                        if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])
+                        if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])
                         ) {
                             $col_as
                                 = $aliases[$db]['tables'][$table]['columns'][$col_as];
@@ -316,13 +316,13 @@ class ExportMediawiki extends ExportPlugin
             $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
 
             // Add column names as table headers
-            if (!is_null($column_names)) {
+            if (! is_null($column_names)) {
                 // Use '|-' for separating rows
                 $output .= "|-" . $this->_exportCRLF();
 
                 // Use '!' for separating table headers
                 foreach ($column_names as $column) {
-                    if (!empty($aliases[$db]['tables'][$table]['columns'][$column])
+                    if (! empty($aliases[$db]['tables'][$table]['columns'][$column])
                     ) {
                         $column
                             = $aliases[$db]['tables'][$table]['columns'][$column];

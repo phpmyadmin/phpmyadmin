@@ -23,7 +23,7 @@ var ErrorReport = {
             exception.name = ErrorReport._extractExceptionName(exception);
         }
         ErrorReport._last_exception = exception;
-        $.get('error_report.php', {
+        $.post('error_report.php', {
             ajax_request: true,
             server: PMA_commonParams.get('server'),
             get_settings: true,
@@ -111,7 +111,7 @@ var ErrorReport = {
                         }
                     });
             }
-        }); // end $.get()
+        });
     },
     /**
      * Shows the small notification that asks for user permission

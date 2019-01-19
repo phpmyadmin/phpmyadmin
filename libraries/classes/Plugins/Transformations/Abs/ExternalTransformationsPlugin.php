@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use stdClass;
 
 /**
  * Provides common methods for all of the external transformations plugins.
@@ -51,7 +52,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformationNoWrap(array $options = [])
     {
-        if (!isset($options[3]) || $options[3] == '') {
+        if (! isset($options[3]) || $options[3] == '') {
             $nowrap = true;
         } elseif ($options[3] == '1' || $options[3] == 1) {
             $nowrap = true;
@@ -65,13 +66,13 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         // possibly use a global transform and feed it with special options
 
@@ -113,15 +114,21 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         // needs PHP >= 4.3.0
         $newstring = '';
         $descriptorspec = [
-            0 => ["pipe", "r"],
-            1 => ["pipe", "w"],
+            0 => [
+                "pipe",
+                "r",
+            ],
+            1 => [
+                "pipe",
+                "w",
+            ],
         ];
         $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
         if (is_resource($process)) {
             fwrite($pipes[0], $buffer);
             fclose($pipes[0]);
 
-            while (!feof($pipes[1])) {
+            while (! feof($pipes[1])) {
                 $newstring .= fgets($pipes[1], 1024);
             }
             fclose($pipes[1]);

@@ -127,10 +127,10 @@ class Triggers
      */
     public function handleEditor()
     {
-        global $_REQUEST, $_POST, $errors, $db, $table;
+        global $errors, $db, $table;
 
-        if (! empty($_REQUEST['editor_process_add'])
-            || ! empty($_REQUEST['editor_process_edit'])
+        if (! empty($_POST['editor_process_add'])
+            || ! empty($_POST['editor_process_edit'])
         ) {
             $sql_query = '';
 
@@ -138,9 +138,9 @@ class Triggers
 
             if (! count($errors)) { // set by PhpMyAdmin\Rte\Routines::getQueryFromRequest()
                 // Execute the created query
-                if (! empty($_REQUEST['editor_process_edit'])) {
+                if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
-                    $trigger = $this->getDataFromName($_REQUEST['item_original_name']);
+                    $trigger = $this->getDataFromName($_POST['item_original_name']);
                     $create_item = $trigger['create'];
                     $drop_item = $trigger['drop'] . ';';
                     $result = $this->dbi->tryQuery($drop_item);
@@ -149,8 +149,8 @@ class Triggers
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($drop_item)
                         )
-                        . '<br />'
-                        . __('MySQL said: ') . $this->dbi->getError(null);
+                        . '<br>'
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $result = $this->dbi->tryQuery($item_query);
                         if (! $result) {
@@ -158,8 +158,8 @@ class Triggers
                                 __('The following query has failed: "%s"'),
                                 htmlspecialchars($item_query)
                             )
-                            . '<br />'
-                            . __('MySQL said: ') . $this->dbi->getError(null);
+                            . '<br>'
+                            . __('MySQL said: ') . $this->dbi->getError();
                             // We dropped the old item, but were unable to create the
                             // new one. Try to restore the backup query.
                             $result = $this->dbi->tryQuery($create_item);
@@ -177,7 +177,7 @@ class Triggers
                                 __('Trigger %1$s has been modified.')
                             );
                             $message->addParam(
-                                Util::backquote($_REQUEST['item_name'])
+                                Util::backquote($_POST['item_name'])
                             );
                             $sql_query = $drop_item . $item_query;
                         }
@@ -190,14 +190,14 @@ class Triggers
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($item_query)
                         )
-                        . '<br /><br />'
-                        . __('MySQL said: ') . $this->dbi->getError(null);
+                        . '<br><br>'
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $message = Message::success(
                             __('Trigger %1$s has been created.')
                         );
                         $message->addParam(
-                            Util::backquote($_REQUEST['item_name'])
+                            Util::backquote($_POST['item_name'])
                         );
                         $sql_query = $item_query;
                     }
@@ -226,7 +226,7 @@ class Triggers
                     $items = $this->dbi->getTriggers($db, $table, '');
                     $trigger = false;
                     foreach ($items as $value) {
-                        if ($value['name'] == $_REQUEST['item_name']) {
+                        if ($value['name'] == $_POST['item_name']) {
                             $trigger = $value;
                         }
                     }
@@ -240,7 +240,7 @@ class Triggers
                             'name',
                             htmlspecialchars(
                                 mb_strtoupper(
-                                    $_REQUEST['item_name']
+                                    $_POST['item_name']
                                 )
                             )
                         );
@@ -259,8 +259,8 @@ class Triggers
          * Display a form used to add/edit a trigger, if necessary
          */
         if (count($errors)
-            || (empty($_REQUEST['editor_process_add'])
-            && empty($_REQUEST['editor_process_edit'])
+            || (empty($_POST['editor_process_add'])
+            && empty($_POST['editor_process_edit'])
             && (! empty($_REQUEST['add_item'])
             || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
         ) {
@@ -272,7 +272,7 @@ class Triggers
             } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __("Edit trigger");
                 if (! empty($_REQUEST['item_name'])
-                    && empty($_REQUEST['editor_process_edit'])
+                    && empty($_POST['editor_process_edit'])
                 ) {
                     $item = $this->getDataFromName($_REQUEST['item_name']);
                     if ($item !== false) {
@@ -295,15 +295,17 @@ class Triggers
     public function getDataFromRequest()
     {
         $retval = [];
-        $indices = ['item_name',
-                         'item_table',
-                         'item_original_name',
-                         'item_action_timing',
-                         'item_event_manipulation',
-                         'item_definition',
-                         'item_definer'];
+        $indices = [
+            'item_name',
+            'item_table',
+            'item_original_name',
+            'item_action_timing',
+            'item_event_manipulation',
+            'item_definition',
+            'item_definer',
+        ];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
+            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
         }
         return $retval;
     }
@@ -318,7 +320,7 @@ class Triggers
      */
     public function getDataFromName($name)
     {
-        global $db, $table, $_REQUEST;
+        global $db, $table;
 
         $temp = [];
         $items = $this->dbi->getTriggers($db, $table, '');
@@ -362,18 +364,18 @@ class Triggers
 
         // Escape special characters
         $need_escape = [
-                           'item_original_name',
-                           'item_name',
-                           'item_definition',
-                           'item_definer'
-                       ];
+            'item_original_name',
+            'item_name',
+            'item_definition',
+            'item_definer',
+        ];
         foreach ($need_escape as $key => $index) {
             $item[$index] = htmlentities($item[$index], ENT_QUOTES, 'UTF-8');
         }
         $original_data = '';
         if ($mode == 'edit') {
             $original_data = "<input name='item_original_name' "
-                           . "type='hidden' value='{$item['item_original_name']}'/>\n";
+                           . "type='hidden' value='{$item['item_original_name']}'>\n";
         }
         $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
         $query .= "WHERE `TABLE_SCHEMA`='" . $this->dbi->escapeString($db) . "' ";
@@ -384,16 +386,16 @@ class Triggers
         $retval  = "";
         $retval .= "<!-- START " . $modeToUpper . " TRIGGER FORM -->\n\n";
         $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
-        $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
+        $retval .= "<input name='{$mode}_item' type='hidden' value='1'>\n";
         $retval .= $original_data;
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset>\n";
         $retval .= "<legend>" . __('Details') . "</legend>\n";
-        $retval .= "<table class='rte_table' style='width: 100%'>\n";
+        $retval .= "<table class='rte_table'>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td style='width: 20%;'>" . __('Trigger name') . "</td>\n";
+        $retval .= "    <td>" . __('Trigger name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
-        $retval .= "               value='{$item['item_name']}' /></td>\n";
+        $retval .= "               value='{$item['item_name']}'></td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('Table') . "</td>\n";
@@ -450,18 +452,18 @@ class Triggers
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('Definer') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_definer'\n";
-        $retval .= "               value='{$item['item_definer']}' /></td>\n";
+        $retval .= "               value='{$item['item_definer']}'></td>\n";
         $retval .= "</tr>\n";
         $retval .= "</table>\n";
         $retval .= "</fieldset>\n";
         if ($response->isAjax()) {
             $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
-            $retval .= "       value='true' />\n";
-            $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
+            $retval .= "       value='true'>\n";
+            $retval .= "<input type='hidden' name='ajax_request' value='true'>\n";
         } else {
             $retval .= "<fieldset class='tblFooters'>\n";
             $retval .= "    <input type='submit' name='editor_process_{$mode}'\n";
-            $retval .= "           value='" . __('Go') . "' />\n";
+            $retval .= "           value='" . __('Go') . "'>\n";
             $retval .= "</fieldset>\n";
         }
         $retval .= "</form>\n\n";
@@ -477,13 +479,13 @@ class Triggers
      */
     public function getQueryFromRequest()
     {
-        global $_REQUEST, $db, $errors, $action_timings, $event_manipulations;
+        global $db, $errors, $action_timings, $event_manipulations;
 
         $query = 'CREATE ';
-        if (! empty($_REQUEST['item_definer'])) {
-            if (mb_strpos($_REQUEST['item_definer'], '@') !== false
+        if (! empty($_POST['item_definer'])) {
+            if (mb_strpos($_POST['item_definer'], '@') !== false
             ) {
-                $arr = explode('@', $_REQUEST['item_definer']);
+                $arr = explode('@', $_POST['item_definer']);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
@@ -491,36 +493,36 @@ class Triggers
             }
         }
         $query .= 'TRIGGER ';
-        if (! empty($_REQUEST['item_name'])) {
-            $query .= Util::backquote($_REQUEST['item_name']) . ' ';
+        if (! empty($_POST['item_name'])) {
+            $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
             $errors[] = __('You must provide a trigger name!');
         }
-        if (! empty($_REQUEST['item_timing'])
-            && in_array($_REQUEST['item_timing'], $action_timings)
+        if (! empty($_POST['item_timing'])
+            && in_array($_POST['item_timing'], $action_timings)
         ) {
-            $query .= $_REQUEST['item_timing'] . ' ';
+            $query .= $_POST['item_timing'] . ' ';
         } else {
             $errors[] = __('You must provide a valid timing for the trigger!');
         }
-        if (! empty($_REQUEST['item_event'])
-            && in_array($_REQUEST['item_event'], $event_manipulations)
+        if (! empty($_POST['item_event'])
+            && in_array($_POST['item_event'], $event_manipulations)
         ) {
-            $query .= $_REQUEST['item_event'] . ' ';
+            $query .= $_POST['item_event'] . ' ';
         } else {
             $errors[] = __('You must provide a valid event for the trigger!');
         }
         $query .= 'ON ';
-        if (! empty($_REQUEST['item_table'])
-            && in_array($_REQUEST['item_table'], $this->dbi->getTables($db))
+        if (! empty($_POST['item_table'])
+            && in_array($_POST['item_table'], $this->dbi->getTables($db))
         ) {
-            $query .= Util::backquote($_REQUEST['item_table']);
+            $query .= Util::backquote($_POST['item_table']);
         } else {
             $errors[] = __('You must provide a valid table name!');
         }
         $query .= ' FOR EACH ROW ';
-        if (! empty($_REQUEST['item_definition'])) {
-            $query .= $_REQUEST['item_definition'];
+        if (! empty($_POST['item_definition'])) {
+            $query .= $_POST['item_definition'];
         } else {
             $errors[] = __('You must provide a trigger definition.');
         }

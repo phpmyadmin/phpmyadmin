@@ -16,11 +16,15 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries
  */
-require_once 'libraries/common.inc.php';
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 PageSettings::showGroup('Browse');
 
@@ -83,28 +87,28 @@ if (isset($_POST['bkm_fields']['bkm_database'])) {
 }
 
 // During grid edit, if we have a relational field, show the dropdown for it.
-if (isset($_REQUEST['get_relational_values'])
-    && $_REQUEST['get_relational_values'] == true
+if (isset($_POST['get_relational_values'])
+    && $_POST['get_relational_values'] == true
 ) {
     $sql->getRelationalValues($db, $table);
     // script has exited at this point
 }
 
 // Just like above, find possible values for enum fields during grid edit.
-if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
+if (isset($_POST['get_enum_values']) && $_POST['get_enum_values'] == true) {
     $sql->getEnumOrSetValues($db, $table, "enum");
     // script has exited at this point
 }
 
 
 // Find possible values for set fields during grid edit.
-if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
+if (isset($_POST['get_set_values']) && $_POST['get_set_values'] == true) {
     $sql->getEnumOrSetValues($db, $table, "set");
     // script has exited at this point
 }
 
-if (isset($_REQUEST['get_default_fk_check_value'])
-    && $_REQUEST['get_default_fk_check_value'] == true
+if (isset($_GET['get_default_fk_check_value'])
+    && $_GET['get_default_fk_check_value'] == true
 ) {
     $response = Response::getInstance();
     $response->addJSON(
@@ -117,7 +121,7 @@ if (isset($_REQUEST['get_default_fk_check_value'])
 /**
  * Check ajax request to set the column order and visibility
  */
-if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
+if (isset($_POST['set_col_prefs']) && $_POST['set_col_prefs'] == true) {
     $sql->setColumnOrderOrVisibility($table, $db);
     // script has exited at this point
 }
@@ -145,7 +149,7 @@ list(
 // @todo: possibly refactor
 extract($analyzed_sql_results);
 
-if ($table != $table_from_sql && !empty($table_from_sql)) {
+if ($table != $table_from_sql && ! empty($table_from_sql)) {
     $table = $table_from_sql;
 }
 
@@ -196,7 +200,7 @@ if ($goto == 'sql.php') {
         [
             'db' => $db,
             'table' => $table,
-            'sql_query' => $sql_query
+            'sql_query' => $sql_query,
         ]
     );
 } // end if

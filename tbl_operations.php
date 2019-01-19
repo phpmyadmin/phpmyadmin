@@ -16,15 +16,19 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  *
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
@@ -39,14 +43,16 @@ $scripts->addFile('tbl_operations.js');
 /**
  * Runs common work
  */
-require 'libraries/tbl_common.inc.php';
+require ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_operations.php&amp;back=tbl_operations.php';
 $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 
 /**
  * Gets relation settings
  */
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
+
 $cfgRelation = $relation->getRelationsParam();
 
 // reselect current db (needed in some cases probably due to
@@ -97,12 +103,10 @@ $pma_table = $GLOBALS['dbi']->getTable(
 $reread_info = false;
 $table_alters = [];
 
-$operations = new Operations();
-
 /**
  * If the table has to be moved to some other database
  */
-if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
+if (isset($_POST['submit_move']) || isset($_POST['submit_copy'])) {
     //$_message = '';
     $operations->moveOrCopyTable($db, $table);
     // This was ended in an Ajax call
@@ -111,31 +115,31 @@ if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
 /**
  * If the table has to be maintained
  */
-if (isset($_REQUEST['table_maintenance'])) {
-    include_once 'sql.php';
+if (isset($_POST['table_maintenance'])) {
+    include_once ROOT_PATH . 'sql.php';
     unset($result);
 }
 /**
  * Updates table comment, type and options if required
  */
-if (isset($_REQUEST['submitoptions'])) {
+if (isset($_POST['submitoptions'])) {
     $_message = '';
     $warning_messages = [];
 
-    if (isset($_REQUEST['new_name'])) {
+    if (isset($_POST['new_name'])) {
         // Get original names before rename operation
         $oldTable = $pma_table->getName();
         $oldDb = $pma_table->getDbName();
 
-        if ($pma_table->rename($_REQUEST['new_name'])) {
-            if (isset($_REQUEST['adjust_privileges'])
-                && ! empty($_REQUEST['adjust_privileges'])
+        if ($pma_table->rename($_POST['new_name'])) {
+            if (isset($_POST['adjust_privileges'])
+                && ! empty($_POST['adjust_privileges'])
             ) {
                 $operations->adjustPrivilegesRenameOrMoveTable(
                     $oldDb,
                     $oldTable,
-                    $_REQUEST['db'],
-                    $_REQUEST['new_name']
+                    $_POST['db'],
+                    $_POST['new_name']
                 );
             }
 
@@ -153,10 +157,10 @@ if (isset($_REQUEST['submitoptions'])) {
         }
     }
 
-    if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && mb_strtoupper($_REQUEST['new_tbl_storage_engine']) !== $tbl_storage_engine
+    if (! empty($_POST['new_tbl_storage_engine'])
+        && mb_strtoupper($_POST['new_tbl_storage_engine']) !== $tbl_storage_engine
     ) {
-        $new_tbl_storage_engine = mb_strtoupper($_REQUEST['new_tbl_storage_engine']);
+        $new_tbl_storage_engine = mb_strtoupper($_POST['new_tbl_storage_engine']);
 
         if ($pma_table->isEngine('ARIA')) {
             $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
@@ -189,36 +193,36 @@ if (isset($_REQUEST['submitoptions'])) {
             . Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
-        $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
+        $result         = $GLOBALS['dbi']->query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
         $warning_messages = $operations->getWarningMessagesArray();
     }
 
-    if (isset($_REQUEST['tbl_collation'])
-        && ! empty($_REQUEST['tbl_collation'])
-        && isset($_REQUEST['change_all_collations'])
-        && ! empty($_REQUEST['change_all_collations'])
+    if (isset($_POST['tbl_collation'])
+        && ! empty($_POST['tbl_collation'])
+        && isset($_POST['change_all_collations'])
+        && ! empty($_POST['change_all_collations'])
     ) {
         $operations->changeAllColumnsCollation(
             $GLOBALS['db'],
             $GLOBALS['table'],
-            $_REQUEST['tbl_collation']
+            $_POST['tbl_collation']
         );
     }
 }
 /**
  * Reordering the table has been requested by the user
  */
-if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
+if (isset($_POST['submitorderby']) && ! empty($_POST['order_field'])) {
     list($sql_query, $result) = $operations->getQueryAndResultForReorderingTable();
 } // end if
 
 /**
  * A partition operation has been requested by the user
  */
-if (isset($_REQUEST['submit_partition'])
-    && ! empty($_REQUEST['partition_operation'])
+if (isset($_POST['submit_partition'])
+    && ! empty($_POST['partition_operation'])
 ) {
     list($sql_query, $result) = $operations->getQueryAndResultForPartition();
 } // end if
@@ -259,7 +263,7 @@ if (isset($result) && empty($message_to_show)) {
         if ($response->isAjax()) {
             $response->setRequestStatus($_message->isSuccess());
             $response->addJSON('message', $_message);
-            if (!empty($sql_query)) {
+            if (! empty($sql_query)) {
                 $response->addJSON(
                     'sql_query',
                     Util::getMessage(null, $sql_query)
@@ -280,7 +284,7 @@ if (isset($result) && empty($message_to_show)) {
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
-            if (!empty($sql_query)) {
+            if (! empty($sql_query)) {
                 $response->addJSON(
                     'sql_query',
                     Util::getMessage(null, $sql_query)

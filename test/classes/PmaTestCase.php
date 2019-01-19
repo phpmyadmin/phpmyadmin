@@ -25,7 +25,8 @@ class PmaTestCase extends TestCase
      */
     protected $restoreInstance = null;
     /**
-     * @var Response
+     * class Response
+     * @var ReflectionProperty
      */
     protected $attrInstance = null;
 
@@ -36,14 +37,14 @@ class PmaTestCase extends TestCase
      */
     public static function setUpBeforeClass()
     {
-        require 'libraries/config.default.php';
+        require ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
     }
 
     /**
      * Creates mock of Response object for header testing
      *
-     * @param mixed ... $param parameter for header method
+     * @param mixed[] ...$param parameter for header method
      *
      * @return \PHPUnit\Framework\MockObject\MockBuilder
      */
@@ -54,9 +55,16 @@ class PmaTestCase extends TestCase
         $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
             ->setMethods([
-                'header', 'headersSent', 'disable', 'isAjax',
-                'setRequestStatus', 'addJSON', 'addHTML',
-                'getFooter', 'getHeader','httpResponseCode',
+                'header',
+                'headersSent',
+                'disable',
+                'isAjax',
+                'setRequestStatus',
+                'addJSON',
+                'addHTML',
+                'getFooter',
+                'getHeader',
+                'httpResponseCode',
             ])
             ->getMock();
 
@@ -73,7 +81,7 @@ class PmaTestCase extends TestCase
                         $http_response_code_param = end($param);
                         $param = array_slice($param, 0, -1);
 
-                        $header_method = $mockResponse->expects($this->once())
+                        $mockResponse->expects($this->once())
                         ->method('httpResponseCode')->with($http_response_code_param);
                     }
                 }
@@ -97,9 +105,9 @@ class PmaTestCase extends TestCase
     }
 
     /**
-     *Tear down function for mockResponse method
+     * Tear down function for mockResponse method
      *
-     *@return void
+     * @return void
      */
     protected function tearDown()
     {

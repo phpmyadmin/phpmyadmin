@@ -12,7 +12,7 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Util;
 
-require_once './libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 /**
  * Represents a container for database nodes in the navigation tree

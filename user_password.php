@@ -10,13 +10,21 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -24,7 +32,11 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
-$userPassword = new UserPassword();
+$template = new Template();
+$relation = new Relation($GLOBALS['dbi']);
+$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
+$serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
+$userPassword = new UserPassword($serverPrivileges);
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this
@@ -44,11 +56,11 @@ if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
  * If the "change password" form has been submitted, checks for valid values
  * and submit the query or logout
  */
-if (isset($_REQUEST['nopass'])) {
-    if ($_REQUEST['nopass'] == '1') {
+if (isset($_POST['nopass'])) {
+    if ($_POST['nopass'] == '1') {
         $password = '';
     } else {
-        $password = $_REQUEST['pma_pw'];
+        $password = $_POST['pma_pw'];
     }
     $change_password_message = $userPassword->setChangePasswordMsg();
     $msg = $change_password_message['msg'];

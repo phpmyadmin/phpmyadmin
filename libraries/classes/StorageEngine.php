@@ -192,7 +192,7 @@ class StorageEngine
      */
     public static function getEngine($engine)
     {
-        switch (strtolower($engine)) {
+        switch (mb_strtolower($engine)) {
             case 'bdb':
                 return new Bdb($engine);
             case 'berkeleydb':
@@ -303,7 +303,7 @@ class StorageEngine
      *
      * @param integer $value Value to format
      *
-     * @return string the formatted value and its unit
+     * @return array the formatted value and its unit
      */
     public function resolveTypeSize($value)
     {

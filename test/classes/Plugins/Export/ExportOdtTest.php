@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -153,7 +154,7 @@ class ExportOdtTest extends PmaTestCase
             [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
+                'structure_and_data' => __('structure and data'),
             ],
             $property->getValues()
         );
@@ -463,7 +464,10 @@ class ExportOdtTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        null, 'a<b', 'a>b', 'a&b'
+                        null,
+                        'a<b',
+                        'a>b',
+                        'a&b',
                     ]
                 )
             );
@@ -711,12 +715,12 @@ class ExportOdtTest extends PmaTestCase
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    ]
+                    ],
                 ]
             );
 
         $columns = [
-            'Field' => 'fieldname'
+            'Field' => 'fieldname',
         ];
         $dbi->expects($this->once())
             ->method('getColumns')
@@ -736,12 +740,13 @@ class ExportOdtTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['fieldname' => 'testComment']
+                        'comment' => ['fieldname' => 'testComment'],
                     ]
                 )
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(2))
             ->method('formatOneColumnDefinition')
@@ -756,7 +761,7 @@ class ExportOdtTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
         $this->assertTrue(
             $this->object->getTableDef(
@@ -808,20 +813,20 @@ class ExportOdtTest extends PmaTestCase
                 [
                     'fieldname' => [
                         'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield'
-                    ]
+                        'foreign_field' => 'ffield',
+                    ],
                 ],
                 [
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    ]
+                    ],
                 ]
             );
 
         $columns = [
-            'Field' => 'fieldname'
+            'Field' => 'fieldname',
         ];
 
         $dbi->expects($this->once())
@@ -842,12 +847,13 @@ class ExportOdtTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['field' => 'testComment']
+                        'comment' => ['field' => 'testComment'],
                     ]
                 )
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
         $GLOBALS['odt_buffer'] = '';
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
@@ -857,7 +863,7 @@ class ExportOdtTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         $this->assertTrue(
@@ -878,7 +884,7 @@ class ExportOdtTest extends PmaTestCase
         );
     }
 
-     /**
+    /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOdt::getTriggers
      *
      * @return void
@@ -895,7 +901,7 @@ class ExportOdtTest extends PmaTestCase
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
                 'definition' => 'def'
-            ]
+            ],
         ];
 
         $dbi->expects($this->once())
@@ -1108,7 +1114,7 @@ class ExportOdtTest extends PmaTestCase
             'Field' => 'fields',
             'Key' => 'COMP',
             'Type' => '',
-            'Default' => 'def'
+            'Default' => 'def',
         ];
 
         $this->assertEquals(

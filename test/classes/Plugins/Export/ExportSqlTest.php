@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
@@ -202,7 +203,7 @@ class ExportSqlTest extends PmaTestCase
         $this->assertEquals(
             [
                 'v1' => 'v1',
-                'v2' => 'v2'
+                'v2' => 'v2',
             ],
             $property->getValues()
         );
@@ -277,8 +278,18 @@ class ExportSqlTest extends PmaTestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
             $leaf
+        );
+
+        $this->assertCount(
+            2,
+            $leaf->getProperties()
+        );
+
+        $this->assertInstanceOf(
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);
@@ -713,8 +724,20 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValueMap(
                     [
-                        ['db', 'EVENT', 'f1', DatabaseInterface::CONNECT_USER, 'f1event'],
-                        ['db', 'EVENT', 'f2', DatabaseInterface::CONNECT_USER, 'f2event']
+                        [
+                            'db',
+                            'EVENT',
+                            'f1',
+                            DatabaseInterface::CONNECT_USER,
+                            'f1event',
+                        ],
+                        [
+                            'db',
+                            'EVENT',
+                            'f2',
+                            DatabaseInterface::CONNECT_USER,
+                            'f2event',
+                        ],
                     ]
                 )
             );
@@ -851,7 +874,7 @@ class ExportSqlTest extends PmaTestCase
                             'Default' => 'a',
                             'Comment' => 'cmt',
                             'Field' => 'fname'
-                        ]
+                        ],
                     ]
                 )
             );
@@ -896,7 +919,7 @@ class ExportSqlTest extends PmaTestCase
                             'Null' => 'YES',
                             'Comment' => 'cmt',
                             'Field' => 'fname'
-                        ]
+                        ],
                     ]
                 )
             );
@@ -974,13 +997,15 @@ class ExportSqlTest extends PmaTestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->withConsecutive(
                 ["SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"],
+                ['USE `db`'],
                 ['SHOW CREATE TABLE `db`.`table`']
             )
             ->willReturnOnConsecutiveCalls(
+                'res',
                 'res',
                 'res'
             );
@@ -1002,7 +1027,7 @@ class ExportSqlTest extends PmaTestCase
             "CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE,\n" .
             "CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n" .
             "CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE\n" .
-            ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n"
+            ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n",
         ];
 
         $dbi->expects($this->exactly(1))
@@ -1010,11 +1035,14 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValueMap(
                     [
-                        ['res', $row]
+                        [
+                            'res',
+                            $row,
+                        ],
                     ]
                 )
             );
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
         $dbi->expects($this->any())->method('escapeString')
@@ -1154,13 +1182,15 @@ class ExportSqlTest extends PmaTestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->withConsecutive(
                 ["SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"],
+                ['USE `db`'],
                 ['SHOW CREATE TABLE `db`.`table`']
             )
             ->willReturnOnConsecutiveCalls(
+                'res',
                 'res',
                 'res'
             );
@@ -1169,7 +1199,7 @@ class ExportSqlTest extends PmaTestCase
             ->method('getError')
             ->will($this->returnValue('error occurred'));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
         $dbi->expects($this->any())
@@ -1209,7 +1239,7 @@ class ExportSqlTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
@@ -1227,19 +1257,20 @@ class ExportSqlTest extends PmaTestCase
                 [
                     'foo' => [
                         'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield'
-                    ]
+                        'foreign_field' => 'ffield',
+                    ],
                 ],
                 [
                     'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    ]
+                    ],
                 ]
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_getTableComments');
         $method->setAccessible(true);
@@ -1288,7 +1319,10 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        ['create' => 'bar', 'drop' => 'foo']
+                        [
+                            'create' => 'bar',
+                            'drop' => 'foo'
+                        ],
                     ]
                 )
             );
@@ -1548,7 +1582,13 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [null, 'test', '10', '6', "\x00\x0a\x0d\x1a"],
+                [
+                    null,
+                    'test',
+                    '10',
+                    '6',
+                    "\x00\x0a\x0d\x1a",
+                ],
                 null
             );
         $dbi->expects($this->any())->method('escapeString')
@@ -1681,7 +1721,10 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [null, null],
+                [
+                    null,
+                    null,
+                ],
                 null
             );
 
@@ -1734,7 +1777,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
-    */
+     */
     public function testExportDataWithIsView()
     {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -1762,7 +1805,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
-        $oldVal = isset($GLOBALS['sql_compatibility']) ? $GLOBALS['sql_compatibility'] : '';
+        $oldVal = $GLOBALS['sql_compatibility'] ?? '';
         $GLOBALS['sql_compatibility'] = 'NONE';
         $GLOBALS['sql_backquotes'] = true;
 
@@ -1790,7 +1833,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
-    */
+     */
     public function testExportDataWithError()
     {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -1898,7 +1941,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::initAlias
      *
      * @return void
-    */
+     */
     public function testInitAlias()
     {
         $aliases = [
@@ -1906,13 +1949,13 @@ class ExportSqlTest extends PmaTestCase
                 'alias' => 'aliastest',
                 'tables' => [
                     'foo' => [
-                        'alias' => 'qwerty'
+                        'alias' => 'qwerty',
                     ],
                     'bar' => [
-                        'alias' => 'f'
-                    ]
-                ]
-            ]
+                        'alias' => 'f',
+                    ],
+                ],
+            ],
         ];
         $db = 'a';
         $table = null;
@@ -1940,7 +1983,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getAlias
      *
      * @return void
-    */
+     */
     public function testGetAlias()
     {
         $aliases = [
@@ -1951,17 +1994,17 @@ class ExportSqlTest extends PmaTestCase
                         'alias' => 'qwerty',
                         'columns' => [
                             'baz' => 'p',
-                            'pqr' => 'pphymdain'
-                        ]
+                            'pqr' => 'pphymdain',
+                        ],
                     ],
                     'bar' => [
                         'alias' => 'f',
                         'columns' => [
-                            'xy' => 'n'
-                        ]
-                    ]
-                ]
-            ]
+                            'xy' => 'n',
+                        ],
+                    ],
+                ],
+            ],
         ];
 
         $this->assertEquals(
@@ -1989,7 +2032,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::replaceWithAlias
      *
      * @return void
-    */
+     */
     public function testReplaceWithAlias()
     {
         $aliases = [
@@ -2000,17 +2043,17 @@ class ExportSqlTest extends PmaTestCase
                         'alias' => 'bartest',
                         'columns' => [
                             'baz' => 'p',
-                            'pqr' => 'pphymdain'
-                        ]
+                            'pqr' => 'pphymdain',
+                        ],
                     ],
                     'bar' => [
                         'alias' => 'f',
                         'columns' => [
-                            'xy' => 'n'
-                        ]
-                    ]
-                ]
-            ]
+                            'xy' => 'n',
+                        ],
+                    ],
+                ],
+            ],
         ];
 
         $db = 'a';

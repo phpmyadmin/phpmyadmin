@@ -220,7 +220,7 @@ class ExportCodegen extends ExportPlugin
         // remove unsafe characters
         $str = preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
         // make sure first character is a letter or _
-        if (!preg_match('/^\pL/u', $str)) {
+        if (! preg_match('/^\pL/u', $str)) {
             $str = '_' . $str;
         }
         if ($ucfirst) {
@@ -259,7 +259,7 @@ class ExportCodegen extends ExportPlugin
             $tableProperties = [];
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);
-                if (!empty($col_as)) {
+                if (! empty($col_as)) {
                     $row[0] = $col_as;
                 }
                 $tableProperties[] = new TableProperty($row);
@@ -288,7 +288,7 @@ class ExportCodegen extends ExportPlugin
                 . ExportCodegen::cgMakeIdentifier($table_alias) . '() { }';
             $temp = [];
             foreach ($tableProperties as $tableProperty) {
-                if (!$tableProperty->isPK()) {
+                if (! $tableProperty->isPK()) {
                     $temp[] = $tableProperty->formatCs(
                         '#dotNetPrimitiveType# #name#'
                     );
@@ -301,7 +301,7 @@ class ExportCodegen extends ExportPlugin
                 . ')';
             $lines[] = '        {';
             foreach ($tableProperties as $tableProperty) {
-                if (!$tableProperty->isPK()) {
+                if (! $tableProperty->isPK()) {
                     $lines[] = $tableProperty->formatCs(
                         '            this._#name#=#name#;'
                     );
@@ -366,7 +366,7 @@ class ExportCodegen extends ExportPlugin
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);
-                if (!empty($col_as)) {
+                if (! empty($col_as)) {
                     $row[0] = $col_as;
                 }
                 $tableProperty = new TableProperty($row);

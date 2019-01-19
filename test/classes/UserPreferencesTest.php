@@ -34,7 +34,7 @@ class UserPreferencesTest extends PmaTestCase
     protected function setUp()
     {
         global $cfg;
-        include 'libraries/config.default.php';
+        include ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
 
@@ -61,9 +61,9 @@ class UserPreferencesTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        'hide_db' => 'testval123'
-                    ]
-                ]
+                        'hide_db' => 'testval123',
+                    ],
+                ],
             ],
             $_SESSION['ConfigFile' . $GLOBALS['server']]
         );
@@ -125,7 +125,7 @@ class UserPreferencesTest extends PmaTestCase
                 $this->returnValue(
                     [
                         'ts' => '123',
-                        'config_data' => json_encode([1, 2])
+                        'config_data' => json_encode([1, 2]),
                     ]
                 )
             );
@@ -139,7 +139,10 @@ class UserPreferencesTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                'config_data' => [1, 2],
+                'config_data' => [
+                    1,
+                    2,
+                ],
                 'mtime' => 123,
                 'type' => 'db'
             ],
@@ -150,7 +153,7 @@ class UserPreferencesTest extends PmaTestCase
     /**
      * Test for save
      *
-     *  @return void
+     * @return void
      */
     public function testSave()
     {
@@ -263,7 +266,7 @@ class UserPreferencesTest extends PmaTestCase
         $result = $this->userPreferences->save([1]);
 
         $this->assertEquals(
-            'Could not save configuration<br /><br />err1',
+            'Could not save configuration<br><br>err1',
             $result->getMessage()
         );
     }
@@ -293,8 +296,8 @@ class UserPreferencesTest extends PmaTestCase
         $this->assertEquals(
             [
                 'Server' => [
-                    'hide_db' => 1
-                ]
+                    'hide_db' => 1,
+                ],
             ],
             $result
         );
@@ -412,17 +415,17 @@ class UserPreferencesTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="json" value="" />',
+            '<input type="hidden" name="json" value="">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="submit_import" value="1" />',
+            '<input type="hidden" name="submit_import" value="1">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="return_url" value="phpunit?" />',
+            '<input type="hidden" name="return_url" value="phpunit?">',
             $result
         );
     }

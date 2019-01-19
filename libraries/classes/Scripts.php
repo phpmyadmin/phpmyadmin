@@ -84,7 +84,7 @@ class Scripts
         array $params = []
     ) {
         $hash = md5($filename);
-        if (!empty($this->_files[$hash])) {
+        if (! empty($this->_files[$hash])) {
             return;
         }
 
@@ -160,7 +160,7 @@ class Scripts
             }
             $retval[] = [
                 'name' => $file['filename'],
-                'fire' => $file['has_onload']
+                'fire' => $file['has_onload'],
             ];
         }
         return $retval;

@@ -10,10 +10,14 @@ declare(strict_types=1);
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -28,24 +32,25 @@ $types = $transformations->getAvailableMimeTypes();
 <?php
 foreach ($types['mimetype'] as $key => $mimetype) {
     if (isset($types['empty_mimetype'][$mimetype])) {
-        echo '<i>' , htmlspecialchars($mimetype) , '</i><br />';
+        echo '<i>' , htmlspecialchars($mimetype) , '</i><br>';
     } else {
-        echo htmlspecialchars($mimetype) , '<br />';
+        echo htmlspecialchars($mimetype) , '<br>';
     }
 }
 $transformation_types = [
-    'transformation', 'input_transformation'
+    'transformation',
+    'input_transformation',
 ];
 $label = [
     'transformation' => __('Available browser display transformations'),
-    'input_transformation' => __('Available input transformations')
+    'input_transformation' => __('Available input transformations'),
 ];
 $th = [
     'transformation' => __('Browser display transformation'),
-    'input_transformation' => __('Input transformation')
+    'input_transformation' => __('Input transformation'),
 ];
 ?>
-<br />
+<br>
 <?php foreach ($transformation_types as $ttype) { ?>
     <a name="<?php echo $ttype; ?>"></a>
     <h2><?php echo $label[$ttype] ?></h2>

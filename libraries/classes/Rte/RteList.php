@@ -237,7 +237,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($routine['name']) . '" />';
+            . ' value="' . htmlspecialchars($routine['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"
@@ -296,7 +296,7 @@ class RteList
             $routine['type'],
             $routine['name']
         );
-        if ($definition !== false) {
+        if ($definition !== null) {
             $parser = new Parser($definition);
 
             /**
@@ -317,13 +317,14 @@ class RteList
                     $execute_action = 'execute_dialog';
                     break;
                 }
+                $query_part = $execute_action . '=1&amp;item_name='
+                    . urlencode($routine['name']) . '&amp;' . $type_link;
                 $retval .= '                <a class="ajax exec_anchor"'
                                                  . ' href="db_routines.php'
                                                  . $url_query
-                                                 . '&amp;' . $execute_action . '=1'
-                                                 . '&amp;item_name='
-                                                 . urlencode($routine['name'])
-                                                 . '&amp;' . $type_link
+                                                 . ($execute_action == 'execute_routine'
+                                                     ? '" data-post="' . $query_part
+                                                     : '&amp;' . $query_part)
                                                  . '">' . $titles['Execute'] . "</a>\n";
             } else {
                 $retval .= "                {$titles['NoExecute']}\n";
@@ -383,7 +384,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($trigger['name']) . '" />';
+            . ' value="' . htmlspecialchars($trigger['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"
@@ -464,7 +465,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($event['name']) . '" />';
+            . ' value="' . htmlspecialchars($event['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"

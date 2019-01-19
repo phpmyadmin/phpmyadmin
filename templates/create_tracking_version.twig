@@ -1,6 +1,6 @@
 <div id="div_create_version">
     <form method="post" action="{{ url_query|raw }}">
-        {{ Url_getHiddenInputs(db) }}
+        {{ get_hidden_inputs(db) }}
         {% for selected_table in selected %}
             <input type="hidden" name="selected[]" value="{{ selected_table }}">
         {% endfor %}
@@ -22,58 +22,58 @@
             {% if type == 'both' or type == 'table' %}
                 <input type="checkbox" name="alter_table" value="true"
                     {{- 'ALTER TABLE' in default_statements ? ' checked="checked"' }}>
-                ALTER TABLE<br/>
+                ALTER TABLE<br>
                 <input type="checkbox" name="rename_table" value="true"
                     {{- 'RENAME TABLE' in default_statements ? ' checked="checked"' }}>
-                RENAME TABLE<br/>
+                RENAME TABLE<br>
                 <input type="checkbox" name="create_table" value="true"
                     {{- 'CREATE TABLE' in default_statements ? ' checked="checked"' }}>
-                CREATE TABLE<br/>
+                CREATE TABLE<br>
                 <input type="checkbox" name="drop_table" value="true"
                     {{- 'DROP TABLE' in default_statements ? ' checked="checked"' }}>
-                DROP TABLE<br/>
+                DROP TABLE<br>
             {% endif %}
             {% if type == 'both' %}
-                <br/>
+                <br>
             {% endif %}
             {% if type == 'both' or type == 'view' %}
                 <input type="checkbox" name="alter_view" value="true"
                     {{- 'ALTER VIEW' in default_statements ? ' checked="checked"' }}>
-                ALTER VIEW<br/>
+                ALTER VIEW<br>
                 <input type="checkbox" name="create_view" value="true"
                     {{- 'CREATE VIEW' in default_statements ? ' checked="checked"' }}>
-                CREATE VIEW<br/>
+                CREATE VIEW<br>
                 <input type="checkbox" name="drop_view" value="true"
                     {{- 'DROP VIEW' in default_statements ? ' checked="checked"' }}>
-                DROP VIEW<br/>
+                DROP VIEW<br>
             {% endif %}
-            <br/>
+            <br>
 
             <input type="checkbox" name="create_index" value="true"
                 {{- 'CREATE INDEX' in default_statements ? ' checked="checked"' }}>
-            CREATE INDEX<br/>
+            CREATE INDEX<br>
             <input type="checkbox" name="drop_index" value="true"
                 {{- 'DROP INDEX' in default_statements ? ' checked="checked"' }}>
-            DROP INDEX<br/>
+            DROP INDEX<br>
 
             <p>{% trans 'Track these data manipulation statements:' %}</p>
             <input type="checkbox" name="insert" value="true"
                 {{- 'INSERT' in default_statements ? ' checked="checked"' }}>
-            INSERT<br/>
+            INSERT<br>
             <input type="checkbox" name="update" value="true"
                 {{- 'UPDATE' in default_statements ? ' checked="checked"' }}>
-            UPDATE<br/>
+            UPDATE<br>
             <input type="checkbox" name="delete" value="true"
                 {{- 'DELETE' in default_statements ? ' checked="checked"' }}>
-            DELETE<br/>
+            DELETE<br>
             <input type="checkbox" name="truncate" value="true"
                 {{- 'TRUNCATE' in default_statements ? ' checked="checked"' }}>
-            TRUNCATE<br/>
+            TRUNCATE<br>
         </fieldset>
 
         <fieldset class="tblFooters">
-            <input type="hidden" name="submit_create_version" value="1" />
-            <input type="submit" value="{% trans 'Create version' %}" />
+            <input type="hidden" name="submit_create_version" value="1">
+            <input class="btn btn-primary" type="submit" value="{% trans 'Create version' %}">
         </fieldset>
     </form>
 </div>

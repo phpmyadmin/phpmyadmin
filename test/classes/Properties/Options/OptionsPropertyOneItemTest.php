@@ -52,7 +52,10 @@ class OptionsPropertyOneItemTest extends TestCase
         $this->stub->setValues([1, 2]);
 
         $this->assertEquals(
-            [1, 2],
+            [
+                1,
+                2,
+            ],
             $this->stub->getValues()
         );
     }

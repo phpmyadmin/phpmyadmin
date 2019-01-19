@@ -65,7 +65,7 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
@@ -95,16 +95,14 @@ class ImportMediawiki extends ImportPlugin
         // Initialize the name of the current table
         $cur_table_name = "";
 
-        while (!$finished && !$error && !$timeout_passed) {
+        while (! $finished && ! $error && ! $timeout_passed) {
             $data = $this->import->getNextChunk();
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing
                 $GLOBALS['offset'] -= mb_strlen($buffer);
                 break;
-            } elseif ($data === true) {
-                // Handle rest of buffer
-            } else {
+            } elseif ($data !== true) {
                 // Append new data to buffer
                 $buffer = $data;
                 unset($data);
@@ -143,12 +141,12 @@ class ImportMediawiki extends ImportPlugin
                 $matches = [];
 
                 // Check beginning of comment
-                if (!strcmp(mb_substr($cur_buffer_line, 0, 4), "<!--")) {
+                if (! strcmp(mb_substr($cur_buffer_line, 0, 4), "<!--")) {
                     $inside_comment = true;
                     continue;
                 } elseif ($inside_comment) {
                     // Check end of comment
-                    if (!strcmp(mb_substr($cur_buffer_line, 0, 4), "-->")
+                    if (! strcmp(mb_substr($cur_buffer_line, 0, 4), "-->")
                     ) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
@@ -158,7 +156,7 @@ class ImportMediawiki extends ImportPlugin
                         }
 
                         // End comments that are not related to table structure
-                        if (!$inside_structure_comment) {
+                        if (! $inside_structure_comment) {
                             $inside_comment = false;
                         }
                     } else {
@@ -212,7 +210,7 @@ class ImportMediawiki extends ImportPlugin
                     // Check begin row or end table
 
                     // Add current line to the values storage
-                    if (!empty($cur_temp_line)) {
+                    if (! empty($cur_temp_line)) {
                         // If the current line contains header cells
                         // ( marked with '!' ),
                         // it will be marked as table header
@@ -221,7 +219,7 @@ class ImportMediawiki extends ImportPlugin
                             $cur_temp_table_headers = $cur_temp_line;
                         } else {
                             // Normal line, add it to the table
-                            $cur_temp_table [] = $cur_temp_line;
+                            $cur_temp_table[] = $cur_temp_line;
                         }
                     }
 
@@ -263,19 +261,22 @@ class ImportMediawiki extends ImportPlugin
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
-                        $col_start_chars = ["|", "!"];
+                        $col_start_chars = [
+                            "|",
+                            "!",
+                        ];
                         foreach ($col_start_chars as $col_start_char) {
                             $cell = $this->_getCellContent($cell, $col_start_char);
                         }
 
                         // Add the cell to the row
-                        $cur_temp_line [] = $cell;
+                        $cur_temp_line[] = $cell;
                     } // foreach $cells
                 } else {
                     // If it's none of the above, then the current line has a bad
                     // format
                     $message = Message::error(
-                        __('Invalid format of mediawiki input on line: <br />%s.')
+                        __('Invalid format of mediawiki input on line: <br>%s.')
                     );
                     $message->addParam($cur_buffer_line);
                     $error = true;
@@ -287,14 +288,15 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Imports data from a single table
      *
-     * @param array $table     containing all table info:
-     *                         <code>
-     *                         $table[0] - string containing table name
-     *                         $table[1] - array[]   of table headers
-     *                         $table[2] - array[][] of table content rows
-     *                         </code>
+     * @param array $table    containing all table info:
+     *                        <code> $table[0] - string
+     *                        containing table name
+     *                        $table[1] - array[]   of
+     *                        table headers $table[2] -
+     *                        array[][] of table content
+     *                        rows </code>
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @global bool $analyze whether to scan for column types
      *
@@ -312,11 +314,15 @@ class ImportMediawiki extends ImportPlugin
 
             // Create the tables array to be used in Import::buildSql()
             $tables = [];
-            $tables [] = [$table[0], $table[1], $table[2]];
+            $tables[] = [
+                $table[0],
+                $table[1],
+                $table[2],
+            ];
 
             // Obtain the best-fit MySQL types for each column
             $analyses = [];
-            $analyses [] = $this->import->analyzeTable($tables[0]);
+            $analyses[] = $this->import->analyzeTable($tables[0]);
 
             $this->_executeImportTables($tables, $analyses, $sql_data);
         }
@@ -328,7 +334,7 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Sets the table name
      *
-     * @param string &$table_name reference to the name of the table
+     * @param string $table_name reference to the name of the table
      *
      * @return void
      */
@@ -344,9 +350,9 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Set generic names for table headers, if they don't exist
      *
-     * @param array &$table_headers reference to the array containing the headers
-     *                              of a table
-     * @param array $table_row      array containing the first content row
+     * @param array $table_headers reference to the array containing the headers
+     *                             of a table
+     * @param array $table_row     array containing the first content row
      *
      * @return void
      */
@@ -357,7 +363,7 @@ class ImportMediawiki extends ImportPlugin
             // If they are not set, generic names will be given (COL 1, COL 2, etc)
             $num_cols = count($table_row);
             for ($i = 0; $i < $num_cols; ++$i) {
-                $table_headers [$i] = 'COL ' . ($i + 1);
+                $table_headers[$i] = 'COL ' . ($i + 1);
             }
         }
     }
@@ -366,16 +372,16 @@ class ImportMediawiki extends ImportPlugin
      * Sets the database name and additional options and calls Import::buildSql()
      * Used in PMA_importDataAllTables() and $this->_importDataOneTable()
      *
-     * @param array &$tables   structure:
-     *                         array(
-     *                         array(table_name, array() column_names, array()()
-     *                         rows)
-     *                         )
-     * @param array &$analyses structure:
-     *                         $analyses = array(
-     *                         array(array() column_types, array() column_sizes)
-     *                         )
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $tables   structure:
+     *                        array(
+     *                        array(table_name, array() column_names, array()()
+     *                        rows)
+     *                        )
+     * @param array $analyses structure:
+     *                        $analyses = array(
+     *                        array(array() column_types, array() column_sizes)
+     *                        )
+     * @param array $sql_data 2-element array with sql data
      *
      * @global string $db      name of the database to import in
      *
@@ -425,13 +431,13 @@ class ImportMediawiki extends ImportPlugin
         $partial_separator = false;
 
         // Parse text char by char
-        for ($i = 0; $i < strlen($subject); $i++) {
+        for ($i = 0, $iMax = strlen($subject); $i < $iMax; $i++) {
             $cur_char = $subject[$i];
             // Check for separators
             if ($cur_char == '|') {
                 // If we're not inside a tag, then this is part of a real separator,
                 // so we append it to the current segment
-                if (!$inside_attribute) {
+                if (! $inside_attribute) {
                     $cleaned .= $cur_char;
                     if ($partial_separator) {
                         $inside_tag = false;
@@ -445,7 +451,7 @@ class ImportMediawiki extends ImportPlugin
 
                 // If the previous character was also '|', then this ends a
                 // full separator. If not, this may be the beginning of one
-                $partial_separator = !$partial_separator;
+                $partial_separator = ! $partial_separator;
             } else {
                 // If we're inside a tag attribute and the current character is
                 // not '|', but the previous one was, it means that the single '|'
@@ -459,15 +465,15 @@ class ImportMediawiki extends ImportPlugin
                 // any other character should be appended to the current segment
                 $cleaned .= $cur_char;
 
-                if ($cur_char == '<' && !$inside_attribute) {
+                if ($cur_char == '<' && ! $inside_attribute) {
                     // start of a tag
                     $inside_tag = true;
-                } elseif ($cur_char == '>' && !$inside_attribute) {
+                } elseif ($cur_char == '>' && ! $inside_attribute) {
                     // end of a tag
                     $inside_tag = false;
                 } elseif (($cur_char == '"' || $cur_char == "'") && $inside_tag) {
                     // start or end of an attribute
-                    if (!$inside_attribute) {
+                    if (! $inside_attribute) {
                         $inside_attribute = true;
                         // remember the attribute`s declaration character (" or ')
                         $start_attribute_character = $cur_char;

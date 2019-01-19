@@ -34,7 +34,10 @@ class DesignerTest extends TestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['PDFPageSizes'] = ['A3', 'A4'];
+        $GLOBALS['cfg']['PDFPageSizes'] = [
+            'A3',
+            'A4',
+        ];
         $GLOBALS['cfg']['PDFDefaultPageSize'] = 'A4';
         $GLOBALS['cfg']['Schema']['pdf_orientation'] = 'L';
         $GLOBALS['cfg']['Schema']['pdf_paper'] = 'A4';
@@ -46,9 +49,9 @@ class DesignerTest extends TestCase
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true
-                ]
+                ],
             ],
-            ' PMA_token ' => 'token'
+            ' PMA_token ' => 'token',
         ];
     }
 
@@ -79,8 +82,14 @@ class DesignerTest extends TestCase
         $dbi->expects($this->exactly(3))
             ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(
-                ['page_nr' => '1', 'page_descr' => 'page1'],
-                ['page_nr' => '2', 'page_descr' => 'page2'],
+                [
+                    'page_nr' => '1',
+                    'page_descr' => 'page1',
+                ],
+                [
+                    'page_nr' => '2',
+                    'page_descr' => 'page2',
+                ],
                 false
             );
 
@@ -110,7 +119,7 @@ class DesignerTest extends TestCase
         $this->assertEquals(
             [
                 '1' => 'page1',
-                '2' => 'page2'
+                '2' => 'page2',
             ],
             $result
         );
@@ -131,7 +140,7 @@ class DesignerTest extends TestCase
 
         $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
         $this->assertContains(
-            '<input type="hidden" name="operation" value="' . $operation . '" />',
+            '<input type="hidden" name="operation" value="' . $operation . '">',
             $result
         );
         $this->assertContains(
@@ -159,7 +168,7 @@ class DesignerTest extends TestCase
 
         $result = $this->designer->getHtmlForPageSaveAs($db);
         $this->assertContains(
-            '<input type="hidden" name="operation" value="savePage" />',
+            '<input type="hidden" name="operation" value="savePage">',
             $result
         );
         $this->assertContains(
@@ -174,15 +183,15 @@ class DesignerTest extends TestCase
 
         $this->assertContains(
             '<input type="radio" name="save_page" id="save_page_same" value="same"'
-            . ' checked="checked" />',
+            . ' checked="checked">',
             $result
         );
         $this->assertContains(
-            '<input type="radio" name="save_page" id="save_page_new" value="new" />',
+            '<input type="radio" name="save_page" id="save_page_new" value="new">',
             $result
         );
         $this->assertContains(
-            '<input type="text" name="selected_value" id="selected_value" />',
+            '<input type="text" name="selected_value" id="selected_value">',
             $result
         );
     }
@@ -208,7 +217,7 @@ class DesignerTest extends TestCase
 
         // hidden field
         $this->assertContains(
-            '<input type="hidden" name="page_number" value="' . $page . '" />',
+            '<input type="hidden" name="page_number" value="' . $page . '">',
             $result
         );
 

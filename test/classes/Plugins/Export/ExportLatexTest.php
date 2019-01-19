@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Plugins\Export\ExportLatex;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -180,7 +181,7 @@ class ExportLatexTest extends PmaTestCase
             [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
+                'structure_and_data' => __('structure and data'),
             ],
             $property->getValues()
         );
@@ -672,12 +673,12 @@ class ExportLatexTest extends PmaTestCase
         $keys = [
             [
                 'Non_unique' => 0,
-                'Column_name' => 'name1'
+                'Column_name' => 'name1',
             ],
             [
                 'Non_unique' => 1,
-                'Column_name' => 'name2'
-            ]
+                'Column_name' => 'name2',
+            ],
         ];
 
         // case 1
@@ -700,7 +701,7 @@ class ExportLatexTest extends PmaTestCase
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'testmimetype_'
-                    ]
+                    ],
                 ]
             );
 
@@ -716,8 +717,8 @@ class ExportLatexTest extends PmaTestCase
                 'Field' => 'fields',
                 'Key' => 'COMP',
                 'Type' => '',
-                'Default' => 'def'
-            ]
+                'Default' => 'def',
+            ],
         ];
         $dbi->expects($this->once())
             ->method('getColumns')
@@ -737,12 +738,13 @@ class ExportLatexTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['name1' => 'testComment']
+                        'comment' => ['name1' => 'testComment'],
                     ]
                 )
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
         if (isset($GLOBALS['latex_caption'])) {
             unset($GLOBALS['latex_caption']);
         }
@@ -755,7 +757,7 @@ class ExportLatexTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         ob_start();
@@ -810,16 +812,16 @@ class ExportLatexTest extends PmaTestCase
                 [
                     'name1' => [
                         'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield'
+                        'foreign_field' => 'ffield',
                     ],
-                    'foreign_keys_data' => []
+                    'foreign_keys_data' => [],
                 ],
                 [
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    ]
+                    ],
                 ]
             );
 
@@ -846,12 +848,13 @@ class ExportLatexTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['field' => 'testComment']
+                        'comment' => ['field' => 'testComment'],
                     ]
                 )
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
@@ -861,7 +864,7 @@ class ExportLatexTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         ob_start();
@@ -915,7 +918,7 @@ class ExportLatexTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['field' => 'testComment']
+                        'comment' => ['field' => 'testComment'],
                     ]
                 )
             );
@@ -937,7 +940,7 @@ class ExportLatexTest extends PmaTestCase
             'mimework' => false,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         ob_start();

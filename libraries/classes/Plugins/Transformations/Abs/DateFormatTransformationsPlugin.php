@@ -13,6 +13,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
+use stdClass;
 
 /**
  * Provides common methods for all of the date format transformations plugins.
@@ -44,13 +45,13 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         $buffer = (string) $buffer;
         // possibly use a global transform and feed it with special options
@@ -89,18 +90,12 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                 }
 
                 $aDate = [];
-                $aDate['year'] = (int)
-                mb_substr($buffer, 0, $offset);
-                $aDate['month'] = (int)
-                mb_substr($buffer, $offset, 2);
-                $aDate['day'] = (int)
-                mb_substr($buffer, $offset + 2, 2);
-                $aDate['hour'] = (int)
-                mb_substr($buffer, $offset + 4, 2);
-                $aDate['minute'] = (int)
-                mb_substr($buffer, $offset + 6, 2);
-                $aDate['second'] = (int)
-                mb_substr($buffer, $offset + 8, 2);
+                $aDate['year'] = (int) mb_substr($buffer, 0, $offset);
+                $aDate['month'] = (int) mb_substr($buffer, $offset, 2);
+                $aDate['day'] = (int) mb_substr($buffer, $offset + 2, 2);
+                $aDate['hour'] = (int) mb_substr($buffer, $offset + 4, 2);
+                $aDate['minute'] = (int) mb_substr($buffer, $offset + 6, 2);
+                $aDate['second'] = (int) mb_substr($buffer, $offset + 8, 2);
 
                 if (checkdate($aDate['month'], $aDate['day'], $aDate['year'])) {
                     $timestamp = mktime(
@@ -116,7 +111,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                 // (https://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
             } else {
                 if (preg_match('/^[0-9]\d{1,9}$/', $buffer)) {
-                    $timestamp = (int)$buffer;
+                    $timestamp = (int) $buffer;
                 } else {
                     $timestamp = strtotime($buffer);
                 }

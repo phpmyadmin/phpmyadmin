@@ -24,7 +24,7 @@ AJAX.registerOnload('server_user_groups.js', function () {
         buttonOptions[PMA_messages.strClose] = function () {
             $(this).dialog('close');
         };
-        $('<div/>')
+        $('<div></div>')
             .attr('id', 'confirmUserGroupDeleteDialog')
             .append(PMA_sprintf(PMA_messages.strDropUserGroupWarning, escapeHtml(groupName)))
             .dialog({

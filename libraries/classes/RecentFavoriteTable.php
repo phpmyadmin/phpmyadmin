@@ -9,12 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Handles the recently used and favorite tables.
  *
@@ -50,7 +44,7 @@ class RecentFavoriteTable
     private static $_instances = [];
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -63,7 +57,7 @@ class RecentFavoriteTable
      */
     private function __construct($type)
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->_tableType = $type;
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
@@ -156,7 +150,7 @@ class RecentFavoriteTable
                 Message::rawError(
                     $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
-                '<br /><br />'
+                '<br><br>'
             );
             return $message;
         }
@@ -196,7 +190,7 @@ class RecentFavoriteTable
                     $html .= '<li class="warp_link">';
                     $recent_params = [
                         'db'    => $table['db'],
-                        'table' => $table['table']
+                        'table' => $table['table'],
                     ];
                     $recent_url = 'tbl_recent_favorite.php'
                         . Url::getCommon($recent_params);
@@ -214,7 +208,7 @@ class RecentFavoriteTable
                         'db'              => $table['db'],
                         'ajax_request'    => true,
                         'favorite_table'  => $table['table'],
-                        'remove_favorite' => true
+                        'remove_favorite' => true,
                     ];
                     $fav_rm_url = 'db_structure.php'
                         . Url::getCommon($fav_params);
@@ -228,7 +222,7 @@ class RecentFavoriteTable
 
                     $fav_params = [
                         'db'    => $table['db'],
-                        'table' => $table['table']
+                        'table' => $table['table'],
                     ];
                     $table_url = 'tbl_recent_favorite.php'
                         . Url::getCommon($fav_params);
@@ -362,8 +356,11 @@ class RecentFavoriteTable
         $cfgRelation = $this->relation->getRelationsParam();
         // Not to show this once list is synchronized.
         if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
-            $params  = ['ajax_request' => true, 'favorite_table' => true,
-                'sync_favorite_tables' => true];
+            $params  = [
+                'ajax_request' => true,
+                'favorite_table' => true,
+                'sync_favorite_tables' => true,
+            ];
             $url     = 'db_structure.php' . Url::getCommon($params);
             $retval  = '<a class="hide" id="sync_favorite_tables"';
             $retval .= ' href="' . $url . '"></a>';
@@ -378,7 +375,10 @@ class RecentFavoriteTable
      */
     public static function getHtmlUpdateRecentTables()
     {
-        $params  = ['ajax_request' => true, 'recent_table' => true];
+        $params  = [
+            'ajax_request' => true,
+            'recent_table' => true,
+        ];
         $url     = 'index.php' . Url::getCommon($params);
         $retval  = '<a class="hide" id="update_recent_tables"';
         $retval .= ' href="' . $url . '"></a>';

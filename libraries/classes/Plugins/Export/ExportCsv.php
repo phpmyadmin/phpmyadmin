@@ -146,9 +146,19 @@ class ExportCsv extends ExportPlugin
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
-                $csv_terminated = str_replace('\\r', "\015", $csv_terminated);
-                $csv_terminated = str_replace('\\n', "\012", $csv_terminated);
-                $csv_terminated = str_replace('\\t', "\011", $csv_terminated);
+                $csv_terminated = str_replace(
+                    [
+                        '\\r',
+                        '\\n',
+                        '\\t',
+                    ],
+                    [
+                        "\015",
+                        "\012",
+                        "\011",
+                    ],
+                    $csv_terminated
+                );
             } // end if
             $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
@@ -244,7 +254,7 @@ class ExportCsv extends ExportPlugin
             $schema_insert = '';
             for ($i = 0; $i < $fields_cnt; $i++) {
                 $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-                if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+                if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
                 $col_as = stripslashes($col_as);
@@ -262,7 +272,7 @@ class ExportCsv extends ExportPlugin
                 $schema_insert .= $csv_separator;
             } // end for
             $schema_insert = trim(mb_substr($schema_insert, 0, -1));
-            if (!$this->export->outputHandler($schema_insert . $csv_terminated)) {
+            if (! $this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end if
@@ -271,7 +281,7 @@ class ExportCsv extends ExportPlugin
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || is_null($row[$j])) {
                     $schema_insert .= $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     // always enclose fields
@@ -283,13 +293,12 @@ class ExportCsv extends ExportPlugin
                         && $GLOBALS[$what . '_removeCRLF']
                     ) {
                         $row[$j] = str_replace(
-                            "\n",
-                            "",
-                            str_replace(
+                            [
                                 "\r",
-                                "",
-                                $row[$j]
-                            )
+                                "\n",
+                            ],
+                            "",
+                            $row[$j]
                         );
                     }
                     if ($csv_enclosed == '') {
@@ -327,7 +336,7 @@ class ExportCsv extends ExportPlugin
                 }
             } // end for
 
-            if (!$this->export->outputHandler($schema_insert . $csv_terminated)) {
+            if (! $this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end while

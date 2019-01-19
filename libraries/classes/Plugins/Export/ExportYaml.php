@@ -167,7 +167,7 @@ class ExportYaml extends ExportPlugin
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $columns[$i] = stripslashes($col_as);
@@ -187,7 +187,7 @@ class ExportYaml extends ExportPlugin
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if (!isset($record[$i])) {
+                if (! isset($record[$i])) {
                     continue;
                 }
 
@@ -202,14 +202,24 @@ class ExportYaml extends ExportPlugin
                 }
 
                 $record[$i] = str_replace(
-                    ['\\', '"', "\n", "\r"],
-                    ['\\\\', '\"', '\n', '\r'],
+                    [
+                        '\\',
+                        '"',
+                        "\n",
+                        "\r",
+                    ],
+                    [
+                        '\\\\',
+                        '\"',
+                        '\n',
+                        '\r',
+                    ],
                     $record[$i]
                 );
                 $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . $crlf;
             }
 
-            if (!$this->export->outputHandler($buffer)) {
+            if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
         }

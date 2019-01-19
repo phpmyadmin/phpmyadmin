@@ -75,7 +75,7 @@ class Tracking
                     'id'        => $id,
                     'timestamp' => $timestamp,
                     'username'  => $entry['username'],
-                    'statement' => $entry['statement']
+                    'statement' => $entry['statement'],
                 ];
             }
             $id++;
@@ -141,15 +141,15 @@ class Tracking
      */
     public function getListOfVersionsOfTable()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         $sql_query = " SELECT * FROM " .
             Util::backquote($cfgRelation['db']) . "." .
             Util::backquote($cfgRelation['tracking']) .
-            " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
+            " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
             "' " .
             " AND table_name = '" .
-            $GLOBALS['dbi']->escapeString($_REQUEST['table']) . "' " .
+            $GLOBALS['dbi']->escapeString($GLOBALS['table']) . "' " .
             " ORDER BY version DESC ";
 
         return $relation->queryAsControlUser($sql_query);
@@ -174,7 +174,7 @@ class Tracking
         $lastVersion = null
     ) {
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables();
-        $selectableTablesEntries = array();
+        $selectableTablesEntries = [];
         while (($entry = $GLOBALS['dbi']->fetchArray($selectableTablesSqlResult))) {
             $entry['is_tracked'] = Tracker::isTracked(
                 $entry['db_name'],
@@ -189,7 +189,7 @@ class Tracking
             $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
         }
         $GLOBALS['dbi']->dataSeek($versionSqlResult, 0);
-        $versions = array();
+        $versions = [];
         while ($version = $GLOBALS['dbi']->fetchArray($versionSqlResult)) {
             $versions[] = $version;
         }
@@ -204,7 +204,7 @@ class Tracking
             'table' => $GLOBALS['table'],
             'selectable_tables_num_rows' => $selectableTablesNumRows,
             'selectable_tables_entries' => $selectableTablesEntries,
-            'selected_table' => isset($_REQUEST['table']) ? $_REQUEST['table'] : null,
+            'selected_table' => isset($_POST['table']) ? $_POST['table'] : null,
             'last_version' => $lastVersion,
             'versions' => $versions,
             'type' => $type,
@@ -234,7 +234,7 @@ class Tracking
      */
     public function getSqlResultForSelectableTables()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
@@ -278,8 +278,8 @@ class Tracking
             . '</a>]</h3>';
 
         $html .= '<small>' . __('Tracking statements') . ' '
-            . htmlspecialchars($data['tracking']) . '</small><br/>';
-        $html .= '<br/>';
+            . htmlspecialchars($data['tracking']) . '</small><br>';
+        $html .= '<br>';
 
         list($str1, $str2, $str3, $str4, $str5) = $this->getHtmlForElementsOfTrackingReport(
             $selection_schema,
@@ -333,7 +333,7 @@ class Tracking
             $str5
         );
 
-        $html .= "<br/><br/><hr/><br/>\n";
+        $html .= "<br><br><hr><br>\n";
 
         return $html;
     }
@@ -364,14 +364,20 @@ class Tracking
             . __('Structure and data') . '</option>'
             . '</select>';
         $str2 = '<input type="text" name="date_from" value="'
-            . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
+            . htmlspecialchars($_POST['date_from']) . '" size="19">';
         $str3 = '<input type="text" name="date_to" value="'
-            . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
+            . htmlspecialchars($_POST['date_to']) . '" size="19">';
         $str4 = '<input type="text" name="users" value="'
-            . htmlspecialchars($_REQUEST['users']) . '" />';
-        $str5 = '<input type="hidden" name="list_report" value="1" />'
-            . '<input type="submit" value="' . __('Go') . '" />';
-        return [$str1, $str2, $str3, $str4, $str5];
+            . htmlspecialchars($_POST['users']) . '">';
+        $str5 = '<input type="hidden" name="list_report" value="1">'
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
+        return [
+            $str1,
+            $str2,
+            $str3,
+            $str4,
+            $str5,
+        ];
     }
 
     /**
@@ -412,14 +418,11 @@ class Tracking
     ) {
         $ddlog_count = 0;
 
-        $html = '<form method="post" action="tbl_tracking.php'
-            . Url::getCommon(
-                $url_params + [
-                    'report' => 'true', 'version' => $_REQUEST['version']
-                ]
-            )
-            . '">';
-        $html .= Url::getHiddenInputs();
+        $html = '<form method="post" action="tbl_tracking.php">';
+        $html .= Url::getHiddenInputs($url_params + [
+            'report' => 'true',
+            'version' => $_POST['version'],
+        ]);
 
         $html .= sprintf(
             __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
@@ -481,14 +484,12 @@ class Tracking
         $str4,
         $str5
     ) {
-        $html = '<form method="post" action="tbl_tracking.php'
-            . Url::getCommon(
-                $url_params + [
-                    'report' => 'true', 'version' => $_REQUEST['version']
-                ]
-            )
-            . '">';
-        $html .= Url::getHiddenInputs();
+        $html = '<form method="post" action="tbl_tracking.php">';
+        $html .= Url::getHiddenInputs($url_params + [
+            'report' => 'true',
+            'version' => $_POST['version'],
+        ]);
+
         $html .= sprintf(
             __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
             $str1,
@@ -499,21 +500,16 @@ class Tracking
         );
         $html .= '</form>';
 
-        $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
-            . Url::getCommon(
-                $url_params
-                + ['report' => 'true', 'version' => $_REQUEST['version']]
-            )
-            . '">';
-        $html .= Url::getHiddenInputs();
-        $html .= '<input type="hidden" name="logtype" value="'
-            . htmlspecialchars($_REQUEST['logtype']) . '" />';
-        $html .= '<input type="hidden" name="date_from" value="'
-            . htmlspecialchars($_REQUEST['date_from']) . '" />';
-        $html .= '<input type="hidden" name="date_to" value="'
-            . htmlspecialchars($_REQUEST['date_to']) . '" />';
-        $html .= '<input type="hidden" name="users" value="'
-            . htmlspecialchars($_REQUEST['users']) . '" />';
+        $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php">';
+        $html .= Url::getHiddenInputs($url_params + [
+            'report' => 'true',
+            'version' => $_POST['version'],
+            'logtype' => $_POST['logtype'],
+            'date_from' => $_POST['date_from'],
+            'date_to' => $_POST['date_to'],
+            'users' => $_POST['users'],
+            'report_export' => 'true',
+        ]);
 
         $str_export1 = '<select name="export_type">'
             . '<option value="sqldumpfile">' . __('SQL dump (file download)')
@@ -525,11 +521,10 @@ class Tracking
             )
             . '\')">' . __('SQL execution') . '</option>' . '</select>';
 
-        $str_export2 = '<input type="hidden" name="report_export" value="1" />'
-            . '<input type="submit" value="' . __('Go') . '" />';
+        $str_export2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
-        $html .= "<br/>" . sprintf(__('Export as %s'), $str_export1)
-            . $str_export2 . "<br/>";
+        $html .= "<br>" . sprintf(__('Export as %s'), $str_export1)
+            . $str_export2 . "<br>";
         $html .= '</form>';
         return $html;
     }
@@ -606,7 +601,10 @@ class Tracking
             'ddl_versions'
         );
 
-        return [$html, $line_number];
+        return [
+            $html,
+            $line_number,
+        ];
     }
 
     /**
@@ -650,9 +648,9 @@ class Tracking
                 $deleteParam = 'delete_' . $whichLog;
                 $entry['url_params'] = Url::getCommon($urlParams + [
                     'report' => 'true',
-                    'version' => $_REQUEST['version'],
+                    'version' => $_POST['version'],
                     $deleteParam => ($lineNumber - $offset),
-                ]);
+                ], '');
                 $entry['line_number'] = $lineNumber;
                 $entries[] = $entry;
             }
@@ -666,7 +664,10 @@ class Tracking
             'drop_image_or_text' => $dropImageOrText,
         ]);
 
-        return [$html, $lineNumber];
+        return [
+            $html,
+            $lineNumber,
+        ];
     }
 
     /**
@@ -682,9 +683,9 @@ class Tracking
             . '  [<a href="tbl_tracking.php' . $url_query . '">' . __('Close')
             . '</a>]</h3>';
         $data = Tracker::getTrackedData(
-            $_REQUEST['db'],
-            $_REQUEST['table'],
-            $_REQUEST['version']
+            $_POST['db'],
+            $_POST['table'],
+            $_POST['version']
         );
 
         // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
@@ -699,7 +700,7 @@ class Tracking
         $html .= Util::getMessage(
             sprintf(
                 __('Version %s snapshot (SQL code)'),
-                htmlspecialchars($_REQUEST['version'])
+                htmlspecialchars($_POST['version'])
             ),
             $drop_create_statements
         );
@@ -707,7 +708,10 @@ class Tracking
         // Unserialize snapshot
         $temp = Core::safeUnserialize($data['schema_snapshot']);
         if ($temp === null) {
-            $temp = ['COLUMNS' => [], 'INDEXES' => []];
+            $temp = [
+                'COLUMNS' => [],
+                'INDEXES' => [],
+            ];
         }
         $columns = $temp['COLUMNS'];
         $indexes = $temp['INDEXES'];
@@ -716,7 +720,7 @@ class Tracking
         if (count($indexes) > 0) {
             $html .= $this->getHtmlForIndexes($indexes);
         } // endif
-        $html .= '<br /><hr /><br />';
+        $html .= '<br><hr><br>';
 
         return $html;
     }
@@ -752,14 +756,14 @@ class Tracking
     /**
      * Function to handle the tracking report
      *
-     * @param array &$data tracked data
+     * @param array $data tracked data
      *
      * @return string HTML for the message
      */
     public function deleteTrackingReportRows(array &$data)
     {
         $html = '';
-        if (isset($_REQUEST['delete_ddlog'])) {
+        if (isset($_POST['delete_ddlog'])) {
             // Delete ddlog row data
             $html .= $this->deleteFromTrackingReportLog(
                 $data,
@@ -769,7 +773,7 @@ class Tracking
             );
         }
 
-        if (isset($_REQUEST['delete_dmlog'])) {
+        if (isset($_POST['delete_dmlog'])) {
             // Delete dmlog row data
             $html .= $this->deleteFromTrackingReportLog(
                 $data,
@@ -784,7 +788,7 @@ class Tracking
     /**
      * Function to delete from a tracking report log
      *
-     * @param array  &$data     tracked data
+     * @param array  $data      tracked data
      * @param string $which_log ddlog|dmlog
      * @param string $type      DDL|DML
      * @param string $message   success message
@@ -794,16 +798,16 @@ class Tracking
     public function deleteFromTrackingReportLog(array &$data, $which_log, $type, $message)
     {
         $html = '';
-        $delete_id = $_REQUEST['delete_' . $which_log];
+        $delete_id = $_POST['delete_' . $which_log];
 
         // Only in case of valid id
-        if ($delete_id == (int)$delete_id) {
+        if ($delete_id == (int) $delete_id) {
             unset($data[$which_log][$delete_id]);
 
             $successfullyDeleted = Tracker::changeTrackingData(
-                $_REQUEST['db'],
-                $_REQUEST['table'],
-                $_REQUEST['version'],
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $_POST['version'],
                 $type,
                 $data[$which_log]
             );
@@ -889,7 +893,7 @@ class Tracking
         ini_set('url_rewriter.tags', '');
 
         // Replace all multiple whitespaces by a single space
-        $table = htmlspecialchars(preg_replace('/\s+/', ' ', $_REQUEST['table']));
+        $table = htmlspecialchars(preg_replace('/\s+/', ' ', $_POST['table']));
         $dump = "# " . sprintf(
             __('Tracking report for table `%s`'),
             $table
@@ -930,14 +934,14 @@ class Tracking
         $status = Tracker::$method(
             $GLOBALS['db'],
             $GLOBALS['table'],
-            $_REQUEST['version']
+            $_POST['version']
         );
         if ($status) {
             $msg = Message::success(
                 sprintf(
                     $message,
                     htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
-                    htmlspecialchars($_REQUEST['version'])
+                    htmlspecialchars($_POST['version'])
                 )
             );
             $html .= $msg->getDisplay();
@@ -957,43 +961,43 @@ class Tracking
 
         // a key is absent from the request if it has been removed from
         // tracking_default_statements in the config
-        if (isset($_REQUEST['alter_table']) && $_REQUEST['alter_table'] == true) {
+        if (isset($_POST['alter_table']) && $_POST['alter_table'] == true) {
             $tracking_set .= 'ALTER TABLE,';
         }
-        if (isset($_REQUEST['rename_table']) && $_REQUEST['rename_table'] == true) {
+        if (isset($_POST['rename_table']) && $_POST['rename_table'] == true) {
             $tracking_set .= 'RENAME TABLE,';
         }
-        if (isset($_REQUEST['create_table']) && $_REQUEST['create_table'] == true) {
+        if (isset($_POST['create_table']) && $_POST['create_table'] == true) {
             $tracking_set .= 'CREATE TABLE,';
         }
-        if (isset($_REQUEST['drop_table']) && $_REQUEST['drop_table'] == true) {
+        if (isset($_POST['drop_table']) && $_POST['drop_table'] == true) {
             $tracking_set .= 'DROP TABLE,';
         }
-        if (isset($_REQUEST['alter_view']) && $_REQUEST['alter_view'] == true) {
+        if (isset($_POST['alter_view']) && $_POST['alter_view'] == true) {
             $tracking_set .= 'ALTER VIEW,';
         }
-        if (isset($_REQUEST['create_view']) && $_REQUEST['create_view'] == true) {
+        if (isset($_POST['create_view']) && $_POST['create_view'] == true) {
             $tracking_set .= 'CREATE VIEW,';
         }
-        if (isset($_REQUEST['drop_view']) && $_REQUEST['drop_view'] == true) {
+        if (isset($_POST['drop_view']) && $_POST['drop_view'] == true) {
             $tracking_set .= 'DROP VIEW,';
         }
-        if (isset($_REQUEST['create_index']) && $_REQUEST['create_index'] == true) {
+        if (isset($_POST['create_index']) && $_POST['create_index'] == true) {
             $tracking_set .= 'CREATE INDEX,';
         }
-        if (isset($_REQUEST['drop_index']) && $_REQUEST['drop_index'] == true) {
+        if (isset($_POST['drop_index']) && $_POST['drop_index'] == true) {
             $tracking_set .= 'DROP INDEX,';
         }
-        if (isset($_REQUEST['insert']) && $_REQUEST['insert'] == true) {
+        if (isset($_POST['insert']) && $_POST['insert'] == true) {
             $tracking_set .= 'INSERT,';
         }
-        if (isset($_REQUEST['update']) && $_REQUEST['update'] == true) {
+        if (isset($_POST['update']) && $_POST['update'] == true) {
             $tracking_set .= 'UPDATE,';
         }
-        if (isset($_REQUEST['delete']) && $_REQUEST['delete'] == true) {
+        if (isset($_POST['delete']) && $_POST['delete'] == true) {
             $tracking_set .= 'DELETE,';
         }
-        if (isset($_REQUEST['truncate']) && $_REQUEST['truncate'] == true) {
+        if (isset($_POST['truncate']) && $_POST['truncate'] == true) {
             $tracking_set .= 'TRUNCATE,';
         }
         $tracking_set = rtrim($tracking_set, ',');
@@ -1043,7 +1047,7 @@ class Tracking
         $versionCreated = Tracker::createVersion(
             $GLOBALS['db'],
             $GLOBALS['table'],
-            $_REQUEST['version'],
+            $_POST['version'],
             $tracking_set,
             $GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])->isView()
         );
@@ -1051,7 +1055,7 @@ class Tracking
             $msg = Message::success(
                 sprintf(
                     __('Version %1$s was created, tracking for %2$s is active.'),
-                    htmlspecialchars($_REQUEST['version']),
+                    htmlspecialchars($_POST['version']),
                     htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
                 )
             );
@@ -1076,7 +1080,7 @@ class Tracking
             Tracker::createVersion(
                 $GLOBALS['db'],
                 $selected_table,
-                $_REQUEST['version'],
+                $_POST['version'],
                 $tracking_set,
                 $GLOBALS['dbi']->getTable($GLOBALS['db'], $selected_table)->isView()
             );
@@ -1097,8 +1101,8 @@ class Tracking
     {
         $entries = [];
         // Filtering data definition statements
-        if ($_REQUEST['logtype'] == 'schema'
-            || $_REQUEST['logtype'] == 'schema_and_data'
+        if ($_POST['logtype'] == 'schema'
+            || $_POST['logtype'] == 'schema_and_data'
         ) {
             $entries = array_merge(
                 $entries,
@@ -1112,8 +1116,8 @@ class Tracking
         }
 
         // Filtering data manipulation statements
-        if ($_REQUEST['logtype'] == 'data'
-            || $_REQUEST['logtype'] == 'schema_and_data'
+        if ($_POST['logtype'] == 'data'
+            || $_POST['logtype'] == 'schema_and_data'
         ) {
             $entries = array_merge(
                 $entries,
@@ -1155,7 +1159,7 @@ class Tracking
      *
      * @param array $version version info
      *
-     * @return string $version_status The status message
+     * @return string The status message
      */
     public function getVersionStatus(array $version)
     {
@@ -1170,7 +1174,6 @@ class Tracking
      * Get HTML for tracked and untracked tables
      *
      * @param string $db            current database
-     * @param array  $requestDb     $_REQUEST['db']
      * @param string $urlQuery      url query string
      * @param string $pmaThemeImage path to theme's image folder
      * @param string $textDir       text direction
@@ -1179,19 +1182,18 @@ class Tracking
      */
     public function getHtmlForDbTrackingTables(
         string $db,
-        string $requestDb,
         string $urlQuery,
         string $pmaThemeImage,
         string $textDir
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         // Prepare statement to get HEAD version
         $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM ' .
             Util::backquote($cfgRelation['db']) . '.' .
             Util::backquote($cfgRelation['tracking']) .
-            ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($requestDb) .
+            ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($db) .
             '\' ' .
             ' GROUP BY table_name' .
             ' ORDER BY table_name ASC';
@@ -1210,7 +1212,7 @@ class Tracking
                      Util::backquote($cfgRelation['db']) . '.' .
                      Util::backquote($cfgRelation['tracking']) .
                      ' WHERE `db_name` = \''
-                     . $GLOBALS['dbi']->escapeString($requestDb)
+                     . $GLOBALS['dbi']->escapeString($db)
                      . '\' AND `table_name`  = \''
                      . $GLOBALS['dbi']->escapeString($tableName)
                      . '\' AND `version` = \'' . $versionNumber . '\'';
@@ -1246,7 +1248,7 @@ class Tracking
      * @param string  $db         Current database
      * @param boolean $testing    Testing
      *
-     * @return array $untracked_tables
+     * @return array
      */
     public function extractTableNames(array $table_list, $db, $testing = false)
     {
@@ -1273,13 +1275,13 @@ class Tracking
      *
      * @param string $db current database
      *
-     * @return array $untracked_tables
+     * @return array
      */
     public function getUntrackedTables($db)
     {
         $table_list = Util::getTableList($db);
-        $untracked_tables = $this->extractTableNames($table_list, $db);  //Use helper function to get table list recursively.
-        return $untracked_tables;
+        //Use helper function to get table list recursively.
+        return $this->extractTableNames($table_list, $db);
     }
 
     /**
@@ -1297,13 +1299,13 @@ class Tracking
             0 => [
                 'label' => __('not active'),
                 'value' => 'deactivate_now',
-                'selected' => ($state != 'active')
+                'selected' => ($state != 'active'),
             ],
             1 => [
                 'label' => __('active'),
                 'value' => 'activate_now',
-                'selected' => ($state == 'active')
-            ]
+                'selected' => ($state == 'active'),
+            ],
         ];
         $link = 'tbl_tracking.php' . $urlQuery . '&amp;table='
             . htmlspecialchars($versionData['table_name'])

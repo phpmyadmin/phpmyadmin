@@ -87,7 +87,7 @@ class ErrorHandlerTest extends PmaTestCase
                 12,
                 'User notice',
                 'User notice',
-            ]
+            ],
         ];
     }
 

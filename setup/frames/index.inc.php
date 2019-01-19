@@ -17,7 +17,7 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Url;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -64,7 +64,7 @@ echo '<form id="select_lang" method="post">';
 echo Url::getHiddenInputs();
 echo '<bdo lang="en" dir="ltr"><label for="lang">';
 echo __('Language') , (__('Language') != 'Language' ? ' - Language' : '');
-echo '</label></bdo><br />';
+echo '</label></bdo><br>';
 echo '<select id="lang" name="lang" class="autosubmit" lang="en" dir="ltr">';
 
 // create language list
@@ -138,7 +138,7 @@ echo $formDisplayTemplate->displayFormTop(
     'get',
     [
         'page' => 'servers',
-        'mode' => 'add'
+        'mode' => 'add',
     ]
 );
 echo '<div class="form">';
@@ -184,7 +184,7 @@ if ($cf->getServerCount() > 0) {
 echo '<table width="100%">';
 echo '<tr>';
 echo '<td class="lastrow left">';
-echo '<input type="submit" name="submit" value="' , __('New server') , '" />';
+echo '<input type="submit" name="submit" value="' , __('New server') , '">';
 echo '</td>';
 echo '</tr>';
 echo '</table>';
@@ -208,7 +208,8 @@ echo '<table width="100%" cellspacing="0">';
 $opts = [
     'doc' => $form_display->getDocLink('DefaultLang'),
     'values' => [],
-    'values_escaped' => true];
+    'values_escaped' => true,
+];
 foreach ($all_languages as $each_lang) {
     $opts['values'][$each_lang->getCode()] = $each_lang->getName();
 }
@@ -226,7 +227,8 @@ echo $formDisplayTemplate->displayInput(
 $opts = [
     'doc' => $form_display->getDocLink('ServerDefault'),
     'values' => [],
-    'values_disabled' => []];
+    'values_disabled' => [],
+];
 if ($cf->getServerCount() > 0) {
     $opts['values']['0'] = __('let the user choose');
     $opts['values']['-'] = '------------------------------';
@@ -236,7 +238,7 @@ if ($cf->getServerCount() > 0) {
     $opts['values_disabled'][] = '-';
 
     foreach ($cf->getServers() as $id => $server) {
-        $opts['values'][(string)$id] = $cf->getServerName($id) . " [$id]";
+        $opts['values'][(string) $id] = $cf->getServerName($id) . " [$id]";
     }
 } else {
     $opts['values']['1'] = __('- none -');
@@ -256,8 +258,10 @@ echo $formDisplayTemplate->displayInput(
 $opts = [
     'values' => [
         'unix' => 'UNIX / Linux (\n)',
-        'win' => 'Windows (\r\n)'],
-    'values_escaped' => true];
+        'win' => 'Windows (\r\n)'
+    ],
+    'values_escaped' => true,
+];
 $eol = Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
 echo $formDisplayTemplate->displayInput(
     'eol',
@@ -271,11 +275,11 @@ echo $formDisplayTemplate->displayInput(
 
 echo '<tr>';
 echo '<td colspan="2" class="lastrow left">';
-echo '<input type="submit" name="submit_display" value="' , __('Display') , '" />';
-echo '<input type="submit" name="submit_download" value="' , __('Download') , '" />';
+echo '<input type="submit" name="submit_display" value="' , __('Display') , '">';
+echo '<input type="submit" name="submit_download" value="' , __('Download') , '">';
 echo '&nbsp; &nbsp;';
 echo '<input type="submit" name="submit_clear" value="' , __('Clear')
-    , '" class="red" />';
+    , '" class="red">';
 echo '</td>';
 echo '</tr>';
 echo '</table>';

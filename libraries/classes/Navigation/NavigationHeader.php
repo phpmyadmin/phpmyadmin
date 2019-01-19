@@ -58,6 +58,9 @@ class NavigationHeader
         if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
             $class .= ' highlight';
         }
+        if ($GLOBALS['cfg']['NavigationTreeAutoexpandSingleDb']) {
+            $class .= ' autoexpand';
+        }
         $class .= '"';
         $buffer = '<div id="pma_navigation">';
         $buffer .= '<div id="pma_navigation_resizer"></div>';
@@ -95,7 +98,7 @@ class NavigationHeader
     {
         $logo = 'phpMyAdmin';
         if (isset($GLOBALS['pmaThemeImage'])) {
-            $imgTag = '<img src="%s%s" ' . 'alt="' . $logo . '" id="imgpmalogo" />';
+            $imgTag = '<img src="%s%s" ' . 'alt="' . $logo . '" id="imgpmalogo">';
             if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
                 $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'logo_left.png');
             } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
@@ -104,7 +107,7 @@ class NavigationHeader
         }
 
         // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
-        if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
+        if (! $GLOBALS['cfg']['NavigationDisplayLogo']) {
             return $this->template->render('navigation/logo', [
                 'display_logo' => false,
                 'use_logo_link' => false,
@@ -114,7 +117,7 @@ class NavigationHeader
             ]);
         }
 
-        if (!$GLOBALS['cfg']['NavigationLogoLink']) {
+        if (! $GLOBALS['cfg']['NavigationLogoLink']) {
             return $this->template->render('navigation/logo', [
                 'display_logo' => true,
                 'use_logo_link' => false,

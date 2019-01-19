@@ -226,7 +226,10 @@ class ExportXmlTest extends PmaTestCase
                 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
 
             ],
-            'table' => [null, '"tbl"']
+            'table' => [
+                null,
+                '"tbl"',
+            ],
         ];
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -249,7 +252,7 @@ class ExportXmlTest extends PmaTestCase
                         [
                             'create' => 'crt',
                             'name' => 'trname'
-                        ]
+                        ],
                     ]
                 )
             );
@@ -334,14 +337,20 @@ class ExportXmlTest extends PmaTestCase
                 'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
                 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
 
-            ]
+            ],
         ];
         $result_2 = [
-            't1' => [null, '"tbl"']
+            't1' => [
+                null,
+                '"tbl"',
+            ],
         ];
 
         $result_3 = [
-            't2' => [null, '"tbl"']
+            't2' => [
+                null,
+                '"tbl"',
+            ],
         ];
 
         $dbi->expects($this->exactly(5))
@@ -360,7 +369,10 @@ class ExportXmlTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $GLOBALS['tables'] = ['t1', 't2'];
+        $GLOBALS['tables'] = [
+            't1',
+            't2',
+        ];
 
         ob_start();
         $this->assertTrue(

@@ -26,7 +26,7 @@ class TokenParserTrans extends TransTokenParser
      *
      * @return \Twig\Extensions\Node\TransNode
      *
-     * @throws \Twig\Error\SyntaxError
+     * @throws \Twig_Error_Syntax
      */
     public function parse(Token $token)
     {
@@ -37,7 +37,7 @@ class TokenParserTrans extends TransTokenParser
         $notes = null;
         $context = null;
 
-        if (!$stream->test(Token::BLOCK_END_TYPE)) {
+        if (! $stream->test(Token::BLOCK_END_TYPE)) {
             $body = $this->parser->getExpressionParser()->parseExpression();
         } else {
             $stream->expect(Token::BLOCK_END_TYPE);

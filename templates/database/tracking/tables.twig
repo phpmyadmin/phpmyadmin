@@ -5,7 +5,7 @@
 
         <form method="post" action="db_tracking.php" name="trackedForm"
             id="trackedForm" class="ajax">
-            {{ Url_getHiddenInputs(db) }}
+            {{ get_hidden_inputs(db) }}
             <table id="versions" class="data">
                 <thead>
                     <tr>
@@ -25,7 +25,7 @@
                             <td class="center">
                                 <input type="checkbox" name="selected_tbl[]"
                                     class="checkall" id="selected_tbl_{{ version.table_name }}"
-                                    value="{{ version.table_name }}"/>
+                                    value="{{ version.table_name }}">
                             </td>
                             <th>
                                 <label for="selected_tbl_{{ version.table_name }}">
@@ -45,26 +45,48 @@
                                 {{ version.status_button|raw }}
                             </td>
                             <td>
-                                <a class="delete_tracking_anchor ajax"
-                                    href="db_tracking.php{{ url_query|raw }}&amp;table=
-                                    {{- version.table_name }}&amp;delete_tracking=true">
-                                    {{ Util_getIcon('b_drop', 'Delete tracking'|trans) }}
+                                <a class="delete_tracking_anchor ajax" href="db_tracking.php" data-post="
+                                    {{- get_common({
+                                        'db': db,
+                                        'goto': 'tbl_tracking.php',
+                                        'back': 'db_tracking.php',
+                                        'table': version.table_name,
+                                        'delete_tracking': true
+                                    }, '') }}">
+                                    {{ get_icon('b_drop', 'Delete tracking'|trans) }}
                                 </a>
                             </td>
                             <td>
-                                <a href="tbl_tracking.php{{ url_query|raw }}&amp;table=
-                                    {{- version.table_name }}">
-                                    {{ Util_getIcon('b_versions', 'Versions'|trans) }}
+                                <a href="tbl_tracking.php" data-post="
+                                    {{- get_common({
+                                        'db': db,
+                                        'goto': 'tbl_tracking.php',
+                                        'back': 'db_tracking.php',
+                                        'table': version.table_name
+                                    }, '') }}">
+                                    {{ get_icon('b_versions', 'Versions'|trans) }}
                                 </a>
-                                <a href="tbl_tracking.php{{ url_query|raw }}&amp;table=
-                                    {{- version.table_name }}&amp;report=true&amp;version=
-                                    {{- version.version }}">
-                                    {{ Util_getIcon('b_report', 'Tracking report'|trans) }}
+                                <a href="tbl_tracking.php" data-post="
+                                    {{- get_common({
+                                        'db': db,
+                                        'goto': 'tbl_tracking.php',
+                                        'back': 'db_tracking.php',
+                                        'table': version.table_name,
+                                        'report': true,
+                                        'version': version.version
+                                    }, '') }}">
+                                    {{ get_icon('b_report', 'Tracking report'|trans) }}
                                 </a>
-                                <a href="tbl_tracking.php{{ url_query|raw }}&amp;table=
-                                    {{- version.table_name }}&amp;snapshot=true&amp;version=
-                                    {{- version.version }}">
-                                    {{ Util_getIcon('b_props', 'Structure snapshot'|trans) }}
+                                <a href="tbl_tracking.php" data-post="
+                                    {{- get_common({
+                                        'db': db,
+                                        'goto': 'tbl_tracking.php',
+                                        'back': 'db_tracking.php',
+                                        'table': version.table_name,
+                                        'snapshot': true,
+                                        'version': version.version
+                                    }, '') }}">
+                                    {{ get_icon('b_props', 'Structure snapshot'|trans) }}
                                 </a>
                             </td>
                         </tr>
@@ -76,7 +98,7 @@
                 'text_dir': text_dir,
                 'form_name': 'trackedForm'
             } only %}
-            {{ Util_getButtonOrImage(
+            {{ get_button_or_image(
                 'submit_mult',
                 'mult_submit',
                 'Delete tracking'|trans,
@@ -90,7 +112,7 @@
     <h3>{% trans 'Untracked tables' %}</h3>
     <form method="post" action="db_tracking.php" name="untrackedForm"
         id="untrackedForm" class="ajax">
-        {{ Url_getHiddenInputs(db) }}
+        {{ get_hidden_inputs(db) }}
         <table id="noversions" class="data">
             <thead>
                 <tr>
@@ -100,12 +122,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% for table_name in untracked_tables if Tracker_getVersion(db, table_name) == -1 %}
+                {% for table_name in untracked_tables if get_tracker_version(db, table_name) == -1 %}
                     <tr>
                         <td class="center">
                             <input type="checkbox" name="selected_tbl[]"
                                 class="checkall" id="selected_tbl_{{ table_name }}"
-                                value="{{ table_name }}"/>
+                                value="{{ table_name }}">
                         </td>
                         <th>
                             <label for="selected_tbl_{{ table_name }}">
@@ -114,7 +136,7 @@
                         </th>
                         <td>
                             <a href="tbl_tracking.php{{ url_query|raw }}&amp;table={{ table_name }}">
-                                {{ Util_getIcon('eye', 'Track table'|trans) }}
+                                {{ get_icon('eye', 'Track table'|trans) }}
                             </a>
                         </td>
                     </tr>
@@ -126,7 +148,7 @@
             'text_dir': text_dir,
             'form_name': 'untrackedForm'
         } only %}
-        {{ Util_getButtonOrImage(
+        {{ get_button_or_image(
             'submit_mult',
             'mult_submit',
             'Track table'|trans,

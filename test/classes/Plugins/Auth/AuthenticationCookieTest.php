@@ -17,7 +17,7 @@ use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 
-require_once 'libraries/config.default.php';
+require_once ROOT_PATH . 'libraries/config.default.php';
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationCookie class
@@ -123,7 +123,7 @@ class AuthenticationCookieTest extends PmaTestCase
                     'setBodyId',
                     'setTitle',
                     'disableMenuAndConsole',
-                    'disableWarnings'
+                    'disableWarnings',
                 ]
             )
             ->getMock();
@@ -157,7 +157,10 @@ class AuthenticationCookieTest extends PmaTestCase
             ->will($this->returnValue($mockHeader));
 
         $GLOBALS['pmaThemeImage'] = 'test';
-        $GLOBALS['cfg']['Servers'] = [1, 2];
+        $GLOBALS['cfg']['Servers'] = [
+            1,
+            2,
+        ];
 
         // mock error handler
 
@@ -221,7 +224,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'class="disableAjax login hide js-show">',
+            'class="disableAjax hide login js-show">',
             $result
         );
 
@@ -233,13 +236,13 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<input type="text" name="pma_username" id="input_username" ' .
-            'value="pmauser" size="24" class="textfield"/>',
+            'value="pmauser" size="24" class="textfield">',
             $result
         );
 
         $this->assertContains(
             '<input type="password" name="pma_password" id="input_password" ' .
-            'value="" size="24" class="textfield" />',
+            'value="" size="24" class="textfield">',
             $result
         );
 
@@ -251,17 +254,17 @@ class AuthenticationCookieTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="target" value="testTarget" />',
+            '<input type="hidden" name="target" value="testTarget">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="db" value="testDb" />',
+            '<input type="hidden" name="db" value="testDb">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="table" value="testTable" />',
+            '<input type="hidden" name="table" value="testTable">',
             $result
         );
     }
@@ -324,12 +327,12 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'autocomplete="off" class="disableAjax login hide js-show">',
+            'autocomplete="off" class="disableAjax hide login js-show">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="server" value="0" />',
+            '<input type="hidden" name="server" value="0">',
             $result
         );
 
@@ -340,8 +343,8 @@ class AuthenticationCookieTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input class="g-recaptcha" data-sitekey="testpubkey"'
-            . ' data-callback="recaptchaCallback" value="Go" type="submit" id="input_go" />',
+            '<input class="btn btn-primary g-recaptcha" data-sitekey="testpubkey"'
+            . ' data-callback="recaptchaCallback" value="Go" type="submit" id="input_go">',
             $result
         );
     }
@@ -372,7 +375,11 @@ class AuthenticationCookieTest extends PmaTestCase
     public function testAuthHeaderPartial()
     {
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
-        $GLOBALS['cfg']['Servers'] = [1, 2, 3];
+        $GLOBALS['cfg']['Servers'] = [
+            1,
+            2,
+            3,
+        ];
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
 

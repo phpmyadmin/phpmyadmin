@@ -11,20 +11,24 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets core libraries and defines some variables
  */
 define('PMA_MINIMUM_COMMON', true);
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // Only output the http headers
 $response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 $response->disable();
 
-if (! Core::isValid($_REQUEST['url'])
-    || ! preg_match('/^https:\/\/[^\n\r]*$/', $_REQUEST['url'])
-    || ! Core::isAllowedDomain($_REQUEST['url'])
+if (! Core::isValid($_GET['url'])
+    || ! preg_match('/^https:\/\/[^\n\r]*$/', $_GET['url'])
+    || ! Core::isAllowedDomain($_GET['url'])
 ) {
     Core::sendHeaderLocation('./');
 } else {
@@ -34,11 +38,11 @@ if (! Core::isValid($_REQUEST['url'])
     //  external site.
     echo "<script type='text/javascript'>
             window.onload=function(){
-                window.location='" , Sanitize::escapeJsString($_REQUEST['url']) , "';
+                window.location='" , Sanitize::escapeJsString($_GET['url']) , "';
             }
         </script>";
     // Display redirecting msg on screen.
-    // Do not display the value of $_REQUEST['url'] to avoid showing injected content
+    // Do not display the value of $_GET['url'] to avoid showing injected content
     echo __('Taking you to the target site.');
 }
 die();

@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
@@ -52,7 +53,8 @@ class OperationsTest extends TestCase
         $GLOBALS['is_reload_priv'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $this->operations = new Operations();
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->operations = new Operations($GLOBALS['dbi'], $relation);
     }
 
     /**
@@ -77,8 +79,8 @@ class OperationsTest extends TestCase
     public function testGetHtmlForRenameDatabase()
     {
 
-        $_REQUEST['db_collation'] = 'db1';
-        $html = $this->operations->getHtmlForRenameDatabase("pma");
+        $db_collation = 'db1';
+        $html = $this->operations->getHtmlForRenameDatabase("pma", $db_collation);
         $this->assertContains('db_operations.php', $html);
         $this->assertRegExp(
             '/.*db_rename.*Rename database to.*/',
@@ -107,8 +109,8 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForCopyDatabase()
     {
-        $_REQUEST['db_collation'] = 'db1';
-        $html = $this->operations->getHtmlForCopyDatabase("pma");
+        $db_collation = 'db1';
+        $html = $this->operations->getHtmlForCopyDatabase("pma", $db_collation);
         $this->assertRegExp('/.*db_operations.php.*/', $html);
         $this->assertRegExp('/.*db_copy.*/', $html);
         $this->assertRegExp('/.*Copy database to.*/', $html);
@@ -122,8 +124,8 @@ class OperationsTest extends TestCase
     public function testGetHtmlForChangeDatabaseCharset()
     {
 
-        $_REQUEST['db_collation'] = 'db1';
-        $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", "bookmark");
+        $db_collation = 'db1';
+        $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", $db_collation);
         $this->assertRegExp(
             '/.*select_db_collation.*Collation.*/m',
             $result
@@ -145,7 +147,10 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*tbl_operations.php(.|[\n])*Alter table order by([\n]|.)*order_order.*/m',
             $this->operations->getHtmlForOrderTheTable(
-                [['Field' => "column1"], ['Field' => "column2"]]
+                [
+                    ['Field' => "column1"],
+                    ['Field' => "column2"],
+                ]
             )
         );
     }
@@ -162,7 +167,7 @@ class OperationsTest extends TestCase
         $result = $method->invokeArgs($this->operations, ['name', 'lable', 'value']);
 
         $this->assertEquals(
-            '<tr><td class="vmiddle"><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name" value="1"/></td></tr>',
+            '<tr><td class="vmiddle"><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name" value="1"></td></tr>',
             $result
         );
     }
@@ -178,9 +183,12 @@ class OperationsTest extends TestCase
         $method->setAccessible(true);
         $result = $method->invokeArgs($this->operations, [
             'post',
-            ['name' => 'foo', 'value' => 'bar'],
+            [
+                'name' => 'foo',
+                'value' => 'bar',
+            ],
             [],
-            'doclink'
+            'doclink',
         ]);
 
         $this->assertRegExp(
@@ -233,8 +241,14 @@ class OperationsTest extends TestCase
     public function testGetHtmlForPartitionMaintenance()
     {
         $html = $this->operations->getHtmlForPartitionMaintenance(
-            ["partition1", "partion2"],
-            ["param1" => 'foo', "param2" => 'bar']
+            [
+                "partition1",
+                "partion2",
+            ],
+            [
+                "param1" => 'foo',
+                "param2" => 'bar',
+            ]
         );
         $this->assertRegExp('/.*action="tbl_operations.php".*/', $html);
         $this->assertRegExp('/.*ANALYZE.*/', $html);
@@ -256,10 +270,13 @@ class OperationsTest extends TestCase
                     [
                         'foreign_db'    => 'db1',
                         'foreign_table' => "foreign1",
-                        'foreign_field' => "foreign2"
-                    ]
+                        'foreign_field' => "foreign2",
+                    ],
                 ],
-                ["param1" => 'a', "param2" => 'b']
+                [
+                    "param1" => 'a',
+                    "param2" => 'b',
+                ]
             )
         );
     }

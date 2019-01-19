@@ -20,13 +20,13 @@ namespace PhpMyAdmin\Tests\Selenium;
 class ImportTest extends TestBase
 {
     /**
-     * setUp function that can use the selenium session (called before each test)
+     * setUp function
      *
      * @return void
      */
-    public function setUpPage()
+    public function setUp()
     {
-        parent::setUpPage();
+        parent::setUp();
         $this->login();
     }
 
@@ -100,19 +100,33 @@ class ImportTest extends TestBase
      */
     private function _doImport($type)
     {
-        $this->waitForElement('byPartialLinkText', "Import")->click();
+        $this->waitForElement('partialLinkText', "Import")->click();
         $this->waitAjax();
-        $this->waitForElement("byId", "input_import_file");
+        $this->waitForElement('id', 'input_import_file');
 
-        $this->waitForElement('byCssSelector', 'label[for=radio_local_import_file]')->click();
-        $this->select($this->byName("local_import_file"))
-            ->selectOptionByLabel($type . "_import.sql");
+        $this->waitForElement('cssSelector', 'label[for=radio_local_import_file]')->click();
 
+        $this->selectByValue(
+            $this->byName("local_import_file"),
+            $type . "_import.sql"
+        );
+
+        $this->webDriver->wait(5);
+
+        $this->webDriver->executeScript(
+            "window.scrollTo(0," .
+            $this->byId('buttonGo')->getLocation()->getY()
+            . ")"
+        );
+        $this->webDriver->wait(5);
         $this->scrollToBottom();
-        $this->byId("buttonGo")->click();
-        $this->waitForElement(
-            "byXPath",
-            "//div[@class='success' and contains(., 'Import has been successfully')]"
+        $this->waitUntilElementIsVisible('id', 'buttonGo', 30);
+
+        $this->byId('buttonGo')->click();
+        $this->waitUntilElementIsVisible(
+            'xpath',
+            "//div[@class='success' and contains(., 'Import has been successfully')]",
+            30
         );
     }
 }

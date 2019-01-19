@@ -47,7 +47,7 @@ class RelationTest extends TestCase
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -70,6 +70,7 @@ class RelationTest extends TestCase
             ->will($this->returnValue('executeResult2'));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->relation->dbi = $GLOBALS['dbi'];
 
         $sql = "insert into PMA_bookmark A,B values(1, 2)";
         $this->assertEquals(
@@ -217,21 +218,22 @@ class RelationTest extends TestCase
             ->getMock();
 
         $getColumnsResult = [
-                [
-                        'Field' => 'field1',
-                        'Type' => 'int(11)',
-                        'Comment' => 'Comment1'
-                ],
-                [
-                        'Field' => 'field2',
-                        'Type' => 'text',
-                        'Comment' => 'Comment1'
-                ]
+            [
+                'Field' => 'field1',
+                'Type' => 'int(11)',
+                'Comment' => 'Comment1',
+            ],
+            [
+                'Field' => 'field2',
+                'Type' => 'text',
+                'Comment' => 'Comment1',
+            ],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($getColumnsResult));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->relation->dbi = $GLOBALS['dbi'];
 
         $db = 'information_schema';
         $this->assertEquals(
@@ -244,7 +246,7 @@ class RelationTest extends TestCase
         $this->assertEquals(
             [
                 'field1' => 'Comment1',
-                'field2' => 'Comment1'
+                'field2' => 'Comment1',
             ],
             $this->relation->getComments($db, $table)
         );
@@ -270,6 +272,7 @@ class RelationTest extends TestCase
             ->method('getError')
             ->will($this->onConsecutiveCalls(true, false));
         $GLOBALS['dbi'] = $dbi;
+        $this->relation->dbi = $GLOBALS['dbi'];
 
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
@@ -298,22 +301,28 @@ class RelationTest extends TestCase
     {
         $foreigners = [
             'value' => [
-                  'master_field' => 'value',
-                  'foreign_db' => 'GSoC14',
-                  'foreign_table' => 'test',
-                  'foreign_field' => 'value'
+                'master_field' => 'value',
+                'foreign_db' => 'GSoC14',
+                'foreign_table' => 'test',
+                'foreign_field' => 'value',
             ],
             'foreign_keys_data' => [
                 0 => [
                     'constraint' => 'ad',
-                    'index_list' => ['id', 'value'],
+                    'index_list' => [
+                        'id',
+                        'value',
+                    ],
                     'ref_db_name' => 'GSoC14',
                     'ref_table_name' => 'table_1',
-                    'ref_index_list' => ['id', 'value'],
+                    'ref_index_list' => [
+                        'id',
+                        'value',
+                    ],
                     'on_delete' => 'CASCADE',
                     'on_update' => 'CASCADE'
-                ]
-            ]
+                ],
+            ],
         ];
 
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, 'id');

@@ -47,7 +47,7 @@ class TableSearchControllerTest extends PmaTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
@@ -68,7 +68,7 @@ class TableSearchControllerTest extends PmaTestCase
                 'Type' => 'Type2',
                 'Null' => 'Null2',
                 'Collation' => 'Collation2',
-            ]
+            ],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($columns));
@@ -90,6 +90,7 @@ class TableSearchControllerTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $relation->dbi = $dbi;
 
         $this->_response = new ResponseStub();
 
@@ -203,7 +204,7 @@ class TableSearchControllerTest extends PmaTestCase
             'value4',
             'value5',
             'value6',
-            'value7,value8'
+            'value7,value8',
         ];
         $_POST['criteriaColumnNames'] = [
             'name',
@@ -221,7 +222,7 @@ class TableSearchControllerTest extends PmaTestCase
             'type1',
             'type2',
             'type3',
-            'type4'
+            'type4',
         ];
         $_POST['criteriaColumnCollations'] = [
             "char1",
@@ -239,7 +240,7 @@ class TableSearchControllerTest extends PmaTestCase
             "LIKE %...%",
             "REGEXP ^...$",
             "IN (...)",
-            "BETWEEN"
+            "BETWEEN",
         ];
 
         $sql = $method->invoke($tableSearch);
@@ -323,16 +324,28 @@ class TableSearchControllerTest extends PmaTestCase
         );
 
         $_POST['criteriaColumnNames'] = [
-            'b', 'a', 'c', 'd'
+            'b',
+            'a',
+            'c',
+            'd',
         ];
         $_POST['criteriaColumnOperators'] = [
-            '<=', '=', 'IS NULL', 'IS NOT NULL'
+            '<=',
+            '=',
+            'IS NULL',
+            'IS NOT NULL',
         ];
         $_POST['criteriaValues'] = [
-            '10', '2', '', ''
+            '10',
+            '2',
+            '',
+            '',
         ];
         $_POST['criteriaColumnTypes'] = [
-            'int(11)', 'int(11)', 'int(11)', 'int(11)'
+            'int(11)',
+            'int(11)',
+            'int(11)',
+            'int(11)',
         ];
         $result = $method->invoke($ctrl);
         $this->assertEquals(
@@ -356,7 +369,8 @@ class TableSearchControllerTest extends PmaTestCase
         $meta_two->length = 11;
         $meta_two->type = 'int';
         $fields_meta = [
-            $meta_one, $meta_two
+            $meta_one,
+            $meta_two,
         ];
         $GLOBALS['dbi']->expects($this->any())->method('getFieldsMeta')
             ->will($this->returnValue($fields_meta));
@@ -389,12 +403,12 @@ class TableSearchControllerTest extends PmaTestCase
         );
         $ctrl = $container->get('TableSearchController');
 
-        $_REQUEST['db'] = 'PMA';
-        $_REQUEST['table'] = 'PMA_BookMark';
-        $_REQUEST['where_clause'] = '`col1` = 1';
+        $_POST['db'] = 'PMA';
+        $_POST['table'] = 'PMA_BookMark';
+        $_POST['where_clause'] = '`col1` = 1';
         $expected = [
             'col1' => 1,
-            'col2' => 2
+            'col2' => 2,
         ];
         $ctrl->getDataRowAction();
 

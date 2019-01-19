@@ -2,7 +2,7 @@
 {% block content %}
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm"
     class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
-    {{ Url_getHiddenInputs(db, table) }}
+    {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="table_type" value=
         {%- if db_is_system_schema -%}
             "information_schema"
@@ -10,7 +10,7 @@
             "view"
         {%- else -%}
             "table"
-        {%- endif %} />
+        {%- endif %}>
     <div class="responsivetable">
     <table id="tablestructure" class="data topmargin">
         {# Table header #}
@@ -30,7 +30,7 @@
                 <th>{% trans 'Extra' %}</th>
                 {# @see tbl_structure.js, function moreOptsMenuResize() #}
                 {% if not db_is_system_schema and not tbl_is_view %}
-                    <th colspan="{{ Util_showIcons('ActionLinksMode') ? '8' : '9' -}}
+                    <th colspan="{{ show_icons('ActionLinksMode') ? '8' : '9' -}}
                         " class="action print_ignore">{% trans 'Action' %}</th>
                 {% endif %}
             </tr>
@@ -49,7 +49,7 @@
 
         <tr>
             <td class="center print_ignore">
-                <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}"/>
+                <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}">
             </td>
             <td class="right">{{ rownum }}</td>
             <th class="nowrap">
@@ -62,18 +62,18 @@
                     {{ displayed_fields[rownum].icon|raw }}
                 </label>
             </th>
-            <td {{ Util_getClassForType(extracted_columnspec['type']) }}>
+            <td {{ get_class_for_type(extracted_columnspec['type']) }}>
                 <bdo dir="ltr" lang="en">
                     {{ extracted_columnspec['displayed_type']|raw }}
                     {% if relation_commwork and relation_mimework and browse_mime
                         and mime_map[row['Field']]['mimetype'] is defined %}
-                        <br />MIME: {{ mime_map[row['Field']]['mimetype']|replace({'_': '/'})|lower }}
+                        <br>MIME: {{ mime_map[row['Field']]['mimetype']|replace({'_': '/'})|lower }}
                     {% endif %}
                 </bdo>
             </td>
             <td>
             {% if row['Collation'] is not empty %}
-                <dfn title="{{ Charsets_getCollationDescr(row['Collation']) }}">{{ row['Collation'] }}</dfn>
+                <dfn title="{{ get_collation_descr(row['Collation']) }}">{{ row['Collation'] }}</dfn>
             {% endif %}
             </td>
             <td class="column_attribute nowrap">{{ attributes[rownum] }}</td>
@@ -81,10 +81,12 @@
             <td class="nowrap">
                 {% if row['Default'] is not null %}
                     {% if extracted_columnspec['type'] == 'bit' %}
-                        {{ Util_convertBitDefaultValue(row['Default']) }}
+                        {{ row['Default']|convert_bit_default_value }}
                     {% else %}
-                        {{ row['Default']|raw }}
+                        {{ row['Default'] }}
                     {% endif %}
+                {% elseif row['Null'] == 'YES' %}
+                    <em>NULL</em>
                 {% else %}
                     <em>{% trans %}None{% context %}None for default{% endtrans %}</em>
                 {% endif %}
@@ -104,8 +106,8 @@
                 </td>
                 <td class="drop center print_ignore">
                     <a class="drop_column_anchor ajax" href="sql.php" data-post="{{ url_query }}&amp;sql_query=
-                        {{- ('ALTER TABLE ' ~ Util_backquote(table)
-                            ~ ' DROP ' ~ Util_backquote(row['Field']) ~ ';')|url_encode -}}
+                        {{- ('ALTER TABLE ' ~ backquote(table)
+                            ~ ' DROP ' ~ backquote(row['Field']) ~ ';')|url_encode -}}
                         &amp;dropped_column={{ row['Field']|url_encode }}&amp;purge=1&amp;message_to_show=
                         {{- ('Column %s has been dropped.'|trans|format(row['Field']|e))|url_encode }}">
                         {{ titles['Drop']|raw }}
@@ -119,7 +121,7 @@
                     <ul class="table-structure-actions resizable-menu">
                         {% if hide_structure_actions %}
                             <li class="submenu shown">
-                                <a href="#" class="tab nowrap">{{ Util_getIcon('b_more', 'More'|trans) }}</a>
+                                <a href="#" class="tab nowrap">{{ get_icon('b_more', 'More'|trans) }}</a>
                                 <ul>
                         {% endif %}
                         {# Add primary #}
@@ -215,8 +217,8 @@
                             ) and ('text' in type or 'char' in type) %}
                             <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php"
                                 data-post="{{- url_query|raw }}&amp;add_key=1&amp;sql_query=
-                                {{- ('ALTER TABLE ' ~ Util_backquote(table)
-                                    ~ ' ADD FULLTEXT(' ~ Util_backquote(row['Field'])
+                                {{- ('ALTER TABLE ' ~ backquote(table)
+                                    ~ ' ADD FULLTEXT(' ~ backquote(row['Field'])
                                     ~ ');')|url_encode }}&amp;message_to_show=
                                 {{- ('An index has been added on %s.'|trans|format(row['Field']|e))|url_encode }}">
                                 {{ titles['IdxFulltext']|raw }}
@@ -229,11 +231,11 @@
                         {# Distinct value action #}
                         <li class="browse nowrap">
                             <a href="sql.php" data-post="{{ url_query|raw }}&amp;sql_query=
-                                {{- ('SELECT COUNT(*) AS ' ~ Util_backquote('Rows'|trans)
-                                    ~ ', ' ~ Util_backquote(row['Field'])
-                                    ~ ' FROM ' ~ Util_backquote(table)
-                                    ~ ' GROUP BY ' ~ Util_backquote(row['Field'])
-                                    ~ ' ORDER BY ' ~ Util_backquote(row['Field']))|url_encode -}}
+                                {{- ('SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
+                                    ~ ', ' ~ backquote(row['Field'])
+                                    ~ ' FROM ' ~ backquote(table)
+                                    ~ ' GROUP BY ' ~ backquote(row['Field'])
+                                    ~ ' ORDER BY ' ~ backquote(row['Field']))|url_encode -}}
                                 &amp;is_browse_distinct=1">
                                 {{ titles['DistinctValues']|raw }}
                             </a>
@@ -242,11 +244,11 @@
                             <li class="browse nowrap">
                             {% if row['Field'] in central_list %}
                                 <a href="#" class="central_columns remove_button">
-                                    {{ Util_getIcon('centralColumns_delete', 'Remove from central columns'|trans) }}
+                                    {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}
                                 </a>
                             {% else %}
                                 <a href="#" class="central_columns add_button">
-                                    {{ Util_getIcon('centralColumns_add', 'Add to central columns'|trans) }}
+                                    {{ get_icon('centralColumns_add', 'Add to central columns'|trans) }}
                                 </a>
                             {% endif %}
                             </li>
@@ -270,7 +272,7 @@
             'form_name': 'fieldsForm'
         } only %}
 
-        {{ Util_getButtonOrImage(
+        {{ get_button_or_image(
             'submit_mult',
             'mult_submit',
             'Browse'|trans,
@@ -279,14 +281,14 @@
         ) }}
 
         {% if not tbl_is_view and not db_is_system_schema %}
-            {{ Util_getButtonOrImage(
+            {{ get_button_or_image(
                 'submit_mult',
                 'mult_submit change_columns_anchor ajax',
                 'Change'|trans,
                 'b_edit',
                 'change'
             ) }}
-            {{ Util_getButtonOrImage(
+            {{ get_button_or_image(
                 'submit_mult',
                 'mult_submit',
                 'Drop'|trans,
@@ -295,28 +297,28 @@
             ) }}
 
             {% if tbl_storage_engine != 'ARCHIVE' %}
-                {{ Util_getButtonOrImage(
+                {{ get_button_or_image(
                     'submit_mult',
                     'mult_submit',
                     'Primary'|trans,
                     'b_primary',
                     'primary'
                 ) }}
-                {{ Util_getButtonOrImage(
+                {{ get_button_or_image(
                     'submit_mult',
                     'mult_submit',
                     'Unique'|trans,
                     'b_unique',
                     'unique'
                 ) }}
-                {{ Util_getButtonOrImage(
+                {{ get_button_or_image(
                     'submit_mult',
                     'mult_submit',
                     'Index'|trans,
                     'b_index',
                     'index'
                 ) }}
-                {{ Util_getButtonOrImage(
+                {{ get_button_or_image(
                     'submit_mult',
                     'mult_submit',
                     'Fulltext'|trans,
@@ -328,7 +330,7 @@
                     tbl_storage_engine == 'MYISAM'
                     or tbl_storage_engine == 'ARIA'
                     or tbl_storage_engine == 'MARIA') %}
-                    {{ Util_getButtonOrImage(
+                    {{ get_button_or_image(
                         'submit_mult',
                         'mult_submit',
                         'Fulltext'|trans,
@@ -338,14 +340,14 @@
                 {% endif %}
 
                 {% if central_columns_work %}
-                    {{ Util_getButtonOrImage(
+                    {{ get_button_or_image(
                         'submit_mult',
                         'mult_submit',
                         'Add to central columns'|trans,
                         'centralColumns_add',
                         'add_to_central_columns'
                     ) }}
-                    {{ Util_getButtonOrImage(
+                    {{ get_button_or_image(
                         'submit_mult',
                         'mult_submit',
                         'Remove from central columns'|trans,
@@ -357,12 +359,12 @@
         {% endif %}
     </div>
 </form>
-<hr class="print_ignore"/>
+<hr class="print_ignore">
 <div id="move_columns_dialog" class="hide" title="{% trans 'Move columns' %}">
     <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
     <form action="tbl_structure.php" name="move_column_form" id="move_column_form">
         <div>
-            {{ Url_getHiddenInputs(db, table) }}
+            {{ get_hidden_inputs(db, table) }}
             <ul></ul>
         </div>
     </form>
@@ -370,54 +372,54 @@
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}
-        {{ Util_linkOrButton(
+        {{ link_or_button(
             edit_view_url,
-            Util_getIcon('b_edit', 'Edit view'|trans, true)
+            get_icon('b_edit', 'Edit view'|trans, true)
         ) }}
     {% endif %}
-    <a href="#" id="printView">{{ Util_getIcon('b_print', 'Print'|trans, true) }}</a>
+    <a href="#" id="printView">{{ get_icon('b_print', 'Print'|trans, true) }}</a>
     {% if not tbl_is_view and not db_is_system_schema %}
         <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
-            {{- ('SELECT * FROM ' ~ Util_backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
+            {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
             " style="margin-right: 0;">
-            {{ Util_getIcon(
+            {{ get_icon(
                 'b_tblanalyse',
                 'Propose table structure'|trans,
                 true
             ) }}
         </a>
-        {{ Util_showMySQLDocu('procedure_analyse') }}
+        {{ show_mysql_docu('procedure_analyse') }}
         {% if is_active %}
             <a href="tbl_tracking.php{{ url_query|raw }}">
-                {{ Util_getIcon('eye', 'Track table'|trans, true) }}
+                {{ get_icon('eye', 'Track table'|trans, true) }}
             </a>
         {% endif %}
         <a href="#" id="move_columns_anchor">
-            {{ Util_getIcon('b_move', 'Move columns'|trans, true) }}
+            {{ get_icon('b_move', 'Move columns'|trans, true) }}
         </a>
         <a href="normalization.php{{ url_query|raw }}">
-            {{ Util_getIcon('normalize', 'Normalize'|trans, true) }}
+            {{ get_icon('normalize', 'Normalize'|trans, true) }}
         </a>
     {% endif %}
     {% if tbl_is_view and not db_is_system_schema %}
         {% if is_active %}
             <a href="tbl_tracking.php{{ url_query|raw }}">
-                {{ Util_getIcon('eye', 'Track view'|trans, true) }}
+                {{ get_icon('eye', 'Track view'|trans, true) }}
             </a>
         {% endif %}
     {% endif %}
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}
     <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
-        {{ Url_getHiddenInputs(db, table) }}
-        {% if Util_showIcons('ActionLinksMode') %}
-            {{ Util_getImage('b_insrow', 'Add column'|trans) }}&nbsp;
+        {{ get_hidden_inputs(db, table) }}
+        {% if show_icons('ActionLinksMode') %}
+            {{ get_image('b_insrow', 'Add column'|trans) }}&nbsp;
         {% endif %}
         {% set num_fields -%}
-            <input type="number" name="num_fields" value="1" onfocus="this.select()" min="1" required />
+            <input type="number" name="num_fields" value="1" onfocus="this.select()" min="1" required>
         {%- endset %}
         {{ 'Add %s column(s)'|trans|format(num_fields)|raw }}
-        <input type="hidden" name="field_where" value="after"/>&nbsp;
+        <input type="hidden" name="field_where" value="after">&nbsp;
         {# I tried displaying the drop-down inside the label but with Firefox the drop-down was blinking #}
         <select name="after_field">
             <option value="first" data-pos="first">
@@ -430,21 +432,20 @@
                 </option>
             {% endfor %}
         </select>
-        <input type="submit" value="{% trans 'Go' %}" />
+        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
     </form>
 {% endif %}
 
 {# Displays indexes #}
 {% if not tbl_is_view and not db_is_system_schema
     and 'ARCHIVE' !=  tbl_storage_engine %}
-    {{ Index_getHtmlForDisplayIndexes() }}
+    {{ displayIndexesHtml|raw }}
 {% endif %}
 
 {# Display partition details #}
 {% if have_partitioning %}
     {# Detect partitioning #}
     {% if partition_names is not empty and partition_names[0] is not null %}
-        {% set partitions = Partition_getPartitions(db, table) %}
         {% set first_partition = partitions[0] %}
         {% set range_or_list = first_partition.getMethod() == 'RANGE'
             or first_partition.getMethod() == 'RANGE COLUMNS'
@@ -457,20 +458,25 @@
         {% endif %}
 
         {% set action_icons = {
-            'ANALYZE': Util_getIcon('b_search', 'Analyze'|trans),
-            'CHECK': Util_getIcon('eye', 'Check'|trans),
-            'OPTIMIZE': Util_getIcon('normalize', 'Optimize'|trans),
-            'REBUILD': Util_getIcon('s_tbl', 'Rebuild'|trans),
-            'REPAIR': Util_getIcon('b_tblops', 'Repair'|trans),
-            'TRUNCATE': Util_getIcon('b_empty', 'Truncate'|trans),
+            'ANALYZE': get_icon('b_search', 'Analyze'|trans),
+            'CHECK': get_icon('eye', 'Check'|trans),
+            'OPTIMIZE': get_icon('normalize', 'Optimize'|trans),
+            'REBUILD': get_icon('s_tbl', 'Rebuild'|trans),
+            'REPAIR': get_icon('b_tblops', 'Repair'|trans),
+            'TRUNCATE': get_icon('b_empty', 'Truncate'|trans),
         } %}
         {% if range_or_list %}
-            {% set action_icons = action_icons|merge({'DROP': Util_getIcon('b_drop', 'Drop'|trans)}) %}
+            {% set action_icons = action_icons|merge({'DROP': get_icon('b_drop', 'Drop'|trans)}) %}
         {% endif %}
 
-        {{ Util_getDivForSliderEffect('partitions', 'Partitions'|trans) }}
+        {# open Slider Effect div #}
+        {% include 'div_for_slider_effect.twig' with {
+            'id': 'partitions-2',
+            'message': 'Partitions'|trans,
+            'initial_sliders_state': default_sliders_state
+        } only %}
 
-        {% set remove_sql = 'ALTER TABLE ' ~ Util_backquote(table) ~ ' REMOVE PARTITIONING' %}
+        {% set remove_sql = 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING' %}
         {% set remove_url = 'sql.php' ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
 
         {% include 'table/structure/display_partitions.twig' with {

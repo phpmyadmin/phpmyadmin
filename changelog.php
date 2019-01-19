@@ -9,10 +9,14 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets core libraries and defines some variables
  */
-require 'libraries/common.inc.php';
+require ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $response->disable();
@@ -102,10 +106,10 @@ header('Content-type: text/html; charset=utf-8');
 <!DOCTYPE HTML>
 <html lang="en" dir="ltr">
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>phpMyAdmin - ChangeLog</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 </head>
 <body>
 <h1>phpMyAdmin - ChangeLog</h1>

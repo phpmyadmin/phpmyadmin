@@ -33,7 +33,7 @@ class ServerEnginesController extends Controller
         /**
          * Does the common work
          */
-        require 'libraries/server_common.inc.php';
+        require ROOT_PATH . 'libraries/server_common.inc.php';
 
         /**
          * Displays the sub-page heading
@@ -65,9 +65,9 @@ class ServerEnginesController extends Controller
      *
      * @param  StorageEngine $engine engine beeing inspected
      *
-     * @return void
+     * @return string
      */
-    private function _getHtmlForShowEngine(StorageEngine $engine):string
+    private function _getHtmlForShowEngine(StorageEngine $engine): string
     {
         $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
         $pageOutput = ! empty($page) ? $engine->getPage($page) : '';

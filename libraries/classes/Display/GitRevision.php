@@ -21,20 +21,21 @@ use PhpMyAdmin\Util;
 class GitRevision
 {
     /**
-    * Prints details about the current Git commit revision
-    *
-    * @return void
-    */
+     * Prints details about the current Git commit revision
+     *
+     * @return void
+     */
     public static function display()
     {
+
+        // load revision data from repo
+        $GLOBALS['PMA_Config']->checkGitRevision();
+
         if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             return;
         }
-
-        // load revision data from repo
-        $GLOBALS['PMA_Config']->checkGitRevision();
 
         // if using a remote commit fast-forwarded, link to GitHub
         $commit_hash = substr(
@@ -73,7 +74,7 @@ class GitRevision
         $author = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR');
         Core::printListItem(
             __('Git revision:') . ' '
-            . $branch . ',<br /> '
+            . $branch . ',<br> '
             . sprintf(
                 __('committed on %1$s by %2$s'),
                 Util::localisedDate(strtotime($committer['date'])),
@@ -83,7 +84,7 @@ class GitRevision
                 . htmlspecialchars($committer['name']) . '</a>'
             )
             . ($author != $committer
-                ? ', <br />'
+                ? ', <br>'
                 . sprintf(
                     __('authored on %1$s by %2$s'),
                     Util::localisedDate(strtotime($author['date'])),

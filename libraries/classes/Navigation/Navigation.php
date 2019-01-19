@@ -25,16 +25,16 @@ use PhpMyAdmin\Util;
 class Navigation
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
-    private $relation;
+    public $relation;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -53,8 +53,8 @@ class Navigation
         }
         $tree = new NavigationTree();
         if (! $response->isAjax()
-            || ! empty($_REQUEST['full'])
-            || ! empty($_REQUEST['reload'])
+            || ! empty($_POST['full'])
+            || ! empty($_POST['reload'])
         ) {
             if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
@@ -78,12 +78,12 @@ class Navigation
             // closes the tags that were opened by the navigation header
             $retval .= '</div>'; // pma_navigation_tree
             $retval .= '<div id="pma_navi_settings_container">';
-            if (!defined('PMA_DISABLE_NAVI_SETTINGS')) {
+            if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
                 $retval .= PageSettings::getNaviSettings();
             }
             $retval .= '</div>'; //pma_navi_settings_container
             $retval .= '</div>'; // pma_navigation_content
-            if($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
+            if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
                 $retval .= $this->_getDropHandler();
             }
             $retval .= '</div>'; // pma_navigation
@@ -227,7 +227,7 @@ class Navigation
                 if ((empty($itemType) || $itemType == $t)
                     && isset($hidden[$t])
                 ) {
-                    $html .= (! $first ? '<br/>' : '')
+                    $html .= (! $first ? '<br>' : '')
                         . '<strong>' . $lable . '</strong>';
                     $html .= '<table width="100%"><tbody>';
                     foreach ($hidden[$t] as $hiddenItem) {
@@ -240,10 +240,10 @@ class Navigation
 
                         $html .= '<tr>';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
-                        $html .= '<td style="width:80px"><a href="navigation.php'
-                            . Url::getCommon($params) . '"'
+                        $html .= '<td style="width:80px"><a href="navigation.php" data-post="'
+                            . Url::getCommon($params, '') . '"'
                             . ' class="unhideNavItem ajax">'
-                            . Util::getIcon('show', __('Show'))
+                            . Util::getIcon('show', __('Unhide'))
                             . '</a></td>';
                     }
                     $html .= '</tbody></table>';

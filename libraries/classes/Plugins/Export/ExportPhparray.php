@@ -192,7 +192,7 @@ class ExportPhparray extends ExportPlugin
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $columns[$i] = stripslashes($col_as);
@@ -200,7 +200,7 @@ class ExportPhparray extends ExportPlugin
 
         // fix variable names (based on
         // https://secure.php.net/manual/language.variables.basics.php)
-        if (!preg_match(
+        if (! preg_match(
             '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
             $table_alias
         )
@@ -248,7 +248,7 @@ class ExportPhparray extends ExportPlugin
         }
 
         $buffer .= $crlf . ');' . $crlf;
-        if (!$this->export->outputHandler($buffer)) {
+        if (! $this->export->outputHandler($buffer)) {
             return false;
         }
 

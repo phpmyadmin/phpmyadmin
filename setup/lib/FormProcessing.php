@@ -37,14 +37,14 @@ class FormProcessing
             $response->generateHeader303('index.php' . Url::getCommonRaw());
         }
 
-        if (!$form_display->process(false)) {
+        if (! $form_display->process(false)) {
             // handle form view and failed POST
             echo $form_display->getDisplay(true, true);
             return;
         }
 
         // check for form errors
-        if (!$form_display->hasErrors()) {
+        if (! $form_display->hasErrors()) {
             $response = Response::getInstance();
             $response->generateHeader303('index.php' . Url::getCommonRaw());
             return;
@@ -61,7 +61,7 @@ class FormProcessing
         ?>
         <div class="error">
             <h4><?php echo __('Warning') ?></h4>
-            <?php echo __('Submitted form contains errors') ?><br />
+            <?php echo __('Submitted form contains errors') ?><br>
             <a href="<?php echo Url::getCommon(['page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'revert']) ?>">
                 <?php echo __('Try to revert erroneous fields to their default values') ?>
             </a>

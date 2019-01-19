@@ -177,7 +177,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('mouseenter', 'th.column_heading.pointer');
     $(document).off('mouseleave', 'th.column_heading.pointer');
     $(document).off('click', 'th.column_heading.marker');
-    $(window).off('scroll');
+    $(document).off('scroll', window);
     $(document).off('keyup', '.filter_rows');
     $(document).off('click', '#printView');
     if (codemirror_editor) {
@@ -405,7 +405,7 @@ AJAX.registerOnload('sql.js', function () {
             var $stick_columns = initStickyColumns($table_results);
             rearrangeStickyColumns($stick_columns, $table_results);
             // adjust sticky columns on scroll
-            $(window).on('scroll', function () {
+            $(document).on('scroll', window, function () {
                 handleStickyColumns($stick_columns, $table_results);
             });
         });
@@ -435,7 +435,7 @@ AJAX.registerOnload('sql.js', function () {
                 // cheap trick to add a spacer between the menu tabs
                 // and "Show query box"; feel free to improve!
                 $('#togglequerybox_spacer').remove();
-                $link.before('<br id="togglequerybox_spacer" />');
+                $link.before('<br id="togglequerybox_spacer">');
             } else {
                 $link.text(PMA_messages.strHideQueryBox);
             }
@@ -465,7 +465,7 @@ AJAX.registerOnload('sql.js', function () {
         } else {
             Cookies.set('auto_saved_sql', '');
         }
-        var isShowQuery =  $('input[name="show_query"').is(':checked');
+        var isShowQuery =  $('input[name="show_query"]').is(':checked');
         if (isShowQuery) {
             window.localStorage.show_this_query = '1';
             var db = $('input[name="db"]').val();
@@ -496,7 +496,7 @@ AJAX.registerOnload('sql.js', function () {
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
             $varDiv.append($('<label for="bookmark_variable_' + i + '">' + PMA_sprintf(PMA_messages.strBookmarkVariable, i) + '</label>'));
-            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"/>'));
+            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '">'));
         }
 
         if (varCount === 0) {
@@ -654,6 +654,7 @@ AJAX.registerOnload('sql.js', function () {
                 $sqlqueryresultsouter
                     .show()
                     .html(data.error);
+                $('html, body').animate({ scrollTop: $(document).height() }, 200);
             }
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.post()
@@ -792,7 +793,7 @@ AJAX.registerOnload('sql.js', function () {
                     button_options[PMA_messages.strClose] = function () {
                         $(this).dialog('close');
                     };
-                    var $response_dialog = $('<div />').append($dialog_content).dialog({
+                    var $response_dialog = $('<div></div>').append($dialog_content).dialog({
                         minWidth: 540,
                         maxHeight: 400,
                         modal: true,
@@ -865,7 +866,10 @@ function browseForeignDialog ($this_a) {
     var tableId = '#browse_foreign_table';
     var filterId = '#input_foreign_filter';
     var $dialog = null;
-    $.get($this_a.attr('href'), { 'ajax_request': true }, function (data) {
+    var argSep = PMA_commonParams.get('arg_separator');
+    var params = $this_a.getPostData();
+    params += argSep + 'ajax_request=true';
+    $.post($this_a.attr('href'), params, function (data) {
         // Creates browse foreign value dialog
         $dialog = $('<div>').append(data.message).dialog({
             title: PMA_messages.strBrowseForeignValues,
@@ -1056,14 +1060,18 @@ function rearrangeStickyColumns ($sticky_columns, $table_results) {
     var $originalHeader = $table_results.find('thead');
     var $originalColumns = $originalHeader.find('tr:first').children();
     var $clonedHeader = $originalHeader.clone();
+    var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+    var is_safari = navigator.userAgent.indexOf('Safari') > -1;
     // clone width per cell
-    $clonedHeader.find('tr:first').children().width(function (i,val) {
+    $clonedHeader.find('tr:first').children().each(function (i) {
         var width = $originalColumns.eq(i).width();
-        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
-        if (! is_firefox) {
+        if (! is_firefox && ! is_safari) {
             width += 1;
         }
-        return width;
+        $(this).width(width);
+        if (is_safari) {
+            $(this).css('min-width', width).css('max-width', width);
+        }
     });
     $sticky_columns.empty().append($clonedHeader);
 }

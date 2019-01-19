@@ -11,9 +11,13 @@ use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Response;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/server_common.inc.php';
-require_once 'libraries/replication.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/server_common.inc.php';
+require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 $response = Response::getInstance();
 
@@ -28,8 +32,8 @@ if ($response->isAjax()) {
     header('Content-Type: text/html; charset=UTF-8');
 
     // real-time charting data
-    if (isset($_REQUEST['chart_data'])) {
-        switch ($_REQUEST['type']) {
+    if (isset($_POST['chart_data'])) {
+        switch ($_POST['type']) {
             case 'chartgrid': // Data for the monitor
                 $ret = $statusMonitor->getJsonForChartingData();
                 $response->addJSON('message', $ret);
@@ -37,30 +41,30 @@ if ($response->isAjax()) {
         }
     }
 
-    if (isset($_REQUEST['log_data'])) {
-        $start = intval($_REQUEST['time_start']);
-        $end = intval($_REQUEST['time_end']);
+    if (isset($_POST['log_data'])) {
+        $start = intval($_POST['time_start']);
+        $end = intval($_POST['time_end']);
 
-        if ($_REQUEST['type'] == 'slow') {
+        if ($_POST['type'] == 'slow') {
             $return = $statusMonitor->getJsonForLogDataTypeSlow($start, $end);
             $response->addJSON('message', $return);
             exit;
         }
 
-        if ($_REQUEST['type'] == 'general') {
+        if ($_POST['type'] == 'general') {
             $return = $statusMonitor->getJsonForLogDataTypeGeneral($start, $end);
             $response->addJSON('message', $return);
             exit;
         }
     }
 
-    if (isset($_REQUEST['logging_vars'])) {
+    if (isset($_POST['logging_vars'])) {
         $loggingVars = $statusMonitor->getJsonForLoggingVars();
         $response->addJSON('message', $loggingVars);
         exit;
     }
 
-    if (isset($_REQUEST['query_analyzer'])) {
+    if (isset($_POST['query_analyzer'])) {
         $return = $statusMonitor->getJsonForQueryAnalyzer();
         $response->addJSON('message', $return);
         exit;

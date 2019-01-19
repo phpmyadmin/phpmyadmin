@@ -35,7 +35,7 @@ class Sanitize
             'https://',
             './url.php?url=https%3a%2f%2f',
             './doc/html/',
-            # possible return values from Util::getScriptNameForOption
+            // possible return values from Util::getScriptNameForOption
             './index.php?',
             './server_databases.php?',
             './server_status.php?',
@@ -50,13 +50,13 @@ class Sanitize
             './tbl_select.php?',
             './tbl_change.php?',
             './sql.php?',
-            # Hardcoded options in libraries/special_schema_links.inc.php
+            // Hardcoded options in libraries/special_schema_links.inc.php
             './db_events.php?',
             './db_routines.php?',
             './server_privileges.php?',
             './tbl_structure.php?',
         ];
-        $is_setup = !is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
+        $is_setup = ! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
@@ -168,7 +168,7 @@ class Sanitize
      */
     public static function sanitize($message, $escape = false, $safe = false)
     {
-        if (!$safe) {
+        if (! $safe) {
             $message = strtr((string) $message, ['<' => '&lt;', '>' => '&gt;']);
         }
 
@@ -182,7 +182,7 @@ class Sanitize
             '[/code]'   => '</code>',
             '[kbd]'     => '<kbd>',
             '[/kbd]'    => '</kbd>',
-            '[br]'      => '<br />',
+            '[br]'      => '<br>',
             '[/a]'      => '</a>',
             '[/doc]'      => '</a>',
             '[sup]'     => '<sup>',
@@ -324,7 +324,7 @@ class Sanitize
         }
 
         if (is_int($value)) {
-            return (int)$value;
+            return (int) $value;
         }
 
         return '"' . self::escapeJsString($value) . '"';
@@ -344,7 +344,7 @@ class Sanitize
     public static function getJsValue($key, $value, $escape = true)
     {
         $result = $key . ' = ';
-        if (!$escape) {
+        if (! $escape) {
             $result .= $value;
         } elseif (is_array($value)) {
             $result .= '[';
@@ -418,7 +418,7 @@ class Sanitize
     /**
      * Removes all variables from request except whitelisted ones.
      *
-     * @param string &$whitelist list of variables to allow
+     * @param string $whitelist list of variables to allow
      *
      * @return void
      * @access public
@@ -441,7 +441,7 @@ class Sanitize
             $_COOKIE = [];
         }
         $keys = array_keys(
-            array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE)
+            array_merge((array) $_REQUEST, (array) $_GET, (array) $_POST, (array) $_COOKIE)
         );
 
         foreach ($keys as $key) {

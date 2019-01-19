@@ -76,7 +76,7 @@ class TableStructureController extends TableController
     private $createAddField;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -135,7 +135,7 @@ class TableStructureController extends TableController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
         $this->createAddField = new CreateAddField($dbi);
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
         $this->transformations = new Transformations();
     }
 
@@ -151,20 +151,20 @@ class TableStructureController extends TableController
         /**
          * Function implementations for this script
          */
-        include_once 'libraries/check_user_privileges.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             [
                 'tbl_structure.js',
-                'indexes.js'
+                'indexes.js',
             ]
         );
 
         /**
          * Handle column moving
          */
-        if (isset($_REQUEST['move_columns'])
-            && is_array($_REQUEST['move_columns'])
+        if (isset($_POST['move_columns'])
+            && is_array($_POST['move_columns'])
             && $this->response->isAjax()
         ) {
             $this->moveColumns();
@@ -174,9 +174,9 @@ class TableStructureController extends TableController
         /**
          * handle MySQL reserved words columns check
          */
-        if (isset($_REQUEST['reserved_word_check'])) {
+        if (isset($_POST['reserved_word_check'])) {
             if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
-                $columns_names = $_REQUEST['field_name'];
+                $columns_names = $_POST['field_name'];
                 $reserved_keywords_names = [];
                 foreach ($columns_names as $column) {
                     if (Context::isKeyword(trim($column), true)) {
@@ -208,7 +208,7 @@ class TableStructureController extends TableController
         /**
          * A click on Change has been made for one column
          */
-        if (isset($_REQUEST['change_column'])) {
+        if (isset($_GET['change_column'])) {
             $this->displayHtmlForColumnChange(null, 'tbl_structure.php');
             return;
         }
@@ -216,8 +216,8 @@ class TableStructureController extends TableController
         /**
          * Adding or editing partitioning of the table
          */
-        if (isset($_REQUEST['edit_partitioning'])
-            && ! isset($_REQUEST['save_partitioning'])
+        if (isset($_POST['edit_partitioning'])
+            && ! isset($_POST['save_partitioning'])
         ) {
             $this->displayHtmlForPartitionChange();
             return;
@@ -231,7 +231,7 @@ class TableStructureController extends TableController
         $submit_mult = $this->getMultipleFieldCommandType();
 
         if (! empty($submit_mult)) {
-            if (isset($_REQUEST['selected_fld'])) {
+            if (isset($_POST['selected_fld'])) {
                 if ($submit_mult == 'browse') {
                     // browsing the table displaying only selected columns
                     $this->displayTableBrowseForSelectedColumns(
@@ -242,14 +242,14 @@ class TableStructureController extends TableController
                     // handle multiple field commands
                     // handle confirmation of deleting multiple columns
                     $action = 'tbl_structure.php';
-                    $GLOBALS['selected'] = $_REQUEST['selected_fld'];
+                    $GLOBALS['selected'] = $_POST['selected_fld'];
                     list(
                         $what_ret, $query_type_ret, $is_unset_submit_mult,
                         $mult_btn_ret, $centralColsError
                         )
                             = $this->getDataForSubmitMult(
                                 $submit_mult,
-                                $_REQUEST['selected_fld'],
+                                $_POST['selected_fld'],
                                 $action
                             );
                     //update the existing variables
@@ -270,7 +270,7 @@ class TableStructureController extends TableController
                         $GLOBALS['mult_btn'] = $mult_btn_ret;
                         global $mult_btn;
                     }
-                    include 'libraries/mult_submits.inc.php';
+                    include ROOT_PATH . 'libraries/mult_submits.inc.php';
                     /**
                      * if $submit_mult == 'change', execution will have stopped
                      * at this point
@@ -291,29 +291,26 @@ class TableStructureController extends TableController
         /**
          * Modifications have been submitted -> updates the table
          */
-        if (isset($_REQUEST['do_save_data'])) {
+        if (isset($_POST['do_save_data'])) {
             $regenerate = $this->updateColumns();
-            if ($regenerate) {
-                // This happens when updating failed
-                // @todo: do something appropriate
-            } else {
+            if (! $regenerate) {
                 // continue to show the table's structure
-                unset($_REQUEST['selected']);
+                unset($_POST['selected']);
             }
         }
 
         /**
          * Modifications to the partitioning have been submitted -> updates the table
          */
-        if (isset($_REQUEST['save_partitioning'])) {
+        if (isset($_POST['save_partitioning'])) {
             $this->updatePartitioning();
         }
 
         /**
          * Adding indexes
          */
-        if (isset($_REQUEST['add_key'])
-            || isset($_REQUEST['partition_maintenance'])
+        if (isset($_POST['add_key'])
+            || isset($_POST['partition_maintenance'])
         ) {
             //todo: set some variables for sql.php include, to be eliminated
             //after refactoring sql.php
@@ -322,7 +319,7 @@ class TableStructureController extends TableController
             $sql_query = $GLOBALS['sql_query'];
             $cfg = $GLOBALS['cfg'];
             $pmaThemeImage = $GLOBALS['pmaThemeImage'];
-            include 'sql.php';
+            include ROOT_PATH . 'sql.php';
             $GLOBALS['reload'] = true;
         }
 
@@ -339,7 +336,7 @@ class TableStructureController extends TableController
         $db = &$this->db;
         $table = &$this->table;
         $url_params = [];
-        include_once 'libraries/tbl_common.inc.php';
+        include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = Url::getCommonRaw([
             'db' => $db,
@@ -365,7 +362,7 @@ class TableStructureController extends TableController
             ->getColumnsWithIndex(Index::UNIQUE);
 
         // 3. Get fields
-        $fields = (array)$this->dbi->getColumns(
+        $fields = (array) $this->dbi->getColumns(
             $this->db,
             $this->table,
             null,
@@ -402,8 +399,8 @@ class TableStructureController extends TableController
         $changes = [];
 
         // move columns from first to last
-        for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
-            $column = $_REQUEST['move_columns'][$i];
+        for ($i = 0, $l = count($_POST['move_columns']); $i < $l; $i++) {
+            $column = $_POST['move_columns'][$i];
             // is this column already correctly placed?
             if ($column_names[$i] == $column) {
                 continue;
@@ -434,7 +431,10 @@ class TableStructureController extends TableController
             }
 
             $virtual = [
-                'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+                'VIRTUAL',
+                'PERSISTENT',
+                'VIRTUAL GENERATED',
+                'STORED GENERATED',
             ];
             $data['Virtuality'] = '';
             $data['Expression'] = '';
@@ -471,7 +471,7 @@ class TableStructureController extends TableController
             // insert moved column
             array_splice($column_names, $i, 0, $column);
         }
-        if (empty($changes) && !isset($_REQUEST['preview_sql'])) { // should never happen
+        if (empty($changes) && ! isset($_REQUEST['preview_sql'])) { // should never happen
             $this->response->setRequestStatus(false);
             return;
         }
@@ -486,7 +486,7 @@ class TableStructureController extends TableController
             $this->response->addJSON(
                 'sql_data',
                 $this->template->render('preview_sql', [
-                    'query_data' => $sql_query
+                    'query_data' => $sql_query,
                 ])
             );
         } else { // move column
@@ -511,7 +511,7 @@ class TableStructureController extends TableController
      * @param array  $selected the selected columns
      * @param string $action   target script to call
      *
-     * @return boolean $regenerate true if error occurred
+     * @return void
      *
      */
     protected function displayHtmlForColumnChange($selected, $action)
@@ -556,23 +556,23 @@ class TableStructureController extends TableController
         /**
          * Form for changing properties.
          */
-        include_once 'libraries/check_user_privileges.inc.php';
-        include 'libraries/tbl_columns_definition_form.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+        include ROOT_PATH . 'libraries/tbl_columns_definition_form.inc.php';
     }
 
     /**
      * Displays HTML for partition change
      *
-     * @return string HTML for partition change
+     * @return void
      */
     protected function displayHtmlForPartitionChange()
     {
         $partitionDetails = null;
-        if (! isset($_REQUEST['partition_by'])) {
+        if (! isset($_POST['partition_by'])) {
             $partitionDetails = $this->_extractPartitionDetails();
         }
 
-        include 'libraries/tbl_partition_definition.inc.php';
+        include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
         $this->response->addHTML(
             $this->template->render('table/structure/partition_definition_form', [
                 'db' => $this->db,
@@ -596,7 +596,7 @@ class TableStructureController extends TableController
 
         $parser = new Parser($createTable);
         /**
-         * @var $stmt PhpMyAdmin\SqlParser\Statements\CreateStatement
+         * @var CreateStatement $stmt
          */
         $stmt = $parser->statements[0];
 
@@ -659,7 +659,7 @@ class TableStructureController extends TableController
 
         $partitionDetails['partitions'] = [];
 
-        for ($i = 0; $i < intval($partitionDetails['partition_count']); $i++) {
+        for ($i = 0, $iMax = (int) $partitionDetails['partition_count']; $i < $iMax; $i++) {
             if (! isset($stmt->partitions[$i])) {
                 $partitionDetails['partitions'][$i] = [
                     'name' => 'p' . $i,
@@ -704,7 +704,7 @@ class TableStructureController extends TableController
                 $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
                 $partition['subpartitions'] = [];
 
-                for ($j = 0; $j < intval($partitionDetails['subpartition_count']); $j++) {
+                for ($j = 0, $jMax = (int) $partitionDetails['subpartition_count']; $j < $jMax; $j++) {
                     if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
                         $partition['subpartitions'][$j] = [
                             'name' => $partition['name'] . '_s' . $j,
@@ -768,7 +768,7 @@ class TableStructureController extends TableController
             $this->response->addJSON(
                 'message',
                 Message::rawError(
-                    __('Query error') . ':<br />' . $this->dbi->getError()
+                    __('Query error') . ':<br>' . $this->dbi->getError()
                 )
             );
         }
@@ -782,24 +782,29 @@ class TableStructureController extends TableController
     protected function getMultipleFieldCommandType()
     {
         $types = [
-            'change', 'drop', 'primary',
-            'index', 'unique', 'spatial',
-            'fulltext', 'browse'
+            'change',
+            'drop',
+            'primary',
+            'index',
+            'unique',
+            'spatial',
+            'fulltext',
+            'browse',
         ];
 
         foreach ($types as $type) {
-            if (isset($_REQUEST['submit_mult_' . $type . '_x'])) {
+            if (isset($_POST['submit_mult_' . $type . '_x'])) {
                 return $type;
             }
         }
 
-        if (isset($_REQUEST['submit_mult'])) {
-            return $_REQUEST['submit_mult'];
-        } elseif (isset($_REQUEST['mult_btn'])
-            && $_REQUEST['mult_btn'] == __('Yes')
+        if (isset($_POST['submit_mult'])) {
+            return $_POST['submit_mult'];
+        } elseif (isset($_POST['mult_btn'])
+            && $_POST['mult_btn'] == __('Yes')
         ) {
-            if (isset($_REQUEST['selected'])) {
-                $_REQUEST['selected_fld'] = $_REQUEST['selected'];
+            if (isset($_POST['selected'])) {
+                $_POST['selected_fld'] = $_POST['selected'];
             }
             return 'row_delete';
         }
@@ -819,7 +824,7 @@ class TableStructureController extends TableController
     {
         $GLOBALS['active_page'] = 'sql.php';
         $fields = [];
-        foreach ($_REQUEST['selected_fld'] as $sval) {
+        foreach ($_POST['selected_fld'] as $sval) {
             $fields[] = Util::backquote($sval);
         }
         $sql_query = sprintf(
@@ -866,41 +871,47 @@ class TableStructureController extends TableController
     /**
      * Update the table's structure based on $_REQUEST
      *
-     * @return boolean $regenerate              true if error occurred
+     * @return boolean              true if error occurred
      *
      */
     protected function updateColumns()
     {
         $err_url = 'tbl_structure.php' . Url::getCommon(
             [
-                'db' => $this->db, 'table' => $this->table
+                'db' => $this->db,
+                'table' => $this->table,
             ]
         );
         $regenerate = false;
-        $field_cnt = count($_REQUEST['field_name']);
+        $field_cnt = count($_POST['field_name']);
         $changes = [];
         $adjust_privileges = [];
-
+        $columns_with_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(
+                Index::PRIMARY | Index::UNIQUE
+            );
         for ($i = 0; $i < $field_cnt; $i++) {
-            if (!$this->columnNeedsAlterTable($i)) {
+            if (! $this->columnNeedsAlterTable($i)) {
                 continue;
             }
 
             $changes[] = 'CHANGE ' . Table::generateAlter(
-                Util::getValueByKey($_REQUEST, "field_orig.${i}", ''),
-                $_REQUEST['field_name'][$i],
-                $_REQUEST['field_type'][$i],
-                $_REQUEST['field_length'][$i],
-                $_REQUEST['field_attribute'][$i],
-                Util::getValueByKey($_REQUEST, "field_collation.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_null.${i}", 'NOT NULL'),
-                $_REQUEST['field_default_type'][$i],
-                $_REQUEST['field_default_value'][$i],
-                Util::getValueByKey($_REQUEST, "field_extra.${i}", false),
-                Util::getValueByKey($_REQUEST, "field_comments.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_virtuality.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_expression.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_move_to.${i}", '')
+                Util::getValueByKey($_POST, "field_orig.${i}", ''),
+                $_POST['field_name'][$i],
+                $_POST['field_type'][$i],
+                $_POST['field_length'][$i],
+                $_POST['field_attribute'][$i],
+                Util::getValueByKey($_POST, "field_collation.${i}", ''),
+                Util::getValueByKey($_POST, "field_null.${i}", 'NOT NULL'),
+                $_POST['field_default_type'][$i],
+                $_POST['field_default_value'][$i],
+                Util::getValueByKey($_POST, "field_extra.${i}", false),
+                Util::getValueByKey($_POST, "field_comments.${i}", ''),
+                Util::getValueByKey($_POST, "field_virtuality.${i}", ''),
+                Util::getValueByKey($_POST, "field_expression.${i}", ''),
+                Util::getValueByKey($_POST, "field_move_to.${i}", ''),
+                $columns_with_index
             );
 
             // find the remembered sort expression
@@ -910,22 +921,22 @@ class TableStructureController extends TableController
             // if the old column name is part of the remembered sort expression
             if (mb_strpos(
                 (string) $sorted_col,
-                Util::backquote($_REQUEST['field_orig'][$i])
+                Util::backquote($_POST['field_orig'][$i])
             ) !== false) {
                 // delete the whole remembered sort expression
                 $this->table_obj->removeUiProp(Table::PROP_SORTED_COLUMN);
             }
 
-            if (isset($_REQUEST['field_adjust_privileges'][$i])
-                && ! empty($_REQUEST['field_adjust_privileges'][$i])
-                && $_REQUEST['field_orig'][$i] != $_REQUEST['field_name'][$i]
+            if (isset($_POST['field_adjust_privileges'][$i])
+                && ! empty($_POST['field_adjust_privileges'][$i])
+                && $_POST['field_orig'][$i] != $_POST['field_name'][$i]
             ) {
-                $adjust_privileges[$_REQUEST['field_orig'][$i]]
-                    = $_REQUEST['field_name'][$i];
+                $adjust_privileges[$_POST['field_orig'][$i]]
+                    = $_POST['field_name'][$i];
             }
         } // end for
 
-        if (count($changes) > 0 || isset($_REQUEST['preview_sql'])) {
+        if (count($changes) > 0 || isset($_POST['preview_sql'])) {
             // Builds the primary keys statements and updates the table
             $key_query = '';
             /**
@@ -939,7 +950,7 @@ class TableStructureController extends TableController
 
             // To allow replication, we first select the db to use
             // and then run queries on this db.
-            if (!$this->dbi->selectDb($this->db)) {
+            if (! $this->dbi->selectDb($this->db)) {
                 Util::mysqlDie(
                     $this->dbi->getError(),
                     'USE ' . Util::backquote($this->db) . ';',
@@ -952,7 +963,7 @@ class TableStructureController extends TableController
             $sql_query .= ';';
 
             // If there is a request for SQL previewing.
-            if (isset($_REQUEST['preview_sql'])) {
+            if (isset($_POST['preview_sql'])) {
                 Core::previewSQL(count($changes) > 0 ? $sql_query : '');
             }
 
@@ -967,18 +978,18 @@ class TableStructureController extends TableController
             // While changing the Column Collation
             // First change to BLOB
             for ($i = 0; $i < $field_cnt; $i++) {
-                if (isset($_REQUEST['field_collation'][$i])
-                    && isset($_REQUEST['field_collation_orig'][$i])
-                    && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
-                    && ! in_array($_REQUEST['field_orig'][$i], $columns_with_index)
+                if (isset($_POST['field_collation'][$i])
+                    && isset($_POST['field_collation_orig'][$i])
+                    && $_POST['field_collation'][$i] !== $_POST['field_collation_orig'][$i]
+                    && ! in_array($_POST['field_orig'][$i], $columns_with_index)
                 ) {
                     $secondary_query = 'ALTER TABLE ' . Util::backquote(
                         $this->table
                     )
                     . ' CHANGE ' . Util::backquote(
-                        $_REQUEST['field_orig'][$i]
+                        $_POST['field_orig'][$i]
                     )
-                    . ' ' . Util::backquote($_REQUEST['field_orig'][$i])
+                    . ' ' . Util::backquote($_POST['field_orig'][$i])
                     . ' BLOB;';
                     $this->dbi->query($secondary_query);
                     $changedToBlob[$i] = true;
@@ -1023,20 +1034,20 @@ class TableStructureController extends TableController
                 for ($i = 0; $i < $field_cnt; $i++) {
                     if ($changedToBlob[$i]) {
                         $changes_revert[] = 'CHANGE ' . Table::generateAlter(
-                            Util::getValueByKey($_REQUEST, "field_orig.${i}", ''),
-                            $_REQUEST['field_name'][$i],
-                            $_REQUEST['field_type_orig'][$i],
-                            $_REQUEST['field_length_orig'][$i],
-                            $_REQUEST['field_attribute_orig'][$i],
-                            Util::getValueByKey($_REQUEST, "field_collation_orig.${i}", ''),
-                            Util::getValueByKey($_REQUEST, "field_null_orig.${i}", 'NOT NULL'),
-                            $_REQUEST['field_default_type_orig'][$i],
-                            $_REQUEST['field_default_value_orig'][$i],
-                            Util::getValueByKey($_REQUEST, "field_extra_orig.${i}", false),
-                            Util::getValueByKey($_REQUEST, "field_comments_orig.${i}", ''),
-                            Util::getValueByKey($_REQUEST, "field_virtuality_orig.${i}", ''),
-                            Util::getValueByKey($_REQUEST, "field_expression_orig.${i}", ''),
-                            Util::getValueByKey($_REQUEST, "field_move_to_orig.${i}", '')
+                            Util::getValueByKey($_POST, "field_orig.${i}", ''),
+                            $_POST['field_name'][$i],
+                            $_POST['field_type_orig'][$i],
+                            $_POST['field_length_orig'][$i],
+                            $_POST['field_attribute_orig'][$i],
+                            Util::getValueByKey($_POST, "field_collation_orig.${i}", ''),
+                            Util::getValueByKey($_POST, "field_null_orig.${i}", 'NOT NULL'),
+                            $_POST['field_default_type_orig'][$i],
+                            $_POST['field_default_value_orig'][$i],
+                            Util::getValueByKey($_POST, "field_extra_orig.${i}", false),
+                            Util::getValueByKey($_POST, "field_comments_orig.${i}", ''),
+                            Util::getValueByKey($_POST, "field_virtuality_orig.${i}", ''),
+                            Util::getValueByKey($_POST, "field_expression_orig.${i}", ''),
+                            Util::getValueByKey($_POST, "field_move_to_orig.${i}", '')
                         );
                     }
                 }
@@ -1053,7 +1064,7 @@ class TableStructureController extends TableController
                 $this->response->addJSON(
                     'message',
                     Message::rawError(
-                        __('Query error') . ':<br />' . $orig_error
+                        __('Query error') . ':<br>' . $orig_error
                     )
                 );
                 $regenerate = true;
@@ -1061,37 +1072,37 @@ class TableStructureController extends TableController
         }
 
         // update field names in relation
-        if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
-            foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
-                if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
+        if (isset($_POST['field_orig']) && is_array($_POST['field_orig'])) {
+            foreach ($_POST['field_orig'] as $fieldindex => $fieldcontent) {
+                if ($_POST['field_name'][$fieldindex] != $fieldcontent) {
                     $this->relation->renameField(
                         $this->db,
                         $this->table,
                         $fieldcontent,
-                        $_REQUEST['field_name'][$fieldindex]
+                        $_POST['field_name'][$fieldindex]
                     );
                 }
             }
         }
 
         // update mime types
-        if (isset($_REQUEST['field_mimetype'])
-            && is_array($_REQUEST['field_mimetype'])
+        if (isset($_POST['field_mimetype'])
+            && is_array($_POST['field_mimetype'])
             && $GLOBALS['cfg']['BrowseMIME']
         ) {
-            foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
-                if (isset($_REQUEST['field_name'][$fieldindex])
-                    && strlen($_REQUEST['field_name'][$fieldindex]) > 0
+            foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
+                if (isset($_POST['field_name'][$fieldindex])
+                    && strlen($_POST['field_name'][$fieldindex]) > 0
                 ) {
                     $this->transformations->setMime(
                         $this->db,
                         $this->table,
-                        $_REQUEST['field_name'][$fieldindex],
+                        $_POST['field_name'][$fieldindex],
                         $mimetype,
-                        $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex],
-                        $_REQUEST['field_input_transformation'][$fieldindex],
-                        $_REQUEST['field_input_transformation_options'][$fieldindex]
+                        $_POST['field_transformation'][$fieldindex],
+                        $_POST['field_transformation_options'][$fieldindex],
+                        $_POST['field_input_transformation'][$fieldindex],
+                        $_POST['field_input_transformation_options'][$fieldindex]
                     );
                 }
             }
@@ -1105,7 +1116,7 @@ class TableStructureController extends TableController
      * @param array $adjust_privileges assoc array of old col names mapped to new
      *                                 cols
      *
-     * @return boolean $changed  boolean whether at least one column privileges
+     * @return boolean  boolean whether at least one column privileges
      * adjusted
      */
     protected function adjustColumnPrivileges(array $adjust_privileges)
@@ -1151,36 +1162,42 @@ class TableStructureController extends TableController
      *
      * @param integer $i column index in the request
      *
-     * @return boolean $alterTableNeeded true if we need to generate ALTER TABLE
+     * @return boolean true if we need to generate ALTER TABLE
      *
      */
     protected function columnNeedsAlterTable($i)
     {
         // these two fields are checkboxes so might not be part of the
         // request; therefore we define them to avoid notices below
-        if (! isset($_REQUEST['field_null'][$i])) {
-            $_REQUEST['field_null'][$i] = 'NO';
+        if (! isset($_POST['field_null'][$i])) {
+            $_POST['field_null'][$i] = 'NO';
         }
-        if (! isset($_REQUEST['field_extra'][$i])) {
-            $_REQUEST['field_extra'][$i] = '';
+        if (! isset($_POST['field_extra'][$i])) {
+            $_POST['field_extra'][$i] = '';
         }
 
         // field_name does not follow the convention (corresponds to field_orig)
-        if ($_REQUEST['field_name'][$i] != $_REQUEST['field_orig'][$i]) {
+        if ($_POST['field_name'][$i] != $_POST['field_orig'][$i]) {
             return true;
         }
 
         $fields = [
-            'field_attribute', 'field_collation', 'field_comments',
-            'field_default_value', 'field_default_type', 'field_extra',
-            'field_length', 'field_null', 'field_type'
+            'field_attribute',
+            'field_collation',
+            'field_comments',
+            'field_default_value',
+            'field_default_type',
+            'field_extra',
+            'field_length',
+            'field_null',
+            'field_type',
         ];
         foreach ($fields as $field) {
-            if ($_REQUEST[$field][$i] != $_REQUEST[$field . '_orig'][$i]) {
+            if ($_POST[$field][$i] != $_POST[$field . '_orig'][$i]) {
                 return true;
             }
         }
-        return !empty($_REQUEST['field_move_to'][$i]);
+        return ! empty($_POST['field_move_to'][$i]);
     }
 
     /**
@@ -1323,14 +1340,6 @@ class TableStructureController extends TableController
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            if (!isset($field['Default'])) {
-                if ($field['Null'] == 'YES') {
-                    $field = array_merge($field, ['Default' => '<em>NULL</em>']);
-                }
-            } else {
-                $field = array_merge($field, ['Default' => $field['Default']]);
-            }
-
             $displayed_fields[$rownum] = new \stdClass();
             $displayed_fields[$rownum]->text = $field['Field'];
             $displayed_fields[$rownum]->icon = "";
@@ -1359,6 +1368,7 @@ class TableStructureController extends TableController
                 'table' => $this->table,
             ],
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),
             'cfg_relation' => $this->relation->getRelationsParam(),
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
@@ -1390,7 +1400,9 @@ class TableStructureController extends TableController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
+            'partitions' => Partition::getPartitions($this->db, $this->table),
             'partition_names' => Partition::getPartitionNames($this->db, $this->table),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,
             'row_comments' => $row_comments,
@@ -1400,7 +1412,7 @@ class TableStructureController extends TableController
     /**
      * Get HTML snippet for display table statistics
      *
-     * @return string $html_output
+     * @return string
      */
     protected function getTableStats()
     {
@@ -1611,8 +1623,11 @@ class TableStructureController extends TableController
         }
 
         return [
-            $what, $query_type, $is_unset_submit_mult, $mult_btn,
-            $centralColsError
+            $what,
+            $query_type,
+            $is_unset_submit_mult,
+            $mult_btn,
+            $centralColsError,
         ];
     }
 }

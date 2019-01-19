@@ -471,7 +471,7 @@ class Message
      *
      * usage
      * <code>
-     * $message->addParamHtml('<img src="img" />');
+     * $message->addParamHtml('<img src="img">');
      * </code>
      *
      * @param string $param parameter to add
@@ -516,14 +516,14 @@ class Message
     /**
      * Real implementation of adding message
      *
-     * @param mixed  $message   to be added
-     * @param string $separator to use between this and previous string/message
+     * @param Message $message   to be added
+     * @param string  $separator to use between this and previous string/message
      *
      * @return void
      */
     private function addMessageToList(self $message, string $separator): void
     {
-        if (!empty($separator)) {
+        if (! empty($separator)) {
             $this->addedMessages[] = $separator;
         }
         $this->addedMessages[] = $message;
@@ -644,7 +644,7 @@ class Message
     /**
      * wrapper for sprintf()
      *
-     * @param mixed ... $params Params
+     * @param mixed[] ...$params Params
      * @return string formatted
      */
     public static function format(...$params): string
@@ -712,10 +712,10 @@ class Message
     }
 
     /**
-    * Returns only message string without image & other HTML.
-    *
-    * @return string
-    */
+     * Returns only message string without image & other HTML.
+     *
+     * @return string
+     */
     public function getOnlyMessage(): string
     {
         return $this->message;

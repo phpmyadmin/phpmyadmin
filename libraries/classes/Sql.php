@@ -37,9 +37,14 @@ use PhpMyAdmin\Util;
 class Sql
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
+
+    /**
+     * @var RelationCleanup
+     */
+    private $relationCleanup;
 
     /**
      * @var Transformations
@@ -47,12 +52,25 @@ class Sql
     private $transformations;
 
     /**
+     * @var Operations
+     */
+    private $operations;
+
+    /**
+     * @var Template
+     */
+    private $template;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $this->relation);
+        $this->operations = new Operations($GLOBALS['dbi'], $this->relation);
         $this->transformations = new Transformations();
+        $this->template = new Template();
     }
 
     /**
@@ -75,10 +93,10 @@ class Sql
     /**
      * Handle remembered sorting order, only for single table query
      *
-     * @param string $db                    database name
-     * @param string $table                 table name
-     * @param array  &$analyzed_sql_results the analyzed query results
-     * @param string &$full_sql_query       SQL query
+     * @param string $db                   database name
+     * @param string $table                table name
+     * @param array  $analyzed_sql_results the analyzed query results
+     * @param string $full_sql_query       SQL query
      *
      * @return void
      */
@@ -129,7 +147,7 @@ class Sql
     /**
      * Append limit clause to SQL query
      *
-     * @param array &$analyzed_sql_results the analyzed query results
+     * @param array $analyzed_sql_results the analyzed query results
      *
      * @return string limit clause appended SQL query
      */
@@ -216,31 +234,33 @@ class Sql
      * @param string $column     current column
      * @param string $curr_value current selected value
      *
-     * @return string $dropdown html for the dropdown
+     * @return string html for the dropdown
      */
     private function getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
     {
         $foreigners = $this->relation->getForeigners($db, $table, $column);
 
-        $foreignData = $this->relation->getForeignData($foreigners, $column, false, '', '');
+        $foreignData = $this->relation->getForeignData(
+            $foreigners,
+            $column,
+            false,
+            '',
+            ''
+        );
 
         if ($foreignData['disp_row'] == null) {
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
             $_url_params = [
-                    'db' => $db,
-                    'table' => $table,
-                    'field' => $column
+                'db' => $db,
+                'table' => $table,
+                'field' => $column,
             ];
 
-            $dropdown = '<span class="curr_value">'
-                . htmlspecialchars($_REQUEST['curr_value'])
-                . '</span>'
-                . '<a href="browse_foreigners.php'
-                . Url::getCommon($_url_params) . '"'
-                . 'class="ajax browse_foreign" ' . '>'
-                . __('Browse foreign values')
-                . '</a>';
+            $dropdown = $this->template->render('sql/relational_column_dropdown', [
+                'current_value' => $_POST['curr_value'],
+                'params' => $_url_params,
+            ]);
         } else {
             $dropdown = $this->relation->foreignDropdown(
                 $foreignData['disp_row'],
@@ -259,86 +279,32 @@ class Sql
      * Get the HTML for the profiling table and accompanying chart if profiling is set.
      * Otherwise returns null
      *
-     * @param string $url_query         url query
-     * @param string $db                current database
-     * @param array  $profiling_results array containing the profiling info
+     * @param string|null $urlQuery         url query
+     * @param string      $database         current database
+     * @param array       $profilingResults array containing the profiling info
      *
-     * @return string $profiling_table html for the profiling table and chart
+     * @return string html for the profiling table and chart
      */
-    private function getHtmlForProfilingChart($url_query, $db, $profiling_results)
+    private function getHtmlForProfilingChart($urlQuery, $database, $profilingResults): string
     {
-        if (! empty($profiling_results)) {
-            $url_query = isset($url_query)
-                ? $url_query
-                : Url::getCommon(['db' => $db]);
+        if (! empty($profilingResults)) {
+            $urlQuery = isset($urlQuery) ? $urlQuery : Url::getCommon(['db' => $database]);
 
-            $profiling_table = '';
-            $profiling_table .= '<fieldset><legend>' . __('Profiling')
-                . '</legend>' . "\n";
-            $profiling_table .= '<div class="floatleft">';
-            $profiling_table .= '<h3>' . __('Detailed profile') . '</h3>';
-            $profiling_table .= '<table id="profiletable"><thead>' . "\n";
-            $profiling_table .= ' <tr>' . "\n";
-            $profiling_table .= '  <th>' . __('Order')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('State')
-                . Util::showMySQLDocu('general-thread-states')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('Time')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= ' </tr></thead><tbody>' . "\n";
-            list($detailed_table, $chart_json, $profiling_stats)
-                = $this->analyzeAndGetTableHtmlForProfilingResults($profiling_results);
-            $profiling_table .= $detailed_table;
-            $profiling_table .= '</tbody></table>' . "\n";
-            $profiling_table .= '</div>';
+            list(
+                $detailedTable,
+                $chartJson,
+                $profilingStats
+            ) = $this->analyzeAndGetTableHtmlForProfilingResults($profilingResults);
 
-            $profiling_table .= '<div class="floatleft">';
-            $profiling_table .= '<h3>' . __('Summary by state') . '</h3>';
-            $profiling_table .= '<table id="profilesummarytable"><thead>' . "\n";
-            $profiling_table .= ' <tr>' . "\n";
-            $profiling_table .= '  <th>' . __('State')
-                . Util::showMySQLDocu('general-thread-states')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('Total Time')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('% Time')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('Calls')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= '  <th>' . __('ø Time')
-                . '<div class="sorticon"></div></th>' . "\n";
-            $profiling_table .= ' </tr></thead><tbody>' . "\n";
-            $profiling_table .= $this->getTableHtmlForProfilingSummaryByState(
-                $profiling_stats
-            );
-            $profiling_table .= '</tbody></table>' . "\n";
-
-            $profiling_table .= <<<EOT
-<script type="text/javascript">
-    url_query = '$url_query';
-</script>
-EOT;
-            $profiling_table .= "</div>";
-            $profiling_table .= "<div class='clearfloat'></div>";
-
-            //require_once 'libraries/chart.lib.php';
-            $profiling_table .= '<div id="profilingChartData" class="hide">';
-            $profiling_table .= json_encode($chart_json);
-            $profiling_table .= '</div>';
-            $profiling_table .= '<div id="profilingchart" class="hide">';
-            $profiling_table .= '</div>';
-            $profiling_table .= '<script type="text/javascript">';
-            $profiling_table .= "AJAX.registerOnload('sql.js', function () {";
-            $profiling_table .= 'makeProfilingChart();';
-            $profiling_table .= 'initProfilingTables();';
-            $profiling_table .= '});';
-            $profiling_table .= '</script>';
-            $profiling_table .= '</fieldset>' . "\n";
-        } else {
-            $profiling_table = null;
+            return $this->template->render('sql/profiling_chart', [
+                'url_query' => $urlQuery,
+                'detailed_table' => $detailedTable,
+                'states' => $profilingStats['states'],
+                'total_time' => $profilingStats['total_time'],
+                'chart_json' => $chartJson,
+            ]);
         }
-        return $profiling_table;
+        return '';
     }
 
     /**
@@ -373,14 +339,12 @@ EOT;
             }
             $profiling_stats['total_time'] += $one_result['Duration'];
 
-            $table .= ' <tr>' . "\n";
-            $table .= '<td>' . $i++ . '</td>' . "\n";
-            $table .= '<td>' . ucwords($one_result['Status'])
-                . '</td>' . "\n";
-            $table .= '<td class="right">'
-                . (Util::formatNumber($one_result['Duration'], 3, 1))
-                . 's<span class="rawvalue hide">'
-                . $one_result['Duration'] . '</span></td>' . "\n";
+            $table .= $this->template->render('sql/detailed_table', [
+                'index' => $i++,
+                'status' => $one_result['Status'],
+                'duration' => $one_result['Duration'],
+            ]);
+
             if (isset($chart_json[ucwords($one_result['Status'])])) {
                 $chart_json[ucwords($one_result['Status'])]
                     += $one_result['Duration'];
@@ -389,47 +353,11 @@ EOT;
                     = $one_result['Duration'];
             }
         }
-        return [$table, $chart_json, $profiling_stats];
-    }
-
-    /**
-     * Function to get HTML for summary by state table
-     *
-     * @param array $profiling_stats profiling stats
-     *
-     * @return string $table html for the table
-     */
-    private function getTableHtmlForProfilingSummaryByState(array $profiling_stats)
-    {
-        $table = '';
-        foreach ($profiling_stats['states'] as $name => $stats) {
-            $table .= ' <tr>' . "\n";
-            $table .= '<td>' . $name . '</td>' . "\n";
-            $table .= '<td align="right">'
-                . Util::formatNumber($stats['total_time'], 3, 1)
-                . 's<span class="rawvalue hide">'
-                . $stats['total_time'] . '</span></td>' . "\n";
-            $table .= '<td align="right">'
-                . Util::formatNumber(
-                    100 * ($stats['total_time'] / $profiling_stats['total_time']),
-                    0,
-                    2
-                )
-            . '%</td>' . "\n";
-            $table .= '<td align="right">' . $stats['calls'] . '</td>'
-                . "\n";
-            $table .= '<td align="right">'
-                . Util::formatNumber(
-                    $stats['total_time'] / $stats['calls'],
-                    3,
-                    1
-                )
-                . 's<span class="rawvalue hide">'
-                . number_format($stats['total_time'] / $stats['calls'], 8, '.', '')
-                . '</span></td>' . "\n";
-            $table .= ' </tr>' . "\n";
-        }
-        return $table;
+        return [
+            $table,
+            $chart_json,
+            $profiling_stats,
+        ];
     }
 
     /**
@@ -442,15 +370,15 @@ EOT;
      * @param string $column     current column
      * @param string $curr_value currently selected value
      *
-     * @return string $dropdown html for the dropdown
+     * @return string html for the dropdown
      */
     private function getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
     {
         $values = $this->getValuesForColumn($db, $table, $column);
-        $dropdown = '<option value="">&nbsp;</option>';
-        $dropdown .= $this->getHtmlForOptionsList($values, [$curr_value]);
-        $dropdown = '<select>' . $dropdown . '</select>';
-        return $dropdown;
+        return $this->template->render('sql/enum_column_dropdown', [
+            'values' => $values,
+            'selected_values' => [$curr_value],
+        ]);
     }
 
     /**
@@ -482,16 +410,14 @@ EOT;
      * @param string $column     current column
      * @param string $curr_value currently selected value
      *
-     * @return string $dropdown html for the set column
+     * @return string html for the set column
      */
-    private function getHtmlForSetColumn($db, $table, $column, $curr_value)
+    private function getHtmlForSetColumn($db, $table, $column, $curr_value): string
     {
         $values = $this->getValuesForColumn($db, $table, $column);
-        $dropdown = '';
-        $full_values =
-            isset($_REQUEST['get_full_values']) ? $_REQUEST['get_full_values'] : false;
-        $where_clause =
-            isset($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : null;
+
+        $full_values = isset($_POST['get_full_values']) ? $_POST['get_full_values'] : false;
+        $where_clause = isset($_POST['where_clause']) ? $_POST['where_clause'] : null;
 
         // If the $curr_value was truncated, we should
         // fetch the correct full values from the table
@@ -512,14 +438,13 @@ EOT;
         );
 
         $selected_values = explode(',', $converted_curr_value);
+        $select_size = (count($values) > 10) ? 10 : count($values);
 
-        $dropdown .= $this->getHtmlForOptionsList($values, $selected_values);
-
-        $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
-        $dropdown = '<select multiple="multiple" size="' . $select_size . '">'
-            . $dropdown . '</select>';
-
-        return $dropdown;
+        return $this->template->render('sql/set_column', [
+            'size' => $select_size,
+            'values' => $values,
+            'selected_values' => $selected_values,
+        ]);
     }
 
     /**
@@ -529,7 +454,7 @@ EOT;
      * @param string $table  current table
      * @param string $column current column
      *
-     * @return array $values array containing the value list for the column
+     * @return array array containing the value list for the column
      */
     private function getValuesForColumn($db, $table, $column)
     {
@@ -543,45 +468,22 @@ EOT;
             DatabaseInterface::QUERY_STORE
         );
 
-        $values = Util::parseEnumSetValues($field_info_result[0]['Type']);
-
-        return $values;
-    }
-
-    /**
-     * Get HTML for options list
-     *
-     * @param array $values          set of values
-     * @param array $selected_values currently selected values
-     *
-     * @return string $options HTML for options list
-     */
-    private function getHtmlForOptionsList(array $values, array $selected_values)
-    {
-        $options = '';
-        foreach ($values as $value) {
-            $options .= '<option value="' . $value . '"';
-            if (in_array($value, $selected_values, true)) {
-                $options .= ' selected="selected" ';
-            }
-            $options .= '>' . $value . '</option>';
-        }
-        return $options;
+        return Util::parseEnumSetValues($field_info_result[0]['Type']);
     }
 
     /**
      * Function to get html for bookmark support if bookmarks are enabled. Else will
      * return null
      *
-     * @param array  $displayParts   the parts to display
-     * @param array  $cfgBookmark    configuration setting for bookmarking
-     * @param string $sql_query      sql query
-     * @param string $db             current database
-     * @param string $table          current table
-     * @param string $complete_query complete query
-     * @param string $bkm_user       bookmarking user
+     * @param array       $displayParts   the parts to display
+     * @param array       $cfgBookmark    configuration setting for bookmarking
+     * @param string      $sql_query      sql query
+     * @param string      $db             current database
+     * @param string      $table          current table
+     * @param string|null $complete_query complete query
+     * @param string      $bkm_user       bookmarking user
      *
-     * @return string $html
+     * @return string
      */
     public function getHtmlForBookmark(
         array $displayParts,
@@ -589,70 +491,26 @@ EOT;
         $sql_query,
         $db,
         $table,
-        $complete_query,
+        ?string $complete_query,
         $bkm_user
-    ) {
+    ): string {
         if ($displayParts['bkm_form'] == '1'
             && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
             && ! empty($sql_query)
         ) {
-            $goto = 'sql.php'
-                . Url::getCommon(
-                    [
-                        'db' => $db,
-                        'table' => $table,
-                        'sql_query' => $sql_query,
-                        'id_bookmark' => 1,
-                    ]
-                );
-            $bkm_sql_query = isset($complete_query) ? $complete_query : $sql_query;
-            $html = '<form action="sql.php" method="post"'
-                . ' onsubmit="return ! emptyCheckTheField(this,'
-                . '\'bkm_fields[bkm_label]\');"'
-                . ' class="bookmarkQueryForm print_ignore">';
-            $html .= Url::getHiddenInputs();
-            $html .= '<input type="hidden" name="db"'
-                . ' value="' . htmlspecialchars($db) . '" />';
-            $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-            $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
-                . ' value="' . htmlspecialchars($db) . '" />';
-            $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
-                . ' value="' . $bkm_user . '" />';
-            $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"'
-                . ' value="'
-                . htmlspecialchars($bkm_sql_query)
-                . '" />';
-            $html .= '<fieldset>';
-            $html .= '<legend>';
-            $html .= Util::getIcon(
-                'b_bookmark',
-                __('Bookmark this SQL query'),
-                true
-            );
-            $html .= '</legend>';
-            $html .= '<div class="formelement">';
-            $html .= '<label>' . __('Label:');
-            $html .= '<input type="text" name="bkm_fields[bkm_label]" value="" />' .
-                '</label>';
-            $html .= '</div>';
-            $html .= '<div class="formelement">';
-            $html .= '<label>' .
-                '<input type="checkbox" name="bkm_all_users" value="true" />';
-            $html .=  __('Let every user access this bookmark') . '</label>';
-            $html .= '</div>';
-            $html .= '<div class="clearfloat"></div>';
-            $html .= '</fieldset>';
-            $html .= '<fieldset class="tblFooters">';
-            $html .= '<input type="hidden" name="store_bkm" value="1" />';
-            $html .= '<input type="submit"'
-                . ' value="' . __('Bookmark this SQL query') . '" />';
-            $html .= '</fieldset>';
-            $html .= '</form>';
-        } else {
-            $html = null;
+            return $this->template->render('sql/bookmark', [
+                'db' => $db,
+                'goto' => 'sql.php' . Url::getCommon([
+                    'db' => $db,
+                    'table' => $table,
+                    'sql_query' => $sql_query,
+                    'id_bookmark' => 1,
+                ]),
+                'user' => $bkm_user,
+                'sql_query' => isset($complete_query) ? $complete_query : $sql_query,
+            ]);
         }
-
-        return $html;
+        return '';
     }
 
     /**
@@ -706,13 +564,13 @@ EOT;
     /**
      * Function to check whether this query is for just browsing
      *
-     * @param array   $analyzed_sql_results the analyzed query and other variables set
-     *                                      after analyzing the query
-     * @param boolean $find_real_end        whether the real end should be found
+     * @param array        $analyzed_sql_results the analyzed query and other variables set
+     *                                           after analyzing the query
+     * @param boolean|null $find_real_end        whether the real end should be found
      *
      * @return boolean
      */
-    public function isJustBrowsing(array $analyzed_sql_results, $find_real_end)
+    public function isJustBrowsing(array $analyzed_sql_results, ?bool $find_real_end): bool
     {
         return ! $analyzed_sql_results['is_group']
             && ! $analyzed_sql_results['is_func']
@@ -740,7 +598,7 @@ EOT;
      */
     private function isDeleteTransformationInfo(array $analyzed_sql_results)
     {
-        return !empty($analyzed_sql_results['querytype'])
+        return ! empty($analyzed_sql_results['querytype'])
             && (($analyzed_sql_results['querytype'] == 'ALTER')
                 || ($analyzed_sql_results['querytype'] == 'DROP'));
     }
@@ -772,11 +630,11 @@ EOT;
      * @param Table  $pmatable      Table instance
      * @param string $request_index col_order|col_visib
      *
-     * @return boolean $retval
+     * @return boolean
      */
     private function setColumnProperty($pmatable, $request_index)
     {
-        $property_value = array_map('intval', explode(',', $_REQUEST[$request_index]));
+        $property_value = array_map('intval', explode(',', $_POST[$request_index]));
         switch ($request_index) {
             case 'col_order':
                 $property_to_set = Table::PROP_COLUMN_ORDER;
@@ -790,7 +648,7 @@ EOT;
         $retval = $pmatable->setUiProp(
             $property_to_set,
             $property_value,
-            $_REQUEST['table_create_time']
+            $_POST['table_create_time']
         );
         if (gettype($retval) != 'boolean') {
             $response = Response::getInstance();
@@ -816,12 +674,12 @@ EOT;
         $retval = false;
 
         // set column order
-        if (isset($_REQUEST['col_order'])) {
+        if (isset($_POST['col_order'])) {
             $retval = $this->setColumnProperty($pmatable, 'col_order');
         }
 
         // set column visibility
-        if ($retval === true && isset($_REQUEST['col_visib'])) {
+        if ($retval === true && isset($_POST['col_visib'])) {
             $retval = $this->setColumnProperty($pmatable, 'col_visib');
         }
 
@@ -898,14 +756,14 @@ EOT;
      */
     public function getRelationalValues($db, $table)
     {
-        $column = $_REQUEST['column'];
+        $column = $_POST['column'];
         if ($_SESSION['tmpval']['relational_display'] == 'D'
-            && isset($_REQUEST['relation_key_or_display_column'])
-            && $_REQUEST['relation_key_or_display_column']
+            && isset($_POST['relation_key_or_display_column'])
+            && $_POST['relation_key_or_display_column']
         ) {
-            $curr_value = $_REQUEST['relation_key_or_display_column'];
+            $curr_value = $_POST['relation_key_or_display_column'];
         } else {
-            $curr_value = $_REQUEST['curr_value'];
+            $curr_value = $_POST['curr_value'];
         }
         $dropdown = $this->getHtmlForRelationalColumnDropdown(
             $db,
@@ -929,8 +787,8 @@ EOT;
      */
     public function getEnumOrSetValues($db, $table, $columnType)
     {
-        $column = $_REQUEST['column'];
-        $curr_value = $_REQUEST['curr_value'];
+        $column = $_POST['column'];
+        $curr_value = $_POST['curr_value'];
         $response = Response::getInstance();
         if ($columnType == "enum") {
             $dropdown = $this->getHtmlForEnumColumnDropdown(
@@ -958,7 +816,7 @@ EOT;
      * @param string $db    the current database
      * @param string $table the current table
      *
-     * @return string $sql_query the default $sql_query for browse page
+     * @return string the default $sql_query for browse page
      */
     public function getDefaultSqlQueryForBrowse($db, $table)
     {
@@ -1039,11 +897,11 @@ EOT;
     /**
      * Function to store the query as a bookmark
      *
-     * @param string  $db                     the current database
-     * @param string  $bkm_user               the bookmarking user
-     * @param string  $sql_query_for_bookmark the query to be stored in bookmark
-     * @param string  $bkm_label              bookmark label
-     * @param boolean $bkm_replace            whether to replace existing bookmarks
+     * @param string       $db                     the current database
+     * @param string       $bkm_user               the bookmarking user
+     * @param string       $sql_query_for_bookmark the query to be stored in bookmark
+     * @param string       $bkm_label              bookmark label
+     * @param boolean|null $bkm_replace            whether to replace existing bookmarks
      *
      * @return void
      */
@@ -1052,7 +910,7 @@ EOT;
         $bkm_user,
         $sql_query_for_bookmark,
         $bkm_label,
-        $bkm_replace
+        ?bool $bkm_replace
     ) {
         $bfields = [
             'bkm_database' => $db,
@@ -1109,7 +967,10 @@ EOT;
         // reopen session
         session_start();
 
-        return [$result, $querytime_after - $querytime_before];
+        return [
+            $result,
+            $querytime_after - $querytime_before,
+        ];
     }
 
     /**
@@ -1118,7 +979,7 @@ EOT;
      * @param boolean $is_affected whether the query affected a table
      * @param mixed   $result      results of executing the query
      *
-     * @return int    $num_rows    number of rows affected or changed
+     * @return int    number of rows affected or changed
      */
     private function getNumberOfRowsAffectedOrChanged($is_affected, $result)
     {
@@ -1137,7 +998,7 @@ EOT;
      *
      * @param string $db the database in the query
      *
-     * @return int $reload whether to reload the navigation(1) or not(0)
+     * @return int whether to reload the navigation(1) or not(0)
      */
     private function hasCurrentDbChanged($db)
     {
@@ -1153,24 +1014,24 @@ EOT;
     /**
      * If a table, database or column gets dropped, clean comments.
      *
-     * @param string $db     current database
-     * @param string $table  current table
-     * @param string $column current column
-     * @param bool   $purge  whether purge set or not
+     * @param string      $db     current database
+     * @param string      $table  current table
+     * @param string|null $column current column
+     * @param bool        $purge  whether purge set or not
      *
-     * @return array $extra_data
+     * @return void
      */
-    private function cleanupRelations($db, $table, $column, $purge)
+    private function cleanupRelations($db, $table, ?string $column, $purge)
     {
         if (! empty($purge) && strlen($db) > 0) {
             if (strlen($table) > 0) {
                 if (isset($column) && strlen($column) > 0) {
-                    RelationCleanup::column($db, $table, $column);
+                    $this->relationCleanup->column($db, $table, $column);
                 } else {
-                    RelationCleanup::table($db, $table);
+                    $this->relationCleanup->table($db, $table);
                 }
             } else {
-                RelationCleanup::database($db);
+                $this->relationCleanup->database($db);
             }
         }
     }
@@ -1186,7 +1047,7 @@ EOT;
      * @param array  $analyzed_sql_results the analyzed query and other variables set
      *                                     after analyzing the query
      *
-     * @return int $unlim_num_rows unlimited number of rows
+     * @return int unlimited number of rows
      */
     private function countQueryResults(
         $num_rows,
@@ -1201,7 +1062,7 @@ EOT;
             return 0;
         }
 
-        if (!$this->isAppendLimitClause($analyzed_sql_results)) {
+        if (! $this->isAppendLimitClause($analyzed_sql_results)) {
             // if we did not append a limit, set this to get a correct
             // "Showing rows..." message
             // $_SESSION['tmpval']['max_rows'] = 'all';
@@ -1274,14 +1135,14 @@ EOT;
     /**
      * Function to handle all aspects relating to executing the query
      *
-     * @param array   $analyzed_sql_results   analyzed sql results
-     * @param string  $full_sql_query         full sql query
-     * @param boolean $is_gotofile            whether to go to a file
-     * @param string  $db                     current database
-     * @param string  $table                  current table
-     * @param boolean $find_real_end          whether to find the real end
-     * @param string  $sql_query_for_bookmark sql query to be stored as bookmark
-     * @param array   $extra_data             extra data
+     * @param array        $analyzed_sql_results   analyzed sql results
+     * @param string       $full_sql_query         full sql query
+     * @param boolean      $is_gotofile            whether to go to a file
+     * @param string       $db                     current database
+     * @param string       $table                  current table
+     * @param boolean|null $find_real_end          whether to find the real end
+     * @param string       $sql_query_for_bookmark sql query to be stored as bookmark
+     * @param array        $extra_data             extra data
      *
      * @return mixed
      */
@@ -1291,7 +1152,7 @@ EOT;
         $is_gotofile,
         $db,
         $table,
-        $find_real_end,
+        ?bool $find_real_end,
         $sql_query_for_bookmark,
         $extra_data
     ) {
@@ -1367,11 +1228,11 @@ EOT;
             $this->cleanupRelations(
                 isset($db) ? $db : '',
                 isset($table) ? $table : '',
-                isset($_REQUEST['dropped_column']) ? $_REQUEST['dropped_column'] : null,
-                isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null
+                isset($_POST['dropped_column']) ? $_POST['dropped_column'] : null,
+                isset($_POST['purge']) ? $_POST['purge'] : null
             );
 
-            if (isset($_REQUEST['dropped_column'])
+            if (isset($_POST['dropped_column'])
                 && strlen($db) > 0
                 && strlen($table) > 0
             ) {
@@ -1383,8 +1244,12 @@ EOT;
             }
         }
 
-        return [$result, $num_rows, $unlim_num_rows,
-            isset($profiling_results) ? $profiling_results : null, $extra_data
+        return [
+            $result,
+            $num_rows,
+            $unlim_num_rows,
+            isset($profiling_results) ? $profiling_results : null,
+            $extra_data,
         ];
     }
     /**
@@ -1403,10 +1268,10 @@ EOT;
         }
         $statement = $analyzed_sql_results['statement'];
         if ($statement instanceof AlterStatement) {
-            if (!empty($statement->altered[0])
+            if (! empty($statement->altered[0])
                 && $statement->altered[0]->options->has('DROP')
             ) {
-                if (!empty($statement->altered[0]->field->column)) {
+                if (! empty($statement->altered[0]->field->column)) {
                     $this->transformations->clear(
                         $db,
                         $table,
@@ -1426,7 +1291,7 @@ EOT;
      * @param array  $analyzed_sql_results analyzed sql results
      * @param int    $num_rows             number of rows
      *
-     * @return string $message
+     * @return string
      */
     private function getMessageForNoRowsReturned(
         $message_to_show,
@@ -1489,7 +1354,7 @@ EOT;
         }
 
         // In case of ROLLBACK, notify the user.
-        if (isset($_REQUEST['rollback_query'])) {
+        if (isset($_POST['rollback_query'])) {
             $message->addText(__('[ROLLBACK occurred.]'));
         }
 
@@ -1510,14 +1375,14 @@ EOT;
      * @param array          $analyzed_sql_results analyzed sql results
      * @param string         $db                   current database
      * @param string         $table                current table
-     * @param string         $message_to_show      message to show
+     * @param string|null    $message_to_show      message to show
      * @param int            $num_rows             number of rows
      * @param DisplayResults $displayResultsObject DisplayResult instance
-     * @param array          $extra_data           extra data
+     * @param array|null     $extra_data           extra data
      * @param string         $pmaThemeImage        uri of the theme image
      * @param object         $result               executed query results
      * @param string         $sql_query            sql query
-     * @param string         $complete_query       complete sql query
+     * @param string|null    $complete_query       complete sql query
      *
      * @return string html
      */
@@ -1525,15 +1390,16 @@ EOT;
         array $analyzed_sql_results,
         $db,
         $table,
-        $message_to_show,
+        ?string $message_to_show,
         $num_rows,
         $displayResultsObject,
-        $extra_data,
+        ?array $extra_data,
         $pmaThemeImage,
         $result,
         $sql_query,
-        $complete_query
+        ?string $complete_query
     ) {
+        global $url_query;
         if ($this->isDeleteTransformationInfo($analyzed_sql_results)) {
             $this->deleteTransformationInfo($db, $table, $analyzed_sql_results);
         }
@@ -1555,7 +1421,7 @@ EOT;
             'success'
         );
         $html_output .= $html_message;
-        if (!isset($GLOBALS['show_as_php'])) {
+        if (! isset($GLOBALS['show_as_php'])) {
             if (! empty($GLOBALS['reload'])) {
                 $extra_data['reload'] = 1;
                 $extra_data['db'] = $GLOBALS['db'];
@@ -1572,8 +1438,8 @@ EOT;
             $response = Response::getInstance();
             $response->addJSON(isset($extra_data) ? $extra_data : []);
 
-            if (!empty($analyzed_sql_results['is_select']) &&
-                    !isset($extra_data['error'])) {
+            if (! empty($analyzed_sql_results['is_select']) &&
+                    ! isset($extra_data['error'])) {
                 $url_query = isset($url_query) ? $url_query : null;
 
                 $displayParts = [
@@ -1583,7 +1449,7 @@ EOT;
                     'nav_bar'  => '0',
                     'bkm_form' => '1',
                     'text_btn' => '1',
-                    'pview_lnk' => '1'
+                    'pview_lnk' => '1',
                 ];
 
                 $html_output .= $this->getHtmlForSqlQueryResultsTable(
@@ -1642,63 +1508,23 @@ EOT;
     }
 
     /**
-     * Function to get html for the sql query results div
-     *
-     * @param string  $previous_update_query_html html for the previously executed query
-     * @param string  $profiling_chart_html       html for profiling
-     * @param Message $missing_unique_column_msg  message for the missing unique column
-     * @param Message $bookmark_created_msg       message for bookmark creation
-     * @param string  $table_html                 html for the table for displaying sql
-     *                                            results
-     * @param string  $indexes_problems_html      html for displaying errors in indexes
-     * @param string  $bookmark_support_html      html for displaying bookmark form
-     *
-     * @return string $html_output
-     */
-    private function getHtmlForSqlQueryResults(
-        $previous_update_query_html,
-        $profiling_chart_html,
-        $missing_unique_column_msg,
-        $bookmark_created_msg,
-        $table_html,
-        $indexes_problems_html,
-        $bookmark_support_html
-    ) {
-        //begin the sqlqueryresults div here. container div
-        $html_output = '<div class="sqlqueryresults ajax">';
-        $html_output .= isset($previous_update_query_html)
-            ? $previous_update_query_html : '';
-        $html_output .= isset($profiling_chart_html) ? $profiling_chart_html : '';
-        $html_output .= isset($missing_unique_column_msg)
-            ? $missing_unique_column_msg->getDisplay() : '';
-        $html_output .= isset($bookmark_created_msg)
-            ? $bookmark_created_msg->getDisplay() : '';
-        $html_output .= $table_html;
-        $html_output .= isset($indexes_problems_html) ? $indexes_problems_html : '';
-        $html_output .= isset($bookmark_support_html) ? $bookmark_support_html : '';
-        $html_output .= '</div>'; // end sqlqueryresults div
-
-        return $html_output;
-    }
-
-    /**
      * Returns a message for successful creation of a bookmark or null if a bookmark
      * was not created
      *
-     * @return Message $bookmark_created_msg
+     * @return string
      */
-    private function getBookmarkCreatedMessage()
+    private function getBookmarkCreatedMessage(): string
     {
+        $output = '';
         if (isset($_GET['label'])) {
-            $bookmark_created_msg = Message::success(
+            $message = Message::success(
                 __('Bookmark %s has been created.')
             );
-            $bookmark_created_msg->addParam($_GET['label']);
-        } else {
-            $bookmark_created_msg = null;
+            $message->addParam($_GET['label']);
+            $output = $message->getDisplay();
         }
 
-        return $bookmark_created_msg;
+        return $output;
     }
 
     /**
@@ -1713,7 +1539,7 @@ EOT;
      * @param int            $unlim_num_rows       unlimited number of rows
      * @param int            $num_rows             number of rows
      * @param bool           $showtable            whether to show table or not
-     * @param object         $result               result of the executed query
+     * @param object|null    $result               result of the executed query
      * @param array          $analyzed_sql_results analyzed sql results
      * @param bool           $is_limited_display   Show only limited operations or not
      *
@@ -1732,9 +1558,9 @@ EOT;
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
-        $printview = isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1' ? '1' : null;
+        $printview = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
         $table_html = '';
-        $browse_dist = ! empty($_REQUEST['is_browse_distinct']);
+        $browse_dist = ! empty($_POST['is_browse_distinct']);
 
         if ($analyzed_sql_results['is_procedure']) {
             do {
@@ -1780,7 +1606,7 @@ EOT;
                         'nav_bar'  => '1',
                         'bkm_form' => '1',
                         'text_btn' => '1',
-                        'pview_lnk' => '1'
+                        'pview_lnk' => '1',
                     ];
 
                     $table_html .= $displayResultsObject->getTable(
@@ -1795,6 +1621,8 @@ EOT;
                 unset($result);
             } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
         } else {
+            $fields_meta = [];
+            $fields_cnt = 0;
             if (isset($result) && $result !== false) {
                 $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
                 $fields_cnt  = count($fields_meta);
@@ -1838,47 +1666,46 @@ EOT;
      * Function to get html for the previous query if there is such. If not will return
      * null
      *
-     * @param string $disp_query   display query
-     * @param bool   $showSql      whether to show sql
-     * @param array  $sql_data     sql data
-     * @param string $disp_message display message
+     * @param string|null    $displayQuery   display query
+     * @param bool           $showSql        whether to show sql
+     * @param array          $sqlData        sql data
+     * @param Message|string $displayMessage display message
      *
-     * @return string $previous_update_query_html
+     * @return string
      */
     private function getHtmlForPreviousUpdateQuery(
-        $disp_query,
+        ?string $displayQuery,
         $showSql,
-        $sql_data,
-        $disp_message
-    ) {
-        // previous update query (from tbl_replace)
-        if (isset($disp_query) && ($showSql == true) && empty($sql_data)) {
-            $previous_update_query_html = Util::getMessage(
-                $disp_message,
-                $disp_query,
+        $sqlData,
+        $displayMessage
+    ): string {
+        $output = '';
+        if (isset($displayQuery) && ($showSql == true) && empty($sqlData)) {
+            $output = Util::getMessage(
+                $displayMessage,
+                $displayQuery,
                 'success'
             );
-        } else {
-            $previous_update_query_html = null;
         }
 
-        return $previous_update_query_html;
+        return $output;
     }
 
     /**
      * To get the message if a column index is missing. If not will return null
      *
-     * @param string  $table      current table
-     * @param string  $db         current database
-     * @param boolean $editable   whether the results table can be editable or not
-     * @param boolean $has_unique whether there is a unique key
+     * @param string  $table        current table
+     * @param string  $database     current database
+     * @param boolean $editable     whether the results table can be editable or not
+     * @param boolean $hasUniqueKey whether there is a unique key
      *
-     * @return Message $message
+     * @return string
      */
-    private function getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
+    private function getMessageIfMissingColumnIndex($table, $database, $editable, $hasUniqueKey): string
     {
-        if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
-            $missing_unique_column_msg = Message::notice(
+        $output = '';
+        if (! empty($table) && ($GLOBALS['dbi']->isSystemSchema($database) || ! $editable)) {
+            $output = Message::notice(
                 sprintf(
                     __(
                         'Current selection does not contain a unique column.'
@@ -1890,9 +1717,9 @@ EOT;
                         'cfg_RowActionLinksWithoutUnique'
                     )
                 )
-            );
-        } elseif (! empty($table) && ! $has_unique) {
-            $missing_unique_column_msg = Message::notice(
+            )->getDisplay();
+        } elseif (! empty($table) && ! $hasUniqueKey) {
+            $output = Message::notice(
                 sprintf(
                     __(
                         'Current selection does not contain a unique column.'
@@ -1904,76 +1731,72 @@ EOT;
                         'cfg_RowActionLinksWithoutUnique'
                     )
                 )
-            );
-        } else {
-            $missing_unique_column_msg = null;
+            )->getDisplay();
         }
 
-        return $missing_unique_column_msg;
+        return $output;
     }
 
     /**
      * Function to get html to display problems in indexes
      *
-     * @param string     $query_type     query type
-     * @param array|null $selectedTables array of table names selected from the
-     *                                   database structure page, for an action
-     *                                   like check table, optimize table,
-     *                                   analyze table or repair table
-     * @param string     $db             current database
+     * @param string|null $queryType      query type
+     * @param array|null  $selectedTables array of table names selected from the
+     *                                    database structure page, for an action
+     *                                    like check table, optimize table,
+     *                                    analyze table or repair table
+     * @param string      $database       current database
      *
      * @return string
      */
-    private function getHtmlForIndexesProblems($query_type, $selectedTables, $db)
+    private function getHtmlForIndexesProblems(?string $queryType, ?array $selectedTables, string $database): string
     {
         // BEGIN INDEX CHECK See if indexes should be checked.
-        if (isset($query_type)
-            && $query_type == 'check_tbl'
+        $output = '';
+        if (isset($queryType)
+            && $queryType == 'check_tbl'
             && isset($selectedTables)
             && is_array($selectedTables)
         ) {
-            $indexes_problems_html = '';
-            foreach ($selectedTables as $tbl_name) {
-                $check = Index::findDuplicates($tbl_name, $db);
+            foreach ($selectedTables as $table) {
+                $check = Index::findDuplicates($table, $database);
                 if (! empty($check)) {
-                    $indexes_problems_html .= sprintf(
+                    $output .= sprintf(
                         __('Problems with indexes of table `%s`'),
-                        $tbl_name
+                        $table
                     );
-                    $indexes_problems_html .= $check;
+                    $output .= $check;
                 }
             }
-        } else {
-            $indexes_problems_html = null;
         }
 
-        return $indexes_problems_html;
+        return $output;
     }
 
     /**
      * Function to display results when the executed query returns non empty results
      *
-     * @param object         $result               executed query results
-     * @param array          $analyzed_sql_results analysed sql results
-     * @param string         $db                   current database
-     * @param string         $table                current table
-     * @param string         $message              message to show
-     * @param array          $sql_data             sql data
-     * @param DisplayResults $displayResultsObject Instance of DisplayResults
-     * @param string         $pmaThemeImage        uri of the theme image
-     * @param int            $unlim_num_rows       unlimited number of rows
-     * @param int            $num_rows             number of rows
-     * @param string         $disp_query           display query
-     * @param string         $disp_message         display message
-     * @param array          $profiling_results    profiling results
-     * @param string         $query_type           query type
-     * @param array|null     $selectedTables       array of table names selected
-     *                                             from the database structure page, for
-     *                                             an action like check table,
-     *                                             optimize table, analyze table or
-     *                                             repair table
-     * @param string         $sql_query            sql query
-     * @param string         $complete_query       complete sql query
+     * @param object|null         $result               executed query results
+     * @param array               $analyzed_sql_results analysed sql results
+     * @param string              $db                   current database
+     * @param string              $table                current table
+     * @param string|null         $message              message to show
+     * @param array|null          $sql_data             sql data
+     * @param DisplayResults      $displayResultsObject Instance of DisplayResults
+     * @param string              $pmaThemeImage        uri of the theme image
+     * @param int                 $unlim_num_rows       unlimited number of rows
+     * @param int                 $num_rows             number of rows
+     * @param string|null         $disp_query           display query
+     * @param Message|string|null $disp_message         display message
+     * @param array|null          $profiling_results    profiling results
+     * @param string|null         $query_type           query type
+     * @param array|null          $selectedTables       array of table names selected
+     *                                                  from the database structure page, for
+     *                                                  an action like check table,
+     *                                                  optimize table, analyze table or
+     *                                                  repair table
+     * @param string              $sql_query            sql query
+     * @param string|null         $complete_query       complete sql query
      *
      * @return string html
      */
@@ -1982,23 +1805,24 @@ EOT;
         array $analyzed_sql_results,
         $db,
         $table,
-        $message,
-        $sql_data,
+        ?string $message,
+        ?array $sql_data,
         $displayResultsObject,
         $pmaThemeImage,
         $unlim_num_rows,
         $num_rows,
-        $disp_query,
+        ?string $disp_query,
         $disp_message,
-        $profiling_results,
-        $query_type,
+        ?array $profiling_results,
+        ?string $query_type,
         $selectedTables,
         $sql_query,
-        $complete_query
+        ?string $complete_query
     ) {
+        global $showtable, $url_query;
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
-        if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
+        if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
             $this->sendResponseForGridEdit($result);
             // script has exited at this point
         }
@@ -2006,6 +1830,8 @@ EOT;
         // Gets the list of fields properties
         if (isset($result) && $result) {
             $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+        } else {
+            $fields_meta = [];
         }
 
         // Should be initialized these parameters before parsing
@@ -2028,7 +1854,7 @@ EOT;
 
         $statement = isset($analyzed_sql_results['statement']) ? $analyzed_sql_results['statement'] : null;
         if ($statement instanceof SelectStatement) {
-            if (!empty($statement->expr)) {
+            if (! empty($statement->expr)) {
                 if ($statement->expr[0]->expr === '*') {
                     $_table = new Table($table, $db);
                     $updatableView = $_table->isUpdatableView();
@@ -2063,10 +1889,10 @@ EOT;
             'nav_bar'  => '1',
             'bkm_form' => '1',
             'text_btn' => '0',
-            'pview_lnk' => '1'
+            'pview_lnk' => '1',
         ];
 
-        if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
+        if ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable) {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
@@ -2074,10 +1900,10 @@ EOT;
                 'nav_bar'  => '1',
                 'bkm_form' => '1',
                 'text_btn' => '1',
-                'pview_lnk' => '1'
+                'pview_lnk' => '1',
             ];
         }
-        if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+        if (isset($_POST['printview']) && $_POST['printview'] == '1') {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
@@ -2085,23 +1911,23 @@ EOT;
                 'nav_bar'  => '0',
                 'bkm_form' => '0',
                 'text_btn' => '0',
-                'pview_lnk' => '0'
+                'pview_lnk' => '0',
             ];
         }
 
-        if (isset($_REQUEST['table_maintenance'])) {
+        $tableMaintenanceHtml = '';
+        if (isset($_POST['table_maintenance'])) {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
-            $table_maintenance_html = '';
             if (isset($message)) {
                 $message = Message::success($message);
-                $table_maintenance_html = Util::getMessage(
+                $tableMaintenanceHtml = Util::getMessage(
                     $message,
                     $GLOBALS['sql_query'],
                     'success'
                 );
             }
-            $table_maintenance_html .= $this->getHtmlForSqlQueryResultsTable(
+            $tableMaintenanceHtml .= $this->getHtmlForSqlQueryResultsTable(
                 $displayResultsObject,
                 $pmaThemeImage,
                 $url_query,
@@ -2114,12 +1940,12 @@ EOT;
                 $analyzed_sql_results
             );
             if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
-                $response->addHTML($table_maintenance_html);
+                $response->addHTML($tableMaintenanceHtml);
                 exit();
             }
         }
 
-        if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
+        if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             unset($GLOBALS['message']);
@@ -2128,29 +1954,29 @@ EOT;
             $GLOBALS['buffer_message'] = false;
         }
 
-        $previous_update_query_html = $this->getHtmlForPreviousUpdateQuery(
+        $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             isset($disp_query) ? $disp_query : null,
             $GLOBALS['cfg']['ShowSQL'],
             isset($sql_data) ? $sql_data : null,
             isset($disp_message) ? $disp_message : null
         );
 
-        $profiling_chart_html = $this->getHtmlForProfilingChart(
+        $profilingChartHtml = $this->getHtmlForProfilingChart(
             $url_query,
             $db,
             isset($profiling_results) ? $profiling_results : []
         );
 
-        $missing_unique_column_msg = $this->getMessageIfMissingColumnIndex(
+        $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex(
             $table,
             $db,
             $editable,
             $has_unique
         );
 
-        $bookmark_created_msg = $this->getBookmarkCreatedMessage();
+        $bookmarkCreatedMessage = $this->getBookmarkCreatedMessage();
 
-        $table_html = $this->getHtmlForSqlQueryResultsTable(
+        $tableHtml = $this->getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
             $pmaThemeImage,
             $url_query,
@@ -2163,15 +1989,16 @@ EOT;
             $analyzed_sql_results
         );
 
-        $indexes_problems_html = $this->getHtmlForIndexesProblems(
+        $indexesProblemsHtml = $this->getHtmlForIndexesProblems(
             isset($query_type) ? $query_type : null,
             isset($selectedTables) ? $selectedTables : null,
             $db
         );
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+        $bookmarkSupportHtml = '';
         if ($cfgBookmark) {
-            $bookmark_support_html = $this->getHtmlForBookmark(
+            $bookmarkSupportHtml = $this->getHtmlForBookmark(
                 $displayParts,
                 $cfgBookmark,
                 $sql_query,
@@ -2180,49 +2007,44 @@ EOT;
                 isset($complete_query) ? $complete_query : $sql_query,
                 $cfgBookmark['user']
             );
-        } else {
-            $bookmark_support_html = '';
         }
 
-        $html_output = isset($table_maintenance_html) ? $table_maintenance_html : '';
-
-        $html_output .= $this->getHtmlForSqlQueryResults(
-            $previous_update_query_html,
-            $profiling_chart_html,
-            $missing_unique_column_msg,
-            $bookmark_created_msg,
-            $table_html,
-            $indexes_problems_html,
-            $bookmark_support_html
-        );
-
-        return $html_output;
+        return $this->template->render('sql/sql_query_results', [
+            'table_maintenance' => $tableMaintenanceHtml,
+            'previous_update_query' => $previousUpdateQueryHtml,
+            'profiling_chart' => $profilingChartHtml,
+            'missing_unique_column_message' => $missingUniqueColumnMessage,
+            'bookmark_created_message' => $bookmarkCreatedMessage,
+            'table' => $tableHtml,
+            'indexes_problems' => $indexesProblemsHtml,
+            'bookmark_support' => $bookmarkSupportHtml,
+        ]);
     }
 
     /**
      * Function to execute the query and send the response
      *
-     * @param array      $analyzed_sql_results   analysed sql results
-     * @param bool       $is_gotofile            whether goto file or not
-     * @param string     $db                     current database
-     * @param string     $table                  current table
-     * @param bool|null  $find_real_end          whether to find real end or not
-     * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
-     * @param array|null $extra_data             extra data
-     * @param string     $message_to_show        message to show
-     * @param string     $message                message
-     * @param array|null $sql_data               sql data
-     * @param string     $goto                   goto page url
-     * @param string     $pmaThemeImage          uri of the PMA theme image
-     * @param string     $disp_query             display query
-     * @param string     $disp_message           display message
-     * @param string     $query_type             query type
-     * @param string     $sql_query              sql query
-     * @param array|null $selectedTables         array of table names selected from the
-     *                                           database structure page, for an action
-     *                                           like check table, optimize table,
-     *                                           analyze table or repair table
-     * @param string     $complete_query         complete query
+     * @param array          $analyzed_sql_results   analysed sql results
+     * @param bool           $is_gotofile            whether goto file or not
+     * @param string         $db                     current database
+     * @param string         $table                  current table
+     * @param bool|null      $find_real_end          whether to find real end or not
+     * @param string         $sql_query_for_bookmark the sql query to be stored as bookmark
+     * @param array|null     $extra_data             extra data
+     * @param string         $message_to_show        message to show
+     * @param string         $message                message
+     * @param array|null     $sql_data               sql data
+     * @param string         $goto                   goto page url
+     * @param string         $pmaThemeImage          uri of the PMA theme image
+     * @param string         $disp_query             display query
+     * @param Message|string $disp_message           display message
+     * @param string         $query_type             query type
+     * @param string         $sql_query              sql query
+     * @param array|null     $selectedTables         array of table names selected from the
+     *                                               database structure page, for an action
+     *                                               like check table, optimize table,
+     *                                               analyze table or repair table
+     * @param string         $complete_query         complete query
      *
      * @return void
      */
@@ -2256,7 +2078,7 @@ EOT;
             // @todo: possibly refactor
             extract($analyzed_sql_results);
 
-            if ($table != $table_from_sql && !empty($table_from_sql)) {
+            if ($table != $table_from_sql && ! empty($table_from_sql)) {
                 $table = $table_from_sql;
             }
         }
@@ -2289,27 +2111,27 @@ EOT;
     /**
      * Function to execute the query and send the response
      *
-     * @param array      $analyzed_sql_results   analysed sql results
-     * @param bool       $is_gotofile            whether goto file or not
-     * @param string     $db                     current database
-     * @param string     $table                  current table
-     * @param bool|null  $find_real_end          whether to find real end or not
-     * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
-     * @param array|null $extra_data             extra data
-     * @param string     $message_to_show        message to show
-     * @param string     $message                message
-     * @param array|null $sql_data               sql data
-     * @param string     $goto                   goto page url
-     * @param string     $pmaThemeImage          uri of the PMA theme image
-     * @param string     $disp_query             display query
-     * @param string     $disp_message           display message
-     * @param string     $query_type             query type
-     * @param string     $sql_query              sql query
-     * @param array|null $selectedTables         array of table names selected from the
-     *                                           database structure page, for an action
-     *                                           like check table, optimize table,
-     *                                           analyze table or repair table
-     * @param string     $complete_query         complete query
+     * @param array               $analyzed_sql_results   analysed sql results
+     * @param bool                $is_gotofile            whether goto file or not
+     * @param string              $db                     current database
+     * @param string              $table                  current table
+     * @param bool|null           $find_real_end          whether to find real end or not
+     * @param string|null         $sql_query_for_bookmark the sql query to be stored as bookmark
+     * @param array|null          $extra_data             extra data
+     * @param string|null         $message_to_show        message to show
+     * @param Message|string|null $message                message
+     * @param array|null          $sql_data               sql data
+     * @param string              $goto                   goto page url
+     * @param string              $pmaThemeImage          uri of the PMA theme image
+     * @param string|null         $disp_query             display query
+     * @param Message|string|null $disp_message           display message
+     * @param string|null         $query_type             query type
+     * @param string              $sql_query              sql query
+     * @param array|null          $selectedTables         array of table names selected from the
+     *                                                    database structure page, for an action
+     *                                                    like check table, optimize table,
+     *                                                    analyze table or repair table
+     * @param string|null         $complete_query         complete query
      *
      * @return string html
      */
@@ -2319,19 +2141,19 @@ EOT;
         $db,
         $table,
         $find_real_end,
-        $sql_query_for_bookmark,
+        ?string $sql_query_for_bookmark,
         $extra_data,
-        $message_to_show,
+        ?string $message_to_show,
         $message,
         $sql_data,
         $goto,
         $pmaThemeImage,
-        $disp_query,
+        ?string $disp_query,
         $disp_message,
-        $query_type,
+        ?string $query_type,
         $sql_query,
         $selectedTables,
-        $complete_query
+        ?string $complete_query
     ) {
         // Handle disable/enable foreign key checks
         $default_fk_check = Util::handleDisableFKCheckInit();
@@ -2344,7 +2166,7 @@ EOT;
         if (! empty($analyzed_sql_results)
             && $this->isRememberSortingOrder($analyzed_sql_results)
             && empty($analyzed_sql_results['union'])
-            && ! isset($_REQUEST['sort_by_key'])
+            && ! isset($_POST['sort_by_key'])
         ) {
             if (! isset($_SESSION['sql_from_query_box'])) {
                 $this->handleSortOrder($db, $table, $analyzed_sql_results, $sql_query);
@@ -2372,21 +2194,24 @@ EOT;
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
         $GLOBALS['dbi']->selectDb($db);
 
-        // Execute the query
-        list($result, $num_rows, $unlim_num_rows, $profiling_results, $extra_data)
-            = $this->executeTheQuery(
-                $analyzed_sql_results,
-                $full_sql_query,
-                $is_gotofile,
-                $db,
-                $table,
-                isset($find_real_end) ? $find_real_end : null,
-                isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
-                isset($extra_data) ? $extra_data : null
-            );
+        list(
+            $result,
+            $num_rows,
+            $unlim_num_rows,
+            $profiling_results,
+            $extra_data
+        ) = $this->executeTheQuery(
+            $analyzed_sql_results,
+            $full_sql_query,
+            $is_gotofile,
+            $db,
+            $table,
+            isset($find_real_end) ? $find_real_end : null,
+            isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
+            isset($extra_data) ? $extra_data : null
+        );
 
-        $operations = new Operations();
-        $warning_messages = $operations->getWarningMessagesArray();
+        $warning_messages = $this->operations->getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page
         if ((0 == $num_rows && 0 == $unlim_num_rows)
@@ -2432,7 +2257,7 @@ EOT;
         Util::handleDisableFKCheckCleanup($default_fk_check);
 
         foreach ($warning_messages as $warning) {
-            $message = Message::notice($warning);
+            $message = Message::notice(Message::sanitize($warning));
             $html_output .= $message->getDisplay();
         }
 

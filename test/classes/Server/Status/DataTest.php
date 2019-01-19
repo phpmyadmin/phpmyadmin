@@ -77,7 +77,7 @@ class DataTest extends PmaTestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
             [
                 "SHOW GLOBAL VARIABLES",
@@ -85,7 +85,7 @@ class DataTest extends PmaTestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_variables
+                $server_variables,
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
@@ -94,7 +94,7 @@ class DataTest extends PmaTestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
         ];
 

@@ -50,8 +50,8 @@ abstract class NodeDatabaseChild extends Node
             ];
 
             $ret = '<span class="navItemControls">'
-                . '<a href="navigation.php'
-                . Url::getCommon($params) . '"'
+                . '<a href="navigation.php" data-post="'
+                . Url::getCommon($params, '') . '"'
                 . ' class="hideNavItem ajax">'
                 . Util::getImage('hide', __('Hide'))
                 . '</a></span>';

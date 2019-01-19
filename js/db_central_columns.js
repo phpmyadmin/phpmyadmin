@@ -65,10 +65,10 @@ AJAX.registerOnload('db_central_columns.js', function () {
             return false;
         }
         var argsep = PMA_commonParams.get('arg_separator');
-        var editColumnData = editColumnList + '' + argsep + 'edit_central_columns_page=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + PMA_commonParams.get('db');
+        var editColumnData = editColumnList + '' + argsep + 'edit_central_columns_page=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(PMA_commonParams.get('db'));
         PMA_ajaxShowMessage();
         AJAX.source = $(this);
-        $.get('db_central_columns.php', editColumnData, AJAX.responseHandler);
+        $.post('db_central_columns.php', editColumnData, AJAX.responseHandler);
     });
     $('#multi_edit_central_columns').submit(function (event) {
         event.preventDefault();

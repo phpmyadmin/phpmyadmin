@@ -6,22 +6,16 @@ $( function() {
 
         {% if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %}
             {# Some variable for javascript #}
-            {% set ajax_url = 'import_status.php?id=' ~ upload_id ~ '&' ~ Url_getCommonRaw({
+            {% set ajax_url = 'import_status.php?id=' ~ upload_id ~ '&' ~ get_common_raw({
                 'import_status': 1
             }) %}
-            {% set promot_str = Sanitize_jsFormat(
-                'The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'|trans,
-                false
-            ) %}
-            {% set statustext_str = Sanitize_escapeJsString('%s of %s'|trans) %}
-            {% set second_str = Sanitize_jsFormat('%s/sec.'|trans, false) %}
-            {% set remaining_min = Sanitize_jsFormat('About %MIN min. %SEC sec. remaining.'|trans, false) %}
-            {% set remaining_second = Sanitize_jsFormat('About %SEC sec. remaining.'|trans, false) %}
-            {% set processed_str = Sanitize_jsFormat(
-                'The file is being processed, please be patient.'|trans,
-                false
-            ) %}
-            {% set import_url = Url_getCommonRaw({'import_status': 1}) %}
+            {% set promot_str = 'The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'|trans|js_format(false) %}
+            {% set statustext_str = '%s of %s'|trans|escape_js_string %}
+            {% set second_str = '%s/sec.'|trans|js_format(false) %}
+            {% set remaining_min = 'About %MIN min. %SEC sec. remaining.'|trans|js_format(false) %}
+            {% set remaining_second = 'About %SEC sec. remaining.'|trans|js_format(false) %}
+            {% set processed_str = 'The file is being processed, please be patient.'|trans|js_format(false) %}
+            {% set import_url = get_common_raw({'import_status': 1}) %}
 
             {% set upload_html %}
                 {% spaceless %}
@@ -33,7 +27,7 @@ $( function() {
                             </div>
                         </div>
                         <div>
-                            <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> {{ Sanitize_jsFormat('Uploading your import file…'|trans, false) -}}
+                            <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock"> {{ 'Uploading your import file…'|trans|js_format(false) -}}
                         </div>
                         <div id="statustext"></div>
                     </div>
@@ -59,7 +53,7 @@ $( function() {
                     complete = response.complete;
 
                     if (total==0 && complete==0 && percent==0) {
-                        $("#upload_form_status_info").html('<img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> {{ promot_str|raw }}');
+                        $("#upload_form_status_info").html('<img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock"> {{ promot_str|raw }}');
                         $("#upload_form_status").css("display", "none");
                     } else {
                         var now = new Date();
@@ -111,7 +105,7 @@ $( function() {
                                 .replace("%SEC", seconds);
                             }
 
-                            statustext += "<br />" + speed + "<br /><br />" + estimated_time;
+                            statustext += "<br>" + speed + "<br><br>" + estimated_time;
                         }
 
                         var percent_str = Math.round(percent) + "%";
@@ -140,7 +134,7 @@ $( function() {
                         $("#importmain").hide();
                         {# Loads the message, either success or mysql error #}
                         $("#import_form_status")
-                        .html('<img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> {{ processed_str|raw }}')
+                        .html('<img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock"> {{ processed_str|raw }}')
                         .show();
                         $("#import_form_status").load("import_status.php?message=true&{{ import_url|raw }}");
                         PMA_reloadNavigation();
@@ -157,12 +151,9 @@ $( function() {
             {# No plugin available #}
             {% set image_tag -%}
                 <img src="{{ pma_theme_image -}}
-                    ajax_clock_small.gif" width="16" height="16" alt="ajax clock" />
-                {{- Sanitize_jsFormat(
-                    'Please be patient, the file is being uploaded. Details about the upload are not available.'|trans,
-                    false
-                ) -}}
-                {{- Util_showDocu('faq', 'faq2-9') -}}
+                    ajax_clock_small.gif" width="16" height="16" alt="ajax clock">
+                {{- 'Please be patient, the file is being uploaded. Details about the upload are not available.'|trans|js_format(false) -}}
+                {{- show_docu('faq', 'faq2-9') -}}
             {%- endset %}
             $('#upload_form_status_info').html('{{ image_tag|raw }}');
             $("#upload_form_status").css("display", "none");

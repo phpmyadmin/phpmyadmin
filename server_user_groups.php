@@ -12,9 +12,13 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Server\Users;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
-$relation = new Relation();
+require_once ROOT_PATH . 'libraries/common.inc.php';
+
+$relation = new Relation($GLOBALS['dbi']);
 $relation->getRelationsParam();
 if (! $GLOBALS['cfgRelation']['menuswork']) {
     exit;
@@ -42,35 +46,35 @@ $response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_user_groups.php'
 /**
  * Delete user group
  */
-if (! empty($_REQUEST['deleteUserGroup'])) {
-    UserGroups::delete($_REQUEST['userGroup']);
+if (! empty($_POST['deleteUserGroup'])) {
+    UserGroups::delete($_POST['userGroup']);
 }
 
 /**
  * Add a new user group
  */
-if (! empty($_REQUEST['addUserGroupSubmit'])) {
-    UserGroups::edit($_REQUEST['userGroup'], true);
+if (! empty($_POST['addUserGroupSubmit'])) {
+    UserGroups::edit($_POST['userGroup'], true);
 }
 
 /**
  * Update a user group
  */
-if (! empty($_REQUEST['editUserGroupSubmit'])) {
-    UserGroups::edit($_REQUEST['userGroup']);
+if (! empty($_POST['editUserGroupSubmit'])) {
+    UserGroups::edit($_POST['userGroup']);
 }
 
-if (isset($_REQUEST['viewUsers'])) {
+if (isset($_POST['viewUsers'])) {
     // Display users belonging to a user group
-    $response->addHTML(UserGroups::getHtmlForListingUsersofAGroup($_REQUEST['userGroup']));
+    $response->addHTML(UserGroups::getHtmlForListingUsersofAGroup($_POST['userGroup']));
 }
 
-if (isset($_REQUEST['addUserGroup'])) {
+if (isset($_GET['addUserGroup'])) {
     // Display add user group dialog
     $response->addHTML(UserGroups::getHtmlToEditUserGroup());
-} elseif (isset($_REQUEST['editUserGroup'])) {
+} elseif (isset($_POST['editUserGroup'])) {
     // Display edit user group dialog
-    $response->addHTML(UserGroups::getHtmlToEditUserGroup($_REQUEST['userGroup']));
+    $response->addHTML(UserGroups::getHtmlToEditUserGroup($_POST['userGroup']));
 } else {
     // Display user groups table
     $response->addHTML(UserGroups::getHtmlForUserGroupsTable());

@@ -105,7 +105,7 @@ class Node
     public $pos3 = 0;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 
@@ -119,15 +119,15 @@ class Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
-        if (strlen($name)) {
+        if (strlen((string) $name)) {
             $this->name = $name;
             $this->real_name = $name;
         }
         if ($type === Node::CONTAINER) {
             $this->type = Node::CONTAINER;
         }
-        $this->is_group = (bool)$is_group;
-        $this->relation = new Relation();
+        $this->is_group = (bool) $is_group;
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -203,14 +203,14 @@ class Node
         $parents = [];
         if ($self
             && ($this->type != Node::CONTAINER || $containers)
-            && (!$this->is_group || $groups)
+            && (! $this->is_group || $groups)
         ) {
             $parents[] = $this;
         }
         $parent = $this->parent;
-        while (isset($parent)) {
+        while (! is_null($parent)) {
             if (($parent->type != Node::CONTAINER || $containers)
-                && (!$parent->is_group || $groups)
+                && (! $parent->is_group || $groups)
             ) {
                 $parents[] = $parent;
             }
@@ -279,9 +279,7 @@ class Node
         $retval = false;
         $paths = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
-            $retval = true;
-
-            return $retval;
+            return true;
         }
 
         foreach ($this->parent->children as $child) {
@@ -335,7 +333,7 @@ class Node
         $vPath = [];
         $vPath_clean = [];
         foreach ($this->parents(true, true, true) as $parent) {
-            $vPath[] = base64_encode($parent->name);
+            $vPath[] = base64_encode((string) $parent->name);
             $vPath_clean[] = $parent->name;
         }
         $vPath = implode('.', array_reverse($vPath));
@@ -363,11 +361,11 @@ class Node
     public function getData($type, $pos, $searchClause = '')
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
-        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
-            || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-                && !$GLOBALS['cfg']['Server']['DisableIS']
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
             ) {
                 $query = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
@@ -389,7 +387,7 @@ class Node
                 }
 
                 $count = 0;
-                if (!$GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                if (! $GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     return $retval;
                 }
 
@@ -436,7 +434,7 @@ class Node
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
         if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-            && !$GLOBALS['cfg']['Server']['DisableIS']
+            && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $query = "SELECT `SCHEMA_NAME` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
@@ -481,7 +479,7 @@ class Node
                         break;
                     }
                 }
-                $prefixes = array_slice(array_keys($prefixMap), $pos);
+                $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
             }
 
             $query = "SHOW DATABASES ";
@@ -490,7 +488,7 @@ class Node
             $subClauses = [];
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
-                    . $GLOBALS['dbi']->escapeString((string)$prefix) . $dbSeparator
+                    . $GLOBALS['dbi']->escapeString((string) $prefix) . $dbSeparator
                     . "', "
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }
@@ -570,16 +568,16 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
-            || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-                && !$GLOBALS['cfg']['Server']['DisableIS']
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
             ) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
-                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+                $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
                 return $retval;
             }
@@ -606,7 +604,7 @@ class Node
         }
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-        if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = "SELECT COUNT(*) ";
             $query .= "FROM ( ";
             $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
@@ -615,7 +613,7 @@ class Node
             $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
             $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= ") t ";
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
             return $retval;
         }
@@ -672,7 +670,7 @@ class Node
      */
     private function _isHideDb($db)
     {
-        return !empty($GLOBALS['cfg']['Server']['hide_db'])
+        return ! empty($GLOBALS['cfg']['Server']['hide_db'])
             && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db);
     }
 
@@ -688,13 +686,14 @@ class Node
      */
     private function _getDatabasesToSearch($searchClause)
     {
-        if (!empty($searchClause)) {
+        $databases = [];
+        if (! empty($searchClause)) {
             $databases = [
                 "%" . $GLOBALS['dbi']->escapeString($searchClause) . "%",
             ];
-        } elseif (!empty($GLOBALS['cfg']['Server']['only_db'])) {
+        } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
-        } elseif (!empty($GLOBALS['dbs_to_test'])) {
+        } elseif (! empty($GLOBALS['dbs_to_test'])) {
             $databases = $GLOBALS['dbs_to_test'];
         }
         sort($databases);
@@ -714,21 +713,21 @@ class Node
     private function _getWhereClause($columnName, $searchClause = '')
     {
         $whereClause = "WHERE TRUE ";
-        if (!empty($searchClause)) {
+        if (! empty($searchClause)) {
             $whereClause .= "AND " . Util::backquote($columnName)
                 . " LIKE '%";
             $whereClause .= $GLOBALS['dbi']->escapeString($searchClause);
             $whereClause .= "%' ";
         }
 
-        if (!empty($GLOBALS['cfg']['Server']['hide_db'])) {
+        if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
             $whereClause .= "AND " . Util::backquote($columnName)
                 . " NOT REGEXP '"
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['hide_db'])
                 . "' ";
         }
 
-        if (!empty($GLOBALS['cfg']['Server']['only_db'])) {
+        if (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             if (is_string($GLOBALS['cfg']['Server']['only_db'])) {
                 $GLOBALS['cfg']['Server']['only_db'] = [
                     $GLOBALS['cfg']['Server']['only_db'],
@@ -766,7 +765,7 @@ class Node
      */
     public function getCssClasses($match)
     {
-        if (!$GLOBALS['cfg']['NavigationTreeEnableExpansion']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
         }
@@ -792,10 +791,10 @@ class Node
      */
     public function getIcon($match)
     {
-        if (!$GLOBALS['cfg']['NavigationTreeEnableExpansion']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
-        } elseif ($match && !$this->is_group) {
+        } elseif ($match && ! $this->is_group) {
             $this->visible = true;
 
             return Util::getImage('b_minus');

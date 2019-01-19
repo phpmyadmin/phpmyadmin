@@ -125,7 +125,11 @@ class Theme
             return false;
         }
         // Check that all required data are there
-        $members = ['name', 'version', 'supports'];
+        $members = [
+            'name',
+            'version',
+            'supports',
+        ];
         foreach ($members as $member) {
             if (! isset($data[$member])) {
                 return false;
@@ -215,17 +219,6 @@ class Theme
     public function getPath()
     {
         return $this->path;
-    }
-
-    /**
-     * returns layout file
-     *
-     * @access public
-     * @return string layout file
-     */
-    public function getLayoutFile()
-    {
-        return $this->getPath() . '/layout.inc.php';
     }
 
     /**
@@ -369,44 +362,6 @@ class Theme
     }
 
     /**
-     * load css (send to stdout, normally the browser)
-     *
-     * @return bool
-     * @access  public
-     */
-    public function loadCss()
-    {
-        $success = true;
-
-        /* Variables to be used by the themes: */
-        $theme = $this;
-        if ($GLOBALS['text_dir'] === 'ltr') {
-            $right = 'right';
-            $left = 'left';
-        } else {
-            $right = 'left';
-            $left = 'right';
-        }
-
-        foreach ($this->_cssFiles as $file) {
-            $path = $this->getPath() . "/css/$file.css.php";
-            $fallback = "./themes/"
-                . ThemeManager::FALLBACK_THEME . "/css/$file.css.php";
-
-            if (is_readable($path)) {
-                echo "\n/* FILE: " , $file , ".css.php */\n";
-                include $path;
-            } elseif (is_readable($fallback)) {
-                echo "\n/* FILE: " , $file , ".css.php */\n";
-                include $fallback;
-            } else {
-                $success = false;
-            }
-        }
-        return $success;
-    }
-
-    /**
      * Renders the preview for this theme
      *
      * @return string
@@ -428,39 +383,5 @@ class Theme
             'id' => $this->getId(),
             'screen' => $screen,
         ]);
-    }
-
-    /**
-     * Generates code for CSS gradient using various browser extensions.
-     *
-     * @param string $start_color Color of gradient start, hex value without #
-     * @param string $end_color   Color of gradient end, hex value without #
-     *
-     * @return string CSS code.
-     */
-    public function getCssGradient($start_color, $end_color)
-    {
-        $result = [];
-        // Opera 9.5+, IE 9
-        $result[] = 'background-image: url(./themes/svg_gradient.php?from='
-            . $start_color . '&to=' . $end_color . ');';
-        $result[] = 'background-size: 100% 100%;';
-        // Safari 4-5, Chrome 1-9
-        $result[] = 'background: '
-            . '-webkit-gradient(linear, left top, left bottom, from(#'
-            . $start_color . '), to(#' . $end_color . '));';
-        // Safari 5.1, Chrome 10+
-        $result[] = 'background: -webkit-linear-gradient(top, #'
-            . $start_color . ', #' . $end_color . ');';
-        // Firefox 3.6+
-        $result[] = 'background: -moz-linear-gradient(top, #'
-            . $start_color . ', #' . $end_color . ');';
-        // IE 10
-        $result[] = 'background: -ms-linear-gradient(top, #'
-            . $start_color . ', #' . $end_color . ');';
-        // Opera 11.10
-        $result[] = 'background: -o-linear-gradient(top, #'
-            . $start_color . ', #' . $end_color . ');';
-        return implode("\n", $result);
     }
 }

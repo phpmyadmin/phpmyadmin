@@ -47,7 +47,7 @@ class BrowseForeignersTest extends TestCase
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs(
-            $object !== null ? $object : $this->browseForeigners,
+            $object ?? $this->browseForeigners,
             $params
         );
     }
@@ -68,7 +68,7 @@ class BrowseForeignersTest extends TestCase
             $this->browseForeigners->getForeignLimit(null)
         );
 
-        $_REQUEST['pos'] = 10;
+        $_POST['pos'] = 10;
 
         $this->assertEquals(
             'LIMIT 10, 25 ',
@@ -109,7 +109,7 @@ class BrowseForeignersTest extends TestCase
             )
         );
 
-        $_REQUEST['pos'] = 15;
+        $_POST['pos'] = 15;
         $foreignData = [];
         $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
@@ -165,7 +165,10 @@ class BrowseForeignersTest extends TestCase
         $desc = 'foobar<baz';
 
         $this->assertEquals(
-            ['foobar&lt;baz', ''],
+            [
+                'foobar&lt;baz',
+                '',
+            ],
             $this->callProtectedMethod(
                 'getDescriptionAndTitle',
                 [$desc]
@@ -175,7 +178,10 @@ class BrowseForeignersTest extends TestCase
         $browseForeigners = new BrowseForeigners(5, 25, 100, false, '');
 
         $this->assertEquals(
-            ['fooba...', 'foobar&lt;baz'],
+            [
+                'fooba...',
+                'foobar&lt;baz',
+            ],
             $this->callProtectedMethod(
                 'getDescriptionAndTitle',
                 [$desc],
@@ -198,8 +204,8 @@ class BrowseForeignersTest extends TestCase
         $foreignData['disp_row'] = '';
         $fieldkey = 'bar';
         $current_value = '';
-        $_REQUEST['rownumber'] = 1;
-        $_REQUEST['foreign_filter'] = '5';
+        $_POST['rownumber'] = 1;
+        $_POST['foreign_filter'] = '5';
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,
             $table,
@@ -222,17 +228,17 @@ class BrowseForeignersTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="field" value="foo" />',
+            '<input type="hidden" name="field" value="foo">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="fieldkey" value="bar" />',
+            '<input type="hidden" name="fieldkey" value="bar">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="rownumber" value="1" />',
+            '<input type="hidden" name="rownumber" value="1">',
             $result
         );
 
@@ -250,12 +256,12 @@ class BrowseForeignersTest extends TestCase
             '<input type="text" name="foreign_filter" '
             . 'id="input_foreign_filter" '
             . 'value="5" data-old="5" '
-            . '/>',
+            . '>',
             $result
         );
 
         $this->assertContains(
-            '<input type="submit" name="submit_foreign_filter" value="Go" />',
+            '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="Go">',
             $result
         );
 

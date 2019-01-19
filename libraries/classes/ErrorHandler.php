@@ -49,7 +49,7 @@ class ErrorHandler
          * This behavior is not tested there and breaks other tests as they
          * rely on PHPUnit doing it's own error handling which we break here.
          */
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             set_error_handler([$this, 'handleError']);
         }
         $this->error_reporting = error_reporting();
@@ -120,11 +120,11 @@ class ErrorHandler
     }
 
     /**
-    * returns the errors occurred in the current run only.
-    * Does not include the errors saved in the SESSION
-    *
-    * @return Error[]
-    */
+     * returns the errors occurred in the current run only.
+     * Does not include the errors saved in the SESSION
+     *
+     * @return Error[]
+     */
     public function getCurrentErrors(): array
     {
         return $this->errors;
@@ -369,9 +369,9 @@ class ErrorHandler
             ]);
             $retval .= '<input type="submit" value="'
                     . __('Report')
-                    . '" id="pma_report_errors" class="floatright">'
+                    . '" id="pma_report_errors" class="btn btn-primary floatright">'
                     . '<input type="checkbox" name="always_send"'
-                    . ' id="always_send_checkbox" value="true"/>'
+                    . ' id="always_send_checkbox" value="true">'
                     . '<label for="always_send_checkbox">'
                     . __('Automatically send report next time')
                     . '</label>';
@@ -380,11 +380,11 @@ class ErrorHandler
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
-                        . '" id="pma_ignore_errors_bottom" class="floatright">';
+                        . '" id="pma_ignore_errors_bottom" class="btn btn-secondary floatright">';
             }
             $retval .= '<input type="submit" value="'
                     . __('Ignore All')
-                    . '" id="pma_ignore_all_errors_bottom" class="floatright">';
+                    . '" id="pma_ignore_all_errors_bottom" class="btn btn-secondary floatright">';
             $retval .= '</form>';
         }
         return $retval;
@@ -497,12 +497,12 @@ class ErrorHandler
     }
 
     /**
-    * Deletes previously stored errors in SESSION.
-    * Saves current errors in session as previous errors.
-    * Required to save current errors in case  'ask'
-    *
-    * @return void
-    */
+     * Deletes previously stored errors in SESSION.
+     * Saves current errors in session as previous errors.
+     * Required to save current errors in case  'ask'
+     *
+     * @return void
+     */
     public function savePreviousErrors(): void
     {
         unset($_SESSION['prev_errors']);
@@ -516,7 +516,7 @@ class ErrorHandler
      * This distinguishes between the actual errors
      *      and user errors raised to warn user.
      *
-     *@return boolean true if there are errors to be "prompted", false otherwise
+     * @return boolean true if there are errors to be "prompted", false otherwise
      */
     public function hasErrorsForPrompt(): bool
     {
@@ -536,7 +536,7 @@ class ErrorHandler
     public function reportErrors(): void
     {
         // if there're no actual errors,
-        if (!$this->hasErrors()
+        if (! $this->hasErrors()
             || $this->countErrors() ==  $this->countUserErrors()
         ) {
             // then simply return.
@@ -563,7 +563,7 @@ class ErrorHandler
             }
         } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
             //ask user whether to submit errors or not.
-            if (!$response->isAjax()) {
+            if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
                 $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"]);'
                         . '$("#pma_ignore_errors_popup").bind("click", function() {

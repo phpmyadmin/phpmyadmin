@@ -9,15 +9,21 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
@@ -29,23 +35,26 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_operations.js');
 
+$template = new Template();
+
 /**
  * Runs common work
  */
-require './libraries/tbl_common.inc.php';
+require ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 
-$operations = new Operations();
+$relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
 
 /**
  * Updates if required
  */
 $_message = new Message();
 $_type = 'success';
-if (isset($_REQUEST['submitoptions'])) {
-    if (isset($_REQUEST['new_name'])) {
-        if ($pma_table->rename($_REQUEST['new_name'])) {
+if (isset($_POST['submitoptions'])) {
+    if (isset($_POST['new_name'])) {
+        if ($pma_table->rename($_POST['new_name'])) {
             $_message->addText($pma_table->getLastMessage());
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
@@ -91,62 +100,28 @@ unset($_message, $_type);
 $url_params['goto'] = 'view_operations.php';
 $url_params['back'] = 'view_operations.php';
 
-/**
- * Displays the page
- */
-?>
-<!-- Table operations -->
-<div>
-<form method="post" action="view_operations.php">
-<?php echo Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<input type="hidden" name="reload" value="1" />
-<fieldset>
-    <legend><?php echo __('Operations'); ?></legend>
-
-    <table>
-    <!-- Change view name -->
-    <tr><td><?php echo __('Rename view to'); ?></td>
-        <td><input type="text" name="new_name" onfocus="this.select()"
-                value="<?php echo htmlspecialchars($GLOBALS['table']); ?>"
-                required />
-        </td>
-    </tr>
-    </table>
-</fieldset>
-<fieldset class="tblFooters">
-        <input type="hidden" name="submitoptions" value="1" />
-        <input type="submit" value="<?php echo __('Go'); ?>" />
-</fieldset>
-</form>
-</div>
-<?php
 $drop_view_url_params = array_merge(
     $url_params,
     [
-        'sql_query' => 'DROP VIEW ' . Util::backquote(
-            $GLOBALS['table']
-        ),
+        'sql_query' => 'DROP VIEW ' . Util::backquote($GLOBALS['table']),
         'goto' => 'tbl_structure.php',
         'reload' => '1',
         'purge' => '1',
         'message_to_show' => sprintf(
             __('View %s has been dropped.'),
-            htmlspecialchars($GLOBALS['table'])
+            $GLOBALS['table']
         ),
         'table' => $GLOBALS['table']
     ]
 );
-echo '<div>';
-echo '<fieldset class="caution">';
-echo '<legend>' , __('Delete data or table') , '</legend>';
 
-echo '<ul>';
-echo $operations->getDeleteDataOrTablelink(
-    $drop_view_url_params,
-    'DROP VIEW',
-    __('Delete the view (DROP)'),
-    'drop_view_anchor'
-);
-echo '</ul>';
-echo '</fieldset>';
-echo '</div>';
+echo $template->render('table/operations/view', [
+    'db' => $GLOBALS['db'],
+    'table' => $GLOBALS['table'],
+    'delete_data_or_table_link' => $operations->getDeleteDataOrTablelink(
+        $drop_view_url_params,
+        'DROP VIEW',
+        __('Delete the view (DROP)'),
+        'drop_view_anchor'
+    ),
+]);

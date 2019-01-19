@@ -27,14 +27,14 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      */
     public function __construct()
     {
-        if (!empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+        if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
             $response = Response::getInstance();
             $scripts = $response->getHeader()
                 ->getScripts();
             $scripts->addFile('vendor/codemirror/lib/codemirror.js');
             $scripts->addFile('vendor/codemirror/mode/sql/sql.js');
             $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
-            $scripts->addFile('function.js');
+            $scripts->addFile('functions.js');
         }
     }
 

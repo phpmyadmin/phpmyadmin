@@ -38,7 +38,7 @@ class GisPoint extends GisGeometry
      */
     public static function singleton()
     {
-        if (!isset(self::$_instance)) {
+        if (! isset(self::$_instance)) {
             $class = __CLASS__;
             self::$_instance = new $class;
         }
@@ -70,18 +70,18 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string   $spatial     GIS POINT object
-     * @param string   $label       Label for the GIS POINT object
-     * @param string   $point_color Color for the GIS POINT object
-     * @param array    $scale_data  Array containing data related to scaling
-     * @param resource $image       Image object
+     * @param string      $spatial     GIS POLYGON object
+     * @param string|null $label       Label for the GIS POLYGON object
+     * @param string      $point_color Color for the GIS POLYGON object
+     * @param array       $scale_data  Array containing data related to scaling
+     * @param resource    $image       Image object
      *
      * @return resource the modified image object
      * @access public
      */
     public function prepareRowAsPng(
         $spatial,
-        $label,
+        ?string $label,
         $point_color,
         array $scale_data,
         $image
@@ -133,18 +133,18 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial     GIS POINT object
-     * @param string $label       Label for the GIS POINT object
-     * @param string $point_color Color for the GIS POINT object
-     * @param array  $scale_data  Array containing data related to scaling
-     * @param TCPDF  $pdf         TCPDF instance
+     * @param string      $spatial     GIS POINT object
+     * @param string|null $label       Label for the GIS POINT object
+     * @param string      $point_color Color for the GIS POINT object
+     * @param array       $scale_data  Array containing data related to scaling
+     * @param TCPDF       $pdf         TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
     public function prepareRowAsPdf(
         $spatial,
-        $label,
+        ?string $label,
         $point_color,
         array $scale_data,
         $pdf
@@ -153,7 +153,14 @@ class GisPoint extends GisGeometry
         $red = hexdec(mb_substr($point_color, 1, 2));
         $green = hexdec(mb_substr($point_color, 3, 2));
         $blue = hexdec(mb_substr($point_color, 4, 2));
-        $line = ['width' => 1.25, 'color' => [$red, $green, $blue]];
+        $line = [
+            'width' => 1.25,
+            'color' => [
+                $red,
+                $green,
+                $blue,
+            ],
+        ];
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point
@@ -201,7 +208,7 @@ class GisPoint extends GisGeometry
     {
         $point_options = [
             'name'         => $label,
-            'id'           => $label . rand(),
+            'id'           => $label . mt_rand(),
             'class'        => 'point vector',
             'fill'         => 'white',
             'stroke'       => $point_color,
@@ -296,11 +303,11 @@ class GisPoint extends GisGeometry
     {
         return 'POINT('
         . ((isset($gis_data[$index]['POINT']['x'])
-            && trim($gis_data[$index]['POINT']['x']) != '')
+            && trim((string) $gis_data[$index]['POINT']['x']) != '')
             ? $gis_data[$index]['POINT']['x'] : '')
         . ' '
         . ((isset($gis_data[$index]['POINT']['y'])
-            && trim($gis_data[$index]['POINT']['y']) != '')
+            && trim((string) $gis_data[$index]['POINT']['y']) != '')
             ? $gis_data[$index]['POINT']['y'] : '') . ')';
     }
 

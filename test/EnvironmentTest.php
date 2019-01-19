@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 /**
  *
  */
-require_once 'config.sample.inc.php';
+require_once ROOT_PATH . 'config.sample.inc.php';
 
 /**
  * Environment tests
@@ -45,7 +45,7 @@ class EnvironmentTest extends TestCase
     {
         try {
             $pdo = new \PDO(
-                "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'],
+                "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'] . ";port=" . $GLOBALS['TESTSUITE_PORT'],
                 $GLOBALS['TESTSUITE_USER'],
                 $GLOBALS['TESTSUITE_PASSWORD']
             );

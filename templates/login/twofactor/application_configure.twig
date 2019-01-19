@@ -1,19 +1,14 @@
-{{ Url_getHiddenInputs() }}
-{% if image is defined %}
+{{ get_hidden_inputs() }}
 <p>
     {% trans "Please scan following QR code into the two-factor authentication app on your device and enter authentication code it generates." %}
 </p>
 <p>
-    <img src="{{ image }}">
+    {% if has_imagick %}
+        <img src="{{ image }}">
+    {% else %}
+        {{ image|raw }}
+    {% endif %}
 </p>
-{% else %}
-<p>
-    {% trans "Please enter following secret/key into the two-factor authentication app on your device and enter authentication code it generates." %}
-</p>
-<p>
-    {% trans "OTP url:" %} <strong>{{ url }}</strong>
-</p>
-{% endif %}
 <p>
     {% trans "Secret/key:" %} <strong>{{ secret }}</strong>
 </p>

@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -316,12 +317,12 @@ class ExportTexytextTest extends PmaTestCase
         $keys = [
             [
                 'Non_unique' => 0,
-                'Column_name' => 'cname'
+                'Column_name' => 'cname',
             ],
             [
                 'Non_unique' => 1,
-                'Column_name' => 'cname2'
-            ]
+                'Column_name' => 'cname2',
+            ],
         ];
 
         $dbi->expects($this->once())
@@ -378,12 +379,12 @@ class ExportTexytextTest extends PmaTestCase
         $keys = [
             [
                 'Non_unique' => 0,
-                'Column_name' => 'cname'
+                'Column_name' => 'cname',
             ],
             [
                 'Non_unique' => 1,
-                'Column_name' => 'cname2'
-            ]
+                'Column_name' => 'cname2',
+            ],
         ];
 
         $dbi->expects($this->once())
@@ -397,15 +398,15 @@ class ExportTexytextTest extends PmaTestCase
                 [
                     'fname' => [
                         'foreign_table' => '<ftable',
-                        'foreign_field' => 'ffield>'
-                    ]
+                        'foreign_field' => 'ffield>',
+                    ],
                 ],
                 [
                     'fname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    ]
+                    ],
                 ]
             );
 
@@ -419,7 +420,7 @@ class ExportTexytextTest extends PmaTestCase
 
         $columns = [
             'Field' => 'fname',
-            'Comment' => 'comm'
+            'Comment' => 'comm',
         ];
 
         $dbi->expects($this->exactly(2))
@@ -428,6 +429,7 @@ class ExportTexytextTest extends PmaTestCase
             ->will($this->returnValue([$columns]));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(1))
             ->method('formatOneColumnDefinition')
@@ -442,7 +444,7 @@ class ExportTexytextTest extends PmaTestCase
             'mimework' => true,
             'db' => 'db',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         $result = $this->object->getTableDef(
@@ -461,7 +463,7 @@ class ExportTexytextTest extends PmaTestCase
         );
     }
 
-     /**
+    /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTriggers
      *
      * @return void
@@ -478,7 +480,7 @@ class ExportTexytextTest extends PmaTestCase
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
                 'definition' => 'def'
-            ]
+            ],
         ];
 
         $dbi->expects($this->once())
@@ -660,7 +662,7 @@ class ExportTexytextTest extends PmaTestCase
             'Field' => 'fields',
             'Key' => 'COMP',
             'Type' => '',
-            'Default' => 'def'
+            'Default' => 'def',
         ];
 
         $unique_keys = [

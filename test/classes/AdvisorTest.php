@@ -57,11 +57,23 @@ class AdvisorTest extends PmaTestCase
     public function escapeStrings()
     {
         return [
-            ['80%', '80%%'],
-            ['%s%', '%s%%'],
-            ['80% foo', '80%% foo'],
-            ['%s% foo', '%s%% foo'],
-            ];
+            [
+                '80%',
+                '80%%',
+            ],
+            [
+                '%s%',
+                '%s%%',
+            ],
+            [
+                '80% foo',
+                '80%% foo',
+            ],
+            [
+                '%s% foo',
+                '%s%% foo',
+            ],
+        ];
     }
 
     /**
@@ -98,11 +110,26 @@ class AdvisorTest extends PmaTestCase
     public function advisorTimes()
     {
         return [
-            [10, "10 per second"],
-            [0.02, "1.2 per minute"],
-            [0.003, "10.8 per hour"],
-            [0.00003, "2.59 per day"],
-            [0.0000000003, "<0.01 per day"],
+            [
+                10,
+                "10 per second",
+            ],
+            [
+                0.02,
+                "1.2 per minute",
+            ],
+            [
+                0.003,
+                "10.8 per hour",
+            ],
+            [
+                0.00003,
+                "2.59 per day",
+            ],
+            [
+                0.0000000003,
+                "<0.01 per day",
+            ],
         ];
     }
 
@@ -140,7 +167,7 @@ class AdvisorTest extends PmaTestCase
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
-        if (isset($runResult['errors']) || !is_null($error)) {
+        if (isset($runResult['errors']) || ! is_null($error)) {
             $this->assertEquals([$error], $runResult['errors']);
         }
         if (isset($runResult['fired']) || $expected != []) {
@@ -161,14 +188,14 @@ class AdvisorTest extends PmaTestCase
                     'justification' => 'foo',
                     'name' => 'Basic',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => 'foo',
                     'id' => 'Basic',
                     'name' => 'Basic',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 null,
             ],
@@ -177,7 +204,7 @@ class AdvisorTest extends PmaTestCase
                     'justification' => 'foo',
                     'name' => 'Variable',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend {status_var}'
+                    'recommendation' => 'Recommend {status_var}',
                 ],
                 [
                     'justification' => 'foo',
@@ -185,7 +212,7 @@ class AdvisorTest extends PmaTestCase
                     'name' => 'Variable',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend <a href="server_variables.php?' .
-                    'filter=status_var&amp;lang=en">status_var</a>'
+                    'filter=status_var&amp;lang=en">status_var</a>',
                 ],
                 null,
             ],
@@ -194,14 +221,14 @@ class AdvisorTest extends PmaTestCase
                     'justification' => '%s foo | value',
                     'name' => 'Format',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0 foo',
                     'id' => 'Format',
                     'name' => 'Format',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 null,
             ],
@@ -210,14 +237,14 @@ class AdvisorTest extends PmaTestCase
                     'justification' => '%s% foo | value',
                     'name' => 'Percent',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0% foo',
                     'id' => 'Percent',
                     'name' => 'Percent',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 null,
             ],
@@ -226,14 +253,14 @@ class AdvisorTest extends PmaTestCase
                     'justification' => '%s% %d foo | value, value',
                     'name' => 'Double',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0% 0 foo',
                     'id' => 'Double',
                     'name' => 'Double',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 null,
             ],
@@ -242,14 +269,14 @@ class AdvisorTest extends PmaTestCase
                     'justification' => '"\'foo',
                     'name' => 'Quotes',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend"\''
+                    'recommendation' => 'Recommend"\'',
                 ],
                 [
                     'justification' => '"\'foo',
                     'id' => 'Quotes',
                     'name' => 'Quotes',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend"\''
+                    'recommendation' => 'Recommend"\'',
                 ],
                 null,
             ],
@@ -258,12 +285,12 @@ class AdvisorTest extends PmaTestCase
                     'justification' => 'foo | fsafdsa',
                     'name' => 'Failure',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend'
+                    'recommendation' => 'Recommend',
                 ],
                 [],
                 'Failed formatting string for rule \'Failure\'. ' .
                 'Error when evaluating: Variable "fsafdsa" is not ' .
-                'valid around position 2 for expression `[fsafdsa]`.'
+                'valid around position 2 for expression `[fsafdsa]`.',
             ],
             [
                 [

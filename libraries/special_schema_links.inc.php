@@ -54,8 +54,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'hostname',
-                        'column_name' => 'host'
-                    ]
+                        'column_name' => 'host',
+                    ],
                 ],
                 'default_page' => './server_privileges.php'
             ],
@@ -64,7 +64,7 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'Db'
+                        'column_name' => 'Db',
                     ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
@@ -77,12 +77,12 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'Db'
+                        'column_name' => 'Db',
                     ],
                     1 => [
                         'param_info' => 'table',
-                        'column_name' => 'Table_name'
-                    ]
+                        'column_name' => 'Table_name',
+                    ],
                 ],
                 'default_page' => './tbl_structure.php?change_column=1'
             ],
@@ -93,11 +93,11 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'hostname',
-                        'column_name' => 'host'
-                    ]
+                        'column_name' => 'host',
+                    ],
                 ],
                 'default_page' => './server_privileges.php'
-            ]
+            ],
         ],
         'event' => [
             'name' => [
@@ -105,8 +105,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'db'
-                    ]
+                        'column_name' => 'db',
+                    ],
                 ],
                 'default_page' => './db_events.php?edit_item=1'
             ],
@@ -118,7 +118,7 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'database_name'
+                        'column_name' => 'database_name',
                     ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
@@ -131,12 +131,12 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'database_name'
+                        'column_name' => 'database_name',
                     ],
                     1 => [
                         'param_info' => 'table',
-                        'column_name' => 'table_name'
-                    ]
+                        'column_name' => 'table_name',
+                    ],
                 ],
                 'default_page' => './tbl_structure.php'
             ],
@@ -147,7 +147,7 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'database_name'
+                        'column_name' => 'database_name',
                     ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
@@ -162,12 +162,12 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'db'
+                        'column_name' => 'db',
                     ],
                     1 => [
                         'param_info' => 'item_type',
-                        'column_name' => 'type'
-                    ]
+                        'column_name' => 'type',
+                    ],
                 ],
                 'default_page' => './db_routines.php?edit_item=1'
             ],
@@ -176,12 +176,12 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'db'
+                        'column_name' => 'db',
                     ],
                     1 => [
                         'param_info' => 'item_type',
-                        'column_name' => 'type'
-                    ]
+                        'column_name' => 'type',
+                    ],
                 ],
                 'default_page' => './db_routines.php?edit_item=1'
             ],
@@ -192,8 +192,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'hostname',
-                        'column_name' => 'Host'
-                    ]
+                        'column_name' => 'Host',
+                    ],
                 ],
                 'default_page' => './server_privileges.php'
             ],
@@ -202,12 +202,12 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'Db'
+                        'column_name' => 'Db',
                     ],
                     1 => [
                         'param_info' => 'item_type',
-                        'column_name' => 'Routine_type'
-                    ]
+                        'column_name' => 'Routine_type',
+                    ],
                 ],
                 'default_page' => './db_routines.php?edit_item=1'
             ],
@@ -218,8 +218,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'hostname',
-                        'column_name' => 'Host'
-                    ]
+                        'column_name' => 'Host',
+                    ],
                 ],
                 'default_page' => './server_privileges.php'
             ],
@@ -230,8 +230,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'hostname',
-                        'column_name' => 'Host'
-                    ]
+                        'column_name' => 'Host',
+                    ],
                 ],
                 'default_page' => './server_privileges.php'
             ],
@@ -240,7 +240,7 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'Db'
+                        'column_name' => 'Db',
                     ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
@@ -255,11 +255,11 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'hostname',
-                        'column_name' => 'host'
-                    ]
+                        'column_name' => 'host',
+                    ],
                 ],
                 'default_page' => './server_privileges.php'
-            ]
+            ],
         ]
     ],
     'information_schema' => [
@@ -269,8 +269,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
-                    ]
+                        'column_name' => 'table_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
@@ -282,15 +282,15 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
+                        'column_name' => 'table_schema',
                     ],
                     1 => [
                         'param_info' => 'table',
-                        'column_name' => 'table_name'
-                    ]
+                        'column_name' => 'table_name',
+                    ],
                 ],
                 'default_page' => './tbl_structure.php?change_column=1'
-            ]
+            ],
         ],
         'key_column_usage' => [
             'table_name' => [
@@ -298,8 +298,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'constraint_schema'
-                    ]
+                        'column_name' => 'constraint_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
@@ -311,12 +311,12 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
+                        'column_name' => 'table_schema',
                     ],
                     1 => [
                         'param_info' => 'table',
-                        'column_name' => 'table_name'
-                    ]
+                        'column_name' => 'table_name',
+                    ],
                 ],
                 'default_page' => './tbl_structure.php?change_column=1'
             ],
@@ -325,8 +325,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'referenced_table_schema'
-                    ]
+                        'column_name' => 'referenced_table_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
@@ -338,15 +338,15 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'referenced_table_schema'
+                        'column_name' => 'referenced_table_schema',
                     ],
                     1 => [
                         'param_info' => 'table',
-                        'column_name' => 'referenced_table_name'
-                    ]
+                        'column_name' => 'referenced_table_name',
+                    ],
                 ],
                 'default_page' => './tbl_structure.php?change_column=1'
-            ]
+            ],
         ],
         'partitions' => [
             'table_name' => [
@@ -354,14 +354,14 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
-                    ]
+                        'column_name' => 'table_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
                     'table'
                 )
-            ]
+            ],
         ],
         'processlist' => [
             'user' => [
@@ -369,11 +369,11 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'hostname',
-                        'column_name' => 'host'
-                    ]
+                        'column_name' => 'host',
+                    ],
                 ],
                 'default_page' => './server_privileges.php'
-            ]
+            ],
         ],
         'referential_constraints' => [
             'table_name' => [
@@ -381,8 +381,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'constraint_schema'
-                    ]
+                        'column_name' => 'constraint_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
@@ -394,14 +394,14 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'constraint_schema'
-                    ]
+                        'column_name' => 'constraint_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
                     'table'
                 )
-            ]
+            ],
         ],
         'routines' => [
             'routine_name' => [
@@ -409,12 +409,12 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'routine_schema'
+                        'column_name' => 'routine_schema',
                     ],
                     1 => [
                         'param_info' => 'item_type',
-                        'column_name' => 'routine_type'
-                    ]
+                        'column_name' => 'routine_type',
+                    ],
                 ],
                 'default_page' => './db_routines.php'
             ],
@@ -425,8 +425,8 @@ $GLOBALS['special_schema_links'] = [
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
                     'table'
-                )
-            ]
+                ),
+            ],
         ],
         'statistics' => [
             'table_name' => [
@@ -434,8 +434,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
-                    ]
+                        'column_name' => 'table_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
@@ -447,15 +447,15 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
+                        'column_name' => 'table_schema',
                     ],
                     1 => [
                         'param_info' => 'table',
-                        'column_name' => 'table_name'
-                    ]
+                        'column_name' => 'table_name',
+                    ],
                 ],
                 'default_page' => './tbl_structure.php?change_column=1'
-            ]
+            ],
         ],
         'tables' => [
             'table_name' => [
@@ -463,8 +463,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
-                    ]
+                        'column_name' => 'table_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
@@ -478,8 +478,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
-                    ]
+                        'column_name' => 'table_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
@@ -493,8 +493,8 @@ $GLOBALS['special_schema_links'] = [
                 'link_dependancy_params' => [
                     0 => [
                         'param_info' => 'db',
-                        'column_name' => 'table_schema'
-                    ]
+                        'column_name' => 'table_schema',
+                    ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'],
@@ -502,5 +502,5 @@ $GLOBALS['special_schema_links'] = [
                 )
             ],
         ],
-    ]
+    ],
 ];

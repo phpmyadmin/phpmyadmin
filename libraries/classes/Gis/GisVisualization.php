@@ -165,7 +165,7 @@ class GisVisualization
     {
         $modified_query = 'SELECT ';
         // If label column is chosen add it to the query
-        if (!empty($this->_userSpecifiedSettings['labelColumn'])) {
+        if (! empty($this->_userSpecifiedSettings['labelColumn'])) {
             $modified_query .= Util::backquote(
                 $this->_userSpecifiedSettings['labelColumn']
             )
@@ -204,7 +204,7 @@ class GisVisualization
     /**
      * Returns raw data for GIS visualization.
      *
-     * @return string the raw data.
+     * @return array the raw data.
      */
     private function _fetchRawData()
     {
@@ -231,7 +231,7 @@ class GisVisualization
      */
     private function _handleOptions()
     {
-        if (!is_null($this->_userSpecifiedSettings)) {
+        if (! is_null($this->_userSpecifiedSettings)) {
             $this->_settings = array_merge(
                 $this->_settings,
                 $this->_userSpecifiedSettings
@@ -319,9 +319,7 @@ class GisVisualization
      */
     public function asSVG()
     {
-        $output = $this->_svg();
-
-        return $output;
+        return $this->_svg();
     }
 
     /**
@@ -392,7 +390,7 @@ class GisVisualization
         // base64 encode
         $encoded = base64_encode($output);
 
-        return '<img src="data:image/png;base64,' . $encoded . '" />';
+        return '<img src="data:image/png;base64,' . $encoded . '">';
     }
 
     /**
@@ -564,7 +562,7 @@ class GisVisualization
             $type = mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
-            if (!$gis_obj) {
+            if (! $gis_obj) {
                 continue;
             }
             $scale_data = $gis_obj->scaleRow(
@@ -572,23 +570,23 @@ class GisVisualization
             );
 
             // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = (float)$scale_data['maxX'];
-            if (!isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
+            $c_maxX = (float) $scale_data['maxX'];
+            if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
                 $min_max['maxX'] = $c_maxX;
             }
 
-            $c_minX = (float)$scale_data['minX'];
-            if (!isset($min_max['minX']) || $c_minX < $min_max['minX']) {
+            $c_minX = (float) $scale_data['minX'];
+            if (! isset($min_max['minX']) || $c_minX < $min_max['minX']) {
                 $min_max['minX'] = $c_minX;
             }
 
-            $c_maxY = (float)$scale_data['maxY'];
-            if (!isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
+            $c_maxY = (float) $scale_data['maxY'];
+            if (! isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
                 $min_max['maxY'] = $c_maxY;
             }
 
-            $c_minY = (float)$scale_data['minY'];
-            if (!isset($min_max['minY']) || $c_minY < $min_max['minY']) {
+            $c_minY = (float) $scale_data['minY'];
+            if (! isset($min_max['minY']) || $c_minY < $min_max['minY']) {
                 $min_max['minY'] = $c_minY;
             }
         }
@@ -653,7 +651,7 @@ class GisVisualization
             $type = mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
-            if (!$gis_obj) {
+            if (! $gis_obj) {
                 continue;
             }
             $label = '';

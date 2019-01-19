@@ -53,7 +53,7 @@ class Transformations
         $result = [];
 
         if (strlen($option_string) === 0
-            || ! $transform_options = preg_split('/,/', $option_string)
+            || ! $transform_options = explode(",", $option_string)
         ) {
             return $result;
         }
@@ -69,6 +69,7 @@ class Transformations
             } elseif (isset($trimmed[0]) && $trimmed[0] == "'") {
                 // '...,
                 $trimmed = ltrim($option);
+                $rtrimmed = null;
                 while (($option = array_shift($transform_options)) !== null) {
                     // ...,
                     $trimmed .= ',' . $option;
@@ -182,16 +183,17 @@ class Transformations
      *
      * @param string $file transformation file
      *
-     * @return String the description of the transformation
+     * @return string the description of the transformation
      */
     public function getDescription($file)
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        /* @var $class_name PhpMyAdmin\Plugins\TransformationsInterface */
+        /* @var $class_name \PhpMyAdmin\Plugins\TransformationsInterface */
         $class_name = $this->getClassName($include_file);
-        // include and instantiate the class
-        include_once $include_file;
-        return $class_name::getInfo();
+        if (class_exists($class_name)) {
+            return $class_name::getInfo();
+        }
+        return '';
     }
 
     /**
@@ -199,16 +201,17 @@ class Transformations
      *
      * @param string $file transformation file
      *
-     * @return String the name of the transformation
+     * @return string the name of the transformation
      */
     public function getName($file)
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        /* @var $class_name PhpMyAdmin\Plugins\TransformationsInterface */
+        /* @var $class_name \PhpMyAdmin\Plugins\TransformationsInterface */
         $class_name = $this->getClassName($include_file);
-        // include and instantiate the class
-        include_once $include_file;
-        return $class_name::getName();
+        if (class_exists($class_name)) {
+            return $class_name::getName();
+        }
+        return '';
     }
 
     /**
@@ -226,8 +229,14 @@ class Transformations
     public function fixUpMime($value)
     {
         $value = str_replace(
-            ["jpeg", "png"],
-            ["JPEG", "PNG"],
+            [
+                "jpeg",
+                "png",
+            ],
+            [
+                "JPEG",
+                "PNG",
+            ],
             $value
         );
         return str_replace(
@@ -253,7 +262,7 @@ class Transformations
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
@@ -277,7 +286,7 @@ class Transformations
             . Util::backquote($cfgRelation['column_info']) . '
              WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
                AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
-               AND ( `mimetype` != \'\'' . (!$strict ? '
+               AND ( `mimetype` != \'\'' . (! $strict ? '
                   OR `transformation` != \'\'
                   OR `transformation_options` != \'\'
                   OR `input_transformation` != \'\'
@@ -342,7 +351,7 @@ class Transformations
         $inputTransformOpts,
         $forcedelete = false
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
@@ -449,7 +458,7 @@ class Transformations
      */
     public function clear($db, $table = '', $column = '')
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         if (! isset($cfgRelation['column_info'])) {

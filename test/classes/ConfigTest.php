@@ -33,7 +33,7 @@ class ConfigTest extends PmaTestCase
     protected $object;
 
     /**
-     * @var object to test file permission
+     * @var Config to test file permission
      */
     protected $permTestObj;
 
@@ -53,7 +53,7 @@ class ConfigTest extends PmaTestCase
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config("./config.sample.inc.php");
+        $this->permTestObj = new Config(ROOT_PATH . "config.sample.inc.php");
     }
 
     /**
@@ -243,7 +243,6 @@ class ConfigTest extends PmaTestCase
         ];
     }
 
-
     /**
      * test for CheckGd2
      *
@@ -263,7 +262,7 @@ class ConfigTest extends PmaTestCase
 
         $this->object->set('GD2Available', 'auto');
 
-        if (!function_exists('imagecreatetruecolor')) {
+        if (! function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
             $this->assertEquals(
                 0,
@@ -331,7 +330,6 @@ class ConfigTest extends PmaTestCase
         unset($_SERVER['SERVER_SOFTWARE']);
     }
 
-
     /**
      * return server names
      *
@@ -350,7 +348,6 @@ class ConfigTest extends PmaTestCase
             ],
         ];
     }
-
 
     /**
      * test for CheckWebServerOs
@@ -442,7 +439,7 @@ class ConfigTest extends PmaTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->source_mtime);
 
-        $this->object->setSource('libraries/config.default.php');
+        $this->object->setSource(ROOT_PATH . 'libraries/config.default.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -473,10 +470,10 @@ class ConfigTest extends PmaTestCase
 
         $this->assertEmpty($this->object->getSource(), "Source is null by default");
 
-        $this->object->setSource("config.sample.inc.php");
+        $this->object->setSource(ROOT_PATH . "config.sample.inc.php");
 
         $this->assertEquals(
-            "config.sample.inc.php",
+            ROOT_PATH . "config.sample.inc.php",
             $this->object->getSource(),
             "Cant set new source"
         );
@@ -520,15 +517,96 @@ class ConfigTest extends PmaTestCase
     public function httpsParams()
     {
         return [
-            ['http', '', '', '', '', 'http', 80, false],
-            ['http', '', 'http://', '', '', 'http', 80, false],
-            ['http', '', '', '', '', 'http', 443, true],
-            ['http', '', '', '', '', 'https', 80, true],
-            ['http', '', '', '', 'on', 'http', 80, true],
-            ['http', '', '', 'on', '', 'http', 80, true],
-            ['http', '', 'https://', '', '', 'http', 80, true],
-            ['http', 'on', '', '', '', 'http', 80, true],
-            ['https', '', '', '', '', 'http', 80, true],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                false,
+            ],
+            [
+                'http',
+                '',
+                'http://',
+                '',
+                '',
+                'http',
+                80,
+                false,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                443,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'https',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                'on',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                'on',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                'https://',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                'on',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'https',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
         ];
     }
 
@@ -554,8 +632,8 @@ class ConfigTest extends PmaTestCase
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT'
-            ];
+            'PMA_USR_BROWSER_AGENT',
+        ];
 
         foreach ($defines as $define) {
             $this->assertTrue(defined($define));
@@ -700,15 +778,15 @@ class ConfigTest extends PmaTestCase
     {
         return [
             [
-                './test/test_data/config.inc.php',
+                ROOT_PATH . 'test/test_data/config.inc.php',
                 true,
             ],
             [
-                './test/test_data/config-nonexisting.inc.php',
+                ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
             ],
             [
-                './libraries/config.default.php',
+                ROOT_PATH . 'libraries/config.default.php',
                 true,
             ],
         ];
@@ -719,10 +797,11 @@ class ConfigTest extends PmaTestCase
      *
      * @return void
      * @todo Test actually preferences loading
+     * @doesNotPerformAssertions
      */
     public function testLoadUserPreferences()
     {
-        $this->assertNull($this->object->loadUserPreferences());
+        $this->object->loadUserPreferences();
     }
 
     /**
@@ -781,19 +860,17 @@ class ConfigTest extends PmaTestCase
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
         //testing for permissions for no configuration file
-        $this->assertFalse(!($perms === false) && ($perms & 2));
+        $this->assertFalse(! ($perms === false) && ($perms & 2));
 
         //load file permissions for the current permissions file
         $perms = @fileperms($this->permTestObj->getSource());
-        //testing for permissions
-        $this->assertFalse(!($perms === false) && ($perms & 2));
 
-        //if the above assertion is false then applying further assertions
-        if (!($perms === false) && ($perms & 2)) {
-            $this->assertNotSame(0, $this->permTestObj->get('PMA_IS_WINDOWS'));
+        if (! ($perms === false) && ($perms & 2)) {
+            $this->assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
+        } else {
+            $this->assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
         }
     }
-
 
     /**
      * Test for setting cookies
@@ -845,9 +922,16 @@ class ConfigTest extends PmaTestCase
     public function testIsGitRevision()
     {
         $git_location = '';
+
         $this->assertTrue(
             $this->object->isGitRevision($git_location)
         );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         $this->assertEquals('.git', $git_location);
     }
 
@@ -884,6 +968,11 @@ class ConfigTest extends PmaTestCase
             $this->object->isGitRevision()
         );
 
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
@@ -893,6 +982,11 @@ class ConfigTest extends PmaTestCase
             $this->object->isGitRevision()
         );
 
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
@@ -900,6 +994,11 @@ class ConfigTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
         );
 
         unlink('.git/config');
@@ -930,6 +1029,11 @@ class ConfigTest extends PmaTestCase
             $this->object->isGitRevision()
         );
 
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
@@ -937,6 +1041,11 @@ class ConfigTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
         );
 
         unset($_SESSION['git_location']);
@@ -948,6 +1057,11 @@ class ConfigTest extends PmaTestCase
             $this->object->isGitRevision()
         );
 
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         unlink('.git');
         rmdir('.customgitdir');
 
@@ -956,11 +1070,11 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
-     * Test for checkGitRevision
+     * Test for checkGitRevision packs folder
      *
      * @return void
      */
-    public function testCheckGitRevision()
+    public function testCheckGitRevisionPacksFolder()
     {
         $cwd = getcwd();
         $test_dir = "gittestdir";
@@ -975,6 +1089,11 @@ class ConfigTest extends PmaTestCase
         file_put_contents('.git/config', '');
 
         $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
 
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
@@ -1015,6 +1134,135 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
+     * Test for checkGitRevision packs folder
+     *
+     * @return void
+     */
+    public function testCheckGitRevisionRefFile()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        mkdir('.git');
+        file_put_contents('.git/config', '');
+
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
+        mkdir('.git/refs/remotes/origin', 0777, true);
+        file_put_contents('.git/refs/remotes/origin/master', 'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
+        mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            0,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unlink('.git/refs/remotes/origin/master');
+        rmdir('.git/refs/remotes/origin');
+        rmdir('.git/refs/remotes');
+        rmdir('.git/refs');
+        rmdir(".git/objects/pack");
+        rmdir(".git/objects");
+        unlink('.git/HEAD');
+        unlink('.git/config');
+        rmdir('.git');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
+     * Test for checkGitRevision with packs as file
+     *
+     * @return void
+     */
+    public function testCheckGitRevisionPacksFile()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        mkdir('.git');
+        file_put_contents('.git/config', '');
+
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
+        $this->object->checkGitRevision();
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents(
+            '.git/packed-refs',
+            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
+        );
+        mkdir('.git/objects/info', 0777, true);
+        file_put_contents(
+            '.git/objects/info/packs',
+            'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack' . PHP_EOL .
+            '  pack-.pack' . PHP_EOL .
+            PHP_EOL .
+            'P pack-420568bae521465fd11863bff155a2b2831023.pack' . PHP_EOL .
+            PHP_EOL
+        );
+
+        $this->object->checkGitRevision();
+
+        $this->assertNotEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+        $this->assertNotEmpty(
+            $this->object->get('PMA_VERSION_GIT_BRANCH')
+        );
+
+        unlink(".git/objects/info/packs");
+        rmdir(".git/objects/info");
+        rmdir(".git/objects");
+        unlink('.git/packed-refs');
+        unlink('.git/HEAD');
+        unlink('.git/config');
+        rmdir('.git');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
      * Test for checkGitRevision
      *
      * @return void
@@ -1023,8 +1271,70 @@ class ConfigTest extends PmaTestCase
     {
         $this->object->set('ShowGitRevision', false);
         $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+    }
+
+    /**
+     * Test for git infos in session
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolder()
+    {
+        $_SESSION['git_location'] = 'customdir/.git';
+        $_SESSION['is_git_revision'] = true;
+        $gitFolder = '';
+        $this->assertTrue($this->object->isGitRevision($gitFolder));
+
+        $this->assertEquals(
+            $gitFolder,
+            'customdir/.git'
+        );
+    }
+
+    /**
+     * Test that git folder is not looked up if cached value is false
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolderNotRevisionNull()
+    {
+        $_SESSION['is_git_revision'] = false;
+        $_SESSION['git_location'] = null;
+        $gitFolder = 'defaultvaluebyref';
+        $this->assertFalse($this->object->isGitRevision($gitFolder));
+
+        // Assert that the value is replaced by cached one
+        $this->assertEquals(
+            $gitFolder,
+            null
+        );
+    }
+
+    /**
+     * Test that git folder is not looked up if cached value is false
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolderNotRevisionString()
+    {
+        $_SESSION['is_git_revision'] = false;
+        $_SESSION['git_location'] = 'randomdir/.git';
+        $gitFolder = 'defaultvaluebyref';
+        $this->assertFalse($this->object->isGitRevision($gitFolder));
+
+        // Assert that the value is replaced by cached one
+        $this->assertEquals(
+            $gitFolder,
+            'randomdir/.git'
         );
     }
 
@@ -1073,12 +1383,15 @@ class ConfigTest extends PmaTestCase
             ],
             'empty_host' => [
                 [1 => ['host' => '']],
-                ['verbose' => 'Server 1', 'host' => ''],
+                [
+                    'verbose' => 'Server 1',
+                    'host' => ''
+                ],
             ],
             'invalid' => [
                 ['invalid' => ['host' => '127.0.0.1']],
                 ['host' => '127.0.0.1'],
-                true
+                true,
             ],
         ];
     }
@@ -1127,14 +1440,24 @@ class ConfigTest extends PmaTestCase
                 2,
             ],
             'verbose' => [
-                [1 => ['verbose' => 'Server 1', 'host' => '']],
+                [
+                    1 => [
+                        'verbose' => 'Server 1',
+                        'host' => ''
+                    ],
+                ],
                 'Server 1',
-                1
+                1,
             ],
             'md5' => [
-                [66 => ['verbose' => 'Server 1', 'host' => '']],
+                [
+                    66 => [
+                        'verbose' => 'Server 1',
+                        'host' => ''
+                    ],
+                ],
                 '753f173bd4ac8a45eae0fe9a4fbe0fc0',
-                66
+                66,
             ],
             'nonexisting_string' => [
                 [1 => []],

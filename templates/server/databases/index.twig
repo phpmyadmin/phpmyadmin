@@ -11,22 +11,22 @@
                 <form method="post" action="server_databases.php" id="create_database_form" class="ajax">
                     <p><strong>
                         <label for="text_create_db">
-                            {{ Util_getImage('b_newdb') }}
+                            {{ get_image('b_newdb') }}
                             {% trans 'Create database' %}
                         </label>
-                        {{ Util_showMySQLDocu('CREATE_DATABASE') }}
+                        {{ show_mysql_docu('CREATE_DATABASE') }}
                     </strong></p>
 
-                    {{ Url_getHiddenInputs('', '', 5) }}
-                    <input type="hidden" name="reload" value="1" />
+                    {{ get_hidden_inputs('', '', 5) }}
+                    <input type="hidden" name="reload" value="1">
                     {% if dbstats is not empty %}
-                        <input type="hidden" name="dbstats" value="1" />
+                        <input type="hidden" name="dbstats" value="1">
                     {% endif %}
 
                     <input type="text" name="new_db" value="{{ db_to_create }}"
                         maxlength="64" class="textfield" id="text_create_db" required
-                        placeholder="{% trans 'Database name' %}" />
-                    {{ Charsets_getCollationDropdownBox(
+                        placeholder="{% trans 'Database name' %}">
+                    {{ get_collation_dropdown_box(
                         dbi,
                         disable_is,
                         'db_collation',
@@ -34,18 +34,18 @@
                         server_collation,
                         true
                     ) }}
-                    <input type="submit" value="{% trans 'Create' %}" id="buttonGo" />
+                    <input id="buttonGo" class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
                 </form>
             {% else %}
                 {# db creation no privileges message #}
                 <p><strong>
-                    {{ Util_getImage('b_newdb') }}
+                    {{ get_image('b_newdb') }}
                     {% trans 'Create database' %}
-                    {{ Util_showMySQLDocu('CREATE_DATABASE') }}
+                    {{ show_mysql_docu('CREATE_DATABASE') }}
                 </strong></p>
 
                 <span class="noPrivileges">
-                    {{ Util_getImage(
+                    {{ get_image(
                         's_error',
                         '',
                         {'hspace': 2, 'border': 0, 'align': 'middle'}
@@ -62,7 +62,7 @@
 {# Displays the table #}
 {% if databases is not null %}
     <div id="tableslistcontainer">
-        {{ Util_getListNavigator(
+        {{ get_list_navigator(
             database_count,
             pos,
             url_params,
@@ -71,7 +71,7 @@
             max_db_list
         ) }}
         <form class="ajax" action="server_databases.php" method="post" name="dbStatsForm" id="dbStatsForm">
-            {{ Url_getHiddenInputs(url_params) }}
+            {{ get_hidden_inputs(url_params) }}
             {% set url_params = url_params|merge({
                 'sort_by': 'SCHEMA_NAME',
                 'sort_order': sort_by == 'SCHEMA_NAME' and sort_order == 'asc' ? 'desc' : 'asc'
@@ -84,9 +84,9 @@
                                 <th></th>
                             {% endif %}
                             <th>
-                                <a href="server_databases.php{{ Url_getCommon(url_params) }}">
+                                <a href="server_databases.php{{ get_common(url_params) }}">
                                     {% trans 'Database' %}
-                                    {{ sort_by == 'SCHEMA_NAME' ? Util_getImage(
+                                    {{ sort_by == 'SCHEMA_NAME' ? get_image(
                                         's_' ~ sort_order,
                                         sort_order == 'asc' ? 'Ascending'|trans : 'Descending'|trans
                                     ) }}
@@ -99,9 +99,9 @@
                                 }) %}
 
                                 <th{{ stat['format'] is same as('byte') ? ' colspan="2"' }}>
-                                    <a href="server_databases.php{{ Url_getCommon(url_params) }}">
+                                    <a href="server_databases.php{{ get_common(url_params) }}">
                                         {{ stat['disp_name'] }}
-                                        {{ sort_by == stat_name ? Util_getImage(
+                                        {{ sort_by == stat_name ? get_image(
                                             's_' ~ sort_order,
                                             sort_order == 'asc' ? 'Ascending'|trans : 'Descending'|trans
                                         ) }}
