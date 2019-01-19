@@ -3038,6 +3038,13 @@ form.append_fields_form .tblFooters {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
     }
+    textarea{
+      width: 10em;
+      box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
   }
 
   select {
