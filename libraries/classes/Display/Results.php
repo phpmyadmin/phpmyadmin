@@ -84,7 +84,6 @@ class Results
     public const ACTION_LINK_CONTENT_ICONS = 'icons';
     public const ACTION_LINK_CONTENT_TEXT = 'text';
 
-
     // Declare global fields
 
     /** array with properties of the class */
@@ -455,8 +454,7 @@ class Results
         $this->__set('url_query', $url_query);
         $this->__set('editable', $editable);
         $this->__set('is_browse_distinct', $is_browse_dist);
-    } // end of the 'setProperties()' function
-
+    }
 
     /**
      * Defines the parts to display for a print view
@@ -704,8 +702,7 @@ class Results
             $displayParts,
             $the_total,
         ];
-    } // end of the 'setDisplayPartsAndTotal()' function
-
+    }
 
     /**
      * Return true if we are executing a query in the form of
@@ -730,7 +727,6 @@ class Results
             && (count($analyzed_sql_results['statement']->from) == 1)
             && ! empty($analyzed_sql_results['statement']->from[0]->table);
     }
-
 
     /**
      * Get a navigation button
@@ -972,7 +968,6 @@ class Results
         $pos_next,
         $is_innodb
     ) {
-
         // display the Next button
         $buttons_html = $this->_getTableNavigationButton(
             '&gt;',
@@ -1286,100 +1281,85 @@ class Results
             $unsorted_sql_query,
             $drop_down_html,
         ];
-    } // end of the '_getUnsortedSqlAndSortByKeyDropDown()' function
+    }
 
     /**
      * Prepare sort by key dropdown - html code segment
      *
-     * @param Index[]    $indexes            the indexes of the table for sort criteria
-     * @param array|null $sort_expression    the sort expression
-     * @param string     $unsorted_sql_query the unsorted sql query
+     * @param Index[]    $indexes          the indexes of the table for sort criteria
+     * @param array|null $sortExpression   the sort expression
+     * @param string     $unsortedSqlQuery the unsorted sql query
      *
-     * @return  string         html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getTableHeaders()
+     * @see _getTableHeaders()
      */
     private function _getSortByKeyDropDown(
         $indexes,
-        ?array $sort_expression,
-        $unsorted_sql_query
-    ) {
+        ?array $sortExpression,
+        $unsortedSqlQuery
+    ): string {
+        $hiddenFields = [
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+            'sort_by_key' => '1',
+        ];
 
-        $drop_down_html = '';
+        $isIndexUsed = false;
+        $localOrder = is_array($sortExpression) ? implode(', ', $sortExpression) : '';
 
-        $drop_down_html .= '<form action="sql.php" method="post" ' .
-            'class="print_ignore">' . "\n"
-            . Url::getHiddenInputs(
-                $this->__get('db'),
-                $this->__get('table')
-            )
-            . Url::getHiddenFields(['sort_by_key' => '1'], '', true)
-            . __('Sort by key')
-            . ': <select name="sql_query" class="autosubmit">' . "\n";
-
-        $used_index = false;
-        $local_order = (is_array($sort_expression) ? implode(', ', $sort_expression) : '');
-
+        $options = [];
         foreach ($indexes as $index) {
-            $asc_sort = '`'
+            $ascSort = '`'
                 . implode('` ASC, `', array_keys($index->getColumns()))
                 . '` ASC';
 
-            $desc_sort = '`'
+            $descSort = '`'
                 . implode('` DESC, `', array_keys($index->getColumns()))
                 . '` DESC';
 
-            $used_index = $used_index
-                || ($local_order == $asc_sort)
-                || ($local_order == $desc_sort);
+            $isIndexUsed = $isIndexUsed
+                || $localOrder === $ascSort
+                || $localOrder === $descSort;
 
+            $unsortedSqlQueryFirstPart = $unsortedSqlQuery;
+            $unsortedSqlQuerySecondPart = '';
             if (preg_match(
                 '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|'
                 . 'FOR UPDATE|LOCK IN SHARE MODE))@is',
-                $unsorted_sql_query,
-                $my_reg
+                $unsortedSqlQuery,
+                $myReg
             )) {
-                $unsorted_sql_query_first_part = $my_reg[1];
-                $unsorted_sql_query_second_part = $my_reg[2];
-            } else {
-                $unsorted_sql_query_first_part = $unsorted_sql_query;
-                $unsorted_sql_query_second_part = '';
+                $unsortedSqlQueryFirstPart = $myReg[1];
+                $unsortedSqlQuerySecondPart = $myReg[2];
             }
 
-            $drop_down_html .= '<option value="'
-                . htmlspecialchars(
-                    $unsorted_sql_query_first_part . "\n"
-                    . ' ORDER BY ' . $asc_sort
-                    . $unsorted_sql_query_second_part
-                )
-                . '"' . ($local_order == $asc_sort
-                    ? ' selected="selected"'
-                    : '')
-                . '>' . htmlspecialchars($index->getName()) . ' (ASC)</option>';
-
-            $drop_down_html .= '<option value="'
-                . htmlspecialchars(
-                    $unsorted_sql_query_first_part . "\n"
-                    . ' ORDER BY ' . $desc_sort
-                    . $unsorted_sql_query_second_part
-                )
-                . '"' . ($local_order == $desc_sort
-                    ? ' selected="selected"'
-                    : '')
-                . '>' . htmlspecialchars($index->getName()) . ' (DESC)</option>';
+            $options[] = [
+                'value' => $unsortedSqlQueryFirstPart . ' ORDER BY '
+                    . $ascSort . $unsortedSqlQuerySecondPart,
+                'content' => $index->getName() . ' (ASC)',
+                'is_selected' => $localOrder === $ascSort,
+            ];
+            $options[] = [
+                'value' => $unsortedSqlQueryFirstPart . ' ORDER BY '
+                    . $descSort . $unsortedSqlQuerySecondPart,
+                'content' => $index->getName() . ' (DESC)',
+                'is_selected' => $localOrder === $descSort,
+            ];
         }
+        $options[] = [
+            'value' => $unsortedSqlQuery,
+            'content' => __('None'),
+            'is_selected' => ! $isIndexUsed,
+        ];
 
-        $drop_down_html .= '<option value="' . htmlspecialchars($unsorted_sql_query)
-            . '"' . ($used_index ? '' : ' selected="selected"') . '>' . __('None')
-            . '</option>'
-            . '</select>' . "\n"
-            . '</form>' . "\n";
-
-        return $drop_down_html;
-    } // end of the '_getSortByKeyDropDown()' function
-
+        return $this->template->render('display/results/sort_by_key', [
+            'hidden_fields' => $hiddenFields,
+            'options' => $options,
+        ]);
+    }
 
     /**
      * Set column span, row span and prepare html with full/partial
@@ -1455,8 +1435,7 @@ class Results
             $colspan,
             $button_html,
         ];
-    } // end of the '_getFieldVisibilityParams()' function
-
+    }
 
     /**
      * Get table comments as array
@@ -1489,8 +1468,7 @@ class Results
         }
 
         return $ret;
-    } // end of the '_getTableCommentsArray()' function
-
+    }
 
     /**
      * Set global array for store highlighted header fields
@@ -1516,8 +1494,7 @@ class Results
         }
 
         $this->__set('highlight_columns', $highlight_columns);
-    } // end of the '_setHighlightedColumnGlobalField()' function
-
+    }
 
     /**
      * Prepare data for column restoring and show/hide
@@ -1565,8 +1542,7 @@ class Results
         }
 
         return $data_html;
-    } // end of the '_getDataForResettingColumnOrder()' function
-
+    }
 
     /**
      * Prepare option fields block
@@ -1779,7 +1755,7 @@ class Results
             $order_link,
             $sorted_header_html,
         ];
-    } // end of the '_getOrderLinkAndSortedHeaderHtml()' function
+    }
 
     /**
      * Prepare parameters and html for sorted table header fields
@@ -2007,8 +1983,7 @@ class Results
         }
 
         return $is_in_sort;
-    } // end of the '_isInSorted()' function
-
+    }
 
     /**
      * Get sort url parameters - sort order and order image
@@ -2066,8 +2041,7 @@ class Results
             $sort_order,
             $order_img,
         ];
-    } // end of the '_getSortingUrlParams()' function
-
+    }
 
     /**
      * Get sort order link
@@ -2102,7 +2076,7 @@ class Results
             $inner_link_content,
             $order_link_params
         );
-    } // end of the '_getSortOrderLink()' function
+    }
 
     /**
      * Check if the column contains numeric data. If yes, then set the
@@ -2172,8 +2146,7 @@ class Results
             . '">' . $order_link . $comments . '</th>';
 
         return $draggable_html;
-    } // end of the '_getDraggableClassForSortableColumns()' function
-
+    }
 
     /**
      * Prepare columns to draggable effect for non sortable columns
@@ -2221,8 +2194,7 @@ class Results
         $draggable_html .= "\n" . $comments . '</th>';
 
         return $draggable_html;
-    } // end of the '_getDraggableClassForNonSortableColumns()' function
-
+    }
 
     /**
      * Prepare column to show at right side - check boxes or empty column
@@ -2282,8 +2254,7 @@ class Results
         $this->__set('display_params', $display_params);
 
         return $right_column_html;
-    } // end of the '_getColumnAtRightSide()' function
-
+    }
 
     /**
      * Prepares the display for a value
@@ -2435,7 +2406,7 @@ class Results
         }
 
         return implode(' ', $classes);
-    } // end of the '_addClass()' function
+    }
 
     /**
      * Prepare the body of the results table
@@ -2462,7 +2433,6 @@ class Results
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
-
         global $row; // mostly because of browser transformations,
                      // to make the row-data accessible in a plugin
 
@@ -2689,7 +2659,7 @@ class Results
         } // end while
 
         return $table_body_html;
-    } // end of the '_getTableBody()' function
+    }
 
     /**
      * Sets the MIME details of the columns in the results set
@@ -3055,7 +3025,7 @@ class Results
         } // end for
 
         return $row_values_html;
-    } // end of the '_getRowValues()' function
+    }
 
     /**
      * Get link for display special schema links
@@ -3111,7 +3081,6 @@ class Results
         return $link_relations['default_page']
             . Url::getCommonRaw($linking_url_params, $divider);
     }
-
 
     /**
      * Prepare row information for display special links
@@ -3172,8 +3141,7 @@ class Results
         }
 
         return $query;
-    } // end of the '_getUrlSqlQuery()' function
-
+    }
 
     /**
      * Get column order and column visibility
@@ -3211,8 +3179,7 @@ class Results
             $col_order,
             $col_visib,
         ];
-    } // end of the '_getColumnParams()' function
-
+    }
 
     /**
      * Get HTML for repeating headers
@@ -3251,8 +3218,7 @@ class Results
         $header_html .= '</tr>' . "\n";
 
         return $header_html;
-    } // end of the '_getRepeatingHeaders()' function
-
+    }
 
     /**
      * Get modified links
@@ -3315,8 +3281,7 @@ class Results
             $copy_str,
             $edit_anchor_class,
         ];
-    } // end of the '_getModifiedLinks()' function
-
+    }
 
     /**
      * Get delete and kill links
@@ -3407,8 +3372,7 @@ class Results
             $del_str,
             $js_conf,
         ];
-    } // end of the '_getDeleteAndKillLinks()' function
-
+    }
 
     /**
      * Get content inside the table row action links (Edit/Copy/Delete)
@@ -3449,7 +3413,6 @@ class Results
 
         return $linkContent;
     }
-
 
     /**
      * Prepare placed links
@@ -3512,8 +3475,7 @@ class Results
             $del_str,
             $js_conf
         );
-    } // end of the '_getPlacedLinks()' function
-
+    }
 
     /**
      * Get the combined classes for a column
@@ -3539,8 +3501,7 @@ class Results
     ) {
         return 'data ' . $grid_edit_class . ' ' . $not_null_class . ' '
             . $relation_class . ' ' . $hide_class . ' ' . $field_type_class;
-    } // end of the '_getClassesForColumn()' function
-
+    }
 
     /**
      * Get class for datetime related fields
@@ -3569,8 +3530,7 @@ class Results
             $field_type_class = '';
         }
         return $field_type_class;
-    } // end of the '_getClassForDateTimeRelatedFields()' function
-
+    }
 
     /**
      * Prepare data cell for numeric type fields
@@ -3645,8 +3605,7 @@ class Results
         }
 
         return $cell;
-    } // end of the '_getDataCellForNumericColumns()' function
-
+    }
 
     /**
      * Get data cell for geometry type fields
@@ -3791,8 +3750,7 @@ class Results
         );
 
         return $cell;
-    } // end of the '_getDataCellForGeometryColumns()' function
-
+    }
 
     /**
      * Get data cell for non numeric type fields
@@ -3976,7 +3934,7 @@ class Results
         );
 
         return $cell;
-    } // end of the '_getDataCellForNonNumericColumns()' function
+    }
 
     /**
      * Checks the posted options for viewing query results
@@ -4416,8 +4374,7 @@ class Results
             $pos_next,
             $pos_prev,
         ];
-    } // end of the '_getOffsets()' function
-
+    }
 
     /**
      * Prepare sorted column message
@@ -4438,7 +4395,6 @@ class Results
         &$dt_result,
         $sort_expression_nodirection
     ) {
-
         $fields_meta = $this->__get('fields_meta'); // To use array indexes
 
         if (empty($sort_expression_nodirection)) {
@@ -4544,8 +4500,7 @@ class Results
         return ' [' . htmlspecialchars($sort_column)
             . ': <strong>' . htmlspecialchars($column_for_first_row) . ' - '
             . htmlspecialchars($column_for_last_row) . '</strong>]';
-    } // end of the '_getSortedColumnMessage()' function
-
+    }
 
     /**
      * Set the content that needs to be shown in message
@@ -4653,7 +4608,7 @@ class Results
         }
 
         return $message;
-    } // end of the '_setMessageInformation()' function
+    }
 
     /**
      * Set the value of $map array for linking foreign key related tables
@@ -4715,10 +4670,9 @@ class Results
                         }
                     }
                 }
-            } // end while
-        } // end if
-    } // end of the '_setParamForLinkForeignKeyRelatedTables()' function
-
+            }
+        }
+    }
 
     /**
      * Prepare multi field edit/delete links
@@ -4739,7 +4693,6 @@ class Results
         array $analyzed_sql_results,
         $del_link
     ) {
-
         $links_html = '<div class="print_ignore" >';
         $url_query = $this->__get('url_query');
         $delete_text = $del_link == self::DELETE_ROW ? __('Delete') : __('Kill');
@@ -4872,7 +4825,6 @@ class Results
      */
     public function getCreateViewQueryResultOp(array $analyzed_sql_results)
     {
-
         $results_operations_html = '';
         //calling to _getResultOperations with a fake $displayParts
         //and setting only_view parameter to be true to generate just view
@@ -5090,8 +5042,7 @@ class Results
         }
 
         return $results_operations_html;
-    } // end of the '_getResultsOperations()' function
-
+    }
 
     /**
      * Verifies what to do with non-printable contents (binary or BLOB)
@@ -5128,7 +5079,6 @@ class Results
         array $url_params = [],
         &$is_truncated = null
     ) {
-
         $is_truncated = false;
         $result = '[' . $category;
 
@@ -5208,8 +5158,7 @@ class Results
         }
 
         return $result;
-    } // end of the '_handleNonPrintableContents()' function
-
+    }
 
     /**
      * Retrieves the associated foreign key info for a data cell
@@ -5424,8 +5373,7 @@ class Results
         $result .= '</td>' . "\n";
 
         return $result;
-    } // end of the '_getRowData()' function
-
+    }
 
     /**
      * Prepares a checkbox for multi-row submits
@@ -5474,7 +5422,7 @@ class Results
         }
 
         return $ret;
-    } // end of the '_getCheckboxForMultiRowSubmissions()' function
+    }
 
     /**
      * Prepares an Edit link
@@ -5498,7 +5446,6 @@ class Results
         $where_clause,
         $where_clause_html
     ) {
-
         $ret = '';
         if (! empty($edit_url)) {
             $ret .= '<td class="' . $class . ' center print_ignore" '
@@ -5516,8 +5463,7 @@ class Results
         }
 
         return $ret;
-    } // end of the '_getEditLink()' function
-
+    }
 
     /**
      * Prepares an Copy link
@@ -5541,7 +5487,6 @@ class Results
         $where_clause_html,
         $class
     ) {
-
         $ret = '';
         if (! empty($copy_url)) {
             $ret .= '<td class="';
@@ -5564,8 +5509,7 @@ class Results
         }
 
         return $ret;
-    } // end of the '_getCopyLink()' function
-
+    }
 
     /**
      * Prepares a Delete link
@@ -5604,8 +5548,7 @@ class Results
             . '</td>';
 
         return $ret;
-    } // end of the '_getDeleteLink()' function
-
+    }
 
     /**
      * Prepare checkbox and links at some position (left or right)
@@ -5649,7 +5592,6 @@ class Results
         $del_str,
         $js_conf
     ) {
-
         $ret = '';
 
         if ($position == self::POSITION_LEFT) {
@@ -5721,7 +5663,7 @@ class Results
         }
 
         return $ret;
-    } // end of the '_getCheckboxAndLinks()' function
+    }
 
     /**
      * Truncates given string based on LimitChars configuration
