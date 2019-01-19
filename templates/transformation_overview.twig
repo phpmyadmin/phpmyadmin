@@ -1,30 +1,30 @@
-<h2>{{ label.available_MIME_types }}</h2>
+<h2>{% trans 'Available MIME types' %}</h2>
 
-{% for mimeType in types.mimetype %}
+{% for mime_type in types.mimetype %}
 	{% if types.empty_mimetype.mimetype %}
-		<i>{{ mimeType | escape }}</i>
+		<i>{{ mime_type }}</i>
 	{% else %}
-		{{ mimeType | escape }} <br>
+		{{ mime_type }} <br>
 	{% endif %}
 {% endfor %}
-<br />
+<br>
 {% for ttype in transformation_types %}
-	<a name="{{ ttype.title | escape }}"></a>
-    <h2>{{ ttype.label | escape }}</h2>
+	<a name="{{ ttype.title }}"></a>
+    <h2>{{ ttype.label }}</h2>
 	<table width="90%">
 		<thead>
 			<th>
-				{{ table_headings_label[ttype.title] | escape }}
+				{{ table_headings_label[ttype.title] }}
 			</th>
 			<th>
-				{{ ttype._pgettext | escape }}
+				{% trans %}Description {{ ttype._pgettext }} for MIME transformation{% endtrans %}
 			</th>
 		</thead>
 		<tbody>
 		 	{% for type in ttype.types %}
 				<tr>
-					<td>{{ type.transform | escape }}</td>
-					<td>{{ type.description | escape }}</td>
+					<td>{{ type.transform }}</td>
+					<td>{{ type.description }}</td>
 				</tr>
 			{% endfor %}
 		</tbody>
