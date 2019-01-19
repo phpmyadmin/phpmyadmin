@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-09 22:23-0200\n"
+"POT-Creation-Date: 2019-01-19 17:22-0200\n"
 "PO-Revision-Date: 2017-04-12 15:07+0000\n"
 "Last-Translator: bhargavi sabbisetty <bhargavi_sabbisetty@yahoo.in>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.13\n"
 
-#: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1211
+#: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
 msgstr "తప్పు రకం!"
 
@@ -47,7 +47,7 @@ msgid "Table comments:"
 msgstr "పట్టిక వ్యాఖ్యలు:"
 
 # మొదటి అనువాదము
-#: db_datadict.php:126 libraries/classes/Index.php:722
+#: db_datadict.php:126 libraries/classes/Index.php:720
 #: libraries/classes/InsertEdit.php:1959
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:295
@@ -60,24 +60,24 @@ msgstr "పట్టిక వ్యాఖ్యలు:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:539
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
-#: templates/table/search/fields_table.twig:7
+#: templates/table/index_form.twig:119
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/search/fields_table.twig:7
 #: templates/columns_definitions/column_name.twig:16
-#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:116
 #: templates/table/relation/common_form.twig:181
+#: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/search/zoom_result_form.twig:34
-#: templates/table/index_form.twig:119
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
 msgid "Column"
 msgstr "వరుస"
 
-#: db_datadict.php:127 libraries/classes/CentralColumns.php:1008
-#: libraries/classes/Index.php:719 libraries/classes/InsertEdit.php:326
+#: db_datadict.php:127 libraries/classes/CentralColumns.php:1006
+#: libraries/classes/Index.php:717 libraries/classes/InsertEdit.php:326
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:298
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:394
 #: libraries/classes/Plugins/Export/ExportLatex.php:541
@@ -93,19 +93,19 @@ msgstr "వరుస"
 #: libraries/classes/Rte/Routines.php:1685
 #: libraries/classes/Rte/RteList.php:120 libraries/classes/Rte/RteList.php:148
 #: libraries/classes/Server/Privileges.php:2707
-#: templates/table/search/fields_table.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/display_structure.twig:22
 #: templates/database/structure/table_header.twig:30
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/search/fields_table.twig:8
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:238
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/structure/display_structure.twig:22
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 msgid "Type"
 msgstr "రకం"
 
-#: db_datadict.php:128 libraries/classes/CentralColumns.php:1013
-#: libraries/classes/Index.php:725 libraries/classes/InsertEdit.php:1968
+#: db_datadict.php:128 libraries/classes/CentralColumns.php:1011
+#: libraries/classes/Index.php:723 libraries/classes/InsertEdit.php:1968
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:301
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:397
 #: libraries/classes/Plugins/Export/ExportLatex.php:542
@@ -117,16 +117,16 @@ msgstr "రకం"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/database/central_columns/main.twig:41
+#: templates/database/central_columns/main.twig:258
+#: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/structure/display_structure.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/search/zoom_result_form.twig:35
-#: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:258
 msgid "Null"
 msgstr "శూన్యం"
 
-#: db_datadict.php:129 libraries/classes/CentralColumns.php:1010
+#: db_datadict.php:129 libraries/classes/CentralColumns.php:1008
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:304
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:400
 #: libraries/classes/Plugins/Export/ExportLatex.php:543
@@ -138,12 +138,12 @@ msgstr "శూన్యం"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
 #: libraries/classes/ReplicationGui.php:181
-#: templates/database/structure/body_for_table_summary.twig:54
-#: templates/table/structure/display_structure.twig:26
-#: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/main.twig:29
 #: templates/database/central_columns/main.twig:246
+#: templates/database/structure/body_for_table_summary.twig:54
+#: templates/columns_definitions/table_fields_definitions.twig:20
+#: templates/table/structure/display_structure.twig:26
+#: templates/table/tracking/structure_snapshot_columns.twig:10
 msgid "Default"
 msgstr "అప్రమేయం"
 
@@ -167,8 +167,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:561
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: templates/table/structure/display_structure.twig:28
 #: templates/columns_definitions/table_fields_definitions.twig:54
+#: templates/table/structure/display_structure.twig:28
 msgid "Comments"
 msgstr "వ్యాఖ్యలు"
 
@@ -176,15 +176,15 @@ msgstr "వ్యాఖ్యలు"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1246
 #: libraries/classes/Controllers/Table/TableStructureController.php:1251
 #: libraries/classes/Controllers/Table/TableStructureController.php:1355
+#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/structure/display_structure.twig:300
 #: templates/table/tracking/structure_snapshot_columns.twig:25
-#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr ""
 
 #: db_datadict.php:174 js/messages.php:390
 #: libraries/classes/Config/FormDisplayTemplate.php:327
-#: libraries/classes/Index.php:566 libraries/classes/Index.php:594
+#: libraries/classes/Index.php:564 libraries/classes/Index.php:592
 #: libraries/classes/IndexColumn.php:143 libraries/classes/MultSubmits.php:533
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:661
 #: libraries/classes/Plugins/Export/ExportLatex.php:626
@@ -199,12 +199,12 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/prefs_autoload.twig:12
+#: templates/database/central_columns/main.twig:362
 #: templates/table/structure/display_structure.twig:80
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:362
 msgid "No"
 msgstr "కాదు"
 
@@ -217,7 +217,7 @@ msgstr "కాదు"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1592
 #: libraries/classes/Controllers/Table/TableStructureController.php:1597
 #: libraries/classes/Controllers/Table/TableStructureController.php:1602
-#: libraries/classes/Index.php:593 libraries/classes/IndexColumn.php:146
+#: libraries/classes/Index.php:591 libraries/classes/IndexColumn.php:146
 #: libraries/classes/MultSubmits.php:432 libraries/classes/MultSubmits.php:465
 #: libraries/classes/MultSubmits.php:494 libraries/classes/MultSubmits.php:531
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:662
@@ -235,12 +235,12 @@ msgstr "కాదు"
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/prefs_autoload.twig:11
+#: templates/database/central_columns/main.twig:362
 #: templates/table/structure/display_structure.twig:80
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:362
 msgid "Yes"
 msgstr "అవును"
 
@@ -268,21 +268,20 @@ msgstr "పట్టికలు"
 #: db_export.php:77 libraries/classes/Config/Forms/User/ExportForm.php:59
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:134
-#: libraries/classes/Import.php:1290 libraries/classes/Menu.php:357
+#: libraries/classes/Import.php:1285 libraries/classes/Menu.php:357
 #: libraries/classes/Menu.php:471
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:40
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:290
-#: libraries/classes/Server/Privileges.php:1234 libraries/classes/Util.php:3124
-#: libraries/classes/Util.php:3134 libraries/classes/Util.php:3140
-#: libraries/classes/Util.php:3424 libraries/classes/Util.php:4204
-#: libraries/classes/Util.php:4221 libraries/config.values.php:62
+#: libraries/classes/Server/Privileges.php:1234 libraries/classes/Util.php:3121
+#: libraries/classes/Util.php:3131 libraries/classes/Util.php:3137
+#: libraries/classes/Util.php:3421 libraries/classes/Util.php:4197
+#: libraries/classes/Util.php:4214 libraries/config.values.php:62
 #: libraries/config.values.php:76 libraries/config.values.php:167
-#: libraries/config.values.php:177
-#: templates/database/central_columns/edit_table_header.twig:2
-#: templates/database/designer/main.twig:226
-#: templates/table/tracking/structure_snapshot_columns.twig:1
+#: libraries/config.values.php:177 templates/database/designer/main.twig:226
 #: templates/columns_definitions/table_fields_definitions.twig:4
+#: templates/database/central_columns/edit_table_header.twig:2
+#: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "నిర్మాణాకృతి"
 
@@ -357,9 +356,9 @@ msgstr "గణాంకాలను చూపించు"
 msgid "Switch to %svisual builder%s"
 msgstr "దృశ్య కల్పకం"
 
-#: db_search.php:37 libraries/classes/Plugins/Auth/AuthenticationConfig.php:94
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:109
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:86
+#: db_search.php:37 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:192
 msgid "Access denied!"
 msgstr "యాక్సెస్  నిరోధించడమైనది!"
@@ -436,53 +435,53 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
-#: import.php:393 import.php:598
+#: import.php:391 import.php:596
 msgid "Showing bookmark"
 msgstr ""
 
-#: import.php:414 import.php:594
+#: import.php:412 import.php:592
 msgid "The bookmark has been deleted."
 msgstr ""
 
-#: import.php:506
+#: import.php:504
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 
-#: import.php:561 libraries/classes/Display/Import.php:60
+#: import.php:559 libraries/classes/Display/Import.php:60
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
 # మొదటి అనువాదము
-#: import.php:601 libraries/classes/Sql.php:864 libraries/classes/Sql.php:1712
+#: import.php:599 libraries/classes/Sql.php:707 libraries/classes/Sql.php:1516
 #, fuzzy, php-format
 #| msgid "Page has been created."
 msgid "Bookmark %s has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
-#: import.php:611
+#: import.php:609
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
 msgstr[1] ""
 
-#: import.php:642
+#: import.php:640
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
 
-#: import.php:652
+#: import.php:650
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: import.php:724 sql.php:170
+#: import.php:722 sql.php:170
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
 
@@ -491,9 +490,9 @@ msgid "Could not load the progress of the import."
 msgstr ""
 
 #: import_status.php:120 js/messages.php:468 js/messages.php:634
-#: libraries/classes/Export.php:523
+#: libraries/classes/Export.php:516
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
-#: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:729
+#: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:727
 msgid "Back"
 msgstr "వెనుకకి"
 
@@ -522,53 +521,53 @@ msgstr ""
 msgid "General settings"
 msgstr "సాధారణ అమరికలు"
 
-#: index.php:243 js/messages.php:659
+#: index.php:242 js/messages.php:659
 #: libraries/classes/Display/ChangePassword.php:71
 #: libraries/classes/Display/ChangePassword.php:74
 #: libraries/classes/UserPassword.php:275
 msgid "Change password"
 msgstr "సంకేతపదాన్ని మార్చు"
 
-#: index.php:260 libraries/classes/Config/Descriptions.php:927
+#: index.php:258 libraries/classes/Config/Descriptions.php:927
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Server connection collation"
 msgstr "సేవకి స్వరూపణం"
 
-#: index.php:283
+#: index.php:281
 #, fuzzy
 #| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "రూపురేఖల అమరికలు"
 
-#: index.php:313 prefs_manage.php:282
+#: index.php:311 prefs_manage.php:282
 msgid "More settings"
 msgstr "మరిన్ని అమరికలు"
 
 # మొదటి అనువాదము
-#: index.php:334
+#: index.php:332
 #, fuzzy
 #| msgid "Database"
 msgid "Database server"
 msgstr "డేటాబేస్"
 
-#: index.php:337 libraries/classes/Plugins/Auth/AuthenticationCookie.php:204
+#: index.php:335 libraries/classes/Plugins/Auth/AuthenticationCookie.php:204
 msgid "Server:"
 msgstr ""
 
-#: index.php:341
+#: index.php:339
 #, fuzzy
 #| msgid "Security"
 msgid "Server type:"
 msgstr "భద్రత"
 
-#: index.php:345
+#: index.php:343
 #, fuzzy
 #| msgid "% aborted connections"
 msgid "Server connection:"
 msgstr "అనుసంధానాలు"
 
-#: index.php:349 libraries/classes/Plugins/Export/ExportLatex.php:228
+#: index.php:347 libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:728
 #: libraries/classes/Plugins/Export/ExportXml.php:251
 #, fuzzy
@@ -576,101 +575,101 @@ msgstr "అనుసంధానాలు"
 msgid "Server version:"
 msgstr "చివరి కూర్పు"
 
-#: index.php:355
+#: index.php:353
 #, fuzzy
 #| msgid "Last version"
 msgid "Protocol version:"
 msgstr "చివరి కూర్పు"
 
-#: index.php:359
+#: index.php:357
 #, fuzzy
 #| msgid "User"
 msgid "User:"
 msgstr "వాడుకరి"
 
 # మొదటి అనువాదము
-#: index.php:364
+#: index.php:362
 #, fuzzy
 #| msgid "Remove database"
 msgid "Server charset:"
 msgstr "డేటాబేస్ తొలగించండి"
 
-#: index.php:380
+#: index.php:378
 msgid "Web server"
 msgstr ""
 
-#: index.php:391
+#: index.php:389
 #, fuzzy
 #| msgid "Database comment"
 msgid "Database client version:"
 msgstr "డేటాబేస్ వ్యాఖ్య:"
 
-#: index.php:395
+#: index.php:393
 msgid "PHP extension:"
 msgstr ""
 
-#: index.php:409
+#: index.php:407
 #, fuzzy
 #| msgid "Last version"
 msgid "PHP version:"
 msgstr "చివరి కూర్పు"
 
-#: index.php:420
+#: index.php:418
 #, fuzzy
 #| msgid "Version information"
 msgid "Show PHP information"
 msgstr "సంచిక సమాచారం"
 
-#: index.php:439
+#: index.php:437
 #, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
 msgstr "సంచిక సమాచారం"
 
-#: index.php:448 libraries/classes/Config/FormDisplayTemplate.php:202
+#: index.php:446 libraries/classes/Config/FormDisplayTemplate.php:202
 #: libraries/classes/Display/Export.php:357
 #: libraries/classes/Engines/Pbxt.php:169
 #: libraries/classes/Navigation/NavigationHeader.php:221
-#: libraries/classes/Sanitize.php:193 libraries/classes/Util.php:334
-#: libraries/classes/Util.php:438
+#: libraries/classes/Sanitize.php:193 libraries/classes/Util.php:332
+#: libraries/classes/Util.php:436
 #: templates/server/variables/link_template.twig:7
 msgid "Documentation"
 msgstr "పత్రావళి"
 
-#: index.php:457
+#: index.php:455
 msgid "Official Homepage"
 msgstr ""
 
-#: index.php:464
+#: index.php:462
 msgid "Contribute"
 msgstr ""
 
-#: index.php:471
+#: index.php:469
 msgid "Get support"
 msgstr "సహాయాన్ని పొందండి"
 
-#: index.php:478
+#: index.php:476
 msgid "List of changes"
 msgstr "మార్పుల జాబితా"
 
-#: index.php:485 templates/server/plugins/main.twig:22
+#: index.php:483 templates/server/plugins/main.twig:22
 msgid "License"
 msgstr ""
 
-#: index.php:505
+#: index.php:503
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 
-#: index.php:520
+#: index.php:518
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: index.php:535
+#: index.php:533
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -678,28 +677,28 @@ msgid ""
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:554
+#: index.php:552
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:570
+#: index.php:568
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: index.php:583
+#: index.php:581
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 
-#: index.php:590
+#: index.php:588
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 
-#: index.php:604
+#: index.php:602
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -707,26 +706,26 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 
-#: index.php:622
+#: index.php:620
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 
-#: index.php:629
+#: index.php:627
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: index.php:654
+#: index.php:652
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
 
-#: index.php:668
+#: index.php:666
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -957,9 +956,9 @@ msgid "Please select column(s) for the index."
 msgstr "స్పందనలకు చేర్చు"
 
 #: js/messages.php:135 libraries/classes/InsertEdit.php:1937
+#: templates/table/index_form.twig:220
 #: templates/columns_definitions/column_definitions_form.twig:145
 #: templates/table/relation/common_form.twig:215
-#: templates/table/index_form.twig:220
 msgid "Preview SQL"
 msgstr ""
 
@@ -975,7 +974,7 @@ msgstr "క్వెరీ ని మార్చు"
 msgid "Matched rows:"
 msgstr "మొదలుపెట్టు"
 
-#: js/messages.php:140 libraries/classes/Util.php:624
+#: js/messages.php:140 libraries/classes/Util.php:622
 msgid "SQL query:"
 msgstr ""
 
@@ -1042,14 +1041,14 @@ msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:163 libraries/classes/Util.php:1414
-#: libraries/classes/Util.php:1445
+#: js/messages.php:163 libraries/classes/Util.php:1412
+#: libraries/classes/Util.php:1443
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:165 libraries/classes/Util.php:1412
-#: libraries/classes/Util.php:1443
+#: js/messages.php:165 libraries/classes/Util.php:1410
+#: libraries/classes/Util.php:1441
 msgid "."
 msgstr "."
 
@@ -1161,39 +1160,39 @@ msgid "Processes"
 msgstr ""
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:205 libraries/classes/Util.php:1322
+#: js/messages.php:205 libraries/classes/Util.php:1320
 msgid "B"
 msgstr "బై"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:206 libraries/classes/Server/Status/Monitor.php:226
-#: libraries/classes/Util.php:1324
+#: libraries/classes/Util.php:1322
 msgid "KiB"
 msgstr "కిబై"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:207 libraries/classes/Server/Status/Monitor.php:227
-#: libraries/classes/Util.php:1326
+#: libraries/classes/Util.php:1324
 msgid "MiB"
 msgstr "మెబై"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:208 libraries/classes/Util.php:1328
+#: js/messages.php:208 libraries/classes/Util.php:1326
 msgid "GiB"
 msgstr "గిబై"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:209 libraries/classes/Util.php:1330
+#: js/messages.php:209 libraries/classes/Util.php:1328
 msgid "TiB"
 msgstr "టెబై"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:210 libraries/classes/Util.php:1332
+#: js/messages.php:210 libraries/classes/Util.php:1330
 msgid "PiB"
 msgstr "పిబై"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:211 libraries/classes/Util.php:1334
+#: js/messages.php:211 libraries/classes/Util.php:1332
 msgid "EiB"
 msgstr "ఎబై"
 
@@ -1217,7 +1216,7 @@ msgstr ""
 
 #: js/messages.php:217 libraries/classes/Menu.php:636
 #: libraries/classes/Server/Status/Monitor.php:266
-#: libraries/classes/Util.php:4195
+#: libraries/classes/Util.php:4188
 msgid "Settings"
 msgstr "అమరికలు"
 
@@ -1229,18 +1228,18 @@ msgstr ""
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
-#: js/messages.php:222 libraries/classes/Display/Results.php:1548
+#: js/messages.php:222 libraries/classes/Display/Results.php:1354
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/classes/Server/Status/Monitor.php:245
 #: libraries/classes/Server/Status/Processes.php:303
 #: libraries/config.values.php:113
-#: templates/columns_definitions/transformation.twig:4
 #: templates/display/export/options_output_compression.twig:7
 #: templates/database/designer/main.twig:629
-#: templates/server/privileges/privileges_summary.twig:30
+#: templates/columns_definitions/transformation.twig:4
 #: templates/table/search/rows_zoom.twig:20
 #: templates/table/search/selection_form.twig:35
+#: templates/server/privileges/privileges_summary.twig:30
 msgid "None"
 msgstr "ఏమీలేదు"
 
@@ -1445,9 +1444,9 @@ msgstr ""
 #: js/messages.php:294 libraries/classes/Menu.php:599
 #: libraries/classes/Rte/Events.php:470 libraries/classes/Rte/RteList.php:146
 #: libraries/classes/Server/Status/Processes.php:117
-#: libraries/classes/Util.php:4191 libraries/config.values.php:159
-#: templates/table/tracking/main.twig:31
+#: libraries/classes/Util.php:4184 libraries/config.values.php:159
 #: templates/database/tracking/tables.twig:17
+#: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "స్థితి"
 
@@ -1458,7 +1457,7 @@ msgstr "స్థితి"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:381
 #: libraries/classes/Rte/RteList.php:135
 #: libraries/classes/Server/Status/Processes.php:113
-#: libraries/classes/Sql.php:294
+#: templates/sql/profiling_chart.twig:18
 msgid "Time"
 msgstr "సమయం"
 
@@ -1489,14 +1488,14 @@ msgid "Chart"
 msgstr "అక్షరమాల"
 
 # మొదటి అనువాదము
-#: js/messages.php:301 libraries/classes/Display/Export.php:586
+#: js/messages.php:301 libraries/classes/Display/Export.php:590
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "డేటాబేస్"
 
-#: js/messages.php:302 libraries/classes/Display/Export.php:598
+#: js/messages.php:302 libraries/classes/Display/Export.php:602
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
@@ -1504,7 +1503,7 @@ msgid "Table"
 msgstr "పట్టిక"
 
 # మొదటి అనువాదము
-#: js/messages.php:303 libraries/classes/Display/Export.php:609
+#: js/messages.php:303 libraries/classes/Display/Export.php:613
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -1580,8 +1579,8 @@ msgstr ""
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:508
 #: libraries/classes/Menu.php:632
 #: libraries/classes/Server/Status/Monitor.php:339
-#: libraries/classes/Util.php:4194 libraries/classes/Util.php:4209
-#: libraries/classes/Util.php:4226 prefs_manage.php:234
+#: libraries/classes/Util.php:4187 libraries/classes/Util.php:4202
+#: libraries/classes/Util.php:4219 prefs_manage.php:234
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "దిగుమతి"
@@ -1669,7 +1668,7 @@ msgstr "చెల్లని పరామితులు!"
 
 #: js/messages.php:360 libraries/classes/BrowseForeigners.php:207
 #: libraries/classes/Display/ChangePassword.php:176
-#: libraries/classes/Index.php:663 libraries/classes/InsertEdit.php:1941
+#: libraries/classes/Index.php:661 libraries/classes/InsertEdit.php:1941
 #: libraries/classes/InsertEdit.php:1975
 #: libraries/classes/Normalization.php:223
 #: libraries/classes/Normalization.php:910 libraries/classes/Operations.php:68
@@ -1694,22 +1693,23 @@ msgstr "చెల్లని పరామితులు!"
 #: libraries/classes/SqlQueryForm.php:387
 #: libraries/classes/SqlQueryForm.php:451 libraries/classes/Tracking.php:373
 #: libraries/classes/Tracking.php:524 prefs_manage.php:273 prefs_manage.php:359
-#: server_privileges.php:335 templates/header_location.twig:18
-#: templates/table/structure/display_structure.twig:435
+#: server_privileges.php:335 templates/table/index_form.twig:221
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/display/import/import.twig:191
-#: templates/database/search/main.twig:63
-#: templates/display/results/options_block.twig:118
-#: templates/server/privileges/privileges_summary.twig:102
-#: templates/table/index_form.twig:221 templates/view_create.twig:114
-#: templates/view_create.twig:120 templates/database/create_table.twig:21
-#: templates/table/search/selection_form.twig:223
+#: templates/server/privileges/delete_user_fieldset.twig:16
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/server/binlog/log_selector.twig:27
-#: templates/gis_data_editor_form.twig:209
+#: templates/database/create_table.twig:21 templates/view_create.twig:114
+#: templates/view_create.twig:120
 #: templates/server/privileges/edit_routine_privileges.twig:23
-#: templates/server/privileges/delete_user_fieldset.twig:16
-#: templates/display/export/options_format.twig:18 view_operations.php:124
+#: templates/display/results/options_block.twig:118
+#: templates/display/export/options_format.twig:18
+#: templates/header_location.twig:18 templates/display/import/import.twig:191
+#: templates/gis_data_editor_form.twig:209
+#: templates/table/search/selection_form.twig:223
+#: templates/table/structure/display_structure.twig:435
+#: templates/database/search/main.twig:63
+#: templates/table/operations/view.twig:21
+#: templates/server/privileges/privileges_summary.twig:102
 msgid "Go"
 msgstr "వెళ్ళు"
 
@@ -1803,13 +1803,13 @@ msgstr "పట్టిక వ్యాఖ్యలు"
 msgid "Adding primary key"
 msgstr "స్పందనలకు చేర్చు"
 
-#: js/messages.php:383 templates/console/display.twig:129
-#: templates/database/designer/main.twig:378
+#: js/messages.php:383 templates/database/designer/main.twig:378
 #: templates/database/designer/main.twig:703
 #: templates/database/designer/main.twig:767
 #: templates/database/designer/main.twig:906
 #: templates/database/designer/main.twig:991
 #: templates/database/designer/main.twig:1099
+#: templates/console/display.twig:129
 msgid "OK"
 msgstr "సరే"
 
@@ -1881,8 +1881,8 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
 #: js/messages.php:409 libraries/classes/Config/Forms/User/ExportForm.php:158
-#: libraries/classes/Display/Results.php:4995
-#: libraries/classes/Display/Results.php:5286 libraries/classes/Menu.php:391
+#: libraries/classes/Display/Results.php:4734
+#: libraries/classes/Display/Results.php:4980 libraries/classes/Menu.php:391
 #: libraries/classes/Menu.php:499 libraries/classes/Menu.php:628
 #: libraries/classes/Rte/RteList.php:196
 #: libraries/classes/Server/Privileges.php:2539
@@ -1890,9 +1890,9 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:2994
 #: libraries/classes/Server/Privileges.php:3733
 #: libraries/classes/Server/Status/Monitor.php:343
-#: libraries/classes/Util.php:3431 libraries/classes/Util.php:3432
-#: libraries/classes/Util.php:4193 libraries/classes/Util.php:4208
-#: libraries/classes/Util.php:4225 prefs_manage.php:302
+#: libraries/classes/Util.php:3428 libraries/classes/Util.php:3429
+#: libraries/classes/Util.php:4186 libraries/classes/Util.php:4201
+#: libraries/classes/Util.php:4218 prefs_manage.php:302
 #: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
 msgid "Export"
@@ -1939,38 +1939,38 @@ msgstr ""
 msgid "Show query box"
 msgstr ""
 
-#: js/messages.php:428 libraries/classes/CentralColumns.php:934
+#: js/messages.php:428 libraries/classes/CentralColumns.php:932
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/Display/Results.php:3496
-#: libraries/classes/Display/Results.php:4970 libraries/classes/Index.php:744
-#: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:653
-#: libraries/classes/Util.php:1141 libraries/classes/Util.php:3429
-#: libraries/classes/Util.php:3430 setup/frames/index.inc.php:165
-#: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/server/variables/variable_row.twig:4
-#: templates/server/variables/variable_row.twig:7
+#: libraries/classes/Display/Results.php:3264
+#: libraries/classes/Display/Results.php:4709 libraries/classes/Index.php:742
+#: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:651
+#: libraries/classes/Util.php:1139 libraries/classes/Util.php:3426
+#: libraries/classes/Util.php:3427 setup/frames/index.inc.php:165
+#: templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:279
 #: templates/database/central_columns/main.twig:394
-#: templates/console/bookmark_content.twig:7
+#: templates/server/variables/variable_row.twig:4
+#: templates/server/variables/variable_row.twig:7
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
 msgstr "మార్చు"
 
-#: js/messages.php:429 libraries/classes/CentralColumns.php:941
-#: libraries/classes/Display/Results.php:3574
-#: libraries/classes/Display/Results.php:4959
+#: js/messages.php:429 libraries/classes/CentralColumns.php:939
+#: libraries/classes/Display/Results.php:3341
+#: libraries/classes/Display/Results.php:4698
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:299
-#: setup/frames/index.inc.php:168 templates/database/search/results.twig:43
-#: templates/display/export/template_loading.twig:22
+#: setup/frames/index.inc.php:168 templates/console/bookmark_content.twig:7
+#: templates/database/search/results.twig:43
 #: templates/database/designer/main.twig:429
 #: templates/database/central_columns/main.twig:282
 #: templates/database/central_columns/main.twig:401
-#: templates/console/bookmark_content.twig:7
+#: templates/display/export/template_loading.twig:22
 msgid "Delete"
 msgstr "తొలగించు"
 
-#: js/messages.php:430 libraries/classes/Display/Results.php:972
-#: libraries/classes/Display/Results.php:980
+#: js/messages.php:430 templates/display/results/table_navigation.twig:42
+#: templates/display/results/table_navigation.twig:44
 #, php-format
 msgid "%d is not valid row number."
 msgstr ""
@@ -1978,7 +1978,7 @@ msgstr ""
 #: js/messages.php:431
 #: libraries/classes/Controllers/Table/TableSearchController.php:375
 #: libraries/classes/Controllers/Table/TableSearchController.php:929
-#: libraries/classes/Sql.php:249 tbl_change.php:161
+#: tbl_change.php:161 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr ""
 
@@ -2147,13 +2147,13 @@ msgstr ""
 msgid "No dependencies selected!"
 msgstr ""
 
-#: js/messages.php:489 libraries/classes/CentralColumns.php:958
+#: js/messages.php:489 libraries/classes/CentralColumns.php:956
 #: libraries/classes/InsertEdit.php:1851
-#: templates/table/structure/partition_definition_form.twig:12
-#: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/columns_definitions/column_definitions_form.twig:148
-#: templates/table/relation/common_form.twig:216
 #: templates/server/variables/link_template.twig:2
+#: templates/table/relation/common_form.twig:216
+#: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/structure/partition_definition_form.twig:12
 msgid "Save"
 msgstr "భద్రపరచు"
 
@@ -2250,8 +2250,8 @@ msgstr "విషయ సూచిక"
 msgid "Ignore"
 msgstr ""
 
-#: js/messages.php:527 libraries/classes/Display/Results.php:3500
-#: libraries/classes/Display/Results.php:4978 libraries/classes/Util.php:312
+#: js/messages.php:527 libraries/classes/Display/Results.php:3268
+#: libraries/classes/Display/Results.php:4717 libraries/classes/Util.php:310
 msgid "Copy"
 msgstr ""
 
@@ -2491,9 +2491,9 @@ msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
-#: templates/server/privileges/initials_row.twig:20
-#: templates/display/results/show_all_checkbox.twig:11
+#: templates/display/results/table_navigation.twig:19
 #: templates/table/browse_foreigners/show_all.twig:4
+#: templates/server/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "అన్నీ చూపించు"
 
@@ -2549,10 +2549,10 @@ msgstr ""
 msgid "Select database first"
 msgstr "అన్నీ ఎంచుకో"
 
-#: js/messages.php:633 libraries/classes/Display/Results.php:5178
-#: libraries/classes/Util.php:4088
-#: templates/table/structure/display_structure.twig:380
+#: js/messages.php:633 libraries/classes/Display/Results.php:4872
+#: libraries/classes/Util.php:4081
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
+#: templates/table/structure/display_structure.twig:380
 msgid "Print"
 msgstr "ముద్రించు"
 
@@ -2646,7 +2646,7 @@ msgid "up to date"
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:684 libraries/classes/Display/Results.php:5111
+#: js/messages.php:684 libraries/classes/Display/Results.php:4806
 #: templates/view_create.twig:11
 #, fuzzy
 #| msgid "Create"
@@ -2886,63 +2886,63 @@ msgid "December"
 msgstr "డిసెంబర్"
 
 #. l10n: Short month name
-#: js/messages.php:820 libraries/classes/Util.php:1544
+#: js/messages.php:820 libraries/classes/Util.php:1542
 msgid "Jan"
 msgstr "జన"
 
 #. l10n: Short month name
-#: js/messages.php:822 libraries/classes/Util.php:1546
+#: js/messages.php:822 libraries/classes/Util.php:1544
 msgid "Feb"
 msgstr "ఫిబ్ర"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1548
+#: js/messages.php:824 libraries/classes/Util.php:1546
 msgid "Mar"
 msgstr "మార్చి"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1550
+#: js/messages.php:826 libraries/classes/Util.php:1548
 msgid "Apr"
 msgstr "ఏప్రి"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1552
+#: js/messages.php:828 libraries/classes/Util.php:1550
 msgctxt "Short month name"
 msgid "May"
 msgstr "మే"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1554
+#: js/messages.php:830 libraries/classes/Util.php:1552
 msgid "Jun"
 msgstr "జూన్"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1556
+#: js/messages.php:832 libraries/classes/Util.php:1554
 msgid "Jul"
 msgstr "జూలై"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1558
+#: js/messages.php:834 libraries/classes/Util.php:1556
 msgid "Aug"
 msgstr "ఆగ"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1560
+#: js/messages.php:836 libraries/classes/Util.php:1558
 msgid "Sep"
 msgstr "సెప్టె"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1562
+#: js/messages.php:838 libraries/classes/Util.php:1560
 msgid "Oct"
 msgstr "అక్టో"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1564
+#: js/messages.php:840 libraries/classes/Util.php:1562
 msgid "Nov"
 msgstr "నవం"
 
 #. l10n: Short month name
-#: js/messages.php:842 libraries/classes/Util.php:1566
+#: js/messages.php:842 libraries/classes/Util.php:1564
 msgid "Dec"
 msgstr "డిసెం"
 
@@ -2983,32 +2983,32 @@ msgid "Sun"
 msgstr "ఆది"
 
 #. l10n: Short week day name
-#: js/messages.php:863 libraries/classes/Util.php:1572
+#: js/messages.php:863 libraries/classes/Util.php:1570
 msgid "Mon"
 msgstr "సోమ"
 
 #. l10n: Short week day name
-#: js/messages.php:865 libraries/classes/Util.php:1574
+#: js/messages.php:865 libraries/classes/Util.php:1572
 msgid "Tue"
 msgstr "మంగళ"
 
 #. l10n: Short week day name
-#: js/messages.php:867 libraries/classes/Util.php:1576
+#: js/messages.php:867 libraries/classes/Util.php:1574
 msgid "Wed"
 msgstr "బుధ"
 
 #. l10n: Short week day name
-#: js/messages.php:869 libraries/classes/Util.php:1578
+#: js/messages.php:869 libraries/classes/Util.php:1576
 msgid "Thu"
 msgstr "గురు"
 
 #. l10n: Short week day name
-#: js/messages.php:871 libraries/classes/Util.php:1580
+#: js/messages.php:871 libraries/classes/Util.php:1578
 msgid "Fri"
 msgstr "శుక్ర"
 
 #. l10n: Short week day name
-#: js/messages.php:873 libraries/classes/Util.php:1582
+#: js/messages.php:873 libraries/classes/Util.php:1580
 msgid "Sat"
 msgstr "శని"
 
@@ -3159,8 +3159,8 @@ msgstr ""
 
 #: js/messages.php:993 libraries/classes/Core.php:292
 #: libraries/classes/Import.php:117 libraries/classes/InsertEdit.php:1541
-#: libraries/classes/Message.php:196 libraries/classes/Util.php:600
-#: view_operations.php:79
+#: libraries/classes/Message.php:196 libraries/classes/Util.php:598
+#: view_operations.php:82
 msgid "Error"
 msgstr "పొరపాటు"
 
@@ -3184,28 +3184,28 @@ msgstr ""
 msgid "Failed running test for rule '%s'."
 msgstr ""
 
-#: libraries/classes/Advisor.php:407
+#: libraries/classes/Advisor.php:409
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
-#: libraries/classes/Advisor.php:513
+#: libraries/classes/Advisor.php:515
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/classes/Advisor.php:547
+#: libraries/classes/Advisor.php:549
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
-#: libraries/classes/Advisor.php:566
+#: libraries/classes/Advisor.php:568
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr ""
 
-#: libraries/classes/Advisor.php:574
+#: libraries/classes/Advisor.php:575
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr ""
@@ -3241,7 +3241,7 @@ msgid "Search:"
 msgstr "శోధించు"
 
 #: libraries/classes/BrowseForeigners.php:224
-#: libraries/classes/BrowseForeigners.php:228 libraries/classes/Index.php:718
+#: libraries/classes/BrowseForeigners.php:228 libraries/classes/Index.php:716
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
 msgstr "కీలకపదం"
@@ -3250,16 +3250,16 @@ msgstr "కీలకపదం"
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
 #: templates/server/collations/charsets.twig:6
-#: templates/server/engines/list_engines.twig:5
 #: templates/server/plugins/main.twig:19
+#: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "వివరణ"
 
 #: libraries/classes/BrowseForeigners.php:337
-#: libraries/classes/Language.php:199 libraries/classes/Pdf.php:88
+#: libraries/classes/Language.php:199 libraries/classes/Pdf.php:89
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:505
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:542
-#: libraries/classes/Util.php:2383
+#: libraries/classes/Util.php:2380
 msgid "Page number:"
 msgstr "పుట సంఖ్య:"
 
@@ -3300,7 +3300,7 @@ msgstr ""
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:1007
+#: libraries/classes/CentralColumns.php:1005
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:490
 #: libraries/classes/Plugins/Export/ExportOdt.php:609
 #: libraries/classes/Plugins/Export/ExportTexytext.php:454
@@ -3309,46 +3309,46 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1684
 #: libraries/classes/Rte/RteList.php:118 libraries/classes/Rte/RteList.php:130
 #: libraries/classes/Rte/RteList.php:145 setup/frames/index.inc.php:149
-#: templates/table/structure/display_structure.twig:21
 #: templates/database/create_table.twig:11
-#: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:234
+#: templates/columns_definitions/table_fields_definitions.twig:9
+#: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "పేరు"
 
-#: libraries/classes/CentralColumns.php:1009
+#: libraries/classes/CentralColumns.php:1007
 #: libraries/classes/Rte/Routines.php:1008
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "పొడవు/విలువలు"
 
-#: libraries/classes/CentralColumns.php:1011 libraries/classes/Charsets.php:275
+#: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:362
-#: libraries/classes/Index.php:724 libraries/classes/Operations.php:309
+#: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
 #: templates/server/collations/charsets.twig:5
-#: templates/table/search/fields_table.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/table/structure/display_structure.twig:23
 #: templates/database/structure/table_header.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/table/structure/display_table_stats.twig:101
-#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/structure/display_table_stats.twig:101
+#: templates/table/structure/display_structure.twig:23
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 msgid "Collation"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:1012
+#: libraries/classes/CentralColumns.php:1010
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:687
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: templates/table/structure/display_structure.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:27
+#: templates/table/structure/display_structure.twig:24
 msgid "Attributes"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:1014
+#: libraries/classes/CentralColumns.php:1012
 #: templates/database/central_columns/main.twig:45
 #: templates/database/central_columns/main.twig:262
 msgid "A_I"
@@ -3721,38 +3721,38 @@ msgctxt "Collation variant"
 msgid "binary"
 msgstr "నిఘంటువు"
 
-#: libraries/classes/Config.php:1140
+#: libraries/classes/Config.php:1142
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/classes/Config.php:1170
+#: libraries/classes/Config.php:1172
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/classes/Config.php:1190
+#: libraries/classes/Config.php:1192
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/classes/Config.php:1197
+#: libraries/classes/Config.php:1199
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Failed to read configuration file!"
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/Config.php:1200
+#: libraries/classes/Config.php:1202
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/classes/Config.php:1727
+#: libraries/classes/Config.php:1729
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/classes/Config.php:1740
+#: libraries/classes/Config.php:1742
 #, fuzzy, php-format
 #| msgid "Security"
 msgid "Server %d"
@@ -4247,8 +4247,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:234
 #: libraries/classes/Config/Descriptions.php:237
-#: templates/display/export/options_quick_export.twig:16
 #: templates/display/export/options_output_save_dir.twig:13
+#: templates/display/export/options_quick_export.twig:16
 msgid "Overwrite existing file(s)"
 msgstr ""
 
@@ -4465,7 +4465,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:372 libraries/classes/Menu.php:591
 #: libraries/classes/Navigation/NavigationTree.php:1286
-#: libraries/classes/Server/Privileges.php:4742 libraries/classes/Util.php:4189
+#: libraries/classes/Server/Privileges.php:4742 libraries/classes/Util.php:4182
 #: libraries/config.values.php:157 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr ""
@@ -4611,9 +4611,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:354 libraries/classes/Menu.php:368
 #: libraries/classes/Menu.php:475 libraries/classes/Menu.php:595
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
-#: libraries/classes/Util.php:3125 libraries/classes/Util.php:3135
-#: libraries/classes/Util.php:3141 libraries/classes/Util.php:4190
-#: libraries/classes/Util.php:4205 libraries/classes/Util.php:4222
+#: libraries/classes/Util.php:3122 libraries/classes/Util.php:3132
+#: libraries/classes/Util.php:3138 libraries/classes/Util.php:4183
+#: libraries/classes/Util.php:4198 libraries/classes/Util.php:4215
 #: libraries/config.values.php:64 libraries/config.values.php:78
 #: libraries/config.values.php:169 libraries/config.values.php:179
 msgid "SQL"
@@ -6005,21 +6005,21 @@ msgid "Skip locked tables"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:829
-#: libraries/classes/Util.php:1105
+#: libraries/classes/Util.php:1103
 msgid "Explain SQL"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:830
-#: libraries/classes/Export.php:527
+#: libraries/classes/Export.php:520
 #: libraries/classes/Server/Status/Processes.php:256
 #: libraries/classes/Server/Status/Variables.php:52
-#: libraries/classes/Util.php:1185 templates/console/display.twig:99
+#: libraries/classes/Util.php:1183 templates/console/display.twig:99
 msgid "Refresh"
 msgstr ""
 
 # మొదటి అనువాదము
 #: libraries/classes/Config/Descriptions.php:831
-#: libraries/classes/Util.php:1170
+#: libraries/classes/Util.php:1168
 #, fuzzy
 #| msgid "Create a page"
 msgid "Create PHP code"
@@ -6084,12 +6084,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3509
 #: libraries/classes/Server/Privileges.php:4742
 #: libraries/classes/Server/Status/Processes.php:105
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/console/bookmark_content.twig:7
+#: templates/server/databases/index.twig:88
+#: templates/table/relation/foreign_key_row.twig:96
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:167
-#: templates/server/databases/index.twig:88
-#: templates/console/bookmark_content.twig:7
-#: templates/table/relation/foreign_key_row.twig:96
+#: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Database"
 msgstr "డేటాబేస్"
 
@@ -6124,11 +6124,11 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3515
 #: libraries/classes/Server/Privileges.php:4756
 #: templates/database/structure/table_header.twig:8
-#: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:174
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
 #: templates/table/relation/foreign_key_row.twig:106
+#: templates/table/relation/common_form.twig:36
+#: templates/table/relation/common_form.twig:174
 msgid "Table"
 msgstr "పట్టిక"
 
@@ -6308,7 +6308,8 @@ msgstr ""
 msgid "Group queries"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:925 libraries/classes/Sql.php:289
+#: libraries/classes/Config/Descriptions.php:925
+#: templates/sql/profiling_chart.twig:9
 msgid "Order"
 msgstr ""
 
@@ -6644,7 +6645,7 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:565
-#: tbl_operations.php:442 view_operations.php:139
+#: tbl_operations.php:442 view_operations.php:111
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "View %s has been dropped."
@@ -6664,7 +6665,7 @@ msgid "Table %s has been emptied."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:785
-#: libraries/classes/Display/Results.php:4818
+#: libraries/classes/Display/Results.php:4559
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6705,8 +6706,8 @@ msgstr "సమాచారం"
 # మొదటి అనువాదము
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:201
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:203
-#: libraries/classes/Display/Results.php:1045 libraries/classes/Util.php:2396
-#: libraries/classes/Util.php:2399
+#: libraries/classes/Display/Results.php:946 libraries/classes/Util.php:2393
+#: libraries/classes/Util.php:2396
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -6726,8 +6727,8 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:235
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:237
-#: libraries/classes/Display/Results.php:1104 libraries/classes/Util.php:2428
-#: libraries/classes/Util.php:2435
+#: libraries/classes/Display/Results.php:974 libraries/classes/Util.php:2425
+#: libraries/classes/Util.php:2432
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -6749,15 +6750,15 @@ msgstr[1] "%s డేటాబేస్ తుడిచివేయడమైన�
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:376
 #: libraries/classes/Import.php:127
-#: templates/table/structure/display_structure.twig:234
+#: templates/table/structure/display_partitions.twig:28
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_table_stats.twig:112
-#: templates/table/structure/display_partitions.twig:28
+#: templates/table/structure/display_structure.twig:234
 msgid "Rows"
 msgstr "వరుసలు"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:386
-#: libraries/classes/Index.php:694 libraries/classes/Index.php:705
+#: libraries/classes/Index.php:692 libraries/classes/Index.php:703
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:28
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
@@ -6768,8 +6769,8 @@ msgstr ""
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:214
 #: libraries/classes/Server/Status.php:347
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "మొత్తం"
 
@@ -6789,12 +6790,12 @@ msgstr ""
 msgid "Replicated"
 msgstr ""
 
-#: libraries/classes/Controllers/Server/ServerVariablesController.php:115
+#: libraries/classes/Controllers/Server/ServerVariablesController.php:104
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
 
-#: libraries/classes/Controllers/Server/ServerVariablesController.php:239
+#: libraries/classes/Controllers/Server/ServerVariablesController.php:228
 msgid "Setting variable failed"
 msgstr ""
 
@@ -6827,10 +6828,10 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:273
 #: libraries/classes/Controllers/Table/TableSearchController.php:627
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Message.php:177
+#: libraries/classes/Display/Results.php:4222 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1525
 #: libraries/classes/SqlQueryForm.php:97 tbl_row_action.php:146
-#: view_operations.php:76
+#: view_operations.php:79
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
@@ -6905,14 +6906,14 @@ msgstr "మార్చుము"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1244
 #: libraries/classes/Controllers/Table/TableStructureController.php:1245
-#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1665
-#: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3425
-#: libraries/classes/Util.php:3426
+#: libraries/classes/Index.php:768 libraries/classes/Operations.php:1665
+#: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3422
+#: libraries/classes/Util.php:3423
 #: templates/database/structure/check_all_tables.twig:16
+#: templates/table/relation/foreign_key_row.twig:26
+#: templates/server/databases/databases_footer.twig:45
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
-#: templates/server/databases/databases_footer.twig:45
-#: templates/table/relation/foreign_key_row.twig:26
 msgid "Drop"
 msgstr ""
 
@@ -6920,20 +6921,20 @@ msgstr ""
 #: libraries/classes/Controllers/Table/TableStructureController.php:1252
 #: libraries/classes/Controllers/Table/TableStructureController.php:1360
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:32
-#: templates/table/structure/display_structure.twig:314
-#: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/table/structure/display_table_stats.twig:24
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/table/structure/display_table_stats.twig:24
+#: templates/table/structure/display_structure.twig:314
+#: templates/table/tracking/structure_snapshot_columns.twig:27
 msgid "Index"
 msgstr ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1248
 #: libraries/classes/Controllers/Table/TableStructureController.php:1253
-#: libraries/classes/Index.php:720
+#: libraries/classes/Index.php:718
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
-#: templates/table/structure/display_structure.twig:307
 #: templates/columns_definitions/column_indexes.twig:8
+#: templates/table/structure/display_structure.twig:307
 msgid "Unique"
 msgstr ""
 
@@ -6945,9 +6946,9 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1250
 #: libraries/classes/Controllers/Table/TableStructureController.php:1255
+#: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:321
 #: templates/table/structure/display_structure.twig:333
-#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "పూర్తిపాఠ్యం"
 
@@ -6962,7 +6963,7 @@ msgstr "ఈ విలువని ఉపయోగించు"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/classes/Core.php:858 libraries/mult_submits.inc.php:342
+#: libraries/classes/Core.php:858 libraries/mult_submits.inc.php:341
 #: tbl_operations.php:256 tbl_replace.php:365 templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
@@ -7222,39 +7223,39 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/DatabaseInterface.php:2259
+#: libraries/classes/DatabaseInterface.php:2257
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2264
+#: libraries/classes/DatabaseInterface.php:2262
 msgid "The server is not responding."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2268
+#: libraries/classes/DatabaseInterface.php:2266
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2274
+#: libraries/classes/DatabaseInterface.php:2272
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2288
+#: libraries/classes/DatabaseInterface.php:2286
 msgid "Details…"
 msgstr "వివరాలు…"
 
-#: libraries/classes/DatabaseInterface.php:2612
+#: libraries/classes/DatabaseInterface.php:2610
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Missing connection parameters!"
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/DatabaseInterface.php:2641
+#: libraries/classes/DatabaseInterface.php:2639
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:3151
+#: libraries/classes/DatabaseInterface.php:3149
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -7324,16 +7325,16 @@ msgid ""
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
-#: libraries/classes/Display/Export.php:578
+#: libraries/classes/Display/Export.php:582
 msgid "Defined aliases"
 msgstr ""
 
-#: libraries/classes/Display/Export.php:637
+#: libraries/classes/Display/Export.php:641
 #: templates/display/export/options_output.twig:7
 msgid "Rename exported databases/tables/columns"
 msgstr ""
 
-#: libraries/classes/Display/Export.php:694
+#: libraries/classes/Display/Export.php:698
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
@@ -7362,152 +7363,117 @@ msgstr "మరిన్ని అమరికలు"
 msgid "authored on %1$s by %2$s"
 msgstr "మరిన్ని అమరికలు"
 
-#: libraries/classes/Display/Results.php:949
-msgid "Save edited data"
-msgstr ""
-
-#: libraries/classes/Display/Results.php:955
-#, fuzzy
-#| msgid "Table comments"
-msgid "Restore column order"
-msgstr "పట్టిక వ్యాఖ్యలు"
-
-#: libraries/classes/Display/Results.php:1004
-#: templates/database/central_columns/main.twig:180
-#, fuzzy
-#| msgid "Files"
-msgid "Filter rows"
-msgstr "దస్త్రాలు"
-
-#: libraries/classes/Display/Results.php:1006
-#: templates/database/central_columns/main.twig:181
-#, fuzzy
-#| msgid "Use this value"
-msgid "Search this table"
-msgstr "ఈ విలువని ఉపయోగించు"
-
 # మొదటి అనువాదము
-#: libraries/classes/Display/Results.php:1038 libraries/classes/Util.php:2395
-#: libraries/classes/Util.php:2398
+#: libraries/classes/Display/Results.php:939 libraries/classes/Util.php:2392
+#: libraries/classes/Util.php:2395
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "మొదలు"
 
-#: libraries/classes/Display/Results.php:1134 libraries/classes/Util.php:2429
-#: libraries/classes/Util.php:2436
+#: libraries/classes/Display/Results.php:1004 libraries/classes/Util.php:2426
+#: libraries/classes/Util.php:2433
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "ముగింపు"
 
-# మొదటి అనువాదము
-#: libraries/classes/Display/Results.php:1166
-msgid "All"
-msgstr "అన్నీ"
-
-#: libraries/classes/Display/Results.php:1492
-msgid "Sort by key"
-msgstr ""
-
-#: libraries/classes/Display/Results.php:1802
+#: libraries/classes/Display/Results.php:1605
 #: templates/display/results/options_block.twig:18
 msgid "Partial texts"
 msgstr "పాక్షిక పాఠ్యాలు"
 
-#: libraries/classes/Display/Results.php:1806
+#: libraries/classes/Display/Results.php:1609
 #: templates/display/results/options_block.twig:18
 msgid "Full texts"
 msgstr "పూర్తి పాఠ్యాలు"
 
-#: libraries/classes/Display/Results.php:2230
-#: libraries/classes/Display/Results.php:2256
+#: libraries/classes/Display/Results.php:2007
+#: libraries/classes/Display/Results.php:2033
 #: libraries/classes/Operations.php:847
 #: libraries/classes/Server/Status/Processes.php:184
-#: libraries/classes/Util.php:4919 libraries/classes/Util.php:4942
-#: libraries/config.values.php:115
-#: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:67
-#: templates/server/databases/index.twig:91
+#: libraries/classes/Util.php:4912 libraries/classes/Util.php:4935
+#: libraries/config.values.php:115 templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
 #: templates/table/search/selection_form.twig:154
+#: templates/database/qbe/sort_select_cell.twig:7
+#: templates/database/multi_table_query/form.twig:67
 msgid "Descending"
 msgstr "అవరోహణ"
 
-#: libraries/classes/Display/Results.php:2238
-#: libraries/classes/Display/Results.php:2248
+#: libraries/classes/Display/Results.php:2015
+#: libraries/classes/Display/Results.php:2025
 #: libraries/classes/Operations.php:844
 #: libraries/classes/Server/Status/Processes.php:187
-#: libraries/classes/Util.php:4911 libraries/classes/Util.php:4934
-#: libraries/config.values.php:114
-#: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:66
-#: templates/server/databases/index.twig:91
+#: libraries/classes/Util.php:4904 libraries/classes/Util.php:4927
+#: libraries/config.values.php:114 templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
 #: templates/table/search/selection_form.twig:154
+#: templates/database/qbe/sort_select_cell.twig:5
+#: templates/database/multi_table_query/form.twig:66
 msgid "Ascending"
 msgstr "ఆరోహణ"
 
-#: libraries/classes/Display/Results.php:3550
-#: libraries/classes/Display/Results.php:3565
+#: libraries/classes/Display/Results.php:3317
+#: libraries/classes/Display/Results.php:3332
 #, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "The row has been deleted."
 msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
 
-#: libraries/classes/Display/Results.php:3597
-#: libraries/classes/Display/Results.php:4959
+#: libraries/classes/Display/Results.php:3364
+#: libraries/classes/Display/Results.php:4698
 #: libraries/classes/Server/Status/Processes.php:297
 msgid "Kill"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4391
+#: libraries/classes/Display/Results.php:4148
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4830
+#: libraries/classes/Display/Results.php:4571
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4844
+#: libraries/classes/Display/Results.php:4585
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4849
+#: libraries/classes/Display/Results.php:4590
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "మొత్తం"
 
-#: libraries/classes/Display/Results.php:4861 libraries/classes/Sql.php:1502
+#: libraries/classes/Display/Results.php:4602 libraries/classes/Sql.php:1345
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5158
+#: libraries/classes/Display/Results.php:4852
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5210
+#: libraries/classes/Display/Results.php:4904
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5297
+#: libraries/classes/Display/Results.php:4991
 #: templates/table/chart/tbl_chart.twig:10
 #, fuzzy
 #| msgid "Table comments"
 msgid "Display chart"
 msgstr "పట్టిక వ్యాఖ్యలు"
 
-#: libraries/classes/Display/Results.php:5320
+#: libraries/classes/Display/Results.php:5014
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5505
+#: libraries/classes/Display/Results.php:5196
 msgid "Link not found!"
 msgstr ""
 
@@ -7823,24 +7789,24 @@ msgstr "దిగుమతి"
 msgid "Automatically send report next time"
 msgstr ""
 
-#: libraries/classes/Export.php:123 libraries/classes/Export.php:162
-#: libraries/classes/Export.php:410
+#: libraries/classes/Export.php:118 libraries/classes/Export.php:156
+#: libraries/classes/Export.php:403
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr ""
 
-#: libraries/classes/Export.php:359
+#: libraries/classes/Export.php:352
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 
-#: libraries/classes/Export.php:367 libraries/classes/Export.php:375
+#: libraries/classes/Export.php:360 libraries/classes/Export.php:368
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr ""
 
-#: libraries/classes/Export.php:416
+#: libraries/classes/Export.php:409
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr ""
@@ -7935,34 +7901,34 @@ msgid "Javascript must be enabled past this point!"
 msgstr ""
 
 #: libraries/classes/Import.php:135 libraries/classes/InsertEdit.php:193
-#: libraries/classes/Rte/Routines.php:1546 libraries/classes/Sql.php:1496
+#: libraries/classes/Rte/Routines.php:1546 libraries/classes/Sql.php:1339
 #: tbl_get_field.php:59
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/classes/Import.php:301 libraries/classes/Sql.php:1510
+#: libraries/classes/Import.php:297 libraries/classes/Sql.php:1353
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1244
+#: libraries/classes/Import.php:1240
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1247
+#: libraries/classes/Import.php:1243
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1250
+#: libraries/classes/Import.php:1246
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1252
+#: libraries/classes/Import.php:1248
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1256 libraries/classes/Import.php:1291
+#: libraries/classes/Import.php:1252 libraries/classes/Import.php:1286
 #: libraries/classes/MultSubmits.php:416
 #: libraries/classes/Plugins/Export/ExportCodegen.php:88
 #: libraries/classes/Plugins/Export/ExportCsv.php:52
@@ -7979,115 +7945,115 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:54
 #: libraries/classes/Plugins/Export/ExportXml.php:85
 #: libraries/classes/Plugins/Export/ExportYaml.php:50
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:45
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:37
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:60
 #: libraries/classes/Plugins/Import/ImportOds.php:52
 #: libraries/classes/Plugins/Import/ImportShp.php:62
 #: libraries/classes/Plugins/Import/ImportSql.php:50
 #: libraries/classes/Plugins/Import/ImportXml.php:51
-#: libraries/classes/Rte/Routines.php:1009 templates/console/display.twig:7
-#: templates/console/display.twig:140
-#: templates/table/structure/display_table_stats.twig:90
+#: libraries/classes/Rte/Routines.php:1009
 #: templates/display/results/options_block.twig:10
+#: templates/table/structure/display_table_stats.twig:90
 #: templates/table/search/selection_form.twig:97
+#: templates/console/display.twig:7 templates/console/display.twig:140
 msgid "Options"
 msgstr "ఎంపికలు"
 
-#: libraries/classes/Import.php:1259
+#: libraries/classes/Import.php:1255
 #, fuzzy, php-format
 #| msgid "Copy database to"
 msgid "Go to database: %s"
 msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
 
-#: libraries/classes/Import.php:1265 libraries/classes/Import.php:1309
+#: libraries/classes/Import.php:1261 libraries/classes/Import.php:1304
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1294
+#: libraries/classes/Import.php:1289
 #, php-format
 msgid "Go to table: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1302
+#: libraries/classes/Import.php:1297
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "నిర్మాణం మాత్రమే"
 
-#: libraries/classes/Import.php:1320
+#: libraries/classes/Import.php:1315
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1380
+#: libraries/classes/Import.php:1375
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/classes/Import.php:1607
+#: libraries/classes/Import.php:1602
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
 
-#: libraries/classes/Index.php:657
+#: libraries/classes/Index.php:655
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr ""
 
-#: libraries/classes/Index.php:689
+#: libraries/classes/Index.php:687
 msgid "No index defined!"
 msgstr ""
 
-#: libraries/classes/Index.php:716 libraries/classes/Rte/RteList.php:119
+#: libraries/classes/Index.php:714 libraries/classes/Rte/RteList.php:119
 #: libraries/classes/Rte/RteList.php:134 libraries/classes/Rte/RteList.php:147
 #: libraries/classes/Server/Privileges.php:2710
 #: libraries/classes/Server/Privileges.php:3715
 #: libraries/classes/Server/UserGroups.php:95
+#: templates/table/structure/display_partitions.twig:33
+#: templates/server/variables/variable_table_head.twig:3
 #: templates/table/tracking/report_table.twig:8
-#: templates/table/structure/display_structure.twig:34
-#: templates/table/tracking/main.twig:32
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:121
-#: templates/server/privileges/privileges_summary.twig:22
-#: templates/server/databases/index.twig:117
+#: templates/table/tracking/main.twig:32
 #: templates/database/central_columns/main.twig:232
-#: templates/server/variables/variable_table_head.twig:3
-#: templates/table/structure/display_partitions.twig:33
+#: templates/server/databases/index.twig:117
+#: templates/table/structure/display_structure.twig:34
+#: templates/server/privileges/privileges_summary.twig:22
 msgid "Action"
 msgstr "చర్య"
 
-#: libraries/classes/Index.php:721
+#: libraries/classes/Index.php:719
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr ""
 
-#: libraries/classes/Index.php:723
+#: libraries/classes/Index.php:721
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr ""
 
-#: libraries/classes/Index.php:726 libraries/classes/Rte/Events.php:572
+#: libraries/classes/Index.php:724 libraries/classes/Rte/Events.php:572
 #: libraries/classes/Rte/Routines.php:1134
-#: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/columns_definitions/partitions.twig:85
-#: templates/database/structure/table_header.twig:46
-#: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/structure/display_partitions.twig:31
+#: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/database/structure/table_header.twig:46
+#: templates/columns_definitions/partitions.twig:85
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 msgid "Comment"
 msgstr "వ్యాఖ్య"
 
-#: libraries/classes/Index.php:752
+#: libraries/classes/Index.php:750
 msgid "The primary key has been dropped."
 msgstr ""
 
-#: libraries/classes/Index.php:759
+#: libraries/classes/Index.php:757
 #, php-format
 msgid "Index %s has been dropped."
 msgstr ""
 
-#: libraries/classes/Index.php:888
+#: libraries/classes/Index.php:886
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -8120,7 +8086,7 @@ msgstr ""
 msgid "Binary - do not edit"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1542 libraries/classes/Util.php:3392
+#: libraries/classes/InsertEdit.php:1542 libraries/classes/Util.php:3389
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 
@@ -8184,31 +8150,31 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:579
 #: libraries/classes/Rte/Routines.php:1689
 #: libraries/classes/Server/Status/Variables.php:231
+#: templates/server/variables/variable_table_head.twig:5
 #: templates/table/search/fields_table.twig:11
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
 #: templates/database/designer/main.twig:1085
 #: templates/table/search/zoom_result_form.twig:36
-#: templates/server/variables/variable_table_head.twig:5
 msgid "Value"
 msgstr "విలువ"
 
-#: libraries/classes/InsertEdit.php:2351 libraries/classes/Sql.php:1493
+#: libraries/classes/InsertEdit.php:2351 libraries/classes/Sql.php:1336
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2376 libraries/classes/Sql.php:1471
+#: libraries/classes/InsertEdit.php:2376 libraries/classes/Sql.php:1314
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:924
+#: libraries/classes/LanguageManager.php:931
 msgid "Ignoring unsupported language code."
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:951
-#: libraries/classes/LanguageManager.php:952 setup/frames/index.inc.php:66
+#: libraries/classes/LanguageManager.php:958
+#: libraries/classes/LanguageManager.php:959 setup/frames/index.inc.php:66
 msgid "Language"
 msgstr "భాష"
 
@@ -8238,9 +8204,9 @@ msgstr ""
 
 #: libraries/classes/Menu.php:351
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
-#: libraries/classes/Util.php:3128 libraries/classes/Util.php:3138
-#: libraries/classes/Util.php:3418 libraries/classes/Util.php:3419
-#: libraries/classes/Util.php:4220 libraries/config.values.php:70
+#: libraries/classes/Util.php:3125 libraries/classes/Util.php:3135
+#: libraries/classes/Util.php:3415 libraries/classes/Util.php:3416
+#: libraries/classes/Util.php:4213 libraries/config.values.php:70
 #: libraries/config.values.php:84 libraries/config.values.php:185
 #: templates/database/search/results.twig:34
 #: templates/table/structure/display_structure.twig:275
@@ -8250,10 +8216,10 @@ msgstr ""
 # Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
 #: libraries/classes/Menu.php:371 libraries/classes/Menu.php:478
 #: libraries/classes/Navigation/Nodes/NodeTable.php:293
-#: libraries/classes/Util.php:3126 libraries/classes/Util.php:3136
-#: libraries/classes/Util.php:3142 libraries/classes/Util.php:3420
-#: libraries/classes/Util.php:3421 libraries/classes/Util.php:4206
-#: libraries/classes/Util.php:4223 libraries/config.values.php:66
+#: libraries/classes/Util.php:3123 libraries/classes/Util.php:3133
+#: libraries/classes/Util.php:3139 libraries/classes/Util.php:3417
+#: libraries/classes/Util.php:3418 libraries/classes/Util.php:4199
+#: libraries/classes/Util.php:4216 libraries/config.values.php:66
 #: libraries/config.values.php:80 libraries/config.values.php:171
 #: libraries/config.values.php:181
 msgid "Search"
@@ -8262,9 +8228,9 @@ msgstr "శోధించు"
 #: libraries/classes/Menu.php:385
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
 #: libraries/classes/SqlQueryForm.php:303
-#: libraries/classes/SqlQueryForm.php:306 libraries/classes/Util.php:3127
-#: libraries/classes/Util.php:3137 libraries/classes/Util.php:3422
-#: libraries/classes/Util.php:3423 libraries/classes/Util.php:4224
+#: libraries/classes/SqlQueryForm.php:306 libraries/classes/Util.php:3124
+#: libraries/classes/Util.php:3134 libraries/classes/Util.php:3419
+#: libraries/classes/Util.php:3420 libraries/classes/Util.php:4217
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183
 msgid "Insert"
@@ -8272,24 +8238,24 @@ msgstr ""
 
 #: libraries/classes/Menu.php:409 libraries/classes/Menu.php:520
 #: libraries/classes/Server/Privileges.php:2708
-#: libraries/classes/Server/Privileges.php:4622 libraries/classes/Util.php:4211
-#: libraries/classes/Util.php:4227 libraries/config.values.php:163
-#: templates/server/privileges/privileges_summary.twig:15
+#: libraries/classes/Server/Privileges.php:4622 libraries/classes/Util.php:4204
+#: libraries/classes/Util.php:4220 libraries/config.values.php:163
 #: templates/server/sub_page_header.twig:2
+#: templates/server/privileges/privileges_summary.twig:15
 msgid "Privileges"
 msgstr ""
 
 #: libraries/classes/Menu.php:418 libraries/classes/Menu.php:426
-#: libraries/classes/Menu.php:512 libraries/classes/Util.php:3129
-#: libraries/classes/Util.php:3143 libraries/classes/Util.php:4210
-#: libraries/classes/Util.php:4228 libraries/config.values.php:173
-#: view_operations.php:110
+#: libraries/classes/Menu.php:512 libraries/classes/Util.php:3126
+#: libraries/classes/Util.php:3140 libraries/classes/Util.php:4203
+#: libraries/classes/Util.php:4221 libraries/config.values.php:173
+#: templates/table/operations/view.twig:7
 msgid "Operations"
 msgstr ""
 
 #: libraries/classes/Menu.php:431 libraries/classes/Menu.php:542
-#: libraries/classes/Relation.php:294 libraries/classes/Util.php:4215
-#: libraries/classes/Util.php:4229
+#: libraries/classes/Relation.php:294 libraries/classes/Util.php:4208
+#: libraries/classes/Util.php:4222
 msgid "Tracking"
 msgstr ""
 
@@ -8301,8 +8267,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:2089
 #: libraries/classes/Plugins/Export/ExportTexytext.php:541
 #: libraries/classes/Plugins/Export/ExportXml.php:131
-#: libraries/classes/Rte/Words.php:65 libraries/classes/Util.php:4214
-#: libraries/classes/Util.php:4230
+#: libraries/classes/Rte/Words.php:65 libraries/classes/Util.php:4207
+#: libraries/classes/Util.php:4223
 msgid "Triggers"
 msgstr ""
 
@@ -8311,12 +8277,12 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/classes/Menu.php:485 libraries/classes/Util.php:4207
+#: libraries/classes/Menu.php:485 libraries/classes/Util.php:4200
 msgid "Query"
 msgstr ""
 
 #: libraries/classes/Menu.php:525 libraries/classes/Rte/Words.php:51
-#: libraries/classes/Util.php:4212
+#: libraries/classes/Util.php:4205
 msgid "Routines"
 msgstr ""
 
@@ -8324,15 +8290,15 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:988
 #: libraries/classes/Plugins/Export/ExportXml.php:111
-#: libraries/classes/Rte/Words.php:79 libraries/classes/Util.php:4213
+#: libraries/classes/Rte/Words.php:79 libraries/classes/Util.php:4206
 msgid "Events"
 msgstr ""
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4216
+#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4209
 msgid "Designer"
 msgstr ""
 
-#: libraries/classes/Menu.php:557 libraries/classes/Util.php:4217
+#: libraries/classes/Menu.php:557 libraries/classes/Util.php:4210
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "Table comments"
@@ -8346,34 +8312,34 @@ msgid "User accounts"
 msgstr "వాడుకరి"
 
 #: libraries/classes/Menu.php:648 libraries/classes/Server/Status/Data.php:123
-#: libraries/classes/Util.php:4196 templates/server/sub_page_header.twig:2
+#: libraries/classes/Util.php:4189 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr ""
 
 #: libraries/classes/Menu.php:654 libraries/classes/Server/Status/Data.php:128
-#: libraries/classes/Util.php:4197
-#: templates/database/structure/body_for_table_summary.twig:11
+#: libraries/classes/Util.php:4190
 #: templates/database/structure/table_header.twig:10
 #: templates/server/sub_page_header.twig:2
+#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr ""
 
 #: libraries/classes/Menu.php:659 libraries/classes/Server/Status/Data.php:196
-#: libraries/classes/SqlQueryForm.php:443 libraries/classes/Util.php:4198
+#: libraries/classes/SqlQueryForm.php:443 libraries/classes/Util.php:4191
 #: libraries/config.values.php:161 templates/server/engines/show_engine.twig:12
 #: templates/server/engines/show_engine.twig:16
 msgid "Variables"
 msgstr ""
 
-#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4199
+#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4192
 msgid "Charsets"
 msgstr ""
 
-#: libraries/classes/Menu.php:667 libraries/classes/Util.php:4201
+#: libraries/classes/Menu.php:667 libraries/classes/Util.php:4194
 msgid "Engines"
 msgstr ""
 
-#: libraries/classes/Menu.php:671 libraries/classes/Util.php:4200
+#: libraries/classes/Menu.php:671 libraries/classes/Util.php:4193
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr ""
@@ -9098,7 +9064,7 @@ msgstr ""
 
 #: libraries/classes/Operations.php:1587
 #: templates/database/structure/check_all_tables.twig:14
-#: view_operations.php:147
+#: templates/table/operations/view.twig:28
 msgid "Delete data or table"
 msgstr ""
 
@@ -9199,7 +9165,7 @@ msgstr ""
 msgid "The table name is empty!"
 msgstr ""
 
-#: libraries/classes/Pdf.php:153
+#: libraries/classes/Pdf.php:154
 msgid "Error while creating PDF:"
 msgstr ""
 
@@ -9207,25 +9173,25 @@ msgstr ""
 msgid "This format has no options"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:85
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:77
 msgid "Cannot connect: invalid settings."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:91
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:83
 #: templates/login/header.twig:8
 #, php-format
 msgid "Welcome to %s"
 msgstr "%sకి స్వాగతం"
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:115
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:107
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:135
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:127
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -9233,7 +9199,7 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:163
+#: libraries/classes/Plugins/Auth/AuthenticationConfig.php:155
 msgid "Retry to connect"
 msgstr ""
 
@@ -9278,11 +9244,11 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:96
+#: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:93
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:85
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Can not find signon authentication script:"
@@ -9308,28 +9274,28 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
-#: templates/display/import/import.twig:168
 #: templates/display/export/format_dropdown.twig:2
+#: templates/display/import/import.twig:168
 msgid "Format:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:66
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:68
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:60
 msgid "Columns separated with:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:71
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:74
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:66
 msgid "Columns enclosed with:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:76
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:81
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:73
 msgid "Columns escaped with:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:81
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:88
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:80
 msgid "Lines terminated with:"
 msgstr ""
 
@@ -9860,7 +9826,7 @@ msgstr ""
 msgid "MIME"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:61
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:53
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
@@ -10127,7 +10093,7 @@ msgstr ""
 
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:66
-#: libraries/classes/Util.php:1587
+#: libraries/classes/Util.php:1585
 msgid "%B %d, %Y at %I:%M %p"
 msgstr ""
 
@@ -10272,23 +10238,23 @@ msgstr ""
 msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:141
+#: libraries/classes/Plugins/TwoFactor/Application.php:147
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Application (2FA)"
 msgstr "అధీకరణ"
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:151
+#: libraries/classes/Plugins/TwoFactor/Application.php:157
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:191
+#: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:201
+#: libraries/classes/Plugins/TwoFactor/Key.php:206
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
@@ -10315,8 +10281,10 @@ msgid "Two-factor authentication failed."
 msgstr "సేవకి స్వరూపణం"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
-msgid "No Two-Factor"
-msgstr ""
+#, fuzzy
+#| msgid "Server configuration"
+msgid "No Two-Factor Authentication"
+msgstr "సేవకి స్వరూపణం"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
@@ -10500,31 +10468,31 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/classes/Relation.php:1804
+#: libraries/classes/Relation.php:1803
 msgid "no description"
 msgstr "వివరణ లేదు"
 
-#: libraries/classes/Relation.php:2003
+#: libraries/classes/Relation.php:1999
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2118
+#: libraries/classes/Relation.php:2114
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2126
+#: libraries/classes/Relation.php:2122
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/classes/Relation.php:2134
+#: libraries/classes/Relation.php:2130
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -10900,7 +10868,7 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1558
 #: libraries/classes/Rte/Triggers.php:153
 #: libraries/classes/Rte/Triggers.php:162
-#: libraries/classes/Rte/Triggers.php:194 libraries/classes/Util.php:673
+#: libraries/classes/Rte/Triggers.php:194 libraries/classes/Util.php:671
 msgid "MySQL said: "
 msgstr ""
 
@@ -11642,9 +11610,9 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1262
 #: libraries/classes/Server/Privileges.php:1263
 #: libraries/classes/Server/UserGroups.php:253
+#: templates/server/privileges/global_priv_table.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/server/privileges/global_priv_table.twig:5
 #: templates/select_all.twig:4 templates/select_all.twig:5
 #, fuzzy
 #| msgid "Use Tables"
@@ -13094,91 +13062,34 @@ msgstr "డేటాబేస్"
 msgid "Table-level tabs"
 msgstr "పట్టిక వ్యాఖ్యలు"
 
-#: libraries/classes/Sql.php:283 libraries/classes/Util.php:1206
-#: templates/console/display.twig:31 templates/console/display.twig:175
-msgid "Profiling"
-msgstr ""
-
-#: libraries/classes/Sql.php:286
-msgid "Detailed profile"
-msgstr ""
-
-#: libraries/classes/Sql.php:291 libraries/classes/Sql.php:307
-#, fuzzy
-#| msgid "Start"
-msgid "State"
-msgstr "మొదలుపెట్టు"
-
-#: libraries/classes/Sql.php:304
-msgid "Summary by state"
-msgstr ""
-
-#: libraries/classes/Sql.php:310
-#, fuzzy
-#| msgid "Total"
-msgid "Total Time"
-msgstr "మొత్తం"
-
-#: libraries/classes/Sql.php:312
-#, fuzzy
-#| msgid "Time"
-msgid "% Time"
-msgstr "సమయం"
-
-#: libraries/classes/Sql.php:314
-#, fuzzy
-#| msgid "Close"
-msgid "Calls"
-msgstr "మూసివేయి"
-
-#: libraries/classes/Sql.php:316
-#, fuzzy
-#| msgid "Time"
-msgid "ø Time"
-msgstr "సమయం"
-
-#: libraries/classes/Sql.php:639 libraries/classes/Sql.php:658
-msgid "Bookmark this SQL query"
-msgstr ""
-
-#: libraries/classes/Sql.php:644
-#, fuzzy
-#| msgid "Data Label"
-msgid "Label:"
-msgstr "డేటాబేస్"
-
-#: libraries/classes/Sql.php:651 libraries/classes/SqlQueryForm.php:329
-msgid "Let every user access this bookmark"
-msgstr ""
-
-#: libraries/classes/Sql.php:868
+#: libraries/classes/Sql.php:711
 msgid "Bookmark not created!"
 msgstr ""
 
-#: libraries/classes/Sql.php:987
+#: libraries/classes/Sql.php:830
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:1490
+#: libraries/classes/Sql.php:1333
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/classes/Sql.php:1904
+#: libraries/classes/Sql.php:1706
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1918
+#: libraries/classes/Sql.php:1720
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1960
+#: libraries/classes/Sql.php:1760
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -13216,6 +13127,10 @@ msgstr "చెల్లని పరామితులు!"
 
 #: libraries/classes/SqlQueryForm.php:321
 msgid "Bookmark this SQL query:"
+msgstr ""
+
+#: libraries/classes/SqlQueryForm.php:329 templates/sql/bookmark.twig:22
+msgid "Let every user access this bookmark"
 msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:335
@@ -13347,7 +13262,7 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
-#: libraries/classes/Template.php:108
+#: libraries/classes/Template.php:111
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr ""
@@ -13376,8 +13291,9 @@ msgstr ""
 msgid "Theme:"
 msgstr ""
 
-#: libraries/classes/Tracking.php:276 templates/table/tracking/main.twig:73
+#: libraries/classes/Tracking.php:276
 #: templates/database/tracking/tables.twig:78
+#: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr ""
 
@@ -13429,8 +13345,9 @@ msgstr ""
 msgid "Data definition statement"
 msgstr ""
 
-#: libraries/classes/Tracking.php:682 templates/table/tracking/main.twig:80
+#: libraries/classes/Tracking.php:682
 #: templates/database/tracking/tables.twig:89
+#: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr ""
 
@@ -13756,44 +13673,49 @@ msgstr "సంకేతపదం:"
 msgid "Could not save configuration"
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/Util.php:179
+#: libraries/classes/Util.php:177
 #, php-format
 msgid "Max: %s%s"
 msgstr "గరిష్ఠం: %s%s"
 
-#: libraries/classes/Util.php:607
+#: libraries/classes/Util.php:605
 msgid "Static analysis:"
 msgstr ""
 
-#: libraries/classes/Util.php:610
+#: libraries/classes/Util.php:608
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Util.php:1116
+#: libraries/classes/Util.php:1114
 msgid "Skip Explain SQL"
 msgstr ""
 
-#: libraries/classes/Util.php:1124
+#: libraries/classes/Util.php:1122
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/classes/Util.php:1154
+#: libraries/classes/Util.php:1152
 #, fuzzy
 #| msgid "Create a page"
 msgid "Without PHP code"
 msgstr "పుటని సృష్టించు"
 
-#: libraries/classes/Util.php:1161
+#: libraries/classes/Util.php:1159
 #: templates/database/multi_table_query/form.twig:180
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "క్వెరీ ని సమర్పించు"
 
-#: libraries/classes/Util.php:1224
+#: libraries/classes/Util.php:1204 templates/sql/profiling_chart.twig:2
+#: templates/console/display.twig:31 templates/console/display.twig:175
+msgid "Profiling"
+msgstr ""
+
+#: libraries/classes/Util.php:1222
 #, fuzzy
 #| msgid "Add a new User"
 msgctxt "Inline edit query"
@@ -13801,88 +13723,88 @@ msgid "Edit inline"
 msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
 #. l10n: Short week day name
-#: libraries/classes/Util.php:1570
+#: libraries/classes/Util.php:1568
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "ఆది"
 
-#: libraries/classes/Util.php:1608
+#: libraries/classes/Util.php:1606
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: libraries/classes/Util.php:1610
+#: libraries/classes/Util.php:1608
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/classes/Util.php:1911
+#: libraries/classes/Util.php:1908
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s రోజులు, %s గంటలు, %s నిమిషాలు మరియు %s క్షణాలు"
 
-#: libraries/classes/Util.php:1946
+#: libraries/classes/Util.php:1943
 msgid "Missing parameter:"
 msgstr ""
 
-#: libraries/classes/Util.php:2507
+#: libraries/classes/Util.php:2504
 #, fuzzy, php-format
 #| msgid "Copy database to"
 msgid "Jump to database “%s”."
 msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
 
-#: libraries/classes/Util.php:2535
+#: libraries/classes/Util.php:2532
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/classes/Util.php:3336 prefs_manage.php:244
+#: libraries/classes/Util.php:3333 prefs_manage.php:244
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/classes/Util.php:3363
+#: libraries/classes/Util.php:3360
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 
-#: libraries/classes/Util.php:3403
+#: libraries/classes/Util.php:3400
 msgid "There are no files to upload!"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/classes/Util.php:3427 libraries/classes/Util.php:3428
+#: libraries/classes/Util.php:3424 libraries/classes/Util.php:3425
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "ఖాళీ"
 
-#: libraries/classes/Util.php:3433 libraries/classes/Util.php:3434
+#: libraries/classes/Util.php:3430 libraries/classes/Util.php:3431
 msgid "Execute"
 msgstr ""
 
-#: libraries/classes/Util.php:4063
+#: libraries/classes/Util.php:4056
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Util.php:4068
+#: libraries/classes/Util.php:4061
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Util.php:4070
+#: libraries/classes/Util.php:4063
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Util.php:4073
+#: libraries/classes/Util.php:4066
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Util.php:4192
+#: libraries/classes/Util.php:4185
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "వాడుకరి"
 
 # మొదటి అనువాదము
-#: libraries/classes/Util.php:4903
+#: libraries/classes/Util.php:4896
 #: templates/database/multi_table_query/form.twig:65
 msgid "Sort"
 msgstr "క్రమంలో పేర్చు"
@@ -14047,7 +13969,7 @@ msgstr ""
 msgid "With selected:"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:339
+#: libraries/mult_submits.inc.php:338
 msgid "Success!"
 msgstr ""
 
@@ -14399,9 +14321,9 @@ msgid "Wrong data or no validation for %s"
 msgstr ""
 
 # మొదటి అనువాదము
-#: tbl_change.php:166 templates/table/tracking/main.twig:33
+#: tbl_change.php:166 templates/database/tracking/tables.twig:19
+#: templates/table/tracking/main.twig:33
 #: templates/database/multi_table_query/form.twig:48
-#: templates/database/tracking/tables.twig:19
 msgid "Show"
 msgstr "చూపించు"
 
@@ -14498,36 +14420,428 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "వివరణ"
 
+#: templates/sql/profiling_chart.twig:4
+msgid "Detailed profile"
+msgstr ""
+
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
+#, fuzzy
+#| msgid "Start"
+msgid "State"
+msgstr "మొదలుపెట్టు"
+
+#: templates/sql/profiling_chart.twig:30
+msgid "Summary by state"
+msgstr ""
+
+#: templates/sql/profiling_chart.twig:40
+#, fuzzy
+#| msgid "Total"
+msgid "Total Time"
+msgstr "మొత్తం"
+
+#: templates/sql/profiling_chart.twig:44
+#, fuzzy
+#| msgid "Time"
+msgid "% Time"
+msgstr "సమయం"
+
+#: templates/sql/profiling_chart.twig:48
+#, fuzzy
+#| msgid "Close"
+msgid "Calls"
+msgstr "మూసివేయి"
+
+#: templates/sql/profiling_chart.twig:52
+#, fuzzy
+#| msgid "Time"
+msgid "ø Time"
+msgstr "సమయం"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:4
+#: templates/table/structure/display_structure.twig:473
+#, fuzzy
+#| msgid "Relations"
+msgid "Partitions"
+msgstr "సంబంధాలు"
+
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:24
+#: templates/columns_definitions/partitions.twig:76
+#, fuzzy
+#| msgid "Relations"
+msgid "Partition"
+msgstr "సంబంధాలు"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:30
+msgid "Expression"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Original position"
+msgid "Data length"
+msgstr "అసలు స్థానం"
+
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "Relations"
+msgid "Partition table"
+msgstr "సంబంధాలు"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+#, fuzzy
+#| msgid "Add a new User"
+msgid "Edit partitioning"
+msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr ""
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr ""
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Active options"
+msgid "Advanced Options"
+msgstr "క్రియాశీల ఎంపికలు"
+
+#: templates/table/index_form.twig:52
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:69
+msgid "Index type:"
+msgstr ""
+
+#: templates/table/index_form.twig:81
+#, fuzzy
+#| msgid "User"
+msgid "Parser:"
+msgstr "వాడుకరి"
+
+#: templates/table/index_form.twig:97
+#, fuzzy
+#| msgid "Comment"
+msgid "Comment:"
+msgstr "వ్యాఖ్య"
+
+#: templates/table/index_form.twig:122
+#: templates/database/structure/table_header.twig:36
+msgid "Size"
+msgstr "పరిమాణం"
+
+#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
+msgid "Drag to reorder"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "పట్టిక పేరు"
+
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+#: templates/database/central_columns/main.twig:210
+#: templates/console/display.twig:99
+#, fuzzy
+#| msgid "And"
+msgid "Add"
+msgstr "మరియు"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Comments"
+msgid "column(s)"
+msgstr "వ్యాఖ్యలు"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Creation"
+msgid "Collation:"
+msgstr "సృష్టి"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "అనుసంధానాలు"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
+
+#: templates/display/results/table_navigation.twig:26
+msgid "Save edited data"
+msgstr ""
+
+#: templates/display/results/table_navigation.twig:32
+#, fuzzy
+#| msgid "Table comments"
+msgid "Restore column order"
+msgstr "పట్టిక వ్యాఖ్యలు"
+
+#: templates/display/results/table_navigation.twig:53
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
+msgid "Number of rows:"
+msgstr ""
+
+# మొదటి అనువాదము
+#: templates/display/results/table_navigation.twig:67
+msgid "All"
+msgstr "అన్నీ"
+
+#: templates/display/results/table_navigation.twig:73
+#: templates/database/central_columns/main.twig:180
+#, fuzzy
+#| msgid "Files"
+msgid "Filter rows"
+msgstr "దస్త్రాలు"
+
+#: templates/display/results/table_navigation.twig:75
+#: templates/database/central_columns/main.twig:181
+#, fuzzy
+#| msgid "Use this value"
+msgid "Search this table"
+msgstr "ఈ విలువని ఉపయోగించు"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr ""
+
+#: templates/server/privileges/delete_user_fieldset.twig:3
+#, fuzzy
+#| msgid "Table name"
+msgid "Remove selected user accounts"
+msgstr "పట్టిక పేరు"
+
+#: templates/server/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr ""
+
+#: templates/server/privileges/delete_user_fieldset.twig:7
+#: templates/server/privileges/delete_user_fieldset.twig:10
+#: templates/server/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr ""
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr ""
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr ""
+
+#: templates/start_and_number_of_rows_panel.twig:3
+#, fuzzy
+#| msgid "Start"
+msgid "Start row:"
+msgstr "మొదలుపెట్టు"
+
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
 
-#: templates/table/structure/partition_definition_form.twig:6
-#: templates/table/structure/display_partitions.twig:141
-#, fuzzy
-#| msgid "Add a new User"
-msgid "Edit partitioning"
-msgstr "క్రొత్త వాడుకరిని చేర్చు"
-
-#: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:557
-#: templates/database/designer/main.twig:621
-#: templates/database/designer/main.twig:822
-#: templates/database/designer/main.twig:853
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1046
-msgid "Operator"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
 msgstr ""
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/display/export/options_output_separate_files.twig:7
+#, fuzzy
+#| msgid "Table name"
+msgid "Export databases as separate files"
+msgstr "పట్టిక పేరు"
+
+#: templates/display/export/options_output_separate_files.twig:9
+#, fuzzy
+#| msgid "Export method"
+msgid "Export tables as separate files"
+msgstr "ఎగుమతి పద్ధతి"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
+msgstr ""
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr ""
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+msgid "Requery"
+msgstr ""
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr ""
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>మొత్తం:</b> <i>%s</i> పోలిక"
+msgstr[1] "<b>మొత్తం:</b> <i>%s</i> పోలికలు"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.twig:9
+#, fuzzy
+#| msgid "Select All"
+msgid "Select database:"
+msgstr "అన్నీ ఎంచుకో"
+
+# మొదటి అనువాదము
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "Database"
+msgid "New database name"
+msgstr "డేటాబేస్"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select All"
+msgid "Select table:"
+msgstr "అన్నీ ఎంచుకో"
+
+#: templates/export/alias_add.twig:29
+#, fuzzy
+#| msgid "New page name: "
+msgid "New table name"
+msgstr "కొత్త పుట పేరు: "
+
+#: templates/export/alias_add.twig:37
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Select column:"
+msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+
+#: templates/export/alias_add.twig:43
+#, fuzzy
+#| msgid "Comments"
+msgid "New column name"
+msgstr "వ్యాఖ్యలు"
+
+#: templates/display/export/template_options.twig:1
+#, fuzzy
+#| msgid "Select All"
+msgid "Select a template"
+msgstr "అన్నీ ఎంచుకో"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "ఈ విలువని ఉపయోగించు"
+
+#: templates/table/tracking/report_table.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+msgctxt "Number"
+msgid "#"
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "తేదీ"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "వాడుకరిపేరు"
 
 # మొదటి అనువాదము
 #: templates/database/structure/structure_table_row.twig:214
 msgid "in use"
 msgstr "వాడుకలో ఉన్నది"
 
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr ""
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:44
+#: templates/prefs_twofactor.twig:56
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Configure two-factor authentication"
@@ -14539,103 +14853,234 @@ msgstr "సేవకి స్వరూపణం"
 msgid "Enable two-factor authentication"
 msgstr "సేవకి స్వరూపణం"
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "ఈ విలువని ఉపయోగించు"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Table comments"
-msgid "Label column"
-msgstr "పట్టిక వ్యాఖ్యలు"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-#, fuzzy
-#| msgid "- none -"
-msgid "-- None --"
-msgstr "- ఏమీలేదు -"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Total"
-msgid "Spatial column"
-msgstr "మొత్తం"
-
-#: templates/table/gis_visualization/gis_visualization.twig:38
-#: templates/gis_data_editor_form.twig:22
-msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Copy database to"
-msgid "Copy table"
-msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
-
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "రంగుని చూపించు"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:27
-#, fuzzy
-#| msgid "Display table filter"
-msgid "Replace table prefix"
-msgstr "పట్టిక వ్యాఖ్యలు"
-
 # మొదటి అనువాదము
-#: templates/database/structure/check_all_tables.twig:33
+#: templates/database/designer/database_tables.twig:31
 #, fuzzy
 #| msgid "Add into comments"
-msgid "Add columns to central list"
+msgid "Show/hide columns"
 msgstr "స్పందనలకు చేర్చు"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
 
 # మొదటి అనువాదము
-#: templates/database/structure/check_all_tables.twig:35
+#: templates/database/designer/database_tables.twig:39
 #, fuzzy
-#| msgid "Add into comments"
-msgid "Make consistent with central list"
-msgstr "స్పందనలకు చేర్చు"
+#| msgid "Database"
+msgid "See table structure"
+msgstr "డేటాబేస్"
 
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "ఏమీలేదు"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
 msgstr ""
 
-#: templates/columns_definitions/column_virtuality.twig:30
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
 msgstr ""
 
-#: templates/server/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
+#: templates/database/create_table.twig:7
+#: templates/database/designer/main.twig:86
+#: templates/database/designer/main.twig:89
+msgid "Create table"
 msgstr ""
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr ""
+
+#: templates/server/plugins/main.twig:18
+msgid "Plugin"
+msgstr ""
+
+#: templates/server/plugins/main.twig:20 templates/table/tracking/main.twig:28
+msgid "Version"
+msgstr ""
+
+#: templates/server/plugins/main.twig:21
+msgid "Author"
+msgstr ""
+
+#: templates/server/plugins/main.twig:32
+#, fuzzy
+#| msgid "Disable Statistics"
+msgid "disabled"
+msgstr "గణాంకాలని అచేతనంచేయి"
+
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+
+#: templates/database/structure/table_header.twig:51
+#: templates/table/structure/display_table_stats.twig:147
+msgid "Creation"
+msgstr "సృష్టి"
+
+#: templates/database/structure/table_header.twig:56
+#: templates/table/structure/display_table_stats.twig:154
+msgid "Last update"
+msgstr "చివరి మార్పు"
+
+#: templates/database/structure/table_header.twig:61
+#: templates/table/structure/display_table_stats.twig:161
+msgid "Last check"
+msgstr "చివరి చూపు"
+
+#: templates/database/tracking/tables.twig:4
+msgid "Tracked tables"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:14
+msgid "Last version"
+msgstr "చివరి కూర్పు"
+
+#: templates/database/tracking/tables.twig:15
+#: templates/table/tracking/main.twig:29
+msgid "Created"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:16
+#: templates/table/tracking/main.twig:30
+msgid "Updated"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:56
+#: templates/database/tracking/tables.twig:101
+#, fuzzy
+#| msgid "Delete"
+msgid "Delete tracking"
+msgstr "తొలగించు"
+
+#: templates/database/tracking/tables.twig:67
+msgid "Versions"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:112
+msgid "Untracked tables"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:139
+#: templates/database/tracking/tables.twig:151
+#: templates/table/structure/display_structure.twig:394
+msgid "Track table"
+msgstr ""
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr ""
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr ""
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr ""
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr ""
+
+#: templates/display/export/options_output_save_dir.twig:5
+#: templates/display/export/options_quick_export.twig:8
+#, php-format
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr ""
+
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:376
+#, fuzzy
+#| msgid "Add a new User"
+msgid "Edit view"
+msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+# మొదటి అనువాదము
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "నామధేయమును చూపుము"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr ""
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Delete"
+msgid "Delete settings"
+msgstr "తొలగించు"
+
+#: templates/display/results/options_block.twig:34
+msgid "Relational key"
+msgstr ""
+
+#: templates/display/results/options_block.twig:34
+#, fuzzy
+#| msgid "Display comments"
+msgid "Display column for relationships"
+msgstr "వ్యాఖ్యలను చూపించు"
+
+#: templates/display/results/options_block.twig:50
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:57
+msgid "Show BLOB contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:71
+#, fuzzy
+#| msgid "Version information"
+msgid "Hide browser transformation"
+msgstr "సంచిక సమాచారం"
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Text"
+msgstr ""
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Binary"
+msgstr ""
+
+#: templates/table/search/fields_table.twig:10
+#: templates/database/designer/main.twig:557
+#: templates/database/designer/main.twig:621
+#: templates/database/designer/main.twig:822
+#: templates/database/designer/main.twig:853
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1046
+msgid "Operator"
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:2
+#, fuzzy
+#| msgid "Server configuration"
+msgid "Confirm disabling two-factor authentication"
+msgstr "సేవకి స్వరూపణం"
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:38
+#, fuzzy
+#| msgid "Server configuration"
+msgid "Disable two-factor authentication"
+msgstr "సేవకి స్వరూపణం"
 
 #: templates/columns_definitions/partitions.twig:17
 #, fuzzy
@@ -14666,13 +15111,6 @@ msgstr "సంబంధాలు"
 #, fuzzy
 #| msgid "Relations"
 msgid "Subpartitions:"
-msgstr "సంబంధాలు"
-
-#: templates/columns_definitions/partitions.twig:76
-#: templates/table/structure/display_partitions.twig:24
-#, fuzzy
-#| msgid "Relations"
-msgid "Partition"
 msgstr "సంబంధాలు"
 
 #: templates/columns_definitions/partitions.twig:78
@@ -14726,530 +15164,21 @@ msgstr "శోధించు"
 msgid "Node group"
 msgstr "వాడుకరి"
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
-#: templates/database/structure/body_for_table_summary.twig:6
+#: templates/columns_definitions/column_name.twig:4
 #, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s పట్టిక"
-msgstr[1] "%s పట్టికలు"
-
-# మొదటి అనువాదము
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "మొత్తము"
-
-#: templates/table/page_with_secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relations"
-msgid "Relation view"
-msgstr "సంబంధాలు"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
+msgid "Referenced by %s."
 msgstr ""
 
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>మొత్తం:</b> <i>%s</i> పోలిక"
-msgstr[1] "<b>మొత్తం:</b> <i>%s</i> పోలికలు"
-
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-msgctxt "Number"
-msgid "#"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "తేదీ"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "వాడుకరిపేరు"
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-msgid "Number of rows:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr ""
-
-#: templates/server/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr ""
-
-#: templates/server/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr ""
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete"
-msgid "Delete settings"
-msgstr "తొలగించు"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:91
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr "ఏమీలేదు"
-
-#: templates/table/structure/display_structure.twig:112
-#, php-format
-msgid "Column %s has been dropped."
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:135
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:153
-#: templates/table/structure/display_structure.twig:171
-#: templates/table/structure/display_structure.twig:200
-#: templates/table/structure/display_structure.twig:223
-#, php-format
-msgid "An index has been added on %s."
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
 msgstr ""
 
 # మొదటి అనువాదము
-#: templates/table/structure/display_structure.twig:247
-#: templates/table/structure/display_structure.twig:350
+#: templates/columns_definitions/column_name.twig:39
 #, fuzzy
 #| msgid "Remove database"
-msgid "Remove from central columns"
+msgid "Pick from Central Columns"
 msgstr "డేటాబేస్ తొలగించండి"
-
-# మొదటి అనువాదము
-#: templates/table/structure/display_structure.twig:251
-#: templates/table/structure/display_structure.twig:343
-#, fuzzy
-#| msgid "Add into comments"
-msgid "Add to central columns"
-msgstr "స్పందనలకు చేర్చు"
-
-# మొదటి అనువాదము
-#: templates/table/structure/display_structure.twig:363
-#: templates/table/structure/display_structure.twig:398
-#, fuzzy
-#| msgid "Add into comments"
-msgid "Move columns"
-msgstr "స్పందనలకు చేర్చు"
-
-#: templates/table/structure/display_structure.twig:364
-msgid "Move the columns by dragging them up and down."
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:376
-#: templates/view_create.twig:13
-#, fuzzy
-#| msgid "Add a new User"
-msgid "Edit view"
-msgstr "క్రొత్త వాడుకరిని చేర్చు"
-
-#: templates/table/structure/display_structure.twig:385
-msgid "Propose table structure"
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:394
-#: templates/database/tracking/tables.twig:139
-#: templates/database/tracking/tables.twig:151
-msgid "Track table"
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:401
-msgid "Normalize"
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/table/structure/display_structure.twig:407
-#, fuzzy
-#| msgid "Create"
-msgid "Track view"
-msgstr "సృష్టించు"
-
-# మొదటి అనువాదము
-#: templates/table/structure/display_structure.twig:416
-#: templates/database/central_columns/main.twig:192
-#, fuzzy
-#| msgid "Add into comments"
-msgid "Add column"
-msgstr "స్పందనలకు చేర్చు"
-
-# మొదటి అనువాదము
-#: templates/table/structure/display_structure.twig:421
-#, fuzzy, php-format
-#| msgid "Add into comments"
-msgid "Add %s column(s)"
-msgstr "స్పందనలకు చేర్చు"
-
-# మొదటి అనువాదము
-#: templates/table/structure/display_structure.twig:426
-#, fuzzy
-#| msgctxt "short form"
-#| msgid "Create table"
-msgid "at beginning of table"
-msgstr "పట్టికను సృష్టించు"
-
-# మొదటి అనువాదము
-#: templates/table/structure/display_structure.twig:431
-#: templates/columns_definitions/move_column.twig:12
-#, fuzzy, php-format
-#| msgid "After %s"
-msgid "after %s"
-msgstr "%s మార్లు తరువాత"
-
-#: templates/table/structure/display_structure.twig:473
-#: templates/table/structure/display_partitions.twig:4
-#, fuzzy
-#| msgid "Relations"
-msgid "Partitions"
-msgstr "సంబంధాలు"
-
-#: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export method"
-msgid "Export method:"
-msgstr "ఎగుమతి పద్ధతి"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr ""
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "పట్టిక పేరు"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-#: templates/database/central_columns/main.twig:210
-#, fuzzy
-#| msgid "And"
-msgid "Add"
-msgstr "మరియు"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Comments"
-msgid "column(s)"
-msgstr "వ్యాఖ్యలు"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Creation"
-msgid "Collation:"
-msgstr "సృష్టి"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
-msgid "Connection:"
-msgstr "అనుసంధానాలు"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr ""
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export type"
-msgid "Export templates:"
-msgstr "ఎగుమతి రకం"
-
-#: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "New name"
-msgid "New template:"
-msgstr "కొత్త పేరు"
-
-#: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Table name"
-msgid "Template name"
-msgstr "పట్టిక పేరు"
-
-# మొదటి అనువాదము
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/index.twig:37
-msgid "Create"
-msgstr "సృష్టించు"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr ""
-
-#: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
-msgid "Template:"
-msgstr "%s పట్టిక"
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update"
-msgstr "క్వెరీ ని మార్చు"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr ""
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr ""
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Add into comments"
-msgid "Show/hide columns"
-msgstr "స్పందనలకు చేర్చు"
-
-# మొదటి అనువాదము
-#: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Database"
-msgid "See table structure"
-msgstr "డేటాబేస్"
-
-# మొదటి అనువాదము
-#: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Database"
-msgid "Databases:"
-msgstr "డేటాబేస్"
-
-#: templates/console/display.twig:7
-#, fuzzy
-#| msgid "SQL history"
-msgid "History"
-msgstr "SQL చరిత్ర"
-
-# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
-#: templates/console/display.twig:11 templates/console/display.twig:99
-#, fuzzy
-#| msgid "Search"
-msgid "Bookmarks"
-msgstr "శోధించు"
-
-#: templates/console/display.twig:20
-#, fuzzy
-#| msgid "Update Query"
-msgid "Press Ctrl+Enter to execute query"
-msgstr "క్వెరీ ని మార్చు"
-
-#: templates/console/display.twig:23
-#, fuzzy
-#| msgid "Update Query"
-msgid "Press Enter to execute query"
-msgstr "క్వెరీ ని మార్చు"
-
-#: templates/console/display.twig:31 templates/console/display.twig:84
-#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-msgid "Collapse"
-msgstr ""
-
-#: templates/console/display.twig:31 templates/console/display.twig:84
-#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-msgid "Expand"
-msgstr ""
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/console/bookmark_content.twig:7
-msgid "Requery"
-msgstr ""
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-msgid "Explain"
-msgstr ""
-
-# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
-#: templates/console/display.twig:40 templates/console/display.twig:184
-#, fuzzy
-#| msgid "Search"
-msgid "Bookmark"
-msgstr "శోధించు"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-#, fuzzy
-#| msgid "Show statistics"
-msgid "Query failed"
-msgstr "గణాంకాలను చూపించు"
-
-#: templates/console/display.twig:42 templates/console/display.twig:184
-msgid "Queried time"
-msgstr ""
-
-#: templates/console/display.twig:47
-msgid "During current session"
-msgstr ""
-
-#: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Ascending"
-msgid "ascending"
-msgstr "ఆరోహణ"
-
-#: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Descending"
-msgid "descending"
-msgstr "అవరోహణ"
-
-#: templates/console/display.twig:64
-msgid "Order:"
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-#, fuzzy
-#| msgid "Column"
-msgid "Count"
-msgstr "వరుస"
-
-#: templates/console/display.twig:64
-msgid "Execution order"
-msgstr ""
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Time taken"
-msgstr ""
-
-#: templates/console/display.twig:64
-msgid "Order by:"
-msgstr ""
-
-#: templates/console/display.twig:64
-msgid "Ungroup queries"
-msgstr ""
-
-#: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Show color"
-msgid "Show trace"
-msgstr "రంగుని చూపించు"
-
-# మొదటి అనువాదము
-#: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Hide/Show all"
-msgid "Hide trace"
-msgstr "అన్నింటిని చూపుము/దాచుము"
-
-# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
-#: templates/console/display.twig:112
-#, fuzzy
-#| msgid "Search"
-msgid "Add bookmark"
-msgstr "శోధించు"
-
-#: templates/console/display.twig:121
-#, fuzzy
-#| msgid "Data Label"
-msgid "Label"
-msgstr "డేటాబేస్"
-
-# మొదటి అనువాదము
-#: templates/console/display.twig:124
-#, fuzzy
-#| msgctxt "short form"
-#| msgid "Create table"
-msgid "Target database"
-msgstr "పట్టికను సృష్టించు"
-
-# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
-#: templates/console/display.twig:127
-#, fuzzy
-#| msgid "Search"
-msgid "Share this bookmark"
-msgstr "శోధించు"
-
-#: templates/console/display.twig:140
-#, fuzzy
-#| msgid "Leave blank for defaults"
-msgid "Set default"
-msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-
-#: templates/table/tracking/main.twig:28 templates/server/plugins/main.twig:20
-msgid "Version"
-msgstr ""
-
-#: templates/table/tracking/main.twig:29
-#: templates/database/tracking/tables.twig:15
-msgid "Created"
-msgstr ""
-
-#: templates/table/tracking/main.twig:30
-#: templates/database/tracking/tables.twig:16
-msgid "Updated"
-msgstr ""
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
 #, fuzzy
@@ -15275,289 +15204,21 @@ msgstr ""
 msgid "Deactivate now"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:16
-#, fuzzy
-#| msgid "Show statistics"
-msgid "Query window"
-msgstr "గణాంకాలను చూపించు"
-
-#: templates/database/multi_table_query/form.twig:37
-#: templates/database/multi_table_query/form.twig:125
-#, fuzzy
-#| msgid "Select All"
-msgid "select table"
-msgstr "అన్నీ ఎంచుకో"
-
-#: templates/database/multi_table_query/form.twig:44
-#: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "select column"
-msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
-
-#: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "పట్టికలు"
-
-#: templates/database/multi_table_query/form.twig:51
-#, fuzzy
-#| msgid "Comments"
-msgid "Column alias"
-msgstr "వ్యాఖ్యలు"
-
-#: templates/database/multi_table_query/form.twig:54
-msgid "Use this column in criteria"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:57
-#, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "లక్షణాలు"
-
-#: templates/database/multi_table_query/form.twig:71
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "%s జతచేయి"
-
-#: templates/database/multi_table_query/form.twig:116
-#, fuzzy
-#| msgid "Table comments"
-msgid "Another column"
-msgstr "పట్టిక వ్యాఖ్యలు"
-
-#: templates/database/multi_table_query/form.twig:144
-msgid "Enter criteria as free text"
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/database/multi_table_query/form.twig:152
-#, fuzzy
-#| msgid "Remove database"
-msgid "Remove this column"
-msgstr "డేటాబేస్ తొలగించండి"
-
-# మొదటి అనువాదము
-#: templates/database/multi_table_query/form.twig:162
-#: templates/table/relation/foreign_key_row.twig:86
-#, fuzzy
-#| msgid "Add into comments"
-msgid "+ Add column"
-msgstr "స్పందనలకు చేర్చు"
-
-#: templates/database/multi_table_query/form.twig:179
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "క్వెరీ ని మార్చు"
-
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr ""
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr ""
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr ""
-
-#: templates/display/import/import.twig:50
-#, fuzzy
-#| msgid "Partial Import:"
-msgid "File to import:"
-msgstr "పాక్షిక దిగుమతి:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr ""
-
-#: templates/display/import/import.twig:97
-#: templates/display/export/options_output_charset.twig:3
-msgid "Character set of the file:"
-msgstr ""
-
-#: templates/display/import/import.twig:124
-#, fuzzy
-#| msgid "Partial Import:"
-msgid "Partial import:"
-msgstr "పాక్షిక దిగుమతి:"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-
-#: templates/display/import/import.twig:161
-#, fuzzy
-#| msgid "Options"
-msgid "Other options:"
-msgstr "ఎంపికలు"
-
-#: templates/display/import/import.twig:174
 #: templates/display/export/options_format.twig:2
+#: templates/display/import/import.twig:174
 msgid "Format-specific options:"
 msgstr ""
 
-#: templates/display/import/import.twig:176
 #: templates/display/export/options_format.twig:4
+#: templates/display/import/import.twig:176
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
 
-#: templates/display/import/import.twig:185
 #: templates/display/export/options_format.twig:12
+#: templates/display/import/import.twig:185
 msgid "Encoding Conversion:"
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/columns_definitions/column_name.twig:39
-#, fuzzy
-#| msgid "Remove database"
-msgid "Pick from Central Columns"
-msgstr "డేటాబేస్ తొలగించండి"
-
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-
-#: templates/database/structure/table_header.twig:36
-#: templates/table/index_form.twig:122
-msgid "Size"
-msgstr "పరిమాణం"
-
-#: templates/database/structure/table_header.twig:51
-#: templates/table/structure/display_table_stats.twig:147
-msgid "Creation"
-msgstr "సృష్టి"
-
-#: templates/database/structure/table_header.twig:56
-#: templates/table/structure/display_table_stats.twig:154
-msgid "Last update"
-msgstr "చివరి మార్పు"
-
-#: templates/database/structure/table_header.twig:61
-#: templates/table/structure/display_table_stats.twig:161
-msgid "Last check"
-msgstr "చివరి చూపు"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr ""
-
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr ""
-
-#: templates/display/import/javascript.twig:30
-msgid "Uploading your import file…"
-msgstr ""
-
-#: templates/display/import/javascript.twig:155
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "లక్షణాల వరుసలను చేర్చు/తొలగించు"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "అసలు స్థానం"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Relations"
-msgid "Replaced string"
-msgstr "సంబంధాలు"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr ""
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
 msgstr ""
 
 #: templates/database/designer/main.twig:21
@@ -15590,12 +15251,6 @@ msgstr "కొత్త పేరు"
 #| msgid "Delete"
 msgid "Delete pages"
 msgstr "తొలగించు"
-
-#: templates/database/designer/main.twig:86
-#: templates/database/designer/main.twig:89
-#: templates/database/create_table.twig:7
-msgid "Create table"
-msgstr ""
 
 #: templates/database/designer/main.twig:93
 #: templates/database/designer/main.twig:96
@@ -15738,516 +15393,25 @@ msgstr "సృష్టించు"
 msgid "Active options"
 msgstr "క్రియాశీల ఎంపికలు"
 
-#: templates/login/header.twig:15
-msgid ""
-"There is a mismatch between HTTPS indicated on the server and client. This "
-"can lead to a non working phpMyAdmin or a security risk. Please fix your "
-"server configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:73
-#, fuzzy
-#| msgid "Row Statistics"
-msgid "Row statistics"
-msgstr "వరుసల గణాంకాలు"
-
-#: templates/table/structure/display_table_stats.twig:79
-msgid "static"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:81
-msgid "dynamic"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:92
-msgid "partitioned"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:121
-msgid "Row length"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:133
-msgid "Row size"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:140
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr ""
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr ""
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:9
-msgid "Foreign key constraints"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:13
-#, fuzzy
-#| msgid "Action"
-msgid "Actions"
-msgstr "చర్య"
-
-#: templates/table/relation/common_form.twig:14
-#, fuzzy
-#| msgid "Comments"
-msgid "Constraint properties"
-msgstr "వ్యాఖ్యలు"
-
-#: templates/table/relation/common_form.twig:18
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:23
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:27
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:92
-#, fuzzy
-#| msgid "Add a New User"
-msgid "+ Add constraint"
-msgstr "కొత్త వాడుకరిని చేర్చు"
-
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "అంతర్గత సంబంధాలు"
-
-#: templates/table/relation/common_form.twig:117
-msgid "Internal relation"
-msgstr "అంతర్గత సంబంధం"
-
-#: templates/table/relation/common_form.twig:119
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:199
-#, fuzzy
-#| msgid "data"
-msgid "Choose column to display:"
-msgstr "భోగట్టా"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr ""
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "పుట శీర్షికలు"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page titles"
-msgid "Page to delete"
-msgstr "పుట శీర్షికలు"
-
-#: templates/database/search/main.twig:5
-msgid "Search in database"
-msgstr ""
-
-#: templates/database/search/main.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
+#: templates/theme_preview.twig:11
+msgid "No preview available."
 msgstr ""
 
 # మొదటి అనువాదము
-#: templates/database/search/main.twig:15
-#: templates/table/search/selection_form.twig:181
-msgid "Find:"
-msgstr "వెతుకు:"
-
-#: templates/database/search/main.twig:29
+#: templates/theme_preview.twig:13
 #, fuzzy
-#| msgid "Use Tables"
-msgid "Inside tables:"
-msgstr "పట్టికల్ని వాడు"
+#| msgid "take it"
+msgid "Take it"
+msgstr "తీసుకొనుము"
 
-#: templates/database/search/main.twig:56
-msgid "Inside column:"
-msgstr ""
-
-#: templates/database/tracking/tables.twig:4
-msgid "Tracked tables"
-msgstr ""
-
-#: templates/database/tracking/tables.twig:14
-msgid "Last version"
-msgstr "చివరి కూర్పు"
-
-#: templates/database/tracking/tables.twig:56
-#: templates/database/tracking/tables.twig:101
-#, fuzzy
-#| msgid "Delete"
-msgid "Delete tracking"
-msgstr "తొలగించు"
-
-#: templates/database/tracking/tables.twig:67
-msgid "Versions"
-msgstr ""
-
-#: templates/database/tracking/tables.twig:112
-msgid "Untracked tables"
-msgstr ""
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr ""
-
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "వాడుకరిని సృష్టించు"
-
-#: templates/display/results/options_block.twig:34
-msgid "Relational key"
-msgstr ""
-
-#: templates/display/results/options_block.twig:34
-#, fuzzy
-#| msgid "Display comments"
-msgid "Display column for relationships"
-msgstr "వ్యాఖ్యలను చూపించు"
-
-#: templates/display/results/options_block.twig:50
-msgid "Show binary contents"
-msgstr ""
-
-#: templates/display/results/options_block.twig:57
-msgid "Show BLOB contents"
-msgstr ""
-
-#: templates/display/results/options_block.twig:71
-#, fuzzy
-#| msgid "Version information"
-msgid "Hide browser transformation"
-msgstr "సంచిక సమాచారం"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Text"
-msgstr ""
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Binary"
-msgstr ""
-
-#: templates/server/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr ""
-
-#: templates/server/privileges/privileges_summary.twig:54
-msgid "Add privileges on the following database(s):"
-msgstr ""
-
-#: templates/server/privileges/privileges_summary.twig:67
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-
-#: templates/server/privileges/privileges_summary.twig:71
-msgid "Add privileges on the following table:"
-msgstr ""
-
-#: templates/server/privileges/privileges_summary.twig:86
-msgid "Add privileges on the following routine:"
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/server/databases/index.twig:15
-#: templates/server/databases/index.twig:43
-#, fuzzy
-#| msgctxt "short form"
-#| msgid "Create table"
-msgid "Create database"
-msgstr "పట్టికను సృష్టించు"
-
-#: templates/server/databases/index.twig:122
-msgid "No databases"
-msgstr ""
-
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr ""
-
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr ""
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/server/variables/variable_row.twig:31
-msgid "Session value"
-msgstr ""
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select All"
-msgid "Select database:"
-msgstr "అన్నీ ఎంచుకో"
-
-# మొదటి అనువాదము
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "Database"
-msgid "New database name"
-msgstr "డేటాబేస్"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select All"
-msgid "Select table:"
-msgstr "అన్నీ ఎంచుకో"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New page name: "
-msgid "New table name"
-msgstr "కొత్త పుట పేరు: "
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Select column:"
-msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Comments"
-msgid "New column name"
-msgstr "వ్యాఖ్యలు"
-
-#: templates/server/databases/databases_footer.twig:55
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-
-#: templates/server/databases/databases_footer.twig:58
-#: templates/server/databases/databases_footer.twig:61
-#, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "గణాంకాలని చేతనంచేయి"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr ""
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr ""
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
-msgid "Advanced Options"
-msgstr "క్రియాశీల ఎంపికలు"
-
-#: templates/table/index_form.twig:52
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:69
-msgid "Index type:"
-msgstr ""
-
-#: templates/table/index_form.twig:81
-#, fuzzy
-#| msgid "User"
-msgid "Parser:"
-msgstr "వాడుకరి"
-
-#: templates/table/index_form.twig:97
-#, fuzzy
-#| msgid "Comment"
-msgid "Comment:"
-msgstr "వ్యాఖ్య"
-
-#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
-msgid "Drag to reorder"
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "నామధేయమును చూపుము"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr ""
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr ""
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Add a new User"
-msgid "Add to Favorites"
-msgstr "క్రొత్త వాడుకరిని చేర్చు"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr ""
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr ""
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Server configuration"
-msgid "Character sets and collations"
-msgstr "సేవకి స్వరూపణం"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr ""
-
-#: templates/server/privileges/column_privileges.twig:21
-#: templates/server/privileges/column_privileges.twig:22
-msgctxt "None privileges"
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
 msgid "None"
-msgstr "ఏమీలేవు"
+msgstr "ఏమీలేదు"
 
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
 msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Table comments"
-msgid "Move column"
-msgstr "పట్టిక వ్యాఖ్యలు"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
-#| msgid "Version information"
-msgid "Browser display transformation options"
-msgstr "సంచిక సమాచారం"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Table options"
-msgid "Input transformation options"
-msgstr "పట్టిక ఎంపికలు"
-
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Copy database to"
-msgid "Jump to database '%s'"
-msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
-
-#: templates/server/databases/table_row.twig:51
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr ""
-
-#: templates/server/databases/table_row.twig:52
-#, fuzzy
-#| msgid "Add a new User"
-msgid "Check privileges"
-msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
 # మొదటి అనువాదము
 #: templates/database/central_columns/main.twig:4
@@ -16274,6 +15438,14 @@ msgstr ""
 msgid "The central list of columns for the current database is empty"
 msgstr "ప్రస్తుత డేటాబేస్ కోసం నిలువు కేంద్ర జాబితా ఖాళీగా ఉంది."
 
+# మొదటి అనువాదము
+#: templates/database/central_columns/main.twig:192
+#: templates/table/structure/display_structure.twig:416
+#, fuzzy
+#| msgid "Add into comments"
+msgid "Add column"
+msgstr "స్పందనలకు చేర్చు"
+
 #: templates/database/central_columns/main.twig:201
 #, fuzzy
 #| msgid "Select All"
@@ -16290,98 +15462,6 @@ msgstr "నిలువ వరుసల్ని చేర్చు/తొలగ
 msgid "Click to sort."
 msgstr ""
 
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr ""
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr ""
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr ""
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:29
-msgid "Use this column to label each point"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:55
-msgid "Maximum rows to plot"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:80
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:106
-msgid "Select columns (at least one):"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:126
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:134
-msgid "Number of rows per page"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:145
-msgid "Display order:"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:183
-#, fuzzy
-#| msgid "Relations"
-msgid "Replace with:"
-msgstr "సంబంధాలు"
-
-#: templates/table/search/selection_form.twig:199
-msgid "Use regular expression"
-msgstr ""
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr ""
-
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr ""
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:16
-#, fuzzy
-#| msgid "Authentication"
-msgid "Authentication code:"
-msgstr "అధీకరణ"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start"
-msgid "Start row:"
-msgstr "మొదలుపెట్టు"
-
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
@@ -16392,293 +15472,12 @@ msgstr ""
 msgid "Secret/key:"
 msgstr ""
 
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "ఏమీలేదు"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr ""
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/theme_preview.twig:13
+#: templates/login/twofactor/application_configure.twig:16
+#: templates/login/twofactor/application.twig:2
 #, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "తీసుకొనుము"
-
-#: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Table name"
-msgid "Export databases as separate files"
-msgstr "పట్టిక పేరు"
-
-#: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "Export method"
-msgid "Export tables as separate files"
-msgstr "ఎగుమతి పద్ధతి"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:4
-#, php-format
-msgid "Value for the column \"%s\""
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:38
-msgctxt "Spatial Reference System Identifier"
-msgid "SRID:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:52
-#, php-format
-msgid "Geometry %d:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:72
-msgid "Point:"
-msgstr ""
-
-# మొదటి అనువాదము
-#: templates/gis_data_editor_form.twig:92
-#: templates/gis_data_editor_form.twig:133
-#: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Add into comments"
-msgid "Point %d:"
-msgstr "స్పందనలకు చేర్చు"
-
-#: templates/gis_data_editor_form.twig:112
-#, fuzzy, php-format
-#| msgid "Add a New User"
-msgid "Linestring %d:"
-msgstr "కొత్త వాడుకరిని చేర్చు"
-
-#: templates/gis_data_editor_form.twig:114
-#: templates/gis_data_editor_form.twig:169
-msgid "Outer ring:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:116
-#: templates/gis_data_editor_form.twig:171
-#, php-format
-msgid "Inner ring %d:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:143
-#, fuzzy
-#| msgid "Add a New User"
-msgid "Add a linestring"
-msgstr "కొత్త వాడుకరిని చేర్చు"
-
-# మొదటి అనువాదము
-#: templates/gis_data_editor_form.twig:156
-#, fuzzy, php-format
-#| msgid "Add into comments"
-msgid "Polygon %d:"
-msgstr "స్పందనలకు చేర్చు"
-
-# మొదటి అనువాదము
-#: templates/gis_data_editor_form.twig:198
-#, fuzzy
-#| msgid "Add into comments"
-msgid "Add a polygon"
-msgstr "స్పందనలకు చేర్చు"
-
-#: templates/gis_data_editor_form.twig:203
-#, fuzzy
-#| msgid "Add a new User"
-msgid "Add geometry"
-msgstr "క్రొత్త వాడుకరిని చేర్చు"
-
-#: templates/gis_data_editor_form.twig:212
-msgid "Output"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:214
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr ""
-
-#: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select All"
-msgid "Select a template"
-msgstr "అన్నీ ఎంచుకో"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr ""
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Original position"
-msgid "Data length"
-msgstr "అసలు స్థానం"
-
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Relations"
-msgid "Partition table"
-msgstr "సంబంధాలు"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Table name"
-msgid "Save to selected page"
-msgstr "పట్టిక పేరు"
-
-# మొదటి అనువాదము
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a page"
-msgid "Create a page and save to it"
-msgstr "పుటని సృష్టించు"
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "New page name: "
-msgid "New page name"
-msgstr "కొత్త పుట పేరు: "
-
-#: templates/server/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Table name"
-msgid "Remove selected user accounts"
-msgstr "పట్టిక పేరు"
-
-#: templates/server/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-
-#: templates/server/privileges/delete_user_fieldset.twig:7
-#: templates/server/privileges/delete_user_fieldset.twig:10
-#: templates/server/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr ""
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr ""
-
-#: templates/create_tracking_version.twig:11
-#, fuzzy, php-format
-#| msgid "More settings"
-msgid "Create version %1$s of %2$s"
-msgstr "మరిన్ని అమరికలు"
-
-#: templates/create_tracking_version.twig:16
-#, fuzzy, php-format
-#| msgid "More settings"
-msgid "Create version %1$s"
-msgstr "మరిన్ని అమరికలు"
-
-#: templates/create_tracking_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: templates/create_tracking_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/create_tracking_version.twig:76
-msgid "Create version"
-msgstr ""
-
-#: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings"
-msgid "Two-factor authentication status"
-msgstr "అధీకరణ అమరికలు"
-
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
-#, fuzzy
-#| msgid "Server configuration"
-msgid "Disable two-factor authentication"
-msgstr "సేవకి స్వరూపణం"
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Database %s has been dropped."
-msgid "Foreign key constraint %s has been dropped"
-msgstr "%s డేటాబేస్ తుడిచివేయడమైనది."
-
-#: templates/table/relation/foreign_key_row.twig:34
-#, fuzzy
-#| msgid "Comments"
-msgid "Constraint name"
-msgstr "వ్యాఖ్యలు"
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
+#| msgid "Authentication"
+msgid "Authentication code:"
+msgstr "అధీకరణ"
 
 #: templates/table/chart/tbl_chart.twig:15
 #, fuzzy
@@ -16787,34 +15586,1246 @@ msgstr "%s నిలువు వరుసకు విలువలు"
 msgid "Save chart as image"
 msgstr ""
 
-#: templates/server/plugins/main.twig:18
-msgid "Plugin"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/server/plugins/main.twig:21
-msgid "Author"
-msgstr ""
-
-#: templates/server/plugins/main.twig:32
+# మొదటి అనువాదము
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-#| msgid "Disable Statistics"
-msgid "disabled"
-msgstr "గణాంకాలని అచేతనంచేయి"
+#| msgid "Column"
+msgid "Count"
+msgstr "వరుస"
 
-#: templates/prefs_twofactor_confirm.twig:2
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Original position"
+msgid "Original string"
+msgstr "అసలు స్థానం"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "సంబంధాలు"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr ""
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Table name"
+msgid "Save to selected page"
+msgstr "పట్టిక పేరు"
+
+# మొదటి అనువాదము
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a page"
+msgid "Create a page and save to it"
+msgstr "పుటని సృష్టించు"
+
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "New page name: "
+msgid "New page name"
+msgstr "కొత్త పుట పేరు: "
+
+#: templates/server/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr ""
+
+#: templates/server/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: templates/display/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: templates/display/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: templates/display/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: templates/display/import/javascript.twig:30
+msgid "Uploading your import file…"
+msgstr ""
+
+#: templates/display/import/javascript.twig:155
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "వాడుకరిని సృష్టించు"
+
+# మొదటి అనువాదము
+#: templates/display/export/selection.twig:3
+#, fuzzy
+#| msgid "Database"
+msgid "Databases:"
+msgstr "డేటాబేస్"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Copy table"
+msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
+
+#: templates/database/structure/check_all_tables.twig:11
+#, fuzzy
+#| msgid "Show color"
+msgid "Show create"
+msgstr "రంగుని చూపించు"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:27
+#, fuzzy
+#| msgid "Display table filter"
+msgid "Replace table prefix"
+msgstr "పట్టిక వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "Add into comments"
+msgid "Add columns to central list"
+msgstr "స్పందనలకు చేర్చు"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+# మొదటి అనువాదము
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "Add into comments"
+msgid "Make consistent with central list"
+msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#: templates/server/databases/index.twig:15
+#: templates/server/databases/index.twig:43
+#, fuzzy
+#| msgctxt "short form"
+#| msgid "Create table"
+msgid "Create database"
+msgstr "పట్టికను సృష్టించు"
+
+# మొదటి అనువాదము
+#: templates/server/databases/index.twig:37
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "సృష్టించు"
+
+#: templates/server/databases/index.twig:122
+msgid "No databases"
+msgstr ""
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Database %s has been dropped."
+msgid "Foreign key constraint %s has been dropped"
+msgstr "%s డేటాబేస్ తుడిచివేయడమైనది."
+
+#: templates/table/relation/foreign_key_row.twig:34
+#, fuzzy
+#| msgid "Comments"
+msgid "Constraint name"
+msgstr "వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#: templates/table/relation/foreign_key_row.twig:86
+#: templates/database/multi_table_query/form.twig:162
+#, fuzzy
+#| msgid "Add into comments"
+msgid "+ Add column"
+msgstr "స్పందనలకు చేర్చు"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr ""
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr ""
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
+
+#: templates/table/page_with_secondary_tabs.twig:9
+#, fuzzy
+#| msgid "Relations"
+msgid "Relation view"
+msgstr "సంబంధాలు"
+
+#: templates/table/relation/common_form.twig:9
+msgid "Foreign key constraints"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:13
+#, fuzzy
+#| msgid "Action"
+msgid "Actions"
+msgstr "చర్య"
+
+#: templates/table/relation/common_form.twig:14
+#, fuzzy
+#| msgid "Comments"
+msgid "Constraint properties"
+msgstr "వ్యాఖ్యలు"
+
+#: templates/table/relation/common_form.twig:18
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:23
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:27
+msgid "Foreign key constraint"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:92
+#, fuzzy
+#| msgid "Add a New User"
+msgid "+ Add constraint"
+msgstr "కొత్త వాడుకరిని చేర్చు"
+
+#: templates/table/relation/common_form.twig:102
+#: templates/table/relation/common_form.twig:111
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "అంతర్గత సంబంధాలు"
+
+#: templates/table/relation/common_form.twig:117
+msgid "Internal relation"
+msgstr "అంతర్గత సంబంధం"
+
+#: templates/table/relation/common_form.twig:119
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:199
+#, fuzzy
+#| msgid "data"
+msgid "Choose column to display:"
+msgstr "భోగట్టా"
+
+#: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
+msgid "Bookmark this SQL query"
+msgstr ""
+
+#: templates/sql/bookmark.twig:15
+#, fuzzy
+#| msgid "Data Label"
+msgid "Label:"
+msgstr "డేటాబేస్"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr ""
+
+#: templates/server/sub_page_header.twig:2
+msgid "Storage engines"
+msgstr ""
+
+#: templates/server/sub_page_header.twig:2
 #, fuzzy
 #| msgid "Server configuration"
-msgid "Confirm disabling two-factor authentication"
+msgid "Character sets and collations"
 msgstr "సేవకి స్వరూపణం"
 
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
 msgstr ""
 
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr ""
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr ""
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr ""
+
+#: templates/display/import/import.twig:50
+#, fuzzy
+#| msgid "Partial Import:"
+msgid "File to import:"
+msgstr "పాక్షిక దిగుమతి:"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr ""
+
+#: templates/display/import/import.twig:58
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr ""
+
+#: templates/display/import/import.twig:124
+#, fuzzy
+#| msgid "Partial Import:"
+msgid "Partial import:"
+msgstr "పాక్షిక దిగుమతి:"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+
+#: templates/display/import/import.twig:137
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr ""
+
+#: templates/display/import/import.twig:161
+#, fuzzy
+#| msgid "Options"
+msgid "Other options:"
+msgstr "ఎంపికలు"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:4
+#, php-format
+msgid "Value for the column \"%s\""
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:22
+#: templates/table/gis_visualization/gis_visualization.twig:38
+msgid "Use OpenStreetMaps as Base Layer"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:38
+msgctxt "Spatial Reference System Identifier"
+msgid "SRID:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:52
+#, php-format
+msgid "Geometry %d:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:72
+msgid "Point:"
+msgstr ""
+
+# మొదటి అనువాదము
+#: templates/gis_data_editor_form.twig:92
+#: templates/gis_data_editor_form.twig:133
+#: templates/gis_data_editor_form.twig:185
+#, fuzzy, php-format
+#| msgid "Add into comments"
+msgid "Point %d:"
+msgstr "స్పందనలకు చేర్చు"
+
+#: templates/gis_data_editor_form.twig:112
+#, fuzzy, php-format
+#| msgid "Add a New User"
+msgid "Linestring %d:"
+msgstr "కొత్త వాడుకరిని చేర్చు"
+
+#: templates/gis_data_editor_form.twig:114
+#: templates/gis_data_editor_form.twig:169
+msgid "Outer ring:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:116
+#: templates/gis_data_editor_form.twig:171
+#, php-format
+msgid "Inner ring %d:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:143
+#, fuzzy
+#| msgid "Add a New User"
+msgid "Add a linestring"
+msgstr "కొత్త వాడుకరిని చేర్చు"
+
+# మొదటి అనువాదము
+#: templates/gis_data_editor_form.twig:156
+#, fuzzy, php-format
+#| msgid "Add into comments"
+msgid "Polygon %d:"
+msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#: templates/gis_data_editor_form.twig:198
+#, fuzzy
+#| msgid "Add into comments"
+msgid "Add a polygon"
+msgstr "స్పందనలకు చేర్చు"
+
+#: templates/gis_data_editor_form.twig:203
+#, fuzzy
+#| msgid "Add a new User"
+msgid "Add geometry"
+msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#: templates/gis_data_editor_form.twig:212
+msgid "Output"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:214
+msgid ""
+"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+"below into the \"Value\" field."
+msgstr ""
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "లక్షణాల వరుసలను చేర్చు/తొలగించు"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+
+#: templates/server/privileges/column_privileges.twig:21
+#: templates/server/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "ఏమీలేవు"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s పట్టిక"
+msgstr[1] "%s పట్టికలు"
+
+# మొదటి అనువాదము
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "మొత్తము"
+
+#: templates/server/databases/databases_footer.twig:55
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+
+#: templates/server/databases/databases_footer.twig:58
+#: templates/server/databases/databases_footer.twig:61
+#, fuzzy
+#| msgid "Enable Statistics"
+msgid "Enable statistics"
+msgstr "గణాంకాలని చేతనంచేయి"
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr ""
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr ""
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr ""
+
+#: templates/server/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+#, fuzzy
+#| msgid "Table comments"
+msgid "Move column"
+msgstr "పట్టిక వ్యాఖ్యలు"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+#, fuzzy
+#| msgid "Version information"
+msgid "Browser display transformation options"
+msgstr "సంచిక సమాచారం"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+#, fuzzy
+#| msgid "Table options"
+msgid "Input transformation options"
+msgstr "పట్టిక ఎంపికలు"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "ఏమీలేదు"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr ""
+
+#: templates/display/export/method.twig:3
+#, fuzzy
+#| msgid "Export method"
+msgid "Export method:"
+msgstr "ఎగుమతి పద్ధతి"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:73
+#, fuzzy
+#| msgid "Row Statistics"
+msgid "Row statistics"
+msgstr "వరుసల గణాంకాలు"
+
+#: templates/table/structure/display_table_stats.twig:79
+msgid "static"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:81
+msgid "dynamic"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:92
+msgid "partitioned"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:121
+msgid "Row length"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:133
+msgid "Row size"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:140
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/server/variables/variable_row.twig:31
+msgid "Session value"
+msgstr ""
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+#| msgid "Add a new User"
+msgid "Add to Favorites"
+msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#: templates/prefs_twofactor.twig:3
+#, fuzzy
+#| msgid "Authentication settings"
+msgid "Two-factor authentication status"
+msgstr "అధీకరణ అమరికలు"
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr ""
+
+#: templates/login/header.twig:15
+msgid ""
+"There is a mismatch between HTTPS indicated on the server and client. This "
+"can lead to a non working phpMyAdmin or a security risk. Please fix your "
+"server configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "Copy database to"
+msgid "Jump to database '%s'"
+msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
+
+#: templates/server/databases/table_row.twig:51
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr ""
+
+#: templates/server/databases/table_row.twig:52
+#, fuzzy
+#| msgid "Add a new User"
+msgid "Check privileges"
+msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:29
+msgid "Use this column to label each point"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:55
+msgid "Maximum rows to plot"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:80
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:106
+msgid "Select columns (at least one):"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:126
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:134
+msgid "Number of rows per page"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:145
+msgid "Display order:"
+msgstr ""
+
+# మొదటి అనువాదము
+#: templates/table/search/selection_form.twig:181
+#: templates/database/search/main.twig:15
+msgid "Find:"
+msgstr "వెతుకు:"
+
+#: templates/table/search/selection_form.twig:183
+#, fuzzy
+#| msgid "Relations"
+msgid "Replace with:"
+msgstr "సంబంధాలు"
+
+#: templates/table/search/selection_form.twig:199
+msgid "Use regular expression"
+msgstr ""
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+#| msgid "Export type"
+msgid "Export templates:"
+msgstr "ఎగుమతి రకం"
+
+#: templates/display/export/template_loading.twig:6
+#, fuzzy
+#| msgid "New name"
+msgid "New template:"
+msgstr "కొత్త పేరు"
+
+#: templates/display/export/template_loading.twig:8
+#, fuzzy
+#| msgid "Table name"
+msgid "Template name"
+msgstr "పట్టిక పేరు"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr ""
+
+#: templates/display/export/template_loading.twig:17
+#, fuzzy
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "Template:"
+msgstr "%s పట్టిక"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgid "Update Query"
+msgid "Update"
+msgstr "క్వెరీ ని మార్చు"
+
+#: templates/display/export/options_output.twig:2
+#: templates/display/export/options_quick_export.twig:2
+msgid "Output:"
+msgstr ""
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr ""
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:91
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+msgctxt "None for default"
+msgid "None"
+msgstr "ఏమీలేదు"
+
+#: templates/table/structure/display_structure.twig:112
+#, php-format
+msgid "Column %s has been dropped."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:135
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:153
+#: templates/table/structure/display_structure.twig:171
+#: templates/table/structure/display_structure.twig:200
+#: templates/table/structure/display_structure.twig:223
+#, php-format
+msgid "An index has been added on %s."
+msgstr ""
+
+# మొదటి అనువాదము
+#: templates/table/structure/display_structure.twig:247
+#: templates/table/structure/display_structure.twig:350
+#, fuzzy
+#| msgid "Remove database"
+msgid "Remove from central columns"
+msgstr "డేటాబేస్ తొలగించండి"
+
+# మొదటి అనువాదము
+#: templates/table/structure/display_structure.twig:251
+#: templates/table/structure/display_structure.twig:343
+#, fuzzy
+#| msgid "Add into comments"
+msgid "Add to central columns"
+msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#: templates/table/structure/display_structure.twig:363
+#: templates/table/structure/display_structure.twig:398
+#, fuzzy
+#| msgid "Add into comments"
+msgid "Move columns"
+msgstr "స్పందనలకు చేర్చు"
+
+#: templates/table/structure/display_structure.twig:364
+msgid "Move the columns by dragging them up and down."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:385
+msgid "Propose table structure"
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:401
+msgid "Normalize"
+msgstr ""
+
+# మొదటి అనువాదము
+#: templates/table/structure/display_structure.twig:407
+#, fuzzy
+#| msgid "Create"
+msgid "Track view"
+msgstr "సృష్టించు"
+
+# మొదటి అనువాదము
+#: templates/table/structure/display_structure.twig:421
+#, fuzzy, php-format
+#| msgid "Add into comments"
+msgid "Add %s column(s)"
+msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#: templates/table/structure/display_structure.twig:426
+#, fuzzy
+#| msgctxt "short form"
+#| msgid "Create table"
+msgid "at beginning of table"
+msgstr "పట్టికను సృష్టించు"
+
+# మొదటి అనువాదము
+#: templates/table/structure/display_structure.twig:431
+#: templates/columns_definitions/move_column.twig:12
+#, fuzzy, php-format
+#| msgid "After %s"
+msgid "after %s"
+msgstr "%s మార్లు తరువాత"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page titles"
+msgid "Page to open"
+msgstr "పుట శీర్షికలు"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page titles"
+msgid "Page to delete"
+msgstr "పుట శీర్షికలు"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr ""
+
+# మొదటి అనువాదము
+#: templates/display/results/sort_by_key.twig:3
+#, fuzzy
+#| msgid "Sort"
+msgid "Sort by key:"
+msgstr "క్రమంలో పేర్చు"
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+
+#: templates/database/search/main.twig:5
+msgid "Search in database"
+msgstr ""
+
+#: templates/database/search/main.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr ""
+
+#: templates/database/search/main.twig:29
+#, fuzzy
+#| msgid "Use Tables"
+msgid "Inside tables:"
+msgstr "పట్టికల్ని వాడు"
+
+#: templates/database/search/main.twig:56
+msgid "Inside column:"
+msgstr ""
+
+#: templates/console/display.twig:7
+#, fuzzy
+#| msgid "SQL history"
+msgid "History"
+msgstr "SQL చరిత్ర"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#: templates/console/display.twig:11 templates/console/display.twig:99
+#, fuzzy
+#| msgid "Search"
+msgid "Bookmarks"
+msgstr "శోధించు"
+
+#: templates/console/display.twig:20
+#, fuzzy
+#| msgid "Update Query"
+msgid "Press Ctrl+Enter to execute query"
+msgstr "క్వెరీ ని మార్చు"
+
+#: templates/console/display.twig:23
+#, fuzzy
+#| msgid "Update Query"
+msgid "Press Enter to execute query"
+msgstr "క్వెరీ ని మార్చు"
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+msgid "Explain"
+msgstr ""
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#: templates/console/display.twig:40 templates/console/display.twig:184
+#, fuzzy
+#| msgid "Search"
+msgid "Bookmark"
+msgstr "శోధించు"
+
+#: templates/console/display.twig:40 templates/console/display.twig:184
+#, fuzzy
+#| msgid "Show statistics"
+msgid "Query failed"
+msgstr "గణాంకాలను చూపించు"
+
+#: templates/console/display.twig:42 templates/console/display.twig:184
+msgid "Queried time"
+msgstr ""
+
+#: templates/console/display.twig:47
+msgid "During current session"
+msgstr ""
+
+#: templates/console/display.twig:64
+#, fuzzy
+#| msgid "Ascending"
+msgid "ascending"
+msgstr "ఆరోహణ"
+
+#: templates/console/display.twig:64
+#, fuzzy
+#| msgid "Descending"
+msgid "descending"
+msgstr "అవరోహణ"
+
+#: templates/console/display.twig:64
+msgid "Order:"
+msgstr ""
+
+#: templates/console/display.twig:64
+msgid "Execution order"
+msgstr ""
+
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Time taken"
+msgstr ""
+
+#: templates/console/display.twig:64
+msgid "Order by:"
+msgstr ""
+
+#: templates/console/display.twig:64
+msgid "Ungroup queries"
+msgstr ""
+
+#: templates/console/display.twig:84
+#, fuzzy
+#| msgid "Show color"
+msgid "Show trace"
+msgstr "రంగుని చూపించు"
+
+# మొదటి అనువాదము
+#: templates/console/display.twig:84
+#, fuzzy
+#| msgid "Hide/Show all"
+msgid "Hide trace"
+msgstr "అన్నింటిని చూపుము/దాచుము"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#: templates/console/display.twig:112
+#, fuzzy
+#| msgid "Search"
+msgid "Add bookmark"
+msgstr "శోధించు"
+
+#: templates/console/display.twig:121
+#, fuzzy
+#| msgid "Data Label"
+msgid "Label"
+msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#: templates/console/display.twig:124
+#, fuzzy
+#| msgctxt "short form"
+#| msgid "Create table"
+msgid "Target database"
+msgstr "పట్టికను సృష్టించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#: templates/console/display.twig:127
+#, fuzzy
+#| msgid "Search"
+msgid "Share this bookmark"
+msgstr "శోధించు"
+
+#: templates/console/display.twig:140
+#, fuzzy
+#| msgid "Leave blank for defaults"
+msgid "Set default"
+msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
+
+#: templates/console/display.twig:162
+msgid ""
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
+msgstr ""
+
+#: templates/create_tracking_version.twig:11
+#, fuzzy, php-format
+#| msgid "More settings"
+msgid "Create version %1$s of %2$s"
+msgstr "మరిన్ని అమరికలు"
+
+#: templates/create_tracking_version.twig:16
+#, fuzzy, php-format
+#| msgid "More settings"
+msgid "Create version %1$s"
+msgstr "మరిన్ని అమరికలు"
+
+#: templates/create_tracking_version.twig:20
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: templates/create_tracking_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: templates/create_tracking_version.twig:76
+msgid "Create version"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+#, fuzzy
+#| msgid "Table comments"
+msgid "Label column"
+msgstr "పట్టిక వ్యాఖ్యలు"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+#, fuzzy
+#| msgid "- none -"
+msgid "-- None --"
+msgstr "- ఏమీలేదు -"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+#, fuzzy
+#| msgid "Total"
+msgid "Spatial column"
+msgstr "మొత్తం"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:16
+#, fuzzy
+#| msgid "Show statistics"
+msgid "Query window"
+msgstr "గణాంకాలను చూపించు"
+
+#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:125
+#, fuzzy
+#| msgid "Select All"
+msgid "select table"
+msgstr "అన్నీ ఎంచుకో"
+
+#: templates/database/multi_table_query/form.twig:44
+#: templates/database/multi_table_query/form.twig:133
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "select column"
+msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+
+#: templates/database/multi_table_query/form.twig:50
+#, fuzzy
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "పట్టికలు"
+
+#: templates/database/multi_table_query/form.twig:51
+#, fuzzy
+#| msgid "Comments"
+msgid "Column alias"
+msgstr "వ్యాఖ్యలు"
+
+#: templates/database/multi_table_query/form.twig:54
+msgid "Use this column in criteria"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:57
+#, fuzzy
+#| msgid "Criteria"
+msgid "criteria"
+msgstr "లక్షణాలు"
+
+#: templates/database/multi_table_query/form.twig:71
+#, fuzzy
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "%s జతచేయి"
+
+#: templates/database/multi_table_query/form.twig:116
+#, fuzzy
+#| msgid "Table comments"
+msgid "Another column"
+msgstr "పట్టిక వ్యాఖ్యలు"
+
+#: templates/database/multi_table_query/form.twig:144
+msgid "Enter criteria as free text"
+msgstr ""
+
+# మొదటి అనువాదము
+#: templates/database/multi_table_query/form.twig:152
+#, fuzzy
+#| msgid "Remove database"
+msgid "Remove this column"
+msgstr "డేటాబేస్ తొలగించండి"
+
+#: templates/database/multi_table_query/form.twig:179
+#, fuzzy
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "క్వెరీ ని మార్చు"
+
+#: templates/table/operations/view.twig:11
+msgid "Rename view to"
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:54
+msgid "Add privileges on the following database(s):"
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:67
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:71
+msgid "Add privileges on the following table:"
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:86
+msgid "Add privileges on the following routine:"
 msgstr ""
 
 # మొదటి అనువాదము
@@ -16832,11 +16843,7 @@ msgstr ""
 msgid "View name can not be empty!"
 msgstr ""
 
-#: view_operations.php:114
-msgid "Rename view to"
-msgstr ""
-
-#: view_operations.php:153
+#: view_operations.php:124
 #, fuzzy
 #| msgid "Drop the database (DROP)"
 msgid "Delete the view (DROP)"
