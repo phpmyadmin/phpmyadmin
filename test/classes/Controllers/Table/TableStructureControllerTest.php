@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Di\Container;
@@ -34,13 +36,8 @@ class TableStructureControllerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-
-        //$GLOBALS
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -90,7 +87,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
         // No primary key in db.table2
@@ -119,10 +117,10 @@ class TableStructureControllerTest extends PmaTestCase
                         if ($callCount == 0) {
                             $callCount++;
 
-                            return array(
+                            return [
                                 'Key_name'    => 'PRIMARY',
                                 'Column_name' => 'column',
-                            );
+                            ];
                         } else {
                             return null;
                         }
@@ -138,7 +136,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
         // With db.table, it has a primary key `column`
@@ -164,7 +163,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
@@ -190,7 +190,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
@@ -199,31 +200,34 @@ class TableStructureControllerTest extends PmaTestCase
             $method->invoke($ctrl)
         );
 
-        $_REQUEST['submit_mult_drop_x'] = true;
+        $_POST['submit_mult_drop_x'] = true;
         $this->assertEquals(
             'drop',
             $method->invoke($ctrl)
         );
-        unset($_REQUEST['submit_mult_drop_x']);
+        unset($_POST['submit_mult_drop_x']);
 
-        $_REQUEST['submit_mult'] = 'create';
+        $_POST['submit_mult'] = 'create';
         $this->assertEquals(
             'create',
             $method->invoke($ctrl)
         );
-        unset($_REQUEST['submit_mult']);
+        unset($_POST['submit_mult']);
 
-        $_REQUEST['mult_btn'] = __('Yes');
+        $_POST['mult_btn'] = __('Yes');
         $this->assertEquals(
             'row_delete',
             $method->invoke($ctrl)
         );
 
-        $_REQUEST['selected'] = array('a', 'b');
+        $_POST['selected'] = [
+            'a',
+            'b',
+        ];
         $method->invoke($ctrl);
         $this->assertEquals(
-            $_REQUEST['selected'],
-            $_REQUEST['selected_fld']
+            $_POST['selected'],
+            $_POST['selected_fld']
         );
     }
 
@@ -250,22 +254,30 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $dbi);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
         $submit_mult = "index";
         $db = "PMA_db";
         $table = "PMA_table";
-        $selected = array(
-            "table1", "table2"
-        );
+        $selected = [
+            "table1",
+            "table2",
+        ];
         $action = 'db_delete_row';
 
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(
                 $ctrl,
-                array($submit_mult, $db, $table, $selected, $action)
+                [
+                    $submit_mult,
+                    $db,
+                    $table,
+                    $selected,
+                    $action,
+                ]
             );
 
         //validate 1: $what
@@ -303,7 +315,13 @@ class TableStructureControllerTest extends PmaTestCase
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(
                 $ctrl,
-                array($submit_mult, $db, $table, $selected, $action)
+                [
+                    $submit_mult,
+                    $db,
+                    $table,
+                    $selected,
+                    $action,
+                ]
             );
 
         //validate 1: $what

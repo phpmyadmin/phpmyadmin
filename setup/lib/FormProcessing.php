@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
@@ -35,14 +37,14 @@ class FormProcessing
             $response->generateHeader303('index.php' . Url::getCommonRaw());
         }
 
-        if (!$form_display->process(false)) {
+        if (! $form_display->process(false)) {
             // handle form view and failed POST
             echo $form_display->getDisplay(true, true);
             return;
         }
 
         // check for form errors
-        if (!$form_display->hasErrors()) {
+        if (! $form_display->hasErrors()) {
             $response = Response::getInstance();
             $response->generateHeader303('index.php' . Url::getCommonRaw());
             return;
@@ -59,8 +61,8 @@ class FormProcessing
         ?>
         <div class="error">
             <h4><?php echo __('Warning') ?></h4>
-            <?php echo __('Submitted form contains errors') ?><br />
-            <a href="<?php echo Url::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'revert')) ?>">
+            <?php echo __('Submitted form contains errors') ?><br>
+            <a href="<?php echo Url::getCommon(['page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'revert']) ?>">
                 <?php echo __('Try to revert erroneous fields to their default values') ?>
             </a>
         </div>
@@ -69,7 +71,7 @@ class FormProcessing
             <?php echo __('Ignore errors') ?>
         </a>
         &nbsp;
-        <a class="btn" href="<?php echo Url::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'edit')) ?>">
+        <a class="btn" href="<?php echo Url::getCommon(['page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'edit']) ?>">
             <?php echo __('Show form') ?>
         </a>
         <?php

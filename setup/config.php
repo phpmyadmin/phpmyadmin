@@ -5,16 +5,22 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Core libraries.
  */
-require './lib/common.inc.php';
+require ROOT_PATH . 'setup/lib/common.inc.php';
 
 $form_display = new ConfigForm($GLOBALS['ConfigFile']);
 $form_display->save('Config');
@@ -45,6 +51,6 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     //
     // Show generated config file in a <textarea>
     //
-    $response->generateHeader303('index.php' . Url::getCommonRaw(array('page' => 'config')));
+    $response->generateHeader303('index.php' . Url::getCommonRaw(['page' => 'config']));
     exit;
 }

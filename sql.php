@@ -7,6 +7,8 @@
  *          that returns 0 rows - to prevent cyclic redirects or includes
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
@@ -14,11 +16,15 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries
  */
-require_once 'libraries/common.inc.php';
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 PageSettings::showGroup('Browse');
 
@@ -47,18 +53,20 @@ $is_gotofile  = true;
 if (empty($goto)) {
     if (empty($table)) {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
         );
     } else {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            $GLOBALS['cfg']['DefaultTabTable'],
+            'table'
         );
     }
 } // end if
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . Url::getCommon(array('db' => $GLOBALS['db']))
+        . '?' . Url::getCommon(['db' => $GLOBALS['db']])
         . ((mb_strpos(' ' . $goto, 'db_') != 1
             && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
@@ -79,32 +87,33 @@ if (isset($_POST['bkm_fields']['bkm_database'])) {
 }
 
 // During grid edit, if we have a relational field, show the dropdown for it.
-if (isset($_REQUEST['get_relational_values'])
-    && $_REQUEST['get_relational_values'] == true
+if (isset($_POST['get_relational_values'])
+    && $_POST['get_relational_values'] == true
 ) {
     $sql->getRelationalValues($db, $table);
     // script has exited at this point
 }
 
 // Just like above, find possible values for enum fields during grid edit.
-if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
+if (isset($_POST['get_enum_values']) && $_POST['get_enum_values'] == true) {
     $sql->getEnumOrSetValues($db, $table, "enum");
     // script has exited at this point
 }
 
 
 // Find possible values for set fields during grid edit.
-if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
+if (isset($_POST['get_set_values']) && $_POST['get_set_values'] == true) {
     $sql->getEnumOrSetValues($db, $table, "set");
     // script has exited at this point
 }
 
-if (isset($_REQUEST['get_default_fk_check_value'])
-    && $_REQUEST['get_default_fk_check_value'] == true
+if (isset($_GET['get_default_fk_check_value'])
+    && $_GET['get_default_fk_check_value'] == true
 ) {
     $response = Response::getInstance();
     $response->addJSON(
-        'default_fk_check_value', Util::isForeignKeyCheck()
+        'default_fk_check_value',
+        Util::isForeignKeyCheck()
     );
     exit;
 }
@@ -112,7 +121,7 @@ if (isset($_REQUEST['get_default_fk_check_value'])
 /**
  * Check ajax request to set the column order and visibility
  */
-if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
+if (isset($_POST['set_col_prefs']) && $_POST['set_col_prefs'] == true) {
     $sql->setColumnOrderOrVisibility($table, $db);
     // script has exited at this point
 }
@@ -126,7 +135,7 @@ if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
     $goto = '';
 } else {
     // Now we can check the parameters
-    Util::checkParameters(array('sql_query'));
+    Util::checkParameters(['sql_query']);
 }
 
 /**
@@ -140,7 +149,7 @@ list(
 // @todo: possibly refactor
 extract($analyzed_sql_results);
 
-if ($table != $table_from_sql && !empty($table_from_sql)) {
+if ($table != $table_from_sql && ! empty($table_from_sql)) {
     $table = $table_from_sql;
 }
 
@@ -153,7 +162,9 @@ if ($table != $table_from_sql && !empty($table_from_sql)) {
  * into account this case.
  */
 if ($sql->hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
+    $analyzed_sql_results,
+    $cfg['AllowUserDropDatabase'],
+    $GLOBALS['dbi']->isSuperuser()
 )) {
     Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
@@ -186,11 +197,11 @@ if (isset($_POST['store_bkm'])) {
 if ($goto == 'sql.php') {
     $is_gotofile = false;
     $goto = 'sql.php' . Url::getCommon(
-        array(
+        [
             'db' => $db,
             'table' => $table,
-            'sql_query' => $sql_query
-        )
+            'sql_query' => $sql_query,
+        ]
     );
 } // end if
 

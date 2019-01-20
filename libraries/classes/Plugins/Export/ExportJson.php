@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage JSON
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -32,6 +34,7 @@ class ExportJson extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -113,13 +116,13 @@ class ExportJson extends ExportPlugin
     {
         global $crlf;
 
-        $meta = array(
+        $meta = [
             'type' => 'header',
             'version' => PMA_VERSION,
             'comment' => 'Export to JSON plugin for PHPMyAdmin',
-        );
+        ];
 
-        return Export::outputHandler(
+        return $this->export->outputHandler(
             '[' . $crlf . $this->encode($meta) . ',' . $crlf
         );
     }
@@ -133,7 +136,7 @@ class ExportJson extends ExportPlugin
     {
         global $crlf;
 
-        return Export::outputHandler(']' . $crlf);
+        return $this->export->outputHandler(']' . $crlf);
     }
 
     /**
@@ -152,12 +155,12 @@ class ExportJson extends ExportPlugin
             $db_alias = $db;
         }
 
-        $meta = array(
+        $meta = [
             'type' => 'database',
-            'name' => $db_alias
-        );
+            'name' => $db_alias,
+        ];
 
-        return Export::outputHandler(
+        return $this->export->outputHandler(
             $this->encode($meta) . ',' . $crlf
         );
     }
@@ -206,14 +209,14 @@ class ExportJson extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         if (! $this->first) {
-            if (!Export::outputHandler(',')) {
+            if (! $this->export->outputHandler(',')) {
                 return false;
             }
         } else {
@@ -221,16 +224,16 @@ class ExportJson extends ExportPlugin
         }
 
         $buffer = $this->encode(
-            array(
+            [
                 'type' => 'table',
                 'name' => $table_alias,
                 'database' => $db_alias,
                 'data' => "@@DATA@@"
-            )
+            ]
         );
         list($header, $footer) = explode('"@@DATA@@"', $buffer);
 
-        if (!Export::outputHandler($header . $crlf . '[' . $crlf)) {
+        if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
             return false;
         }
 
@@ -241,10 +244,10 @@ class ExportJson extends ExportPlugin
         );
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
 
-        $columns = array();
+        $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $columns[$i] = stripslashes($col_as);
@@ -252,28 +255,27 @@ class ExportJson extends ExportPlugin
 
         $record_cnt = 0;
         while ($record = $GLOBALS['dbi']->fetchRow($result)) {
-
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt > 1) {
-                if (!Export::outputHandler(',' . $crlf)) {
+                if (! $this->export->outputHandler(',' . $crlf)) {
                     return false;
                 }
             }
 
-            $data = array();
+            $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $data[$columns[$i]] = $record[$i];
             }
 
-            if (!Export::outputHandler($this->encode($data))) {
+            if (! $this->export->outputHandler($this->encode($data))) {
                 return false;
             }
         }
 
-        if (!Export::outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
+        if (! $this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
             return false;
         }
 

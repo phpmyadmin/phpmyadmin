@@ -5,6 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 // rfc2616 - Section 14.21
 header('Expires: ' . gmdate(DATE_RFC1123));
@@ -16,7 +21,6 @@ header(
 if (isset($_SERVER['HTTP_USER_AGENT'])
     && stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE')
 ) {
-
     /* FIXME: Why is this special case for IE needed? */
     header('Pragma: public');
 } else {
@@ -28,7 +32,7 @@ if (isset($_SERVER['HTTP_USER_AGENT'])
 }
 header('Content-Type: text/html; charset=utf-8');
 
-require 'libraries/vendor_config.php';
+require ROOT_PATH . 'libraries/vendor_config.php';
 
 error_reporting(E_ALL);
 /**

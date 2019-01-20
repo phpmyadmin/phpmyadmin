@@ -8,17 +8,6 @@ have problems if they forget to enter the default value (example, for an INT) #}
     'CURRENT_TIMESTAMP': 'CURRENT_TIMESTAMP'
 } %}
 
-{# For a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value #}
-{% set default_value = '' %}
-{% if column_meta['DefaultValue'] is defined %}
-    {% set default_value = column_meta['DefaultValue'] %}
-{% endif %}
-{% if type_upper == 'BIT' %}
-    {% set default_value = Util_convertBitDefaultValue(column_meta['DefaultValue']) %}
-{% elseif type_upper == 'BINARY' or type_upper == 'VARBINARY' %}
-    {% set default_value = bin2hex(column_meta['DefaultValue']) %}
-{% endif %}
-
 <select name="field_default_type[{{ column_number }}]"
     id="field_{{ column_number }}_{{ ci - ci_offset }}"
     class="default_type">
@@ -42,5 +31,5 @@ have problems if they forget to enter the default value (example, for an INT) #}
         name="field_default_value[{{ column_number }}]"
         size="12"
         value="{{ default_value }}"
-        class="textfield default_value" />
+        class="textfield default_value">
 {% endif %}

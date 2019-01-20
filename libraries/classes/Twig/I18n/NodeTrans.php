@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Twig\I18n
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Twig\I18n;
 
 use Twig\Compiler;
@@ -42,7 +44,7 @@ class NodeTrans extends TransNode
         $lineno,
         $tag = null
     ) {
-        $nodes = array('body' => $body);
+        $nodes = ['body' => $body];
         if (null !== $count) {
             $nodes['count'] = $count;
         }
@@ -56,7 +58,7 @@ class NodeTrans extends TransNode
             $nodes['notes'] = $notes;
         }
 
-        Node::__construct($nodes, array(), $lineno, $tag);
+        Node::__construct($nodes, [], $lineno, $tag);
     }
 
     /**
@@ -87,7 +89,7 @@ class NodeTrans extends TransNode
             $message = trim($this->getNode('notes')->getAttribute('data'));
 
             // line breaks are not allowed cause we want a single line comment
-            $message = str_replace(array("\n", "\r"), ' ', $message);
+            $message = str_replace(["\n", "\r"], ' ', $message);
             $compiler->write("// l10n: {$message}\n");
         }
 

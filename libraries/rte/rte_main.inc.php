@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
 use PhpMyAdmin\Rte\Routines;
@@ -17,15 +19,19 @@ if (! defined('PHPMYADMIN')) {
 
 $response = Response::getInstance();
 
+$events = new Events($GLOBALS['dbi']);
+$routines = new Routines($GLOBALS['dbi']);
+$triggers = new Triggers($GLOBALS['dbi']);
+
 if (! $response->isAjax()) {
     /**
      * Displays the header and tabs
      */
     if (! empty($table) && in_array($table, $GLOBALS['dbi']->getTables($db))) {
-        include_once './libraries/tbl_common.inc.php';
+        include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
     } else {
         $table = '';
-        include_once './libraries/db_common.inc.php';
+        include_once ROOT_PATH . 'libraries/db_common.inc.php';
 
         list(
             $tables,
@@ -49,9 +55,10 @@ if (! $response->isAjax()) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
             $url_query = Url::getCommon(
-                array(
-                    'db' => $db, 'table' => $table
-                )
+                [
+                    'db' => $db,
+                    'table' => $table,
+                ]
             );
         }
     }
@@ -66,24 +73,24 @@ $titles = PhpMyAdmin\Util::buildActionTitles();
  * Keep a list of errors that occurred while
  * processing an 'Add' or 'Edit' operation.
  */
-$errors = array();
+$errors = [];
 
 
 /**
  * Call the appropriate main function
  */
 switch ($_PMA_RTE) {
-case 'RTN':
-    $type = null;
-    if (isset($_REQUEST['type'])) {
-        $type = $_REQUEST['type'];
-    }
-    Routines::main($type);
-    break;
-case 'TRI':
-    Triggers::main();
-    break;
-case 'EVN':
-    Events::main();
-    break;
+    case 'RTN':
+        $type = null;
+        if (isset($_REQUEST['type'])) {
+            $type = $_REQUEST['type'];
+        }
+        $routines->main($type);
+        break;
+    case 'TRI':
+        $triggers->main();
+        break;
+    case 'EVN':
+        $events->main();
+        break;
 }

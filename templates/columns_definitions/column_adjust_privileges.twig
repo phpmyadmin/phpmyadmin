@@ -4,7 +4,7 @@
         checked="checked"
         type="checkbox"
         value="NULL"
-        class="allow_null"/>
+        class="allow_null">
 {% else %}
     <input name="field_adjust_privileges[{{ column_number }}]"
         id="field_{{ column_number }}_{{ ci - ci_offset }}"
@@ -12,5 +12,5 @@
         type="checkbox"
         value="NULL"
         class="allow_null"
-        title="{% trans "You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details" %}"/>
+        title="{% trans "You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details" %}">
 {% endif %}

@@ -58,7 +58,7 @@ function removeColumnFromMultiSort (target, parent) {
 AJAX.registerOnload('keyhandler.js', function () {
     $('th.draggable.column_heading.pointer.marker a').on('click', function (event) {
         var url = $(this).parent().find('input').val();
-        var argsep = PMA_commonParams.get('arg_separator')
+        var argsep = PMA_commonParams.get('arg_separator');
         if (event.ctrlKey || event.altKey) {
             event.preventDefault();
             var params = removeColumnFromMultiSort(url, $(this).parent());

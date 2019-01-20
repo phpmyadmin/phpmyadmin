@@ -222,7 +222,8 @@ rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
 rm -f README.rst
 
 if [ ! -d libraries/tcpdf ] ; then
-    PHP_REQ=`sed -n '/"php"/ s/.*">=\([0-9]\.[0-9]\).*/\1/p' composer.json`
+    PHP_REQ=`sed -n '/"php"/ s/.*"\(\^\|>=\)\([0-9]\.[0-9]\).*/\2/p' composer.json`
+
     if [ -z "$PHP_REQ" ] ; then
         echo "Failed to figure out required PHP version from composer.json"
         exit 2
@@ -234,7 +235,20 @@ if [ ! -d libraries/tcpdf ] ; then
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
     composer update --no-dev
-    composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
+
+    # Parse the required versions from composer.json
+    PACKAGES_VERSIONS=''
+    if [ "$branch" = "QA_4_8" ] ; then
+        PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server"
+    else
+        PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server"
+    fi
+    for PACKAGES in $PACKAGE_LIST
+    do
+        PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
+    done
+    composer require --update-no-dev $PACKAGES_VERSIONS
+
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \
@@ -445,24 +459,26 @@ Todo now:
 
  1. Push the new tag upstream, with a command like git push origin --tags
 
- 2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
+ 2. Push the new STABLE branch upstream
+
+ 3. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
     this release and paste into it the ChangeLog for this release, followed
     by the notes of all previous incremental versions (i.e. 4.4.9 through 4.4.0)
 
- 3. upload the files to our file server, use scripts/upload-release, eg.:
+ 4. upload the files to our file server, use scripts/upload-release, eg.:
 
         ./scripts/upload-release $version release
 
- 4. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
+ 5. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
 
- 5. send a short mail (with list of major changes) to
+ 6. send a short mail (with list of major changes) to
         developers@phpmyadmin.net
         news@phpmyadmin.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.
 
- 6. increment rc count or version in the repository :
+ 7. increment rc count or version in the repository :
         - in $CONFIG_LIB Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
@@ -471,12 +487,12 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version (if this is a stable release) and open a new one for the next minor release
+ 8. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version (if this is a stable release) and open a new one for the next minor release
 
- 8. for a major release, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+ 9. for a major release, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
- 9. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
+10. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
 
-10. update the Dockerfile in the docker repository to reflect the new version and create a new annotated tag (such as with git tag -a 4.7.9-1 -m "Version 4.7.9-1")
+11. update the Dockerfile in the docker repository to reflect the new version and create a new annotated tag (such as with git tag -s -a 4.7.9-1 -m "Version 4.7.9-1"). Remember to push the tag with git push origin --tags
 
 END

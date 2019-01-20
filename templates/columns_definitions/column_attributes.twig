@@ -47,13 +47,14 @@
         'ci_offset': ci_offset,
         'column_meta': column_meta,
         'type_upper': type_upper,
+        'default_value': default_value,
         'char_editing': char_editing
     } only %}
     {% set ci = ci + 1 %}
 </td>
 <td class="center">
     {# column collation #}
-    {{ Charsets_getCollationDropdownBox(
+    {{ get_collation_dropdown_box(
         dbi,
         disable_is,
         'field_collation[' ~ column_number ~ ']',

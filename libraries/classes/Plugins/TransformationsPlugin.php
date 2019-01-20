@@ -5,7 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins;
+
+use stdClass;
 
 /**
  * Provides a common interface that will have to
@@ -22,24 +26,23 @@ abstract class TransformationsPlugin implements TransformationsInterface
      *
      * @return void
      */
-    public function applyTransformationNoWrap(array $options = array())
+    public function applyTransformationNoWrap(array $options = [])
     {
-        ;
     }
 
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string the transformed text
      */
     abstract public function applyTransformation(
         $buffer,
-        array $options = array(),
-        $meta = ''
+        array $options = [],
+        ?stdClass $meta = null
     );
 
     /**
@@ -52,7 +55,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      */
     public function getOptions(array $options, array $defaults)
     {
-        $result = array();
+        $result = [];
         foreach ($defaults as $key => $value) {
             if (isset($options[$key]) && $options[$key] !== '') {
                 $result[$key] = $options[$key];

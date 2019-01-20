@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Import;
@@ -12,12 +14,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
-
-/*
- * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.inc.php' will use it globally
- */
-$GLOBALS['server'] = 0;
 
 /**
  * Tests for import functions
@@ -27,21 +23,28 @@ $GLOBALS['server'] = 0;
 class ImportTest extends TestCase
 {
     /**
+     * @var Import $import
+     */
+    private $import;
+
+    /**
      * Prepares environment for the test.
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
+        $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';
+        $this->import = new Import();
     }
 
     /**
-     * Test for Import::checkTimeout
+     * Test for checkTimeout
      *
      * @return void
      */
-    function testCheckTimeout()
+    public function testCheckTimeout()
     {
         global $timestamp, $maximum_time, $timeout_passed;
 
@@ -50,82 +53,103 @@ class ImportTest extends TestCase
         $maximum_time = 0;
         $timeout_passed = false;
 
-        $this->assertFalse(Import::checkTimeout());
+        $this->assertFalse($this->import->checkTimeout());
 
         //Reinit values.
         $timestamp = time();
         $maximum_time = 0;
         $timeout_passed = true;
 
-        $this->assertFalse(Import::checkTimeout());
+        $this->assertFalse($this->import->checkTimeout());
 
         //Reinit values.
         $timestamp = time();
         $maximum_time = 30;
         $timeout_passed = true;
 
-        $this->assertTrue(Import::checkTimeout());
+        $this->assertTrue($this->import->checkTimeout());
 
         //Reinit values.
-        $timestamp = time()-15;
+        $timestamp = time() - 15;
         $maximum_time = 30;
         $timeout_passed = false;
 
-        $this->assertFalse(Import::checkTimeout());
+        $this->assertFalse($this->import->checkTimeout());
 
         //Reinit values.
-        $timestamp = time()-60;
+        $timestamp = time() - 60;
         $maximum_time = 30;
         $timeout_passed = false;
 
-        $this->assertTrue(Import::checkTimeout());
+        $this->assertTrue($this->import->checkTimeout());
     }
 
     /**
-     * Test for Import::lookForUse
+     * Test for lookForUse
      *
      * @return void
      */
-    function testLookForUse()
+    public function testLookForUse()
     {
         $this->assertEquals(
-            array(null, null),
-            Import::lookForUse(null, null, null)
+            [
+                null,
+                null,
+            ],
+            $this->import->lookForUse(null, null, null)
         );
 
         $this->assertEquals(
-            array('myDb', null),
-            Import::lookForUse(null, 'myDb', null)
+            [
+                'myDb',
+                null,
+            ],
+            $this->import->lookForUse(null, 'myDb', null)
         );
 
         $this->assertEquals(
-            array('myDb', true),
-            Import::lookForUse(null, 'myDb', true)
+            [
+                'myDb',
+                true,
+            ],
+            $this->import->lookForUse(null, 'myDb', true)
         );
 
         $this->assertEquals(
-            array('myDb', true),
-            Import::lookForUse('select 1 from myTable', 'myDb', true)
+            [
+                'myDb',
+                true,
+            ],
+            $this->import->lookForUse('select 1 from myTable', 'myDb', true)
         );
 
         $this->assertEquals(
-            array('anotherDb', true),
-            Import::lookForUse('use anotherDb', 'myDb', false)
+            [
+                'anotherDb',
+                true,
+            ],
+            $this->import->lookForUse('use anotherDb', 'myDb', false)
         );
 
         $this->assertEquals(
-            array('anotherDb', true),
-            Import::lookForUse('use anotherDb', 'myDb', true)
+            [
+                'anotherDb',
+                true,
+            ],
+            $this->import->lookForUse('use anotherDb', 'myDb', true)
         );
 
         $this->assertEquals(
-            array('anotherDb', true),
-            Import::lookForUse('use `anotherDb`;', 'myDb', true)
+            [
+                'anotherDb',
+                true,
+            ],
+            $this->import->lookForUse('use `anotherDb`;', 'myDb', true)
         );
     }
 
     /**
-     * Test for Import::getColumnAlphaName
+     * Test for getColumnAlphaName
      *
      * @param string $expected Expected result of the function
      * @param int    $num      The column number
@@ -134,9 +158,9 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetColumnAlphaName
      */
-    function testGetColumnAlphaName($expected, $num)
+    public function testGetColumnAlphaName($expected, $num)
     {
-        $this->assertEquals($expected, Import::getColumnAlphaName($num));
+        $this->assertEquals($expected, $this->import->getColumnAlphaName($num));
     }
 
     /**
@@ -144,20 +168,38 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    function provGetColumnAlphaName()
+    public function provGetColumnAlphaName()
     {
-        return array(
-            array('A', 1),
-            array('Z', 0),
-            array('AA', 27),
-            array('AZ', 52),
-            array('BA', 53),
-            array('BB', 54),
-        );
+        return [
+            [
+                'A',
+                1,
+            ],
+            [
+                'Z',
+                0,
+            ],
+            [
+                'AA',
+                27,
+            ],
+            [
+                'AZ',
+                52,
+            ],
+            [
+                'BA',
+                53,
+            ],
+            [
+                'BB',
+                54,
+            ],
+        ];
     }
 
     /**
-     * Test for Import::getColumnNumberFromName
+     * Test for getColumnNumberFromName
      *
      * @param int         $expected Expected result of the function
      * @param string|null $name     column name(i.e. "A", or "BC", etc.)
@@ -166,9 +208,9 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetColumnNumberFromName
      */
-    function testGetColumnNumberFromName($expected, $name)
+    public function testGetColumnNumberFromName($expected, $name)
     {
-        $this->assertEquals($expected, Import::getColumnNumberFromName($name));
+        $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
     }
 
     /**
@@ -176,20 +218,38 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    function provGetColumnNumberFromName()
+    public function provGetColumnNumberFromName()
     {
-        return array(
-            array(1, 'A'),
-            array(26, 'Z'),
-            array(27, 'AA'),
-            array(52, 'AZ'),
-            array(53, 'BA'),
-            array(54, 'BB'),
-        );
+        return [
+            [
+                1,
+                'A',
+            ],
+            [
+                26,
+                'Z',
+            ],
+            [
+                27,
+                'AA',
+            ],
+            [
+                52,
+                'AZ',
+            ],
+            [
+                53,
+                'BA',
+            ],
+            [
+                54,
+                'BB',
+            ],
+        ];
     }
 
     /**
-     * Test for Import::getDecimalPrecision
+     * Test for getDecimalPrecision
      *
      * @param int         $expected Expected result of the function
      * @param string|null $size     Size of field
@@ -198,9 +258,9 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalPrecision
      */
-    function testGetDecimalPrecision($expected, $size)
+    public function testGetDecimalPrecision($expected, $size)
     {
-        $this->assertEquals($expected, Import::getDecimalPrecision($size));
+        $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
     }
 
     /**
@@ -208,18 +268,30 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    function provGetDecimalPrecision()
+    public function provGetDecimalPrecision()
     {
-        return array(
-            array(2, '2,1'),
-            array(6, '6,2'),
-            array(6, '6,0'),
-            array(16, '16,2'),
-        );
+        return [
+            [
+                2,
+                '2,1',
+            ],
+            [
+                6,
+                '6,2',
+            ],
+            [
+                6,
+                '6,0',
+            ],
+            [
+                16,
+                '16,2',
+            ],
+        ];
     }
 
     /**
-     * Test for Import::getDecimalScale
+     * Test for getDecimalScale
      *
      * @param int         $expected Expected result of the function
      * @param string|null $size     Size of field
@@ -228,9 +300,9 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalScale
      */
-    function testGetDecimalScale($expected, $size)
+    public function testGetDecimalScale($expected, $size)
     {
-        $this->assertEquals($expected, Import::getDecimalScale($size));
+        $this->assertEquals($expected, $this->import->getDecimalScale($size));
     }
 
     /**
@@ -238,18 +310,30 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    function provGetDecimalScale()
+    public function provGetDecimalScale()
     {
-        return array(
-            array(1, '2,1'),
-            array(2, '6,2'),
-            array(0, '6,0'),
-            array(20, '30,20'),
-        );
+        return [
+            [
+                1,
+                '2,1',
+            ],
+            [
+                2,
+                '6,2',
+            ],
+            [
+                0,
+                '6,0',
+            ],
+            [
+                20,
+                '30,20',
+            ],
+        ];
     }
 
     /**
-     * Test for Import::getDecimalSize
+     * Test for getDecimalSize
      *
      * @param array       $expected Expected result of the function
      * @param string|null $cell     Cell content
@@ -258,9 +342,9 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalSize
      */
-    function testGetDecimalSize($expected, $cell)
+    public function testGetDecimalSize($expected, $cell)
     {
-        $this->assertEquals($expected, Import::getDecimalSize($cell));
+        $this->assertEquals($expected, $this->import->getDecimalSize($cell));
     }
 
     /**
@@ -268,18 +352,42 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    function provGetDecimalSize()
+    public function provGetDecimalSize()
     {
-        return array(
-            array(array(2, 1, '2,1'), '2.1'),
-            array(array(2, 1, '2,1'), '6.2'),
-            array(array(3, 1, '3,1'), '10.0'),
-            array(array(4, 2, '4,2'), '30.20'),
-        );
+        return [
+            [
+                [
+                    2,
+                    1,
+                    '2,1',
+                ], '2.1',
+            ],
+            [
+                [
+                    2,
+                    1,
+                    '2,1',
+                ], '6.2',
+            ],
+            [
+                [
+                    3,
+                    1,
+                    '3,1',
+                ], '10.0',
+            ],
+            [
+                [
+                    4,
+                    2,
+                    '4,2',
+                ], '30.20',
+            ],
+        ];
     }
 
     /**
-     * Test for Import::detectType
+     * Test for detectType
      *
      * @param int         $expected Expected result of the function
      * @param int|null    $type     Last cumulative column type (VARCHAR or INT or
@@ -291,9 +399,9 @@ class ImportTest extends TestCase
      *
      * @dataProvider provDetectType
      */
-    function testDetectType($expected, $type, $cell)
+    public function testDetectType($expected, $type, $cell)
     {
-        $this->assertEquals($expected, Import::detectType($type, $cell));
+        $this->assertEquals($expected, $this->import->detectType($type, $cell));
     }
 
     /**
@@ -301,31 +409,83 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    function provDetectType()
+    public function provDetectType()
     {
-        return array(
-            array(Import::NONE, null, 'NULL'),
-            array(Import::NONE, Import::NONE, 'NULL'),
-            array(Import::INT, Import::INT, 'NULL'),
-            array(Import::VARCHAR, Import::VARCHAR, 'NULL'),
-            array(Import::VARCHAR, null, null),
-            array(Import::VARCHAR, Import::INT, null),
-            array(Import::INT, Import::INT, '10'),
-            array(Import::DECIMAL, Import::DECIMAL, '10.2'),
-            array(Import::DECIMAL, Import::INT, '10.2'),
-            array(Import::BIGINT, Import::BIGINT, '2147483648'),
-            array(Import::BIGINT, Import::INT, '2147483648'),
-            array(Import::VARCHAR, Import::VARCHAR, 'test'),
-            array(Import::VARCHAR, Import::INT, 'test'),
-        );
+        return [
+            [
+                Import::NONE,
+                null,
+                'NULL',
+            ],
+            [
+                Import::NONE,
+                Import::NONE,
+                'NULL',
+            ],
+            [
+                Import::INT,
+                Import::INT,
+                'NULL',
+            ],
+            [
+                Import::VARCHAR,
+                Import::VARCHAR,
+                'NULL',
+            ],
+            [
+                Import::VARCHAR,
+                null,
+                null,
+            ],
+            [
+                Import::VARCHAR,
+                Import::INT,
+                null,
+            ],
+            [
+                Import::INT,
+                Import::INT,
+                '10',
+            ],
+            [
+                Import::DECIMAL,
+                Import::DECIMAL,
+                '10.2',
+            ],
+            [
+                Import::DECIMAL,
+                Import::INT,
+                '10.2',
+            ],
+            [
+                Import::BIGINT,
+                Import::BIGINT,
+                '2147483648',
+            ],
+            [
+                Import::BIGINT,
+                Import::INT,
+                '2147483648',
+            ],
+            [
+                Import::VARCHAR,
+                Import::VARCHAR,
+                'test',
+            ],
+            [
+                Import::VARCHAR,
+                Import::INT,
+                'test',
+            ],
+        ];
     }
 
     /**
-     * Test for Import::getMatchedRows.
+     * Test for getMatchedRows.
      *
      * @return void
      */
-    function testPMAGetMatchedRows()
+    public function testPMAGetMatchedRows()
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
@@ -344,7 +504,7 @@ class ImportTest extends TestCase
 
         $dbi->expects($this->any())
             ->method('numRows')
-            ->with(array())
+            ->with([])
             ->will($this->returnValue(2));
 
         $dbi->expects($this->any())
@@ -355,12 +515,12 @@ class ImportTest extends TestCase
         $dbi->expects($this->at(1))
             ->method('tryQuery')
             ->with($simulated_update_query)
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
 
         $dbi->expects($this->at(4))
             ->method('tryQuery')
             ->with($simulated_delete_query)
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -376,42 +536,42 @@ class ImportTest extends TestCase
      *
      * @return void
      */
-    function simulatedQueryTest($sql_query, $simulated_query)
+    public function simulatedQueryTest($sql_query, $simulated_query)
     {
         $parser = new Parser($sql_query);
-        $analyzed_sql_results = array(
+        $analyzed_sql_results = [
             'query' => $sql_query,
             'parser' => $parser,
             'statement' => $parser->statements[0],
-        );
+        ];
 
-        $simulated_data = Import::getMatchedRows($analyzed_sql_results);
+        $simulated_data = $this->import->getMatchedRows($analyzed_sql_results);
 
         // URL to matched rows.
-        $_url_params = array(
+        $_url_params = [
             'db'        => 'PMA',
-            'sql_query' => $simulated_query
-        );
+            'sql_query' => $simulated_query,
+        ];
         $matched_rows_url  = 'sql.php' . Url::getCommon($_url_params);
 
         $this->assertEquals(
-            array(
+            [
                 'sql_query' => Util::formatSql(
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,
-                'matched_rows_url' => $matched_rows_url
-            ),
+                'matched_rows_url' => $matched_rows_url,
+            ],
             $simulated_data
         );
     }
 
     /**
-     * Test for Import::checkIfRollbackPossible
+     * Test for checkIfRollbackPossible
      *
      * @return void
      */
-    function testPMACheckIfRollbackPossible()
+    public function testPMACheckIfRollbackPossible()
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
@@ -420,7 +580,7 @@ class ImportTest extends TestCase
             ->getMock();
 
         // List of Transactional Engines.
-        $transactional_engines = array(
+        $transactional_engines = [
             'INNODB',
             'FALCON',
             'NDB',
@@ -428,8 +588,8 @@ class ImportTest extends TestCase
             'TOKUDB',
             'XTRADB',
             'SEQUENCE',
-            'BDB'
-        );
+            'BDB',
+        ];
 
         $check_query = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
             . 'WHERE `table_name` = "%s" '
@@ -444,7 +604,7 @@ class ImportTest extends TestCase
         $dbi->expects($this->at(0))
             ->method('tryQuery')
             ->with(sprintf($check_table_query, 'PMA', 'table_1'))
-            ->will($this->returnValue(array('table')));
+            ->will($this->returnValue(['table']));
 
         $dbi->expects($this->at(1))
             ->method('tryQuery')
@@ -458,7 +618,7 @@ class ImportTest extends TestCase
         $dbi->expects($this->at(3))
             ->method('tryQuery')
             ->with(sprintf($check_table_query, 'PMA', 'table_2'))
-            ->will($this->returnValue(array('table')));
+            ->will($this->returnValue(['table']));
 
         $dbi->expects($this->at(4))
             ->method('tryQuery')
@@ -475,6 +635,6 @@ class ImportTest extends TestCase
             . 'SET `table_1`.`id` = `table_2`.`id` '
             . 'WHERE 1';
 
-        $this->assertEquals(true, Import::checkIfRollbackPossible($sql_query));
+        $this->assertEquals(true, $this->import->checkIfRollbackPossible($sql_query));
     }
 }

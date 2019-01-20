@@ -5,29 +5,34 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
- * Sets globals from $_REQUEST
+ * Sets globals from $_POST
  */
-$request_params = array(
+$request_params = [
     'data',
-    'field'
-);
+    'field',
+];
 
 foreach ($request_params as $one_request_param) {
-    if (isset($_REQUEST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+    if (isset($_POST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_POST[$one_request_param];
     }
 }
 
-Util::checkParameters(array('db', 'table', 'field'));
+Util::checkParameters(['db', 'table', 'field']);
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();
@@ -35,7 +40,7 @@ $header = $response->getHeader();
 $header->disableMenuAndConsole();
 $header->setBodyId('body_browse_foreigners');
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 /**
  * Displays the frame
@@ -49,13 +54,15 @@ $browseForeigners = new BrowseForeigners(
     $GLOBALS['pmaThemeImage']
 );
 $foreign_limit = $browseForeigners->getForeignLimit(
-    isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
+    isset($_POST['foreign_showAll']) ? $_POST['foreign_showAll'] : null
 );
 
 $foreignData = $relation->getForeignData(
-    $foreigners, $_REQUEST['field'], true,
-    isset($_REQUEST['foreign_filter'])
-    ? $_REQUEST['foreign_filter']
+    $foreigners,
+    $_POST['field'],
+    true,
+    isset($_POST['foreign_filter'])
+    ? $_POST['foreign_filter']
     : '',
     isset($foreign_limit) ? $foreign_limit : null,
     true // for getting value in $foreignData['the_total']
@@ -65,10 +72,10 @@ $foreignData = $relation->getForeignData(
 $html = $browseForeigners->getHtmlForRelationalFieldSelection(
     $db,
     $table,
-    $_REQUEST['field'],
+    $_POST['field'],
     $foreignData,
-    isset($fieldkey) ? $fieldkey : null,
-    isset($data) ? $data : null
+    isset($fieldkey) ? $fieldkey : '',
+    isset($data) ? $data : ''
 );
 
-$response->addHtml($html);
+$response->addHTML($html);

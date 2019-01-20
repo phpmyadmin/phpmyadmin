@@ -5,7 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema;
+
+use PhpMyAdmin\Plugins\Schema\TableStats;
 
 /**
  * Relations preferences/statistics
@@ -23,10 +27,12 @@ abstract class RelationStats
     /**
      * Defines properties
      */
-    public $xSrc, $ySrc;
+    public $xSrc;
+    public $ySrc;
     public $srcDir;
     public $destDir;
-    public $xDest, $yDest;
+    public $xDest;
+    public $yDest;
     public $wTick;
 
     /**
@@ -93,8 +99,8 @@ abstract class RelationStats
     /**
      * Gets arrows coordinates
      *
-     * @param string $table  The current table name
-     * @param string $column The relation column name
+     * @param TableStats $table  The table
+     * @param string     $column The relation column name
      *
      * @return array Arrows coordinates
      *
@@ -105,10 +111,10 @@ abstract class RelationStats
         $pos = array_search($column, $table->fields);
 
         // x_left, x_right, y
-        return array(
+        return [
             $table->x,
             $table->x + $table->width,
             $table->y + ($pos + 1.5) * $table->heightCell,
-        );
+        ];
     }
 }

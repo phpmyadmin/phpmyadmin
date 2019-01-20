@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
@@ -26,9 +28,9 @@ class HeaderTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
-        if (!defined('PMA_IS_WINDOWS')) {
+        if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
         $GLOBALS['server'] = 0;

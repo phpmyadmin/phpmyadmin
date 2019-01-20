@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\TableIndexesController;
@@ -40,32 +42,32 @@ class TableIndexesControllerTest extends PmaTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['url_params'] = array(
+        $GLOBALS['url_params'] = [
             'db' => 'db',
-            'server' => 1
-        );
+            'server' => 1,
+        ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $indexs = array(
-            array(
+        $indexs = [
+            [
                 "Schema" => "Schema1",
-                "Key_name"=>"Key_name1",
-                "Column_name"=>"Column_name1"
-            ),
-            array(
+                "Key_name" => "Key_name1",
+                "Column_name" => "Column_name1",
+            ],
+            [
                 "Schema" => "Schema2",
-                "Key_name"=>"Key_name2",
-                "Column_name"=>"Column_name2"
-            ),
-            array(
+                "Key_name" => "Key_name2",
+                "Column_name" => "Column_name2",
+            ],
+            [
                 "Schema" => "Schema3",
-                "Key_name"=>"Key_name3",
-                "Column_name"=>"Column_name3"
-            ),
-        );
+                "Key_name" => "Key_name3",
+                "Column_name" => "Column_name3",
+            ],
+        ];
 
         $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($indexs));
@@ -111,7 +113,7 @@ class TableIndexesControllerTest extends PmaTestCase
         );
 
         // Preview SQL
-        $_REQUEST['preview_sql'] = true;
+        $_POST['preview_sql'] = true;
         $ctrl->doSaveDataAction();
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
@@ -123,7 +125,7 @@ class TableIndexesControllerTest extends PmaTestCase
         // Alter success
         $response->clear();
         Response::getInstance()->setAjax(true);
-        unset($_REQUEST['preview_sql']);
+        unset($_POST['preview_sql']);
         $ctrl->doSaveDataAction();
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('index_table', $jsonArray);
@@ -147,7 +149,7 @@ class TableIndexesControllerTest extends PmaTestCase
         $table->expects($this->any())->method('isView')
             ->will($this->returnValue(false));
         $table->expects($this->any())->method('getNameAndTypeOfTheColumns')
-            ->will($this->returnValue(array("field_name" => "field_type")));
+            ->will($this->returnValue(["field_name" => "field_type"]));
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($table));
@@ -169,19 +171,19 @@ class TableIndexesControllerTest extends PmaTestCase
             $index
         );
 
-        $_REQUEST['create_index'] = true;
-        $_REQUEST['added_fields'] = 3;
+        $_POST['create_index'] = true;
+        $_POST['added_fields'] = 3;
         $ctrl->displayFormAction();
         $html = $response->getHTMLResult();
 
         //Url::getHiddenInputs
         $this->assertContains(
             Url::getHiddenInputs(
-                array(
+                [
                     'db' => 'db',
                     'table' => 'table',
                     'create_index' => 1,
-                )
+                ]
             ),
             $html
         );

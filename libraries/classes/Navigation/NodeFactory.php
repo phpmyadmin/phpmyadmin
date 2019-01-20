@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Navigation\Nodes\Node;
@@ -26,7 +28,7 @@ class NodeFactory
      */
     private static function _sanitizeClass($class)
     {
-        if (!preg_match('@^Node\w*$@', $class)) {
+        if (! preg_match('@^Node\w*$@', $class)) {
             $class = 'Node';
             trigger_error(
                 sprintf(

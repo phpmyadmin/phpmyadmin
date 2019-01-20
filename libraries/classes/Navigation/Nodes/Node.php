@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -21,11 +23,11 @@ class Node
     /**
      * @var int Defines a possible node type
      */
-    const CONTAINER = 0;
+    public const CONTAINER = 0;
     /**
      * @var int Defines a possible node type
      */
-    const OBJECT = 1;
+    public const OBJECT = 1;
     /**
      * @var string A non-unique identifier for the node
      *             This may be trimmed when grouping nodes
@@ -59,7 +61,7 @@ class Node
      * @var Node[] An array of Node objects that are
      *             direct children of this node
      */
-    public $children = array();
+    public $children = [];
     /**
      * @var Mixed A string used to group nodes, or an array of strings
      *            Only relevant if the node is of type CONTAINER
@@ -103,7 +105,7 @@ class Node
     public $pos3 = 0;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 
@@ -117,15 +119,15 @@ class Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
-        if (strlen($name)) {
+        if (strlen((string) $name)) {
             $this->name = $name;
             $this->real_name = $name;
         }
         if ($type === Node::CONTAINER) {
             $this->type = Node::CONTAINER;
         }
-        $this->is_group = (bool)$is_group;
-        $this->relation = new Relation();
+        $this->is_group = (bool) $is_group;
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -198,17 +200,17 @@ class Node
      */
     public function parents($self = false, $containers = false, $groups = false)
     {
-        $parents = array();
+        $parents = [];
         if ($self
             && ($this->type != Node::CONTAINER || $containers)
-            && (!$this->is_group || $groups)
+            && (! $this->is_group || $groups)
         ) {
             $parents[] = $this;
         }
         $parent = $this->parent;
-        while (isset($parent)) {
+        while (! is_null($parent)) {
             if (($parent->type != Node::CONTAINER || $containers)
-                && (!$parent->is_group || $groups)
+                && (! $parent->is_group || $groups)
             ) {
                 $parents[] = $parent;
             }
@@ -277,9 +279,7 @@ class Node
         $retval = false;
         $paths = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
-            $retval = true;
-
-            return $retval;
+            return true;
         }
 
         foreach ($this->parent->children as $child) {
@@ -321,8 +321,8 @@ class Node
      */
     public function getPaths()
     {
-        $aPath = array();
-        $aPath_clean = array();
+        $aPath = [];
+        $aPath_clean = [];
         foreach ($this->parents(true, true, false) as $parent) {
             $aPath[] = base64_encode($parent->real_name);
             $aPath_clean[] = $parent->real_name;
@@ -330,21 +330,21 @@ class Node
         $aPath = implode('.', array_reverse($aPath));
         $aPath_clean = array_reverse($aPath_clean);
 
-        $vPath = array();
-        $vPath_clean = array();
+        $vPath = [];
+        $vPath_clean = [];
         foreach ($this->parents(true, true, true) as $parent) {
-            $vPath[] = base64_encode($parent->name);
+            $vPath[] = base64_encode((string) $parent->name);
             $vPath_clean[] = $parent->name;
         }
         $vPath = implode('.', array_reverse($vPath));
         $vPath_clean = array_reverse($vPath_clean);
 
-        return array(
+        return [
             'aPath'       => $aPath,
             'aPath_clean' => $aPath_clean,
             'vPath'       => $vPath,
             'vPath_clean' => $vPath_clean,
-        );
+        ];
     }
 
     /**
@@ -361,11 +361,11 @@ class Node
     public function getData($type, $pos, $searchClause = '')
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
-        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
-            || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-                && !$GLOBALS['cfg']['Server']['DisableIS']
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
             ) {
                 $query = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
@@ -378,7 +378,7 @@ class Node
             }
 
             if ($GLOBALS['dbs_to_test'] === false) {
-                $retval = array();
+                $retval = [];
                 $query = "SHOW DATABASES ";
                 $query .= $this->_getWhereClause('Database', $searchClause);
                 $handle = $GLOBALS['dbi']->tryQuery($query);
@@ -387,7 +387,7 @@ class Node
                 }
 
                 $count = 0;
-                if (!$GLOBALS['dbi']->dataSeek($handle, $pos)) {
+                if (! $GLOBALS['dbi']->dataSeek($handle, $pos)) {
                     return $retval;
                 }
 
@@ -403,7 +403,7 @@ class Node
                 return $retval;
             }
 
-            $retval = array();
+            $retval = [];
             $count = 0;
             foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
@@ -434,7 +434,7 @@ class Node
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
         if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-            && !$GLOBALS['cfg']['Server']['DisableIS']
+            && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $query = "SELECT `SCHEMA_NAME` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
@@ -465,9 +465,9 @@ class Node
             $query = "SHOW DATABASES ";
             $query .= $this->_getWhereClause('Database', $searchClause);
             $handle = $GLOBALS['dbi']->tryQuery($query);
-            $prefixes = array();
+            $prefixes = [];
             if ($handle !== false) {
-                $prefixMap = array();
+                $prefixMap = [];
                 $total = $pos + $maxItems;
                 while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
                     $prefix = strstr($arr[0], $dbSeparator, true);
@@ -479,16 +479,16 @@ class Node
                         break;
                     }
                 }
-                $prefixes = array_slice(array_keys($prefixMap), $pos);
+                $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
             }
 
             $query = "SHOW DATABASES ";
             $query .= $this->_getWhereClause('Database', $searchClause);
             $query .= "AND (";
-            $subClauses = array();
+            $subClauses = [];
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
-                    . $GLOBALS['dbi']->escapeString($prefix) . $dbSeparator
+                    . $GLOBALS['dbi']->escapeString((string) $prefix) . $dbSeparator
                     . "', "
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }
@@ -498,8 +498,8 @@ class Node
             return $retval;
         }
 
-        $retval = array();
-        $prefixMap = array();
+        $retval = [];
+        $prefixMap = [];
         $total = $pos + $maxItems;
         foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
             $query = "SHOW DATABASES LIKE '" . $db . "'";
@@ -568,16 +568,16 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']
-            || !$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
-                && !$GLOBALS['cfg']['Server']['DisableIS']
+                && ! $GLOBALS['cfg']['Server']['DisableIS']
             ) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
                 $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
-                $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+                $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
                 return $retval;
             }
@@ -604,7 +604,7 @@ class Node
         }
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
-        if (!$GLOBALS['cfg']['Server']['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = "SELECT COUNT(*) ";
             $query .= "FROM ( ";
             $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
@@ -613,13 +613,13 @@ class Node
             $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
             $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= ") t ";
-            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
+            $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
             return $retval;
         }
 
         if ($GLOBALS['dbs_to_test'] !== false) {
-            $prefixMap = array();
+            $prefixMap = [];
             foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
                 $handle = $GLOBALS['dbi']->tryQuery($query);
@@ -643,7 +643,7 @@ class Node
             return $retval;
         }
 
-        $prefixMap = array();
+        $prefixMap = [];
         $query = "SHOW DATABASES ";
         $query .= $this->_getWhereClause('Database', $searchClause);
         $handle = $GLOBALS['dbi']->tryQuery($query);
@@ -670,7 +670,7 @@ class Node
      */
     private function _isHideDb($db)
     {
-        return !empty($GLOBALS['cfg']['Server']['hide_db'])
+        return ! empty($GLOBALS['cfg']['Server']['hide_db'])
             && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db);
     }
 
@@ -686,13 +686,14 @@ class Node
      */
     private function _getDatabasesToSearch($searchClause)
     {
-        if (!empty($searchClause)) {
-            $databases = array(
+        $databases = [];
+        if (! empty($searchClause)) {
+            $databases = [
                 "%" . $GLOBALS['dbi']->escapeString($searchClause) . "%",
-            );
-        } elseif (!empty($GLOBALS['cfg']['Server']['only_db'])) {
+            ];
+        } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
-        } elseif (!empty($GLOBALS['dbs_to_test'])) {
+        } elseif (! empty($GLOBALS['dbs_to_test'])) {
             $databases = $GLOBALS['dbs_to_test'];
         }
         sort($databases);
@@ -712,28 +713,28 @@ class Node
     private function _getWhereClause($columnName, $searchClause = '')
     {
         $whereClause = "WHERE TRUE ";
-        if (!empty($searchClause)) {
+        if (! empty($searchClause)) {
             $whereClause .= "AND " . Util::backquote($columnName)
                 . " LIKE '%";
             $whereClause .= $GLOBALS['dbi']->escapeString($searchClause);
             $whereClause .= "%' ";
         }
 
-        if (!empty($GLOBALS['cfg']['Server']['hide_db'])) {
+        if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
             $whereClause .= "AND " . Util::backquote($columnName)
                 . " NOT REGEXP '"
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['hide_db'])
                 . "' ";
         }
 
-        if (!empty($GLOBALS['cfg']['Server']['only_db'])) {
+        if (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             if (is_string($GLOBALS['cfg']['Server']['only_db'])) {
-                $GLOBALS['cfg']['Server']['only_db'] = array(
+                $GLOBALS['cfg']['Server']['only_db'] = [
                     $GLOBALS['cfg']['Server']['only_db'],
-                );
+                ];
             }
             $whereClause .= "AND (";
-            $subClauses = array();
+            $subClauses = [];
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
                 $subClauses[] = " " . Util::backquote($columnName)
                     . " LIKE '"
@@ -764,12 +765,12 @@ class Node
      */
     public function getCssClasses($match)
     {
-        if (!$GLOBALS['cfg']['NavigationTreeEnableExpansion']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
         }
 
-        $result = array('expander');
+        $result = ['expander'];
 
         if ($this->is_group || $match) {
             $result[] = 'loaded';
@@ -790,10 +791,10 @@ class Node
      */
     public function getIcon($match)
     {
-        if (!$GLOBALS['cfg']['NavigationTreeEnableExpansion']
+        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
-        } elseif ($match && !$this->is_group) {
+        } elseif ($match && ! $this->is_group) {
             $this->visible = true;
 
             return Util::getImage('b_minus');

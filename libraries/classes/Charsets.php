@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -22,7 +24,7 @@ class Charsets
      *
      * @var array
      */
-    public static $mysql_charset_map = array(
+    public static $mysql_charset_map = [
         'big5'         => 'big5',
         'cp-866'       => 'cp866',
         'euc-jp'       => 'ujis',
@@ -46,12 +48,12 @@ class Charsets
         'windows-1252' => 'latin1',
         'windows-1256' => 'cp1256',
         'windows-1257' => 'cp1257',
-    );
+    ];
 
-    private static $_charsets = array();
-    private static $_charsets_descriptions = array();
-    private static $_collations = array();
-    private static $_default_collations = array();
+    private static $_charsets = [];
+    private static $_charsets_descriptions = [];
+    private static $_collations = [];
+    private static $_default_collations = [];
 
     /**
      * Loads charset data from the MySQL server.
@@ -61,7 +63,7 @@ class Charsets
      *
      * @return void
      */
-    private static function loadCharsets(DatabaseInterface $dbi, $disableIs)
+    private static function loadCharsets(DatabaseInterface $dbi, bool $disableIs): void
     {
         /* Data already loaded */
         if (count(self::$_charsets) > 0) {
@@ -77,7 +79,7 @@ class Charsets
         }
         $res = $dbi->query($sql);
 
-        self::$_charsets = array();
+        self::$_charsets = [];
         while ($row = $dbi->fetchAssoc($res)) {
             $name = $row['Charset'];
             self::$_charsets[] = $name;
@@ -96,7 +98,7 @@ class Charsets
      *
      * @return void
      */
-    private static function loadCollations(DatabaseInterface $dbi, $disableIs)
+    private static function loadCollations(DatabaseInterface $dbi, bool $disableIs): void
     {
         /* Data already loaded */
         if (count(self::$_collations) > 0) {
@@ -135,7 +137,7 @@ class Charsets
      *
      * @return array
      */
-    public static function getMySQLCharsets(DatabaseInterface $dbi, $disableIs)
+    public static function getMySQLCharsets(DatabaseInterface $dbi, bool $disableIs): array
     {
         self::loadCharsets($dbi, $disableIs);
         return self::$_charsets;
@@ -149,7 +151,7 @@ class Charsets
      *
      * @return array
      */
-    public static function getMySQLCharsetsDescriptions(DatabaseInterface $dbi, $disableIs)
+    public static function getMySQLCharsetsDescriptions(DatabaseInterface $dbi, bool $disableIs): array
     {
         self::loadCharsets($dbi, $disableIs);
         return self::$_charsets_descriptions;
@@ -163,7 +165,7 @@ class Charsets
      *
      * @return array
      */
-    public static function getMySQLCollations(DatabaseInterface $dbi, $disableIs)
+    public static function getMySQLCollations(DatabaseInterface $dbi, bool $disableIs): array
     {
         self::loadCollations($dbi, $disableIs);
         return self::$_collations;
@@ -177,7 +179,7 @@ class Charsets
      *
      * @return array
      */
-    public static function getMySQLCollationsDefault(DatabaseInterface $dbi, $disableIs)
+    public static function getMySQLCollationsDefault(DatabaseInterface $dbi, bool $disableIs): array
     {
         self::loadCollations($dbi, $disableIs);
         return self::$_default_collations;
@@ -198,13 +200,13 @@ class Charsets
      */
     public static function getCharsetDropdownBox(
         DatabaseInterface $dbi,
-        $disableIs,
-        $name = null,
-        $id = null,
-        $default = null,
-        $label = true,
-        $submitOnChange = false
-    ) {
+        bool $disableIs,
+        ?string $name = null,
+        ?string $id = null,
+        ?string $default = null,
+        bool $label = true,
+        bool $submitOnChange = false
+    ): string {
         self::loadCharsets($dbi, $disableIs);
         if (empty($name)) {
             $name = 'character_set';
@@ -251,13 +253,13 @@ class Charsets
      */
     public static function getCollationDropdownBox(
         DatabaseInterface $dbi,
-        $disableIs,
-        $name = null,
-        $id = null,
-        $default = null,
-        $label = true,
-        $submitOnChange = false
-    ) {
+        bool $disableIs,
+        ?string $name = null,
+        ?string $id = null,
+        ?string $default = null,
+        bool $label = true,
+        bool $submitOnChange = false
+    ): string {
         self::loadCharsets($dbi, $disableIs);
         self::loadCollations($dbi, $disableIs);
         if (empty($name)) {
@@ -303,13 +305,13 @@ class Charsets
      *
      * @return string collation description
      */
-    public static function getCollationDescr($collation)
+    public static function getCollationDescr(string $collation): string
     {
         $parts = explode('_', $collation);
 
         $name = __('Unknown');
         $variant = null;
-        $suffixes = array();
+        $suffixes = [];
         $unicode = false;
         $unknown = false;
 
@@ -525,7 +527,7 @@ class Charsets
                         $name = _pgettext('Collation', 'Sinhalese');
                         break;
                     case 'slovak':
-                    case 'sl':
+                    case 'sk':
                         $name = _pgettext('Collation', 'Slovak');
                         break;
                     case 'slovenian':

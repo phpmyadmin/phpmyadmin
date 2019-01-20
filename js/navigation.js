@@ -341,7 +341,7 @@ $(function () {
         $('#pma_navigation_tree').find('a.expander').each(function () {
             var $icon = $(this).find('img');
             if ($icon.is('.ic_b_minus')) {
-                $(this).click();
+                $(this).trigger('click');
             }
         });
     });
@@ -519,12 +519,13 @@ $(function () {
     /** Hide navigation tree item */
     $(document).on('click', 'a.hideNavItem.ajax', function (event) {
         event.preventDefault();
+        var argSep = PMA_commonParams.get('arg_separator');
+        var params = $(this).getPostData();
+        params += argSep + 'ajax_request=true' + argSep + 'server=' + PMA_commonParams.get('server');
         $.ajax({
             type: 'POST',
-            data: {
-                server: PMA_commonParams.get('server'),
-            },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            data: params,
+            url: $(this).attr('href'),
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_reloadNavigation();
@@ -539,14 +540,17 @@ $(function () {
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
-        $.get($(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=1', function (data) {
+        var argSep = PMA_commonParams.get('arg_separator');
+        var params = $(this).getPostData();
+        params += argSep + 'ajax_request=true';
+        $.post($(this).attr('href'), params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 var buttonOptions = {};
                 buttonOptions[PMA_messages.strClose] = function () {
                     $(this).dialog('close');
                 };
-                $('<div/>')
+                $('<div></div>')
                     .attr('id', 'unhideNavItemDialog')
                     .append(data.message)
                     .dialog({
@@ -569,17 +573,23 @@ $(function () {
     $(document).on('click', 'a.unhideNavItem.ajax', function (event) {
         event.preventDefault();
         var $tr = $(this).parents('tr');
+        var $hidden_table_count = $tr.parents('tbody').children().length;
+        var $hide_dialog_box = $tr.closest('div.ui-dialog');
         var $msg = PMA_ajaxShowMessage();
+        var argSep = PMA_commonParams.get('arg_separator');
+        var params = $(this).getPostData();
+        params += argSep + 'ajax_request=true' + argSep + 'server=' + PMA_commonParams.get('server');
         $.ajax({
             type: 'POST',
-            data: {
-                server: PMA_commonParams.get('server'),
-            },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            data: params,
+            url: $(this).attr('href'),
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
                     $tr.remove();
+                    if ($hidden_table_count === 1) {
+                        $hide_dialog_box.remove();
+                    }
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error);
@@ -649,6 +659,7 @@ $(function () {
         } else {
             // If the user is different
             navTreeStateUpdate();
+            PMA_reloadNavigation();
         }
     }
 });
@@ -678,7 +689,7 @@ function expandTreeNode ($expandElem, callback) {
             .first()
             .clone()
             .css({ visibility: 'visible', display: 'block' })
-            .click(false);
+            .on('click', false);
         $icon.hide();
         $throbber.insertBefore($icon);
 
@@ -691,7 +702,7 @@ function expandTreeNode ($expandElem, callback) {
                 if ($destination.find('ul > li').length === 1) {
                     $destination.find('ul > li')
                         .find('a.expander.container')
-                        .click();
+                        .trigger('click');
                 }
                 if (callback && typeof callback === 'function') {
                     callback.call();
@@ -740,6 +751,9 @@ function scrollToView ($element, $forceToTop) {
 function PMA_showCurrentNavigation () {
     var db = PMA_commonParams.get('db');
     var table = PMA_commonParams.get('table');
+
+    var autoexpand = $('#pma_navigation_tree').hasClass('autoexpand');
+
     $('#pma_navigation_tree')
         .find('li.selected')
         .removeClass('selected');
@@ -766,22 +780,44 @@ function PMA_showCurrentNavigation () {
                 handleTableOrDb(table, $('#pma_navigation_tree_content'));
             }
         } else if ($dbItem) {
-            var $expander = $dbItem.children('div:first').children('a.expander');
-            // if not loaded or loaded but collapsed
-            if (! $expander.hasClass('loaded') ||
-                $expander.find('img').is('.ic_b_plus')
-            ) {
-                expandTreeNode($expander, function () {
-                    handleTableOrDb(table, $dbItem);
-                });
-            } else {
-                handleTableOrDb(table, $dbItem);
-            }
+            fullExpand(table, $dbItem);
         }
     } else if ($('#navi_db_select').length && $('#navi_db_select').val()) {
         $('#navi_db_select').val('').hide().trigger('change');
+    } else if (autoexpand && $('#pma_navigation_tree_content > ul > li.database').length === 1) {
+        // automatically expand the list if there is only single database
+
+        // find the name of the database
+        var dbItemName = '';
+
+        $('#pma_navigation_tree_content > ul > li.database').children('a').each(function () {
+            var name = $(this).text();
+            if (!dbItemName && name.trim()) { // if the name is not empty, it is the desired element
+                dbItemName = name;
+            }
+        });
+
+        var $dbItem = findLoadedItem(
+            $('#pma_navigation_tree').find('> div'), dbItemName, 'database', !table
+        );
+
+        fullExpand(table, $dbItem);
     }
     PMA_showFullName($('#pma_navigation_tree'));
+
+    function fullExpand (table, $dbItem) {
+        var $expander = $dbItem.children('div:first').children('a.expander');
+        // if not loaded or loaded but collapsed
+        if (! $expander.hasClass('loaded') ||
+            $expander.find('img').is('.ic_b_plus')
+        ) {
+            expandTreeNode($expander, function () {
+                handleTableOrDb(table, $dbItem);
+            });
+        } else {
+            handleTableOrDb(table, $dbItem);
+        }
+    }
 
     function handleTableOrDb (table, $dbItem) {
         if (table) {
@@ -829,7 +865,7 @@ function PMA_showCurrentNavigation () {
                             $(this)
                                 .children('div:first')
                                 .children('a.expander')
-                                .click();
+                                .trigger('click');
                         }
                     });
                     ret = $li;
@@ -1270,9 +1306,12 @@ var ResizeHandler = function () {
         var $nav_tree   = $('#pma_navigation_tree');
         var $nav_header = $('#pma_navigation_header');
         var $nav_tree_content = $('#pma_navigation_tree_content');
-        $nav_tree.height($nav.height() - $nav_header.height());
+        var height = ($nav.height() - $nav_header.height());
+
+        height = height > 50 ? height : 800; // keep min. height
+        $nav_tree.height(height);
         if ($nav_tree_content.length > 0) {
-            $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
+            $nav_tree_content.height(height - $nav_tree_content.position().top);
         } else {
             // TODO: in fast filter search response there is no #pma_navigation_tree_content, needs to be added in php
             $nav_tree.css({
@@ -1618,7 +1657,7 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
  * @return void
  */
 function PMA_showFullName ($containerELem) {
-    $containerELem.find('.hover_show_full').mouseenter(function () {
+    $containerELem.find('.hover_show_full').on('mouseenter', function () {
         /** mouseenter */
         var $this = $(this);
         var thisOffset = $this.offset();
@@ -1635,7 +1674,7 @@ function PMA_showFullName ($containerELem) {
                     /** mouseleave */
                     $(this).addClass('hide')
                         .removeClass('hovering');
-                }).mouseenter(function () {
+                }).on('mouseenter', function () {
                     /** mouseenter */
                     $(this).addClass('hovering');
                 });

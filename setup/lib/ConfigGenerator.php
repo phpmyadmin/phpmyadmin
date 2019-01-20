@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\ConfigFile;
@@ -79,7 +81,7 @@ class ConfigGenerator
      */
     private static function _getVarExport($var_name, $var_value, $crlf)
     {
-        if (!is_array($var_value) || empty($var_value)) {
+        if (! is_array($var_value) || empty($var_value)) {
             return "\$cfg['$var_name'] = "
                 . var_export($var_value, true) . ';' . $crlf;
         }
@@ -126,7 +128,7 @@ class ConfigGenerator
      */
     private static function _exportZeroBasedArray(array $array, $crlf)
     {
-        $retv = array();
+        $retv = [];
         foreach ($array as $v) {
             $retv[] = var_export($v, true);
         }
@@ -152,7 +154,7 @@ class ConfigGenerator
      * @param string     $crlf    Carriage return char
      * @param array      $servers Servers list
      *
-     * @return string
+     * @return string|null
      */
     protected static function getServerPart(ConfigFile $cf, $crlf, array $servers)
     {

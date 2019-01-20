@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Controllers
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Controllers;
 
 /**
@@ -15,17 +17,22 @@ namespace PhpMyAdmin\Controllers;
 abstract class TableController extends Controller
 {
     /**
-     * @var string $db
+     * @var string
      */
     protected $db;
 
     /**
-     * @var string $table
+     * @var string
      */
     protected $table;
 
     /**
      * Constructor
+     *
+     * @param \PhpMyAdmin\Response          $response Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
+     * @param string                        $db       Database name
+     * @param string                        $table    Table name
      */
     public function __construct(
         $response,

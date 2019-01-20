@@ -5,12 +5,13 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 

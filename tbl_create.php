@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
@@ -13,25 +14,34 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Get some core libraries
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // Check parameters
-Util::checkParameters(array('db'));
+Util::checkParameters(['db']);
+
+$transformations = new Transformations();
 
 /* Check if database name is empty */
 if (strlen($db) === 0) {
     Util::mysqlDie(
-        __('The database name is empty!'), '', false, 'index.php'
+        __('The database name is empty!'),
+        '',
+        false,
+        'index.php'
     );
 }
 
 /**
  * Selects the database to work with
  */
-if (!$GLOBALS['dbi']->selectDb($db)) {
+if (! $GLOBALS['dbi']->selectDb($db)) {
     Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
@@ -46,7 +56,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php' . Url::getCommon(array('db' => $db))
+        'db_structure.php' . Url::getCommon(['db' => $db])
     );
 }
 
@@ -61,11 +71,11 @@ $action = 'tbl_create.php';
 /**
  * The form used to define the structure of the table has been submitted
  */
-if (isset($_REQUEST['do_save_data'])) {
+if (isset($_POST['do_save_data'])) {
     $sql_query = $createAddField->getTableCreationQuery($db, $table);
 
     // If there is a request for SQL previewing.
-    if (isset($_REQUEST['preview_sql'])) {
+    if (isset($_POST['preview_sql'])) {
         Core::previewSQL($sql_query);
     }
     // Executes the query
@@ -73,21 +83,23 @@ if (isset($_REQUEST['do_save_data'])) {
 
     if ($result) {
         // Update comment table for mime types [MIME]
-        if (isset($_REQUEST['field_mimetype'])
-            && is_array($_REQUEST['field_mimetype'])
+        if (isset($_POST['field_mimetype'])
+            && is_array($_POST['field_mimetype'])
             && $cfg['BrowseMIME']
         ) {
-            foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
-                if (isset($_REQUEST['field_name'][$fieldindex])
-                    && strlen($_REQUEST['field_name'][$fieldindex]) > 0
+            foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
+                if (isset($_POST['field_name'][$fieldindex])
+                    && strlen($_POST['field_name'][$fieldindex]) > 0
                 ) {
-                    Transformations::setMIME(
-                        $db, $table,
-                        $_REQUEST['field_name'][$fieldindex], $mimetype,
-                        $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex],
-                        $_REQUEST['field_input_transformation'][$fieldindex],
-                        $_REQUEST['field_input_transformation_options'][$fieldindex]
+                    $transformations->setMime(
+                        $db,
+                        $table,
+                        $_POST['field_name'][$fieldindex],
+                        $mimetype,
+                        $_POST['field_transformation'][$fieldindex],
+                        $_POST['field_transformation_options'][$fieldindex],
+                        $_POST['field_input_transformation'][$fieldindex],
+                        $_POST['field_input_transformation_options'][$fieldindex]
                     );
                 }
             }
@@ -106,4 +118,4 @@ $GLOBAL['table'] = '';
 /**
  * Displays the form used to define the structure of the table
  */
-require 'libraries/tbl_columns_definition_form.inc.php';
+require ROOT_PATH . 'libraries/tbl_columns_definition_form.inc.php';

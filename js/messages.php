@@ -5,8 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-if (!defined('TESTSUITE')) {
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
+if (! defined('TESTSUITE')) {
     chdir('..');
 
     // Send correct type:
@@ -20,7 +25,7 @@ if (!defined('TESTSUITE')) {
     // non-js-compatible stuff like DOCTYPE
     define('PMA_MINIMUM_COMMON', true);
     define('PMA_PATH_TO_BASEDIR', '../');
-    require_once './libraries/common.inc.php';
+    require_once ROOT_PATH . 'libraries/common.inc.php';
     // Close session early as we won't write anything there
     session_write_close();
 }
@@ -28,10 +33,9 @@ if (!defined('TESTSUITE')) {
 // But this one is needed for Sanitize::escapeJsString()
 use PhpMyAdmin\Sanitize;
 
-
 $buffer = PhpMyAdmin\OutputBuffering::getInstance();
 $buffer->start();
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
             echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();
@@ -94,7 +98,7 @@ $js_messages['strChangeColumnCollation'] = __(
     . 'collation and refer to the tips at '
 )
     . '<a href="%s" target="garbled_data_wiki">' . __('Garbled Data') . '</a>.'
-    . '<br/><br/>'
+    . '<br><br>'
     . __('Are you sure you wish to change the collation and convert the data?');
 $js_messages['strChangeAllColumnCollationsWarning'] = __(
     'Through this operation, MySQL attempts to map the data values between '
@@ -104,7 +108,7 @@ $js_messages['strChangeAllColumnCollationsWarning'] = __(
     . 'column(s) editing feature (the "Change" Link) on the table structure page. '
     . '</b>'
 )
-. '<br/><br/>'
+. '<br><br>'
 . __(
     'Are you sure you wish to change all the column collations and convert the data?'
 );
@@ -329,6 +333,10 @@ $js_messages['strImport'] = __('Import');
 $js_messages['strImportDialogTitle'] = __('Import monitor configuration');
 $js_messages['strImportDialogMessage']
     = __('Please select the file you want to import.');
+$js_messages['strTableNameDialogMessage']
+    = __('Please enter a valid table name.');
+$js_messages['strDBNameDialogMessage']
+    = __('Please enter a valid database name.');
 $js_messages['strNoImportFile'] = __('No files available on server for import!');
 
 $js_messages['strAnalyzeQuery'] = __('Analyse query');
@@ -404,10 +412,10 @@ $js_messages['NoExportable']
 
 /* For ENUM/SET editor*/
 $js_messages['enum_editor'] = __('ENUM/SET editor');
-$js_messages['enum_columnVals'] =__('Values for column %s');
+$js_messages['enum_columnVals'] = __('Values for column %s');
 $js_messages['enum_newColumnVals'] = __('Values for a new column');
-$js_messages['enum_hint'] =__('Enter each value in a separate field.');
-$js_messages['enum_addValue'] =__('Add %d value(s)');
+$js_messages['enum_hint'] = __('Enter each value in a separate field.');
+$js_messages['enum_addValue'] = __('Add %d value(s)');
 
 /* For import.js */
 $js_messages['strImportCSV'] = __(
@@ -421,7 +429,8 @@ $js_messages['strEdit'] = __('Edit');
 $js_messages['strDelete'] = __('Delete');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 $js_messages['strBrowseForeignValues'] = __('Browse foreign values');
-$js_messages['strNoAutoSavedQuery'] = __('No auto-saved query');
+$js_messages['strNoAutoSavedQuery'] = __('No previously auto-saved query is available. Loading default query.');
+$js_messages['strPreviousSaveQuery'] = __('You have a previously saved query. Click Get auto-saved query to load the query.');
 $js_messages['strBookmarkVariable'] = __('Variable %d:');
 
 /* For Central list of columns */
@@ -435,7 +444,7 @@ $js_messages['strEmptyCentralList'] = __(
 $js_messages['seeMore'] = __('See more');
 $js_messages['confirmTitle'] = __('Are you sure?');
 $js_messages['makeConsistentMessage'] = __(
-    'This action may change some of the columns definition.<br/>Are you sure you '
+    'This action may change some of the columns definition.<br>Are you sure you '
     . 'want to continue?'
 );
 $js_messages['strContinue'] = __('Continue');
@@ -590,13 +599,13 @@ $js_messages['strColOrderHint'] = __('Drag to reorder.');
 $js_messages['strSortHint'] = __('Click to sort results by this column.');
 $js_messages['strMultiSortHint'] = __(
     'Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.'
-    . '<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column '
+    . '<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column '
     . 'from ORDER BY clause'
 );
 $js_messages['strColMarkHint'] = __('Click to mark/unmark.');
 $js_messages['strColNameCopyHint'] = __('Double-click to copy column name.');
 $js_messages['strColVisibHint'] = __(
-    'Click the drop-down arrow<br />to toggle column\'s visibility.'
+    'Click the drop-down arrow<br>to toggle column\'s visibility.'
 );
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __(
@@ -626,18 +635,18 @@ $js_messages['back'] = __('Back');
 
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
-case 'double-click':
-    $js_messages['strGridEditFeatureHint'] = __(
-        'You can also edit most values<br />by double-clicking directly on them.'
-    );
-    break;
-case 'click':
-    $js_messages['strGridEditFeatureHint'] = __(
-        'You can also edit most values<br />by clicking directly on them.'
-    );
-    break;
-default:
-    break;
+    case 'double-click':
+        $js_messages['strGridEditFeatureHint'] = __(
+            'You can also edit most values<br>by double-clicking directly on them.'
+        );
+        break;
+    case 'click':
+        $js_messages['strGridEditFeatureHint'] = __(
+            'You can also edit most values<br>by clicking directly on them.'
+        );
+        break;
+    default:
+        break;
 }
 $js_messages['strGoToLink'] = __('Go to link:');
 $js_messages['strColNameCopyTitle'] = __('Copy column name.');
@@ -695,29 +704,31 @@ $js_messages['strTooManyInputs'] = __(
 
 $js_messages['phpErrorsFound'] = '<div class="error">'
     . __('Some errors have been detected on the server!')
-    . '<br/>'
+    . '<br>'
     . __('Please look at the bottom of this window.')
     . '<div>'
     . '<input id="pma_ignore_errors_popup" type="submit" value="'
     . __('Ignore')
-    . '" class="floatright message_errors_found">'
+    . '" class="btn btn-secondary floatright message_errors_found">'
     . '<input id="pma_ignore_all_errors_popup" type="submit" value="'
     . __('Ignore All')
-    . '" class="floatright message_errors_found">'
+    . '" class="btn btn-secondary floatright message_errors_found">'
     . '</div></div>';
 
 $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . __('Some errors have been detected on the server!')
-    . '<br/>'
+    . '<br>'
     . __(
         'As per your settings, they are being submitted currently, please be '
         . 'patient.'
     )
-    . '<br/>'
+    . '<br>'
     . '<img src="'
     . ($GLOBALS['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
-    . '" width="16" height="16" alt="ajax clock"/>'
+    . '" width="16" height="16" alt="ajax clock">'
     . '</div>';
+$js_messages['strCopyQueryButtonSuccess'] = __('Successfully copied!');
+$js_messages['strCopyQueryButtonFailure'] = __('Copying failed!');
 
 // For console
 $js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');
@@ -767,7 +778,7 @@ echo "var mysql_doc_template = '" , PhpMyAdmin\Util::getMySQLDocuURL('%s')
 //Max input vars allowed by PHP.
 $maxInputVars = ini_get('max_input_vars');
 echo 'var maxInputVars = '
-    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int)$maxInputVars)
+    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int) $maxInputVars)
     , ';' . "\n";
 
 echo "if ($.datepicker) {\n";
@@ -787,7 +798,7 @@ Sanitize::printJsValue(
 Sanitize::printJsValue("$.datepicker.regional['']['currentText']", __('Today'));
 Sanitize::printJsValue(
     "$.datepicker.regional['']['monthNames']",
-    array(
+    [
         __('January'),
         __('February'),
         __('March'),
@@ -799,12 +810,12 @@ Sanitize::printJsValue(
         __('September'),
         __('October'),
         __('November'),
-        __('December')
-    )
+        __('December'),
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['monthNamesShort']",
-    array(
+    [
         /* l10n: Short month name */
         __('Jan'),
         /* l10n: Short month name */
@@ -828,24 +839,24 @@ Sanitize::printJsValue(
         /* l10n: Short month name */
         __('Nov'),
         /* l10n: Short month name */
-        __('Dec')
-    )
+        __('Dec'),
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNames']",
-    array(
+    [
         __('Sunday'),
         __('Monday'),
         __('Tuesday'),
         __('Wednesday'),
         __('Thursday'),
         __('Friday'),
-        __('Saturday')
-    )
+        __('Saturday'),
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesShort']",
-    array(
+    [
         /* l10n: Short week day name */
         __('Sun'),
         /* l10n: Short week day name */
@@ -859,12 +870,12 @@ Sanitize::printJsValue(
         /* l10n: Short week day name */
         __('Fri'),
         /* l10n: Short week day name */
-        __('Sat')
-    )
+        __('Sat'),
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesMin']",
-    array(
+    [
         /* l10n: Minimal week day name */
         __('Su'),
         /* l10n: Minimal week day name */
@@ -878,8 +889,8 @@ Sanitize::printJsValue(
         /* l10n: Minimal week day name */
         __('Fr'),
         /* l10n: Minimal week day name */
-        __('Sa')
-    )
+        __('Sa'),
+    ]
 );
 /* l10n: Column header for week of the year in calendar */
 Sanitize::printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));

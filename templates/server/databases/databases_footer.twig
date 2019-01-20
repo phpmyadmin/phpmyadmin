@@ -9,27 +9,17 @@
             </span>
         </th>
         {% for stat_name, stat in column_order if stat_name in first_database|keys %}
-            {% if stat['format'] is same as('byte') %}
-                {% set byte_format = Util_formatByteDown(stat['footer'], 3, 1) %}
-                {% set value = byte_format[0] %}
-                {% set unit = byte_format[1] %}
-            {% elseif stat['format'] is same as('number') %}
-                {% set value = Util_formatNumber(stat['footer'], 0) %}
-            {% else %}
-                {% set value = htmlentities(stat['footer'], 0) %}
-            {% endif %}
-
             <th class="value">
                 {% if stat['description_function'] is defined %}
-                    <dfn title="{{ Charsets_getCollationDescr(stat['footer']) }}">
-                        {{ value }}
+                    <dfn title="{{ get_collation_descr(stat['footer']) }}">
+                        {{ values[stat_name] }}
                     </dfn>
                 {% else %}
-                    {{ value }}
+                    {{ values[stat_name] }}
                 {% endif %}
             </th>
             {% if stat['format'] is same as('byte') %}
-                <th class="unit">{{ unit }}</th>
+                <th class="unit">{{ units[stat_name] }}</th>
             {% endif %}
         {% endfor %}
         {% if master_replication %}
@@ -52,7 +42,7 @@
         'form_name': 'dbStatsForm'
     } only %}
 
-    {{ Util_getButtonOrImage(
+    {{ get_button_or_image(
         '',
         'mult_submit ajax',
         'Drop'|trans,
@@ -62,7 +52,7 @@
 
 {# Enable statistics #}
 {% if dbstats is empty %}
-    {{ Message_notice('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans) }}
+    {{ 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
 
     {% set content %}
         <strong>{% trans 'Enable statistics' %}</strong>
@@ -71,7 +61,7 @@
         'content': content,
         'class': 'li_switch_dbstats',
         'url': {
-            'href': 'server_databases.php' ~ Url_getCommon({'dbstats': '1'}),
+            'href': 'server_databases.php' ~ get_common({'dbstats': '1'}),
             'title': 'Enable statistics'|trans
         }
     }] %}

@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\MrgMyisam;
@@ -57,6 +59,5 @@ class MrgMyisamTest extends PmaTestCase
             $this->object->getMysqlHelpPage(),
             'merge-storage-engine'
         );
-
     }
 }

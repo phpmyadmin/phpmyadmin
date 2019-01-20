@@ -5,12 +5,18 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Response;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /**
  * Gets core libraries and defines some variables
  */
-require 'libraries/common.inc.php';
+require ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $response->disable();
@@ -23,7 +29,6 @@ $filename = CHANGELOG_FILE;
  */
 // Check if the file is available, some distributions remove these.
 if (@is_readable($filename)) {
-
     // Test if the if is in a compressed format
     if (substr($filename, -3) == '.gz') {
         ob_start();
@@ -53,7 +58,7 @@ $changelog = htmlspecialchars($changelog);
 $github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
 $faq_url = 'https://docs.phpmyadmin.net/en/latest/faq.html';
 
-$replaces = array(
+$replaces = [
     '@(https?://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'
     => '<a href="url.php?url=\\1">\\1</a>',
 
@@ -94,17 +99,17 @@ $replaces = array(
     // Links target and rel
     '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="'
 
-);
+];
 
 header('Content-type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE HTML>
 <html lang="en" dir="ltr">
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>phpMyAdmin - ChangeLog</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 </head>
 <body>
 <h1>phpMyAdmin - ChangeLog</h1>

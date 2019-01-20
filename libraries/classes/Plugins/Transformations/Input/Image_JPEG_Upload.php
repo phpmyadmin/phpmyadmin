@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage ImageUpload
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\Plugins\Transformations\Abs\ImageUploadTransformationsPlugin;

@@ -5,15 +5,20 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * get some globals
  */
-require './libraries/common.inc.php';
+include ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();

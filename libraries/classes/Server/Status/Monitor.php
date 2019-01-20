@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Sanitize;
@@ -28,27 +30,27 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForMonitor(Data $serverStatusData)
+    public function getHtmlForMonitor(Data $serverStatusData)
     {
-        $retval  = self::getHtmlForTabLinks();
+        $retval  = $this->getHtmlForTabLinks();
 
-        $retval .= self::getHtmlForSettingsDialog();
+        $retval .= $this->getHtmlForSettingsDialog();
 
-        $retval .= self::getHtmlForInstructionsDialog();
+        $retval .= $this->getHtmlForInstructionsDialog();
 
-        $retval .= self::getHtmlForAddChartDialog();
+        $retval .= $this->getHtmlForAddChartDialog();
 
-        $retval .= self::getHtmlForAnalyseDialog();
+        $retval .= $this->getHtmlForAnalyseDialog();
 
         $retval .= '<table class="clearfloat tdblock" id="chartGrid"></table>';
         $retval .= '<div id="logTable">';
-        $retval .= '<br/>';
+        $retval .= '<br>';
         $retval .= '</div>';
 
         $retval .= '<script type="text/javascript">';
         $retval .= 'variableNames = [ ';
         $i = 0;
-        foreach ($serverStatusData->status as $name=>$value) {
+        foreach ($serverStatusData->status as $name => $value) {
             if (is_numeric($value)) {
                 if ($i++ > 0) {
                     $retval .= ", ";
@@ -67,23 +69,23 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForAnalyseDialog()
+    public function getHtmlForAnalyseDialog()
     {
         $retval  = '<div id="logAnalyseDialog" title="';
         $retval .= __('Log statistics') . '" class="hide">';
         $retval .= '<p>' . __('Selected time range:');
         $retval .= '<input type="text" name="dateStart"'
-            . ' class="datetimefield" value="" /> - ';
-        $retval .= '<input type="text" name="dateEnd" class="datetimefield" value="" />';
+            . ' class="datetimefield" value=""> - ';
+        $retval .= '<input type="text" name="dateEnd" class="datetimefield" value="">';
         $retval .= '</p>';
         $retval .= '<input type="checkbox" id="limitTypes"'
-            . ' value="1" checked="checked" />';
+            . ' value="1" checked="checked">';
         $retval .= '<label for="limitTypes">';
         $retval .= __('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements');
         $retval .= '</label>';
-        $retval .= '<br/>';
+        $retval .= '<br>';
         $retval .= '<input type="checkbox" id="removeVariables"'
-            . ' value="1" checked="checked" />';
+            . ' value="1" checked="checked">';
         $retval .= '<label for="removeVariables">';
         $retval .= __('Remove variable data in INSERT statements for better grouping');
         $retval .= '</label>';
@@ -111,7 +113,7 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForInstructionsDialog()
+    public function getHtmlForInstructionsDialog()
     {
         $retval  = '<div id="monitorInstructionsDialog" title="';
         $retval .= __('Monitor Instructions') . '" class="hide">';
@@ -127,7 +129,7 @@ class Monitor
         $retval .= '<p></p>';
         $retval .= '<img class="ajaxIcon" src="';
         $retval .= $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
-        $retval .= ' alt="' . __('Loading…') . '" />';
+        $retval .= ' alt="' . __('Loading…') . '">';
         $retval .= '<div class="ajaxContent"></div>';
         $retval .= '<div class="monitorUse hide">';
         $retval .= '<p></p>';
@@ -152,7 +154,7 @@ class Monitor
         $retval .= Util::getImage('s_attention');
         $retval .= '<strong>';
         $retval .= __('Please note:');
-        $retval .= '</strong><br />';
+        $retval .= '</strong><br>';
         $retval .= __(
             'Enabling the general_log may increase the server load by'
             . ' 5-15%. Also be aware that generating statistics from the logs is a'
@@ -172,24 +174,24 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForAddChartDialog()
+    public function getHtmlForAddChartDialog()
     {
         $retval  = '<div id="addChartDialog" title="'
             . __('Add chart') . '" class="hide">';
         $retval .= '<div id="tabGridVariables">';
         $retval .= '<p><input type="text" name="chartTitle" value="'
-            . __('Chart Title') . '" /></p>';
+            . __('Chart Title') . '"></p>';
         $retval .= '<input type="radio" name="chartType"'
-            . ' value="preset" id="chartPreset" />';
+            . ' value="preset" id="chartPreset">';
         $retval .= '<label for="chartPreset">' . __('Preset chart') . '</label>';
-        $retval .= '<select name="presetCharts"></select><br/>';
+        $retval .= '<select name="presetCharts"></select><br>';
         $retval .= '<input type="radio" name="chartType" value="variable" '
-            . 'id="chartStatusVar" checked="checked" />';
+            . 'id="chartStatusVar" checked="checked">';
         $retval .= '<label for="chartStatusVar">';
         $retval .= __('Status variable(s)');
-        $retval .= '</label><br/>';
+        $retval .= '</label><br>';
         $retval .= '<div id="chartVariableSettings">';
-        $retval .= '<label for="chartSeries">' . __('Select series:') . '</label><br />';
+        $retval .= '<label for="chartSeries">' . __('Select series:') . '</label><br>';
         $retval .= '<select id="chartSeries" name="varChartList" size="1">';
         $retval .= '<option>' . __('Commonly monitored') . '</option>';
         $retval .= '<option>Processes</option>';
@@ -205,31 +207,31 @@ class Monitor
         $retval .= '<option>Open_tables</option>';
         $retval .= '<option>Select_full_join</option>';
         $retval .= '<option>Slow_queries</option>';
-        $retval .= '</select><br />';
+        $retval .= '</select><br>';
         $retval .= '<label for="variableInput">';
         $retval .= __('or type variable name:');
         $retval .= ' </label>';
-        $retval .= '<input type="text" name="variableInput" id="variableInput" />';
+        $retval .= '<input type="text" name="variableInput" id="variableInput">';
         $retval .= '<p></p>';
         $retval .= '<input type="checkbox" name="differentialValue"'
-            . ' id="differentialValue" value="differential" checked="checked" />';
+            . ' id="differentialValue" value="differential" checked="checked">';
         $retval .= '<label for="differentialValue">';
         $retval .= __('Display as differential value');
-        $retval .= '</label><br />';
+        $retval .= '</label><br>';
         $retval .= '<input type="checkbox" id="useDivisor"'
-            . ' name="useDivisor" value="1" />';
+            . ' name="useDivisor" value="1">';
         $retval .= '<label for="useDivisor">' . __('Apply a divisor') . '</label>';
         $retval .= '<span class="divisorInput hide">';
-        $retval .= '<input type="text" name="valueDivisor" size="4" value="1" />';
+        $retval .= '<input type="text" name="valueDivisor" size="4" value="1">';
         $retval .= '(<a href="#kibDivisor">' . __('KiB') . '</a>, ';
         $retval .= '<a href="#mibDivisor">' . __('MiB') . '</a>)';
-        $retval .= '</span><br />';
-        $retval .= '<input type="checkbox" id="useUnit" name="useUnit" value="1" />';
+        $retval .= '</span><br>';
+        $retval .= '<input type="checkbox" id="useUnit" name="useUnit" value="1">';
         $retval .= '<label for="useUnit">';
         $retval .= __('Append unit to data values');
         $retval .= '</label>';
         $retval .= '<span class="unitInput hide">';
-        $retval .= '<input type="text" name="valueUnit" size="4" value="" />';
+        $retval .= '<input type="text" name="valueUnit" size="4" value="">';
         $retval .= '</span>';
         $retval .= '<p>';
         $retval .= '<a href="#submitAddSeries"><b>' . __('Add this series') . '</b></a>';
@@ -238,7 +240,7 @@ class Monitor
         $retval .= '</span>';
         $retval .= '</p>';
         $retval .= __('Series in chart:');
-        $retval .= '<br/>';
+        $retval .= '<br>';
         $retval .= '<span id="seriesPreview">';
         $retval .= '<i>' . __('None') . '</i>';
         $retval .= '</span>';
@@ -254,14 +256,14 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForTabLinks()
+    public function getHtmlForTabLinks()
     {
         $retval  = '<div class="tabLinks">';
         $retval .= '<a href="#pauseCharts">';
         $retval .= Util::getImage('play') . __('Start Monitor');
         $retval .= '</a>';
         $retval .= '<a href="#settingsPopup" class="popupLink">';
-        $retval .= Util::getImage('s_cog') .  __('Settings');
+        $retval .= Util::getImage('s_cog') . __('Settings');
         $retval .= '</a>';
         $retval .= '<a href="#monitorInstructionsDialog">';
         $retval .= Util::getImage('b_help') . __('Instructions/Setup');
@@ -279,7 +281,7 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForSettingsDialog()
+    public function getHtmlForSettingsDialog()
     {
         $retval  = '<div class="popupContent settingsPopup">';
         $retval .= '<a href="#addNewChart">';
@@ -291,17 +293,30 @@ class Monitor
         $retval .= '</a>';
         $retval .= '<div class="clearfloat paddingtop"></div>';
         $retval .= '<div class="floatleft">';
-        $retval .= __('Refresh rate') . '<br />';
+        $retval .= __('Refresh rate') . '<br>';
         $retval .= Data::getHtmlForRefreshList(
             'gridChartRefresh',
             5,
-            Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
+            [
+                2,
+                3,
+                4,
+                5,
+                10,
+                20,
+                40,
+                60,
+                120,
+                300,
+                600,
+                1200,
+            ]
         );
-        $retval .= '<br />';
+        $retval .= '<br>';
         $retval .= '</div>';
         $retval .= '<div class="floatleft">';
         $retval .= __('Chart columns');
-        $retval .= '<br />';
+        $retval .= '<br>';
         $retval .= '<select name="chartColumns">';
         $retval .= '<option>1</option>';
         $retval .= '<option>2</option>';
@@ -319,7 +334,7 @@ class Monitor
                 . 'You may want to export it if you have a complicated set up.'
             )
         );
-        $retval .= '<br/>';
+        $retval .= '<br>';
         $retval .= '<a class="ajax" href="#importMonitorConfig">';
         $retval .= __('Import');
         $retval .= '</a>';
@@ -345,12 +360,12 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForClientSideDataAndLinks(Data $serverStatusData)
+    public function getHtmlForClientSideDataAndLinks(Data $serverStatusData)
     {
         /**
          * Define some data needed on the client side
          */
-        $input = '<input type="hidden" name="%s" value="%s" />';
+        $input = '<input type="hidden" name="%s" value="%s">';
         $form  = '<form id="js_data" class="hide">';
         $form .= sprintf($input, 'server_time', microtime(true) * 1000);
         $form .= sprintf($input, 'server_os', SysInfo::getOs());
@@ -377,16 +392,21 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingData()
+    public function getJsonForChartingData()
     {
-        $ret = json_decode($_REQUEST['requiredData'], true);
-        $statusVars = array();
-        $serverVars = array();
+        $ret = json_decode($_POST['requiredData'], true);
+        $statusVars = [];
+        $serverVars = [];
         $sysinfo = $cpuload = $memory = 0;
 
         /* Accumulate all required variables and data */
-        list($serverVars, $statusVars, $ret) = self::getJsonForChartingDataGet(
-            $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
+        list($serverVars, $statusVars, $ret) = $this->getJsonForChartingDataGet(
+            $ret,
+            $serverVars,
+            $statusVars,
+            $sysinfo,
+            $cpuload,
+            $memory
         );
 
         // Retrieve all required status variables
@@ -398,7 +418,7 @@ class Monitor
                 1
             );
         } else {
-            $statusVarValues = array();
+            $statusVarValues = [];
         }
 
         // Retrieve all required server variables
@@ -410,11 +430,11 @@ class Monitor
                 1
             );
         } else {
-            $serverVarValues = array();
+            $serverVarValues = [];
         }
 
         // ...and now assign them
-        $ret = self::getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
+        $ret = $this->getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
 
         $ret['x'] = microtime(true) * 1000;
         return $ret;
@@ -429,20 +449,20 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingDataSet(array $ret, array $statusVarValues, array $serverVarValues)
+    public function getJsonForChartingDataSet(array $ret, array $statusVarValues, array $serverVarValues)
     {
         foreach ($ret as $chart_id => $chartNodes) {
             foreach ($chartNodes as $node_id => $nodeDataPoints) {
                 foreach ($nodeDataPoints as $point_id => $dataPoint) {
                     switch ($dataPoint['type']) {
-                    case 'statusvar':
-                        $ret[$chart_id][$node_id][$point_id]['value']
+                        case 'statusvar':
+                            $ret[$chart_id][$node_id][$point_id]['value']
                             = $statusVarValues[$dataPoint['name']];
-                        break;
-                    case 'servervar':
-                        $ret[$chart_id][$node_id][$point_id]['value']
+                            break;
+                        case 'servervar':
+                            $ret[$chart_id][$node_id][$point_id]['value']
                             = $serverVarValues[$dataPoint['name']];
-                        break;
+                            break;
                     }
                 }
             }
@@ -462,8 +482,13 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingDataGet(
-        array $ret, array $serverVars, array $statusVars, $sysinfo, $cpuload, $memory
+    public function getJsonForChartingDataGet(
+        array $ret,
+        array $serverVars,
+        array $statusVars,
+        $sysinfo,
+        $cpuload,
+        $memory
     ) {
         // For each chart
         foreach ($ret as $chart_id => $chartNodes) {
@@ -472,15 +497,24 @@ class Monitor
                 // For each data point in the series (usually just 1)
                 foreach ($nodeDataPoints as $point_id => $dataPoint) {
                     list($serverVars, $statusVars, $ret[$chart_id][$node_id][$point_id])
-                        = self::getJsonForChartingDataSwitch(
-                            $dataPoint['type'], $dataPoint['name'], $serverVars,
-                            $statusVars, $ret[$chart_id][$node_id][$point_id],
-                            $sysinfo, $cpuload, $memory
+                        = $this->getJsonForChartingDataSwitch(
+                            $dataPoint['type'],
+                            $dataPoint['name'],
+                            $serverVars,
+                            $statusVars,
+                            $ret[$chart_id][$node_id][$point_id],
+                            $sysinfo,
+                            $cpuload,
+                            $memory
                         );
                 } /* foreach */
             } /* foreach */
         }
-        return array($serverVars, $statusVars, $ret);
+        return [
+            $serverVars,
+            $statusVars,
+            $ret,
+        ];
     }
 
     /**
@@ -497,9 +531,15 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingDataSwitch(
-        $type, $pName, array $serverVars, array $statusVars, array $ret,
-        $sysinfo, $cpuload, $memory
+    public function getJsonForChartingDataSwitch(
+        $type,
+        $pName,
+        array $serverVars,
+        array $statusVars,
+        array $ret,
+        $sysinfo,
+        $cpuload,
+        $memory
     ) {
         switch ($type) {
         /* We only collect the status and server variables here to
@@ -507,53 +547,57 @@ class Monitor
          * and only afterwards assign them.
          * Also do some white list filtering on the names
         */
-        case 'servervar':
-            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
-                $serverVars[] = $pName;
-            }
-            break;
+            case 'servervar':
+                if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
+                    $serverVars[] = $pName;
+                }
+                break;
 
-        case 'statusvar':
-            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
-                $statusVars[] = $pName;
-            }
-            break;
+            case 'statusvar':
+                if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
+                    $statusVars[] = $pName;
+                }
+                break;
 
-        case 'proc':
-            $result = $GLOBALS['dbi']->query('SHOW PROCESSLIST');
-            $ret['value'] = $GLOBALS['dbi']->numRows($result);
-            break;
+            case 'proc':
+                $result = $GLOBALS['dbi']->query('SHOW PROCESSLIST');
+                $ret['value'] = $GLOBALS['dbi']->numRows($result);
+                break;
 
-        case 'cpu':
-            if (!$sysinfo) {
-                $sysinfo = SysInfo::get();
-            }
-            if (!$cpuload) {
-                $cpuload = $sysinfo->loadavg();
-            }
+            case 'cpu':
+                if (! $sysinfo) {
+                    $sysinfo = SysInfo::get();
+                }
+                if (! $cpuload) {
+                    $cpuload = $sysinfo->loadavg();
+                }
 
-            if (SysInfo::getOs() == 'Linux') {
-                $ret['idle'] = $cpuload['idle'];
-                $ret['busy'] = $cpuload['busy'];
-            } else {
-                $ret['value'] = $cpuload['loadavg'];
-            }
+                if (SysInfo::getOs() == 'Linux') {
+                    $ret['idle'] = $cpuload['idle'];
+                    $ret['busy'] = $cpuload['busy'];
+                } else {
+                    $ret['value'] = $cpuload['loadavg'];
+                }
 
-            break;
+                break;
 
-        case 'memory':
-            if (!$sysinfo) {
-                $sysinfo = SysInfo::get();
-            }
-            if (!$memory) {
-                $memory = $sysinfo->memory();
-            }
+            case 'memory':
+                if (! $sysinfo) {
+                    $sysinfo = SysInfo::get();
+                }
+                if (! $memory) {
+                    $memory = $sysinfo->memory();
+                }
 
-            $ret['value'] = isset($memory[$pName]) ? $memory[$pName] : 0;
-            break;
+                $ret['value'] = isset($memory[$pName]) ? $memory[$pName] : 0;
+                break;
         }
 
-        return array($serverVars, $statusVars, $ret);
+        return [
+            $serverVars,
+            $statusVars,
+            $ret,
+        ];
     }
 
     /**
@@ -564,7 +608,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForLogDataTypeSlow($start, $end)
+    public function getJsonForLogDataTypeSlow($start, $end)
     {
         $query  = 'SELECT start_time, user_host, ';
         $query .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
@@ -578,7 +622,10 @@ class Monitor
 
         $result = $GLOBALS['dbi']->tryQuery($query);
 
-        $return = array('rows' => array(), 'sum' => array());
+        $return = [
+            'rows' => [],
+            'sum' => []
+        ];
 
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $type = mb_strtolower(
@@ -589,23 +636,25 @@ class Monitor
                 )
             );
 
-            switch($type) {
-            case 'insert':
-            case 'update':
-                //Cut off big inserts and updates, but append byte count instead
-                if (mb_strlen($row['sql_text']) > 220) {
-                    $implode_sql_text = implode(
-                        ' ',
-                        Util::formatByteDown(
-                            mb_strlen($row['sql_text']), 2, 2
-                        )
-                    );
-                    $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
-                        . '... [' . $implode_sql_text . ']';
-                }
-                break;
-            default:
-                break;
+            switch ($type) {
+                case 'insert':
+                case 'update':
+                    //Cut off big inserts and updates, but append byte count instead
+                    if (mb_strlen($row['sql_text']) > 220) {
+                        $implode_sql_text = implode(
+                            ' ',
+                            Util::formatByteDown(
+                                mb_strlen($row['sql_text']),
+                                2,
+                                2
+                            )
+                        );
+                        $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
+                            . '... [' . $implode_sql_text . ']';
+                    }
+                    break;
+                default:
+                    break;
             }
 
             if (! isset($return['sum'][$type])) {
@@ -630,10 +679,10 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForLogDataTypeGeneral($start, $end)
+    public function getJsonForLogDataTypeGeneral($start, $end)
     {
         $limitTypes = '';
-        if (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes']) {
+        if (isset($_POST['limitTypes']) && $_POST['limitTypes']) {
             $limitTypes
                 = 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ';
         }
@@ -648,12 +697,15 @@ class Monitor
 
         $result = $GLOBALS['dbi']->tryQuery($query);
 
-        $return = array('rows' => array(), 'sum' => array());
-        $insertTables = array();
+        $return = [
+            'rows' => [],
+            'sum' => []
+        ];
+        $insertTables = [];
         $insertTablesFirst = -1;
         $i = 0;
-        $removeVars = isset($_REQUEST['removeVariables'])
-            && $_REQUEST['removeVariables'];
+        $removeVars = isset($_POST['removeVariables'])
+            && $_POST['removeVariables'];
 
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             preg_match('/^(\w+)\s/', $row['argument'], $match);
@@ -664,45 +716,46 @@ class Monitor
             }
             $return['sum'][$type] += $row['#'];
 
-            switch($type) {
+            switch ($type) {
             /** @noinspection PhpMissingBreakStatementInspection */
-            case 'insert':
-                // Group inserts if selected
-                if ($removeVars
+                case 'insert':
+                    // Group inserts if selected
+                    if ($removeVars
                     && preg_match(
                         '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
-                        $row['argument'], $matches
+                        $row['argument'],
+                        $matches
                     )
-                ) {
-                    $insertTables[$matches[2]]++;
-                    if ($insertTables[$matches[2]] > 1) {
-                        $return['rows'][$insertTablesFirst]['#']
-                            = $insertTables[$matches[2]];
+                    ) {
+                        $insertTables[$matches[2]]++;
+                        if ($insertTables[$matches[2]] > 1) {
+                            $return['rows'][$insertTablesFirst]['#']
+                                = $insertTables[$matches[2]];
 
-                        // Add a ... to the end of this query to indicate that
-                        // there's been other queries
-                        $temp = $return['rows'][$insertTablesFirst]['argument'];
-                        $return['rows'][$insertTablesFirst]['argument']
-                            .= self::getSuspensionPoints(
-                                $temp[strlen($temp) - 1]
-                            );
+                            // Add a ... to the end of this query to indicate that
+                            // there's been other queries
+                            $temp = $return['rows'][$insertTablesFirst]['argument'];
+                            $return['rows'][$insertTablesFirst]['argument']
+                                .= $this->getSuspensionPoints(
+                                    $temp[strlen($temp) - 1]
+                                );
 
-                        // Group this value, thus do not add to the result list
-                        continue 2;
-                    } else {
-                        $insertTablesFirst = $i;
-                        $insertTables[$matches[2]] += $row['#'] - 1;
+                            // Group this value, thus do not add to the result list
+                            continue 2;
+                        } else {
+                            $insertTablesFirst = $i;
+                            $insertTables[$matches[2]] += $row['#'] - 1;
+                        }
                     }
-                }
-                // No break here
+                    // No break here
 
-            case 'update':
-                // Cut off big inserts and updates,
-                // but append byte count therefor
-                if (mb_strlen($row['argument']) > 220) {
-                    $row['argument'] = mb_substr($row['argument'], 0, 200)
+                case 'update':
+                    // Cut off big inserts and updates,
+                    // but append byte count therefor
+                    if (mb_strlen($row['argument']) > 220) {
+                        $row['argument'] = mb_substr($row['argument'], 0, 200)
                         . '... ['
-                        .  implode(
+                        . implode(
                             ' ',
                             Util::formatByteDown(
                                 mb_strlen($row['argument']),
@@ -710,12 +763,12 @@ class Monitor
                                 2
                             )
                         )
-                        . ']';
-                }
-                break;
+                            . ']';
+                    }
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
             }
 
             $return['rows'][] = $row;
@@ -737,10 +790,10 @@ class Monitor
      *
      * @return null|string Return suspension points if needed
      */
-    public static function getSuspensionPoints($lastChar)
+    public function getSuspensionPoints($lastChar)
     {
         if ($lastChar != '.') {
-            return '<br/>...';
+            return '<br>...';
         }
 
         return null;
@@ -751,20 +804,19 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForLoggingVars()
+    public function getJsonForLoggingVars()
     {
-        if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
-            $value = $GLOBALS['dbi']->escapeString($_REQUEST['varValue']);
+        if (isset($_POST['varName']) && isset($_POST['varValue'])) {
+            $value = $GLOBALS['dbi']->escapeString($_POST['varValue']);
             if (! is_numeric($value)) {
-                $value="'" . $value . "'";
+                $value = "'" . $value . "'";
             }
 
-            if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])) {
+            if (! preg_match("/[^a-zA-Z0-9_]+/", $_POST['varName'])) {
                 $GLOBALS['dbi']->query(
-                    'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
+                    'SET GLOBAL ' . $_POST['varName'] . ' = ' . $value
                 );
             }
-
         }
 
         $loggingVars = $GLOBALS['dbi']->fetchResult(
@@ -781,12 +833,12 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForQueryAnalyzer()
+    public function getJsonForQueryAnalyzer()
     {
-        $return = array();
+        $return = [];
 
-        if (strlen($_REQUEST['database']) > 0) {
-            $GLOBALS['dbi']->selectDb($_REQUEST['database']);
+        if (strlen($_POST['database']) > 0) {
+            $GLOBALS['dbi']->selectDb($_POST['database']);
         }
 
         if ($profiling = Util::profilingSupported()) {
@@ -797,7 +849,7 @@ class Monitor
         $query = preg_replace(
             '/^(\s*SELECT)/i',
             '\\1 SQL_NO_CACHE',
-            $_REQUEST['query']
+            $_POST['query']
         );
 
         $GLOBALS['dbi']->tryQuery($query);
@@ -814,13 +866,13 @@ class Monitor
         $GLOBALS['dbi']->freeResult($result);
 
         if ($profiling) {
-            $return['profiling'] = array();
+            $return['profiling'] = [];
             $result = $GLOBALS['dbi']->tryQuery(
                 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING'
                 . ' WHERE QUERY_ID=1 ORDER BY seq'
             );
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                $return['profiling'][]= $row;
+                $return['profiling'][] = $row;
             }
             $GLOBALS['dbi']->freeResult($result);
         }

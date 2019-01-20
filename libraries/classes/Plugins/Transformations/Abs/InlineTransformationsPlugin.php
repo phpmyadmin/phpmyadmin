@@ -6,13 +6,12 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Inline
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
+use stdClass;
 
 /**
  * Provides common methods for all of the inline transformations plugins.
@@ -37,13 +36,13 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Inline']);
@@ -55,11 +54,11 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
                 . $options['wrapper_link'] . '&amp;resize=jpeg&amp;newWidth='
                 . intval($options[0]) . '&amp;newHeight='
                 . intval($options[1])
-                . '" alt="[' . htmlspecialchars($buffer) . ']" border="0" /></a>';
+                . '" alt="[' . htmlspecialchars($buffer) . ']" border="0"></a>';
         } else {
             return '<img src="transformation_wrapper.php'
                 . $options['wrapper_link']
-                . '" alt="[' . htmlspecialchars($buffer) . ']" width="320" height="240" />';
+                . '" alt="[' . htmlspecialchars($buffer) . ']" width="320" height="240">';
         }
     }
 

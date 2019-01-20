@@ -5,10 +5,13 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -29,7 +32,7 @@ class ExportOdtTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -37,7 +40,7 @@ class ExportOdtTest extends PmaTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = array();
+        $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['relation'] = true;
@@ -148,11 +151,11 @@ class ExportOdtTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            ),
+                'structure_and_data' => __('structure and data'),
+            ],
             $property->getValues()
         );
 
@@ -412,21 +415,21 @@ class ExportOdtTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
-        $a = new stdClass;
+        $flags = [];
+        $a = new stdClass();
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = true;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->numeric = true;
         $a->type = 'real';
         $a->blob = false;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->type = "timestamp";
         $a->blob = false;
         $a->numeric = false;
@@ -460,9 +463,12 @@ class ExportOdtTest extends PmaTestCase
             ->with(true)
             ->will(
                 $this->returnValue(
-                    array(
-                        null, 'a<b', 'a>b', 'a&b'
-                    )
+                    [
+                        null,
+                        'a<b',
+                        'a>b',
+                        'a&b',
+                    ]
                 )
             );
 
@@ -477,7 +483,11 @@ class ExportOdtTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'ta<ble', "\n", "example.com", "SELECT"
+                'db',
+                'ta<ble',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 
@@ -508,7 +518,7 @@ class ExportOdtTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
+        $flags = [];
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
@@ -553,7 +563,11 @@ class ExportOdtTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 
@@ -573,7 +587,7 @@ class ExportOdtTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
+        $flags = [];
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
@@ -608,7 +622,11 @@ class ExportOdtTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 
@@ -636,13 +654,13 @@ class ExportOdtTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'v&w')
-            ->will($this->returnValue(array(1, 2)));
+            ->will($this->returnValue([1, 2]));
 
         $GLOBALS['dbi'] = $dbi;
 
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportOdt')
             ->disableOriginalConstructor()
-            ->setMethods(array('formatOneColumnDefinition'))
+            ->setMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         $this->object->expects($this->at(0))
@@ -679,7 +697,7 @@ class ExportOdtTest extends PmaTestCase
     public function testGetTableDef()
     {
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportOdt')
-            ->setMethods(array('formatOneColumnDefinition'))
+            ->setMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         // case 1
@@ -691,23 +709,23 @@ class ExportOdtTest extends PmaTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                array(),
-                array(
-                    'fieldname' => array(
+                [],
+                [
+                    'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    )
-                )
+                    ],
+                ]
             );
 
-        $columns = array(
-            'Field' => 'fieldname'
-        );
+        $columns = [
+            'Field' => 'fieldname',
+        ];
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue(array($columns)));
+            ->will($this->returnValue([$columns]));
 
         $dbi->expects($this->any())
             ->method('query')
@@ -721,29 +739,30 @@ class ExportOdtTest extends PmaTestCase
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
-                    array(
-                        'comment' => array('fieldname' => 'testComment')
-                    )
+                    [
+                        'comment' => ['fieldname' => 'testComment'],
+                    ]
                 )
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(2))
             ->method('formatOneColumnDefinition')
-            ->with(array('Field' => 'fieldname'))
+            ->with(['Field' => 'fieldname'])
             ->will($this->returnValue(1));
 
         $GLOBALS['cfgRelation']['relation'] = true;
-        $_SESSION['relation'][0] = array(
+        $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
-        );
+            'column_info' => 'col',
+        ];
         $this->assertTrue(
             $this->object->getTableDef(
                 'database',
@@ -791,29 +810,29 @@ class ExportOdtTest extends PmaTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                array(
-                    'fieldname' => array(
+                [
+                    'fieldname' => [
                         'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield'
-                    )
-                ),
-                array(
-                    'field' => array(
+                        'foreign_field' => 'ffield',
+                    ],
+                ],
+                [
+                    'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    )
-                )
+                    ],
+                ]
             );
 
-        $columns = array(
-            'Field' => 'fieldname'
-        );
+        $columns = [
+            'Field' => 'fieldname',
+        ];
 
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue(array($columns)));
+            ->will($this->returnValue([$columns]));
 
         $dbi->expects($this->any())
             ->method('query')
@@ -827,24 +846,25 @@ class ExportOdtTest extends PmaTestCase
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
-                    array(
-                        'comment' => array('field' => 'testComment')
-                    )
+                    [
+                        'comment' => ['field' => 'testComment'],
+                    ]
                 )
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
         $GLOBALS['odt_buffer'] = '';
         $GLOBALS['cfgRelation']['relation'] = true;
-        $_SESSION['relation'][0] = array(
+        $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
-        );
+            'column_info' => 'col',
+        ];
 
         $this->assertTrue(
             $this->object->getTableDef(
@@ -864,7 +884,7 @@ class ExportOdtTest extends PmaTestCase
         );
     }
 
-     /**
+    /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOdt::getTriggers
      *
      * @return void
@@ -875,14 +895,14 @@ class ExportOdtTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $triggers = array(
-            array(
+        $triggers = [
+            [
                 'name' => 'tna"me',
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
                 'definition' => 'def'
-            )
-        );
+            ],
+        ];
 
         $dbi->expects($this->once())
             ->method('getTriggers')
@@ -943,7 +963,7 @@ class ExportOdtTest extends PmaTestCase
             ->will($this->returnValue(1));
 
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportOdt')
-            ->setMethods(array('getTableDef', 'getTriggers', 'getTableDefStandIn'))
+            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
             ->getMock();
 
         $this->object->expects($this->at(0))
@@ -959,8 +979,16 @@ class ExportOdtTest extends PmaTestCase
         $this->object->expects($this->at(2))
             ->method('getTableDef')
             ->with(
-                'db', 't&bl', "\n", "example.com",
-                false, false, false, false, true, true
+                'db',
+                't&bl',
+                "\n",
+                "example.com",
+                false,
+                false,
+                false,
+                false,
+                true,
+                true
             )
             ->will($this->returnValue('dumpText3'));
 
@@ -974,7 +1002,12 @@ class ExportOdtTest extends PmaTestCase
         // case 1
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 't&bl', "\n", "example.com", "create_table", "test"
+                'db',
+                't&bl',
+                "\n",
+                "example.com",
+                "create_table",
+                "test"
             )
         );
 
@@ -989,7 +1022,12 @@ class ExportOdtTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 't&bl', "\n", "example.com", "triggers", "test"
+                'db',
+                't&bl',
+                "\n",
+                "example.com",
+                "triggers",
+                "test"
             )
         );
 
@@ -1004,7 +1042,12 @@ class ExportOdtTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 't&bl', "\n", "example.com", "create_view", "test"
+                'db',
+                't&bl',
+                "\n",
+                "example.com",
+                "create_view",
+                "test"
             )
         );
 
@@ -1018,7 +1061,12 @@ class ExportOdtTest extends PmaTestCase
         $GLOBALS['odt_buffer'] = '';
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 't&bl', "\n", "example.com", "stand_in", "test"
+                'db',
+                't&bl',
+                "\n",
+                "example.com",
+                "stand_in",
+                "test"
             )
         );
 
@@ -1037,16 +1085,17 @@ class ExportOdtTest extends PmaTestCase
     public function testFormatOneColumnDefinition()
     {
         $method = new ReflectionMethod(
-            'PhpMyAdmin\Plugins\Export\ExportOdt', 'formatOneColumnDefinition'
+            'PhpMyAdmin\Plugins\Export\ExportOdt',
+            'formatOneColumnDefinition'
         );
         $method->setAccessible(true);
 
-        $cols = array(
+        $cols = [
             'Null' => 'Yes',
             'Field' => 'field',
             'Key' => 'PRI',
             'Type' => 'set(abc)enum123'
-        );
+        ];
 
         $col_alias = 'alias';
 
@@ -1060,13 +1109,13 @@ class ExportOdtTest extends PmaTestCase
             $method->invoke($this->object, $cols, $col_alias)
         );
 
-        $cols = array(
+        $cols = [
             'Null' => 'NO',
             'Field' => 'fields',
             'Key' => 'COMP',
             'Type' => '',
-            'Default' => 'def'
-        );
+            'Default' => 'def',
+        ];
 
         $this->assertEquals(
             '<table:table-row><table:table-cell office:value-type="string">' .

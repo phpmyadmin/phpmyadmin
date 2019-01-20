@@ -5,12 +5,17 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\ServerEnginesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(
@@ -25,6 +30,7 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerEnginesController $controller */
 $controller = $container->get(
-    'ServerEnginesController', array()
+    'ServerEnginesController',
+    []
 );
 $controller->indexAction();

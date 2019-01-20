@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin\Controllers
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
@@ -26,27 +27,26 @@ class ServerCollationsController extends Controller
      *
      * @return void
      */
-    public function indexAction()
+    public function indexAction(): void
     {
-        $dbi = $GLOBALS['dbi'];
         $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
 
         /**
          * Does the common work
          */
-        include_once 'libraries/server_common.inc.php';
+        include_once ROOT_PATH . 'libraries/server_common.inc.php';
 
         $this->response->addHTML(
-            Template::get('server/sub_page_header')->render([
+            $this->template->render('server/sub_page_header', [
                 'type' => 'collations',
             ])
         );
         $this->response->addHTML(
             $this->_getHtmlForCharsets(
-                Charsets::getMySQLCharsets($dbi, $disableIs),
-                Charsets::getMySQLCollations($dbi, $disableIs),
-                Charsets::getMySQLCharsetsDescriptions($dbi, $disableIs),
-                Charsets::getMySQLCollationsDefault($dbi, $disableIs)
+                Charsets::getMySQLCharsets($this->dbi, $disableIs),
+                Charsets::getMySQLCollations($this->dbi, $disableIs),
+                Charsets::getMySQLCharsetsDescriptions($this->dbi, $disableIs),
+                Charsets::getMySQLCollationsDefault($this->dbi, $disableIs)
             )
         );
     }
@@ -61,16 +61,17 @@ class ServerCollationsController extends Controller
      *
      * @return string
      */
-    function _getHtmlForCharsets(array $mysqlCharsets, array $mysqlCollations,
-        array $mysqlCharsetsDesc, array $mysqlDftCollations
-    ) {
-        return Template::get('server/collations/charsets')->render(
-            array(
-                'mysql_charsets' => $mysqlCharsets,
-                'mysql_collations' => $mysqlCollations,
-                'mysql_charsets_desc' => $mysqlCharsetsDesc,
-                'mysql_dft_collations' => $mysqlDftCollations,
-            )
-        );
+    public function _getHtmlForCharsets(
+        array $mysqlCharsets,
+        array $mysqlCollations,
+        array $mysqlCharsetsDesc,
+        array $mysqlDftCollations
+    ): string {
+        return $this->template->render('server/collations/charsets', [
+            'mysql_charsets' => $mysqlCharsets,
+            'mysql_collations' => $mysqlCollations,
+            'mysql_charsets_desc' => $mysqlCharsetsDesc,
+            'mysql_dft_collations' => $mysqlDftCollations,
+        ]);
     }
 }

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
@@ -23,7 +25,7 @@ class NodeTableTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'b_browse';
@@ -79,12 +81,27 @@ class NodeTableTest extends PmaTestCase
      */
     public function providerForTestIcon()
     {
-        return array(
-            array('structure', 'b_props'),
-            array('search', 'b_search'),
-            array('insert', 'b_insrow'),
-            array('sql', 'b_sql'),
-            array('browse', 'b_browse'),
-        );
+        return [
+            [
+                'structure',
+                'b_props',
+            ],
+            [
+                'search',
+                'b_search',
+            ],
+            [
+                'insert',
+                'b_insrow',
+            ],
+            [
+                'sql',
+                'b_sql',
+            ],
+            [
+                'browse',
+                'b_browse',
+            ],
+        ];
     }
 }

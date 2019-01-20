@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Server\Status\Data;
@@ -44,19 +46,21 @@ class Queries
         $retval .= Util::showMySQLDocu(
             'server-status-variables',
             false,
+            null,
+            null,
             'statvar_Questions'
         );
-        $retval .= '<br />';
+        $retval .= '<br>';
         $retval .= '<span>';
         $retval .= '&oslash; ' . __('per hour:') . ' ';
         $retval .= Util::formatNumber($total_queries * $hour_factor, 0);
-        $retval .= '<br />';
+        $retval .= '<br>';
         $retval .= '&oslash; ' . __('per minute:') . ' ';
         $retval .= Util::formatNumber(
             $total_queries * 60 / $serverStatusData->status['Uptime'],
             0
         );
-        $retval .= '<br />';
+        $retval .= '<br>';
         if ($total_queries / $serverStatusData->status['Uptime'] >= 1) {
             $retval .= '&oslash; ' . __('per second:') . ' ';
             $retval .= Util::formatNumber(
@@ -92,8 +96,8 @@ class Queries
 
         $retval = '<table id="serverstatusqueriesdetails" '
             . 'class="width100 data sortable noclick">';
-        $retval .= '<col class="namecol" />';
-        $retval .= '<col class="valuecol" span="3" />';
+        $retval .= '<col class="namecol">';
+        $retval .= '<col class="valuecol" span="3">';
         $retval .= '<thead>';
         $retval .= '<tr><th>' . __('Statements') . '</th>';
         $retval .= '<th>';
@@ -107,17 +111,17 @@ class Queries
         $retval .= '</thead>';
         $retval .= '<tbody>';
 
-        $chart_json = array();
+        $chart_json = [];
         $query_sum = array_sum($used_queries);
         $other_sum = 0;
         foreach ($used_queries as $name => $value) {
             // For the percentage column, use Questions - Connections, because
             // the number of connections is not an item of the Query types
             // but is included in Questions. Then the total of the percentages is 100.
-            $name = str_replace(array('Com_', '_'), array('', ' '), $name);
+            $name = str_replace(['Com_', '_'], ['', ' '], $name);
             // Group together values that make out less than 2% into "Other", but only
             // if we have more than 6 fractions already
-            if ($value < $query_sum * 0.02 && count($chart_json)>6) {
+            if ($value < $query_sum * 0.02 && count($chart_json) > 6) {
                 $other_sum += $value;
             } else {
                 $chart_json[$name] = $value;

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\Config;
@@ -19,7 +21,7 @@ use PhpMyAdmin\Theme;
 $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 /**
  * Tests for PhpMyAdmin\Navigation\NavigationTree class

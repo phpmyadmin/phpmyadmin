@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Engines\Bdb;
@@ -30,9 +32,9 @@ define('PMA_ENGINE_SUPPORT_YES', 2);
 define('PMA_ENGINE_SUPPORT_DEFAULT', 3);
 
 define('PMA_ENGINE_DETAILS_TYPE_PLAINTEXT', 0);
-define('PMA_ENGINE_DETAILS_TYPE_SIZE',      1);
-define('PMA_ENGINE_DETAILS_TYPE_NUMERIC',   2); //Has no effect yet...
-define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN',   3); // 'ON' or 'OFF'
+define('PMA_ENGINE_DETAILS_TYPE_SIZE', 1);
+define('PMA_ENGINE_DETAILS_TYPE_NUMERIC', 2); //Has no effect yet...
+define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN', 3); // 'ON' or 'OFF'
 
 /**
  * Base Storage Engine Class
@@ -44,23 +46,23 @@ class StorageEngine
     /**
      * @var string engine name
      */
-    var $engine  = 'dummy';
+    public $engine  = 'dummy';
 
     /**
      * @var string engine title/description
      */
-    var $title   = 'PMA Dummy Engine Class';
+    public $title   = 'PMA Dummy Engine Class';
 
     /**
      * @var string engine lang description
      */
-    var $comment
+    public $comment
         = 'If you read this text inside phpMyAdmin, something went wrong...';
 
     /**
      * @var integer engine supported by current server
      */
-    var $support = PMA_ENGINE_SUPPORT_NO;
+    public $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
      * Constructor
@@ -77,18 +79,18 @@ class StorageEngine
                 ? $storage_engines[$engine]['Comment']
                 : '');
             switch ($storage_engines[$engine]['Support']) {
-            case 'DEFAULT':
-                $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
-                break;
-            case 'YES':
-                $this->support = PMA_ENGINE_SUPPORT_YES;
-                break;
-            case 'DISABLED':
-                $this->support = PMA_ENGINE_SUPPORT_DISABLED;
-                break;
-            case 'NO':
-            default:
-                $this->support = PMA_ENGINE_SUPPORT_NO;
+                case 'DEFAULT':
+                    $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
+                    break;
+                case 'YES':
+                    $this->support = PMA_ENGINE_SUPPORT_YES;
+                    break;
+                case 'DISABLED':
+                    $this->support = PMA_ENGINE_SUPPORT_DISABLED;
+                    break;
+                case 'NO':
+                default:
+                    $this->support = PMA_ENGINE_SUPPORT_NO;
             }
         }
     }
@@ -101,7 +103,7 @@ class StorageEngine
      * @access public
      * @return string[] array of storage engines
      */
-    static public function getStorageEngines()
+    public static function getStorageEngines()
     {
         static $storage_engines = null;
 
@@ -109,7 +111,7 @@ class StorageEngine
             $storage_engines
                 = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
             if ($GLOBALS['dbi']->getVersion() >= 50708) {
-                $disabled = Util::cacheGet(
+                $disabled = (string) Util::cacheGet(
                     'disabled_storage_engines',
                     function () {
                         return $GLOBALS['dbi']->fetchValue(
@@ -141,13 +143,15 @@ class StorageEngine
      * @static
      * @return string html selectbox
      */
-    static public function getHtmlSelect(
-        $name = 'engine', $id = null,
-        $selected = null, $offerUnavailableEngines = false,
+    public static function getHtmlSelect(
+        $name = 'engine',
+        $id = null,
+        $selected = null,
+        $offerUnavailableEngines = false,
         $addEmpty = false
     ) {
-        $selected   = mb_strtolower($selected);
-        $output     = '<select name="' . $name . '"'
+        $selected = mb_strtolower((string) $selected);
+        $output = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
 
         if ($addEmpty) {
@@ -186,35 +190,35 @@ class StorageEngine
      * @return StorageEngine The engine plugin
      * @static
      */
-    static public function getEngine($engine)
+    public static function getEngine($engine)
     {
-        switch(strtolower($engine)) {
-        case 'bdb':
-            return new Bdb($engine);
-        case 'berkeleydb':
-            return new Berkeleydb($engine);
-        case 'binlog':
-            return new Binlog($engine);
-        case 'innobase':
-            return new Innobase($engine);
-        case 'innodb':
-            return new Innodb($engine);
-        case 'memory':
-            return new Memory($engine);
-        case 'merge':
-            return new Merge($engine);
-        case 'mrg_myisam':
-            return new MrgMyisam($engine);
-        case 'myisam':
-            return new Myisam($engine);
-        case 'ndbcluster':
-            return new Ndbcluster($engine);
-        case 'pbxt':
-            return new Pbxt($engine);
-        case 'performance_schema':
-            return new PerformanceSchema($engine);
-        default:
-            return new StorageEngine($engine);
+        switch (mb_strtolower($engine)) {
+            case 'bdb':
+                return new Bdb($engine);
+            case 'berkeleydb':
+                return new Berkeleydb($engine);
+            case 'binlog':
+                return new Binlog($engine);
+            case 'innobase':
+                return new Innobase($engine);
+            case 'innodb':
+                return new Innodb($engine);
+            case 'memory':
+                return new Memory($engine);
+            case 'merge':
+                return new Merge($engine);
+            case 'mrg_myisam':
+                return new MrgMyisam($engine);
+            case 'myisam':
+                return new Myisam($engine);
+            case 'ndbcluster':
+                return new Ndbcluster($engine);
+            case 'pbxt':
+                return new Pbxt($engine);
+            case 'performance_schema':
+                return new PerformanceSchema($engine);
+            default:
+                return new StorageEngine($engine);
         }
     }
 
@@ -226,7 +230,7 @@ class StorageEngine
      * @static
      * @return boolean whether $engine is valid or not
      */
-    static public function isValid($engine)
+    public static function isValid($engine)
     {
         if ($engine == "PBMS") {
             return true;
@@ -258,16 +262,16 @@ class StorageEngine
                   . "\n"
                   . '    <td class="value">';
             switch ($details['type']) {
-            case PMA_ENGINE_DETAILS_TYPE_SIZE:
-                $parsed_size = $this->resolveTypeSize($details['value']);
-                $ret .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
-                unset($parsed_size);
-                break;
-            case PMA_ENGINE_DETAILS_TYPE_NUMERIC:
-                $ret .= Util::formatNumber($details['value']) . ' ';
-                break;
-            default:
-                $ret .= htmlspecialchars($details['value']) . '   ';
+                case PMA_ENGINE_DETAILS_TYPE_SIZE:
+                    $parsed_size = $this->resolveTypeSize($details['value']);
+                    $ret .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
+                    unset($parsed_size);
+                    break;
+                case PMA_ENGINE_DETAILS_TYPE_NUMERIC:
+                    $ret .= Util::formatNumber($details['value']) . ' ';
+                    break;
+                default:
+                    $ret .= htmlspecialchars($details['value']) . '   ';
             }
             $ret .= '</td>' . "\n"
                   . '</tr>' . "\n";
@@ -299,7 +303,7 @@ class StorageEngine
      *
      * @param integer $value Value to format
      *
-     * @return string the formatted value and its unit
+     * @return array the formatted value and its unit
      */
     public function resolveTypeSize($value)
     {
@@ -322,7 +326,7 @@ class StorageEngine
             $like = '';
         }
 
-        $mysql_vars = array();
+        $mysql_vars = [];
 
         $sql_query = 'SHOW GLOBAL VARIABLES ' . $like . ';';
         $res = $GLOBALS['dbi']->query($sql_query);
@@ -379,20 +383,20 @@ class StorageEngine
     public function getSupportInformationMessage()
     {
         switch ($this->support) {
-        case PMA_ENGINE_SUPPORT_DEFAULT:
-            $message = __('%s is the default storage engine on this MySQL server.');
-            break;
-        case PMA_ENGINE_SUPPORT_YES:
-            $message = __('%s is available on this MySQL server.');
-            break;
-        case PMA_ENGINE_SUPPORT_DISABLED:
-            $message = __('%s has been disabled for this MySQL server.');
-            break;
-        case PMA_ENGINE_SUPPORT_NO:
-        default:
-            $message = __(
-                'This MySQL server does not support the %s storage engine.'
-            );
+            case PMA_ENGINE_SUPPORT_DEFAULT:
+                $message = __('%s is the default storage engine on this MySQL server.');
+                break;
+            case PMA_ENGINE_SUPPORT_YES:
+                $message = __('%s is available on this MySQL server.');
+                break;
+            case PMA_ENGINE_SUPPORT_DISABLED:
+                $message = __('%s has been disabled for this MySQL server.');
+                break;
+            case PMA_ENGINE_SUPPORT_NO:
+            default:
+                $message = __(
+                    'This MySQL server does not support the %s storage engine.'
+                );
         }
         return sprintf($message, htmlspecialchars($this->title));
     }
@@ -406,7 +410,7 @@ class StorageEngine
      */
     public function getVariables()
     {
-        return array();
+        return [];
     }
 
     /**
@@ -438,7 +442,7 @@ class StorageEngine
      */
     public function getInfoPages()
     {
-        return array();
+        return [];
     }
 
     /**

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Error;
@@ -23,7 +25,7 @@ class ErrorHandler
      *
      * @var Error[]
      */
-    protected $errors = array();
+    protected $errors = [];
 
     /**
      * Hide location of errors
@@ -47,8 +49,8 @@ class ErrorHandler
          * This behavior is not tested there and breaks other tests as they
          * rely on PHPUnit doing it's own error handling which we break here.
          */
-        if (!defined('TESTSUITE')) {
-            set_error_handler(array($this, 'handleError'));
+        if (! defined('TESTSUITE')) {
+            set_error_handler([$this, 'handleError']);
         }
         $this->error_reporting = error_reporting();
     }
@@ -63,7 +65,7 @@ class ErrorHandler
     {
         if (isset($_SESSION)) {
             if (! isset($_SESSION['errors'])) {
-                $_SESSION['errors'] = array();
+                $_SESSION['errors'] = [];
             }
 
             // remember only not displayed errors
@@ -97,7 +99,7 @@ class ErrorHandler
      *
      * @return void
      */
-    public function setHideLocation($hide)
+    public function setHideLocation(bool $hide): void
     {
         $this->hide_location = $hide;
     }
@@ -109,7 +111,7 @@ class ErrorHandler
      *
      * @return Error[]
      */
-    public function getErrors($check=true)
+    public function getErrors(bool $check = true): array
     {
         if ($check) {
             $this->checkSavedErrors();
@@ -118,12 +120,12 @@ class ErrorHandler
     }
 
     /**
-    * returns the errors occurred in the current run only.
-    * Does not include the errors saved in the SESSION
-    *
-    * @return Error[]
-    */
-    public function getCurrentErrors()
+     * returns the errors occurred in the current run only.
+     * Does not include the errors saved in the SESSION
+     *
+     * @return Error[]
+     */
+    public function getCurrentErrors(): array
     {
         return $this->errors;
     }
@@ -135,7 +137,7 @@ class ErrorHandler
      *
      * @return Error[]
      */
-    public function sliceErrors($count)
+    public function sliceErrors(int $count): array
     {
         $errors = $this->getErrors(false);
         $this->errors = array_splice($errors, 0, $count);
@@ -155,8 +157,12 @@ class ErrorHandler
      *
      * @return void
      */
-    public function handleError($errno, $errstr, $errfile, $errline)
-    {
+    public function handleError(
+        int $errno,
+        string $errstr,
+        string $errfile,
+        int $errline
+    ): void {
         /**
          * Check if Error Control Operator (@) was used, but still show
          * user errors even in this case.
@@ -189,8 +195,13 @@ class ErrorHandler
      *
      * @return void
      */
-    public function addError($errstr, $errno, $errfile, $errline, $escape = true)
-    {
+    public function addError(
+        string $errstr,
+        int $errno,
+        string $errfile,
+        int $errline,
+        bool $escape = true
+    ): void {
         if ($escape) {
             $errstr = htmlspecialchars($errstr);
         }
@@ -207,30 +218,30 @@ class ErrorHandler
         $this->errors[$error->getHash()] = $error;
 
         switch ($error->getNumber()) {
-        case E_STRICT:
-        case E_DEPRECATED:
-        case E_NOTICE:
-        case E_WARNING:
-        case E_CORE_WARNING:
-        case E_COMPILE_WARNING:
-        case E_RECOVERABLE_ERROR:
-            /* Avoid rendering BB code in PHP errors */
-            $error->setBBCode(false);
-            break;
-        case E_USER_NOTICE:
-        case E_USER_WARNING:
-        case E_USER_ERROR:
-            // just collect the error
-            // display is called from outside
-            break;
-        case E_ERROR:
-        case E_PARSE:
-        case E_CORE_ERROR:
-        case E_COMPILE_ERROR:
-        default:
-            // FATAL error, display it and exit
-            $this->dispFatalError($error);
-            exit;
+            case E_STRICT:
+            case E_DEPRECATED:
+            case E_NOTICE:
+            case E_WARNING:
+            case E_CORE_WARNING:
+            case E_COMPILE_WARNING:
+            case E_RECOVERABLE_ERROR:
+                /* Avoid rendering BB code in PHP errors */
+                $error->setBBCode(false);
+                break;
+            case E_USER_NOTICE:
+            case E_USER_WARNING:
+            case E_USER_ERROR:
+                // just collect the error
+                // display is called from outside
+                break;
+            case E_ERROR:
+            case E_PARSE:
+            case E_CORE_ERROR:
+            case E_COMPILE_ERROR:
+            default:
+                // FATAL error, display it and exit
+                $this->dispFatalError($error);
+                exit;
         }
     }
 
@@ -242,7 +253,7 @@ class ErrorHandler
      *
      * @return void
      */
-    public function triggerError($errorInfo, $errorNumber = null)
+    public function triggerError(string $errorInfo, ?int $errorNumber = null): void
     {
         // we could also extract file and line from backtrace
         // and call handleError() directly
@@ -256,7 +267,7 @@ class ErrorHandler
      *
      * @return void
      */
-    protected function dispFatalError($error)
+    protected function dispFatalError(Error $error): void
     {
         if (! headers_sent()) {
             $this->dispPageStart($error);
@@ -271,7 +282,7 @@ class ErrorHandler
      *
      * @return void
      */
-    public function dispUserErrors()
+    public function dispUserErrors(): void
     {
         echo $this->getDispUserErrors();
     }
@@ -281,7 +292,7 @@ class ErrorHandler
      *
      * @return string
      */
-    public function getDispUserErrors()
+    public function getDispUserErrors(): string
     {
         $retval = '';
         foreach ($this->getErrors() as $error) {
@@ -299,7 +310,7 @@ class ErrorHandler
      *
      * @return void
      */
-    protected function dispPageStart($error = null)
+    protected function dispPageStart(?Error $error = null): void
     {
         Response::getInstance()->disable();
         echo '<html><head><title>';
@@ -316,7 +327,7 @@ class ErrorHandler
      *
      * @return void
      */
-    protected function dispPageEnd()
+    protected function dispPageEnd(): void
     {
         echo '</body></html>';
     }
@@ -326,7 +337,7 @@ class ErrorHandler
      *
      * @return string
      */
-    public function getDispErrors()
+    public function getDispErrors(): string
     {
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
@@ -352,15 +363,15 @@ class ErrorHandler
                 $retval .= ' class="hide"';
             }
             $retval .=  '>';
-            $retval .= Url::getHiddenFields(array(
+            $retval .= Url::getHiddenFields([
                 'exception_type' => 'php',
                 'send_error_report' => '1',
-            ));
+            ]);
             $retval .= '<input type="submit" value="'
                     . __('Report')
-                    . '" id="pma_report_errors" class="floatright">'
+                    . '" id="pma_report_errors" class="btn btn-primary floatright">'
                     . '<input type="checkbox" name="always_send"'
-                    . ' id="always_send_checkbox" value="true"/>'
+                    . ' id="always_send_checkbox" value="true">'
                     . '<label for="always_send_checkbox">'
                     . __('Automatically send report next time')
                     . '</label>';
@@ -369,11 +380,11 @@ class ErrorHandler
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
-                        . '" id="pma_ignore_errors_bottom" class="floatright">';
+                        . '" id="pma_ignore_errors_bottom" class="btn btn-secondary floatright">';
             }
             $retval .= '<input type="submit" value="'
                     . __('Ignore All')
-                    . '" id="pma_ignore_all_errors_bottom" class="floatright">';
+                    . '" id="pma_ignore_all_errors_bottom" class="btn btn-secondary floatright">';
             $retval .= '</form>';
         }
         return $retval;
@@ -384,7 +395,7 @@ class ErrorHandler
      *
      * @return void
      */
-    public function dispErrors()
+    public function dispErrors(): void
     {
         echo $this->getDispErrors();
     }
@@ -394,10 +405,9 @@ class ErrorHandler
      *
      * @return void
      */
-    protected function checkSavedErrors()
+    protected function checkSavedErrors(): void
     {
         if (isset($_SESSION['errors'])) {
-
             // restore saved errors
             foreach ($_SESSION['errors'] as $hash => $error) {
                 if ($error instanceof Error && ! isset($this->errors[$hash])) {
@@ -406,7 +416,7 @@ class ErrorHandler
             }
 
             // delete stored errors
-            $_SESSION['errors'] = array();
+            $_SESSION['errors'] = [];
             unset($_SESSION['errors']);
         }
     }
@@ -418,7 +428,7 @@ class ErrorHandler
      *
      * @return integer number of errors occurred
      */
-    public function countErrors($check=true)
+    public function countErrors(bool $check = true): int
     {
         return count($this->getErrors($check));
     }
@@ -428,7 +438,7 @@ class ErrorHandler
      *
      * @return integer number of user errors occurred
      */
-    public function countUserErrors()
+    public function countUserErrors(): int
     {
         $count = 0;
         if ($this->countErrors()) {
@@ -447,7 +457,7 @@ class ErrorHandler
      *
      * @return boolean
      */
-    public function hasUserErrors()
+    public function hasUserErrors(): bool
     {
         return (bool) $this->countUserErrors();
     }
@@ -457,7 +467,7 @@ class ErrorHandler
      *
      * @return boolean
      */
-    public function hasErrors()
+    public function hasErrors(): bool
     {
         return (bool) $this->countErrors();
     }
@@ -467,7 +477,7 @@ class ErrorHandler
      *
      * @return integer number of errors to be displayed
      */
-    public function countDisplayErrors()
+    public function countDisplayErrors(): int
     {
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             return $this->countErrors();
@@ -481,19 +491,19 @@ class ErrorHandler
      *
      * @return boolean
      */
-    public function hasDisplayErrors()
+    public function hasDisplayErrors(): bool
     {
         return (bool) $this->countDisplayErrors();
     }
 
     /**
-    * Deletes previously stored errors in SESSION.
-    * Saves current errors in session as previous errors.
-    * Required to save current errors in case  'ask'
-    *
-    * @return void
-    */
-    public function savePreviousErrors()
+     * Deletes previously stored errors in SESSION.
+     * Saves current errors in session as previous errors.
+     * Required to save current errors in case  'ask'
+     *
+     * @return void
+     */
+    public function savePreviousErrors(): void
     {
         unset($_SESSION['prev_errors']);
         $_SESSION['prev_errors'] = $GLOBALS['error_handler']->getCurrentErrors();
@@ -506,9 +516,9 @@ class ErrorHandler
      * This distinguishes between the actual errors
      *      and user errors raised to warn user.
      *
-     *@return boolean true if there are errors to be "prompted", false otherwise
+     * @return boolean true if there are errors to be "prompted", false otherwise
      */
-    public function hasErrorsForPrompt()
+    public function hasErrorsForPrompt(): bool
     {
         return (
             $GLOBALS['cfg']['SendErrorReports'] != 'never'
@@ -523,10 +533,10 @@ class ErrorHandler
      *
      * @return void
      */
-    public function reportErrors()
+    public function reportErrors(): void
     {
         // if there're no actual errors,
-        if (!$this->hasErrors()
+        if (! $this->hasErrors()
             || $this->countErrors() ==  $this->countUserErrors()
         ) {
             // then simply return.
@@ -553,7 +563,7 @@ class ErrorHandler
             }
         } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
             //ask user whether to submit errors or not.
-            if (!$response->isAjax()) {
+            if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
                 $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"]);'
                         . '$("#pma_ignore_errors_popup").bind("click", function() {

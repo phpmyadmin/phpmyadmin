@@ -5,5 +5,10 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-require_once './db_triggers.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'db_triggers.php';

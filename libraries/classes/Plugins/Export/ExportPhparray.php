@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-Export
  * @subpackage PHP
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
@@ -31,6 +32,7 @@ class ExportPhparray extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -87,7 +89,7 @@ class ExportPhparray extends ExportPlugin
      */
     public function exportHeader()
     {
-        Export::outputHandler(
+        $this->export->outputHandler(
             '<?php' . $GLOBALS['crlf']
             . '/**' . $GLOBALS['crlf']
             . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
@@ -121,7 +123,7 @@ class ExportPhparray extends ExportPlugin
         if (empty($db_alias)) {
             $db_alias = $db;
         }
-        Export::outputHandler(
+        $this->export->outputHandler(
             '/**' . $GLOBALS['crlf']
             . ' * Database ' . $this->commentString(Util::backquote($db_alias))
             . $GLOBALS['crlf'] . ' */' . $GLOBALS['crlf']
@@ -174,7 +176,7 @@ class ExportPhparray extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -187,10 +189,10 @@ class ExportPhparray extends ExportPlugin
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
-        $columns = array();
+        $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $columns[$i] = stripslashes($col_as);
@@ -198,7 +200,7 @@ class ExportPhparray extends ExportPlugin
 
         // fix variable names (based on
         // https://secure.php.net/manual/language.variables.basics.php)
-        if (!preg_match(
+        if (! preg_match(
             '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
             $table_alias
         )
@@ -246,7 +248,7 @@ class ExportPhparray extends ExportPlugin
         }
 
         $buffer .= $crlf . ');' . $crlf;
-        if (!Export::outputHandler($buffer)) {
+        if (! $this->export->outputHandler($buffer)) {
             return false;
         }
 

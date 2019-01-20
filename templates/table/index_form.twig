@@ -4,7 +4,7 @@
     id="index_frm"
     class="ajax">
 
-    {{ Url_getHiddenInputs(form_params) }}
+    {{ get_hidden_inputs(form_params) }}
 
     <fieldset id="index_edit_fields">
         <div class="index_info">
@@ -13,7 +13,7 @@
                     <strong>
                         <label for="input_index_name">
                             {% trans 'Index name:' %}
-                            {{ Util_showHint('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'|trans) }}
+                            {{ show_hint('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'|trans) }}
                         </label>
                     </strong>
                 </div>
@@ -24,7 +24,7 @@
                     size="25"
                     maxlength="64"
                     value="{{ index.getName() }}"
-                    onfocus="this.select()" />
+                    onfocus="this.select()">
             </div>
 
             <div>
@@ -32,14 +32,18 @@
                     <strong>
                         <label for="select_index_choice">
                             {% trans 'Index choice:' %}
-                            {{ Util_showMySQLDocu('ALTER_TABLE') }}
+                            {{ show_mysql_docu('ALTER_TABLE') }}
                         </label>
                     </strong>
                 </div>
                 {{ index.generateIndexChoiceSelector(create_edit_table)|raw }}
             </div>
 
-            {{ Util_getDivForSliderEffect('indexoptions', 'Advanced Options'|trans) }}
+            {% include 'div_for_slider_effect.twig' with {
+                'id': 'indexoptions',
+                'message': 'Advanced Options'|trans,
+                'initial_sliders_state': default_sliders_state
+            } only %}
 
             <div>
                 <div class="label">
@@ -54,7 +58,7 @@
                     name="index[Key_block_size]"
                     id="input_key_block_size"
                     size="30"
-                    value="{{ index.getKeyBlockSize() }}" />
+                    value="{{ index.getKeyBlockSize() }}">
             </div>
 
             <div>
@@ -63,7 +67,7 @@
                     <strong>
                         <label for="select_index_type">
                             {% trans 'Index type:' %}
-                            {{ Util_showMySQLDocu('ALTER_TABLE') }}
+                            {{ show_mysql_docu('ALTER_TABLE') }}
                         </label>
                     </strong>
                 </div>
@@ -83,7 +87,7 @@
                     name="index[Parser]"
                     id="input_parse"
                     size="30"
-                    value="{{ index.getParser() }}" />
+                    value="{{ index.getParser() }}">
             </div>
 
             <div>
@@ -100,7 +104,7 @@
                     id="input_index_comment"
                     size="30"
                     maxlength="1024"
-                    value="{{ index.getComment() }}" />
+                    value="{{ index.getComment() }}">
             </div>
         </div>
         <!-- end of indexoptions div -->
@@ -162,7 +166,7 @@
                                 onfocus="this.select()"
                                 name="index[columns][sub_parts][]"
                                 value="{{ index.getChoice() != 'SPATIAL' ?
-                                    column.getSubPart() }}" />
+                                    column.getSubPart() }}">
                         </td>
                     </tr>
                 {% endfor %}
@@ -195,7 +199,7 @@
                                     size="5"
                                     onfocus="this.select()"
                                     name="index[columns][sub_parts][]"
-                                    value="" />
+                                    value="">
                             </td>
                         </tr>
                     {% endfor %}
@@ -206,14 +210,14 @@
 
             <div class="slider"></div>
             <div class="add_fields hide">
-                <input type="submit"
+                <input class="btn btn-secondary" type="submit"
                     id="add_fields"
-                    value="{{ 'Add %s column(s) to index'|trans|format(1) }}" />
+                    value="{{ 'Add %s column(s) to index'|trans|format(1) }}">
             </div>
         </div>
     </fieldset>
     <fieldset class="tblFooters">
-        <button type="submit" id="preview_index_frm">{% trans 'Preview SQL' %}</button>
-        <input type="submit" id="save_index_frm" value="{% trans 'Go' %}" />
+        <button class="btn btn-secondary" type="submit" id="preview_index_frm">{% trans 'Preview SQL' %}</button>
+        <input class="btn btn-primary" type="submit" id="save_index_frm" value="{% trans 'Go' %}">
     </fieldset>
 </form>

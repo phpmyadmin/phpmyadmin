@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PHPUnit\Framework\TestCase;
@@ -16,6 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 abstract class GisGeomTestCase extends TestCase
 {
+
     /**
      * test generateParams method
      *
@@ -61,7 +64,7 @@ abstract class GisGeomTestCase extends TestCase
     /**
      * Tests whether content is a valid image.
      *
-     * @param object $object Image
+     * @param resource $object Image
      *
      * @return void
      */

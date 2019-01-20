@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
@@ -40,9 +42,9 @@ class PdfRelationSchemaTest extends PmaTestCase
         $_REQUEST['pdf_all_tables_same_width'] = true;
         $_REQUEST['pdf_paper'] = 'paper';
         $_REQUEST['pdf_table_order'] = '';
-        $_REQUEST['t_h'] = array('information_schema.files' => 1);
-        $_REQUEST['t_x'] = array('information_schema.files' => 0);
-        $_REQUEST['t_y'] = array('information_schema.files' => 0);
+        $_REQUEST['t_h'] = ['information_schema.files' => 1];
+        $_REQUEST['t_x'] = ['information_schema.files' => 0];
+        $_REQUEST['t_y'] = ['information_schema.files' => 0];
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';
@@ -54,7 +56,7 @@ class PdfRelationSchemaTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['table_info'] = "table_info";
 
         //_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
@@ -66,8 +68,8 @@ class PdfRelationSchemaTest extends PmaTestCase
             'commwork' => 'commwork',
             'column_info' => 'column_info',
             'pdf_pages' => 'pdf_pages'
-        );
-        $relation = new Relation();
+        ];
+        $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -86,15 +88,15 @@ class PdfRelationSchemaTest extends PmaTestCase
             ->method('tryQuery')
             ->will($this->returnValue("executed_1"));
 
-        $fetchArrayReturn = array(
+        $fetchArrayReturn = [
             //table name in information_schema_relations
-            'table_name' => 'CHARACTER_SETS'
-        );
+            'table_name' => 'CHARACTER_SETS',
+        ];
 
-        $fetchArrayReturn2 = array(
+        $fetchArrayReturn2 = [
             //table name in information_schema_relations
-            'table_name' => 'COLLATIONS'
-        );
+            'table_name' => 'COLLATIONS',
+        ];
 
         $dbi->expects($this->at(2))
             ->method('fetchAssoc')
@@ -106,41 +108,41 @@ class PdfRelationSchemaTest extends PmaTestCase
             ->method('fetchAssoc')
             ->will($this->returnValue(false));
 
-        $fetchRowReturn = array(
+        $fetchRowReturn = [
             'table_name',
-            'table_name'
-        );
+            'table_name',
+        ];
 
         //let fetchRow have more results
-        for ($index=0; $index<4; ++$index) {
+        for ($index = 0; $index < 4; ++$index) {
             $dbi->expects($this->at($index))
                 ->method('fetchRow')
                 ->will($this->returnValue($fetchRowReturn));
         }
 
-        $fields_info = array(
-            "Host" => array(
+        $fields_info = [
+            "Host" => [
                 "Field" => "host",
                 "Type" => "char(60)",
                 "Null" => "NO",
                 'Extra' => "Extra",
-            )
-        );
+            ],
+        ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));
 
         $dbi->expects($this->any())->method('selectDb')
             ->will($this->returnValue(true));
 
-        $getIndexesResult = array(
-            array(
+        $getIndexesResult = [
+            [
                 'Table' => 'pma_tbl',
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
                 'Key_name' => "Key_name",
-                'Column_name' => "Column_name"
-            )
-        );
+                'Column_name' => "Column_name",
+            ],
+        ];
         $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($getIndexesResult));
 
@@ -158,10 +160,16 @@ class PdfRelationSchemaTest extends PmaTestCase
             ->method('fetchValue')
             ->will($this->returnValue($fetchValue));
 
-        $fetchResult = array(
-            'column1' => array('mimetype' => 'value1', 'transformation'=> 'pdf'),
-            'column2' => array('mimetype' => 'value2', 'transformation'=> 'xml'),
-        );
+        $fetchResult = [
+            'column1' => [
+                'mimetype' => 'value1',
+                'transformation' => 'pdf',
+            ],
+            'column2' => [
+                'mimetype' => 'value2',
+                'transformation' => 'xml',
+            ],
+        ];
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fetchResult));

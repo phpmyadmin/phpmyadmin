@@ -91,9 +91,9 @@ function display (init, finit) {
             str += '<div class="block"> <table width ="250">';
             str += '<thead><tr><td>';
             if (history_array[i].get_and_or()) {
-                str += '<img src="' + pmaThemeImage + 'designer/or_icon.png" onclick="and_or(' + i + ')" title="OR"/></td>';
+                str += '<img src="' + pmaThemeImage + 'designer/or_icon.png" onclick="and_or(' + i + ')" title="OR"></td>';
             } else {
-                str += '<img src="' + pmaThemeImage + 'designer/and_icon.png" onclick="and_or(' + i + ')" title="AND"/></td>';
+                str += '<img src="' + pmaThemeImage + 'designer/and_icon.png" onclick="and_or(' + i + ')" title="AND"></td>';
             }
             str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse', 'column name') + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + history_array[i].get_column_name() + '<td>';
@@ -839,16 +839,16 @@ AJAX.registerTeardown('designer/history.js', function () {
 });
 
 AJAX.registerOnload('designer/history.js', function () {
-    $('#ok_edit_rename').click(function () {
+    $('#ok_edit_rename').on('click', function () {
         edit('Rename');
     });
-    $('#ok_edit_having').click(function () {
+    $('#ok_edit_having').on('click', function () {
         edit('Having');
     });
-    $('#ok_edit_Aggr').click(function () {
+    $('#ok_edit_Aggr').on('click', function () {
         edit('Aggregate');
     });
-    $('#ok_edit_where').click(function () {
+    $('#ok_edit_where').on('click', function () {
         edit('Where');
     });
     $('#ab').accordion({ collapsible : true, active : 'none' });

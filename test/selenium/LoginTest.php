@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
@@ -18,9 +19,12 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class LoginTest extends TestBase
 {
-    public function setUpPage()
+    /**
+     * @return void
+     */
+    public function setUp()
     {
-        parent::setUpPage();
+        parent::setUp();
         $this->logOutIfLoggedIn();
     }
     /**
@@ -33,7 +37,7 @@ class LoginTest extends TestBase
     public function testSuccessfulLogin()
     {
         $this->login();
-        $this->waitForElement("byXPath", "//*[@id=\"serverinfo\"]");
+        $this->waitForElement('xpath', "//*[@id=\"serverinfo\"]");
         $this->assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
     }
@@ -48,7 +52,7 @@ class LoginTest extends TestBase
     public function testLoginWithWrongPassword()
     {
         $this->login("Admin", "Admin");
-        $this->waitForElement("byCssSelector", "div.error");
+        $this->waitForElement('cssSelector', "div.error");
         $this->assertTrue($this->isUnsuccessLogin());
     }
 }

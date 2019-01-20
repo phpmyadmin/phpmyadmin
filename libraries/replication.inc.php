@@ -5,11 +5,15 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 use PhpMyAdmin\Replication;
+
+$replication = new Replication();
 
 /**
  * get master replication from server
@@ -19,7 +23,7 @@ $server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
 /**
  * set selected master server
  */
-if (! empty($_REQUEST['master_connection'])) {
+if (! empty($_POST['master_connection'])) {
     /**
      * check for multi-master replication functionality
      */
@@ -30,10 +34,10 @@ if (! empty($_REQUEST['master_connection'])) {
         $GLOBALS['dbi']->query(
             "SET @@default_master_connection = '"
             . $GLOBALS['dbi']->escapeString(
-                $_REQUEST['master_connection']
+                $_POST['master_connection']
             ) . "'"
         );
-        $GLOBALS['url_params']['master_connection'] = $_REQUEST['master_connection'];
+        $GLOBALS['url_params']['master_connection'] = $_POST['master_connection'];
     }
 }
 
@@ -45,23 +49,26 @@ $server_slave_replication = $GLOBALS['dbi']->fetchResult('SHOW SLAVE STATUS');
 /**
  * replication types
  */
-$replication_types = array('master', 'slave');
+$replication_types = [
+    'master',
+    'slave',
+];
 
 
 /**
  * define variables for master status
  */
-$master_variables = array(
+$master_variables = [
     'File',
     'Position',
     'Binlog_Do_DB',
     'Binlog_Ignore_DB',
-);
+];
 
 /**
  * Define variables for slave status
  */
-$slave_variables  = array(
+$slave_variables  = [
     'Slave_IO_State',
     'Master_Host',
     'Master_User',
@@ -95,30 +102,30 @@ $slave_variables  = array(
     'Master_SSL_Cipher',
     'Master_SSL_Key',
     'Seconds_Behind_Master',
-);
+];
 /**
  * define important variables, which need to be watched for
  * correct running of replication in slave mode
  *
- * @usedby PhpMyAdmin\ReplicationGui::getHtmlForReplicationStatusTable()
+ * @usedby PhpMyAdmin\ReplicationGui->getHtmlForReplicationStatusTable()
  */
 // TODO change to regexp or something, to allow for negative match.
 // To e.g. highlight 'Last_Error'
 //
-$slave_variables_alerts = array(
+$slave_variables_alerts = [
     'Slave_IO_Running' => 'No',
     'Slave_SQL_Running' => 'No',
-);
-$slave_variables_oks = array(
+];
+$slave_variables_oks = [
     'Slave_IO_Running' => 'Yes',
     'Slave_SQL_Running' => 'Yes',
-);
+];
 
 // check which replication is available and
 // set $server_{master/slave}_status and assign values
 
 // replication info is more easily passed to functions
-$GLOBALS['replication_info'] = array();
+$GLOBALS['replication_info'] = [];
 
 foreach ($replication_types as $type) {
     if (count(${"server_{$type}_replication"}) > 0) {
@@ -128,43 +135,59 @@ foreach ($replication_types as $type) {
     }
     if ($GLOBALS['replication_info'][$type]['status']) {
         if ($type == "master") {
-            Replication::fillInfo(
-                $type, 'Do_DB', $server_master_replication[0],
+            $replication->fillInfo(
+                $type,
+                'Do_DB',
+                $server_master_replication[0],
                 'Binlog_Do_DB'
             );
 
-            Replication::fillInfo(
-                $type, 'Ignore_DB', $server_master_replication[0],
+            $replication->fillInfo(
+                $type,
+                'Ignore_DB',
+                $server_master_replication[0],
                 'Binlog_Ignore_DB'
             );
         } elseif ($type == "slave") {
-            Replication::fillInfo(
-                $type, 'Do_DB', $server_slave_replication[0],
+            $replication->fillInfo(
+                $type,
+                'Do_DB',
+                $server_slave_replication[0],
                 'Replicate_Do_DB'
             );
 
-            Replication::fillInfo(
-                $type, 'Ignore_DB', $server_slave_replication[0],
+            $replication->fillInfo(
+                $type,
+                'Ignore_DB',
+                $server_slave_replication[0],
                 'Replicate_Ignore_DB'
             );
 
-            Replication::fillInfo(
-                $type, 'Do_Table', $server_slave_replication[0],
+            $replication->fillInfo(
+                $type,
+                'Do_Table',
+                $server_slave_replication[0],
                 'Replicate_Do_Table'
             );
 
-            Replication::fillInfo(
-                $type, 'Ignore_Table', $server_slave_replication[0],
+            $replication->fillInfo(
+                $type,
+                'Ignore_Table',
+                $server_slave_replication[0],
                 'Replicate_Ignore_Table'
             );
 
-            Replication::fillInfo(
-                $type, 'Wild_Do_Table', $server_slave_replication[0],
+            $replication->fillInfo(
+                $type,
+                'Wild_Do_Table',
+                $server_slave_replication[0],
                 'Replicate_Wild_Do_Table'
             );
 
-            Replication::fillInfo(
-                $type, 'Wild_Ignore_Table', $server_slave_replication[0],
+            $replication->fillInfo(
+                $type,
+                'Wild_Ignore_Table',
+                $server_slave_replication[0],
                 'Replicate_Wild_Ignore_Table'
             );
         }

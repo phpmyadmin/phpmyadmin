@@ -4,16 +4,18 @@
             name="selected_tbl[]"
             class="{{ input_class }}"
             value="{{ current_table['TABLE_NAME'] }}"
-            id="checkbox_tbl_{{ curr }}" />
+            id="checkbox_tbl_{{ curr }}">
     </td>
     <th>
-        {{ browse_table_label|raw }}
+        <a href="sql.php{{ tbl_url_query|raw }}&amp;pos=0" title="{{ browse_table_label_title }}">
+            {{ browse_table_label_truename }}
+        </a>
         {{ tracking_icon|raw }}
     </th>
     {% if server_slave_status %}
         <td class="center">
-            {{ ignored ? Util_getImage('s_cancel', 'Not replicated'|trans) }}
-            {{ do ? Util_getImage('s_success', 'Replicated'|trans) }}
+            {{ ignored ? get_image('s_cancel', 'Not replicated'|trans) }}
+            {{ do ? get_image('s_success', 'Replicated'|trans) }}
         </td>
     {% endif %}
 
@@ -28,8 +30,8 @@
                 ((already_favorite ? 'remove' : 'add') ~ '_favorite'): true
             } %}
             {% include 'database/structure/favorite_anchor.twig' with {
-                'table_name_hash': md5(current_table['TABLE_NAME']),
-                'db_table_name_hash': md5(db ~ '.' ~ current_table['TABLE_NAME']),
+                'table_name_hash': table_name_hash,
+                'db_table_name_hash': db_table_name_hash,
                 'fav_params': fav_params,
                 'already_favorite': already_favorite,
                 'titles': titles
@@ -38,7 +40,10 @@
     {% endif %}
 
     <td class="center print_ignore">
-        {{ browse_table|raw }}
+        <a href="sql.php{{ tbl_url_query|raw }}&amp;pos=0">
+            {{ browse_table_title|raw }}
+        </a>
+
     </td>
     <td class="center print_ignore">
         <a href="tbl_structure.php{{ tbl_url_query|raw }}">
@@ -46,14 +51,23 @@
         </a>
     </td>
     <td class="center print_ignore">
-        {{ search_table|raw }}
+        <a href="tbl_select.php{{ tbl_url_query|raw }}">
+            {{ search_table_title|raw }}
+        </a>
     </td>
 
     {% if not db_is_system_schema %}
         <td class="insert_table center print_ignore">
             <a href="tbl_change.php{{ tbl_url_query|raw }}">{{ titles['Insert']|raw }}</a>
         </td>
-        <td class="center print_ignore">{{ empty_table|raw }}</td>
+        <td class="center print_ignore">
+            {% if not table_is_view %}
+                <a class="truncate_table_anchor ajax" href="sql.php" data-post="{{ tbl_url_query|raw }}&amp;sql_query=
+                {{- empty_table_sql_query }}&amp;message_to_show={{ empty_table_message_to_show }}">
+                    {{ empty_table_title|raw }}
+                </a>
+            {% endif %}
+        </td>
         <td class="center print_ignore">
             <a class="ajax drop_table_anchor
                 {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}"
@@ -67,14 +81,14 @@
     {% if current_table['TABLE_ROWS'] is defined
         and (current_table['ENGINE'] != null or table_is_view) %}
         {# Get the row count #}
-        {% set row_count = Util_formatNumber(current_table['TABLE_ROWS'], 0) %}
+        {% set row_count = format_number(current_table['TABLE_ROWS'], 0) %}
 
         {# Content to be appended into 'tbl_rows' cell.
         If row count is approximate, display it as an anchor to get real count. #}
         <td class="value tbl_rows"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
-                <a href="db_structure.php{{ Url_getCommon({
+                <a href="db_structure.php{{ get_common({
                     'ajax_request': true,
                     'db': db,
                     'table': current_table['TABLE_NAME'],
@@ -141,19 +155,19 @@
 
         {% if show_creation %}
             <td class="value tbl_creation">
-                {{ create_time ? Util_localisedDate(strtotime(create_time)) : '-' }}
+                {{ create_time }}
             </td>
         {% endif %}
 
         {% if show_last_update %}
             <td class="value tbl_last_update">
-                {{ update_time ? Util_localisedDate(strtotime(update_time)) : '-'}}
+                {{ update_time }}
             </td>
         {% endif %}
 
         {% if show_last_check %}
             <td class="value tbl_last_check">
-                {{ check_time ? Util_localisedDate(strtotime(check_time)) : '-' }}
+                {{ check_time }}
             </td>
         {% endif %}
 
@@ -184,28 +198,6 @@
         {% endif %}
 
     {% else %}
-        {% set count = 0 %}
-        {% if properties_num_columns %}
-            {% set count = count + 2 %}
-        {% endif %}
-        {% if is_show_stats %}
-            {% set count = count + 2 %}
-        {% endif %}
-        {% if show_charset %}
-            {% set count = count + 1 %}
-        {% endif %}
-        {% if show_comment %}
-            {% set count = count + 1 %}
-        {% endif %}
-        {% if show_creation %}
-            {% set count = count + 1 %}
-        {% endif %}
-        {% if show_last_update %}
-            {% set count = count + 1 %}
-        {% endif %}
-        {% if show_last_check %}
-            {% set count = count + 1 %}
-        {% endif %}
 
         {% if db_is_system_schema %}
             {% set action_colspan = 3 %}

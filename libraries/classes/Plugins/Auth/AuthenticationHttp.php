@@ -7,6 +7,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage HTTP
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -14,8 +16,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
-
-require_once './libraries/hash.lib.php';
 
 /**
  * Handles the HTTP authentication methods
@@ -92,7 +92,7 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         $response->addHTML(Config::renderFooter());
 
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             exit;
         } else {
             return false;
@@ -158,7 +158,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         // (do not use explode() because a user might have a colon in his password
         if (strcmp(substr($this->user, 0, 6), 'Basic ') == 0) {
             $usr_pass = base64_decode(substr($this->user, 6));
-            if (!empty($usr_pass)) {
+            if (! empty($usr_pass)) {
                 $colon = strpos($usr_pass, ':');
                 if ($colon) {
                     $this->user = substr($usr_pass, 0, $colon);
@@ -181,7 +181,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // Returns whether we get authentication settings or not
-        return !empty($this->user);
+        return ! empty($this->user);
     }
 
     /**

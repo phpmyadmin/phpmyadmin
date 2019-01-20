@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
@@ -22,28 +24,27 @@ use PHPUnit\Framework\TestCase;
 class MonitorTest extends TestCase
 {
     /**
-     * Prepares environment for the test.
-     *
-     * @return void
+     * @var Data
      */
-    public $serverStatusData;
+    private $statusData;
+
+    /**
+     * @var Monitor
+     */
+    private $statusMonitor;
 
     /**
      * Test for setUp
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
+        $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['Server']['host'] = "localhost";
@@ -63,60 +64,61 @@ class MonitorTest extends TestCase
             ->getMock();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
-        $server_status = array(
+        $server_status = [
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
             "Com_delete_multi" => "0",
             "Com_create_function" => "0",
             "Com_empty_query" => "0",
-        );
+        ];
 
-        $server_variables= array(
+        $server_variables = [
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
             "automatic_sp_privileges" => "ON",
             "back_log" => "50",
             "big_tables" => "OFF",
-        );
+        ];
 
-        $fetchResult = array(
-            array(
+        $fetchResult = [
+            [
                 "SHOW GLOBAL STATUS",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
-            ),
-            array(
+                $server_status,
+            ],
+            [
                 "SHOW GLOBAL VARIABLES",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_variables
-            ),
-            array(
+                $server_variables,
+            ],
+            [
                 "SELECT concat('Com_', variable_name), variable_value "
                     . "FROM data_dictionary.GLOBAL_STATEMENTS",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
-            ),
-        );
+                $server_status,
+            ],
+        ];
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->serverStatusData = new Data();
+        $this->statusMonitor = new Monitor();
+        $this->statusData = new Data();
     }
 
     /**
-     * Test for Monitor::getHtmlForMonitor
+     * Test for getHtmlForMonitor
      *
      * @return void
      * @group medium
@@ -124,9 +126,9 @@ class MonitorTest extends TestCase
     public function testPMAGetHtmlForMonitor()
     {
         //Call the test function
-        $html = Monitor::getHtmlForMonitor($this->serverStatusData);
+        $html = $this->statusMonitor->getHtmlForMonitor($this->statusData);
 
-        //validate 1: Monitor::getHtmlForTabLinks
+        //validate 1: getHtmlForTabLinks
         $this->assertContains(
             '<div class="tabLinks">',
             $html
@@ -143,7 +145,7 @@ class MonitorTest extends TestCase
             __('Done dragging (rearranging) charts'),
             $html
         );
-        //validate 2: Monitor::getHtmlForSettingsDialog
+        //validate 2: getHtmlForSettingsDialog
         $this->assertContains(
             '<div class="popupContent settingsPopup">',
             $html
@@ -160,7 +162,7 @@ class MonitorTest extends TestCase
             '<option>3</option>',
             $html
         );
-        //validate 3: Monitor::getHtmlForInstructionsDialog
+        //validate 3: getHtmlForInstructionsDialog
         $this->assertContains(
             __('Monitor Instructions'),
             $html
@@ -169,7 +171,7 @@ class MonitorTest extends TestCase
             'monitorInstructionsDialog',
             $html
         );
-        //validate 4: Monitor::getHtmlForAddChartDialog
+        //validate 4: getHtmlForAddChartDialog
         $this->assertContains(
             '<div id="addChartDialog"',
             $html
@@ -189,16 +191,16 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getHtmlForClientSideDataAndLinks
+     * Test for getHtmlForClientSideDataAndLinks
      *
      * @return void
      */
     public function testPMAGetHtmlForClientSideDataAndLinks()
     {
         //Call the test function
-        $html = Monitor::getHtmlForClientSideDataAndLinks($this->serverStatusData);
+        $html = $this->statusMonitor->getHtmlForClientSideDataAndLinks($this->statusData);
 
-        //validate 1: Monitor::getHtmlForClientSideDataAndLinks
+        //validate 1: getHtmlForClientSideDataAndLinks
         $from = '<form id="js_data" class="hide">'
             . '<input type="hidden" name="server_time"';
         $this->assertContains(
@@ -221,7 +223,7 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getJsonForLogDataTypeSlow
+     * Test for getJsonForLogDataTypeSlow
      *
      * @return void
      */
@@ -232,15 +234,15 @@ class MonitorTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $value = array(
+        $value = [
             'sql_text' => 'insert sql_text',
             '#' => 11,
-        );
+        ];
 
-        $value2 = array(
+        $value2 = [
             'sql_text' => 'update sql_text',
             '#' => 10,
-        );
+        ];
 
         $dbi->expects($this->at(1))->method('fetchAssoc')
             ->will($this->returnValue($value));
@@ -254,13 +256,23 @@ class MonitorTest extends TestCase
         //Call the test function
         $start = 0;
         $end = 10;
-        $ret = Monitor::getJsonForLogDataTypeSlow($start, $end);
+        $ret = $this->statusMonitor->getJsonForLogDataTypeSlow($start, $end);
 
-        $result_rows = array(
-            array('sql_text' => 'insert sql_text', '#' => 11),
-            array('sql_text' => 'update sql_text', '#' => 10)
-        );
-        $result_sum = array('insert' =>11, 'TOTAL' =>21, 'update' => 10);
+        $result_rows = [
+            [
+                'sql_text' => 'insert sql_text',
+                '#' => 11
+            ],
+            [
+                'sql_text' => 'update sql_text',
+                '#' => 10
+            ],
+        ];
+        $result_sum = [
+            'insert' => 11,
+            'TOTAL' => 21,
+            'update' => 10,
+        ];
         $this->assertEquals(
             2,
             $ret['numRows']
@@ -276,30 +288,30 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getJsonForLogDataTypeGeneral
+     * Test for getJsonForLogDataTypeGeneral
      *
      * @return void
      */
     public function testPMAGetJsonForLogDataTypeGeneral()
     {
-        $_REQUEST['limitTypes'] = true;
+        $_POST['limitTypes'] = true;
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $value = array(
+        $value = [
             'sql_text' => 'insert sql_text',
             '#' => 10,
             'argument' => 'argument argument2',
-        );
+        ];
 
-        $value2 = array(
+        $value2 = [
             'sql_text' => 'update sql_text',
             '#' => 11,
             'argument' => 'argument3 argument4',
-        );
+        ];
 
         $dbi->expects($this->at(1))->method('fetchAssoc')
             ->will($this->returnValue($value));
@@ -313,13 +325,17 @@ class MonitorTest extends TestCase
         //Call the test function
         $start = 0;
         $end = 10;
-        $ret = Monitor::getJsonForLogDataTypeGeneral($start, $end);
+        $ret = $this->statusMonitor->getJsonForLogDataTypeGeneral($start, $end);
 
-        $result_rows = array(
+        $result_rows = [
             $value,
             $value2,
-        );
-        $result_sum = array('argument' =>10, 'TOTAL' =>21, 'argument3' => 11);
+        ];
+        $result_sum = [
+            'argument' => 10,
+            'TOTAL' => 21,
+            'argument3' => 11,
+        ];
 
         $this->assertEquals(
             2,
@@ -336,24 +352,24 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getJsonForLoggingVars
+     * Test for getJsonForLoggingVars
      *
      * @return void
      */
     public function testPMAGetJsonForLoggingVars()
     {
-        $_REQUEST['varName'] = "varName";
+        $_POST['varName'] = "varName";
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $value = array(
+        $value = [
             'sql_text' => 'insert sql_text',
             '#' => 22,
             'argument' => 'argument argument2',
-        );
+        ];
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($value));
@@ -361,7 +377,7 @@ class MonitorTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         //Call the test function
-        $ret = Monitor::getJsonForLoggingVars();
+        $ret = $this->statusMonitor->getJsonForLoggingVars();
 
         //validate that, the result is the same as fetchResult
         $this->assertEquals(
@@ -371,14 +387,14 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getJsonForQueryAnalyzer
+     * Test for getJsonForQueryAnalyzer
      *
      * @return void
      */
     public function testPMAGetJsonForQueryAnalyzer()
     {
-        $_REQUEST['database'] = "database";
-        $_REQUEST['query'] = 'query';
+        $_POST['database'] = "database";
+        $_POST['query'] = 'query';
         $GLOBALS['server'] = 'server';
         $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
         $_SESSION['cache']['server_server']['profiling_supported'] = true;
@@ -388,11 +404,11 @@ class MonitorTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $value = array(
+        $value = [
             'sql_text' => 'insert sql_text',
             '#' => 33,
             'argument' => 'argument argument2',
-        );
+        ];
 
         $dbi->expects($this->at(4))->method('fetchAssoc')
             ->will($this->returnValue($value));
@@ -402,18 +418,18 @@ class MonitorTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         //Call the test function
-        $ret = Monitor::getJsonForQueryAnalyzer();
+        $ret = $this->statusMonitor->getJsonForQueryAnalyzer();
 
         $this->assertEquals(
             'cached_affected_rows',
             $ret['affectedRows']
         );
         $this->assertEquals(
-            array(),
+            [],
             $ret['profiling']
         );
         $this->assertEquals(
-            array($value),
+            [$value],
             $ret['explain']
         );
     }

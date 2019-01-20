@@ -22,12 +22,12 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     }
 
     /** ** Server config advisor ****/
-    var $dialog = $('<div />').attr('id', 'advisorDialog');
-    var $instructionsDialog = $('<div />')
+    var $dialog = $('<div></div>').attr('id', 'advisorDialog');
+    var $instructionsDialog = $('<div></div>')
         .attr('id', 'instructionsDialog')
         .html($('#advisorInstructionsDialog').html());
 
-    $('a[href="#openAdvisorInstructions"]').click(function () {
+    $('a[href="#openAdvisorInstructions"]').on('click', function () {
         var dlgBtns = {};
         dlgBtns[PMA_messages.strClose] = function () {
             $(this).dialog('close');
@@ -49,14 +49,14 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     $cnt.html('');
 
     if (data.parse.errors.length > 0) {
-        $cnt.append('<b>Rules file not well formed, following errors were found:</b><br />- ');
-        $cnt.append(data.parse.errors.join('<br/>- '));
+        $cnt.append('<b>Rules file not well formed, following errors were found:</b><br>- ');
+        $cnt.append(data.parse.errors.join('<br>- '));
         $cnt.append('<p></p>');
     }
 
     if (data.run.errors.length > 0) {
-        $cnt.append('<b>Errors occurred while executing rule expressions:</b><br />- ');
-        $cnt.append(data.run.errors.join('<br/>- '));
+        $cnt.append('<b>Errors occurred while executing rule expressions:</b><br>- ');
+        $cnt.append(data.run.errors.join('<br>- '));
         $cnt.append('<p></p>');
     }
 
@@ -77,16 +77,16 @@ AJAX.registerOnload('server_status_advisor.js', function () {
             even = !even;
             $tr.data('rule', value);
 
-            $tr.click(function () {
+            $tr.on('click', function () {
                 var rule = $(this).data('rule');
                 $dialog
                     .dialog({ title: PMA_messages.strRuleDetails })
                     .html(
-                        '<p><b>' + PMA_messages.strIssuse + ':</b><br />' + rule.issue + '</p>' +
-                    '<p><b>' + PMA_messages.strRecommendation + ':</b><br />' + rule.recommendation + '</p>' +
-                    '<p><b>' + PMA_messages.strJustification + ':</b><br />' + rule.justification + '</p>' +
-                    '<p><b>' + PMA_messages.strFormula + ':</b><br />' + rule.formula + '</p>' +
-                    '<p><b>' + PMA_messages.strTest + ':</b><br />' + rule.test + '</p>'
+                        '<p><b>' + PMA_messages.strIssuse + ':</b><br>' + rule.issue + '</p>' +
+                    '<p><b>' + PMA_messages.strRecommendation + ':</b><br>' + rule.recommendation + '</p>' +
+                    '<p><b>' + PMA_messages.strJustification + ':</b><br>' + rule.justification + '</p>' +
+                    '<p><b>' + PMA_messages.strFormula + ':</b><br>' + rule.formula + '</p>' +
+                    '<p><b>' + PMA_messages.strTest + ':</b><br>' + rule.test + '</p>'
                     );
 
                 var dlgBtns = {};

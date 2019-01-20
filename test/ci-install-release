@@ -1,3 +1,0 @@
-#!/bin/sh
-
-./test/ci-install-docs

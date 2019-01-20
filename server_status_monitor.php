@@ -5,16 +5,24 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Response;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/server_common.inc.php';
-require_once 'libraries/replication.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/server_common.inc.php';
+require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 $response = Response::getInstance();
+
+$statusMonitor = new Monitor();
+$statusData = new Data();
 
 /**
  * Ajax request
@@ -24,41 +32,40 @@ if ($response->isAjax()) {
     header('Content-Type: text/html; charset=UTF-8');
 
     // real-time charting data
-    if (isset($_REQUEST['chart_data'])) {
-        switch($_REQUEST['type']) {
-        case 'chartgrid': // Data for the monitor
-            $ret = Monitor::getJsonForChartingData();
-            $response->addJSON('message', $ret);
-            exit;
+    if (isset($_POST['chart_data'])) {
+        switch ($_POST['type']) {
+            case 'chartgrid': // Data for the monitor
+                $ret = $statusMonitor->getJsonForChartingData();
+                $response->addJSON('message', $ret);
+                exit;
         }
     }
 
-    if (isset($_REQUEST['log_data'])) {
+    if (isset($_POST['log_data'])) {
+        $start = intval($_POST['time_start']);
+        $end = intval($_POST['time_end']);
 
-        $start = intval($_REQUEST['time_start']);
-        $end = intval($_REQUEST['time_end']);
-
-        if ($_REQUEST['type'] == 'slow') {
-            $return = Monitor::getJsonForLogDataTypeSlow($start, $end);
+        if ($_POST['type'] == 'slow') {
+            $return = $statusMonitor->getJsonForLogDataTypeSlow($start, $end);
             $response->addJSON('message', $return);
             exit;
         }
 
-        if ($_REQUEST['type'] == 'general') {
-            $return = Monitor::getJsonForLogDataTypeGeneral($start, $end);
+        if ($_POST['type'] == 'general') {
+            $return = $statusMonitor->getJsonForLogDataTypeGeneral($start, $end);
             $response->addJSON('message', $return);
             exit;
         }
     }
 
-    if (isset($_REQUEST['logging_vars'])) {
-        $loggingVars = Monitor::getJsonForLoggingVars();
+    if (isset($_POST['logging_vars'])) {
+        $loggingVars = $statusMonitor->getJsonForLoggingVars();
         $response->addJSON('message', $loggingVars);
         exit;
     }
 
-    if (isset($_REQUEST['query_analyzer'])) {
-        $return = Monitor::getJsonForQueryAnalyzer();
+    if (isset($_POST['query_analyzer'])) {
+        $return = $statusMonitor->getJsonForQueryAnalyzer();
         $response->addJSON('message', $return);
         exit;
     }
@@ -85,18 +92,12 @@ $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
 $scripts->addFile('server_status_monitor.js');
 $scripts->addFile('server_status_sorter.js');
 
-
-/**
- * start output
- */
-$serverStatusData = new Data();
-
 /**
  * Output
  */
 $response->addHTML('<div>');
-$response->addHTML($serverStatusData->getMenuHtml());
-$response->addHTML(Monitor::getHtmlForMonitor($serverStatusData));
-$response->addHTML(Monitor::getHtmlForClientSideDataAndLinks($serverStatusData));
+$response->addHTML($statusData->getMenuHtml());
+$response->addHTML($statusMonitor->getHtmlForMonitor($statusData));
+$response->addHTML($statusMonitor->getHtmlForClientSideDataAndLinks($statusData));
 $response->addHTML('</div>');
 exit;

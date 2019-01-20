@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\Plugins\Schema\RelationStats;
@@ -27,19 +29,26 @@ class RelationStatsPdf extends RelationStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Pdf\RelationStatsPdf" constructor
      *
-     * @param object $diagram       The PDF diagram
+     * @param Pdf    $diagram       The PDF diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram, $master_table, $master_field, $foreign_table,
+        $diagram,
+        $master_table,
+        $master_field,
+        $foreign_table,
         $foreign_field
     ) {
         $this->wTick = 5;
         parent::__construct(
-            $diagram, $master_table, $master_field, $foreign_table, $foreign_field
+            $diagram,
+            $master_table,
+            $master_field,
+            $foreign_table,
+            $foreign_field
         );
     }
 
@@ -60,16 +69,40 @@ class RelationStatsPdf extends RelationStats
         if ($showColor) {
             $d = $i % 6;
             $j = ($i - $d) / 6;
-            $j = $j % 4;
+            $j %= 4;
             $j++;
-            $case = array(
-                array(1, 0, 0),
-                array(0, 1, 0),
-                array(0, 0, 1),
-                array(1, 1, 0),
-                array(1, 0, 1),
-                array(0, 1, 1)
-            );
+            $case = [
+                [
+                    1,
+                    0,
+                    0,
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                ],
+                [
+                    1,
+                    1,
+                    0,
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                ],
+                [
+                    0,
+                    1,
+                    1,
+                ],
+            ];
             list ($a, $b, $c) = $case[$d];
             $e = (1 - ($j - 1) / 6);
             $this->diagram->SetDrawColor($a * 255 * $e, $b * 255 * $e, $c * 255 * $e);

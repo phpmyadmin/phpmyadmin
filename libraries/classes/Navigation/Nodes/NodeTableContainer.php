@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
@@ -24,12 +26,12 @@ class NodeTableContainer extends NodeDatabaseChildContainer
     {
         parent::__construct(__('Tables'), Node::CONTAINER);
         $this->icon = Util::getImage('b_browse', __('Tables'));
-        $this->links = array(
+        $this->links = [
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;tbl_type=table',
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;tbl_type=table',
-        );
+        ];
         $this->real_name = 'tables';
         $this->classes = 'tableContainer subContainer';
 
@@ -40,12 +42,12 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_table_add', $new_label);
-        $new->links = array(
+        $new->links = [
             'text' => 'tbl_create.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s',
             'icon' => 'tbl_create.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s',
-        );
+        ];
         $new->classes = 'new_table italics';
         $this->addChild($new);
     }

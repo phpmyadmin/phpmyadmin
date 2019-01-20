@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerCollationsController;
@@ -27,7 +29,7 @@ class ServerCollationsControllerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$_REQUEST
         $_REQUEST['log'] = 'index1';
@@ -47,31 +49,36 @@ class ServerCollationsControllerTest extends PmaTestCase
      */
     public function testPMAGetHtmlForCharsets()
     {
-        $mysql_charsets = array("armscii8", "ascii", "big5", "binary");
-        $mysql_collations = array(
-            "armscii8" => array("armscii8"),
-            "ascii" => array("ascii"),
-            "big5" => array("big5"),
-            "binary" => array("binary"),
-        );
-        $mysql_charsets_descriptions = array(
+        $mysql_charsets = [
+            "armscii8",
+            "ascii",
+            "big5",
+            "binary",
+        ];
+        $mysql_collations = [
+            "armscii8" => ["armscii8"],
+            "ascii" => ["ascii"],
+            "big5" => ["big5"],
+            "binary" => ["binary"],
+        ];
+        $mysql_charsets_descriptions = [
             "armscii8" => "PMA_armscii8_general_ci",
             "ascii" => "PMA_ascii_general_ci",
             "big5" => "PMA_big5_general_ci",
             "binary" => "PMA_binary_general_ci",
-        );
-        $mysql_default_collations = array(
+        ];
+        $mysql_default_collations = [
             "armscii8" => "armscii8",
             "ascii" => "ascii",
             "big5" => "big5",
             "binary" => "binary",
-        );
-        $mysql_collations_available = array(
+        ];
+        $mysql_collations_available = [
             "armscii8" => true,
             "ascii" => true,
             "big5" => true,
             "binary" => true,
-        );
+        ];
 
         $container = Container::getDefaultContainer();
         $container->set('PhpMyAdmin\Response', new ResponseStub());

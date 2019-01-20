@@ -391,7 +391,7 @@ RTE.COMMON = {
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        var question = $('<div/>').text(
+        var question = $('<div></div>').text(
             $curr_row.children('td').children('.drop_sql').html()
         );
         // We ask for confirmation first here, before submitting the ajax request
@@ -823,9 +823,7 @@ RTE.ROUTINE = {
          *          the AJAX message shown to the user
          */
         var $msg = PMA_ajaxShowMessage();
-        var params = {
-            'ajax_request': true
-        };
+        var params = getJSConfirmCommonParam($this[0], $this.getPostData());
         $.post($this.attr('href'), params, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\Config;
@@ -68,10 +70,10 @@ class AuthenticationConfigTest extends PmaTestCase
      */
     public function testAuthCheck()
     {
-        $GLOBALS['cfg']['Server'] = array(
+        $GLOBALS['cfg']['Server'] = [
             'user' => 'username',
             'password' => 'password',
-        );
+        ];
         $this->assertTrue(
             $this->object->readCredentials()
         );
@@ -96,9 +98,8 @@ class AuthenticationConfigTest extends PmaTestCase
      */
     public function testAuthFails()
     {
-        $removeConstant = false;
-        $GLOBALS['error_handler'] = new ErrorHandler;
-        $GLOBALS['cfg']['Servers'] = array(1);
+        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['allowDeny_forbidden'] = false;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -121,7 +122,7 @@ class AuthenticationConfigTest extends PmaTestCase
             'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Ferror-messages-server.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
-            'class="icon ic_b_help" /></a>',
+            'class="icon ic_b_help"></a>',
             $html
         );
 

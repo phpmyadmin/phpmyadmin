@@ -5,18 +5,24 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 if (! isset($selected_tbl)) {
-    include 'libraries/db_common.inc.php';
+    include ROOT_PATH . 'libraries/db_common.inc.php';
     list(
         $tables,
         $num_tables,
@@ -34,7 +40,8 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $header->enablePrintView();
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
+$transformations = new Transformations();
 
 /**
  * Gets the relations settings
@@ -44,12 +51,12 @@ $cfgRelation  = $relation->getRelationsParam();
 /**
  * Check parameters
  */
-PhpMyAdmin\Util::checkParameters(array('db'));
+PhpMyAdmin\Util::checkParameters(['db']);
 
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php' . Url::getCommon(array('db' => $db));
+$err_url = 'db_sql.php' . Url::getCommon(['db' => $db]);
 
 if ($cfgRelation['commwork']) {
     $comment = $relation->getDbComment($db);
@@ -59,7 +66,7 @@ if ($cfgRelation['commwork']) {
      */
     if ($comment) {
         echo '<p>' , __('Database comment')
-            , '<br /><i>' , htmlspecialchars($comment) , '</i></p>';
+            , '<br><i>' , htmlspecialchars($comment) , '</i></p>';
     } // end if
 }
 
@@ -98,15 +105,17 @@ foreach ($tables as $table) {
 
     // Check if we can use Relations
     list($res_rel, $have_rel) = $relation->getRelationsAndStatus(
-        ! empty($cfgRelation['relation']), $db, $table
+        ! empty($cfgRelation['relation']),
+        $db,
+        $table
     );
 
     /**
      * Displays the comments of the table if MySQL >= 3.23
      */
-    if (!empty($show_comment)) {
+    if (! empty($show_comment)) {
         echo __('Table comments:') , ' ';
-        echo htmlspecialchars($show_comment) , '<br /><br />';
+        echo htmlspecialchars($show_comment) , '<br><br>';
     }
 
     /**
@@ -127,7 +136,6 @@ foreach ($tables as $table) {
     }
     echo '</tr>';
     foreach ($columns as $row) {
-
         if ($row['Null'] == '') {
             $row['Null'] = 'NO';
         }
@@ -188,7 +196,7 @@ foreach ($tables as $table) {
         }
         echo '</td>' , "\n";
         if ($cfgRelation['mimework']) {
-            $mime_map = Transformations::getMIME($db, $table, true);
+            $mime_map = $transformations->getMime($db, $table, true);
 
             echo '    <td>';
             if (isset($mime_map[$column_name])) {

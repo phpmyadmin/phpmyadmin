@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Engines
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\StorageEngine;
@@ -23,11 +25,10 @@ class Memory extends StorageEngine
      */
     public function getVariables()
     {
-        return array(
-            'max_heap_table_size' => array(
+        return [
+            'max_heap_table_size' => [
                 'type' => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-        );
+            ],
+        ];
     }
 }
-

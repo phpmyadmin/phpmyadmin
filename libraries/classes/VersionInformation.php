@@ -5,10 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
+use \stdClass;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
@@ -21,11 +24,11 @@ class VersionInformation
     /**
      * Returns information with latest version from phpmyadmin.net
      *
-     * @return object JSON decoded object with the data
+     * @return stdClass|null JSON decoded object with the data
      */
-    public function getLatestVersion()
+    public function getLatestVersion(): ?stdClass
     {
-        if (!$GLOBALS['cfg']['VersionCheck']) {
+        if (! $GLOBALS['cfg']['VersionCheck']) {
             return null;
         }
 
@@ -42,7 +45,7 @@ class VersionInformation
             $httpRequest = new HttpRequest();
             $response = $httpRequest->create($file, 'GET');
         }
-        $response = $response ? $response : '{}';
+        $response = $response ?: '{}';
         /* Parse response */
         $data = json_decode($response);
 
@@ -56,10 +59,10 @@ class VersionInformation
         }
 
         if ($save) {
-            $_SESSION['cache']['version_check'] = array(
+            $_SESSION['cache']['version_check'] = [
                 'response' => $response,
-                'timestamp' => time()
-            );
+                'timestamp' => time(),
+            ];
         }
         return $data;
     }
@@ -99,28 +102,28 @@ class VersionInformation
             $result += 1 * $parts[3];
         }
 
-        if (!empty($suffix)) {
-            $matches = array();
+        if (! empty($suffix)) {
+            $matches = [];
             if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
                 $suffix = $matches[1];
                 $result += intval($matches[2]);
             }
             switch ($suffix) {
-            case 'pl':
-                $result += 60;
-                break;
-            case 'rc':
-                $result += 30;
-                break;
-            case 'beta':
-                $result += 20;
-                break;
-            case 'alpha':
-                $result += 10;
-                break;
-            case 'dev':
-                $result += 0;
-                break;
+                case 'pl':
+                    $result += 60;
+                    break;
+                case 'rc':
+                    $result += 30;
+                    break;
+                case 'beta':
+                    $result += 20;
+                    break;
+                case 'alpha':
+                    $result += 10;
+                    break;
+                case 'dev':
+                    $result += 0;
+                    break;
             }
         } else {
             $result += 50; // for final
@@ -154,16 +157,16 @@ class VersionInformation
                 $mysqlVersions = $release->mysql_versions;
                 $mysqlConditions = explode(",", $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {
-                    if (!$this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
+                    if (! $this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
                         continue 2;
                     }
                 }
             }
 
-            return array(
+            return [
                 'version' => $release->version,
                 'date' => $release->date,
-            );
+            ];
         }
 
         // no compatible version
@@ -181,7 +184,16 @@ class VersionInformation
     public function evaluateVersionCondition($type, $condition)
     {
         $operator = null;
-        $operators = array("<=", ">=", "!=", "<>", "<", ">", "="); // preserve order
+        $version = null;
+        $operators = [
+            "<=",
+            ">=",
+            "!=",
+            "<>",
+            "<",
+            ">",
+            "=",
+        ]; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {
                 $operator = $oneOperator;

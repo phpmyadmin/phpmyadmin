@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
@@ -27,629 +29,653 @@ class LanguageManager
      * - Language code
      * - English language name
      * - Native language name
-     * - Match regullar expression
+     * - Match regular expression
      * - MySQL locale
      */
-    private static $_language_data = array(
-        'af' => array(
+    private static $_language_data = [
+        'af' => [
             'af',
             'Afrikaans',
             '',
             'af|afrikaans',
             '',
-        ),
-        'ar' => array(
+        ],
+        'ar' => [
             'ar',
             'Arabic',
             '&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;',
             'ar|arabic',
             'ar_AE',
-        ),
-        'az' => array(
+        ],
+        'az' => [
             'az',
             'Azerbaijani',
             'Az&#601;rbaycanca',
             'az|azerbaijani',
             '',
-        ),
-        'bn' => array(
+        ],
+        'bn' => [
             'bn',
             'Bangla',
             'বাংলা',
             'bn|bangla',
             '',
-        ),
-        'be' => array(
+        ],
+        'be' => [
             'be',
             'Belarusian',
             '&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;',
             'be|belarusian',
             'be_BY',
-        ),
-        'be@latin' => array(
+        ],
+        'be@latin' => [
             'be@latin',
             'Belarusian (latin)',
             'Bie&#0322;aruskaja',
             'be[-_]lat|be@latin|belarusian latin',
             '',
-        ),
-        'bg' => array(
+        ],
+        'bg' => [
             'bg',
             'Bulgarian',
             '&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;',
             'bg|bulgarian',
             'bg_BG',
-        ),
-        'bs' => array(
+        ],
+        'bs' => [
             'bs',
             'Bosnian',
             'Bosanski',
             'bs|bosnian',
             '',
-        ),
-        'br' => array(
+        ],
+        'br' => [
             'br',
             'Breton',
             'Brezhoneg',
             'br|breton',
             '',
-        ),
-        'brx' => array(
+        ],
+        'brx' => [
             'brx',
             'Bodo',
             'बड़ो',
             'brx|bodo',
             '',
-        ),
-        'ca' => array(
+        ],
+        'ca' => [
             'ca',
             'Catalan',
             'Catal&agrave;',
             'ca|catalan',
             'ca_ES',
-        ),
-        'ckb' => array(
+        ],
+        'ckb' => [
             'ckb',
             'Sorani',
             'سۆرانی',
             'ckb|sorani',
             '',
-        ),
-        'cs' => array(
+        ],
+        'cs' => [
             'cs',
             'Czech',
             'Čeština',
             'cs|czech',
             'cs_CZ',
-        ),
-        'cy' => array(
+        ],
+        'cy' => [
             'cy',
             'Welsh',
             'Cymraeg',
             'cy|welsh',
             '',
-        ),
-        'da' => array(
+        ],
+        'da' => [
             'da',
             'Danish',
             'Dansk',
             'da|danish',
             'da_DK',
-        ),
-        'de' => array(
+        ],
+        'de' => [
             'de',
             'German',
             'Deutsch',
             'de|german',
             'de_DE',
-        ),
-        'el' => array(
+        ],
+        'el' => [
             'el',
             'Greek',
             '&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;',
             'el|greek',
             '',
-        ),
-        'en' => array(
+        ],
+        'en' => [
             'en',
             'English',
             '',
             'en|english',
             'en_US',
-        ),
-        'en_gb' => array(
+        ],
+        'en_gb' => [
             'en_GB',
             'English (United Kingdom)',
             '',
             'en[_-]gb|english (United Kingdom)',
             'en_GB',
-        ),
-        'eo' => array(
+        ],
+        'eo' => [
             'eo',
             'Esperanto',
             'Esperanto',
             'eo|esperanto',
             '',
-        ),
-        'es' => array(
+        ],
+        'es' => [
             'es',
             'Spanish',
             'Espa&ntilde;ol',
             'es|spanish',
             'es_ES',
-        ),
-        'et' => array(
+        ],
+        'et' => [
             'et',
             'Estonian',
             'Eesti',
             'et|estonian',
             'et_EE',
-        ),
-        'eu' => array(
+        ],
+        'eu' => [
             'eu',
             'Basque',
             'Euskara',
             'eu|basque',
             'eu_ES',
-        ),
-        'fa' => array(
+        ],
+        'fa' => [
             'fa',
             'Persian',
             '&#1601;&#1575;&#1585;&#1587;&#1740;',
             'fa|persian',
             '',
-        ),
-        'fi' => array(
+        ],
+        'fi' => [
             'fi',
             'Finnish',
             'Suomi',
             'fi|finnish',
             'fi_FI',
-        ),
-        'fil' => array(
+        ],
+        'fil' => [
             'fil',
             'Filipino',
             'Pilipino',
             'fil|filipino',
             '',
-        ),
-        'fr' => array(
+        ],
+        'fr' => [
             'fr',
             'French',
             'Fran&ccedil;ais',
             'fr|french',
             'fr_FR',
-        ),
-        'fy' => array(
+        ],
+        'fy' => [
             'fy',
             'Frisian',
             'Frysk',
             'fy|frisian',
             '',
-        ),
-        'gl' => array(
+        ],
+        'gl' => [
             'gl',
             'Galician',
             'Galego',
             'gl|galician',
             'gl_ES',
-        ),
-        'gu' => array(
+        ],
+        'gu' => [
             'gu',
             'Gujarati',
             'ગુજરાતી',
             'gu|gujarati',
             'gu_IN',
-        ),
-        'he' => array(
+        ],
+        'he' => [
             'he',
             'Hebrew',
             '&#1506;&#1489;&#1512;&#1497;&#1514;',
             'he|hebrew',
             'he_IL',
-        ),
-        'hi' => array(
+        ],
+        'hi' => [
             'hi',
             'Hindi',
             '&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;',
             'hi|hindi',
             'hi_IN',
-        ),
-        'hr' => array(
+        ],
+        'hr' => [
             'hr',
             'Croatian',
             'Hrvatski',
             'hr|croatian',
             'hr_HR',
-        ),
-        'hu' => array(
+        ],
+        'hu' => [
             'hu',
             'Hungarian',
             'Magyar',
             'hu|hungarian',
             'hu_HU',
-        ),
-        'hy' => array(
+        ],
+        'hy' => [
             'hy',
             'Armenian',
             'Հայերէն',
             'hy|armenian',
             '',
-        ),
-        'ia' => array(
+        ],
+        'ia' => [
             'ia',
             'Interlingua',
             '',
             'ia|interlingua',
             '',
-        ),
-        'id' => array(
+        ],
+        'id' => [
             'id',
             'Indonesian',
             'Bahasa Indonesia',
             'id|indonesian',
             'id_ID',
-        ),
-        'ig' => array(
+        ],
+        'ig' => [
             'ig',
             'Igbo',
             'Asụsụ Igbo',
             'ig|igbo',
             '',
-        ),
-        'it' => array(
+        ],
+        'it' => [
             'it',
             'Italian',
             'Italiano',
             'it|italian',
             'it_IT',
-        ),
-        'ja' => array(
+        ],
+        'ja' => [
             'ja',
             'Japanese',
             '&#26085;&#26412;&#35486;',
             'ja|japanese',
             'ja_JP',
-        ),
-        'ko' => array(
+        ],
+        'ko' => [
             'ko',
             'Korean',
             '&#54620;&#44397;&#50612;',
             'ko|korean',
             'ko_KR',
-        ),
-        'ka' => array(
+        ],
+        'ka' => [
             'ka',
             'Georgian',
             '&#4325;&#4304;&#4320;&#4311;&#4323;&#4314;&#4312;',
             'ka|georgian',
             '',
-        ),
-        'kab' => array(
+        ],
+        'kab' => [
             'kab',
             'Kabylian',
             'Taqbaylit',
             'kab|kabylian',
             '',
-        ),
-        'kk' => array(
+        ],
+        'kk' => [
             'kk',
             'Kazakh',
             'Қазақ',
             'kk|kazakh',
             '',
-        ),
-        'km' => array(
+        ],
+        'km' => [
             'km',
             'Khmer',
             'ខ្មែរ',
             'km|khmer',
             '',
-        ),
-        'kn' => array(
+        ],
+        'kn' => [
             'kn',
             'Kannada',
             'ಕನ್ನಡ',
             'kn|kannada',
             '',
-        ),
-        'ksh' => array(
+        ],
+        'ksh' => [
             'ksh',
             'Colognian',
             'Kölsch',
             'ksh|colognian',
             '',
-        ),
-        'ku' => array(
+        ],
+        'ku' => [
             'ku',
             'Kurdish',
             'کوردی',
             'ku|kurdish',
             '',
-        ),
-        'ky' => array(
+        ],
+        'ky' => [
             'ky',
             'Kyrgyz',
             'Кыргызча',
             'ky|kyrgyz',
             '',
-        ),
-        'li' => array(
+        ],
+        'li' => [
             'li',
             'Limburgish',
             'Lèmbörgs',
             'li|limburgish',
             '',
-        ),
-        'lt' => array(
+        ],
+        'lt' => [
             'lt',
             'Lithuanian',
             'Lietuvi&#371;',
             'lt|lithuanian',
             'lt_LT',
-        ),
-        'lv' => array(
+        ],
+        'lv' => [
             'lv',
             'Latvian',
             'Latvie&scaron;u',
             'lv|latvian',
             'lv_LV',
-        ),
-        'mk' => array(
+        ],
+        'mk' => [
             'mk',
             'Macedonian',
             'Macedonian',
             'mk|macedonian',
             'mk_MK',
-        ),
-        'ml' => array(
+        ],
+        'ml' => [
             'ml',
             'Malayalam',
             'Malayalam',
             'ml|malayalam',
             '',
-        ),
-        'mn' => array(
+        ],
+        'mn' => [
             'mn',
             'Mongolian',
             '&#1052;&#1086;&#1085;&#1075;&#1086;&#1083;',
             'mn|mongolian',
             'mn_MN',
-        ),
-        'ms' => array(
+        ],
+        'ms' => [
             'ms',
             'Malay',
             'Bahasa Melayu',
             'ms|malay',
             'ms_MY',
-        ),
-        'ne' => array(
+        ],
+        'my' => [
+            'my',
+            'Burmese',
+            'မြန်မာ',
+            'my|burmese',
+            '',
+        ],
+        'ne' => [
             'ne',
             'Nepali',
             'नेपाली',
             'ne|nepali',
             '',
-        ),
-        'nb' => array(
+        ],
+        'nb' => [
             'nb',
             'Norwegian',
             'Norsk',
             'nb|norwegian',
             'nb_NO',
-        ),
-        'nl' => array(
+        ],
+        'nl' => [
             'nl',
             'Dutch',
             'Nederlands',
             'nl|dutch',
             'nl_NL',
-        ),
-        'pa' => array(
+        ],
+        'pa' => [
             'pa',
             'Punjabi',
             'ਪੰਜਾਬੀ',
             'pa|punjabi',
             '',
-        ),
-        'pl' => array(
+        ],
+        'pl' => [
             'pl',
             'Polish',
             'Polski',
             'pl|polish',
             'pl_PL',
-        ),
-        'pt_br' => array(
-            'pt_BR',
-            'Brazilian Portuguese',
-            'Portugu&ecirc;s',
-            'pt[-_]br|brazilian portuguese',
-            'pt_BR',
-        ),
-        'pt' => array(
+        ],
+        'pt' => [
             'pt',
             'Portuguese',
             'Portugu&ecirc;s',
             'pt|portuguese',
             'pt_PT',
-        ),
-        'ro' => array(
+        ],
+        'pt_br' => [
+            'pt_BR',
+            'Portuguese (Brazil)',
+            'Portugu&ecirc;s (Brasil)',
+            'pt[-_]br|portuguese (brazil)',
+            'pt_BR',
+        ],
+        'ro' => [
             'ro',
             'Romanian',
             'Rom&acirc;n&#259;',
             'ro|romanian',
             'ro_RO',
-        ),
-        'ru' => array(
+        ],
+        'ru' => [
             'ru',
             'Russian',
             '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;',
             'ru|russian',
             'ru_RU',
-        ),
-        'si' => array(
+        ],
+        'si' => [
             'si',
             'Sinhala',
             '&#3523;&#3538;&#3458;&#3524;&#3517;',
             'si|sinhala',
             '',
-        ),
-        'sk' => array(
+        ],
+        'sk' => [
             'sk',
             'Slovak',
             'Sloven&#269;ina',
             'sk|slovak',
             'sk_SK',
-        ),
-        'sl' => array(
+        ],
+        'sl' => [
             'sl',
             'Slovenian',
             'Sloven&scaron;&#269;ina',
             'sl|slovenian',
             'sl_SI',
-        ),
-        'sq' => array(
+        ],
+        'sq' => [
             'sq',
             'Slbanian',
             'Shqip',
             'sq|albanian',
             'sq_AL',
-        ),
-        'sr@latin' => array(
+        ],
+        'sr@latin' => [
             'sr@latin',
             'Serbian (latin)',
             'Srpski',
             'sr[-_]lat|sr@latin|serbian latin',
             'sr_YU',
-        ),
-        'sr' => array(
+        ],
+        'sr' => [
             'sr',
             'Serbian',
             '&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;',
             'sr|serbian',
             'sr_YU',
-        ),
-        'sv' => array(
+        ],
+        'sv' => [
             'sv',
             'Swedish',
             'Svenska',
             'sv|swedish',
             'sv_SE',
-        ),
-        'ta' => array(
+        ],
+        'ta' => [
             'ta',
             'Tamil',
             'தமிழ்',
             'ta|tamil',
             'ta_IN',
-        ),
-        'te' => array(
+        ],
+        'te' => [
             'te',
             'Telugu',
             'తెలుగు',
             'te|telugu',
             'te_IN',
-        ),
-        'th' => array(
+        ],
+        'th' => [
             'th',
             'Thai',
             '&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;',
             'th|thai',
             'th_TH',
-        ),
-        'tk' => array(
+        ],
+        'tk' => [
             'tk',
             'Turkmen',
             'Türkmençe',
             'tk|turkmen',
             '',
-        ),
-        'tr' => array(
+        ],
+        'tr' => [
             'tr',
             'Turkish',
             'T&uuml;rk&ccedil;e',
             'tr|turkish',
             'tr_TR',
-        ),
-        'tt' => array(
+        ],
+        'tt' => [
             'tt',
             'Tatarish',
             'Tatar&ccedil;a',
             'tt|tatarish',
             '',
-        ),
-        'ug' => array(
+        ],
+        'ug' => [
             'ug',
             'Uyghur',
             'ئۇيغۇرچە',
             'ug|uyghur',
             '',
-        ),
-        'uk' => array(
+        ],
+        'uk' => [
             'uk',
             'Ukrainian',
             '&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;',
             'uk|ukrainian',
             'uk_UA',
-        ),
-        'ur' => array(
+        ],
+        'ur' => [
             'ur',
             'Urdu',
             'اُردوُ',
             'ur|urdu',
             'ur_PK',
-        ),
-        'uz@latin' => array(
+        ],
+        'uz@latin' => [
             'uz@latin',
             'Uzbek (latin)',
             'O&lsquo;zbekcha',
             'uz[-_]lat|uz@latin|uzbek-latin',
             '',
-        ),
-        'uz' => array(
+        ],
+        'uz' => [
             'uz',
             'Uzbek (cyrillic)',
             '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;',
             'uz[-_]cyr|uz@cyrillic|uzbek-cyrillic',
             '',
-        ),
-        'vi' => array(
+        ],
+        'vi' => [
             'vi',
             'Vietnamese',
             'Tiếng Việt',
             'vi|vietnamese',
             'vi_VN',
-        ),
-        'vls' => array(
+        ],
+        'vls' => [
             'vls',
             'Flemish',
             'West-Vlams',
             'vls|flemish',
             '',
-        ),
-        'zh_tw' => array(
+        ],
+        'zh_tw' => [
             'zh_TW',
             'Chinese traditional',
             '&#20013;&#25991;',
             'zh[-_](tw|hk)|chinese traditional',
             'zh_TW',
-        ),
+        ],
         // only TW and HK use traditional Chinese while others (CN, SG, MY)
         // use simplified Chinese
-        'zh_cn' => array(
+        'zh_cn' => [
             'zh_CN',
             'Chinese simplified',
             '&#20013;&#25991;',
             'zh(?![-_](tw|hk))([-_][[:alpha:]]{2,3})?|chinese simplified',
             'zh_CN',
-        ),
-    );
+        ],
+    ];
 
     private $_available_locales;
     private $_available_languages;
     private $_lang_failed_cfg;
     private $_lang_failed_cookie;
     private $_lang_failed_request;
+
+    /**
+     * @var LanguageManager
+     */
     private static $instance;
+
+    /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * LanguageManager constructor.
+     */
+    public function __construct()
+    {
+        $this->template = new Template();
+    }
 
     /**
      * Returns LanguageManager singleton
@@ -659,7 +685,7 @@ class LanguageManager
     public static function getInstance()
     {
         if (self::$instance === null) {
-            self::$instance = new LanguageManager;
+            self::$instance = new LanguageManager();
         }
         return self::$instance;
     }
@@ -671,10 +697,10 @@ class LanguageManager
      */
     public function listLocaleDir()
     {
-        $result = array('en');
+        $result = ['en'];
 
         /* Check for existing directory */
-        if (!is_dir(LOCALE_PATH)) {
+        if (! is_dir(LOCALE_PATH)) {
             return $result;
         }
 
@@ -711,7 +737,6 @@ class LanguageManager
     public function availableLocales()
     {
         if (! $this->_available_locales) {
-
             if (empty($GLOBALS['cfg']['FilterLanguages'])) {
                 $this->_available_locales = $this->listLocaleDir();
             } else {
@@ -737,14 +762,14 @@ class LanguageManager
     /**
      * Returns (cached) list of all available languages
      *
-     * @return array of Language objects
+     * @return Language[] array of Language objects
      */
     public function availableLanguages()
     {
         if (! $this->_available_languages) {
-            $this->_available_languages = array();
+            $this->_available_languages = [];
 
-            foreach($this->availableLocales() as $lang) {
+            foreach ($this->availableLocales() as $lang) {
                 $lang = strtolower($lang);
                 if (isset($this::$_language_data[$lang])) {
                     $data = $this::$_language_data[$lang];
@@ -773,16 +798,14 @@ class LanguageManager
      * Returns (cached) list of all available languages sorted
      * by name
      *
-     * @return array of Language objects
+     * @return Language[] array of Language objects
      */
     public function sortedLanguages()
     {
         $this->availableLanguages();
-        uasort($this->_available_languages, function($a, $b)
-            {
-                return $a->cmp($b);
-            }
-        );
+        uasort($this->_available_languages, function ($a, $b) {
+            return $a->cmp($b);
+        });
         return $this->_available_languages;
     }
 
@@ -791,7 +814,7 @@ class LanguageManager
      *
      * @param string $code Language code
      *
-     * @return object|false Language object or false on failure
+     * @return Language|false Language object or false on failure
      */
     public function getLanguage($code)
     {
@@ -806,7 +829,7 @@ class LanguageManager
     /**
      * Return currently active Language object
      *
-     * @return object Language object
+     * @return Language Language object
      */
     public function getCurrentLanguage()
     {
@@ -924,10 +947,10 @@ class LanguageManager
      */
     public function getSelectorDisplay($use_fieldset = false, $show_doc = true)
     {
-        $_form_params = array(
+        $_form_params = [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-        );
+        ];
 
         // For non-English, display "Language" with emphasis because it's
         // not a proper word in the current language; we show it to help
@@ -940,13 +963,11 @@ class LanguageManager
 
         $available_languages = $this->sortedLanguages();
 
-        return Template::get('select_lang')->render(
-            array(
-                'language_title' => $language_title,
-                'use_fieldset' => $use_fieldset,
-                'available_languages' => $available_languages,
-                '_form_params' => $_form_params,
-            )
-        );
+        return $this->template->render('select_lang', [
+            'language_title' => $language_title,
+            'use_fieldset' => $use_fieldset,
+            'available_languages' => $available_languages,
+            '_form_params' => $_form_params,
+        ]);
     }
 }

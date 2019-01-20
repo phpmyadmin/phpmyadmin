@@ -5,15 +5,21 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Does the common work
  */
-require_once 'libraries/common.inc.php';
-require_once 'libraries/server_common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/server_common.inc.php';
 
 PageSettings::showGroup('Export');
 
@@ -26,7 +32,7 @@ $export_page_title = __('View dump (schema) of databases') . "\n";
 
 $displayExport = new Export();
 
-$select_item = isset($tmp_select)? $tmp_select : '';
+$select_item = isset($tmp_select) ? $tmp_select : '';
 $multi_values = $displayExport->getHtmlForSelectOptions($select_item);
 
 if (! isset($sql_query)) {
@@ -41,7 +47,12 @@ if (! isset($unlim_num_rows)) {
 $response = Response::getInstance();
 $response->addHTML(
     $displayExport->getDisplay(
-        'server', $db, $table, $sql_query, $num_tables,
-        $unlim_num_rows, $multi_values
+        'server',
+        $db,
+        $table,
+        $sql_query,
+        $num_tables,
+        $unlim_num_rows,
+        $multi_values
     )
 );

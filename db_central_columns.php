@@ -6,6 +6,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Core;
@@ -16,7 +21,7 @@ use PhpMyAdmin\Url;
 /**
  * Gets some core libraries
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $centralColumns = new CentralColumns($GLOBALS['dbi']);
 
@@ -30,21 +35,37 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
         $col_default = "";
     }
     $col_extra = isset($_POST['col_extra']) ? $_POST['col_extra'] : '';
-    $col_isNull = isset($_POST['col_isNull'])?1:0;
+    $col_isNull = isset($_POST['col_isNull']) ? 1 : 0;
     $col_length = $_POST['col_length'];
     $col_attribute = $_POST['col_attribute'];
     $col_type = $_POST['col_type'];
     $collation = $_POST['collation'];
     if (isset($orig_col_name) && $orig_col_name) {
         echo $centralColumns->updateOneColumn(
-            $db, $orig_col_name, $col_name, $col_type, $col_attribute,
-            $col_length, $col_isNull, $collation, $col_extra, $col_default
+            $db,
+            $orig_col_name,
+            $col_name,
+            $col_type,
+            $col_attribute,
+            $col_length,
+            $col_isNull,
+            $collation,
+            $col_extra,
+            $col_default
         );
         exit;
     } else {
         $tmp_msg = $centralColumns->updateOneColumn(
-            $db, "", $col_name, $col_type, $col_attribute,
-            $col_length, $col_isNull, $collation, $col_extra, $col_default
+            $db,
+            "",
+            $col_name,
+            $col_type,
+            $col_attribute,
+            $col_length,
+            $col_isNull,
+            $collation,
+            $col_extra,
+            $col_default
         );
     }
 }
@@ -64,7 +85,7 @@ if (isset($_POST['getColumnList'])) {
     exit;
 }
 if (isset($_POST['add_column'])) {
-    $selected_col = array();
+    $selected_col = [];
     $selected_tbl = $_POST['table-select'];
     $selected_col[] = $_POST['column-select'];
     $tmp_msg = $centralColumns->syncUniqueColumns(
@@ -84,9 +105,9 @@ $pmadb = $cfgCentralColumns['db'];
 $pmatable = $cfgCentralColumns['table'];
 $max_rows = intval($GLOBALS['cfg']['MaxRows']);
 
-if (isset($_REQUEST['edit_central_columns_page'])) {
-    $selected_fld = $_REQUEST['selected_fld'];
-    $selected_db = $_REQUEST['db'];
+if (isset($_POST['edit_central_columns_page'])) {
+    $selected_fld = $_POST['selected_fld'];
+    $selected_db = $_POST['db'];
     $edit_central_column_page = $centralColumns->getHtmlForEditingPage(
         $selected_fld,
         $selected_db
@@ -96,85 +117,37 @@ if (isset($_REQUEST['edit_central_columns_page'])) {
 }
 if (isset($_POST['multi_edit_central_column_save'])) {
     $message = $centralColumns->updateMultipleColumn();
-    if (!is_bool($message)) {
+    if (! is_bool($message)) {
         $response->setRequestStatus(false);
         $response->addJSON('message', $message);
     }
 }
 if (isset($_POST['delete_save'])) {
-    $col_name = array();
+    $col_name = [];
     parse_str($_POST['col_name'], $col_name);
     $tmp_msg = $centralColumns->deleteColumnsFromList(
         $col_name['selected_fld'],
         false
     );
 }
-if (!empty($_REQUEST['total_rows'])
-    && Core::isValid($_REQUEST['total_rows'], 'integer')
+if (! empty($_POST['total_rows'])
+    && Core::isValid($_POST['total_rows'], 'integer')
 ) {
-    $total_rows = $_REQUEST['total_rows'];
+    $total_rows = $_POST['total_rows'];
 } else {
     $total_rows = $centralColumns->getCount($db);
 }
-if (Core::isValid($_REQUEST['pos'], 'integer')) {
-    $pos = intval($_REQUEST['pos']);
+if (Core::isValid($_POST['pos'], 'integer')) {
+    $pos = intval($_POST['pos']);
 } else {
     $pos = 0;
 }
-$addNewColumn = $centralColumns->getHtmlForAddNewColumn($db, $total_rows);
-$response->addHTML($addNewColumn);
-if ($total_rows <= 0) {
-    $response->addHTML(
-        '<fieldset>' . __(
-            'The central list of columns for the current database is empty.'
-        ) . '</fieldset>'
-    );
-    $columnAdd = $centralColumns->getHtmlForAddColumn($total_rows, $pos, $db);
-    $response->addHTML($columnAdd);
-    exit;
-}
-$table_navigation_html = $centralColumns->getHtmlForTableNavigation(
-    $total_rows,
-    $pos,
-    $db
-);
-$response->addHTML($table_navigation_html);
-$columnAdd = $centralColumns->getHtmlForAddColumn($total_rows, $pos, $db);
-$response->addHTML($columnAdd);
-$deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.php">'
-        . Url::getHiddenInputs(
-            $db
-        )
-        . '<input id="del_col_name" type="hidden" name="col_name" value="">'
-        . '<input type="hidden" name="pos" value="' . $pos . '">'
-        . '<input type="hidden" name="delete_save" value="delete"></form>';
-$response->addHTML($deleteRowForm);
-$table_struct = '<div id="tableslistcontainer">'
-        . '<form name="tableslistcontainer">'
-        . '<table id="table_columns" class="tablesorter" '
-        . 'class="data">';
-$response->addHTML($table_struct);
-$tableheader = $centralColumns->getTableHeader(
-    'column_heading', __('Click to sort.'), 2
-);
-$response->addHTML($tableheader);
-$result = $centralColumns->getColumnsList($db, $pos, $max_rows);
-$row_num = 0;
-foreach ($result as $row) {
-    $tableHtmlRow = $centralColumns->getHtmlForTableRow(
-        $row,
-        $row_num,
-        $db
-    );
-    $response->addHTML($tableHtmlRow);
-    $row_num++;
-}
-$response->addHTML('</table>');
-$tablefooter = $centralColumns->getTableFooter($pmaThemeImage, $text_dir);
-$response->addHTML($tablefooter);
-$response->addHTML('</form></div>');
+$main = $centralColumns->getHtmlForMain($db, $total_rows, $pos, $pmaThemeImage, $text_dir);
+$response->addHTML($main);
+
+$num_cols = $centralColumns->getColumnsCount($db, $pos, $max_rows);
 $message = Message::success(
-    sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + count($result)))
+    sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + $num_cols))
 );
 if (isset($tmp_msg) && $tmp_msg !== true) {
     $message = $tmp_msg;

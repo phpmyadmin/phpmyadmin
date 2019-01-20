@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CreateAddField;
@@ -44,7 +46,7 @@ class CreateAddFieldTest extends TestCase
      */
     public function testGetPartitionsDefinition($expected, $request)
     {
-        $_REQUEST = $request;
+        $_POST = $request;
         $actual = $this->createAddField->getPartitionsDefinition();
         $this->assertEquals($expected, $actual);
     }
@@ -57,12 +59,18 @@ class CreateAddFieldTest extends TestCase
     public function providerGetPartitionsDefinition()
     {
         return [
-            ['', []],
-            [' PARTITION BY HASH (EXPR()) PARTITIONS 2', [
-                'partition_by' => 'HASH',
-                'partition_expr' => 'EXPR()',
-                'partition_count' => '2',
-            ]],
+            [
+                '',
+                [],
+            ],
+            [
+                ' PARTITION BY HASH (EXPR()) PARTITIONS 2',
+                [
+                    'partition_by' => 'HASH',
+                    'partition_expr' => 'EXPR()',
+                    'partition_count' => '2',
+                ],
+            ],
         ];
     }
 
@@ -80,7 +88,7 @@ class CreateAddFieldTest extends TestCase
      */
     public function testGetTableCreationQuery($expected, $db, $table, $request)
     {
-        $_REQUEST = $request;
+        $_POST = $request;
         $actual = $this->createAddField->getTableCreationQuery($db, $table);
         $this->assertEquals($expected, $actual);
     }
@@ -93,14 +101,19 @@ class CreateAddFieldTest extends TestCase
     public function providerGetTableCreationQuery()
     {
         return [
-            ['CREATE TABLE `db`.`table` ();', 'db', 'table', [
-                'field_name' => [],
-                'primary_indexes' => '{}',
-                'indexes' => '{}',
-                'unique_indexes' => '{}',
-                'fulltext_indexes' => '{}',
-                'spatial_indexes' => '{}',
-            ]],
+            [
+                'CREATE TABLE `db`.`table` ();',
+                'db',
+                'table',
+                [
+                    'field_name' => [],
+                    'primary_indexes' => '{}',
+                    'indexes' => '{}',
+                    'unique_indexes' => '{}',
+                    'fulltext_indexes' => '{}',
+                    'spatial_indexes' => '{}',
+                ],
+            ],
         ];
     }
 
@@ -116,7 +129,7 @@ class CreateAddFieldTest extends TestCase
      */
     public function testGetNumberOfFieldsFromRequest($expected, $request)
     {
-        $_REQUEST = $request;
+        $_POST = $request;
         $actual = $this->createAddField->getNumberOfFieldsFromRequest();
         $this->assertEquals($expected, $actual);
     }
@@ -129,7 +142,10 @@ class CreateAddFieldTest extends TestCase
     public function providerGetNumberOfFieldsFromRequest()
     {
         return [
-            [4, []],
+            [
+                4,
+                [],
+            ],
         ];
     }
 }

@@ -5,17 +5,22 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Core;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 $_GET['ajax_request'] = 'true';
 
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
-$response->setAJAX(true);
+$response->setAjax(true);
 
 if (empty($_POST['type'])) {
     Core::fatalError(__('Bad type!'));
@@ -26,20 +31,20 @@ switch ($_POST['type']) {
         $response->addJSON('databases', $GLOBALS['dblist']->databases);
         break;
     case 'list-tables':
-        Util::checkParameters(array('db'), true);
-        $response->addJSON('tables', $GLOBALS['dbi']->getTables($_REQUEST['db']));
+        Util::checkParameters(['db'], true);
+        $response->addJSON('tables', $GLOBALS['dbi']->getTables($_POST['db']));
         break;
     case 'list-columns':
-        Util::checkParameters(array('db', 'table'), true);
-        $response->addJSON('columns', $GLOBALS['dbi']->getColumnNames($_REQUEST['db'], $_REQUEST['table']));
+        Util::checkParameters(['db', 'table'], true);
+        $response->addJSON('columns', $GLOBALS['dbi']->getColumnNames($_POST['db'], $_POST['table']));
         break;
     case 'config-get':
-        Util::checkParameters(array('key'), true);
-        $response->addJSON('value', $GLOBALS['PMA_Config']->get($_REQUEST['key']));
+        Util::checkParameters(['key'], true);
+        $response->addJSON('value', $GLOBALS['PMA_Config']->get($_POST['key']));
         break;
     case 'config-set':
-        Util::checkParameters(array('key', 'value'), true);
-        $result = $GLOBALS['PMA_Config']->setUserValue(null, $_REQUEST['key'], json_decode($_REQUEST['value']));
+        Util::checkParameters(['key', 'value'], true);
+        $result = $GLOBALS['PMA_Config']->setUserValue(null, $_POST['key'], json_decode($_POST['value']));
         if ($result !== true) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);

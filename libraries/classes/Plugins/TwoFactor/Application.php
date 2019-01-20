@@ -5,17 +5,21 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
+use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use PhpMyAdmin\TwoFactor;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PragmaRX\Google2FA\Google2FA;
+use PragmaRX\Google2FAQRCode\Google2FA;
 
 /**
  * HOTP and TOTP based two-factor authentication
  *
  * Also known as Google, Authy, or OTP
+ *
+ * @package PhpMyAdmin
  */
 class Application extends TwoFactorPlugin
 {
@@ -34,9 +38,13 @@ class Application extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
-        $this->_google2fa = new Google2FA();
+        if (extension_loaded('imagick')) {
+            $this->_google2fa = new Google2FA();
+        } else {
+            $this->_google2fa = new Google2FA(new SvgImageBackEnd());
+        }
         $this->_google2fa->setWindow(8);
-        if (!isset($this->_twofactor->config['settings']['secret'])) {
+        if (! isset($this->_twofactor->config['settings']['secret'])) {
             $this->_twofactor->config['settings']['secret'] = '';
         }
     }
@@ -60,16 +68,20 @@ class Application extends TwoFactorPlugin
      * Checks authentication, returns true on success
      *
      * @return boolean
+     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      */
     public function check()
     {
         $this->_provided = false;
-        if (!isset($_POST['2fa_code'])) {
+        if (! isset($_POST['2fa_code'])) {
             return false;
         }
         $this->_provided = true;
         return $this->_google2fa->verifyKey(
-            $this->_twofactor->config['settings']['secret'], $_POST['2fa_code']
+            $this->_twofactor->config['settings']['secret'],
+            $_POST['2fa_code']
         );
     }
 
@@ -80,7 +92,7 @@ class Application extends TwoFactorPlugin
      */
     public function render()
     {
-        return Template::get('login/twofactor/application')->render();
+        return $this->template->render('login/twofactor/application');
     }
 
     /**
@@ -96,9 +108,10 @@ class Application extends TwoFactorPlugin
             $this->_twofactor->user,
             $secret
         );
-        return Template::get('login/twofactor/application_configure')->render([
+        return $this->template->render('login/twofactor/application_configure', [
             'image' => $inlineUrl,
-            'secret' => $secret
+            'secret' => $secret,
+            'has_imagick' => extension_loaded('imagick'),
         ]);
     }
 
@@ -106,6 +119,9 @@ class Application extends TwoFactorPlugin
      * Performs backend configuration
      *
      * @return boolean
+     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      */
     public function configure()
     {

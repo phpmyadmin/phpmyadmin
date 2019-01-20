@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
@@ -36,13 +38,13 @@ class QueriesTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
+        $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
@@ -63,40 +65,40 @@ class QueriesTest extends TestCase
             ->getMock();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
-        $server_status = array(
+        $server_status = [
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
             "Com_delete_multi" => "0",
             "Com_create_function" => "0",
             "Com_empty_query" => "0",
-        );
+        ];
 
-        $server_variables= array(
+        $server_variables = [
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
             "automatic_sp_privileges" => "ON",
             "back_log" => "50",
             "big_tables" => "OFF",
-        );
+        ];
 
-        $fetchResult = array(
-            array(
+        $fetchResult = [
+            [
                 "SHOW GLOBAL STATUS",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
-            ),
-            array(
+                $server_status,
+            ],
+            [
                 "SHOW GLOBAL VARIABLES",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_variables
-            )
-        );
+                $server_variables,
+            ],
+        ];
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));
@@ -104,14 +106,14 @@ class QueriesTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
         $this->serverStatusData = new Data();
         $this->serverStatusData->status['Uptime'] = 36000;
-        $this->serverStatusData->used_queries = array(
+        $this->serverStatusData->used_queries = [
             "Com_change_db" => "15",
             "Com_select" => "12",
             "Com_set_option" => "54",
             "Com_show_databases" => "16",
             "Com_show_status" => "14",
             "Com_show_tables" => "13",
-        );
+        ];
     }
 
     /**
@@ -219,6 +221,5 @@ class QueriesTest extends TestCase
             '<div id="serverstatusquerieschart" class="width100" data-chart="',
             $html
         );
-
     }
 }

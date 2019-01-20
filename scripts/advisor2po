@@ -4,6 +4,11 @@
  * Script to parse advisor rules and output them as Gettext POT formatted
  * strings for translation.
  */
+declare(strict_types=1);
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
 
 $messages = array();
 $locations = array();

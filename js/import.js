@@ -59,25 +59,27 @@ AJAX.registerOnload('import.js', function () {
     $(document).on('submit', '#import_file_form', function (event) {
         var radioLocalImport = $('#radio_local_import_file');
         var radioImport = $('#radio_import_file');
-        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strImportDialogMessage + '</div>';
+        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + PMA_messages.strImportDialogMessage + '</div>';
+        var wrongTblNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + PMA_messages.strTableNameDialogMessage + '</div>';
+        var wrongDBNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + PMA_messages.strDBNameDialogMessage + '</div>';
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
 
             if (radioImport.is(':checked') && $('#input_import_file').val() === '') {
-                $('#input_import_file').focus();
+                $('#input_import_file').trigger('focus');
                 PMA_ajaxShowMessage(fileMsg, false);
                 return false;
             }
 
             if (radioLocalImport.is(':checked')) {
                 if ($('#select_local_import_file').length === 0) {
-                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strNoImportFile + ' </div>', false);
+                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + PMA_messages.strNoImportFile + ' </div>', false);
                     return false;
                 }
 
                 if ($('#select_local_import_file').val() === '') {
-                    $('#select_local_import_file').focus();
+                    $('#select_local_import_file').trigger('focus');
                     PMA_ajaxShowMessage(fileMsg, false);
                     return false;
                 }
@@ -85,9 +87,23 @@ AJAX.registerOnload('import.js', function () {
         } else {
             // local upload.
             if ($('#input_import_file').val() === '') {
-                $('#input_import_file').focus();
+                $('#input_import_file').trigger('focus');
                 PMA_ajaxShowMessage(fileMsg, false);
                 return false;
+            }
+            if ($('#text_csv_new_tbl_name').length > 0) {
+                var newTblName = $('#text_csv_new_tbl_name').val();
+                if (newTblName.length > 0 && $.trim(newTblName).length === 0) {
+                    PMA_ajaxShowMessage(wrongTblNameMsg, false);
+                    return false;
+                }
+            }
+            if ($('#text_csv_new_db_name').length > 0) {
+                var newDBName = $('#text_csv_new_db_name').val();
+                if (newDBName.length > 0 && $.trim(newDBName).length === 0) {
+                    PMA_ajaxShowMessage(wrongDBNameMsg, false);
+                    return false;
+                }
             }
         }
 
@@ -100,15 +116,15 @@ AJAX.registerOnload('import.js', function () {
     changePluginOpts();
 
     // Whenever the selected plugin changes, change the options displayed
-    $('#plugins').change(function () {
+    $('#plugins').on('change', function () {
         changePluginOpts();
     });
 
-    $('#input_import_file').change(function () {
+    $('#input_import_file').on('change', function () {
         matchFile($(this).val());
     });
 
-    $('#select_local_import_file').change(function () {
+    $('#select_local_import_file').on('change', function () {
         matchFile($(this).val());
     });
 
@@ -120,7 +136,7 @@ AJAX.registerOnload('import.js', function () {
         $('#radio_import_file').prop('checked', true);
         $('#radio_local_import_file').prop('checked', false);
     });
-    $('#select_local_import_file').focus(function () {
+    $('#select_local_import_file').on('focus', function () {
         $('#radio_local_import_file').prop('checked', true);
         $('#radio_import_file').prop('checked', false);
     });

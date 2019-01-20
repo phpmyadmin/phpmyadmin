@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
@@ -23,7 +25,7 @@ class ThemeManagerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['cfg']['ThemePerServer'] = false;
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
@@ -104,19 +106,5 @@ class ThemeManagerTest extends PmaTestCase
         $this->assertContains('set_theme=original', $preview);
         $this->assertContains('pmahomme', $preview);
         $this->assertContains('set_theme=pmahomme', $preview);
-    }
-
-    /**
-     * Test for getFallBackTheme
-     *
-     * @return void
-     */
-    public function testGetFallBackTheme()
-    {
-        $tm = new ThemeManager();
-        $this->assertInstanceOf(
-            'PhpMyAdmin\Theme',
-            $tm->getFallBackTheme()
-        );
     }
 }

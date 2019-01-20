@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\SubPartition;
@@ -23,7 +25,7 @@ class Partition extends SubPartition
     /**
      * @var SubPartition[] sub partitions
      */
-    protected $subPartitions = array();
+    protected $subPartitions = [];
 
     /**
      * Loads data from the fetched row from information_schema.PARTITIONS
@@ -150,7 +152,7 @@ class Partition extends SubPartition
      * @access  public
      * @return Partition[]
      */
-    static public function getPartitions($db, $table)
+    public static function getPartitions($db, $table)
     {
         if (Partition::havePartitioning()) {
             $result = $GLOBALS['dbi']->fetchResult(
@@ -159,7 +161,7 @@ class Partition extends SubPartition
                 . "' AND `TABLE_NAME` = '" . $GLOBALS['dbi']->escapeString($table) . "'"
             );
             if ($result) {
-                $partitionMap = array();
+                $partitionMap = [];
                 foreach ($result as $row) {
                     if (isset($partitionMap[$row['PARTITION_NAME']])) {
                         $partition = $partitionMap[$row['PARTITION_NAME']];
@@ -176,10 +178,10 @@ class Partition extends SubPartition
                 }
                 return array_values($partitionMap);
             }
-            return array();
+            return [];
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -191,7 +193,7 @@ class Partition extends SubPartition
      * @access  public
      * @return array   of partition names
      */
-    static public function getPartitionNames($db, $table)
+    public static function getPartitionNames($db, $table)
     {
         if (Partition::havePartitioning()) {
             return $GLOBALS['dbi']->fetchResult(
@@ -201,7 +203,7 @@ class Partition extends SubPartition
             );
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -212,7 +214,7 @@ class Partition extends SubPartition
      *
      * @return string partition method
      */
-    static public function getPartitionMethod($db, $table)
+    public static function getPartitionMethod($db, $table)
     {
         if (Partition::havePartitioning()) {
             $partition_method = $GLOBALS['dbi']->fetchResult(
@@ -237,7 +239,7 @@ class Partition extends SubPartition
      * @access  public
      * @return boolean
      */
-    static public function havePartitioning()
+    public static function havePartitioning()
     {
         static $have_partitioning = false;
         static $already_checked = false;

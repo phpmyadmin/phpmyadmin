@@ -8,13 +8,11 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage [TransformationName]
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations;
 
 use PhpMyAdmin\Plugins\Transformations\Abs\[TransformationName]TransformationsPlugin;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Handles the [TransformationName] transformation for [MIMEType] - [MIMESubtype]

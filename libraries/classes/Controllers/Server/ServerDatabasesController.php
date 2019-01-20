@@ -6,16 +6,15 @@
  *
  * @package PhpMyAdmin\Controllers
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Common;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -58,19 +57,19 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
-        include_once 'libraries/check_user_privileges.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
         $response = Response::getInstance();
 
-        if (isset($_REQUEST['drop_selected_dbs'])
+        if (isset($_POST['drop_selected_dbs'])
             && $response->isAjax()
-            && ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+            && ($this->dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $this->dropDatabasesAction();
             return;
         }
 
-        include_once 'libraries/replication.inc.php';
+        include_once ROOT_PATH . 'libraries/replication.inc.php';
 
         if (isset($_POST['new_db'])
             && $response->isAjax()
@@ -79,7 +78,7 @@ class ServerDatabasesController extends Controller
             return;
         }
 
-        include_once 'libraries/server_common.inc.php';
+        include_once ROOT_PATH . 'libraries/server_common.inc.php';
 
         $header  = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -94,27 +93,56 @@ class ServerDatabasesController extends Controller
          */
         if ($GLOBALS['server'] > 0) {
             $this->_databases = $this->dbi->getDatabasesFull(
-                null, $this->_dbstats, DatabaseInterface::CONNECT_USER, $this->_sort_by,
-                $this->_sort_order, $this->_pos, true
+                null,
+                $this->_dbstats,
+                DatabaseInterface::CONNECT_USER,
+                $this->_sort_by,
+                $this->_sort_order,
+                $this->_pos,
+                true
             );
             $this->_database_count = count($GLOBALS['dblist']->databases);
         } else {
             $this->_database_count = 0;
         }
 
+        $_url_params = [
+            'pos' => $this->_pos,
+            'dbstats' => $this->_dbstats,
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+        ];
+
+        $column_order = null;
+        $first_database = null;
+
         if ($this->_database_count > 0 && ! empty($this->_databases)) {
+            $first_database = reset($this->_databases);
+            // table col order
+            $column_order = $this->_getColumnOrder();
             $databases = $this->_getHtmlForDatabases($replication_types);
         }
 
-        $this->response->addHTML(Template::get('server/databases/index')->render([
+        $this->response->addHTML($this->template->render('server/databases/index', [
             'show_create_db' => $GLOBALS['cfg']['ShowCreateDb'],
             'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
             'dbstats' => $this->_dbstats,
             'db_to_create' => $GLOBALS['db_to_create'],
-            'server_collation' => $GLOBALS['dbi']->getServerCollation(),
             'databases' => isset($databases) ? $databases : null,
-            'dbi' => $GLOBALS['dbi'],
+            'dbi' => $this->dbi,
             'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+            'database_count' => $this->_database_count,
+            'pos' => $this->_pos,
+            'url_params' => $_url_params,
+            'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'is_superuser' => $this->dbi->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
         ]));
     }
 
@@ -132,11 +160,11 @@ class ServerDatabasesController extends Controller
         if (! empty($_POST['db_collation'])) {
             list($db_charset) = explode('_', $_POST['db_collation']);
             $charsets = Charsets::getMySQLCharsets(
-                $GLOBALS['dbi'],
+                $this->dbi,
                 $GLOBALS['cfg']['Server']['DisableIS']
             );
             $collations = Charsets::getMySQLCollations(
-                $GLOBALS['dbi'],
+                $this->dbi,
                 $GLOBALS['cfg']['Server']['DisableIS']
             );
             if (in_array($db_charset, $charsets)
@@ -148,13 +176,13 @@ class ServerDatabasesController extends Controller
         }
         $sql_query .= ';';
 
-        $result = $GLOBALS['dbi']->tryQuery($sql_query);
+        $result = $this->dbi->tryQuery($sql_query);
 
         if (! $result) {
             // avoid displaying the not-created db name in header or navi panel
             $GLOBALS['db'] = '';
 
-            $message = Message::rawError($GLOBALS['dbi']->getError());
+            $message = Message::rawError($this->dbi->getError());
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
         } else {
@@ -164,15 +192,17 @@ class ServerDatabasesController extends Controller
             $message->addParam($_POST['new_db']);
             $this->response->addJSON('message', $message);
             $this->response->addJSON(
-                'sql_query', Util::getMessage(null, $sql_query, 'success')
+                'sql_query',
+                Util::getMessage(null, $sql_query, 'success')
             );
 
             $this->response->addJSON(
                 'url_query',
                 Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                    $GLOBALS['cfg']['DefaultTabDatabase'],
+                    'database'
                 )
-                . Url::getCommon(array('db' => $_POST['new_db']))
+                . Url::getCommon(['db' => $_POST['new_db']])
             );
         }
     }
@@ -184,7 +214,7 @@ class ServerDatabasesController extends Controller
      */
     public function dropDatabasesAction()
     {
-        if (! isset($_REQUEST['selected_dbs'])) {
+        if (! isset($_POST['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
         } else {
             $action = 'server_databases.php';
@@ -193,7 +223,7 @@ class ServerDatabasesController extends Controller
             $GLOBALS['submit_mult'] = 'drop_db';
             $GLOBALS['mult_btn'] = __('Yes');
 
-            include 'libraries/mult_submits.inc.php';
+            include ROOT_PATH . 'libraries/mult_submits.inc.php';
 
             if (empty($message)) { // no error message
                 $number_of_databases = count($selected);
@@ -224,7 +254,7 @@ class ServerDatabasesController extends Controller
         if (empty($_REQUEST['sort_by'])) {
             $this->_sort_by = 'SCHEMA_NAME';
         } else {
-            $sort_by_whitelist = array(
+            $sort_by_whitelist = [
                 'SCHEMA_NAME',
                 'DEFAULT_COLLATION_NAME',
                 'SCHEMA_TABLES',
@@ -232,8 +262,8 @@ class ServerDatabasesController extends Controller
                 'SCHEMA_DATA_LENGTH',
                 'SCHEMA_INDEX_LENGTH',
                 'SCHEMA_LENGTH',
-                'SCHEMA_DATA_FREE'
-            );
+                'SCHEMA_DATA_FREE',
+            ];
             if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
                 $this->_sort_by = $_REQUEST['sort_by'];
             } else {
@@ -262,53 +292,59 @@ class ServerDatabasesController extends Controller
         $first_database = reset($this->_databases);
         // table col order
         $column_order = $this->_getColumnOrder();
+        $dbColumnOrders = [];
 
         // calculate aggregate stats to display in footer
         foreach ($this->_databases as $current) {
+            $dbColumnOrders[$current['SCHEMA_NAME']] = $this->_getColumnOrder();
             foreach ($column_order as $stat_name => $stat) {
                 if (array_key_exists($stat_name, $current)
                     && is_numeric($stat['footer'])
                 ) {
                     $column_order[$stat_name]['footer'] += $current[$stat_name];
+                    $dbColumnOrders[$current['SCHEMA_NAME']][$stat_name]['footer'] = $current[$stat_name];
                 }
             }
         }
 
-        $_url_params = array(
+        $values = [];
+        $units = [];
+        foreach ($column_order as $stat_name => $stat) {
+            if (array_key_exists($stat_name, $first_database)) {
+                if ($stat['format'] == 'byte') {
+                    $byte_format = Util::formatByteDown($stat['footer'], 3, 1);
+                    $values[$stat_name] = $byte_format[0];
+                    $units[$stat_name] = $byte_format[1];
+                } elseif ($stat['format'] == 'number') {
+                    $values[$stat_name] = Util::formatNumber($stat['footer'], 0);
+                } else {
+                    $values[$stat_name] = htmlentities($stat['footer'], 0);
+                }
+            }
+        }
+
+        $_url_params = [
             'pos' => $this->_pos,
             'dbstats' => $this->_dbstats,
             'sort_by' => $this->_sort_by,
             'sort_order' => $this->_sort_order,
-        );
+        ];
 
-        $html = Template::get('server/databases/databases_header')->render([
-            'database_count' => $this->_database_count,
-            'pos' => $this->_pos,
-            'url_params' => $_url_params,
-            'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
-            'sort_by' => $this->_sort_by,
-            'sort_order' => $this->_sort_order,
-            'column_order' => $column_order,
-            'first_database' => $first_database,
-            'master_replication' => $GLOBALS['replication_info']['master']['status'],
-            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
-            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
-            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
-        ]);
+        $html = $this->_getHtmlForTableBody($dbColumnOrders, $replication_types);
 
-        $html .= $this->_getHtmlForTableBody($column_order, $replication_types);
-
-        $html .= Template::get('server/databases/databases_footer')->render([
+        $html .= $this->template->render('server/databases/databases_footer', [
             'column_order' => $column_order,
             'first_database' => $first_database,
             'master_replication' => $GLOBALS['replication_info']['master']['status'],
             'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
             'database_count' => $this->_database_count,
-            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'is_superuser' => $this->dbi->isSuperuser(),
             'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
             'dbstats' => $this->_dbstats,
+            'values' => $values,
+            'units' => $units,
         ]);
 
         return $html;
@@ -321,43 +357,46 @@ class ServerDatabasesController extends Controller
      */
     private function _getColumnOrder()
     {
-        $column_order = array();
-        $column_order['DEFAULT_COLLATION_NAME'] = array(
+        $column_order = [];
+        $column_order['DEFAULT_COLLATION_NAME'] = [
             'disp_name' => __('Collation'),
-            'description_function' => array(Charsets::class, 'getCollationDescr'),
+            'description_function' => [
+                Charsets::class,
+                'getCollationDescr',
+            ],
             'format'    => 'string',
-            'footer'    => $this->dbi->getServerCollation(),
-        );
-        $column_order['SCHEMA_TABLES'] = array(
+            'footer'    => '',
+        ];
+        $column_order['SCHEMA_TABLES'] = [
             'disp_name' => __('Tables'),
             'format'    => 'number',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_TABLE_ROWS'] = array(
+        ];
+        $column_order['SCHEMA_TABLE_ROWS'] = [
             'disp_name' => __('Rows'),
             'format'    => 'number',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_DATA_LENGTH'] = array(
+        ];
+        $column_order['SCHEMA_DATA_LENGTH'] = [
             'disp_name' => __('Data'),
             'format'    => 'byte',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_INDEX_LENGTH'] = array(
+        ];
+        $column_order['SCHEMA_INDEX_LENGTH'] = [
             'disp_name' => __('Indexes'),
             'format'    => 'byte',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_LENGTH'] = array(
+        ];
+        $column_order['SCHEMA_LENGTH'] = [
             'disp_name' => __('Total'),
             'format'    => 'byte',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_DATA_FREE'] = array(
+        ];
+        $column_order['SCHEMA_DATA_FREE'] = [
             'disp_name' => __('Overhead'),
             'format'    => 'byte',
             'footer'    => 0,
-        );
+        ];
 
         return $column_order;
     }
@@ -365,12 +404,12 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Database List
      *
-     * @param array $column_order      column order
-     * @param array $replication_types replication types
+     * @param array $dbColumnOrders   databases column order
+     * @param array $replicationTypes replication types
      *
      * @return string
      */
-    private function _getHtmlForTableBody(array $column_order, array $replication_types)
+    private function _getHtmlForTableBody(array $dbColumnOrders, array $replicationTypes)
     {
         $html = '<tbody>' . "\n";
 
@@ -382,8 +421,8 @@ class ServerDatabasesController extends Controller
 
             $generated_html = $this->_buildHtmlForDb(
                 $current,
-                $column_order,
-                $replication_types,
+                $dbColumnOrders[$current['SCHEMA_NAME']],
+                $replicationTypes,
                 $GLOBALS['replication_info'],
                 $tr_class
             );
@@ -404,11 +443,14 @@ class ServerDatabasesController extends Controller
      * @param array  $replication_info  replication info
      * @param string $tr_class          HTMl class for the row
      *
-     * @return array $column_order, $out
+     * @return string
      */
-    function _buildHtmlForDb(
-        array $current, array $column_order,
-        array $replication_types, array $replication_info, $tr_class = ''
+    public function _buildHtmlForDb(
+        array $current,
+        array $column_order,
+        array $replication_types,
+        array $replication_info,
+        $tr_class = ''
     ) {
         $master_replication = $slave_replication = '';
         foreach ($replication_types as $type) {
@@ -418,17 +460,18 @@ class ServerDatabasesController extends Controller
                     $current["SCHEMA_NAME"],
                     $replication_info[$type]['Ignore_DB']
                 );
-                if (strlen($key) > 0) {
+                if (strlen((string) $key) > 0) {
                     $out = Util::getIcon(
                         's_cancel',
                         __('Not replicated')
                     );
                 } else {
                     $key = array_search(
-                        $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
+                        $current["SCHEMA_NAME"],
+                        $replication_info[$type]['Do_DB']
                     );
 
-                    if (strlen($key) > 0
+                    if (strlen((string) $key) > 0
                         || count($replication_info[$type]['Do_DB']) == 0
                     ) {
                         // if ($key != null) did not work for index "0"
@@ -447,7 +490,23 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        return Template::get('server/databases/table_row')->render([
+        $values = [];
+        $units = [];
+        foreach ($column_order as $stat_name => $stat) {
+            if (array_key_exists($stat_name, $current)) {
+                if ($stat['format'] == 'byte') {
+                    $byte_format = Util::formatByteDown($stat['footer'], 3, 1);
+                    $values[$stat_name] = $byte_format[0];
+                    $units[$stat_name] = $byte_format[1];
+                } elseif ($stat['format'] == 'number') {
+                    $values[$stat_name] = Util::formatNumber($stat['footer'], 0);
+                } else {
+                    $values[$stat_name] = htmlentities($stat['footer'], 0);
+                }
+            }
+        }
+
+        return $this->template->render('server/databases/table_row', [
             'current' => $current,
             'tr_class' => $tr_class,
             'column_order' => $column_order,
@@ -455,10 +514,12 @@ class ServerDatabasesController extends Controller
             'master_replication' => $master_replication,
             'slave_replication_status' => $GLOBALS['replication_info']['slave']['status'],
             'slave_replication' => $slave_replication,
-            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'is_superuser' => $this->dbi->isSuperuser(),
             'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
-            'is_system_schema' => $GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true),
+            'is_system_schema' => $this->dbi->isSystemSchema($current['SCHEMA_NAME'], true),
             'default_tab_database' => $GLOBALS['cfg']['DefaultTabDatabase'],
+            'values' => $values,
+            'units' => $units,
         ]);
     }
 }

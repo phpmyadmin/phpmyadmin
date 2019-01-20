@@ -5,12 +5,12 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Tests\RelationCleanupDbiMock;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,272 +23,268 @@ use PHPUnit\Framework\TestCase;
 class RelationCleanupTest extends TestCase
 {
     /**
-     * @var Relation
+     * @var Relation|\PHPUnit\Framework\MockObject\MockObject
      */
     private $relation;
+
+    /**
+     * @var RelationCleanup
+     */
+    private $relationCleanup;
 
     /**
      * Prepares environment for the test.
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
-        $_SESSION['relation'] = array();
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['Server']['user'] = "user";
-        $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
-        $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmark';
-        $GLOBALS['cfg']['Server']['relation'] = 'relation';
-        $GLOBALS['cfg']['Server']['table_info'] = 'table_info';
-        $GLOBALS['cfg']['Server']['table_coords'] = 'table_coords';
-        $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
-        $GLOBALS['cfg']['Server']['pdf_pages'] = 'pdf_pages';
-        $GLOBALS['cfg']['Server']['history'] = 'history';
-        $GLOBALS['cfg']['Server']['recent'] = 'recent';
-        $GLOBALS['cfg']['Server']['favorite'] = 'favorite';
-        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
-        $GLOBALS['cfg']['Server']['tracking'] = 'tracking';
-        $GLOBALS['cfg']['Server']['userconfig'] = 'userconfig';
-        $GLOBALS['cfg']['Server']['users'] = 'users';
-        $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
-        $GLOBALS['cfg']['Server']['navigationhiding'] = 'navigationhiding';
-        $GLOBALS['cfg']['Server']['savedsearches'] = 'savedsearches';
-        $GLOBALS['cfg']['Server']['central_columns'] = 'central_columns';
-        $GLOBALS['cfg']['Server']['designer_settings'] = 'designer_settings';
-        $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = [
+            'PMA_VERSION' => PMA_VERSION,
+            'relwork' => false,
+            'displaywork' => false,
+            'bookmarkwork' => false,
+            'pdfwork' => false,
+            'commwork' => false,
+            'mimework' => false,
+            'historywork' => false,
+            'recentwork' => false,
+            'favoritework' => false,
+            'uiprefswork' => false,
+            'trackingwork' => false,
+            'userconfigwork' => false,
+            'menuswork' => false,
+            'navwork' => false,
+            'savedsearcheswork' => false,
+            'centralcolumnswork' => false,
+            'designersettingswork' => false,
+            'exporttemplateswork' => false,
+            'allworks' => false,
+            'user' => 'user',
+            'db' => 'pmadb',
+            'bookmark' => 'bookmark',
+            'relation' => 'relation',
+            'table_info' => 'table_info',
+            'table_coords' => 'table_coords',
+            'column_info' => 'column_info',
+            'pdf_pages' => 'pdf_pages',
+            'history' => 'history',
+            'recent' => 'recent',
+            'favorite' => 'favorite',
+            'table_uiprefs' => 'table_uiprefs',
+            'tracking' => 'tracking',
+            'userconfig' => 'userconfig',
+            'users' => 'users',
+            'usergroups' => 'usergroups',
+            'navigationhiding' => 'navigationhiding',
+            'savedsearches' => 'savedsearches',
+            'central_columns' => 'central_columns',
+            'designer_settings' => 'designer_settings',
+            'export_templates' => 'export_templates',
+        ];
 
-        $this->redefineRelation();
-        $this->relation = new Relation();
-    }
-
-
-    /**
-     * functions for redefine RelationCleanupDbiMock
-     *
-     * @return void
-     */
-    public function redefineRelation()
-    {
-        $GLOBALS['dbi'] = new RelationCleanupDbiMock();
-        unset($_SESSION['relation'][$GLOBALS['server']]);
-    }
-
-    /**
-     * Test for RelationCleanup::column
-     *
-     * @return void
-     * @group medium
-     */
-    public function testPMARelationsCleanupColumn()
-    {
-        $db = "PMA";
-        $table = "PMA_bookmark";
-        $column = "name";
-        $this->redefineRelation();
-
-        //the $cfgRelation value before cleanup column
-        $cfgRelation = $this->relation->checkRelationsParam();
-        $this->assertEquals(
-            true,
-            $cfgRelation['commwork']
-        );
-        //validate Relation::getDbComments when commwork = true
-        $db_comments = $this->relation->getDbComments();
-        $this->assertEquals(
-            array('db_name0' => 'comment0','db_name1' => 'comment1'),
-            $db_comments
-        );
-
-        $this->assertEquals(
-            true,
-            $cfgRelation['displaywork']
-        );
-        //validate Relation::getDisplayField when displaywork = true
-        $display_field = $this->relation->getDisplayField($db, $table);
-        $this->assertEquals(
-            'PMA_display_field',
-            $display_field
-        );
-        $this->assertEquals(
-            true,
-            $cfgRelation['relwork']
-        );
-        $this->assertEquals(
-            'column_info',
-            $cfgRelation['column_info']
-        );
-        $this->assertEquals(
-            'table_info',
-            $cfgRelation['table_info']
-        );
-        $this->assertEquals(
-            'relation',
-            $cfgRelation['relation']
-        );
-
-        //cleanup
-        RelationCleanup::column($db, $table, $column);
-
-        //the $cfgRelation value after cleanup column
-        $cfgRelation = $this->relation->checkRelationsParam();
-
-        $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
-        $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
-        $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
-
-        $this->assertEquals(
-            null,
-            $is_defined_column_info
-        );
-        $this->assertEquals(
-            null,
-            $is_defined_table_info
-        );
-        $this->assertEquals(
-            null,
-            $is_defined_relation
-        );
-
+        $this->relation = $this->getMockBuilder(Relation::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['queryAsControlUser'])
+            ->getMock();
+        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $this->relation);
     }
 
     /**
-     * Test for RelationCleanup::table
+     * Test for column method
      *
      * @return void
      */
-    public function testPMARelationsCleanupTable()
+    public function testColumnWithoutRelations(): void
     {
-        $db = "PMA";
-        $table = "PMA_bookmark";
-        $this->redefineRelation();
+        $this->relation->expects($this->never())
+            ->method('queryAsControlUser');
 
-        //the $cfgRelation value before cleanup column
-        $cfgRelation = $this->relation->checkRelationsParam();
-        $this->assertEquals(
-            'column_info',
-            $cfgRelation['column_info']
-        );
-        $this->assertEquals(
-            'table_info',
-            $cfgRelation['table_info']
-        );
-        $this->assertEquals(
-            'table_coords',
-            $cfgRelation['table_coords']
-        );
-        $this->assertEquals(
-            'relation',
-            $cfgRelation['relation']
-        );
-
-        //RelationCleanup::table
-        RelationCleanup::table($db, $table);
-
-        //the $cfgRelation value after cleanup column
-        $cfgRelation = $this->relation->checkRelationsParam();
-
-        $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
-        $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
-        $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
-        $is_defined_table_coords
-            = isset($cfgRelation['table_coords'])
-            ? $cfgRelation['table_coords']
-            : null;
-
-        $this->assertEquals(
-            null,
-            $is_defined_column_info
-        );
-        $this->assertEquals(
-            null,
-            $is_defined_table_info
-        );
-        $this->assertEquals(
-            null,
-            $is_defined_relation
-        );
-        $this->assertEquals(
-            null,
-            $is_defined_table_coords
-        );
+        $this->relationCleanup->column('database', 'table', 'column');
     }
 
     /**
-     * Test for RelationCleanup::database
+     * Test for column method
      *
      * @return void
      */
-    public function testPMARelationsCleanupDatabase()
+    public function testColumnWithRelations(): void
     {
-        $db = "PMA";
-        $this->redefineRelation();
-
-        //the $cfgRelation value before cleanup column
-        $cfgRelation = $this->relation->checkRelationsParam();
-        $this->assertEquals(
-            'column_info',
-            $cfgRelation['column_info']
-        );
-        $this->assertEquals(
-            'bookmark',
-            $cfgRelation['bookmark']
-        );
-        $this->assertEquals(
-            'table_info',
-            $cfgRelation['table_info']
-        );
-        $this->assertEquals(
-            'pdf_pages',
-            $cfgRelation['pdf_pages']
-        );
-        $this->assertEquals(
-            'table_coords',
-            $cfgRelation['table_coords']
-        );
-        $this->assertEquals(
-            'relation',
-            $cfgRelation['relation']
+        $_SESSION['relation'][$GLOBALS['server']] = array_merge(
+            $_SESSION['relation'][$GLOBALS['server']],
+            [
+                'commwork' => true,
+                'displaywork' => true,
+                'relwork' => true,
+            ]
         );
 
-        //cleanup
-        RelationCleanup::database($db);
+        $this->relation->expects($this->exactly(4))
+            ->method('queryAsControlUser')
+            ->withConsecutive(
+                [$this->equalTo("DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND table_name = 'table' AND column_name = 'column'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND table_name = 'table' AND display_field = 'column'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND master_table = 'table' AND master_field = 'column'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND foreign_table = 'table' AND foreign_field = 'column'")]
+            );
 
-        //the value after cleanup column
-        $cfgRelation = $this->relation->checkRelationsParam();
+        $this->relationCleanup->column('database', 'table', 'column');
+    }
 
-        $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
-        $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
-        $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
-        $is_defined_table_coords
-            = isset($cfgRelation['table_coords'])
-            ? $cfgRelation['table_coords']
-            : null;
+    /**
+     * Test for table method
+     *
+     * @return void
+     */
+    public function testTableWithoutRelations(): void
+    {
+        $this->relation->expects($this->never())
+            ->method('queryAsControlUser');
 
-        $this->assertEquals(
-            null,
-            $is_defined_column_info
+        $this->relationCleanup->table('database', 'table');
+    }
+
+    /**
+     * Test for table method
+     *
+     * @return void
+     */
+    public function testTableWithRelations(): void
+    {
+        $_SESSION['relation'][$GLOBALS['server']] = array_merge(
+            $_SESSION['relation'][$GLOBALS['server']],
+            [
+                'commwork' => true,
+                'displaywork' => true,
+                'pdfwork' => true,
+                'relwork' => true,
+                'uiprefswork' => true,
+                'navwork' => true,
+            ]
         );
-        $this->assertEquals(
-            null,
-            $is_defined_table_info
+
+        $this->relation->expects($this->exactly(7))
+            ->method('queryAsControlUser')
+            ->withConsecutive(
+                [$this->equalTo("DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND table_name = 'table'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND table_name = 'table'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`table_coords` WHERE db_name  = 'database' AND table_name = 'table'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND master_table = 'table'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND foreign_table = 'table'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`table_uiprefs` WHERE db_name  = 'database' AND table_name = 'table'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`navigationhiding` WHERE db_name  = 'database' AND (table_name = 'table' OR (item_name = 'table' AND item_type = 'table'))")]
+            );
+
+        $this->relationCleanup->table('database', 'table');
+    }
+
+    /**
+     * Test for database method
+     *
+     * @return void
+     */
+    public function testDatabaseWithoutRelations(): void
+    {
+        $this->relation->expects($this->never())
+            ->method('queryAsControlUser');
+
+        $this->relationCleanup->database('database');
+    }
+
+    /**
+     * Test for database method
+     *
+     * @return void
+     */
+    public function testDatabaseWithRelations(): void
+    {
+        $_SESSION['relation'][$GLOBALS['server']] = array_merge(
+            $_SESSION['relation'][$GLOBALS['server']],
+            [
+                'commwork' => true,
+                'bookmarkwork' => true,
+                'displaywork' => true,
+                'pdfwork' => true,
+                'relwork' => true,
+                'uiprefswork' => true,
+                'navwork' => true,
+                'savedsearcheswork' => true,
+                'centralcolumnswork' => true,
+            ]
         );
-        $this->assertEquals(
-            null,
-            $is_defined_relation
+
+        $this->relation->expects($this->exactly(11))
+            ->method('queryAsControlUser')
+            ->withConsecutive(
+                [$this->equalTo("DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`bookmark` WHERE dbase  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`pdf_pages` WHERE db_name  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`table_coords` WHERE db_name  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`table_uiprefs` WHERE db_name  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`navigationhiding` WHERE db_name  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`savedsearches` WHERE db_name  = 'database'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`central_columns` WHERE db_name  = 'database'")]
+            );
+
+        $this->relationCleanup->database('database');
+    }
+
+    /**
+     * Test for user method
+     *
+     * @return void
+     */
+    public function testUserWithoutRelations(): void
+    {
+        $this->relation->expects($this->never())
+            ->method('queryAsControlUser');
+
+        $this->relationCleanup->user('user');
+    }
+
+    /**
+     * Test for user method
+     *
+     * @return void
+     */
+    public function testUserWithRelations(): void
+    {
+        $_SESSION['relation'][$GLOBALS['server']] = array_merge(
+            $_SESSION['relation'][$GLOBALS['server']],
+            [
+                'bookmarkwork' => true,
+                'historywork' => true,
+                'recentwork' => true,
+                'favoritework' => true,
+                'uiprefswork' => true,
+                'userconfigwork' => true,
+                'menuswork' => true,
+                'navwork' => true,
+                'savedsearcheswork' => true,
+                'designersettingswork' => true,
+            ]
         );
-        $this->assertEquals(
-            null,
-            $is_defined_table_coords
-        );
+
+        $this->relation->expects($this->exactly(10))
+            ->method('queryAsControlUser')
+            ->withConsecutive(
+                [$this->equalTo("DELETE FROM `pmadb`.`bookmark` WHERE `user`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`history` WHERE `username`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`recent` WHERE `username`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`favorite` WHERE `username`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`table_uiprefs` WHERE `username`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`userconfig` WHERE `username`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`users` WHERE `username`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`navigationhiding` WHERE `username`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`savedsearches` WHERE `username`  = 'user'")],
+                [$this->equalTo("DELETE FROM `pmadb`.`designer_settings` WHERE `username`  = 'user'")]
+            );
+
+        $this->relationCleanup->user('user');
     }
 }

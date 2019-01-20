@@ -606,7 +606,7 @@ AJAX.registerOnload('tbl_change.js', function () {
 
                 // Insert/Clone the ignore checkboxes
                 if (curr_rows === 1) {
-                    $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
+                    $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked">')
                         .insertBefore('table.insertRowTable:last')
                         .after('<label for="insert_ignore_1">' + PMA_messages.strIgnore + '</label>');
                 } else {
@@ -622,7 +622,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                     /** name of new {@link $last_checkbox} */
                     var new_name = last_checkbox_name.replace(/\d+/, last_checkbox_index + 1);
 
-                    $('<br/><div class="clearfloat"></div>')
+                    $('<br><div class="clearfloat"></div>')
                         .insertBefore('table.insertRowTable:last');
 
                     $last_checkbox
@@ -636,7 +636,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                         .attr('for', new_name)
                         .insertBefore('table.insertRowTable:last');
 
-                    $('<br/>')
+                    $('<br>')
                         .insertBefore('table.insertRowTable:last');
                 }
                 curr_rows++;

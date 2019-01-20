@@ -1,0 +1,21 @@
+{
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-recommended-scss"
+    ],
+    "rules": {
+        "no-descending-specificity": null,
+        "no-duplicate-selectors": null,
+        "block-closing-brace-newline-after": ["always", {
+            "ignoreAtRules": ["if", "else"]
+        }],
+        "at-rule-empty-line-before": ["always", {
+            "except": [
+                "blockless-after-same-name-blockless",
+                "first-nested"
+            ],
+            "ignore": ["after-comment"],
+            "ignoreAtRules": ["else"]
+        }]
+    }
+}

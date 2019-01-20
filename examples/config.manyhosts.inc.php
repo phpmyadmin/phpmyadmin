@@ -8,14 +8,15 @@
  * @package    PhpMyAdmin
  * @subpackage Example
  */
+declare(strict_types=1);
 
-$i=0;
-$hosts = array (
+$i = 0;
+$hosts =  [
     "foo.example.com",
     "bar.example.com",
     "baz.example.com",
     "quux.example.com",
-);
+];
 
 foreach ($hosts as $host) {
     $i++;

@@ -51,7 +51,7 @@ copyright = u'2012 - 2018, The phpMyAdmin devel team'
 # built documents.
 #
 # The short X.Y version.
-version = '4.8.3-dev'
+version = '5.0.0-dev'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -311,6 +311,6 @@ linkcheck_ignore = [
     # Site is often down
     r'https://software.opensuse.org/package/.*',
     r'https://pecl.php.net/.*',
-    # Expired SSL certificate
-    r'https://texy.info/.*',
+    # 403 Client Error: Forbidden
+    r'https://authy.com/.*',
 ]

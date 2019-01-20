@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage CodeGen
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
@@ -67,12 +69,12 @@ class TableProperty
      */
     public function __construct(array $row)
     {
-        $this->name = trim($row[0]);
-        $this->type = trim($row[1]);
-        $this->nullable = trim($row[2]);
-        $this->key = trim($row[3]);
-        $this->defaultValue = trim($row[4]);
-        $this->ext = trim($row[5]);
+        $this->name = trim((string) $row[0]);
+        $this->type = trim((string) $row[1]);
+        $this->nullable = trim((string) $row[2]);
+        $this->key = trim((string) $row[3]);
+        $this->defaultValue = trim((string) $row[4]);
+        $this->ext = trim((string) $row[5]);
     }
 
     /**
@@ -109,7 +111,7 @@ class TableProperty
         return $this->key == "PRI" || $this->key == "UNI" ? "true" : "false";
     }
 
-     /**
+    /**
      * Gets the .NET primitive type
      *
      * @return string type
@@ -212,7 +214,7 @@ class TableProperty
     public function formatCs($text)
     {
         $text = str_replace(
-            "#name#",
+            '#name#',
             ExportCodegen::cgMakeIdentifier($this->name, false),
             $text
         );
@@ -229,13 +231,14 @@ class TableProperty
     public function formatXml($text)
     {
         $text = str_replace(
-            "#name#",
-            htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'),
-            $text
-        );
-        $text = str_replace(
-            "#indexName#",
-            $this->getIndexName(),
+            [
+                '#name#',
+                '#indexName#',
+            ],
+            [
+                htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'),
+                $this->getIndexName(),
+            ],
             $text
         );
         return $this->format($text);
@@ -251,33 +254,22 @@ class TableProperty
     public function format($text)
     {
         $text = str_replace(
-            "#ucfirstName#",
-            ExportCodegen::cgMakeIdentifier($this->name),
-            $text
-        );
-        $text = str_replace(
-            "#dotNetPrimitiveType#",
-            $this->getDotNetPrimitiveType(),
-            $text
-        );
-        $text = str_replace(
-            "#dotNetObjectType#",
-            $this->getDotNetObjectType(),
-            $text
-        );
-        $text = str_replace(
-            "#type#",
-            $this->getPureType(),
-            $text
-        );
-        $text = str_replace(
-            "#notNull#",
-            $this->isNotNull(),
-            $text
-        );
-        $text = str_replace(
-            "#unique#",
-            $this->isUnique(),
+            [
+                '#ucfirstName#',
+                '#dotNetPrimitiveType#',
+                '#dotNetObjectType#',
+                '#type#',
+                '#notNull#',
+                '#unique#',
+            ],
+            [
+                ExportCodegen::cgMakeIdentifier($this->name),
+                $this->getDotNetPrimitiveType(),
+                $this->getDotNetObjectType(),
+                $this->getPureType(),
+                $this->isNotNull(),
+                $this->isUnique(),
+            ],
             $text
         );
         return $text;

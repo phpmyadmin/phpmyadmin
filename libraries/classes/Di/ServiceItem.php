@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Di
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Di;
 
 /**
@@ -24,9 +26,9 @@ class ServiceItem extends ReflectorItem
      * @param array $params Parameters
      * @return mixed
      */
-    public function get(array $params = array())
+    public function get(array $params = [])
     {
-        if (!isset($this->instance)) {
+        if (! isset($this->instance)) {
             $this->instance = $this->invoke();
         }
         return $this->instance;

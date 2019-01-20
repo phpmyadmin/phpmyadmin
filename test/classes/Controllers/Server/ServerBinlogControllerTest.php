@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerBinlogController;
@@ -27,18 +29,18 @@ class ServerBinlogControllerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
+        //$_POST
+        $_POST['log'] = "index1";
+        $_POST['pos'] = 3;
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
+        $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
@@ -53,9 +55,15 @@ class ServerBinlogControllerTest extends PmaTestCase
 
         Util::cacheSet('profiling_supported', true);
 
-        $binary_log_file_names = array();
-        $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
-        $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
+        $binary_log_file_names = [];
+        $binary_log_file_names[] = [
+            "Log_name" => "index1",
+            "File_size" => 100,
+        ];
+        $binary_log_file_names[] = [
+            "Log_name" => "index2",
+            "File_size" => 200,
+        ];
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -65,8 +73,8 @@ class ServerBinlogControllerTest extends PmaTestCase
             ->will($this->returnValue($binary_log_file_names));
         $container = Container::getDefaultContainer();
         $container->set('dbi', $dbi);
-        $this->_response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $this->_response);
+        $response = new ResponseStub();
+        $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
     }
 
@@ -79,7 +87,7 @@ class ServerBinlogControllerTest extends PmaTestCase
     {
         $container = Container::getDefaultContainer();
 
-        $url_params = array();
+        $url_params = [];
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
 
@@ -130,30 +138,30 @@ class ServerBinlogControllerTest extends PmaTestCase
         );
 
         //expects return value
-        $result = array(
-            array(
+        $result = [
+            [
                 "SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10",
                 null,
                 1,
                 true,
-                array("log1"=>"logd")
-            ),
-            array(
-                array("log2"=>"logb"),
+                ["log1" => "logd"],
+            ],
+            [
+                ["log2" => "logb"],
                 null,
                 0,
                 false,
-                'executed'
-            )
-        );
-        $value = array(
-                'Info' => "index1_Info",
-                'Log_name' => "index1_Log_name",
-                'Pos' => "index1_Pos",
-                'Event_type' => "index1_Event_type",
-                'End_log_pos' => "index1_End_log_pos",
-                'Server_id' => "index1_Server_id",
-        );
+                'executed',
+            ],
+        ];
+        $value = [
+            'Info' => "index1_Info",
+            'Log_name' => "index1_Log_name",
+            'Pos' => "index1_Pos",
+            'Event_type' => "index1_Event_type",
+            'End_log_pos' => "index1_End_log_pos",
+            'Server_id' => "index1_Server_id",
+        ];
         $count = 3;
 
         //expects functions
@@ -172,7 +180,7 @@ class ServerBinlogControllerTest extends PmaTestCase
         $container->set('dbi', $dbi);
 
         //Call the test function
-        $url_params = array();
+        $url_params = [];
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
         $html = $method->invoke($ctrl, $url_params);
@@ -193,7 +201,7 @@ class ServerBinlogControllerTest extends PmaTestCase
             $html
         );
         //validate 4: PMA_getNavigationRow is right
-        $urlNavigation = 'server_binlog.php?log=log&amp;dontlimitchars=1&amp;'
+        $urlNavigation = 'server_binlog.php" data-post="log=log&amp;dontlimitchars=1&amp;'
             . 'pos=3&amp;server=1&amp';
         $this->assertContains(
             $urlNavigation,
@@ -244,7 +252,7 @@ class ServerBinlogControllerTest extends PmaTestCase
             $dbi
         );
 
-        $fetchAssoc = array(
+        $fetchAssoc = [
             'Info' => 'Info',
             'Log_name' => 'Log_name',
             'Pos' => 'Pos',
@@ -252,7 +260,7 @@ class ServerBinlogControllerTest extends PmaTestCase
             'Server_id' => 'Server_id',
             'Orig_log_pos' => 'Orig_log_pos',
             'End_log_pos' => 'End_log_pos',
-        );
+        ];
         $dbi->expects($this->at(0))->method('fetchAssoc')
             ->will($this->returnValue($fetchAssoc));
         $dbi->expects($this->at(1))->method('fetchAssoc')
@@ -261,7 +269,7 @@ class ServerBinlogControllerTest extends PmaTestCase
 
         $GLOBALS['cfg']['LimitChars'] = 2;
 
-        $result = array();
+        $result = [];
         $dontlimitchars = ";";
         $html = $method->invoke($ctrl, $result, $dontlimitchars);
 

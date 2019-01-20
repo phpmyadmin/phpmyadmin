@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -30,7 +32,7 @@ class NormalizationTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
@@ -41,7 +43,7 @@ class NormalizationTest extends TestCase
         $GLOBALS['table'] = 'PMA_table';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $_REQUEST['change_column'] = null;
+        $_POST['change_column'] = null;
 
         //$_SESSION
 
@@ -60,9 +62,9 @@ class NormalizationTest extends TestCase
             ->will(
                 $this->returnValue(
                     [
-                        "id"=>["Type"=>"integer"],
-                        "col1"=>["Type"=>'varchar(100)'],
-                        "col2"=>["Type"=>'DATETIME']
+                        "id" => ["Type" => "integer"],
+                        "col1" => ["Type" => 'varchar(100)'],
+                        "col2" => ["Type" => 'DATETIME'],
                     ]
                 )
             );
@@ -70,18 +72,37 @@ class NormalizationTest extends TestCase
             ->method('getColumnNames')
             ->will($this->returnValue(["id", "col1", "col2"]));
         $map = [
-          ['PMA_db', 'PMA_table1', DatabaseInterface::CONNECT_USER, []],
-          [
-            'PMA_db', 'PMA_table', DatabaseInterface::CONNECT_USER,
-            [['Key_name'=>'PRIMARY', 'Column_name'=>'id']]
-          ],
-          [
-              'PMA_db', 'PMA_table2', DatabaseInterface::CONNECT_USER,
-              [
-                ['Key_name'=>'PRIMARY', 'Column_name'=>'id'],
-                ['Key_name'=>'PRIMARY', 'Column_name'=>'col1']
-              ]
-          ],
+            [
+                'PMA_db',
+                'PMA_table1',
+                DatabaseInterface::CONNECT_USER,
+                [],
+            ],
+            [
+                'PMA_db',
+                'PMA_table',
+                DatabaseInterface::CONNECT_USER,
+                [[
+                    'Key_name' => 'PRIMARY',
+                    'Column_name' => 'id',
+                ],
+                ],
+            ],
+            [
+                'PMA_db',
+                'PMA_table2',
+                DatabaseInterface::CONNECT_USER,
+                [
+                    [
+                        'Key_name' => 'PRIMARY',
+                        'Column_name' => 'id',
+                    ],
+                    [
+                        'Key_name' => 'PRIMARY',
+                        'Column_name' => 'col1',
+                    ],
+                ],
+            ],
         ];
         $dbi->expects($this->any())
             ->method('getTableIndexes')
@@ -104,13 +125,13 @@ class NormalizationTest extends TestCase
     public function testGetHtmlForColumnsList()
     {
         $db = "PMA_db";
-        $table= "PMA_table";
+        $table = "PMA_table";
         $this->assertContains(
             '<option value="id">id [ integer ]</option>',
             $this->normalization->getHtmlForColumnsList($table, $db)
         );
         $this->assertEquals(
-            '<input type="checkbox" value="col1"/>col1 [ varchar(100) ]</br>',
+            '<input type="checkbox" value="col1">col1 [ varchar(100) ]<br>',
             $this->normalization->getHtmlForColumnsList($table, $db, 'String', 'checkbox')
         );
     }
@@ -143,7 +164,7 @@ class NormalizationTest extends TestCase
     public function testGetHtmlFor1NFStep1()
     {
         $db = "PMA_db";
-        $table= "PMA_table";
+        $table = "PMA_table";
         $normalizedTo = '1nf';
         $result = $this->normalization->getHtmlFor1NFStep1($db, $table, $normalizedTo);
         $this->assertContains(
@@ -190,7 +211,7 @@ class NormalizationTest extends TestCase
     public function testGetHtmlContentsFor1NFStep2()
     {
         $db = "PMA_db";
-        $table= "PMA_table1";
+        $table = "PMA_table1";
         $result = $this->normalization->getHtmlContentsFor1NFStep2($db, $table);
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('legendText', $result);
@@ -220,7 +241,7 @@ class NormalizationTest extends TestCase
     public function testGetHtmlContentsFor1NFStep4()
     {
         $db = "PMA_db";
-        $table= "PMA_table";
+        $table = "PMA_table";
         $result = $this->normalization->getHtmlContentsFor1NFStep4($db, $table);
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('legendText', $result);
@@ -233,7 +254,7 @@ class NormalizationTest extends TestCase
             $result['extra']
         );
         $this->assertContains(
-            '<input type="submit" id="removeRedundant"',
+            '<input class="btn btn-secondary" type="submit" id="removeRedundant"',
             $result['extra']
         );
     }
@@ -246,7 +267,7 @@ class NormalizationTest extends TestCase
     public function testGetHtmlContentsFor1NFStep3()
     {
         $db = "PMA_db";
-        $table= "PMA_table";
+        $table = "PMA_table";
         $result = $this->normalization->getHtmlContentsFor1NFStep3($db, $table);
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('legendText', $result);
@@ -260,7 +281,7 @@ class NormalizationTest extends TestCase
             $result['extra']
         );
         $this->assertContains(
-            '<input type="submit" id="moveRepeatingGroup"',
+            '<input class="btn btn-secondary" type="submit" id="moveRepeatingGroup"',
             $result['extra']
         );
         $this->assertEquals(json_encode(['id']), $result['primary_key']);
@@ -274,7 +295,7 @@ class NormalizationTest extends TestCase
     public function testGetHtmlFor2NFstep1()
     {
         $db = "PMA_db";
-        $table= "PMA_table";
+        $table = "PMA_table";
         $result = $this->normalization->getHtmlFor2NFstep1($db, $table);
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('legendText', $result);
@@ -303,8 +324,8 @@ class NormalizationTest extends TestCase
      */
     public function testGetHtmlForNewTables2NF()
     {
-        $table= "PMA_table";
-        $partialDependencies = ['col1'=>['col2']];
+        $table = "PMA_table";
+        $partialDependencies = ['col1' => ['col2']];
         $result = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $table);
         $this->assertContains(
             '<input type="text" name="col1"',
@@ -319,12 +340,12 @@ class NormalizationTest extends TestCase
      */
     public function testCreateNewTablesFor2NF()
     {
-        $table= "PMA_table";
+        $table = "PMA_table";
         $db = 'PMA_db';
         $tablesName = new stdClass();
         $tablesName->id = 'PMA_table';
         $tablesName->col1 = 'PMA_table1';
-        $partialDependencies = ['id'=>['col2']];
+        $partialDependencies = ['id' => ['col2']];
         $result = $this->normalization->createNewTablesFor2NF(
             $partialDependencies,
             $tablesName,
@@ -335,7 +356,10 @@ class NormalizationTest extends TestCase
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('queryError', $result);
-        $partialDependencies = ['id'=>['col2'], 'col1'=>['col2']];
+        $partialDependencies = [
+            'id' => ['col2'],
+            'col1' => ['col2'],
+        ];
         $result1 = $this->normalization->createNewTablesFor2NF(
             $partialDependencies,
             $tablesName,
@@ -354,7 +378,7 @@ class NormalizationTest extends TestCase
      */
     public function testGetHtmlForNewTables3NF()
     {
-        $tables= ["PMA_table"=>['col1']];
+        $tables = ["PMA_table" => ['col1']];
         $db = 'PMA_db';
         $dependencies = new stdClass();
         $dependencies->col1 = ['col2'];
@@ -363,12 +387,20 @@ class NormalizationTest extends TestCase
             [
                 'html' => '',
                 'success' => true,
-                'newTables' => []
-                ],
+                'newTables' => [],
+            ],
             $result
         );
-        $tables= ["PMA_table"=>['col1', 'PMA_table']];
-        $dependencies->PMA_table = ['col4', 'col5'];
+        $tables = [
+            "PMA_table" => [
+                'col1',
+                'PMA_table',
+            ],
+        ];
+        $dependencies->PMA_table = [
+            'col4',
+            'col5',
+        ];
         $result1 = $this->normalization->getHtmlForNewTables3NF($dependencies, $tables, $db);
         $this->assertInternalType('array', $result1);
         $this->assertContains(
@@ -380,13 +412,13 @@ class NormalizationTest extends TestCase
                 'PMA_table' =>  [
                     'PMA_table' =>  [
                         'pk' => 'col1',
-                        'nonpk' => 'col2'
+                        'nonpk' => 'col2',
                     ],
                     'table2' =>  [
                         'pk' => 'id',
-                        'nonpk' => 'col4, col5'
+                        'nonpk' => 'col4, col5',
                     ]
-                ]
+                ],
             ],
             $result1['newTables']
         );
@@ -406,7 +438,12 @@ class NormalizationTest extends TestCase
         $cols1 = new stdClass();
         $cols1->pk = 'col2';
         $cols1->nonpk = 'col3, col4';
-        $newTables = ['PMA_table'=>['PMA_table'=>$cols, 'table1'=>$cols1]];
+        $newTables = [
+            'PMA_table' => [
+                'PMA_table' => $cols,
+                'table1' => $cols1
+            ],
+        ];
         $result = $this->normalization->createNewTablesFor3NF(
             $newTables,
             $db
@@ -436,7 +473,7 @@ class NormalizationTest extends TestCase
         $primaryColumns = 'id,col1';
         $newTable = 'PMA_newTable';
         $newColumn = 'PMA_newCol';
-        $table= "PMA_table";
+        $table = "PMA_table";
         $db = 'PMA_db';
         $result = $this->normalization->moveRepeatingGroup(
             $repeatingColumns,
@@ -463,7 +500,7 @@ class NormalizationTest extends TestCase
     public function testGetHtmlFor3NFstep1()
     {
         $db = "PMA_db";
-        $tables= ["PMA_table"];
+        $tables = ["PMA_table"];
         $result = $this->normalization->getHtmlFor3NFstep1($db, $tables);
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('legendText', $result);
@@ -506,7 +543,8 @@ class NormalizationTest extends TestCase
         $choices = [
             '1nf' => __('First step of normalization (1NF)'),
             '2nf'      => __('Second step of normalization (1NF+2NF)'),
-            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')];
+            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')
+        ];
 
         $htmlTmp = Util::getRadioFields(
             'normalizeTo',
@@ -524,7 +562,7 @@ class NormalizationTest extends TestCase
      */
     public function testFindPartialDependencies()
     {
-        $table= "PMA_table2";
+        $table = "PMA_table2";
         $db = 'PMA_db';
         $result = $this->normalization->findPartialDependencies($table, $db);
         $this->assertContains(
@@ -545,10 +583,22 @@ class NormalizationTest extends TestCase
         $method = $class->getMethod('getAllCombinationPartialKeys');
         $method->setAccessible(true);
 
-        $primaryKey = ['id', 'col1', 'col2'];
+        $primaryKey = [
+            'id',
+            'col1',
+            'col2',
+        ];
         $result = $method->invokeArgs($this->normalization, [$primaryKey]);
         $this->assertEquals(
-            ['', 'id', 'col1', 'col1,id', 'col2', 'col2,id', 'col2,col1'],
+            [
+                '',
+                'id',
+                'col1',
+                'col1,id',
+                'col2',
+                'col2,id',
+                'col2,col1',
+            ],
             $result
         );
     }

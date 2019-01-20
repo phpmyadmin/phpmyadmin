@@ -5,20 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Console;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Menu;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
-use PhpMyAdmin\RecentFavoriteTable;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Scripts;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Util;
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -119,18 +110,25 @@ class Header
     private $userPreferences;
 
     /**
+     * @var Template
+     */
+    private $template;
+
+    /**
      * Creates a new class instance
      */
     public function __construct()
     {
+        $this->template = new Template();
+
         $this->_isEnabled = true;
         $this->_isAjax = false;
         $this->_bodyId = '';
-        $this->_title  = '';
+        $this->_title = '';
         $this->_console = new Console();
         $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $this->_menu   = new Menu(
+        $this->_menu = new Menu(
             $GLOBALS['server'],
             $db,
             $table
@@ -159,7 +157,7 @@ class Header
      *
      * @return void
      */
-    private function _addDefaultScripts()
+    private function _addDefaultScripts(): void
     {
         // Localised strings
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
@@ -168,6 +166,7 @@ class Header
         $this->_scripts->addFile('vendor/sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
+        $this->_scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
         $this->_scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->_scripts->addFile('vendor/js.cookie.js');
         $this->_scripts->addFile('vendor/jquery/jquery.mousewheel.js');
@@ -192,7 +191,7 @@ class Header
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
-        $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
+        $this->_scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -208,6 +207,9 @@ class Header
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings.js');
+        if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
+            $this->_scripts->addFile('drag_drop_import.js');
+        }
         if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
             $this->_scripts->addFile('shortcuts_handler.js');
         }
@@ -220,22 +222,23 @@ class Header
      *
      * @return array
      */
-    public function getJsParams()
+    public function getJsParams(): array
     {
         $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $pftext = isset($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
 
-        $params = array(
+        $params = [
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
             ),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
             'table' => $table,
-            'db'    => $db,
+            'db' => $db,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'show_databases_navigation_as_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
@@ -252,13 +255,13 @@ class Header
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
-            'session_gc_maxlifetime' => (int)ini_get('session.gc_maxlifetime'),
+            'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => (isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isUserType('logged') : false),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
             'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
-            'arg_separator' => URL::getArgSeparator(),
+            'arg_separator' => Url::getArgSeparator(),
             'PMA_VERSION' => PMA_VERSION
-        );
+        ];
         if (isset($GLOBALS['cfg']['Server'])
             && isset($GLOBALS['cfg']['Server']['auth_type'])
         ) {
@@ -277,7 +280,7 @@ class Header
      *
      * @return string
      */
-    public function getJsParamsCode()
+    public function getJsParamsCode(): string
     {
         $params = $this->getJsParams();
         foreach ($params as $key => $value) {
@@ -295,7 +298,7 @@ class Header
      *
      * @return void
      */
-    public function disable()
+    public function disable(): void
     {
         $this->_isEnabled = false;
     }
@@ -308,9 +311,9 @@ class Header
      *
      * @return void
      */
-    public function setAjax($isAjax)
+    public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = (boolean) $isAjax;
+        $this->_isAjax = $isAjax;
         $this->_console->setAjax($isAjax);
     }
 
@@ -319,7 +322,7 @@ class Header
      *
      * @return Scripts object
      */
-    public function getScripts()
+    public function getScripts(): Scripts
     {
         return $this->_scripts;
     }
@@ -329,7 +332,7 @@ class Header
      *
      * @return Menu object
      */
-    public function getMenu()
+    public function getMenu(): Menu
     {
         return $this->_menu;
     }
@@ -341,7 +344,7 @@ class Header
      *
      * @return void
      */
-    public function setBodyId($id)
+    public function setBodyId(string $id): void
     {
         $this->_bodyId = htmlspecialchars($id);
     }
@@ -353,7 +356,7 @@ class Header
      *
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle(string $title): void
     {
         $this->_title = htmlspecialchars($title);
     }
@@ -363,7 +366,7 @@ class Header
      *
      * @return void
      */
-    public function disableMenuAndConsole()
+    public function disableMenuAndConsole(): void
     {
         $this->_menuEnabled = false;
         $this->_console->disable();
@@ -374,7 +377,7 @@ class Header
      *
      * @return void
      */
-    public function disableWarnings()
+    public function disableWarnings(): void
     {
         $this->_warningsEnabled = false;
     }
@@ -384,7 +387,7 @@ class Header
      *
      * @return void
      */
-    public function enablePrintView()
+    public function enablePrintView(): void
     {
         $this->disableMenuAndConsole();
         $this->setTitle(__('Print view') . ' - phpMyAdmin ' . PMA_VERSION);
@@ -396,16 +399,17 @@ class Header
      *
      * @return string The header
      */
-    public function getDisplay()
+    public function getDisplay(): string
     {
         $retval = '';
         if (! $this->_headerIsSent) {
             if (! $this->_isAjax && $this->_isEnabled) {
                 $this->sendHttpHeaders();
-                $retval .= $this->_getHtmlStart();
-                $retval .= $this->_getMetaTags();
-                $retval .= $this->_getLinkTags();
-                $retval .= $this->getTitleTag();
+
+                $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
+                $uniqueValue = $GLOBALS['PMA_Config']->getThemeUniqueValue();
+                $themePath = $GLOBALS['pmaThemePath'];
+                $version = self::getVersionParameter();
 
                 // The user preferences have been merged at this point
                 // so we can conditionally add CodeMirror
@@ -430,11 +434,22 @@ class Header
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
-                $retval .= $this->_scripts->getDisplay();
-                $retval .= '<noscript>';
-                $retval .= '<style>html{display:block}</style>';
-                $retval .= '</noscript>';
-                $retval .= $this->_getBodyStart();
+
+                $retval .= $this->template->render('header/header', [
+                    'lang' => $GLOBALS['lang'],
+                    'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
+                    'is_print_view' => $this->_isPrintView,
+                    'base_dir' => $baseDir,
+                    'unique_value' => $uniqueValue,
+                    'theme_path' => $themePath,
+                    'version' => $version,
+                    'text_dir' => $GLOBALS['text_dir'],
+                    'server' => $GLOBALS['server'] ?? null,
+                    'title' => $this->getTitleTag(),
+                    'scripts' => $this->_scripts->getDisplay(),
+                    'body_id' => $this->_bodyId,
+                ]);
+
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $nav = new Navigation();
                     $retval .= $nav->getDisplay();
@@ -474,7 +489,7 @@ class Header
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
             }
-            if ($this->_isEnabled && isset($_REQUEST['recent_table']) && strlen($_REQUEST['recent_table'])) {
+            if ($this->_isEnabled && empty($_REQUEST['recent_table'])) {
                 $retval .= $this->_addRecentTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']
@@ -490,7 +505,7 @@ class Header
      *
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         $retval = '';
         $message = '';
@@ -517,7 +532,7 @@ class Header
      *
      * @return void
      */
-    public function sendHttpHeaders()
+    public function sendHttpHeaders(): void
     {
         if (defined('TESTSUITE')) {
             return;
@@ -528,8 +543,8 @@ class Header
          * Sends http headers
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
-        if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+        if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
             $captcha_url
                 = ' https://apis.google.com https://www.google.com/recaptcha/'
@@ -538,12 +553,18 @@ class Header
             $captcha_url = '';
         }
         /* Prevent against ClickJacking by disabling framing */
-        if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
+        if (strtolower((string) $GLOBALS['cfg']['AllowThirdPartyFraming']) === 'sameorigin') {
+            header(
+                'X-Frame-Options: SAMEORIGIN'
+            );
+        } elseif ($GLOBALS['cfg']['AllowThirdPartyFraming'] !== true) {
             header(
                 'X-Frame-Options: DENY'
             );
         }
-        header('Referrer-Policy: no-referrer');
+        header(
+            'Referrer-Policy: no-referrer'
+        );
         header(
             "Content-Security-Policy: default-src 'self' "
             . $captcha_url
@@ -624,96 +645,15 @@ class Header
     }
 
     /**
-     * Returns the DOCTYPE and the start HTML tag
-     *
-     * @return string DOCTYPE and HTML tags
-     */
-    private function _getHtmlStart()
-    {
-        $lang = $GLOBALS['lang'];
-        $dir  = $GLOBALS['text_dir'];
-
-        $retval  = "<!DOCTYPE HTML>";
-        $retval .= "<html lang='$lang' dir='$dir'>";
-        $retval .= '<head>';
-
-        return $retval;
-    }
-
-    /**
-     * Returns the META tags
-     *
-     * @return string the META tags
-     */
-    private function _getMetaTags()
-    {
-        $retval  = '<meta charset="utf-8" />';
-        $retval .= '<meta name="referrer" content="no-referrer" />';
-        $retval .= '<meta name="robots" content="noindex,nofollow" />';
-        $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge" />';
-        $retval .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
-        if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
-            $retval .= '<style id="cfs-style">html{display: none;}</style>';
-        }
-        return $retval;
-    }
-
-    /**
-     * Returns the LINK tags for the favicon and the stylesheets
-     *
-     * @return string the LINK tags
-     */
-    private function _getLinkTags()
-    {
-        $retval = '<link rel="icon" href="favicon.ico" '
-            . 'type="image/x-icon" />'
-            . '<link rel="shortcut icon" href="favicon.ico" '
-            . 'type="image/x-icon" />';
-        // stylesheets
-        $basedir    = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
-        $theme_path = $GLOBALS['pmaThemePath'];
-        $v          = self::getVersionParameter();
-
-        if ($this->_isPrintView) {
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'print.css?' . $v . '" />';
-        } else {
-            // load jQuery's CSS prior to our theme's CSS, to let the theme
-            // override jQuery's CSS
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui.css" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/vendor/codemirror/lib/codemirror.css?' . $v . '" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/vendor/codemirror/addon/hint/show-hint.css?' . $v . '" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/vendor/codemirror/addon/lint/lint.css?' . $v . '" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'phpmyadmin.css.php?'
-                . 'nocache=' . $theme_id . $GLOBALS['text_dir']
-                . (isset($GLOBALS['server']) ? '&amp;server=' . $GLOBALS['server'] : '')
-                . '" />';
-            // load Print view's CSS last, so that it overrides all other CSS while
-            // 'printing'
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/css/printview.css?' . $v . '" media="print" id="printcss"/>';
-        }
-
-        return $retval;
-    }
-
-    /**
      * Returns the TITLE tag
      *
      * @return string the TITLE tag
      */
-    public function getTitleTag()
+    public function getTitleTag(): string
     {
-        $retval  = "<title>";
-        $retval .= $this->_getPageTitle();
-        $retval .= "</title>";
-        return $retval;
+        return $this->template->render('header/title_tag', [
+            'title' => $this->getPageTitle(),
+        ]);
     }
 
     /**
@@ -722,7 +662,7 @@ class Header
      *
      * @return string
      */
-    private function _getPageTitle()
+    private function getPageTitle(): string
     {
         if (strlen($this->_title) == 0) {
             if ($GLOBALS['server'] > 0) {
@@ -746,27 +686,11 @@ class Header
     }
 
     /**
-     * Returns the close tag to the HEAD
-     * and the start tag for the BODY
-     *
-     * @return string HEAD and BODY tags
-     */
-    private function _getBodyStart()
-    {
-        $retval = "</head><body";
-        if (strlen($this->_bodyId)) {
-            $retval .= " id='" . $this->_bodyId . "'";
-        }
-        $retval .= ">";
-        return $retval;
-    }
-
-    /**
      * Returns some warnings to be displayed at the top of the page
      *
      * @return string The warnings
      */
-    private function _getWarnings()
+    private function _getWarnings(): string
     {
         $retval = '';
         if ($this->_warningsEnabled) {
@@ -787,15 +711,17 @@ class Header
      *
      * @return string
      */
-    private function _addRecentTable($db, $table)
+    private function _addRecentTable(string $db, string $table): string
     {
         $retval = '';
         if ($this->_menuEnabled
             && strlen($table) > 0
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = RecentFavoriteTable::getInstance('recent')
-                              ->add($db, $table);
+            $tmp_result = RecentFavoriteTable::getInstance('recent')->add(
+                $db,
+                $table
+            );
             if ($tmp_result === true) {
                 $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
@@ -812,7 +738,7 @@ class Header
      *
      * @return string urlenocded pma version as a parameter
      */
-    public static function getVersionParameter()
+    public static function getVersionParameter(): string
     {
         return "v=" . urlencode(PMA_VERSION);
     }

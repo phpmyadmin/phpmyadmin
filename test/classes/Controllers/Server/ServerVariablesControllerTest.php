@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Core;
@@ -15,6 +17,8 @@ use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use ReflectionClass;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
 
 /**
  * Tests for ServerVariablesController class
@@ -33,7 +37,7 @@ class ServerVariablesControllerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$_REQUEST
         $_REQUEST['log'] = "index1";
@@ -53,37 +57,37 @@ class ServerVariablesControllerTest extends PmaTestCase
             ->getMock();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
-        $server_session_variable = array(
+        $server_session_variable = [
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "13",
             "automatic_sp_privileges" => "ON",
             "back_log" => "50",
             "big_tables" => "OFF",
-        );
+        ];
 
-        $server_global_variables = array(
+        $server_global_variables = [
             "auto_increment_increment" => "0",
             "auto_increment_offset" => "12"
-        );
+        ];
 
-        $fetchResult = array(
-            array(
+        $fetchResult = [
+            [
                 "SHOW SESSION VARIABLES;",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_session_variable
-            ),
-            array(
+                $server_session_variable,
+            ],
+            [
                 "SHOW GLOBAL VARIABLES;",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_global_variables
-            )
-        );
+                $server_global_variables,
+            ],
+        ];
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));
@@ -120,13 +124,19 @@ class ServerVariablesControllerTest extends PmaTestCase
         );
         $ctrl = $container->get('ServerVariablesController');
 
-        //Call the test function
-        $name_for_value_byte = "binlog_cache_size";
-        $name_for_value_not_byte = "auto_increment_increment";
-        $name_for_value_not_num = "PMA_key";
+        $nameForValueByte = "byte_variable";
+        $nameForValueNotByte = "not_a_byte_variable";
+
+        $slimData = new KBSlimData();
+        $slimData->addVariable($nameForValueByte, "byte", null);
+        $slimData->addVariable($nameForValueNotByte, "string", null);
+        KBSearch::loadTestData($slimData);
 
         //name is_numeric and the value type is byte
-        $args = array($name_for_value_byte, "3");
+        $args = [
+            $nameForValueByte,
+            "3",
+        ];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
@@ -135,7 +145,10 @@ class ServerVariablesControllerTest extends PmaTestCase
         $this->assertEquals(true, $isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
-        $args = array($name_for_value_not_byte, "3");
+        $args = [
+            $nameForValueNotByte,
+            "3",
+        ];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '3',
@@ -144,7 +157,10 @@ class ServerVariablesControllerTest extends PmaTestCase
         $this->assertEquals(false, $isHtmlFormatted);
 
         //value is not a number
-        $args = array($name_for_value_not_byte, "value");
+        $args = [
+            $nameForValueNotByte,
+            "value",
+        ];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             'value',
@@ -304,7 +320,10 @@ class ServerVariablesControllerTest extends PmaTestCase
         $formatVariable = $class->getMethod('_formatVariable');
         $formatVariable->setAccessible(true);
 
-        $args = array($name, "12");
+        $args = [
+            $name,
+            "12",
+        ];
         list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
         $this->assertContains(
             $value,
@@ -317,7 +336,10 @@ class ServerVariablesControllerTest extends PmaTestCase
             $html
         );
 
-        $args = array($name, "13");
+        $args = [
+            $name,
+            "13",
+        ];
         list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
         $this->assertContains(
             $value,

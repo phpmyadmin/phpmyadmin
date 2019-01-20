@@ -6,9 +6,12 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage TextFileUpload
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use stdClass;
 
 /**
  * Provides common methods for all of the text file upload
@@ -35,13 +38,13 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         return $buffer;
     }
@@ -74,14 +77,14 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
         $idindex
     ) {
         $html = '';
-        if (!empty($value)) {
+        if (! empty($value)) {
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-                . '" value="' . htmlspecialchars($value) . '"/>';
+                . '" value="' . htmlspecialchars($value) . '">';
             $html .= '<input type="hidden" name="fields' . $column_name_appendix
-                . '" value="' . htmlspecialchars($value) . '"/>';
+                . '" value="' . htmlspecialchars($value) . '">';
         }
         $html .= '<input type="file" name="fields_upload'
-            . $column_name_appendix . '"/>';
+            . $column_name_appendix . '">';
 
         return $html;
     }

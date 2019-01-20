@@ -15,11 +15,15 @@ var ErrorReport = {
      * @return void
      */
     error_handler: function (exception) {
+        // issue: 14359
+        if (JSON.stringify(ErrorReport._last_exception) === JSON.stringify(exception)) {
+            return;
+        }
         if (exception.name === null || typeof(exception.name) === 'undefined') {
             exception.name = ErrorReport._extractExceptionName(exception);
         }
         ErrorReport._last_exception = exception;
-        $.get('error_report.php', {
+        $.post('error_report.php', {
             ajax_request: true,
             server: PMA_commonParams.get('server'),
             get_settings: true,
@@ -107,7 +111,7 @@ var ErrorReport = {
                         }
                     });
             }
-        }); // end $.get()
+        });
     },
     /**
      * Shows the small notification that asks for user permission

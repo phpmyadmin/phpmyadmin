@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
@@ -56,7 +58,7 @@ class ScriptsTest extends PmaTestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the private method.
+     * @return mixed the output from the private method.
      */
     private function _callPrivateFunction($name, $params)
     {
@@ -80,14 +82,14 @@ class ScriptsTest extends PmaTestCase
             . 'src="js/common.js?v=' . PMA_VERSION . '"></script>' . "\n",
             $this->_callPrivateFunction(
                 '_includeFiles',
-                array(
-                    array(
-                        array(
+                [
+                    [
+                        [
                             'has_onload' => false,
                             'filename' => 'common.js'
-                        )
-                    )
-                )
+                        ],
+                    ],
+                ]
             )
         );
     }
@@ -113,7 +115,6 @@ class ScriptsTest extends PmaTestCase
             . '// ]]></script>@',
             $this->object->getDisplay()
         );
-
     }
 
     /**
@@ -136,7 +137,7 @@ $(function() {});
         );
     }
 
-     /**
+    /**
      * test for getFiles
      *
      * @return void
@@ -148,10 +149,16 @@ $(function() {});
 
         $this->object->addFile('common.js');
         $this->assertEquals(
-            array(
-                array('name' => 'vendor/codemirror/lib/codemirror.js', 'fire' => 0),
-                array('name' => 'common.js', 'fire' => 1)
-            ),
+            [
+                [
+                    'name' => 'vendor/codemirror/lib/codemirror.js',
+                    'fire' => 0,
+                ],
+                [
+                    'name' => 'common.js',
+                    'fire' => 1,
+                ],
+            ],
             $this->object->getFiles()
         );
     }
@@ -166,7 +173,7 @@ $(function() {});
         // Assert empty _files property of
         // Scripts
         $this->assertAttributeEquals(
-            array(),
+            [],
             '_files',
             $this->object
         );
@@ -174,20 +181,19 @@ $(function() {});
         // Add one script file
         $file = 'common.js';
         $hash = 'd7716810d825f4b55d18727c3ccb24e6';
-        $_files = array(
-            $hash => array(
+        $_files = [
+            $hash => [
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'params' => array(),
-            )
-        );
+                'params' => [],
+            ],
+        ];
         $this->object->addFile($file);
         $this->assertAttributeEquals(
             $_files,
             '_files',
             $this->object
         );
-
     }
 
     /**
@@ -197,23 +203,23 @@ $(function() {});
      */
     public function testAddFiles()
     {
-        $filenames = array(
+        $filenames = [
             'common.js',
             'sql.js',
             'common.js',
-        );
-        $_files = array(
-            'd7716810d825f4b55d18727c3ccb24e6' => array(
+        ];
+        $_files = [
+            'd7716810d825f4b55d18727c3ccb24e6' => [
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'params' => array(),
-            ),
-            '347a57484fcd6ea6d8a125e6e1d31f78' => array(
+                'params' => [],
+            ],
+            '347a57484fcd6ea6d8a125e6e1d31f78' => [
                 'has_onload' => 1,
                 'filename' => 'sql.js',
-                'params' => array(),
-            ),
-        );
+                'params' => [],
+            ],
+        ];
         $this->object->addFiles($filenames);
         $this->assertAttributeEquals(
             $_files,

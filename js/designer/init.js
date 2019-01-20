@@ -17,23 +17,22 @@ AJAX.registerTeardown('designer/init.js', function () {
 });
 
 AJAX.registerOnload('designer/init.js', function () {
-    $('.trigger').click(function () {
+    $('.trigger').on('click', function () {
         $('.panel').toggle('fast');
         $(this).toggleClass('active');
         $('#ab').accordion('refresh');
         return false;
     });
-    var tables_data = JSON.parse($('#script_tables').html());
 
-    j_tabs             = tables_data.j_tabs;
-    h_tabs             = tables_data.h_tabs;
-    contr              = JSON.parse($('#script_contr').html());
-    display_field      = JSON.parse($('#script_display_field').html());
+    j_tabs             = designer_config.scriptTables.j_tabs;
+    h_tabs             = designer_config.scriptTables.h_tabs;
+    contr              = designer_config.scriptContr;
+    display_field      = designer_config.scriptDisplayField;
 
-    server             = $('#script_server').html();
-    db                 = $('#script_db').html();
-    selected_page      = $('#script_display_page').html() === '' ? '-1' : $('#script_display_page').html();
-    designer_tables_enabled = $('#designer_tables_enabled').html() === '1';
+    server             = designer_config.server;
+    db                 = designer_config.db;
+    selected_page      = designer_config.displayPage;
+    designer_tables_enabled = designer_config.tablesEnabled;
 
     Main();
 
@@ -45,23 +44,23 @@ AJAX.registerOnload('designer/init.js', function () {
         });
     }
 
-    $('#query_Aggregate_Button').click(function () {
+    $('#query_Aggregate_Button').on('click', function () {
         document.getElementById('query_Aggregate').style.display = 'none';
     });
 
-    $('#query_having_button').click(function () {
+    $('#query_having_button').on('click', function () {
         document.getElementById('query_having').style.display = 'none';
     });
 
-    $('#query_rename_to_button').click(function () {
+    $('#query_rename_to_button').on('click', function () {
         document.getElementById('query_rename_to').style.display = 'none';
     });
 
-    $('#build_query_button').click(function () {
+    $('#build_query_button').on('click', function () {
         build_query('SQL Query on Database', 0);
     });
 
-    $('#query_where_button').click(function () {
+    $('#query_where_button').on('click', function () {
         document.getElementById('query_where').style.display = 'none';
     });
 });

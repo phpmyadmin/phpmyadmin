@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\File;
@@ -38,6 +40,9 @@ class ImportShpTest extends PmaTestCase
      */
     protected function setUp()
     {
+        if (! defined('PMA_IS_WINDOWS')) {
+            define('PMA_IS_WINDOWS', false);
+        }
         //setting
         $GLOBALS['plugin_param'] = 'table';
         $GLOBALS['finished'] = false;
@@ -111,14 +116,13 @@ class ImportShpTest extends PmaTestCase
             $properties->getExtension()
         );
         $this->assertEquals(
-            array(),
+            [],
             $properties->getOptions()
         );
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()
         );
-
     }
 
     /**

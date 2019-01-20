@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PHPUnit\Framework\TestCase;
@@ -52,7 +54,7 @@ class GisGeometryTest extends TestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the protected method.
+     * @return mixed the output from the protected method.
      */
     private function _callProtectedFunction($name, $params)
     {
@@ -78,7 +80,10 @@ class GisGeometryTest extends TestCase
             $output,
             $this->_callProtectedFunction(
                 'setMinMax',
-                array($point_set, $min_max)
+                [
+                    $point_set,
+                    $min_max,
+                ]
             )
         );
     }
@@ -86,37 +91,37 @@ class GisGeometryTest extends TestCase
     /**
      * data provider for testSetMinMax
      *
-     * @return data for testSetMinMax
+     * @return array data for testSetMinMax
      */
     public function providerForTestSetMinMax()
     {
-        return array(
-            array(
+        return [
+            [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                array(),
-                array(
+                [],
+                [
                     'minX' => 12,
                     'maxX' => 69,
                     'minY' => 23,
-                    'maxY' => 78
-                )
-            ),
-            array(
+                    'maxY' => 78,
+                ],
+            ],
+            [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                array(
+                [
                     'minX' => 2,
                     'maxX' => 29,
                     'minY' => 23,
-                    'maxY' => 128
-                ),
-                array(
+                    'maxY' => 128,
+                ],
+                [
                     'minX' => 2,
                     'maxX' => 69,
                     'minY' => 23,
-                    'maxY' => 128
-                )
-            )
-        );
+                    'maxY' => 128,
+                ],
+            ],
+        ];
     }
 
     /**
@@ -134,7 +139,7 @@ class GisGeometryTest extends TestCase
             $output,
             $this->_callProtectedFunction(
                 'generateParams',
-                array($value)
+                [$value]
             )
         );
     }
@@ -142,33 +147,33 @@ class GisGeometryTest extends TestCase
     /**
      * data provider for testGenerateParams
      *
-     * @return data for testGenerateParams
+     * @return array data for testGenerateParams
      */
     public function providerForTestGenerateParams()
     {
-        return array(
-            array(
+        return [
+            [
                 "'MULTIPOINT(125 50,156 25,178 43,175 80)',125",
-                array(
+                [
                     'srid' => '125',
                     'wkt'  => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
-                ),
-            ),
-            array(
+                ],
+            ],
+            [
                 'MULTIPOINT(125 50,156 25,178 43,175 80)',
-                array(
+                [
                     'srid' => '0',
                     'wkt'  => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
-                ),
-            ),
-            array(
+                ],
+            ],
+            [
                 "foo",
-                array(
+                [
                     'srid' => '0',
                     'wkt'  => '',
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
     }
 
     /**
@@ -188,7 +193,11 @@ class GisGeometryTest extends TestCase
             $output,
             $this->_callProtectedFunction(
                 'extractPoints',
-                array($point_set, $scale_data, $linear)
+                [
+                    $point_set,
+                    $scale_data,
+                    $linear,
+                ]
             )
         );
     }
@@ -196,57 +205,91 @@ class GisGeometryTest extends TestCase
     /**
      * data provider for testExtractPoints
      *
-     * @return data for testExtractPoints
+     * @return array data for testExtractPoints
      */
     public function providerForTestExtractPoints()
     {
-        return array(
+        return [
             // with no scale data
-            array(
+            [
                 '12 35,48 75,69 23',
                 null,
                 false,
-                array(
-                    0 => array(12, 35),
-                    1 => array(48, 75),
-                    2 => array(69, 23),
-                ),
-            ),
+                [
+                    0 => [
+                        12,
+                        35,
+                    ],
+                    1 => [
+                        48,
+                        75,
+                    ],
+                    2 => [
+                        69,
+                        23,
+                    ],
+                ],
+            ],
             // with scale data
-            array(
+            [
                 '12 35,48 75,69 23',
-                array(
+                [
                     'x'      => 5,
                     'y'      => 5,
                     'scale'  => 2,
                     'height' => 200,
-                ),
+                ],
                 false,
-                array(
-                    0 => array(14, 140),
-                    1 => array(86, 60),
-                    2 => array(128, 164),
-                ),
-            ),
+                [
+                    0 => [
+                        14,
+                        140,
+                    ],
+                    1 => [
+                        86,
+                        60,
+                    ],
+                    2 => [
+                        128,
+                        164,
+                    ],
+                ],
+            ],
             // linear output
-            array(
+            [
                 '12 35,48 75,69 23',
                 null,
                 true,
-                array(12, 35, 48, 75, 69, 23),
-            ),
+                [
+                    12,
+                    35,
+                    48,
+                    75,
+                    69,
+                    23,
+                ],
+            ],
             // if a single part of a coordinate is empty
-            array(
+            [
                 '12 35,48 75,69 ',
                 null,
                 false,
-                array(
-                    0 => array(12, 35),
-                    1 => array(48, 75),
-                    2 => array(0, 0),
-                ),
-            ),
-        );
+                [
+                    0 => [
+                        12,
+                        35,
+                    ],
+                    1 => [
+                        48,
+                        75,
+                    ],
+                    2 => [
+                        0,
+                        0,
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -265,7 +308,10 @@ class GisGeometryTest extends TestCase
             $output,
             $this->_callProtectedFunction(
                 'getBoundsForOl',
-                array($srid, $scale_data)
+                [
+                    $srid,
+                    $scale_data,
+                ]
             )
         );
     }
@@ -277,25 +323,25 @@ class GisGeometryTest extends TestCase
      */
     public function providerForTestGetBoundsForOl()
     {
-        return array(
-            array(
+        return [
+            [
                 4326,
-                array(
+                [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
-                ),
+                ],
                 'bound = new OpenLayers.Bounds(); '
                     . 'bound.extend(new OpenLayers.LonLat(0, 0).transform('
                     . 'new OpenLayers.Projection("EPSG:4326"), '
                     . 'map.getProjectionObject())); '
                     . 'bound.extend(new OpenLayers.LonLat(1, 1).transform('
                     . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject()));'
-            )
+                    . 'map.getProjectionObject()));',
+            ],
 
-        );
+        ];
     }
 
     /**
@@ -314,7 +360,10 @@ class GisGeometryTest extends TestCase
             $output,
             $this->_callProtectedFunction(
                 'getPolygonArrayForOpenLayers',
-                array($polygons, $srid)
+                [
+                    $polygons,
+                    $srid,
+                ]
             )
         );
     }
@@ -326,9 +375,9 @@ class GisGeometryTest extends TestCase
      */
     public function providerForTestGetPolygonArrayForOpenLayers()
     {
-        return array(
-            array(
-                array('Triangle'),
+        return [
+            [
+                ['Triangle'],
                 4326,
                 'new Array('
                     . 'new OpenLayers.Geometry.Polygon('
@@ -337,8 +386,8 @@ class GisGeometryTest extends TestCase
                     . 'new Array('
                     . '(new OpenLayers.Geometry.Point(0,0)).transform('
                     . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject()))))))'
-            )
-        );
+                    . 'map.getProjectionObject()))))))',
+            ],
+        ];
     }
 }

@@ -6,15 +6,20 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Queries;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/server_common.inc.php';
-require_once 'libraries/replication.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/server_common.inc.php';
+require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 $serverStatusData = new Data();
 

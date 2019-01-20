@@ -1,3 +1,0 @@
-#!/bin/sh
-set -e
-./vendor/bin/apigen generate --destination apidoc --source libraries/

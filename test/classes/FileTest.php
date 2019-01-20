@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\File;
@@ -22,7 +24,7 @@ class FileTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['charset_conversion'] = false;
     }
@@ -81,10 +83,19 @@ class FileTest extends PmaTestCase
      */
     public function compressedFiles()
     {
-        return array(
-            array('./test/test_data/test.gz', 'application/gzip'),
-            array('./test/test_data/test.bz2', 'application/bzip2'),
-            array('./test/test_data/test.zip', 'application/zip'),
-        );
+        return [
+            [
+                './test/test_data/test.gz',
+                'application/gzip',
+            ],
+            [
+                './test/test_data/test.bz2',
+                'application/bzip2',
+            ],
+            [
+                './test/test_data/test.zip',
+                'application/zip',
+            ],
+        ];
     }
 }

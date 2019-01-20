@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
@@ -17,10 +19,14 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $userPreferences = new UserPreferences();
 
@@ -97,7 +103,7 @@ if (isset($_POST['submit_export'])
         // they came from HTTP POST request
         $form_display = new UserFormList($cf);
         $new_config = $cf->getFlatDefaultConfig();
-        if (!empty($_POST['import_merge'])) {
+        if (! empty($_POST['import_merge'])) {
             $new_config = array_merge($new_config, $cf->getConfigArray());
         }
         $new_config = array_merge($new_config, $config);
@@ -107,16 +113,16 @@ if (isset($_POST['submit_export'])
         }
         $cf->resetConfigData();
         $all_ok = $form_display->process(true, false);
-        $all_ok = $all_ok && !$form_display->hasErrors();
+        $all_ok = $all_ok && ! $form_display->hasErrors();
         $_POST = $_POST_bak;
 
-        if (!$all_ok && isset($_POST['fix_errors'])) {
+        if (! $all_ok && isset($_POST['fix_errors'])) {
             $form_display->fixErrors();
             $all_ok = true;
         }
-        if (!$all_ok) {
+        if (! $all_ok) {
             // mimic original form and post json in a hidden field
-            include 'libraries/user_preferences.inc.php';
+            include ROOT_PATH . 'libraries/user_preferences.inc.php';
             $msg = Message::error(
                 __('Configuration contains incorrect data for some fields.')
             );
@@ -127,28 +133,28 @@ if (isset($_POST['submit_export'])
             echo '<form action="prefs_manage.php" method="post">';
             echo Url::getHiddenInputs() , "\n";
             echo '<input type="hidden" name="json" value="'
-                , htmlspecialchars($json) , '" />';
-            echo '<input type="hidden" name="fix_errors" value="1" />';
+                , htmlspecialchars($json) , '">';
+            echo '<input type="hidden" name="fix_errors" value="1">';
             if (! empty($_POST['import_merge'])) {
-                echo '<input type="hidden" name="import_merge" value="1" />';
+                echo '<input type="hidden" name="import_merge" value="1">';
             }
             if ($return_url) {
                 echo '<input type="hidden" name="return_url" value="'
-                    , htmlspecialchars($return_url) , '" />';
+                    , htmlspecialchars($return_url) , '">';
             }
             echo '<p>';
             echo __('Do you want to import remaining settings?');
             echo '</p>';
-            echo '<input type="submit" name="submit_import" value="'
-                , __('Yes') , '" />';
-            echo '<input type="submit" name="submit_ignore" value="'
-                , __('No') , '" />';
+            echo '<input class="btn btn-secondary" type="submit" name="submit_import" value="'
+                , __('Yes') , '">';
+            echo '<input class="btn btn-secondary" type="submit" name="submit_ignore" value="'
+                , __('No') , '">';
             echo '</form>';
             exit;
         }
 
         // check for ThemeDefault
-        $params = array();
+        $params = [];
         $tmanager = ThemeManager::getInstance();
         if (isset($config['ThemeDefault'])
             && $tmanager->theme->getId() != $config['ThemeDefault']
@@ -190,9 +196,9 @@ if (isset($_POST['submit_export'])
         }
     }
 } elseif (isset($_POST['submit_clear'])) {
-    $result = $userPreferences->save(array());
+    $result = $userPreferences->save([]);
     if ($result === true) {
-        $params = array();
+        $params = [];
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
         $userPreferences->redirect('prefs_manage.php', $params);
@@ -208,9 +214,9 @@ $header   = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('config.js');
 
-require 'libraries/user_preferences.inc.php';
+require ROOT_PATH . 'libraries/user_preferences.inc.php';
 if ($error) {
-    if (!$error instanceof Message) {
+    if (! $error instanceof Message) {
         $error = Message::error($error);
     }
     $error->display();
@@ -230,22 +236,22 @@ echo '<h2>' , __('Import') , '</h2>'
     , ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
     , Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
     , Url::getHiddenInputs()
-    , '<input type="hidden" name="json" value="" />'
+    , '<input type="hidden" name="json" value="">'
     , '<input type="radio" id="import_text_file" name="import_type"'
-    , ' value="text_file" checked="checked" />'
+    , ' value="text_file" checked="checked">'
     , '<label for="import_text_file">' . __('Import from file') . '</label>'
     , '<div id="opts_import_text_file" class="prefsmanage_opts">'
     , '<label for="input_import_file">' , __('Browse your computer:') , '</label>'
-    , '<input type="file" name="import_file" id="input_import_file" />'
+    , '<input type="file" name="import_file" id="input_import_file">'
     , '</div>'
     , '<input type="radio" id="import_local_storage" name="import_type"'
-    , ' value="local_storage" disabled="disabled" />'
+    , ' value="local_storage" disabled="disabled">'
     , '<label for="import_local_storage">'
     , __('Import from browser\'s storage') , '</label>'
     , '<div id="opts_import_local_storage" class="prefsmanage_opts disabled">'
     , '<div class="localStorage-supported">'
     , __('Settings will be imported from your browser\'s local storage.')
-    , '<br />'
+    , '<br>'
     , '<div class="localStorage-exists">'
     , __('Saved on: @DATE@')
     , '</div>'
@@ -259,19 +265,19 @@ Message::notice(
 )->display();
 echo '</div>'
     , '</div>'
-    , '<input type="checkbox" id="import_merge" name="import_merge" />'
+    , '<input type="checkbox" id="import_merge" name="import_merge">'
     , '<label for="import_merge">'
     , __('Merge with current configuration') . '</label>'
-    , '<br /><br />'
-    , '<input type="submit" name="submit_import" value="'
-    , __('Go') . '" />'
+    , '<br><br>'
+    , '<input class="btn btn-primary" type="submit" name="submit_import" value="'
+    , __('Go') . '">'
     , '</form>'
     , '</div>';
-if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
+if (@file_exists(ROOT_PATH . 'setup/index.php') && ! @file_exists(CONFIG_FILE)) {
             // show only if setup script is available, allows to disable this message
             // by simply removing setup directory
             // Also do not show in config exists (and setup would refuse to work)
-            ?>
+    ?>
             <div class="group">
             <h2><?php echo __('More settings') ?></h2>
             <div class="group-cnt">
@@ -280,14 +286,16 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                     __(
                         'You can set more settings by modifying config.inc.php, eg. '
                         . 'by using %sSetup script%s.'
-                    ), '<a href="setup/index.php" target="_blank">', '</a>'
+                    ),
+                    '<a href="setup/index.php" target="_blank">',
+                    '</a>'
                 ) , PhpMyAdmin\Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
             </div>
         <?php
 }
-        ?>
+?>
     </div>
     <div id="main_pane_right">
         <div class="group">
@@ -302,19 +310,19 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
             <form class="group-cnt prefs-form disableAjax" name="prefs_export"
                   action="prefs_manage.php" method="post">
                 <?php echo Url::getHiddenInputs(); ?>
-                <div style="padding-bottom:0.5em">
+                <div>
                     <input type="radio" id="export_text_file" name="export_type"
-                           value="text_file" checked="checked" />
+                           value="text_file" checked="checked">
                     <label for="export_text_file">
                         <?php echo __('Save as file'); ?>
-                    </label><br />
+                    </label><br>
                     <input type="radio" id="export_php_file" name="export_type"
-                           value="php_file" />
+                           value="php_file">
                     <label for="export_php_file">
                         <?php echo __('Save as PHP file'); ?>
-                    </label><br />
+                    </label><br>
                     <input type="radio" id="export_local_storage" name="export_type"
-                           value="local_storage" disabled="disabled" />
+                           value="local_storage" disabled="disabled">
                     <label for="export_local_storage">
                         <?php echo __('Save to browser\'s storage'); ?></label>
                 </div>
@@ -345,11 +353,11 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                         ?>
                     </div>
                 </div>
-                <br />
+                <br>
                 <?php
-                echo '<input type="submit" name="submit_export" value="' , __(
+                echo '<input class="btn btn-primary" type="submit" name="submit_export" value="' , __(
                     'Go'
-                ) , '" />';
+                ) , '">';
                 ?>
             </form>
         </div>
@@ -363,13 +371,13 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                     . 'values.'
                 );
                 ?>
-                <br /><br />
-                <input type="submit" name="submit_clear"
-                       value="<?php echo __('Reset'); ?>"/>
+                <br><br>
+                <input class="btn btn-secondary" type="submit" name="submit_clear"
+                       value="<?php echo __('Reset'); ?>">
             </form>
         </div>
     </div>
-    <br class="clearfloat" />
+    <br class="clearfloat">
 </div>
 
 <?php

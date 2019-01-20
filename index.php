@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
@@ -19,22 +21,27 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\UserPreferences;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * pass variables to child pages
  */
-$drops = array(
+$drops = [
     'lang',
     'server',
     'collation_connection',
     'db',
-    'table'
-);
+    'table',
+];
 foreach ($drops as $each_drop) {
     if (array_key_exists($each_drop, $_GET)) {
         unset($_GET[$each_drop]);
@@ -47,18 +54,19 @@ unset($drops, $each_drop);
  * Such scripts must not be loaded on home page.
  *
  */
-$target_blacklist = array (
-    'import.php', 'export.php'
-);
+$target_blacklist =  [
+    'import.php',
+    'export.php',
+];
 
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
-    && ! preg_match('/^index/', $_REQUEST['target'])
+    && 0 !== strpos($_REQUEST['target'], "index")
     && ! in_array($_REQUEST['target'], $target_blacklist)
     && Core::checkPageValidity($_REQUEST['target'], [], true)
 ) {
-    include $_REQUEST['target'];
+    include ROOT_PATH . $_REQUEST['target'];
     exit;
 }
 
@@ -66,22 +74,17 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
     exit;
 }
 
-// user selected font size
-if (isset($_POST['set_fontsize']) && preg_match('/^[0-9.]+(px|em|pt|\%)$/', $_POST['set_fontsize'])) {
-    $GLOBALS['PMA_Config']->setUserValue(
-        null,
-        'FontSize',
-        $_POST['set_fontsize'],
-        '82%'
-    );
-    header('Location: index.php' . Url::getCommonRaw());
-    exit();
-}
 // if user selected a theme
 if (isset($_POST['set_theme'])) {
     $tmanager = ThemeManager::getInstance();
     $tmanager->setActiveTheme($_POST['set_theme']);
     $tmanager->setThemeCookie();
+
+    $userPreferences = new UserPreferences();
+    $prefs = $userPreferences->load();
+    $prefs["config_data"]["ThemeDefault"] = $_POST['set_theme'];
+    $userPreferences->save($prefs["config_data"]);
+
     header('Location: index.php' . Url::getCommonRaw());
     exit();
 }
@@ -103,14 +106,16 @@ if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
         $page = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            $GLOBALS['cfg']['DefaultTabTable'],
+            'table'
         );
     } else {
         $page = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
         );
     }
-    include $page;
+    include ROOT_PATH . $page;
     exit;
 }
 
@@ -127,10 +132,12 @@ if ($response->isAjax() && ! empty($_REQUEST['recent_table'])) {
 }
 
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
+    // If ajax request to get revision
     if (isset($_REQUEST['git_revision']) && $response->isAjax()) {
         GitRevision::display();
         exit;
     }
+    // Else show empty html
     echo '<div id="is_git_revision"></div>';
 }
 
@@ -157,7 +164,7 @@ $mysql_cur_user_and_host = '';
 // when $server > 0, a server has been chosen so we can display
 // all MySQL-related information
 if ($server > 0) {
-    include 'libraries/server_common.inc.php';
+    include ROOT_PATH . 'libraries/server_common.inc.php';
 
     // Use the verbose name of the server instead of the hostname
     // if a value is set
@@ -177,7 +184,7 @@ if ($server > 0) {
     $mysql_cur_user_and_host = $GLOBALS['dbi']->fetchValue('SELECT USER();');
 
     // should we add the port info here?
-    $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
+    $short_server_info = (! empty($GLOBALS['cfg']['Server']['verbose'])
                 ? $GLOBALS['cfg']['Server']['verbose']
                 : $GLOBALS['cfg']['Server']['host']);
 }
@@ -225,25 +232,23 @@ if ($server > 0 || count($cfg['Servers']) > 1
      * Displays the mysql server related links
      */
     if ($server > 0) {
-        include_once 'libraries/check_user_privileges.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
         // Logout for advanced authentication
-        if ($cfg['Server']['auth_type'] != 'config') {
-            if ($cfg['ShowChgPassword']) {
-                $conditional_class = 'ajax';
-                Core::printListItem(
-                    Util::getImage('s_passwd') . "&nbsp;" . __(
-                        'Change password'
-                    ),
-                    'li_change_password',
-                    'user_password.php' . $common_url_query,
-                    null,
-                    null,
-                    'change_password_anchor',
-                    "no_bullets",
-                    $conditional_class
-                );
-            }
+        if (($cfg['Server']['auth_type'] != 'config') && $cfg['ShowChgPassword']) {
+            $conditional_class = 'ajax';
+            Core::printListItem(
+                Util::getImage('s_passwd') . "&nbsp;" . __(
+                    'Change password'
+                ),
+                'li_change_password',
+                'user_password.php' . $common_url_query,
+                null,
+                null,
+                'change_password_anchor',
+                "no_bullets",
+                $conditional_class
+            );
         } // end if
         echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
         echo '        <form class="disableAjax" method="post" action="index.php">' , "\n"
@@ -253,7 +258,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             . "&nbsp;" . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . Util::showMySQLDocu('Charset-connection')
-           . ': ' .  "\n"
+           . ': ' . "\n"
            . '            </label>' . "\n"
 
            . Charsets::getCollationDropdownBox(
@@ -294,9 +299,6 @@ if ($GLOBALS['cfg']['ThemeManager']) {
             ,  ThemeManager::getInstance()->getHtmlSelectBox();
     echo '</li>';
 }
-echo '<li id="li_select_fontsize">';
-echo Config::getFontsizeForm();
-echo '</li>';
 
 echo '</ul>';
 
@@ -326,7 +328,6 @@ echo '<div id="main_pane_right">';
 
 
 if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
-
     echo '<div class="group">';
     echo '<h2>' , __('Database server') , '</h2>';
     echo '<ul>' , "\n";
@@ -525,8 +526,8 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     /**
      * Check whether session.gc_maxlifetime limits session validity.
      */
-    $gc_time = (int)ini_get('session.gc_maxlifetime');
-    if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
+    $gc_time = (int) ini_get('session.gc_maxlifetime');
+    if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity']) {
         trigger_error(
             __(
                 'Your PHP parameter [a@https://secure.php.net/manual/en/session.' .
@@ -557,6 +558,20 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0
 }
 
 /**
+ * Warning if using the default MySQL controluser account
+ */
+if ($server != 0
+    && isset($GLOBALS['cfg']['Server']['controluser']) && $GLOBALS['cfg']['Server']['controluser'] == 'pma'
+    && isset($GLOBALS['cfg']['Server']['controlpass']) && $GLOBALS['cfg']['Server']['controlpass'] == 'pmapass'
+) {
+    trigger_error(
+        __('Your server is running with default values for the controluser and password (controlpass) and is open to intrusion; you really should fix this security weakness by changing the password for controluser \'pma\'.'),
+        E_USER_WARNING
+    );
+}
+
+
+/**
  * Check if user does not have defined blowfish secret and it is being used.
  */
 if (! empty($_SESSION['encryption_key'])) {
@@ -581,7 +596,7 @@ if (! empty($_SESSION['encryption_key'])) {
  * Check for existence of config directory which should not exist in
  * production environment.
  */
-if (@file_exists('config')) {
+if (@file_exists(ROOT_PATH . 'config')) {
     trigger_error(
         __(
             'Directory [code]config[/code], which is used by the setup script, ' .
@@ -594,7 +609,7 @@ if (@file_exists('config')) {
     );
 }
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 if ($server > 0) {
     $cfgRelation = $relation->getRelationsParam();
@@ -614,10 +629,10 @@ if ($server > 0) {
                 );
         }
         $msg = Message::notice($msg_text);
-        $msg->addParamHtml('<a href="./chk_rel.php' . $common_url_query . '">');
+        $msg->addParamHtml('<a href="./chk_rel.php" data-post="' . $common_url_query . '">');
         $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
-        if (!empty($cfg['Servers'][$server]['pmadb'])) {
+        if (! empty($cfg['Servers'][$server]['pmadb'])) {
             $msg->isError(true);
         }
         $msg->display();
@@ -660,8 +675,8 @@ if (is_null($GLOBALS['PMA_Config']->getTempDir('twig'))) {
  *
  * The data file is created while creating release by ./scripts/remove-incomplete-mo
  */
-if (@file_exists('libraries/language_stats.inc.php')) {
-    include 'libraries/language_stats.inc.php';
+if (@file_exists(ROOT_PATH . 'libraries/language_stats.inc.php')) {
+    include ROOT_PATH . 'libraries/language_stats.inc.php';
     /*
      * This message is intentionally not translated, because we're
      * handling incomplete translations here and focus on english

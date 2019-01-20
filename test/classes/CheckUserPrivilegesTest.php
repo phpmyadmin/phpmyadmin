@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
@@ -126,6 +128,39 @@ class CheckUserPrivilegesTest extends TestCase
         $this->assertEquals(
             "columns_priv",
             $show_grants_tblname
+        );
+
+        // TEST CASE 4
+        $show_grants_full_row = "GRANT ALL PRIVILEGES ON `cptest\_.`.* TO "
+            . "'cptest'@'localhost'";
+
+        list(
+            $show_grants_str,
+            $show_grants_dbname,
+            $show_grants_tblname
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_full_row
+        );
+
+        $this->assertEquals(
+            "cptest\_.",
+            $show_grants_dbname
+        );
+
+        $show_grants_full_row = "GRANT ALL PRIVILEGES ON `cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z`.* TO "
+            . "'cptest'@'localhost'";
+
+        list(
+            $show_grants_str,
+            $show_grants_dbname,
+            $show_grants_tblname
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
+            $show_grants_full_row
+        );
+
+        $this->assertEquals(
+            "cptest\_.a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z",
+            $show_grants_dbname
         );
     }
 

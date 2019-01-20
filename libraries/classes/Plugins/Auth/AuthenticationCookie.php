@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage Cookie
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
@@ -21,8 +23,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 use phpseclib\Crypt;
 use ReCaptcha;
-
-require_once './libraries/hash.lib.php';
 
 /**
  * Remember where to redirect the user
@@ -56,6 +56,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->_use_openssl = ! class_exists('phpseclib\Crypt\Random');
     }
 
@@ -85,12 +86,32 @@ class AuthenticationCookie extends AuthenticationPlugin
         global $conn_error;
 
         $response = Response::getInstance();
-        if ($response->loginPage()) {
+
+        // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
+        $session_expired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
+        if (! $session_expired && $response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
             } else {
                 exit;
             }
+        }
+
+        // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
+        if ($session_expired) {
+            $response->setRequestStatus(false);
+            $response->addJSON(
+                'new_token',
+                $_SESSION[' PMA_token ']
+            );
+        }
+
+        // logged_in response parameter is used to check if the login, using the modal was successful after session expiration
+        if (isset($_REQUEST['session_timedout'])) {
+            $response->addJSON(
+                'logged_in',
+                0
+            );
         }
 
         // No recall if blowfish secret is not configured as it would produce
@@ -108,7 +129,20 @@ class AuthenticationCookie extends AuthenticationPlugin
             $autocomplete   = ' autocomplete="off"';
         }
 
-        echo Template::get('login/header')->render(['theme' => $GLOBALS['PMA_Theme']]);
+        // wrap the login form in a div which overlays the whole page.
+        if ($session_expired) {
+            echo $this->template->render('login/header', [
+                'theme' => $GLOBALS['PMA_Theme'],
+                'add_class' => ' modal_form',
+                'session_expired' => 1,
+            ]);
+        } else {
+            echo $this->template->render('login/header', [
+                'theme' => $GLOBALS['PMA_Theme'],
+                'add_class' => '',
+                'session_expired' => 0,
+            ]);
+        }
 
         if ($GLOBALS['cfg']['DBG']['demo']) {
             echo '<fieldset>';
@@ -126,7 +160,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Show error message
         if (! empty($conn_error)) {
-            Message::rawError($conn_error)->display();
+            Message::rawError((string) $conn_error)->display();
         } elseif (isset($_GET['session_expired'])
             && intval($_GET['session_expired']) == 1
         ) {
@@ -144,13 +178,18 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
         echo '
-    <br />
+    <br>
     <!-- Login form -->
     <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
-            ' class="disableAjax login hide js-show">
+            ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show">
         <fieldset>
         <legend>';
-        echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
+        echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '">';
+
+        // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
+        if ($session_expired) {
+            echo '<input type="hidden" name="session_timedout" value="1">';
+        }
         echo __('Log in');
         echo Util::showDocu('index');
         echo '</legend>';
@@ -170,19 +209,19 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '" size="24" class="textfield" title="';
             echo __(
                 'You can enter hostname/IP address and port separated by space.'
-            ); echo '" />
+            ); echo '">
             </div>';
         }
             echo '<div class="item">
                 <label for="input_username">' , __('Username:') , '</label>
                 <input type="text" name="pma_username" id="input_username" '
                 , 'value="' , htmlspecialchars($default_user) , '" size="24"'
-                , ' class="textfield"/>
+                , ' class="textfield">
             </div>
             <div class="item">
                 <label for="input_password">' , __('Password:') , '</label>
                 <input type="password" name="pma_password" id="input_password"'
-                , ' value="" size="24" class="textfield" />
+                , ' value="" size="24" class="textfield">
             </div>';
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             echo '<div class="item">
@@ -197,7 +236,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</select></div>';
         } else {
             echo '    <input type="hidden" name="server" value="'
-                , $GLOBALS['server'] , '" />';
+                , $GLOBALS['server'] , '">';
         } // end if (server choice)
 
         echo '</fieldset><fieldset class="tblFooters">';
@@ -206,16 +245,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
-            echo '<input value="' , __('Go') , '" type="submit" id="input_go" />';
-        }
-        else {
+            echo '<input class="btn btn-primary" value="' , __('Go') , '" type="submit" id="input_go">';
+        } else {
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
             , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<input class="g-recaptcha" data-sitekey="'
+            echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
             , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                .' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
+                . ' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
         }
-        $_form_params = array();
+        $_form_params = [];
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
         }
@@ -236,8 +274,16 @@ class AuthenticationCookie extends AuthenticationPlugin
             $GLOBALS['error_handler']->dispErrors();
             echo '</div>';
         }
-        echo Template::get('login/footer')->render();
+
+        // close the wrapping div tag, if the request is after session timeout
+        if ($session_expired) {
+            echo $this->template->render('login/footer', ['session_expired' => 1]);
+        } else {
+            echo $this->template->render('login/footer', ['session_expired' => 0]);
+        }
+
         echo Config::renderFooter();
+
         if (! defined('TESTSUITE')) {
             exit;
         } else {
@@ -276,7 +322,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['from_cookie'] = false;
 
         if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
-
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
@@ -337,7 +382,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                     }
 
                     $match = preg_match(
-                        $GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host
+                        $GLOBALS['cfg']['ArbitraryServerRegexp'],
+                        $tmp_host
                     );
                     if (! $match) {
                         $conn_error = __(
@@ -472,6 +518,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
+
         $this->storeUsernameCookie($this->user);
 
         // Duration = as configured
@@ -480,27 +527,49 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! isset($_POST['change_pw'])) {
             $this->storePasswordCookie($this->password);
         }
+        // URL where to go:
+        $redirect_url = './index.php';
 
+        // any parameters to pass?
+        $url_params = [];
+        if (strlen($GLOBALS['db']) > 0) {
+            $url_params['db'] = $GLOBALS['db'];
+        }
+        if (strlen($GLOBALS['table']) > 0) {
+            $url_params['table'] = $GLOBALS['table'];
+        }
+        // any target to pass?
+        if (! empty($GLOBALS['target'])
+            && $GLOBALS['target'] != 'index.php'
+        ) {
+            $url_params['target'] = $GLOBALS['target'];
+        }
+
+        // user logged in successfully after session expiration
+        if (isset($_REQUEST['session_timedout'])) {
+            $response = Response::getInstance();
+            $response->addJSON(
+                'logged_in',
+                1
+            );
+            $response->addJSON(
+                'success',
+                1
+            );
+            $response->addJSON(
+                'new_token',
+                $_SESSION[' PMA_token ']
+            );
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
+        }
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
         if (! $GLOBALS['from_cookie']) {
-            // URL where to go:
-            $redirect_url = './index.php';
-
-            // any parameters to pass?
-            $url_params = array();
-            if (strlen($GLOBALS['db']) > 0) {
-                $url_params['db'] = $GLOBALS['db'];
-            }
-            if (strlen($GLOBALS['table']) > 0) {
-                $url_params['table'] = $GLOBALS['table'];
-            }
-            // any target to pass?
-            if (! empty($GLOBALS['target'])
-                && $GLOBALS['target'] != 'index.php'
-            ) {
-                $url_params['target'] = $GLOBALS['target'];
-            }
 
             /**
              * Clear user cache.
@@ -553,7 +622,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function storePasswordCookie($password)
     {
-        $payload = array('password' => $password);
+        $payload = ['password' => $password];
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
             $payload['server'] = $GLOBALS['pma_auth_server'];
         }
@@ -565,7 +634,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $this->_getSessionEncryptionSecret()
             ),
             null,
-            $GLOBALS['cfg']['LoginCookieStore']
+            (int) $GLOBALS['cfg']['LoginCookieStore']
         );
     }
 
@@ -707,8 +776,9 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function cleanSSLErrors()
     {
         if (function_exists('openssl_error_string')) {
-            while (($ssl_err = openssl_error_string()) !== false) {
-            }
+            do {
+                $hasSslErrors = openssl_error_string();
+            } while ($hasSslErrors !== false);
         }
     }
 
@@ -743,11 +813,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $this->cleanSSLErrors();
         $iv = base64_encode($iv);
         return json_encode(
-            array(
+            [
                 'iv' => $iv,
                 'mac' => hash_hmac('sha1', $iv . $result, $mac_secret),
                 'payload' => $result,
-            )
+            ]
         );
     }
 
@@ -806,8 +876,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($this->_use_openssl) {
             return openssl_cipher_iv_length('AES-128-CBC');
         }
-        $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
-        return $cipher->block_size;
+        return (new Crypt\AES(Crypt\Base::MODE_CBC))->block_size;
     }
 
     /**

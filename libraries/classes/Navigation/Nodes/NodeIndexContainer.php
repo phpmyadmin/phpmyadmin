@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
@@ -24,12 +26,12 @@ class NodeIndexContainer extends Node
     {
         parent::__construct(__('Indexes'), Node::CONTAINER);
         $this->icon = Util::getImage('b_index', __('Indexes'));
-        $this->links = array(
+        $this->links = [
             'text' => 'tbl_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
             'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
-        );
+        ];
         $this->real_name = 'indexes';
 
         $new_label = _pgettext('Create new index', 'New');
@@ -39,14 +41,14 @@ class NodeIndexContainer extends Node
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_index_add', $new_label);
-        $new->links = array(
+        $new->links = [
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                 . '&amp;create_index=1&amp;added_fields=2'
                 . '&amp;db=%3$s&amp;table=%2$s',
             'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                 . '&amp;create_index=1&amp;added_fields=2'
                 . '&amp;db=%3$s&amp;table=%2$s',
-        );
+        ];
         $new->classes = 'new_index italics';
         $this->addChild($new);
     }

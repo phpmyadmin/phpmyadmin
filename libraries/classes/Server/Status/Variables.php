@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Server\Status\Data;
@@ -30,32 +32,32 @@ class Variables
     public static function getHtmlForFilter(Data $serverStatusData)
     {
         $filterAlert = '';
-        if (! empty($_REQUEST['filterAlert'])) {
+        if (! empty($_POST['filterAlert'])) {
             $filterAlert = ' checked="checked"';
         }
         $filterText = '';
-        if (! empty($_REQUEST['filterText'])) {
-            $filterText = htmlspecialchars($_REQUEST['filterText']);
+        if (! empty($_POST['filterText'])) {
+            $filterText = htmlspecialchars($_POST['filterText']);
         }
         $dontFormat = '';
-        if (! empty($_REQUEST['dontFormat'])) {
+        if (! empty($_POST['dontFormat'])) {
             $dontFormat = ' checked="checked"';
         }
 
         $retval  = '';
         $retval .= '<fieldset id="tableFilter">';
         $retval .= '<legend>' . __('Filters') . '</legend>';
-        $retval .= '<form action="server_status_variables.php'
-            . Url::getCommon() . '">';
-        $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
+        $retval .= '<form action="server_status_variables.php" method="post">';
+        $retval .= Url::getHiddenInputs();
+        $retval .= '<input class="btn btn-secondary" type="submit" value="' . __('Refresh') . '">';
         $retval .= '<div class="formelement">';
         $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
         $retval .= '<input name="filterText" type="text" id="filterText" '
-            . 'value="' . $filterText . '" />';
+            . 'value="' . $filterText . '">';
         $retval .= '</div>';
         $retval .= '<div class="formelement">';
         $retval .= '<input' . $filterAlert . ' type="checkbox" '
-            . 'name="filterAlert" id="filterAlert" />';
+            . 'name="filterAlert" id="filterAlert">';
         $retval .= '<label for="filterAlert">';
         $retval .= __('Show only alert values');
         $retval .= '</label>';
@@ -66,8 +68,8 @@ class Variables
 
         foreach ($serverStatusData->sections as $section_id => $section_name) {
             if (isset($serverStatusData->sectionUsed[$section_id])) {
-                if (! empty($_REQUEST['filterCategory'])
-                    && $_REQUEST['filterCategory'] == $section_id
+                if (! empty($_POST['filterCategory'])
+                    && $_POST['filterCategory'] == $section_id
                 ) {
                     $selected = ' selected="selected"';
                 } else {
@@ -81,7 +83,7 @@ class Variables
         $retval .= '</div>';
         $retval .= '<div class="formelement">';
         $retval .= '<input' . $dontFormat . ' type="checkbox" '
-            . 'name="dontFormat" id="dontFormat" />';
+            . 'name="dontFormat" id="dontFormat">';
         $retval .= '<label for="dontFormat">';
         $retval .= __('Show unformatted values');
         $retval .= '</label>';
@@ -113,7 +115,8 @@ class Variables
                 if ('doc' == $link_name) {
                     $retval .= Util::showMySQLDocu($link_url);
                 } else {
-                    $retval .= '<a href="' . $link_url . '">' . $link_name . '</a>';
+                    $retval .= '<a href="' . $link_url['url'] . '" data-post="' . $link_url['params'] . '">'
+                        . $link_name . '</a>';
                 }
                 $i++;
             }
@@ -141,7 +144,7 @@ class Variables
          * define some alerts
          */
         // name => max value before alert
-        $alerts = array(
+        $alerts = [
             // lower is better
             // variable => max value
             'Aborted_clients' => 0,
@@ -195,7 +198,7 @@ class Variables
             // higher is better
             // variable => min value
             //'Handler read key' => '> ',
-        );
+        ];
 
         $retval .= self::getHtmlForRenderVariables(
             $serverStatusData,
@@ -219,9 +222,9 @@ class Variables
     {
         $retval = '<div class="responsivetable">';
         $retval  .= '<table class="data noclick" id="serverstatusvariables">';
-        $retval .= '<col class="namecol" />';
-        $retval .= '<col class="valuecol" />';
-        $retval .= '<col class="descrcol" />';
+        $retval .= '<col class="namecol">';
+        $retval .= '<col class="valuecol">';
+        $retval .= '<col class="descrcol">';
         $retval .= '<thead>';
         $retval .= '<tr>';
         $retval .= '<th>' . __('Variable') . '</th>';
@@ -233,7 +236,7 @@ class Variables
 
         foreach ($serverStatusData->status as $name => $value) {
             $retval .= '<tr class="' . (isset($serverStatusData->allocationMap[$name])
-                    ?' s_' . $serverStatusData->allocationMap[$name]
+                    ? ' s_' . $serverStatusData->allocationMap[$name]
                     : '')
                 . '">';
 
@@ -242,11 +245,7 @@ class Variables
             // Fields containing % are calculated,
             // they can not be described in MySQL documentation
             if (mb_strpos($name, '%') === false) {
-                $retval .= Util::showMySQLDocu(
-                    'server-status-variables',
-                    false,
-                    'statvar_' . $name
-                );
+                $retval .= Util::linkToVarDocumentation($name, $GLOBALS['dbi']->isMariaDB());
             }
             $retval .= '</th>';
 
@@ -292,7 +291,7 @@ class Variables
                     $retval .= '<span class="allfine">';
                 }
             }
-            $retval .= htmlspecialchars($value);
+            $retval .= htmlspecialchars((string) $value);
             if (isset($alerts[$name])) {
                 $retval .= '</span>';
             }
@@ -309,7 +308,8 @@ class Variables
                     if ('doc' == $link_name) {
                         $retval .= Util::showMySQLDocu($link_url);
                     } else {
-                        $retval .= ' <a href="' . $link_url . '">' . $link_name . '</a>';
+                        $retval .= ' <a href="' . $link_url['url'] . '" data-post="' . $link_url['params'] . '">'
+                            . $link_name . '</a>';
                     }
                 }
                 unset($link_url, $link_name);
@@ -334,7 +334,7 @@ class Variables
         /**
          * Messages are built using the message name
          */
-        return array(
+        return [
             'Aborted_clients' => __(
                 'The number of connections that were aborted because the client died'
                 . ' without closing the connection properly.'
@@ -769,6 +769,6 @@ class Variables
             'Threads_running' => __(
                 'The number of threads that are not sleeping.'
             )
-        );
+        ];
     }
 }

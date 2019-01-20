@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Di\Container;
@@ -36,29 +38,39 @@ class TableRelationControllerTest extends PmaTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         //$_SESSION
 
-        $_REQUEST['foreignDb'] = 'db';
-        $_REQUEST['foreignTable'] = 'table';
+        $_POST['foreignDb'] = 'db';
+        $_POST['foreignTable'] = 'table';
 
-        $GLOBALS['dblist'] = new DataBasePMAMockForTblRelation();
-        $GLOBALS['dblist']->databases = new DataBaseMockForTblRelation();
+        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist']->databases = new class
+        {
+            /**
+             * @param mixed $name name
+             * @return bool
+             */
+            public function exists($name)
+            {
+                return true;
+            }
+        };
 
-        $indexes = array(
-            array(
+        $indexes = [
+            [
                 'Schema' => 'Schema1',
                 'Key_name' => 'Key_name1',
                 'Column_name' => 'Column_name1',
-            ),
-            array(
+            ],
+            [
                 'Schema' => 'Schema2',
                 'Key_name' => 'Key_name2',
                 'Column_name' => 'Column_name2',
-            ),
-            array(
+            ],
+            [
                 'Schema' => 'Schema3',
                 'Key_name' => 'Key_name3',
                 'Column_name' => 'Column_name3',
-            ),
-        );
+            ],
+        ];
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -87,9 +99,11 @@ class TableRelationControllerTest extends PmaTestCase
      */
     public function testGetDropdownValueForTableActionIsView()
     {
-        $viewColumns = array(
-            'viewCol', 'viewCol2', 'viewCol3'
-        );
+        $viewColumns = [
+            'viewCol',
+            'viewCol2',
+            'viewCol3',
+        ];
         $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
@@ -110,7 +124,7 @@ class TableRelationControllerTest extends PmaTestCase
             'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         /**
-         * @var PhpMyAdmin\Controllers\Table\TableRelationController
+         * @var \PhpMyAdmin\Controllers\Table\TableRelationController
          */
         $ctrl = $container->get('TableRelationController');
 
@@ -133,9 +147,9 @@ class TableRelationControllerTest extends PmaTestCase
      */
     public function testGetDropdownValueForTableActionNotView()
     {
-        $indexedColumns = array(
+        $indexedColumns = [
             'primaryTableCol'
-        );
+        ];
         $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
@@ -183,7 +197,10 @@ class TableRelationControllerTest extends PmaTestCase
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
-                            return array('Engine' => 'InnoDB', 'Name'   => 'table',);
+                            return [
+                                'Engine' => 'InnoDB',
+                                'Name' => 'table'
+                            ];
                         }
                         return null;
                     }
@@ -199,14 +216,14 @@ class TableRelationControllerTest extends PmaTestCase
         );
         $ctrl = $container->get(
             'TableRelationController',
-            array('tbl_storage_engine' => 'INNODB')
+            ['tbl_storage_engine' => 'INNODB']
         );
 
-        $_REQUEST['foreign'] = 'true';
+        $_POST['foreign'] = 'true';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
-            array('table'),
+            ['table'],
             $json['tables']
         );
     }
@@ -229,7 +246,7 @@ class TableRelationControllerTest extends PmaTestCase
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
-                            return array('table');
+                            return ['table'];
                         }
                         return null;
                     }
@@ -245,45 +262,15 @@ class TableRelationControllerTest extends PmaTestCase
         );
         $ctrl = $container->get(
             'TableRelationController',
-            array('tbl_storage_engine' => 'INNODB',)
+            ['tbl_storage_engine' => 'INNODB']
         );
 
-        $_REQUEST['foreign'] = 'false';
+        $_POST['foreign'] = 'false';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
-            array('table'),
+            ['table'],
             $json['tables']
         );
-    }
-}
-
-/**
- * Mock class for DataBasePMAMock
- *
- * @package PhpMyAdmin-test
- */
-Class DataBasePMAMockForTblRelation
-{
-    var $databases;
-}
-
-/**
- * Mock class for DataBaseMock
- *
- * @package PhpMyAdmin-test
- */
-Class DataBaseMockForTblRelation
-{
-    /**
-     * mock function to return table is existed
-     *
-     * @param string $name table name
-     *
-     * @return bool
-     */
-    function exists($name)
-    {
-        return true;
     }
 }

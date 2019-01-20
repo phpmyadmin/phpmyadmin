@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\File;
@@ -90,14 +92,13 @@ class ImportXmlTest extends PmaTestCase
             $properties->getMimeType()
         );
         $this->assertEquals(
-            array(),
+            [],
             $properties->getOptions()
         );
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()
         );
-
     }
 
     /**
@@ -159,6 +160,5 @@ class ImportXmlTest extends PmaTestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 }

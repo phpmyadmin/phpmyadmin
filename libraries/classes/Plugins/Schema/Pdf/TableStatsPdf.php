@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
@@ -39,7 +41,7 @@ class TableStatsPdf extends TableStats
      * @param integer $fontSize       The font size
      * @param integer $pageNumber     The current page number (from the
      *                                $cfg['Servers'][$i]['table_coords'] table)
-     * @param integer &$sameWideWidth The max. width among tables
+     * @param integer $sameWideWidth  The max. width among tables
      * @param boolean $showKeys       Whether to display keys or not
      * @param boolean $tableDimension Whether to display table position or not
      * @param boolean $offline        Whether the coordinates are sent

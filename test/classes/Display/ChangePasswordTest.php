@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Config;
@@ -13,7 +15,7 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
-require_once 'libraries/config.default.php';
+require_once ROOT_PATH . 'libraries/config.default.php';
 
 /**
  * ChangePasswordTest class
@@ -29,7 +31,7 @@ class ChangePasswordTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$GLOBALS
         $GLOBALS['PMA_Config'] = new Config();

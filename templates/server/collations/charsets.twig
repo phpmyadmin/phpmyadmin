@@ -18,7 +18,7 @@
             {% for current_collation in mysql_collations[current_charset] %}
                 <tr class="{{ mysql_dft_collations[current_charset] == current_collation ? ' marked' }}">
                     <td>{{ current_collation }}</td>
-                    <td>{{ Charsets_getCollationDescr(current_collation) }}</td>
+                    <td>{{ get_collation_descr(current_collation) }}</td>
                 </tr>
             {% endfor %}
         {% endfor %}

@@ -1,7 +1,7 @@
 <li>
     <label for="filename_template" class="desc">
         {% trans 'File name template:' %}
-        {{ Util_showHint(message) }}
+        {{ show_hint(message) }}
     </label>
     <input type="text" name="filename_template" id="filename_template" value="
         {{- filename_template }}">

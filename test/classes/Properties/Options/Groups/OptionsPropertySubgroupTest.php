@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -24,7 +26,7 @@ class OptionsPropertySubgroupTest extends TestCase
      *
      * @return void
      */
-    protected function setup()
+    protected function setUp()
     {
         $this->object = new OptionsPropertySubgroup();
     }

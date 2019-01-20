@@ -5,21 +5,24 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\ConfigGenerator;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+$formDisplayTemplate = new FormDisplayTemplate($GLOBALS['PMA_Config']);
+
 echo '<h2>' , __('Configuration file') , '</h2>';
 
-echo FormDisplayTemplate::displayFormTop('config.php');
+echo $formDisplayTemplate->displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
-    , htmlspecialchars(Core::ifSetOr($_GET['eol'], 'unix')) , '" />';
-echo FormDisplayTemplate::displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
+    , htmlspecialchars(Core::ifSetOr($_GET['eol'], 'unix')) , '">';
+echo $formDisplayTemplate->displayFieldsetTop('config.inc.php', '', null, ['class' => 'simple']);
 echo '<tr>';
 echo '<td>';
 echo '<textarea cols="50" rows="20" name="textconfig" '
@@ -31,9 +34,9 @@ echo '</tr>';
 echo '<tr>';
 echo '<td class="lastrow" style="text-align: left">';
 echo '<input type="submit" name="submit_download" value="'
-    , __('Download') , '" class="green" />';
+    , __('Download') , '" class="green">';
 echo '</td>';
 echo '</tr>';
 
-echo FormDisplayTemplate::displayFieldsetBottom(false);
-echo FormDisplayTemplate::displayFormBottom();
+echo $formDisplayTemplate->displayFieldsetBottom(false);
+echo $formDisplayTemplate->displayFormBottom();

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Util;
@@ -28,7 +30,7 @@ class NodeColumn extends Node
     {
         parent::__construct($name, $type, $is_group);
         $this->icon = Util::getImage('pause', __('Column'));
-        $this->links = array(
+        $this->links = [
             'text'  => 'tbl_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
                 . '&amp;change_column=1',
@@ -36,6 +38,6 @@ class NodeColumn extends Node
                 . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
                 . '&amp;change_column=1',
             'title' => __('Structure'),
-        );
+        ];
     }
 }

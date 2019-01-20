@@ -6,12 +6,14 @@
  * @package PhpMyAdmin-test
  * @group current
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
-use PHPUnit_Framework_Assert as Assert;
+use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Exception;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
@@ -26,12 +28,12 @@ class ConfigTest extends PmaTestCase
     protected $backupGlobals = false;
 
     /**
-     * @var PhpMyAdmin\Config
+     * @var Config
      */
     protected $object;
 
     /**
-     * @var object to test file permission
+     * @var Config to test file permission
      */
     protected $permTestObj;
 
@@ -43,14 +45,15 @@ class ConfigTest extends PmaTestCase
      */
     protected function setUp()
     {
-        $this->object = new Config;
+        $this->object = new Config();
         $GLOBALS['server'] = 0;
+        $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
         $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config("./config.sample.inc.php");
+        $this->permTestObj = new Config(ROOT_PATH . "config.sample.inc.php");
     }
 
     /**
@@ -78,71 +81,6 @@ class ConfigTest extends PmaTestCase
 
         $this->assertNotEmpty($this->object->get('PMA_VERSION'));
         $this->assertNotEmpty($this->object->get('PMA_MAJOR_VERSION'));
-    }
-
-    /**
-     * Test for GetFontsizeForm
-     *
-     * @return void
-     */
-    public function testGetFontsizeForm()
-    {
-        $this->assertContains(
-            '<form name="form_fontsize_selection" id="form_fontsize_selection"',
-            Config::getFontsizeForm()
-        );
-
-        $this->assertContains(
-            '<label for="select_fontsize">',
-            Config::getFontsizeForm()
-        );
-
-        //test getFontsizeOptions for "em" unit
-        $fontsize = $GLOBALS['PMA_Config']->get('FontSize');
-        $GLOBALS['PMA_Config']->set('FontSize', '10em');
-        $this->assertContains(
-            '<option value="7em"',
-            Config::getFontsizeForm()
-        );
-        $this->assertContains(
-            '<option value="8em"',
-            Config::getFontsizeForm()
-        );
-
-        //test getFontsizeOptions for "pt" unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10pt');
-        $this->assertContains(
-            '<option value="2pt"',
-            Config::getFontsizeForm()
-        );
-        $this->assertContains(
-            '<option value="4pt"',
-            Config::getFontsizeForm()
-        );
-
-        //test getFontsizeOptions for "px" unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10px');
-        $this->assertContains(
-            '<option value="5px"',
-            Config::getFontsizeForm()
-        );
-        $this->assertContains(
-            '<option value="6px"',
-            Config::getFontsizeForm()
-        );
-
-        //test getFontsizeOptions for unknown unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10abc');
-        $this->assertContains(
-            '<option value="7abc"',
-            Config::getFontsizeForm()
-        );
-        $this->assertContains(
-            '<option value="8abc"',
-            Config::getFontsizeForm()
-        );
-        //rollback the fontsize setting
-        $GLOBALS['PMA_Config']->set('FontSize', $fontsize);
     }
 
     /**
@@ -205,107 +143,105 @@ class ConfigTest extends PmaTestCase
      */
     public function userAgentProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00',
                 'Linux',
                 'OPERA',
                 '9.80',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/'
                 . '528.16 OmniWeb/622.8.0.112941',
                 'Mac',
                 'OMNIWEB',
                 '622',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1)',
                 'Win',
                 'IE',
                 '8.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
                 'Win',
                 'IE',
                 '9.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; '
                 . 'Trident/6.0)',
                 'Win',
                 'IE',
                 '10.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; '
                 . '.NET4.0C; rv:11.0) like Gecko',
                 'Win',
                 'IE',
                 '11.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; '
                 . '.NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; '
                 . '.NET CLR 3.0.30729; InfoPath.3; rv:11.0) like Gecko',
                 'Win',
                 'IE',
                 '11.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, '
                 . 'like Gecko) Chrome/25.0.1364.172 Safari/537.22',
                 'Win',
                 'CHROME',
                 '25.0.1364.172',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) '
                 . 'AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2',
                 'Unix',
                 'SAFARI',
                 '5.0.419',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.9b) Gecko/20031208',
                 'Win',
                 'GECKO',
                 '1.9',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; '
                 . 'amd64; en_US) KHTML/4.5.4 (like Gecko)',
                 'Other',
                 'KONQUEROR',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0',
                 'Linux',
                 'FIREFOX',
                 '5.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 '
                 . 'Firefox/12.0',
                 'Linux',
                 'FIREFOX',
                 '12.0',
-            ),
+            ],
             /**
              * @todo Is this version really expected?
              */
-            array(
+            [
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like G'
                 . 'ecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
                 'Linux',
                 'SAFARI',
                 '5.0',
-            ),
-        );
-
+            ],
+        ];
     }
-
 
     /**
      * test for CheckGd2
@@ -326,7 +262,7 @@ class ConfigTest extends PmaTestCase
 
         $this->object->set('GD2Available', 'auto');
 
-        if (!function_exists('imagecreatetruecolor')) {
+        if (! function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
             $this->assertEquals(
                 0,
@@ -394,7 +330,6 @@ class ConfigTest extends PmaTestCase
         unset($_SERVER['SERVER_SOFTWARE']);
     }
 
-
     /**
      * return server names
      *
@@ -402,18 +337,17 @@ class ConfigTest extends PmaTestCase
      */
     public function serverNames()
     {
-        return array(
-            array(
+        return [
+            [
                 "Microsoft-IIS 7.0",
                 1,
-            ),
-            array(
+            ],
+            [
                 "Apache/2.2.17",
                 0,
-            ),
-        );
+            ],
+        ];
     }
-
 
     /**
      * test for CheckWebServerOs
@@ -505,7 +439,7 @@ class ConfigTest extends PmaTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->source_mtime);
 
-        $this->object->setSource('libraries/config.default.php');
+        $this->object->setSource(ROOT_PATH . 'libraries/config.default.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -536,10 +470,10 @@ class ConfigTest extends PmaTestCase
 
         $this->assertEmpty($this->object->getSource(), "Source is null by default");
 
-        $this->object->setSource("config.sample.inc.php");
+        $this->object->setSource(ROOT_PATH . "config.sample.inc.php");
 
         $this->assertEquals(
-            "config.sample.inc.php",
+            ROOT_PATH . "config.sample.inc.php",
             $this->object->getSource(),
             "Cant set new source"
         );
@@ -547,6 +481,15 @@ class ConfigTest extends PmaTestCase
 
     /**
      * test for IsHttp
+     *
+     * @param string $scheme   http scheme
+     * @param string $https    https
+     * @param string $uri      request uri
+     * @param string $lb       http https from lb
+     * @param string $front    http front end https
+     * @param string $proto    http x forwarded proto
+     * @param int    $port     server port
+     * @param bool   $expected expected result
      *
      * @return void
      *
@@ -573,17 +516,98 @@ class ConfigTest extends PmaTestCase
      */
     public function httpsParams()
     {
-        return array(
-            array('http', '', '', '', '', 'http', 80, false),
-            array('http', '', 'http://', '', '', 'http', 80, false),
-            array('http', '', '', '', '', 'http', 443, true),
-            array('http', '', '', '', '', 'https', 80, true),
-            array('http', '', '', '', 'on', 'http', 80, true),
-            array('http', '', '', 'on', '', 'http', 80, true),
-            array('http', '', 'https://', '', '', 'http', 80, true),
-            array('http', 'on', '', '', '', 'http', 80, true),
-            array('https', '', '', '', '', 'http', 80, true),
-        );
+        return [
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                false,
+            ],
+            [
+                'http',
+                '',
+                'http://',
+                '',
+                '',
+                'http',
+                80,
+                false,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                443,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'https',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                'on',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                'on',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                'https://',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                'on',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'https',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+        ];
     }
 
     /**
@@ -601,15 +625,15 @@ class ConfigTest extends PmaTestCase
     {
         $this->object->enableBc();
 
-        $defines = array(
+        $defines = [
             'PMA_VERSION',
             'PMA_MAJOR_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT'
-            );
+            'PMA_USR_BROWSER_AGENT',
+        ];
 
         foreach ($defines as $define) {
             $this->assertTrue(defined($define));
@@ -642,88 +666,88 @@ class ConfigTest extends PmaTestCase
      */
     public function rootUris()
     {
-        return array(
-            array(
+        return [
+            [
                 '',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '/',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '/index.php',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '\\index.php',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '\\',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '\\path\\to\\index.php',
                 '',
                 '/path/to/',
-            ),
-            array(
+            ],
+            [
                 '/foo/bar/phpmyadmin/index.php',
                 '',
                 '/foo/bar/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 '/foo/bar/phpmyadmin/',
                 '',
                 '/foo/bar/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'https://example.net/baz/phpmyadmin/',
                 '',
                 '/baz/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/baz/phpmyadmin/',
                 '',
                 '/baz/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/phpmyadmin/',
                 '',
                 '/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 'http://example.net/phpmyadmin/',
                 '/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 'http://example.net/phpmyadmin',
                 '/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 '/phpmyadmin2',
                 '/phpmyadmin2/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 '/phpmyadmin3/',
                 '/phpmyadmin3/',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -752,20 +776,20 @@ class ConfigTest extends PmaTestCase
      */
     public function configPaths()
     {
-        return array(
-            array(
-                './test/test_data/config.inc.php',
+        return [
+            [
+                ROOT_PATH . 'test/test_data/config.inc.php',
                 true,
-            ),
-            array(
-                './test/test_data/config-nonexisting.inc.php',
+            ],
+            [
+                ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
-            ),
-            array(
-                './libraries/config.default.php',
+            ],
+            [
+                ROOT_PATH . 'libraries/config.default.php',
                 true,
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -773,10 +797,11 @@ class ConfigTest extends PmaTestCase
      *
      * @return void
      * @todo Test actually preferences loading
+     * @doesNotPerformAssertions
      */
     public function testLoadUserPreferences()
     {
-        $this->assertNull($this->object->loadUserPreferences());
+        $this->object->loadUserPreferences();
     }
 
     /**
@@ -822,16 +847,7 @@ class ConfigTest extends PmaTestCase
             $GLOBALS['PMA_Theme']->filesize_info
         );
 
-        $this->object->set('FontSize', 10);
-        $this->assertEquals(10 + $partial_sum, $this->object->getThemeUniqueValue());
-
-        $this->object->set('FontSize', 20);
-        $this->assertEquals(20 + $partial_sum, $this->object->getThemeUniqueValue());
-        $this->object->set('FontSize', null);
-
         $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
-        $this->object->set('FontSize', '82%');
-
     }
 
     /**
@@ -844,19 +860,17 @@ class ConfigTest extends PmaTestCase
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
         //testing for permissions for no configuration file
-        $this->assertFalse(!($perms === false) && ($perms & 2));
+        $this->assertFalse(! ($perms === false) && ($perms & 2));
 
         //load file permissions for the current permissions file
         $perms = @fileperms($this->permTestObj->getSource());
-        //testing for permissions
-        $this->assertFalse(!($perms === false) && ($perms & 2));
 
-        //if the above assertion is false then applying further assertions
-        if (!($perms === false) && ($perms & 2)) {
-            $this->assertNotSame(0, $this->permTestObj->get('PMA_IS_WINDOWS'));
+        if (! ($perms === false) && ($perms & 2)) {
+            $this->assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
+        } else {
+            $this->assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
         }
     }
-
 
     /**
      * Test for setting cookies
@@ -898,7 +912,6 @@ class ConfigTest extends PmaTestCase
                 'other'
             )
         );
-
     }
 
     /**
@@ -908,13 +921,429 @@ class ConfigTest extends PmaTestCase
      */
     public function testIsGitRevision()
     {
+        $git_location = '';
+
+        $this->assertTrue(
+            $this->object->isGitRevision($git_location)
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEquals('.git', $git_location);
+    }
+
+    /**
+     * Test for isGitRevision
+     *
+     * @return void
+     */
+    public function testIsGitRevisionSkipped()
+    {
+        $this->object->set('ShowGitRevision', false);
+        $this->assertFalse(
+            $this->object->isGitRevision($git_location)
+        );
+    }
+
+    /**
+     * Test for isGitRevision
+     *
+     * @return void
+     */
+    public function testIsGitRevisionLocalGitDir()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        $this->assertFalse(
+            $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir('.git');
+
+        $this->assertFalse(
+            $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        file_put_contents('.git/config', '');
+
         $this->assertTrue(
             $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unlink('.git/config');
+        rmdir('.git');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
+     * Test for isGitRevision
+     *
+     * @return void
+     */
+    public function testIsGitRevisionExternalGitDir()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        file_put_contents('.git', 'gitdir: ./.customgitdir');
+        $this->assertFalse(
+            $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir('.customgitdir');
+
+        $this->assertTrue(
+            $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        file_put_contents('.git', 'random data here');
+
+        $this->assertFalse(
+            $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unlink('.git');
+        rmdir('.customgitdir');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
+     * Test for checkGitRevision packs folder
+     *
+     * @return void
+     */
+    public function testCheckGitRevisionPacksFolder()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        mkdir('.git');
+        file_put_contents('.git/config', '');
+
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
+        $this->object->checkGitRevision();
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents(
+            '.git/packed-refs',
+            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
+        );
+        mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
+        $this->object->checkGitRevision();
+
+        $this->assertNotEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+        $this->assertNotEmpty(
+            $this->object->get('PMA_VERSION_GIT_BRANCH')
+        );
+
+        rmdir(".git/objects/pack");
+        rmdir(".git/objects");
+        unlink('.git/packed-refs');
+        unlink('.git/HEAD');
+        unlink('.git/config');
+        rmdir('.git');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
+     * Test for checkGitRevision packs folder
+     *
+     * @return void
+     */
+    public function testCheckGitRevisionRefFile()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        mkdir('.git');
+        file_put_contents('.git/config', '');
+
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
+        mkdir('.git/refs/remotes/origin', 0777, true);
+        file_put_contents('.git/refs/remotes/origin/master', 'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
+        mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            0,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unlink('.git/refs/remotes/origin/master');
+        rmdir('.git/refs/remotes/origin');
+        rmdir('.git/refs/remotes');
+        rmdir('.git/refs');
+        rmdir(".git/objects/pack");
+        rmdir(".git/objects");
+        unlink('.git/HEAD');
+        unlink('.git/config');
+        rmdir('.git');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
+     * Test for checkGitRevision with packs as file
+     *
+     * @return void
+     */
+    public function testCheckGitRevisionPacksFile()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        mkdir('.git');
+        file_put_contents('.git/config', '');
+
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
+        $this->object->checkGitRevision();
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents(
+            '.git/packed-refs',
+            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
+        );
+        mkdir('.git/objects/info', 0777, true);
+        file_put_contents(
+            '.git/objects/info/packs',
+            'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack' . PHP_EOL .
+            '  pack-.pack' . PHP_EOL .
+            PHP_EOL .
+            'P pack-420568bae521465fd11863bff155a2b2831023.pack' . PHP_EOL .
+            PHP_EOL
+        );
+
+        $this->object->checkGitRevision();
+
+        $this->assertNotEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+        $this->assertNotEmpty(
+            $this->object->get('PMA_VERSION_GIT_BRANCH')
+        );
+
+        unlink(".git/objects/info/packs");
+        rmdir(".git/objects/info");
+        rmdir(".git/objects");
+        unlink('.git/packed-refs');
+        unlink('.git/HEAD');
+        unlink('.git/config');
+        rmdir('.git');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
+     * Test for checkGitRevision
+     *
+     * @return void
+     */
+    public function testCheckGitRevisionSkipped()
+    {
+        $this->object->set('ShowGitRevision', false);
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+    }
+
+    /**
+     * Test for git infos in session
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolder()
+    {
+        $_SESSION['git_location'] = 'customdir/.git';
+        $_SESSION['is_git_revision'] = true;
+        $gitFolder = '';
+        $this->assertTrue($this->object->isGitRevision($gitFolder));
+
+        $this->assertEquals(
+            $gitFolder,
+            'customdir/.git'
+        );
+    }
+
+    /**
+     * Test that git folder is not looked up if cached value is false
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolderNotRevisionNull()
+    {
+        $_SESSION['is_git_revision'] = false;
+        $_SESSION['git_location'] = null;
+        $gitFolder = 'defaultvaluebyref';
+        $this->assertFalse($this->object->isGitRevision($gitFolder));
+
+        // Assert that the value is replaced by cached one
+        $this->assertEquals(
+            $gitFolder,
+            null
+        );
+    }
+
+    /**
+     * Test that git folder is not looked up if cached value is false
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolderNotRevisionString()
+    {
+        $_SESSION['is_git_revision'] = false;
+        $_SESSION['git_location'] = 'randomdir/.git';
+        $gitFolder = 'defaultvaluebyref';
+        $this->assertFalse($this->object->isGitRevision($gitFolder));
+
+        // Assert that the value is replaced by cached one
+        $this->assertEquals(
+            $gitFolder,
+            'randomdir/.git'
         );
     }
 
     /**
      * Test for checkServers
+     *
+     * @param array $settings settings array
+     * @param array $expected expected result
+     * @param bool  $error    error
      *
      * @return void
      *
@@ -923,7 +1352,7 @@ class ConfigTest extends PmaTestCase
     public function testCheckServers($settings, $expected, $error = false)
     {
         if ($error) {
-            $this->setExpectedException('PHPUnit_Framework_Error');
+            $this->expectException(Exception::class);
         }
 
         $this->object->settings['Servers'] = $settings;
@@ -954,18 +1383,25 @@ class ConfigTest extends PmaTestCase
             ],
             'empty_host' => [
                 [1 => ['host' => '']],
-                ['verbose' => 'Server 1', 'host' => ''],
+                [
+                    'verbose' => 'Server 1',
+                    'host' => ''
+                ],
             ],
             'invalid' => [
                 ['invalid' => ['host' => '127.0.0.1']],
                 ['host' => '127.0.0.1'],
-                true
+                true,
             ],
         ];
     }
 
     /**
      * Test for selectServer
+     *
+     * @param array  $settings settings array
+     * @param string $request  request
+     * @param int    $expected expected result
      *
      * @return void
      *
@@ -1004,14 +1440,24 @@ class ConfigTest extends PmaTestCase
                 2,
             ],
             'verbose' => [
-                [1 => ['verbose' => 'Server 1', 'host' => '']],
+                [
+                    1 => [
+                        'verbose' => 'Server 1',
+                        'host' => ''
+                    ],
+                ],
                 'Server 1',
-                1
+                1,
             ],
             'md5' => [
-                [66 => ['verbose' => 'Server 1', 'host' => '']],
+                [
+                    66 => [
+                        'verbose' => 'Server 1',
+                        'host' => ''
+                    ],
+                ],
                 '753f173bd4ac8a45eae0fe9a4fbe0fc0',
-                66
+                66,
             ],
             'nonexisting_string' => [
                 [1 => []],
