@@ -17,7 +17,10 @@ use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Config;
 
 /**
  * PhpMyAdmin\Tests\Server\HtmlPrivilegesTemplateManagerTest class
@@ -34,6 +37,11 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
     private $serverPrivilegesTemplateManager;
 
     /**
+     * @var MockObject Mock of Privileges class
+     */
+    private $privileges;
+
+    /**
      * Prepares environment for the test.
      *
      * @return void
@@ -41,20 +49,20 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
     protected function setUp()
     {
         //Constants
-        if (! defined("PMA_USR_BROWSER_AGENT")) {
-            define("PMA_USR_BROWSER_AGENT", "other");
+        if (! defined('PMA_USR_BROWSER_AGENT')) {
+            define('PMA_USR_BROWSER_AGENT', 'other');
         }
 
         //$_REQUEST
-        $_REQUEST['log'] = "index1";
+        $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;
         $_GET['initial'] = null;
 
         //$GLOBALS
         $GLOBALS['lang'] = 'en';
         $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['SendErrorReports'] = "never";
-        $GLOBALS['cfg']['ServerDefault'] = "server";
+        $GLOBALS['cfg']['SendErrorReports'] = 'never';
+        $GLOBALS['cfg']['ServerDefault'] = 'server';
         $GLOBALS['cfg']['RememberSorting'] = true;
         $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -62,12 +70,12 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        $GLOBALS['cfg']['ActionLinksMode'] = "both";
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['DefaultTabTable'] = "structure";
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "structure";
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = "";
-        $GLOBALS['cfg']['Confirm'] = "Confirm";
+        $GLOBALS['cfg']['DefaultTabTable'] = 'structure';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
+        $GLOBALS['cfg']['Confirm'] = 'Confirm';
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
@@ -75,24 +83,22 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
 
         $GLOBALS['cfgRelation'] = [];
         $GLOBALS['cfgRelation']['menuswork'] = false;
-        $GLOBALS['table'] = "table";
+        $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
-        $GLOBALS['hostname'] = "hostname";
-        $GLOBALS['username'] = "username";
-        $GLOBALS['text_dir'] = "text_dir";
+        $GLOBALS['hostname'] = 'hostname';
+        $GLOBALS['username'] = 'username';
+        $GLOBALS['text_dir'] = 'text_dir';
         $GLOBALS['is_reload_priv'] = true;
 
-        $relation = new Relation($GLOBALS['dbi']);
-        $serverPrivileges = new Privileges(
-            $GLOBALS['dbi'],
-            $relation,
-            new RelationCleanup($GLOBALS['dbi'], $relation)
-        );
+        $this->privileges = $this->getMockBuilder(Privileges::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
         $this->serverPrivilegesTemplateManager = new HtmlPrivilegesTemplateManager(
-            $serverPrivileges,
+            $this->privileges,
             new Template()
         );
 
@@ -107,50 +113,12 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
             'menuswork' => true
         ];
 
-        $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
+        $pmaconfig = $this->getMockBuilder(Config::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->any())
-            ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    [
-                        'grant user1 select',
-                        'grant user2 delete',
-                    ]
-                )
-            );
-
-        $fetchSingleRow = [
-            'password' => 'pma_password',
-            'Table_priv' => 'pri1, pri2',
-            'Type' => 'Type',
-            '@@old_passwords' => 0,
-        ];
-        $dbi->expects($this->any())->method('fetchSingleRow')
-            ->will($this->returnValue($fetchSingleRow));
-
-        $fetchValue = ['key1' => 'value1'];
-        $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($fetchValue));
-
-        $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $GLOBALS['dbi'] = $dbi;
-        $serverPrivileges->dbi = $dbi;
-        $serverPrivileges->relation->dbi = $dbi;
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;
@@ -349,111 +317,92 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForUserGroupDialog
+     * Test for getUserGroupDialog
      *
      * @return void
      */
-    public function testGetHtmlForUserGroupDialog()
+    public function testGetUserGroupDialog()
     {
-        $username = "pma_username";
-        $is_menuswork = true;
-        $_GET['edit_user_group_dialog'] = "edit_user_group_dialog";
+        $username = 'pma_username';
+        $isMenuswork = true;
+        $_GET['edit_user_group_dialog'] = 'edit_user_group_dialog';
+
+        $this->privileges->method('getDataToChooseUserGroup')
+            ->willReturn(
+                [
+                    'all_user_groups' => [
+                        '' => '',
+                        0 => 'test_used_usergroup',
+                        1 => 'test_unused_usergroup',
+                    ],
+                    'user_group' => 'test_used_usergroup',
+                    'params' => ['username' => $username],
+                ]
+            );
 
         /* Assertion 1 */
-        $html = $this->serverPrivileges->getHtmlForUserGroupDialog($username, $is_menuswork);
+        $html = $this->serverPrivilegesTemplateManager->getUserGroupDialog($username, $isMenuswork);
         $this->assertContains(
             '<form class="ajax" id="changeUserGroupForm"',
             $html
         );
         //Url::getHiddenInputs
         $params = ['username' => $username];
-        $html_output = Url::getHiddenInputs($params);
+        $htmlOutput = Url::getHiddenInputs($params);
         $this->assertContains(
-            $html_output,
+            $htmlOutput,
             $html
         );
         //__('User group')
         $this->assertContains(
             __('User group'),
             $html
-        );
-
-        /* Assertion 2 */
-        $oldDbi = $GLOBALS['dbi'];
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->any())
-            ->method('fetchValue')
-            ->will($this->returnValue('userG'));
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->any())
-            ->method('fetchRow')
-            ->willReturnOnConsecutiveCalls(['userG'], null);
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $GLOBALS['dbi'] = $dbi;
-        $this->serverPrivileges->dbi = $dbi;
-
-        $actualHtml = $this->serverPrivileges->getHtmlForUserGroupDialog($username, $is_menuswork);
-        $this->assertContains(
-            '<form class="ajax" id="changeUserGroupForm"',
-            $actualHtml
-        );
-        //Url::getHiddenInputs
-        $params = ['username' => $username];
-        $html_output = Url::getHiddenInputs($params);
-        $this->assertContains(
-            $html_output,
-            $actualHtml
-        );
-        //__('User group')
-        $this->assertContains(
-            __('User group'),
-            $actualHtml
         );
 
         // Empty default user group
         $this->assertContains(
             '<option value=""></option>',
-            $actualHtml
+            $html
         );
 
         // Current user's group selected
         $this->assertContains(
-            '<option value="userG" selected="selected">userG</option>',
-            $actualHtml
+            '<option value="0" selected="selected">test_used_usergroup</option>',
+            $html
         );
-
-        /* reset original dbi */
-        $GLOBALS['dbi'] = $oldDbi;
-        $this->serverPrivileges->dbi = $oldDbi;
     }
 
     /**
-     * Test for getHtmlToChooseUserGroup
+     * Test for getChooseUserGroup
      *
      * @return void
      */
-    public function testGetHtmlToChooseUserGroup()
+    public function testGetChooseUserGroup()
     {
-        $username = "pma_username";
+        $username = 'pma_username';
 
-        $html = $this->serverPrivileges->getHtmlToChooseUserGroup($username);
+        $this->privileges->method('getDataToChooseUserGroup')
+            ->willReturn(
+                [
+                    'all_user_groups' => [
+                        0 => 'test_used_usergroup',
+                        1 => 'test_unused_usergroup',
+                    ],
+                    'user_group' => 'test_used_usergroup',
+                    'params' => ['username' => $username],
+                ]
+            );
+
+        $html = $this->serverPrivilegesTemplateManager->getChooseUserGroup($username);
         $this->assertContains(
             '<form class="ajax" id="changeUserGroupForm"',
             $html
         );
         //Url::getHiddenInputs
         $params = ['username' => $username];
-        $html_output = Url::getHiddenInputs($params);
+        $htmlOutput = Url::getHiddenInputs($params);
         $this->assertContains(
-            $html_output,
+            $htmlOutput,
             $html
         );
         //__('User group')
@@ -464,11 +413,11 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForResourceLimits
+     * Test for getResourceLimits
      *
      * @return void
      */
-    public function testGetHtmlForResourceLimits()
+    public function testGetResourceLimits()
     {
         $row = [
             'max_questions' => 'max_questions',
@@ -477,7 +426,7 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
             'max_user_connections' => 'max_user_connections',
         ];
 
-        $html = $this->serverPrivileges->getHtmlForResourceLimits($row);
+        $html = $this->serverPrivilegesTemplateManager->getResourceLimits($row);
         $this->assertContains(
             '<legend>' . __('Resource limits') . '</legend>',
             $html
@@ -516,19 +465,18 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
         );
     }
 
-
     /**
      * Test for getListForExportUserDefinition
      *
      * @return void
      */
-    public function testGetHtmlForExportUserDefinition()
+    public function getListForExportUserDefinition()
     {
-        $username = "PMA_username";
-        $hostname = "PMA_hostname";
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
 
         list($title, $export)
-            = $this->serverPrivileges->getListForExportUserDefinition($username, $hostname);
+            = $this->serverPrivilegesTemplateManager->getListForExportUserDefinition($username, $hostname);
 
         //validate 1: $export
         $this->assertContains(
@@ -545,75 +493,70 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
         );
 
         //validate 2: $title
-        $title_user = __('User') . ' `' . htmlspecialchars($username)
+        $titleUser = __('User') . ' `' . htmlspecialchars($username)
             . '`@`' . htmlspecialchars($hostname) . '`';
         $this->assertContains(
-            $title_user,
+            $titleUser,
             $title
         );
     }
 
     /**
-     * Test for getHtmlToDisplayPrivilegesTable
+     * Test for getDisplayPrivilegesTable
      *
      * @return void
      * @group medium
      */
-    public function testGetHtmlToDisplayPrivilegesTable()
+    public function testGetDisplayPrivilegesTableEmptyColumns()
     {
-        $dbi_old = $GLOBALS['dbi'];
-        $GLOBALS['hostname'] = "hostname";
-        $GLOBALS['username'] = "username";
+        $GLOBALS['hostname'] = 'hostname';
+        $GLOBALS['username'] = 'username';
 
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->privileges->method('getDataToDisplayPrivilegesTable')
+            ->willReturn(
+                [
+                    '*',
+                    $GLOBALS['username'],
+                    $GLOBALS['hostname'],
+                    ['Table_priv' => ''],
+                    [],
+                ]
+            );
 
-        $fetchSingleRow = [
-            'password' => 'pma_password',
-            'max_questions' => 'max_questions',
-            'max_updates' => 'max_updates',
-            'max_connections' => 'max_connections',
-            'max_user_connections' => 'max_user_connections',
-            'Table_priv' => 'Select,Insert,Update,Delete,File,Create,Alter,Index,'
-                . 'Drop,Super,Process,Reload,Shutdown,Create_routine,Alter_routine,'
-                . 'Show_db,Repl_slave,Create_tmp_table,Show_view,Execute,'
-                . 'Repl_client,Lock_tables,References,Grant,dd'
-                . 'Create_user,Repl_slave,Repl_client',
-            'Type' => "'Super1','Select','Insert','Update','Create','Alter','Index',"
-                . "'Drop','Delete','File','Super','Process','Reload','Shutdown','"
-                . "Show_db','Repl_slave','Create_tmp_table',"
-                . "'Show_view','Create_routine','"
-                . "Repl_client','Lock_tables','References','Alter_routine','"
-                . "Create_user','Repl_slave','Repl_client','Execute','Grant','ddd",
-        ];
-        $dbi->expects($this->any())->method('fetchSingleRow')
-            ->will($this->returnValue($fetchSingleRow));
+        $this->privileges->method('getDataPrivilegeTable')
+            ->willReturn(
+                [
+                    [
+                        'Data_right',
+                        'DATA_RIGHT',
+                        'Fake data right',
+                    ],
+                ]
+            );
 
-        $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue(true));
+        $this->privileges->method('getStructurePrivilegeTable')
+            ->willReturn(
+                [
+                    [
+                        'Structure_right',
+                        'STRUCUTRE_RIGHT',
+                        'Fake structure right',
+                    ],
+                ]
+            );
 
-        $columns = [
-            'val1',
-            'replace1',
-            5,
-        ];
-        $dbi->expects($this->at(0))
-            ->method('fetchRow')
-            ->will($this->returnValue($columns));
-        $dbi->expects($this->at(1))
-            ->method('fetchRow')
-            ->will($this->returnValue(false));
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+        $this->privileges->method('getAdministrationPrivilegeTable')
+            ->willReturn(
+                [
+                    [
+                        'Administration_right',
+                        'ADMIN_RIGHT',
+                        'Fake administration right',
+                    ],
+                ]
+            );
 
-        $GLOBALS['dbi'] = $dbi;
-        $this->serverPrivileges->dbi = $dbi;
-
-        $html = $this->serverPrivileges->getHtmlToDisplayPrivilegesTable();
-        $GLOBALS['username'] = "username";
+        $html = $this->serverPrivilegesTemplateManager->getPrivilegesTable();
 
         //validate 1: fieldset
         $this->assertContains(
@@ -627,7 +570,7 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
             $html
         );
 
-        //validate 3: getHtmlForGlobalOrDbSpecificPrivs
+        //validate 3: getGlobalOrDbSpecificPrivs
         $this->assertContains(
             '<fieldset id="fieldset_user_global_rights"><legend '
             . 'data-submenu-label="' . __('Global') . '">',
@@ -646,44 +589,21 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
             $html
         );
 
-        //validate 4: getHtmlForGlobalPrivTableWithCheckboxes items
-        //Select_priv
+        //validate 4: getGlobalPrivTableWithCheckboxes items
         $this->assertContains(
-            '<input type="checkbox" class="checkall" name="Select_priv"',
+            '<input type="checkbox" class="checkall" name="Data_right_priv"',
             $html
         );
-        //Create_user_priv
         $this->assertContains(
-            '<input type="checkbox" class="checkall" name="Create_user_priv"',
+            '<input type="checkbox" class="checkall" name="Structure_right_priv"',
             $html
         );
-        //Insert_priv
         $this->assertContains(
-            '<input type="checkbox" class="checkall" name="Insert_priv"',
-            $html
-        );
-        //Update_priv
-        $this->assertContains(
-            '<input type="checkbox" class="checkall" name="Update_priv"',
-            $html
-        );
-        //Create_priv
-        $this->assertContains(
-            '<input type="checkbox" class="checkall" name="Create_priv"',
-            $html
-        );
-        //Create_routine_priv
-        $this->assertContains(
-            '<input type="checkbox" class="checkall" name="Create_routine_priv"',
-            $html
-        );
-        //Execute_priv
-        $this->assertContains(
-            '<input type="checkbox" class="checkall" name="Execute_priv"',
+            '<input type="checkbox" class="checkall" name="Administration_right_priv"',
             $html
         );
 
-        //validate 5: getHtmlForResourceLimits
+        //validate 5: getResourceLimits
         $this->assertContains(
             '<legend>' . __('Resource limits') . '</legend>',
             $html
@@ -692,9 +612,115 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
             __('Note: Setting these options to 0 (zero) removes the limit.'),
             $html
         );
+    }
 
-        $GLOBALS['dbi'] = $dbi_old;
-        $this->serverPrivileges->dbi = $dbi_old;
+    /**
+     * Test for getDisplayPrivilegesTable
+     *
+     * @return void
+     * @group medium
+     */
+    public function testGetDisplayPrivilegesTableFilledColumns()
+    {
+        $GLOBALS['hostname'] = 'hostname';
+        $GLOBALS['username'] = 'username';
+
+        $GLOBALS['strPrivDescTable'] = 'strPrivDescTable';
+
+        $this->privileges->method('getDataToDisplayPrivilegesTable')
+            ->willReturn(
+                [
+                    '*',
+                    $GLOBALS['username'],
+                    $GLOBALS['hostname'],
+                    ['Table_priv' => ''],
+                    [
+                        'COL1' => [
+                            'Select' => false,
+                            'Insert' => false,
+                            'Update' => false,
+                            'References' => false,
+                        ],
+                        'COL2' => [
+                            'Select' => false,
+                            'Insert' => false,
+                            'Update' => false,
+                            'References' => false,
+                        ],
+                    ],
+                ]
+            );
+
+        $this->privileges->method('getDataForTableSpecificPrivileges')
+            ->willReturn(
+                [
+                    'COL1' => [
+                        'Select' => true,
+                        'Insert' => false,
+                        'Update' => false,
+                        'References' => false,
+                    ],
+                    'COL2' => [
+                        'Select' => false,
+                        'Insert' => true,
+                        'Update' => true,
+                        'References' => false,
+                    ],
+                ]
+            );
+
+        $this->privileges->method('getDataPrivilegeTable')
+            ->willReturn(
+                [
+                    [
+                        'Data_right',
+                        'DATA_RIGHT',
+                        'Fake data right',
+                    ],
+                ]
+            );
+
+        $this->privileges->method('getStructurePrivilegeTable')
+            ->willReturn(
+                [
+                    [
+                        'Structure_right',
+                        'STRUCUTRE_RIGHT',
+                        'Fake structure right',
+                    ],
+                ]
+            );
+
+        $this->privileges->method('getAdministrationPrivilegeTable')
+            ->willReturn(
+                [
+                    [
+                        'Administration_right',
+                        'ADMIN_RIGHT',
+                        'Fake administration right',
+                    ],
+                ]
+            );
+
+        $html = $this->serverPrivilegesTemplateManager->getPrivilegesTable();
+
+        //validate 1: fieldset
+        $this->assertContains(
+            '<fieldset id="fieldset_user_privtable_footer" ',
+            $html
+        );
+
+        //validate 2: button
+        $this->assertContains(
+            __('Go'),
+            $html
+        );
+
+        //validate 3: getTableSpecificPrivileges
+        $this->assertContains(
+            '<input type="hidden" name="column_count" value="2">',
+            $html
+        );
     }
 
     /**
@@ -875,7 +901,7 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
 
         $dbname = "pma_dbname";
 
-        $html = $this->serverPrivileges->getHtmlForAddUser($dbname);
+        $html = $this->serverPrivilegesTemplateManager->getHtmlForAddUser($dbname);
 
         //validate 1: Url::getHiddenInputs
         $this->assertContains(
@@ -885,7 +911,7 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
 
         //validate 2: getHtmlForLoginInformationFields
         $this->assertContains(
-            $this->serverPrivileges->getHtmlForLoginInformationFields('new'),
+            $this->serverPrivilegesTemplateManager->getHtmlForLoginInformationFields('new'),
             $html
         );
 
@@ -908,9 +934,9 @@ class HtmlPrivilegesTemplateManagerTest extends TestCase
             $html
         );
 
-        //validate 4: getHtmlToDisplayPrivilegesTable
+        //validate 4: getDisplayPrivilegesTable
         $this->assertContains(
-            $this->serverPrivileges->getHtmlToDisplayPrivilegesTable('*', '*', false),
+            $this->serverPrivilegesTemplateManager->getDisplayPrivilegesTable('*', '*', false),
             $html
         );
 
