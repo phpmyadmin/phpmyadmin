@@ -1499,49 +1499,39 @@ class Results
     /**
      * Prepare data for column restoring and show/hide
      *
-     * @param array $analyzed_sql_results analyzed sql results
+     * @param array $analyzedSqlResults analyzed sql results
      *
-     * @return  string      html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getTableHeaders()
+     * @see _getTableHeaders()
      */
-    private function _getDataForResettingColumnOrder(array $analyzed_sql_results)
+    private function _getDataForResettingColumnOrder(array $analyzedSqlResults): string
     {
-        if (! $this->_isSelect($analyzed_sql_results)) {
+        if (! $this->_isSelect($analyzedSqlResults)) {
             return '';
         }
 
-        // generate the column order, if it is set
-        list($col_order, $col_visib) = $this->_getColumnParams(
-            $analyzed_sql_results
+        list($columnOrder, $columnVisibility) = $this->_getColumnParams(
+            $analyzedSqlResults
         );
 
-        $data_html = '';
-
-        if ($col_order) {
-            $data_html .= '<input class="col_order" type="hidden" value="'
-                . implode(',', $col_order) . '">';
-        }
-
-        if ($col_visib) {
-            $data_html .= '<input class="col_visib" type="hidden" value="'
-                . implode(',', $col_visib) . '">';
-        }
-
-        // generate table create time
+        $tableCreateTime = '';
         $table = new Table($this->__get('table'), $this->__get('db'));
         if (! $table->isView()) {
-            $data_html .= '<input class="table_create_time" type="hidden" value="'
-                . $GLOBALS['dbi']->getTable(
-                    $this->__get('db'),
-                    $this->__get('table')
-                )->getStatusInfo('Create_time')
-                . '">';
+            $tableCreateTime = $GLOBALS['dbi']->getTable(
+                $this->__get('db'),
+                $this->__get('table')
+            )->getStatusInfo('Create_time');
         }
 
-        return $data_html;
+        return $this->template->render('display/results/data_for_resetting_column_order', [
+            'column_order' => $columnOrder,
+            'column_visibility' => $columnVisibility,
+            'is_view' => $table->isView(),
+            'table_create_time' => $tableCreateTime,
+        ]);
     }
 
     /**
