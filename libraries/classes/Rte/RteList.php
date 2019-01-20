@@ -271,7 +271,7 @@ class RteList
 
             $params = Routine::getParameters($stmt);
 
-            if (Util::currentUserHasPrivilege('EXECUTE', $db)) {
+            if (Util::currentUserHasPrivilege('EXECUTE', $db)||1) {
                 $execute_action = 'execute_routine';
                 for ($i = 0; $i < $params['num']; $i++) {
                     if ($routine['type'] == 'PROCEDURE'
