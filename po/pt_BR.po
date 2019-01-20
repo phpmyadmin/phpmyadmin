@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-19 17:22-0200\n"
-"PO-Revision-Date: 2019-01-10 18:54+0000\n"
+"PO-Revision-Date: 2019-01-20 04:50+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -10173,10 +10173,8 @@ msgid "Two-factor authentication failed."
 msgstr "Autenticação por dois fatores falhou."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
-#, fuzzy
-#| msgid "Two-factor authentication"
 msgid "No Two-Factor Authentication"
-msgstr "Autenticação de dois fatores"
+msgstr "Sem autenticação de dois fatores"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
@@ -16207,10 +16205,8 @@ msgid "View output as text"
 msgstr "Ver saida como texto"
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Ordenar pela chave"
+msgstr "Ordenar pela chave:"
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
