@@ -275,6 +275,7 @@ input[type=date]:hover {
 
 input[type=submit],
 input[type=button],
+input[type=reset],
 button[type=submit]:not(.mult_submit) {
     font-weight: bold !important;
 }
