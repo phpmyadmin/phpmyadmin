@@ -119,6 +119,8 @@ class Privileges
      * @param boolean $html      Whether to use HTML
      *
      * @return string
+     *
+     * @TODO to remove, duplicated in HtmlPrivilegesTemplateManager
      */
     public function formatPrivilege(array $privilege, $html)
     {

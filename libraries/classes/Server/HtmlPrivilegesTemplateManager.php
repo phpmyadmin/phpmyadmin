@@ -43,6 +43,24 @@ class HtmlPrivilegesTemplateManager implements PrivilegesTemplateManagerInterfac
     }
 
     /**
+     * Formats privilege name for a display
+     *
+     * @param array   $privilege Privilege information
+     * @param boolean $html      Whether to use HTML
+     *
+     * @return string
+     */
+    public function formatPrivilege(array $privilege, $html)
+    {
+        if ($html) {
+            return '<dfn title="' . $privilege[2] . '">'
+                . $privilege[1] . '</dfn>';
+        }
+
+        return $privilege[1];
+    }
+
+    /**
      * Get HTML for display Add userfieldset
      *
      * @param string $db    the database
