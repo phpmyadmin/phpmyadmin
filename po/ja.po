@@ -14484,9 +14484,13 @@ msgstr "任意の型の幾何物体の集合"
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
+<<<<<<< HEAD
 msgstr ""
 "JSON（JavaScript Object Notation）文書内のデータを格納し、効率的にデータにア"
 "クセスする"
+=======
+msgstr "JSON（JavaScript Object Notation）文書内のデータを格納し、効率的にデータにアクセスする"
+>>>>>>> upstream/QA_4_8
 
 #: libraries/classes/Types.php:701
 msgctxt "numeric types"
@@ -14664,9 +14668,13 @@ msgstr "ZIP アーカイブにエラーがあります:"
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
+<<<<<<< HEAD
 msgstr ""
 "セッションクッキーの設定に失敗しました。 phpMyAdminにアクセスするのにHTTPSの"
 "代わりにHTTPが使用されている可能性があります。"
+=======
+msgstr "セッションクッキーの設定に失敗しました。 phpMyAdminにアクセスするのにHTTPSの代わりにHTTPが使用されている可能性があります。"
+>>>>>>> upstream/QA_4_8
 
 #: libraries/common.inc.php:336
 msgid "Invalid authentication method set in configuration:"
@@ -14968,9 +14976,13 @@ msgstr "トリガを作成する特権がありません"
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
+<<<<<<< HEAD
 msgstr ""
 "ユーザ名とホスト名は変更されませんでした。パスワードを変更したい場合は、「パ"
 "スワードを変更する」タブを使用してください。"
+=======
+msgstr "ユーザ名とホスト名は変更されませんでした。パスワードを変更したい場合は、「パスワードを変更する」タブを使用してください。"
+>>>>>>> upstream/QA_4_8
 
 #: server_status.php:40
 msgid "Not enough privilege to view server status."
