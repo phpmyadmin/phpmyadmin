@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-19 17:22-0200\n"
-"PO-Revision-Date: 2019-01-10 23:03+0000\n"
+"PO-Revision-Date: 2019-01-20 04:44+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -10156,10 +10156,8 @@ msgid "Two-factor authentication failed."
 msgstr "Authentication de duo factores falleva."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
-#, fuzzy
-#| msgid "Two-factor authentication"
 msgid "No Two-Factor Authentication"
-msgstr "Authentication de duo factores"
+msgstr "Necun authentication de duo factores"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
@@ -11333,6 +11331,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Permitte a le usator de dar a altere usatores o remover ab altere usatores "
+"privilegios que le usator possede sur iste routine."
 
 #: libraries/classes/Server/Privileges.php:1010
 msgid "Allows altering and dropping this routine."
@@ -15857,10 +15857,8 @@ msgid "View output as text"
 msgstr "Vide exito como texto"
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Ordina per clave"
+msgstr "Ordina per clave:"
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
