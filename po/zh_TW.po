@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:37-0200\n"
-"PO-Revision-Date: 2019-01-18 21:11+0000\n"
+"PO-Revision-Date: 2019-01-21 18:30+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hant/>\n"
@@ -2074,15 +2074,15 @@ msgstr "最大值："
 
 #: js/messages.php:492
 msgid "Hide find and replace criteria"
-msgstr "隱藏搜尋與取代條件"
+msgstr "隱藏尋找與取代準則"
 
 #: js/messages.php:493
 msgid "Show find and replace criteria"
-msgstr "顯示搜尋與取代條件"
+msgstr "顯示尋找與取代準則"
 
 #: js/messages.php:497
 msgid "Each point represents a data row."
-msgstr "每一個點代表一筆資料。"
+msgstr "每個點代表一筆資料。"
 
 #: js/messages.php:499
 msgid "Hovering over a point will show its label."
@@ -2141,7 +2141,7 @@ msgstr "多邊形"
 
 #: js/messages.php:525 templates/display/results/options_block.twig:79
 msgid "Geometry"
-msgstr "幾何形"
+msgstr "幾何圖形"
 
 #: js/messages.php:526
 msgid "Inner ring"
@@ -2153,7 +2153,7 @@ msgstr "外環"
 
 #: js/messages.php:531
 msgid "Do you want to copy encryption key?"
-msgstr "是否要複製加密金鑰？"
+msgstr "是否複製加密金鑰？"
 
 #: js/messages.php:532
 msgid "Encryption key"
@@ -2179,15 +2179,15 @@ msgstr "代表已對此頁做了變更；在放棄這些變更前會先提示您
 
 #: js/messages.php:553
 msgid "Select referenced key"
-msgstr "請選擇參考鍵(Reference Key)"
+msgstr "請選擇參照鍵"
 
 #: js/messages.php:554
 msgid "Select Foreign Key"
-msgstr "請選擇外鍵(Foreign Key)"
+msgstr "請選擇外鍵"
 
 #: js/messages.php:556
 msgid "Please select the primary key or a unique key!"
-msgstr "請選擇主鍵(Primary Key)或唯一鍵(Unique Key)！"
+msgstr "請選擇主鍵或獨一鍵！"
 
 #: js/messages.php:557 templates/database/designer/side_menu.twig:92
 #: templates/database/designer/side_menu.twig:95
@@ -2202,7 +2202,7 @@ msgstr "尚未儲存修改的資料，請確認是否要捨棄這些資料？"
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr "value/subQuery 沒有內容"
+msgstr "「值／子查詢」沒有內容"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2221,7 +2221,7 @@ msgstr "儲存頁面"
 #: js/messages.php:566 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
 msgid "Save page as"
-msgstr "儲存頁面為"
+msgstr "另存頁面為"
 
 #: js/messages.php:567 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
@@ -2254,7 +2254,7 @@ msgstr "已成功刪除頁面"
 
 #: js/messages.php:575
 msgid "Export relational schema"
-msgstr "匯出關聯式綱要(relational schema)"
+msgstr "匯出關聯綱要"
 
 #: js/messages.php:576
 msgid "Modifications have been saved"
@@ -2263,7 +2263,7 @@ msgstr "已儲存修改"
 #: js/messages.php:579
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "新增欄位 \"%s\" 的選項。"
+msgstr "新增「%s」欄位的選項。"
 
 #: js/messages.php:580
 #, php-format
@@ -2276,13 +2276,13 @@ msgstr "送出"
 
 #: js/messages.php:584
 msgid "Press escape to cancel editing."
-msgstr "按下 ESC 取消編輯。"
+msgstr "按 ESC 取消編輯。"
 
 #: js/messages.php:586
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
-msgstr "有一些修改的資料尚未儲存，確定不儲存並離開本頁？"
+msgstr "有一些資料修改過，但尚未儲存；確定不儲存並離開本頁？"
 
 #: js/messages.php:589
 msgid "Drag to reorder."
@@ -2325,13 +2325,11 @@ msgstr "全部顯示"
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
-msgstr ""
-"此資料表沒有唯一(unique)欄位。有關資料表修改、複製、刪除的功能可能會無法儲"
-"存。"
+msgstr "此資料表沒有獨一欄位。有關資料表修改、複製、刪除的功能可能會無法儲存。"
 
 #: js/messages.php:607
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr "請輸入有效的十六進位字串。有效的字元為 0-9, A-F。"
+msgstr "請輸入有效的十六進位字串。有效字元為 0-9、A-F。"
 
 #: js/messages.php:609
 msgid ""
@@ -2361,7 +2359,7 @@ msgstr "匯入狀態"
 
 #: js/messages.php:620 libraries/classes/Navigation/Navigation.php:127
 msgid "Drop files here"
-msgstr "將檔案拖曳至此處"
+msgstr "將檔案拖放至此處"
 
 #: js/messages.php:621
 msgid "Select database first"
@@ -2430,7 +2428,7 @@ msgstr "取消連結主面板"
 
 #: js/messages.php:664
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "已無歷史記錄頁面或頁面已經逾期。"
+msgstr "已無歷史記錄頁面，或許頁面已經逾期。"
 
 #: js/messages.php:668 setup/lib/Index.php:171
 #, php-format
@@ -2550,9 +2548,8 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"存取瀏覽器儲存空間時發生錯誤，部份功能可能無法正常運作。似乎是因為瀏覽器不支"
-"援儲存空間，或者已達空間使用上限。在 Firefox，損壞的儲存空間可能會造成此問"
-"題，可清空您的「離線網站資料」來解決。在 Safari 則通常是「隱私模式瀏覽」。"
+"存取瀏覽器儲存空間時發生錯誤，部份功能可能無法正常運作。似乎是因為瀏覽器不支援儲存空間，或者已達空間使用上限。在 "
+"Firefox，損壞的儲存空間可能會造成此問題，可試著清空「離線網站資料」來解決；在 Safari 則通常是「隱私模式瀏覽」引起的問題。"
 
 #: js/messages.php:736
 msgid "Copy tables to"
