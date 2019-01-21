@@ -2130,7 +2130,11 @@ class Util
         }
 
         $where_clause = trim(preg_replace('|\s?AND$|', '', $preferred_condition));
-        return [$where_clause, $clause_is_unique, $condition_array];
+        return [
+            $where_clause,
+            $clause_is_unique,
+            $condition_array,
+        ];
     } // end function
 
     /**
