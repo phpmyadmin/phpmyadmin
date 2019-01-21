@@ -80,7 +80,7 @@ class Tracking
             }
             $id++;
         }
-        return($tmp_entries);
+        return $tmp_entries;
     }
 
     /**
@@ -175,7 +175,7 @@ class Tracking
     ) {
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables();
         $selectableTablesEntries = [];
-        while (($entry = $GLOBALS['dbi']->fetchArray($selectableTablesSqlResult))) {
+        while ($entry = $GLOBALS['dbi']->fetchArray($selectableTablesSqlResult)) {
             $entry['is_tracked'] = Tracker::isTracked(
                 $entry['db_name'],
                 $entry['table_name']
@@ -649,7 +649,7 @@ class Tracking
                 $entry['url_params'] = Url::getCommon($urlParams + [
                     'report' => 'true',
                     'version' => $_POST['version'],
-                    $deleteParam => ($lineNumber - $offset),
+                    $deleteParam => $lineNumber - $offset,
                 ], '');
                 $entry['line_number'] = $lineNumber;
                 $entries[] = $entry;
@@ -1256,7 +1256,7 @@ class Tracking
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         foreach ($table_list as $key => $value) {
-            if (is_array($value) && array_key_exists(('is' . $sep . 'group'), $value)
+            if (is_array($value) && array_key_exists('is' . $sep . 'group', $value)
                 && $value['is' . $sep . 'group']
             ) {
                 $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables); //Recursion step
@@ -1299,12 +1299,12 @@ class Tracking
             0 => [
                 'label' => __('not active'),
                 'value' => 'deactivate_now',
-                'selected' => ($state != 'active'),
+                'selected' => $state != 'active',
             ],
             1 => [
                 'label' => __('active'),
                 'value' => 'activate_now',
-                'selected' => ($state == 'active'),
+                'selected' => $state == 'active',
             ],
         ];
         $link = 'tbl_tracking.php' . $urlQuery . '&amp;table='

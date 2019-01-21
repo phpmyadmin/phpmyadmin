@@ -91,7 +91,7 @@ class Relation
     public function getRelationsParam()
     {
         if (empty($_SESSION['relation'][$GLOBALS['server']])
-            || (empty($_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION']))
+            || empty($_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'])
             || $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] != PMA_VERSION
         ) {
             $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();

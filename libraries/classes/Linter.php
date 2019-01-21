@@ -31,7 +31,8 @@ class Linter
     public static function getLines($str)
     {
         if ((! ($str instanceof UtfString))
-            && (defined('USE_UTF_STRINGS')) && (USE_UTF_STRINGS)
+            && defined('USE_UTF_STRINGS')
+            && USE_UTF_STRINGS
         ) {
             // If the lexer uses UtfString for processing then the position will
             // represent the position of the character and not the position of

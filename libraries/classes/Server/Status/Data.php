@@ -206,7 +206,7 @@ class Data
         ];
         $links['innodb']['doc'] = 'innodb';
 
-        return($links);
+        return $links;
     }
 
     /**

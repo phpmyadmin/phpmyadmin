@@ -78,7 +78,7 @@ class UserPassword
         $error = false;
         $message = Message::success(__('The profile has been updated.'));
 
-        if (($_POST['nopass'] != '1')) {
+        if ($_POST['nopass'] != '1') {
             if (strlen($_POST['pma_pw']) === 0 || strlen($_POST['pma_pw2']) === 0) {
                 $message = Message::error(__('The password is empty!'));
                 $error = true;

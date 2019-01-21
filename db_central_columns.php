@@ -147,7 +147,7 @@ $response->addHTML($main);
 
 $num_cols = $centralColumns->getColumnsCount($db, $pos, $max_rows);
 $message = Message::success(
-    sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + $num_cols))
+    sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $num_cols)
 );
 if (isset($tmp_msg) && $tmp_msg !== true) {
     $message = $tmp_msg;

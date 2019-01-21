@@ -724,7 +724,7 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     )
     . '<br>'
     . '<img src="'
-    . ($GLOBALS['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
+    . $GLOBALS['PMA_Theme']->getImgPath('ajax_clock_small.gif')
     . '" width="16" height="16" alt="ajax clock">'
     . '</div>';
 $js_messages['strCopyQueryButtonSuccess'] = __('Successfully copied!');
@@ -900,7 +900,7 @@ Sanitize::printJsValue(
     /* l10n: Month-year order for calendar, use either "calendar-month-year"
     * or "calendar-year-month".
     */
-    (__('calendar-month-year') == 'calendar-year-month')
+    __('calendar-month-year') == 'calendar-year-month'
 );
 /* l10n: Year suffix for calendar, "none" is empty. */
 $year_suffix = _pgettext('Year suffix', 'none');

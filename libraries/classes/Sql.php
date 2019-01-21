@@ -526,7 +526,7 @@ class Sql
             && $analyzed_sql_results['select_from']
             && isset($analyzed_sql_results['select_expr'])
             && isset($analyzed_sql_results['select_tables'])
-            && ((empty($analyzed_sql_results['select_expr']))
+            && (empty($analyzed_sql_results['select_expr'])
                 || ((count($analyzed_sql_results['select_expr']) == 1)
                     && ($analyzed_sql_results['select_expr'][0] == '*')))
             && count($analyzed_sql_results['select_tables']) == 1;
@@ -979,7 +979,7 @@ class Sql
     private function getNumberOfRowsAffectedOrChanged($is_affected, $result)
     {
         if (! $is_affected) {
-            $num_rows = ($result) ? @$GLOBALS['dbi']->numRows($result) : 0;
+            $num_rows = $result ? @$GLOBALS['dbi']->numRows($result) : 0;
         } else {
             $num_rows = @$GLOBALS['dbi']->affectedRows();
         }

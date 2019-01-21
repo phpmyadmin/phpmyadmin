@@ -512,7 +512,7 @@ class Menu
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['icon'] = 'b_tblops';
 
-            if (($is_superuser || $isCreateOrGrantUser)) {
+            if ($is_superuser || $isCreateOrGrantUser) {
                 $tabs['privileges']['link'] = 'server_privileges.php';
                 $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
                 // stay on database view

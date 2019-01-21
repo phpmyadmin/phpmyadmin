@@ -47,7 +47,7 @@ foreach (UserFormList::getAll() as $formset) {
         'link' => 'prefs_forms.php',
         'text' => $formset_class::getName(),
         'icon' => $tabs_icons[$formset],
-        'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param),
+        'active' => $script_name == 'prefs_forms.php' && $formset == $form_param,
     ];
     $content .= Util::getHtmlTab($tab, ['form' => $formset]) . "\n";
 }

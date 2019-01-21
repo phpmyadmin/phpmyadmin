@@ -1599,7 +1599,7 @@ class Routines
                     echo $form;
                 }
                 exit;
-            } elseif (($response->isAjax())) {
+            } elseif ($response->isAjax()) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
                     $this->words->get('not_found'),

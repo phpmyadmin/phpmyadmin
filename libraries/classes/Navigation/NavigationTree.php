@@ -254,7 +254,7 @@ class NavigationTree
         }
 
         $navItems = (int) $GLOBALS['cfg']['FirstLevelNavigationItems'];
-        $retval = floor((count($prefixMap) / $navItems)) * $navItems;
+        $retval = floor(count($prefixMap) / $navItems) * $navItems;
 
         return $retval;
     }
@@ -1071,7 +1071,7 @@ class NavigationTree
             // if node name itself is in sterile, then allow
             if ($node->is_group
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
-                || (in_array($node->real_name, $sterile))
+                || in_array($node->real_name, $sterile)
             ) {
                 $retval .= "<div class='block'>";
                 $iClass = '';

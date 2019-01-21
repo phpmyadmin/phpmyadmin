@@ -893,8 +893,8 @@ class FormDisplay
             $opts['comment_warning'] = true;
         }
         if (! $GLOBALS['PMA_Config']->get('is_setup')) {
-            if (($systemPath == 'MaxDbList' || $systemPath == 'MaxTableList'
-                || $systemPath == 'QueryHistoryMax')
+            if ($systemPath == 'MaxDbList' || $systemPath == 'MaxTableList'
+                || $systemPath == 'QueryHistoryMax'
             ) {
                 $opts['comment'] = sprintf(
                     __('maximum %s'),

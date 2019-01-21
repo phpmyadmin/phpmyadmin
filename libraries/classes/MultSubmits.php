@@ -72,7 +72,7 @@ class MultSubmits
     ) {
         $urlParams = [
             'query_type' => $what,
-            'reload' => (! empty($reload) ? 1 : 0),
+            'reload' => ! empty($reload) ? 1 : 0,
         ];
         if (mb_strpos(' ' . $action, 'db_') == 1) {
             $urlParams['db'] = $db;

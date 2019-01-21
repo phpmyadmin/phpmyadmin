@@ -570,7 +570,7 @@ class Validator
             return '';
         }
         $result = preg_match($regex, Util::requestString($values[$path]));
-        return [$path => ($result ? '' : __('Incorrect value!'))];
+        return [$path => $result ? '' : __('Incorrect value!')];
     }
 
     /**

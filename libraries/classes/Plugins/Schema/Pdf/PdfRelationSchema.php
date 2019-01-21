@@ -768,18 +768,18 @@ class PdfRelationSchema extends ExportRelationSchema
                     $field_name,
                     $type,
                     $attribute,
-                    (($row['Null'] == '' || $row['Null'] == 'NO')
+                    ($row['Null'] == '' || $row['Null'] == 'NO')
                         ? __('No')
-                        : __('Yes')),
-                    (isset($row['Default']) ? $row['Default'] : ''),
+                        : __('Yes'),
+                    isset($row['Default']) ? $row['Default'] : '',
                     $row['Extra'],
                     $linksTo,
-                    (isset($comments[$field_name])
+                    isset($comments[$field_name])
                         ? $comments[$field_name]
-                        : ''),
-                    (isset($mime_map) && isset($mime_map[$field_name])
+                        : '',
+                    isset($mime_map) && isset($mime_map[$field_name])
                         ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])
-                        : ''),
+                        : '',
                 ];
                 $links = [];
                 $links[0] = $this->diagram->PMA_links['RT'][$table][$field_name];

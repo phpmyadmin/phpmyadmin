@@ -748,7 +748,7 @@ class ReplicationGui
                 '',
                 mb_substr(
                     $_current_user,
-                    (mb_strrpos($_current_user, '@') + 1)
+                    mb_strrpos($_current_user, '@') + 1
                 )
             );
             if ($thishost != 'localhost' && $thishost != '127.0.0.1') {

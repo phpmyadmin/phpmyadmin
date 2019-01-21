@@ -782,12 +782,11 @@ class Privileges
                     'Does not require SSL-encrypted connections.'
                 ),
                 'label'       => 'REQUIRE NONE',
-                'checked'     => (isset($row['ssl_type'])
+                'checked'     => isset($row['ssl_type'])
                     && ($row['ssl_type'] == 'NONE'
                         || $row['ssl_type'] == '')
                     ? 'checked="checked"'
-                    : ''
-                ),
+                    : '',
                 'disabled'    => false,
                 'radio'       => true,
             ],
@@ -798,10 +797,9 @@ class Privileges
                     'Requires SSL-encrypted connections.'
                 ),
                 'label'       => 'REQUIRE SSL',
-                'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY')
+                'checked'     => isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY')
                     ? 'checked="checked"'
-                    : ''
-                ),
+                    : '',
                 'disabled'    => false,
                 'radio'       => true,
             ],
@@ -812,10 +810,9 @@ class Privileges
                     'Requires a valid X509 certificate.'
                 ),
                 'label'       => 'REQUIRE X509',
-                'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
+                'checked'     => isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
                     ? 'checked="checked"'
-                    : ''
-                ),
+                    : '',
                 'disabled'    => false,
                 'radio'       => true,
             ],
@@ -824,15 +821,14 @@ class Privileges
                 'value'       => 'SPECIFIED',
                 'description' => '',
                 'label'       => 'SPECIFIED',
-                'checked'     => ($specified ? 'checked="checked"' : ''),
+                'checked'     => $specified ? 'checked="checked"' : '',
                 'disabled'    => false,
                 'radio'       => true,
             ],
             [
                 'name'        => 'ssl_cipher',
-                'value'       => (isset($row['ssl_cipher'])
-                    ? htmlspecialchars($row['ssl_cipher']) : ''
-                ),
+                'value'       => isset($row['ssl_cipher'])
+                    ? htmlspecialchars($row['ssl_cipher']) : '',
                 'description' => __(
                     'Requires that a specific cipher method be used for a connection.'
                 ),
@@ -843,9 +839,8 @@ class Privileges
             ],
             [
                 'name'        => 'x509_issuer',
-                'value'       => (isset($row['x509_issuer'])
-                    ? htmlspecialchars($row['x509_issuer']) : ''
-                ),
+                'value'       => isset($row['x509_issuer'])
+                    ? htmlspecialchars($row['x509_issuer']) : '',
                 'description' => __(
                     'Requires that a valid X509 certificate issued by this CA be presented.'
                 ),
@@ -856,9 +851,8 @@ class Privileges
             ],
             [
                 'name'        => 'x509_subject',
-                'value'       => (isset($row['x509_subject'])
-                    ? htmlspecialchars($row['x509_subject']) : ''
-                ),
+                'value'       => isset($row['x509_subject'])
+                    ? htmlspecialchars($row['x509_subject']) : '',
                 'description' => __(
                     'Requires that a valid X509 certificate with this subject be presented.'
                 ),
@@ -887,7 +881,7 @@ class Privileges
             [
                 'input_name'  => 'max_questions',
                 'name_main'   => 'MAX QUERIES PER HOUR',
-                'value'       => (isset($row['max_questions']) ? $row['max_questions'] : '0'),
+                'value'       => isset($row['max_questions']) ? $row['max_questions'] : '0',
                 'description' => __(
                     'Limits the number of queries the user may send to the server per hour.'
                 ),
@@ -895,7 +889,7 @@ class Privileges
             [
                 'input_name'  => 'max_updates',
                 'name_main'   => 'MAX UPDATES PER HOUR',
-                'value'       => (isset($row['max_updates']) ? $row['max_updates'] : '0'),
+                'value'       => isset($row['max_updates']) ? $row['max_updates'] : '0',
                 'description' => __(
                     'Limits the number of commands that change any table '
                     . 'or database the user may execute per hour.'
@@ -904,7 +898,7 @@ class Privileges
             [
                 'input_name'  => 'max_connections',
                 'name_main'   => 'MAX CONNECTIONS PER HOUR',
-                'value'       => (isset($row['max_connections']) ? $row['max_connections'] : '0'),
+                'value'       => isset($row['max_connections']) ? $row['max_connections'] : '0',
                 'description' => __(
                     'Limits the number of new connections the user may open per hour.'
                 ),
@@ -912,8 +906,8 @@ class Privileges
             [
                 'input_name'  => 'max_user_connections',
                 'name_main'   => 'MAX USER_CONNECTIONS',
-                'value'       => (isset($row['max_user_connections']) ?
-                    $row['max_user_connections'] : '0'),
+                'value'       => isset($row['max_user_connections']) ?
+                    $row['max_user_connections'] : '0',
                 'description' => __(
                     'Limits the number of simultaneous connections '
                     . 'the user may have.'
@@ -1184,7 +1178,7 @@ class Privileges
                 . mb_substr(
                     $tmp_current_grant,
                     0,
-                    (mb_strlen($tmp_current_grant) - 5)
+                    mb_strlen($tmp_current_grant) - 5
                 );
             $html_output .= (isset($GLOBALS[$privGlobalName])
                     ? $GLOBALS[$privGlobalName]
@@ -1340,10 +1334,9 @@ class Privileges
             [
                 'Create',
                 'CREATE',
-                ($table == '*'
+                $table == '*'
                     ? __('Allows creating new databases and tables.')
-                    : __('Allows creating new tables.')
-                ),
+                    : __('Allows creating new tables.'),
             ],
             [
                 'Alter',
@@ -1358,10 +1351,9 @@ class Privileges
             [
                 'Drop',
                 'DROP',
-                ($table == '*'
+                $table == '*'
                     ? __('Allows dropping databases and tables.')
-                    : __('Allows dropping tables.')
-                ),
+                    : __('Allows dropping tables.'),
             ],
             [
                 'Create_tmp_table',
@@ -1698,7 +1690,7 @@ class Privileges
                 '',
                 mb_substr(
                     $_current_user,
-                    (mb_strrpos($_current_user, '@') + 1)
+                    mb_strrpos($_current_user, '@') + 1
                 )
             );
             if ($thishost != 'localhost' && $thishost != '127.0.0.1') {
@@ -3149,7 +3141,7 @@ class Privileges
             }
 
             $new_user_string .= '<td>';
-            if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
+            if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y') {
                 $new_user_string .= __('Yes');
             } else {
                 $new_user_string .= __('No');
@@ -4336,7 +4328,7 @@ class Privileges
                 $_user_name = $this->dbi->fetchValue('SELECT USER()');
                 $hostname = mb_substr(
                     $_user_name,
-                    (mb_strrpos($_user_name, '@') + 1)
+                    mb_strrpos($_user_name, '@') + 1
                 );
                 unset($_user_name);
                 break;

@@ -564,7 +564,7 @@ class Util
         }
 
         // Finding the query that failed, if not specified.
-        if ((empty($sql_query) && (! empty($GLOBALS['sql_query'])))) {
+        if (empty($sql_query) && ! empty($GLOBALS['sql_query'])) {
             $sql_query = $GLOBALS['sql_query'];
         }
         $sql_query = trim($sql_query);
@@ -599,7 +599,7 @@ class Util
 
         // For security reasons, if the MySQL refuses the connection, the query
         // is hidden so no details are revealed.
-        if ((! empty($sql_query)) && (! (mb_strstr($sql_query, 'connect')))) {
+        if (! empty($sql_query) && ! mb_strstr($sql_query, 'connect')) {
             // Static analysis errors.
             if (! empty($errors)) {
                 $error_msg .= '<p><strong>' . __('Static analysis:')
@@ -1488,7 +1488,7 @@ class Util
 
         if ($originalValue != 0 && floatval($value) == 0) {
             return ' <' . number_format(
-                (1 / pow(10, $digits_right)),
+                1 / pow(10, $digits_right),
                 $digits_right,
                 $decimal_sep,
                 $thousands_sep
@@ -1999,7 +1999,7 @@ class Util
 
                 if (! empty($analyzed_sql_results['statement']->expr)) {
                     foreach ($analyzed_sql_results['statement']->expr as $expr) {
-                        if ((empty($expr->alias)) || (empty($expr->column))) {
+                        if (empty($expr->alias) || empty($expr->column)) {
                             continue;
                         }
                         if (strcasecmp($meta->name, $expr->alias) == 0) {
@@ -2130,7 +2130,11 @@ class Util
         }
 
         $where_clause = trim(preg_replace('|\s?AND$|', '', $preferred_condition));
-        return([$where_clause, $clause_is_unique, $condition_array]);
+        return [
+            $where_clause,
+            $clause_is_unique,
+            $condition_array,
+        ];
     } // end function
 
     /**
@@ -4625,7 +4629,7 @@ class Util
                 $GLOBALS['dbi']->getTablesFull(
                     $db,
                     $groupWithSeparator,
-                    ($groupWithSeparator !== false),
+                    $groupWithSeparator !== false,
                     $limit_offset,
                     $limit_count,
                     $sort,

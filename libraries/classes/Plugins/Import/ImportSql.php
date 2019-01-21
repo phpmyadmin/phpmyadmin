@@ -160,7 +160,7 @@ class ImportSql extends ImportPlugin
         }
 
         // Extracting remaining statements.
-        while ((! $error) && (! $timeout_passed) && (! empty($bq->query))) {
+        while (! $error && ! $timeout_passed && ! empty($bq->query)) {
             $statement = $bq->extract(true);
             if (! empty($statement)) {
                 $this->import->runQuery($statement, $statement, $sql_data);

@@ -133,7 +133,7 @@ class Processes
             : 'SHOW PROCESSLIST';
         if ((! empty($_POST['order_by_field'])
             && ! empty($_POST['sort_order']))
-            || (! empty($_POST['showExecuting']))
+            || ! empty($_POST['showExecuting'])
         ) {
             $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
         }
@@ -241,11 +241,11 @@ class Processes
 
         $url_params = [
             'ajax_request' => true,
-            'full' => (isset($_POST['full']) ? $_POST['full'] : ''),
-            'column_name' => (isset($_POST['column_name']) ? $_POST['column_name'] : ''),
+            'full' => isset($_POST['full']) ? $_POST['full'] : '',
+            'column_name' => isset($_POST['column_name']) ? $_POST['column_name'] : '',
             'order_by_field'
-                => (isset($_POST['order_by_field']) ? $_POST['order_by_field'] : ''),
-            'sort_order' => (isset($_POST['sort_order']) ? $_POST['sort_order'] : ''),
+                => isset($_POST['order_by_field']) ? $_POST['order_by_field'] : '',
+            'sort_order' => isset($_POST['sort_order']) ? $_POST['sort_order'] : '',
         ];
 
         $retval  = '';
@@ -280,7 +280,7 @@ class Processes
         // Array keys need to modify due to the way it has used
         // to display column values
         if ((! empty($_POST['order_by_field']) && ! empty($_POST['sort_order']))
-            || (! empty($_POST['showExecuting']))
+            || ! empty($_POST['showExecuting'])
         ) {
             foreach (array_keys($process) as $key) {
                 $new_key = ucfirst(mb_strtolower($key));

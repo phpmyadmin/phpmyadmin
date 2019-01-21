@@ -51,9 +51,9 @@ if (isset($_POST['send_error_report'])
         } else {
             $_SESSION['prev_error_subm_time'] = time();
             $_SESSION['error_subm_count'] = (
-                (isset($_SESSION['error_subm_count']))
+                isset($_SESSION['error_subm_count'])
                     ? ($_SESSION['error_subm_count'] + 1)
-                    : (0)
+                    : 0
             );
         }
     }
