@@ -118,6 +118,10 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
 
     $('#submit_query').on('click', function () {
         var query = editor.getDoc().getValue();
+        if (query === '') {
+            PMA_ajaxShowMessage('Please enter the sql query first.', false, 'error');
+            return;
+        }
         var data = {
             'db': $('#db_name').val(),
             'sql_query': query,
