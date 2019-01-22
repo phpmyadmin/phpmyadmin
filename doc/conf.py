@@ -311,6 +311,8 @@ linkcheck_ignore = [
     # Site is often down
     r'https://software.opensuse.org/package/.*',
     r'https://pecl.php.net/.*',
+    # Temporarily disabled due to hack
+    r'https://pear.php.net/.*',
     # 403 Client Error: Forbidden
     r'https://authy.com/.*',
 ]
