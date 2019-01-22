@@ -55,7 +55,9 @@ class Import
     public function __construct()
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges->getPrivileges();
     }
 
     /**

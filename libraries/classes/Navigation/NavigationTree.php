@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeTable;
@@ -18,8 +19,6 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
-
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 /**
  * Displays a collapsible of database objects in the navigation frame
@@ -94,6 +93,9 @@ class NavigationTree
      */
     public function __construct()
     {
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges->getPrivileges();
+
         // Save the position at which we are in the database list
         if (isset($_POST['pos'])) {
             $this->_pos = (int) $_POST['pos'];

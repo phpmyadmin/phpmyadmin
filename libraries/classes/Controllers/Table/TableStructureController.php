@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\CentralColumns;
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
@@ -148,10 +149,8 @@ class TableStructureController extends TableController
     {
         PageSettings::showGroup('TableStructure');
 
-        /**
-         * Function implementations for this script
-         */
-        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $checkUserPrivileges->getPrivileges();
 
         $this->response->getHeader()->getScripts()->addFiles(
             [
@@ -556,7 +555,9 @@ class TableStructureController extends TableController
         /**
          * Form for changing properties.
          */
-        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $checkUserPrivileges->getPrivileges();
+
         include ROOT_PATH . 'libraries/tbl_columns_definition_form.inc.php';
     }
 

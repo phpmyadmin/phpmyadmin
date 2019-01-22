@@ -172,7 +172,7 @@ class CheckUserPrivileges
      *
      * @return void
      */
-    public function analyseShowGrant(): void
+    private function analyseShowGrant(): void
     {
         if (Util::cacheExists('is_create_db_priv')) {
             $GLOBALS['is_create_db_priv'] = Util::cacheGet(
@@ -338,5 +338,35 @@ class CheckUserPrivileges
         Util::cacheSet('table_priv', $GLOBALS['table_priv']);
         Util::cacheSet('col_priv', $GLOBALS['col_priv']);
         Util::cacheSet('db_priv', $GLOBALS['db_priv']);
-    } // end function
+    }
+
+    /**
+     * Get user's global privileges and some db-specific privileges
+     *
+     * @return void
+     */
+    public function getPrivileges(): void
+    {
+        $username = '';
+
+        $current = $this->dbi->getCurrentUserAndHost();
+        if (! empty($current)) {
+            list($username, ) = $current;
+        }
+
+        // If MySQL is started with --skip-grant-tables
+        if ($username === '') {
+            $GLOBALS['is_create_db_priv'] = true;
+            $GLOBALS['is_reload_priv'] = true;
+            $GLOBALS['db_to_create'] = '';
+            $GLOBALS['dbs_where_create_table_allowed'] = ['*'];
+            $GLOBALS['dbs_to_test'] = false;
+            $GLOBALS['db_priv'] = true;
+            $GLOBALS['col_priv'] = true;
+            $GLOBALS['table_priv'] = true;
+            $GLOBALS['proc_priv'] = true;
+        } else {
+            $this->analyseShowGrant();
+        }
+    }
 }

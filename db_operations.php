@@ -13,6 +13,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
@@ -33,10 +34,8 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-/**
- * functions implementation for this script
- */
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$checkUserPrivileges->getPrivileges();
 
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = Response::getInstance();
