@@ -37,7 +37,6 @@ jobs:
   allow_failures:
     - php: nightly
     - os: windows
-    - os: osx
     - name: "PHP 7.1 with dbase extension"
 
   include:
@@ -88,11 +87,15 @@ jobs:
       language: node_js
       node_js: 10
       before_install:
-        - brew update
-        - brew install openldap libiconv php composer mariadb
         - brew link --force gettext
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.3/php.ini
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
         - mysql.server start
+      addons:
+        homebrew:
+          packages:
+            - php
+            - composer
+            - mariadb
 
     - stage: "PHP Unit tests"
       name: "PHP 7.2"
