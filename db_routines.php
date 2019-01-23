@@ -7,6 +7,8 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\CheckUserPrivileges;
+
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
@@ -16,10 +18,8 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-/**
- * Include all other files
- */
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$checkUserPrivileges->getPrivileges();
 
 /**
  * Do the magic

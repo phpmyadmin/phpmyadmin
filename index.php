@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\GitRevision;
@@ -232,7 +233,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
      * Displays the mysql server related links
      */
     if ($server > 0) {
-        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges->getPrivileges();
 
         // Logout for advanced authentication
         if (($cfg['Server']['auth_type'] != 'config') && $cfg['ShowChgPassword']) {

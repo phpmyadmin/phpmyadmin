@@ -7,6 +7,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partition;
@@ -20,15 +21,10 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- *
- */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-/**
- * functions implementation for this script
- */
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$checkUserPrivileges->getPrivileges();
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 

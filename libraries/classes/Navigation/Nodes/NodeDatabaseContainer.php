@@ -9,10 +9,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Util;
-
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 /**
  * Represents a container for database nodes in the navigation tree
@@ -28,6 +27,9 @@ class NodeDatabaseContainer extends Node
      */
     public function __construct($name)
     {
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges->getPrivileges();
+
         parent::__construct($name, Node::CONTAINER);
 
         if ($GLOBALS['is_create_db_priv']

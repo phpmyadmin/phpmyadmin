@@ -28,9 +28,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Template;
-
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 /**
  * PhpMyAdmin\Display\CreateTable class
@@ -48,6 +47,9 @@ class CreateTable
      */
     public static function getHtml($db)
     {
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges->getPrivileges();
+
         $template = new Template();
         return $template->render('database/create_table', ['db' => $db]);
     }

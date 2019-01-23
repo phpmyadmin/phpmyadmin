@@ -7,6 +7,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
@@ -25,10 +26,8 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-/**
- * functions implementation for this script
- */
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$checkUserPrivileges->getPrivileges();
 
 $relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();

@@ -9,6 +9,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
@@ -24,7 +25,9 @@ if (! defined('ROOT_PATH')) {
  * Gets some core libraries
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+
+$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$checkUserPrivileges->getPrivileges();
 
 PageSettings::showGroup('Browse');
 

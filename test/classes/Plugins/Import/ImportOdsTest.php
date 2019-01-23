@@ -12,12 +12,6 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\PmaTestCase;
 
-/*
- * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.inc.php' will use it globally
- */
-$GLOBALS['server'] = 0;
-
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
  *
@@ -39,6 +33,7 @@ class ImportOdsTest extends PmaTestCase
      */
     protected function setUp()
     {
+        $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = "csv";
         $this->object = new ImportOds();
 

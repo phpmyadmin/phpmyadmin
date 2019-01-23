@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -57,7 +58,8 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
-        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
+        $checkUserPrivileges->getPrivileges();
 
         $response = Response::getInstance();
 

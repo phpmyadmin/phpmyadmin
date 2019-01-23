@@ -12,8 +12,6 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ListAbstract;
 use PhpMyAdmin\Util;
 
-require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
-
 /**
  * handles database lists
  *
@@ -34,6 +32,10 @@ class ListDatabase extends ListAbstract
     public function __construct()
     {
         parent::__construct();
+
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges->getPrivileges();
+
         $this->build();
     }
 

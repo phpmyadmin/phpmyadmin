@@ -12,12 +12,6 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\PmaTestCase;
 
-/*
- * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.inc.php' will use it globally
- */
-$GLOBALS['server'] = 0;
-
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportShp class
  *
@@ -43,6 +37,7 @@ class ImportShpTest extends PmaTestCase
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
+        $GLOBALS['server'] = 0;
         //setting
         $GLOBALS['plugin_param'] = 'table';
         $GLOBALS['finished'] = false;
