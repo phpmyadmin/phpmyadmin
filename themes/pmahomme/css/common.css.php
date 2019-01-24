@@ -956,6 +956,9 @@ form.login select {
     display: inline-block;
 }
 
+li.last.database{
+    margin-bottom: 15px
+}
 /******************************************************************************/
 /* specific elements */
 
