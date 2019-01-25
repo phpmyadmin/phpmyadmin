@@ -9,301 +9,192 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use ReflectionClass;
+use PhpMyAdmin\Controllers\Server\ServerDatabasesController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for ServerDatabasesController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerDatabasesControllerTest extends PmaTestCase
+class ServerDatabasesControllerTest extends TestCase
 {
     /**
-     * Prepares environment for the test.
-     *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-
-        //$GLOBALS
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
 
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = "table";
-        $GLOBALS['replication_info']['master']['status'] = false;
-        $GLOBALS['replication_info']['slave']['status'] = false;
-        $GLOBALS['pmaThemeImage'] = 'image';
-        $GLOBALS['text_dir'] = "text_dir";
+        $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'pma_test';
+        $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-
-        //$_SESSION
-        $GLOBALS['server'] = 1;
-
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $response);
-        $container->alias('response', 'PhpMyAdmin\Response');
+        $GLOBALS['pmaThemeImage'] = 'image';
+        $GLOBALS['text_dir'] = "text_dir";
     }
 
     /**
-     * Tests for _getHtmlForDatabases
-     *
      * @return void
-     * @group medium
      */
-    public function testGetHtmlForDatabase()
+    public function testIndexAction(): void
     {
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerDatabasesController');
-        $method = $class->getMethod('_getHtmlForDatabases');
-        $method->setAccessible(true);
+        global $cfg, $dblist, $is_create_db_priv;
 
-        $container = Container::getDefaultContainer();
-        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
-        $container->alias(
-            'ServerDatabasesController',
-            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
-        );
-        $ctrl = $container->get('ServerDatabasesController');
-
-        //Call the test function
         $databases = [
-            ["SCHEMA_NAME" => "pma_bookmark"],
-            ["SCHEMA_NAME" => "information_schema"],
-            ["SCHEMA_NAME" => "mysql"],
-            ["SCHEMA_NAME" => "performance_schema"],
-            ["SCHEMA_NAME" => "phpmyadmin"],
-        ];
-        $property = $class->getProperty('_databases');
-        $property->setAccessible(true);
-        $property->setValue($ctrl, $databases);
-
-        $property = $class->getProperty('_database_count');
-        $property->setAccessible(true);
-        $property->setValue($ctrl, 5);
-
-        $property = $class->getProperty('_pos');
-        $property->setAccessible(true);
-        $property->setValue($ctrl, 0);
-
-        $property = $class->getProperty('_dbstats');
-        $property->setAccessible(true);
-        $property->setValue($ctrl, false);
-
-        $property = $class->getProperty('_sort_by');
-        $property->setAccessible(true);
-        $property->setValue($ctrl, 'SCHEMA_NAME');
-
-        $property = $class->getProperty('_sort_order');
-        $property->setAccessible(true);
-        $property->setValue($ctrl, 'asc');
-
-        $replication_types = [
-            "master",
-            "slave",
-        ];
-
-        $html = $method->invoke($ctrl, $replication_types);
-
-        //validate 3: PMA_getHtmlForColumnOrderWithSort
-        $this->assertContains(
-            '<a href="server_databases.php',
-            $html
-        );
-
-        //validate 4: PMA_getHtmlAndColumnOrderForDatabaseList
-        $this->assertRegExp(
-            '/title="pma_bookmark"[[:space:]]*value="pma_bookmark"/',
-            $html
-        );
-        $this->assertRegExp(
-            '/title="information_schema"[[:space:]]*value="information_schema"/',
-            $html
-        );
-        $this->assertRegExp(
-            '/title="performance_schema"[[:space:]]*value="performance_schema"/',
-            $html
-        );
-        $this->assertRegExp(
-            '/title="phpmyadmin"[[:space:]]*value="phpmyadmin"/',
-            $html
-        );
-
-        //validate 5: table footer
-        $this->assertContains(
-            'Total: <span id="filter-rows-count">5</span>',
-            $html
-        );
-
-        //validate 6: footer buttons
-        $this->assertContains(
-            'Check all',
-            $html
-        );
-
-        //validate 7: enable statistics
-        $this->assertContains(
-            'Note: Enabling the database statistics here might cause heavy traffic',
-            $html
-        );
-        $this->assertContains(
-            'Enable statistics',
-            $html
-        );
-    }
-
-    /**
-     * Tests for _setSortDetails()
-     *
-     * @return void
-     */
-    public function testSetSortDetails()
-    {
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerDatabasesController');
-        $method = $class->getMethod('_setSortDetails');
-        $method->setAccessible(true);
-        $propertySortBy = $class->getProperty('_sort_by');
-        $propertySortBy->setAccessible(true);
-        $propertySortOrder = $class->getProperty('_sort_order');
-        $propertySortOrder->setAccessible(true);
-
-        $container = Container::getDefaultContainer();
-        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
-        $container->alias(
-            'ServerDatabasesController',
-            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
-        );
-        $ctrl = $container->get('ServerDatabasesController');
-
-        //$_REQUEST['sort_by'] and $_REQUEST['sort_order'] are empty
-        $method->invoke($ctrl, ["master", "slave"]);
-        $this->assertEquals(
-            'SCHEMA_NAME',
-            $propertySortBy->getValue($ctrl)
-        );
-        $this->assertEquals(
-            'asc',
-            $propertySortOrder->getValue($ctrl)
-        );
-
-        $container = Container::getDefaultContainer();
-        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
-        $container->alias(
-            'ServerDatabasesController',
-            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
-        );
-        $ctrl = $container->get('ServerDatabasesController');
-
-        // $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME'
-        // and $_REQUEST['sort_order'] is not 'desc'
-        $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME';
-        $_REQUEST['sort_order'] = 'abc';
-        $method->invoke($ctrl);
-        $this->assertEquals(
-            'DEFAULT_COLLATION_NAME',
-            $propertySortBy->getValue($ctrl)
-        );
-        $this->assertEquals(
-            'asc',
-            $propertySortOrder->getValue($ctrl)
-        );
-
-        $container = Container::getDefaultContainer();
-        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
-        $container->alias(
-            'ServerDatabasesController',
-            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
-        );
-        $ctrl = $container->get('ServerDatabasesController');
-
-        // $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME'
-        // and $_REQUEST['sort_order'] is 'desc'
-        $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME';
-        $_REQUEST['sort_order'] = 'desc';
-        $method->invoke($ctrl);
-        $this->assertEquals(
-            'DEFAULT_COLLATION_NAME',
-            $propertySortBy->getValue($ctrl)
-        );
-        $this->assertEquals(
-            'desc',
-            $propertySortOrder->getValue($ctrl)
-        );
-    }
-
-    /**
-     * Tests for _getColumnOrder()
-     *
-     * @return void
-     */
-    public function testGetColumnOrder()
-    {
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerDatabasesController');
-        $method = $class->getMethod('_getColumnOrder');
-        $method->setAccessible(true);
-
-        $container = Container::getDefaultContainer();
-        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
-        $container->alias(
-            'ServerDatabasesController',
-            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
-        );
-        $ctrl = $container->get('ServerDatabasesController');
-
-        $this->assertEquals(
             [
-                'DEFAULT_COLLATION_NAME' => [
-                    'disp_name' => __('Collation'),
-                    'description_function' => [
-                        Charsets::class,
-                        'getCollationDescr',
-                    ],
-                    'format'    => 'string',
-                    'footer'    => ''
-                ],
-                'SCHEMA_TABLES' => [
-                    'disp_name' => __('Tables'),
-                    'format'    => 'number',
-                    'footer'    => 0,
-                ],
-                'SCHEMA_TABLE_ROWS' => [
-                    'disp_name' => __('Rows'),
-                    'format'    => 'number',
-                    'footer'    => 0,
-                ],
-                'SCHEMA_DATA_LENGTH' => [
-                    'disp_name' => __('Data'),
-                    'format'    => 'byte',
-                    'footer'    => 0,
-                ],
-                'SCHEMA_INDEX_LENGTH' => [
-                    'disp_name' => __('Indexes'),
-                    'format'    => 'byte',
-                    'footer'    => 0,
-                ],
-                'SCHEMA_LENGTH' => [
-                    'disp_name' => __('Total'),
-                    'format'    => 'byte',
-                    'footer'    => 0,
-                ],
-                'SCHEMA_DATA_FREE' => [
-                    'disp_name' => __('Overhead'),
-                    'format'    => 'byte',
-                    'footer'    => 0,
-                ]
+                'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
+                'SCHEMA_TABLES' => '23',
+                'SCHEMA_TABLE_ROWS' => '47274',
+                'SCHEMA_DATA_LENGTH' => '4358144',
+                'SCHEMA_INDEX_LENGTH' => '2392064',
+                'SCHEMA_LENGTH' => '6750208',
+                'SCHEMA_DATA_FREE' => '0',
+                'SCHEMA_NAME' => 'sakila',
             ],
-            $method->invoke($ctrl)
+            [
+                'DEFAULT_COLLATION_NAME' => 'utf8mb4_general_ci',
+                'SCHEMA_TABLES' => '8',
+                'SCHEMA_TABLE_ROWS' => '3912174',
+                'SCHEMA_DATA_LENGTH' => '148111360',
+                'SCHEMA_INDEX_LENGTH' => '5816320',
+                'SCHEMA_LENGTH' => '153927680',
+                'SCHEMA_DATA_FREE' => '0',
+                'SCHEMA_NAME' => 'employees',
+            ],
+        ];
+
+        $dblist = new \stdClass();
+        $dblist->databases = $databases;
+
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->method('getDatabasesFull')
+            ->willReturn($databases);
+
+        $controller = new ServerDatabasesController(
+            Response::getInstance(),
+            $dbi
         );
+
+        $actual = $controller->indexAction([
+            'statistics' => null,
+            'pos' => null,
+            'sort_by' => null,
+            'sort_order' => null,
+        ]);
+
+        $this->assertContains('data-filter-row="SAKILA"', $actual);
+        $this->assertContains('sakila', $actual);
+        $this->assertContains('utf8_general_ci', $actual);
+        $this->assertContains('title="Unicode, case-insensitive"', $actual);
+        $this->assertContains('data-filter-row="SAKILA"', $actual);
+        $this->assertContains('sakila', $actual);
+        $this->assertContains('utf8mb4_general_ci', $actual);
+        $this->assertContains('title="Unicode (UCA 4.0.0), case-insensitive"', $actual);
+        $this->assertContains('2 databases', $actual);
+        $this->assertContains('name="pos" value="0"', $actual);
+        $this->assertContains('name="sort_by" value="SCHEMA_NAME"', $actual);
+        $this->assertContains('name="sort_order" value="asc"', $actual);
+        $this->assertContains(__('Enable statistics'), $actual);
+        $this->assertContains(__('No privileges to create databases'), $actual);
+        $this->assertNotContains(__('Indexes'), $actual);
+
+        $cfg['ShowCreateDb'] = true;
+        $is_create_db_priv = true;
+
+        $actual = $controller->indexAction([
+            'statistics' => '1',
+            'pos' => null,
+            'sort_by' => 'SCHEMA_TABLES',
+            'sort_order' => 'desc',
+        ]);
+
+        $this->assertNotContains(__('Enable statistics'), $actual);
+        $this->assertContains(__('Indexes'), $actual);
+        $this->assertContains('name="sort_by" value="SCHEMA_TABLES"', $actual);
+        $this->assertContains('name="sort_order" value="desc"', $actual);
+        $this->assertContains('name="statistics" value="1"', $actual);
+        $this->assertContains('title="3912174"', $actual);
+        $this->assertContains('3,912,174', $actual);
+        $this->assertContains('title="4358144"', $actual);
+        $this->assertContains('4.2', $actual);
+        $this->assertContains('MiB', $actual);
+        $this->assertContains('name="db_collation"', $actual);
+    }
+
+    /**
+     * @return void
+     */
+    public function testCreateDatabaseAction()
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->method('getError')
+            ->willReturn('CreateDatabaseError');
+
+        $controller = new ServerDatabasesController(
+            Response::getInstance(),
+            $dbi
+        );
+
+        $actual = $controller->createDatabaseAction([
+            'new_db' => 'pma_test',
+            'db_collation' => null,
+        ]);
+
+        $this->assertArrayHasKey('message', $actual);
+        $this->assertInstanceOf(Message::class, $actual['message']);
+        $this->assertContains('<div class="error">', $actual['message']->getDisplay());
+        $this->assertContains('CreateDatabaseError', $actual['message']->getDisplay());
+
+        $dbi->method('tryQuery')
+            ->willReturn(true);
+
+        $actual = $controller->createDatabaseAction([
+            'new_db' => 'pma_test',
+            'db_collation' => 'utf8_general_ci',
+        ]);
+
+        $this->assertArrayHasKey('message', $actual);
+        $this->assertInstanceOf(Message::class, $actual['message']);
+        $this->assertContains('<div class="success">', $actual['message']->getDisplay());
+        $this->assertContains(
+            sprintf(__('Database %1$s has been created.'), 'pma_test'),
+            $actual['message']->getDisplay()
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function testDropDatabasesAction()
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $controller = new ServerDatabasesController(
+            Response::getInstance(),
+            $dbi
+        );
+
+        $actual = $controller->dropDatabasesAction([
+            'drop_selected_dbs' => true,
+            'selected_dbs' => null,
+        ]);
+
+        $this->assertArrayHasKey('message', $actual);
+        $this->assertInstanceOf(Message::class, $actual['message']);
+        $this->assertContains('<div class="error">', $actual['message']->getDisplay());
+        $this->assertContains(__('No databases selected.'), $actual['message']->getDisplay());
     }
 }

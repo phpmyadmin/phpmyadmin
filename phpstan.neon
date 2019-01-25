@@ -24,7 +24,6 @@ parameters:
         - '#GisGeomTestCase::\$object#'
         - '#Undefined variable: \$array#'
         - '#Undefined variable: \$(cfg|db|table|url_query|text_dir|server|pmaThemeImage|action|sql_query|lang|export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|partitionDetails|token_mismatch|auth_plugin|username|hostname|display_query|where_clause)#'#Others
-        - '#Undefined variable: \$(replication_types|selected)#'#Controllers/Server/ServerDatabasesController.php
         - '#Undefined variable: \$(dir|error_header|error_message)#'#error.inc.php
         - '#Undefined variable: \$_PMA_RTE#'#rte/rte_main.inc.php
         - '#Undefined variable: \$(unsaved_values|is_upload)#'#tbl_change.php
@@ -40,7 +39,6 @@ parameters:
         - '#Variable \$time might not be defined#'#DatabaseInterface.php
         - '#Variable \$contentPath in isset\(\) always exists and is not nullable#'#DatabaseInterface.php
         - '#Variable \$server_info might not be defined#'#DatabaseInterface.php
-        # - '#Variable \$single_table always exists and is not nullable#'#Display/ExportTest.php
         - '#Function mysqli_get_client_info invoked with 0 parameters, 1 required#'#libraries/classes/Dbi/DbiMysqli.php
         - '#Variable \$default_fk_check_value might not be defined#'#libraries/mult_submits.inc.php
         - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
