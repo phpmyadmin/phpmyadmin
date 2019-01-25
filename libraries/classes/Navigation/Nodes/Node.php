@@ -793,11 +793,7 @@ class Node
         if (!$GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
-        } elseif ($match && !$this->is_group) {
-            $this->visible = true;
-
-            return Util::getImage('b_minus');
-        } elseif ($match && $this->is_group) {
+        } elseif ($match) {
             $this->visible = true;
 
             return Util::getImage('b_minus');
