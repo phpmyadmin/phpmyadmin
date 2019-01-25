@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - issue #14633 Use Sass instead of PHP to compile CSS
 - issue #14053 Fix missed padding on query results
 - issue #14765 Add initial support for Bootstrap 4
+- issue #14829 Change table column comment field from input to textarea
 
 4.8.5 (not yet released)
 - issue        Developer debug data was saved to the PHP error log
