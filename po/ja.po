@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-19 17:22-0200\n"
-"PO-Revision-Date: 2019-01-19 19:06+0000\n"
+"PO-Revision-Date: 2019-01-26 19:25+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -7006,7 +7006,7 @@ msgstr "不正な IP アドレス：%s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "個人用と共用を含む %1$d ブックマークを表示しています"
 
 #: libraries/classes/Console.php:109
 msgid "No bookmarks"
@@ -7238,7 +7238,7 @@ msgstr "検索と置換の条件を隠す"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
+msgstr[0] "'%s'という名前はMySQLの予約語です。"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:287
 msgid "No column selected."
@@ -8910,7 +8910,7 @@ msgstr ""
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
+msgstr[0] "%s が見つかりました"
 
 #: libraries/classes/Navigation/NavigationTree.php:1381
 #: libraries/classes/Navigation/NavigationTree.php:1413
@@ -14540,7 +14540,7 @@ msgstr "SQL の EXPLAIN 解析をスキップ"
 #: libraries/classes/Util.php:1122
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "「%s」のEXPLAINを分析"
 
 #: libraries/classes/Util.php:1152
 #, fuzzy
@@ -14843,7 +14843,7 @@ msgstr "致命的なエラー：ナビゲーションへのアクセスに使用
 
 #: prefs_forms.php:36 setup/frames/form.inc.php:22
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "不正なフォームが指定された！"
 
 #: prefs_forms.php:88
 #, fuzzy
@@ -15122,7 +15122,7 @@ msgstr "新しいサーバの追加"
 
 #: setup/index.php:23
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "構成は、既に存際しています。セットアップは無効化された！"
 
 #: setup/index.php:33
 msgid "Wrong GET file attribute value"
@@ -15184,7 +15184,7 @@ msgstr "データが正しくありません"
 #: setup/validate.php:37
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "「%s」のデータが間違っているか、検証されていません"
 
 #: tbl_change.php:166 templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -15213,7 +15213,7 @@ msgstr "テーブル名が不正です"
 #: tbl_replace.php:257
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "行:%1$s ,カラム%2$s ,エラー:%3$s"
 
 #: tbl_row_action.php:77
 #, fuzzy
@@ -15880,7 +15880,7 @@ msgstr "カラム名"
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
-msgstr ""
+msgstr "PHPMyAdminにアクセスするためにHTTPSを使用していないので、Fido U2Fデバイスは認証するのを拒否するでしょう。"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -16423,7 +16423,7 @@ msgstr "Y 軸の値"
 
 #: templates/table/chart/tbl_chart.twig:113
 msgid "Series names are in a column"
-msgstr ""
+msgstr "系列名はカラムにあります"
 
 #: templates/table/chart/tbl_chart.twig:116
 #, fuzzy
@@ -17369,7 +17369,7 @@ msgstr "%s の後へ"
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
-msgstr ""
+msgstr "識別を検証するために、装置にある二要素認証アプリを開いて確認してください。"
 
 #: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
