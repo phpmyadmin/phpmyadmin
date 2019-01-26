@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-20 04:44+0000\n"
+"PO-Revision-Date: 2019-01-28 16:52+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -15443,10 +15443,8 @@ msgid "Create"
 msgstr "Oluştur"
 
 #: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "\"%s\" veritabanı için yetkileri denetle."
+msgstr "Veritabanlarını oluşturmak için yetkiler yok"
 
 #: templates/server/databases/index.twig:163
 #, php-format
@@ -15463,12 +15461,11 @@ msgid "Check privileges"
 msgstr "Yetkileri denetle"
 
 #: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
+#, php-format
 msgid "%count% database"
 msgid_plural "%count% databases"
-msgstr[0] "Veritabanı yok"
-msgstr[1] "Veritabanı yok"
+msgstr[0] "%count% veritabanı"
+msgstr[1] "%count% veritabanı"
 
 #: templates/server/databases/index.twig:298
 msgid ""
