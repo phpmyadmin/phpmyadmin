@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2019-01-19 16:13+0000\n"
+"PO-Revision-Date: 2019-01-26 03:43+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -14596,7 +14596,7 @@ msgstr "SQL の EXPLAIN 解析をスキップ"
 #: libraries/classes/Util.php:1060
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "「%s」のEXPLAINを分析"
 
 #: libraries/classes/Util.php:1091
 #, fuzzy
@@ -14885,7 +14885,7 @@ msgstr "致命的なエラー：ナビゲーションへのアクセスに使用
 
 #: prefs_forms.php:30 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "不正なフォームが指定された！"
 
 #: prefs_forms.php:82
 #, fuzzy
@@ -15162,7 +15162,7 @@ msgstr "新しいサーバの追加"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "構成は、既に存際しています。セットアップは無効化された！"
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
@@ -15224,7 +15224,7 @@ msgstr "データが正しくありません"
 #: setup/validate.php:32
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "「%s」のデータが間違っているか、検証されていません"
 
 #: tbl_create.php:36 tbl_get_field.php:31
 #, php-format
@@ -15247,7 +15247,7 @@ msgstr "テーブル名が不正です"
 #: tbl_replace.php:245
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "行:%1$s ,カラム%2$s ,エラー:%3$s"
 
 #: tbl_row_action.php:73
 #, fuzzy
@@ -15397,7 +15397,7 @@ msgstr "Y 軸の値"
 
 #: templates/table/chart/tbl_chart.twig:115
 msgid "Series names are in a column"
-msgstr ""
+msgstr "系列名はカラムにあります"
 
 #: templates/table/chart/tbl_chart.twig:118
 #, fuzzy
@@ -15421,7 +15421,7 @@ msgstr "ファイルに保存する"
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
-msgstr ""
+msgstr "PHPMyAdminにアクセスするためにHTTPSを使用していないので、Fido U2Fデバイスは認証するのを拒否するでしょう。"
 
 #: templates/table/search/table_header.twig:9
 #: templates/database/designer/where_query_panel.twig:30
@@ -15643,7 +15643,7 @@ msgstr "認証"
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
-msgstr ""
+msgstr "識別を検証するために、装置にある二要素認証アプリを開いて確認してください。"
 
 #: templates/login/twofactor/invalid.twig:2
 #, fuzzy
