@@ -25,14 +25,15 @@ class GitRevision
     */
     public static function display()
     {
+
+        // load revision data from repo
+        $GLOBALS['PMA_Config']->checkGitRevision();
+
         if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             return;
         }
-
-        // load revision data from repo
-        $GLOBALS['PMA_Config']->checkGitRevision();
 
         // if using a remote commit fast-forwarded, link to GitHub
         $commit_hash = substr(

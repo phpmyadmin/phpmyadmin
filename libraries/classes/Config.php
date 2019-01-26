@@ -116,7 +116,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.8.4');
+        $this->set('PMA_VERSION', '4.8.5');
         /* Major version */
         $this->set(
             'PMA_MAJOR_VERSION',
@@ -358,30 +358,63 @@ class Config
 
     /**
      * detects if Git revision
-     *
+     * @param string &$git_location (optional) verified git directory
      * @return boolean
      */
-    public function isGitRevision()
+    public function isGitRevision(&$git_location = NULL)
     {
-        if (!$this->get('ShowGitRevision')) {
+        // PMA config check
+        if (! $this->get('ShowGitRevision')) {
             return false;
         }
 
         // caching
-        if (isset($_SESSION['is_git_revision'])) {
-            if ($_SESSION['is_git_revision']) {
-                $this->set('PMA_VERSION_GIT', 1);
-            }
+        if (
+            isset($_SESSION['is_git_revision'])
+            && array_key_exists('git_location', $_SESSION)
+        ) {
+            // Define location using cached value
+            $git_location = $_SESSION['git_location'];
             return $_SESSION['is_git_revision'];
         }
+
         // find out if there is a .git folder
-        $git_folder = '.git';
-        if (! @file_exists($git_folder)
-            || ! @file_exists($git_folder . '/config')
-        ) {
+        // or a .git file (--separate-git-dir)
+        $git = '.git';
+        if (is_dir($git)) {
+            if (@is_file($git . '/config')) {
+                $git_location = $git;
+            } else {
+                $_SESSION['git_location'] = null;
+                $_SESSION['is_git_revision'] = false;
+                return false;
+            }
+        } elseif (is_file($git)) {
+            $contents = file_get_contents($git);
+            $gitmatch = array();
+            // Matches expected format
+            if (! preg_match('/^gitdir: (.*)$/',
+                $contents, $gitmatch)) {
+                $_SESSION['git_location'] = null;
+                $_SESSION['is_git_revision'] = false;
+                return false;
+            } else {
+                if (@is_dir($gitmatch[1])) {
+                    //Detected git external folder location
+                    $git_location = $gitmatch[1];
+                } else {
+                    $_SESSION['git_location'] = null;
+                    $_SESSION['is_git_revision'] = false;
+                    return false;
+                }
+            }
+        } else {
+            $_SESSION['git_location'] = null;
             $_SESSION['is_git_revision'] = false;
             return false;
         }
+        // Define session for caching
+        $_SESSION['git_location'] = $git_location;
         $_SESSION['is_git_revision'] = true;
         return true;
     }
@@ -394,13 +427,19 @@ class Config
     public function checkGitRevision()
     {
         // find out if there is a .git folder
-        $git_folder = '.git';
-        if (! $this->isGitRevision()) {
+        $git_folder = '';
+        if (! $this->isGitRevision($git_folder)) {
+            $this->set('PMA_VERSION_GIT', 0);
             return;
         }
 
         if (! $ref_head = @file_get_contents($git_folder . '/HEAD')) {
+            $this->set('PMA_VERSION_GIT', 0);
             return;
+        }
+
+        if ($common_dir_contents = @file_get_contents($git_folder . '/commondir')) {
+            $git_folder = $git_folder . DIRECTORY_SEPARATOR . trim($common_dir_contents);
         }
 
         $branch = false;
@@ -418,6 +457,7 @@ class Config
             if (@file_exists($ref_file)) {
                 $hash = @file_get_contents($ref_file);
                 if (! $hash) {
+                    $this->set('PMA_VERSION_GIT', 0);
                     return;
                 }
                 $hash = trim($hash);
@@ -425,6 +465,7 @@ class Config
                 // deal with packed refs
                 $packed_refs = @file_get_contents($git_folder . '/packed-refs');
                 if (! $packed_refs) {
+                    $this->set('PMA_VERSION_GIT', 0);
                     return;
                 }
                 // split file to lines
@@ -447,6 +488,7 @@ class Config
                     }
                 }
                 if (! isset($hash)) {
+                    $this->set('PMA_VERSION_GIT', 0);
                     // Could not find ref
                     return;
                 }
@@ -465,6 +507,7 @@ class Config
                 . substr($hash, 0, 2) . '/' . substr($hash, 2);
             if (@file_exists($git_file_name) ) {
                 if (! $commit = @file_get_contents($git_file_name)) {
+                    $this->set('PMA_VERSION_GIT', 0);
                     return;
                 }
                 $commit = explode("\0", gzuncompress($commit), 2);
@@ -688,7 +731,7 @@ class Config
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
 
-        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
+        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer) && isset($commit_json->message)) {
             $author = array(
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
@@ -699,6 +742,7 @@ class Config
                 'date' => $commit_json->committer->date);
             $message = trim($commit_json->message);
         } else {
+            $this->set('PMA_VERSION_GIT', 0);
             return;
         }
 

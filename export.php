@@ -21,14 +21,6 @@ use PhpMyAdmin\Response;
  * Get the variables sent or posted to this script and a core script
  */
 include_once 'libraries/common.inc.php';
-/**
- * If we are sending the export file (as opposed to just displaying it
- * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
- */
-if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
-    $response = Response::getInstance();
-    $response->disable();
-}
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -46,6 +38,7 @@ if (isset($_GET['check_time_out'])) {
     }
     exit;
 }
+
 /**
  * Sets globals from $_POST
  *
@@ -264,6 +257,14 @@ if ($_POST['output_format'] == 'astext') {
         // Will we save dump on server?
         $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
     }
+}
+
+/**
+ * If we are sending the export file (as opposed to just displaying it
+ * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
+ */
+if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit' && ! $save_on_server) {
+    $response->disable();
 }
 
 // Generate error url and check for needed variables

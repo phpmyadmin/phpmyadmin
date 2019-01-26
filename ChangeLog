@@ -1,6 +1,21 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.8.5 (2019-01-25)
+- issue        Developer debug data was saved to the PHP error log
+- issue #14217 Fix issue when adding user on MySQL 8.0.11
+- issue #13788 Exporting a view structure based on another view with a sub-query throws no database selected error
+- issue #14635 Fix PHP error in GitRevision, error in processing request, error code 200
+- issue #14787 Cannot execute stored procedure
+- issue        Add Burmese language
+- issue #14794 Not responding to click, frozen interface, plugin Text_Plain_Sql error
+- issue #14786 Table level Operations functions missing
+- issue #14791 PHP warning, db_export.php#L91 urldecode()
+- issue #14775 Export to SQL format not available for tables
+- issue #14782 Error message shown instead of two-factor QR code when adding 2fa to a user
+- issue        [security] Arbitrary file read/delete relating to MySQL LOAD DATA LOCAL INFILE and an evil server instance (PMASA-2019-1)
+- issue        [security] SQL injection in Designer (PMASA-2019-2)
+
 4.8.4 (2018-12-11)
 - issue #14452 Remove hash param in edit query URL
 - issue #14295 Issue in Changing theme

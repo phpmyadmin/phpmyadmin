@@ -88,12 +88,6 @@ class DbiMysqli implements DbiExtension
 
         $link = mysqli_init();
 
-        if (defined('PMA_ENABLE_LDI')) {
-            mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, true);
-        } else {
-            mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, false);
-        }
-
         $client_flags = 0;
 
         /* Optionally compress connection */
@@ -173,6 +167,12 @@ class DbiMysqli implements DbiExtension
                     return self::connect($user, $password, $server);
             }
             return false;
+        }
+
+        if (defined('PMA_ENABLE_LDI')) {
+            mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, true);
+        } else {
+            mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, false);
         }
 
         return $link;

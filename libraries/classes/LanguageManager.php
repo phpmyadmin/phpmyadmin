@@ -423,6 +423,13 @@ class LanguageManager
             'ms|malay',
             'ms_MY',
         ),
+        'my' => array(
+            'my',
+            'Burmese',
+            'မြန်မာ',
+            'my|burmese',
+            '',
+        ),
         'ne' => array(
             'ne',
             'Nepali',

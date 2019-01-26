@@ -82,10 +82,23 @@ matrix:
         - brew link --force gettext
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
         - mysql.server start
+    - php: "7.1"
+      env: CI_MODE=test DBASE=true
+      install:
+        - pecl channel-update pecl.php.net
+        - pecl install dbase-7.0.0beta1
+        - test/ci-install-test
+    - php: "5.6"
+      env: CI_MODE=test DBASE=true
+      install:
+        - pecl channel-update pecl.php.net
+        - pecl install dbase
+        - test/ci-install-test
 
   allow_failures:
     - php: "nightly"
-      env: CI_MODE=test
+    - os: osx
+    - env: CI_MODE=test DBASE=true
 
 cache:
   pip: true

@@ -8,6 +8,7 @@
  */
 namespace PhpMyAdmin\Dbi;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 
 if (! defined('PHPMYADMIN')) {
@@ -44,6 +45,10 @@ class DbiMysql implements DbiExtension
         $persistent = false
     ) {
         global $cfg;
+
+        if (ini_get('mysql.allow_local_infile')) {
+            Core::fatalError(__('Please disable mysql.allow_local_infile in your PHP configuration or install the mysqli extension.'));
+        }
 
         if (empty($client_flags)) {
             if ($cfg['PersistentConnections'] || $persistent) {
