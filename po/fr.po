@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-19 17:22-0200\n"
-"PO-Revision-Date: 2019-01-21 17:06+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"PO-Revision-Date: 2019-01-26 19:25+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -912,7 +912,7 @@ msgstr ""
 
 #: js/messages.php:117
 msgid "Save & close"
-msgstr "Sauvegarder et fermer"
+msgstr "Enregistrer et fermer"
 
 #: js/messages.php:118 libraries/classes/InsertEdit.php:1939
 #: prefs_manage.php:365 prefs_manage.php:376
@@ -8590,7 +8590,7 @@ msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Il n'y a pas de clé primaire ; merci d'en ajouter une. <br>Astuce : une clé "
+"Il n'y a pas de clé primaire ; merci d'en ajouter une.<br>Astuce : une clé "
 "primaire est une colonne (ou une combinaison de colonnes) qui identifie de "
 "manière unique toutes les lignes."
 
@@ -10234,7 +10234,7 @@ msgstr "L'authentification à deux facteurs a échoué."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
 msgid "No Two-Factor Authentication"
-msgstr "Authentification à deux facteurs"
+msgstr "Aucune authentification à deux facteurs"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
@@ -10242,11 +10242,11 @@ msgstr "Identification avec mot de passe seul."
 
 #: libraries/classes/RecentFavoriteTable.php:141
 msgid "Could not save recent table!"
-msgstr "Impossible de sauvegarder l'historique des tables récentes !"
+msgstr "Impossible d'enregistrer les tables récentes !"
 
 #: libraries/classes/RecentFavoriteTable.php:145
 msgid "Could not save favorite table!"
-msgstr "Impossible de sauvegarder la table préférée !"
+msgstr "Impossible d'enregistrer la table préférée !"
 
 #: libraries/classes/RecentFavoriteTable.php:216
 #: templates/database/structure/favorite_anchor.twig:4
@@ -13254,7 +13254,7 @@ msgstr "La table %1$s se nomme maintenant %2$s."
 
 #: libraries/classes/Table.php:1838
 msgid "Could not save table UI preferences!"
-msgstr "Impossible de sauvegarder les préférences d'interface de tables !"
+msgstr "Impossible d'enregistrer les préférences d'interface de tables !"
 
 #: libraries/classes/Table.php:1869
 #, php-format
@@ -13272,7 +13272,7 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"Impossible de sauvegarder la propriété UI « %s ». Le changement effectué ne "
+"Impossible d'enregistrer la propriété UI « %s ». Le changement effectué ne "
 "sera pas persistant après actualisation de cette page. Merci de vérifier si "
 "la structure de la table a changé."
 
@@ -13758,7 +13758,7 @@ msgstr "Le mot de passe est trop long !"
 
 #: libraries/classes/UserPreferences.php:172
 msgid "Could not save configuration"
-msgstr "Impossible de sauvegarder la configuration"
+msgstr "Impossible d'enregistrer la configuration"
 
 #: libraries/classes/Util.php:177
 #, php-format
@@ -14066,8 +14066,8 @@ msgstr "Formulaire incorrect spécifié !"
 #: prefs_forms.php:88
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
-"Le formulaire soumis contient des erreurs, impossible de sauvegarder les "
-"paramètres !"
+"Impossible d'enregistrer les paramètres, le formulaire soumis contient des "
+"erreurs !"
 
 #: prefs_manage.php:58
 msgid "phpMyAdmin configuration snippet"
@@ -14130,11 +14130,11 @@ msgstr ""
 
 #: prefs_manage.php:322
 msgid "Save as PHP file"
-msgstr "Enregistrer en tant que fichier PHP"
+msgstr "Enregistrer comme fichier PHP"
 
 #: prefs_manage.php:327
 msgid "Save to browser's storage"
-msgstr "Sauvegarder dans l'espace de stockage du navigateur"
+msgstr "Enregistrer dans l'espace de stockage du navigateur"
 
 #: prefs_manage.php:334
 msgid "Settings will be saved in your browser's local storage."
@@ -15478,7 +15478,7 @@ msgstr "Colonne pour la valeur :"
 
 #: templates/table/chart/tbl_chart.twig:151
 msgid "Save chart as image"
-msgstr "Enregistrer le graphique en tant qu'image"
+msgstr "Enregistrer le graphique comme image"
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
@@ -15960,8 +15960,8 @@ msgstr ""
 "Si les colonnes sont de type « enum » ou « set », merci de saisir les "
 "valeurs sous la forme 'a','b','c'…<br>S'il faut saisir une barre oblique "
 "inverse (« \\ ») ou une apostrophe (« ' ») dans l'une de ces valeurs, la "
-"faire précéder d'une barre oblique inverse (par exemple « \\\\xyz » ou « a"
-"\\'b »)."
+"faire précéder d'une barre oblique inverse (par exemple '\\\\xyz' ou 'a\\"
+"'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15969,7 +15969,7 @@ msgid ""
 "escaping or quotes, using this format: a"
 msgstr ""
 "Pour les valeurs par défaut, merci de ne saisir qu'une seule valeur, sans "
-"caractère d'échappement ou apostrophes, sous la forme : a"
+"caractère d'échappement ou apostrophes, avec ce format : a"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
@@ -15997,9 +15997,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Merci de saisir les valeurs des options de transformation en suivant ce "
-"format : 'a', 100, b,'c'…<br>S'il faut saisir une barre oblique inverse (« "
-"\\ ») ou une apostrophe (« ' ») parmi ces valeurs, la faire précéder d'une "
-"barre oblique inverse (par exemple ' \\\\xyz' ou 'a\\'b')."
+"format : 'a', 100, b,'c'…<br>S'il faut saisir une barre oblique inverse (« \\"
+" ») ou une apostrophe (« ' ») parmi ces valeurs, la faire précéder d'une "
+"barre oblique inverse (par exemple '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
