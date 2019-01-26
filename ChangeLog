@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.8.6 (not yet released)
+
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
 - issue #14217 Fix issue when adding user on MySQL 8.0.11
