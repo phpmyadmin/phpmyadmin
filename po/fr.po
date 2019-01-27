@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-26 19:25+0000\n"
-"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"PO-Revision-Date: 2019-01-28 16:52+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -15632,10 +15632,8 @@ msgid "Create"
 msgstr "Créer"
 
 #: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Vérifier les privilèges pour la base de données « %s »."
+msgstr "Pas de privilèges pour créer des bases de données"
 
 #: templates/server/databases/index.twig:163
 #, php-format
@@ -15652,12 +15650,11 @@ msgid "Check privileges"
 msgstr "Vérifier les privilèges"
 
 #: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
+#, php-format
 msgid "%count% database"
 msgid_plural "%count% databases"
-msgstr[0] "Aucune base de données"
-msgstr[1] "Aucune base de données"
+msgstr[0] "%count% base de donnée"
+msgstr[1] "%count% bases de donnée"
 
 #: templates/server/databases/index.twig:298
 msgid ""
