@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:37-0200\n"
 "PO-Revision-Date: 2019-01-28 16:48+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"Last-Translator: Edgar Pereira <artifex@sapo.pt>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/pt/>\n"
 "Language: pt\n"
@@ -4225,6 +4225,7 @@ msgstr "Limite de chave estrangeira"
 #: libraries/classes/Config/Descriptions.php:430
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Valor padrão para checkbox de chaves estrangeiras para algumas consultas."
 
 #: libraries/classes/Config/Descriptions.php:432
 msgid "Foreign key checks"
