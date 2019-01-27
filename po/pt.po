@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2018-11-18 10:43+0000\n"
+"PO-Revision-Date: 2019-01-28 01:38+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -331,16 +331,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Deve escolher pelo menos uma coluna para mostrar!"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simular pesquisa"
+msgstr "Consulta multi-tabela"
 
 #: db_qbe.php:156 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Consulta falhou"
+msgstr "Consulta por exemplo"
 
 #: db_qbe.php:175
 #, php-format
@@ -682,7 +678,7 @@ msgid ""
 msgstr ""
 "O seu servidor está a correr com valores padrão para controluser e password "
 "(controlpass) e está aberto a intrusão; deve mesmo corrigir esta falha de "
-"segurança ao alterar a passwrod para o utilizador 'pma'."
+"segurança ao alterar a palavra-passe para o utilizador 'pma'."
 
 #: index.php:583
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -3782,16 +3778,12 @@ msgid "Default table tab"
 msgstr "Separador padrão para a tabela"
 
 #: libraries/classes/Config/Descriptions.php:148
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Encapsular nomes de tabela e coluna com acentos grave"
+msgstr "Autocompletar os nomes das tabelas e colunas nas consultas SQL."
 
 #: libraries/classes/Config/Descriptions.php:149
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Encapsular nomes de tabela e coluna com acentos grave"
+msgstr "Habilitar autocompletar para nomes de tabelas e colunas"
 
 #: libraries/classes/Config/Descriptions.php:150
 msgid "Whether the table structure actions should be hidden."
@@ -3812,10 +3804,8 @@ msgid "Hide table structure actions"
 msgstr "Ocultar as acções à estrutura da tabela"
 
 #: libraries/classes/Config/Descriptions.php:154
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Ordenação padrão"
+msgstr "Transformações padrão para Hex"
 
 #: libraries/classes/Config/Descriptions.php:155
 #: libraries/classes/Config/Descriptions.php:157
@@ -4107,10 +4097,9 @@ msgid "Export views as tables"
 msgstr "Exportar visualizações como tabelas"
 
 #: libraries/classes/Config/Descriptions.php:246
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Tabelas de configuração de armazenamento phpMyAdmin em falta"
+msgstr ""
+"Exportar metadados relacionados ao storage de configurações do phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:247
 #: libraries/classes/Config/Descriptions.php:248
@@ -4125,10 +4114,8 @@ msgid "Add %s"
 msgstr "Adicionar %s"
 
 #: libraries/classes/Config/Descriptions.php:256
-#, fuzzy
-#| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Usar hexadecimal para BLOB"
+msgstr "Usar hexadecimal para BINARY e BLOB"
 
 #: libraries/classes/Config/Descriptions.php:258
 msgid ""
@@ -4177,16 +4164,13 @@ msgid "Export time in UTC"
 msgstr "Hora de Exportação em UTC"
 
 #: libraries/classes/Config/Descriptions.php:278
-#, fuzzy
-#| msgid ""
-#| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
-#| "the referenced data, [kbd]id[/kbd] is the key value"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Ordena objetos numa caixa de selecção de chaves estrangeiras; [kbd]conteúdo[/"
-"kbd] é o dado referenciado, [kbd]id[/kbd] é o valor da chave."
+"Ordem de classificação para itens em um caixa dropdown de chave estrangeira; "
+"o [kbd]conteúdo[/kbd] é o dado referenciado, e o [kbd]id[/kbd] é o valor "
+"chave."
 
 #: libraries/classes/Config/Descriptions.php:281
 msgid "Foreign key dropdown order"
@@ -4204,12 +4188,11 @@ msgstr "Limite de chave estrangeira"
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Valor padrão para checkbox de chaves estrangeiras para algumas consultas."
 
 #: libraries/classes/Config/Descriptions.php:285
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Verificação de chave estrangeira:"
+msgstr "Verificações de chave estrangeira"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -4308,16 +4291,12 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Personalizar a aparência do painel de navegação."
 
 #: libraries/classes/Config/Descriptions.php:310
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "Painel de navegação"
+msgstr "Árvore de navegação"
 
 #: libraries/classes/Config/Descriptions.php:311
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Personalizar o painel de navegação"
+msgstr "Personalizar a árvore de navegação."
 
 #: libraries/classes/Config/Descriptions.php:312
 #: libraries/classes/Server/Select.php:59 setup/frames/index.inc.php:130
@@ -4574,7 +4553,7 @@ msgid ""
 "transactions."
 msgstr ""
 "Permitir interromper a importação caso se detectar que o script está perto "
-"do tempo limite. Esta pode ser uma boa maneira para importar arquivos "
+"do tempo limite. Esta pode ser uma boa maneira para importar ficheiros "
 "grandes, contudo pode interromper as transações."
 
 #: libraries/classes/Config/Descriptions.php:396
@@ -5856,7 +5835,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:793
 msgid "Show password change form"
-msgstr "Mostrar o formulário de mudança de password"
+msgstr "Mostrar o formulário de mudança de palavra-passe"
 
 #: libraries/classes/Config/Descriptions.php:794
 msgid "Show create database form"
@@ -6186,11 +6165,11 @@ msgstr "Lista de proxies de confiança para permitir/proibir IPs"
 
 #: libraries/classes/Config/Descriptions.php:868
 msgid "Directory on server where you can upload files for import."
-msgstr "Directoria no servidor onde podes carregar arquivos para importar."
+msgstr "Directório no servidor onde pode carregar ficheiros para importar."
 
 #: libraries/classes/Config/Descriptions.php:869
 msgid "Upload directory"
-msgstr "Pasta de upload"
+msgstr "Pasta de envios"
 
 #: libraries/classes/Config/Descriptions.php:870
 msgid "Allow for searching inside the entire database."
@@ -6256,21 +6235,15 @@ msgstr "Nome de utilizador da proxy"
 
 #: libraries/classes/Config/Descriptions.php:893
 msgid "The password for authenticating with the proxy."
-msgstr "A senha para se autenticar na proxy."
+msgstr "A palavra-passe para se autenticar na proxy."
 
 #: libraries/classes/Config/Descriptions.php:894
 msgid "Proxy password"
-msgstr "Senha da proxy"
+msgstr "Palavra-passe da proxy"
 
 #: libraries/classes/Config/Descriptions.php:896
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Activar compressão [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] nas "
-"operações de importação e exportação."
+msgstr "Activar compressão ZIP nas operações de importação e exportação."
 
 #: libraries/classes/Config/Descriptions.php:897
 msgid "ZIP"
@@ -6581,13 +6554,7 @@ msgstr ""
 "ISP onde milhares de utilizadores, incluindo você, estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:212
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6596,10 +6563,11 @@ msgid ""
 "[kbd]http[/kbd]."
 msgstr ""
 "Você definiu o tipo de autenticação por [kbd]config[/kbd] e incluiu o nome "
-"de utilizador e senha para o inicio de sessão automático, o que não é uma "
-"opção aconselhável para servidores de produção. Alguém que saiba ou adivinhe "
-"o URL do seu phpMyAdmin tem acesso ao painel de gestão do phpMyAdmin. Defina "
-"o %stipo de autenticação%s para [kbd]cookie[/kbd] ou [kbd]http[/kbd]."
+"de utilizador e palavra-passe para o inicio de sessão automático, o que não "
+"é uma opção aconselhável para servidores de produção. Alguém que saiba ou "
+"adivinhe o URL do seu phpMyAdmin tem acesso ao painel de gestão do "
+"phpMyAdmin. Defina o %1stipo de autenticação%2s para [kbd]cookie[/kbd] ou "
+"[kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:239
 msgid "You allow for connecting to the server without a password."
@@ -6742,8 +6710,8 @@ msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
-"Senha do utilizador de controlo phpMyAdmin vazia ao aceder ao armazenamento "
-"de configuração do phpMyAdmin!"
+"Palavra-passe do utilizador de controlo phpMyAdmin vazia ao aceder ao "
+"armazenamento de configuração do phpMyAdmin!"
 
 #: libraries/classes/Config/Validator.php:437
 msgid "Incorrect value:"
@@ -7306,6 +7274,10 @@ msgid ""
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
+"Não é possível usar o fuso horário de \"%1$s\" para o servidor %2$d. Por "
+"favor, verifique sua configuração em "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. O phpMyAdmin está "
+"atualmente usando o fuso horário padrão do servidor de banco de dados."
 
 #: libraries/classes/DatabaseInterface.php:1618
 msgid "Failed to set configured collation connection!"
@@ -7389,6 +7361,9 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"Este método requer a utilização de uma '<i> conexão SSL</i> ' ou uma '<i> "
+"conexão que realize a criptografia da palavra-passe utilizando RSA</i> 4'; "
+"durante a conexão com o servidor."
 
 #: libraries/classes/Display/Export.php:339
 msgid "@SERVER@ will become the server name"
@@ -7409,6 +7384,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
+"Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
+"strings de formatação de tempo. Adicionalmente a seguinte transformação "
+"ocorrerá: %3$s. Outros textos serão mantidos como estão. Veja a %4$sFAQ%5$s "
+"para detalhes."
 
 #: libraries/classes/Display/Export.php:582
 msgid "Defined aliases"
@@ -8743,28 +8722,30 @@ msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Você tem alguma coluna que pode ser dividida em mais de uma coluna? Por "
+"exemplo: o endereço pode ser dividido em rua, cidade, país e CEP."
 
 #: libraries/classes/Normalization.php:203
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
+"Mostre-me a lista central de coluna(s) que ainda não esteja(m) na(s) "
+"tabela(s)"
 
 #: libraries/classes/Normalization.php:206
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
+"Escolha uma coluna que pode ser dividida em mais de uma (se selecionar "
+"'nenhuma coluna', você passará para o próxima passo)."
 
 #: libraries/classes/Normalization.php:213 normalization.php:24
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "Seleccione duas colunas"
+msgstr "Selecionar uma…"
 
 #: libraries/classes/Normalization.php:214 normalization.php:25
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "No such column"
-msgstr "Adicionar/Remover Campos"
+msgstr "Nenhuma coluna"
 
 #: libraries/classes/Normalization.php:218 libraries/classes/Types.php:728
 #: normalization.php:30
@@ -8774,17 +8755,15 @@ msgstr "Segmento"
 
 #: libraries/classes/Normalization.php:221
 msgid "split into "
-msgstr ""
+msgstr "dividir em "
 
 #: libraries/classes/Normalization.php:242
 msgid "Have a primary key"
-msgstr ""
+msgstr "Ter uma chave primária"
 
 #: libraries/classes/Normalization.php:248
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Erro: Relação já existe."
+msgstr "Já existe uma chave primária."
 
 #: libraries/classes/Normalization.php:253
 msgid ""
@@ -8794,23 +8773,22 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:261
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Adicionar uma chave primária na(s) coluna(s) existente(s)"
 
 #: libraries/classes/Normalization.php:266
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"Se não for possível fazer combinações de coluna(s) existente(s) como chave "
+"primária"
 
 #: libraries/classes/Normalization.php:270
-#, fuzzy
 msgid "+ Add a new primary key column"
-msgstr "Adiciona novo campo"
+msgstr "+ Adicionar uma nova coluna como chave primária"
 
 #: libraries/classes/Normalization.php:292
-#, fuzzy
-#| msgid "Remove from Favorites"
 msgid "Remove redundant columns"
-msgstr "Remover dos Favoritos"
+msgstr "Remover colunas redundantes"
 
 #: libraries/classes/Normalization.php:295
 msgid ""
@@ -8818,27 +8796,29 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"Você possui um grupo de colunas cuja combinação resulta em uma coluna "
+"existente? Por exemplo, se você possui nome, sobrenome e nome_completo então "
+"combinar nome e sobrenome resulta em nome_completo, que é redundante."
 
 #: libraries/classes/Normalization.php:301
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Verifique as colunas redundantes e clique em remover. Se não houver coluna(s)"
+" redundante(s), clique em 'Nenhuma coluna redundante'"
 
 #: libraries/classes/Normalization.php:306
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Remover utilizadores seleccionados"
+msgstr "Remover selecionados"
 
 #: libraries/classes/Normalization.php:307
-#, fuzzy
 msgid "No redundant column"
-msgstr "Adiciona novo campo"
+msgstr "Nenhuma coluna redundante"
 
 #: libraries/classes/Normalization.php:328
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Mover grupos repetidos"
 
 #: libraries/classes/Normalization.php:331
 msgid ""
@@ -8848,24 +8828,31 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Você tem um grupo de duas ou mais colunas que estão intimamente relacionadas "
+"e estão todas repetindo o mesmo atributo? Por exemplo, uma tabela que "
+"armazena dados sobre livros podem ter colunas como id_livro, autor1, autor2, "
+"autor3 e assim por diante, que formam um grupo repetido. Neste caso, uma "
+"nova tabela (id_livro, autor) deveria ser criada."
 
 #: libraries/classes/Normalization.php:339
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"Selecione as colunas que formam um grupo repetido. Se não houver mais grupo, "
+"clique em 'Nenhum grupo repetido'"
 
 #: libraries/classes/Normalization.php:345
 msgid "No repeating group"
-msgstr ""
+msgstr "Não há grupo repetido"
 
 #: libraries/classes/Normalization.php:372
 msgid "Step 2."
-msgstr ""
+msgstr "Passo 2."
 
 #: libraries/classes/Normalization.php:372
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Encontrar dependências parciais"
 
 #: libraries/classes/Normalization.php:395
 #, php-format
@@ -8873,11 +8860,14 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Não há dependências parciais possíveis quando nenhuma coluna não-primária "
+"existe desde que a chave primária ( %1$s ) seja composta por todas as "
+"colunas da tabela."
 
 #: libraries/classes/Normalization.php:401
 #: libraries/classes/Normalization.php:446
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "A tabela já está na segunda forma normal."
 
 #: libraries/classes/Normalization.php:406
 #, php-format
@@ -8885,6 +8875,8 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"A chave primária ( %1$s ) consiste em mais de uma coluna, então nós "
+"precisamos encontrar as dependências parciais."
 
 #: libraries/classes/Normalization.php:411
 #: libraries/classes/Normalization.php:808
@@ -8892,10 +8884,13 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Por favor, responda as seguintes perguntas cuidadosamente para obter uma "
+"normalização correta."
 
 #: libraries/classes/Normalization.php:415
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ Mostre-me as possíveis dependências parciais com base nos dados da tabela"
 
 #: libraries/classes/Normalization.php:419
 msgid ""
@@ -8903,12 +8898,15 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Para cada coluna abaixo, por favor, selecione a <b>configuração mínima</b> "
+"de colunas dadas entre configurações cujos valores combinados são "
+"suficientes para determinar o valor da coluna."
 
 #: libraries/classes/Normalization.php:429
 #: libraries/classes/Normalization.php:847
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' depende de:"
 
 #: libraries/classes/Normalization.php:441
 #, php-format
@@ -8916,6 +8914,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Nenhuma dependência parcial possível quando a chave primária  ( %1$s ) tem "
+"apenas uma coluna."
 
 #: libraries/classes/Normalization.php:469
 #, php-format
@@ -8923,19 +8923,19 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Para por a tabela original '%1$s' na segunda forma normal, precisamos criar "
+"as tabelas a seguir:"
 
 #: libraries/classes/Normalization.php:506
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "A segunda etapa da normalização está completa para a tabela '%1$s'."
 
 #: libraries/classes/Normalization.php:547
 #: libraries/classes/Normalization.php:703
 #: libraries/classes/Normalization.php:778
-#, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing!"
-msgstr "Erro a Processar Pedido"
+msgstr "Erro no processamento!"
 
 #: libraries/classes/Normalization.php:593
 #, php-format
@@ -8943,25 +8943,25 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Para por a tabela original '%1$s' na terceira forma normal, precisamos criar "
+"as tabelas a seguir:"
 
 #: libraries/classes/Normalization.php:646
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "A terceira etapa da normalização está completa."
 
 #: libraries/classes/Normalization.php:754
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
+msgstr "Grupo repetido selecionado tem sido movido para a tabela '%s'"
 
 #: libraries/classes/Normalization.php:805
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "Set"
+msgstr "Passo 3."
 
 #: libraries/classes/Normalization.php:805
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Encontrar dependências transitivas"
 
 #: libraries/classes/Normalization.php:812
 msgid ""
@@ -8976,61 +8976,63 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Não há dependências transitivas possíveis quando a tabela não possui nenhuma "
+"coluna de chave não primária"
 
 #: libraries/classes/Normalization.php:865
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "A tabela já está na terceira forma normal!"
 
 #: libraries/classes/Normalization.php:890
-#, fuzzy
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Ocultar as acções à estrutura da tabela"
+msgstr "Melhorar a estrutura da tabela (Normalização):"
 
 #: libraries/classes/Normalization.php:891
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Selecione até qual passo você quiser normalizar"
 
 #: libraries/classes/Normalization.php:895
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Segundo passo de normalização (1NF+2NF)"
 
 #: libraries/classes/Normalization.php:896
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Terceiro passo de normalização (1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:907
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Dica: por favor, siga o procedimento cuidadosamente para obter a "
+"normalização correta"
 
 #: libraries/classes/Normalization.php:973
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Esta lista é baseada em um subconjunto dos dados da tabela e não é "
+"necessariamente exata. "
 
 #: libraries/classes/Normalization.php:989
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Nenhuma dependência parcial encontrada!"
 
 #: libraries/classes/Operations.php:105
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
-msgstr "Alterar o nome da base de dados para"
+msgstr "Renomear banco de dados para"
 
 #: libraries/classes/Operations.php:121 libraries/classes/Operations.php:263
 #: libraries/classes/Operations.php:911 libraries/classes/Operations.php:1013
 #: libraries/classes/Operations.php:1379
 #: templates/columns_definitions/column_adjust_privileges.twig:15
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Não tem permissões suficientes para aceder aqui, neste momento!"
+msgstr ""
+"Você não possui permissão para esta operação; por favor, verifique a "
+"documentação para mais detalhes"
 
 #: libraries/classes/Operations.php:159
 #, php-format
@@ -9046,10 +9048,8 @@ msgid "Drop the database (DROP)"
 msgstr "Apagar a Base de Dados (DROP)"
 
 #: libraries/classes/Operations.php:223
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy database to"
-msgstr "Copiar a Base de Dados para"
+msgstr "Copiar banco de dados para"
 
 #: libraries/classes/Operations.php:238
 msgid "CREATE DATABASE before copying"
@@ -9060,14 +9060,12 @@ msgid "Switch to copied database"
 msgstr "Mudar para a Base de Dados copiada"
 
 #: libraries/classes/Operations.php:324
-#, fuzzy
-#| msgid "Continued table caption"
 msgid "Change all tables collations"
-msgstr "Continuação da legenda da tabela"
+msgstr "Mudar colação de todas as tabelas"
 
 #: libraries/classes/Operations.php:330
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "Mudar colação das colunas de todas as tabelas"
 
 #: libraries/classes/Operations.php:832
 msgid "Alter table order by"
@@ -9100,7 +9098,7 @@ msgstr "Motor de armazenamento"
 
 #: libraries/classes/Operations.php:1148
 msgid "Change all column collations"
-msgstr ""
+msgstr "Mudar colação de todas as colunas"
 
 #: libraries/classes/Operations.php:1321
 msgid "Copy table to (database<b>.</b>table)"
@@ -9127,14 +9125,12 @@ msgstr "Verificar tabela"
 
 #: libraries/classes/Operations.php:1480
 #: templates/database/structure/check_all_tables.twig:21
-#, fuzzy
-#| msgid "Check table"
 msgid "Checksum table"
-msgstr "Verificar tabela"
+msgstr "Tabela de checksum"
 
 #: libraries/classes/Operations.php:1494
 msgid "Defragment table"
-msgstr ""
+msgstr "Desfragmentar tabela"
 
 #: libraries/classes/Operations.php:1506
 #, php-format
@@ -9142,10 +9138,8 @@ msgid "Table %s has been flushed."
 msgstr "A tabela %s foi fechada."
 
 #: libraries/classes/Operations.php:1512
-#, fuzzy
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Fecha a tabela (\"FLUSH\")"
+msgstr "Limpar a tabela (FLUSH)"
 
 #: libraries/classes/Operations.php:1526
 #: templates/database/structure/check_all_tables.twig:22
@@ -9161,72 +9155,64 @@ msgstr "Reparar tabela"
 #: libraries/classes/Operations.php:1587
 #: templates/database/structure/check_all_tables.twig:14
 #: templates/table/operations/view.twig:28
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Extraindo dados da tabela"
+msgstr "Remover dados ou tabela"
 
 #: libraries/classes/Operations.php:1595
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Esvaziar a tabela (TRUNCATE)"
 
 #: libraries/classes/Operations.php:1603
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Sem bases de dados"
+msgstr "Remover a tabela (DROP)"
 
 #: libraries/classes/Operations.php:1647
 #: templates/table/structure/display_structure.twig:460
 msgid "Analyze"
-msgstr ""
+msgstr "Analizar"
 
 #: libraries/classes/Operations.php:1648
 #: templates/table/structure/display_structure.twig:460
-#, fuzzy
 msgid "Check"
-msgstr "Checo"
+msgstr "Verificar"
 
 #: libraries/classes/Operations.php:1649
 #: templates/table/structure/display_structure.twig:460
 msgid "Optimize"
-msgstr ""
+msgstr "Otimizar"
 
 #: libraries/classes/Operations.php:1650
 #: templates/table/structure/display_structure.twig:460
 msgid "Rebuild"
-msgstr ""
+msgstr "Reconstruir"
 
 #: libraries/classes/Operations.php:1651
 #: templates/table/structure/display_structure.twig:460
-#, fuzzy
 msgid "Repair"
-msgstr "Reparar tabela"
+msgstr "Reparar"
 
 #: libraries/classes/Operations.php:1652
 #: templates/table/structure/display_structure.twig:460
 msgid "Truncate"
-msgstr ""
+msgstr "Truncar"
 
 #: libraries/classes/Operations.php:1667
-#, fuzzy
-#| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Ocultar"
+msgstr "Coalescer"
 
 #: libraries/classes/Operations.php:1676
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "Manutenção da tabela"
+msgstr "Manutenção da partição"
 
 #: libraries/classes/Operations.php:1693
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Partição %s"
 
 #: libraries/classes/Operations.php:1716
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
-msgstr ""
+msgstr "Remover particionamento"
 
 #: libraries/classes/Operations.php:1742
 msgid "Check referential integrity:"
@@ -9241,16 +9227,14 @@ msgid "Can't copy table to same one!"
 msgstr "Não é possivel copiar a tabela para o mesmo!"
 
 #: libraries/classes/Operations.php:2178
-#, fuzzy, php-format
-#| msgid "Table %s has been moved to %s."
+#, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "A tabela %s foi movida para %s."
+msgstr "Tabela %s movida para %s. Os privilégios foram ajustados."
 
 #: libraries/classes/Operations.php:2185
-#, fuzzy, php-format
-#| msgid "Table %s has been copied to %s."
+#, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "Tabela %s copiada para %s."
+msgstr "Tabela %s copiada para %s. Os privilégios foram ajustados."
 
 #: libraries/classes/Operations.php:2193
 #, php-format
@@ -9271,10 +9255,8 @@ msgid "Error while creating PDF:"
 msgstr "Erro ao criar o PDF:"
 
 #: libraries/classes/Plugins.php:617
-#, fuzzy
-#| msgid "This format has no options"
 msgid "This format has no options"
-msgstr "Este formato não tem opções"
+msgstr "Esse formato não tem opções"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:77
 msgid "Cannot connect: invalid settings."
@@ -9310,11 +9292,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:155
 msgid "Retry to connect"
-msgstr ""
+msgstr "Tente se conectar novamente"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:168
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "Sua sessão expirou. Por favor, faça login novamente."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:193
 msgid "Log in"
@@ -9330,30 +9312,25 @@ msgid "Username:"
 msgstr "Utilizador&nbsp;:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:228
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Escolha do Servidor"
+msgstr "Escolha de servidor:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:358
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Não conseguiu criar ligação ao servidor da base de dados!"
+msgstr "Falha ao conectar-se ao serviço reCAPTCHA!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "O valor digitado na imagem de verificação está errado, tente novamente!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:365
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"Faltando verificação do reCAPTCHA, talvez tenha sido bloqueada pelo adblock?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:390
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Não é possível fazer login no servidor MySQL"
+msgstr "Você não tem permissão para fazer logon no servidor MySQL!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -9384,6 +9361,7 @@ msgstr "Não é possível fazer login no servidor MySQL"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:356
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Você ativou a autenticação de dois fatores, por favor confirme seu login."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
 #: templates/display/export/format_dropdown.twig:2
@@ -9393,31 +9371,23 @@ msgstr "Formato:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:66
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:60
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Linhas terminadas por"
+msgstr "Colunas separadas com:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:71
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:66
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Campos delimitados por"
+msgstr "Colunas delimitadas por:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:76
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:73
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Campos precedidos por"
+msgstr "Campos divididos com:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:81
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:80
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Linhas terminadas por"
+msgstr "Linhas terminadas com:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:86
 #: libraries/classes/Plugins/Export/ExportExcel.php:54
@@ -9426,21 +9396,19 @@ msgstr "Linhas terminadas por"
 #: libraries/classes/Plugins/Export/ExportOds.php:70
 #: libraries/classes/Plugins/Export/ExportOdt.php:138
 #: libraries/classes/Plugins/Export/ExportTexytext.php:95
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Substituir NULL por"
+msgstr "Substituir NULL com:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:91
 #: libraries/classes/Plugins/Export/ExportExcel.php:59
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
+"Remover caracteres de código de fim de linha ou avanço de linha dentro das "
+"colunas"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:69
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Edição Excel"
+msgstr "Edição do Excel:"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:73
 #: libraries/classes/Plugins/Export/ExportLatex.php:106
@@ -9486,9 +9454,8 @@ msgstr "estrutura e dados"
 #: libraries/classes/Plugins/Export/ExportOdt.php:127
 #: libraries/classes/Plugins/Export/ExportTexytext.php:84
 #: libraries/classes/Plugins/Export/ExportXml.php:144
-#, fuzzy
 msgid "Data dump options"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Opções de despejo de dados"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:215
 #: libraries/classes/Plugins/Export/ExportOdt.php:277
@@ -9502,9 +9469,8 @@ msgstr "Extraindo dados da tabela"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:456
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:383
 #: libraries/classes/Rte/RteList.php:136 libraries/classes/Rte/Triggers.php:433
-#, fuzzy
 msgid "Event"
-msgstr "Enviado"
+msgstr "Evento"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:493
 #: libraries/classes/Plugins/Export/ExportOdt.php:618
@@ -9512,10 +9478,8 @@ msgstr "Enviado"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:385
 #: libraries/classes/Rte/Events.php:556 libraries/classes/Rte/Routines.php:1073
 #: libraries/classes/Rte/Triggers.php:447
-#, fuzzy
-#| msgid "Description"
 msgid "Definition"
-msgstr "Descrição"
+msgstr "Definição"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:565
 #: libraries/classes/Plugins/Export/ExportOdt.php:697
@@ -9528,25 +9492,23 @@ msgstr "Estrutura da tabela"
 #: libraries/classes/Plugins/Export/ExportOdt.php:730
 #: libraries/classes/Plugins/Export/ExportSql.php:2128
 #: libraries/classes/Plugins/Export/ExportTexytext.php:546
-#, fuzzy
 msgid "Structure for view"
-msgstr "Somente estrutura"
+msgstr "Estrutura para vista"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:604
 #: libraries/classes/Plugins/Export/ExportOdt.php:751
 #: libraries/classes/Plugins/Export/ExportSql.php:2173
 #: libraries/classes/Plugins/Export/ExportTexytext.php:562
-#, fuzzy
 msgid "Stand-in structure for view"
-msgstr "Somente estrutura"
+msgstr "Estrutura stand-in para vista"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:92
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Exibir JSON bem formatado (usar formatação para leitura humana)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:98
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Saída com caracteres unicode não escapados"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:53
 msgid "Content of table @TABLE@"
@@ -9563,76 +9525,58 @@ msgstr "estructura da tabela @TABLE@"
 #: libraries/classes/Plugins/Export/ExportLatex.php:119
 #: libraries/classes/Plugins/Export/ExportOdt.php:97
 #: libraries/classes/Plugins/Export/ExportSql.php:230
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Opções de tranformação"
+msgstr "Opções de criação de objetos"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:125
 #: libraries/classes/Plugins/Export/ExportLatex.php:178
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Legenda da tabela"
+msgstr "Legenda da tabela:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:131
 #: libraries/classes/Plugins/Export/ExportLatex.php:184
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption (continued):"
-msgstr "Legenda da tabela"
+msgstr "Legenda da tabela (continuação):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:137
 #: libraries/classes/Plugins/Export/ExportLatex.php:190
-#, fuzzy
-#| msgid "Label key"
 msgid "Label key:"
-msgstr "Rótulo da chave"
+msgstr "Etiqueta de chave:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:144
 #: libraries/classes/Plugins/Export/ExportOdt.php:104
 #: libraries/classes/Plugins/Export/ExportSql.php:125
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "Exibir relacionamentos de chave estrangeira"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Mostrando comentários das Colunas"
+msgstr "Exibir comentários"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "MIME-types disponíveis"
+msgstr "Exibir os tipos MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
-#, fuzzy
-#| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Colocar os nomes das colunas na primeira linha"
+msgstr "Por os nomes das colunas na primeira linha:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:718
 #: libraries/classes/Plugins/Export/ExportXml.php:244
 #: libraries/classes/ReplicationGui.php:465
 #: libraries/classes/ReplicationGui.php:738
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "Máquina"
+msgstr "Host:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:226
 #: libraries/classes/Plugins/Export/ExportSql.php:724
 #: libraries/classes/Plugins/Export/ExportXml.php:249
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Data de Criação"
+msgstr "Tempo de geração:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:229
 #: libraries/classes/Plugins/Export/ExportSql.php:730
@@ -9644,51 +9588,37 @@ msgstr "versão do PHP:"
 #: libraries/classes/Plugins/Export/ExportSql.php:919
 #: libraries/classes/Plugins/Export/ExportXml.php:416
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:185
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "Base de Dados"
+msgstr "Banco de dados:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:332
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "Dados"
+msgstr "Dados:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:521
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "Estrutura"
+msgstr "Estrutura:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:86
-#, fuzzy
 msgid "Export table names"
-msgstr "Tipo de Exportação"
+msgstr "Exportar nomes das tabelas"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:93
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "horizontal (cabeçalhos rodados)"
+msgstr "Exportar cabeçalhos das tabelas"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:104
-#, fuzzy
 msgid "Report title:"
-msgstr "Tipo de Exportação"
+msgstr "Título do relatório:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:235
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Extraindo dados da tabela"
+msgstr "Despejando dados"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:293
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
-msgstr "estrutura"
+msgstr "Estrutura da vista"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:296
 msgid "Stand in"
@@ -9705,6 +9635,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:111
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
+"Comentário adicional personalizado de cabeçalho (\\n"
+" separa as linhas):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:117
 msgid ""
@@ -9715,21 +9647,19 @@ msgstr ""
 "pela última vez, e verificadas pela última vez"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:176
-#, fuzzy
-#| msgid "Export method"
 msgid "Export metadata"
-msgstr "Metodo de Exportação"
+msgstr "Exportar metadata"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:191
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Sistema de banco de dados ou servidor de MySQL antigo para maximizar "
+"compatibilidade de saída com:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:238
-#, fuzzy
-#| msgid "Statements"
 msgid "Add statements:"
-msgstr "Itens"
+msgstr "Adicionar declarações:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:246
 #: libraries/classes/Plugins/Export/ExportSql.php:255
@@ -9738,20 +9668,19 @@ msgstr "Itens"
 #: libraries/classes/Plugins/Export/ExportSql.php:310
 #: libraries/classes/Plugins/Export/ExportSql.php:331
 #: libraries/classes/Plugins/Export/ExportSql.php:340
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "Itens"
+msgstr "Adicionar declaração %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:292
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(menos eficiente pois os índices serão gerados durante a criação da tabela)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:300
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "Valor de sessão"
+msgstr "Valor de %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:349
 msgid ""
@@ -9760,36 +9689,34 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:364
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Data creation options"
-msgstr "Opções de tranformação"
+msgstr "Opções de criação de dados"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:369
 #: libraries/classes/Plugins/Export/ExportSql.php:2346
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Truncar tabela antes do insert"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:376
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Em vez de usar declarações <code>INSERT</code>, use:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:382
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "declarações <code>INSERT DELAYED</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:394
 #: libraries/classes/Plugins/Export/ExportSql.php:428
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "declarações <code>INSERT IGNORE</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:408
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Função a ser usada para despejo de dados:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:423
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Sintaxe a usar para inserimento de dados:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
 msgid ""
@@ -9822,6 +9749,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Despejar colunas binárias em notação hexadecimal <i>(por exemplo, \"abc\" "
+"seria 0x616263)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:477
 msgid ""
@@ -9834,31 +9763,27 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:543
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "Parece que seu banco de dados utiliza rotinas;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:546
 #: libraries/classes/Plugins/Export/ExportSql.php:1597
 #: libraries/classes/Plugins/Export/ExportSql.php:2118
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "exportar apelidos pode não funcionar confiavelmente em todos os casos."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1033
-#, fuzzy
-#| msgid "Missing data for %s"
 msgid "Metadata"
-msgstr "Dados em falta para %s"
+msgstr "Metadata"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1103
-#, fuzzy, php-format
-#| msgid "Missing data for %s"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Dados em falta para %s"
+msgstr "Metadata para tabela %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1110
-#, fuzzy, php-format
-#| msgid "Missing data for %s"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Dados em falta para %s"
+msgstr "Metadata para o banco de dados %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1440
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:649
@@ -9876,58 +9801,49 @@ msgid "Last check:"
 msgstr "Última verificação:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1522
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Estrutura da tabela"
+msgstr "Erro ao ler a estrutura para a tabela %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1594
 msgid "It appears your database uses views;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1770
-#, fuzzy
 msgid "Constraints for dumped tables"
-msgstr "Limitadores para a tabela"
+msgstr "Restrições para despejos de tabelas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1771
 msgid "Constraints for table"
 msgstr "Limitadores para a tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1801
-#, fuzzy
 msgid "Indexes for dumped tables"
-msgstr "Limitadores para a tabela"
+msgstr "Índices para tabelas despejadas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1802
-#, fuzzy
-#| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "Dentro de Tabela(s):"
+msgstr "Índices para tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1835
-#, fuzzy
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Não usar AUTO_INCREMENT para valores zero"
+msgstr "AUTO_INCREMENT de tabelas despejadas"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1836
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Adicionar valor AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT de tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 msgid "MIME TYPES FOR TABLE"
-msgstr ""
+msgstr "TIPOS MIME PARA TABELAS"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr ""
+msgstr "RELACIONAMENTOS PARA TABELAS"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2115
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Isso demonstra que sua tabela utiliza gatilhos;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2152
 #, fuzzy, php-format
@@ -9939,40 +9855,36 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2256
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Permite ler dados."
+msgstr "Erro ao ler dados para tabela %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Opções de criação de objetos (todas são recomendadas)"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:149
-#, fuzzy
 msgid "Export contents"
-msgstr "Tipo de Exportação"
+msgstr "Exportar conteúdo"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:186
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "Tabela"
+msgstr "Tabela:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:187
 msgid "Purpose:"
-msgstr ""
+msgstr "Propósito:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:568
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
-msgstr "Tipo MIME"
+msgstr "MIME"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:53
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Atualiza os dados quando chaves duplicadas forem encontradas na importação ("
+"adicione ON UPDATE DUPLICATE KEY)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
@@ -9993,6 +9905,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"A primeira linha do ficheiro contém os nomes das colunas da tabela <i>(se "
+"for desmarcado, a primeira linha se tornará parte dos dados)</i>"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:110
 msgid ""
@@ -10000,6 +9914,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Se os dados em cada linha do ficheiro não estiverem na mesma ordem que no "
+"banco de dados, liste os nomes correspondentes das colunas aqui. Os nomes "
+"das colunas devem estar separados por vírgulas e não devem estar entre aspas."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
 #, fuzzy
@@ -10013,7 +9930,7 @@ msgstr "Nome dos Campos"
 #: libraries/classes/Plugins/Import/ImportCsv.php:193
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "Parâmetro inválido para importação CSV: %s"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:246
 #, php-format
@@ -10021,31 +9938,32 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Coluna especificada inválida (%s)! Certifique-se de que os nomes das colunas "
+"estejam escritos corretamente, separados por vírgulas e que não estejam "
+"entre aspas."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:352
 #: libraries/classes/Plugins/Import/ImportCsv.php:743
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Formato inválido de input CSV na linha %d."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:582
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr ""
+msgstr "Contador de colunas inválido no input CSV na linha %d."
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "Nome dos Campos"
+msgstr "Nomes das colunas: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Este plugin não suporta importações comprimidas!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:56
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabela MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
 #, fuzzy, php-format
@@ -10056,10 +9974,11 @@ msgstr "Regra de declaração inválida na linha %s."
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
+"Importar percentuagens como decimais apropriados <i>(ex: 12% para 0.12)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:87
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Importar moedas <i>(ex: €5,00 para 5,00)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:153
 #: libraries/classes/Plugins/Import/ImportXml.php:112
@@ -10068,41 +9987,39 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"O ficheiro XML especificado foi mal feito ou está incompleto. Por favor, "
+"corrija o problema e tente novamente."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:164
-#, fuzzy
-#| msgid "Open Document"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Abrir Documento"
+msgstr "Não foi possível analisar a planilha OpenDocument!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Shapefile ESRI"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:91
 #: libraries/classes/Plugins/Import/ImportShp.php:166
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Um erro ocorreu ao importar o ficheiro do tipo shape ESRI: \"%s\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:196
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "Extensão Espacial MySQL não suporta o tipo ESRI \"%s\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:243
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data!"
-msgstr "Esta página não contém tabelas!"
+msgstr "O ficheiro importado não contém nenhum dado!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:71
 msgid "SQL compatibility mode:"
-msgstr ""
+msgstr "Modo de compatibilidade SQL:"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:83
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
+msgstr "Não use <code>AUTO_INCREMENT</code> para valores zerados"
 
 #: libraries/classes/Plugins/Import/ImportXml.php:47
 msgid "XML"
@@ -10112,33 +10029,28 @@ msgstr "XML"
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:94
 #: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:96
 #: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:94
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
+#, php-format
 msgid "The %s table doesn't exist!"
-msgstr "A tabela \"%s\" não existe!"
+msgstr "A tabela %s não existe!"
 
 #: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php:67
 #: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:71
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Esquema da base de dados \"%s\" - Página %s"
+msgstr "Esquema do banco de dados %s - Página %s"
 
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:298
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ERRO DE ESQUEMA: "
 
 #: libraries/classes/Plugins/Schema/Pdf/Pdf.php:263
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Tipo de exportação inválido"
+msgstr "Página de exportação PDF"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:115
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "Esquema da base de dados \"%s\" - Página %s"
+msgstr "Esquema de banco de dados %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:553
@@ -10178,7 +10090,7 @@ msgstr "Retrato"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:64
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:63
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Mesma largura para todas as tabelas"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:89
 msgid "Show grid"
@@ -10186,28 +10098,20 @@ msgstr "Mostrar grelha"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:95
 #: templates/database/structure/print_view_data_dictionary_link.twig:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
-msgstr "Dicionario de dados"
+msgstr "Dicionário de dados"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:101
-#, fuzzy
-#| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "nenhuma das acima"
+msgstr "Ordem das tabelas"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:106
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Ascendente"
+msgstr "Nome (Ascendente)"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:107
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Descendente"
+msgstr "Nome (Descendente)"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:70
 msgid "Show color"
@@ -18193,17 +18097,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "O tamanho do ficheiro de registo InnoDB é inadequadamente grande."
 
 #: libraries/advisory_rules.txt:429
-#, fuzzy, php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-#| "proper-innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
 "of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
@@ -18218,13 +18112,13 @@ msgstr ""
 "Habitualmente é suficiente definir {innodb_log_file_size} para 25%% do "
 "tamanho de {innodb_buffer_pool_size}. Um {innodb_log_file_size} muito grande "
 "diminui consideravelmente o tempo de recuperação após uma falha da banco de "
-"dados. Veja também <a href=\"https://www.mysqlperformanceblog.com/2006/07/03/"
+"dados. Veja também <a href=\"https://www.percona.com/blog/2006/07/03/"
 "choosing-proper-innodb_log_file_size/\">este Artigo</a> . Você precisa "
-"desligar o servidor, remover os arquivos de registo do InnoDB, definir o "
+"desligar o servidor, remover os ficheiros de registo do InnoDB, definir o "
 "novo valor em my.cnf, iniciar o servidor e verificar nos registos de erros "
-"se tudo correu bem. Veja também <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">neste blog</a>"
+"se tudo correu bem. Veja também <a href=\""
+"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">neste blog</a>"
 
 #: libraries/advisory_rules.txt:430
 #, php-format
