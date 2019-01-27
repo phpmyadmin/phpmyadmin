@@ -139,8 +139,8 @@ $js_messages['strSQLQuery'] = __('SQL query:');
 /* l10n: Default label for the y-Axis of Charts */
 $js_messages['strYValues'] = __('Y values');
 
-/* DB MULTI TABLE QUERY */
-$js_messages['strEmptyQuery'] = __('Please enter the sql query first.');
+/* Database multi-table query */
+$js_messages['strEmptyQuery'] = __('Please enter the SQL query first.');
 
 /* For server_privileges.js */
 $js_messages['strHostEmpty'] = __('The host name is empty!');
