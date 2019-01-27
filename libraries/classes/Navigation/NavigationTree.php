@@ -1192,7 +1192,8 @@ class NavigationTree
                 } else {
                     $retval .= "<a class='hover_show_full$linkClass' href='$link'";
                     $retval .= " title='$title'>";
-                    $retval .= htmlspecialchars($node->real_name);
+                    $retval .= htmlspecialchars(isset($node->disp_name) ?
+                                    $node->disp_name : $node->real_name);
                     $retval .= "</a>";
                 }
             } else {
