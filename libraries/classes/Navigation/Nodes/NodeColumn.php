@@ -26,7 +26,7 @@ class NodeColumn extends Node
     /**
      * Initialises the class
      *
-     * @param string $name     An identifier for the new node
+     * @param array  $item     array to identify the column node
      * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
@@ -83,12 +83,13 @@ class NodeColumn extends Node
         $retval = $item['name'];
         $flag = 0;
         foreach ($item as $key => $value) {
-            if(!empty($value) && $key != 'name') {
+            if (! empty($value) && $key != 'name') {
                 $flag == 0 ? $retval .= ' (' : $retval .= ', ';
                 $flag = 1;
-                $retval .= ''.$value;
+                $retval .= $value;
             }
         }
-        return $retval.')';
+        $retval .= ')';
+        return $retval;
     }
 }
