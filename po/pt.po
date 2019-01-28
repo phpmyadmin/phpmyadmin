@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-28 01:38+0000\n"
+"PO-Revision-Date: 2019-01-28 16:52+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -4333,18 +4333,13 @@ msgid "Page titles"
 msgstr "Títulos das páginas"
 
 #: libraries/classes/Config/Descriptions.php:325
-#, fuzzy
-#| msgid ""
-#| "Specify browser's title bar text. Refer to "
-#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
-#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Especifica o texto da barra de títulos do browser. Consulte "
-"[doc@cfg_TitleTable]documentation[/doc] para strings mágicas que podem ser "
-"utilizadas para obter valores especiais."
+"Especifica o texto da barra de título do browser. Veja a "
+"[doc@faq6-27]documentação[/doc] para strings mágicas que podem ser usadas "
+"para conseguir valores especiais."
 
 #: libraries/classes/Config/Descriptions.php:329
 msgid "Security"
@@ -4517,14 +4512,8 @@ msgid "Console"
 msgstr "Consola"
 
 #: libraries/classes/Config/Descriptions.php:381
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Activar compressão [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] nas "
-"operações de importação e exportação."
+msgstr "Habilitar a compressão gzip nas operações de importação e exportação."
 
 #: libraries/classes/Config/Descriptions.php:384
 msgid "GZip"
@@ -4633,10 +4622,8 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Não usar AUTO_INCREMENT para valores zero"
 
 #: libraries/classes/Config/Descriptions.php:427
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Falhas de leitura"
+msgstr "Ler como multibytes"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Initial state for sliders"
@@ -4809,16 +4796,12 @@ msgid "Show databases navigation as tree"
 msgstr "Mostra navegação de bases de dados como árvore"
 
 #: libraries/classes/Config/Descriptions.php:483
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Painel de navegação"
+msgstr "Largura do painel de navegação"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Mostrar o logótipo no painel de navegação."
+msgstr "Configurar como 0 para colapsar o painel de navegação."
 
 #: libraries/classes/Config/Descriptions.php:485
 msgid "Link with main panel by highlighting the current database or table."
@@ -4866,10 +4849,8 @@ msgid "Target for quick access icon"
 msgstr "Alvo para ícone de acesso rápido"
 
 #: libraries/classes/Config/Descriptions.php:499
-#, fuzzy
-#| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Alvo para ícone de acesso rápido"
+msgstr "Destino para o segundo ícone de acesso rápido"
 
 #: libraries/classes/Config/Descriptions.php:501
 msgid ""
@@ -4890,16 +4871,12 @@ msgstr ""
 "dados"
 
 #: libraries/classes/Config/Descriptions.php:507
-#, fuzzy
-#| msgid ""
-#| "Group items in the navigation tree (determined by the separator defined "
-#| "below)."
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Itens de grupo na árvore de navegação (determinado pelo separador definido "
-"abaixo)."
+"Agrupa itens na árvore de navegação (determinado pelo divisor definido nas "
+"guias Banco de Dados e Tabelas acima)."
 
 #: libraries/classes/Config/Descriptions.php:510
 msgid "Group items in the tree"
@@ -4937,59 +4914,46 @@ msgid "Enable highlighting"
 msgstr "Ativar destaque"
 
 #: libraries/classes/Config/Descriptions.php:518
-#, fuzzy
-#| msgid "Whether to disable the possibility of database expansion or not."
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
-"Se deseja desabilitar a possibilidade de expandir a base de dados ou não."
+"Se deseja oferecer a possibilidade de expansão de árvore no painel de "
+"navegação."
 
 #: libraries/classes/Config/Descriptions.php:519
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Barra de navegação de tabelas"
+msgstr "Ativar a expansão da árvore de navegação"
 
 #: libraries/classes/Config/Descriptions.php:520
-#, fuzzy
-#| msgid "Show tables"
 msgid "Show tables in tree"
-msgstr "Mostra tabelas"
+msgstr "Mostrar tabelas na árvore"
 
 #: libraries/classes/Config/Descriptions.php:521
-#, fuzzy
-#| msgid "Whether to disable the possibility of database expansion or not."
 msgid "Whether to show tables under database in the navigation tree"
 msgstr ""
-"Se deseja desabilitar a possibilidade de expandir a base de dados ou não."
+"Se deseja mostrar tabelas em banco de dados na árvore no painel de navegação"
 
 #: libraries/classes/Config/Descriptions.php:522
-#, fuzzy
-#| msgid "Group items in the tree"
 msgid "Show views in tree"
-msgstr "Agrupar itens na árvore"
+msgstr "Mostrar visualizações em árvore"
 
 #: libraries/classes/Config/Descriptions.php:523
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Mostrar items de navegação escondidos da árvore."
+msgstr ""
+"Se deseja mostrar visualisações em banco de dados na árvore no painel de "
+"navegação"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Mostrar os campos da função"
+msgstr "Mostrar funções em árvore"
 
 #: libraries/classes/Config/Descriptions.php:525
 msgid "Whether to show functions under database in the navigation tree"
 msgstr "Se para mostrar funções abaixo da base de dados na árvore de navegação"
 
 #: libraries/classes/Config/Descriptions.php:526
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Mostra os Processos"
+msgstr "Mostrar os procedimentos em árvore"
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Whether to show procedures under database in the navigation tree"
@@ -4997,10 +4961,8 @@ msgstr ""
 "Se para mostrar procedimentos abaixo da base de dados na árvore de navegação"
 
 #: libraries/classes/Config/Descriptions.php:528
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show events in tree"
-msgstr "Mostrar grelha"
+msgstr "Mostrar eventos em árvore"
 
 #: libraries/classes/Config/Descriptions.php:529
 #, fuzzy
