@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-09 22:37-0200\n"
-"PO-Revision-Date: 2019-01-01 05:10+0000\n"
-"Last-Translator: Promasu <microgamer.developer@gmail.com>\n"
+"PO-Revision-Date: 2019-01-28 16:47+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-8/de/"
 ">\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -10650,16 +10650,13 @@ msgid "Change or reconfigure master server"
 msgstr "Master-Server wechseln oder neu konfigurieren"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Dieser Server ist nicht als Slave in einem Replikationsprozess konfiguriert. "
-"Möchten Sie ihn <a href=\"%s\">konfigurieren</a>?"
+"Möchten Sie ihn %skonfigurieren%s?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10681,16 +10678,13 @@ msgid "Skip next %s errors."
 msgstr "Überspringe die nächsten %s Fehler."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Dieser Server ist nicht als Master in einem Replikations-Prozess "
-"konfiguriert. Möchten Sie ihn <a href=\"%s\">konfigurieren</a>?"
+"konfiguriert. Möchten Sie ihn %skonfigurieren%s?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/database/search/selection_form.twig:35
