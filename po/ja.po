@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-28 16:52+0000\n"
+"PO-Revision-Date: 2019-01-29 02:56+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -3744,10 +3744,8 @@ msgid "Default transformations for Substring"
 msgstr "部分文字列のデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:158
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "デフォルトの並び順"
+msgstr "Bool2Textのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:160
 #, fuzzy
@@ -3756,34 +3754,24 @@ msgid "Default transformations for External"
 msgstr "デフォルトの並び順"
 
 #: libraries/classes/Config/Descriptions.php:162
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "変換オプション"
+msgstr "PreApPendのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:164
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "デフォルトの並び順"
+msgstr "DateFormatのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:166
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Inline"
-msgstr "変換オプション"
+msgstr "Inlineのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:168
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "変換オプション"
+msgstr "TextImageLinkのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:170
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "変換オプション"
+msgstr "TextLinkのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Show server listing as a list instead of a drop down."
@@ -3806,15 +3794,10 @@ msgid "Disable multi table maintenance"
 msgstr "複数のテーブルに対してのメンテナンスを無効にする"
 
 #: libraries/classes/Config/Descriptions.php:181
-#, fuzzy
-#| msgid ""
-#| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-#| "limit)"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr ""
-"スクリプトの実行が許されている秒数を設定します。([kbd]0[/kbd] で制限なし)"
+msgstr "スクリプトの実行が許されている秒数を設定します([kbd]0[/kbd] で制限なし)。"
 
 #: libraries/classes/Config/Descriptions.php:184
 msgid "Maximum execution time"
@@ -3822,10 +3805,9 @@ msgstr "最大実行時間"
 
 #: libraries/classes/Config/Descriptions.php:186
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Add %s statement"
+#, php-format
 msgid "Use %s statement"
-msgstr "%s コマンドを追加する"
+msgstr "「%s」 コマンドを使用する"
 
 #: libraries/classes/Config/Descriptions.php:189 prefs_manage.php:317
 msgid "Save as file"
@@ -3867,19 +3849,15 @@ msgstr "1 行目にカラム名を追加する"
 #: libraries/classes/Config/Descriptions.php:401
 #: libraries/classes/Config/Descriptions.php:412
 #: libraries/classes/Plugins/Import/ImportCsv.php:175
-#, fuzzy
-#| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "カラム囲み記号:"
+msgstr "カラム囲み記号"
 
 #: libraries/classes/Config/Descriptions.php:195
 #: libraries/classes/Config/Descriptions.php:402
 #: libraries/classes/Config/Descriptions.php:413
 #: libraries/classes/Plugins/Import/ImportCsv.php:186
-#, fuzzy
-#| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "カラムのエスケープ記号:"
+msgstr "カラムのエスケープ記号"
 
 #: libraries/classes/Config/Descriptions.php:196
 #: libraries/classes/Config/Descriptions.php:202
@@ -3906,10 +3884,8 @@ msgstr "カラムの終端記号"
 #: libraries/classes/Config/Descriptions.php:199
 #: libraries/classes/Config/Descriptions.php:400
 #: libraries/classes/Plugins/Import/ImportCsv.php:195
-#, fuzzy
-#| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "行の終端記号:"
+msgstr "行の終端記号"
 
 #: libraries/classes/Config/Descriptions.php:201
 msgid "Excel edition"
