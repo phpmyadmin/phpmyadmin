@@ -274,6 +274,8 @@ if ($_POST['output_format'] == 'astext') {
  */
 if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit' && ! $save_on_server) {
     $response->disable();
+    //Disable all active buffers (see: ob_get_status(true) at this point)
+    while (@ob_end_clean());
 }
 
 $tables = [];
