@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-01-28 16:47+0000\n"
+"PO-Revision-Date: 2019-01-29 18:33+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -3820,46 +3820,32 @@ msgid "Default transformations for Substring"
 msgstr "部分文字列のデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "デフォルトの並び順"
+msgstr "Bool2Textのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "デフォルトの並び順"
+msgstr "External(外部)のデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "変換オプション"
+msgstr "PreApPendのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "デフォルトの並び順"
+msgstr "DateFormatのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Inline"
-msgstr "変換オプション"
+msgstr "Inlineのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "変換オプション"
+msgstr "TextImageLinkのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "変換オプション"
+msgstr "TextLinkのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -3882,15 +3868,10 @@ msgid "Disable multi table maintenance"
 msgstr "複数のテーブルに対してのメンテナンスを無効にする"
 
 #: libraries/classes/Config/Descriptions.php:244
-#, fuzzy
-#| msgid ""
-#| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-#| "limit)"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr ""
-"スクリプトの実行が許されている秒数を設定します。([kbd]0[/kbd] で制限なし)"
+msgstr "スクリプトの実行が許されている秒数を設定します([kbd]0[/kbd] で制限なし)。"
 
 #: libraries/classes/Config/Descriptions.php:248
 msgid "Maximum execution time"
@@ -3898,10 +3879,9 @@ msgstr "最大実行時間"
 
 #: libraries/classes/Config/Descriptions.php:251
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Add %s statement"
+#, php-format
 msgid "Use %s statement"
-msgstr "%s コマンドを追加する"
+msgstr "「%s」 コマンドを使用する"
 
 #: libraries/classes/Config/Descriptions.php:254 prefs_manage.php:309
 msgid "Save as file"
@@ -3943,19 +3923,15 @@ msgstr "1 行目にカラム名を追加する"
 #: libraries/classes/Config/Descriptions.php:633
 #: libraries/classes/Config/Descriptions.php:652
 #: libraries/classes/Plugins/Import/ImportCsv.php:137
-#, fuzzy
-#| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "カラム囲み記号:"
+msgstr "カラム囲み記号"
 
 #: libraries/classes/Config/Descriptions.php:266
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Plugins/Import/ImportCsv.php:148
-#, fuzzy
-#| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "カラムのエスケープ記号:"
+msgstr "カラムのエスケープ記号"
 
 #: libraries/classes/Config/Descriptions.php:268
 #: libraries/classes/Config/Descriptions.php:280
@@ -3982,10 +3958,8 @@ msgstr "カラムの終端記号"
 #: libraries/classes/Config/Descriptions.php:274
 #: libraries/classes/Config/Descriptions.php:631
 #: libraries/classes/Plugins/Import/ImportCsv.php:157
-#, fuzzy
-#| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "行の終端記号:"
+msgstr "行の終端記号"
 
 #: libraries/classes/Config/Descriptions.php:278
 msgid "Excel edition"
@@ -4050,10 +4024,8 @@ msgstr "MIME タイプ"
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:338
 #: libraries/classes/Config/Descriptions.php:403
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "リレーション"
+msgstr "関係"
 
 #: libraries/classes/Config/Descriptions.php:324
 msgid "Export method"
@@ -4072,10 +4044,8 @@ msgid "Overwrite existing file(s)"
 msgstr "既存のファイルは上書きする"
 
 #: libraries/classes/Config/Descriptions.php:346
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "カラム名をエクスポートする"
+msgstr "別々のファイルとしてエクスポート"
 
 #: libraries/classes/Config/Descriptions.php:352
 msgid "Remember file name template"
@@ -4111,16 +4081,12 @@ msgstr "外部キーのチェックを無効にする"
 
 #: libraries/classes/Config/Descriptions.php:366
 #: libraries/classes/Plugins/Export/ExportSql.php:169
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "テーブル \"%s\" から行単位でデータをエクスポート"
+msgstr "ビューをテーブルとしてエクスポートする"
 
 #: libraries/classes/Config/Descriptions.php:368
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
+msgstr "PhpMyAdminの環境保管領域から関連するメタデータをエクスポートする"
 
 #: libraries/classes/Config/Descriptions.php:370
 #: libraries/classes/Config/Descriptions.php:372
@@ -4135,10 +4101,8 @@ msgid "Add %s"
 msgstr "%s を追加する"
 
 #: libraries/classes/Config/Descriptions.php:384
-#, fuzzy
-#| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "BLOB に 16 進数表記を利用する"
+msgstr "BINARYおよびBLOB に 16 進数表記を利用する"
 
 #: libraries/classes/Config/Descriptions.php:387
 msgid ""
@@ -4175,24 +4139,18 @@ msgid "Export time in UTC"
 msgstr "エクスポート時間を UTC (協定世界時) にする"
 
 #: libraries/classes/Config/Descriptions.php:420
-#, fuzzy
-#| msgid ""
-#| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
-#| "the referenced data, [kbd]id[/kbd] is the key value"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"外部キーのドロップダウンボックス内のソート順。[kbd]content[/kbd] は参照してい"
-"るデータ、[kbd]id[/kbd] はキー値を表しています。"
+"外部キーのドロップダウンボックス内のソート順。[kbd]content[/kbd] は参照しているデータ、[kbd]id[/kbd] "
+"はキー値を表しています。"
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Foreign key dropdown order"
 msgstr "外部キーのドロップダウンの順番"
 
 #: libraries/classes/Config/Descriptions.php:426
-#, fuzzy
-#| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
 msgstr "これより少ない項目数であれば、ドロップダウンが使用されます。"
 
@@ -4205,20 +4163,16 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr "クエリ実行時の外部キーのチェックボックスのデフォルト値です。"
 
 #: libraries/classes/Config/Descriptions.php:432
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "外部キーのチェック:"
+msgstr "外部キーのチェック"
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid "Browse mode"
 msgstr "表示モード"
 
 #: libraries/classes/Config/Descriptions.php:436
-#, fuzzy
-#| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "表示モードの詳細設定"
+msgstr "表示モードの詳細設定。"
 
 #: libraries/classes/Config/Descriptions.php:440
 #: libraries/classes/Config/Descriptions.php:444
@@ -4240,10 +4194,8 @@ msgid "Developer"
 msgstr "開発者向け"
 
 #: libraries/classes/Config/Descriptions.php:448
-#, fuzzy
-#| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "phpMyAdmin 開発者用の設定"
+msgstr "phpMyAdmin 開発者用の設定。"
 
 #: libraries/classes/Config/Descriptions.php:450
 msgid "Edit mode"
@@ -4326,8 +4278,6 @@ msgid "Servers"
 msgstr "サーバ"
 
 #: libraries/classes/Config/Descriptions.php:488
-#, fuzzy
-#| msgid "Servers display options"
 msgid "Servers display options."
 msgstr "サーバの表示オプション"
 
@@ -4337,10 +4287,8 @@ msgstr "テーブル表示オプション."
 
 #: libraries/classes/Config/Descriptions.php:494
 #: libraries/classes/Config/Forms/User/MainForm.php:84
-#, fuzzy
-#| msgid "Main frame"
 msgid "Main panel"
-msgstr "メインフレーム"
+msgstr "メインパネル"
 
 #: libraries/classes/Config/Descriptions.php:496
 msgid "Microsoft Office"
@@ -4351,8 +4299,6 @@ msgid "Other core settings"
 msgstr "他の中心的な設定"
 
 #: libraries/classes/Config/Descriptions.php:506
-#, fuzzy
-#| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
 msgstr "どこにも該当しない設定"
 
@@ -4361,33 +4307,21 @@ msgid "Page titles"
 msgstr "ページタイトル"
 
 #: libraries/classes/Config/Descriptions.php:511
-#, fuzzy
-#| msgid ""
-#| "Specify browser's title bar text. Refer to "
-#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
-#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変"
-"数は[doc@cfg_TitleTable]ドキュメント[/doc]を参照してください。"
+"ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変数は[doc@faq6-27]ドキュメント[/doc]を参照してください。"
 
 #: libraries/classes/Config/Descriptions.php:516
 msgid "Security"
 msgstr "セキュリティ"
 
 #: libraries/classes/Config/Descriptions.php:519
-#, fuzzy
-#| msgid ""
-#| "Please note that phpMyAdmin is just a user interface and its features do "
-#| "not limit MySQL"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
-msgstr ""
-"phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するも"
-"のではないことをご了承ください。"
+msgstr "phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するものではないことをご了承ください。"
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Basic settings"
@@ -4398,8 +4332,6 @@ msgid "Authentication"
 msgstr "認証"
 
 #: libraries/classes/Config/Descriptions.php:527
-#, fuzzy
-#| msgid "Authentication settings"
 msgid "Authentication settings."
 msgstr "認証設定"
 
@@ -4408,40 +4340,27 @@ msgid "Server configuration"
 msgstr "サーバ設定"
 
 #: libraries/classes/Config/Descriptions.php:532
-#, fuzzy
-#| msgid ""
-#| "Advanced server configuration, do not change these options unless you "
-#| "know what they are for"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
-msgstr ""
-"高度なサーバ設定。これらのオプションは、よく知らないのであれば変更しないでく"
-"ださい。"
+msgstr "高度なサーバ設定。これらのオプションは、よく知らないのであれば変更しないでください。"
 
 #: libraries/classes/Config/Descriptions.php:536
-#, fuzzy
-#| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "サーバの接続パラメータを入力してください"
+msgstr "サーバの接続パラメータを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid "Configuration storage"
 msgstr "環境保管領域"
 
 #: libraries/classes/Config/Descriptions.php:541
-#, fuzzy
-#| msgid ""
-#| "Configure phpMyAdmin configuration storage to gain access to additional "
-#| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
-#| "in documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。"
-"ドキュメントの [doc@linked-tables]phpMyAdmin 環境保管領域[/doc]参照。"
+"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。ドキュメントの [doc@linked-tables]"
+"phpMyAdmin 環境保管領域[/doc]参照。"
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
@@ -4471,10 +4390,8 @@ msgid "SQL Query box"
 msgstr "SQL クエリボックス"
 
 #: libraries/classes/Config/Descriptions.php:557
-#, fuzzy
-#| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "SQL クエリボックスに表示されるリンクの詳細設定"
+msgstr "SQL クエリボックスに表示されるリンクの詳細設定。"
 
 #: libraries/classes/Config/Descriptions.php:561
 #: libraries/classes/Config/Forms/User/SqlForm.php:40
@@ -4482,10 +4399,8 @@ msgid "SQL queries"
 msgstr "SQL クエリ"
 
 #: libraries/classes/Config/Descriptions.php:563
-#, fuzzy
-#| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "SQL クエリの設定"
+msgstr "SQL クエリの設定。"
 
 #: libraries/classes/Config/Descriptions.php:565
 msgid "Startup"
@@ -4500,12 +4415,9 @@ msgid "Database structure"
 msgstr "データベースの構造"
 
 #: libraries/classes/Config/Descriptions.php:571
-#, fuzzy
-#| msgid ""
-#| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr "データベースの構造 (テーブルの一覧) で詳細に表示させるかの選択"
+msgstr "データベースの構造 (テーブルの一覧) で詳細に表示させるかの選択。"
 
 #: libraries/classes/Config/Descriptions.php:573
 #: libraries/classes/Plugins/Export/ExportPdf.php:277
@@ -4514,8 +4426,6 @@ msgid "Table structure"
 msgstr "テーブルの構造"
 
 #: libraries/classes/Config/Descriptions.php:575
-#, fuzzy
-#| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
 msgstr "テーブルの構造 (カラムの一覧) における設定"
 
@@ -4524,10 +4434,8 @@ msgid "Tabs"
 msgstr "タブ"
 
 #: libraries/classes/Config/Descriptions.php:579
-#, fuzzy
-#| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "タブの動作を選択してください"
+msgstr "タブの動作を選択してください。"
 
 #: libraries/classes/Config/Descriptions.php:581
 msgid "Display relational schema"
@@ -4544,8 +4452,6 @@ msgid "Text fields"
 msgstr "テキスト入力項目"
 
 #: libraries/classes/Config/Descriptions.php:593
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Customize text input fields."
 msgstr "テキスト入力項目の詳細設定"
 
@@ -4562,8 +4468,6 @@ msgid "Warnings"
 msgstr "警告"
 
 #: libraries/classes/Config/Descriptions.php:601
-#, fuzzy
-#| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "phpMyAdmin で表示される警告の抑制"
 
@@ -4573,14 +4477,8 @@ msgid "Console"
 msgstr "コンソール"
 
 #: libraries/classes/Config/Descriptions.php:606
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations"
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"インポートおよびエクスポートの操作に対して [a@https://ja.wikipedia.org/wiki/"
-"Gzip]gzip[/a] 圧縮を有効にします。"
+msgstr "インポートおよびエクスポートの操作に対してgzip圧縮を有効にします。"
 
 #: libraries/classes/Config/Descriptions.php:610
 msgid "GZip"
@@ -4591,16 +4489,10 @@ msgid "Extra parameters for iconv"
 msgstr "iconv のための追加パラメータ"
 
 #: libraries/classes/Config/Descriptions.php:615
-#, fuzzy
-#| msgid ""
-#| "If enabled, phpMyAdmin continues computing multiple-statement queries "
-#| "even if one of the queries failed"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
-msgstr ""
-"有効にした場合、クエリの 1 つが失敗しても phpMyAdmin はマルチクエリの実行を続"
-"けます。"
+msgstr "有効にした場合、クエリの 1 つが失敗しても phpMyAdmin はマルチクエリの実行を続けます。"
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Ignore multiple statement errors"
@@ -4638,16 +4530,10 @@ msgid "Update data when duplicate keys found on import"
 msgstr "インポート中に重複したキーが見つかった場合も更新する"
 
 #: libraries/classes/Config/Descriptions.php:646
-#, fuzzy
-#| msgid ""
-#| "Default format; be aware that this list depends on location (database, "
-#| "table) and only SQL is always available"
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
-msgstr ""
-"デフォルトの形式。このリストは対象（データベース、テーブル）に依存しているの"
-"で注意してください。SQL は常に利用可能です。"
+msgstr "デフォルトの形式。このリストは対象（データベース、テーブル）に依存しているので注意してください。SQL は常に利用可能です。"
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "Format of imported file"
@@ -4676,8 +4562,6 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "パーセントは適切な小数に変換する (例：12.00% を .12)"
 
 #: libraries/classes/Config/Descriptions.php:674
-#, fuzzy
-#| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
 msgstr "先頭から数えたスキップするクエリの数"
 
@@ -4690,18 +4574,14 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "値がゼロのものに対して AUTO_INCREMENT を使用しない"
 
 #: libraries/classes/Config/Descriptions.php:682
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "読み込みミス"
+msgstr "マルチバイトとして読み込む"
 
 #: libraries/classes/Config/Descriptions.php:684
 msgid "Initial state for sliders"
 msgstr "折り畳みに対しての初期値"
 
 #: libraries/classes/Config/Descriptions.php:686
-#, fuzzy
-#| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
 msgstr "1 回で何行まとめて挿入できるか。"
 
@@ -4710,13 +4590,9 @@ msgid "Number of inserted rows"
 msgstr "挿入する行数"
 
 #: libraries/classes/Config/Descriptions.php:690
-#, fuzzy
-#| msgid ""
-#| "Maximum number of characters shown in any non-numeric column on browse "
-#| "view"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
-msgstr "表示ページにおいて数値でないカラムの表示文字の最大数"
+msgstr "表示ページにおいて数値でないカラムの表示文字の最大数。"
 
 #: libraries/classes/Config/Descriptions.php:692
 msgid "Limit column characters"
@@ -4738,16 +4614,10 @@ msgid "Delete all cookies on logout"
 msgstr "ログアウト時にすべてのクッキーを削除する"
 
 #: libraries/classes/Config/Descriptions.php:703
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode."
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr ""
-"クッキー認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義し"
-"ます。"
+msgstr "[kbd]クッキー[/kbd]認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義します。"
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Recall user name"
@@ -4770,8 +4640,6 @@ msgid "Login cookie store"
 msgstr "ログインクッキーの保存期間"
 
 #: libraries/classes/Config/Descriptions.php:718
-#, fuzzy
-#| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "ログインクッキーの有効期間 (秒数) を定義します。"
 
@@ -4780,8 +4648,6 @@ msgid "Login cookie validity"
 msgstr "ログインクッキーの有効期間"
 
 #: libraries/classes/Config/Descriptions.php:722
-#, fuzzy
-#| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "LONGTEXT カラムに対して textarea を 2 倍にします。"
 
@@ -4790,10 +4656,8 @@ msgid "Bigger textarea for LONGTEXT"
 msgstr "LONGTEXT に対しては大きな textarea を使う"
 
 #: libraries/classes/Config/Descriptions.php:726
-#, fuzzy
-#| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "SQL クエリが表示されているときに使用される文字の最大数"
+msgstr "SQL クエリが表示されているときに使用される文字の最大数。"
 
 #: libraries/classes/Config/Descriptions.php:728
 msgid "Maximum displayed SQL length"
@@ -4806,36 +4670,28 @@ msgid "Users cannot set a higher value"
 msgstr "ユーザはこれより高い値を設定することはできません"
 
 #: libraries/classes/Config/Descriptions.php:732
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "テーブルのリストに表示されるテーブルの最大数"
+msgstr "データベースリストに表示されるデータベースの最大数。"
 
 #: libraries/classes/Config/Descriptions.php:734
 msgid "Maximum databases"
 msgstr "データベースの最大数"
 
 #: libraries/classes/Config/Descriptions.php:737
-#, fuzzy
-#| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr "最初のテーブルを全スキャンした結合の数。"
+msgstr "ナビゲーションツリーの最初のレベルの各ページに表示できる項目の数。"
 
 #: libraries/classes/Config/Descriptions.php:741
-#, fuzzy
-#| msgid "Maximum size for input field"
 msgid "Maximum items on first level"
-msgstr "入力項目の最大サイズ"
+msgstr "最初のレベルで最大項目数"
 
 #: libraries/classes/Config/Descriptions.php:743
-#, fuzzy
-#| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "最初のテーブルを全スキャンした結合の数。"
+msgstr "ナビゲーションツリーの各ページに表示できる項目数。"
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Maximum items in branch"
@@ -4854,26 +4710,20 @@ msgid "Maximum number of rows to display"
 msgstr "行の最大表示数"
 
 #: libraries/classes/Config/Descriptions.php:757
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "テーブルのリストに表示されるテーブルの最大数"
+msgstr "テーブルのリストに表示されるテーブルの最大数。"
 
 #: libraries/classes/Config/Descriptions.php:759
 msgid "Maximum tables"
 msgstr "テーブルの最大数"
 
 #: libraries/classes/Config/Descriptions.php:762
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"割り当てが許可されているスクリプトのバイト数。例：[kbd]32M[/kbd] ([kbd]0[/"
-"kbd] で制限無し)"
+"スクリプトが割り当てを許可されているバイト数。例：[kbd]32M[/kbd]（制限なしの場合は[kbd]-1[/kbd]、変更なしの場合は[kbd]0["
+"/kbd]）。"
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Memory limit"
@@ -4884,22 +4734,16 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr "ナビゲーション画面でデータベースツリーをセレクタで置き換えます"
 
 #: libraries/classes/Config/Descriptions.php:770
-#, fuzzy
-#| msgid "Show logo in left frame"
 msgid "Show databases navigation as tree"
-msgstr "左のフレーム内にロゴを表示します。"
+msgstr "データベースナビゲーションをツリーとして表示する"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "ナビゲーションパネル"
+msgstr "ナビゲーションパネル幅"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "ナビゲーションパネル内にロゴを表示します。"
+msgstr "ナビゲーションパネルを折りたたむには、0に設定します。"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -4915,10 +4759,8 @@ msgid "Display logo"
 msgstr "ロゴを表示する"
 
 #: libraries/classes/Config/Descriptions.php:784
-#, fuzzy
-#| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "ナビゲーションフレームのロゴが指す URL"
+msgstr "ナビゲーションパネルのロゴが指す URL。"
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "Logo link URL"
@@ -4937,10 +4779,8 @@ msgid "Logo link target"
 msgstr "ロゴリンクのターゲット"
 
 #: libraries/classes/Config/Descriptions.php:795
-#, fuzzy
-#| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "左フレームの上部にサーバ選択を表示します。"
+msgstr "ナビゲーションパネルの上部にサーバ選択を表示します。"
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Display servers selection"
@@ -4951,24 +4791,18 @@ msgid "Target for quick access icon"
 msgstr "クイックアクセスアイコンのリンク先"
 
 #: libraries/classes/Config/Descriptions.php:801
-#, fuzzy
-#| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "クイックアクセスアイコンのリンク先"
+msgstr "2番目のクイックアクセスアイコンのリンク先"
 
 #: libraries/classes/Config/Descriptions.php:804
-#, fuzzy
-#| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "テーブル表示数を絞るための入力欄が現れる最小のテーブル数"
+msgstr "入力欄を表示します (テーブル、ビュー、ルーチンおよびイベント) の項目の最小数を定義します。"
 
 #: libraries/classes/Config/Descriptions.php:808
-#, fuzzy
-#| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "テーブル表示数を絞るための入力欄が現れる最小のテーブル数"
+msgstr "項目表示数を絞るための入力欄が現れる最小の項目数"
 
 #: libraries/classes/Config/Descriptions.php:810
 msgid "Minimum number of databases to display the database filter box"
@@ -7003,7 +6837,7 @@ msgstr "不正な IP アドレス：%s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "個人用と共用を含む %1$d ブックマークを表示しています"
 
 #: libraries/classes/Console.php:100
 msgid "No bookmarks"
@@ -7235,7 +7069,7 @@ msgstr "検索と置換の条件を隠す"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
+msgstr[0] "'%s'という名前はMySQLの予約語です。"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:273
 msgid "No column selected."
@@ -7622,7 +7456,7 @@ msgstr ""
 msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
-msgstr ""
+msgstr "PHPの設定でmysql.allow_local_infileを無効にするか、mysqli拡張モジュールをインストールしてください。"
 
 #: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -8959,7 +8793,7 @@ msgstr ""
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
+msgstr[0] "%s が見つかりました"
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
