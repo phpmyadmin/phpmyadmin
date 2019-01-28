@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.8.6 (not yet released)
+- issue #14478 phpMyAdmin no longer streams the export data
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
