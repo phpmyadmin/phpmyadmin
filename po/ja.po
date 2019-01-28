@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2019-01-26 03:43+0000\n"
+"PO-Revision-Date: 2019-01-28 16:47+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -3584,19 +3584,13 @@ msgid "Restrict login to MySQL server"
 msgstr "MySQLサーバーへのログインの制限"
 
 #: libraries/classes/Config/Descriptions.php:75
-#, fuzzy
-#| msgid ""
-#| "Enabling this allows a page located on a different domain to call "
-#| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
-#| "strong] allowing cross-frame scripting attacks"
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
-"有効にすると、フレームに対して異なるドメインに置かれているページを許可しま"
-"す。このことは、クロスフレームスクリプト攻撃を可能にする潜在的な[strong]セ"
-"キュリティホール[/strong]にもなりえます。"
+"有効にすると、フレームに対して異なるドメインに置かれているページを許可します。このことは、クロスフレームスクリプト攻撃(XSS)を可能にする潜在的な[st"
+"rong]セキュリティホール[/strong]にもなりえます。"
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
@@ -3607,15 +3601,10 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "一般ユーザに「データベースを削除する」リンクを表示する"
 
 #: libraries/classes/Config/Descriptions.php:85
-#, fuzzy
-#| msgid ""
-#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-#| "authentication"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
-msgstr ""
-"[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ"
+msgstr "[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ"
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid "Blowfish secret"
@@ -3648,19 +3637,13 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:107
-#, fuzzy
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"CHAR と VARCHAR 型のカラムに対しての編集用のフォームパーツのタイプを定義しま"
-"す。[kbd]input[/kbd] は入力文字数を制限することができます。[kbd]textarea[/"
-"kbd] は改行を入力すことができます。"
+"CHAR と VARCHAR 型のカラムに対しての編集用のフォームパーツのタイプを定義します。[kbd]input[/kbd] "
+"は入力文字数を制限することができます。[kbd]textarea[/kbd] は改行を入力すことができます。"
 
 #: libraries/classes/Config/Descriptions.php:112
 msgid "CHAR columns editing"
@@ -3718,8 +3701,6 @@ msgid "CHAR textarea columns"
 msgstr "文字入力用 textarea の 1 行の文字数"
 
 #: libraries/classes/Config/Descriptions.php:147
-#, fuzzy
-#| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR 用 textarea の行数"
 
@@ -3732,34 +3713,22 @@ msgid "Check config file permissions"
 msgstr "設定ファイルのパーミッションをチェックする"
 
 #: libraries/classes/Config/Descriptions.php:154
-#, fuzzy
-#| msgid ""
-#| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
-#| "if you encounter problems with created gzip/bzip2 files disable this "
-#| "feature"
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"エクスポートの際、バッファに溜まり次第 gzip/bzip2 圧縮していく方法です。あま"
-"り多くのメモリを必要とはしません。gzip/bzip2 ファイル作成で問題が発生した場"
-"合、この機能は無効になります。"
+"エクスポートの際、バッファに溜まり次第 gzip 圧縮していく方法です。あまり多くのメモリを必要とはしません。gzip "
+"ファイル作成で問題が発生した場合、この機能は無効になります。"
 
 #: libraries/classes/Config/Descriptions.php:158
 msgid "Compress on the fly"
 msgstr "逐次圧縮"
 
 #: libraries/classes/Config/Descriptions.php:161
-#, fuzzy
-#| msgid ""
-#| "Whether a warning (\"Are your really sure…\") should be displayed when "
-#| "you're about to lose data"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr ""
-"データを失う作業をしようとしたとき、「本当に実行しますか?…」という警告を出す"
-"かどうか。"
+msgstr "データを失う作業をしようとしたとき、「本当に実行しますか?…」という警告を出すかどうか。"
 
 #: libraries/classes/Config/Descriptions.php:165
 msgid "Confirm DROP queries"
@@ -3776,8 +3745,6 @@ msgid "Debug SQL"
 msgstr "SQL のデバッグ"
 
 #: libraries/classes/Config/Descriptions.php:171
-#, fuzzy
-#| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
 msgstr "データベースが選択されたときに表示されるタブ"
 
@@ -3794,8 +3761,6 @@ msgid "Default server tab"
 msgstr "デフォルトのサーバタブ"
 
 #: libraries/classes/Config/Descriptions.php:179
-#, fuzzy
-#| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
 msgstr "テーブルが選択されたときに表示されるタブ"
 
@@ -3804,28 +3769,20 @@ msgid "Default table tab"
 msgstr "デフォルトのテーブルタブ"
 
 #: libraries/classes/Config/Descriptions.php:183
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "テーブル名やカラム名を逆クォートで囲む"
+msgstr "SQLクエリ内のテーブル名とカラム名のオートコンプリート。"
 
 #: libraries/classes/Config/Descriptions.php:185
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "テーブル名やカラム名を逆クォートで囲む"
+msgstr "テーブル名とカラム名のオートコンプリートを有効にする"
 
 #: libraries/classes/Config/Descriptions.php:187
-#, fuzzy
-#| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
 msgstr "テーブル構造の操作欄の折り畳みをしないかどうか。"
 
 #: libraries/classes/Config/Descriptions.php:189
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "テーブルのコメント"
+msgstr "カラムのコメントを表示"
 
 #: libraries/classes/Config/Descriptions.php:191
 msgid "Whether column comments should be shown in table structure view"
@@ -3836,10 +3793,8 @@ msgid "Hide table structure actions"
 msgstr "テーブル構造の操作欄を折り畳む"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "デフォルトの並び順"
+msgstr "16進数(Hex)のデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:201
@@ -3858,10 +3813,8 @@ msgstr ""
 "ライドされます。"
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "変換オプション"
+msgstr "部分文字列のデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:203
 #, fuzzy
@@ -15708,7 +15661,7 @@ msgstr "出力をファイルに保存する"
 #: templates/display/export/options_output.twig:51
 #, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr ""
+msgstr "「%s」MiB より大きいテーブルをスキップ"
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
@@ -15771,20 +15724,20 @@ msgstr "認証設定"
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
-msgstr ""
+msgstr "二要素認証を関係している依存パッケージがインストールされていないので、二要素認証は使用不可能です。"
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "以下のComposerパッケージは存在しません："
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "このユーザアカウントには二要素認証が設定されており、使用可能な状態です。"
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr ""
+msgstr "このユーザアカウントは二要素認証が設定されていないが、設定は可能です。"
 
 #: templates/prefs_twofactor.twig:24
 #, fuzzy
@@ -15796,7 +15749,7 @@ msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "二要素認証が有効化しました。"
 
 #: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
 #, fuzzy
@@ -16036,16 +15989,18 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
+"この報告には、エラーに関するデータと関連する構成設定に関する情報が自動的に含まれます。 "
+"エラーをデバッグするためにphpMyAdminチームに送信されます。"
 
 #: templates/error/report_form.twig:12
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
-msgstr ""
+msgstr "このエラーにつながる手順を教えてください。 決定的にデバッグに役立ちます："
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "エラー報告のデータ確認が出来ます："
 
 #: templates/database/tracking/tracked_tables.twig:2
 msgid "Tracked tables"
@@ -16156,7 +16111,7 @@ msgstr "カラムの変更"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "条件を入力してください"
 
 #: templates/database/multi_table_query/form.twig:148
 #, fuzzy
@@ -16199,11 +16154,13 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"インデックスのないカラムに外部キーを作成すると、自動的にインデックスが作成されます。 "
+"また、外部キーを作成する前に、まずカラムのインデックスを作成できます。"
 
 #: templates/table/relation/common_form.twig:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "インデックスのあるカラムのみが表示されます。インデックスを以下に定義できます。"
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
@@ -16374,16 +16331,18 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"サーバとクライアントの間にHTTPSの不一致があります。 これにより、機能しないphpMyAdminまたはセキュリティリスクが発生する可能性があります。 "
+"HTTPSを正しく設定するようにサーバ設定を修正してください。"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
-msgstr ""
+msgstr "FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置の登録を確認して下さい。"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "ENUM/SETの値を編集"
 
 #: templates/table/structure/row_stats_table.twig:2
 #, fuzzy
@@ -16486,7 +16445,7 @@ msgstr "詳細 - 可能なオプションをすべて表示"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
-msgstr ""
+msgstr "新しいエイリアスを定義する"
 
 #: templates/export/alias_add.twig:9
 #, fuzzy
@@ -16545,21 +16504,21 @@ msgstr "SQL コマンドの追跡は非アクティブです。"
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
-msgstr ""
+msgstr "以下のQRコードを装置にある二要素認証アプリにスキャンして、生成された認証コードを入力してください。"
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
-msgstr ""
+msgstr "以下の秘密キーを装置にある二要素認証アプリに入力して、生成された認証コードを入力してください。"
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP URL :"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "秘密キー："
 
 #: templates/prefs_twofactor_configure.twig:8
 #, fuzzy
@@ -16674,7 +16633,7 @@ msgstr "Config 認証"
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
-msgstr ""
+msgstr "二要素認証を無効にすることで、再びパスワードのみログインが出来るようになります。"
 
 #: templates/privileges/add_privileges_database.twig:1
 #, fuzzy
@@ -16912,7 +16871,7 @@ msgstr "集計"
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
-msgstr ""
+msgstr "FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置のログインを確認して下さい。"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -16994,7 +16953,7 @@ msgstr "実行順"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "所要時間"
 
 #: templates/console/display.twig:64
 #, fuzzy
@@ -17052,7 +17011,7 @@ msgstr "デフォルトに戻す"
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
-msgstr ""
+msgstr "Enterでクエリを実行し、Shift + Enterで新しい行を挿入します。永続的にするには、設定を確認してください。"
 
 #: templates/database/structure/favorite_anchor.twig:4
 #, fuzzy
@@ -17073,7 +17032,7 @@ msgstr ""
 #: templates/display/import/javascript.twig:16
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s of %s"
 
 #: templates/display/import/javascript.twig:17
 #, php-format
@@ -17200,7 +17159,7 @@ msgstr ""
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "ファイルを任意のページにドラッグアンドドロップすることもできます。"
 
 #: templates/display/import/import.twig:86
 msgid "File uploads are not allowed on this server."
@@ -17348,7 +17307,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtuality"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
@@ -17429,7 +17388,7 @@ msgstr "文字入力用 textarea の 1 行の文字数"
 
 #: templates/database/structure/check_all_tables.twig:34
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "中央リストからカラムを削除"
 
 #: templates/database/structure/check_all_tables.twig:35
 #, fuzzy
@@ -17439,7 +17398,7 @@ msgstr "文字入力用 textarea の 1 行の文字数"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "検証"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -17474,7 +17433,7 @@ msgstr "テーブル構造を確認する"
 
 #: templates/table/structure/optional_action_links.twig:22
 msgid "Normalize"
-msgstr ""
+msgstr "正規化"
 
 #: templates/table/structure/optional_action_links.twig:28
 msgid "Track view"
@@ -17792,6 +17751,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona ドキュメントは<a href=\"https://www.percona.com/software/documentation/\""
+">https://www.percona.com/software/documentation/</a>にあります"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
