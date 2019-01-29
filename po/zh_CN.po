@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-01-02 23:52+0000\n"
+"PO-Revision-Date: 2019-02-02 06:48+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6768,7 +6768,7 @@ msgstr "你在使用phpMyAdmin不推荐（废弃）的mysql扩展。请考虑安
 msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
-msgstr ""
+msgstr "请在PHP配置中禁用mysql.allow_local_infile，或安装mysqli扩展。"
 
 #: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -10024,16 +10024,11 @@ msgid "Change or reconfigure master server"
 msgstr "修改或重新配置主服务器"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"此服务器尚未配置为一个复制进程中的从服务器。你想现在<a href=\"%s\">配置</a>"
-"吗？"
+msgstr "此服务器尚未配置为一个复制进程中的从服务器。你想现在%s配置%s吗？"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10053,16 +10048,11 @@ msgid "Skip next %s errors."
 msgstr "跳过下一个%s错误。"
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"此服务器尚未配置为一个复制进程中的主服务器。你想现在<a href=\"%s\">配置</a>"
-"吗？"
+msgstr "此服务器尚未配置为一个复制进程中的主服务器。你想现在%s配置%s吗？"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/database/search/selection_form.twig:35
