@@ -22,7 +22,7 @@
         </th>
       </tr>
       {% for collation in charset.collations %}
-        <tr class="{{ collation.is_default ? ' marked' }}">
+        <tr{{ collation.is_default ? ' class="marked"' }}>
           <td>{{ collation.name }}</td>
           <td>{{ collation.description }}</td>
         </tr>
