@@ -33,4 +33,6 @@ $controller = $container->get(
     'ServerCollationsController',
     []
 );
-$controller->indexAction();
+$response = $container->get('response');
+
+$response->addHTML($controller->indexAction());
