@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-03 15:07+0000\n"
+"PO-Revision-Date: 2019-01-29 14:50+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -1871,14 +1871,10 @@ msgid "Are you sure?"
 msgstr "请核实信息？"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
-msgstr "该操作有可能影响一些列的定义<br/>你确认做此更改吗？"
+msgstr "该操作有可能影响一些列的定义<br>你确认做此更改吗？"
 
 #: js/messages.php:450
 msgid "Continue"
@@ -2272,19 +2268,13 @@ msgid "Click to sort results by this column."
 msgstr "点此排序此列的结果。"
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
-"点击的同时按下 Shift 键即可将此列添加到 ORDER BY 语句中或是切换升序和降序。"
-"<br />使用 Ctrl+Click 或者 Alt+Click （Mac：Shift+Option+Click ）即可将列从 "
-"ORDER BY 语句中移除"
+"点击的同时按下 Shift 键即可将此列添加到 ORDER BY 语句中或是切换升序和降序。<br>使用 Ctrl+Click 或者 Alt+Click "
+"（Mac：Shift+Option+Click ）即可将列从 ORDER BY 语句中移除"
 
 #: js/messages.php:605
 msgid "Click to mark/unmark."
@@ -2295,10 +2285,8 @@ msgid "Double-click to copy column name."
 msgstr "双击以复制字段名。"
 
 #: js/messages.php:608
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "点击下箭头<br />以设置显示的字段。"
+msgstr "点击下箭头<br>以设置显示的字段。"
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
 #: templates/display/results/table_navigation.twig:19
@@ -2361,17 +2349,12 @@ msgid "Print"
 msgstr "打印"
 
 #: js/messages.php:640
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "您可以直接双击大部分<br />单元格以修改其值。"
+msgstr "您可以直接双击大部分<br>单元格以修改其值。"
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "您可以直接点击大部分<br />单元格以修改其值。"
+msgstr "您可以直接点击大部分<br>单元格以修改其值。"
 
 #: js/messages.php:651
 msgid "Go to link:"
@@ -2498,16 +2481,12 @@ msgid ""
 msgstr "正在提交您的设置，请耐心等待。"
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "成功删除页面"
+msgstr "成功复制！"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "正在复制数据库"
+msgstr "复制失败！"
 
 #: js/messages.php:734
 msgid "Execute this query again?"
@@ -7547,10 +7526,8 @@ msgid "Binary"
 msgstr "二进制"
 
 #: libraries/classes/InsertEdit.php:764
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "因长度问题，<br /> 该字段可能无法编辑。"
+msgstr "因长度问题，<br> 该字段可能无法编辑。"
 
 #: libraries/classes/InsertEdit.php:1382
 msgid "Binary - do not edit"
@@ -7901,7 +7878,7 @@ msgstr "视图："
 
 #: libraries/classes/Navigation/Navigation.php:246
 msgid "Unhide"
-msgstr ""
+msgstr "取消隐藏"
 
 #: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
@@ -8114,16 +8091,10 @@ msgid "Primary key already exists."
 msgstr "主键已存在。"
 
 #: libraries/classes/Normalization.php:253
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
-msgstr ""
-"没有主键；请添加。<br/>提示：主键是能够对所有的记录都能唯一标识的字段（或字段"
-"组合）。"
+msgstr "没有主键；请添加。<b>提示：主键是能够对所有的记录都能唯一标识的字段（或字段组合）。"
 
 #: libraries/classes/Normalization.php:261
 msgid "Add a primary key on existing column(s)"
@@ -8296,20 +8267,14 @@ msgid "Find transitive dependencies"
 msgstr "查找传递依赖项"
 
 #: libraries/classes/Normalization.php:812
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
-"对于下面的每一列，请在给定集合中选择列的<b>最小集合</b>，其值组合在一起足以确"
-"定列的值<br />注意：列可能没有传递依赖性，在这种情况下，您不必选择任何项。"
+"对于下面的每一列，请在给定集合中选择列的<b>最小集合</b>，其值组合在一起足以确定列的值<br>注意：列可能没有传递依赖性，在这种情况下，您不必选择任"
+"何项。"
 
 #: libraries/classes/Normalization.php:861
 msgid ""
@@ -9033,55 +8998,37 @@ msgid "Syntax to use when inserting data:"
 msgstr "插入数据时所使用的语法："
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"给每个 <code>INSERT (插入)</code> 语句加上字段名 <br /> &nbsp; &nbsp; &nbsp; "
-"如：<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"给每个 <code>INSERT (插入)</code> 语句加上字段名 <br> &nbsp; &nbsp; &nbsp; 如：<code>"
+"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"在每个 <code>INSERT(插入)</code> 语句中插入多行<br /> &nbsp; &nbsp; &nbsp; "
-"如：<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"在每个 <code>INSERT(插入)</code> 语句中插入多行<br> &nbsp; &nbsp; &nbsp; 如：<code>INSERT "
+"INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"以上兼有<br /> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name (col_A,"
-"col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"以上兼有<br> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"以上均不<br /> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name VALUES "
+"以上均不<br> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name VALUES "
 "(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
@@ -9295,10 +9242,9 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki 表"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "mediawiki输入在此行存在格式错误:<br />%s。"
+msgstr "mediawiki输入在此行存在格式错误:<br>%s。"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -9682,10 +9628,8 @@ msgid "Two-factor authentication failed."
 msgstr "双因素身份验证失败。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
-#, fuzzy
-#| msgid "Two-factor authentication"
 msgid "No Two-Factor Authentication"
-msgstr "双因素身份验证"
+msgstr "不使用双因素身份验证"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
@@ -10000,16 +9944,11 @@ msgid "Change or reconfigure master server"
 msgstr "修改或重新配置主服务器"
 
 #: libraries/classes/ReplicationGui.php:308
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"此服务器尚未配置为一个复制进程中的从服务器。你想现在<a href=\"%s\">配置</a>"
-"吗？"
+msgstr "此服务器尚未配置为一个复制进程中的从服务器。你想现在%s配置%s吗？"
 
 #: libraries/classes/ReplicationGui.php:331
 msgid "Error management:"
@@ -10029,16 +9968,11 @@ msgid "Skip next %s errors."
 msgstr "跳过下一个%s错误。"
 
 #: libraries/classes/ReplicationGui.php:370
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"此服务器尚未配置为一个复制进程中的主服务器。你想现在<a href=\"%s\">配置</a>"
-"吗？"
+msgstr "此服务器尚未配置为一个复制进程中的主服务器。你想现在%s配置%s吗？"
 
 #: libraries/classes/ReplicationGui.php:404
 #: templates/display/export/select_options.twig:8
@@ -14801,10 +14735,8 @@ msgid "Create"
 msgstr "创建"
 
 #: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "检查数据库 \"%s\" 的权限。"
+msgstr "没有创建数据库的权限"
 
 #: templates/server/databases/index.twig:163
 #, php-format
@@ -14821,11 +14753,10 @@ msgid "Check privileges"
 msgstr "检查权限"
 
 #: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
+#, php-format
 msgid "%count% database"
 msgid_plural "%count% databases"
-msgstr[0] "无数据库"
+msgstr[0] "%count% 数据库"
 
 #: templates/server/databases/index.twig:298
 msgid ""
@@ -15135,20 +15066,14 @@ msgid "New"
 msgstr "新建"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如字段类型是“enum”或“set”，请使用以下格式输入：'a','b','c'…<br />如果需要输入"
-"反斜杠(“”)或单引号(“'”)，请在前面加上反斜杠(如 '\\\\xyz' 或 'a\\'b')。"
+"如字段类型是“enum”或“set”，请使用以下格式输入：'a','b','c'…<br>如果需要输入反斜杠(“”)或单引号(“'”)，请在前面加上反斜杠"
+"(如 '\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15175,20 +15100,14 @@ msgstr "浏览器显示转换选项"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"请使用此格式输入转换选项的值：'a',100,b,'c'…<br />如果您需要在值中输入反斜杠 "
-"(“\\”)或单引号(“'”)，请在前面加上反斜杠 (如 '\\\\xyz' 或 'a\\'b')。"
+"请使用此格式输入转换选项的值：'a',100,b,'c'…<br>如果您需要在值中输入反斜杠 (“\\”)或单引号(“'”)，请在前面加上反斜杠 (如 '"
+"\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15482,10 +15401,8 @@ msgid "View output as text"
 msgstr "直接显示为文本"
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "按索引排序"
+msgstr "按索引排序："
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
