@@ -83,6 +83,7 @@ class Theme
         'jqplot',
         'resizable-menu',
         'icons',
+        'theme_generator',
     ];
 
     /**

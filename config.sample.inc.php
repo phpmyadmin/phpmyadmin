@@ -150,6 +150,13 @@ $cfg['SaveDir'] = '';
 //$cfg['SendErrorReports'] = 'always';
 
 /**
+ * Enabling or disabling Theme Generator
+ *
+ * default = 'false'
+ */
+//$cfg['ThemeGenerator'] = 'false';
+
+/**
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
  */

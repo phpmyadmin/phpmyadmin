@@ -217,8 +217,8 @@ Basic settings
 
     Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
     and is a potential security hole allowing cross-frame scripting attacks or
-    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be 
-    included from another document in a frame, unless that document belongs 
+    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be
+    included from another document in a frame, unless that document belongs
     to the same domain.
 
 Server connection settings
@@ -3264,6 +3264,13 @@ Theme manager settings
     :default: false
 
     Whether to allow different theme for each server.
+
+.. config:option:: $cfg['ThemeGenerator']
+
+    :type: boolean
+    :default: false
+
+    Whether to enable theme generator.
 
 .. config:option:: $cfg['FontSize']
 
