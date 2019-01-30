@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Template;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -20,60 +21,60 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
-$header   = $response->getHeader();
+$header = $response->getHeader();
 $header->disableMenuAndConsole();
 
 $transformations = new Transformations();
 
 $types = $transformations->getAvailableMimeTypes();
-?>
 
-<h2><?php echo __('Available MIME types'); ?></h2>
-<?php
-foreach ($types['mimetype'] as $key => $mimetype) {
-    if (isset($types['empty_mimetype'][$mimetype])) {
-        echo '<i>' , htmlspecialchars($mimetype) , '</i><br>';
-    } else {
-        echo htmlspecialchars($mimetype) , '<br>';
-    }
-}
-$transformation_types = [
-    'transformation',
-    'input_transformation',
-];
-$label = [
+/**
+ * Preparing all labels which are required on view template
+ */
+$labels = [
+    'available_MIME_types' => __('Available MIME types'),
     'transformation' => __('Available browser display transformations'),
     'input_transformation' => __('Available input transformations'),
 ];
-$th = [
+
+/**
+ * Preparing labels for table Table Heading (<th>)
+ */
+$tableHeadLabels = [
     'transformation' => __('Browser display transformation'),
     'input_transformation' => __('Input transformation'),
 ];
-?>
-<br>
-<?php foreach ($transformation_types as $ttype) { ?>
-    <a name="<?php echo $ttype; ?>"></a>
-    <h2><?php echo $label[$ttype] ?></h2>
-    <table width="90%">
-    <thead>
-    <tr>
-        <th><?php echo $th[$ttype] ?></th>
-        <th><?php echo _pgettext('for MIME transformation', 'Description'); ?></th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php
+
+$transformation_types = [
+    'transformation' => [],
+    'input_transformation' => [],
+];
+
+/**
+ * Looping over transformations and preparing labels, titles, text and transformation types to prepare
+ * nested array so that view template can easily get all required information.
+ */
+foreach (['transformation', 'input_transformation'] as $ttype) {
+    // settings title, text and labels for transformation
+    $transformation_types[$ttype]['title'] = $ttype;
+    $transformation_types[$ttype]['_pgettext'] = _pgettext('for MIME transformation', 'Description');
+    $transformation_types[$ttype]['label'] = $labels[$ttype];
+
+    $transformation_types[$ttype]['types'] = [];
+
+    // Settings types for current transformation
     foreach ($types[$ttype] as $key => $transform) {
-        $desc = $transformations->getDescription($types[$ttype . '_file'][$key]);
-        ?>
-        <tr>
-            <td><?php echo htmlspecialchars($transform); ?></td>
-            <td><?php echo htmlspecialchars($desc); ?></td>
-        </tr>
-        <?php
+        $transformation_types[$ttype]['types'][] = [
+            'transform' => $transform,
+            'description' => $transformations->getDescription($types[$ttype . '_file'][$key]),
+        ];
     }
-    ?>
-    </tbody>
-    </table>
-    <?php
-} // End of foreach ($transformation_types)
+}
+
+$template = new Template();
+echo $template->render('transformation_overview', [
+    'label' => $labels,
+    'types' => $transformations->getAvailableMimeTypes(),
+    'transformation_types' => $transformation_types,
+    'table_headings_label' => $tableHeadLabels,
+]);
