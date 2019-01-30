@@ -8381,7 +8381,7 @@ msgstr "Paramètres du panneau de navigation"
 
 #: libraries/classes/Navigation/NavigationHeader.php:242
 msgid "Reload navigation panel"
-msgstr "Rechercher le panneau de navigation"
+msgstr "Recharger le panneau de navigation"
 
 #: libraries/classes/Navigation/NavigationTree.php:760
 msgid ""
