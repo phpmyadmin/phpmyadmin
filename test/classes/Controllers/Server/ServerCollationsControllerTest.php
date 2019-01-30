@@ -101,7 +101,7 @@ class ServerCollationsControllerTest extends TestCase
             $actual
         );
         $this->assertContains(
-            '<td>' .  Charsets::getCollationDescr('armscii8') . '</td>',
+            '<td>' . Charsets::getCollationDescr('armscii8') . '</td>',
             $actual
         );
         $this->assertContains(
