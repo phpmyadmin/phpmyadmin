@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
 "PO-Revision-Date: 2019-02-02 02:36+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"Last-Translator: Fabrice ROUSSIN <f.roussin@laposte.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-8/fr/"
 ">\n"
 "Language: fr\n"
@@ -8471,7 +8471,7 @@ msgstr "Paramètres du panneau de navigation"
 
 #: libraries/classes/Navigation/NavigationHeader.php:224
 msgid "Reload navigation panel"
-msgstr "Rechercher le panneau de navigation"
+msgstr "Recharger le panneau de navigation"
 
 #: libraries/classes/Navigation/NavigationTree.php:757
 msgid ""
