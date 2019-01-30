@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-30 15:19+0000\n"
+"PO-Revision-Date: 2019-01-30 18:23+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -5392,33 +5392,23 @@ msgid "Export templates table"
 msgstr "Exportar tabela de modelos"
 
 #: libraries/classes/Config/Descriptions.php:666
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
-"[kbd]pma__pdf_pages[/kbd]."
+"Deixe em branco para não ter suporte para modelos de exportação, sugerido: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:669
-#, fuzzy
-#| msgid "Central columns"
 msgid "Central columns table"
-msgstr "Colunas centrais"
+msgstr "Tabela de colunas centrais"
 
 #: libraries/classes/Config/Descriptions.php:671
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
-"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
+"Deixe em branco para desativar o suporte para colunas centrais, sugestão: "
 "[kbd]pma__table_coords[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:675
@@ -5456,20 +5446,14 @@ msgid "PDF schema: pages table"
 msgstr "Esquema PDF: tabela de páginas"
 
 #: libraries/classes/Config/Descriptions.php:685
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Base de dados utilizada para as relações, marcadores e as características de "
-"PDF. Veja [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] para mais "
-"informações. Deixe em branco para nenhum apoio. Sugerido: [kbd]phpmyadmin[/"
-"kbd]."
+"Banco de dados usado para relacionamentos, marcações e características dos "
+"PDF. Veja [doc@linked-tables]pmadb[/doc] para informações completas. Deixe "
+"em branco para nenhum suporte. Sugestão: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:689
 #: templates/server/databases/index.twig:33
@@ -5498,22 +5482,16 @@ msgid "Recently used table"
 msgstr "Tabela utilizada recentemente"
 
 #: libraries/classes/Config/Descriptions.php:698
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no \"persistent\" recently used tables across sessions, "
-#| "suggested: [kbd]pma__recent[/kbd]."
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Deixe em branco para que não hajam tabelas recentes \"persistentes\" ao "
-"longo das sessões, sugeridas: [kbd]pma_column_info[/kbd]."
+"Deixe em branco para nenhumas tabelas \"persistentes\" favoritas entre "
+"sessões, sugerido: [kbd]pma__favorite[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:701
-#, fuzzy
-#| msgid "Favorite tables"
 msgid "Favorites table"
-msgstr "Tabelas Favoritas"
+msgstr "Tabela de favoritos"
 
 #: libraries/classes/Config/Descriptions.php:703
 #, fuzzy
