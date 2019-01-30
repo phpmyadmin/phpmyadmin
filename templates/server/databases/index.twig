@@ -235,11 +235,7 @@
               <th colspan="{{ is_drop_allowed ? '3' : '2' }}">
                 {% trans 'Total:' %}
                 <span id="filter-rows-count">
-                  {% trans %}
-                    {{ count }} database
-                  {% plural database_count %}
-                    {{ count }} databases
-                  {% endtrans %}
+                  {{ database_count }}
                 </span>
               </th>
 
