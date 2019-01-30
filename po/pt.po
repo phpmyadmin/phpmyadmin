@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2019-01-30 18:23+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -245,7 +245,7 @@ msgstr "Sim"
 msgid "View dump (schema) of database"
 msgstr "Ver o esquema da base de dados"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -400,7 +400,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Poderá querer actualizar esta página."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Parâmetros inválidos!"
 
@@ -3138,8 +3138,8 @@ msgstr "Nome da chave"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Descrição"
@@ -3215,13 +3215,13 @@ msgstr "Tamanho/Valores*"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -5327,9 +5327,9 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Mais informações no [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
-"issue tracker do phpMyAdmin[/a] e no [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"Mais informações no [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]issue tracker do phpMyAdmin[/a] e no [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:644
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -6902,7 +6902,7 @@ msgstr "Muda"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -7187,9 +7187,9 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 "Não é possível usar o fuso horário de \"%1$s\" para o servidor %2$d. Por "
-"favor, verifique sua configuração em "
-"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. O phpMyAdmin está "
-"atualmente usando o fuso horário padrão do servidor de banco de dados."
+"favor, verifique sua configuração em [em]$cfg['Servers'][%3$d]"
+"['SessionTimeZone'][/em]. O phpMyAdmin está atualmente usando o fuso horário "
+"padrão do servidor de banco de dados."
 
 #: libraries/classes/DatabaseInterface.php:1618
 msgid "Failed to set configured collation connection!"
@@ -8728,8 +8728,8 @@ msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
-"Verifique as colunas redundantes e clique em remover. Se não houver coluna(s)"
-" redundante(s), clique em 'Nenhuma coluna redundante'"
+"Verifique as colunas redundantes e clique em remover. Se não houver "
+"coluna(s) redundante(s), clique em 'Nenhuma coluna redundante'"
 
 #: libraries/classes/Normalization.php:306
 msgid "Remove selected"
@@ -9244,7 +9244,8 @@ msgstr "Falha ao conectar-se ao serviço reCAPTCHA!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
 msgid "Entered captcha is wrong, try again!"
-msgstr "O valor digitado na imagem de verificação está errado, tente novamente!"
+msgstr ""
+"O valor digitado na imagem de verificação está errado, tente novamente!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:365
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
@@ -9558,8 +9559,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:111
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Comentário adicional personalizado de cabeçalho (\\n"
-" separa as linhas):"
+"Comentário adicional personalizado de cabeçalho (\\n separa as linhas):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:117
 msgid ""
@@ -9806,8 +9806,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
-"Atualiza os dados quando chaves duplicadas forem encontradas na importação ("
-"adicione ON UPDATE DUPLICATE KEY)"
+"Atualiza os dados quando chaves duplicadas forem encontradas na importação "
+"(adicione ON UPDATE DUPLICATE KEY)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
@@ -14440,42 +14440,6 @@ msgstr "Tema"
 msgid "Get more themes!"
 msgstr "Obter mais temas!"
 
-#: transformation_overview.php:31
-#, fuzzy
-msgid "Available MIME types"
-msgstr "MIME-types disponíveis"
-
-#: transformation_overview.php:45
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available browser display transformations"
-msgstr "Transformações disponíveis"
-
-#: transformation_overview.php:46
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available input transformations"
-msgstr "Transformações disponíveis"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation"
-msgstr "Transformação do navegador"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Input transformation"
-msgstr "Transformação do navegador"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Descrição"
-
 #: templates/sql/profiling_chart.twig:4
 #, fuzzy
 msgid "Detailed profile"
@@ -14800,6 +14764,43 @@ msgstr "Mostrar"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Re-consultar"
+
+#: templates/transformation_overview.twig:1
+#, fuzzy
+msgid "Available MIME types"
+msgstr "MIME-types disponíveis"
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
+msgstr "Transformações disponíveis"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "Transformação do navegador"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Descrição"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "Transformações disponíveis"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "Transformação do navegador"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15829,15 +15830,7 @@ msgstr "Verificar Privilégios para a Base de Dados \"%s\"."
 msgid "Check privileges"
 msgstr "Verificar Privilégios"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "Sem bases de dados"
-msgstr[1] "Sem bases de dados"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -15845,12 +15838,12 @@ msgstr ""
 "Nota: Activar as estatísticas aqui pode causar um grande volume de tráfego "
 "entre os servidores web e MySQL."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "Activar estatísticas"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "Sem bases de dados"
 
@@ -15955,6 +15948,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Escolha a coluna para mostrar"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Continued table caption"
+msgid "Character sets and collations"
+msgstr "Continuação da legenda da tabela"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "Marcar este comando SQL"
@@ -15974,12 +15973,6 @@ msgstr "Variáveis do servidor e configurações"
 #| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Motores de armazenamento"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Continued table caption"
-msgid "Character sets and collations"
-msgstr "Continuação da legenda da tabela"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -18040,9 +18033,9 @@ msgstr ""
 "choosing-proper-innodb_log_file_size/\">este Artigo</a> . Você precisa "
 "desligar o servidor, remover os ficheiros de registo do InnoDB, definir o "
 "novo valor em my.cnf, iniciar o servidor e verificar nos registos de erros "
-"se tudo correu bem. Veja também <a href=\""
-"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">neste blog</a>"
+"se tudo correu bem. Veja também <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">neste blog</a>"
 
 #: libraries/advisory_rules.txt:430
 #, php-format
@@ -18128,6 +18121,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert é definido como 0"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "Sem bases de dados"
+#~ msgstr[1] "Sem bases de dados"
 
 #~ msgid ""
 #~ "You have disabled ini_get and/or ini_set in php.ini. This option is "

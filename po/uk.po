@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2018-11-09 00:34+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -246,7 +246,7 @@ msgstr "Так"
 msgid "View dump (schema) of database"
 msgstr "Переглянути дамп (схему) бази даних"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -394,7 +394,7 @@ msgstr "Якщо це створює проблему - надішліть по�
 msgid "You may want to refresh the page."
 msgstr "Можливо, варто перезавантажити сторінку."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Помилкові параметри!"
 
@@ -3116,8 +3116,8 @@ msgstr "Назва ключа"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Опис"
@@ -3192,13 +3192,13 @@ msgstr "Довжина/Значення"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6743,7 +6743,7 @@ msgstr "Змінити"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14307,33 +14307,6 @@ msgstr "Тема"
 msgid "Get more themes!"
 msgstr "Ще теми!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "Доступні MIME-types"
-
-#: transformation_overview.php:45
-msgid "Available browser display transformations"
-msgstr "Доступні перетворення відображення браузера"
-
-#: transformation_overview.php:46
-msgid "Available input transformations"
-msgstr "Вставити доступні перетворення"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-msgid "Browser display transformation"
-msgstr "Перетворення відображення браузером"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-msgid "Input transformation"
-msgstr "Введення перетворень"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Опис"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr "Детальний профіль"
@@ -14618,6 +14591,34 @@ msgstr "Розгорнути"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Повторити запит"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "Доступні MIME-types"
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "Доступні перетворення відображення браузера"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+msgid "Browser display transformation"
+msgstr "Перетворення відображення браузером"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Опис"
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr "Вставити доступні перетворення"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+msgid "Input transformation"
+msgstr "Введення перетворень"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15513,16 +15514,7 @@ msgstr "Перевірити права для бази даних \"%s\"."
 msgid "Check privileges"
 msgstr "Перевірити привілеї"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "Бази даних відсутні"
-msgstr[1] "Бази даних відсутні"
-msgstr[2] "Бази даних відсутні"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -15530,12 +15522,12 @@ msgstr ""
 "Примітка: Активізація збору статистики бази даних може спричинити значний "
 "трафік між веб сервером та сервером MySQL."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "Увімкнути статистику"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "Бази даних відсутні"
 
@@ -15627,6 +15619,10 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Виберіть стовпець для відображення:"
 
+#: templates/server/collations/index.twig:3
+msgid "Character sets and collations"
+msgstr "Набори символів і співставлення"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "Закладка на даний SQL запит"
@@ -15642,10 +15638,6 @@ msgstr "Змінні сервера та налаштування"
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr "Механізми зберігання"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Набори символів і співставлення"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17749,6 +17741,14 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлено у 0"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "Бази даних відсутні"
+#~ msgstr[1] "Бази даних відсутні"
+#~ msgstr[2] "Бази даних відсутні"
 
 #~ msgid "No Two-Factor"
 #~ msgstr "Жодна двофакторна"

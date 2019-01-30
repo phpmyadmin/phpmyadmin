@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2015-10-15 11:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -249,7 +249,7 @@ msgstr "Тийм"
 msgid "View dump (schema) of database"
 msgstr "ӨС-ийн схем харах"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -411,7 +411,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr ""
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Буруу параметрүүд!"
 
@@ -3428,8 +3428,8 @@ msgstr "Түлхүүрийн нэр"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Тайлбар"
@@ -3505,13 +3505,13 @@ msgstr "Урт/Утгууд*"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -7162,7 +7162,7 @@ msgstr "Солих"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14975,43 +14975,6 @@ msgstr ""
 msgid "Get more themes!"
 msgstr ""
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "Идэвхтэй MIME-төрлүүд"
-
-#: transformation_overview.php:45
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available browser display transformations"
-msgstr "Идэвхтэй өөрчлөлт"
-
-#: transformation_overview.php:46
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available input transformations"
-msgstr "Идэвхтэй өөрчлөлт"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation"
-msgstr "Хөтчийн өөрчлөл"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Input transformation"
-msgstr "Хөтчийн өөрчлөл"
-
-#: transformation_overview.php:61
-#, fuzzy
-#| msgid "Description"
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Тайлбар"
-
 #: templates/sql/profiling_chart.twig:4
 #, fuzzy
 #| msgid "Data files"
@@ -15356,6 +15319,44 @@ msgstr ""
 #| msgid "in query"
 msgid "Requery"
 msgstr "асуултад"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "Идэвхтэй MIME-төрлүүд"
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
+msgstr "Идэвхтэй өөрчлөлт"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "Хөтчийн өөрчлөл"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+#, fuzzy
+#| msgid "Description"
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Тайлбар"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "Идэвхтэй өөрчлөлт"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "Хөтчийн өөрчлөл"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -16431,29 +16432,21 @@ msgstr "\"%s\" өгөгдлийн сангийн онцгой эрх шалга�
 msgid "Check privileges"
 msgstr "Онцгой эрх шалгах"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "ӨС байхгүй"
-msgstr[1] "ӨС байхгүй"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 "Тэмдэглэл: Вэб сервэр, MySQL-ийн хоорондох өгөгдөл дамжуулах статистик."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 #, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Нээлттэй статистик"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "ӨС байхгүй"
 
@@ -16559,6 +16552,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Харуулах талбарыг соль"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Кодлол ба жишилт"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "Энэ SQL-асуулт-ыг тэмдэглэх"
@@ -16578,12 +16577,6 @@ msgstr "Сервэрийн утгууд болон тохиргоонууд"
 #| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Агуулах хөдөлгүүрүүд"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Кодлол ба жишилт"
 
 #: templates/display/import/import.twig:40
 #, fuzzy
@@ -18748,6 +18741,13 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "ХИ. давхацсан холболтууд"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "ӨС байхгүй"
+#~ msgstr[1] "ӨС байхгүй"
 
 #, fuzzy
 #~| msgid ""

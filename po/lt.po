@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2018-07-23 11:06+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -247,7 +247,7 @@ msgstr "Taip"
 msgid "View dump (schema) of database"
 msgstr "Peržiūrėti duomenų bazės atvaizdį (schemą)"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -402,7 +402,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Galite norėti atnaujinti puslapį."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Blogi parametrai!"
 
@@ -3294,8 +3294,8 @@ msgstr "Indekso pavadinimas"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Paaiškinimas"
@@ -3371,13 +3371,13 @@ msgstr "Ilgis/reikšmės*"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -7466,7 +7466,7 @@ msgstr "Redaguoti"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -15251,41 +15251,6 @@ msgstr "Išvaizda"
 msgid "Get more themes!"
 msgstr "Gauti daugiau išvaizdų!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "Galimi MIME-tipai"
-
-#: transformation_overview.php:45
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available browser display transformations"
-msgstr "Galimos transformacijos"
-
-#: transformation_overview.php:46
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available input transformations"
-msgstr "Galimos transformacijos"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation"
-msgstr "Naršyklės transformacija"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Input transformation"
-msgstr "Naršyklės transformacija"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Paaiškinimas"
-
 #: templates/sql/profiling_chart.twig:4
 #, fuzzy
 #| msgid "Data files"
@@ -15632,6 +15597,42 @@ msgstr ""
 #| msgid "Query"
 msgid "Requery"
 msgstr "SQL užklausa"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "Galimi MIME-tipai"
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
+msgstr "Galimos transformacijos"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "Naršyklės transformacija"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Paaiškinimas"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "Galimos transformacijos"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "Naršyklės transformacija"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -16687,16 +16688,7 @@ msgstr "Patikrinti duomenų bazės „%s“ privilegijas."
 msgid "Check privileges"
 msgstr "Patikrinti privilegijas"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "Nėra duomenų bazių"
-msgstr[1] "Nėra duomenų bazių"
-msgstr[2] "Nėra duomenų bazių"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -16704,14 +16696,14 @@ msgstr ""
 "Pastaba: jeigu duomenų bazės statistika įjungta, duomenų srautas tarp www ir "
 "MySQL darbinių stočių gali labai padidėti."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 #, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Leisti statistiką"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "Nėra duomenų bazių"
 
@@ -16815,6 +16807,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Pasirinkite laukus peržiūrai"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Simbolių rinkiniai ir Palyginimai"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "Šios SQL užklausą pasižymėti kaip"
@@ -16832,12 +16830,6 @@ msgstr "Serverio kintamieji ir nustatymai"
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr "Saugojimo varikliai"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Simbolių rinkiniai ir Palyginimai"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -18986,6 +18978,14 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "MyISAM concurrent įterpimai"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "Nėra duomenų bazių"
+#~ msgstr[1] "Nėra duomenų bazių"
+#~ msgstr[2] "Nėra duomenų bazių"
 
 #, fuzzy
 #~| msgid ""

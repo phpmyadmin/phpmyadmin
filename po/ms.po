@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2017-11-14 08:29+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -248,7 +248,7 @@ msgstr "Ya"
 msgid "View dump (schema) of database"
 msgstr "Lihat longgokan (skema) pangkalan data"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -401,7 +401,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr ""
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Parameter tidak sesuai!"
 
@@ -3303,8 +3303,8 @@ msgstr "Nama Kekunci"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Keterangan"
@@ -3379,13 +3379,13 @@ msgstr "Panjang/Nilai*"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6897,7 +6897,7 @@ msgstr "Ubah"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14373,39 +14373,6 @@ msgstr ""
 msgid "Get more themes!"
 msgstr ""
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr ""
-
-#: transformation_overview.php:45
-#, fuzzy
-msgid "Available browser display transformations"
-msgstr "Informasi MasaJana"
-
-#: transformation_overview.php:46
-#, fuzzy
-msgid "Available input transformations"
-msgstr "Informasi MasaJana"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-msgid "Browser display transformation"
-msgstr "Informasi MasaJana"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Runtime Information"
-msgid "Input transformation"
-msgstr "Informasi MasaJana"
-
-#: transformation_overview.php:61
-#, fuzzy
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "tiada keterangan"
-
 #: templates/sql/profiling_chart.twig:4
 #, fuzzy
 msgid "Detailed profile"
@@ -14737,6 +14704,40 @@ msgstr ""
 #| msgid "in query"
 msgid "Requery"
 msgstr "pada kueri"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr ""
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+msgid "Available browser display transformations"
+msgstr "Informasi MasaJana"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+msgid "Browser display transformation"
+msgstr "Informasi MasaJana"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+#, fuzzy
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "tiada keterangan"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+msgid "Available input transformations"
+msgstr "Informasi MasaJana"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Runtime Information"
+msgid "Input transformation"
+msgstr "Informasi MasaJana"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15779,26 +15780,19 @@ msgstr ""
 msgid "Check privileges"
 msgstr "Tiada Privilej"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "Tiada pangkalan data"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 #, fuzzy
 msgid "Enable statistics"
 msgstr "Statistik pangkalan data"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "Tiada pangkalan data"
 
@@ -15901,6 +15895,11 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Pilih Medan untuk dipapar"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+msgid "Character sets and collations"
+msgstr "Fail bagi set Aksara:"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "andabuku kueri-SQL ini"
@@ -15918,11 +15917,6 @@ msgstr "Pembolehubah dan Penetapan Pelayan"
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr ""
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-msgid "Character sets and collations"
-msgstr "Fail bagi set Aksara:"
 
 #: templates/display/import/import.twig:40
 #, fuzzy
@@ -17965,6 +17959,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "Tiada pangkalan data"
 
 #~ msgid "Search results for \"<i>%s</i>\" %s:"
 #~ msgstr "Hasil carian bagi \"<i>%s</i>\" %s:"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2017-09-30 00:39+0000\n"
 "Last-Translator: balen <balen.zrar01@gmail.com>\n"
 "Language-Team: Kurdish Sorani <https://hosted.weblate.org/projects/"
@@ -247,7 +247,7 @@ msgstr "بەڵێ"
 msgid "View dump (schema) of database"
 msgstr "نیشاندانى بۆشایى (هێڵکارى) لە بنکەى دراوە"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -398,7 +398,7 @@ msgstr "ئەگەر دووچاری هەر کێشەیەک بووی تکایە ڕا
 msgid "You may want to refresh the page."
 msgstr "لەوانەیە پێویست بکات پەڕەکە نوێ بکەیتەوە."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "ڕادە هەڵەکان!"
 
@@ -3009,8 +3009,8 @@ msgstr "کلیلەناو"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "پێناسە"
@@ -3082,13 +3082,13 @@ msgstr ""
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6391,7 +6391,7 @@ msgstr "گۆڕین"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -13371,33 +13371,6 @@ msgstr ""
 msgid "Get more themes!"
 msgstr ""
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr ""
-
-#: transformation_overview.php:45
-msgid "Available browser display transformations"
-msgstr "تێبینیەکانی خشتە"
-
-#: transformation_overview.php:46
-msgid "Available input transformations"
-msgstr ""
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-msgid "Browser display transformation"
-msgstr ""
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-msgid "Input transformation"
-msgstr "زانیاری وەشان"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr ""
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr ""
@@ -13675,6 +13648,34 @@ msgstr ""
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "داواکاری"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr ""
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "تێبینیەکانی خشتە"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+msgid "Browser display transformation"
+msgstr ""
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr ""
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr ""
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+msgid "Input transformation"
+msgstr "زانیاری وەشان"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -14577,26 +14578,18 @@ msgstr ""
 msgid "Check privileges"
 msgstr "تایبەتمەندێتیەکان"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "Copying database"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "لەبەرگرتنەوەی بنکەی دراو"
-msgstr[1] "لەبەرگرتنەوەی بنکەی دراو"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "ئامارەکانی داواکاری"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr ""
 
@@ -14684,6 +14677,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "دەبێت لانیکەم ١ خانە هەڵبژێریت بۆ پیشاندان"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Server connection collation"
+msgid "Character sets and collations"
+msgstr "ڕێکخستنی پەیوەندی ڕاژەکار"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr ""
@@ -14699,12 +14698,6 @@ msgstr ""
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr ""
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Server connection collation"
-msgid "Character sets and collations"
-msgstr "ڕێکخستنی پەیوەندی ڕاژەکار"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -16555,6 +16548,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "نرخی concurrent_insert ڕێکخراوە بۆ 0"
+
+#, fuzzy
+#~| msgid "Copying database"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "لەبەرگرتنەوەی بنکەی دراو"
+#~ msgstr[1] "لەبەرگرتنەوەی بنکەی دراو"
 
 #, fuzzy
 #~| msgid ""

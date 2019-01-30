@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2017-10-03 18:16+0000\n"
 "Last-Translator: urty5656 <urty5656@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -245,7 +245,7 @@ msgstr "예"
 msgid "View dump (schema) of database"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -397,7 +397,7 @@ msgstr "사용중 발생한 문제는 수동으로 제출해 주세요."
 msgid "You may want to refresh the page."
 msgstr "페이지를 새로고침 하세요."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "잘못된 인자!"
 
@@ -3072,8 +3072,8 @@ msgstr "키 이름"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "설명"
@@ -3145,13 +3145,13 @@ msgstr "길이/값*"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6665,7 +6665,7 @@ msgstr "변경"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14021,37 +14021,6 @@ msgstr "테마"
 msgid "Get more themes!"
 msgstr "더 많은 테마들!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "사용가능한 MIME 형식"
-
-#: transformation_overview.php:45
-msgid "Available browser display transformations"
-msgstr "이용 가능한 브라우저 디스플레이 변환 기능"
-
-#: transformation_overview.php:46
-msgid "Available input transformations"
-msgstr "이용 가능한 입력 변환 기능"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation"
-msgstr "브라우저 변형"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Input transformation"
-msgstr "브라우저 변형"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "설명"
-
 #: templates/sql/profiling_chart.twig:4
 #, fuzzy
 #| msgid "Data file grow size"
@@ -14351,6 +14320,38 @@ msgstr "펼치기"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "다시 쿼리하기"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "사용가능한 MIME 형식"
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "이용 가능한 브라우저 디스플레이 변환 기능"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "브라우저 변형"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "설명"
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr "이용 가능한 입력 변환 기능"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "브라우저 변형"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15328,26 +15329,19 @@ msgstr "데이터베이스 \"%s\" 에 대한 사용권한 검사."
 msgid "Check privileges"
 msgstr "사용권한 검사"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "데이터베이스가 없습니다"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 "주의: 데이터베이스 통계 보기는 웹서버와 MySQL 서버 사이에 큰 부하를 줍니다."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "통계 보기"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "데이터베이스가 없습니다"
 
@@ -15437,6 +15431,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "출력할 필드 선택:"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "문자셋과 정렬"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "이 SQL 질의를 북마크함"
@@ -15454,12 +15454,6 @@ msgstr "서버의 환경설정"
 #| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "스토리지 엔진"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "문자셋과 정렬"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17539,6 +17533,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "데이터베이스가 없습니다"
 
 #~ msgid ""
 #~ "You have disabled ini_get and/or ini_set in php.ini. This option is "

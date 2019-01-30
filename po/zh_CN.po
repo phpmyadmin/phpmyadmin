@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2019-01-29 14:50+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -243,7 +243,7 @@ msgstr "是"
 msgid "View dump (schema) of database"
 msgstr "查看数据库的转储（大纲）"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -386,7 +386,7 @@ msgstr "如果您遇到问题，请手动提交漏洞报告。"
 msgid "You may want to refresh the page."
 msgstr "您需要刷新当前页面。"
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "参数无效！"
 
@@ -2273,8 +2273,9 @@ msgid ""
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
-"点击的同时按下 Shift 键即可将此列添加到 ORDER BY 语句中或是切换升序和降序。<br>使用 Ctrl+Click 或者 Alt+Click "
-"（Mac：Shift+Option+Click ）即可将列从 ORDER BY 语句中移除"
+"点击的同时按下 Shift 键即可将此列添加到 ORDER BY 语句中或是切换升序和降序。"
+"<br>使用 Ctrl+Click 或者 Alt+Click （Mac：Shift+Option+Click ）即可将列从 "
+"ORDER BY 语句中移除"
 
 #: js/messages.php:605
 msgid "Click to mark/unmark."
@@ -2994,8 +2995,8 @@ msgstr "键名"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "说明"
@@ -3067,13 +3068,13 @@ msgstr "长度/值"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6409,7 +6410,7 @@ msgstr "修改"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -8094,7 +8095,9 @@ msgstr "主键已存在。"
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
-msgstr "没有主键；请添加。<b>提示：主键是能够对所有的记录都能唯一标识的字段（或字段组合）。"
+msgstr ""
+"没有主键；请添加。<b>提示：主键是能够对所有的记录都能唯一标识的字段（或字段组"
+"合）。"
 
 #: libraries/classes/Normalization.php:261
 msgid "Add a primary key on existing column(s)"
@@ -8273,8 +8276,8 @@ msgid ""
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
-"对于下面的每一列，请在给定集合中选择列的<b>最小集合</b>，其值组合在一起足以确定列的值<br>注意：列可能没有传递依赖性，在这种情况下，您不必选择任"
-"何项。"
+"对于下面的每一列，请在给定集合中选择列的<b>最小集合</b>，其值组合在一起足以确"
+"定列的值<br>注意：列可能没有传递依赖性，在这种情况下，您不必选择任何项。"
 
 #: libraries/classes/Normalization.php:861
 msgid ""
@@ -9003,8 +9006,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"给每个 <code>INSERT (插入)</code> 语句加上字段名 <br> &nbsp; &nbsp; &nbsp; 如：<code>"
-"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"给每个 <code>INSERT (插入)</code> 语句加上字段名 <br> &nbsp; &nbsp; &nbsp; "
+"如：<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
 msgid ""
@@ -9012,16 +9015,16 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"在每个 <code>INSERT(插入)</code> 语句中插入多行<br> &nbsp; &nbsp; &nbsp; 如：<code>INSERT "
-"INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"在每个 <code>INSERT(插入)</code> 语句中插入多行<br> &nbsp; &nbsp; &nbsp; 如："
+"<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"以上兼有<br> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name "
-"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"以上兼有<br> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name (col_A,"
+"col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
 msgid ""
@@ -13569,33 +13572,6 @@ msgstr "主题"
 msgid "Get more themes!"
 msgstr "获得更多主题！"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "可用的 MIME 类型"
-
-#: transformation_overview.php:45
-msgid "Available browser display transformations"
-msgstr "可用的浏览器显示转换"
-
-#: transformation_overview.php:46
-msgid "Available input transformations"
-msgstr "可用的输入转换"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-msgid "Browser display transformation"
-msgstr "浏览器显示转换"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-msgid "Input transformation"
-msgstr "输入转换"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "说明"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr "详细资料"
@@ -13873,6 +13849,34 @@ msgstr "扩展"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "重新查询"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "可用的 MIME 类型"
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "可用的浏览器显示转换"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+msgid "Browser display transformation"
+msgstr "浏览器显示转换"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "说明"
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr "可用的输入转换"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+msgid "Input transformation"
+msgstr "输入转换"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -14752,25 +14756,19 @@ msgstr "检查数据库 \"%s\" 的权限。"
 msgid "Check privileges"
 msgstr "检查权限"
 
-#: templates/server/databases/index.twig:238
-#, php-format
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "%count% 数据库"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 "注意：在此启用数据库统计可能导致网站服务器和 MySQL 服务器之间的流量骤增。"
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "启用统计"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "无数据库"
 
@@ -14857,6 +14855,10 @@ msgstr "不需要一个和外键关系一致的内联关系。"
 msgid "Choose column to display:"
 msgstr "选择要显示的字段："
 
+#: templates/server/collations/index.twig:3
+msgid "Character sets and collations"
+msgstr "字符集和排序规则"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "将此 SQL 查询加为书签"
@@ -14872,10 +14874,6 @@ msgstr "服务器变量和设置"
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr "存储引擎"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "字符集和排序规则"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -15072,8 +15070,8 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如字段类型是“enum”或“set”，请使用以下格式输入：'a','b','c'…<br>如果需要输入反斜杠(“”)或单引号(“'”)，请在前面加上反斜杠"
-"(如 '\\\\xyz' 或 'a\\'b')。"
+"如字段类型是“enum”或“set”，请使用以下格式输入：'a','b','c'…<br>如果需要输入反"
+"斜杠(“”)或单引号(“'”)，请在前面加上反斜杠(如 '\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15106,8 +15104,8 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"请使用此格式输入转换选项的值：'a',100,b,'c'…<br>如果您需要在值中输入反斜杠 (“\\”)或单引号(“'”)，请在前面加上反斜杠 (如 '"
-"\\\\xyz' 或 'a\\'b')。"
+"请使用此格式输入转换选项的值：'a',100,b,'c'…<br>如果您需要在值中输入反斜杠 "
+"(“\\”)或单引号(“'”)，请在前面加上反斜杠 (如 '\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -16794,6 +16792,10 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "%count% 数据库"
 
 #~ msgid "No Two-Factor"
 #~ msgstr "没有双因素"

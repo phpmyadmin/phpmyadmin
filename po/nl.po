@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2019-01-28 16:51+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -245,7 +245,7 @@ msgstr "Ja"
 msgid "View dump (schema) of database"
 msgstr "Bekijk export (schema) van database"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -397,7 +397,7 @@ msgstr "Als u problemen ondervindt, meld dan handmatig een bug."
 msgid "You may want to refresh the page."
 msgstr "Misschien wilt u de pagina vernieuwen."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Verkeerde parameters!"
 
@@ -3120,8 +3120,8 @@ msgstr "Sleutelnaam"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Beschrijving"
@@ -3197,13 +3197,13 @@ msgstr "Lengte/Waarden"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6773,7 +6773,7 @@ msgstr "Veranderen"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -8744,8 +8744,8 @@ msgid ""
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
-"Voor elke onderstaande kolom, selecteer a.u.b. de <b>minimale verzameling</b>"
-" van kolommen van de gegeven verzameling, waarvan de gecombineerde waarden "
+"Voor elke onderstaande kolom, selecteer a.u.b. de <b>minimale verzameling</"
+"b> van kolommen van de gegeven verzameling, waarvan de gecombineerde waarden "
 "toereikend zijn om de waarde van de kolom te determineren.<br>Opmerking: Een "
 "kolom heeft niet altijd transitieve afhankelijkheden, in dat geval hoeft u "
 "geen kolom te selecteren."
@@ -14374,33 +14374,6 @@ msgstr "Thema"
 msgid "Get more themes!"
 msgstr "Bekijk meer thema's!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "Beschikbare MIME-types"
-
-#: transformation_overview.php:45
-msgid "Available browser display transformations"
-msgstr "Beschikbare browserweergave transformaties"
-
-#: transformation_overview.php:46
-msgid "Available input transformations"
-msgstr "Beschikbare invoer transformaties"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-msgid "Browser display transformation"
-msgstr "Browserweergavetransformaties"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-msgid "Input transformation"
-msgstr "Invoertransformaties"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Omschrijving"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr "Gedetailleerd profiel"
@@ -14688,6 +14661,34 @@ msgstr "Uitklappen"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Query opnieuw uitvoeren"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "Beschikbare MIME-types"
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "Beschikbare browserweergave transformaties"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+msgid "Browser display transformation"
+msgstr "Browserweergavetransformaties"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Omschrijving"
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr "Beschikbare invoer transformaties"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+msgid "Input transformation"
+msgstr "Invoertransformaties"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15584,14 +15585,7 @@ msgstr "Controleer rechten op database \"%s\"."
 msgid "Check privileges"
 msgstr "Controleer rechten"
 
-#: templates/server/databases/index.twig:238
-#, php-format
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "%count% database"
-msgstr[1] "%count% databases"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -15599,12 +15593,12 @@ msgstr ""
 "Let op: het inschakelen van databasestatistieken kan zorgen voor veel "
 "gegevensverkeer tussen de webserver en de MySQL-server."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "Statistieken inschakelen"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "Geen databases"
 
@@ -15696,6 +15690,10 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Kies weer te geven kolom:"
 
+#: templates/server/collations/index.twig:3
+msgid "Character sets and collations"
+msgstr "Karaktersets en collaties"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "Deze SQL-query opslaan als bladwijzer"
@@ -15711,10 +15709,6 @@ msgstr "Servervariabelen en -instellingen"
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr "Opslag-engines"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Karaktersets en collaties"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -15959,8 +15953,8 @@ msgid ""
 msgstr ""
 "Vul de waardes voor de transformatieoptie in het volgende formaat in: 'a', "
 "100, b,'c'…<br>Wanneer u een backslash (\"\\\") of een enkele quote (\"'\") "
-"moet invoegen plaats er dan een backslash voor (bijvoorbeeld '\\\\xyz' of '"
-"a\\'b')."
+"moet invoegen plaats er dan een backslash voor (bijvoorbeeld '\\\\xyz' of 'a"
+"\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -17831,6 +17825,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
+
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "%count% database"
+#~ msgstr[1] "%count% databases"
 
 #~ msgid "No Two-Factor"
 #~ msgstr "Geen tweeweg authentificatie"

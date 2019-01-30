@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2019-01-28 18:24+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -245,7 +245,7 @@ msgstr "Bəli"
 msgid "View dump (schema) of database"
 msgstr "Verilənlər bazasının sxemini göster"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -400,7 +400,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Səhifəni yeniləmək istəyə bilərsiniz."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Pis parametrlər!"
 
@@ -3136,8 +3136,8 @@ msgstr "Açar söz"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Haqqında"
@@ -3209,13 +3209,13 @@ msgstr "Uzunluq/Dəyərlər"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6754,7 +6754,7 @@ msgstr "Dəyişdir"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14101,41 +14101,6 @@ msgstr ""
 msgid "Get more themes!"
 msgstr ""
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "Mövcud olan MIME-tipleri"
-
-#: transformation_overview.php:45
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available browser display transformations"
-msgstr "Mövcud transformasiyalar"
-
-#: transformation_overview.php:46
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available input transformations"
-msgstr "Mövcud transformasiyalar"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Hide browser transformation"
-msgid "Browser display transformation"
-msgstr "Browser transformasiyasını gizlət"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Information"
-msgid "Input transformation"
-msgstr "Daxil edilən transformasiyaları"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Açıqlama"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr "Detallı profil"
@@ -14450,6 +14415,42 @@ msgstr "Genişlət"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Sorğunu təkrarla"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "Mövcud olan MIME-tipleri"
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
+msgstr "Mövcud transformasiyalar"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Hide browser transformation"
+msgid "Browser display transformation"
+msgstr "Browser transformasiyasını gizlət"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Açıqlama"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "Mövcud transformasiyalar"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Information"
+msgid "Input transformation"
+msgstr "Daxil edilən transformasiyaları"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15426,15 +15427,7 @@ msgstr "\"%s\" bazası üçün səlahiyyətləri gözdən keçir."
 msgid "Check privileges"
 msgstr "Səlahiyyətləri Gözdən Keçir"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "Verilənlər Bazası yoxdur"
-msgstr[1] "Verilənlər Bazası yoxdur"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -15442,14 +15435,14 @@ msgstr ""
 "Qeyd: Verilənlər Bazası statistikalarını burada aktivləşdirməklə webserver-"
 "lə MySQL server arasında ağır trafikə səbəb ola bilərsiniz."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 #, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Statistikaları Aktivləşdir"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "Verilənlər Bazası yoxdur"
 
@@ -15549,6 +15542,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Göstərmək üçün sütun seçin:"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Continued table caption"
+msgid "Character sets and collations"
+msgstr "Davam edən cədvəl başlığı"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "Bu SQL sorğusunu işarələ"
@@ -15566,12 +15565,6 @@ msgstr "Server dəyişənləri və tənzimləmələri"
 #| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "MySQL Depolama Motorları"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Continued table caption"
-msgid "Character sets and collations"
-msgstr "Davam edən cədvəl başlığı"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17550,6 +17543,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0-a konfiqurasiya edilib"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "Verilənlər Bazası yoxdur"
+#~ msgstr[1] "Verilənlər Bazası yoxdur"
 
 #, fuzzy
 #~| msgid ""

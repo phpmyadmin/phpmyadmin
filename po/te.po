@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2017-04-12 15:07+0000\n"
 "Last-Translator: bhargavi sabbisetty <bhargavi_sabbisetty@yahoo.in>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -248,7 +248,7 @@ msgstr "అవును"
 msgid "View dump (schema) of database"
 msgstr ""
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -410,7 +410,7 @@ msgid "You may want to refresh the page."
 msgstr ""
 
 # మొదటి అనువాదము
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "చెల్లని పరామితులు!"
 
@@ -3249,8 +3249,8 @@ msgstr "కీలకపదం"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "వివరణ"
@@ -3326,13 +3326,13 @@ msgstr "పొడవు/విలువలు"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6899,7 +6899,7 @@ msgstr "మార్చుము"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14376,41 +14376,6 @@ msgstr ""
 msgid "Get more themes!"
 msgstr "మరిన్ని అలంకారాలను పొందండి!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr ""
-
-#: transformation_overview.php:45
-#, fuzzy
-#| msgid "Version information"
-msgid "Available browser display transformations"
-msgstr "సంచిక సమాచారం"
-
-#: transformation_overview.php:46
-#, fuzzy
-#| msgid "Version information"
-msgid "Available input transformations"
-msgstr "సంచిక సమాచారం"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Version information"
-msgid "Browser display transformation"
-msgstr "సంచిక సమాచారం"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Information"
-msgid "Input transformation"
-msgstr "సమాచారం"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "వివరణ"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr ""
@@ -14735,6 +14700,42 @@ msgstr ""
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr ""
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr ""
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Version information"
+msgid "Available browser display transformations"
+msgstr "సంచిక సమాచారం"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Version information"
+msgid "Browser display transformation"
+msgstr "సంచిక సమాచారం"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "వివరణ"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Version information"
+msgid "Available input transformations"
+msgstr "సంచిక సమాచారం"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Information"
+msgid "Input transformation"
+msgstr "సమాచారం"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15788,29 +15789,20 @@ msgstr ""
 msgid "Check privileges"
 msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
-# మొదటి అనువాదము
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "Database"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "డేటాబేస్"
-msgstr[1] "డేటాబేస్"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 #, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "గణాంకాలని చేతనంచేయి"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr ""
 
@@ -15913,6 +15905,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "భోగట్టా"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Server configuration"
+msgid "Character sets and collations"
+msgstr "సేవకి స్వరూపణం"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr ""
@@ -15930,12 +15928,6 @@ msgstr ""
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr ""
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Server configuration"
-msgid "Character sets and collations"
-msgstr "సేవకి స్వరూపణం"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17980,6 +17972,14 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "డేటాబేస్"
+#~ msgstr[1] "డేటాబేస్"
 
 #, fuzzy
 #~| msgid "Next"

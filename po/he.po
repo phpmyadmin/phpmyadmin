@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2018-10-30 23:50+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -243,7 +243,7 @@ msgstr "כן"
 msgid "View dump (schema) of database"
 msgstr "צפייה בשליפה (תבנית) של מסד נתונים"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -389,7 +389,7 @@ msgstr "אם אתה נתקל בבעיות אנא שלח דוח באגים ידנ
 msgid "You may want to refresh the page."
 msgstr "כדאי שתרענן את הדף."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "פרמטרים שגויים!"
 
@@ -3020,8 +3020,8 @@ msgstr "שם מפתח"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "תיאור"
@@ -3094,13 +3094,13 @@ msgstr "אורך/ערכים*"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6381,7 +6381,7 @@ msgstr "שינוי"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -13637,39 +13637,6 @@ msgstr ""
 msgid "Get more themes!"
 msgstr "השג סגנונות נוספים!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "סוגי MIME זמינים"
-
-#: transformation_overview.php:45
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available browser display transformations"
-msgstr "שינויי צורה זמינים"
-
-#: transformation_overview.php:46
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available input transformations"
-msgstr "שינויי צורה זמינים"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-msgid "Browser display transformation"
-msgstr "שינויי צורה זמינים"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-msgid "Input transformation"
-msgstr "שינויי צורה זמינים"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "תיאור"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr "פרופיל מפורט"
@@ -13969,6 +13936,40 @@ msgstr ""
 #| msgid "in query"
 msgid "Requery"
 msgstr "בשאילתה"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "סוגי MIME זמינים"
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
+msgstr "שינויי צורה זמינים"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+msgid "Browser display transformation"
+msgstr "שינויי צורה זמינים"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "תיאור"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "שינויי צורה זמינים"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+msgid "Input transformation"
+msgstr "שינויי צורה זמינים"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -14969,15 +14970,7 @@ msgstr "בדיקת הראשות עבור מאגר נתונים \"%s\"."
 msgid "Check privileges"
 msgstr "בדיקת הרשאות"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "אין מאגרי נתונים"
-msgstr[1] "אין מאגרי נתונים"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -14985,14 +14978,14 @@ msgstr ""
 "הערה: הפעלת סטטיסטיקות מאגר נתונים כאן יכולות לגרום לתעבורה כבדה בין השרת "
 "האינטרנט לשרת MySQL."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 #, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "הפעלת סטטיסטיקה"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "אין מאגרי נתונים"
 
@@ -15092,6 +15085,10 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "בחירת שדה להצגה"
 
+#: templates/server/collations/index.twig:3
+msgid "Character sets and collations"
+msgstr "ערכות תווים ואוספים"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "הכנס שאילתת SQL זאת למועדפים"
@@ -15107,10 +15104,6 @@ msgstr "משתני והגדרות שרת"
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr "מנועי אחסון"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "ערכות תווים ואוספים"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17088,6 +17081,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert מוגדר ל־0"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "אין מאגרי נתונים"
+#~ msgstr[1] "אין מאגרי נתונים"
 
 #~ msgid ""
 #~ "You have disabled ini_get and/or ini_set in php.ini. This option is "

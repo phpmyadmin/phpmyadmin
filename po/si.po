@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2018-12-18 22:09+0000\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -243,7 +243,7 @@ msgstr "ඔව්"
 msgid "View dump (schema) of database"
 msgstr "දත්තගබඩාවේ නික්ෂේපනය (ක්‍රමානුරූපය) දර්ශනය කරන්න"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -387,7 +387,7 @@ msgstr "ඔබ යම් දෝෂ වලට මුහුණදී නම් ඔ
 msgid "You may want to refresh the page."
 msgstr "ඔබ පිටුව ප්‍රතිපුර්ණය කිරීමට ඔබට අවශ්ය විය හැක."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "වැරදි පරාමිතියන්!"
 
@@ -3227,8 +3227,8 @@ msgstr "යතුරු නම"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "විස්තරය"
@@ -3304,13 +3304,13 @@ msgstr "දිග/අගයන්"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -7189,7 +7189,7 @@ msgstr "වෙනස් කරන්න"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14701,41 +14701,6 @@ msgstr "තේමාව"
 msgid "Get more themes!"
 msgstr "තවත් තේමාවන් ලබා ගන්න!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr ""
-
-#: transformation_overview.php:45
-#, fuzzy
-#| msgid "Hide browser transformation"
-msgid "Available browser display transformations"
-msgstr "බ්‍රව්සර රූපාන්තරනය සඟවන්න"
-
-#: transformation_overview.php:46
-#, fuzzy
-#| msgid "Hide browser transformation"
-msgid "Available input transformations"
-msgstr "බ්‍රව්සර රූපාන්තරනය සඟවන්න"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation"
-msgstr "බ්‍රව්සර රූපාන්තරනය"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Input transformation"
-msgstr "බ්‍රව්සර රූපාන්තරනය"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "විස්තරය"
-
 #: templates/sql/profiling_chart.twig:4
 #, fuzzy
 #| msgid "Data files"
@@ -15060,6 +15025,42 @@ msgstr ""
 #| msgid "subquery"
 msgid "Requery"
 msgstr "උප විමසුම"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr ""
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Hide browser transformation"
+msgid "Available browser display transformations"
+msgstr "බ්‍රව්සර රූපාන්තරනය සඟවන්න"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "බ්‍රව්සර රූපාන්තරනය"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "විස්තරය"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Hide browser transformation"
+msgid "Available input transformations"
+msgstr "බ්‍රව්සර රූපාන්තරනය සඟවන්න"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "බ්‍රව්සර රූපාන්තරනය"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -16094,15 +16095,7 @@ msgstr "\"%s\" දත්තගබඩාව සඳහා වරප්‍රසා
 msgid "Check privileges"
 msgstr "වරප්‍රසාද පරීක්ෂා කරන්න"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "දත්තගබඩා නොමැත"
-msgstr[1] "දත්තගබඩා නොමැත"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -16110,12 +16103,12 @@ msgstr ""
 "සටහන: සංඛ්‍යාලේඛන සක්‍රීය කිරීම මගින් වෙබ් සේවාදායකය සහ MySQL සේවාදායකය අතර විශාල දත්ත "
 "හුවමාරුවක් ඇති විය හැකිය."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "සංඛ්‍යා ලේඛන සක්‍රිය කරන්න"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "දත්තගබඩා නොමැත"
 
@@ -16217,6 +16210,12 @@ msgstr "අදාල අන්‍ය මූලය ඇති විට අභ්�
 msgid "Choose column to display:"
 msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්න:"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "අක්ෂර කට්ටල සහ පරිතුලන"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "මෙම SQL විමසුම පොත් සලකුණුගත කරන්න"
@@ -16234,12 +16233,6 @@ msgstr "සේවාදායකයේ විචල්‍යයන් සහ ස
 #| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "ගබඩා යන්ත්‍ර"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "අක්ෂර කට්ටල සහ පරිතුලන"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -18290,6 +18283,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "දත්තගබඩා නොමැත"
+#~ msgstr[1] "දත්තගබඩා නොමැත"
 
 #, fuzzy
 #~| msgid ""

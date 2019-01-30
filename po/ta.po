@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2018-02-15 06:43+0000\n"
 "Last-Translator: Gladson Samuel Stephen <samuels.gladson@hotmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -247,7 +247,7 @@ msgstr "ஆம்"
 msgid "View dump (schema) of database"
 msgstr "தரவுத்தளத்தின் குவியலமைப்பை (திட்ட வடிவத்தைப்) பார்க்க"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -403,7 +403,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "நீங்கள் இப்பக்கத்தை மீளேற்ற வேண்டியிருக்கலாம்."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
@@ -3202,8 +3202,8 @@ msgstr "முக்கியபெயர்"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "சிறுகுறிப்பு"
@@ -3275,13 +3275,13 @@ msgstr "நீளம்/மதிப்புகள்"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6668,7 +6668,7 @@ msgstr "மாற்று"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -13800,33 +13800,6 @@ msgstr ""
 msgid "Get more themes!"
 msgstr ""
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr ""
-
-#: transformation_overview.php:45
-msgid "Available browser display transformations"
-msgstr "கிடைக்கபெறும் உலவியின் காட்சித்தெரிவு மாற்றமைப்புகள்"
-
-#: transformation_overview.php:46
-msgid "Available input transformations"
-msgstr ""
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-msgid "Browser display transformation"
-msgstr ""
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-msgid "Input transformation"
-msgstr "உள்ளிடு மாற்றுருவாக்கம்"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "விவரிப்பு"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr ""
@@ -14132,6 +14105,34 @@ msgstr "விரி"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "மீள்வினவல்"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr ""
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "கிடைக்கபெறும் உலவியின் காட்சித்தெரிவு மாற்றமைப்புகள்"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+msgid "Browser display transformation"
+msgstr ""
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "விவரிப்பு"
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr ""
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+msgid "Input transformation"
+msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15095,28 +15096,20 @@ msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுக�
 msgid "Check privileges"
 msgstr "தனிசலுகைகளை சரிபார்க்க"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "Copying Database"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
-msgstr[1] "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 #, fuzzy
 #| msgid "Query statistics"
 msgid "Enable statistics"
 msgstr "வினவல் புள்ளிவிவரவியல்"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr ""
 
@@ -15205,6 +15198,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "காட்சிப்படுத்த நிரல்வரிசையை தேர்ந்தெடுக்கவும்:"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "எழுத்து கணங்கள் மற்றும் அடுக்குவரிசைகள்"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr ""
@@ -15222,12 +15221,6 @@ msgstr "சேவையக மாறிகள் மற்றும் அமை
 #| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "சேமிப்பக செயல்பொறிகள்"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "எழுத்து கணங்கள் மற்றும் அடுக்குவரிசைகள்"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17115,6 +17108,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Copying Database"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
+#~ msgstr[1] "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
 
 #, fuzzy
 #~| msgid ""

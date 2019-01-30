@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2018-03-19 23:34+0000\n"
 "Last-Translator: M. M. <m.mirena@gmail.com>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -245,7 +245,7 @@ msgstr "Po"
 msgid "View dump (schema) of database"
 msgstr "Shfaq zbrazjen (skema) e databazës"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -403,7 +403,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Duhet të rifreskoni faqen."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Parametra të këqinj!"
 
@@ -3150,8 +3150,8 @@ msgstr "Emri i çelësit"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Përshkrimi"
@@ -3227,13 +3227,13 @@ msgstr "Gjatësia/Vlerat"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6816,7 +6816,7 @@ msgstr "Ndrysho"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14419,33 +14419,6 @@ msgstr "Modeli"
 msgid "Get more themes!"
 msgstr "Merr më shumë modele!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "Tipe MIME të vlefshme"
-
-#: transformation_overview.php:45
-msgid "Available browser display transformations"
-msgstr "Transformime të vlefshme të shfaqjes së shfletuesit"
-
-#: transformation_overview.php:46
-msgid "Available input transformations"
-msgstr "Transformime të vlefshme të dhënash"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-msgid "Browser display transformation"
-msgstr "Transformim i shfaqur nga shfletuesi"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-msgid "Input transformation"
-msgstr "Transformim i të dhënave"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Përshkrim"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr "Profili i detajuar"
@@ -14730,6 +14703,34 @@ msgstr "Zgjero"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Requery (kërkesë)"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "Tipe MIME të vlefshme"
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "Transformime të vlefshme të shfaqjes së shfletuesit"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+msgid "Browser display transformation"
+msgstr "Transformim i shfaqur nga shfletuesi"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Përshkrim"
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr "Transformime të vlefshme të dhënash"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+msgid "Input transformation"
+msgstr "Transformim i të dhënave"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15644,15 +15645,7 @@ msgstr "Kontrollo privilegjet për databazën \"%s\"."
 msgid "Check privileges"
 msgstr "Kontrollo privilegjet"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "Nuk ka databaza"
-msgstr[1] "Nuk ka databaza"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -15660,12 +15653,12 @@ msgstr ""
 "Shënim: Aftësimi i statistikave të databazës, mund të shkaktojë trafik të "
 "rënduar ndërmjet ueb serverit dhe serverit MySQL."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "Aftëso statistikat"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "Nuk ka databaza"
 
@@ -15757,6 +15750,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Zgjedh kolonën për të shfaqur:"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Seti i karaktereve dhe përshtatja"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "Faqeruaj këtë pyetsor SQL"
@@ -15774,12 +15773,6 @@ msgstr "Variablat dhe rregullimet e serverit"
 #| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Makinat e ruajtjes"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Seti i karaktereve dhe përshtatja"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17937,6 +17930,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert është vendosur në 0"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "Nuk ka databaza"
+#~ msgstr[1] "Nuk ka databaza"
 
 #~ msgid ""
 #~ "You have disabled ini_get and/or ini_set in php.ini. This option is "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2019-01-30 15:19+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -245,7 +245,7 @@ msgstr "Ja"
 msgid "View dump (schema) of database"
 msgstr "Dump (Schema) der Datenbank anzeigen"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -400,7 +400,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Bitte aktualisieren Sie die Seite."
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "Ungültige Parameter!"
 
@@ -3147,8 +3147,8 @@ msgstr "Schlüsselname"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Beschreibung"
@@ -3226,13 +3226,13 @@ msgstr "Länge/Werte"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -6817,7 +6817,7 @@ msgstr "Bearbeiten"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -9565,8 +9565,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "Spaltennamen bei jedem <code>INSERT</code> Schlüsselwort verwenden <br> "
-"&nbsp; &nbsp; &nbsp; Beispiel: <code>INSERT INTO tbl_name (col_A,col_B,col_C)"
-" VALUES (1,2,3)</code>"
+"&nbsp; &nbsp; &nbsp; Beispiel: <code>INSERT INTO tbl_name (col_A,col_B,"
+"col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
 msgid ""
@@ -9583,8 +9583,8 @@ msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"beide obigen Optionen verwenden<br> &nbsp; &nbsp; &nbsp; Beispiel: <code>"
-"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
+"beide obigen Optionen verwenden<br> &nbsp; &nbsp; &nbsp; Beispiel: "
+"<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
@@ -9592,8 +9592,8 @@ msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"keine der beiden obigen Optionen verwenden<br> &nbsp; &nbsp; &nbsp; Beispiel:"
-" <code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
+"keine der beiden obigen Optionen verwenden<br> &nbsp; &nbsp; &nbsp; "
+"Beispiel: <code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
 msgid ""
@@ -14467,33 +14467,6 @@ msgstr "Oberflächendesign"
 msgid "Get more themes!"
 msgstr "Mehr Designs herunterladen!"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "Verfügbare MIME-Typen"
-
-#: transformation_overview.php:45
-msgid "Available browser display transformations"
-msgstr "Verfügbare Umwandlungen"
-
-#: transformation_overview.php:46
-msgid "Available input transformations"
-msgstr "Verfügbare Eingabeumwandlungen"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-msgid "Browser display transformation"
-msgstr "Darstellungsumwandlung"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-msgid "Input transformation"
-msgstr "Eingabeumwandlung"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Beschreibung"
-
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
 msgstr "Detailliertes Profil"
@@ -14782,6 +14755,34 @@ msgstr "Aufklappen"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Erneut abfragen"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "Verfügbare MIME-Typen"
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "Verfügbare Umwandlungen"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+msgid "Browser display transformation"
+msgstr "Darstellungsumwandlung"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Beschreibung"
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr "Verfügbare Eingabeumwandlungen"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+msgid "Input transformation"
+msgstr "Eingabeumwandlung"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15677,14 +15678,7 @@ msgstr "Überprüft die Rechte für die Datenbank \"%s\"."
 msgid "Check privileges"
 msgstr "Rechte überprüfen"
 
-#: templates/server/databases/index.twig:238
-#, php-format
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "%count% Datenbank"
-msgstr[1] "%count% Datenbanken"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -15692,12 +15686,12 @@ msgstr ""
 "Bitte beachten Sie: Das Aktivieren der Datenbankstatistiken kann starken "
 "Traffic zwischen dem Web- und dem MySQL-Server zur Folge haben."
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 msgid "Enable statistics"
 msgstr "Datenbankstatistiken aktivieren"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "Keine Datenbanken"
 
@@ -15789,6 +15783,10 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "Anzuzeigende Spalte auswählen:"
 
+#: templates/server/collations/index.twig:3
+msgid "Character sets and collations"
+msgstr "Zeichensätze und Kollationen"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "SQL-Abfrage speichern"
@@ -15804,10 +15802,6 @@ msgstr "Servervariablen und -einstellungen"
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
 msgstr "Speicher-Engines"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Zeichensätze und Kollationen"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17931,6 +17925,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "%count% Datenbank"
+#~ msgstr[1] "%count% Datenbanken"
 
 #~ msgid "No Two-Factor"
 #~ msgstr "Kein Zwei-Faktor"

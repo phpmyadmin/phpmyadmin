@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-26 17:28-0200\n"
+"POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2019-01-30 15:19+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -245,7 +245,7 @@ msgstr "はい"
 msgid "View dump (schema) of database"
 msgstr "データベースのダンプ (スキーマ) 表示"
 
-#: db_export.php:61 db_tracking.php:105 export.php:403
+#: db_export.php:61 db_tracking.php:105 export.php:407
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
@@ -394,7 +394,7 @@ msgstr "問題が発生する場合は、バグ報告を手動で送信してく
 msgid "You may want to refresh the page."
 msgstr "このページを再ロードすることがほしいみたい。"
 
-#: export.php:299
+#: export.php:303
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
@@ -3072,8 +3072,8 @@ msgstr "キー名"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/main.twig:19
+#: templates/server/collations/index.twig:11
 #: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "説明"
@@ -3146,13 +3146,13 @@ msgstr "長さ/値"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
 #: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
 #: templates/server/databases/index.twig:104
+#: templates/server/collations/index.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/structure/display_table_stats.twig:101
 #: templates/table/structure/display_structure.twig:23
@@ -3516,8 +3516,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
-"有効にすると、フレームに対して異なるドメインに置かれているページを許可します。このことは、クロスフレームスクリプト攻撃(XSS)を可能にする潜在的な[st"
-"rong]セキュリティホール[/strong]にもなりえます。"
+"有効にすると、フレームに対して異なるドメインに置かれているページを許可しま"
+"す。このことは、クロスフレームスクリプト攻撃(XSS)を可能にする潜在的な[strong]"
+"セキュリティホール[/strong]にもなりえます。"
 
 #: libraries/classes/Config/Descriptions.php:82
 msgid "Allow third party framing"
@@ -3531,7 +3532,8 @@ msgstr "一般ユーザに「データベースを削除する」リンクを表
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
-msgstr "[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ"
+msgstr ""
+"[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ"
 
 #: libraries/classes/Config/Descriptions.php:88
 msgid "Blowfish secret"
@@ -3569,8 +3571,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"CHAR と VARCHAR 型のカラムに対しての編集用のフォームパーツのタイプを定義します。[kbd]input[/kbd] "
-"は入力文字数を制限することができます。[kbd]textarea[/kbd] は改行を入力すことができます。"
+"CHAR と VARCHAR 型のカラムに対しての編集用のフォームパーツのタイプを定義しま"
+"す。[kbd]input[/kbd] は入力文字数を制限することができます。[kbd]textarea[/"
+"kbd] は改行を入力すことができます。"
 
 #: libraries/classes/Config/Descriptions.php:103
 msgid "CHAR columns editing"
@@ -3644,8 +3647,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"エクスポートの際、バッファに溜まり次第 gzip 圧縮していく方法です。あまり多くのメモリを必要とはしません。gzip "
-"ファイル作成で問題が発生した場合、この機能は無効になります。"
+"エクスポートの際、バッファに溜まり次第 gzip 圧縮していく方法です。あまり多く"
+"のメモリを必要とはしません。gzip ファイル作成で問題が発生した場合、この機能は"
+"無効になります。"
 
 #: libraries/classes/Config/Descriptions.php:134
 msgid "Compress on the fly"
@@ -3655,7 +3659,9 @@ msgstr "逐次圧縮"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr "データを失う作業をしようとしたとき、「本当に実行しますか?…」という警告を出すかどうか。"
+msgstr ""
+"データを失う作業をしようとしたとき、「本当に実行しますか?…」という警告を出す"
+"かどうか。"
 
 #: libraries/classes/Config/Descriptions.php:139
 msgid "Confirm DROP queries"
@@ -3795,7 +3801,8 @@ msgstr "複数のテーブルに対してのメンテナンスを無効にする
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr "スクリプトの実行が許されている秒数を設定します([kbd]0[/kbd] で制限なし)。"
+msgstr ""
+"スクリプトの実行が許されている秒数を設定します([kbd]0[/kbd] で制限なし)。"
 
 #: libraries/classes/Config/Descriptions.php:184
 msgid "Maximum execution time"
@@ -4079,8 +4086,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"外部キーのドロップダウンボックス内のソート順。[kbd]content[/kbd] は参照しているデータ、[kbd]id[/kbd] "
-"はキー値を表しています。"
+"外部キーのドロップダウンボックス内のソート順。[kbd]content[/kbd] は参照してい"
+"るデータ、[kbd]id[/kbd] はキー値を表しています。"
 
 #: libraries/classes/Config/Descriptions.php:281
 msgid "Foreign key dropdown order"
@@ -4247,7 +4254,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変数は[doc@faq6-27]ドキュメント[/doc]を参照してください。"
+"ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変"
+"数は[doc@faq6-27]ドキュメント[/doc]を参照してください。"
 
 #: libraries/classes/Config/Descriptions.php:329
 msgid "Security"
@@ -4257,7 +4265,9 @@ msgstr "セキュリティ"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
-msgstr "phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するものではないことをご了承ください。"
+msgstr ""
+"phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するも"
+"のではないことをご了承ください。"
 
 #: libraries/classes/Config/Descriptions.php:334
 msgid "Basic settings"
@@ -4279,7 +4289,9 @@ msgstr "サーバ設定"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
-msgstr "高度なサーバ設定。これらのオプションは、よく知らないのであれば変更しないでください。"
+msgstr ""
+"高度なサーバ設定。これらのオプションは、よく知らないのであれば変更しないでく"
+"ださい。"
 
 #: libraries/classes/Config/Descriptions.php:342
 msgid "Enter server connection parameters."
@@ -4295,8 +4307,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。ドキュメントの [doc@linked-tables]"
-"phpMyAdmin 環境保管領域[/doc]参照。"
+"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。"
+"ドキュメントの [doc@linked-tables]phpMyAdmin 環境保管領域[/doc]参照。"
 
 #: libraries/classes/Config/Descriptions.php:349
 msgid "Changes tracking"
@@ -4428,7 +4440,9 @@ msgstr "iconv のための追加パラメータ"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
-msgstr "有効にした場合、クエリの 1 つが失敗しても phpMyAdmin はマルチクエリの実行を続けます。"
+msgstr ""
+"有効にした場合、クエリの 1 つが失敗しても phpMyAdmin はマルチクエリの実行を続"
+"けます。"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Ignore multiple statement errors"
@@ -4477,7 +4491,9 @@ msgstr "インポート中に重複したキーが見つかった場合も更新
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
-msgstr "デフォルトの形式。このリストは対象（データベース、テーブル）に依存しているので注意してください。SQL は常に利用可能です。"
+msgstr ""
+"デフォルトの形式。このリストは対象（データベース、テーブル）に依存しているの"
+"で注意してください。SQL は常に利用可能です。"
 
 #: libraries/classes/Config/Descriptions.php:411
 msgid "Format of imported file"
@@ -4561,7 +4577,9 @@ msgstr "ログアウト時にすべてのクッキーを削除する"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr "[kbd]クッキー[/kbd]認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義します。"
+msgstr ""
+"[kbd]クッキー[/kbd]認証モードの場合に、前回ログインしたときの状態に戻すかどう"
+"かを定義します。"
 
 #: libraries/classes/Config/Descriptions.php:443
 msgid "Recall user name"
@@ -4666,8 +4684,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"スクリプトが割り当てを許可されているバイト数。例：[kbd]32M[/kbd]（制限なしの場合は[kbd]-1[/kbd]、変更なしの場合は[kbd]0["
-"/kbd]）。"
+"スクリプトが割り当てを許可されているバイト数。例：[kbd]32M[/kbd]（制限なしの"
+"場合は[kbd]-1[/kbd]、変更なしの場合は[kbd]0[/kbd]）。"
 
 #: libraries/classes/Config/Descriptions.php:480
 msgid "Memory limit"
@@ -4742,7 +4760,9 @@ msgstr "2番目のクイックアクセスアイコンのリンク先"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "入力欄を表示します (テーブル、ビュー、ルーチンおよびイベント) の項目の最小数を定義します。"
+msgstr ""
+"入力欄を表示します (テーブル、ビュー、ルーチンおよびイベント) の項目の最小数"
+"を定義します。"
 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Minimum number of items to display the filter box"
@@ -4756,7 +4776,9 @@ msgstr "データベース表示数を絞るための入力欄が現れる最小
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
-msgstr "ナビゲーションツリーの項目をグループ化します（上のデータベースタブとテーブルタブで定義されている区切り記号によって決まります）。"
+msgstr ""
+"ナビゲーションツリーの項目をグループ化します（上のデータベースタブとテーブル"
+"タブで定義されている区切り記号によって決まります）。"
 
 #: libraries/classes/Config/Descriptions.php:510
 msgid "Group items in the tree"
@@ -4922,8 +4944,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
-"[kbd]SMART[/kbd] とは TIME、DATE、DATETIME、TIMESTAMP 型のカラムに対しては DESC、それ以外は ASC "
-"の並び順にします。"
+"[kbd]SMART[/kbd] とは TIME、DATE、DATETIME、TIMESTAMP 型のカラムに対しては "
+"DESC、それ以外は ASC の並び順にします。"
 
 #: libraries/classes/Config/Descriptions.php:552
 msgid "Default sorting order"
@@ -4943,8 +4965,8 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
-"phpMyAdmin "
-"環境保管領域に必要なテーブルを見つけることができなかった場合、データベースの構造詳細ページに表示されるデフォルトの警告を無効にします。"
+"phpMyAdmin 環境保管領域に必要なテーブルを見つけることができなかった場合、デー"
+"タベースの構造詳細ページに表示されるデフォルトの警告を無効にします。"
 
 #: libraries/classes/Config/Descriptions.php:560
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -4954,7 +4976,9 @@ msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
-msgstr "テーブル内のカラム名がMySQL予約語である場合、構造ページに表示されるデフォルトの警告を無効にします。"
+msgstr ""
+"テーブル内のカラム名がMySQL予約語である場合、構造ページに表示されるデフォルト"
+"の警告を無効にします。"
 
 #: libraries/classes/Config/Descriptions.php:565
 msgid "MySQL reserved word warning"
@@ -5025,7 +5049,8 @@ msgstr "プライマリキーのデフォルトの並び順"
 #: libraries/classes/Config/Descriptions.php:587
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr "カラム名を何行おきに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
+msgstr ""
+"カラム名を何行おきに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
 
 #: libraries/classes/Config/Descriptions.php:588
 msgid "Repeat headers"
@@ -5110,8 +5135,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[doc@bookmarks@]ブックマーク[/doc]機能を使わない場合は空欄にします。[kbd]pma__bookmark[/kbd] "
-"としておくのがいいでしょう。"
+"[doc@bookmarks@]ブックマーク[/doc]機能を使わない場合は空欄にします。"
+"[kbd]pma__bookmark[/kbd] としておくのがいいでしょう。"
 
 #: libraries/classes/Config/Descriptions.php:614
 msgid "Bookmark table"
@@ -5122,7 +5147,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。[kbd]pma__column_info[/kbd] としておくのがいいでしょう。"
+"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。"
+"[kbd]pma__column_info[/kbd] としておくのがいいでしょう。"
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -5145,7 +5171,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は [doc@linked-tables]wiki[/doc] を参照してください。"
+"権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は "
+"[doc@linked-tables]wiki[/doc] を参照してください。"
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Control user"
@@ -5155,7 +5182,9 @@ msgstr "phpMyAdmin ユーザ"
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
-msgstr "環境保管領域に対しての代替ホスト。空欄で既に定義されているホストを使用します。"
+msgstr ""
+"環境保管領域に対しての代替ホスト。空欄で既に定義されているホストを使用しま"
+"す。"
 
 #: libraries/classes/Config/Descriptions.php:632
 msgid "Control host"
@@ -6940,7 +6969,7 @@ msgstr "変更"
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
 #: libraries/classes/Util.php:3427
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:288
+#: templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
@@ -14914,41 +14943,6 @@ msgstr "テーマ"
 msgid "Get more themes!"
 msgstr "他のテーマを入手する！"
 
-#: transformation_overview.php:31
-msgid "Available MIME types"
-msgstr "利用できる MIME タイプ"
-
-#: transformation_overview.php:45
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available browser display transformations"
-msgstr "利用できる変換機能"
-
-#: transformation_overview.php:46
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available input transformations"
-msgstr "利用できる変換機能"
-
-#: transformation_overview.php:49
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation"
-msgstr "ブラウザ変換機能"
-
-#: transformation_overview.php:50
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Input transformation"
-msgstr "ブラウザ変換機能"
-
-#: transformation_overview.php:61
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "説明"
-
 #: templates/sql/profiling_chart.twig:4
 #, fuzzy
 #| msgid "Data file grow size"
@@ -14994,7 +14988,9 @@ msgstr "時間"
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
-msgstr "FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置のログインを確認して下さい。"
+msgstr ""
+"FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置"
+"のログインを確認して下さい。"
 
 #: templates/table/structure/display_partitions.twig:4
 #: templates/table/structure/display_structure.twig:473
@@ -15218,7 +15214,9 @@ msgstr "開始行"
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
-msgstr "FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置の登録を確認して下さい。"
+msgstr ""
+"FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置"
+"の登録を確認して下さい。"
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
@@ -15242,14 +15240,15 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"この報告には、エラーに関するデータと関連する構成設定に関する情報が自動的に含まれます。 "
-"エラーをデバッグするためにphpMyAdminチームに送信されます。"
+"この報告には、エラーに関するデータと関連する構成設定に関する情報が自動的に含"
+"まれます。 エラーをデバッグするためにphpMyAdminチームに送信されます。"
 
 #: templates/error/report_form.twig:12
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
-msgstr "このエラーにつながる手順を教えてください。 決定的にデバッグに役立ちます："
+msgstr ""
+"このエラーにつながる手順を教えてください。 決定的にデバッグに役立ちます："
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
@@ -15288,6 +15287,42 @@ msgstr "展開"
 #| msgid "subquery"
 msgid "Requery"
 msgstr "サブクエリ"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "利用できる MIME タイプ"
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
+msgstr "利用できる変換機能"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "ブラウザ変換機能"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "説明"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "利用できる変換機能"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "ブラウザ変換機能"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15629,7 +15664,9 @@ msgstr "Config 認証"
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
-msgstr "二要素認証を無効にすることで、再びパスワードのみログインが出来るようになります。"
+msgstr ""
+"二要素認証を無効にすることで、再びパスワードのみログインが出来るようになりま"
+"す。"
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:38
 #, fuzzy
@@ -16012,7 +16049,9 @@ msgstr "クリックでソート。"
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
-msgstr "以下のQRコードを装置にある二要素認証アプリにスキャンして、生成された認証コードを入力してください。"
+msgstr ""
+"以下のQRコードを装置にある二要素認証アプリにスキャンして、生成された認証コー"
+"ドを入力してください。"
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
@@ -16323,14 +16362,7 @@ msgstr "データベース「%s」の特権を確認します。"
 msgid "Check privileges"
 msgstr "特権をチェックする"
 
-#: templates/server/databases/index.twig:238
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "%count% database"
-msgid_plural "%count% databases"
-msgstr[0] "データベースが存在しません"
-
-#: templates/server/databases/index.twig:298
+#: templates/server/databases/index.twig:294
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -16338,14 +16370,14 @@ msgstr ""
 "注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量"
 "が激増することがあります。"
 
-#: templates/server/databases/index.twig:301
-#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
 #, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "統計を有効にする"
 
-#: templates/server/databases/index.twig:316
+#: templates/server/databases/index.twig:312
 msgid "No databases"
 msgstr "データベースが存在しません"
 
@@ -16408,13 +16440,16 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
-"インデックスのないカラムに外部キーを作成すると、自動的にインデックスが作成されます。 "
-"また、外部キーを作成する前に、まずカラムのインデックスを作成できます。"
+"インデックスのないカラムに外部キーを作成すると、自動的にインデックスが作成さ"
+"れます。 また、外部キーを作成する前に、まずカラムのインデックスを作成できま"
+"す。"
 
 #: templates/table/relation/common_form.twig:23
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr "インデックスのあるカラムのみが表示されます。インデックスを以下に定義できます。"
+msgstr ""
+"インデックスのあるカラムのみが表示されます。インデックスを以下に定義できま"
+"す。"
 
 #: templates/table/relation/common_form.twig:27
 msgid "Foreign key constraint"
@@ -16450,6 +16485,12 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "表示するカラムの選択"
 
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "文字セットと照合順序"
+
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr "この SQL をブックマークする"
@@ -16469,12 +16510,6 @@ msgstr "サーバ変数と設定値"
 #| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "ストレージエンジン"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "文字セットと照合順序"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -16846,7 +16881,9 @@ msgstr "認証設定"
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
-msgstr "二要素認証を関係している依存パッケージがインストールされていないので、二要素認証は使用不可能です。"
+msgstr ""
+"二要素認証を関係している依存パッケージがインストールされていないので、二要素"
+"認証は使用不可能です。"
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
@@ -16854,7 +16891,8 @@ msgstr "以下のComposerパッケージは存在しません："
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr "このユーザアカウントには二要素認証が設定されており、使用可能な状態です。"
+msgstr ""
+"このユーザアカウントには二要素認証が設定されており、使用可能な状態です。"
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
@@ -17235,7 +17273,9 @@ msgstr "デフォルトに戻す"
 msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
-msgstr "Enterでクエリを実行し、Shift + Enterで新しい行を挿入します。永続的にするには、設定を確認してください。"
+msgstr ""
+"Enterでクエリを実行し、Shift + Enterで新しい行を挿入します。永続的にするに"
+"は、設定を確認してください。"
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -17658,8 +17698,9 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Percona ドキュメントは<a href=\"https://www.percona.com/software/documentation/\""
-">https://www.percona.com/software/documentation/</a>にあります"
+"Percona ドキュメントは<a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>にありま"
+"す"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -18780,6 +18821,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "%count% database"
+#~ msgid_plural "%count% databases"
+#~ msgstr[0] "データベースが存在しません"
 
 #~ msgid "No Two-Factor"
 #~ msgstr "二要素認証なし"
