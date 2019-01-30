@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-30 18:23+0000\n"
+"PO-Revision-Date: 2019-01-30 19:03+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -5396,7 +5396,7 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Deixe em branco para não ter suporte para modelos de exportação, sugerido: "
+"Deixe em branco para não ter suporte para modelos de exportação, sugestão: "
 "[kbd]pma__export_templates[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:669
@@ -5487,39 +5487,30 @@ msgid ""
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
 "Deixe em branco para nenhumas tabelas \"persistentes\" favoritas entre "
-"sessões, sugerido: [kbd]pma__favorite[/kbd]."
+"sessões, sugestão: [kbd]pma__favorite[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:701
 msgid "Favorites table"
 msgstr "Tabela de favoritos"
 
 #: libraries/classes/Config/Descriptions.php:703
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Deixe em branco quando não houver/quiser suporte a [a@https://wiki."
-"phpmyadmin.net/pma/bookmark]ligações de relações[/a], sugerido: "
-"[kbd]pma__bookmark[/kbd]."
+"Deixe em branco se não houver suporte para [doc@relations@]links de "
+"relação[/doc], sugestão: [kbd]pma__relation[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Relation table"
 msgstr "Tabela de relações"
 
 #: libraries/classes/Config/Descriptions.php:709
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Consulte [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]tipos de "
-"autenticação[/a] para obter um exemplo."
+"Veja os [doc@authentication-modes]tipos de autenticação[/doc] para um "
+"exemplo."
 
 #: libraries/classes/Config/Descriptions.php:712
 msgid "Signon session name"
@@ -5555,10 +5546,8 @@ msgstr ""
 "[kbd]pma__table_coords[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:719
-#, fuzzy
-#| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Esquema PDF: Coordenadas de tabela"
+msgstr "Desenho e esquema em PDF: coordenadas de tabela"
 
 #: libraries/classes/Config/Descriptions.php:721
 msgid ""
@@ -5752,19 +5741,13 @@ msgid "Show create database form"
 msgstr "Mostrar o formulário de criação de base de dados"
 
 #: libraries/classes/Config/Descriptions.php:795
-#, fuzzy
-#| msgid ""
-#| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
-"Mostrar ou esconder a coluna que exibe a Criação de timestamp em todas as "
-"tabelas."
+"Mostrar ou ocultar uma coluna que exiba os comentários para todas as tabelas."
 
 #: libraries/classes/Config/Descriptions.php:796
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Comentários da tabela"
+msgstr "Mostrar comentários da tabela"
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -5773,10 +5756,8 @@ msgstr ""
 "tabelas."
 
 #: libraries/classes/Config/Descriptions.php:798
-#, fuzzy
-#| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
-msgstr "Mostrar data (timestamp) da criação"
+msgstr "Mostrar o timestamp de criação"
 
 #: libraries/classes/Config/Descriptions.php:799
 msgid ""
