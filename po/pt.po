@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-29 21:16+0000\n"
+"PO-Revision-Date: 2019-01-30 15:19+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -822,8 +822,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Está a tentar reduzir o número de linhas, mas já tem dados nessas linhas, "
-"que serão perdidos. Quer continuar ?"
+"Está a tentar reduzir o número de linhas, mas já inseriu dados nessas linhas "
+"que serão perdidas. Deseja continuar?"
 
 #: js/messages.php:79
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2086,7 +2086,7 @@ msgstr "Esconder critérios de buca"
 
 #: js/messages.php:493
 msgid "Show search criteria"
-msgstr "Mostrar critérios de busca"
+msgstr "Mostrar critérios de pesquisa"
 
 #: js/messages.php:494
 msgid "Range search"
@@ -2279,7 +2279,7 @@ msgstr ""
 
 #: js/messages.php:571
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "valor/sobconsulta está vazio"
 
 #: js/messages.php:572 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -5322,18 +5322,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Ocultar bases de dados correspondentes a expressão regular (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:641
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Mais informações em [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"rastreador de bug [/a] e [a@https://bugs.mysql.com/19588]Bugs MySQL[/a]"
+"Mais informações no [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"issue tracker do phpMyAdmin[/a] e no [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:644
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5381,25 +5377,19 @@ msgstr "Número máximo de preferências de tabela a armazenar"
 
 #: libraries/classes/Config/Descriptions.php:659
 msgid "QBE saved searches table"
-msgstr "Tabela de buscas QBE gravadas"
+msgstr "Tabela de pequisas QBE gravadas"
 
 #: libraries/classes/Config/Descriptions.php:661
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
-"[kbd]pma__pdf_pages[/kbd]."
+"Deixe em branco se não houver suporte para pesquisas QBE gravadas, sugestão: "
+"[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:664
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Exportar visualizações como tabelas"
+msgstr "Exportar tabela de modelos"
 
 #: libraries/classes/Config/Descriptions.php:666
 #, fuzzy
@@ -6260,6 +6250,8 @@ msgstr "Mostrar consulta a ser navegada"
 #: libraries/classes/Config/Descriptions.php:920
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
+"Executa os queries carregando em Enter e insere uma nova linha com Shift + "
+"Enter"
 
 #: libraries/classes/Config/Descriptions.php:921
 #: templates/console/display.twig:168
@@ -6888,8 +6880,8 @@ msgstr "Localizar e substituir"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "O nome '%s1' é uma palavra reservada do MySQL."
+msgstr[1] "Os nomes '%s2' são palavras reservadas do MySQL."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:286
 msgid "No column selected."
@@ -7633,6 +7625,9 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"Se os ficheiros temporários usados para criação rápida de índices MyISAM "
+"forem maiores do que o tamanho do uso de cache de chaves especificado aqui, "
+"prefira o método de cache de chaves."
 
 #: libraries/classes/Engines/Myisam.php:63
 msgid "Repair threads"
@@ -7674,6 +7669,10 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"Esta é a quantidade de memória alocada para o cache de gravação usado para "
+"cachear dados de tabela. O valor predefinido é 32MB. Esta memória será usada "
+"para fazer o cache das alterações na manipulação de dados (.xtd) e nos "
+"ficheiros apontadores de linha (.xtr)."
 
 #: libraries/classes/Engines/Pbxt.php:51
 msgid "Log cache size"
@@ -7766,7 +7765,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:126
 msgid "Log file count"
-msgstr ""
+msgstr "Contagem de ficheiros de log"
 
 #: libraries/classes/Engines/Pbxt.php:128
 msgid ""
@@ -7775,6 +7774,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"Este é o número de ficheiros de log de transação (pbxt/system/xlog*.xt) que "
+"o sistema irá manter. Se o número de logs exceder esse valor, os ficheiros "
+"de log antigos serão deletados, caso contrário eles serão renomeados com o "
+"próximo número da contagem de logs."
 
 #: libraries/classes/Engines/Pbxt.php:184
 #, php-format
@@ -10189,6 +10192,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funcionalidade de envio de ficheiros para colunas tipo TEXT. Não tem uma "
+"textarea para a entrada."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:32
 msgid ""
@@ -12463,7 +12468,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:365
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "Quantos ficheiros temporários o MySQL tinha criado."
 
 #: libraries/classes/Server/Status/Variables.php:368
 msgid ""
@@ -12690,11 +12695,11 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:541
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "O número de ficheiros de log fsyncs pendentes."
 
 #: libraries/classes/Server/Status/Variables.php:544
 msgid "Pending log file writes."
-msgstr ""
+msgstr "Escritas pendentes nos ficheiros de log."
 
 #: libraries/classes/Server/Status/Variables.php:547
 msgid "The number of bytes written to the log file."
@@ -12833,7 +12838,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:648
 msgid "The number of files that are open."
-msgstr ""
+msgstr "O número de ficheiros que estão abertos."
 
 #: libraries/classes/Server/Status/Variables.php:651
 msgid "The number of streams that are open (used mainly for logging)."
@@ -13886,11 +13891,11 @@ msgstr "Ordenação"
 
 #: libraries/classes/ZipExtension.php:58
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "Nenhum ficheiro encontrado dentro do arquivo ZIP!"
 
 #: libraries/classes/ZipExtension.php:92 libraries/classes/ZipExtension.php:102
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "Erro no arquivo ZIP:"
 
 #: libraries/common.inc.php:191
 msgid ""
@@ -14790,10 +14795,8 @@ msgid "You may examine the data in the error report:"
 msgstr ""
 
 #: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Exportar visualizações como tabelas"
+msgstr "Exportar bancos de dados como ficheiros separados"
 
 #: templates/display/export/options_output_separate_files.twig:9
 #, fuzzy
@@ -16061,19 +16064,14 @@ msgstr ""
 "continuar da posição %d."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Permite a interrupção de uma importação quando o script deteta que está "
-"próximo do limite de tempo do PHP. <i>(Esta é uma boa forma de importar "
-"ficheiros grandes, contudo pode interromper transações.)</i>"
+"Permite a interrupção da importação caso o script detecte que está perto do "
+"tempo limite do PHP. <em>(Isso pode ser uma boa forma de importar ficheiros "
+"grandes, mas pode interromper as transações.)</em>"
 
 #: templates/display/import/import.twig:144
 #, fuzzy
@@ -17527,6 +17525,8 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Isto indica que muitas pesquisas estão análizando tabelas inteiras. Adicione "
+"índices onde forem aplicáveis."
 
 #: libraries/advisory_rules.txt:252
 #, php-format
@@ -17703,15 +17703,16 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy
 msgid "Percentage of used open files limit"
-msgstr "Configurar o Mapa de Caracteres do ficheiro:"
+msgstr "Porcentagem do limite de ficheiros abertos"
 
 #: libraries/advisory_rules.txt:319
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"O número de ficheiros abertos está aproximando o número máximo de ficheiros "
+"abertos. Você pode acabar tendo um erro \"Demais ficheiros abertos\"."
 
 #: libraries/advisory_rules.txt:320 libraries/advisory_rules.txt:327
 msgid ""
@@ -17724,6 +17725,8 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"O número de ficheiros abertos está em %s%% do limite. Deveria ser menor do "
+"que 85%%"
 
 #: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
@@ -17737,6 +17740,7 @@ msgstr "A taxa de abertura de ficheiros está alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Taxa de ficheiros abertos: %s. Este valor deveria ser menor do que 5 por hora"
 
 #: libraries/advisory_rules.txt:330
 #, fuzzy, php-format
