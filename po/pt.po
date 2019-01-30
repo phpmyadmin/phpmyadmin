@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-26 17:28-0200\n"
-"PO-Revision-Date: 2019-01-30 19:03+0000\n"
+"PO-Revision-Date: 2019-02-02 06:49+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -5767,10 +5767,8 @@ msgstr ""
 "todas as tabelas."
 
 #: libraries/classes/Config/Descriptions.php:800
-#, fuzzy
-#| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
-msgstr "Mostrar a data (timestamp) da última actualização"
+msgstr "Mostrar o timestamp da última atualização"
 
 #: libraries/classes/Config/Descriptions.php:801
 msgid ""
@@ -5780,25 +5778,18 @@ msgstr ""
 "todas as tabelas."
 
 #: libraries/classes/Config/Descriptions.php:802
-#, fuzzy
-#| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
-msgstr "Mostrar a data (timestamp) da última verificação"
+msgstr "Mostrar o timestamp da última verificação"
 
 #: libraries/classes/Config/Descriptions.php:803
-#, fuzzy
-#| msgid ""
-#| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
-"Mostrar ou esconder a coluna que exibe a Criação de timestamp em todas as "
+"Mostrar ou ocultar uma coluna que exiba o conjunto de caracteres para todas "
 "tabelas."
 
 #: libraries/classes/Config/Descriptions.php:804
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table charset"
-msgstr "Comentários da tabela"
+msgstr "Mostrar o conjunto de caracteres da tabela"
 
 #: libraries/classes/Config/Descriptions.php:806
 msgid ""
@@ -5829,16 +5820,12 @@ msgid "Show hint"
 msgstr "Mostrar sugestão"
 
 #: libraries/classes/Config/Descriptions.php:815
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Mostra o link para [a@https://secure.php.net/manual/function.phpinfo."
-"php]phpinfo()[/a] resultado."
+"Exibe o link para a saída de [a@https://php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:818
 msgid "Show phpinfo() link"
@@ -5909,66 +5896,50 @@ msgid "Create PHP code"
 msgstr "Criar código PHP"
 
 #: libraries/classes/Config/Descriptions.php:833
-#, fuzzy
-#| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "É exibido um aviso na página principal se Suhosin for detetado."
+msgstr ""
+"Desativa o alerta predefinido que é exibido na página principal se o pacote "
+"Suhosin foi detectado."
 
 #: libraries/classes/Config/Descriptions.php:836
 msgid "Suhosin warning"
 msgstr "Aviso do Suhosin"
 
 #: libraries/classes/Config/Descriptions.php:838
-#, fuzzy
-#| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words."
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Desativa o aviso padrão que é mostrado na página de detalhes de estrutura da "
-"base de dados se algum dos nomes de coluna numa tabela forem palavras "
-"reservadas do MySQL."
+"Desativar o aviso predefinido que é exibido na página principal se o valor "
+"da configuração do PHP 'session.gc_maxlifetime' é menor que o valor de "
+"`LoginCookieValidity`."
 
 #: libraries/classes/Config/Descriptions.php:842
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "Validade do cookie de inicio de sessão"
+msgstr "Aviso de validade do cookie de login"
 
 #: libraries/classes/Config/Descriptions.php:844
-#, fuzzy
-#| msgid ""
-#| "Textarea size (columns) in edit mode, this value will be emphasized for "
-#| "SQL query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"Tamanho da área de texto(colunas) no modo de edição, este valor será "
-"alterado para caixas de texto de consultas SQL (*2) e para janelas de "
-"consultas (*1.25)."
+"Tamanho do campo (colunas) em modo edição, o valor será enfatizado (*2) para "
+"textareas de consulta SQL."
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Textarea columns"
 msgstr "Colunas da área de texto"
 
 #: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
-#| msgid ""
-#| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-#| "query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"Tamanho da área de texto(linhas) no modo de edição, este valor será alterado "
-"para caixas de texto de consultas SQL (*2) e para janelas de consultas "
-"(*1.25)."
+"Tamanho da textarea (linhas) no modo de edição, esse valor será enfatizado "
+"(*2) para as textareas de consulta SQL."
 
 #: libraries/classes/Config/Descriptions.php:852
 msgid "Textarea rows"
@@ -6185,10 +6156,8 @@ msgstr ""
 "as tabelas de armazenamento de configuração do phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:916
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
-msgstr "Configuração do servidor"
+msgstr "Ativar Modo de Configuração Zero"
 
 #: libraries/classes/Config/Descriptions.php:917
 #: templates/console/display.twig:153
@@ -6202,9 +6171,8 @@ msgstr "Expandir sempre mensagens da consulta"
 
 #: libraries/classes/Config/Descriptions.php:919
 #: templates/console/display.twig:157
-#, fuzzy
 msgid "Show current browsing query"
-msgstr "Mostrar consulta a ser navegada"
+msgstr "Mostrar consulta de navegação atual"
 
 #: libraries/classes/Config/Descriptions.php:920
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
@@ -6214,42 +6182,30 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:921
 #: templates/console/display.twig:168
-#, fuzzy
-#| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Mudar para a tabela copiada"
+msgstr "Mudar para o tema escuro"
 
 #: libraries/classes/Config/Descriptions.php:922
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Consola"
+msgstr "Altura do console"
 
 #: libraries/classes/Config/Descriptions.php:923
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Consola"
+msgstr "Modo console"
 
 #: libraries/classes/Config/Descriptions.php:924
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Group queries"
-msgstr "Consultas SQL"
+msgstr "Agrupar consultas"
 
 #: libraries/classes/Config/Descriptions.php:925
 #: templates/sql/profiling_chart.twig:9
-#, fuzzy
-#| msgid "Other"
 msgid "Order"
-msgstr "Outros"
+msgstr "Ordem"
 
 #: libraries/classes/Config/Descriptions.php:926
-#, fuzzy
-#| msgid "Other"
 msgid "Order by"
-msgstr "Outros"
+msgstr "Ordenar por"
 
 #: libraries/classes/Config/FormDisplay.php:102
 #: libraries/classes/Config/Validator.php:530
@@ -6379,27 +6335,17 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV usando o LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/MainForm.php:41
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Default transformations"
-msgstr "Transformação do navegador"
+msgstr "Transformações predefinidas"
 
 #: libraries/classes/Config/PageSettings.php:143
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"Não foi possível guardar as configurações, o formulário submetido contém "
-"erros"
+"As configurações não podem ser gravadas, o formulário de configuração "
+"submetido contém erros!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:76
-#, fuzzy, php-format
-#| msgid ""
-#| "This %soption%s should be disabled as it allows attackers to bruteforce "
-#| "login to any MySQL server. If you feel this is necessary, use %strusted "
-#| "proxies list%s. However, IP-based protection may not be reliable if your "
-#| "IP belongs to an ISP where thousands of users, including you, are "
-#| "connected to."
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -6407,12 +6353,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Esta %soption%s deveria ser desativada pois ela permite que invasores façam "
-"login por força bruta em qualquer servidor MySQL. Se você achar que é "
-"necessária, use a %slista de proxies confiáveis%s. Entretanto, proteções "
-"baseadas no protocolo IP podem não ser confiáveis se o seu endereço IP "
-"pertence a um ISP onde centenas de utilizadores, incluindo você, estão "
-"conectados."
+"Esta %s opção %s deveria ser desativata pois ela permite que atacantes façam "
+"login por força bruta em qualquer servidor MySQL. Se você acha que ela é "
+"necessária, use o %s login restrito para o servidor MySQL %s ou %s a lista "
+"de proxies confiáveis %s. Entretanto, proteções baseadas no protocolo IP "
+"podem não ser confiáveis se seu endereço IP pertence a um PROVEDOR onde "
+"centenas de usuários, incluindo você, estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:101
 msgid ""
@@ -6429,22 +6375,17 @@ msgstr ""
 "Você deve utilizar conexões SSL, se o seu servidor de base de dados suportar."
 
 #: libraries/classes/Config/ServerConfigChecks.php:185
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Se acha que é necessário, use medidas de proteção adicionais - opções %shost "
-"authentication%s e %strusted proxies list%s. No entanto, proteções baseadas "
-"no protocolo IP podem não ser confiáveis se o seu endereço IP pertence a um "
-"ISP onde milhares de utilizadores, incluindo você, estão conectados."
+"Se achar necessário, você pode usar as configurações de proteção adicional - "
+"as configurações %1$shost authentication%2$s e %3$strusted proxies list%4%s. "
+"No entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
+"pertence a um servidor ISP onde milhares de usuários, incluindo você, estão "
+"conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:212
 #, php-format
@@ -6495,29 +6436,23 @@ msgstr ""
 "usada para encriptar cookies; você não precisa memorizá-la."
 
 #: libraries/classes/Config/ServerConfigChecks.php:394
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "A chave é muito curta, deveria ter pelo menos 8 caracteres."
+msgstr "A chave é muito curta, deveria ter pelo menos 32 caracteres."
 
 #: libraries/classes/Config/ServerConfigChecks.php:404
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "A chave deve conter letras, números, [em]e[/em] caracteres especiais."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sValidade de cookie de login%s maior que %ssession.gc_maxlifetime%s pode "
-"causar falhas aleatórias na validação da sessão (atualmente, session."
-"gc_maxlifetime é %d)."
+"A %1$svalidade do cookie de login%2$s sendo maior que "
+"%3$ssession.gc_maxlifetime%4$s pode causar invalidação aleatória da sessão ("
+"atualmente a session.gc_maxlifetime é %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:465
 #, php-format
@@ -6530,37 +6465,31 @@ msgstr ""
 "de segurança, como a personificação."
 
 #: libraries/classes/Config/ServerConfigChecks.php:489
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Se utiliza autenticação por [kbd]cookie[/kbd] e %sLogin cookie store%s é "
-"diferente de 0,%Login cookie validity%s deve ser definido com um valor menor "
-"ou igual que o anterior."
+"Se estiver usando a autenticação por [kbd]cookies[/kbd] e o %sarmazenamento "
+"dos cookies de login%s não for de valor 0, a %svalidade dos cookies de login%"
+"s precisa ser configurado para um valor menor ou igual a ele."
 
 #: libraries/classes/Config/ServerConfigChecks.php:529
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sA compressão e a descompressão Bzip2%s precisa de funções (%s) que não "
+"A %1$scompactação e descompactação Bzip2%2$s requer funções (%3$s) que não "
 "estão disponíveis neste sistema."
 
 #: libraries/classes/Config/ServerConfigChecks.php:561
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sA compressão e a descompressão GZip%s precisa de funções (%s) que não "
+"A %1$scompactação e descompactação GZip2%2$s requer funções (%3$s) que não "
 "estão disponíveis neste sistema."
 
 #: libraries/classes/Config/Validator.php:216
@@ -6569,10 +6498,8 @@ msgid "Could not connect to the database server!"
 msgstr "Não conseguiu criar ligação ao servidor da base de dados!"
 
 #: libraries/classes/Config/Validator.php:255
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Tipo de autenticação"
+msgstr "Tipo de autenticação inválida!"
 
 #: libraries/classes/Config/Validator.php:262
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -6636,17 +6563,15 @@ msgstr "Lista de Favoritos está cheia!"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:565
 #: tbl_operations.php:438 view_operations.php:111
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
-msgstr "A Vista %s foi eliminada"
+msgstr "A vista %s foi apagada."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:566
 #: tbl_operations.php:439
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "A tabela %s foi eliminada"
+msgstr "A tabela %s foi apagada."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:629
 #: tbl_operations.php:420
@@ -6678,15 +6603,13 @@ msgstr "Posição"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:161
 #: libraries/classes/Rte/Events.php:485
-#, fuzzy
 msgid "Event type"
-msgstr "Tipo de Exportação"
+msgstr "Tipo de evento"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:162
 #: libraries/classes/ReplicationGui.php:655
-#, fuzzy
 msgid "Server ID"
-msgstr "Servidor"
+msgstr "ID do servidor"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:163
 msgid "Original position"
@@ -6694,9 +6617,8 @@ msgstr "Posição original"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:164
 #: templates/table/structure/display_table_stats.twig:3
-#, fuzzy
 msgid "Information"
-msgstr "Informação de Login "
+msgstr "Informação"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:201
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:203
@@ -6817,23 +6739,17 @@ msgid "Internal relationships were successfully updated."
 msgstr "Os relacionamentos internos foram atualizados com sucesso."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:852
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table search"
 msgstr "Pesquisa de tabela"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:859
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "Pesquisa Avançada"
+msgstr "Pesquisa avançada"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:864
 #: templates/table/search/selection_form.twig:180
-#, fuzzy
-#| msgid "Find and Replace"
 msgid "Find and replace"
-msgstr "Localizar e substituir"
+msgstr "Procurar e substituir"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:195
 #, php-format
@@ -6847,30 +6763,25 @@ msgid "No column selected."
 msgstr "Nenhuma coluna seleccionada."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:499
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Os utilizadores selecionado foram apagados com sucesso."
+msgstr "As colunas foram movidas com sucesso."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:539
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Falha na leitura do número real de linhas."
+msgstr "Falha ao recuperar a descrição da coluna %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:772
 #: libraries/classes/Controllers/Table/TableStructureController.php:1068
 #: libraries/classes/Tracking.php:817
-#, fuzzy
-#| msgid "Query type"
 msgid "Query error"
-msgstr "Tipo de Query"
+msgstr "Erro de consulta"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1013
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Os utilizadores selecionado foram apagados com sucesso."
+msgstr "A tabela %1$s foi alterada com sucesso. Privilégios foram ajustados."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1244
 #: templates/table/structure/display_structure.twig:284
@@ -6926,10 +6837,8 @@ msgid "Fulltext"
 msgstr "Texto Completo"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1257
-#, fuzzy
-#| msgid "Session value"
 msgid "Distinct values"
-msgstr "Valor de sessão"
+msgstr "Valores distintos"
 
 #: libraries/classes/Core.php:356
 #, php-format
@@ -6967,30 +6876,22 @@ msgid "possible exploit"
 msgstr "possível 'exploit'"
 
 #: libraries/classes/Database/Designer.php:139
-#, fuzzy
-#| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"Não foi possível carregar os import plugins, por favor verifique a sua "
+"Não foi possível carregar os plugins de esquema, por favor, verifique sua "
 "instalação!"
 
 #: libraries/classes/Database/Designer/Common.php:592
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
-msgstr "Erro: Relação já existe."
+msgstr "Erro: relacionamento já existe."
 
 #: libraries/classes/Database/Designer/Common.php:641
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Relação FOREIGN KEY adicionada"
+msgstr "Relacionamento de FOREIGN KEY foi adicionado."
 
 #: libraries/classes/Database/Designer/Common.php:648
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Erro: Relação não adicionada."
+msgstr "Erro: Relacionamento de FOREIGN KEY não pôde ser adicionado!"
 
 #: libraries/classes/Database/Designer/Common.php:655
 msgid "Error: Missing index on column(s)."
@@ -7001,40 +6902,28 @@ msgid "Error: Relational features are disabled!"
 msgstr "Erro: As características relacionais estão desactivadas!"
 
 #: libraries/classes/Database/Designer/Common.php:688
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been added."
-msgstr "Relação interna adicionada"
+msgstr "Relacionamento interno foi adicionado."
 
 #: libraries/classes/Database/Designer/Common.php:695
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
-msgstr "Erro: Relação não adicionada."
+msgstr "Erro: Não foi possível adicionar relacionamento interno!"
 
 #: libraries/classes/Database/Designer/Common.php:735
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "Relação FOREIGN KEY adicionada"
+msgstr "Relacionamento de FOREIGN KEY foi removido."
 
 #: libraries/classes/Database/Designer/Common.php:742
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Erro: Relação não adicionada."
+msgstr "Erro: Relacionamento de FOREIGN KEY não pôde ser removido!"
 
 #: libraries/classes/Database/Designer/Common.php:769
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Erro: Relação não adicionada."
+msgstr "Erro: Relacionamento interno não pôde ser removido!"
 
 #: libraries/classes/Database/Designer/Common.php:775
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
-msgstr "Relação interna adicionada"
+msgstr "Relacionamento interno foi removido."
 
 #: libraries/classes/Database/Qbe.php:473
 #: templates/table/search/selection_form.twig:186
@@ -7134,22 +7023,16 @@ msgid "at least one of the words"
 msgstr "pelo menos uma das palavras"
 
 #: libraries/classes/Database/Search.php:109
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "pelo menos uma das palavras"
+msgstr "todas as palavras"
 
 #: libraries/classes/Database/Search.php:110
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "a frase exacta"
+msgstr "a frase exata como subcadeia"
 
 #: libraries/classes/Database/Search.php:111
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "a frase exacta"
+msgstr "a frase exacta como campo inteiro"
 
 #: libraries/classes/Database/Search.php:112
 msgid "as regular expression"
@@ -7458,7 +7341,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:49
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Tamanho do pool de buffer"
 
 #: libraries/classes/Engines/Innodb.php:51
 msgid ""
@@ -7470,7 +7353,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:141
 msgid "Buffer Pool"
-msgstr ""
+msgstr "Pool de buffer"
 
 #: libraries/classes/Engines/Innodb.php:142
 #: libraries/classes/Server/Status/Data.php:200
@@ -7479,7 +7362,7 @@ msgstr "Estado do InnoDB"
 
 #: libraries/classes/Engines/Innodb.php:164
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Uso do pool de buffer"
 
 #: libraries/classes/Engines/Innodb.php:175
 msgid "pages"
@@ -7491,16 +7374,15 @@ msgstr "páginas livres"
 
 #: libraries/classes/Engines/Innodb.php:198
 msgid "Dirty pages"
-msgstr ""
+msgstr "Páginas sujas"
 
 #: libraries/classes/Engines/Innodb.php:207
 msgid "Pages containing data"
 msgstr "Páginas com dados"
 
 #: libraries/classes/Engines/Innodb.php:216
-#, fuzzy
 msgid "Pages to be flushed"
-msgstr "A tabela %s foi fechada"
+msgstr "Páginas para serem vazadas"
 
 #: libraries/classes/Engines/Innodb.php:225
 msgid "Busy pages"
@@ -7512,7 +7394,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:251
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Atividade do pool de buffer"
 
 #: libraries/classes/Engines/Innodb.php:255
 msgid "Read requests"
@@ -7540,7 +7422,7 @@ msgstr "Atrasos de escrita em %"
 
 #: libraries/classes/Engines/Myisam.php:30
 msgid "Data pointer size"
-msgstr ""
+msgstr "Tamanho do ponteiro de dados"
 
 #: libraries/classes/Engines/Myisam.php:32
 msgid ""
@@ -7590,13 +7472,16 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:63
 msgid "Repair threads"
-msgstr ""
+msgstr "Processos de reparação"
 
 #: libraries/classes/Engines/Myisam.php:65
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"Se este valor for maior que 1, os índices das tabelas MyISAM são criados em "
+"paralelo (cada índice tem seu próprio processo) durante o reparo pelo "
+"processo de ordenação."
 
 #: libraries/classes/Engines/Myisam.php:72
 msgid "Sort buffer size"
@@ -7607,6 +7492,8 @@ msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"O buffer que é alocado quando índices MyISAM são ordenados durante um REPAIR "
+"TABLE ou quando índices são criados com CREATE INDEX ou ALTER TABLE."
 
 #: libraries/classes/Engines/Pbxt.php:32
 msgid "Index cache size"
@@ -7642,26 +7529,32 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"A quantidade de memória alocada para o cache de log de transações usado para "
+"manter o cache de dados de log de transações. O valor predefinido é 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:60
 msgid "Log file threshold"
-msgstr ""
+msgstr "Limite de ficheiro de log"
 
 #: libraries/classes/Engines/Pbxt.php:62
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"Tamanho do log de transações antes de um rollover e dos novos logs a serem "
+"criados. O valor predefinido é 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:68
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "Tamanho do buffer de transações"
 
 #: libraries/classes/Engines/Pbxt.php:70
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"O tamanho do buffer do log global de transações (o motor aloca 2 buffers "
+"deste tamanho). A predefinição é 1MB."
 
 #: libraries/classes/Engines/Pbxt.php:77
 msgid "Checkpoint frequency"
@@ -7675,7 +7568,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:86
 msgid "Data log threshold"
-msgstr ""
+msgstr "Limite do log de dados"
 
 #: libraries/classes/Engines/Pbxt.php:88
 msgid ""
@@ -7684,20 +7577,26 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"O tamanho máximo do ficheiro de log de dados. O valor predefinido é 64MB. "
+"PBXT pode criar o máximo de 32000 logs da dados, que são usados por todas as "
+"tabelas. Então o valor desta variável pode ser incrementado para aumentar a "
+"quantidade total dos dados que podem ser armazenados no banco de dados."
 
 #: libraries/classes/Engines/Pbxt.php:97
 msgid "Garbage threshold"
-msgstr ""
+msgstr "Limite de lixo"
 
 #: libraries/classes/Engines/Pbxt.php:99
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"A porcentagem de lixo num ficheiro de dados de log antes de ser compactado. "
+"Este é um valor entre 1 e 99. A predefinição é 50."
 
 #: libraries/classes/Engines/Pbxt.php:106
 msgid "Log buffer size"
-msgstr ""
+msgstr "Tamanho do buffer do log"
 
 #: libraries/classes/Engines/Pbxt.php:108
 msgid ""
@@ -7705,22 +7604,25 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"Tamanho de buffer usado quando escreve dados no log. A predefinição é 256MB. "
+"O motor aloca um buffer por thread, mas apenas se for exigido da thread "
+"escrever um log de dados."
 
 #: libraries/classes/Engines/Pbxt.php:116
 msgid "Data file grow size"
-msgstr ""
+msgstr "Tamanho que um ficheiro de dados pode atingir"
 
 #: libraries/classes/Engines/Pbxt.php:117
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "Tamanho que ficheiros de controle de dados (.xtd) podem atingir."
 
 #: libraries/classes/Engines/Pbxt.php:121
 msgid "Row file grow size"
-msgstr ""
+msgstr "Tamanho que a linha de um ficheiro pode atingir"
 
 #: libraries/classes/Engines/Pbxt.php:122
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "Tamanho que um ponteiro de linha (.xtr) pode atingir."
 
 #: libraries/classes/Engines/Pbxt.php:126
 msgid "Log file count"
@@ -8612,7 +8514,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:191
 #: libraries/classes/Normalization.php:894
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Primeiro passo da normalização (1NF)"
 
 #: libraries/classes/Normalization.php:194
 #: libraries/classes/Normalization.php:245
