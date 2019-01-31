@@ -85,7 +85,11 @@
             <tr>
                 <td class="nowrap">AS</td>
                 <td>
-                    <textarea name="view[as]" rows="15" cols="40" dir="{{ text_dir }}" onclick="selectContent(this, sql_box_locked, true)">{{ view['as'] }}</textarea><br/>
+                    {% if view['as'] == '' %}
+                        <textarea name="view[as]" rows="15" cols="40" dir="{{ text_dir }}" onclick="selectContent(this, sql_box_locked, true)">{{ view['as'] }}</textarea><br/>
+                    {% else %}
+                        <input type="text" name="view[as]" maxlength="100" size="50" value="{{ view['as'] }}" /><br/>
+                    {% endif %}    
                     <input type="button" value="Format" id="format" class="button sqlbutton">
                     <span id="querymessage"></span>
                 </td>

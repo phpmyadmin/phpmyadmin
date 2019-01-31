@@ -170,7 +170,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
     exit;
 }
 
-$sql_query = ! empty($_GET['sql_query']) ? $_GET['sql_query'] : '';
+//$sql_query = ! empty($_GET['sql_query']) ? $_GET['sql_query'] : '';
 
 // prefill values if not already filled from former submission
 $view = array(
