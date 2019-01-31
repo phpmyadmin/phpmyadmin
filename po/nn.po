@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-02-02 06:49+0000\n"
+"Last-Translator: Christoffer Hjeltnes Støle <cst029@uib.no>\n"
+"Language-Team: Norwegian Nynorsk <https://hosted.weblate.org/projects/"
+"phpmyadmin/4-8/nn/>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -726,7 +728,7 @@ msgstr ""
 #: libraries/classes/Util.php:381
 #: templates/server/variables/link_template.twig:7
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentasjon"
 
 #: index.php:463
 msgid "Official Homepage"
@@ -1259,7 +1261,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3969
 msgid "Settings"
-msgstr ""
+msgstr "Innstillingar"
 
 #: js/messages.php:214
 msgid "Add chart to grid"
@@ -4111,7 +4113,7 @@ msgstr ""
 #: libraries/config.values.php:104
 #: templates/server/sub_page_header.twig:2
 msgid "Databases"
-msgstr ""
+msgstr "Databasar"
 
 #: libraries/classes/Config/Descriptions.php:476
 msgid "Databases display options."
@@ -4331,7 +4333,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:603
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr ""
+msgstr "Konsoll"
 
 #: libraries/classes/Config/Descriptions.php:606
 msgid "Enable gzip compression for import and export operations."
@@ -6680,7 +6682,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:854
 #: libraries/classes/Server/Privileges.php:1663
 msgid "Password:"
-msgstr ""
+msgstr "Passord:"
 
 #: libraries/classes/Display/ChangePassword.php:79
 msgid "Enter:"
@@ -7584,7 +7586,7 @@ msgstr ""
 #: libraries/classes/LanguageManager.php:942
 #: libraries/classes/LanguageManager.php:943 setup/frames/index.inc.php:63
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 #: libraries/classes/Linter.php:98
 msgid ""
@@ -7733,7 +7735,7 @@ msgstr ""
 #: templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
-msgstr ""
+msgstr "Variablar"
 
 #: libraries/classes/Menu.php:649 libraries/classes/Util.php:3973
 msgid "Charsets"
@@ -7855,11 +7857,11 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationHeader.php:165
 msgid "Home"
-msgstr ""
+msgstr "Heim"
 
 #: libraries/classes/Navigation/NavigationHeader.php:173
 msgid "Log out"
-msgstr ""
+msgstr "Logg ut"
 
 #: libraries/classes/Navigation/NavigationHeader.php:175
 msgid "Empty session data"
@@ -7867,7 +7869,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationHeader.php:193
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "Dokumentasjon for phpMyAdmin"
 
 #: libraries/classes/Navigation/NavigationHeader.php:213
 msgid "Navigation panel settings"
@@ -7875,7 +7877,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationHeader.php:224
 msgid "Reload navigation panel"
-msgstr ""
+msgstr "Last inn att navigasjonspanel"
 
 #: libraries/classes/Navigation/NavigationTree.php:757
 msgid ""
@@ -7928,7 +7930,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:35
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:41
 msgid "Database operations"
@@ -7941,7 +7943,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:37
 msgctxt "Create new event"
@@ -8525,7 +8527,7 @@ msgstr ""
 #: templates/login/header.twig:5
 #, possible-php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Velkomen til %s"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:105
 #, possible-php-format
@@ -8552,7 +8554,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:154
 msgid "Log in"
-msgstr ""
+msgstr "Logg inn"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:162
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:172
@@ -8561,7 +8563,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:177
 msgid "Username:"
-msgstr ""
+msgstr "Brukarnamn:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:189
 msgid "Server Choice:"
@@ -9556,11 +9558,11 @@ msgstr ""
 
 #: libraries/classes/RecentFavoriteTable.php:259
 msgid "Recent"
-msgstr ""
+msgstr "Nylege"
 
 #: libraries/classes/RecentFavoriteTable.php:263
 msgid "Favorites"
-msgstr ""
+msgstr "Favorittar"
 
 #: libraries/classes/Relation.php:105
 msgid "not OK"
