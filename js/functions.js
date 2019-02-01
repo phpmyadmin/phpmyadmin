@@ -215,7 +215,8 @@ Functions.addDateTimePicker = function () {
                 showMillisec: showMillisec,
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat,
-                hourMax: hourMax
+                hourMax: hourMax,
+                firstDay: firstDayOfCalendar
             });
             // Add a tip regarding entering MySQL allowed-values
             // for TIME and DATE data-type

@@ -1077,7 +1077,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     Functions.addDatepicker($inputField, $td.attr('data-type'), {
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
-                        timeFormat: timeFormat
+                        timeFormat: timeFormat,
+                        firstDay: firstDayOfCalendar
                     });
 
                     $inputField.on('keyup', function (e) {

@@ -1358,12 +1358,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         Functions.addDatepicker($dateStart, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
-            timeFormat: 'HH:mm:ss'
+            timeFormat: 'HH:mm:ss',
+            firstDay: firstDayOfCalendar
         });
         Functions.addDatepicker($dateEnd, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
-            timeFormat: 'HH:mm:ss'
+            timeFormat: 'HH:mm:ss',
+            firstDay: firstDayOfCalendar
         });
         $dateStart.datepicker('setDate', min);
         $dateEnd.datepicker('setDate', max);

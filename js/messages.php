@@ -767,6 +767,13 @@ foreach ($js_messages as $name => $js_message) {
     Sanitize::printJsValue("Messages." . $name . "", $js_message);
 }
 
+/* Calendar */
+echo "var themeCalendarImage = '" , $GLOBALS['pmaThemeImage']
+    , 'b_calendar.png' , "';\n";
+
+/* Calendar First Day */
+echo "var firstDayOfCalendar = '" , $GLOBALS['cfg']['FirstDayOfCalendar'] , "';\n";
+
 /* Image path */
 echo "var pmaThemeImage = '" , $GLOBALS['pmaThemeImage'] , "';\n";
 
