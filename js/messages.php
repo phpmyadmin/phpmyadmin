@@ -421,6 +421,9 @@ $js_messages['enum_addValue'] = __('Add %d value(s)');
 $js_messages['strImportCSV'] = __(
     'Note: If the file contains multiple tables, they will be combined into one.'
 );
+$js_messaages['strConfirmImport'] = __(
+    'Are your sure you want to import ?'
+);
 
 /* For sql.js */
 $js_messages['strHideQueryBox'] = __('Hide query box');

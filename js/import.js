@@ -45,86 +45,72 @@ function matchFile (fname) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('import.js', function () {
-    $('#plugins').off('change');
-    $('#input_import_file').off('change');
-    $('#select_local_import_file').off('change');
-    $('#input_import_file').off('change').off('focus');
-    $('#select_local_import_file').off('focus');
-    $('#text_csv_enclosed').add('#text_csv_escaped').off('keyup');
-});
-
 AJAX.registerOnload('import.js', function () {
-    // import_file_form validation.
-    $(document).on('submit', '#import_file_form', function (event) {
-        var radioLocalImport = $('#radio_local_import_file');
-        var radioImport = $('#radio_import_file');
-        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + PMA_messages.strImportDialogMessage + '</div>';
-        var wrongTblNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + PMA_messages.strTableNameDialogMessage + '</div>';
-        var wrongDBNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + PMA_messages.strDBNameDialogMessage + '</div>';
+    // import_file_form validation.E
+    $('#buttonGo').on('click', function (event) {
+        // Preventing the default form submission to ask for confirmation
+        event.preventDefault();
+        // Accessing the form
+        $form = $('#import_file_form');
 
-        if (radioLocalImport.length !== 0) {
-            // remote upload.
+        // Confirming the import from the user
+        $form.PMA_confirm(PMA_messages.strConfirmImport, $form.attr('action'), function (url) {
+            // Submiting the form
+            $form.submit();
 
-            if (radioImport.is(':checked') && $('#input_import_file').val() === '') {
-                $('#input_import_file').trigger('focus');
-                PMA_ajaxShowMessage(fileMsg, false);
-                return false;
-            }
+            var radioLocalImport = $('#radio_local_import_file');
+            var radioImport = $('#radio_import_file');
+            var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strImportDialogMessage + '</div>';
 
-            if (radioLocalImport.is(':checked')) {
-                if ($('#select_local_import_file').length === 0) {
-                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + PMA_messages.strNoImportFile + ' </div>', false);
+            if (radioLocalImport.length !== 0) {
+                // remote upload.
+
+                if (radioImport.is(':checked') && $('#input_import_file').val() === '') {
+                    $('#input_import_file').focus();
+                    PMA_ajaxShowMessage(fileMsg, false);
                     return false;
                 }
 
-                if ($('#select_local_import_file').val() === '') {
-                    $('#select_local_import_file').trigger('focus');
+                if (radioLocalImport.is(':checked')) {
+                    if ($('#select_local_import_file').length === 0) {
+                        PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strNoImportFile + ' </div>', false);
+                        return false;
+                    }
+
+                    if ($('#select_local_import_file').val() === '') {
+                        $('#select_local_import_file').focus();
+                        PMA_ajaxShowMessage(fileMsg, false);
+                        return false;
+                    }
+                }
+            } else {
+                // local upload.
+                if ($form.val() === '') {
+                    $form.focus();
                     PMA_ajaxShowMessage(fileMsg, false);
                     return false;
                 }
             }
-        } else {
-            // local upload.
-            if ($('#input_import_file').val() === '') {
-                $('#input_import_file').trigger('focus');
-                PMA_ajaxShowMessage(fileMsg, false);
-                return false;
-            }
-            if ($('#text_csv_new_tbl_name').length > 0) {
-                var newTblName = $('#text_csv_new_tbl_name').val();
-                if (newTblName.length > 0 && $.trim(newTblName).length === 0) {
-                    PMA_ajaxShowMessage(wrongTblNameMsg, false);
-                    return false;
-                }
-            }
-            if ($('#text_csv_new_db_name').length > 0) {
-                var newDBName = $('#text_csv_new_db_name').val();
-                if (newDBName.length > 0 && $.trim(newDBName).length === 0) {
-                    PMA_ajaxShowMessage(wrongDBNameMsg, false);
-                    return false;
-                }
-            }
-        }
 
-        // show progress bar.
-        $('#upload_form_status').css('display', 'inline');
-        $('#upload_form_status_info').css('display', 'inline');
+            // show progress bar.
+            $('#upload_form_status').css('display', 'inline');
+            $('#upload_form_status_info').css('display', 'inline');
+        });
     });
 
     // Initially display the options for the selected plugin
     changePluginOpts();
 
     // Whenever the selected plugin changes, change the options displayed
-    $('#plugins').on('change', function () {
+    $('#plugins').change(function () {
         changePluginOpts();
     });
 
-    $('#input_import_file').on('change', function () {
+    $('#input_import_file').change(function () {
         matchFile($(this).val());
     });
 
-    $('#select_local_import_file').on('change', function () {
+    $('#select_local_import_file').change(function () {
         matchFile($(this).val());
     });
 
@@ -136,7 +122,7 @@ AJAX.registerOnload('import.js', function () {
         $('#radio_import_file').prop('checked', true);
         $('#radio_local_import_file').prop('checked', false);
     });
-    $('#select_local_import_file').on('focus', function () {
+    $('#select_local_import_file').focus(function () {
         $('#radio_local_import_file').prop('checked', true);
         $('#radio_import_file').prop('checked', false);
     });
@@ -169,3 +155,4 @@ AJAX.registerOnload('import.js', function () {
         return true;
     });
 });
+
