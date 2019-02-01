@@ -1,10 +1,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.8.5-dev\n"
+"Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2019-01-10 19:08+0000\n"
+"POT-Creation-Date: 2019-01-28 15:40-0200\n"
+"PO-Revision-Date: 2019-01-29 18:33+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -65,19 +65,19 @@ msgstr "テーブルのコメント："
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: templates/table/search/table_header.twig:6
-#: templates/table/index_form.twig:115
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/search/zoom_result_form.twig:34
+#: templates/table/index_form.twig:115
+#: templates/table/search/table_header.twig:6
+#: templates/columns_definitions/column_name.twig:16
 #: templates/table/relation/foreign_key_row.twig:122
 #: templates/table/relation/foreign_key_row.twig:132
 #: templates/table/relation/internal_relational_row.twig:24
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "カラム"
 
@@ -99,12 +99,12 @@ msgstr "カラム"
 #: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2568
-#: templates/table/search/table_header.twig:7
-#: templates/table/structure/table_structure_header.twig:6
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_columns.twig:7
+#: templates/table/search/table_header.twig:7
 #: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/structure/table_structure_header.twig:6
 msgid "Type"
 msgstr "データ型"
 
@@ -121,11 +121,11 @@ msgstr "データ型"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:516
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
-#: templates/table/structure/table_structure_header.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/structure/table_structure_header.twig:9
 msgid "Null"
 msgstr "NULL"
 
@@ -142,10 +142,10 @@ msgstr "NULL"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:633
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165
-#: templates/table/structure/table_structure_header.twig:10
-#: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
+#: templates/table/structure/table_structure_header.twig:10
+#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "デフォルト値"
 
@@ -169,18 +169,18 @@ msgstr "リンク先"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:534
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:646
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:659
-#: templates/table/structure/table_structure_header.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:54
+#: templates/table/structure/table_structure_header.twig:12
 msgid "Comments"
 msgstr "コメント"
 
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1210
 #: libraries/classes/Controllers/Table/TableStructureController.php:1215
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/structure/display_structure.twig:61
-#: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/check_all_table_column.twig:33
+#: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "主"
 
@@ -199,14 +199,14 @@ msgstr "主"
 #: libraries/classes/Server/Privileges.php:3001
 #: libraries/classes/Server/Privileges.php:3665
 #: libraries/classes/Server/Privileges.php:3694 prefs_manage.php:145
+#: templates/table/structure/table_structure_row.twig:25
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:12
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:12
 msgid "No"
 msgstr "いいえ"
 
@@ -234,15 +234,14 @@ msgstr "いいえ"
 #: libraries/classes/Server/Privileges.php:3662
 #: libraries/classes/Server/Privileges.php:3694
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143
+#: prefs_manage.php:143 templates/table/structure/table_structure_row.twig:25
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:11
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:11
 msgid "Yes"
 msgstr "はい"
 
@@ -250,7 +249,7 @@ msgstr "はい"
 msgid "View dump (schema) of database"
 msgstr "データベースのダンプ (スキーマ) 表示"
 
-#: db_export.php:53 db_tracking.php:105 export.php:388
+#: db_export.php:53 db_tracking.php:105 export.php:390
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:161
 #: libraries/classes/Database/Qbe.php:341
 #: libraries/classes/Navigation/NavigationTree.php:926
@@ -281,10 +280,10 @@ msgstr "テーブル"
 #: libraries/classes/Util.php:3995 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/database/designer/table_list.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/database/central_columns/edit_table_header.twig:2
 #: templates/columns_definitions/table_fields_definitions.twig:4
+#: templates/database/designer/table_list.twig:24
+#: templates/database/central_columns/edit_table_header.twig:2
 msgid "Structure"
 msgstr "構造"
 
@@ -400,7 +399,7 @@ msgstr "問題が発生する場合は、バグ報告を手動で送信してく
 msgid "You may want to refresh the page."
 msgstr "このページを再ロードすることがほしいみたい。"
 
-#: export.php:288
+#: export.php:290
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
@@ -512,21 +511,21 @@ msgstr "幾何データを追加する"
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:322 templates/server/binlog/log_selector.twig:27
-#: templates/table/index_form.twig:217
-#: templates/table/structure/add_column.twig:23
-#: templates/database/search/selection_form.twig:58
-#: templates/header_location.twig:18 templates/database/create_table.twig:21
-#: templates/privileges/privileges_summary.twig:60
-#: templates/privileges/delete_user_fieldset.twig:16
+#: server_privileges.php:322 templates/database/search/selection_form.twig:58
 #: templates/privileges/edit_routine_privileges.twig:23
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/search/selection_form.twig:99
+#: templates/header_location.twig:18 templates/table/index_form.twig:217
+#: templates/database/create_table.twig:21
+#: templates/privileges/delete_user_fieldset.twig:16
+#: templates/table/structure/add_column.twig:23
+#: templates/privileges/privileges_summary.twig:60
+#: templates/display/import/import.twig:191 templates/view_create.twig:114
+#: templates/view_create.twig:120
 #: templates/start_and_number_of_rows_panel.twig:14
-#: templates/view_create.twig:114 templates/view_create.twig:120
-#: templates/display/import/import.twig:191
-#: templates/display/results/options_block.twig:114
-#: templates/display/export/options_format.twig:18 view_operations.php:115
+#: templates/table/search/selection_form.twig:99
+#: templates/display/export/options_format.twig:18
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/server/binlog/log_selector.twig:27
+#: templates/display/results/options_block.twig:114 view_operations.php:115
 msgid "Go"
 msgstr "実行"
 
@@ -1080,8 +1079,8 @@ msgid "Please select column(s) for the index."
 msgstr "インデックスに使用するカラムを選択してください。"
 
 #: js/messages.php:131 libraries/classes/InsertEdit.php:1897
-#: templates/table/index_form.twig:216
 #: templates/table/relation/common_form.twig:188
+#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 msgid "Preview SQL"
 msgstr "SQLのプレビュー"
@@ -1334,12 +1333,11 @@ msgstr "少なくとも１つの系列を追加してください!"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:282
-#: libraries/config.values.php:69
-#: templates/columns_definitions/transformation.twig:4
+#: libraries/config.values.php:69 templates/table/search/rows_zoom.twig:20
+#: templates/database/designer/options_panel.twig:177
 #: templates/table/search/options_zoom.twig:12
 #: templates/privileges/privileges_summary.twig:30
-#: templates/table/search/rows_zoom.twig:20
-#: templates/database/designer/options_panel.twig:177
+#: templates/columns_definitions/transformation.twig:4
 #: templates/display/export/options_output_compression.twig:7
 msgid "None"
 msgstr "なし"
@@ -1718,13 +1716,13 @@ msgstr "SQLをフォーマットしています…"
 msgid "No parameters found!"
 msgstr "パラメータが見つかりませんでした！"
 
-#: js/messages.php:353 templates/database/designer/where_query_panel.twig:85
-#: templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/delete_relation_panel.twig:30
+#: js/messages.php:353 templates/database/designer/new_relation_panel.twig:90
 #: templates/database/designer/rename_to_panel.twig:45
+#: templates/database/designer/having_query_panel.twig:118
+#: templates/database/designer/where_query_panel.twig:85
 #: templates/server/variables/link_template.twig:5
 #: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/new_relation_panel.twig:90
+#: templates/database/designer/delete_relation_panel.twig:30
 #: templates/database/designer/aggregate_query_panel.twig:64
 msgid "Cancel"
 msgstr "キャンセル"
@@ -1794,12 +1792,12 @@ msgstr "カラムを削除しています"
 msgid "Adding primary key"
 msgstr "主キーを追加する"
 
-#: js/messages.php:375 templates/database/designer/where_query_panel.twig:83
-#: templates/database/designer/having_query_panel.twig:114
+#: js/messages.php:375 templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/having_query_panel.twig:114
+#: templates/database/designer/where_query_panel.twig:83
 #: templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
-#: templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/aggregate_query_panel.twig:60
 msgid "OK"
 msgstr "OK"
@@ -1939,11 +1937,10 @@ msgstr "編集"
 #: libraries/classes/Display/Results.php:4677
 #: libraries/classes/Server/UserGroups.php:143
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:354
-#: setup/frames/index.inc.php:160
+#: setup/frames/index.inc.php:160 templates/console/bookmark_content.twig:7
 #: templates/database/designer/delete_relation_panel.twig:28
-#: templates/console/bookmark_content.twig:7
-#: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
+#: templates/database/search/results.twig:43
 msgid "Delete"
 msgstr "削除"
 
@@ -2023,7 +2020,7 @@ msgstr "次のステップに進みます…"
 #: js/messages.php:448
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "テーブル '%s' の第一正規化が完了しました。"
+msgstr "テーブル「%s」の第１正規形は完了しました。"
 
 #: js/messages.php:449 libraries/classes/Normalization.php:510
 #: libraries/classes/Normalization.php:557
@@ -2034,7 +2031,7 @@ msgstr "最後のステップ"
 
 #: js/messages.php:450
 msgid "Second step of normalization (2NF)"
-msgstr "第2正規化 (2NF)"
+msgstr "第２正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:451 js/messages.php:775
@@ -2097,7 +2094,7 @@ msgstr "以下のテーブルを作成します"
 
 #: js/messages.php:474
 msgid "Third step of normalization (3NF)"
-msgstr "第三正規化(3NF)"
+msgstr "第３正規化(3NF)"
 
 #: js/messages.php:475
 msgid "Confirm transitive dependencies"
@@ -2113,11 +2110,11 @@ msgstr "依存関係が選択されていません！"
 
 #: js/messages.php:480 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1809
+#: templates/table/structure/partition_definition_form.twig:12
 #: templates/table/relation/common_form.twig:189
 #: templates/server/variables/link_template.twig:2
-#: templates/columns_definitions/column_definitions_form.twig:149
-#: templates/table/structure/partition_definition_form.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Save"
 msgstr "保存する"
 
@@ -2399,9 +2396,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "カラムの表示／非表示<br />状態を変更する場合、「▼」をクリック。"
 
 #: js/messages.php:601 libraries/classes/BrowseForeigners.php:340
+#: templates/display/results/show_all_checkbox.twig:11
 #: templates/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
-#: templates/display/results/show_all_checkbox.twig:11
 msgid "Show all"
 msgstr "すべて表示"
 
@@ -3107,8 +3104,8 @@ msgstr "キー名"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/section.twig:10
+#: templates/server/collations/charsets.twig:6
 #: templates/server/engines/engines.twig:5
 msgid "Description"
 msgstr "説明"
@@ -3140,7 +3137,8 @@ msgstr "カラムを追加できませんでした！"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "Central columns list に存在しないため、 カラム %1$s を削除できませんでした！"
+msgstr ""
+"Central columns list に存在しないため、 カラム %1$s を削除できませんでした！"
 
 #: libraries/classes/CentralColumns.php:466
 msgid "Could not remove columns!"
@@ -3161,15 +3159,15 @@ msgstr "いいえ"
 #: libraries/classes/Server/Privileges.php:3557
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/databases/table_header.twig:37
-#: templates/table/structure/table_structure_header.twig:18
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/untracked_tables.twig:10
 #: templates/table/tracking/report_table.twig:8
+#: templates/table/structure/table_structure_header.twig:18
 #: templates/privileges/privileges_summary.twig:22
-#: templates/database/tracking/tracked_tables.twig:16
-#: templates/database/structure/table_header.twig:22
 #: templates/table/structure/display_partitions.twig:33
-#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/databases/table_header.twig:37
+#: templates/database/tracking/tracked_tables.twig:16
 msgid "Action"
 msgstr "操作"
 
@@ -3182,10 +3180,9 @@ msgstr "操作"
 #: libraries/classes/Rte/Routines.php:943
 #: libraries/classes/Rte/Routines.php:1622 libraries/classes/Rte/RteList.php:88
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
-#: setup/frames/index.inc.php:141
-#: templates/table/structure/table_structure_header.twig:5
-#: templates/database/create_table.twig:11
+#: setup/frames/index.inc.php:141 templates/database/create_table.twig:11
 #: templates/columns_definitions/table_fields_definitions.twig:9
+#: templates/table/structure/table_structure_header.twig:5
 msgid "Name"
 msgstr "名前"
 
@@ -3201,14 +3198,14 @@ msgstr "長さ/値"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
-#: templates/table/search/table_header.twig:8
-#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/structure/row_stats_table.twig:30
 #: templates/database/structure/table_header.twig:33
 #: templates/server/collations/charsets.twig:5
-#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/table/search/table_header.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/structure/table_structure_header.twig:7
 msgid "Collation"
 msgstr "照合順序"
 
@@ -3237,8 +3234,8 @@ msgstr "新しいカラムを追加する"
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:654
-#: templates/table/structure/table_structure_header.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:27
+#: templates/table/structure/table_structure_header.twig:8
 msgid "Attributes"
 msgstr "属性"
 
@@ -3584,19 +3581,14 @@ msgid "Restrict login to MySQL server"
 msgstr "MySQLサーバーへのログインの制限"
 
 #: libraries/classes/Config/Descriptions.php:75
-#, fuzzy
-#| msgid ""
-#| "Enabling this allows a page located on a different domain to call "
-#| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
-#| "strong] allowing cross-frame scripting attacks"
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "有効にすると、フレームに対して異なるドメインに置かれているページを許可しま"
-"す。このことは、クロスフレームスクリプト攻撃を可能にする潜在的な[strong]セ"
-"キュリティホール[/strong]にもなりえます。"
+"す。このことは、クロスフレームスクリプト攻撃(XSS)を可能にする潜在的な[strong]"
+"セキュリティホール[/strong]にもなりえます。"
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
@@ -3607,10 +3599,6 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "一般ユーザに「データベースを削除する」リンクを表示する"
 
 #: libraries/classes/Config/Descriptions.php:85
-#, fuzzy
-#| msgid ""
-#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-#| "authentication"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -3648,11 +3636,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:107
-#, fuzzy
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -3671,8 +3654,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"構文の色分けや行番号機能がある親切なエディタ ([a@https://codemirror.net/]CodeMirror[/a]) を、SQL "
-"クエリの編集の際に使用します。"
+"構文の色分けや行番号機能がある親切なエディタ ([a@https://codemirror."
+"net/]CodeMirror[/a]) を、SQL クエリの編集の際に使用します。"
 
 #: libraries/classes/Config/Descriptions.php:120
 msgid "Enable CodeMirror"
@@ -3718,8 +3701,6 @@ msgid "CHAR textarea columns"
 msgstr "文字入力用 textarea の 1 行の文字数"
 
 #: libraries/classes/Config/Descriptions.php:147
-#, fuzzy
-#| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR 用 textarea の行数"
 
@@ -3732,28 +3713,19 @@ msgid "Check config file permissions"
 msgstr "設定ファイルのパーミッションをチェックする"
 
 #: libraries/classes/Config/Descriptions.php:154
-#, fuzzy
-#| msgid ""
-#| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
-#| "if you encounter problems with created gzip/bzip2 files disable this "
-#| "feature"
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"エクスポートの際、バッファに溜まり次第 gzip/bzip2 圧縮していく方法です。あま"
-"り多くのメモリを必要とはしません。gzip/bzip2 ファイル作成で問題が発生した場"
-"合、この機能は無効になります。"
+"エクスポートの際、バッファに溜まり次第 gzip 圧縮していく方法です。あまり多く"
+"のメモリを必要とはしません。gzip ファイル作成で問題が発生した場合、この機能は"
+"無効になります。"
 
 #: libraries/classes/Config/Descriptions.php:158
 msgid "Compress on the fly"
 msgstr "逐次圧縮"
 
 #: libraries/classes/Config/Descriptions.php:161
-#, fuzzy
-#| msgid ""
-#| "Whether a warning (\"Are your really sure…\") should be displayed when "
-#| "you're about to lose data"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -3776,8 +3748,6 @@ msgid "Debug SQL"
 msgstr "SQL のデバッグ"
 
 #: libraries/classes/Config/Descriptions.php:171
-#, fuzzy
-#| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
 msgstr "データベースが選択されたときに表示されるタブ"
 
@@ -3794,8 +3764,6 @@ msgid "Default server tab"
 msgstr "デフォルトのサーバタブ"
 
 #: libraries/classes/Config/Descriptions.php:179
-#, fuzzy
-#| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
 msgstr "テーブルが選択されたときに表示されるタブ"
 
@@ -3804,28 +3772,20 @@ msgid "Default table tab"
 msgstr "デフォルトのテーブルタブ"
 
 #: libraries/classes/Config/Descriptions.php:183
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "テーブル名やカラム名を逆クォートで囲む"
+msgstr "SQLクエリ内のテーブル名とカラム名のオートコンプリート。"
 
 #: libraries/classes/Config/Descriptions.php:185
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "テーブル名やカラム名を逆クォートで囲む"
+msgstr "テーブル名とカラム名のオートコンプリートを有効にする"
 
 #: libraries/classes/Config/Descriptions.php:187
-#, fuzzy
-#| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
 msgstr "テーブル構造の操作欄の折り畳みをしないかどうか。"
 
 #: libraries/classes/Config/Descriptions.php:189
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "テーブルのコメント"
+msgstr "カラムのコメントを表示"
 
 #: libraries/classes/Config/Descriptions.php:191
 msgid "Whether column comments should be shown in table structure view"
@@ -3836,10 +3796,8 @@ msgid "Hide table structure actions"
 msgstr "テーブル構造の操作欄を折り畳む"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "デフォルトの並び順"
+msgstr "16進数(Hex)のデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:201
@@ -3858,52 +3816,36 @@ msgstr ""
 "ライドされます。"
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "変換オプション"
+msgstr "部分文字列のデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "デフォルトの並び順"
+msgstr "Bool2Textのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "デフォルトの並び順"
+msgstr "External(外部)のデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "変換オプション"
+msgstr "PreApPendのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "デフォルトの並び順"
+msgstr "DateFormatのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Inline"
-msgstr "変換オプション"
+msgstr "Inlineのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "変換オプション"
+msgstr "TextImageLinkのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "変換オプション"
+msgstr "TextLinkのデフォルト変換"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -3926,15 +3868,10 @@ msgid "Disable multi table maintenance"
 msgstr "複数のテーブルに対してのメンテナンスを無効にする"
 
 #: libraries/classes/Config/Descriptions.php:244
-#, fuzzy
-#| msgid ""
-#| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-#| "limit)"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr ""
-"スクリプトの実行が許されている秒数を設定します。([kbd]0[/kbd] で制限なし)"
+msgstr "スクリプトの実行が許されている秒数を設定します([kbd]0[/kbd] で制限なし)。"
 
 #: libraries/classes/Config/Descriptions.php:248
 msgid "Maximum execution time"
@@ -3942,10 +3879,9 @@ msgstr "最大実行時間"
 
 #: libraries/classes/Config/Descriptions.php:251
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Add %s statement"
+#, php-format
 msgid "Use %s statement"
-msgstr "%s コマンドを追加する"
+msgstr "「%s」 コマンドを使用する"
 
 #: libraries/classes/Config/Descriptions.php:254 prefs_manage.php:309
 msgid "Save as file"
@@ -3987,19 +3923,15 @@ msgstr "1 行目にカラム名を追加する"
 #: libraries/classes/Config/Descriptions.php:633
 #: libraries/classes/Config/Descriptions.php:652
 #: libraries/classes/Plugins/Import/ImportCsv.php:137
-#, fuzzy
-#| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "カラム囲み記号:"
+msgstr "カラム囲み記号"
 
 #: libraries/classes/Config/Descriptions.php:266
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Plugins/Import/ImportCsv.php:148
-#, fuzzy
-#| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "カラムのエスケープ記号:"
+msgstr "カラムのエスケープ記号"
 
 #: libraries/classes/Config/Descriptions.php:268
 #: libraries/classes/Config/Descriptions.php:280
@@ -4026,10 +3958,8 @@ msgstr "カラムの終端記号"
 #: libraries/classes/Config/Descriptions.php:274
 #: libraries/classes/Config/Descriptions.php:631
 #: libraries/classes/Plugins/Import/ImportCsv.php:157
-#, fuzzy
-#| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "行の終端記号:"
+msgstr "行の終端記号"
 
 #: libraries/classes/Config/Descriptions.php:278
 msgid "Excel edition"
@@ -4094,10 +4024,8 @@ msgstr "MIME タイプ"
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:338
 #: libraries/classes/Config/Descriptions.php:403
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "リレーション"
+msgstr "関係"
 
 #: libraries/classes/Config/Descriptions.php:324
 msgid "Export method"
@@ -4116,10 +4044,8 @@ msgid "Overwrite existing file(s)"
 msgstr "既存のファイルは上書きする"
 
 #: libraries/classes/Config/Descriptions.php:346
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export as separate files"
-msgstr "カラム名をエクスポートする"
+msgstr "別々のファイルとしてエクスポート"
 
 #: libraries/classes/Config/Descriptions.php:352
 msgid "Remember file name template"
@@ -4155,16 +4081,12 @@ msgstr "外部キーのチェックを無効にする"
 
 #: libraries/classes/Config/Descriptions.php:366
 #: libraries/classes/Plugins/Export/ExportSql.php:169
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "テーブル \"%s\" から行単位でデータをエクスポート"
+msgstr "ビューをテーブルとしてエクスポートする"
 
 #: libraries/classes/Config/Descriptions.php:368
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
+msgstr "PhpMyAdminの環境保管領域から関連するメタデータをエクスポートする"
 
 #: libraries/classes/Config/Descriptions.php:370
 #: libraries/classes/Config/Descriptions.php:372
@@ -4179,10 +4101,8 @@ msgid "Add %s"
 msgstr "%s を追加する"
 
 #: libraries/classes/Config/Descriptions.php:384
-#, fuzzy
-#| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "BLOB に 16 進数表記を利用する"
+msgstr "BINARYおよびBLOB に 16 進数表記を利用する"
 
 #: libraries/classes/Config/Descriptions.php:387
 msgid ""
@@ -4219,24 +4139,18 @@ msgid "Export time in UTC"
 msgstr "エクスポート時間を UTC (協定世界時) にする"
 
 #: libraries/classes/Config/Descriptions.php:420
-#, fuzzy
-#| msgid ""
-#| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
-#| "the referenced data, [kbd]id[/kbd] is the key value"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"外部キーのドロップダウンボックス内のソート順。[kbd]content[/kbd] は参照してい"
-"るデータ、[kbd]id[/kbd] はキー値を表しています。"
+"外部キーのドロップダウンボックス内のソート順。[kbd]content[/kbd] は参照しているデータ、[kbd]id[/kbd] "
+"はキー値を表しています。"
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Foreign key dropdown order"
 msgstr "外部キーのドロップダウンの順番"
 
 #: libraries/classes/Config/Descriptions.php:426
-#, fuzzy
-#| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
 msgstr "これより少ない項目数であれば、ドロップダウンが使用されます。"
 
@@ -4249,20 +4163,16 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr "クエリ実行時の外部キーのチェックボックスのデフォルト値です。"
 
 #: libraries/classes/Config/Descriptions.php:432
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "外部キーのチェック:"
+msgstr "外部キーのチェック"
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid "Browse mode"
 msgstr "表示モード"
 
 #: libraries/classes/Config/Descriptions.php:436
-#, fuzzy
-#| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "表示モードの詳細設定"
+msgstr "表示モードの詳細設定。"
 
 #: libraries/classes/Config/Descriptions.php:440
 #: libraries/classes/Config/Descriptions.php:444
@@ -4284,10 +4194,8 @@ msgid "Developer"
 msgstr "開発者向け"
 
 #: libraries/classes/Config/Descriptions.php:448
-#, fuzzy
-#| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "phpMyAdmin 開発者用の設定"
+msgstr "phpMyAdmin 開発者用の設定。"
 
 #: libraries/classes/Config/Descriptions.php:450
 msgid "Edit mode"
@@ -4370,8 +4278,6 @@ msgid "Servers"
 msgstr "サーバ"
 
 #: libraries/classes/Config/Descriptions.php:488
-#, fuzzy
-#| msgid "Servers display options"
 msgid "Servers display options."
 msgstr "サーバの表示オプション"
 
@@ -4381,10 +4287,8 @@ msgstr "テーブル表示オプション."
 
 #: libraries/classes/Config/Descriptions.php:494
 #: libraries/classes/Config/Forms/User/MainForm.php:84
-#, fuzzy
-#| msgid "Main frame"
 msgid "Main panel"
-msgstr "メインフレーム"
+msgstr "メインパネル"
 
 #: libraries/classes/Config/Descriptions.php:496
 msgid "Microsoft Office"
@@ -4395,8 +4299,6 @@ msgid "Other core settings"
 msgstr "他の中心的な設定"
 
 #: libraries/classes/Config/Descriptions.php:506
-#, fuzzy
-#| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
 msgstr "どこにも該当しない設定"
 
@@ -4405,33 +4307,21 @@ msgid "Page titles"
 msgstr "ページタイトル"
 
 #: libraries/classes/Config/Descriptions.php:511
-#, fuzzy
-#| msgid ""
-#| "Specify browser's title bar text. Refer to "
-#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
-#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変"
-"数は[doc@cfg_TitleTable]ドキュメント[/doc]を参照してください。"
+"ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変数は[doc@faq6-27]ドキュメント[/doc]を参照してください。"
 
 #: libraries/classes/Config/Descriptions.php:516
 msgid "Security"
 msgstr "セキュリティ"
 
 #: libraries/classes/Config/Descriptions.php:519
-#, fuzzy
-#| msgid ""
-#| "Please note that phpMyAdmin is just a user interface and its features do "
-#| "not limit MySQL"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
-msgstr ""
-"phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するも"
-"のではないことをご了承ください。"
+msgstr "phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するものではないことをご了承ください。"
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Basic settings"
@@ -4442,8 +4332,6 @@ msgid "Authentication"
 msgstr "認証"
 
 #: libraries/classes/Config/Descriptions.php:527
-#, fuzzy
-#| msgid "Authentication settings"
 msgid "Authentication settings."
 msgstr "認証設定"
 
@@ -4452,40 +4340,27 @@ msgid "Server configuration"
 msgstr "サーバ設定"
 
 #: libraries/classes/Config/Descriptions.php:532
-#, fuzzy
-#| msgid ""
-#| "Advanced server configuration, do not change these options unless you "
-#| "know what they are for"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
-msgstr ""
-"高度なサーバ設定。これらのオプションは、よく知らないのであれば変更しないでく"
-"ださい。"
+msgstr "高度なサーバ設定。これらのオプションは、よく知らないのであれば変更しないでください。"
 
 #: libraries/classes/Config/Descriptions.php:536
-#, fuzzy
-#| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "サーバの接続パラメータを入力してください"
+msgstr "サーバの接続パラメータを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid "Configuration storage"
 msgstr "環境保管領域"
 
 #: libraries/classes/Config/Descriptions.php:541
-#, fuzzy
-#| msgid ""
-#| "Configure phpMyAdmin configuration storage to gain access to additional "
-#| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
-#| "in documentation"
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。"
-"ドキュメントの [doc@linked-tables]phpMyAdmin 環境保管領域[/doc]参照。"
+"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。ドキュメントの [doc@linked-tables]"
+"phpMyAdmin 環境保管領域[/doc]参照。"
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
@@ -4515,10 +4390,8 @@ msgid "SQL Query box"
 msgstr "SQL クエリボックス"
 
 #: libraries/classes/Config/Descriptions.php:557
-#, fuzzy
-#| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "SQL クエリボックスに表示されるリンクの詳細設定"
+msgstr "SQL クエリボックスに表示されるリンクの詳細設定。"
 
 #: libraries/classes/Config/Descriptions.php:561
 #: libraries/classes/Config/Forms/User/SqlForm.php:40
@@ -4526,10 +4399,8 @@ msgid "SQL queries"
 msgstr "SQL クエリ"
 
 #: libraries/classes/Config/Descriptions.php:563
-#, fuzzy
-#| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "SQL クエリの設定"
+msgstr "SQL クエリの設定。"
 
 #: libraries/classes/Config/Descriptions.php:565
 msgid "Startup"
@@ -4544,12 +4415,9 @@ msgid "Database structure"
 msgstr "データベースの構造"
 
 #: libraries/classes/Config/Descriptions.php:571
-#, fuzzy
-#| msgid ""
-#| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr "データベースの構造 (テーブルの一覧) で詳細に表示させるかの選択"
+msgstr "データベースの構造 (テーブルの一覧) で詳細に表示させるかの選択。"
 
 #: libraries/classes/Config/Descriptions.php:573
 #: libraries/classes/Plugins/Export/ExportPdf.php:277
@@ -4558,8 +4426,6 @@ msgid "Table structure"
 msgstr "テーブルの構造"
 
 #: libraries/classes/Config/Descriptions.php:575
-#, fuzzy
-#| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
 msgstr "テーブルの構造 (カラムの一覧) における設定"
 
@@ -4568,10 +4434,8 @@ msgid "Tabs"
 msgstr "タブ"
 
 #: libraries/classes/Config/Descriptions.php:579
-#, fuzzy
-#| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "タブの動作を選択してください"
+msgstr "タブの動作を選択してください。"
 
 #: libraries/classes/Config/Descriptions.php:581
 msgid "Display relational schema"
@@ -4588,8 +4452,6 @@ msgid "Text fields"
 msgstr "テキスト入力項目"
 
 #: libraries/classes/Config/Descriptions.php:593
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Customize text input fields."
 msgstr "テキスト入力項目の詳細設定"
 
@@ -4606,8 +4468,6 @@ msgid "Warnings"
 msgstr "警告"
 
 #: libraries/classes/Config/Descriptions.php:601
-#, fuzzy
-#| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "phpMyAdmin で表示される警告の抑制"
 
@@ -4617,14 +4477,8 @@ msgid "Console"
 msgstr "コンソール"
 
 #: libraries/classes/Config/Descriptions.php:606
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations"
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"インポートおよびエクスポートの操作に対して [a@https://ja.wikipedia.org/wiki/"
-"Gzip]gzip[/a] 圧縮を有効にします。"
+msgstr "インポートおよびエクスポートの操作に対してgzip圧縮を有効にします。"
 
 #: libraries/classes/Config/Descriptions.php:610
 msgid "GZip"
@@ -4635,16 +4489,10 @@ msgid "Extra parameters for iconv"
 msgstr "iconv のための追加パラメータ"
 
 #: libraries/classes/Config/Descriptions.php:615
-#, fuzzy
-#| msgid ""
-#| "If enabled, phpMyAdmin continues computing multiple-statement queries "
-#| "even if one of the queries failed"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
-msgstr ""
-"有効にした場合、クエリの 1 つが失敗しても phpMyAdmin はマルチクエリの実行を続"
-"けます。"
+msgstr "有効にした場合、クエリの 1 つが失敗しても phpMyAdmin はマルチクエリの実行を続けます。"
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Ignore multiple statement errors"
@@ -4682,16 +4530,10 @@ msgid "Update data when duplicate keys found on import"
 msgstr "インポート中に重複したキーが見つかった場合も更新する"
 
 #: libraries/classes/Config/Descriptions.php:646
-#, fuzzy
-#| msgid ""
-#| "Default format; be aware that this list depends on location (database, "
-#| "table) and only SQL is always available"
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
-msgstr ""
-"デフォルトの形式。このリストは対象（データベース、テーブル）に依存しているの"
-"で注意してください。SQL は常に利用可能です。"
+msgstr "デフォルトの形式。このリストは対象（データベース、テーブル）に依存しているので注意してください。SQL は常に利用可能です。"
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "Format of imported file"
@@ -4720,8 +4562,6 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "パーセントは適切な小数に変換する (例：12.00% を .12)"
 
 #: libraries/classes/Config/Descriptions.php:674
-#, fuzzy
-#| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
 msgstr "先頭から数えたスキップするクエリの数"
 
@@ -4734,18 +4574,14 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "値がゼロのものに対して AUTO_INCREMENT を使用しない"
 
 #: libraries/classes/Config/Descriptions.php:682
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "読み込みミス"
+msgstr "マルチバイトとして読み込む"
 
 #: libraries/classes/Config/Descriptions.php:684
 msgid "Initial state for sliders"
 msgstr "折り畳みに対しての初期値"
 
 #: libraries/classes/Config/Descriptions.php:686
-#, fuzzy
-#| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
 msgstr "1 回で何行まとめて挿入できるか。"
 
@@ -4754,13 +4590,9 @@ msgid "Number of inserted rows"
 msgstr "挿入する行数"
 
 #: libraries/classes/Config/Descriptions.php:690
-#, fuzzy
-#| msgid ""
-#| "Maximum number of characters shown in any non-numeric column on browse "
-#| "view"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
-msgstr "表示ページにおいて数値でないカラムの表示文字の最大数"
+msgstr "表示ページにおいて数値でないカラムの表示文字の最大数。"
 
 #: libraries/classes/Config/Descriptions.php:692
 msgid "Limit column characters"
@@ -4782,16 +4614,10 @@ msgid "Delete all cookies on logout"
 msgstr "ログアウト時にすべてのクッキーを削除する"
 
 #: libraries/classes/Config/Descriptions.php:703
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode."
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr ""
-"クッキー認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義し"
-"ます。"
+msgstr "[kbd]クッキー[/kbd]認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義します。"
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Recall user name"
@@ -4814,8 +4640,6 @@ msgid "Login cookie store"
 msgstr "ログインクッキーの保存期間"
 
 #: libraries/classes/Config/Descriptions.php:718
-#, fuzzy
-#| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "ログインクッキーの有効期間 (秒数) を定義します。"
 
@@ -4824,8 +4648,6 @@ msgid "Login cookie validity"
 msgstr "ログインクッキーの有効期間"
 
 #: libraries/classes/Config/Descriptions.php:722
-#, fuzzy
-#| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "LONGTEXT カラムに対して textarea を 2 倍にします。"
 
@@ -4834,10 +4656,8 @@ msgid "Bigger textarea for LONGTEXT"
 msgstr "LONGTEXT に対しては大きな textarea を使う"
 
 #: libraries/classes/Config/Descriptions.php:726
-#, fuzzy
-#| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "SQL クエリが表示されているときに使用される文字の最大数"
+msgstr "SQL クエリが表示されているときに使用される文字の最大数。"
 
 #: libraries/classes/Config/Descriptions.php:728
 msgid "Maximum displayed SQL length"
@@ -4850,36 +4670,28 @@ msgid "Users cannot set a higher value"
 msgstr "ユーザはこれより高い値を設定することはできません"
 
 #: libraries/classes/Config/Descriptions.php:732
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "テーブルのリストに表示されるテーブルの最大数"
+msgstr "データベースリストに表示されるデータベースの最大数。"
 
 #: libraries/classes/Config/Descriptions.php:734
 msgid "Maximum databases"
 msgstr "データベースの最大数"
 
 #: libraries/classes/Config/Descriptions.php:737
-#, fuzzy
-#| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr "最初のテーブルを全スキャンした結合の数。"
+msgstr "ナビゲーションツリーの最初のレベルの各ページに表示できる項目の数。"
 
 #: libraries/classes/Config/Descriptions.php:741
-#, fuzzy
-#| msgid "Maximum size for input field"
 msgid "Maximum items on first level"
-msgstr "入力項目の最大サイズ"
+msgstr "最初のレベルで最大項目数"
 
 #: libraries/classes/Config/Descriptions.php:743
-#, fuzzy
-#| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "最初のテーブルを全スキャンした結合の数。"
+msgstr "ナビゲーションツリーの各ページに表示できる項目数。"
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Maximum items in branch"
@@ -4898,26 +4710,20 @@ msgid "Maximum number of rows to display"
 msgstr "行の最大表示数"
 
 #: libraries/classes/Config/Descriptions.php:757
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "テーブルのリストに表示されるテーブルの最大数"
+msgstr "テーブルのリストに表示されるテーブルの最大数。"
 
 #: libraries/classes/Config/Descriptions.php:759
 msgid "Maximum tables"
 msgstr "テーブルの最大数"
 
 #: libraries/classes/Config/Descriptions.php:762
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"割り当てが許可されているスクリプトのバイト数。例：[kbd]32M[/kbd] ([kbd]0[/"
-"kbd] で制限無し)"
+"スクリプトが割り当てを許可されているバイト数。例：[kbd]32M[/kbd]（制限なしの場合は[kbd]-1[/kbd]、変更なしの場合は[kbd]0["
+"/kbd]）。"
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Memory limit"
@@ -4928,22 +4734,16 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr "ナビゲーション画面でデータベースツリーをセレクタで置き換えます"
 
 #: libraries/classes/Config/Descriptions.php:770
-#, fuzzy
-#| msgid "Show logo in left frame"
 msgid "Show databases navigation as tree"
-msgstr "左のフレーム内にロゴを表示します。"
+msgstr "データベースナビゲーションをツリーとして表示する"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "ナビゲーションパネル"
+msgstr "ナビゲーションパネル幅"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "ナビゲーションパネル内にロゴを表示します。"
+msgstr "ナビゲーションパネルを折りたたむには、0に設定します。"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -4959,10 +4759,8 @@ msgid "Display logo"
 msgstr "ロゴを表示する"
 
 #: libraries/classes/Config/Descriptions.php:784
-#, fuzzy
-#| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "ナビゲーションフレームのロゴが指す URL"
+msgstr "ナビゲーションパネルのロゴが指す URL。"
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "Logo link URL"
@@ -4981,10 +4779,8 @@ msgid "Logo link target"
 msgstr "ロゴリンクのターゲット"
 
 #: libraries/classes/Config/Descriptions.php:795
-#, fuzzy
-#| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "左フレームの上部にサーバ選択を表示します。"
+msgstr "ナビゲーションパネルの上部にサーバ選択を表示します。"
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Display servers selection"
@@ -4995,24 +4791,18 @@ msgid "Target for quick access icon"
 msgstr "クイックアクセスアイコンのリンク先"
 
 #: libraries/classes/Config/Descriptions.php:801
-#, fuzzy
-#| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "クイックアクセスアイコンのリンク先"
+msgstr "2番目のクイックアクセスアイコンのリンク先"
 
 #: libraries/classes/Config/Descriptions.php:804
-#, fuzzy
-#| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "テーブル表示数を絞るための入力欄が現れる最小のテーブル数"
+msgstr "入力欄を表示します (テーブル、ビュー、ルーチンおよびイベント) の項目の最小数を定義します。"
 
 #: libraries/classes/Config/Descriptions.php:808
-#, fuzzy
-#| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "テーブル表示数を絞るための入力欄が現れる最小のテーブル数"
+msgstr "項目表示数を絞るための入力欄が現れる最小の項目数"
 
 #: libraries/classes/Config/Descriptions.php:810
 msgid "Minimum number of databases to display the database filter box"
@@ -6354,12 +6144,12 @@ msgstr "データベース選択時のブラウザのウィンドウタイトル
 #: libraries/classes/Server/Privileges.php:3346
 #: libraries/classes/Server/Privileges.php:4552
 #: libraries/classes/Server/Status/Processes.php:89
-#: templates/server/databases/table_header.twig:8
-#: templates/console/bookmark_content.twig:7
 #: templates/table/relation/common_form.twig:32
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
+#: templates/console/display.twig:184
 #: templates/table/relation/foreign_key_row.twig:100
 #: templates/table/relation/internal_relational_row.twig:10
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/server/databases/table_header.twig:8
 msgid "Database"
 msgstr "データベース"
 
@@ -6400,12 +6190,12 @@ msgstr "テーブル選択時のブラウザのウィンドウタイトル"
 #: libraries/classes/Server/Privileges.php:3350
 #: libraries/classes/Server/Privileges.php:3352
 #: libraries/classes/Server/Privileges.php:4566
-#: templates/database/tracking/untracked_tables.twig:9
-#: templates/database/tracking/tracked_tables.twig:11
 #: templates/table/relation/common_form.twig:33
 #: templates/database/structure/table_header.twig:8
+#: templates/database/tracking/untracked_tables.twig:9
 #: templates/table/relation/foreign_key_row.twig:110
 #: templates/table/relation/internal_relational_row.twig:17
+#: templates/database/tracking/tracked_tables.twig:11
 msgid "Table"
 msgstr "テーブル"
 
@@ -7047,7 +6837,7 @@ msgstr "不正な IP アドレス：%s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "個人用と共用を含む %1$d ブックマークを表示しています"
 
 #: libraries/classes/Console.php:100
 msgid "No bookmarks"
@@ -7180,14 +6970,14 @@ msgstr "インデックス"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "合計"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:357
-#: templates/table/structure/display_table_stats.twig:32
 #: templates/database/structure/table_header.twig:40
+#: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "オーバーヘッド"
 
@@ -7279,7 +7069,7 @@ msgstr "検索と置換の条件を隠す"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
+msgstr[0] "'%s'という名前はMySQLの予約語です。"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:273
 msgid "No column selected."
@@ -7318,32 +7108,32 @@ msgstr "変更"
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1605
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3323
 #: libraries/classes/Util.php:3324
-#: templates/server/databases/databases_footer.twig:55
 #: templates/table/structure/display_structure.twig:188
-#: templates/table/relation/foreign_key_row.twig:30
 #: templates/table/structure/check_all_table_column.twig:24
 #: templates/database/structure/check_all_tables.twig:16
+#: templates/server/databases/databases_footer.twig:55
+#: templates/table/relation/foreign_key_row.twig:30
 msgid "Drop"
 msgstr "削除"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1211
 #: libraries/classes/Controllers/Table/TableStructureController.php:1216
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
+#: templates/table/structure/display_structure.twig:66
+#: templates/table/structure/check_all_table_column.twig:47
+#: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/columns_definitions/column_indexes.twig:12
-#: templates/table/structure/display_structure.twig:66
-#: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/table/structure/check_all_table_column.twig:47
-#: templates/columns_definitions/table_fields_definitions.twig:46
 msgid "Index"
 msgstr "インデックス"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1212
 #: libraries/classes/Controllers/Table/TableStructureController.php:1217
 #: libraries/classes/Index.php:721
+#: templates/table/structure/check_all_table_column.twig:40
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 #: templates/columns_definitions/column_indexes.twig:8
-#: templates/table/structure/check_all_table_column.twig:40
 msgid "Unique"
 msgstr "ユニーク"
 
@@ -7355,9 +7145,9 @@ msgstr "空間"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1214
 #: libraries/classes/Controllers/Table/TableStructureController.php:1219
-#: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/check_all_table_column.twig:54
 #: templates/table/structure/check_all_table_column.twig:66
+#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "全文"
 
@@ -7662,7 +7452,13 @@ msgstr ""
 "phpMyAdminで非推奨のmysql拡張機能を使用しています。mysqli拡張機能の導入を検討"
 "してください。"
 
-#: libraries/classes/Dbi/DbiMysqli.php:169
+#: libraries/classes/Dbi/DbiMysql.php:50
+msgid ""
+"Please disable mysql.allow_local_infile in your PHP configuration or install "
+"the mysqli extension."
+msgstr "PHPの設定でmysql.allow_local_infileを無効にするか、mysqli拡張モジュールをインストールしてください。"
+
+#: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "サーバーによりSSL接続が自動的に有効に（強制）されています。"
 
@@ -7701,7 +7497,9 @@ msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
-msgstr "このメソッドは、<i> SSL接続</i>'、または<i>非暗号化接続の場合、RSA パスワードを利用する</i>必要があります。"
+msgstr ""
+"このメソッドは、<i> SSL接続</i>'、または<i>非暗号化接続の場合、RSA パスワード"
+"を利用する</i>必要があります。"
 
 #: libraries/classes/Display/Export.php:332
 msgid "@SERVER@ will become the server name"
@@ -7822,9 +7620,9 @@ msgstr "全文"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
+#: templates/table/search/options.twig:54
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
-#: templates/table/search/options.twig:54
 msgid "Descending"
 msgstr "降順"
 
@@ -7835,9 +7633,9 @@ msgstr "降順"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
+#: templates/table/search/options.twig:54
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
-#: templates/table/search/options.twig:54
 msgid "Ascending"
 msgstr "昇順"
 
@@ -7883,9 +7681,9 @@ msgstr "クエリの実行時間 %01.4f 秒"
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
-#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
+#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "チェックしたものを:"
 
@@ -7893,10 +7691,11 @@ msgstr "チェックしたものを:"
 #: libraries/classes/Display/Results.php:4688
 #: libraries/classes/Server/Privileges.php:1179
 #: libraries/classes/Server/Privileges.php:1180
-#: libraries/classes/Server/UserGroups.php:248 templates/select_all.twig:4
-#: templates/select_all.twig:5 templates/privileges/global_priv_table.twig:5
+#: libraries/classes/Server/UserGroups.php:248
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
+#: templates/select_all.twig:4 templates/select_all.twig:5
+#: templates/privileges/global_priv_table.twig:5
 #, fuzzy
 #| msgid "Check All"
 msgid "Check all"
@@ -8497,7 +8296,9 @@ msgstr "１つのテーブルのUPDATEとDELETEクエリをシミュレートす
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
-msgstr "トランザクションエンジンテーブルを含むINSERT、UPDATE、DELETE、およびREPLACE SQLクエリのみをロールバックできます。"
+msgstr ""
+"トランザクションエンジンテーブルを含むINSERT、UPDATE、DELETE、およびREPLACE "
+"SQLクエリのみをロールバックできます。"
 
 #: libraries/classes/Index.php:658
 #, php-format
@@ -8520,11 +8321,11 @@ msgstr "一意な値の数"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/columns_definitions/partitions.twig:85
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/columns_definitions/partitions.twig:85
 #: templates/database/structure/table_header.twig:48
 #: templates/table/structure/display_partitions.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:12
 msgid "Comment"
 msgstr "コメント"
 
@@ -8639,13 +8440,13 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1627
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/table/search/table_header.twig:10
-#: templates/database/designer/where_query_panel.twig:69
+#: templates/server/variables/variable_table_head.twig:5
 #: templates/database/designer/having_query_panel.twig:100
+#: templates/database/designer/where_query_panel.twig:69
+#: templates/table/search/zoom_result_form.twig:36
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
-#: templates/table/search/zoom_result_form.twig:36
-#: templates/server/variables/variable_table_head.twig:5
+#: templates/table/search/table_header.twig:10
 msgid "Value"
 msgstr "値"
 
@@ -8658,12 +8459,12 @@ msgstr "SQL クエリを表示"
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
 
-#: libraries/classes/LanguageManager.php:908
+#: libraries/classes/LanguageManager.php:915
 msgid "Ignoring unsupported language code."
 msgstr "サポートされていない言語のコードを無視します。"
 
-#: libraries/classes/LanguageManager.php:935
-#: libraries/classes/LanguageManager.php:936 setup/frames/index.inc.php:63
+#: libraries/classes/LanguageManager.php:942
+#: libraries/classes/LanguageManager.php:943 setup/frames/index.inc.php:63
 msgid "Language"
 msgstr "言語"
 
@@ -8698,8 +8499,8 @@ msgstr "“%s”"
 #: libraries/classes/Util.php:3316 libraries/classes/Util.php:3317
 #: libraries/classes/Util.php:3994 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/database/search/results.twig:34
 #: templates/table/structure/check_all_table_column.twig:8
+#: templates/database/search/results.twig:34
 msgid "Browse"
 msgstr "表示"
 
@@ -8729,8 +8530,8 @@ msgstr "挿入"
 #: libraries/classes/Server/Privileges.php:2569
 #: libraries/classes/Server/Privileges.php:4440 libraries/classes/Util.php:3985
 #: libraries/classes/Util.php:4001 libraries/config.values.php:107
-#: templates/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
+#: templates/privileges/privileges_summary.twig:15
 msgid "Privileges"
 msgstr "特権"
 
@@ -8805,9 +8606,9 @@ msgstr "バイナリログ"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3971
-#: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
+#: templates/server/sub_page_header.twig:2
+#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "レプリケーション"
 
@@ -8944,8 +8745,8 @@ msgstr "ビュー"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/tracking/tracked_tables.twig:17
 #: templates/database/multi_table_query/form.twig:44
+#: templates/database/tracking/tracked_tables.twig:17
 msgid "Show"
 msgstr "表示"
 
@@ -8984,14 +8785,15 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
-"ナビゲーションパネルに大きな項目グループがあり、パフォーマンスに影響を与える可能性があります。ナビゲーションパネルで項目のグループ化を無効にすることを検討"
-"してください。"
+"ナビゲーションパネルに大きな項目グループがあり、パフォーマンスに影響を与える"
+"可能性があります。ナビゲーションパネルで項目のグループ化を無効にすることを検"
+"討してください。"
 
 #: libraries/classes/Navigation/NavigationTree.php:951
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
+msgstr[0] "%s が見つかりました"
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
@@ -9139,7 +8941,7 @@ msgstr "すべてのカラムをアトミックにする"
 #: libraries/classes/Normalization.php:184
 #: libraries/classes/Normalization.php:883
 msgid "First step of normalization (1NF)"
-msgstr "正規化(1NF)の最初のステップ"
+msgstr "第1正規化(1NF)"
 
 #: libraries/classes/Normalization.php:187
 #: libraries/classes/Normalization.php:238
@@ -9152,7 +8954,9 @@ msgstr "ステップ １"
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
-msgstr "複数に分割できるカラムはありませんか？ 例えば、「住所」は「番地」、「市区町村」、「都道府県」、「郵便番号」、「国」などに分割できます。"
+msgstr ""
+"複数に分割できるカラムはありませんか？ 例えば、「住所」は「番地」、「市区町"
+"村」、「都道府県」、「郵便番号」、「国」などに分割できます。"
 
 #: libraries/classes/Normalization.php:196
 msgid "Show me the central list of columns that are not already in this table"
@@ -9162,7 +8966,9 @@ msgstr "このテーブルに存在しないカラムの中央リストを表示
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
-msgstr "分割可能なカラムを選択（もしくは ’カラムがありません’ を選択）し、次のステップに進みます。"
+msgstr ""
+"分割可能なカラムを選択（もしくは ’カラムがありません’ を選択）し、次のステッ"
+"プに進みます。"
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
 #, fuzzy
@@ -9203,8 +9009,9 @@ msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"プライマリーキーがありません。１つ追加してください。<br/"
-">ヒント：プライマリーキーはすべての行を個別に識別できるカラム（や、カラムの組み合わせ）に指定します。"
+"プライマリーキーがありません。１つ追加してください。<br/>ヒント：プライマリー"
+"キーはすべての行を個別に識別できるカラム（や、カラムの組み合わせ）に指定しま"
+"す。"
 
 #: libraries/classes/Normalization.php:254
 msgid "Add a primary key on existing column(s)"
@@ -9213,7 +9020,8 @@ msgstr "既存のカラムにプライマリーキーを設定します"
 #: libraries/classes/Normalization.php:259
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
-msgstr "プライマリキーとして既存のカラムの組み合わせを設定することができない場合"
+msgstr ""
+"プライマリキーとして既存のカラムの組み合わせを設定することができない場合"
 
 #: libraries/classes/Normalization.php:263
 #, fuzzy
@@ -9233,13 +9041,16 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
-"複数のカラムを統合して既に存在しているカラムの値になりますか？例：３つのカラムがあります：「姓」、「名」、「氏名」。この場合、「氏名」は不要です。"
+"複数のカラムを統合して既に存在しているカラムの値になりますか？例：３つのカラ"
+"ムがあります：「姓」、「名」、「氏名」。この場合、「氏名」は不要です。"
 
 #: libraries/classes/Normalization.php:295
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
-msgstr "不要なカラムにチェックを入れて「削除」をクリック。不要なカラムがない場合、「不要カラムなし」をクリック"
+msgstr ""
+"不要なカラムにチェックを入れて「削除」をクリック。不要なカラムがない場合、"
+"「不要カラムなし」をクリック"
 
 #: libraries/classes/Normalization.php:300
 #, fuzzy
@@ -9263,18 +9074,22 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
-"２つ以上近い関係のカラムが同じ特性を繰り返していますか？例：あるテーブルが「本」のデータが入っています。カラムは「book_id」、「author1」、「"
-"author2」、「author3」、等々で「連絡グループ」が作られています。この場合、新しいテーブルを作成すべきです。"
+"２つ以上近い関係のカラムが同じ特性を繰り返していますか？例：あるテーブルが"
+"「本」のデータが入っています。カラムは「book_id」、「author1」、「author2」、"
+"「author3」、等々で「繰り返しグループ」が作られています。この場合、新しいテー"
+"ブルを作成すべきです。"
 
 #: libraries/classes/Normalization.php:335
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
-msgstr "連続グループのカラムを選択してください。存在していない場合、「連続グループ無し」をクリック"
+msgstr ""
+"繰り返しグループのカラムを選択してください。存在していない場合、「繰り返しグ"
+"ループ無し」をクリック"
 
 #: libraries/classes/Normalization.php:341
 msgid "No repeating group"
-msgstr "連続グループ無し"
+msgstr "繰り返しグループ無し"
 
 #: libraries/classes/Normalization.php:370
 msgid "Step 2."
@@ -9290,11 +9105,13 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"部分依存関係は不可能。理由：主キーのないカラムが存在しない。主キー「%1$s」は"
+"テーブルの全てのカラムになっている。"
 
 #: libraries/classes/Normalization.php:399
 #: libraries/classes/Normalization.php:444
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "テーブルは既に第2正規形になっている。"
 
 #: libraries/classes/Normalization.php:404
 #, php-format
@@ -9302,17 +9119,19 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"主キー「%1$s」は複数カラムで作成されています。部分依存関係カラムを確認する必"
+"要があります。"
 
 #: libraries/classes/Normalization.php:409
 #: libraries/classes/Normalization.php:796
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr ""
+msgstr "正しい正規化を得るために慎重に次の質問に答えてください。"
 
 #: libraries/classes/Normalization.php:413
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ テーブル内のデータに基づいて可能な部分的な依存関係を表示"
 
 #: libraries/classes/Normalization.php:417
 msgid ""
@@ -9320,19 +9139,21 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"以下の各カラムで、カラムの値を決定するために<b>最小限</b>のカラム組み合わせを"
+"指定してください。"
 
 #: libraries/classes/Normalization.php:427
 #: libraries/classes/Normalization.php:835
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s'が次に依存します:"
 
 #: libraries/classes/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr ""
+msgstr "部分依存関係は不可能。理由：主キー「%1$s」は１つのカラムしかない。"
 
 #: libraries/classes/Normalization.php:468
 #, php-format
@@ -9340,11 +9161,12 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"元テーブル「%1$s」を第2正規形になる為、次のテーブルを作成する必要があります："
 
 #: libraries/classes/Normalization.php:505
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "テーブル「%1$s」の第２正規形は完了しました。"
 
 #: libraries/classes/Normalization.php:545
 #: libraries/classes/Normalization.php:695
@@ -9360,16 +9182,17 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"元のテーブル「%1$s」を第３正規形になる為、次のテーブルを作成する必要がありま"
+"す："
 
 #: libraries/classes/Normalization.php:639
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "第３正規化が完了しました。"
 
 #: libraries/classes/Normalization.php:746
-#, fuzzy, php-format
-#| msgid "Selected target tables have been synchronized with source tables."
+#, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "選択された対象先のテーブルは、元のテーブルと同期されています。"
+msgstr "選択された繰り返しグループが「%s」のテーブルへ移動されました"
 
 #: libraries/classes/Normalization.php:793
 #, fuzzy
@@ -9379,7 +9202,7 @@ msgstr "9 月"
 
 #: libraries/classes/Normalization.php:793
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "過渡的依存性を検知"
 
 #: libraries/classes/Normalization.php:800
 msgid ""
@@ -9388,16 +9211,19 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"以下の各カラムで、カラムの値を決定するために<b>最小限</b>のカラム組み合わせを"
+"指定してください。<br />※カラムは過渡的依存がない場合、選択する必要がありませ"
+"ん。"
 
 #: libraries/classes/Normalization.php:849
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
-msgstr ""
+msgstr "テーブルには主キーカラムがないので、過渡的依存性は不可能"
 
 #: libraries/classes/Normalization.php:853
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "テーブルは既に第3正規形になっている!"
 
 #: libraries/classes/Normalization.php:879
 #, fuzzy
@@ -9407,31 +9233,33 @@ msgstr "テーブル構造の操作欄を折り畳む"
 
 #: libraries/classes/Normalization.php:880
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "どのステップまでに正規化するかを選択してください"
 
 #: libraries/classes/Normalization.php:884
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "第２正規化(1NF+2NF)"
 
 #: libraries/classes/Normalization.php:885
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "第３正規化(1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:895
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
-msgstr ""
+msgstr "ヒント：正しい正規化を得るために慎重に手順に従ってください"
 
 #: libraries/classes/Normalization.php:961
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"この一覧はテーブルのデータサブセットの元で作成されたので、必ずしも正確ではあ"
+"りません。 "
 
 #: libraries/classes/Normalization.php:977
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "部分的な依存が見つかりませんでした!"
 
 #: libraries/classes/Operations.php:104
 #, fuzzy
@@ -9485,7 +9313,7 @@ msgstr "テーブルのキャプション (続き)"
 
 #: libraries/classes/Operations.php:326
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "すべてのテーブルのカラム照合順序を変更する"
 
 #: libraries/classes/Operations.php:803
 msgid "Alter table order by"
@@ -9518,7 +9346,7 @@ msgstr "ストレージエンジン"
 
 #: libraries/classes/Operations.php:1097
 msgid "Change all column collations"
-msgstr ""
+msgstr "すべてのカラムの照合順序を変更する"
 
 #: libraries/classes/Operations.php:1268
 msgid "Copy table to (database<b>.</b>table)"
@@ -9564,8 +9392,8 @@ msgid "Flush the table (FLUSH)"
 msgstr "テーブルをフラッシュする (FLUSH)"
 
 #: libraries/classes/Operations.php:1470
-#: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
+#: templates/table/structure/display_table_stats.twig:61
 msgid "Optimize table"
 msgstr "テーブルを最適化する"
 
@@ -9616,7 +9444,7 @@ msgstr "修復"
 #: libraries/classes/Operations.php:1593
 #: templates/table/structure/display_structure.twig:179
 msgid "Truncate"
-msgstr ""
+msgstr "Truncate"
 
 #: libraries/classes/Operations.php:1607
 #, fuzzy
@@ -9717,11 +9545,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:153
 msgid "Retry to connect"
-msgstr ""
+msgstr "接続を再試行"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:134
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "セッションが期限切れです。もう一度ログインしてください。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:154
 msgid "Log in"
@@ -9751,11 +9579,12 @@ msgstr "対象先のデータベースに接続できませんでした"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:315
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "入力されたCAPTCHAは間違っている、もう一度お試しください！"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"recaptcha検証がない。adblockによってブロックされている可能性があります。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
 #, fuzzy
@@ -9790,11 +9619,11 @@ msgstr "MySQL サーバにログインできません"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:335
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "二要素認証が有効化しています。認証コードを入力してください。"
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
 msgstr "フォーマット:"
 
@@ -9925,11 +9754,11 @@ msgstr "ビュー用の代替構造"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:89
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "JSONをプリティプリント出力する（人間が読める書式を利用）"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:95
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "エスケープしないでUnicode文字を出力する"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "Content of table @TABLE@"
@@ -10117,7 +9946,7 @@ msgstr "%s コマンドを追加する"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:290
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "（テーブル作成中にインデックスが生成されるので、効率が悪い）"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
 #, fuzzy, php-format
@@ -10220,13 +10049,13 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:520
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "データベースはルーチンを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:523
 #: libraries/classes/Plugins/Export/ExportSql.php:1550
 #: libraries/classes/Plugins/Export/ExportSql.php:2072
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "エイリアスエクスポートは確実に動作しない場合があります。"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1010
 #, fuzzy
@@ -10269,7 +10098,7 @@ msgstr "テーブルの構造"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "データベースはビューを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1724
 msgid "Constraints for dumped tables"
@@ -10315,7 +10144,7 @@ msgstr "テーブルのリレーション"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "データベースはトリガを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
 #, fuzzy, php-format
@@ -10325,7 +10154,7 @@ msgstr "ビュー用の構造"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(実際のビューを参照するには下にあります)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #, fuzzy, php-format
@@ -10349,7 +10178,7 @@ msgstr "テーブル"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:160
 msgid "Purpose:"
-msgstr ""
+msgstr "目的："
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:541
 #, fuzzy
@@ -10361,6 +10190,8 @@ msgstr "MIME タイプ"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"インポート中に重複したキーが見つかった場合も更新する(「ON DUPLICATE KEY "
+"UPDATE」を追加)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:63
 #: libraries/classes/Plugins/Import/ImportOds.php:64
@@ -10526,8 +10357,8 @@ msgstr "テーブルの内容"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/structure/table_structure_header.twig:14
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/table_structure_header.twig:14
 msgid "Extra"
 msgstr "その他"
 
@@ -10553,7 +10384,7 @@ msgstr "縦向き"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:62
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:61
 msgid "Same width for all tables"
-msgstr ""
+msgstr "すべてのテーブルは同じ幅を利用"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:87
 msgid "Show grid"
@@ -10597,6 +10428,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"ブール値をTEXTに変換します。 デフォルトは 「T」と 「F」です。 最初のオプショ"
+"ンはTRUE、2番目のオプションはFALSEです。 0以外の値= TRUE。"
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:30
 msgid ""
@@ -10695,10 +10528,12 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"イメージアップロード機能です。サムネールも表示します。サムネールの設定はpx単"
+"位で幅と高さです。既定値は100X100。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:87
 msgid "Image preview here"
-msgstr ""
+msgstr "イメージプレビューはこちら"
 
 #: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:32
 msgid ""
@@ -10726,17 +10561,22 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"文字列の先頭または末尾にテキストを追加します。 最初のオプションは先頭に追加す"
+"るテキスト、2番目のオプションは末尾に追加します（一重引用符で囲み、デフォルト"
+"は空の文字列）。"
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:30
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"正規表現を使用して文字列を検証し、文字列がそれに一致する場合にのみ挿入を実行"
+"します。 最初のオプションは正規表現です。"
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:52
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "入力文字列%sで検証が失敗しました。"
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:29
 msgid "Formats text as SQL query with syntax highlighting."
@@ -10760,6 +10600,7 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"「TEXT」カラムのファイルアップロード機能です、textarea入力がありません。"
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:33
 msgid ""
@@ -10784,18 +10625,19 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
+"( IPv 4 / IPv 6 )形式のインターネットネットワークアドレスをバイナリに変換する"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "JSONの構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "SQLの構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "XML(またHTML)の構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:30
 #, fuzzy
@@ -10826,6 +10668,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"GD PHP拡張モジュールが見つかりませんでした。QRcodeはGD PHP拡張モジュールがな"
+"いと表示できません。"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 #, fuzzy
@@ -10838,15 +10682,19 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"FreeOTP、Google Authenticator、AuthyなどのHOTPおよびTOTPアプリケーションを使"
+"用した認証を提供します。"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "ハードウェアセキュリティキー(FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"FIDO U2Fをサポートするハードウェアセキュリティトークンを使用して認証を行いま"
+"す。"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 #, fuzzy
@@ -10856,7 +10704,7 @@ msgstr "サインオン認証"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "テスト目的のみ！"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, fuzzy, php-format
@@ -10872,11 +10720,11 @@ msgstr "ハードウェア認証に失敗しました！"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr ""
+msgstr "二要素認証なし"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "パスワードのみログインを使用します。"
 
 #: libraries/classes/RecentFavoriteTable.php:145
 #, fuzzy
@@ -11012,11 +10860,11 @@ msgstr "ナビゲーションフレームの再読み込み"
 
 #: libraries/classes/Relation.php:329
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "「例によるクエリ」検索を保存しています"
 
 #: libraries/classes/Relation.php:340
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "中央リストカラムの管理"
 
 #: libraries/classes/Relation.php:351
 #, fuzzy
@@ -11067,6 +10915,8 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"「phpMyAdmin」という名前のデータベースを作成するのに必要な権限はありません。"
+"任意のデータベースの「操作」タブで、phpMyAdmin環境保管領域を設定が出来ます。"
 
 #: libraries/classes/Relation.php:2003
 #, fuzzy, php-format
@@ -11420,6 +11270,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"サーバーへの接続が無効になっています。phpMyAdmin設定で"
+"$cfg['AllowArbitraryServer']を有効にしてください。"
 
 #: libraries/classes/ReplicationGui.php:923
 #, fuzzy
@@ -11459,7 +11311,7 @@ msgstr "マスタレプリケーション"
 
 #: libraries/classes/ReplicationGui.php:935
 msgid "Success."
-msgstr ""
+msgstr "成功しました。"
 
 #: libraries/classes/ReplicationGui.php:936
 #, fuzzy
@@ -11721,6 +11573,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"この操作を行うのに十分な権限はありません。詳細についてはドキュメンテーション"
+"を参照してください"
 
 #: libraries/classes/Rte/Routines.php:1050
 msgid "Security type"
@@ -11869,6 +11723,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"データベース「%2$s」で「%1$s」のルーチンはありません。このルーチンを編集する"
+"為に必要な権限がない可能性があります。"
 
 #: libraries/classes/Rte/Words.php:44
 #, php-format
@@ -11876,6 +11732,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"データベース「%2$s」で「%1$s」のルーチンはありません。このルーチンを表示・エ"
+"クスポートする為に必要な権限がない可能性があります。"
 
 #: libraries/classes/Rte/Words.php:47
 #, fuzzy, php-format
@@ -11964,7 +11822,7 @@ msgstr "ユーザ %s は既に存在します!"
 
 #: libraries/classes/SavedSearches.php:368
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "この検索を削除する為、情報に誤りがあります。"
 
 #: libraries/classes/SavedSearches.php:396
 msgid "Missing information to load the search."
@@ -12152,19 +12010,19 @@ msgstr "永続的な接続"
 
 #: libraries/classes/Server/Privileges.php:758
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:783
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "接続に特定の暗号方式を使用する必要があります。"
 
 #: libraries/classes/Server/Privileges.php:796
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "CAによって発行された有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:809
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "この「SUBJECT」を持つ有効なX509証明書が必要です。"
 
 #: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
 msgid "Limits the number of queries the user may send to the server per hour."
@@ -12200,6 +12058,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"ユーザがこのルーチン内で他のユーザの権限を編集するための権限をユーザに付与す"
+"ることを許可します。"
 
 #: libraries/classes/Server/Privileges.php:949
 #, fuzzy
@@ -12267,6 +12127,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"ユーザがこのルーチン内で自分を持っている権限でも他のユーザの権限を編集するた"
+"めの権限をユーザに付与することを許可します。"
 
 #: libraries/classes/Server/Privileges.php:1431
 #: libraries/classes/Server/Privileges.php:1462
@@ -12288,8 +12150,8 @@ msgstr "ログイン情報"
 
 #: libraries/classes/Server/Privileges.php:1521
 #: libraries/classes/Server/Privileges.php:1679
-#: templates/privileges/add_privileges_routine.twig:7
 #: templates/privileges/add_privileges_table.twig:7
+#: templates/privileges/add_privileges_routine.twig:7
 msgid "Use text field"
 msgstr "テキスト入力項目の値を利用する"
 
@@ -12298,6 +12160,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
+"同じユーザ名のアカウントが既に存在していますが、別のホスト名が設定している可"
+"能性があります。"
 
 #: libraries/classes/Server/Privileges.php:1556
 #, fuzzy
@@ -12386,7 +12250,7 @@ msgstr "権限委譲"
 
 #: libraries/classes/Server/Privileges.php:2585
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "ユーザを表示する為に十分な権限はありません。"
 
 #: libraries/classes/Server/Privileges.php:2604
 #: libraries/classes/Server/Privileges.php:3978
@@ -12476,7 +12340,7 @@ msgstr "このカラムに固有の特権"
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
-msgstr ""
+msgstr "ユーザグループ"
 
 #: libraries/classes/Server/Privileges.php:3676
 #: libraries/classes/Server/Privileges.php:4811
@@ -12541,7 +12405,7 @@ msgstr "ユーザグループ"
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr ""
+msgstr "注意:現在ログインしているユーザーの権限を編集しようとしています。"
 
 #: libraries/classes/Server/Privileges.php:4626
 #: libraries/classes/Server/Users.php:30
@@ -12554,6 +12418,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"localhostから任意のユーザーに接続を許可するユーザが存在します。 これにより、"
+"そのアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、"
+"他のユーザーは接続できなくなります。"
 
 #: libraries/classes/Server/Privileges.php:4743
 #, fuzzy, php-format
@@ -13006,7 +12873,7 @@ msgstr "コマンド"
 
 #: libraries/classes/Server/Status/Processes.php:105
 msgid "Progress"
-msgstr ""
+msgstr "進捗"
 
 #: libraries/classes/Server/Status/Processes.php:232
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
@@ -13739,11 +13606,11 @@ msgstr "スリープしていないスレッドの数。"
 #: libraries/classes/Server/UserGroups.php:32
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "「%s 」ユーザグループのユーザ"
 
 #: libraries/classes/Server/UserGroups.php:45
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "このユーザグループにユーザが存在しません。"
 
 #: libraries/classes/Server/UserGroups.php:75
 #: libraries/classes/Server/Users.php:38
@@ -13786,7 +13653,7 @@ msgstr "ユーザを追加する"
 #: libraries/classes/Server/UserGroups.php:228
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "ユーザグループ「%s」を編集"
 
 #: libraries/classes/Server/UserGroups.php:244
 #, fuzzy
@@ -13838,7 +13705,7 @@ msgstr "開始"
 
 #: libraries/classes/Sql.php:282
 msgid "Summary by state"
-msgstr ""
+msgstr "状態によってまとめ"
 
 #: libraries/classes/Sql.php:288
 #, fuzzy
@@ -13948,7 +13815,7 @@ msgstr "クリア"
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "自動保存されたクエリを取得"
 
 #: libraries/classes/SqlQueryForm.php:260
 #, fuzzy
@@ -13974,7 +13841,7 @@ msgstr "実行したクエリをここに表示する"
 
 #: libraries/classes/SqlQueryForm.php:363
 msgid "Rollback when finished"
-msgstr ""
+msgstr "完了した後、ロールバック"
 
 #: libraries/classes/SqlQueryForm.php:410
 msgid "shared"
@@ -14345,6 +14212,8 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"ビットフィールドタイプ（M）。値ごとにMビットを保管します（デフォルトは1、最大"
+"は64です）"
 
 #: libraries/classes/Types.php:258
 msgid ""
@@ -14534,6 +14403,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"JSON（JavaScript Object Notation）文書内のデータを格納し、効率的にデータにア"
+"クセスする"
 
 #: libraries/classes/Types.php:695
 msgctxt "numeric types"
@@ -14587,7 +14458,7 @@ msgstr "SQL の EXPLAIN 解析をスキップ"
 #: libraries/classes/Util.php:1060
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "「%s」のEXPLAINを分析"
 
 #: libraries/classes/Util.php:1091
 #, fuzzy
@@ -14671,19 +14542,19 @@ msgstr "実行"
 
 #: libraries/classes/Util.php:3835
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSLは使用されていません"
 
 #: libraries/classes/Util.php:3840
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSLは無効な検証で使用されます"
 
 #: libraries/classes/Util.php:3842
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSLはCAなしで使用されます"
 
 #: libraries/classes/Util.php:3845
 msgid "SSL is used"
-msgstr ""
+msgstr "SSLを使用されています"
 
 #: libraries/classes/Util.php:3966
 msgid "Users"
@@ -14707,6 +14578,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"セッションクッキーの設定に失敗しました。 phpMyAdminにアクセスするのにHTTPSの"
+"代わりにHTTPが使用されている可能性があります。"
 
 #: libraries/common.inc.php:340
 msgid "Invalid authentication method set in configuration:"
@@ -14872,11 +14745,11 @@ msgstr ""
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "致命的なエラー：ナビゲーションへのアクセスに使用できるのはAjaxだけです"
 
 #: prefs_forms.php:30 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "不正なフォームが指定された！"
 
 #: prefs_forms.php:82
 #, fuzzy
@@ -15002,14 +14875,16 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"ユーザ名とホスト名は変更されませんでした。パスワードを変更したい場合は、「パ"
+"スワードを変更する」タブを使用してください。"
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "サーバ状態を表示する為に十分な権限はありません。"
 
 #: server_status_advisor.php:33
 msgid "Not enough privilege to view the advisor."
-msgstr ""
+msgstr "アドバイザを表示する為に十分な権限はありません。"
 
 #: server_status_processes.php:33
 #, php-format
@@ -15024,11 +14899,11 @@ msgstr "スレッド %s の終了に失敗しました。すでに閉じてい�
 
 #: server_status_queries.php:43
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "クエリ統計を表示するのに十分な権限はありません。"
 
 #: server_status_variables.php:52
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "ステータス変数を表示する権限は十分ありません。"
 
 #: setup/frames/config.inc.php:17 setup/frames/index.inc.php:189
 msgid "Configuration file"
@@ -15153,7 +15028,7 @@ msgstr "新しいサーバの追加"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "構成は、既に存際しています。セットアップは無効化された！"
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
@@ -15215,7 +15090,7 @@ msgstr "データが正しくありません"
 #: setup/validate.php:32
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "「%s」のデータが間違っているか、検証されていません"
 
 #: tbl_create.php:36 tbl_get_field.php:31
 #, php-format
@@ -15238,7 +15113,7 @@ msgstr "テーブル名が不正です"
 #: tbl_replace.php:245
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "行:%1$s ,カラム%2$s ,エラー:%3$s"
 
 #: tbl_row_action.php:73
 #, fuzzy
@@ -15310,124 +15185,435 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "説明"
 
-#: templates/table/chart/tbl_chart.twig:15
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "横棒グラフ"
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "この値を利用する"
 
-#: templates/table/chart/tbl_chart.twig:19
-msgctxt "Chart type"
-msgid "Column"
-msgstr "カラム"
-
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
-msgstr "折れ線グラフ"
-
-#: templates/table/chart/tbl_chart.twig:27
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "曲線グラフ"
-
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
-msgstr "面グラフ"
-
-#: templates/table/chart/tbl_chart.twig:35
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "円グラフ"
-
-#: templates/table/chart/tbl_chart.twig:39
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
 #, fuzzy
-#| msgid "Time"
-msgctxt "Chart type"
-msgid "Timeline"
-msgstr "時間"
+#| msgid "Create relation"
+msgid "Create relationship"
+msgstr "リレーションを作成"
 
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
-msgstr "散布図"
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr "新しいエイリアスを定義する"
 
-#: templates/table/chart/tbl_chart.twig:48
-msgid "Stacked"
-msgstr "積み上げ形式"
-
-#: templates/table/chart/tbl_chart.twig:51
+#: templates/export/alias_add.twig:9
 #, fuzzy
-#| msgid "Chart title"
-msgid "Chart title:"
-msgstr "グラフの題名"
+#| msgid "Select Tables"
+msgid "Select database:"
+msgstr "テーブルを選択してください"
 
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
-msgstr "X 軸:"
-
-#: templates/table/chart/tbl_chart.twig:71
-msgid "Series:"
-msgstr "系列："
-
-#: templates/table/chart/tbl_chart.twig:102
-msgid "X-Axis label:"
-msgstr "X 軸のラベル:"
-
-#: templates/table/chart/tbl_chart.twig:104
-msgid "X Values"
-msgstr "X 軸の値"
-
-#: templates/table/chart/tbl_chart.twig:107
-msgid "Y-Axis label:"
-msgstr "Y 軸のラベル:"
-
-#: templates/table/chart/tbl_chart.twig:109
-msgid "Y Values"
-msgstr "Y 軸の値"
-
-#: templates/table/chart/tbl_chart.twig:115
-msgid "Series names are in a column"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:118
+#: templates/export/alias_add.twig:15
 #, fuzzy
-#| msgid "Inside column:"
-msgid "Series column:"
+#| msgid "database name"
+msgid "New database name"
+msgstr "データベース名"
+
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46 templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#, fuzzy
+#| msgid "And"
+msgid "Add"
+msgstr "および"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select table:"
+msgstr "テーブルを選択してください"
+
+#: templates/export/alias_add.twig:29
+#, fuzzy
+#| msgid "New page name: "
+msgid "New table name"
+msgstr "新しいページの名前: "
+
+#: templates/export/alias_add.twig:37
+#, fuzzy
+#| msgid "Select two columns"
+msgid "Select column:"
+msgstr "カラムを 2 つ選択してください"
+
+#: templates/export/alias_add.twig:43
+#, fuzzy
+#| msgid "Copy column name"
+msgid "New column name"
+msgstr "カラム名のコピー"
+
+#: templates/database/designer/database_tables.twig:31
+#, fuzzy
+#| msgid "Move columns"
+msgid "Show/hide columns"
+msgstr "カラムを移動させる"
+
+#: templates/database/designer/database_tables.twig:39
+#, fuzzy
+#| msgid "Table structure"
+msgid "See table structure"
+msgstr "テーブルの構造"
+
+#: templates/display/export/options_output.twig:2
+#: templates/display/export/options_quick_export.twig:2
+msgid "Output:"
+msgstr "出力:"
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "出力をファイルに保存する"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr "「%s」MiB より大きいテーブルをスキップ"
+
+#: templates/display/export/method.twig:3
+#, fuzzy
+#| msgid "Export method"
+msgid "Export method:"
+msgstr "エクスポート方法"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "簡易 - 最小限のオプションだけ表示"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "詳細 - 可能なオプションをすべて表示"
+
+#: templates/export/alias_item.twig:8
+#, fuzzy
+#| msgid "Remote server"
+msgid "Remove"
+msgstr "リモートサーバ"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "データベース内検索"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "検索する単語や値 (ワイルドカード: \"%\"):"
+
+#: templates/database/search/selection_form.twig:15
+#: templates/table/search/search_and_replace.twig:1
+msgid "Find:"
+msgstr "検索条件:"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "検索するテーブル:"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
 msgstr "検索するカラム:"
 
-#: templates/table/chart/tbl_chart.twig:132
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "現在のサーバからデータベースをエクスポート"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "データベース \"%s\" からテーブルをエクスポート"
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "テーブル \"%s\" から行単位でデータをエクスポート"
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Jump to database '%s'"
+msgstr "データベースに移動"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "データベース「%s」の特権を確認します。"
+
+#: templates/server/databases/table_row.twig:62
 #, fuzzy
-#| msgid "Values for column %s"
-msgid "Value Column:"
-msgstr "カラム %s に対しての値"
+#| msgid "Check Privileges"
+msgid "Check privileges"
+msgstr "特権をチェックする"
 
-#: templates/table/chart/tbl_chart.twig:153
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save chart as image"
-msgstr "ファイルに保存する"
+#: templates/database/designer/rename_to_panel.twig:22
+#: templates/database/designer/options_panel.twig:84
+msgid "Rename to"
+msgstr "変更後の名称"
 
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
+#: templates/database/designer/rename_to_panel.twig:30
+#: templates/database/designer/options_panel.twig:90
+msgid "New name"
+msgstr "新しい名前"
 
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/where_query_panel.twig:30
 #: templates/database/designer/having_query_panel.twig:30
 #: templates/database/designer/having_query_panel.twig:61
+#: templates/database/designer/where_query_panel.twig:30
 #: templates/database/designer/options_panel.twig:105
 #: templates/database/designer/options_panel.twig:169
+#: templates/table/search/table_header.twig:9
 #: templates/database/designer/aggregate_query_panel.twig:30
 msgid "Operator"
 msgstr "演算子"
 
-#: templates/table/insert/continue_insertion_form.twig:18
+#: templates/database/designer/having_query_panel.twig:90
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+msgid "Except"
+msgstr "以外"
+
+#: templates/database/designer/having_query_panel.twig:102
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+msgid "subquery"
+msgstr "サブクエリ"
+
+#: templates/columns_definitions/column_virtuality.twig:29
+#: templates/table/structure/display_partitions.twig:26
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "圧縮"
+
+#: templates/table/structure/display_structure.twig:137
+#: templates/view_create.twig:13
+msgid "Edit view"
+msgstr "ビューを編集する"
+
+#: templates/table/structure/display_structure.twig:191
+#: templates/table/structure/display_partitions.twig:4
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "パーティション %s"
+
+#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/table/structure/optional_action_links.twig:19
+msgid "Move columns"
+msgstr "カラムを移動させる"
+
+#: templates/table/structure/move_columns_dialog.twig:2
+msgid "Move the columns by dragging them up and down."
+msgstr "ドラックして上下させ、カラムを移動させてください。"
+
+#: templates/table/structure/table_structure_row.twig:34
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+msgctxt "None for default"
+msgid "None"
+msgstr "なし"
+
+#: templates/table/structure/table_structure_row.twig:55
 #, php-format
-msgid "Continue insertion with %s rows"
-msgstr "%s 行づつ挿入を行う"
+msgid "Column %s has been dropped."
+msgstr "カラム %s を削除しました。"
+
+#: templates/table/structure/check_all_table_column.twig:76
+#: templates/table/structure/actions_in_table_structure.twig:131
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add to central columns"
+msgstr "文字入力用 textarea の 1 行の文字数"
+
+#: templates/table/structure/check_all_table_column.twig:83
+#: templates/table/structure/actions_in_table_structure.twig:127
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Remove from central columns"
+msgstr "カラムの削除"
+
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr "なし"
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "ユーザ定義:"
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+#| msgid "Add this series"
+msgid "Add to Favorites"
+msgstr "この系列を追加する"
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+#, fuzzy
+#| msgid "Remove partitioning"
+msgid "Edit partitioning"
+msgstr "パーティションを削除"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page titles"
+msgid "Page to open"
+msgstr "ページタイトル"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Page to delete"
+msgstr "リレーションを削除しました"
+
+#: templates/table/structure/actions_in_table_structure.twig:15
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "%s に主キーを追加しました。"
+
+#: templates/table/structure/actions_in_table_structure.twig:33
+#: templates/table/structure/actions_in_table_structure.twig:51
+#: templates/table/structure/actions_in_table_structure.twig:80
+#: templates/table/structure/actions_in_table_structure.twig:103
+#, php-format
+msgid "An index has been added on %s."
+msgstr "%s にインデックスを追加しました。"
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "プラグイン"
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "作者"
+
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "無効"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr "ENUM/SETの値を編集"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "プレビューは利用できません。"
+
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "これにする"
+
+#: templates/table/relation/common_form.twig:6
+#, fuzzy
+#| msgid "Foreign key constraint"
+msgid "Foreign key constraints"
+msgstr "外部キー制約"
+
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "アクション"
+
+#: templates/table/relation/common_form.twig:11
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint properties"
+msgstr "テーブルの制約"
+
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+"インデックスのないカラムに外部キーを作成すると、自動的にインデックスが作成さ"
+"れます。 また、外部キーを作成する前に、まずカラムのインデックスを作成できま"
+"す。"
+
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+"インデックスのあるカラムのみが表示されます。インデックスを以下に定義できま"
+"す。"
+
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr "外部キー制約"
+
+#: templates/table/relation/common_form.twig:89
+#, fuzzy
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "制約を追加する"
+
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "内部リレーション"
+
+#: templates/table/relation/common_form.twig:110
+msgid "Internal relation"
+msgstr "内部リレーション"
+
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"対応する外部リレーションが存在する場合、内部リレーションは必要ありません。"
+
+#: templates/table/relation/common_form.twig:172
+#, fuzzy
+#| msgid "Choose column to display"
+msgid "Choose column to display:"
+msgstr "表示するカラムの選択"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+#, fuzzy
+#| msgid "#"
+msgctxt "Number"
+msgid "#"
+msgstr "クエリ数"
+
+#: templates/privileges/add_privileges_database.twig:1
+#, fuzzy
+#| msgid "Add privileges on the following database"
+msgid "Add privileges on the following database(s):"
+msgstr "データベースに特権を追加"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"_ や % というワイルドカードを文字として使用するときは \\ でエスケープしてくだ"
+"さい。"
+
+#: templates/display/export/options_output_save_dir.twig:5
+#: templates/display/export/options_quick_export.twig:8
+#, fuzzy, php-format
+#| msgid "Save on server in the directory <b>%s</b>"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "サーバ上のディレクトリ <b>%s</b> に保存する"
+
+#: templates/privileges/add_privileges_table.twig:3
+#, fuzzy
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following table:"
+msgstr "テーブルに特権を追加"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "結果表示／プロット点の編集"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "使い方"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "ズームを戻す"
 
 #: templates/columns_definitions/partitions.twig:17
 #, fuzzy
@@ -15521,25 +15707,224 @@ msgstr "テーブル検索"
 msgid "Node group"
 msgstr "ユーザグループ"
 
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "表示するバイナリログを選択してください"
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "オーバーヘッドのあるテーブルを確認する"
 
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "すべて隠す/表示"
-
-#: templates/database/designer/table_list.twig:14
+#: templates/database/structure/check_all_tables.twig:10
 #, fuzzy
-#| msgid "Hide/Show Tables with no relation"
-msgid "Hide/Show tables with no relationship"
-msgstr "リレーションのないテーブルを隠す/表示"
+#| msgid "No tables"
+msgid "Copy table"
+msgstr "テーブルがありません"
 
-#: templates/database/designer/table_list.twig:55
+#: templates/database/structure/check_all_tables.twig:11
 #, fuzzy
-#| msgid "Number of tables"
-msgid "Number of tables:"
-msgstr "テーブル数"
+#| msgid "Show color"
+msgid "Show create"
+msgstr "色表示"
+
+#: templates/database/structure/check_all_tables.twig:25
+#, fuzzy
+#| msgid "Add prefix"
+msgid "Prefix"
+msgstr "追加する接頭辞"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "接頭辞をテーブル名に追加する"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "テーブル名の接頭辞を付け替える"
+
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "文字入力用 textarea の 1 行の文字数"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr "中央リストからカラムを削除"
+
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Make consistent with central list"
+msgstr "文字入力用 textarea の 1 行の文字数"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+#, fuzzy
+msgid "Collapse"
+msgstr "折畳み"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr "展開"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+#, fuzzy
+#| msgid "subquery"
+msgid "Requery"
+msgstr "サブクエリ"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"アップロードされているファイルが最大許容サイズよりもおそらく大きい、もしく"
+"は、WebKit がベースのブラウザ (Safari、Google Chrome、Arora など) の既知のバ"
+"グです。"
+
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr "%s of %s"
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/秒。"
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "残り時間 約 %MIN 分 %SEC 秒。"
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "残り時間 約 %SEC 秒。"
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "ファイルが処理されています。しばらくお待ちください。"
+
+#: templates/display/import/javascript.twig:36
+#, fuzzy
+#| msgid "Uploading your import file…"
+msgid "Uploading your import file…"
+msgstr "インポートファイルをアップロードしています…"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"しばらくお待ちください。ファイルがアップロードされています。アップロードに関"
+"する機能は利用できません。"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "クリックでオン／オフ切り替え"
+
+#: templates/table/structure/row_stats_table.twig:2
+#, fuzzy
+#| msgid "Row Statistics"
+msgid "Row statistics"
+msgstr "行の統計"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "静的"
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "動的"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "パーティション有り"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "行の長さ"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "行のサイズ"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr "次の自動付番"
+
+#: templates/table/structure/row_stats_table.twig:76
+#: templates/database/structure/table_header.twig:53
+msgid "Creation"
+msgstr "作成日時"
+
+#: templates/table/structure/row_stats_table.twig:83
+#: templates/database/structure/table_header.twig:58
+msgid "Last update"
+msgstr "最終更新"
+
+#: templates/table/structure/row_stats_table.twig:90
+#: templates/database/structure/table_header.twig:63
+msgid "Last check"
+msgstr "最終検査"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "データベースが存在しません"
+
+#: templates/login/twofactor/invalid.twig:2
+#, fuzzy
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "更なる検索条件"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+"この報告には、エラーに関するデータと関連する構成設定に関する情報が自動的に含"
+"まれます。 エラーをデバッグするためにphpMyAdminチームに送信されます。"
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+"このエラーにつながる手順を教えてください。 決定的にデバッグに役立ちます："
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr "エラー報告のデータ確認が出来ます："
+
+#: templates/prefs_twofactor_confirm.twig:2
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Confirm disabling two-factor authentication"
+msgstr "Config 認証"
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+"二要素認証を無効にすることで、再びパスワードのみログインが出来るようになりま"
+"す。"
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Disable two-factor authentication"
+msgstr "Config 認証"
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr "読み取り専用の値のため編集できません"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
@@ -15595,87 +15980,72 @@ msgstr "サイズ"
 msgid "Drag to reorder"
 msgstr "ドラッグでカラムの入れ替え"
 
-#: templates/table/structure/add_column.twig:9
-#, php-format
-msgid "Add %s column(s)"
-msgstr "%s 個のカラムを追加する"
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "セッション値"
 
-#: templates/table/structure/add_column.twig:14
+#: templates/database/structure/table_header.twig:27
 #, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "テーブルの先頭"
+#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください"
 
-#: templates/table/structure/add_column.twig:19
-#: templates/columns_definitions/move_column.twig:12
-#, php-format
-msgid "after %s"
-msgstr "%s の後へ"
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "出力をテキストで表示する"
 
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "アクティブオプション"
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+"以下のQRコードを装置にある二要素認証アプリにスキャンして、生成された認証コー"
+"ドを入力してください。"
 
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "サーバ上のディレクトリ <b>%s</b> に保存する"
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+"以下の秘密キーを装置にある二要素認証アプリに入力して、生成された認証コードを"
+"入力してください。"
 
-#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr "OTP URL :"
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr "秘密キー："
+
 #: templates/login/twofactor/application_configure.twig:21
+#: templates/login/twofactor/application.twig:2
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication code:"
 msgstr "認証"
 
-#: templates/login/twofactor/application.twig:4
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+#, fuzzy
+#| msgid "Relation operator"
+msgid "Relationship operator"
+msgstr "リレーション演算子"
+
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/aggregate_query_panel.twig:22
+msgid "Aggregate"
+msgstr "集計"
+
+#: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
 msgstr ""
-
-#: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
-
-#: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
-msgid "Export databases as separate files"
-msgstr "テーブル \"%s\" から行単位でデータをエクスポート"
-
-#: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "Export table headers"
-msgid "Export tables as separate files"
-msgstr "カラム名をエクスポートする"
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "データベース内検索"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "検索する単語や値 (ワイルドカード: \"%\"):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "検索条件:"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "検索するテーブル:"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "検索するカラム:"
+"PHPMyAdminにアクセスするためにHTTPSを使用していないので、Fido U2Fデバイスは認"
+"証するのを拒否するでしょう。"
 
 #: templates/database/tracking/untracked_tables.twig:1
 msgid "Untracked tables"
@@ -15687,132 +16057,107 @@ msgstr "SQL コマンドを追跡していないテーブル"
 msgid "Track table"
 msgstr "テーブルを追跡する"
 
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "出力:"
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "日時"
 
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "出力をファイルに保存する"
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "ユーザ名"
 
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "各点のラベルとして使われるカラム"
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "プロットする結果の最大数"
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+msgid "Create table"
+msgstr "テーブルを作成"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "カラム数"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
 msgstr ""
+"注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量"
+"が激増することがあります。"
 
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "行:"
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+#, fuzzy
+#| msgid "Enable Statistics"
+msgid "Enable statistics"
+msgstr "統計を有効にする"
 
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "ダンプする行"
+#: templates/privileges/delete_user_fieldset.twig:3
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
+msgstr "選択したユーザを削除する"
 
-#: templates/display/export/options_rows.twig:10
-#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "特権をすべて取り消してユーザを削除する。"
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "ユーザと同名のデータベースを削除する。"
+
+#: templates/privileges/add_user_fieldset.twig:2
+#, fuzzy
+#| msgid "New"
+msgctxt "Create new user"
+msgid "New"
+msgstr "新規作成"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "%s 行づつ挿入を行う"
+
 #: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
 msgid "Number of rows:"
 msgstr "行数:"
 
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "開始行:"
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "なし"
 
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "すべての行をダンプする"
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr "全角カナに変換する"
 
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
-msgid "Jump to database '%s'"
-msgstr "データベースに移動"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "データベース「%s」の特権を確認します。"
-
-#: templates/server/databases/table_row.twig:62
+#: templates/display/export/selection.twig:3
 #, fuzzy
-#| msgid "Check Privileges"
-msgid "Check privileges"
-msgstr "特権をチェックする"
+#| msgid "Databases"
+msgid "Databases:"
+msgstr "データベース"
 
-#: templates/export/alias_item.twig:8
+#: templates/table/secondary_tabs.twig:9
 #, fuzzy
-#| msgid "Remote server"
-msgid "Remove"
-msgstr "リモートサーバ"
+#| msgid "Relation view"
+msgid "Relation view"
+msgstr "リレーションビュー"
 
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "ユーザを作成する"
-
-#: templates/prefs_twofactor.twig:3
+#: templates/privileges/add_privileges_routine.twig:3
 #, fuzzy
-#| msgid "Authentication settings"
-msgid "Two-factor authentication status"
-msgstr "認証設定"
-
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Disable two-factor authentication"
-msgstr "Config 認証"
-
-#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
-#: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Configure two-factor authentication"
-msgstr "Config 認証"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "ページタイトル"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Page to delete"
-msgstr "リレーションを削除しました"
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following routine:"
+msgstr "テーブルに特権を追加"
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
@@ -15832,403 +16177,105 @@ msgstr "%s への SQL コマンド追跡を非アクティブにする"
 msgid "Deactivate now"
 msgstr "すぐに非アクティブにする"
 
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
-msgctxt "Number"
-msgid "#"
-msgstr "クエリ数"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "日時"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "ユーザ名"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "ディスク使用量"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "有効"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-msgid "Create table"
-msgstr "テーブルを作成"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "カラム数"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "最初へ"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s テーブル"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "合計"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "リソースの制限"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "注意: オプションを 0 (ゼロ)に設定すると制限を解除します。"
-
-#: templates/database/designer/where_query_panel.twig:59
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-msgid "Except"
-msgstr "以外"
-
-#: templates/database/designer/where_query_panel.twig:71
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-msgid "subquery"
-msgstr "サブクエリ"
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "各点のラベルとして使われるカラム"
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "プロットする結果の最大数"
-
-#: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Move columns"
-msgid "Show/hide columns"
-msgstr "カラムを移動させる"
-
-#: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Table structure"
-msgid "See table structure"
-msgstr "テーブルの構造"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"お使いのブラウザは、このドメインに対しての phpMyAdmin の環境設定を (Web "
-"Storage に) 保存しています。現在のセッションにその設定を読み込んでもよろしい"
-"ですか?"
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete settings"
-msgstr "追跡データを削除しています"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Export to selected page"
-msgid "Save to selected page"
-msgstr "選択したページへエクスポートする"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a page and export to it"
-msgid "Create a page and save to it"
-msgstr "ページを作成し、そこへエクスポートする。"
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "New page name: "
-msgid "New page name"
-msgstr "新しいページの名前: "
-
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量"
-"が激増することがあります。"
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-#, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "統計を有効にする"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "現在のサーバからデータベースをエクスポート"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "データベース \"%s\" からテーブルをエクスポート"
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "テーブル \"%s\" から行単位でデータをエクスポート"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "検索と置換 - プレビュー"
-
-#: templates/table/search/replace_preview.twig:17
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Count"
-msgstr "カウント"
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "元の位置"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Related Links"
-msgid "Replaced string"
-msgstr "関連リンク"
-
-#: templates/table/search/replace_preview.twig:37
-#, fuzzy
-#| msgid "Replicated"
-msgid "Replace"
-msgstr "レプリケーションしている"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "このカラムに固有の特権"
-
 #: templates/database/designer/delete_relation_panel.twig:21
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "リレーションを削除"
 
-#: templates/error/report_form.twig:6
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "視覚化した空間情報"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "ラベルカラム"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- なし --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "空間情報カラム"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "If column type is \"enum\" or \"set\", please enter the values using this "
+#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
+#| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
 msgstr ""
+"カラムのデータ型が「enum」ないし「set」の場合の値の書式: 'a','b','c'…<br />"
+"バックスラッシュ (\"\\\") やシングルクォート (\"'\") を含める必要がある場合"
+"は (\\\\xyz や a\\'b のように) その前にバックスラッシュを付けてください。"
 
-#: templates/error/report_form.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
 msgstr ""
+"デフォルト値にはひとつの値のみ入力してください。バックスラッシュによるエス"
+"ケープや引用符を含めることはできません。例: a"
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr "Virtuality"
 
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "SQL コマンドを追跡しているテーブル"
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "カラムを移動させる"
 
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "最後の世代"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
 #, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete tracking"
-msgstr "追跡データを削除しています"
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "利用できる変換機能"
 
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "世代"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "出力をテキストで表示する"
-
-#: templates/table/search/search_and_replace.twig:3
+#: templates/columns_definitions/table_fields_definitions.twig:82
 #, fuzzy
-#| msgid "Replace NULL with:"
-msgid "Replace with:"
-msgstr "NULL の代替文字列:"
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "ブラウザ変換機能"
 
-#: templates/table/search/search_and_replace.twig:19
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
 #, fuzzy
-#| msgid "as regular expression"
-msgid "Use regular expression"
-msgstr "正規表現"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-#, fuzzy
-msgid "Collapse"
-msgstr "折畳み"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "展開"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-#, fuzzy
-#| msgid "subquery"
-msgid "Requery"
-msgstr "サブクエリ"
-
-#: templates/database/multi_table_query/form.twig:16
-msgid "Query window"
-msgstr "クエリウィンドウ"
-
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select Tables"
-msgid "select table"
-msgstr "テーブルを選択してください"
-
-#: templates/database/multi_table_query/form.twig:40
-#: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select two columns"
-msgid "select column"
-msgstr "カラムを 2 つ選択してください"
-
-#: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "テーブル"
-
-#: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "カラム名"
-
-#: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Use this column to label each point"
-msgid "Use this column in criteria"
-msgstr "各点のラベルとして使われるカラム"
-
-#: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "条件"
-
-#: templates/database/multi_table_query/form.twig:67
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "%s を追加する"
-
-#: templates/database/multi_table_query/form.twig:112
-#, fuzzy
-#| msgid "Alter column(s)"
-msgid "Another column"
-msgstr "カラムの変更"
-
-#: templates/database/multi_table_query/form.twig:140
-msgid "Enter criteria as free text"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Remove this column"
-msgstr "カラムの削除"
-
-#: templates/database/multi_table_query/form.twig:158
-#: templates/table/relation/foreign_key_row.twig:90
-#, fuzzy
-#| msgid "Add column"
-msgid "+ Add column"
-msgstr "カラムを追加する"
-
-#: templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "クエリを更新する"
-
-#: templates/table/relation/common_form.twig:6
-#, fuzzy
-#| msgid "Foreign key constraint"
-msgid "Foreign key constraints"
-msgstr "外部キー制約"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "アクション"
-
-#: templates/table/relation/common_form.twig:11
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint properties"
-msgstr "テーブルの制約"
-
-#: templates/table/relation/common_form.twig:15
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
 msgstr ""
+"変換オプションの値の書式: 'a','b','c'…<br />バックスラッシュ (\"\\\") やシン"
+"グルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b のよう"
+"に) バックスラッシュでエスケープしてください。"
 
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr "外部キー制約"
-
-#: templates/table/relation/common_form.twig:89
+#: templates/columns_definitions/table_fields_definitions.twig:93
 #, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "制約を追加する"
+#| msgid "Transformation options"
+msgid "Input transformation options"
+msgstr "変換オプション"
 
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "内部リレーション"
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "アクティブオプション"
 
-#: templates/table/relation/common_form.twig:110
-msgid "Internal relation"
-msgstr "内部リレーション"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-"対応する外部リレーションが存在する場合、内部リレーションは必要ありません。"
-
-#: templates/table/relation/common_form.twig:172
-#, fuzzy
-#| msgid "Choose column to display"
-msgid "Choose column to display:"
-msgstr "表示するカラムの選択"
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "使用中"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
@@ -16250,114 +16297,42 @@ msgstr "文字セットと照合順序"
 msgid "Databases statistics"
 msgstr "データベースの統計"
 
-#: templates/privileges/add_privileges_routine.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following routine:"
-msgstr "テーブルに特権を追加"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "更なる検索条件"
-
-#: templates/database/central_columns/add_column.twig:13
-#, fuzzy
-#| msgid "Select two columns"
-msgid "Select a column."
-msgstr "カラムを 2 つ選択してください"
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "プレビューは利用できません。"
-
-#: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "これにする"
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "使用中"
-
-#: templates/database/designer/rename_to_panel.twig:22
-#: templates/database/designer/options_panel.twig:84
-msgid "Rename to"
-msgstr "変更後の名称"
-
-#: templates/database/designer/rename_to_panel.twig:30
-#: templates/database/designer/options_panel.twig:90
-msgid "New name"
-msgstr "新しい名前"
-
-#: templates/table/structure/actions_in_table_structure.twig:15
+#: templates/table/structure/add_column.twig:9
 #, php-format
-msgid "A primary key has been added on %s."
-msgstr "%s に主キーを追加しました。"
+msgid "Add %s column(s)"
+msgstr "%s 個のカラムを追加する"
 
-#: templates/table/structure/actions_in_table_structure.twig:33
-#: templates/table/structure/actions_in_table_structure.twig:51
-#: templates/table/structure/actions_in_table_structure.twig:80
-#: templates/table/structure/actions_in_table_structure.twig:103
+#: templates/table/structure/add_column.twig:14
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "テーブルの先頭"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
 #, php-format
-msgid "An index has been added on %s."
-msgstr "%s にインデックスを追加しました。"
+msgid "after %s"
+msgstr "%s の後へ"
 
-#: templates/table/structure/actions_in_table_structure.twig:127
-#: templates/table/structure/check_all_table_column.twig:83
+#: templates/columns_definitions/column_name.twig:4
+#, fuzzy, php-format
+#| msgid "Select referenced key"
+msgid "Referenced by %s."
+msgstr "参照されているキーを選択"
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "外部キーです。"
+
+#: templates/columns_definitions/column_name.twig:40
 #, fuzzy
 #| msgid "Remove column(s)"
-msgid "Remove from central columns"
+msgid "Pick from Central Columns"
 msgstr "カラムの削除"
 
-#: templates/table/structure/actions_in_table_structure.twig:131
-#: templates/table/structure/check_all_table_column.twig:76
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add to central columns"
-msgstr "文字入力用 textarea の 1 行の文字数"
-
-#: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
-msgid "Remove selected user accounts"
-msgstr "選択したユーザを削除する"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "特権をすべて取り消してユーザを削除する。"
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "ユーザと同名のデータベースを削除する。"
-
-#: templates/table/structure/table_structure_row.twig:34
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr "なし"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "カラム %s を削除しました。"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "なし"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "全角カナに変換する"
-
-#: templates/privileges/add_privileges_table.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following table:"
-msgstr "テーブルに特権を追加"
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "エクスポートするリレーショナルタイプを選択してください"
 
 #: templates/login/header.twig:12
 msgid ""
@@ -16365,69 +16340,128 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"サーバとクライアントの間にHTTPSの不一致があります。 これにより、機能しない"
+"phpMyAdminまたはセキュリティリスクが発生する可能性があります。 HTTPSを正しく"
+"設定するようにサーバ設定を修正してください。"
 
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "このカラムに固有の特権"
 
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
+#: templates/table/chart/tbl_chart.twig:15
+msgctxt "Chart type"
+msgid "Bar"
+msgstr "横棒グラフ"
 
-#: templates/table/structure/row_stats_table.twig:2
+#: templates/table/chart/tbl_chart.twig:19
+msgctxt "Chart type"
+msgid "Column"
+msgstr "カラム"
+
+#: templates/table/chart/tbl_chart.twig:23
+msgctxt "Chart type"
+msgid "Line"
+msgstr "折れ線グラフ"
+
+#: templates/table/chart/tbl_chart.twig:27
+msgctxt "Chart type"
+msgid "Spline"
+msgstr "曲線グラフ"
+
+#: templates/table/chart/tbl_chart.twig:31
+msgctxt "Chart type"
+msgid "Area"
+msgstr "面グラフ"
+
+#: templates/table/chart/tbl_chart.twig:35
+msgctxt "Chart type"
+msgid "Pie"
+msgstr "円グラフ"
+
+#: templates/table/chart/tbl_chart.twig:39
 #, fuzzy
-#| msgid "Row Statistics"
-msgid "Row statistics"
-msgstr "行の統計"
+#| msgid "Time"
+msgctxt "Chart type"
+msgid "Timeline"
+msgstr "時間"
 
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "静的"
+#: templates/table/chart/tbl_chart.twig:43
+msgctxt "Chart type"
+msgid "Scatter"
+msgstr "散布図"
 
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "動的"
+#: templates/table/chart/tbl_chart.twig:48
+msgid "Stacked"
+msgstr "積み上げ形式"
 
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "パーティション有り"
+#: templates/table/chart/tbl_chart.twig:51
+#, fuzzy
+#| msgid "Chart title"
+msgid "Chart title:"
+msgstr "グラフの題名"
 
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "行の長さ"
+#: templates/table/chart/tbl_chart.twig:56
+msgid "X-Axis:"
+msgstr "X 軸:"
 
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "行のサイズ"
+#: templates/table/chart/tbl_chart.twig:71
+msgid "Series:"
+msgstr "系列："
 
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr "次の自動付番"
+#: templates/table/chart/tbl_chart.twig:102
+msgid "X-Axis label:"
+msgstr "X 軸のラベル:"
 
-#: templates/table/structure/row_stats_table.twig:76
-#: templates/database/structure/table_header.twig:53
-msgid "Creation"
-msgstr "作成日時"
+#: templates/table/chart/tbl_chart.twig:104
+msgid "X Values"
+msgstr "X 軸の値"
 
-#: templates/table/structure/row_stats_table.twig:83
-#: templates/database/structure/table_header.twig:58
-msgid "Last update"
-msgstr "最終更新"
+#: templates/table/chart/tbl_chart.twig:107
+msgid "Y-Axis label:"
+msgstr "Y 軸のラベル:"
 
-#: templates/table/structure/row_stats_table.twig:90
-#: templates/database/structure/table_header.twig:63
-msgid "Last check"
-msgstr "最終検査"
+#: templates/table/chart/tbl_chart.twig:109
+msgid "Y Values"
+msgstr "Y 軸の値"
 
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "クリックでオン／オフ切り替え"
+#: templates/table/chart/tbl_chart.twig:115
+msgid "Series names are in a column"
+msgstr "系列名はカラムにあります"
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "エクスポートするリレーショナルタイプを選択してください"
+#: templates/table/chart/tbl_chart.twig:118
+#, fuzzy
+#| msgid "Inside column:"
+msgid "Series column:"
+msgstr "検索するカラム:"
+
+#: templates/table/chart/tbl_chart.twig:132
+#, fuzzy
+#| msgid "Values for column %s"
+msgid "Value Column:"
+msgstr "カラム %s に対しての値"
+
+#: templates/table/chart/tbl_chart.twig:153
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save chart as image"
+msgstr "ファイルに保存する"
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "圧縮:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "zip 形式"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "gzip 形式"
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "ファイルの文字セット:"
 
 #: templates/table/search/options.twig:6
 msgid "Select columns (at least one):"
@@ -16445,289 +16479,11 @@ msgstr "ページあたりの行数"
 msgid "Display order:"
 msgstr "表示順:"
 
-#: templates/table/structure/display_structure.twig:137
-#: templates/view_create.twig:13
-msgid "Edit view"
-msgstr "ビューを編集する"
-
-#: templates/table/structure/display_structure.twig:191
-#: templates/table/structure/display_partitions.twig:4
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partitions"
-msgstr "パーティション %s"
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "データベースが存在しません"
-
-#: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export method"
-msgid "Export method:"
-msgstr "エクスポート方法"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "簡易 - 最小限のオプションだけ表示"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "詳細 - 可能なオプションをすべて表示"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "テーブルを選択してください"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "database name"
-msgid "New database name"
-msgstr "データベース名"
-
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99
-#, fuzzy
-#| msgid "And"
-msgid "Add"
-msgstr "および"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "テーブルを選択してください"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New page name: "
-msgid "New table name"
-msgstr "新しいページの名前: "
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select two columns"
-msgid "Select column:"
-msgstr "カラムを 2 つ選択してください"
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Copy column name"
-msgid "New column name"
-msgstr "カラム名のコピー"
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "SQL コマンドの追跡はアクティブです。"
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "SQL コマンドの追跡は非アクティブです。"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Enable two-factor authentication"
-msgstr "Config 認証"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s 件の一致 (テーブル <strong>%2$s</strong>)"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>合計:</b> <i>%s</i> 件"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "この値を利用する"
-
-#: templates/table/structure/move_columns_dialog.twig:1
-#: templates/table/structure/optional_action_links.twig:19
-msgid "Move columns"
-msgstr "カラムを移動させる"
-
-#: templates/table/structure/move_columns_dialog.twig:2
-msgid "Move the columns by dragging them up and down."
-msgstr "ドラックして上下させ、カラムを移動させてください。"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "テーブル名"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add column(s)"
-msgid "column(s)"
-msgstr "カラムの追加"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "照合順序"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "ストレージエンジン:"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "接続:"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "PARTITION 定義:"
-
-#: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください"
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "異なる 2 つのカラムによる定型問い合わせ (ワイルドカード: \"%\")"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "定型問い合わせ (ワイルドカード: \"%\")"
-
-#: templates/table/relation/foreign_key_row.twig:15
+#: templates/database/structure/show_create_row.twig:7
 #, fuzzy, php-format
-#| msgid "Foreign key constraint"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "外部キー制約"
-
-#: templates/table/relation/foreign_key_row.twig:38
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint name"
-msgstr "テーブルの制約"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "ページを選択してください"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start row"
-msgid "Start row:"
-msgstr "開始行"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr "読み取り専用の値のため編集できません"
-
-#: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Confirm disabling two-factor authentication"
-msgstr "Config 認証"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/privileges/add_privileges_database.twig:1
-#, fuzzy
-#| msgid "Add privileges on the following database"
-msgid "Add privileges on the following database(s):"
-msgstr "データベースに特権を追加"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-"_ や % というワイルドカードを文字として使用するときは \\ でエスケープしてくだ"
-"さい。"
-
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "インデックスが定義されていません!"
-
-#: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partitioned by:"
-msgstr "パーティション有り"
-
-#: templates/table/structure/display_partitions.twig:16
-#, fuzzy
-#| msgid "partitioned"
-msgid "Sub partitioned by:"
-msgstr "パーティション有り"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "圧縮"
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "行の長さ"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "行の長さ"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partition table"
-msgstr "パーティション有り"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Remove partitioning"
-msgid "Edit partitioning"
-msgstr "パーティションを削除"
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "ユーザを作成する"
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
@@ -16759,14 +16515,6 @@ msgstr "新しい名前"
 #| msgid "Select page"
 msgid "Delete pages"
 msgstr "ページを選択してください"
-
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-#: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-#| msgid "Create relation"
-msgid "Create relationship"
-msgstr "リレーションを作成"
 
 #: templates/database/designer/side_menu.twig:99
 #: templates/database/designer/side_menu.twig:102
@@ -16834,93 +16582,6 @@ msgstr "メニューを移動する"
 msgid "Pin text"
 msgstr "部分テキスト"
 
-#: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
-msgid "Referenced by %s."
-msgstr "参照されているキーを選択"
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "外部キーです。"
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Pick from Central Columns"
-msgstr "カラムの削除"
-
-#: templates/privileges/add_user_fieldset.twig:2
-#, fuzzy
-#| msgid "New"
-msgctxt "Create new user"
-msgid "New"
-msgstr "新規作成"
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "条件行を追加・削除する"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "カラムを追加・削除する"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "ビューの名前"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "カラム名"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "ファイル名のテンプレート:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "今後のエクスポートでこれを使用する"
-
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "なし"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relation operator"
-msgid "Relationship operator"
-msgstr "リレーション演算子"
-
-#: templates/database/designer/options_panel.twig:99
-#: templates/database/designer/aggregate_query_panel.twig:22
-msgid "Aggregate"
-msgstr "集計"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "視覚化した空間情報"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "ラベルカラム"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- なし --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "空間情報カラム"
-
 #: templates/console/display.twig:7
 #, fuzzy
 #| msgid "SQL history"
@@ -16979,13 +16640,18 @@ msgstr "降順"
 msgid "Order:"
 msgstr "順序:"
 
+#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/table/search/replace_preview.twig:17
+msgid "Count"
+msgstr "カウント"
+
 #: templates/console/display.twig:64
 msgid "Execution order"
 msgstr "実行順"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "所要時間"
 
 #: templates/console/display.twig:64
 #, fuzzy
@@ -17044,112 +16710,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Add this series"
-msgid "Add to Favorites"
-msgstr "この系列を追加する"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"アップロードされているファイルが最大許容サイズよりもおそらく大きい、もしく"
-"は、WebKit がベースのブラウザ (Safari、Google Chrome、Arora など) の既知のバ"
-"グです。"
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/秒。"
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "残り時間 約 %MIN 分 %SEC 秒。"
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "残り時間 約 %SEC 秒。"
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "ファイルが処理されています。しばらくお待ちください。"
-
-#: templates/display/import/javascript.twig:36
-#, fuzzy
-#| msgid "Uploading your import file…"
-msgid "Uploading your import file…"
-msgstr "インポートファイルをアップロードしています…"
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"しばらくお待ちください。ファイルがアップロードされています。アップロードに関"
-"する機能は利用できません。"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "圧縮:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zip 形式"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzip 形式"
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export type"
-msgid "Export templates:"
-msgstr "エクスポート形式"
-
-#: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template:"
-msgid "New template:"
-msgstr "ファイル名のテンプレート:"
-
-#: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Table name"
-msgid "Template name"
-msgstr "テーブル名"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "作成"
-
-#: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template:"
-msgid "Existing templates:"
-msgstr "ファイル名のテンプレート:"
-
-#: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "Temp disk rate"
-msgid "Template:"
-msgstr "一時テーブルがディスク上に展開される割合"
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgctxt "Create UPDATE query"
-#| msgid "Update"
-msgid "Update"
-msgstr "クエリを更新する"
+"Enterでクエリを実行し、Shift + Enterで新しい行を挿入します。永続的にするに"
+"は、設定を確認してください。"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17191,16 +16753,11 @@ msgstr ""
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "ファイルを任意のページにドラッグアンドドロップすることもできます。"
 
 #: templates/display/import/import.twig:86
 msgid "File uploads are not allowed on this server."
 msgstr "このサーバではファイルのアップロードはできません。"
-
-#: templates/display/import/import.twig:97
-#: templates/display/export/options_output_charset.twig:3
-msgid "Character set of the file:"
-msgstr "ファイルの文字セット:"
 
 #: templates/display/import/import.twig:124
 #, fuzzy
@@ -17262,23 +16819,556 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "エンコーディングへの変換:"
 
-#: templates/table/secondary_tabs.twig:9
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "ビューの名前"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "カラム名"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "最初へ"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+"FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置"
+"の登録を確認して下さい。"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "すべて隠す/表示"
+
+#: templates/database/designer/table_list.twig:14
 #, fuzzy
-#| msgid "Relation view"
-msgid "Relation view"
-msgstr "リレーションビュー"
+#| msgid "Hide/Show Tables with no relation"
+msgid "Hide/Show tables with no relationship"
+msgstr "リレーションのないテーブルを隠す/表示"
 
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "プラグイン"
+#: templates/database/designer/table_list.twig:55
+#, fuzzy
+#| msgid "Number of tables"
+msgid "Number of tables:"
+msgstr "テーブル数"
 
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "作者"
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Save to selected page"
+msgstr "選択したページへエクスポートする"
 
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "無効"
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and save to it"
+msgstr "ページを作成し、そこへエクスポートする。"
+
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "New page name: "
+msgid "New page name"
+msgstr "新しいページの名前: "
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "ディスク使用量"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "有効"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr "検証"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "なし"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "検索と置換 - プレビュー"
+
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Original position"
+msgid "Original string"
+msgstr "元の位置"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Related Links"
+msgid "Replaced string"
+msgstr "関連リンク"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replicated"
+msgid "Replace"
+msgstr "レプリケーションしている"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+"FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置"
+"のログインを確認して下さい。"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "SQL コマンドの追跡はアクティブです。"
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "SQL コマンドの追跡は非アクティブです。"
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+#| msgid "Export type"
+msgid "Export templates:"
+msgstr "エクスポート形式"
+
+#: templates/display/export/template_loading.twig:6
+#, fuzzy
+#| msgid "File name template:"
+msgid "New template:"
+msgstr "ファイル名のテンプレート:"
+
+#: templates/display/export/template_loading.twig:8
+#, fuzzy
+#| msgid "Table name"
+msgid "Template name"
+msgstr "テーブル名"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "作成"
+
+#: templates/display/export/template_loading.twig:16
+#, fuzzy
+#| msgid "File name template:"
+msgid "Existing templates:"
+msgstr "ファイル名のテンプレート:"
+
+#: templates/display/export/template_loading.twig:17
+#, fuzzy
+#| msgid "Temp disk rate"
+msgid "Template:"
+msgstr "一時テーブルがディスク上に展開される割合"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgctxt "Create UPDATE query"
+#| msgid "Update"
+msgid "Update"
+msgstr "クエリを更新する"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s テーブル"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "合計"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "ファイル名のテンプレート:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "今後のエクスポートでこれを使用する"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "リソースの制限"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "注意: オプションを 0 (ゼロ)に設定すると制限を解除します。"
+
+#: templates/start_and_number_of_rows_panel.twig:3
+#, fuzzy
+#| msgid "Start row"
+msgid "Start row:"
+msgstr "開始行"
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "データベースを作成する"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Foreign key constraint"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "外部キー制約"
+
+#: templates/table/relation/foreign_key_row.twig:38
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint name"
+msgstr "テーブルの制約"
+
+#: templates/table/relation/foreign_key_row.twig:90
+#: templates/database/multi_table_query/form.twig:158
+#, fuzzy
+#| msgid "Add column"
+msgid "+ Add column"
+msgstr "カラムを追加する"
+
+#: templates/database/structure/show_create.twig:2
+#, fuzzy
+#| msgid "Show SQL queries"
+msgid "Showing create queries"
+msgstr "SQL クエリを表示する"
+
+#: templates/display/export/template_options.twig:1
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select a template"
+msgstr "テーブルを選択してください"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s 件の一致 (テーブル <strong>%2$s</strong>)"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>合計:</b> <i>%s</i> 件"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "条件行を追加・削除する"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "カラムを追加・削除する"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "異なる 2 つのカラムによる定型問い合わせ (ワイルドカード: \"%\")"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "定型問い合わせ (ワイルドカード: \"%\")"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Configure two-factor authentication"
+msgstr "Config 認証"
+
+#: templates/prefs_twofactor_configure.twig:8
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Enable two-factor authentication"
+msgstr "Config 認証"
+
+#: templates/database/central_columns/add_column.twig:13
+#, fuzzy
+#| msgid "Select two columns"
+msgid "Select a column."
+msgstr "カラムを 2 つ選択してください"
+
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "%2$s に世代 %1$s を作成"
+
+#: templates/table/tracking/create_version.twig:16
+#, fuzzy, php-format
+#| msgid "Create version"
+msgid "Create version %1$s"
+msgstr "世代を作成する"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "追跡するデータ定義コマンド:"
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "追跡するデータ操作コマンド:"
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "世代を作成する"
+
+#: templates/table/search/search_and_replace.twig:3
+#, fuzzy
+#| msgid "Replace NULL with:"
+msgid "Replace with:"
+msgstr "NULL の代替文字列:"
+
+#: templates/table/search/search_and_replace.twig:19
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "正規表現"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "ページを選択してください"
+
+#: templates/prefs_twofactor.twig:3
+#, fuzzy
+#| msgid "Authentication settings"
+msgid "Two-factor authentication status"
+msgstr "認証設定"
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+"二要素認証を関係している依存パッケージがインストールされていないので、二要素"
+"認証は使用不可能です。"
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr "以下のComposerパッケージは存在しません："
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+"このユーザアカウントには二要素認証が設定されており、使用可能な状態です。"
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr "このユーザアカウントは二要素認証が設定されていないが、設定は可能です。"
+
+#: templates/prefs_twofactor.twig:24
+#, fuzzy
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr "二要素認証が有効化しました。"
+
+#: templates/database/multi_table_query/form.twig:16
+msgid "Query window"
+msgstr "クエリウィンドウ"
+
+#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:121
+#, fuzzy
+#| msgid "Select Tables"
+msgid "select table"
+msgstr "テーブルを選択してください"
+
+#: templates/database/multi_table_query/form.twig:40
+#: templates/database/multi_table_query/form.twig:129
+#, fuzzy
+#| msgid "Select two columns"
+msgid "select column"
+msgstr "カラムを 2 つ選択してください"
+
+#: templates/database/multi_table_query/form.twig:46
+#, fuzzy
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "テーブル"
+
+#: templates/database/multi_table_query/form.twig:47
+#, fuzzy
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "カラム名"
+
+#: templates/database/multi_table_query/form.twig:50
+#, fuzzy
+#| msgid "Use this column to label each point"
+msgid "Use this column in criteria"
+msgstr "各点のラベルとして使われるカラム"
+
+#: templates/database/multi_table_query/form.twig:53
+#, fuzzy
+#| msgid "Criteria"
+msgid "criteria"
+msgstr "条件"
+
+#: templates/database/multi_table_query/form.twig:67
+#, fuzzy
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "%s を追加する"
+
+#: templates/database/multi_table_query/form.twig:112
+#, fuzzy
+#| msgid "Alter column(s)"
+msgid "Another column"
+msgstr "カラムの変更"
+
+#: templates/database/multi_table_query/form.twig:140
+msgid "Enter criteria as free text"
+msgstr "条件を入力してください"
+
+#: templates/database/multi_table_query/form.twig:148
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Remove this column"
+msgstr "カラムの削除"
+
+#: templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "クエリを更新する"
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "インデックスが定義されていません!"
+
+#: templates/table/structure/display_partitions.twig:11
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "パーティション有り"
+
+#: templates/table/structure/display_partitions.twig:16
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "パーティション有り"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "行の長さ"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "行の長さ"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partition table"
+msgstr "パーティション有り"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+"識別を検証するために、装置にある二要素認証アプリを開いて確認してください。"
+
+#: templates/table/structure/optional_action_links.twig:6
+msgid "Propose table structure"
+msgstr "テーブル構造を確認する"
+
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Normalize"
+msgstr "正規化"
+
+#: templates/table/structure/optional_action_links.twig:28
+msgid "Track view"
+msgstr "追跡の閲覧"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"お使いのブラウザは、このドメインに対しての phpMyAdmin の環境設定を (Web "
+"Storage に) 保存しています。現在のセッションにその設定を読み込んでもよろしい"
+"ですか?"
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Deleting tracking data"
+msgid "Delete settings"
+msgstr "追跡データを削除しています"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "テーブル名"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Add column(s)"
+msgid "column(s)"
+msgstr "カラムの追加"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "照合順序"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "ストレージエンジン:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "接続:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION 定義:"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "表示するバイナリログを選択してください"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "SQL コマンドを追跡しているテーブル"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "最後の世代"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+#, fuzzy
+#| msgid "Deleting tracking data"
+msgid "Delete tracking"
+msgstr "追跡データを削除しています"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "世代"
+
+#: templates/display/export/options_output_separate_files.twig:7
+#, fuzzy
+#| msgid "Exporting rows from \"%s\" table"
+msgid "Export databases as separate files"
+msgstr "テーブル \"%s\" から行単位でデータをエクスポート"
+
+#: templates/display/export/options_output_separate_files.twig:9
+#, fuzzy
+#| msgid "Export table headers"
+msgid "Export tables as separate files"
+msgstr "カラム名をエクスポートする"
 
 #: templates/display/results/options_block.twig:30
 msgid "Relational key"
@@ -17312,208 +17402,21 @@ msgstr "空間データをテキストで表示"
 msgid "Well Known Binary"
 msgstr "空間データをバイナリで表示"
 
-#: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"カラムのデータ型が「enum」ないし「set」の場合の値の書式: 'a','b','c'…<br />"
-"バックスラッシュ (\"\\\") やシングルクォート (\"'\") を含める必要がある場合"
-"は (\\\\xyz や a\\'b のように) その前にバックスラッシュを付けてください。"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "行:"
 
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"デフォルト値にはひとつの値のみ入力してください。バックスラッシュによるエス"
-"ケープや引用符を含めることはできません。例: a"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "ダンプする行"
 
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "開始行:"
 
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "カラムを移動させる"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-#, fuzzy
-#| msgid "Available transformations"
-msgid "List of available transformations and their options"
-msgstr "利用できる変換機能"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation options"
-msgstr "ブラウザ変換機能"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"変換オプションの値の書式: 'a','b','c'…<br />バックスラッシュ (\"\\\") やシン"
-"グルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b のよう"
-"に) バックスラッシュでエスケープしてください。"
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Input transformation options"
-msgstr "変換オプション"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "オーバーヘッドのあるテーブルを確認する"
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "No tables"
-msgid "Copy table"
-msgstr "テーブルがありません"
-
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "色表示"
-
-#: templates/database/structure/check_all_tables.twig:25
-#, fuzzy
-#| msgid "Add prefix"
-msgid "Prefix"
-msgstr "追加する接頭辞"
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "接頭辞をテーブル名に追加する"
-
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "テーブル名の接頭辞を付け替える"
-
-#: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add columns to central list"
-msgstr "文字入力用 textarea の 1 行の文字数"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Make consistent with central list"
-msgstr "文字入力用 textarea の 1 行の文字数"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "セッション値"
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "%2$s に世代 %1$s を作成"
-
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s"
-msgstr "世代を作成する"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "追跡するデータ定義コマンド:"
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "追跡するデータ操作コマンド:"
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "世代を作成する"
-
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "テーブル構造を確認する"
-
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
-msgstr ""
-
-#: templates/table/structure/optional_action_links.twig:28
-msgid "Track view"
-msgstr "追跡の閲覧"
-
-#: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "データベース"
-
-#: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select a template"
-msgstr "テーブルを選択してください"
-
-#: templates/database/structure/show_create.twig:2
-#, fuzzy
-#| msgid "Show SQL queries"
-msgid "Showing create queries"
-msgstr "SQL クエリを表示する"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "結果表示／プロット点の編集"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "使い方"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "ズームを戻す"
-
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "データベースを作成する"
-
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "なし"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "ユーザ定義:"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "すべての行をダンプする"
 
 #: url.php:41
 #, fuzzy
@@ -17783,6 +17686,9 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona ドキュメントは<a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>にありま"
+"す"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
