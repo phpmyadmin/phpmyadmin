@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-02-01 04:38+0000\n"
+"PO-Revision-Date: 2019-02-01 17:28+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -6289,73 +6289,49 @@ msgid ""
 msgstr "%1$sBzip2の圧縮と解凍%2$sには関数 (%3$s) が必要です。それらがこのシステムでは使用できません。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:561
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr ""
-"%sGZipの圧縮と解凍%sには関数 (%s) が必要です。それらがこのシステムでは使用で"
-"きません。"
+msgstr "%1$sGZipの圧縮と解凍%2$sには関数 (%3$s) が必要です。それらがこのシステムでは使用できません。"
 
 #: libraries/classes/Config/Validator.php:216
 #: libraries/classes/Config/Validator.php:223
-#, fuzzy
-#| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "対象先のデータベースに接続できませんでした"
+msgstr "データベースに接続できませんでした!"
 
 #: libraries/classes/Config/Validator.php:255
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "認証タイプ"
+msgstr "無効な認証タイプ!"
 
 #: libraries/classes/Config/Validator.php:262
-#, fuzzy
-#| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "config 認証方法を使いましたが、ユーザ名が空欄です。"
+msgstr "[kbd]config[/kbd] 認証方法を使いましたが、ユーザ名が空欄です!"
 
 #: libraries/classes/Config/Validator.php:270
-#, fuzzy
-#| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "signon 認証方法を使いましたが、サインオンセッション名が空欄です。"
+msgstr "[kbd]signon[/kbd] 認証方法を使いましたが、サインオンセッション名が空欄です!"
 
 #: libraries/classes/Config/Validator.php:279
-#, fuzzy
-#| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "signon 認証方法を使いましたが、サインオン URL が空欄です。"
+msgstr "[kbd]signon[/kbd] 認証方法を使いましたが、サインオン URL が空欄です!"
 
 #: libraries/classes/Config/Validator.php:332
-#, fuzzy
-#| msgid ""
-#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "pmadb を使いましたが、phpMyAdmin ユーザが空欄です。"
+msgstr "環境保管領域 を使いましたが、phpMyAdmin ユーザが空欄です!"
 
 #: libraries/classes/Config/Validator.php:339
-#, fuzzy
-#| msgid ""
-#| "Empty phpMyAdmin control user password while using phpMyAdmin "
-#| "configuration storage"
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
-msgstr "pmadb を使いましたが、phpMyAdmin ユーザのパスワードが空欄です。"
+msgstr "環境保管領域を使いましたが、phpMyAdmin ユーザのパスワードが空欄です!"
 
 #: libraries/classes/Config/Validator.php:437
-#, fuzzy
-#| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "不正な値です"
+msgstr "不正な値です："
 
 #: libraries/classes/Config/Validator.php:446
 #, php-format
@@ -6373,10 +6349,8 @@ msgid "No bookmarks"
 msgstr "ブックマークはありません"
 
 #: libraries/classes/Console.php:143
-#, fuzzy
-#| msgid "SQL Query box"
 msgid "SQL Query Console"
-msgstr "SQL クエリボックス"
+msgstr "SQL クエリコンソール"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:302
 msgid "Favorite List is full!"
@@ -6384,17 +6358,15 @@ msgstr "お気に入りリストが一杯です！"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:565
 #: tbl_operations.php:438 view_operations.php:111
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
-msgstr "ビュー %s を破棄しました"
+msgstr "ビュー %s を破棄しました。"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:566
 #: tbl_operations.php:439
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "テーブル %s を削除しました"
+msgstr "テーブル %s を削除しました。"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:629
 #: tbl_operations.php:420
@@ -6510,10 +6482,9 @@ msgid "Overhead"
 msgstr "オーバーヘッド"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:104
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "サーバ変数と設定値"
+msgstr "サーバ変数と設定を表示するのに十分な権限はありません。%s"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:228
 msgid "Setting variable failed"
@@ -6530,10 +6501,8 @@ msgstr ""
 "テーブルには数字コラムがない理由でチャートを表示するデータポイントないです。"
 
 #: libraries/classes/Controllers/Table/TableChartController.php:242
-#, fuzzy
-#| msgid "No data found"
 msgid "No data to display"
-msgstr "データが存在しません"
+msgstr "表示するデータはありません"
 
 #: libraries/classes/Controllers/Table/TableIndexesController.php:154
 #: libraries/classes/Controllers/Table/TableStructureController.php:761
@@ -6544,10 +6513,8 @@ msgid "Table %1$s has been altered successfully."
 msgstr "テーブル %1$s は正常に変更されました。"
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:229
-#, fuzzy
-#| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "スレッド %s は正常終了しました。"
+msgstr "表示カラムは正常に更新されました。"
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:273
 #: libraries/classes/Controllers/Table/TableSearchController.php:627
@@ -6559,29 +6526,21 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:303
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
-msgstr "内部リレーションを追加しました"
+msgstr "内部リレーションは正常に更新されました。"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:852
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table search"
 msgstr "テーブル検索"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:859
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "検索プロット"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:864
 #: templates/table/search/selection_form.twig:180
-#, fuzzy
-#| msgid "Hide find and replace criteria"
 msgid "Find and replace"
-msgstr "検索と置換の条件を隠す"
+msgstr "検索と置換"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:195
 #, php-format
@@ -6598,10 +6557,9 @@ msgid "The columns have been moved successfully."
 msgstr "カラムは正常に移動されました。"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:539
-#, fuzzy, php-format
-#| msgid "Failed to fetch headers"
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "ヘッダの取得に失敗しました。"
+msgstr "カラム「%s」の説明を取得に失敗しました!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:772
 #: libraries/classes/Controllers/Table/TableStructureController.php:1068
@@ -6610,11 +6568,10 @@ msgid "Query error"
 msgstr "クエリエラー"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1013
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "テーブル %1$s は正常に変更されました。"
+msgstr "テーブル %1$s は正常に変更されました。特権が変更されました。"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1244
 #: templates/table/structure/display_structure.twig:284
@@ -6707,30 +6664,20 @@ msgid "possible exploit"
 msgstr "なんらかの攻撃をされている可能性があります"
 
 #: libraries/classes/Database/Designer.php:139
-#, fuzzy
-#| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr ""
-"インポートプラグインが読み込めません。正しくインストールされているか確認して"
-"ください！"
+msgstr "スキーマのプラグインが読み込めません。正しくインストールされているか確認してください！"
 
 #: libraries/classes/Database/Designer/Common.php:592
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
-msgstr "エラー: リレーションはすでに存在しています。"
+msgstr "エラー: リレーションは既に存在しています。"
 
 #: libraries/classes/Database/Designer/Common.php:641
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
-msgstr "外部キーを追加しました"
+msgstr "外部キーを追加しました。"
 
 #: libraries/classes/Database/Designer/Common.php:648
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "エラー: リレーションを追加できませんでした。"
+msgstr "エラー: 外部キーリレーションの追加が出来ませんでした!"
 
 #: libraries/classes/Database/Designer/Common.php:655
 msgid "Error: Missing index on column(s)."
@@ -6741,40 +6688,28 @@ msgid "Error: Relational features are disabled!"
 msgstr "エラー: リレーション機能は無効になっています!"
 
 #: libraries/classes/Database/Designer/Common.php:688
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been added."
-msgstr "内部リレーションを追加しました"
+msgstr "内部リレーションを追加しました。"
 
 #: libraries/classes/Database/Designer/Common.php:695
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
-msgstr "エラー: リレーションを追加できませんでした。"
+msgstr "エラー: 内部リレーションの追加が出来ませんでした!"
 
 #: libraries/classes/Database/Designer/Common.php:735
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "外部キーを追加しました"
+msgstr "外部キーを追加しました。"
 
 #: libraries/classes/Database/Designer/Common.php:742
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "エラー: リレーションを追加できませんでした。"
+msgstr "エラー: 外部キーリレーションの追加が出来ませんでした!"
 
 #: libraries/classes/Database/Designer/Common.php:769
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
-msgstr "エラー: リレーションを追加できませんでした。"
+msgstr "エラー: 内部リレーションの追加が出来ませんでした!"
 
 #: libraries/classes/Database/Designer/Common.php:775
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
-msgstr "内部リレーションを追加しました"
+msgstr "内部リレーションを削除しました。"
 
 #: libraries/classes/Database/Qbe.php:473
 #: templates/table/search/selection_form.twig:186
@@ -6874,20 +6809,14 @@ msgid "at least one of the words"
 msgstr "いずれかの単語を含む"
 
 #: libraries/classes/Database/Search.php:109
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "いずれかの単語を含む"
+msgstr "AND検索"
 
 #: libraries/classes/Database/Search.php:110
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "完全一致"
+msgstr "部分文字列としての正確な句"
 
 #: libraries/classes/Database/Search.php:111
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "完全一致"
 
@@ -6912,10 +6841,8 @@ msgstr ""
 "スサーバのデフォルトのタイムゾーンを使用しています。"
 
 #: libraries/classes/DatabaseInterface.php:1618
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
-msgstr "設定ファイルの読み込みに失敗しました"
+msgstr "照合順序接続の設定に失敗しました!"
 
 #: libraries/classes/DatabaseInterface.php:2257
 msgid ""
@@ -7047,10 +6974,8 @@ msgid "no branch"
 msgstr "ブランチ無し"
 
 #: libraries/classes/Display/GitRevision.php:76
-#, fuzzy
-#| msgid "Git revision"
 msgid "Git revision:"
-msgstr "Git のリビジョン"
+msgstr "Git のリビジョン："
 
 #: libraries/classes/Display/GitRevision.php:79
 #, php-format
@@ -7114,10 +7039,8 @@ msgstr "昇順"
 
 #: libraries/classes/Display/Results.php:3307
 #: libraries/classes/Display/Results.php:3322
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "The row has been deleted."
-msgstr "行を削除しました"
+msgstr "行を削除しました。"
 
 #: libraries/classes/Display/Results.php:3354
 #: libraries/classes/Display/Results.php:4688
@@ -7126,10 +7049,8 @@ msgid "Kill"
 msgstr "停止"
 
 #: libraries/classes/Display/Results.php:4138
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください"
+msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください。"
 
 #: libraries/classes/Display/Results.php:4561
 #, php-format
@@ -7147,10 +7068,9 @@ msgid "%d total"
 msgstr "合計 %d"
 
 #: libraries/classes/Display/Results.php:4592 libraries/classes/Sql.php:1345
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Query took %01.4f seconds."
-msgstr "クエリの実行時間 %01.4f 秒"
+msgstr "クエリの実行時間： %01.4f 秒。"
 
 #: libraries/classes/Display/Results.php:4842
 msgid "Copy to clipboard"
@@ -7596,12 +7516,8 @@ msgid "File could not be read!"
 msgstr "ファイルを読み込めませんでした!"
 
 #: libraries/classes/File.php:510
-#, fuzzy
-#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr ""
-"アップロードされたファイルの移動に失敗しました。[doc@faq1-11]FAQ 1.11[/doc] "
-"をご覧ください。"
+msgstr "アップロードされたファイルの移動に失敗しました。[doc@faq1-11]FAQ 1.11[/doc] をご覧ください。"
 
 #: libraries/classes/File.php:529
 msgid "Error while moving uploaded file."
@@ -7663,23 +7579,15 @@ msgstr ""
 "以下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
 
 #: libraries/classes/Import.php:1245
-#, fuzzy
-#| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "名前をクリックすることで構造内容を表示します。"
 
 #: libraries/classes/Import.php:1248
-#, fuzzy
-#| msgid ""
-#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr ""
-"「オプション」のリンクをクリックすることで対応する設定の変更が行えます。"
+msgstr "「オプション」のリンクをクリックすることで対応する設定の変更が行えます。"
 
 #: libraries/classes/Import.php:1250
-#, fuzzy
-#| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "名前の後ろにある「構造」のリンクより構造の編集が行えます。"
 
@@ -7855,10 +7763,8 @@ msgid "Or"
 msgstr "または"
 
 #: libraries/classes/InsertEdit.php:1546
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "ウェブサーバ上のアップロードディレクトリ"
+msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
 #: libraries/classes/InsertEdit.php:1749
 #: templates/table/search/input_box.twig:38
@@ -7898,14 +7804,9 @@ msgid "Edit next row"
 msgstr "次の行を編集する"
 
 #: libraries/classes/InsertEdit.php:1931
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
-msgstr ""
-"次の値に移動するときは TAB キーを使ってください。CTRL＋カーソルキーを使うと自"
-"由に移動できます"
+msgstr "次の値に移動するときは TAB キーを使ってください。CTRL＋カーソルキーを使うと自由に移動できます。"
 
 #: libraries/classes/InsertEdit.php:1969
 #: libraries/classes/ReplicationGui.php:579
@@ -8061,10 +7962,8 @@ msgstr "デザイナ"
 
 #: libraries/classes/Menu.php:557 libraries/classes/Util.php:4214
 #: templates/database/structure/check_all_tables.twig:32
-#, fuzzy
-#| msgid "Textarea columns"
 msgid "Central columns"
-msgstr "textarea の 1 行の文字数"
+msgstr "中央カラム"
 
 #: libraries/classes/Menu.php:615
 msgid "User accounts"
@@ -8137,10 +8036,8 @@ msgid "Data only"
 msgstr "データのみ"
 
 #: libraries/classes/MultSubmits.php:426
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "AUTO_INCREMENT 値を追加する"
+msgstr "AUTO INCREMENT 値を追加する"
 
 #: libraries/classes/MultSubmits.php:428 libraries/classes/Operations.php:251
 #: libraries/classes/Operations.php:1366
@@ -8152,8 +8049,6 @@ msgstr "制約を追加する"
 #: libraries/classes/Operations.php:1019 libraries/classes/Operations.php:1385
 #: libraries/classes/Rte/Routines.php:1087
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
 msgstr "特権を編集"
 
@@ -8178,41 +8073,29 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "ナビゲーション画面を読み込み中にエラーが発生しました"
 
 #: libraries/classes/Navigation/Navigation.php:217
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups:"
-msgstr "カラム名: "
+msgstr "グループ:"
 
 #: libraries/classes/Navigation/Navigation.php:218
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "イベント"
+msgstr "イベント:"
 
 #: libraries/classes/Navigation/Navigation.php:219
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "関数"
+msgstr "関数:"
 
 #: libraries/classes/Navigation/Navigation.php:220
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "プロシージャ"
+msgstr "プロシージャ："
 
 #: libraries/classes/Navigation/Navigation.php:221
 #: templates/display/export/selection.twig:5
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "テーブル"
+msgstr "テーブル："
 
 #: libraries/classes/Navigation/Navigation.php:222
-#, fuzzy
-#| msgid "Views"
 msgid "Views:"
-msgstr "ビュー"
+msgstr "ビュー："
 
 #: libraries/classes/Navigation/Navigation.php:246
 msgid "Unhide"
@@ -8227,26 +8110,20 @@ msgid "Log out"
 msgstr "ログアウト"
 
 #: libraries/classes/Navigation/NavigationHeader.php:193
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "テーブルのデータのダンプ"
+msgstr "空のセッション データ"
 
 #: libraries/classes/Navigation/NavigationHeader.php:211
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin のドキュメント"
 
 #: libraries/classes/Navigation/NavigationHeader.php:231
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "ナビゲーションパネル"
+msgstr "ナビゲーションパネル設定"
 
 #: libraries/classes/Navigation/NavigationHeader.php:242
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "ナビゲーションフレームの再読み込み"
+msgstr "ナビゲーションパネルの再読み込み"
 
 #: libraries/classes/Navigation/NavigationTree.php:760
 msgid ""
@@ -8270,10 +8147,8 @@ msgstr "フィルタをここに入力し、Enterで検索"
 
 #: libraries/classes/Navigation/NavigationTree.php:1385
 #: libraries/classes/Navigation/NavigationTree.php:1416
-#, fuzzy
-#| msgid "Clear series"
 msgid "Clear fast filter"
-msgstr "系列をクリアする"
+msgstr "クリアフィルタ"
 
 #: libraries/classes/Navigation/NavigationTree.php:1442
 msgid "Collapse all"
@@ -8286,10 +8161,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "\"%1$s\" は、デフォルトの \"Node\" を含む無効なクラス名です"
 
 #: libraries/classes/Navigation/NodeFactory.php:63
-#, fuzzy, php-format
-#| msgid "Could not save configuration"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "設定が保存できません"
+msgstr "「%1$s」のクラスをロード出来ませんでした"
 
 #: libraries/classes/Navigation/Nodes/Node.php:803
 msgid "Expand/Collapse"
@@ -8302,32 +8176,24 @@ msgid "Columns"
 msgstr "カラム"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "新規作成"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
-#, fuzzy
-#| msgid "Database export options"
 msgid "Database operations"
-msgstr "データベースエクスポートオプション"
+msgstr "データベース操作"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:687
 msgid "Show hidden items"
 msgstr "非表示アイテムの再表示"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new database"
 msgid "New"
 msgstr "新規作成"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:39
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
 msgstr "新規作成"
@@ -8340,22 +8206,16 @@ msgid "Functions"
 msgstr "関数"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "新規作成"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new index"
 msgid "New"
 msgstr "新規作成"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:32
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedure"
 msgstr "プロシージャ"
 
@@ -8368,22 +8228,16 @@ msgstr "プロシージャ"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:37
 #: libraries/classes/Rte/Footer.php:61
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "新規作成"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:38
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "新規作成"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:39
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "新規作成"
@@ -8396,8 +8250,6 @@ msgid "Views"
 msgstr "ビュー"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:38
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
 msgstr "新規作成"
@@ -8439,16 +8291,12 @@ msgstr ""
 "プに進みます。"
 
 #: libraries/classes/Normalization.php:213 normalization.php:24
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "カラムを 2 つ選択してください"
+msgstr "カラムを １つ選択してください…"
 
 #: libraries/classes/Normalization.php:214 normalization.php:25
-#, fuzzy
-#| msgid "Move column"
 msgid "No such column"
-msgstr "カラムを移動させる"
+msgstr "カラムはありません"
 
 #: libraries/classes/Normalization.php:218 libraries/classes/Types.php:728
 #: normalization.php:30
@@ -8461,16 +8309,12 @@ msgid "split into "
 msgstr "分割します "
 
 #: libraries/classes/Normalization.php:242
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Have a primary key"
-msgstr "主キーを追加する"
+msgstr "主キーが存在します"
 
 #: libraries/classes/Normalization.php:248
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "エラー: リレーションはすでに存在しています。"
+msgstr "主キーは既に存在しています。"
 
 #: libraries/classes/Normalization.php:253
 msgid ""
@@ -8489,16 +8333,12 @@ msgstr ""
 "プライマリキーとして既存のカラムの組み合わせを設定することができない場合"
 
 #: libraries/classes/Normalization.php:270
-#, fuzzy
-#| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "主キーを追加する"
+msgstr "+ 主キーカラムを追加"
 
 #: libraries/classes/Normalization.php:292
-#, fuzzy
-#| msgid "Remove column(s)"
 msgid "Remove redundant columns"
-msgstr "カラムの削除"
+msgstr "不要なカラムを削除"
 
 #: libraries/classes/Normalization.php:295
 msgid ""
@@ -8518,10 +8358,8 @@ msgstr ""
 "「不要カラムなし」をクリック"
 
 #: libraries/classes/Normalization.php:306
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "選択したユーザを削除する"
+msgstr "選択項目を削除"
 
 #: libraries/classes/Normalization.php:307
 msgid "No redundant column"
@@ -8636,10 +8474,8 @@ msgstr "テーブル「%1$s」の第２正規形は完了しました。"
 #: libraries/classes/Normalization.php:547
 #: libraries/classes/Normalization.php:703
 #: libraries/classes/Normalization.php:778
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing!"
-msgstr "要求処理中でのエラー"
+msgstr "処理中にエラーが発生しました!"
 
 #: libraries/classes/Normalization.php:593
 #, php-format
@@ -8660,10 +8496,8 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "選択された繰り返しグループが「%s」のテーブルへ移動されました"
 
 #: libraries/classes/Normalization.php:805
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "9 月"
+msgstr "ステップ 3"
 
 #: libraries/classes/Normalization.php:805
 msgid "Find transitive dependencies"
@@ -8688,10 +8522,8 @@ msgid "Table is already in Third normal form!"
 msgstr "テーブルは既に第3正規形になっている!"
 
 #: libraries/classes/Normalization.php:890
-#, fuzzy
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "テーブル構造の操作欄を折り畳む"
+msgstr "テーブル構造(正規化)を改善します:"
 
 #: libraries/classes/Normalization.php:891
 msgid "Select up to what step you want to normalize"
@@ -8724,8 +8556,6 @@ msgid "No partial dependencies found!"
 msgstr "部分的な依存が見つかりませんでした!"
 
 #: libraries/classes/Operations.php:105
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
 msgstr "データベース名の変更"
 
@@ -8733,12 +8563,10 @@ msgstr "データベース名の変更"
 #: libraries/classes/Operations.php:911 libraries/classes/Operations.php:1013
 #: libraries/classes/Operations.php:1379
 #: templates/columns_definitions/column_adjust_privileges.twig:15
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "特権不足でアクセスできません!"
+msgstr "この操作を実行する十分な特権がありません。詳細についてはドキュメンテーションを参照してください。"
 
 #: libraries/classes/Operations.php:159
 #, php-format
@@ -8754,8 +8582,6 @@ msgid "Drop the database (DROP)"
 msgstr "データベースを削除する (DROP)"
 
 #: libraries/classes/Operations.php:223
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "データベースのコピー先"
 
@@ -8768,10 +8594,8 @@ msgid "Switch to copied database"
 msgstr "コピーしたデータベースに切り替える"
 
 #: libraries/classes/Operations.php:324
-#, fuzzy
-#| msgid "Continued table caption"
 msgid "Change all tables collations"
-msgstr "テーブルのキャプション (続き)"
+msgstr "すべてのテーブルの照合順序を変更"
 
 #: libraries/classes/Operations.php:330
 msgid "Change all tables columns collations"
@@ -8835,10 +8659,8 @@ msgstr "テーブルをチェックする"
 
 #: libraries/classes/Operations.php:1480
 #: templates/database/structure/check_all_tables.twig:21
-#, fuzzy
-#| msgid "Check table"
 msgid "Checksum table"
-msgstr "テーブルをチェックする"
+msgstr "チェックサム テーブル"
 
 #: libraries/classes/Operations.php:1494
 msgid "Defragment table"
@@ -11611,8 +11433,6 @@ msgstr "データベースに固有の特権"
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
 #: templates/select_all.twig:4 templates/select_all.twig:5
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "すべてチェックする"
 
