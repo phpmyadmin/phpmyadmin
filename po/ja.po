@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-02-01 17:28+0000\n"
+"PO-Revision-Date: 2019-02-02 06:49+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -8731,10 +8731,8 @@ msgid "Truncate"
 msgstr "Truncate"
 
 #: libraries/classes/Operations.php:1667
-#, fuzzy
-#| msgid "Close"
 msgid "Coalesce"
-msgstr "閉じる"
+msgstr "合体"
 
 #: libraries/classes/Operations.php:1676
 msgid "Partition maintenance"
@@ -8763,16 +8761,14 @@ msgid "Can't copy table to same one!"
 msgstr "同じテーブルにはコピーできません!"
 
 #: libraries/classes/Operations.php:2178
-#, fuzzy, php-format
-#| msgid "Table %s has been moved to %s."
+#, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "テーブル %s を %s に移動しました。"
+msgstr "テーブル%sは%sに移動されました。 特権が変更されました。"
 
 #: libraries/classes/Operations.php:2185
-#, fuzzy, php-format
-#| msgid "Table %s has been copied to %s."
+#, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "テーブル %s を %s にコピーしました。"
+msgstr "テーブル %s を %s にコピーしました。特権が変更されました。"
 
 #: libraries/classes/Operations.php:2193
 #, php-format
@@ -8850,10 +8846,8 @@ msgid "Username:"
 msgstr "ユーザ名:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:228
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "サーバの選択"
+msgstr "サーバの選択:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:358
 #, fuzzy

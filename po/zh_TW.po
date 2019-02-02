@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-01-21 17:06+0000\n"
+"PO-Revision-Date: 2019-02-02 06:49+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -2858,27 +2858,27 @@ msgstr "請修正此欄位"
 
 #: js/messages.php:933
 msgid "Please enter a valid email address"
-msgstr "請輸入有效的電子郵件位址"
+msgstr "請輸入有效電子郵件位址"
 
 #: js/messages.php:934
 msgid "Please enter a valid URL"
-msgstr "請輸入有效的 URL"
+msgstr "請輸入有效網址"
 
 #: js/messages.php:935
 msgid "Please enter a valid date"
-msgstr "請輸入有效的日期"
+msgstr "請輸入有效日期"
 
 #: js/messages.php:938
 msgid "Please enter a valid date ( ISO )"
-msgstr "請輸入有效的日期 ( ISO )"
+msgstr "請輸入有效日期 ( ISO )"
 
 #: js/messages.php:940
 msgid "Please enter a valid number"
-msgstr "請輸入有效的數字"
+msgstr "請輸入有效數字"
 
 #: js/messages.php:943
 msgid "Please enter a valid credit card number"
-msgstr "請輸入有效的信用卡號"
+msgstr "請輸入有效信用卡號"
 
 #: js/messages.php:945
 msgid "Please enter only digits"
@@ -2898,7 +2898,7 @@ msgstr "請輸入不少於 {0} 個字元"
 
 #: js/messages.php:962
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr "請輸入介於  {0} 與 {1} 個字元長度間的值"
+msgstr "請輸入介於  {0} 與 {1} 個字元長度的值"
 
 #: js/messages.php:967
 msgid "Please enter a value between {0} and {1}"
@@ -2918,7 +2918,7 @@ msgstr "請輸入有效的日期或時間"
 
 #: js/messages.php:988
 msgid "Please enter a valid HEX input"
-msgstr "請輸入有效的 HEX 輸入值"
+msgstr "請輸入有效的十六進位值"
 
 #: js/messages.php:993 libraries/classes/Core.php:292
 #: libraries/classes/Import.php:119 libraries/classes/InsertEdit.php:1541
@@ -2935,27 +2935,27 @@ msgstr "評估此項目時發生錯誤：%s"
 #: libraries/classes/Advisor.php:288
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "在檢查預先狀況時，條件 \"%s\" 失敗。"
+msgstr "在檢查預先狀況時，條件「%s」失敗。"
 
 #: libraries/classes/Advisor.php:305
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "在計算數值時，條件 \"%s\" 失敗。"
+msgstr "在計算數值時，條件「%s」失敗。"
 
 #: libraries/classes/Advisor.php:324
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "在執行測試時，條件 \"%s\" 失敗。"
+msgstr "在執行測試時，條件「%s」失敗。"
 
 #: libraries/classes/Advisor.php:409
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "無法產生規則 '%s' 的格式化文字。"
+msgstr "無法產生規則「%s」的格式化文字。"
 
 #: libraries/classes/Advisor.php:515
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr "讀取檔案時的錯誤︰檔案 %s 不存在或無法讀取！"
+msgstr "讀取檔案出錯︰沒有「%s」檔案，又或無法讀取！"
 
 #: libraries/classes/Advisor.php:549
 #, php-format
@@ -2976,7 +2976,7 @@ msgstr "第 %s 行有不明符號。"
 #: libraries/classes/Advisor.php:589
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "第 %1$s 行有不明符號。應該是「tab」，但出現的是「%2$s」。"
+msgstr "第 %1$s 行有不明符號。應該是 tab，但出現的是「%2$s」。"
 
 #: libraries/classes/Advisor.php:628
 msgid "per second"
@@ -3032,7 +3032,7 @@ msgstr "欄位中央清單功能未能使用，因設定儲存空間尚未預備
 #: libraries/classes/CentralColumns.php:384
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "中央清單已有欄位 %1$s ，無法新增！"
+msgstr "中央清單已有 %1$s 欄位 ，無法新增！"
 
 #: libraries/classes/CentralColumns.php:400
 msgid "Could not add columns!"
@@ -3042,7 +3042,7 @@ msgstr "無法新增欄位！"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "中央清單沒有欄位 %1$s ，無法移除！"
+msgstr "中央清單沒有 %1$s 欄位，無法移除！"
 
 #: libraries/classes/CentralColumns.php:490
 msgid "Could not remove columns!"
@@ -3076,8 +3076,9 @@ msgstr "名稱"
 #: libraries/classes/CentralColumns.php:1007
 #: libraries/classes/Rte/Routines.php:1008
 #: templates/columns_definitions/table_fields_definitions.twig:16
+#, fuzzy
 msgid "Length/Values"
-msgstr "長度/值"
+msgstr "長度／值"
 
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
@@ -3108,7 +3109,7 @@ msgstr "屬性"
 #: templates/database/central_columns/main.twig:45
 #: templates/database/central_columns/main.twig:262
 msgid "A_I"
-msgstr "A_I"
+msgstr "自動增長"
 
 #: libraries/classes/Charsets.php:221
 #: templates/database/structure/table_header.twig:42
@@ -3117,7 +3118,7 @@ msgstr "字元編碼"
 
 #: libraries/classes/Charsets.php:312
 msgid "Unknown"
-msgstr "未知"
+msgstr "不明"
 
 #: libraries/classes/Charsets.php:326
 msgctxt "Collation"
@@ -3132,17 +3133,17 @@ msgstr "Unicode"
 #: libraries/classes/Charsets.php:348 libraries/classes/Charsets.php:519
 msgctxt "Collation"
 msgid "West European"
-msgstr "西歐語系"
+msgstr "西歐文字"
 
 #: libraries/classes/Charsets.php:355
 msgctxt "Collation"
 msgid "Central European"
-msgstr "中歐語系"
+msgstr "中歐文字"
 
 #: libraries/classes/Charsets.php:360
 msgctxt "Collation"
 msgid "Russian"
-msgstr "俄語"
+msgstr "俄文"
 
 #: libraries/classes/Charsets.php:365
 msgctxt "Collation"
@@ -3152,17 +3153,17 @@ msgstr "簡體中文"
 #: libraries/classes/Charsets.php:372 libraries/classes/Charsets.php:490
 msgctxt "Collation"
 msgid "Japanese"
-msgstr "日語"
+msgstr "日文"
 
 #: libraries/classes/Charsets.php:377
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "波羅的海語系"
+msgstr "波羅的海文字"
 
 #: libraries/classes/Charsets.php:382
 msgctxt "Collation"
 msgid "Armenian"
-msgstr "亞美尼亞語"
+msgstr "亞美尼亞文"
 
 #: libraries/classes/Charsets.php:385
 msgctxt "Collation"
@@ -3172,67 +3173,67 @@ msgstr "繁體中文"
 #: libraries/classes/Charsets.php:388
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "西里爾語系"
+msgstr "西里爾文字"
 
 #: libraries/classes/Charsets.php:391
 msgctxt "Collation"
 msgid "Arabic"
-msgstr "阿拉伯語"
+msgstr "阿拉伯文"
 
 #: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:505
 msgctxt "Collation"
 msgid "Korean"
-msgstr "韓語"
+msgstr "韓文"
 
 #: libraries/classes/Charsets.php:397
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr "希伯來語"
+msgstr "希伯來文"
 
 #: libraries/classes/Charsets.php:400
 msgctxt "Collation"
 msgid "Georgian"
-msgstr "喬治亞語"
+msgstr "喬治亞文"
 
 #: libraries/classes/Charsets.php:403
 msgctxt "Collation"
 msgid "Greek"
-msgstr "希臘語"
+msgstr "希臘文"
 
 #: libraries/classes/Charsets.php:406
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "捷克斯洛伐克語"
+msgstr "捷克斯洛伐克文"
 
 #: libraries/classes/Charsets.php:409 libraries/classes/Charsets.php:560
 msgctxt "Collation"
 msgid "Ukrainian"
-msgstr "烏克蘭語"
+msgstr "烏克蘭文"
 
 #: libraries/classes/Charsets.php:412 libraries/classes/Charsets.php:556
 msgctxt "Collation"
 msgid "Turkish"
-msgstr "土耳其語"
+msgstr "土耳其文"
 
 #: libraries/classes/Charsets.php:415 libraries/classes/Charsets.php:548
 msgctxt "Collation"
 msgid "Swedish"
-msgstr "瑞典語"
+msgstr "瑞典文"
 
 #: libraries/classes/Charsets.php:418 libraries/classes/Charsets.php:552
 msgctxt "Collation"
 msgid "Thai"
-msgstr "泰語"
+msgstr "泰文"
 
 #: libraries/classes/Charsets.php:421
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "未知"
+msgstr "不明"
 
 #: libraries/classes/Charsets.php:437
 msgctxt "Collation"
 msgid "Bulgarian"
-msgstr "保加利亞語"
+msgstr "保加利亞文"
 
 #: libraries/classes/Charsets.php:442
 msgctxt "Collation"
@@ -3242,22 +3243,22 @@ msgstr "中文"
 #: libraries/classes/Charsets.php:447
 msgctxt "Collation"
 msgid "Croatian"
-msgstr "克羅埃西亞語"
+msgstr "克羅埃西亞文"
 
 #: libraries/classes/Charsets.php:451
 msgctxt "Collation"
 msgid "Czech"
-msgstr "捷克語"
+msgstr "捷克文"
 
 #: libraries/classes/Charsets.php:455
 msgctxt "Collation"
 msgid "Danish"
-msgstr "丹麥語"
+msgstr "丹麥文"
 
 #: libraries/classes/Charsets.php:459
 msgctxt "Collation"
 msgid "English"
-msgstr "英語"
+msgstr "英文"
 
 #: libraries/classes/Charsets.php:463
 msgctxt "Collation"
@@ -3267,92 +3268,92 @@ msgstr "世界語"
 #: libraries/classes/Charsets.php:467
 msgctxt "Collation"
 msgid "Estonian"
-msgstr "愛沙尼亞語"
+msgstr "愛沙尼亞文"
 
 #: libraries/classes/Charsets.php:470 libraries/classes/Charsets.php:587
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "德語 (字典排序)"
+msgstr "德文 (字典排序)"
 
 #: libraries/classes/Charsets.php:473 libraries/classes/Charsets.php:584
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr "德語 (通訊錄排序)"
+msgstr "德文 (通訊錄排序)"
 
 #: libraries/classes/Charsets.php:482
 msgctxt "Collation"
 msgid "Hungarian"
-msgstr "匈牙利語"
+msgstr "匈牙利文"
 
 #: libraries/classes/Charsets.php:486
 msgctxt "Collation"
 msgid "Icelandic"
-msgstr "冰島語"
+msgstr "冰島文"
 
 #: libraries/classes/Charsets.php:493
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr "經典拉丁語"
+msgstr "經典拉丁文"
 
 #: libraries/classes/Charsets.php:497
 msgctxt "Collation"
 msgid "Latvian"
-msgstr "拉脫維亞語"
+msgstr "拉脫維亞文"
 
 #: libraries/classes/Charsets.php:501
 msgctxt "Collation"
 msgid "Lithuanian"
-msgstr "立陶宛語"
+msgstr "立陶宛文"
 
 #: libraries/classes/Charsets.php:509
 msgctxt "Collation"
 msgid "Burmese"
-msgstr "緬甸語"
+msgstr "緬甸文"
 
 #: libraries/classes/Charsets.php:512
 msgctxt "Collation"
 msgid "Persian"
-msgstr "波斯語"
+msgstr "波斯文"
 
 #: libraries/classes/Charsets.php:516
 msgctxt "Collation"
 msgid "Polish"
-msgstr "波蘭語"
+msgstr "波蘭文"
 
 #: libraries/classes/Charsets.php:523
 msgctxt "Collation"
 msgid "Romanian"
-msgstr "羅馬尼亞語"
+msgstr "羅馬尼亞文"
 
 #: libraries/classes/Charsets.php:527
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr "僧伽羅語"
+msgstr "僧伽羅文"
 
 #: libraries/classes/Charsets.php:531
 msgctxt "Collation"
 msgid "Slovak"
-msgstr "斯洛伐克語"
+msgstr "斯洛伐克文"
 
 #: libraries/classes/Charsets.php:535
 msgctxt "Collation"
 msgid "Slovenian"
-msgstr "斯洛維尼亞語"
+msgstr "斯洛維尼亞文"
 
 #: libraries/classes/Charsets.php:538 libraries/classes/Charsets.php:598
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "西班牙語 (現代)"
+msgstr "西班牙文 (現代)"
 
 #: libraries/classes/Charsets.php:545 libraries/classes/Charsets.php:595
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr "西班牙語 (傳統)"
+msgstr "西班牙文 (傳統)"
 
 #: libraries/classes/Charsets.php:564
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "越南語"
+msgstr "越南文"
 
 #: libraries/classes/Charsets.php:631
 msgctxt "Collation variant"
@@ -3387,7 +3388,7 @@ msgstr "二進位"
 #: libraries/classes/Config.php:1142
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr "無法讀取現有的設定檔 (%s)。"
+msgstr "無法讀取現有設定檔 (%s)。"
 
 #: libraries/classes/Config.php:1172
 msgid "Wrong permissions on configuration file, should not be world writable!"
@@ -3456,7 +3457,7 @@ msgstr "允許第三方框架頁使用"
 
 #: libraries/classes/Config/Descriptions.php:83
 msgid "Show \"Drop database\" link to normal users"
-msgstr "顯示「刪除資料庫」連結給普通使用者"
+msgstr "向普通使用者顯示「刪除資料庫」連結"
 
 #: libraries/classes/Config/Descriptions.php:85
 msgid ""
@@ -3470,19 +3471,19 @@ msgstr "Blowfish 加密密碼"
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid "Highlight selected rows."
-msgstr "加強顯示已選擇的資料列。"
+msgstr "凸顯所選的資料列。"
 
 #: libraries/classes/Config/Descriptions.php:90
 msgid "Row marker"
-msgstr "加強顯示資料列"
+msgstr "凸顯資料列"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "加強顯示滑鼠指標所指的資料列。"
+msgstr "凸顯滑鼠指標所指的資料列。"
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Highlight pointer"
-msgstr "加強顯示滑鼠指標"
+msgstr "凸顯滑鼠指標"
 
 #: libraries/classes/Config/Descriptions.php:94
 msgid "Enable bzip2 compression for import operations."
@@ -3719,7 +3720,7 @@ msgstr "關閉多張資料表的護養操作"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr "設定 Script 允許執行的時間限制 (秒，[kbd]0[/kbd] 爲不設限)。"
+msgstr "設定 Script 允許執行的時間限制 (以秒計算，[kbd]0[/kbd] 為不設限)。"
 
 #: libraries/classes/Config/Descriptions.php:184
 msgid "Maximum execution time"
@@ -3789,7 +3790,7 @@ msgstr "內容跳脫符號："
 #: libraries/classes/Config/Descriptions.php:230
 #: libraries/classes/Config/Descriptions.php:275
 msgid "Replace NULL with"
-msgstr "將 NULL 取代爲"
+msgstr "將 NULL 取代為"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:203
@@ -3815,15 +3816,15 @@ msgstr "Excel 版本"
 
 #: libraries/classes/Config/Descriptions.php:204
 msgid "Database name template"
-msgstr "資料庫名稱樣板"
+msgstr "資料庫名稱模板"
 
 #: libraries/classes/Config/Descriptions.php:205
 msgid "Server name template"
-msgstr "伺服器名稱樣板"
+msgstr "伺服器名稱模板"
 
 #: libraries/classes/Config/Descriptions.php:206
 msgid "Table name template"
-msgstr "資料表名稱樣板"
+msgstr "資料表名稱模板"
 
 #: libraries/classes/Config/Descriptions.php:210
 #: libraries/classes/Config/Descriptions.php:223
@@ -3897,17 +3898,17 @@ msgstr "匯出為個別檔案"
 
 #: libraries/classes/Config/Descriptions.php:238
 msgid "Remember file name template"
-msgstr "記錄樣板檔案名稱"
+msgstr "記錄模板檔案名稱"
 
 #: libraries/classes/Config/Descriptions.php:239
 #: libraries/classes/Operations.php:247 libraries/classes/Operations.php:899
 #: libraries/classes/Operations.php:1358
 msgid "Add AUTO_INCREMENT value"
-msgstr "加入自動遞增(AUTO_INCREMENT)數值"
+msgstr "加入自動遞增(AUTO_INCREMENT)值"
 
 #: libraries/classes/Config/Descriptions.php:240
 msgid "Enclose table and column names with backquotes"
-msgstr "在資料表名稱及欄位名稱使用反引號(`)"
+msgstr "在資料表名稱及欄位名稱前後加上反引號(`)"
 
 #: libraries/classes/Config/Descriptions.php:241
 #: libraries/classes/Config/Descriptions.php:425
@@ -3916,7 +3917,7 @@ msgstr "SQL 相容模式"
 
 #: libraries/classes/Config/Descriptions.php:242
 msgid "Creation/Update/Check dates"
-msgstr "建立/更新/檢查日期"
+msgstr "建立／更新／檢查日期"
 
 #: libraries/classes/Config/Descriptions.php:243
 msgid "Use delayed inserts"
@@ -3925,7 +3926,7 @@ msgstr "使用延遲新增"
 #: libraries/classes/Config/Descriptions.php:244
 #: libraries/classes/Plugins/Export/ExportSql.php:155
 msgid "Disable foreign key checks"
-msgstr "關閉外鍵(Foreign Key)檢查"
+msgstr "關閉外鍵檢查"
 
 #: libraries/classes/Config/Descriptions.php:245
 #: libraries/classes/Plugins/Export/ExportSql.php:169
@@ -3950,7 +3951,7 @@ msgstr "加入 %s"
 
 #: libraries/classes/Config/Descriptions.php:256
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "於 BINARY 與 BLOB 欄位使用 16 進位(HEX)表示"
+msgstr "將 BINARY 與 BLOB 欄位以 16 進位顯示"
 
 #: libraries/classes/Config/Descriptions.php:258
 msgid ""
@@ -3971,16 +3972,16 @@ msgstr "%s 檢視"
 
 #: libraries/classes/Config/Descriptions.php:263
 msgid "Use ignore inserts"
-msgstr "使用忽略錯誤的新增(INSERT)"
+msgstr "使用忽略錯誤的新增(INSERT IGNORE)"
 
 #: libraries/classes/Config/Descriptions.php:265
 msgid "Syntax to use when inserting data"
-msgstr "在新增資料時使用的語法"
+msgstr "新增資料時使用的語法"
 
 #: libraries/classes/Config/Descriptions.php:266
 #: libraries/classes/Plugins/Export/ExportSql.php:459
 msgid "Maximal length of created query"
-msgstr "建立查詢指令最大長度"
+msgstr "建立查詢指令的最大長度"
 
 #: libraries/classes/Config/Descriptions.php:271
 msgid "Export type"
@@ -3989,7 +3990,7 @@ msgstr "匯出類型"
 #: libraries/classes/Config/Descriptions.php:272
 #: libraries/classes/Plugins/Export/ExportSql.php:141
 msgid "Enclose export in a transaction"
-msgstr "匯出資料使用交易(Transcation)的方式包裝"
+msgstr "匯出資料時，將之包含在交易之內"
 
 #: libraries/classes/Config/Descriptions.php:273
 msgid "Export time in UTC"
@@ -3999,9 +4000,7 @@ msgstr "匯出時間使用世界協調時間(UTC)"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr ""
-"外鍵下拉選單中，選項的排序順序：[kbd]content[/kbd] 為關聯內容、[kbd]id[/kbd] "
-"為鍵值。"
+msgstr "在外鍵下拉選單，項目的排列次序：[kbd]content[/kbd] 為關聯內容、[kbd]id[/kbd] 為鍵值。"
 
 #: libraries/classes/Config/Descriptions.php:281
 msgid "Foreign key dropdown order"
@@ -4009,7 +4008,7 @@ msgstr "外鍵下拉選單排序"
 
 #: libraries/classes/Config/Descriptions.php:282
 msgid "A dropdown will be used if fewer items are present."
-msgstr "下拉選單中選項個數的限制。"
+msgstr "在下拉選單，項目個數的限制。"
 
 #: libraries/classes/Config/Descriptions.php:283
 msgid "Foreign key limit"
@@ -4017,11 +4016,11 @@ msgstr "外鍵數量限制"
 
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr "使用外鍵(Foreign key)檢查某些查詢的核選方塊的預設值。"
+msgstr "使用外鍵檢查某些查詢的核選方塊的預設值。"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "Foreign key checks"
-msgstr "外鍵(Foreign Key)檢查"
+msgstr "外鍵檢查"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -4165,9 +4164,7 @@ msgstr "頁面標題"
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
-msgstr ""
-"設定瀏覽器標題列顯示的文字。請參考 [doc@faq6-27]說明文件[/doc] 中的變數字串，"
-"用來替換為特殊內容。"
+msgstr "設定瀏覽器標題列顯示的文字。請參閱[doc@faq6-27]說明文件[/doc]的變數字串，用來替換為特殊內容。"
 
 #: libraries/classes/Config/Descriptions.php:329
 msgid "Security"
@@ -4177,8 +4174,7 @@ msgstr "安全性"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
-msgstr ""
-"請注意 phpMyAdmin 僅提供使用者介面及相關功能，並不會實際限制 MySQL 的執行。"
+msgstr "請注意 phpMyAdmin 僅提供使用者介面，並不會實際限制 MySQL 的執行。"
 
 #: libraries/classes/Config/Descriptions.php:334
 msgid "Basic settings"
@@ -4246,7 +4242,7 @@ msgstr "SQL 查詢框"
 
 #: libraries/classes/Config/Descriptions.php:356
 msgid "Customize links shown in SQL Query boxes."
-msgstr "自訂顯示在 SQL 查詢框中的連結。"
+msgstr "自訂顯示在 SQL 查詢框的連結。"
 
 #: libraries/classes/Config/Descriptions.php:358
 #: libraries/classes/Config/Forms/User/SqlForm.php:52
@@ -4286,15 +4282,15 @@ msgstr "資料表結構設定 (欄位清單)。"
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid "Tabs"
-msgstr "頁籤"
+msgstr "分頁"
 
 #: libraries/classes/Config/Descriptions.php:367
 msgid "Choose how you want tabs to work."
-msgstr "請選擇頁籤的顯示方式。"
+msgstr "請選擇分頁的顯示方式。"
 
 #: libraries/classes/Config/Descriptions.php:368
 msgid "Display relational schema"
-msgstr "顯示關聯綱要(Schema)"
+msgstr "顯示關聯綱要"
 
 #: libraries/classes/Config/Descriptions.php:370
 #: libraries/classes/Plugins/Schema/SchemaDia.php:74
@@ -4308,7 +4304,7 @@ msgstr "文字欄位"
 
 #: libraries/classes/Config/Descriptions.php:374
 msgid "Customize text input fields."
-msgstr "自訂文字輸入框。"
+msgstr "自訂文字輸入欄位。"
 
 #: libraries/classes/Config/Descriptions.php:375
 msgid "Texy! text"
@@ -4347,9 +4343,7 @@ msgstr "iconv 的額外參數"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
-msgstr ""
-"如果開啟此選項，在執行多條指令查詢的時候，即使有一條或多條指令發生錯誤，"
-"phpMyAdmin 仍會繼續執行其他的指令。"
+msgstr "如果開啟此選項，在執行多條指令查詢的時候，即使有指令發生錯誤，phpMyAdmin 仍會繼續執行其他的指令。"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Ignore multiple statement errors"
@@ -4360,9 +4354,7 @@ msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
 "transactions."
-msgstr ""
-"允許程式在偵測到執行時間快到上限時，自動中斷匯入。若要匯入大型檔案，這是很好"
-"的做法，不過使用這種方法會破壞指令中的交易(Transaction)事件。"
+msgstr "允許程式在偵測到執行時間快到上限時，自動中斷匯入。若要匯入大型檔案，這是很好的做法，不過使用這種方法會破壞指令中的交易事件。"
 
 #: libraries/classes/Config/Descriptions.php:396
 msgid "Enable drag and drop import"
@@ -4433,11 +4425,11 @@ msgstr "自文件開首略過的查詢數。"
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Partial import: skip queries"
-msgstr "部分匯入: 跳過查詢"
+msgstr "部分匯入：跳過查詢"
 
 #: libraries/classes/Config/Descriptions.php:426
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "不要將數值為零的資料加上 AUTO_INCREMENT 屬性"
+msgstr "不要將數值為零的資料加上自動遞增(AUTO_INCREMENT)屬性"
 
 #: libraries/classes/Config/Descriptions.php:427
 msgid "Read as multibytes"
@@ -4482,7 +4474,7 @@ msgstr "登出時刪除所有 cookie"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr "定義在 [kbd]cookie[/kbd] 認證模式中，是否顯示上次登入的帳號。"
+msgstr "在 [kbd]cookie[/kbd] 認證模式，是否顯示上次登入的帳號。"
 
 #: libraries/classes/Config/Descriptions.php:443
 msgid "Recall user name"
@@ -4504,7 +4496,7 @@ msgstr "儲存登入 cookie"
 
 #: libraries/classes/Config/Descriptions.php:451
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "設定使用 cookie 方式登入的有效期限 (秒)。"
+msgstr "設定使用 cookie 方式登入的有效時間(秒)。"
 
 #: libraries/classes/Config/Descriptions.php:452
 msgid "Login cookie validity"
@@ -4534,7 +4526,7 @@ msgstr "使用者不能設定更大的值"
 
 #: libraries/classes/Config/Descriptions.php:458
 msgid "Maximum number of databases displayed in database list."
-msgstr "在資料庫清單顯示的資料庫項目數量上限。"
+msgstr "在資料庫清單，顯示的資料庫數量上限。"
 
 #: libraries/classes/Config/Descriptions.php:459
 msgid "Maximum databases"
@@ -4564,9 +4556,7 @@ msgstr "導覽樹分支的項目數量上限"
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
-msgstr ""
-"瀏覽查詢結果時一次最多顯示的列數。如果結果超過此列數，則會顯示「上一頁」和"
-"「下一頁」的連結。"
+msgstr "瀏覽查詢結果時，一次最多顯示的列數。如果結果超過此列數，則會顯示「上一頁」和「下一頁」的連結。"
 
 #: libraries/classes/Config/Descriptions.php:472
 msgid "Maximum number of rows to display"
@@ -4574,7 +4564,7 @@ msgstr "可顯示的資料列數量上限"
 
 #: libraries/classes/Config/Descriptions.php:474
 msgid "Maximum number of tables displayed in table list."
-msgstr "資料表清單中可顯示的資料表數量上限。"
+msgstr "在資料表清單，可顯示的資料表數量上限。"
 
 #: libraries/classes/Config/Descriptions.php:475
 msgid "Maximum tables"
@@ -4606,23 +4596,23 @@ msgstr "導覽面板寬度"
 
 #: libraries/classes/Config/Descriptions.php:484
 msgid "Set to 0 to collapse navigation panel."
-msgstr "設為 0 摺起導覽面板。"
+msgstr "設為 0 則摺起導覽面板。"
 
 #: libraries/classes/Config/Descriptions.php:485
 msgid "Link with main panel by highlighting the current database or table."
-msgstr "在主面板凸顯標示目前的資料庫或資料表。"
+msgstr "在主面板凸顯目前的資料庫或資料表。"
 
 #: libraries/classes/Config/Descriptions.php:487
 msgid "Show logo in navigation panel."
-msgstr "在導覽面板中顯示標誌。"
+msgstr "在導覽面板顯示標誌。"
 
 #: libraries/classes/Config/Descriptions.php:488
 msgid "Display logo"
-msgstr "顯示標誌(Logo)"
+msgstr "顯示標誌"
 
 #: libraries/classes/Config/Descriptions.php:489
 msgid "URL where logo in the navigation panel will point to."
-msgstr "導覽面板中標誌所連結的網址。"
+msgstr "導覽面板標誌所連結的網址。"
 
 #: libraries/classes/Config/Descriptions.php:490
 msgid "Logo link URL"
@@ -4632,7 +4622,7 @@ msgstr "標誌連結網址"
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
-msgstr "使用主視窗 ([kbd]main[/kbd]) 或新視窗 ([kbd]new[/kbd]) 開啟目標連結。"
+msgstr "以主視窗 ([kbd]main[/kbd]) 還是新視窗 ([kbd]new[/kbd]) 開啟目標連結。"
 
 #: libraries/classes/Config/Descriptions.php:495
 msgid "Logo link target"
@@ -4658,30 +4648,29 @@ msgstr "第二快速存取圖示的目標頁面"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "設定顯示搜尋框的項目數量下限 (資料表、檢視表、預存程序和事件) 。"
+msgstr "設定篩選框要顯示的項目最小數量 (資料表、檢視表、預存程序和事件) 。"
 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Minimum number of items to display the filter box"
-msgstr "設定顯示搜尋框的項目數量下限"
+msgstr "設定顯示篩選框的項目數量下限"
 
 #: libraries/classes/Config/Descriptions.php:505
 msgid "Minimum number of databases to display the database filter box"
-msgstr "設定顯示搜尋框的資料庫數量下限"
+msgstr "設定顯示篩選框的資料庫數量下限"
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
-msgstr ""
-"將導覽樹內的項目分組 (依上方「資料庫與資料表」頁籤定義的分隔符號來分組)。"
+msgstr "將導覽樹內的項目分組 (依上方「資料庫與資料表」分頁定義的分隔符號來分組)。"
 
 #: libraries/classes/Config/Descriptions.php:510
 msgid "Group items in the tree"
-msgstr "將導覽樹內的項目分組"
+msgstr "將導覽樹的項目分組"
 
 #: libraries/classes/Config/Descriptions.php:511
 msgid "String that separates databases into different tree levels."
-msgstr "會依據此分隔符號將資料庫分為不同階層的樹狀。"
+msgstr "會依據此分隔符號，將資料庫分為不同階層的樹狀。"
 
 #: libraries/classes/Config/Descriptions.php:512
 msgid "Database tree separator"
@@ -4701,7 +4690,7 @@ msgstr "資料表導覽樹深度限制"
 
 #: libraries/classes/Config/Descriptions.php:516
 msgid "Highlight server under the mouse cursor."
-msgstr "當滑鼠指標移至伺服器上時加強標示。"
+msgstr "當滑鼠指標移至伺服器上時，將之凸顯。"
 
 #: libraries/classes/Config/Descriptions.php:517
 msgid "Enable highlighting"
@@ -4710,7 +4699,7 @@ msgstr "開啟加強標示"
 #: libraries/classes/Config/Descriptions.php:518
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "是否於導覽面版中提供樹狀選單的展開功能。"
+msgstr "於導覽面版，是否提供樹狀選單的展開功能。"
 
 #: libraries/classes/Config/Descriptions.php:519
 msgid "Enable navigation tree expansion"
@@ -4730,23 +4719,23 @@ msgstr "在導覽樹顯示檢視表"
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Whether to show views under database in the navigation tree"
-msgstr "在導覽樹，是否於資料庫底下顯示檢視表 (View)"
+msgstr "在導覽樹，是否於資料庫底下顯示檢視表"
 
 #: libraries/classes/Config/Descriptions.php:524
 msgid "Show functions in tree"
-msgstr "在導覽樹顯示函數"
+msgstr "在導覽樹顯示函式"
 
 #: libraries/classes/Config/Descriptions.php:525
 msgid "Whether to show functions under database in the navigation tree"
-msgstr "在導覽樹，是否於資料庫底下顯示函數"
+msgstr "在導覽樹，是否於資料庫底下顯示函式"
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Show procedures in tree"
-msgstr "在導覽樹顯示預儲程序"
+msgstr "在導覽樹顯示預存程序"
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr "在導覽樹，是否於資料庫底下顯示程序"
+msgstr "在導覽樹，是否於資料庫底下顯示預存程序"
 
 #: libraries/classes/Config/Descriptions.php:528
 msgid "Show events in tree"
@@ -4791,11 +4780,11 @@ msgstr "資料列的連結顯示位置"
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr "是否顯示缺少唯一鍵的資料列連結。"
+msgstr "是否顯示缺少獨一鍵的資料列連結。"
 
 #: libraries/classes/Config/Descriptions.php:539
 msgid "Show row links anyway"
-msgstr "不論如何，一定顯示資料列連結"
+msgstr "一定顯示資料列連結"
 
 #: libraries/classes/Config/Descriptions.php:540
 #: libraries/classes/Config/Descriptions.php:541
@@ -4804,7 +4793,7 @@ msgstr "關閉快速鍵"
 
 #: libraries/classes/Config/Descriptions.php:542
 msgid "Use natural order for sorting table and database names."
-msgstr "使用自然排序顯示資料庫與資料表名稱。"
+msgstr "資料庫與資料表名稱使用自然排序。"
 
 #: libraries/classes/Config/Descriptions.php:543
 msgid "Natural order"
@@ -4822,11 +4811,11 @@ msgstr "資料表導覽列"
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
-msgstr "使用 GZip 輸出快取，以加快 HTTP 傳輸速度。"
+msgstr "使用 GZip 輸出緩衝，以加快 HTTP 傳輸速度。"
 
 #: libraries/classes/Config/Descriptions.php:547
 msgid "GZip output buffering"
-msgstr "GZip 輸出快取"
+msgstr "GZip 輸出緩衝"
 
 #: libraries/classes/Config/Descriptions.php:549
 msgid ""
@@ -4874,7 +4863,7 @@ msgstr "MySQL 保留字警告"
 
 #: libraries/classes/Config/Descriptions.php:567
 msgid "How to display the menu tabs"
-msgstr "如何顯示選單標籤頁"
+msgstr "如何顯示選單分頁"
 
 #: libraries/classes/Config/Descriptions.php:569
 msgid "How to display various action links"
@@ -4912,7 +4901,7 @@ msgstr "查詢歷史記錄數量"
 
 #: libraries/classes/Config/Descriptions.php:581
 msgid "Select which functions will be used for character set conversion."
-msgstr "選擇進行字元編碼轉換時使用的函數。"
+msgstr "選擇進行字元編碼轉換時使用的函式。"
 
 #: libraries/classes/Config/Descriptions.php:582
 msgid "Recoding engine"
@@ -4985,7 +4974,7 @@ msgstr "主機授權規則"
 
 #: libraries/classes/Config/Descriptions.php:599
 msgid "Allow logins without a password"
-msgstr "允許空密碼登入"
+msgstr "允許不使用密碼登入"
 
 #: libraries/classes/Config/Descriptions.php:600
 msgid "Allow root login"
@@ -4999,7 +4988,7 @@ msgstr "連線階段時區"
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
-msgstr "設定有效的時區，可能與資料庫伺服器的有所不同"
+msgstr "設定有效的時區；可能與資料庫伺服器的有所不同"
 
 #: libraries/classes/Config/Descriptions.php:606
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -5033,7 +5022,7 @@ msgstr "書籤表"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
-msgstr "無欄位註解/MIME類型時留空白；建議使用 [kbd]pma__column_info[/kbd]。"
+msgstr "無欄位備註／MIME類型時留空白；建議使用 [kbd]pma__column_info[/kbd]。"
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -5094,13 +5083,12 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"詳情請參閱 [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin 問題追蹤系統[/a] 與 [a@https://bugs.mysql."
-"com/19588]MySQL 問題回報[/a]"
+"詳情請參閱 [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin "
+"問題追蹤系統[/a]與 [a@https://bugs.mysql.com/19588]MySQL 問題回報[/a]"
 
 #: libraries/classes/Config/Descriptions.php:644
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "停用 INFORMATION_SCHEMA"
+msgstr "停用資訊綱要(INFORMATION_SCHEMA)"
 
 #: libraries/classes/Config/Descriptions.php:645
 msgid "Hide databases"
