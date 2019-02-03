@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-02-02 06:49+0000\n"
+"PO-Revision-Date: 2019-02-03 10:07+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -8850,10 +8850,8 @@ msgid "Server Choice:"
 msgstr "サーバの選択:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:358
-#, fuzzy
-#| msgid "Could not connect to the target"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "対象先のデータベースに接続できませんでした"
+msgstr "reCAPTCHAサービスに接続に失敗しました!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
 msgid "Entered captcha is wrong, try again!"
@@ -8865,10 +8863,8 @@ msgstr ""
 "recaptcha検証がない。adblockによってブロックされている可能性があります。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:390
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "MySQL サーバにログインできません"
+msgstr "このMySQL サーバにログインする許可がありません!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -9064,24 +9060,18 @@ msgstr "生成オプション"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:125
 #: libraries/classes/Plugins/Export/ExportLatex.php:178
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption:"
-msgstr "テーブルのキャプション"
+msgstr "テーブルのキャプション:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:131
 #: libraries/classes/Plugins/Export/ExportLatex.php:184
-#, fuzzy
-#| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "テーブルのキャプション (続き)"
+msgstr "テーブルのキャプション (続き):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:137
 #: libraries/classes/Plugins/Export/ExportLatex.php:190
-#, fuzzy
-#| msgid "Label key"
 msgid "Label key:"
-msgstr "ラベルキー"
+msgstr "ラベルキー:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:144
 #: libraries/classes/Plugins/Export/ExportOdt.php:104
@@ -9101,58 +9091,44 @@ msgid "Display MIME types"
 msgstr "MIME タイプを表示する"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
-#, fuzzy
-#| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "1 行目にカラム名を追加する"
+msgstr "1 行目にカラム名を追加する:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:718
 #: libraries/classes/Plugins/Export/ExportXml.php:244
 #: libraries/classes/ReplicationGui.php:465
 #: libraries/classes/ReplicationGui.php:738
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "ホスト"
+msgstr "ホスト:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:226
 #: libraries/classes/Plugins/Export/ExportSql.php:724
 #: libraries/classes/Plugins/Export/ExportXml.php:249
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "生成日時"
+msgstr "生成日時:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:229
 #: libraries/classes/Plugins/Export/ExportSql.php:730
 #: libraries/classes/Plugins/Export/ExportXml.php:252
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP のバージョン"
+msgstr "PHP のバージョン:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:259
 #: libraries/classes/Plugins/Export/ExportSql.php:919
 #: libraries/classes/Plugins/Export/ExportXml.php:416
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:185
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "データベース"
+msgstr "データベース:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:332
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "データ"
+msgstr "データ:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:521
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "構造"
+msgstr "構造:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:86
 msgid "Export table names"
@@ -9167,22 +9143,16 @@ msgid "Report title:"
 msgstr "レポートのタイトル:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:235
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "テーブルのデータのダンプ"
+msgstr "データのダンプ"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:293
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
-msgstr "構造"
+msgstr "ビュー構造"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:296
-#, fuzzy
-#| msgid "and then"
 msgid "Stand in"
-msgstr "続いて"
+msgstr "Standin"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:103
 msgid ""
@@ -9203,10 +9173,8 @@ msgid ""
 msgstr "データベースの作成日時、最終更新日時、最終検査日時を含める"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:176
-#, fuzzy
-#| msgid "Export method"
 msgid "Export metadata"
-msgstr "エクスポート方法"
+msgstr "メタデータのエクスポート"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:191
 msgid ""
@@ -9233,10 +9201,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr "（テーブル作成中にインデックスが生成されるので、効率が悪い）"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:300
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "セッション値"
+msgstr "%s 値"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:349
 msgid ""
@@ -9247,10 +9214,8 @@ msgstr ""
 "ム名やテーブル名を保護します)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:364
-#, fuzzy
-#| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "生成オプション"
+msgstr "データ作成オプション"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:369
 #: libraries/classes/Plugins/Export/ExportSql.php:2346
@@ -9356,22 +9321,18 @@ msgid "alias export may not work reliably in all cases."
 msgstr "エイリアスエクスポートは確実に動作しない場合があります。"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1033
-#, fuzzy
-#| msgid "Metadata Headers"
 msgid "Metadata"
-msgstr "メタデータヘッダ"
+msgstr "メタデータ"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1103
-#, fuzzy, php-format
-#| msgid "Metadata Headers"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "メタデータヘッダ"
+msgstr "テーブル %s のメタデータ"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1110
-#, fuzzy, php-format
-#| msgid "Metadata Headers"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "メタデータヘッダ"
+msgstr "データベース %s のメタデータ"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1440
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:649
@@ -9389,10 +9350,9 @@ msgid "Last check:"
 msgstr "最終検査："
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1522
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "テーブルの構造"
+msgstr "テーブル %s の構造の読み取りエラー:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1594
 msgid "It appears your database uses views;"
@@ -9407,36 +9367,26 @@ msgid "Constraints for table"
 msgstr "テーブルの制約"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1801
-#, fuzzy
-#| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "ダンプしたテーブルの制約"
+msgstr "ダンプしたテーブルのインデックス"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1802
-#, fuzzy
-#| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "検索するテーブル:"
+msgstr "テーブルのインデックス"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1835
-#, fuzzy
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "値がゼロのものに対して AUTO_INCREMENT を使用しない"
+msgstr "ダンプしたテーブルのAUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1836
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "AUTO_INCREMENT 値を追加する"
+msgstr "テーブルのAUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 msgid "MIME TYPES FOR TABLE"
 msgstr "テーブルに含まれている MIME タイプ"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "テーブルのリレーション"
 
@@ -9445,20 +9395,18 @@ msgid "It appears your table uses triggers;"
 msgstr "データベースはトリガを利用しているようです;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2152
-#, fuzzy, php-format
-#| msgid "Structure for view"
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "ビュー用の構造"
+msgstr "ビュー %s の構造をテーブルとしてエクスポート"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2176
 msgid "(See below for the actual view)"
 msgstr "(実際のビューを参照するには下にあります)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2256
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "データ読み込みエラー:"
+msgstr "テーブル %s のデータ読み取りエラー:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Object creation options (all are recommended)"
@@ -9469,20 +9417,16 @@ msgid "Export contents"
 msgstr "内容をエクスポートする"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:186
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "テーブル"
+msgstr "テーブル:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:187
 msgid "Purpose:"
 msgstr "目的："
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:568
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME タイプ"
+msgstr "MIME"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:53
 msgid ""
@@ -9594,10 +9538,8 @@ msgstr ""
 "を修正して再度試してみてください。"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:164
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Open Document スプレッドシート"
+msgstr "OpenDocument スプレッドシートを解析できませんでした！"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 msgid "ESRI Shape File"
@@ -9615,10 +9557,8 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL の空間拡張が ESRI タイプをサポートしていません: \"%s\"。"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:243
-#, fuzzy
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "インポートされたファイルには、データが含まれていません。"
+msgstr "インポートされたファイルには、データが含まれていません!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:71
 msgid "SQL compatibility mode:"
@@ -9651,16 +9591,13 @@ msgid "SCHEMA ERROR: "
 msgstr "スキーマエラー: "
 
 #: libraries/classes/Plugins/Schema/Pdf/Pdf.php:263
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "無効なエクスポート形式"
+msgstr "PDFエクスポートページ"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:115
-#, fuzzy, php-format
-#| msgid "Schema of the %s database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "データベース %s のスキーマ - ページ %s"
+msgstr "データベース %s のスキーマ"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:553
@@ -9708,8 +9645,6 @@ msgstr "グリッドを表示"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:95
 #: templates/database/structure/print_view_data_dictionary_link.twig:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "データ辞書"
 
