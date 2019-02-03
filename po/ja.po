@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-02-03 10:07+0000\n"
+"PO-Revision-Date: 2019-02-04 12:55+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -9649,22 +9649,16 @@ msgid "Data dictionary"
 msgstr "データ辞書"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:101
-#, fuzzy
-#| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "上のどちらでもない"
+msgstr "テーブルの順序"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:106
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "昇順"
+msgstr "テーブル名(昇順)"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:107
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "降順"
+msgstr "テーブル名(降順)"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:70
 msgid "Show color"
@@ -9720,18 +9714,6 @@ msgstr ""
 "ションを使う場合は 1 つ目のオプションは空文字列にする必要があります。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -9744,15 +9726,13 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"LINUX のみ: 外部アプリケーションを起動して標準入力経由でカラムデータを渡しま"
-"す。アプリケーションの標準出力が返ります。デフォルトは Tidy です (これは "
-"HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/"
-"transformations/text_plain__external.inc.php を自分で編集して利用したいツール"
-"を明記しておく必要があります。最初のオプションは利用したいプログラムの数で、"
-"2 つ目のオプションはプログラムのパラメータです。3 つ目のオプションが 1 に設定"
-"されている場合は htmlspecialchars() を用いて出力を変換します (デフォルトは 1 "
-"です)。4 つ目のオプションが 1 に設定されている場合は禁則処理をせず出力全体が "
-"1 行に収まるようにします (デフォルトは 1 です)。"
+"LINUX のみ: 外部アプリケーションを起動して標準入力経由でカラムデータを渡します。アプリケーションの標準出力が返ります。デフォルトは Tidy "
+"です (これは HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/classes/Plugins/"
+"Transformations/Output/Text_Plain_External.php "
+"を自分で編集して利用したいツールを明記しておく必要があります。最初のオプションは利用したいプログラムの数で、2 "
+"つ目のオプションはプログラムのパラメータです。3 つ目のオプションが 1 に設定されている場合は htmlspecialchars() "
+"を用いて出力を変換します (デフォルトは 1 です)。4 つ目のオプションが 1 に設定されている場合は禁則処理をせず出力全体が 1 "
+"行に収まるようにします (デフォルトは 1 です)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
@@ -9795,16 +9775,10 @@ msgstr ""
 "セル単位で指定できます。アスペクト比はそのまま維持されます。"
 
 #: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "Converts an (IPv4) Internet network address into a string in Internet "
-#| "standard dotted format."
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
-msgstr ""
-"(IPv4) インターネットアドレスをインターネット標準ドット表記 (例:xxx.xxx.xxx."
-"xxx) に変換する。"
+msgstr "BIGINTとして格納されている（IPv4）インターネットネットワークアドレスをインターネット標準のドット表記の文字列に変換します。"
 
 #: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:32
 msgid ""
@@ -9891,34 +9865,22 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "XML(またHTML)の構文を強調するCodemirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:33
-#, fuzzy
-#| msgid ""
-#| "Converts an (IPv4) Internet network address into a string in Internet "
-#| "standard dotted format."
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
-msgstr ""
-"(IPv4) インターネットアドレスをインターネット標準ドット表記 (例:xxx.xxx.xxx."
-"xxx) に変換する。"
+msgstr "バイナリ文字列として格納されているインターネットネットワークアドレスをインターネット標準（IPv4 / IPv6）形式の文字列に変換します。"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:50
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "テキストの内容を SQL クエリとみなし、構文ハイライト表示します。"
+msgstr "テキストの内容を JSONとみなし、構文ハイライト表示します。"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:50
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "テキストの内容を SQL クエリとみなし、構文ハイライト表示します。"
+msgstr "テキストの内容を XMLとみなし、構文ハイライト表示します。"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:147
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Application (2FA)"
-msgstr "認証"
+msgstr "認証アプリ（二要素認証）"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:157
 msgid ""
@@ -9940,26 +9902,21 @@ msgstr ""
 "す。"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:56
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "サインオン認証"
+msgstr "単純な二要素認証"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:66
 msgid "For testing purposes only!"
 msgstr "テスト目的のみ！"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:81
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "ハードウェア認証に失敗しました！"
+msgstr "二要素認証に失敗しました: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:85
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "ハードウェア認証に失敗しました！"
+msgstr "二要素認証に失敗しました。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
 #, fuzzy
@@ -9972,51 +9929,37 @@ msgid "Login using password only."
 msgstr "パスワードのみログインを使用します。"
 
 #: libraries/classes/RecentFavoriteTable.php:141
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "最近使用したテーブルが保存できません"
+msgstr "最近使用したテーブルが保存出来ません!"
 
 #: libraries/classes/RecentFavoriteTable.php:145
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "最近使用したテーブルが保存できません"
+msgstr "お気に入りのテーブルを保存できませんでした!"
 
 #: libraries/classes/RecentFavoriteTable.php:216
 #: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "グラフの削除"
+msgstr "お気に入りから削除"
 
 #: libraries/classes/RecentFavoriteTable.php:238
-#, fuzzy
-#| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "最近使用したテーブルはありません"
+msgstr "最近使用したテーブルはありません。"
 
 #: libraries/classes/RecentFavoriteTable.php:239
-#, fuzzy
-#| msgid "There are no recent tables"
 msgid "There are no favorite tables."
-msgstr "最近使用したテーブルはありません"
+msgstr "お気に入りのテーブルはありません。"
 
 #: libraries/classes/RecentFavoriteTable.php:254
 msgid "Recent tables"
 msgstr "最近使用したテーブル"
 
 #: libraries/classes/RecentFavoriteTable.php:256
-#, fuzzy
-#| msgid "Reset"
 msgid "Recent"
-msgstr "リセット"
+msgstr "最近"
 
 #: libraries/classes/RecentFavoriteTable.php:260
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorites"
-msgstr "変数"
+msgstr "お気に入り"
 
 #: libraries/classes/Relation.php:120
 msgid "not OK"
@@ -10032,10 +9975,8 @@ msgid "Enabled"
 msgstr "有効"
 
 #: libraries/classes/Relation.php:131
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration of pmadb…"
-msgstr "設定を保存しました。"
+msgstr "pmadbの設定…"
 
 #: libraries/classes/Relation.php:135 libraries/classes/Relation.php:171
 msgid "General relation features"
@@ -10046,10 +9987,8 @@ msgid "Display Features"
 msgstr "表示機能"
 
 #: libraries/classes/Relation.php:199
-#, fuzzy
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "PDF の作成"
+msgstr "デザイナとPDFの作成"
 
 #: libraries/classes/Relation.php:210
 msgid "Displaying Column Comments"
@@ -10060,12 +9999,8 @@ msgid "Browser transformation"
 msgstr "ブラウザ変換機能"
 
 #: libraries/classes/Relation.php:223
-#, fuzzy
-#| msgid ""
-#| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table."
-msgstr ""
-"column_comments テーブルの更新方法についてはドキュメントをご覧ください。"
+msgstr "column_info テーブルの更新方法についてはドキュメンテーションを参照してください。"
 
 #: libraries/classes/Relation.php:239 libraries/classes/SqlQueryForm.php:412
 msgid "Bookmarked SQL query"
@@ -10080,10 +10015,8 @@ msgid "Persistent recently used tables"
 msgstr "永続的な『最近使用したテーブル』"
 
 #: libraries/classes/Relation.php:272
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent favorite tables"
-msgstr "永続的な『最近使用したテーブル』"
+msgstr "永続的な「お気に入りのテーブル」"
 
 #: libraries/classes/Relation.php:283
 msgid "Persistent tables' UI preferences"
@@ -10098,10 +10031,8 @@ msgid "Configurable menus"
 msgstr "ユーザメニュー設定"
 
 #: libraries/classes/Relation.php:333
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "ナビゲーションフレームの再読み込み"
+msgstr "ナビゲーション項目を表示/非表示"
 
 #: libraries/classes/Relation.php:344
 msgid "Saving Query-By-Example searches"
@@ -10112,27 +10043,21 @@ msgid "Managing Central list of columns"
 msgstr "中央リストカラムの管理"
 
 #: libraries/classes/Relation.php:366
-#, fuzzy
-#| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "テーブルのソートを記憶する"
+msgstr "デザイナーの設定を記憶"
 
 #: libraries/classes/Relation.php:377
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "無効なエクスポート形式"
+msgstr "エクスポート テンプレートを保存しています"
 
 #: libraries/classes/Relation.php:384
 msgid "Quick steps to set up advanced features:"
 msgstr "高度な機能の設定する簡単な方法:"
 
 #: libraries/classes/Relation.php:390
-#, fuzzy, php-format
-#| msgid ""
-#| "Create the needed tables with the <code>examples/create_tables.sql</code>."
+#, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr "<code>examples/create_tables.sql</code> で必要なテーブルを作成します。"
+msgstr "<code>%screate_tables.sql</code> で必要なテーブルを作成します。"
 
 #: libraries/classes/Relation.php:395
 msgid "Create a pma user and give access to these tables."
@@ -10164,25 +10089,22 @@ msgstr ""
 "任意のデータベースの「操作」タブで、phpMyAdmin環境保管領域を設定が出来ます。"
 
 #: libraries/classes/Relation.php:2114
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
+msgstr "「phpmyadmin」データベースを%s作成%s し、phpMyAdmin 環境保管領域をセットアップ。"
 
 #: libraries/classes/Relation.php:2122
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
+msgstr "現在のデータベースでphpMyAdmin環境保管領域を%s作成%s。"
 
 #: libraries/classes/Relation.php:2130
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
+msgstr "不足している環境保管領域のテーブルを%s作成%sします。"
 
 #: libraries/classes/ReplicationGui.php:73
 #: libraries/classes/ReplicationGui.php:367
@@ -10213,13 +10135,6 @@ msgid "Master configuration"
 msgstr "マスター設定"
 
 #: libraries/classes/ReplicationGui.php:117
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as master server in a replication process. "
-#| "You can choose from either replicating all databases and ignoring certain "
-#| "(useful if you want to replicate majority of databases) or you can choose "
-#| "to ignore all databases by default and allow only certain databases to be "
-#| "replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a master server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -10227,12 +10142,9 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"このサーバは、レプリケーションプロセスのマスタサーバとして構成されていませ"
-"ん。以下のいずれかを選択できます。１つは、特定のデータベースを無視して残り全"
-"てのデータベースをレプリケーションするモード（データベースの大部分をレプリ"
-"ケーションする場合に便利です。）。もう１つは、デフォルトで全てのデータベース"
-"を無視して、特定のデータベースだけのレプリケーションを許可するモード。以下よ"
-"りいずれかのモードを選択してください。"
+"このサーバは、レプリケーションプロセスのマスタサーバとして構成されていません。以下のいずれかを選択できます。１つは、いくつかのデータベースを無視して残り全"
+"てのデータベースをレプリケーションするモード（データベースの大部分をレプリケーションする場合に便利です。）。もう１つは、デフォルトで全てのデータベースを無"
+"視して、特定のデータベースだけのレプリケーションを許可するモード。以下よりいずれかのモードを選択してください。"
 
 #: libraries/classes/ReplicationGui.php:126
 msgid "Replicate all databases; Ignore:"
@@ -10270,10 +10182,8 @@ msgid "Slave replication"
 msgstr "スレーブレプリケーション"
 
 #: libraries/classes/ReplicationGui.php:177
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Master connection:"
-msgstr "セキュリティで保護されていない接続"
+msgstr "マスター接続:"
 
 #: libraries/classes/ReplicationGui.php:239
 msgid "Slave SQL Thread not running!"
@@ -10332,16 +10242,11 @@ msgid "Change or reconfigure master server"
 msgstr "マスタサーバの変更または再設定"
 
 #: libraries/classes/ReplicationGui.php:308
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"このサーバのレプリケーションプロセスには、スレーブが設定されていません。<a "
-"href=\"%s\">設定</a>を行いますか?"
+msgstr "このサーバのレプリケーションプロセスには、スレーブが設定されていません。%s設定%sを行いますか?"
 
 #: libraries/classes/ReplicationGui.php:331
 msgid "Error management:"
@@ -10357,28 +10262,20 @@ msgid "Skip current error"
 msgstr "現在のエラーをスキップする"
 
 #: libraries/classes/ReplicationGui.php:343
-#, fuzzy, php-format
-#| msgid "Skip current error"
+#, php-format
 msgid "Skip next %s errors."
-msgstr "現在のエラーをスキップする"
+msgstr "次の %s エラーをスキップします。"
 
 #: libraries/classes/ReplicationGui.php:370
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"このサーバのレプリケーションプロセスには、マスタが設定されていません。<a "
-"href=\"%s\">設定</a>を行いますか?"
+msgstr "このサーバのレプリケーションプロセスには、マスタが設定されていません。%s設定%sを行いますか?"
 
 #: libraries/classes/ReplicationGui.php:404
 #: templates/display/export/select_options.twig:8
 #: templates/database/search/main.twig:35
-#, fuzzy
-#| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "全選択解除"
 
@@ -10397,10 +10294,8 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:436
 #: libraries/classes/ReplicationGui.php:824
 #: libraries/classes/Server/Privileges.php:1627
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "ユーザ名"
+msgstr "ユーザ名:"
 
 #: libraries/classes/ReplicationGui.php:444
 #: libraries/classes/ReplicationGui.php:828
@@ -10422,10 +10317,8 @@ msgid "Password"
 msgstr "パスワード"
 
 #: libraries/classes/ReplicationGui.php:480
-#, fuzzy
-#| msgid "Port"
 msgid "Port:"
-msgstr "ポート"
+msgstr "ポート:"
 
 #: libraries/classes/ReplicationGui.php:566
 msgid "Master status"
@@ -10480,10 +10373,8 @@ msgstr "すべてのユーザ"
 #: libraries/classes/ReplicationGui.php:870
 #: libraries/classes/ReplicationGui.php:899
 #: libraries/classes/Server/Privileges.php:1757
-#, fuzzy
-#| msgid "Use text field"
 msgid "Use text field:"
-msgstr "テキスト入力項目の値を利用する"
+msgstr "テキスト入力項目の値を利用する:"
 
 #: libraries/classes/ReplicationGui.php:864
 #: libraries/classes/Server/Privileges.php:1749
@@ -10505,10 +10396,8 @@ msgid "Re-type"
 msgstr "もう一度入力してください"
 
 #: libraries/classes/ReplicationGui.php:915
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
-msgstr "パスワードを生成する"
+msgstr "パスワードを生成する:"
 
 #: libraries/classes/ReplicationGui.php:947
 msgid ""
@@ -10519,50 +10408,36 @@ msgstr ""
 "$cfg['AllowArbitraryServer']を有効にしてください。"
 
 #: libraries/classes/ReplicationGui.php:956
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "レプリケーションステータス"
+msgstr "レプリケーションが正常に開始されました。"
 
 #: libraries/classes/ReplicationGui.php:957
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "マスタレプリケーション"
+msgstr "レプリケーションの開始エラーです。"
 
 #: libraries/classes/ReplicationGui.php:960
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "グラフが正常に作成されました。"
+msgstr "レプリケーションが正常に停止しました。"
 
 #: libraries/classes/ReplicationGui.php:961
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "マスタレプリケーション"
+msgstr "レプリケーションの停止エラーです。"
 
 #: libraries/classes/ReplicationGui.php:964
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "レプリケーションステータス"
+msgstr "レプリケーションを正常にリセットしています。"
 
 #: libraries/classes/ReplicationGui.php:965
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "マスタレプリケーション"
+msgstr "レプリケーションのリセットエラーです。"
 
 #: libraries/classes/ReplicationGui.php:968
 msgid "Success."
 msgstr "成功しました。"
 
 #: libraries/classes/ReplicationGui.php:969
-#, fuzzy
-#| msgid "Error"
 msgid "Error."
-msgstr "エラー"
+msgstr "エラー。"
 
 #: libraries/classes/ReplicationGui.php:1015
 msgid "Unknown error"
@@ -10580,14 +10455,11 @@ msgstr ""
 "マスタのログの位置が読み込めません。マスター上の特権問題の可能性があります。"
 
 #: libraries/classes/ReplicationGui.php:1057
-#, fuzzy
-#| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "マスタを切り替えることができません"
+msgstr "マスタを切り替えることができません!"
 
 #: libraries/classes/ReplicationGui.php:1061
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s"
+#, php-format
 msgid "Master server changed successfully to %s."
 msgstr "マスタサーバを %s へ切り替えるのに成功しました。"
 
@@ -10631,11 +10503,8 @@ msgstr "イベント %1$s を作成しました。"
 
 #: libraries/classes/Rte/Events.php:239 libraries/classes/Rte/Routines.php:344
 #: libraries/classes/Rte/Triggers.php:211
-#, fuzzy
-#| msgid ""
-#| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>リクエストの処理中に 1 つ以上のエラーが発生しました：</b>"
+msgstr "リクエストの処理中に 1 つ以上のエラーが発生しました："
 
 #: libraries/classes/Rte/Events.php:294
 msgid "Edit event"
@@ -10684,16 +10553,12 @@ msgstr "定義者"
 
 #: libraries/classes/Rte/Events.php:611 libraries/classes/Rte/Routines.php:1189
 #: libraries/classes/Rte/Triggers.php:492
-#, fuzzy
-#| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "定義者の指定は「ユーザ名@ホスト名」の形式でなければなりません。"
+msgstr "定義者の指定は「ユーザ名@ホスト名」の形式でなければなりません!"
 
 #: libraries/classes/Rte/Events.php:618
-#, fuzzy
-#| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "イベント名は必須です"
+msgstr "イベント名は必須です!"
 
 #: libraries/classes/Rte/Events.php:633
 msgid "You must provide a valid interval value for the event."
@@ -10715,10 +10580,8 @@ msgstr "イベントの定義は必須です。"
 #: libraries/classes/Rte/Routines.php:226
 #: libraries/classes/Rte/Routines.php:1398
 #: libraries/classes/Rte/Routines.php:1603
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "要求処理中でのエラー"
+msgstr "要求処理中でのエラー:"
 
 #: libraries/classes/Rte/Footer.php:126
 msgid "OFF"
@@ -10768,10 +10631,9 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr "申し訳ありませんが、削除されたルーチンの復元に失敗しました。"
 
 #: libraries/classes/Rte/Routines.php:512
-#, fuzzy, php-format
-#| msgid "Routine %1$s has been modified."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "ルーチン %1$s を変更しました。"
+msgstr "ルーチン %1$s を変更しました。特権が変更されました。"
 
 #: libraries/classes/Rte/Routines.php:517
 #, php-format
@@ -10831,10 +10693,8 @@ msgid "SQL data access"
 msgstr "データ干渉方式"
 
 #: libraries/classes/Rte/Routines.php:1205
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "ルーチン名は必須です"
+msgstr "ルーチン名は必須です!"
 
 #: libraries/classes/Rte/Routines.php:1239
 #, php-format
@@ -10868,12 +10728,10 @@ msgid "Execution results of routine %s"
 msgstr "ルーチン %s の実行結果"
 
 #: libraries/classes/Rte/Routines.php:1533
-#, fuzzy, php-format
-#| msgid "%d row affected by the last statement inside the procedure"
-#| msgid_plural "%d rows affected by the last statement inside the procedure"
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "プロシージャ内の最後のステートメントは %d 行の変更を行いました"
+msgstr[0] "プロシージャ内の最後のステートメントは %d 行の変更を行いました。"
 
 #: libraries/classes/Rte/Routines.php:1591
 #: libraries/classes/Rte/Routines.php:1598
@@ -10917,28 +10775,20 @@ msgid "Time"
 msgstr "実行時機"
 
 #: libraries/classes/Rte/Triggers.php:499
-#, fuzzy
-#| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "トリガ名は必須です"
+msgstr "トリガ名は必須です!"
 
 #: libraries/classes/Rte/Triggers.php:506
-#, fuzzy
-#| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "有効な実行時機を指定してください。"
+msgstr "有効な実行時機を指定してください!"
 
 #: libraries/classes/Rte/Triggers.php:513
-#, fuzzy
-#| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "有効なトリガイベントを指定してください"
+msgstr "有効なトリガイベントを指定してください!"
 
 #: libraries/classes/Rte/Triggers.php:521
-#, fuzzy
-#| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "有効なテーブル名を指定してください"
+msgstr "有効なテーブル名を指定してください!"
 
 #: libraries/classes/Rte/Triggers.php:527
 msgid "You must provide a trigger definition."
@@ -10958,10 +10808,8 @@ msgid "routine"
 msgstr "ルーチン"
 
 #: libraries/classes/Rte/Words.php:39
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "ルーチンを作成する特権がありません"
+msgstr "ルーチンを作成する特権がありません。"
 
 #: libraries/classes/Rte/Words.php:42
 #, php-format
@@ -10982,10 +10830,9 @@ msgstr ""
 "クスポートする為に必要な権限がない可能性があります。"
 
 #: libraries/classes/Rte/Words.php:49
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "データベース %2$s に %1$s という名前のルーチンはありません"
+msgstr "データベース %2$s に %1$s という名前のルーチンはありません。"
 
 #: libraries/classes/Rte/Words.php:50
 msgid "There are no routines to display."
@@ -11005,16 +10852,13 @@ msgid "trigger"
 msgstr "トリガ"
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "トリガを作成する特権がありません"
+msgstr "トリガを作成する特権がありません。"
 
 #: libraries/classes/Rte/Words.php:63
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "データベース %2$s に %1$s という名前のトリガはありません"
+msgstr "データベース %2$s に %1$s という名前のトリガはありません。"
 
 #: libraries/classes/Rte/Words.php:64
 msgid "There are no triggers to display."
@@ -11034,16 +10878,13 @@ msgid "event"
 msgstr "イベント"
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "イベントを作成する特権がありません"
+msgstr "イベントを作成する特権がありません。"
 
 #: libraries/classes/Rte/Words.php:77
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "データベース %2$s に %1$s という名前のイベントはありません"
+msgstr "データベース %2$s に %1$s という名前のイベントはありません。"
 
 #: libraries/classes/Rte/Words.php:78
 msgid "There are no events to display."
@@ -11054,17 +10895,13 @@ msgid "Please provide a name for this bookmarked search."
 msgstr "このブックマークされた検索に名前を付けてください。"
 
 #: libraries/classes/SavedSearches.php:279
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
+msgstr "ブックマーク検索を保存するための情報がありません。"
 
 #: libraries/classes/SavedSearches.php:301
 #: libraries/classes/SavedSearches.php:338
-#, fuzzy
-#| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "ユーザ %s は既に存在します!"
+msgstr "この名前のある項目は既に存在しています。"
 
 #: libraries/classes/SavedSearches.php:365
 msgid "Missing information to delete the search."
@@ -11075,10 +10912,8 @@ msgid "Missing information to load the search."
 msgstr "この検索を呼び出すための情報に誤りがあります。"
 
 #: libraries/classes/SavedSearches.php:412
-#, fuzzy
-#| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "アップロードされたファイルを移動中にエラーが発生しました。"
+msgstr "検索の読み込み中にエラーが発生しました。"
 
 #: libraries/classes/Server/Privileges.php:264 server_privileges.php:127
 msgid "No privileges."
@@ -11133,8 +10968,6 @@ msgstr "サーバのシャットダウンを許可する。"
 
 #: libraries/classes/Server/Privileges.php:386
 #: libraries/classes/Server/Privileges.php:1449 server_privileges.php:107
-#, fuzzy
-#| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
 msgstr "全ユーザのプロセスを閲覧できるようにする。"
 
@@ -11204,15 +11037,11 @@ msgstr "新しいビューの作成を許可する。"
 
 #: libraries/classes/Server/Privileges.php:450
 #: libraries/classes/Server/Privileges.php:1405 server_privileges.php:84
-#, fuzzy
-#| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
 msgstr "イベントスケジューラにイベントを設定できるようにする。"
 
 #: libraries/classes/Server/Privileges.php:455
 #: libraries/classes/Server/Privileges.php:1410 server_privileges.php:125
-#, fuzzy
-#| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
 msgstr "トリガの作成・削除を許可する。"
 
@@ -11243,16 +11072,12 @@ msgid "Allows executing stored routines."
 msgstr "ストアドルーチンの実行を許可する。"
 
 #: libraries/classes/Server/Privileges.php:782
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "永続的な接続"
+msgstr "SSL で暗号化された接続の必要はありません。"
 
 #: libraries/classes/Server/Privileges.php:797
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "永続的な接続"
+msgstr "SSL で暗号化された接続が必要です。"
 
 #: libraries/classes/Server/Privileges.php:810
 msgid "Requires a valid X509 certificate."
@@ -11294,8 +11119,6 @@ msgstr "ユーザの同時接続数を制限する。"
 #: libraries/classes/Server/Privileges.php:3513
 #: libraries/classes/Server/Privileges.php:4763
 #: templates/server/privileges/edit_routine_privileges.twig:11
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
 msgstr "ルーチン"
 
@@ -11308,16 +11131,12 @@ msgstr ""
 "ることを許可します。"
 
 #: libraries/classes/Server/Privileges.php:1004
-#, fuzzy
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "ストアドルーチンの修正と削除を許可する。"
+msgstr "このルーチンの修正と削除を許可する。"
 
 #: libraries/classes/Server/Privileges.php:1009
-#, fuzzy
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "ストアドルーチンの実行を許可する。"
+msgstr "このルーチンの実行を許可する。"
 
 #: libraries/classes/Server/Privileges.php:1064
 #: libraries/classes/Server/Privileges.php:1250
@@ -11330,10 +11149,8 @@ msgstr "テーブル固有の特権"
 #: libraries/classes/Server/Privileges.php:1260
 #: libraries/classes/Server/Privileges.php:3699
 #: templates/server/privileges/edit_routine_privileges.twig:16
-#, fuzzy
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "注意: MySQL の特権名は英語で表示されます"
+msgstr "注意: MySQL の特権名は英語で表示されます。"
 
 #: libraries/classes/Server/Privileges.php:1229
 msgid "Administration"
@@ -11345,8 +11162,6 @@ msgid "Global privileges"
 msgstr "グローバル特権"
 
 #: libraries/classes/Server/Privileges.php:1245
-#, fuzzy
-#| msgid "global"
 msgid "Global"
 msgstr "グローバル"
 
@@ -11388,16 +11203,12 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1557
 #: libraries/classes/Server/Privileges.php:1588
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "クッキー認証"
+msgstr "ネイティブMySQL認証"
 
 #: libraries/classes/Server/Privileges.php:1590
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "サインオン認証"
+msgstr "SHA256 パスワード認証"
 
 #: libraries/classes/Server/Privileges.php:1624
 #: libraries/classes/Server/Privileges.php:3259
@@ -11420,35 +11231,27 @@ msgstr ""
 "能性があります。"
 
 #: libraries/classes/Server/Privileges.php:1680
-#, fuzzy
-#| msgid "User name"
 msgid "Host name:"
-msgstr "ユーザ名"
+msgstr "ホスト名:"
 
 #: libraries/classes/Server/Privileges.php:1685
 #: libraries/classes/Server/Privileges.php:1765
 #: libraries/classes/Server/Privileges.php:2698
 #: libraries/classes/Server/Privileges.php:3695
-#, fuzzy
-#| msgid "Log name"
 msgid "Host name"
-msgstr "ログ名"
+msgstr "ホスト名"
 
 #: libraries/classes/Server/Privileges.php:1787
 msgid "Do not change the password"
 msgstr "パスワードは変更しない"
 
 #: libraries/classes/Server/Privileges.php:1837
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "認証"
+msgstr "認証プラグイン"
 
 #: libraries/classes/Server/Privileges.php:1846
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing Method"
-msgstr "パスワードハッシュ"
+msgstr "パスワードハッシュ方式"
 
 #: libraries/classes/Server/Privileges.php:2144
 #, php-format
@@ -11462,16 +11265,12 @@ msgstr "%s の特権を取り消しました。"
 
 #: libraries/classes/Server/Privileges.php:2295
 #: templates/server/privileges/add_user_fieldset.twig:7
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user account"
-msgstr "ユーザを追加する"
+msgstr "ユーザアカウントを追加する"
 
 #: libraries/classes/Server/Privileges.php:2304
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database for user account"
-msgstr "ユーザ専用データベース"
+msgstr "ユーザアカウント専用データベース"
 
 #: libraries/classes/Server/Privileges.php:2308
 msgid "Create database with same name and grant all privileges."
@@ -11483,10 +11282,9 @@ msgstr ""
 "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える。"
 
 #: libraries/classes/Server/Privileges.php:2326
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "データベース \"%s\" への全ての特権を与える。"
+msgstr "データベース %s への全ての特権を与える。"
 
 #: libraries/classes/Server/Privileges.php:2502
 #: libraries/classes/Server/Privileges.php:2577
@@ -11532,14 +11330,10 @@ msgid "wildcard"
 msgstr "ワイルドカード"
 
 #: libraries/classes/Server/Privileges.php:2832
-#, fuzzy
-#| msgid "database-specific"
 msgid "table-specific"
-msgstr "データベース固有"
+msgstr "テーブル固有"
 
 #: libraries/classes/Server/Privileges.php:2980
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "特権を編集"
 
@@ -11548,10 +11342,8 @@ msgid "Revoke"
 msgstr "取り消し"
 
 #: libraries/classes/Server/Privileges.php:3007
-#, fuzzy
-#| msgid "Edit server"
 msgid "Edit user group"
-msgstr "サーバの編集"
+msgstr "ユーザグループを編集"
 
 #: libraries/classes/Server/Privileges.php:3231
 msgid "… keep the old one."
@@ -11573,23 +11365,17 @@ msgid ""
 msgstr "ユーザテーブルから元のユーザを削除し、特権の再読み込みをする。"
 
 #: libraries/classes/Server/Privileges.php:3260
-#, fuzzy
-#| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "ログイン情報の変更 / ユーザの複製"
+msgstr "ログイン情報の変更 / ユーザアカウントの複製"
 
 #: libraries/classes/Server/Privileges.php:3266
-#, fuzzy
-#| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "同じ特権を持つ新しいユーザを作る…"
+msgstr "同じ特権を持つ新しいユーザアカウントを作る…"
 
 #: libraries/classes/Server/Privileges.php:3512
 #: templates/server/privileges/edit_routine_privileges.twig:12
-#, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "このカラムに固有の特権"
+msgstr "ルーチンに固有の特権"
 
 #: libraries/classes/Server/Privileges.php:3703
 #: libraries/classes/Server/UserGroups.php:91
@@ -11646,16 +11432,12 @@ msgid "User"
 msgstr "ユーザ"
 
 #: libraries/classes/Server/Privileges.php:4713
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "特権を編集"
+msgstr "特権を編集:"
 
 #: libraries/classes/Server/Privileges.php:4714
-#, fuzzy
-#| msgid "Users"
 msgid "User account"
-msgstr "ユーザグループ"
+msgstr "ユーザアカウント"
 
 #: libraries/classes/Server/Privileges.php:4786
 msgid ""
@@ -11679,22 +11461,15 @@ msgstr ""
 "他のユーザーは接続できなくなります。"
 
 #: libraries/classes/Server/Privileges.php:4926
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
-"作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
-"特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み"
-"込み%s をしてください。"
+"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手作業で特権を更新した場合は phpMyAdmin "
+"が利用しているテーブルの内容とサーバの特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み込み%s をしてください。"
 
 #: libraries/classes/Server/Privileges.php:4943
 #, fuzzy
@@ -16160,7 +15935,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr "Virtuality"
+msgstr "仮想"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
