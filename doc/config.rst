@@ -2874,6 +2874,16 @@ Design customization
     name of the column. The comment is shown as a tool-tip for that
     column.
 
+.. config:option:: $cfg['FirstDayOfCalendar']
+
+    :type: integer
+    :default: 0
+
+    This will define the first day of week in the calendar. The number
+    can be set from 0 to 6, which represents the seven days of the week,
+    Sunday to Saturday respectively. This value can also be configured by the user
+    in server settings -> features -> general -> First Day calendar field.
+
 Text fields
 -----------
 
