@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-02 06:49+0000\n"
+"PO-Revision-Date: 2019-02-05 15:48+0000\n"
 "Last-Translator: Christoffer Hjeltnes Støle <cst029@uib.no>\n"
 "Language-Team: Norwegian Nynorsk <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nn/>\n"
@@ -8601,7 +8601,7 @@ msgstr ""
 #: libraries/classes/Plugins/AuthenticationPlugin.php:174
 #, possible-php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr ""
+msgstr "Ingen aktivitet på %s sekund, du lyt logga inn på nytt."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:184
 #: libraries/classes/Plugins/AuthenticationPlugin.php:187
