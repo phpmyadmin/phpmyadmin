@@ -268,7 +268,11 @@ class ExportJson extends ExportPlugin
                 $data[$columns[$i]] = $record[$i];
             }
 
-            if (!Export::outputHandler($this->encode($data))) {
+            $encoded_data = $this->encode($data);
+            if (!$encoded_data) {
+                return false;
+            }
+            if (!Export::outputHandler($encoded_data)) {
                 return false;
             }
         }
