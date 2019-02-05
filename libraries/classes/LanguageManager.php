@@ -446,6 +446,13 @@ class LanguageManager
             'nb|norwegian',
             'nb_NO',
         ],
+        'nn' => [
+            'nn',
+            'Norwegian Nynorsk',
+            'Nynorsk',
+            'nn|nynorsk',
+            'nn_NO',
+        ],
         'nl' => [
             'nl',
             'Dutch',
