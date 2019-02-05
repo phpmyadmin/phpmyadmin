@@ -444,6 +444,13 @@ class LanguageManager
             'nb|norwegian',
             'nb_NO',
         ),
+        'nn' => array(
+            'nn',
+            'Norwegian Nynorsk',
+            'Nynorsk',
+            'nn|nynorsk',
+            'nn_NO',
+        ),
         'nl' => array(
             'nl',
             'Dutch',
