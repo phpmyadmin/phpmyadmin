@@ -137,11 +137,19 @@ class ImportCsv extends AbstractImportCsv
     public function doImport(array &$sql_data = [])
     {
         global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
-               $csv_new_line, $csv_columns, $err_url;
+               $csv_new_line, $csv_columns, $err_url,$import_file_name;
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
         global $error, $timeout_passed, $finished, $message;
 
+        //get basename of file without extension,
+        //lower case it,strip unwanted characters and trim to first 10 characters
+        $import_file_name=basename($import_file_name,".csv");
+        $import_file_name=mb_strtolower($import_file_name);
+        $import_file_name = preg_replace("/[^a-zA-Z0-9]/", "", $import_file_name);
+        if(mb_strlen($import_file_name)>10)
+          $import_file_name=substr($import_file_name,0,10);
+        
         $replacements = [
             '\\n' => "\n",
             '\\t' => "\t",
@@ -679,7 +687,24 @@ class ImportCsv extends AbstractImportCsv
                 $tbl_name = $_REQUEST['csv_new_tbl_name'];
             } elseif (mb_strlen((string) $db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
-                $tbl_name = 'TABLE ' . (count($result) + 1);
+                
+                //logic to get table name from filename
+                if(count($result)==0) // if no table then use filename as tablename
+                  $tbl_name=$import_file_name;
+                else 
+                {
+                    $name_array=preg_grep("/{$import_file_name}/isU",$result); // check to see if {filename} as table exist
+                    if(count($name_array)==0) // if no use filename as tablename
+                    {
+                        $tbl_name=$import_file_name;
+                    }
+                    else 
+                    {
+                        $name_array=preg_grep("/{$import_file_name}_/isU",$result); // check if {filename}_ as table exist
+                        $tbl_name=$import_file_name . "_" . (count($name_array)+1);
+                    }
+                }
+                //$tbl_name = 'TABLE ' . (count($result) + 1);
             } else {
                 $tbl_name = 'TBL_NAME';
             }

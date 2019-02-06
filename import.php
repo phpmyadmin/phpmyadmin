@@ -461,6 +461,7 @@ $read_limit = $memory_limit / 8;
 // handle filenames
 if (isset($_FILES['import_file'])) {
     $import_file = $_FILES['import_file']['tmp_name'];
+    $import_file_name=$_FILES['import_file']['name'];
 }
 if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
     // sanitize $local_import_file as it comes from a POST
