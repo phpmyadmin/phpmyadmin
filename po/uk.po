@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2018-11-09 00:34+0000\n"
+"PO-Revision-Date: 2019-02-07 12:02+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -1930,16 +1930,12 @@ msgid "Are you sure?"
 msgstr "Ви впевнені?"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Ця дія може змінити визначення деяких стовпців.<br/>Ви впевнені, що бажаєте "
-"продовжувати?"
+"Ця дія може змінити деякі визначення стовпців.<br>Ви впевнені, що бажаєте "
+"продовжити?"
 
 #: js/messages.php:450
 msgid "Continue"
@@ -2351,19 +2347,14 @@ msgid "Click to sort results by this column."
 msgstr "Натисніть для сортування за цим стовпцем."
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Shift+клік для додавання цього стовпчика до списку ORDER BY або перемикання "
-"ASC/DESC.<br />- Ctrl+клік чи Alt+клік (для Mac: Shift+Option+клік) для "
-"видалення стовпчика із списку ORDER BY"
+"ASC/DESC.<br>- Ctrl+клік чи Alt+клік (для Mac: Shift+Option+клік) для "
+"видалення стовпця з списку ORDER BY"
 
 #: js/messages.php:605
 msgid "Click to mark/unmark."
@@ -2374,10 +2365,8 @@ msgid "Double-click to copy column name."
 msgstr "Натисніть двічі, щоб скопіювати назву стовпця."
 
 #: js/messages.php:608
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Натисніть на випадаючу стрілку<br/> для перемикання видимості стовпця."
+msgstr "Натисніть на випадаючу стрілку<br> для перемикання видимості стовпця."
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
 #: templates/display/results/table_navigation.twig:19
@@ -2445,21 +2434,16 @@ msgid "Print"
 msgstr "Друк"
 
 #: js/messages.php:640
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Ви також можете редагувати більшість значень <br /> двічі натиснувши прямо "
-"по них."
+"Ви також можете редагувати більшість значень <br> двічі натиснувши прямо по "
+"них."
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Ви також можете редагувати більшість значень<br />натиснувши безпосередньо "
-"на них."
+"Ви також можете редагувати більшість значень<br>натиснувши безпосередньо на "
+"них."
 
 #: js/messages.php:651
 msgid "Go to link:"
@@ -2595,16 +2579,12 @@ msgid ""
 msgstr "Згідно ваших налаштувань, що наразі вносяться, будьте терплячими."
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Сторінка успішно видалена"
+msgstr "Успішно скопійовано!"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Копіювати базу даних"
+msgstr "Копіювання не вдалося!"
 
 #: js/messages.php:734
 msgid "Execute this query again?"
@@ -7911,10 +7891,8 @@ msgid "Binary"
 msgstr "Двійковий"
 
 #: libraries/classes/InsertEdit.php:764
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Через велику довжину<br /> цей стовпець неможливо відредагувати."
+msgstr "Через велику довжину<br> цей стовпець неможливо відредагувати."
 
 #: libraries/classes/InsertEdit.php:1382
 msgid "Binary - do not edit"
@@ -8275,7 +8253,7 @@ msgstr "Подання:"
 
 #: libraries/classes/Navigation/Navigation.php:246
 msgid "Unhide"
-msgstr ""
+msgstr "Показати"
 
 #: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
@@ -8497,15 +8475,11 @@ msgid "Primary key already exists."
 msgstr "Первинний ключ вже існує."
 
 #: libraries/classes/Normalization.php:253
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Немає первинного ключа; будь ласка, додайте.<br/>Підказка: Первинний ключ "
+"Немає первинного ключа; будь ласка, додайте.<br>Підказка: Первинний ключ "
 "являє собою стовпець (або комбінацію стовпців) що однозначно ідентифікують "
 "всі рядки."
 
@@ -8698,12 +8672,6 @@ msgid "Find transitive dependencies"
 msgstr "Знайти транзитивні звязки"
 
 #: libraries/classes/Normalization.php:812
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -8712,7 +8680,7 @@ msgid ""
 msgstr ""
 "Для кожного стовпця нижче, будь ласка, виберіть <b>мінімальний набір</b> "
 "стовпців серед даного набору, значення яких об'єднані разом достатні, щоб "
-"визначити значення стовпця.<br />Примітка: стовпець може не мати перехідну "
+"визначити значення стовпця.<br>Примітка: стовпець може не мати перехідну "
 "залежність, в цьому випадку вам не потрібно, щоб вибрати будь-який."
 
 #: libraries/classes/Normalization.php:861
@@ -9455,57 +9423,39 @@ msgid "Syntax to use when inserting data:"
 msgstr "Використовувати синтаксис при вставці даних:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"включення імен полів у кожному виразі <code>INSERT</code> <br /> &nbsp; "
-"&nbsp; &nbsp; Приклад: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"включення імен полів у кожному виразі <code>INSERT</code> <br> &nbsp; &nbsp; "
+"&nbsp; Приклад: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"включення декількох рядків у кожному виразі <code>INSERT</code><br /> &nbsp; "
+"включення декількох рядків у кожному виразі <code>INSERT</code><br> &nbsp; "
 "&nbsp; &nbsp; Приклад: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"обидва вищезазначені<br />&nbsp;&nbsp;&nbsp; Наприклад: <code>INSERT INTO "
+"обидва вищезазначені<br>&nbsp;&nbsp;&nbsp; Наприклад: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"жоден з вище перерахованих <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
+"жоден з вище перерахованих <br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
@@ -9727,10 +9677,9 @@ msgid "MediaWiki Table"
 msgstr "Таблиця MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Неприпустимий формат вводу mediawiki  в рядку: <br />%s."
+msgstr "Неприпустимий формат вводу mediawiki  в рядку: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10144,10 +10093,8 @@ msgid "Two-factor authentication failed."
 msgstr "Двофакторна автентифікація не виконана."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
-#, fuzzy
-#| msgid "Two-factor authentication"
 msgid "No Two-Factor Authentication"
-msgstr "Двофакторна аутентифікація"
+msgstr "Немає двохфакторної аутентифікації"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
@@ -10473,16 +10420,13 @@ msgid "Change or reconfigure master server"
 msgstr "Змінити або переконфігурувати головний сервер"
 
 #: libraries/classes/ReplicationGui.php:308
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Даний сервер не налаштований в якості підлеглого для процесу реплікації. "
-"Хочете справити <a href=\"%s\">настройку</a>?"
+"Хочете справити %sнастройку%s?"
 
 #: libraries/classes/ReplicationGui.php:331
 msgid "Error management:"
@@ -10504,16 +10448,13 @@ msgid "Skip next %s errors."
 msgstr "Ігнорувати наступні %s помилки."
 
 #: libraries/classes/ReplicationGui.php:370
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Даний сервер не налаштований в якості головного для процесу реплікації. "
-"Хочете справити <a href=\"%s\">настройку</a>?"
+"Хочете справити %sнастройку%s?"
 
 #: libraries/classes/ReplicationGui.php:404
 #: templates/display/export/select_options.twig:8
@@ -15495,10 +15436,8 @@ msgid "Create"
 msgstr "Створити"
 
 #: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Перевірити права для бази даних \"%s\"."
+msgstr "Немає привілеїв для створення баз даних"
 
 #: templates/server/databases/index.twig:163
 #, php-format
@@ -15837,12 +15776,6 @@ msgid "New"
 msgstr "Новий"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
@@ -15850,9 +15783,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Для типів поля \"enum\" або \"set\", введіть значення в такому форматі: "
-"'a','b','c'…<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\") "
-"або поодинокі лапки (\"'\") посеред цих значень, поставте перед ними "
-"зворотню косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
+"'a','b','c'…<br>Якщо вам буде потрібно ввести зворотну косу риску (\"\") або "
+"поодинокі лапки (\"'\") посеред цих значень, поставте перед ними зворотну "
+"косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15881,22 +15814,16 @@ msgstr "Параметри перетворення відображення б�
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'…<br /"
-">Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у "
-"цих значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\"
-"\\xyz' чи 'a\\'b')."
+"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'…<br>"
+"Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у "
+"цих значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\\\"
+"xyz' чи 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -16202,10 +16129,8 @@ msgid "View output as text"
 msgstr "Відобразити вивід як текст"
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Сортувати за ключем"
+msgstr "Сортувати за ключем:"
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
