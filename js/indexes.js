@@ -688,6 +688,13 @@ AJAX.registerOnload('indexes.js', function () {
 
         if (index_choice === 'none') {
             PMA_removeColumnFromIndex(col_index);
+            var id = 'index_name_' + '0' + '_8';
+            var $name = $('#' + id);
+            if ($name.length === 0) {
+                $name = $('<a id="' + id + '" href="#" class="ajax show_index_dialog"></a>');
+                $name.insertAfter($('select[name="field_key[' + '0' + ']"]'));
+            }
+            $name.html('');
             return false;
         }
 
@@ -734,14 +741,16 @@ AJAX.registerOnload('indexes.js', function () {
         var array_index  = previous_index[1];
 
         var source_array = PMA_getIndexArray(index_choice);
-        var source_length = source_array[array_index].columns.length;
+        if(source_array != null){
+            var source_length = source_array[array_index].columns.length;
 
-        var target_columns = [];
-        for (var i = 0; i < source_length; i++) {
-            target_columns.push(source_array[array_index].columns[i].col_index);
+            var target_columns = [];
+            for (var i = 0; i < source_length; i++) {
+                target_columns.push(source_array[array_index].columns[i].col_index);
+            }
+
+            PMA_showAddIndexDialog(source_array, array_index, target_columns, -1, source_array[array_index]);
         }
-
-        PMA_showAddIndexDialog(source_array, array_index, target_columns, -1, source_array[array_index]);
     });
 
     $('#index_frm').on('submit', function () {
