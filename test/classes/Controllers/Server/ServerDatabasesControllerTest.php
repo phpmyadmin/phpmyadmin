@@ -99,7 +99,7 @@ class ServerDatabasesControllerTest extends TestCase
         $this->assertContains('sakila', $actual);
         $this->assertContains('utf8mb4_general_ci', $actual);
         $this->assertContains('title="Unicode (UCA 4.0.0), case-insensitive"', $actual);
-        $this->assertContains('2 databases', $actual);
+        $this->assertContains('<span id="filter-rows-count">2</span>', $actual);
         $this->assertContains('name="pos" value="0"', $actual);
         $this->assertContains('name="sort_by" value="SCHEMA_NAME"', $actual);
         $this->assertContains('name="sort_order" value="asc"', $actual);
