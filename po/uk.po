@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
 "PO-Revision-Date: 2019-02-07 12:02+0000\n"
-"Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
+"Last-Translator: Oleh Ilnytskyi <rav.angell@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
 "Language: uk\n"
@@ -6484,7 +6484,7 @@ msgstr "Немає закладок"
 
 #: libraries/classes/Console.php:143
 msgid "SQL Query Console"
-msgstr "Консоль SQL запиту"
+msgstr "Консоль SQL запитів"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:302
 msgid "Favorite List is full!"
