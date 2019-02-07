@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-02-05 15:48+0000\n"
+"PO-Revision-Date: 2019-02-07 11:10+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -1884,13 +1884,13 @@ msgstr "参照されている値を表示する"
 
 #: js/messages.php:432
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "以前に自動保存クエリはありません。デフォルトクエリを読み込みします。"
 
 #: js/messages.php:433
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
-msgstr ""
+msgstr "以前に保存したクエリがあります。そのクエリをロードするには、[自動保存クエリを取得]をクリックします。"
 
 #: js/messages.php:434
 #, php-format
@@ -4046,14 +4046,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "現在のユーザの定義を除外する"
 
 #: libraries/classes/Config/Descriptions.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:322
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s view"
-msgstr "セッション値"
+msgstr "%s ビュー"
 
 #: libraries/classes/Config/Descriptions.php:263
 msgid "Use ignore inserts"
@@ -4460,11 +4459,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:396
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "ドラッグ＆ドロップインポートを有効にする"
 
 #: libraries/classes/Config/Descriptions.php:397
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "ドラッグ＆ドロップインポートを無効にするには、チェックボックスからチェックを外す"
 
 #: libraries/classes/Config/Descriptions.php:398
 msgid "Partial import: allow interrupt"
@@ -4862,16 +4861,12 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "ナビゲーションツリーのデータベース下のイベントを表示"
 
 #: libraries/classes/Config/Descriptions.php:530
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "データベースをコピーしています"
+msgstr "１つのデータベースを展開する"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid "Show logo in left frame"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "左のフレーム内にロゴを表示します。"
+msgstr "ナビゲーションツリーで１つデータベースを自動的に展開するかどうか。"
 
 #: libraries/classes/Config/Descriptions.php:532
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6653,7 +6648,7 @@ msgstr ""
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
-msgstr ""
+msgstr "php.iniでini_getまたはini_set、あるいはその両方を無効にしました。 この機能はphpMyAdminとして必要です!"
 
 #: libraries/classes/Core.php:1303
 msgid "GLOBALS overwrite attempt"
@@ -7743,10 +7738,8 @@ msgid "Binary"
 msgstr "バイナリ"
 
 #: libraries/classes/InsertEdit.php:764
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "長さによってはこのカラムを<br />編集できなくなる場合もあります。"
+msgstr "長さによってはこのカラムを<br>編集できなくなる場合もあります。"
 
 #: libraries/classes/InsertEdit.php:1382
 msgid "Binary - do not edit"
@@ -8099,7 +8092,7 @@ msgstr "ビュー："
 
 #: libraries/classes/Navigation/Navigation.php:246
 msgid "Unhide"
-msgstr ""
+msgstr "再表示"
 
 #: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
@@ -8320,7 +8313,7 @@ msgstr "主キーは既に存在しています。"
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
-msgstr ""
+msgstr "主キーがありません。１つ追加してください。<br/>ヒント：主キーはすべての行を個別に識別できるカラム（や、カラムの組み合わせ）に指定します。"
 
 #: libraries/classes/Normalization.php:261
 msgid "Add a primary key on existing column(s)"
@@ -8510,6 +8503,8 @@ msgid ""
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
+"以下の各カラムで、カラムの値を決定するために<b>最小限</b>のカラム組み合わせを指定してください。<br "
+"/>※カラムは過渡的依存がない場合、選択する必要がありません。"
 
 #: libraries/classes/Normalization.php:861
 msgid ""
@@ -9244,57 +9239,38 @@ msgid "Syntax to use when inserting data:"
 msgstr "データを挿入するときに使う構文："
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"すべての <code>INSERT</code> 文にカラム名を含める <br /> &nbsp; &nbsp; "
-"&nbsp; 例: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</"
-"code>"
+"すべての <code>INSERT</code> 文にカラム名を含める <br> &nbsp; &nbsp; &nbsp; 例: <code>"
+"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"すべての <code>INSERT</code> 文を複数行挿入で行う<br /> &nbsp; &nbsp; &nbsp; "
-"例: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"すべての <code>INSERT</code> 文を複数行挿入で行う<br> &nbsp; &nbsp; &nbsp; 例: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"上の両方を行う<br /> &nbsp; &nbsp; &nbsp; 例: <code>INSERT INTO tbl_name "
-"(col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"上の両方を行う<br> &nbsp; &nbsp; &nbsp; 例: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"上のどちらでもない<br /> &nbsp; &nbsp; &nbsp; 例: <code>INSERT INTO tbl_name "
-"VALUES (1,2,3)</code>"
+"上のどちらでもない<br> &nbsp; &nbsp; &nbsp; 例: <code>INSERT INTO tbl_name VALUES "
+"(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
 msgid ""
@@ -9437,16 +9413,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "新しいテーブル名(必須ではない):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "新しいデータベース名(必須ではない):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "次の行の数をインポートする（必須ではない）:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -9468,10 +9444,8 @@ msgstr ""
 "ん。"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "カラム名: "
+msgstr "カラム名:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
@@ -9514,10 +9488,9 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki テーブル"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of CSV input on line %d."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "CSV 入力の書式が不正です (行: %d)。"
+msgstr "mediawiki 入力の書式が不正です<br>行: %s。"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -9919,10 +9892,8 @@ msgid "Two-factor authentication failed."
 msgstr "二要素認証に失敗しました。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
-#, fuzzy
-#| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
-msgstr "Config 認証"
+msgstr "二要素認証なし"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
@@ -13716,10 +13687,8 @@ msgid "No Privileges"
 msgstr "特権なし"
 
 #: server_privileges.php:159
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "トリガを作成する特権がありません"
+msgstr "ユーザを管理する特権がありません!"
 
 #: server_privileges.php:173
 msgid ""
@@ -14894,8 +14863,6 @@ msgstr "新しいカラムを追加する"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
 msgstr "長さ/値"
 
@@ -14905,10 +14872,8 @@ msgid "Attribute"
 msgstr "属性"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "現在のデータベースのカラムのセントラルリストは空です。"
+msgstr "現在のデータベースのカラムの中央リストは空です"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:416
@@ -15181,10 +15146,8 @@ msgid "Create"
 msgstr "作成"
 
 #: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "データベース「%s」の特権を確認します。"
+msgstr "データベースを作成する特権がありません"
 
 #: templates/server/databases/index.twig:163
 #, php-format
@@ -15408,11 +15371,9 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "ベースレイヤーに OpenStreetMap を使用する"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
-msgstr "空間参照識別子："
+msgstr "SRID:"
 
 #: templates/gis_data_editor_form.twig:52
 #, php-format
@@ -15426,10 +15387,9 @@ msgstr "座標:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "座標 %d"
+msgstr "座標 %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -15520,21 +15480,14 @@ msgid "New"
 msgstr "新規作成"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"カラムのデータ型が「enum」ないし「set」の場合の値の書式: 'a','b','c'…<br />"
-"バックスラッシュ (\"\\\") やシングルクォート (\"'\") を含める必要がある場合"
-"は (\\\\xyz や a\\'b のように) その前にバックスラッシュを付けてください。"
+"カラムのデータ型が「enum」ないし「set」の場合の値の書式: 'a','b','c'…<br>バックスラッシュ (\"\\\") やシングルクォート "
+"(\"'\") を含める必要がある場合は (\\\\xyz や a\\'b のように) その前にバックスラッシュを付けてください。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15563,21 +15516,14 @@ msgstr "ブラウザ表示変換オプション"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"変換オプションの値の書式: 'a','b','c'…<br />バックスラッシュ (\"\\\") やシン"
-"グルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b のよう"
-"に) バックスラッシュでエスケープしてください。"
+"変換オプションの値の書式: 'a','b','c'…<br>バックスラッシュ (\"\\\") やシングルクォート (\"'\") "
+"を値に含める必要がある場合は ( \\\\xyz や a\\'b のように) バックスラッシュでエスケープしてください。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15694,6 +15640,8 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
+"サーバとクライアントの間にHTTPSの不一致があります。 これにより、機能しないphpMyAdminまたはセキュリティリスクが発生する可能性があります。 "
+"HTTPSを正しく設定するようにサーバ設定を修正してください。"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
@@ -15872,10 +15820,8 @@ msgid "View output as text"
 msgstr "出力をテキストで表示する"
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "キーでソート"
+msgstr "キーで並べ替え:"
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
