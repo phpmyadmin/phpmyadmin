@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-02 05:46+0000\n"
+"PO-Revision-Date: 2019-02-09 15:11+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/pt/>\n"
@@ -7735,13 +7735,13 @@ msgstr ""
 "próximo número da contagem de logs."
 
 #: libraries/classes/Engines/Pbxt.php:182
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentação e mais informações sobre PBXT podem ser encontradas na %sPágina "
-"Inicial da PrimeBase XT%s."
+"Documentação e mais informações sobre PBXT estão na %sPágina Inicial da "
+"PrimeBase XT%s."
 
 #: libraries/classes/ErrorHandler.php:78
 msgid "Too many error messages, some are not displayed."
@@ -7880,23 +7880,19 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL não retornou nenhum registo."
 
 #: libraries/classes/Import.php:290 libraries/classes/Sql.php:1433
-#, fuzzy
 msgid "[ROLLBACK occurred.]"
 msgstr "[Ocorreu um ROLLBACK.]"
 
 #: libraries/classes/Import.php:1209
-#, fuzzy
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "As estruturas a seguir foram criadas ou alteradas. Aqui você pode:"
 
 #: libraries/classes/Import.php:1212
-#, fuzzy
 msgid "View a structure's contents by clicking on its name."
 msgstr "Visualizar o conteúdo da estrutura clicando em seu nome."
 
 #: libraries/classes/Import.php:1215
-#, fuzzy
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
@@ -7904,7 +7900,6 @@ msgstr ""
 "correspondente."
 
 #: libraries/classes/Import.php:1217
-#, fuzzy
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Editar a estrutura seguindo o link \"Estrutura\"."
 
@@ -7940,51 +7935,47 @@ msgid "Options"
 msgstr "Opções"
 
 #: libraries/classes/Import.php:1224
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "Ir para o bando de dados: %s"
+msgstr "Ir para o banco de dados: %s"
 
 #: libraries/classes/Import.php:1230 libraries/classes/Import.php:1274
-#, fuzzy, php-format
+#, php-format
 msgid "Edit settings for %s"
 msgstr "Editar as configurações para %s"
 
 #: libraries/classes/Import.php:1259
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
 msgstr "Ir para a tabela: %s"
 
 #: libraries/classes/Import.php:1267
-#, fuzzy, php-format
-#| msgid "Structure only"
+#, php-format
 msgid "Structure of %s"
 msgstr "Estrutura do %s"
 
 #: libraries/classes/Import.php:1285
-#, fuzzy, php-format
+#, php-format
 msgid "Go to view: %s"
 msgstr "Ir para a view: %s"
 
 #: libraries/classes/Import.php:1345
-#, fuzzy
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
-"Somente pesquisas de UPDATE e DELETE em tabela-simples podem ser simuladas."
+"Somente pesquisas de UPDATE e DELETE em uma só tabela podem ser simuladas."
 
 #: libraries/classes/Import.php:1572
-#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
 "Apenas operações SQL de INSERT, UPDATE, DELETE e REPLACE contendo tabela(s) "
-"de motor transacional  podem ser repetidas."
+"de motor transacional podem ser repetidas."
 
 #: libraries/classes/Index.php:658
-#, fuzzy, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Criar um índice nas colunas %s"
+msgstr "Criar um índice nas colunas &nbsp;%s&nbsp;"
 
 #: libraries/classes/Index.php:690
 msgid "No index defined!"
@@ -8045,8 +8036,6 @@ msgid "Binary"
 msgstr "Binário"
 
 #: libraries/classes/InsertEdit.php:730
-#, fuzzy
-#| msgid "ause of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "Por causa da sua largura,<br/> esta coluna pode não ser editável."
 
@@ -8064,10 +8053,8 @@ msgid "Or"
 msgstr "Ou"
 
 #: libraries/classes/InsertEdit.php:1502
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "diretório de upload do servidor web:"
+msgstr "diretório de envio do servidor web:"
 
 #: libraries/classes/InsertEdit.php:1707
 #: templates/table/search/input_box.twig:38
@@ -8075,7 +8062,6 @@ msgid "Edit/Insert"
 msgstr "Inserir/Editar"
 
 #: libraries/classes/InsertEdit.php:1774
-#, fuzzy
 msgid "and then"
 msgstr "e então"
 
@@ -8084,12 +8070,10 @@ msgid "Insert as new row"
 msgstr "Insere como novo registo"
 
 #: libraries/classes/InsertEdit.php:1815
-#, fuzzy
 msgid "Insert as new row and ignore errors"
 msgstr "Inserir como uma linha nova e ignorar erros"
 
 #: libraries/classes/InsertEdit.php:1818
-#, fuzzy
 msgid "Show insert query"
 msgstr "Exibir consulta insert"
 
@@ -8102,7 +8086,6 @@ msgid "Insert another new row"
 msgstr "Inserir novo registo"
 
 #: libraries/classes/InsertEdit.php:1846
-#, fuzzy
 msgid "Go back to this page"
 msgstr "Voltar para esta página"
 
@@ -8111,7 +8094,6 @@ msgid "Edit next row"
 msgstr "Editar próxima coluna"
 
 #: libraries/classes/InsertEdit.php:1889
-#, fuzzy
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
@@ -8133,12 +8115,11 @@ msgid "Value"
 msgstr "Valor"
 
 #: libraries/classes/InsertEdit.php:2297 libraries/classes/Sql.php:1416
-#, fuzzy
 msgid "Showing SQL query"
 msgstr "Exibindo consulta SQL"
 
 #: libraries/classes/InsertEdit.php:2322 libraries/classes/Sql.php:1394
-#, fuzzy, php-format
+#, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id da linha inserida: %1$d"
 
@@ -8171,7 +8152,7 @@ msgid "View"
 msgstr "Vista"
 
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:315
-#, fuzzy, php-format
+#, php-format
 msgid "“%s”"
 msgstr "\"%s\""
 
@@ -8349,8 +8330,6 @@ msgid "Data only"
 msgstr "Apenas dados"
 
 #: libraries/classes/MultSubmits.php:407
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "Adicionar valor AUTO INCREMENT"
 
@@ -8364,70 +8343,51 @@ msgstr "Adicionar restrições (constraints)"
 #: libraries/classes/Operations.php:975 libraries/classes/Operations.php:1329
 #: libraries/classes/Rte/Routines.php:1024
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
 msgstr "Ajustar privilégios"
 
 #: libraries/classes/MultSubmits.php:433
-#, fuzzy
-#| msgid "Fri"
 msgid "From"
 msgstr "De"
 
 #: libraries/classes/MultSubmits.php:439
-#, fuzzy
 msgid "To"
 msgstr "Para"
 
 #: libraries/classes/MultSubmits.php:467
-#, fuzzy
 msgid "Add prefix"
-msgstr "Adicionar índice"
+msgstr "Adicionar prefixo"
 
 #: libraries/classes/MultSubmits.php:500
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Você realmente deseja executar a query SQL a seguir?"
+msgstr "Você realmente deseja executar a consulta SQL a seguir?"
 
 #: libraries/classes/Navigation/Navigation.php:69
-#, fuzzy
 msgid "An error has occurred while loading the navigation display"
-msgstr "Ocorreu um erro enquanto carrega-se a exibição de navegação"
+msgstr "Ocorreu um erro carreganado o ecrã de navegação"
 
 #: libraries/classes/Navigation/Navigation.php:207
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups:"
 msgstr "Grupos:"
 
 #: libraries/classes/Navigation/Navigation.php:208
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
 msgstr "Eventos:"
 
 #: libraries/classes/Navigation/Navigation.php:209
-#, fuzzy
 msgid "Functions:"
 msgstr "Funções:"
 
 #: libraries/classes/Navigation/Navigation.php:210
-#, fuzzy
 msgid "Procedures:"
 msgstr "Procedimentos:"
 
 #: libraries/classes/Navigation/Navigation.php:211
 #: templates/display/export/selection.twig:5
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
 msgstr "Tabelas:"
 
 #: libraries/classes/Navigation/Navigation.php:212
-#, fuzzy
-#| msgid "View"
 msgid "Views:"
 msgstr "Views:"
 
@@ -8447,8 +8407,6 @@ msgid "Log out"
 msgstr "Sair"
 
 #: libraries/classes/Navigation/NavigationHeader.php:175
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
 msgstr "Limpar dados de sessão"
 
@@ -8457,28 +8415,23 @@ msgid "phpMyAdmin documentation"
 msgstr "Documentação do phpMyAdmin"
 
 #: libraries/classes/Navigation/NavigationHeader.php:213
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel settings"
 msgstr "Configurações do painel de navegação"
 
 #: libraries/classes/Navigation/NavigationHeader.php:224
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Reload navigation panel"
 msgstr "Recarregar painel de navegação"
 
 #: libraries/classes/Navigation/NavigationTree.php:757
-#, fuzzy
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 "Há grandes grupos de itens no painel de navegação que podem afetar o "
-"desempenho. Considere desativar agrupamento item no painel de navegação."
+"desempenho. Considere desativar agrupamento de itens no painel de navegação."
 
 #: libraries/classes/Navigation/NavigationTree.php:951
-#, fuzzy, php-format
+#, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultado encontrado"
@@ -8486,73 +8439,58 @@ msgstr[1] "%s resultados encontrados"
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
-#, fuzzy
 msgid "Type to filter these, Enter to search all"
 msgstr "Digite para filtrar estes, Enter para procurar todos"
 
 #: libraries/classes/Navigation/NavigationTree.php:1370
 #: libraries/classes/Navigation/NavigationTree.php:1401
-#, fuzzy
-#| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Limpar o filtro rápido"
 
 #: libraries/classes/Navigation/NavigationTree.php:1427
-#, fuzzy
 msgid "Collapse all"
 msgstr "Reduzir tudo"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:34
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr "Nome de classe inválida \"%1$s\", usando padrão de \"nós\""
+msgstr "Nome de classe inválida \"%1$s\", usando predefinição de \"nó\""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
 msgstr "Não foi possível carregar a classe \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
-#, fuzzy
 msgid "Expand/Collapse"
 msgstr "Expandir/Recolher"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
 #: libraries/classes/SqlQueryForm.php:269
-#, fuzzy
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Colunas"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:35
-#, fuzzy
 msgctxt "Create new column"
 msgid "New"
 msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:41
-#, fuzzy
-#| msgid "Database export options"
 msgid "Database operations"
 msgstr "Operações com banco de dados"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:685
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show hidden items"
 msgstr "Exibir itens ocultos"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
-#, fuzzy
 msgctxt "Create new database"
 msgid "New"
 msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:37
-#, fuzzy
 msgctxt "Create new event"
 msgid "New"
 msgstr "Novo"
@@ -8561,24 +8499,20 @@ msgstr "Novo"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:574
 #: libraries/classes/Plugins/Export/ExportXml.php:111
-#, fuzzy
 msgid "Functions"
 msgstr "Funções"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:35
-#, fuzzy
 msgctxt "Create new function"
 msgid "New"
 msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:35
-#, fuzzy
 msgctxt "Create new index"
 msgid "New"
 msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:30
-#, fuzzy
 msgid "Procedure"
 msgstr "Procedimento"
 
@@ -8586,25 +8520,21 @@ msgstr "Procedimento"
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:563
 #: libraries/classes/Plugins/Export/ExportXml.php:116
-#, fuzzy
 msgid "Procedures"
 msgstr "Procedimentos"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:35
 #: libraries/classes/Rte/Footer.php:37
-#, fuzzy
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:36
-#, fuzzy
 msgctxt "Create new table"
 msgid "New"
 msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:37
-#, fuzzy
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Novo"
@@ -8613,20 +8543,17 @@ msgstr "Novo"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:131
 #: templates/database/structure/show_create.twig:24
-#, fuzzy
 msgid "Views"
 msgstr "Views"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:36
-#, fuzzy
 msgctxt "Create new view"
 msgid "New"
 msgstr "Nova"
 
 #: libraries/classes/Normalization.php:182
-#, fuzzy
 msgid "Make all columns atomic"
-msgstr "Converter todas as colunas atômicas"
+msgstr "Tornar todas as colunas atómicas"
 
 #: libraries/classes/Normalization.php:184
 #: libraries/classes/Normalization.php:883
@@ -8637,7 +8564,6 @@ msgstr "Primeiro passo da normalização (1NF)"
 #: libraries/classes/Normalization.php:238
 #: libraries/classes/Normalization.php:287
 #: libraries/classes/Normalization.php:325
-#, fuzzy
 msgid "Step 1."
 msgstr "Passo 1."
 
@@ -9744,9 +9670,8 @@ msgid "Error reading structure for table %s:"
 msgstr "Erro ao ler a estrutura para a tabela %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
-#, fuzzy
 msgid "It appears your database uses views;"
-msgstr "Parece que seu banco de dados utiliza visões;"
+msgstr "Parece que seu banco de dados utiliza views;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1724
 msgid "Constraints for dumped tables"
@@ -9785,14 +9710,13 @@ msgid "It appears your table uses triggers;"
 msgstr "Isso demonstra que sua tabela utiliza gatilhos;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
-#, fuzzy, php-format
+#, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Estrutura da view %s exportado como tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
-#, fuzzy
 msgid "(See below for the actual view)"
-msgstr "(Veja abaixo para a visão atual)"
+msgstr "(Veja abaixo para a view atual)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #, php-format
@@ -10043,16 +9967,14 @@ msgid "Only show keys"
 msgstr "Mostrar apenas chaves"
 
 #: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:29
-#, fuzzy
 msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 "Converte valores booleanos em texto (default 'T' e 'F'). Primeira opção é "
-"TRUE, segunda FALSE. Não nulo = true."
+"TRUE, segunda FALSE. Não nulo=true."
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:30
-#, fuzzy
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -10065,12 +9987,12 @@ msgid ""
 msgstr ""
 "Exibir uma coluna TIME, TIMESTAMP, DATETIME ou campo numérico UNIX como data "
 "formatada. A primeira opção é o deslocamento (em horas) que irá ser "
-"adicionado ao timestamp (Padrão: 0). Use a segunda opção para especificar "
-"uma string de formatação date/time diferente. A terceira opção determina se "
-"você deseja ver a data local ou UTC (use a string \"local\" ou \"utc\" para "
-"isso). De acordo com isso, o formato de data terá valores diferentes - para "
-"\"local\" veja a documentação do PHP para função strftime() e para \"utc\" "
-"isso é feito usando a função gmdate()."
+"adicionado ao timestamp (predefinição: 0). Use a segunda opção para "
+"especificar uma cadeia de formatação date/time diferente. A terceira opção "
+"determina se você deseja ver a data local ou UTC (use a string \"local\" ou "
+"\"utc\" para isso). De acordo com isso, o formato de data terá valores "
+"diferentes - para \"local\" veja a documentação do PHP para função strftime()"
+" e para \"utc\" será feito pela função gmdate()."
 
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:62
@@ -10079,21 +10001,18 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d-%B-%Y às %H:%M"
 
 #: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Mostrar um link para baixar os dados binários da coluna. Você pode usar a "
-"primeira opção para especificar o nome do ficheiro, ou usar a segunda opção "
-"como o nome de uma coluna que contém o nome do ficheiro. Se você usar a "
-"segunda opção, você precisará configurar a primeira opção com uma string "
-"vazia."
+"Mostrar um link para descarregar os dados binários da coluna. Você pode usar "
+"a primeira opção para especificar o nome do ficheiro ou usar a segunda opção "
+"como o nome de uma coluna que contém o nome do ficheiro. Se usar a segunda "
+"opção, terá de configurar a primeira opção com uma cadeia vazia."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10106,23 +10025,19 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"SOMENTE LINUX: Executa uma aplicação externa e alimenta-a com dados da "
-"coluna através da entrada padrão. Retorna a saída padrão do aplicativo. O "
-"padrão é Organizado, para impressão bonita do código HTML. Por razões de "
-"segurança, você tem que editar manualmente o ficheiro libraries/classes/"
-"Plugins/Transformations/Output/Text_Plain_External.php e listar as "
-"ferramentas que você queira tornar disponível. A primeira opção é então o "
-"número do programa que você deseja usar e a segunda opção são os parâmetros "
-"para o programa. A terceira opção, se configurada para 1, irá converter a "
-"saída usando htmlspecialchars() (Padrão 1). A quarta opção, se configurada "
-"para 1, prevenirá a quebra de linha e garantirá que a saída apareça toda em "
-"uma linha (Padrão 1)."
+"SOMENTE LINUX: executa uma aplicação externa e alimenta-a com dados da "
+"coluna através do input predefinido. Retorna o output predefinido do "
+"aplicativo. A predefinição é Limpo, para impressão bonita do código HTML. "
+"Por razões de segurança, você tem que editar o ficheiro libraries/classes/"
+"Plugins/Transformations/Output/Text_Plain_External.php manualmente e listar "
+"as ferramentas que queira tornar disponível. A primeira opção é então o "
+"número do programa que deseja usar e a segunda opção são os parâmetros para "
+"o programa. A terceira opção, se for configurada 1, irá converter a saída "
+"usando htmlspecialchars() (predefinição 1). A quarta opção, se for "
+"configurada 1, prevenirá a quebra de linha e garantirá que a saída apareça "
+"toda em uma linha (predefinição 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "ys the contents of the field as-is, without running it through "
-#| "ecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -10131,30 +10046,26 @@ msgstr ""
 "htmlspecialchars(). Isso é, a coluna assume conter somente HTML válido."
 
 #: libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
-"Exibir representação hexadecimal dos dados. O primeiro parâmetro opcional "
-"especifica quão frequentemente serão adicionados espaços (o padrão é 2 "
-"pedaços)."
+"Exibir a representação hexadecimal dos dados. O primeiro parâmetro opcional "
+"especifica a frequencia de espaços adicionados (predefinição são 2 pedaços)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:32
 msgid "Displays a link to download this image."
 msgstr "Mostra uma ligação para esta imagem (blob download directo , i.e.)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
-"Funcionalidade de upload de imagem que também exibe uma miniatura. As opções "
-"são a largura e a altura da miniatura em pixels. Padrão para 100 X 100."
+"Funcionalidade de envio de imagem que também exibe uma miniatura. As opções "
+"são a largura e a altura da miniatura em pixels. Predefinição é 100 X 100."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:87
-#, fuzzy
 msgid "Image preview here"
 msgstr "Pré-visualização da imagem aqui"
 
@@ -10167,46 +10078,42 @@ msgstr ""
 "pixeis. A proporção original é preservada."
 
 #: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
-"Converte um endereço de IP (IPv4), armazenado como BIGINT, em uma string "
-"formatada com pontuação padrão de Internet."
+"Converte um endereço de IP (IPv4), armazenado como BIGINT, em uma cadeia "
+"formatada com pontuação de referência de Internet."
 
 #: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:29
-#, fuzzy
 msgid ""
 "Prepends and/or Appends text to a string. First option is text to be "
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
-"Adiciona texto a uma string. A primeira opção é o texto a ser prefixado, a "
-"segunda é sufixado (envolvido por aspas simples, string vazia por padrão)."
+"Adiciona texto a uma cadeia. A primeira opção é o texto a ser prefixado, a "
+"segunda é sufixado (envolvido por aspas simples, cadeia vazia por "
+"predefinição)."
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:30
-#, fuzzy
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
 "Valida a cadeia de caracteres utilizando expressões regulares e executa a "
-"inserção somente se a seqüência de caracteres corresponder. A primeira opção "
+"inserção somente se a seqüência de caracteres corresponde. A primeira opção "
 "é a Expressão Regular."
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:52
-#, fuzzy, php-format
+#, php-format
 msgid "Validation failed for the input string %s."
-msgstr "Falha na validação da cadeia %s."
+msgstr "Falha na validação da cadeia de entrada %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:29
-#, fuzzy
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr "Formatar texto como consulta SQL com destaque de sintaxe."
 
 #: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "Displays a part of a string. The first option is the number of characters to "
 "skip from the beginning of the string (Default 0). The second option is the "
@@ -10214,11 +10121,11 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
-"Mostra uma parte de uma string. A primeira opção é o número de caracteres a "
-"pular a partir do começo da string. (O padrão é 0). A segunda opção é o "
-"número de caracteres a retornar (Padrão: até o fim da string). A terceira "
-"opção é a string a adicionar depois ou antes quando truncamentos ocorrerem "
-"(Padrão: \"...\")."
+"Mostra uma parte de uma cadeia. A primeira opção é o número de caracteres a "
+"pular a partir do começo da string. (A predefinição é 0). A segunda opção é "
+"o número de caracteres a retornar (Predefinição: até o fim da cadeia). A "
+"terceira opção é a cadiea a adicionar depois ou antes quando truncamentos "
+"ocorrerem (Predefinição: \"...\")."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:30
 msgid ""
@@ -10229,7 +10136,6 @@ msgstr ""
 "textarea para a entrada."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:33
-#, fuzzy
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"https://www.example.com/\". The second and "
@@ -10237,10 +10143,9 @@ msgid ""
 msgstr ""
 "Mostra uma imagem e um link; o campo contém o nome do ficheiro. A primeira "
 "opção é um prefixo de URL como \"https://www.exemplo.com/\". A segunda e "
-"terceira opções são a largura e a altura em pixels."
+"terceira opção são a largura e a altura em pixels."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:33
-#, fuzzy
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"https://www.example.com/\". The second option is a title for "
@@ -10251,46 +10156,38 @@ msgstr ""
 "para o link."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
-#, fuzzy
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Converte um endereço de internet no formato (IPv4/IPv6) em binário"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:30
-#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr "Editor de CodeMirror de sintaxe destacada para JSON."
+msgstr "Editor de sintaxe destacada de CodeMirror para JSON."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:30
-#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr "Editor CodeMirror de sintaxe destacada para SQL."
+msgstr "Editor de CodeMirror de sintaxe destacada para SQL."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:30
-#, fuzzy
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "Editor de CodeMirror de sintaxe destacada para XML (e HTML)."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:30
-#, fuzzy
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"Converte um endereço de IP, armazenado como string binária, em uma string "
-"formatada conforme o padrão (IPv4/IPv6) de Internet."
+"Converte um endereço de IP, armazenado como cadiea binária, numa cadeia "
+"formatada conforme a referência de Internet (IPv4/IPv6)."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:47
-#, fuzzy
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formata o texto como JSON destacando a sintaxe."
+msgstr "Formata o texto como JSON com sintaxe destacada."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:47
-#, fuzzy
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formata o texto como XML destacando a sintaxe."
+msgstr "Formata o texto como XML com sintaxe destacada."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:110
-#, fuzzy
 msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
@@ -10299,13 +10196,10 @@ msgstr ""
 "extensão gd do PHP."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Application (2FA)"
 msgstr "Aplicativo de Autenticação (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
-#, fuzzy
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
@@ -10314,12 +10208,10 @@ msgstr ""
 "Authenticator ou Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
-#, fuzzy
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Chave de Segurança de Hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
@@ -10327,35 +10219,27 @@ msgstr ""
 "U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
 msgstr "Autenticação de dois fatores simples"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
-#, fuzzy
 msgid "For testing purposes only!"
 msgstr "Apenas para fins de teste!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
 msgstr "A autenticação por dois fatores falhou: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
 msgstr "Autenticação por dois fatores falhou."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
-#, fuzzy
 msgid "No Two-Factor"
 msgstr "Sem dois fatores"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
-#, fuzzy
 msgid "Login using password only."
 msgstr "Login usando apenas a palavra-passe."
 
@@ -10397,8 +10281,6 @@ msgid "not OK"
 msgstr "não está OK"
 
 #: libraries/classes/Relation.php:109
-#, fuzzy
-#| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "OK"
@@ -10408,8 +10290,6 @@ msgid "Enabled"
 msgstr "Activado"
 
 #: libraries/classes/Relation.php:116
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration of pmadb…"
 msgstr "Configuração de pmadb…"
 
@@ -10422,8 +10302,6 @@ msgid "Display Features"
 msgstr "Mostrar Características"
 
 #: libraries/classes/Relation.php:184
-#, fuzzy
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
 msgstr "Desenho e criação de PDFs"
 
@@ -10436,9 +10314,6 @@ msgid "Browser transformation"
 msgstr "Transformação do navegador"
 
 #: libraries/classes/Relation.php:208
-#, fuzzy
-#| msgid ""
-#| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "Por favor, consulte a documentação sobre como atualizar a sua tabela "
@@ -10453,56 +10328,42 @@ msgid "SQL history"
 msgstr "Histórico SQL"
 
 #: libraries/classes/Relation.php:246
-#, fuzzy
 msgid "Persistent recently used tables"
 msgstr "Tabelas persistentes recentemente usadas"
 
 #: libraries/classes/Relation.php:257
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Persistent favorite tables"
 msgstr "Tabelas favoritas persistentes"
 
 #: libraries/classes/Relation.php:268
-#, fuzzy
 msgid "Persistent tables' UI preferences"
-msgstr "Persistir tabelas de preferências de UI"
+msgstr "Preferências de UI de tabelas persistentes"
 
 #: libraries/classes/Relation.php:290
-#, fuzzy
 msgid "User preferences"
 msgstr "Preferências do usuário"
 
 #: libraries/classes/Relation.php:307
-#, fuzzy
-#| msgid "Configuration file"
 msgid "Configurable menus"
-msgstr "Menus Configuráveis"
+msgstr "Menus configuráveis"
 
 #: libraries/classes/Relation.php:318
-#, fuzzy
 msgid "Hide/show navigation items"
 msgstr "Exibir/ocultar itens de navegação"
 
 #: libraries/classes/Relation.php:329
-#, fuzzy
 msgid "Saving Query-By-Example searches"
 msgstr "Salvando pesquisas Query-By-Example"
 
 #: libraries/classes/Relation.php:340
-#, fuzzy
 msgid "Managing Central list of columns"
-msgstr "Gerenciando a lista Central de colunas"
+msgstr "Gerenciando a lista central de colunas"
 
 #: libraries/classes/Relation.php:351
-#, fuzzy
-#| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Lembrando Configuração de Design"
+msgstr "Lembrando Configurações de Design"
 
 #: libraries/classes/Relation.php:362
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates"
 msgstr "Salvando exportação de modelos"
 
