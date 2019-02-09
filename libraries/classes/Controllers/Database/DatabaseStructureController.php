@@ -566,7 +566,7 @@ class DatabaseStructureController extends DatabaseController
 
             $empty_table = '';
             if (!$this->_db_is_system_schema) {
-                $empty_table = '&nbsp;';
+                $empty_table = '';
                 if (!$table_is_view) {
                     $empty_table = Template::get('database/structure/empty_table')
                         ->render(

@@ -183,7 +183,38 @@ $view = array(
     'column_names' => '',
     'as' => $sql_query,
     'with' => '',
+    'algorithm' => '',
 );
+
+// Used to prefill the fields when editing a view
+if (isset($_GET['db']) && isset($_GET['table'])) {
+    $item = $GLOBALS['dbi']->fetchSingleRow(
+        sprintf(
+            "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,
+            `SECURITY_TYPE`
+            FROM `INFORMATION_SCHEMA`.`VIEWS`
+            WHERE TABLE_SCHEMA='%s'
+            AND TABLE_NAME='%s';",
+            $GLOBALS['dbi']->escapeString($_GET['db']),
+            $GLOBALS['dbi']->escapeString($_GET['table'])
+        )
+    );
+    $createView = $GLOBALS['dbi']->getTable($_GET['db'], $_GET['table'])
+        ->showCreate();
+
+    // CREATE ALGORITHM=<ALGORITHM> DE...
+    $parts = explode(" ", substr($createView, 17));
+    $item['ALGORITHM'] = $parts[0];
+
+    $view['operation'] = 'alter';
+    $view['definer'] = $item['DEFINER'];
+    $view['sql_security'] = $item['SECURITY_TYPE'];
+    $view['name'] = $_GET['table'];
+    $view['as'] = $item['VIEW_DEFINITION'];
+    $view['with'] = $item['CHECK_OPTION'];
+    $view['algorithm'] = $item['ALGORITHM'];
+
+}
 
 if (Core::isValid($_POST['view'], 'array')) {
     $view = array_merge($view, $_POST['view']);
