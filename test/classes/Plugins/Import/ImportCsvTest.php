@@ -60,6 +60,7 @@ class ImportCsvTest extends PmaTestCase
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
         $GLOBALS['csv_new_line'] = 'auto';
+        $GLOBALS['import_file_name']=basename($GLOBALS['import_file'], ",csv");
 
         //$_SESSION
 
