@@ -693,15 +693,13 @@ class ImportCsv extends AbstractImportCsv
                 // if no table then use filename as tablename
                 if (count($result)==0) {
                     $tbl_name=$import_file_name;
-                } 
-                else {
+                } else {
                     // check to see if {filename} as table exist
                     $name_array=preg_grep("/{$import_file_name}/isU", $result);
                     // if no use filename as tablename
                     if (count($name_array)==0) {
                         $tbl_name=$import_file_name;
-                    } 
-                    else {
+                    } else {
                         // check if {filename}_ as table exist
                         $name_array=preg_grep("/{$import_file_name}_/isU", $result);
                         $tbl_name=$import_file_name . "_" . (count($name_array)+1);
