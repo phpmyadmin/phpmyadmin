@@ -143,7 +143,7 @@ class ImportCsv extends AbstractImportCsv
         global $error, $timeout_passed, $finished, $message;
 
         //get basename of file without extension,
-        //lower case it,strip unwanted characters 
+        //lower case it,strip unwanted characters ,trimming to 10characters commented now
         $import_file_name=basename($import_file_name, ".csv");
         $import_file_name=mb_strtolower($import_file_name);
         $import_file_name = preg_replace("/[^a-zA-Z0-9_]/", "_", $import_file_name);
@@ -692,18 +692,18 @@ class ImportCsv extends AbstractImportCsv
                 //logic to get table name from filename
                 // if no table then use filename as tablename
                 if (count($result)==0) {
-                  $tbl_name=$import_file_name;
-                }
+                    $tbl_name=$import_file_name;
+                } 
                 else {
                     // check to see if {filename} as table exist
-                    $name_array=preg_grep("/{$import_file_name}/isU", $result); 
+                    $name_array=preg_grep("/{$import_file_name}/isU", $result);
                     // if no use filename as tablename
                     if (count($name_array)==0) {
                         $tbl_name=$import_file_name;
-                    }
+                    } 
                     else {
                         // check if {filename}_ as table exist
-                        $name_array=preg_grep("/{$import_file_name}_/isU", $result); 
+                        $name_array=preg_grep("/{$import_file_name}_/isU", $result);
                         $tbl_name=$import_file_name . "_" . (count($name_array)+1);
                     }
                 }
