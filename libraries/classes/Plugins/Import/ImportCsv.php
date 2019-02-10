@@ -143,13 +143,13 @@ class ImportCsv extends AbstractImportCsv
         global $error, $timeout_passed, $finished, $message;
 
         //get basename of file without extension,
-        //lower case it,strip unwanted characters and trim to first 10 characters
+        //lower case it,strip unwanted characters 
         $import_file_name=basename($import_file_name, ".csv");
         $import_file_name=mb_strtolower($import_file_name);
-        $import_file_name = preg_replace("/[^a-zA-Z0-9]/", "", $import_file_name);
-        if (mb_strlen($import_file_name)>10) {
+        $import_file_name = preg_replace("/[^a-zA-Z0-9_]/", "_", $import_file_name);
+        /*if (mb_strlen($import_file_name)>10) {
           $import_file_name=substr($import_file_name, 0, 10);
-        }
+        }*/
         
         $replacements = [
             '\\n' => "\n",
