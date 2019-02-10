@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-02-07 11:10+0000\n"
+"PO-Revision-Date: 2019-02-12 03:10+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -2346,7 +2346,7 @@ msgstr ""
 
 #: js/messages.php:605
 msgid "Click to mark/unmark."
-msgstr "クリックでカラムを反転/解除"
+msgstr "クリックでカラムを反転/解除。"
 
 #: js/messages.php:606
 msgid "Double-click to copy column name."
@@ -3532,8 +3532,7 @@ msgstr "一般ユーザに「データベースを削除する」リンクを表
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
-msgstr ""
-"[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ"
+msgstr "[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ。"
 
 #: libraries/classes/Config/Descriptions.php:88
 msgid "Blowfish secret"
@@ -3624,7 +3623,7 @@ msgstr "入力項目の最大サイズ"
 
 #: libraries/classes/Config/Descriptions.php:125
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR 用 textarea の 1 行の文字数"
+msgstr "CHAR/VARCHAR 用 textarea の 1 行の文字数。"
 
 #: libraries/classes/Config/Descriptions.php:126
 msgid "CHAR textarea columns"
@@ -3632,7 +3631,7 @@ msgstr "文字入力用 textarea の 1 行の文字数"
 
 #: libraries/classes/Config/Descriptions.php:127
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR 用 textarea の行数"
+msgstr "CHAR/VARCHAR 用 textarea の行数。"
 
 #: libraries/classes/Config/Descriptions.php:128
 msgid "CHAR textarea rows"
@@ -3679,7 +3678,7 @@ msgstr "SQL のデバッグ"
 
 #: libraries/classes/Config/Descriptions.php:142
 msgid "Tab that is displayed when entering a database."
-msgstr "データベースが選択されたときに表示されるタブ"
+msgstr "データベースが選択されたときに表示されるタブ。"
 
 #: libraries/classes/Config/Descriptions.php:143
 msgid "Default database tab"
@@ -3687,7 +3686,7 @@ msgstr "デフォルトのデータベースタブ"
 
 #: libraries/classes/Config/Descriptions.php:144
 msgid "Tab that is displayed when entering a server."
-msgstr "サーバが選択されたときに表示されるタブ"
+msgstr "サーバが選択されたときに表示されるタブ。"
 
 #: libraries/classes/Config/Descriptions.php:145
 msgid "Default server tab"
@@ -3695,7 +3694,7 @@ msgstr "デフォルトのサーバタブ"
 
 #: libraries/classes/Config/Descriptions.php:146
 msgid "Tab that is displayed when entering a table."
-msgstr "テーブルが選択されたときに表示されるタブ"
+msgstr "テーブルが選択されたときに表示されるタブ。"
 
 #: libraries/classes/Config/Descriptions.php:147
 msgid "Default table tab"
@@ -4221,7 +4220,7 @@ msgstr "サーバ"
 
 #: libraries/classes/Config/Descriptions.php:313
 msgid "Servers display options."
-msgstr "サーバの表示オプション"
+msgstr "サーバの表示オプション。"
 
 #: libraries/classes/Config/Descriptions.php:315
 msgid "Tables display options."
@@ -4242,7 +4241,7 @@ msgstr "他の中心的な設定"
 
 #: libraries/classes/Config/Descriptions.php:322
 msgid "Settings that didn't fit anywhere else."
-msgstr "どこにも該当しない設定"
+msgstr "どこにも該当しない設定。"
 
 #: libraries/classes/Config/Descriptions.php:323
 msgid "Page titles"
@@ -4278,7 +4277,7 @@ msgstr "認証"
 
 #: libraries/classes/Config/Descriptions.php:336
 msgid "Authentication settings."
-msgstr "認証設定"
+msgstr "認証設定。"
 
 #: libraries/classes/Config/Descriptions.php:337
 msgid "Server configuration"
@@ -4374,7 +4373,7 @@ msgstr "テーブルの構造"
 
 #: libraries/classes/Config/Descriptions.php:365
 msgid "Settings for the table structure (list of columns)."
-msgstr "テーブルの構造 (カラムの一覧) における設定"
+msgstr "テーブルの構造 (カラムの一覧) における設定。"
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid "Tabs"
@@ -4400,7 +4399,7 @@ msgstr "テキスト入力項目"
 
 #: libraries/classes/Config/Descriptions.php:374
 msgid "Customize text input fields."
-msgstr "テキスト入力項目の詳細設定"
+msgstr "テキスト入力項目の詳細設定。"
 
 #: libraries/classes/Config/Descriptions.php:375
 msgid "Texy! text"
@@ -4416,7 +4415,7 @@ msgstr "警告"
 
 #: libraries/classes/Config/Descriptions.php:378
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "phpMyAdmin で表示される警告の抑制"
+msgstr "phpMyAdmin で表示される警告の抑制。"
 
 #: libraries/classes/Config/Descriptions.php:379
 #: templates/console/display.twig:4
@@ -4814,11 +4813,11 @@ msgstr "強調表示を有効にする"
 #: libraries/classes/Config/Descriptions.php:518
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "ナビゲーションパネルでツリー展開の設定"
+msgstr "ナビゲーションパネルでツリー展開の設定。"
 
 #: libraries/classes/Config/Descriptions.php:519
 msgid "Enable navigation tree expansion"
-msgstr "ナビゲーションツリーの展開を有効にします。"
+msgstr "ナビゲーションツリーの展開を有効にします"
 
 #: libraries/classes/Config/Descriptions.php:520
 msgid "Show tables in tree"
@@ -5035,7 +5034,7 @@ msgstr "テーブルのソートを記憶する"
 
 #: libraries/classes/Config/Descriptions.php:585
 msgid "Default sort order for tables with a primary key."
-msgstr "プライマリキーあるテーブルのデフォルト並び順"
+msgstr "プライマリキーあるテーブルのデフォルト並び順。"
 
 #: libraries/classes/Config/Descriptions.php:586
 msgid "Primary key default sort order"
@@ -5119,7 +5118,7 @@ msgstr "HTTP 領域"
 
 #: libraries/classes/Config/Descriptions.php:608
 msgid "Authentication method to use."
-msgstr "使用する認証方法"
+msgstr "使用する認証方法。"
 
 #: libraries/classes/Config/Descriptions.php:609 setup/frames/index.inc.php:150
 msgid "Authentication type"
@@ -5130,8 +5129,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[doc@bookmarks@]ブックマーク[/doc]機能を使わない場合は空欄にします。"
-"[kbd]pma__bookmark[/kbd] としておくのがいいでしょう。"
+"[doc@bookmarks@]ブックマーク[/doc]機能を使わない場合は空欄にします。[kbd]pma__bookmark[/kbd] "
+"としておくのがいいでしょう"
 
 #: libraries/classes/Config/Descriptions.php:614
 msgid "Bookmark table"
@@ -5231,7 +5230,7 @@ msgstr "SQL クエリ履歴テーブル"
 
 #: libraries/classes/Config/Descriptions.php:651
 msgid "Hostname where MySQL server is running."
-msgstr "稼働している MySQL サーバのホスト名"
+msgstr "稼働している MySQL サーバのホスト名。"
 
 #: libraries/classes/Config/Descriptions.php:652
 msgid "Server hostname"
@@ -5966,7 +5965,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:910
 msgid "Enter executes queries in console"
-msgstr "Enterでコンソールのクエリを実行します。"
+msgstr "Enterでコンソールのクエリを実行します"
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid ""
@@ -6029,7 +6028,7 @@ msgstr "並び順"
 #: libraries/classes/Config/FormDisplay.php:102
 #: libraries/classes/Config/Validator.php:530
 msgid "Not a positive number!"
-msgstr "正の値ではありません"
+msgstr "正の値ではありません。"
 
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:552
@@ -8561,7 +8560,7 @@ msgstr "データベース名の変更"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "この操作を実行する十分な特権がありません。詳細についてはドキュメンテーションを参照してください。"
+msgstr "この操作を実行する十分な特権がありません。詳細についてはドキュメンテーションを参照してください"
 
 #: libraries/classes/Operations.php:159
 #, php-format
@@ -16234,7 +16233,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log が「OFF」に設定されています。"
+msgstr "slow_query_log が「OFF」に設定されています"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
