@@ -125,7 +125,7 @@ class ImportCsvTest extends PmaTestCase
             $sql_query
         );
         $this->assertContains(
-            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`TBL_NAME`',
+            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $sql_query
         );
 
@@ -216,8 +216,12 @@ class ImportCsvTest extends PmaTestCase
             $sql_query
         );
 
-        $this->assertContains(
+        /*$this->assertContains(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`TBL_NAME`',
+            $sql_query
+        );*/
+        $this->assertContains(
+            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $sql_query
         );
 
