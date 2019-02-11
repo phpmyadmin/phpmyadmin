@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-02 06:48+0000\n"
+"PO-Revision-Date: 2019-02-12 04:10+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hant/>\n"
@@ -3111,7 +3111,6 @@ msgstr "名稱"
 #: libraries/classes/CentralColumns.php:1428
 #: libraries/classes/Rte/Routines.php:945
 #: templates/columns_definitions/table_fields_definitions.twig:16
-#, fuzzy
 msgid "Length/Values"
 msgstr "長度／值"
 
@@ -3138,7 +3137,7 @@ msgstr "屬性"
 #: libraries/classes/CentralColumns.php:757
 #: libraries/classes/CentralColumns.php:1429
 msgid "A_I"
-msgstr "自動增長"
+msgstr "自動遞增"
 
 #: libraries/classes/CentralColumns.php:793
 msgid "Select a table"
@@ -4131,7 +4130,7 @@ msgstr "自訂常用匯入選項的預設值。"
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
-msgstr "匯入 / 匯出"
+msgstr "匯入／匯出"
 
 #: libraries/classes/Config/Descriptions.php:468
 msgid "Set import and export directories and compression options."
@@ -4402,7 +4401,7 @@ msgstr "允許程式在偵測到執行時間快到上限時，自動中斷匯入
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Partial import: allow interrupt"
-msgstr "部分匯入: 允許中斷"
+msgstr "部分匯入：允許中斷"
 
 #: libraries/classes/Config/Descriptions.php:637
 #: libraries/classes/Config/Descriptions.php:656
@@ -6781,7 +6780,7 @@ msgstr ""
 msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
-msgstr ""
+msgstr "請於 PHP 設定停用 mysql.allow_local_infile，或安裝 mysqli 延伸套件。"
 
 #: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9627,9 +9626,8 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
-"顯示部分字元串。第一個選項代表要略過多少個字元才開始顯示 (預設為 0)。第二個選"
-"項是要返回的字元數 (預設直到結尾)。第三個選項是當發生截取時，加在之前或之後的"
-"符號或文字 (預設為 …)。"
+"顯示部分字元串。第一個選項代表要略過多少個字元才開始顯示 (預設為 0)。第二個選項是要回傳的字元數 (預設直到結尾)。第三個選項是當發生截取時，"
+"加在之前或之後的符號或文字 (預設為 …)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:30
 msgid ""
@@ -10450,7 +10448,6 @@ msgid "Parameters"
 msgstr "參數"
 
 #: libraries/classes/Rte/Routines.php:942
-#, fuzzy
 msgid "Direction"
 msgstr "方向"
 
@@ -10464,15 +10461,15 @@ msgstr "移除最後的參數"
 
 #: libraries/classes/Rte/Routines.php:972
 msgid "Return type"
-msgstr "返回類型"
+msgstr "回傳類型"
 
 #: libraries/classes/Rte/Routines.php:978
 msgid "Return length/values"
-msgstr "返回長度/值"
+msgstr "回傳長度／值"
 
 #: libraries/classes/Rte/Routines.php:984
 msgid "Return options"
-msgstr "返回選項"
+msgstr "回傳選項"
 
 #: libraries/classes/Rte/Routines.php:1016
 msgid "Is deterministic"
@@ -10499,7 +10496,7 @@ msgstr "必須填寫預存程序名稱！"
 #: libraries/classes/Rte/Routines.php:1176
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr "給予的參數方向 \"%s\" 無效。"
+msgstr "給予的參數方向「%s」無效。"
 
 #: libraries/classes/Rte/Routines.php:1198
 #: libraries/classes/Rte/Routines.php:1262
@@ -10516,7 +10513,7 @@ msgstr "必須提供每個預存程序的參數名稱和類型。"
 
 #: libraries/classes/Rte/Routines.php:1245
 msgid "You must provide a valid return type for the routine."
-msgstr "必須為預存程序提供有效的返回類型。"
+msgstr "必須為預存程序提供有效的回傳類型。"
 
 #: libraries/classes/Rte/Routines.php:1305
 msgid "You must provide a routine definition."
@@ -10531,7 +10528,7 @@ msgstr "執行預存程序 %s 的結果"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "最後一筆查詢敘述句共影響 %d 筆資料列。"
+msgstr[0] "最後一句查詢敘述共影響 %d 筆資料。"
 
 #: libraries/classes/Rte/Routines.php:1529
 #: libraries/classes/Rte/Routines.php:1536
@@ -10545,7 +10542,7 @@ msgstr "預存程序的參數"
 
 #: libraries/classes/Rte/RteList.php:91
 msgid "Returns"
-msgstr "返回"
+msgstr "回傳"
 
 #: libraries/classes/Rte/Triggers.php:118
 msgid "Sorry, we failed to restore the dropped trigger."
@@ -15300,12 +15297,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s 筆資料符合 <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>總計:</b> <i>%s</i> 筆資料符合條件"
+msgstr[0] "<strong>總計：</strong> <em>%count%</em> 筆資料符合條件"
 
 #: templates/database/qbe/footer_options.twig:3
 msgid "Add/Delete criteria rows"
