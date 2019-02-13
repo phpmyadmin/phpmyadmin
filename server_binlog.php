@@ -7,7 +7,6 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -33,4 +32,12 @@ $controller = $container->get(
     'ServerBinlogController',
     []
 );
-$controller->indexAction();
+
+/** @var Response $response */
+$response = $container->get('response');
+
+$response->addHTML($controller->indexAction([
+    'log' => $_POST['log'] ?? null,
+    'pos' => $_POST['pos'] ?? null,
+    'is_full_query' => $_POST['is_full_query'] ?? null,
+]));
