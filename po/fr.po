@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-01-28 16:52+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2019-02-13 14:11+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -15634,7 +15634,7 @@ msgstr "Créer"
 
 #: templates/server/databases/index.twig:52
 msgid "No privileges to create databases"
-msgstr "Pas de privilèges pour créer des bases de données"
+msgstr "Aucun privilège pour créer des bases de données"
 
 #: templates/server/databases/index.twig:163
 #, php-format
