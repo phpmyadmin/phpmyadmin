@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\Database\DatabaseStructureController
+ * Holds the PhpMyAdmin\Controllers\Database\StructureController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -31,7 +31,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class DatabaseStructureController extends DatabaseController
+class StructureController extends DatabaseController
 {
     /**
      * @var int Number of tables

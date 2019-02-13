@@ -1,9 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * DatabaseStructureControllerTest class
+ * StructureControllerTest class
  *
- * this class is for testing DatabaseStructureController class
+ * this class is for testing StructureController class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
-use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
+use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -19,13 +19,13 @@ use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use ReflectionClass;
 
 /**
- * DatabaseStructureControllerTest class
+ * StructureControllerTest class
  *
- * this class is for testing DatabaseStructureController class
+ * this class is for testing StructureController class
  *
  * @package PhpMyAdmin-test
  */
-class DatabaseStructureControllerTest extends PmaTestCase
+class StructureControllerTest extends PmaTestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response
@@ -98,10 +98,10 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
 
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\StructureController');
         $method = $class->getMethod('getValuesForInnodbTable');
         $method->setAccessible(true);
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
@@ -149,7 +149,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
         );
         // Not showing statistics
         $is_show_stats = false;
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
@@ -189,11 +189,11 @@ class DatabaseStructureControllerTest extends PmaTestCase
     public function testGetValuesForAriaTable()
     {
         $container = Container::getDefaultContainer();
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\StructureController');
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
 
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
@@ -233,7 +233,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $this->assertEquals(0, $overhead_size);
 
         $is_show_stats = false;
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
@@ -243,7 +243,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $this->assertEquals(0, $sum_size);
 
         $db_is_system_schema = false;
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
@@ -262,11 +262,11 @@ class DatabaseStructureControllerTest extends PmaTestCase
     public function testHasTable()
     {
         $container = Container::getDefaultContainer();
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\StructureController');
         $method = $class->getMethod('hasTable');
         $method->setAccessible(true);
 
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
@@ -306,11 +306,11 @@ class DatabaseStructureControllerTest extends PmaTestCase
     public function testCheckFavoriteTable()
     {
         $container = Container::getDefaultContainer();
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\StructureController');
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
@@ -361,11 +361,11 @@ class DatabaseStructureControllerTest extends PmaTestCase
                 )
             );
 
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\StructureController');
         $method = $class->getMethod('synchronizeFavoriteTables');
         $method->setAccessible(true);
 
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
@@ -400,13 +400,13 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $_REQUEST['table'] = 'table';
 
-        $ctrl = new DatabaseStructureController(
+        $ctrl = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db')
         );
         // Showing statistics
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\StructureController');
         $property = $class->getProperty('_tables');
         $property->setAccessible(true);
 
