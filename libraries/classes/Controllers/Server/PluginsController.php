@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PhpMyAdmin\Controllers\Server\ServerPluginsController
+ * Holds the PhpMyAdmin\Controllers\Server\PluginsController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -19,7 +19,7 @@ use PhpMyAdmin\Template;
  *
  * @package PhpMyAdmin\Controllers
  */
-class ServerPluginsController extends Controller
+class PluginsController extends Controller
 {
     /**
      * @var array plugin details
@@ -27,7 +27,7 @@ class ServerPluginsController extends Controller
     protected $plugins;
 
     /**
-     * Constructs ServerPluginsController
+     * Constructs PluginsController
      *
      * @param \PhpMyAdmin\Response          $response Response object
      * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object

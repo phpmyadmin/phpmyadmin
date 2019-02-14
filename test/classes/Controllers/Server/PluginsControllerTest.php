@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds ServerPluginsControllerTest class
+ * Holds PluginsControllerTest class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Server\ServerPluginsController;
+use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
@@ -17,11 +17,11 @@ use PhpMyAdmin\Theme;
 use ReflectionClass;
 
 /**
- * Tests for ServerPluginsController class
+ * Tests for PluginsController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerPluginsControllerTest extends PmaTestCase
+class PluginsControllerTest extends PmaTestCase
 {
     /**
      * Prepares environment for the test.
@@ -83,11 +83,11 @@ class ServerPluginsControllerTest extends PmaTestCase
         $container->alias('response', 'PhpMyAdmin\Response');
         $container->set('dbi', $dbi);
 
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerPluginsController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\PluginsController');
         $method = $class->getMethod('_getPluginsHtml');
         $method->setAccessible(true);
 
-        $ctrl = new ServerPluginsController(
+        $ctrl = new PluginsController(
             $container->get('response'),
             $container->get('dbi')
         );
