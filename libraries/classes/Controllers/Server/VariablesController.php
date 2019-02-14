@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PhpMyAdmin\Controllers\Server\ServerVariablesController
+ * Holds the PhpMyAdmin\Controllers\Server\VariablesController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -25,7 +25,7 @@ use Williamdes\MariaDBMySQLKBS\KBException;
  *
  * @package PhpMyAdmin\Controllers
  */
-class ServerVariablesController extends Controller
+class VariablesController extends Controller
 {
 
     /**

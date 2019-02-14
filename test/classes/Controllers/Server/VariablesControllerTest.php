@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds ServerVariablesControllerTest class
+ * Holds VariablesControllerTest class
  *
  * @package PhpMyAdmin-test
  */
@@ -21,11 +21,11 @@ use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
 
 /**
- * Tests for ServerVariablesController class
+ * Tests for VariablesController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerVariablesControllerTest extends PmaTestCase
+class VariablesControllerTest extends PmaTestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response
@@ -109,20 +109,20 @@ class ServerVariablesControllerTest extends PmaTestCase
     public function testFormatVariable()
     {
         $class = new ReflectionClass(
-            '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            '\PhpMyAdmin\Controllers\Server\VariablesController'
         );
         $method = $class->getMethod('_formatVariable');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->factory(
-            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\VariablesController'
         );
         $container->alias(
-            'ServerVariablesController',
-            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            'VariablesController',
+            'PhpMyAdmin\Controllers\Server\VariablesController'
         );
-        $ctrl = $container->get('ServerVariablesController');
+        $ctrl = $container->get('VariablesController');
 
         $nameForValueByte = "byte_variable";
         $nameForValueNotByte = "not_a_byte_variable";
@@ -177,20 +177,20 @@ class ServerVariablesControllerTest extends PmaTestCase
     public function testGetHtmlForLinkTemplates()
     {
         $class = new ReflectionClass(
-            '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            '\PhpMyAdmin\Controllers\Server\VariablesController'
         );
         $method = $class->getMethod('_getHtmlForLinkTemplates');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->factory(
-            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\VariablesController'
         );
         $container->alias(
-            'ServerVariablesController',
-            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            'VariablesController',
+            'PhpMyAdmin\Controllers\Server\VariablesController'
         );
-        $ctrl = $container->get('ServerVariablesController');
+        $ctrl = $container->get('VariablesController');
 
         //Call the test function
         $html = $method->invoke($ctrl);
@@ -221,20 +221,20 @@ class ServerVariablesControllerTest extends PmaTestCase
     {
 
         $class = new ReflectionClass(
-            '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            '\PhpMyAdmin\Controllers\Server\VariablesController'
         );
         $method = $class->getMethod('_getHtmlForServerVariables');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->factory(
-            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\VariablesController'
         );
         $container->alias(
-            'ServerVariablesController',
-            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            'VariablesController',
+            'PhpMyAdmin\Controllers\Server\VariablesController'
         );
-        $ctrl = $container->get('ServerVariablesController');
+        $ctrl = $container->get('VariablesController');
 
         $_REQUEST['filter'] = "auto-commit";
         $serverVarsSession
@@ -280,20 +280,20 @@ class ServerVariablesControllerTest extends PmaTestCase
     public function testGetHtmlForServerVariablesItems()
     {
         $class = new ReflectionClass(
-            '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            '\PhpMyAdmin\Controllers\Server\VariablesController'
         );
         $method = $class->getMethod('_getHtmlForServerVariablesItems');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->factory(
-            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\VariablesController'
         );
         $container->alias(
-            'ServerVariablesController',
-            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
+            'VariablesController',
+            'PhpMyAdmin\Controllers\Server\VariablesController'
         );
-        $ctrl = $container->get('ServerVariablesController');
+        $ctrl = $container->get('VariablesController');
 
         $serverVarsSession
             = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);

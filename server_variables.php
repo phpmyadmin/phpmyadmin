@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerVariablesController;
+use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -18,19 +18,13 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerVariablesController'
-);
-$container->alias(
-    'ServerVariablesController',
-    'PhpMyAdmin\Controllers\Server\ServerVariablesController'
-);
+$container->factory(VariablesController::class);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
-/** @var ServerVariablesController $controller */
+/** @var VariablesController $controller */
 $controller = $container->get(
-    'ServerVariablesController',
+    VariablesController::class,
     []
 );
 $controller->indexAction();
