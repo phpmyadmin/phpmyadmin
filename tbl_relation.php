@@ -15,7 +15,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Table\TableRelationController;
+use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -29,11 +29,7 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
-$container->alias(
-    'TableRelationController',
-    'PhpMyAdmin\Controllers\Table\TableRelationController'
-);
+$container->factory(RelationController::class);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
@@ -77,6 +73,6 @@ if (Util::isForeignKeySupported($tbl_storage_engine)) {
     );
 }
 
-/** @var TableRelationController $controller */
-$controller = $container->get('TableRelationController', $dependency_definitions);
+/** @var RelationController $controller */
+$controller = $container->get(RelationController::class, $dependency_definitions);
 $controller->indexAction();

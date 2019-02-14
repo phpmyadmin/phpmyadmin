@@ -1,24 +1,23 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/controllers/TableRelationController.php
- *
+ * Tests for PhpMyAdmin\Controllers\Table\RelationController
  * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 
 /**
- * Tests for libraries/controllers/TableRelationController.php
- *
+ * Tests for PhpMyAdmin\Controllers\Table\RelationController
  * @package PhpMyAdmin-test
  */
-class TableRelationControllerTest extends PmaTestCase
+class RelationControllerTest extends PmaTestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response
@@ -118,15 +117,11 @@ class TableRelationControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
-        $container->alias(
-            'TableRelationController',
-            'PhpMyAdmin\Controllers\Table\TableRelationController'
-        );
+        $container->factory(RelationController::class);
         /**
-         * @var \PhpMyAdmin\Controllers\Table\TableRelationController
+         * @var RelationController $ctrl
          */
-        $ctrl = $container->get('TableRelationController');
+        $ctrl = $container->get(RelationController::class);
 
         $ctrl->getDropdownValueForTableAction();
         $json = $this->_response->getJSONResult();
@@ -164,12 +159,8 @@ class TableRelationControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
-        $container->alias(
-            'TableRelationController',
-            'PhpMyAdmin\Controllers\Table\TableRelationController'
-        );
-        $ctrl = $container->get('TableRelationController');
+        $container->factory(RelationController::class);
+        $ctrl = $container->get(RelationController::class);
 
         $ctrl->getDropdownValueForTableAction();
         $json = $this->_response->getJSONResult();
@@ -209,13 +200,9 @@ class TableRelationControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
-        $container->alias(
-            'TableRelationController',
-            'PhpMyAdmin\Controllers\Table\TableRelationController'
-        );
+        $container->factory(RelationController::class);
         $ctrl = $container->get(
-            'TableRelationController',
+            RelationController::class,
             ['tbl_storage_engine' => 'INNODB']
         );
 
@@ -255,13 +242,9 @@ class TableRelationControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
-        $container->alias(
-            'TableRelationController',
-            'PhpMyAdmin\Controllers\Table\TableRelationController'
-        );
+        $container->factory(RelationController::class);
         $ctrl = $container->get(
-            'TableRelationController',
+            RelationController::class,
             ['tbl_storage_engine' => 'INNODB']
         );
 

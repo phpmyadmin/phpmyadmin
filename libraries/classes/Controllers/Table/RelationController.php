@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\Table\TableRelationController
+ * Holds the PhpMyAdmin\Controllers\Table\RelationController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -22,7 +22,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class TableRelationController extends TableController
+class RelationController extends TableController
 {
     /**
      * @var array
