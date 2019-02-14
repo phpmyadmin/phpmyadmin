@@ -1,15 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/controllers/TableIndexesController.php
- *
+ * Tests for PhpMyAdmin\Controllers\Table\IndexesController
  * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
-use PhpMyAdmin\Controllers\Table\TableIndexesController;
+use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
@@ -20,11 +19,10 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * Tests for libraries/controllers/TableIndexesController.php
- *
+ * Tests for PhpMyAdmin\Controllers\Table\IndexesController
  * @package PhpMyAdmin-test
  */
-class TableIndexesControllerTest extends PmaTestCase
+class IndexesControllerTest extends PmaTestCase
 {
     /**
      * Setup function for test cases
@@ -104,7 +102,7 @@ class TableIndexesControllerTest extends PmaTestCase
         $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
 
-        $ctrl = new TableIndexesController(
+        $ctrl = new IndexesController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db'),
@@ -163,7 +161,7 @@ class TableIndexesControllerTest extends PmaTestCase
         $container->alias('response', 'PhpMyAdmin\Response');
         $index = new Index();
 
-        $ctrl = new TableIndexesController(
+        $ctrl = new IndexesController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db'),

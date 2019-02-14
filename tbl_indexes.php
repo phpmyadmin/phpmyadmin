@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Table\TableIndexesController;
+use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Response;
@@ -19,11 +19,7 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory('PhpMyAdmin\Controllers\Table\TableIndexesController');
-$container->alias(
-    'TableIndexesController',
-    'PhpMyAdmin\Controllers\Table\TableIndexesController'
-);
+$container->factory(IndexesController::class);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
@@ -50,6 +46,6 @@ $dependency_definitions = [
     "index" => $index,
 ];
 
-/** @var TableIndexesController $controller */
-$controller = $container->get('TableIndexesController', $dependency_definitions);
+/** @var IndexesController $controller */
+$controller = $container->get(IndexesController::class, $dependency_definitions);
 $controller->indexAction();
