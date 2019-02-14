@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Table\TableStructureController;
+use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -19,11 +19,7 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
-$container->alias(
-    'TableStructureController',
-    'PhpMyAdmin\Controllers\Table\TableStructureController'
-);
+$container->factory(StructureController::class);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
@@ -57,6 +53,6 @@ $dependency_definitions = [
     'showtable' => $GLOBALS['showtable']
 ];
 
-/** @var TableStructureController $controller */
-$controller = $container->get('TableStructureController', $dependency_definitions);
+/** @var StructureController $controller */
+$controller = $container->get(StructureController::class, $dependency_definitions);
 $controller->indexAction();

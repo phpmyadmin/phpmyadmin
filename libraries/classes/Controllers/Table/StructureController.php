@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\Table\TableStructureController
+ * Holds the PhpMyAdmin\Controllers\Table\StructureController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -36,7 +36,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class TableStructureController extends TableController
+class StructureController extends TableController
 {
     /**
      * @var Table  The table object
@@ -87,7 +87,7 @@ class TableStructureController extends TableController
     private $transformations;
 
     /**
-     * TableStructureController constructor
+     * StructureController constructor
      *
      * @param \PhpMyAdmin\Response          $response            Response object
      * @param \PhpMyAdmin\DatabaseInterface $dbi                 DatabaseInterface object
