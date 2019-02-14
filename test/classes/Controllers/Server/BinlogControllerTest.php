@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds ServerBinlogControllerTest
+ * Holds BinlogControllerTest
  *
  * @package PhpMyAdmin-test
  */
@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\Server\ServerBinlogController;
+use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
@@ -21,7 +21,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package PhpMyAdmin-test
  */
-class ServerBinlogControllerTest extends TestCase
+class BinlogControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
@@ -102,7 +102,7 @@ class ServerBinlogControllerTest extends TestCase
         $dbi->expects($this->at(4))->method('fetchAssoc')
             ->will($this->returnValue(false));
 
-        $controller = new ServerBinlogController(
+        $controller = new BinlogController(
             Response::getInstance(),
             $dbi
         );

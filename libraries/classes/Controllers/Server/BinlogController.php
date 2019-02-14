@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\Server\ServerBinlogController
+ * Holds the PhpMyAdmin\Controllers\Server\BinlogController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -19,7 +19,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class ServerBinlogController extends Controller
+class BinlogController extends Controller
 {
     /**
      * array binary log files
@@ -27,7 +27,7 @@ class ServerBinlogController extends Controller
     protected $binaryLogs;
 
     /**
-     * Constructs ServerBinlogController
+     * Constructs BinlogController
      *
      * @param \PhpMyAdmin\Response          $response Response object
      * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object

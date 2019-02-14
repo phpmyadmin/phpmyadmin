@@ -18,18 +18,18 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerBinlogController'
+    'PhpMyAdmin\Controllers\Server\BinlogController'
 );
 $container->alias(
-    'ServerBinlogController',
-    'PhpMyAdmin\Controllers\Server\ServerBinlogController'
+    'BinlogController',
+    'PhpMyAdmin\Controllers\Server\BinlogController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
-/** @var \PhpMyAdmin\Controllers\Server\ServerBinlogController $controller */
+/** @var \PhpMyAdmin\Controllers\Server\BinlogController $controller */
 $controller = $container->get(
-    'ServerBinlogController',
+    'BinlogController',
     []
 );
 
