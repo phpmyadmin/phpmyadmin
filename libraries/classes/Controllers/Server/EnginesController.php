@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PhpMyAdmin\Controllers\Server\ServerEnginesController
+ * Holds the PhpMyAdmin\Controllers\Server\EnginesController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -21,7 +21,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class ServerEnginesController extends Controller
+class EnginesController extends Controller
 {
     /**
      * Index action

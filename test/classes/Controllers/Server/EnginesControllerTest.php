@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds ServerEnginesControllerTest class
+ * Holds EnginesControllerTest class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Server\ServerEnginesController;
+use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -20,11 +20,11 @@ use PhpMyAdmin\Util;
 use ReflectionClass;
 
 /**
- * Tests for ServerEnginesController class
+ * Tests for EnginesController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerEnginesControllerTest extends PmaTestCase
+class EnginesControllerTest extends PmaTestCase
 {
     /**
      * @var \PhpMyAdmin\Di\Container
@@ -61,7 +61,7 @@ class ServerEnginesControllerTest extends PmaTestCase
      */
     public function testHtmlForAllServerEngines()
     {
-        $class = new ServerEnginesController(
+        $class = new EnginesController(
             $this->container->get('response'),
             $this->container->get('dbi')
         );
@@ -117,7 +117,7 @@ class ServerEnginesControllerTest extends PmaTestCase
         $_REQUEST['engine'] = "Pbxt";
         $_REQUEST['page'] = "page";
 
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Server\ServerEnginesController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Server\EnginesController');
         $method = $class->getMethod('_getHtmlForShowEngine');
         $method->setAccessible(true);
 
@@ -128,7 +128,7 @@ class ServerEnginesControllerTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $engine_plugin = StorageEngine::getEngine("Pbxt");
-        $ctrl = new ServerEnginesController(
+        $ctrl = new EnginesController(
             $this->container->get('response'),
             $this->container->get('dbi')
         );

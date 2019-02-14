@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerEnginesController;
+use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -18,19 +18,13 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerEnginesController'
-);
-$container->alias(
-    'ServerEnginesController',
-    'PhpMyAdmin\Controllers\Server\ServerEnginesController'
-);
+$container->factory(EnginesController::class);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
-/** @var ServerEnginesController $controller */
+/** @var EnginesController $controller */
 $controller = $container->get(
-    'ServerEnginesController',
+    EnginesController::class,
     []
 );
 $controller->indexAction();
