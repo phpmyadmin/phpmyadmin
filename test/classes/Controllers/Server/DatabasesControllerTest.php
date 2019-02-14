@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds ServerDatabasesControllerTest class
+ * Holds DatabasesControllerTest class
  *
  * @package PhpMyAdmin-test
  */
@@ -10,18 +10,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\Server\ServerDatabasesController;
+use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for ServerDatabasesController class
+ * Tests for DatabasesController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerDatabasesControllerTest extends TestCase
+class DatabasesControllerTest extends TestCase
 {
     /**
      * @return void
@@ -79,7 +79,7 @@ class ServerDatabasesControllerTest extends TestCase
         $dbi->method('getDatabasesFull')
             ->willReturn($databases);
 
-        $controller = new ServerDatabasesController(
+        $controller = new DatabasesController(
             Response::getInstance(),
             $dbi
         );
@@ -141,7 +141,7 @@ class ServerDatabasesControllerTest extends TestCase
         $dbi->method('getError')
             ->willReturn('CreateDatabaseError');
 
-        $controller = new ServerDatabasesController(
+        $controller = new DatabasesController(
             Response::getInstance(),
             $dbi
         );
@@ -182,7 +182,7 @@ class ServerDatabasesControllerTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $controller = new ServerDatabasesController(
+        $controller = new DatabasesController(
             Response::getInstance(),
             $dbi
         );

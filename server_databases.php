@@ -8,7 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Controllers\Server\ServerDatabasesController;
+use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -20,18 +20,18 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
+    'PhpMyAdmin\Controllers\Server\DatabasesController'
 );
 $container->alias(
-    'ServerDatabasesController',
-    'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
+    'DatabasesController',
+    'PhpMyAdmin\Controllers\Server\DatabasesController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
-/** @var ServerDatabasesController $controller */
+/** @var DatabasesController $controller */
 $controller = $container->get(
-    'ServerDatabasesController',
+    'DatabasesController',
     []
 );
 
