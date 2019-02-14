@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\Table\TableSearchController
+ * Holds the PhpMyAdmin\Controllers\Table\SearchController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -16,11 +16,11 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Util;
 
 /**
- * Class TableSearchController
+ * Class SearchController
  *
  * @package PhpMyAdmin\Controllers
  */
-class TableSearchController extends TableController
+class SearchController extends TableController
 {
     /**
      * Normal search or Zoom search

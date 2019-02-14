@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
-use PhpMyAdmin\Controllers\Table\TableSearchController;
+use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -23,7 +23,7 @@ use stdClass;
  *
  * @package PhpMyAdmin-test
  */
-class TableSearchControllerTest extends PmaTestCase
+class SearchControllerTest extends PmaTestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response
@@ -121,7 +121,7 @@ class TableSearchControllerTest extends PmaTestCase
     {
         $container = Container::getDefaultContainer();
 
-        $tableSearch = new TableSearchController(
+        $tableSearch = new SearchController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db'),
@@ -168,10 +168,10 @@ class TableSearchControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
 
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\TableSearchController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\SearchController');
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
-        $tableSearch = new TableSearchController(
+        $tableSearch = new SearchController(
             $container->get('response'),
             $container->get('dbi'),
             $container->get('db'),
@@ -267,12 +267,12 @@ class TableSearchControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');
+        $container->factory('PhpMyAdmin\Controllers\Table\SearchController');
         $container->alias(
-            'TableSearchController',
-            'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'SearchController',
+            'PhpMyAdmin\Controllers\Table\SearchController'
         );
-        $ctrl = $container->get('TableSearchController');
+        $ctrl = $container->get('SearchController');
 
         $result = $ctrl->getColumnMinMax('column');
         $expected = 'SELECT MIN(`column`) AS `min`, '
@@ -298,17 +298,17 @@ class TableSearchControllerTest extends PmaTestCase
         $types->expects($this->any())->method('isUnaryOperator')
             ->will($this->returnValue(false));
 
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\TableSearchController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\SearchController');
         $method = $class->getMethod('_generateWhereClause');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('\PhpMyAdmin\Controllers\Table\TableSearchController');
+        $container->factory('\PhpMyAdmin\Controllers\Table\SearchController');
         $container->alias(
-            'TableSearchController',
-            'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'SearchController',
+            'PhpMyAdmin\Controllers\Table\SearchController'
         );
-        $ctrl = $container->get('TableSearchController');
+        $ctrl = $container->get('SearchController');
 
         $_POST['customWhereClause'] = '`table` = \'PMA_BookMark\'';
         $result = $method->invoke($ctrl);
@@ -396,12 +396,12 @@ class TableSearchControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('\PhpMyAdmin\Controllers\Table\TableSearchController');
+        $container->factory('\PhpMyAdmin\Controllers\Table\SearchController');
         $container->alias(
-            'TableSearchController',
-            'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'SearchController',
+            'PhpMyAdmin\Controllers\Table\SearchController'
         );
-        $ctrl = $container->get('TableSearchController');
+        $ctrl = $container->get('SearchController');
 
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';

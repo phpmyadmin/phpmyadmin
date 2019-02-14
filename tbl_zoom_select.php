@@ -9,6 +9,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -23,11 +24,7 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');
-$container->alias(
-    'TableSearchController',
-    'PhpMyAdmin\Controllers\Table\TableSearchController'
-);
+$container->factory(SearchController::class);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
@@ -37,6 +34,6 @@ $dependency_definitions = [
     'url_query' => &$url_query
 ];
 
-/** @var PhpMyAdmin\Controllers\Table\TableSearchController $controller */
-$controller = $container->get('TableSearchController', $dependency_definitions);
+/** @var SearchController $controller */
+$controller = $container->get(SearchController::class, $dependency_definitions);
 $controller->indexAction();
