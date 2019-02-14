@@ -17,7 +17,7 @@ use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for ServerCollationsController class
+ * Tests for BinlogController class
  *
  * @package PhpMyAdmin-test
  */

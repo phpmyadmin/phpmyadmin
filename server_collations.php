@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerCollationsController;
+use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -19,18 +19,18 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerCollationsController'
+    'PhpMyAdmin\Controllers\Server\CollationsController'
 );
 $container->alias(
-    'ServerCollationsController',
-    'PhpMyAdmin\Controllers\Server\ServerCollationsController'
+    'CollationsController',
+    'PhpMyAdmin\Controllers\Server\CollationsController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
-/** @var ServerCollationsController $controller */
+/** @var CollationsController $controller */
 $controller = $container->get(
-    'ServerCollationsController',
+    'CollationsController',
     []
 );
 $response = $container->get('response');

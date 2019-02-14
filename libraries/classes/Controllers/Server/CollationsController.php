@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\Server\ServerCollationsController
+ * Holds the PhpMyAdmin\Controllers\Server\CollationsController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -19,7 +19,7 @@ use PhpMyAdmin\Response;
  *
  * @package PhpMyAdmin\Controllers
  */
-class ServerCollationsController extends Controller
+class CollationsController extends Controller
 {
     /**
      * @var array|null
@@ -42,7 +42,7 @@ class ServerCollationsController extends Controller
     private $defaultCollations;
 
     /**
-     * ServerCollationsController constructor.
+     * CollationsController constructor.
      *
      * @param Response          $response             Response object
      * @param DatabaseInterface $dbi                  DatabaseInterface object

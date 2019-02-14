@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds ServerCollationsControllerTest class
+ * Holds CollationsControllerTest class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,16 +11,16 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\Server\ServerCollationsController;
+use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Response;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for ServerCollationsController class
+ * Tests for CollationsController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerCollationsControllerTest extends TestCase
+class CollationsControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
@@ -69,7 +69,7 @@ class ServerCollationsControllerTest extends TestCase
             'binary' => 'binary',
         ];
 
-        $controller = new ServerCollationsController(
+        $controller = new CollationsController(
             Response::getInstance(),
             $GLOBALS['dbi'],
             $charsets,
