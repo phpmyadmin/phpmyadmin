@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Table\TableGisVisualizationController;
+use PhpMyAdmin\Controllers\Table\GisVisualizationController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
@@ -19,13 +19,7 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Table\TableGisVisualizationController'
-);
-$container->alias(
-    'TableGisVisualizationController',
-    'PhpMyAdmin\Controllers\Table\TableGisVisualizationController'
-);
+$container->factory(GisVisualizationController::class);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
@@ -41,9 +35,9 @@ $dependency_definitions = [
     "visualizationSettings" => [],
 ];
 
-/** @var TableGisVisualizationController $controller */
+/** @var GisVisualizationController $controller */
 $controller = $container->get(
-    'TableGisVisualizationController',
+    GisVisualizationController::class,
     $dependency_definitions
 );
 $controller->indexAction();

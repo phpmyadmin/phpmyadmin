@@ -16,11 +16,11 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 
 /**
- * Class TableGisVisualizationController
+ * Class GisVisualizationController
  *
  * @package PhpMyAdmin\Controllers
  */
-class TableGisVisualizationController extends TableController
+class GisVisualizationController extends TableController
 {
     /**
      * @var array
