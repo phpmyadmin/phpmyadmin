@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Table\TableChartController;
+use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -18,11 +18,7 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory('PhpMyAdmin\Controllers\Table\TableChartController');
-$container->alias(
-    'TableChartController',
-    'PhpMyAdmin\Controllers\Table\TableChartController'
-);
+$container->factory(ChartController::class);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
@@ -33,6 +29,6 @@ $dependency_definitions = [
     "cfg" => &$GLOBALS['cfg']
 ];
 
-/** @var TableChartController $controller */
-$controller = $container->get('TableChartController', $dependency_definitions);
+/** @var ChartController $controller */
+$controller = $container->get(ChartController::class, $dependency_definitions);
 $controller->indexAction();

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\Table\TableChartController
+ * Holds the PhpMyAdmin\Controllers\Table\ChartController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -23,7 +23,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class TableChartController extends TableController
+class ChartController extends TableController
 {
     /**
      * @var string
