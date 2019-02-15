@@ -210,9 +210,9 @@ class Sql
                 foreach ($indexColumns as $indexColumnName => $dummy) {
                     if (in_array($indexColumnName, $resultSetColumnNames)) {
                         $numberFound++;
-                    } else if (!in_array($indexColumnName, $columns)) {
+                    } elseif (! in_array($indexColumnName, $columns)) {
                         $numberFound++;
-                    } else if (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
+                    } elseif (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
                         $numberFound++;
                     }
                 }
