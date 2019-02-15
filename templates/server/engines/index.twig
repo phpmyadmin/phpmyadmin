@@ -1,0 +1,27 @@
+<h2>
+  {{ get_image('b_engine') }}
+  {% trans 'Storage engines' %}
+</h2>
+
+<table class="noclick">
+  <thead>
+    <tr>
+      <th>{% trans 'Storage Engine' %}</th>
+      <th>{% trans 'Description' %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for engine, details in engines %}
+      <tr class="
+        {{- details['Support'] == 'NO' or details['Support'] == 'DISABLED' ? ' disabled' }}
+        {{ details['Support'] == 'DEFAULT' ? ' marked' }}">
+        <td>
+          <a rel="newpage" href="server_engines.php{{ get_common({'engine': engine}) }}">
+            {{ details['Engine'] }}
+          </a>
+        </td>
+        <td>{{ details['Comment'] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

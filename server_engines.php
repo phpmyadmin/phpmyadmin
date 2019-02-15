@@ -19,12 +19,23 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(EnginesController::class);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
 /** @var EnginesController $controller */
 $controller = $container->get(
     EnginesController::class,
     []
 );
-$controller->indexAction();
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+if (isset($_GET['engine']) && $_GET['engine'] !== '') {
+    $response->addHTML($controller->show([
+        'engine' => $_GET['engine'],
+        'page' => $_GET['page'] ?? null,
+    ]));
+} else {
+    $response->addHTML($controller->index());
+}

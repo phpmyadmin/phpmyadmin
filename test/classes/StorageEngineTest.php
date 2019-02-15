@@ -76,6 +76,11 @@ class StorageEngineTest extends PmaTestCase
                     'Support' => 'NO',
                     'Comment' => 'Federated MySQL storage engine',
                 ],
+                'Pbxt' => [
+                    'Engine'  => 'Pbxt',
+                    'Support' => 'NO',
+                    'Comment' => 'Pbxt storage engine',
+                ],
             ],
             $this->object->getStorageEngines()
         );

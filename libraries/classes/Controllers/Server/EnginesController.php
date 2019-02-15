@@ -1,6 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * Holds the PhpMyAdmin\Controllers\Server\EnginesController
  *
@@ -11,10 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
-use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 
 /**
  * Handles viewing storage engine details
@@ -26,65 +22,48 @@ class EnginesController extends Controller
     /**
      * Index action
      *
-     * @return void
+     * @return string
      */
-    public function indexAction()
+    public function index(): string
     {
-        /**
-         * Does the common work
-         */
         require ROOT_PATH . 'libraries/server_common.inc.php';
 
-        /**
-         * Displays the sub-page heading
-         */
-        $this->response->addHTML(
-            $this->template->render('server/sub_page_header', [
-                'type' => 'engines',
-            ])
-        );
-
-        /**
-         * Did the user request information about a certain storage engine?
-         */
-        if (empty($_REQUEST['engine'])
-            || ! StorageEngine::isValid($_REQUEST['engine'])
-        ) {
-            $html = $this->template->render('server/engines/list_engines', [
-                'engines' => StorageEngine::getStorageEngines(),
-            ]);
-        } else {
-            $engine = StorageEngine::getEngine($_REQUEST['engine']);
-            $html = $this->_getHtmlForShowEngine($engine);
-        }
-        $this->response->addHTML($html);
+        return $this->template->render('server/engines/index', [
+            'engines' => StorageEngine::getStorageEngines(),
+        ]);
     }
 
     /**
-     * Returns HTML code for engine inspect
+     * Displays details about a given Storage Engine
      *
-     * @param  StorageEngine $engine engine beeing inspected
+     * @param array $params Request params
      *
      * @return string
      */
-    private function _getHtmlForShowEngine(StorageEngine $engine): string
+    public function show(array $params): string
     {
-        $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
-        $pageOutput = ! empty($page) ? $engine->getPage($page) : '';
+        require ROOT_PATH . 'libraries/server_common.inc.php';
 
-        /**
-         * Displays details about a given Storage Engine
-         */
-        return $this->template->render('server/engines/show_engine', [
-            'title' => $engine->getTitle(),
-            'help_page' => $engine->getMysqlHelpPage(),
-            'comment' => $engine->getComment(),
-            'info_pages' => $engine->getInfoPages(),
-            'support' => $engine->getSupportInformationMessage(),
-            'variables' => $engine->getHtmlVariables(),
-            'page_output' => $pageOutput,
+        $page = $params['page'] ?? '';
+
+        $engine = [];
+        if (StorageEngine::isValid($params['engine'])) {
+            $storageEngine = StorageEngine::getEngine($params['engine']);
+            $engine = [
+                'engine' => $params['engine'],
+                'title' => $storageEngine->getTitle(),
+                'help_page' => $storageEngine->getMysqlHelpPage(),
+                'comment' => $storageEngine->getComment(),
+                'info_pages' => $storageEngine->getInfoPages(),
+                'support' => $storageEngine->getSupportInformationMessage(),
+                'variables' => $storageEngine->getHtmlVariables(),
+                'page' => ! empty($page) ? $storageEngine->getPage($page) : '',
+            ];
+        }
+
+        return $this->template->render('server/engines/show', [
+            'engine' => $engine,
             'page' => $page,
-            'engine' => $_REQUEST['engine'],
         ]);
     }
 }

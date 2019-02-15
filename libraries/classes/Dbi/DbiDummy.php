@@ -536,6 +536,11 @@ class DbiDummy implements DbiExtension
                         'Support' => 'NO',
                         'Comment' => 'Federated MySQL storage engine',
                     ],
+                    [
+                        'Engine'  => 'Pbxt',
+                        'Support' => 'NO',
+                        'Comment' => 'Pbxt storage engine',
+                    ],
                 ],
             ],
             [
