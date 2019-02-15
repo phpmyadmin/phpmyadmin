@@ -4469,9 +4469,9 @@ class Util
             if (Core::isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
                 $tblGroupSql .= $whereAdded ? " AND" : " WHERE";
                 if ($_REQUEST['tbl_type'] == 'view') {
-                    $tblGroupSql .= " `Table_type` != 'BASE TABLE'";
+                    $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
                 } else {
-                    $tblGroupSql .= " `Table_type` = 'BASE TABLE'";
+                    $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
                 }
             }
             $db_info_result = $GLOBALS['dbi']->query(

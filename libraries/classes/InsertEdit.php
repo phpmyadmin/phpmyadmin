@@ -1627,10 +1627,7 @@ class InsertEdit
                 $readOnly
             );
 
-            $virtual = array(
-                'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
-            );
-            if (in_array($column['Extra'], $virtual)) {
+            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])) {
                 $html_output .= '<input type="hidden" name="virtual'
                     . $column_name_appendix . '" value="1" />';
             }
