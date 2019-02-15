@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-05 15:48+0000\n"
+"PO-Revision-Date: 2019-02-16 11:24+0000\n"
 "Last-Translator: Christoffer Hjeltnes Støle <cst029@uib.no>\n"
 "Language-Team: Norwegian Nynorsk <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nn/>\n"
@@ -1851,7 +1851,7 @@ msgstr ""
 #: templates/console/display.twig:31
 #: templates/console/display.twig:175
 msgid "Edit"
-msgstr ""
+msgstr "Endra"
 
 #: js/messages.php:421 libraries/classes/CentralColumns.php:881
 #: libraries/classes/CentralColumns.php:1238
@@ -1865,7 +1865,7 @@ msgstr ""
 #: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
 msgid "Delete"
-msgstr ""
+msgstr "Slett"
 
 #: js/messages.php:422 libraries/classes/Display/Results.php:934
 #: libraries/classes/Display/Results.php:942
@@ -2117,7 +2117,7 @@ msgstr ""
 #: js/messages.php:518 libraries/classes/Display/Results.php:3339
 #: libraries/classes/Display/Results.php:4698
 msgid "Copy"
-msgstr ""
+msgstr "Kopier"
 
 #: js/messages.php:521
 msgid "Point"
@@ -4255,7 +4255,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:561
 #: libraries/classes/Config/Forms/User/SqlForm.php:40
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL-spørjingar"
 
 #: libraries/classes/Config/Descriptions.php:563
 msgid "SQL queries settings."
@@ -4553,7 +4553,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:753
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Høgste talet på rader som skal visast"
 
 #: libraries/classes/Config/Descriptions.php:757
 msgid "Maximum number of tables displayed in table list."
@@ -14171,7 +14171,7 @@ msgstr ""
 #: templates/start_and_number_of_rows_panel.twig:10
 #: templates/display/export/options_rows.twig:10
 msgid "Number of rows:"
-msgstr ""
+msgstr "Tal rader:"
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
