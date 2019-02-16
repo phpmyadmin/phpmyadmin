@@ -11,8 +11,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
-use PhpMyAdmin\Server\Common;
-use PhpMyAdmin\Template;
 
 /**
  * Handles viewing server plugin details
@@ -24,7 +22,7 @@ class PluginsController extends Controller
     /**
      * @var array plugin details
      */
-    protected $plugins;
+    private $plugins;
 
     /**
      * Constructs PluginsController
@@ -35,32 +33,35 @@ class PluginsController extends Controller
     public function __construct($response, $dbi)
     {
         parent::__construct($response, $dbi);
-        $this->_setServerPlugins();
+        $this->setPlugins();
     }
 
     /**
      * Index action
      *
-     * @return void
+     * @return string
      */
-    public function indexAction()
+    public function index(): string
     {
         include ROOT_PATH . 'libraries/server_common.inc.php';
 
-        $header  = $this->response->getHeader();
+        $header = $this->response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
         $scripts->addFile('server_plugins.js');
 
-        /**
-         * Displays the page
-        */
-        $this->response->addHTML(
-            $this->template->render('server/sub_page_header', [
-                'type' => 'plugins',
-            ])
-        );
-        $this->response->addHTML($this->_getPluginsHtml());
+        $pluginsTypeClean = [];
+        foreach (array_keys($this->plugins) as $pluginType) {
+            $pluginsTypeClean[$pluginType] = preg_replace(
+                '/[^a-z]/',
+                '',
+                mb_strtolower($pluginType)
+            );
+        }
+        return $this->template->render('server/plugins/index', [
+            'plugins' => $this->plugins,
+            'plugins_type_clean' => $pluginsTypeClean,
+        ]);
     }
 
     /**
@@ -68,7 +69,7 @@ class PluginsController extends Controller
      *
      * @return void
      */
-    private function _setServerPlugins()
+    private function setPlugins(): void
     {
         $sql = "SELECT plugin_name,
                        plugin_type,
@@ -87,27 +88,5 @@ class PluginsController extends Controller
         }
         $this->dbi->freeResult($res);
         ksort($this->plugins);
-    }
-
-    /**
-     * Returns the html for plugin Tab.
-     *
-     * @return string
-     */
-    private function _getPluginsHtml()
-    {
-        $plugins_type_clean = [];
-        $keys = array_keys($this->plugins);
-        foreach ($keys as $plugin_type) {
-            $plugins_type_clean[$plugin_type] = preg_replace(
-                '/[^a-z]/',
-                '',
-                mb_strtolower($plugin_type)
-            );
-        }
-        return $this->template->render('server/plugins/main', [
-            'plugins' => $this->plugins,
-            'plugins_type_clean' => $plugins_type_clean,
-        ]);
     }
 }

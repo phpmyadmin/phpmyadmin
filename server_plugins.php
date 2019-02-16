@@ -19,12 +19,16 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(PluginsController::class);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
 /** @var PluginsController $controller */
 $controller = $container->get(
     PluginsController::class,
     []
 );
-$controller->indexAction();
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+$response->addHTML($controller->index());

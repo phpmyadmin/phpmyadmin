@@ -9,62 +9,59 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\PluginsController;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Theme;
-use ReflectionClass;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PluginsController class
  *
  * @package PhpMyAdmin-test
  */
-class PluginsControllerTest extends PmaTestCase
+class PluginsControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
 
-        //$GLOBALS
-        $GLOBALS['server'] = 0;
+        $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**
-     * Test for _getPluginsHtml() method
+     * Test for index method
      *
      * @return void
      */
-    public function testPMAGetPluginAndModuleInfo()
+    public function testIndex()
     {
         /**
          * Prepare plugin list
          */
-        $row = [];
-        $row["plugin_name"] = "plugin_name1";
-        $row["plugin_type"] = "plugin_type1";
-        $row["plugin_type_version"] = "plugin_version1";
-        $row["plugin_author"] = "plugin_author1";
-        $row["plugin_license"] = "plugin_license1";
-        $row["plugin_description"] = "plugin_description1";
-        $row["is_active"] = true;
+        $row = [
+            'plugin_name' => 'plugin_name1',
+            'plugin_type' => 'plugin_type1',
+            'plugin_type_version' => 'plugin_version1',
+            'plugin_author' => 'plugin_author1',
+            'plugin_license' => 'plugin_license1',
+            'plugin_description' => 'plugin_description1',
+            'is_active' => true,
+        ];
 
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-
         $dbi->expects($this->once())
             ->method('query')
             ->will($this->returnValue(true));
@@ -78,63 +75,54 @@ class PluginsControllerTest extends PmaTestCase
             ->method('freeResult')
             ->will($this->returnValue(true));
 
-        $container = Container::getDefaultContainer();
-        $container->set('PhpMyAdmin\Response', new ResponseStub());
-        $container->alias('response', 'PhpMyAdmin\Response');
-        $container->set('dbi', $dbi);
-
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\PluginsController');
-        $method = $class->getMethod('_getPluginsHtml');
-        $method->setAccessible(true);
-
-        $ctrl = new PluginsController(
-            $container->get('response'),
-            $container->get('dbi')
+        $controller = new PluginsController(
+            Response::getInstance(),
+            $dbi
         );
-        $html = $method->invoke($ctrl);
+        $actual = $controller->index();
 
         //validate 1:Items
         $this->assertContains(
             '<th>Plugin</th>',
-            $html
+            $actual
         );
         $this->assertContains(
             '<th>Description</th>',
-            $html
+            $actual
         );
         $this->assertContains(
             '<th>Version</th>',
-            $html
+            $actual
         );
         $this->assertContains(
             '<th>Author</th>',
-            $html
+            $actual
         );
         $this->assertContains(
             '<th>License</th>',
-            $html
+            $actual
         );
 
         //validate 2: one Item HTML
         $this->assertContains(
             'plugin_name1',
-            $html
+            $actual
         );
         $this->assertContains(
             '<td>plugin_description1</td>',
-            $html
+            $actual
         );
         $this->assertContains(
             '<td>plugin_version1</td>',
-            $html
+            $actual
         );
         $this->assertContains(
             '<td>plugin_author1</td>',
-            $html
+            $actual
         );
         $this->assertContains(
             '<td>plugin_license1</td>',
-            $html
+            $actual
         );
     }
 }
