@@ -423,6 +423,7 @@ return [
         'NumRecentTables' => 'validateNonNegativeNumber',
         'NumFavoriteTables' => 'validateNonNegativeNumber',
         'LimitChars' => 'validatePositiveNumber',
+        'CommentLimitChars' => 'validatePositiveNumber',
         'LoginCookieValidity' => 'validatePositiveNumber',
         'LoginCookieStore' => 'validateNonNegativeNumber',
         'MaxDbList' => 'validatePositiveNumber',

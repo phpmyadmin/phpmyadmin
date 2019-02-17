@@ -1,6 +1,12 @@
 {% if comments_map[fields_meta.table] is defined
     and comments_map[fields_meta.table][fields_meta.name] is defined %}
-    <br><span class="tblcomment" title="{{ comments_map[fields_meta.table][fields_meta.name] }}">
+    <br><span class="tblcomment" 
+        {% if comments_map[fields_meta.table][fields_meta.name]|length > comment_limit_chars %}     
+            title="{{ comments_map[fields_meta.table][fields_meta.name]|slice(0, comment_limit_chars) }}…
+        {%else %}
+            title="{{ comments_map[fields_meta.table][fields_meta.name] }}">
+        {% endif %}
+        
         {% if comments_map[fields_meta.table][fields_meta.name]|length > limit_chars %}
             {{ comments_map[fields_meta.table][fields_meta.name]|slice(0, limit_chars) }}…
         {% else %}

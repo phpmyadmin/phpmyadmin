@@ -1625,6 +1625,7 @@ class Results
             'comments_map' => $commentsMap,
             'fields_meta' => $fieldsMeta,
             'limit_chars' => $GLOBALS['cfg']['LimitChars'],
+            'comment_limit_chars' => $GLOBALS['cfg']['CommentLimitChars'],
         ]);
     }
 

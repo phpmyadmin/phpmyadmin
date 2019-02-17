@@ -2731,6 +2731,13 @@ $cfg['CharTextareaRows'] = 2;
 $cfg['LimitChars'] = 50;
 
 /**
+ * Max Comment field data length in browse mode for all non-numeric fields
+ *
+ * @global integer $cfg['CommentLimitChars']
+ */
+$cfg['CommentLimitChars'] = 200;
+
+/**
  * Where to show the edit/copy/delete links in browse mode
  * Possible values are 'left', 'right', 'both' and 'none'.
  *
