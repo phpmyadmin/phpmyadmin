@@ -19,12 +19,31 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(VariablesController::class);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
 /** @var VariablesController $controller */
 $controller = $container->get(
     VariablesController::class,
     []
 );
-$controller->indexAction();
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+if ($response->isAjax()
+    && isset($_GET['type']) && $_GET['type'] === 'getval') {
+    $response->addJSON($controller->getValue([
+        'varName' => $_GET['varName'] ?? null,
+    ]));
+} elseif ($response->isAjax()
+    && isset($_POST['type']) && $_POST['type'] === 'setval') {
+    $response->addJSON($controller->setValue([
+        'varName' => $_POST['varName'] ?? null,
+        'varValue' => $_POST['varValue'] ?? null,
+    ]));
+} else {
+    $response->addHTML($controller->index([
+        'filter' => $_REQUEST['filter'] ?? null,
+    ]));
+}

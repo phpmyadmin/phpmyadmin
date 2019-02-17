@@ -147,6 +147,11 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
+                'link_to_var_documentation',
+                'PhpMyAdmin\Util::linkToVarDocumentation',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
                 'localised_date',
                 'PhpMyAdmin\Util::localisedDate'
             ),

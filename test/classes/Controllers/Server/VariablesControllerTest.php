@@ -9,13 +9,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
@@ -25,67 +26,56 @@ use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
  *
  * @package PhpMyAdmin-test
  */
-class VariablesControllerTest extends PmaTestCase
+class VariablesControllerTest extends TestCase
 {
     /**
-     * @var \PhpMyAdmin\Tests\Stubs\Response
-     */
-    private $_response;
-
-    /**
-     * Test for setUp
-     *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
 
-        //$GLOBALS
-        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        //$_SESSION
-
-        //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
-        $server_session_variable = [
-            "auto_increment_increment" => "1",
-            "auto_increment_offset" => "13",
-            "automatic_sp_privileges" => "ON",
-            "back_log" => "50",
-            "big_tables" => "OFF",
+        $serverSessionVariables = [
+            'auto_increment_increment' => '1',
+            'auto_increment_offset' => '13',
+            'automatic_sp_privileges' => 'ON',
+            'back_log' => '50',
+            'big_tables' => 'OFF',
         ];
 
-        $server_global_variables = [
-            "auto_increment_increment" => "0",
-            "auto_increment_offset" => "12"
+        $serverGlobalVariables = [
+            'auto_increment_increment' => '0',
+            'auto_increment_offset' => '12'
         ];
 
         $fetchResult = [
             [
-                "SHOW SESSION VARIABLES;",
+                'SHOW SESSION VARIABLES;',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_session_variable,
+                $serverSessionVariables,
             ],
             [
-                "SHOW GLOBAL VARIABLES;",
+                'SHOW GLOBAL VARIABLES;',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_global_variables,
+                $serverGlobalVariables,
             ],
         ];
 
@@ -93,115 +83,24 @@ class VariablesControllerTest extends PmaTestCase
             ->will($this->returnValueMap($fetchResult));
 
         $GLOBALS['dbi'] = $dbi;
-
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $this->_response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $this->_response);
-        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
-     * Test for _formatVariable()
-     *
      * @return void
      */
-    public function testFormatVariable()
+    public function testIndex(): void
     {
-        $class = new ReflectionClass(
-            '\PhpMyAdmin\Controllers\Server\VariablesController'
+        $controller = new VariablesController(
+            Response::getInstance(),
+            $GLOBALS['dbi']
         );
-        $method = $class->getMethod('_formatVariable');
-        $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-        $container->factory(
-            'PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $container->alias(
-            'VariablesController',
-            'PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $ctrl = $container->get('VariablesController');
+        $html = $controller->index([]);
 
-        $nameForValueByte = "byte_variable";
-        $nameForValueNotByte = "not_a_byte_variable";
-
-        $slimData = new KBSlimData();
-        $slimData->addVariable($nameForValueByte, "byte", null);
-        $slimData->addVariable($nameForValueNotByte, "string", null);
-        KBSearch::loadTestData($slimData);
-
-        //name is_numeric and the value type is byte
-        $args = [
-            $nameForValueByte,
-            "3",
-        ];
-        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
-        $this->assertEquals(
-            '<abbr title="3">3 B</abbr>',
-            $formattedValue
-        );
-        $this->assertEquals(true, $isHtmlFormatted);
-
-        //name is_numeric and the value type is not byte
-        $args = [
-            $nameForValueNotByte,
-            "3",
-        ];
-        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
-        $this->assertEquals(
-            '3',
-            $formattedValue
-        );
-        $this->assertEquals(false, $isHtmlFormatted);
-
-        //value is not a number
-        $args = [
-            $nameForValueNotByte,
-            "value",
-        ];
-        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
-        $this->assertEquals(
-            'value',
-            $formattedValue
-        );
-        $this->assertEquals(false, $isHtmlFormatted);
-    }
-
-    /**
-     * Test for _getHtmlForLinkTemplates()
-     *
-     * @return void
-     */
-    public function testGetHtmlForLinkTemplates()
-    {
-        $class = new ReflectionClass(
-            '\PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $method = $class->getMethod('_getHtmlForLinkTemplates');
-        $method->setAccessible(true);
-
-        $container = Container::getDefaultContainer();
-        $container->factory(
-            'PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $container->alias(
-            'VariablesController',
-            'PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $ctrl = $container->get('VariablesController');
-
-        //Call the test function
-        $html = $method->invoke($ctrl);
-        $url = 'server_variables.php' . Url::getCommon();
-
-        //validate 1: URL
         $this->assertContains(
-            $url,
+            'server_variables.php' . Url::getCommon(),
             $html
         );
-        //validate 2: images
         $this->assertContains(
             Util::getIcon('b_save', __('Save')),
             $html
@@ -210,56 +109,12 @@ class VariablesControllerTest extends PmaTestCase
             Util::getIcon('b_close', __('Cancel')),
             $html
         );
-    }
-
-    /**
-     * Test for PMA_getHtmlForServerVariables()
-     *
-     * @return void
-     */
-    public function testPMAGetHtmlForServerVariables()
-    {
-
-        $class = new ReflectionClass(
-            '\PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $method = $class->getMethod('_getHtmlForServerVariables');
-        $method->setAccessible(true);
-
-        $container = Container::getDefaultContainer();
-        $container->factory(
-            'PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $container->alias(
-            'VariablesController',
-            'PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $ctrl = $container->get('VariablesController');
-
-        $_REQUEST['filter'] = "auto-commit";
-        $serverVarsSession
-            = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
-        $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
-
-        $html = $method->invoke($ctrl, $serverVars, $serverVarsSession);
-
-        //validate 1: Filters
         $this->assertContains(
             '<legend>' . __('Filters') . '</legend>',
             $html
         );
         $this->assertContains(
             __('Containing the word:'),
-            $html
-        );
-        $this->assertContains(
-            $_REQUEST['filter'],
-            $html
-        );
-
-        //validate 2: Server Variables
-        $this->assertContains(
-            '<table id="serverVariables" class="width100 data filteredData noclick">',
             $html
         );
         $this->assertContains(
@@ -270,80 +125,78 @@ class VariablesControllerTest extends PmaTestCase
             __('Value'),
             $html
         );
-    }
 
-    /**
-     * Test for _getHtmlForServerVariablesItems()
-     *
-     * @return void
-     */
-    public function testGetHtmlForServerVariablesItems()
-    {
-        $class = new ReflectionClass(
-            '\PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $method = $class->getMethod('_getHtmlForServerVariablesItems');
-        $method->setAccessible(true);
-
-        $container = Container::getDefaultContainer();
-        $container->factory(
-            'PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $container->alias(
-            'VariablesController',
-            'PhpMyAdmin\Controllers\Server\VariablesController'
-        );
-        $ctrl = $container->get('VariablesController');
-
-        $serverVarsSession
-            = $GLOBALS['dbi']->fetchResult('SHOW SESSION VARIABLES;', 0, 1);
-        $serverVars = $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
-
-        $html = $method->invoke($ctrl, $serverVars, $serverVarsSession);
-
-        //validate 1: variable: auto_increment_increment
         $name = "auto_increment_increment";
         $value = htmlspecialchars(str_replace('_', ' ', $name));
         $this->assertContains(
             $value,
             $html
         );
-
-        //validate 2: variable: auto_increment_offset
         $name = "auto_increment_offset";
         $value = htmlspecialchars(str_replace('_', ' ', $name));
         $this->assertContains(
             $value,
             $html
         );
+    }
 
-        $formatVariable = $class->getMethod('_formatVariable');
-        $formatVariable->setAccessible(true);
+    /**
+     * Test for formatVariable()
+     *
+     * @return void
+     */
+    public function testFormatVariable(): void
+    {
+        $class = new ReflectionClass(VariablesController::class);
+        $method = $class->getMethod('formatVariable');
+        $method->setAccessible(true);
 
+        $container = Container::getDefaultContainer();
+        $container->factory(VariablesController::class);
+        $controller = $container->get(VariablesController::class);
+
+        $nameForValueByte = 'byte_variable';
+        $nameForValueNotByte = 'not_a_byte_variable';
+
+        $slimData = new KBSlimData();
+        $slimData->addVariable($nameForValueByte, 'byte', null);
+        $slimData->addVariable($nameForValueNotByte, 'string', null);
+        KBSearch::loadTestData($slimData);
+
+        //name is_numeric and the value type is byte
         $args = [
-            $name,
-            "12",
+            $nameForValueByte,
+            '3',
         ];
-        list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
-        $this->assertContains(
-            $value,
-            $html
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($controller, $args);
+        $this->assertEquals(
+            '<abbr title="3">3 B</abbr>',
+            $formattedValue
         );
+        $this->assertEquals(true, $isHtmlFormatted);
 
-        //validate 3: variables
-        $this->assertContains(
-            __('Session value'),
-            $html
-        );
-
+        //name is_numeric and the value type is not byte
         $args = [
-            $name,
-            "13",
+            $nameForValueNotByte,
+            '3',
         ];
-        list($value, $isHtmlFormatted) = $formatVariable->invokeArgs($ctrl, $args);
-        $this->assertContains(
-            $value,
-            $html
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($controller, $args);
+        $this->assertEquals(
+            '3',
+            $formattedValue
         );
+        $this->assertEquals(false, $isHtmlFormatted);
+
+        //value is not a number
+        $args = [
+            $nameForValueNotByte,
+            'value',
+        ];
+        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($controller, $args);
+        $this->assertEquals(
+            'value',
+            $formattedValue
+        );
+        $this->assertEquals(false, $isHtmlFormatted);
     }
 }
