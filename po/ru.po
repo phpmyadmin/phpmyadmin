@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2018-10-05 10:36+0000\n"
-"Last-Translator: Kirill Nikolaev <kf@exchange12rocks.org>\n"
+"PO-Revision-Date: 2019-02-17 21:55+0000\n"
+"Last-Translator: Максим <genkaok@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6158,7 +6158,7 @@ msgstr "Показать текущий запрос на просмотр"
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
 "Выполнить запрос по нажатию Enter и вставить новую строку по нажатию Shift + "
-"Enter."
+"Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -7107,6 +7107,8 @@ msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
 msgstr ""
+"Пожалуйста, отключите mysql.allow_local_infile в конфигурации PHP или "
+"установите расширение mysqli."
 
 #: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -15070,6 +15072,8 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Отключив двухфакторную аутентификацию, вы снова сможете войти в систему, "
+"используя только пароль."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
 #, fuzzy
@@ -15931,7 +15935,7 @@ msgstr "Эффективность"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Проверить"
 
 #: templates/privileges/column_privileges.twig:21
 #: templates/privileges/column_privileges.twig:22
@@ -16156,6 +16160,8 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Двухфакторная авторизация недоступна, пожалуйста, установите все "
+"зависимости, чтобы включить её."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
@@ -16164,11 +16170,14 @@ msgstr ""
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"Для этой учетной записи доступна и настроена двухфакторная аутентификация."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Двухфакторная аутентификация доступна, но не настроена для этой учетной "
+"записи."
 
 #: templates/prefs_twofactor.twig:24
 #, fuzzy
@@ -16281,6 +16290,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Откройте приложение для двухфакторной авторизации и подтвердите свою "
+"личность."
 
 #: templates/table/structure/optional_action_links.twig:6
 msgid "Propose table structure"
