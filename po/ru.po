@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
 "PO-Revision-Date: 2019-02-17 21:55+0000\n"
-"Last-Translator: Максим <genkaok@yandex.ru>\n"
+"Last-Translator: subo <subo098@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ru/>\n"
 "Language: ru\n"
@@ -15150,6 +15150,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Пожалуйста, просканируйте следующий QR-код с помощью приложения на Вашем "
+"устройстве и введите сгенерированный код."
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
@@ -15187,6 +15189,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Вы не используете HTTPS для доступа к phpMyAdmin, поэтому устройство FIDO "
+"U2F, скорее всего, откажется Вас аутентифицировать."
 
 #: templates/database/tracking/untracked_tables.twig:1
 msgid "Untracked tables"
@@ -15964,6 +15968,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Пожалуйста, подключите Ваше устройство FIDO U2F к порту USB. Затем "
+"подтвердите вход в систему на устройстве."
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
@@ -16165,7 +16171,7 @@ msgstr ""
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Следующие пакеты менеджера \"Composer\" отсутствуют:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
@@ -16189,7 +16195,7 @@ msgstr "%sСоздать%s отсутствующие таблицы хране�
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Вы включили двухфакторную аутентификацию."
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
