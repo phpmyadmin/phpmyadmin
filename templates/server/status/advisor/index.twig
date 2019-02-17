@@ -1,5 +1,7 @@
-<div>
-  {{ menu|raw }}
+{% extends 'server/status/base.twig' %}
+{% set active = 'advisor' %}
+
+{% block content %}
 
   {% if data is not empty %}
     <a href="#openAdvisorInstructions">{{ get_icon('b_help', 'Instructions'|trans) }}</a>
@@ -33,4 +35,5 @@
   {% else %}
     {{ 'Not enough privilege to view the advisor.'|trans|error }}
   {% endif %}
-</div>
+
+{% endblock %}

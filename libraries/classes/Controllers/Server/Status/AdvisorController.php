@@ -49,15 +49,12 @@ class AdvisorController extends Controller
      */
     public function index(): string
     {
-        $menu = $this->data->getMenuHtml();
-
         $data = '';
         if ($this->data->dataLoaded) {
             $data = json_encode($this->advisor->run());
         }
 
         return $this->template->render('server/status/advisor/index', [
-            'menu' => $menu,
             'data' => $data,
         ]);
     }
