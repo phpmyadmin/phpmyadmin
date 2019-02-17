@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-17 21:55+0000\n"
-"Last-Translator: subo <subo098@gmail.com>\n"
+"PO-Revision-Date: 2019-02-18 22:18+0000\n"
+"Last-Translator: Максим <genkaok@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ru/>\n"
 "Language: ru\n"
@@ -15072,7 +15072,7 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
-"Отключив двухфакторную аутентификацию, вы снова сможете войти в систему, "
+"Отключив двухфакторную авторизацию, вы снова сможете войти в систему, "
 "используя только пароль."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
@@ -16175,15 +16175,13 @@ msgstr "Следующие пакеты менеджера \"Composer\" отсу
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-"Для этой учетной записи доступна и настроена двухфакторная аутентификация."
+msgstr "Для этой учетной записи доступна и настроена двухфакторная авторизация."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
-"Двухфакторная аутентификация доступна, но не настроена для этой учетной "
-"записи."
+"Двухфакторная авторизация доступна, но не настроена для этой учетной записи."
 
 #: templates/prefs_twofactor.twig:24
 #, fuzzy
@@ -16195,7 +16193,7 @@ msgstr "%sСоздать%s отсутствующие таблицы хране�
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr "Вы включили двухфакторную аутентификацию."
+msgstr "Вы включили двухфакторную авторизацию."
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
