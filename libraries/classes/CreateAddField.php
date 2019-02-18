@@ -95,7 +95,7 @@ class CreateAddField
                         ? $_POST['field_null'][$i]
                         : 'NOT NULL',
                         $_POST['field_default_type'][$i],
-                        $_POST['field_default_value'][$i],
+                        $_POST['field_default_value'][$i] == '' || ctype_space($_POST['field_default_value'][$i]) ? 'NONE' : $_POST['field_default_value'],
                         isset($_POST['field_extra'][$i])
                         ? $_POST['field_extra'][$i]
                         : false,
