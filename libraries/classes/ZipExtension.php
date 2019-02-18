@@ -199,7 +199,7 @@ class ZipExtension
             $temp_name = str_replace('\\', '/', $table);
 
             /* Convert Unix timestamp to DOS timestamp */
-            $timearray = ($time == 0) ? getdate() : getdate($time);
+            $timearray = getdate();
 
             if ($timearray['year'] < 1980) {
                 $timearray['year'] = 1980;
