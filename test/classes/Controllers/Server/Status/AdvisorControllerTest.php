@@ -13,6 +13,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Data;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -100,7 +101,8 @@ class AdvisorControllerTest extends TestCase
     {
         $controller = new AdvisorController(
             Response::getInstance(),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new Data()
         );
 
         $html = $controller->index();

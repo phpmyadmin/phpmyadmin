@@ -9,9 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\ReplicationGui;
-use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Util;
 
 /**
@@ -20,24 +18,6 @@ use PhpMyAdmin\Util;
  */
 class StatusController extends Controller
 {
-    /**
-     * @var Data
-     */
-    private $data;
-
-    /**
-     * StatusController constructor.
-     *
-     * @param \PhpMyAdmin\Response          $response Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
-     * @param Data                          $data     Data object
-     */
-    public function __construct($response, $dbi, $data)
-    {
-        parent::__construct($response, $dbi);
-        $this->data = $data;
-    }
-
     /**
      * @return string
      */

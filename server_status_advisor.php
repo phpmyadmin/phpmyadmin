@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Data;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -23,7 +24,8 @@ $scripts->addFile('server_status_advisor.js');
 
 $controller = new AdvisorController(
     $response,
-    $GLOBALS['dbi']
+    $GLOBALS['dbi'],
+    new Data()
 );
 
 $response->addHTML($controller->index());
