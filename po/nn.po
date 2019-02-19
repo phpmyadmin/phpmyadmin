@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-16 11:24+0000\n"
+"PO-Revision-Date: 2019-02-20 14:18+0000\n"
 "Last-Translator: Christoffer Hjeltnes Støle <cst029@uib.no>\n"
 "Language-Team: Norwegian Nynorsk <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nn/>\n"
@@ -1663,7 +1663,7 @@ msgstr ""
 #: js/messages.php:360 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
 msgid "Loading…"
-msgstr ""
+msgstr "Lastar …"
 
 #: js/messages.php:361
 msgid "Request aborted!!"
@@ -7393,7 +7393,7 @@ msgstr ""
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
 msgid "Options"
-msgstr ""
+msgstr "Val"
 
 #: libraries/classes/Import.php:1224
 #, possible-php-format
@@ -12173,7 +12173,7 @@ msgstr ""
 #: libraries/classes/SqlQueryForm.php:248 setup/frames/index.inc.php:254
 #: templates/console/display.twig:7
 msgid "Clear"
-msgstr ""
+msgstr "Tøm"
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
@@ -14556,7 +14556,7 @@ msgstr ""
 
 #: templates/console/display.twig:7
 msgid "History"
-msgstr ""
+msgstr "Historikk"
 
 #: templates/console/display.twig:11
 #: templates/console/display.twig:99
