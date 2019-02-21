@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-21 02:29-0300\n"
-"PO-Revision-Date: 2019-01-27 21:24+0000\n"
+"PO-Revision-Date: 2019-02-21 16:59+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -14162,10 +14162,8 @@ msgid "Storage engines"
 msgstr "Mecanismos de armazenamento"
 
 #: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Mecanismos de armazenamento"
+msgstr "Mecanismo de armazenamento desconhecido."
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -14777,14 +14775,10 @@ msgid "Select binary log to view"
 msgstr "Selecionar log binário para exibir"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
-msgstr "Truncar as consultas SQL exibidas"
+msgstr "Truncar as consultas exibidas"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Mostrar consultas completas"
 
