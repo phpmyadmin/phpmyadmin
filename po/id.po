@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-30 16:59-0200\n"
+"POT-Creation-Date: 2019-02-21 02:29-0300\n"
 "PO-Revision-Date: 2018-05-19 17:38+0000\n"
 "Last-Translator: Muhammad Rifqi Priyo Susanto "
 "<muhammadrifqipriyosusanto@gmail.com>\n"
@@ -40,13 +40,13 @@ msgstr "Komentar database"
 
 #: db_datadict.php:117
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:638
-#: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
+#: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
 msgstr "Komentar tabel:"
 
 #: db_datadict.php:126 libraries/classes/Index.php:720
-#: libraries/classes/InsertEdit.php:1959
+#: libraries/classes/InsertEdit.php:1953
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:295
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:391
@@ -58,12 +58,6 @@ msgstr "Komentar tabel:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:539
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
-#: templates/table/index_form.twig:119
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/fields_table.twig:7
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
@@ -71,6 +65,12 @@ msgstr "Komentar tabel:"
 #: templates/table/relation/common_form.twig:181
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/search/zoom_result_form.twig:34
+#: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/fields_table.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
+#: templates/table/index_form.twig:119
 msgid "Column"
 msgstr "Kolom"
 
@@ -91,19 +91,19 @@ msgstr "Kolom"
 #: libraries/classes/Rte/Routines.php:1685
 #: libraries/classes/Rte/RteList.php:120 libraries/classes/Rte/RteList.php:148
 #: libraries/classes/Server/Privileges.php:2699
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:30
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/search/fields_table.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/table/structure/display_structure.twig:22
+#: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:238
-#: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/table/structure/display_structure.twig:22
-#: templates/table/tracking/structure_snapshot_columns.twig:7
 msgid "Type"
 msgstr "Jenis"
 
 #: db_datadict.php:128 libraries/classes/CentralColumns.php:1011
-#: libraries/classes/Index.php:723 libraries/classes/InsertEdit.php:1968
+#: libraries/classes/Index.php:723 libraries/classes/InsertEdit.php:1962
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:301
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:397
 #: libraries/classes/Plugins/Export/ExportLatex.php:542
@@ -114,13 +114,13 @@ msgstr "Jenis"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:543
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:258
-#: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/structure/display_structure.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/table/structure/display_structure.twig:25
+#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/database/central_columns/main.twig:41
+#: templates/database/central_columns/main.twig:258
 msgid "Null"
 msgstr "Tak Ternilai"
 
@@ -136,12 +136,12 @@ msgstr "Tak Ternilai"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
 #: libraries/classes/ReplicationGui.php:181
+#: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/database/structure/body_for_table_summary.twig:54
+#: templates/table/structure/display_structure.twig:26
+#: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/main.twig:29
 #: templates/database/central_columns/main.twig:246
-#: templates/database/structure/body_for_table_summary.twig:54
-#: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/table/structure/display_structure.twig:26
-#: templates/table/tracking/structure_snapshot_columns.twig:10
 msgid "Default"
 msgstr "Bawaan"
 
@@ -165,18 +165,18 @@ msgstr "Tautan ke"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:561
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/table/structure/display_structure.twig:28
+#: templates/columns_definitions/table_fields_definitions.twig:54
 msgid "Comments"
 msgstr "Komentar"
 
 #: db_datadict.php:164
-#: libraries/classes/Controllers/Table/TableStructureController.php:1247
-#: libraries/classes/Controllers/Table/TableStructureController.php:1252
-#: libraries/classes/Controllers/Table/TableStructureController.php:1356
-#: templates/columns_definitions/column_indexes.twig:4
-#: templates/table/structure/display_structure.twig:300
+#: libraries/classes/Controllers/Table/StructureController.php:1247
+#: libraries/classes/Controllers/Table/StructureController.php:1252
+#: libraries/classes/Controllers/Table/StructureController.php:1356
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/display_structure.twig:300
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "Utama"
 
@@ -194,12 +194,12 @@ msgstr "Utama"
 #: libraries/classes/Server/Privileges.php:3147
 #: libraries/classes/Server/Privileges.php:3815
 #: libraries/classes/Server/Privileges.php:3844 prefs_manage.php:151
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:12
-#: templates/database/central_columns/main.twig:362
 #: templates/table/structure/display_structure.twig:80
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/database/central_columns/main.twig:362
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
@@ -208,13 +208,13 @@ msgstr "Tidak"
 
 #: db_datadict.php:174 js/messages.php:539
 #: libraries/classes/Config/FormDisplayTemplate.php:327
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:217
-#: libraries/classes/Controllers/Table/TableStructureController.php:805
-#: libraries/classes/Controllers/Table/TableStructureController.php:1579
-#: libraries/classes/Controllers/Table/TableStructureController.php:1588
-#: libraries/classes/Controllers/Table/TableStructureController.php:1593
-#: libraries/classes/Controllers/Table/TableStructureController.php:1598
-#: libraries/classes/Controllers/Table/TableStructureController.php:1603
+#: libraries/classes/Controllers/Server/DatabasesController.php:217
+#: libraries/classes/Controllers/Table/StructureController.php:805
+#: libraries/classes/Controllers/Table/StructureController.php:1579
+#: libraries/classes/Controllers/Table/StructureController.php:1588
+#: libraries/classes/Controllers/Table/StructureController.php:1593
+#: libraries/classes/Controllers/Table/StructureController.php:1598
+#: libraries/classes/Controllers/Table/StructureController.php:1603
 #: libraries/classes/Index.php:591 libraries/classes/IndexColumn.php:146
 #: libraries/classes/MultSubmits.php:432 libraries/classes/MultSubmits.php:465
 #: libraries/classes/MultSubmits.php:494 libraries/classes/MultSubmits.php:531
@@ -230,12 +230,12 @@ msgstr "Tidak"
 #: libraries/classes/Server/Privileges.php:3844
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:228
 #: prefs_manage.php:149
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:11
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:11
-#: templates/database/central_columns/main.twig:362
 #: templates/table/structure/display_structure.twig:80
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/database/central_columns/main.twig:362
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
@@ -247,14 +247,14 @@ msgid "View dump (schema) of database"
 msgstr "Tampilkan dump (skema) dari database"
 
 #: db_export.php:61 db_tracking.php:105 export.php:407
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
+#: libraries/classes/Controllers/Database/StructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
 msgid "No tables found in database."
 msgstr "Tidak ada tabel yang ditemukan di database."
 
 #: db_export.php:76 libraries/classes/Config/Descriptions.php:314
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:366
+#: libraries/classes/Controllers/Server/DatabasesController.php:366
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:28
 #: libraries/classes/Plugins/Export/ExportXml.php:126
@@ -276,10 +276,11 @@ msgstr "Tabel"
 #: libraries/classes/Util.php:3425 libraries/classes/Util.php:4201
 #: libraries/classes/Util.php:4218 libraries/config.values.php:62
 #: libraries/config.values.php:76 libraries/config.values.php:167
-#: libraries/config.values.php:177 templates/database/designer/main.twig:226
+#: libraries/config.values.php:177
+#: templates/table/tracking/structure_snapshot_columns.twig:1
+#: templates/database/designer/main.twig:226
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
-#: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "Struktur"
 
@@ -287,7 +288,7 @@ msgstr "Struktur"
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Config/Forms/User/ExportForm.php:145
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:376
+#: libraries/classes/Controllers/Server/DatabasesController.php:376
 #: libraries/classes/Server/Privileges.php:1227
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -451,7 +452,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin impor, harap periksa instalasi Anda!"
 
-#: import.php:599 libraries/classes/Sql.php:707 libraries/classes/Sql.php:1516
+#: import.php:599 libraries/classes/Sql.php:712 libraries/classes/Sql.php:1521
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Markah %s telah dibuat."
@@ -605,8 +606,7 @@ msgstr "Informasi versi:"
 #: libraries/classes/Engines/Pbxt.php:169
 #: libraries/classes/Navigation/NavigationHeader.php:221
 #: libraries/classes/Sanitize.php:193 libraries/classes/Util.php:332
-#: libraries/classes/Util.php:436
-#: templates/server/variables/link_template.twig:7
+#: libraries/classes/Util.php:436 templates/server/variables/index.twig:14
 msgid "Documentation"
 msgstr "Dokumentasi"
 
@@ -626,7 +626,7 @@ msgstr "Dapatkan dukungan"
 msgid "List of changes"
 msgstr "Daftar perubahan"
 
-#: index.php:485 templates/server/plugins/main.twig:22
+#: index.php:485 templates/server/plugins/index.twig:27
 msgid "License"
 msgstr "Lisensi"
 
@@ -903,7 +903,7 @@ msgstr ""
 msgid "Save & close"
 msgstr "Simpan & Tutup"
 
-#: js/messages.php:118 libraries/classes/InsertEdit.php:1939
+#: js/messages.php:118 libraries/classes/InsertEdit.php:1933
 #: prefs_manage.php:365 prefs_manage.php:376
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -958,10 +958,10 @@ msgstr "Gabung dengan:"
 msgid "Please select column(s) for the index."
 msgstr "Pilih kolom untuk di index."
 
-#: js/messages.php:135 libraries/classes/InsertEdit.php:1937
+#: js/messages.php:135 libraries/classes/InsertEdit.php:1931
+#: templates/table/relation/common_form.twig:215
 #: templates/table/index_form.twig:220
 #: templates/columns_definitions/column_definitions_form.twig:145
-#: templates/table/relation/common_form.twig:215
 msgid "Preview SQL"
 msgstr "Pratinjau SQL"
 
@@ -1135,12 +1135,13 @@ msgstr "Bita dikirim"
 msgid "Bytes received"
 msgstr "Bita diterima"
 
-#: js/messages.php:201 libraries/classes/Server/Status.php:258
+#: js/messages.php:201 templates/server/status/status/index.twig:35
 msgid "Connections"
 msgstr "Koneksi"
 
 #: js/messages.php:202 libraries/classes/Server/Status/Data.php:445
 #: libraries/classes/Server/Status/Processes.php:156
+#: templates/server/status/base.twig:10
 msgid "Processes"
 msgstr "Proses Aktif"
 
@@ -1150,14 +1151,14 @@ msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:206 libraries/classes/Server/Status/Monitor.php:226
-#: libraries/classes/Util.php:1322
+#: js/messages.php:206 libraries/classes/Util.php:1322
+#: templates/server/status/monitor/index.twig:161
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:207 libraries/classes/Server/Status/Monitor.php:227
-#: libraries/classes/Util.php:1324
+#: js/messages.php:207 libraries/classes/Util.php:1324
+#: templates/server/status/monitor/index.twig:162
 msgid "MiB"
 msgstr "MB"
 
@@ -1191,13 +1192,13 @@ msgstr "%d tabel"
 msgid "Questions"
 msgstr "Perintah"
 
-#: js/messages.php:216 libraries/classes/Server/Status.php:154
+#: js/messages.php:216 templates/server/status/status/index.twig:13
 msgid "Traffic"
 msgstr "Lalu Lintas"
 
 #: js/messages.php:217 libraries/classes/Menu.php:636
-#: libraries/classes/Server/Status/Monitor.php:266
 #: libraries/classes/Util.php:4192
+#: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Pengaturan"
 
@@ -1212,15 +1213,15 @@ msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri!"
 #: js/messages.php:222 libraries/classes/Display/Results.php:1354
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
-#: libraries/classes/Server/Status/Monitor.php:245
 #: libraries/classes/Server/Status/Processes.php:303
 #: libraries/config.values.php:113
-#: templates/display/export/options_output_compression.twig:7
+#: templates/server/status/monitor/index.twig:186
 #: templates/database/designer/main.twig:629
-#: templates/columns_definitions/transformation.twig:4
 #: templates/table/search/rows_zoom.twig:20
-#: templates/table/search/selection_form.twig:35
+#: templates/columns_definitions/transformation.twig:4
+#: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
+#: templates/table/search/selection_form.twig:35
 msgid "None"
 msgstr "Tidak ada"
 
@@ -1531,10 +1532,9 @@ msgstr ""
 
 #: js/messages.php:332 libraries/classes/Config/Forms/User/ImportForm.php:71
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:508
-#: libraries/classes/Menu.php:632
-#: libraries/classes/Server/Status/Monitor.php:339
-#: libraries/classes/Util.php:4191 libraries/classes/Util.php:4206
-#: libraries/classes/Util.php:4223 prefs_manage.php:234
+#: libraries/classes/Menu.php:632 libraries/classes/Util.php:4191
+#: libraries/classes/Util.php:4206 libraries/classes/Util.php:4223
+#: prefs_manage.php:234 templates/server/status/monitor/index.twig:60
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "Impor"
@@ -1609,8 +1609,8 @@ msgstr "Tidak ada parameter ditemukan!"
 
 #: js/messages.php:360 libraries/classes/BrowseForeigners.php:207
 #: libraries/classes/Display/ChangePassword.php:176
-#: libraries/classes/Index.php:661 libraries/classes/InsertEdit.php:1941
-#: libraries/classes/InsertEdit.php:1975
+#: libraries/classes/Index.php:661 libraries/classes/InsertEdit.php:1935
+#: libraries/classes/InsertEdit.php:1969
 #: libraries/classes/Normalization.php:223
 #: libraries/classes/Normalization.php:910 libraries/classes/Operations.php:68
 #: libraries/classes/Operations.php:134 libraries/classes/Operations.php:279
@@ -1634,23 +1634,22 @@ msgstr "Tidak ada parameter ditemukan!"
 #: libraries/classes/SqlQueryForm.php:387
 #: libraries/classes/SqlQueryForm.php:451 libraries/classes/Tracking.php:373
 #: libraries/classes/Tracking.php:524 prefs_manage.php:273 prefs_manage.php:359
-#: server_privileges.php:334 templates/table/index_form.twig:221
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/server/privileges/delete_user_fieldset.twig:16
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/server/binlog/log_selector.twig:27
-#: templates/database/create_table.twig:21 templates/view_create.twig:114
-#: templates/view_create.twig:120
-#: templates/server/privileges/edit_routine_privileges.twig:23
-#: templates/display/results/options_block.twig:118
-#: templates/display/export/options_format.twig:18
-#: templates/header_location.twig:18 templates/display/import/import.twig:191
-#: templates/gis_data_editor_form.twig:209
-#: templates/table/search/selection_form.twig:223
-#: templates/table/structure/display_structure.twig:435
+#: server_privileges.php:334 templates/view_create.twig:114
+#: templates/view_create.twig:120 templates/server/binlog/index.twig:34
+#: templates/display/import/import.twig:191
 #: templates/database/search/main.twig:63
-#: templates/table/operations/view.twig:21
+#: templates/display/results/options_block.twig:118
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/server/privileges/edit_routine_privileges.twig:23
+#: templates/table/structure/display_structure.twig:435
+#: templates/server/privileges/delete_user_fieldset.twig:16
+#: templates/header_location.twig:18 templates/table/operations/view.twig:21
+#: templates/display/export/options_format.twig:18
+#: templates/table/index_form.twig:221 templates/database/create_table.twig:21
 #: templates/server/privileges/privileges_summary.twig:102
+#: templates/table/search/selection_form.twig:223
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/gis_data_editor_form.twig:209
 msgid "Go"
 msgstr "Kirim"
 
@@ -1661,7 +1660,7 @@ msgstr "Kirim"
 #: templates/database/designer/main.twig:910
 #: templates/database/designer/main.twig:995
 #: templates/database/designer/main.twig:1101
-#: templates/server/variables/link_template.twig:5
+#: templates/server/variables/index.twig:12
 msgid "Cancel"
 msgstr "Batal"
 
@@ -1674,7 +1673,7 @@ msgid "Apply"
 msgstr "Terapkan"
 
 #: js/messages.php:368 libraries/classes/Navigation/NavigationHeader.php:79
-#: libraries/classes/Server/Status/Monitor.php:132
+#: templates/server/status/monitor/index.twig:77
 msgid "Loading…"
 msgstr "Memproses…"
 
@@ -1713,7 +1712,7 @@ msgstr ""
 "dan status server Anda."
 
 #: js/messages.php:379
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:211
+#: libraries/classes/Controllers/Server/DatabasesController.php:211
 #: libraries/db_common.inc.php:78 libraries/db_table_exists.inc.php:35
 msgid "No databases selected."
 msgstr "Basis data belum dipilih."
@@ -1801,13 +1800,12 @@ msgstr "Definisi fungsi disimpan harus mengandung pernyataan RETURN!"
 #: libraries/classes/Server/Privileges.php:2531
 #: libraries/classes/Server/Privileges.php:2618
 #: libraries/classes/Server/Privileges.php:2986
-#: libraries/classes/Server/Privileges.php:3725
-#: libraries/classes/Server/Status/Monitor.php:343
-#: libraries/classes/Util.php:3432 libraries/classes/Util.php:3433
-#: libraries/classes/Util.php:4190 libraries/classes/Util.php:4205
-#: libraries/classes/Util.php:4222 prefs_manage.php:302
-#: templates/database/structure/check_all_tables.twig:12
+#: libraries/classes/Server/Privileges.php:3725 libraries/classes/Util.php:3432
+#: libraries/classes/Util.php:3433 libraries/classes/Util.php:4190
+#: libraries/classes/Util.php:4205 libraries/classes/Util.php:4222
+#: prefs_manage.php:302 templates/server/status/monitor/index.twig:63
 #: templates/display/export/option_header.twig:3
+#: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "Ekspor"
 
@@ -1862,11 +1860,11 @@ msgstr "Tampilkan kotak kueri"
 #: libraries/classes/Util.php:1139 libraries/classes/Util.php:3430
 #: libraries/classes/Util.php:3431 setup/frames/index.inc.php:165
 #: templates/console/bookmark_content.twig:7
+#: templates/server/variables/index.twig:38
+#: templates/server/variables/index.twig:41 templates/console/display.twig:31
+#: templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:279
 #: templates/database/central_columns/main.twig:394
-#: templates/server/variables/variable_row.twig:4
-#: templates/server/variables/variable_row.twig:7
-#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
 msgstr "Ubah"
 
@@ -1875,12 +1873,12 @@ msgstr "Ubah"
 #: libraries/classes/Display/Results.php:4688
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:299
-#: setup/frames/index.inc.php:168 templates/console/bookmark_content.twig:7
+#: setup/frames/index.inc.php:168 templates/database/designer/main.twig:429
 #: templates/database/search/results.twig:43
-#: templates/database/designer/main.twig:429
+#: templates/console/bookmark_content.twig:7
+#: templates/display/export/template_loading.twig:22
 #: templates/database/central_columns/main.twig:282
 #: templates/database/central_columns/main.twig:401
-#: templates/display/export/template_loading.twig:22
 msgid "Delete"
 msgstr "Hapus"
 
@@ -1891,8 +1889,8 @@ msgid "%d is not valid row number."
 msgstr "%d bukanlah nomor baris yang berlaku."
 
 #: js/messages.php:431
-#: libraries/classes/Controllers/Table/TableSearchController.php:375
-#: libraries/classes/Controllers/Table/TableSearchController.php:929
+#: libraries/classes/Controllers/Table/SearchController.php:375
+#: libraries/classes/Controllers/Table/SearchController.php:929
 #: tbl_change.php:161 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "Menjelajahi nilai luar"
@@ -2061,12 +2059,12 @@ msgid "No dependencies selected!"
 msgstr "Dependensi belum dipilih!"
 
 #: js/messages.php:489 libraries/classes/CentralColumns.php:956
-#: libraries/classes/InsertEdit.php:1851
-#: templates/columns_definitions/column_definitions_form.twig:148
-#: templates/server/variables/link_template.twig:2
-#: templates/table/relation/common_form.twig:216
+#: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/relation/common_form.twig:216
+#: templates/server/variables/index.twig:9
 #: templates/table/structure/partition_definition_form.twig:12
+#: templates/columns_definitions/column_definitions_form.twig:148
 msgid "Save"
 msgstr "Simpan"
 
@@ -2145,7 +2143,7 @@ msgid "Data point content"
 msgstr "Isi titk data"
 
 #: js/messages.php:526 js/messages.php:694 js/messages.php:711
-#: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:3039
+#: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:3033
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Abaikan"
@@ -2390,8 +2388,8 @@ msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Klik tanda panah ke bawah<br />untuk beralih visibilitas kolom."
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
-#: templates/display/results/table_navigation.twig:19
 #: templates/table/browse_foreigners/show_all.twig:4
+#: templates/display/results/table_navigation.twig:19
 #: templates/server/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "Tampilkan semua"
@@ -2425,7 +2423,8 @@ msgstr "Panjang asli"
 msgid "cancel"
 msgstr "Batal"
 
-#: js/messages.php:625 libraries/classes/Server/Status.php:312
+#: js/messages.php:625
+#: libraries/classes/Controllers/Server/Status/StatusController.php:198
 msgid "Aborted"
 msgstr "Batalkan"
 
@@ -3103,9 +3102,10 @@ msgstr "per detik"
 msgid "per minute"
 msgstr "per menit"
 
-#: libraries/classes/Advisor.php:634 libraries/classes/Server/Status.php:163
-#: libraries/classes/Server/Status.php:260
+#: libraries/classes/Advisor.php:634
 #: libraries/classes/Server/Status/Queries.php:107
+#: templates/server/status/status/index.twig:17
+#: templates/server/status/status/index.twig:37
 msgid "per hour"
 msgstr "dalam sejam"
 
@@ -3126,9 +3126,9 @@ msgstr "Nama kunci"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/plugins/main.twig:19
+#: templates/server/engines/index.twig:10
+#: templates/server/plugins/index.twig:24
 #: templates/server/collations/index.twig:11
-#: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Deskripsi"
 
@@ -3183,11 +3183,11 @@ msgstr "TIDAK"
 #: libraries/classes/Rte/Routines.php:1684
 #: libraries/classes/Rte/RteList.php:118 libraries/classes/Rte/RteList.php:130
 #: libraries/classes/Rte/RteList.php:145 setup/frames/index.inc.php:149
+#: templates/table/structure/display_structure.twig:21
+#: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/create_table.twig:11
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:234
-#: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "Nama"
 
@@ -3200,25 +3200,25 @@ msgstr "Panjang/Nilai"
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
-#: templates/table/search/fields_table.twig:9
-#: templates/database/central_columns/main.twig:33
-#: templates/database/central_columns/main.twig:250
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/server/databases/index.twig:104
 #: templates/server/collations/index.twig:10
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/display_table_stats.twig:101
+#: templates/table/search/fields_table.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/structure/display_structure.twig:23
-#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/table/structure/display_table_stats.twig:101
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/database/central_columns/main.twig:33
+#: templates/database/central_columns/main.twig:250
 msgid "Collation"
 msgstr "Penyortiran"
 
 #: libraries/classes/CentralColumns.php:1010
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:687
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/table/structure/display_structure.twig:24
+#: templates/columns_definitions/table_fields_definitions.twig:27
 msgid "Attributes"
 msgstr "Atribut"
 
@@ -4025,8 +4025,8 @@ msgstr "Simpan di server"
 
 #: libraries/classes/Config/Descriptions.php:234
 #: libraries/classes/Config/Descriptions.php:237
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "Timpa berkas yang ada"
 
@@ -6001,11 +6001,11 @@ msgstr "Judul jendela peramban sewaktu basis data dipilih"
 #: libraries/classes/Server/Privileges.php:3501
 #: libraries/classes/Server/Privileges.php:4734
 #: libraries/classes/Server/Status/Processes.php:105
+#: templates/table/relation/common_form.twig:35
+#: templates/table/relation/common_form.twig:167
 #: templates/console/bookmark_content.twig:7
 #: templates/server/databases/index.twig:87
 #: templates/table/relation/foreign_key_row.twig:96
-#: templates/table/relation/common_form.twig:35
-#: templates/table/relation/common_form.twig:167
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Database"
 msgstr "Basis data"
@@ -6026,6 +6026,7 @@ msgstr "Judul jendela peramban sewaktu server dipilih."
 
 #: libraries/classes/Config/Descriptions.php:858 libraries/classes/Menu.php:217
 #: libraries/classes/Server/Status/Data.php:441
+#: templates/server/status/base.twig:5
 msgid "Server"
 msgstr "Server"
 
@@ -6045,9 +6046,9 @@ msgstr "Judul jendela peramban ketika tabel dipilih."
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
-#: templates/table/relation/foreign_key_row.twig:106
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:174
+#: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "Tabel"
 
@@ -6645,29 +6646,29 @@ msgstr "Tidak ada penanda"
 msgid "SQL Query Console"
 msgstr "Konsol Kueri SQL"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:302
+#: libraries/classes/Controllers/Database/StructureController.php:302
 msgid "Favorite List is full!"
 msgstr "Daftar favorit sudah penuh!"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:565
+#: libraries/classes/Controllers/Database/StructureController.php:565
 #: tbl_operations.php:438 view_operations.php:111
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Tampilan %s telah dihapus."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:566
+#: libraries/classes/Controllers/Database/StructureController.php:566
 #: tbl_operations.php:439
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabel %s telah terhapus."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:629
+#: libraries/classes/Controllers/Database/StructureController.php:629
 #: tbl_operations.php:420
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabel %s telah dikosongkan."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:785
+#: libraries/classes/Controllers/Database/StructureController.php:785
 #: libraries/classes/Display/Results.php:4549
 #, php-format
 msgid ""
@@ -6677,84 +6678,31 @@ msgstr ""
 "Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat "
 "%sdokumentasi%s."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:1015
+#: libraries/classes/Controllers/Database/StructureController.php:1015
 msgid "unknown"
 msgstr "tidak diketahui"
 
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:159
-msgid "Log name"
-msgstr "Catat nama"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:160
-msgid "Position"
-msgstr "Posisi"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:161
-#: libraries/classes/Rte/Events.php:485
-msgid "Event type"
-msgstr "Jenis event"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:162
-#: libraries/classes/ReplicationGui.php:655
-msgid "Server ID"
-msgstr "ID Server"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:163
-msgid "Original position"
-msgstr "Posisi aslinya"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:164
-#: templates/table/structure/display_table_stats.twig:3
-msgid "Information"
-msgstr "Informasi"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:201
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:203
-#: libraries/classes/Display/Results.php:946 libraries/classes/Util.php:2397
-#: libraries/classes/Util.php:2400
-msgctxt "Previous page"
-msgid "Previous"
-msgstr "Sebelumnya"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:214
-#: libraries/classes/Server/Status/Processes.php:198
-msgid "Truncate Shown Queries"
-msgstr "Potongkan pencarian yang ditampilkan"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:218
-#: libraries/classes/Server/Status/Processes.php:204
-msgid "Show Full Queries"
-msgstr "Tampilkan pencarian yang lengkap"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:235
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:237
-#: libraries/classes/Display/Results.php:974 libraries/classes/Util.php:2429
-#: libraries/classes/Util.php:2436
-msgctxt "Next page"
-msgid "Next"
-msgstr "Berikutnya"
-
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:183
+#: libraries/classes/Controllers/Server/DatabasesController.php:183
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Database %1$s telah dibuat."
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:225
+#: libraries/classes/Controllers/Server/DatabasesController.php:225
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "Basis data %1$d berhasil dihapus."
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:371
+#: libraries/classes/Controllers/Server/DatabasesController.php:371
 #: libraries/classes/Import.php:129
-#: templates/table/structure/display_partitions.twig:28
 #: templates/database/structure/table_header.twig:26
-#: templates/table/structure/display_table_stats.twig:112
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/display_structure.twig:234
+#: templates/table/structure/display_table_stats.twig:112
 msgid "Rows"
 msgstr "Baris"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:381
+#: libraries/classes/Controllers/Server/DatabasesController.php:381
 #: libraries/classes/Index.php:692 libraries/classes/Index.php:703
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:28
@@ -6762,56 +6710,67 @@ msgstr "Baris"
 msgid "Indexes"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:386
+#: libraries/classes/Controllers/Server/DatabasesController.php:386
+#: libraries/classes/Controllers/Server/Status/StatusController.php:125
+#: libraries/classes/Controllers/Server/Status/StatusController.php:214
 #: libraries/classes/Engines/Innodb.php:169
-#: libraries/classes/Server/Status.php:214
-#: libraries/classes/Server/Status.php:347
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Jumlah"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:391
+#: libraries/classes/Controllers/Server/DatabasesController.php:391
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Beban"
 
-#: libraries/classes/Controllers/Server/ServerVariablesController.php:104
-#, php-format
-msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Hak akses tidak cukup untuk melihat variabel dan pengaturan server. %s"
+#: libraries/classes/Controllers/Server/Status/StatusController.php:87
+msgid "Received"
+msgstr "Penerimaan"
 
-#: libraries/classes/Controllers/Server/ServerVariablesController.php:228
+#: libraries/classes/Controllers/Server/Status/StatusController.php:106
+msgid "Sent"
+msgstr "Pengiriman"
+
+#: libraries/classes/Controllers/Server/Status/StatusController.php:173
+msgid "Max. concurrent connections"
+msgstr "Koneksi bersamaan maksimum"
+
+#: libraries/classes/Controllers/Server/Status/StatusController.php:182
+msgid "Failed attempts"
+msgstr "Gagal"
+
+#: libraries/classes/Controllers/Server/VariablesController.php:195
 msgid "Setting variable failed"
 msgstr "Pengaturan variabel gagal"
 
-#: libraries/classes/Controllers/Table/TableChartController.php:90
-#: libraries/classes/Controllers/Table/TableGisVisualizationController.php:105
+#: libraries/classes/Controllers/Table/ChartController.php:90
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:105
 msgid "No SQL query was set to fetch data."
 msgstr "Tidak ada query SQL ditetapkan untuk mengambil data."
 
-#: libraries/classes/Controllers/Table/TableChartController.php:172
+#: libraries/classes/Controllers/Table/ChartController.php:172
 msgid "No numeric columns present in the table to plot."
 msgstr "Tidak ada kolom numerik pada tabel yang dapat dibuat grafik."
 
-#: libraries/classes/Controllers/Table/TableChartController.php:242
+#: libraries/classes/Controllers/Table/ChartController.php:242
 msgid "No data to display"
 msgstr "Tidak ada data untuk ditampilkan"
 
-#: libraries/classes/Controllers/Table/TableIndexesController.php:154
-#: libraries/classes/Controllers/Table/TableStructureController.php:761
-#: libraries/classes/Controllers/Table/TableStructureController.php:1019
+#: libraries/classes/Controllers/Table/IndexesController.php:154
+#: libraries/classes/Controllers/Table/StructureController.php:761
+#: libraries/classes/Controllers/Table/StructureController.php:1019
 #: tbl_addfield.php:105
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
-#: libraries/classes/Controllers/Table/TableRelationController.php:229
+#: libraries/classes/Controllers/Table/RelationController.php:229
 msgid "Display column was successfully updated."
 msgstr "Kolom display sukses diperbarui."
 
-#: libraries/classes/Controllers/Table/TableRelationController.php:273
-#: libraries/classes/Controllers/Table/TableSearchController.php:627
+#: libraries/classes/Controllers/Table/RelationController.php:273
+#: libraries/classes/Controllers/Table/SearchController.php:627
 #: libraries/classes/Display/Results.php:4212 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1525
 #: libraries/classes/SqlQueryForm.php:97 tbl_row_action.php:146
@@ -6819,109 +6778,108 @@ msgstr "Kolom display sukses diperbarui."
 msgid "Your SQL query has been executed successfully."
 msgstr "Kueri SQL Anda berhasil dieksekusi."
 
-#: libraries/classes/Controllers/Table/TableRelationController.php:303
+#: libraries/classes/Controllers/Table/RelationController.php:303
 msgid "Internal relationships were successfully updated."
 msgstr "Hubungan internal sukses diperbarui."
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:852
+#: libraries/classes/Controllers/Table/SearchController.php:852
 msgid "Table search"
 msgstr "Pencarian Tabel"
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:859
+#: libraries/classes/Controllers/Table/SearchController.php:859
 msgid "Zoom search"
 msgstr "Perbesar pencarian"
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:864
+#: libraries/classes/Controllers/Table/SearchController.php:864
 #: templates/table/search/selection_form.twig:180
 msgid "Find and replace"
 msgstr "Cari dan Gantikan"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:195
+#: libraries/classes/Controllers/Table/StructureController.php:195
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "Nama '%s' adalah kata kunci pesanan MySQL."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:286
+#: libraries/classes/Controllers/Table/StructureController.php:286
 msgid "No column selected."
 msgstr "Tidak ada kolom yang dipilih."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:499
+#: libraries/classes/Controllers/Table/StructureController.php:499
 msgid "The columns have been moved successfully."
 msgstr "Kolom sukses dipindah."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:539
+#: libraries/classes/Controllers/Table/StructureController.php:539
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
 msgstr "Gagal mengambil jumlah baris sebenarnya."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:772
-#: libraries/classes/Controllers/Table/TableStructureController.php:1068
+#: libraries/classes/Controllers/Table/StructureController.php:772
+#: libraries/classes/Controllers/Table/StructureController.php:1068
 #: libraries/classes/Tracking.php:817
 msgid "Query error"
 msgstr "Galat kueri"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1013
+#: libraries/classes/Controllers/Table/StructureController.php:1013
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabel %1$s berhasil diubah. Hak telah disesuaikan."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1244
+#: libraries/classes/Controllers/Table/StructureController.php:1244
 #: templates/table/structure/display_structure.twig:284
 msgid "Change"
 msgstr "Ubah"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1245
-#: libraries/classes/Controllers/Table/TableStructureController.php:1246
+#: libraries/classes/Controllers/Table/StructureController.php:1245
+#: libraries/classes/Controllers/Table/StructureController.php:1246
 #: libraries/classes/Index.php:768 libraries/classes/Operations.php:1665
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
-#: libraries/classes/Util.php:3427
-#: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:284
-#: templates/table/relation/foreign_key_row.twig:26
+#: libraries/classes/Util.php:3427 templates/server/databases/index.twig:284
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
+#: templates/table/relation/foreign_key_row.twig:26
+#: templates/database/structure/check_all_tables.twig:16
 msgid "Drop"
 msgstr "Hapus"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1248
-#: libraries/classes/Controllers/Table/TableStructureController.php:1253
-#: libraries/classes/Controllers/Table/TableStructureController.php:1361
+#: libraries/classes/Controllers/Table/StructureController.php:1248
+#: libraries/classes/Controllers/Table/StructureController.php:1253
+#: libraries/classes/Controllers/Table/StructureController.php:1361
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:32
-#: templates/columns_definitions/column_indexes.twig:12
-#: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/table/structure/display_table_stats.twig:24
-#: templates/table/structure/display_structure.twig:314
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/display_structure.twig:314
+#: templates/table/structure/display_table_stats.twig:24
+#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1249
-#: libraries/classes/Controllers/Table/TableStructureController.php:1254
+#: libraries/classes/Controllers/Table/StructureController.php:1249
+#: libraries/classes/Controllers/Table/StructureController.php:1254
 #: libraries/classes/Index.php:718
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
-#: templates/columns_definitions/column_indexes.twig:8
 #: templates/table/structure/display_structure.twig:307
+#: templates/columns_definitions/column_indexes.twig:8
 msgid "Unique"
 msgstr "Unik"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1250
-#: libraries/classes/Controllers/Table/TableStructureController.php:1255
+#: libraries/classes/Controllers/Table/StructureController.php:1250
+#: libraries/classes/Controllers/Table/StructureController.php:1255
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "Spasial"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1251
-#: libraries/classes/Controllers/Table/TableStructureController.php:1256
-#: templates/columns_definitions/column_indexes.twig:16
+#: libraries/classes/Controllers/Table/StructureController.php:1251
+#: libraries/classes/Controllers/Table/StructureController.php:1256
 #: templates/table/structure/display_structure.twig:321
 #: templates/table/structure/display_structure.twig:333
+#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "Teks penuh"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1257
+#: libraries/classes/Controllers/Table/StructureController.php:1257
 msgid "Distinct values"
 msgstr "Nilai yang berbeda"
 
@@ -7310,6 +7268,20 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Awal"
 
+#: libraries/classes/Display/Results.php:946 libraries/classes/Util.php:2397
+#: libraries/classes/Util.php:2400 templates/server/binlog/index.twig:47
+#: templates/server/binlog/index.twig:52
+msgctxt "Previous page"
+msgid "Previous"
+msgstr "Sebelumnya"
+
+#: libraries/classes/Display/Results.php:974 libraries/classes/Util.php:2429
+#: libraries/classes/Util.php:2436 templates/server/binlog/index.twig:72
+#: templates/server/binlog/index.twig:77
+msgctxt "Next page"
+msgid "Next"
+msgstr "Berikutnya"
+
 #: libraries/classes/Display/Results.php:1004 libraries/classes/Util.php:2430
 #: libraries/classes/Util.php:2437
 msgctxt "Last page"
@@ -7331,12 +7303,13 @@ msgstr "Teks penuh"
 #: libraries/classes/Operations.php:847
 #: libraries/classes/Server/Status/Processes.php:184
 #: libraries/classes/Util.php:4916 libraries/classes/Util.php:4939
-#: libraries/config.values.php:115 templates/server/databases/index.twig:92
+#: libraries/config.values.php:115
+#: templates/database/multi_table_query/form.twig:67
+#: templates/server/databases/index.twig:92
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:128
-#: templates/table/search/selection_form.twig:154
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:67
+#: templates/table/search/selection_form.twig:154
 msgid "Descending"
 msgstr "Menurun"
 
@@ -7345,12 +7318,13 @@ msgstr "Menurun"
 #: libraries/classes/Operations.php:844
 #: libraries/classes/Server/Status/Processes.php:187
 #: libraries/classes/Util.php:4908 libraries/classes/Util.php:4931
-#: libraries/config.values.php:114 templates/server/databases/index.twig:90
+#: libraries/config.values.php:114
+#: templates/database/multi_table_query/form.twig:66
+#: templates/server/databases/index.twig:90
 #: templates/server/databases/index.twig:107
 #: templates/server/databases/index.twig:126
-#: templates/table/search/selection_form.twig:154
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:66
+#: templates/table/search/selection_form.twig:154
 msgid "Ascending"
 msgstr "Menaik"
 
@@ -7384,7 +7358,7 @@ msgstr "total %1$d, %2$d dalam kueri"
 msgid "%d total"
 msgstr "total %d"
 
-#: libraries/classes/Display/Results.php:4592 libraries/classes/Sql.php:1345
+#: libraries/classes/Display/Results.php:4592 libraries/classes/Sql.php:1350
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pencarian dilakukan dalam %01.4f detik."
@@ -7886,12 +7860,12 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Javascript harus diaktifkan lewat point ini!"
 
 #: libraries/classes/Import.php:137 libraries/classes/InsertEdit.php:193
-#: libraries/classes/Rte/Routines.php:1546 libraries/classes/Sql.php:1339
+#: libraries/classes/Rte/Routines.php:1546 libraries/classes/Sql.php:1344
 #: tbl_get_field.php:59
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 
-#: libraries/classes/Import.php:299 libraries/classes/Sql.php:1353
+#: libraries/classes/Import.php:299 libraries/classes/Sql.php:1358
 #, fuzzy
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK occurred.]"
@@ -7944,8 +7918,8 @@ msgstr "Edit struktur dengan mengikuti link \"Struktur\"."
 #: libraries/classes/Rte/Routines.php:1009
 #: templates/display/results/options_block.twig:10
 #: templates/table/structure/display_table_stats.twig:90
-#: templates/table/search/selection_form.twig:97
 #: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/table/search/selection_form.twig:97
 msgid "Options"
 msgstr "Opsi"
 
@@ -8002,16 +7976,16 @@ msgstr "Indeks belum ditentukan!"
 #: libraries/classes/Server/Privileges.php:2702
 #: libraries/classes/Server/Privileges.php:3707
 #: libraries/classes/Server/UserGroups.php:95
-#: templates/table/structure/display_partitions.twig:33
-#: templates/server/variables/variable_table_head.twig:3
-#: templates/table/tracking/report_table.twig:8
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:121
-#: templates/table/tracking/main.twig:32
-#: templates/database/central_columns/main.twig:232
+#: templates/table/structure/display_partitions.twig:33
 #: templates/server/databases/index.twig:144
+#: templates/table/tracking/main.twig:32
 #: templates/table/structure/display_structure.twig:34
+#: templates/server/variables/index.twig:27
+#: templates/table/tracking/report_table.twig:8
+#: templates/database/central_columns/main.twig:232
 #: templates/server/privileges/privileges_summary.twig:22
 msgid "Action"
 msgstr "Tindakan"
@@ -8028,11 +8002,11 @@ msgstr "Kardinalitas"
 
 #: libraries/classes/Index.php:724 libraries/classes/Rte/Events.php:572
 #: libraries/classes/Rte/Routines.php:1134
+#: templates/database/structure/table_header.twig:46
+#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/columns_definitions/partitions.twig:85
 #: templates/table/structure/display_partitions.twig:31
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/database/structure/table_header.twig:46
-#: templates/columns_definitions/partitions.twig:85
-#: templates/table/tracking/structure_snapshot_columns.twig:12
 msgid "Comment"
 msgstr "Komentar"
 
@@ -8096,79 +8070,79 @@ msgstr "Atau"
 msgid "web server upload directory:"
 msgstr "direktori unggahan server web:"
 
-#: libraries/classes/InsertEdit.php:1749
+#: libraries/classes/InsertEdit.php:1743
 #: templates/table/search/input_box.twig:38
 msgid "Edit/Insert"
 msgstr "Edit/Tambah"
 
-#: libraries/classes/InsertEdit.php:1816
+#: libraries/classes/InsertEdit.php:1810
 msgid "and then"
 msgstr "selanjutnya"
 
-#: libraries/classes/InsertEdit.php:1854
+#: libraries/classes/InsertEdit.php:1848
 msgid "Insert as new row"
 msgstr "Tambahkan sebagai baris baru"
 
-#: libraries/classes/InsertEdit.php:1857
+#: libraries/classes/InsertEdit.php:1851
 msgid "Insert as new row and ignore errors"
 msgstr "Tambahkan sebagai baris baru dan abaikan galat"
 
-#: libraries/classes/InsertEdit.php:1860
+#: libraries/classes/InsertEdit.php:1854
 msgid "Show insert query"
 msgstr "Tampilkan kueri penambahan"
 
-#: libraries/classes/InsertEdit.php:1880
+#: libraries/classes/InsertEdit.php:1874
 msgid "Go back to previous page"
 msgstr "kembali"
 
-#: libraries/classes/InsertEdit.php:1883
+#: libraries/classes/InsertEdit.php:1877
 msgid "Insert another new row"
 msgstr "tambahkan baris baru berikutnya"
 
-#: libraries/classes/InsertEdit.php:1888
+#: libraries/classes/InsertEdit.php:1882
 msgid "Go back to this page"
 msgstr "Kembali ke halaman ini"
 
-#: libraries/classes/InsertEdit.php:1911
+#: libraries/classes/InsertEdit.php:1905
 msgid "Edit next row"
 msgstr "Edit baris berikut"
 
-#: libraries/classes/InsertEdit.php:1931
+#: libraries/classes/InsertEdit.php:1925
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Gunakan tombol TAB untuk berpindah dari angka ke angka atau gunakan CTRL"
 "+panah untuk pindah kemana saja."
 
-#: libraries/classes/InsertEdit.php:1969
+#: libraries/classes/InsertEdit.php:1963
 #: libraries/classes/ReplicationGui.php:579
 #: libraries/classes/Rte/Routines.php:1689
 #: libraries/classes/Server/Status/Variables.php:231
-#: templates/server/variables/variable_table_head.twig:5
-#: templates/table/search/fields_table.twig:11
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
 #: templates/database/designer/main.twig:1085
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/table/search/fields_table.twig:11
+#: templates/server/variables/index.twig:29
 msgid "Value"
 msgstr "Nilai"
 
-#: libraries/classes/InsertEdit.php:2351 libraries/classes/Sql.php:1336
+#: libraries/classes/InsertEdit.php:2345 libraries/classes/Sql.php:1341
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: libraries/classes/InsertEdit.php:2376 libraries/classes/Sql.php:1314
+#: libraries/classes/InsertEdit.php:2370 libraries/classes/Sql.php:1319
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
 
-#: libraries/classes/LanguageManager.php:931
+#: libraries/classes/LanguageManager.php:938
 msgid "Ignoring unsupported language code."
 msgstr "Mengabaikan kode bahasa yang tidak didukung."
 
-#: libraries/classes/LanguageManager.php:958
-#: libraries/classes/LanguageManager.php:959 setup/frames/index.inc.php:66
+#: libraries/classes/LanguageManager.php:965
+#: libraries/classes/LanguageManager.php:966 setup/frames/index.inc.php:66
 msgid "Language"
 msgstr "Bahasa"
 
@@ -8185,7 +8159,7 @@ msgstr "%1$s (dekat <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Navigation/Nodes/NodeView.php:32 tbl_operations.php:69
-#: tbl_operations.php:234 tbl_structure.php:41
+#: tbl_operations.php:234 tbl_structure.php:37
 #: templates/database/structure/structure_table_row.twig:112
 #: templates/database/structure/structure_table_row.twig:177
 msgid "View"
@@ -8301,22 +8275,22 @@ msgid "User accounts"
 msgstr "Akun pengguna"
 
 #: libraries/classes/Menu.php:648 libraries/classes/Server/Status/Data.php:123
-#: libraries/classes/Util.php:4193 templates/server/sub_page_header.twig:2
+#: libraries/classes/Util.php:4193 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Log biner"
 
 #: libraries/classes/Menu.php:654 libraries/classes/Server/Status/Data.php:128
 #: libraries/classes/Util.php:4194
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/body_for_table_summary.twig:11
+#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Replikasi"
 
 #: libraries/classes/Menu.php:659 libraries/classes/Server/Status/Data.php:196
 #: libraries/classes/SqlQueryForm.php:443 libraries/classes/Util.php:4195
-#: libraries/config.values.php:161 templates/server/engines/show_engine.twig:12
-#: templates/server/engines/show_engine.twig:16
+#: libraries/config.values.php:161 templates/server/engines/show.twig:18
+#: templates/server/engines/show.twig:22
 msgid "Variables"
 msgstr "Variabel"
 
@@ -8329,7 +8303,7 @@ msgid "Engines"
 msgstr "Mesin"
 
 #: libraries/classes/Menu.php:671 libraries/classes/Util.php:4197
-#: templates/server/sub_page_header.twig:2
+#: templates/server/plugins/index.twig:3
 msgid "Plugins"
 msgstr "Plugin"
 
@@ -9029,8 +9003,7 @@ msgstr "Komentar tabel"
 msgid "Table options"
 msgstr "Pilihan untuk tabel"
 
-#: libraries/classes/Operations.php:1117
-#: templates/server/engines/list_engines.twig:4
+#: libraries/classes/Operations.php:1117 templates/server/engines/index.twig:9
 msgid "Storage Engine"
 msgstr "Mesin Penyimpanan"
 
@@ -9083,8 +9056,8 @@ msgid "Flush the table (FLUSH)"
 msgstr "Bersihkan tabel (\"FLUSH\")"
 
 #: libraries/classes/Operations.php:1526
-#: templates/database/structure/check_all_tables.twig:22
 #: templates/table/structure/display_table_stats.twig:61
+#: templates/database/structure/check_all_tables.twig:22
 msgid "Optimize table"
 msgstr "Optimalkan tabel"
 
@@ -9094,8 +9067,8 @@ msgid "Repair table"
 msgstr "Perbaiki tabel"
 
 #: libraries/classes/Operations.php:1587
-#: templates/database/structure/check_all_tables.twig:14
 #: templates/table/operations/view.twig:28
+#: templates/database/structure/check_all_tables.twig:14
 msgid "Delete data or table"
 msgstr "Hapus data atau tabel"
 
@@ -9308,8 +9281,8 @@ msgstr ""
 "Anda mengaktifkan otentikasi 2 langkah, silahkan konfirmasi login anda."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
 msgstr "Format:"
 
@@ -10048,8 +10021,8 @@ msgstr "Daftar Isi"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:690
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: templates/table/structure/display_structure.twig:30
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/display_structure.twig:30
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -10847,9 +10820,14 @@ msgstr "Status slave"
 
 #: libraries/classes/ReplicationGui.php:578
 #: libraries/classes/Server/Status/Variables.php:230
-#: templates/server/variables/variable_table_head.twig:4
+#: templates/server/variables/index.twig:28
 msgid "Variable"
 msgstr "Variabel"
+
+#: libraries/classes/ReplicationGui.php:655
+#: templates/server/binlog/index.twig:87
+msgid "Server ID"
+msgstr "ID Server"
 
 #: libraries/classes/ReplicationGui.php:656
 #: libraries/classes/ReplicationGui.php:742
@@ -11043,6 +11021,10 @@ msgstr "Detail"
 #: libraries/classes/Rte/Events.php:464
 msgid "Event name"
 msgstr "Nama event"
+
+#: libraries/classes/Rte/Events.php:485 templates/server/binlog/index.twig:86
+msgid "Event type"
+msgstr "Jenis event"
 
 #: libraries/classes/Rte/Events.php:506 libraries/classes/Rte/Routines.php:991
 #, php-format
@@ -11745,11 +11727,11 @@ msgstr "Hak akses khusus basis data"
 
 #: libraries/classes/Server/Privileges.php:1256
 #: libraries/classes/Server/Privileges.php:1257
-#: libraries/classes/Server/UserGroups.php:253
+#: libraries/classes/Server/UserGroups.php:253 templates/select_all.twig:4
+#: templates/select_all.twig:5
 #: templates/server/privileges/global_priv_table.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
 msgid "Check all"
 msgstr "Pilih Semua"
 
@@ -12107,113 +12089,6 @@ msgstr "Pengguna baru telah ditambahkan."
 msgid "Current server:"
 msgstr "Server saat ini:"
 
-#: libraries/classes/Server/Status.php:70
-#, php-format
-msgid "Network traffic since startup: %s"
-msgstr "Lalu lintas jaringan sejak awal: %sw"
-
-#: libraries/classes/Server/Status.php:83
-#, php-format
-msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr ""
-"Server MySQL ini telah berjalan selama %1$s. Server ini dijalankan pada %2$s."
-
-#: libraries/classes/Server/Status.php:105
-msgid ""
-"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
-"b> process."
-msgstr ""
-"Server MySQL ini berfungsi sebagai <b>master</b> dan <b>slave</b> dalam "
-"proses <b>replication</b>."
-
-#: libraries/classes/Server/Status.php:110
-msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
-"Server MySQL ini berfungsi sebagai <b>master</b> dalam proses "
-"<b>replication</b>."
-
-#: libraries/classes/Server/Status.php:115
-msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
-"Server MySQL ini berfungsi sebagai <b>slave</b> dalam proses <b>replication</"
-"b>."
-
-#: libraries/classes/Server/Status.php:127
-msgid "Replication status"
-msgstr "Status replikasi"
-
-#: libraries/classes/Server/Status.php:157
-#, fuzzy
-msgid ""
-"On a busy server, the byte counters may overrun, so those statistics as "
-"reported by the MySQL server may be incorrect."
-msgstr ""
-"Pada server sibuk, counter byte dapat dikuasai, sehingga statistik tersebut "
-"seperti dilansir server MySQL mungkin salah."
-
-#: libraries/classes/Server/Status.php:168
-msgid "Received"
-msgstr "Penerimaan"
-
-#: libraries/classes/Server/Status.php:191
-msgid "Sent"
-msgstr "Pengiriman"
-
-#: libraries/classes/Server/Status.php:266
-msgid "Max. concurrent connections"
-msgstr "Koneksi bersamaan maksimum"
-
-#: libraries/classes/Server/Status.php:277
-msgid "Failed attempts"
-msgstr "Gagal"
-
-#: libraries/classes/Server/Status/Advisor.php:31
-msgid "Instructions"
-msgstr "Instruksi"
-
-#: libraries/classes/Server/Status/Advisor.php:37
-#, fuzzy
-msgid ""
-"The Advisor system can provide recommendations on server variables by "
-"analyzing the server status variables."
-msgstr ""
-"Sistem Advisor dapat memberikan rekomendasi tentang variabel server dengan "
-"menganalisis variabel status server."
-
-#: libraries/classes/Server/Status/Advisor.php:43
-#, fuzzy
-msgid ""
-"Do note however that this system provides recommendations based on simple "
-"calculations and by rule of thumb which may not necessarily apply to your "
-"system."
-msgstr ""
-"Namun catatan agenda bahwa sistem ini memberikan rekomendasi berdasarkan "
-"perhitungan sederhana dan dengan aturan praktis yang mungkin tidak selalu "
-"berlaku untuk sistem anda."
-
-#: libraries/classes/Server/Status/Advisor.php:50
-#, fuzzy
-msgid ""
-"Prior to changing any of the configuration, be sure to know what you are "
-"changing (by reading the documentation) and how to undo the change. Wrong "
-"tuning can have a very negative effect on performance."
-msgstr ""
-"Sebelum mengubah salah satu dari konfigurasi, pastikan untuk mengetahui apa "
-"yang Anda berubah (dengan membaca dokumentasi) dan bagaimana untuk "
-"membatalkan perubahan. Tuning yang salah dapat memiliki efek yang sangat "
-"negatif pada kinerja."
-
-#: libraries/classes/Server/Status/Advisor.php:58
-#, fuzzy
-msgid ""
-"The best way to tune your system would be to change only one setting at a "
-"time, observe or benchmark your database, and undo the change if there was "
-"no clearly measurable improvement."
-msgstr ""
-"Cara terbaik untuk menyempurnakan sistem anda akan berubah hanya satu "
-"pengaturan pada suatu waktu, mengamati atau patokan database Anda, dan "
-"membatalkan perubahan jika tidak ada perbaikan jelas terukur."
-
 #: libraries/classes/Server/Status/Data.php:117
 #: libraries/classes/Server/Status/Processes.php:125
 msgid "SQL query"
@@ -12256,7 +12131,7 @@ msgid "Transaction coordinator"
 msgstr "Koordinator transaksi"
 
 #: libraries/classes/Server/Status/Data.php:132
-#: templates/server/binlog/log_selector.twig:21
+#: templates/server/binlog/index.twig:27
 msgid "Files"
 msgstr "Berkas"
 
@@ -12281,18 +12156,22 @@ msgid "Flush query cache"
 msgstr "Bersihkan singgahan kueri"
 
 #: libraries/classes/Server/Status/Data.php:449
+#: templates/server/status/base.twig:15
 msgid "Query statistics"
 msgstr "Statistik kueri"
 
 #: libraries/classes/Server/Status/Data.php:453
+#: templates/server/status/base.twig:20
 msgid "All status variables"
 msgstr "Semua variabel status"
 
 #: libraries/classes/Server/Status/Data.php:457
+#: templates/server/status/base.twig:25
 msgid "Monitor"
 msgstr "Pemantauan"
 
 #: libraries/classes/Server/Status/Data.php:461
+#: templates/server/status/base.twig:30
 msgid "Advisor"
 msgstr "Penasihat"
 
@@ -12308,206 +12187,6 @@ msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d menit"
 
-#: libraries/classes/Server/Status/Monitor.php:75
-msgid "Log statistics"
-msgstr "Statistik log"
-
-#: libraries/classes/Server/Status/Monitor.php:76
-msgid "Selected time range:"
-msgstr "Rentang waktu pilihan:"
-
-#: libraries/classes/Server/Status/Monitor.php:84
-msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "Hanya sertakan perintah SELECT, INSERT, UPDATE, dan DELETE"
-
-#: libraries/classes/Server/Status/Monitor.php:90
-#, fuzzy
-msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
-"Hapus data variabel dalam laporan INSERT untuk pengelompokan yang lebih baik"
-
-#: libraries/classes/Server/Status/Monitor.php:94
-#, fuzzy
-msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"Memilih dari yang login Anda ingin statistik yang akan dihasilkan dari."
-
-#: libraries/classes/Server/Status/Monitor.php:98
-#, fuzzy
-msgid "Results are grouped by query text."
-msgstr "Hasil dikelompokkan oleh query teks."
-
-#: libraries/classes/Server/Status/Monitor.php:102
-msgid "Query analyzer"
-msgstr "Penganalisis kueri"
-
-#: libraries/classes/Server/Status/Monitor.php:119
-msgid "Monitor Instructions"
-msgstr "Instruksi Pemantauan"
-
-#: libraries/classes/Server/Status/Monitor.php:121
-#, fuzzy
-msgid ""
-"The phpMyAdmin Monitor can assist you in optimizing the server configuration "
-"and track down time intensive queries. For the latter you will need to set "
-"log_output to 'TABLE' and have either the slow_query_log or general_log "
-"enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%."
-msgstr ""
-"The phpMyAdmin Monitor dapat membantu Anda dalam mengoptimalkan konfigurasi "
-"server dan melacak waktu intensif query. Untuk yang terakhir, Anda akan "
-"perlu untuk mengatur log_output untuk 'TABLE' dan memiliki baik "
-"slow_query_log atau general_log diaktifkan. Namun perlu dicatat, bahwa "
-"general_log menghasilkan banyak data dan meningkatkan beban server hingga "
-"15%."
-
-#: libraries/classes/Server/Status/Monitor.php:137
-msgid "Using the monitor:"
-msgstr "Menggunakan monitor:"
-
-#: libraries/classes/Server/Status/Monitor.php:140
-#, fuzzy
-msgid ""
-"Your browser will refresh all displayed charts in a regular interval. You "
-"may add charts and change the refresh rate under 'Settings', or remove any "
-"chart using the cog icon on each respective chart."
-msgstr ""
-"Browser Anda akan me-refresh semua grafik ditampilkan dalam interval "
-"reguler. Anda dapat menambahkan grafik dan mengubah refresh rate di bawah "
-"'Settings', atau menghapus setiap tabel menggunakan ikon gigi pada setiap "
-"grafik masing."
-
-#: libraries/classes/Server/Status/Monitor.php:146
-#, fuzzy
-msgid ""
-"To display queries from the logs, select the relevant time span on any chart "
-"by holding down the left mouse button and panning over the chart. Once "
-"confirmed, this will load a table of grouped queries, there you may click on "
-"any occurring SELECT statements to further analyze them."
-msgstr ""
-"Untuk menampilkan query dari log, pilih rentang waktu yang relevan pada "
-"tabel apapun dengan menekan tombol kiri mouse dan panning atas bagan. "
-"Setelah dikonfirmasi, ini akan memuat tabel query dikelompokkan, di sana "
-"Anda bisa mengklik pada pernyataan SELECT yang terjadi untuk lebih "
-"menganalisis mereka."
-
-#: libraries/classes/Server/Status/Monitor.php:156
-msgid "Please note:"
-msgstr "Harap catat:"
-
-#: libraries/classes/Server/Status/Monitor.php:159
-#, fuzzy
-msgid ""
-"Enabling the general_log may increase the server load by 5-15%. Also be "
-"aware that generating statistics from the logs is a load intensive task, so "
-"it is advisable to select only a small time span and to disable the "
-"general_log and empty its table once monitoring is not required any more."
-msgstr ""
-"Mengaktifkan general_log dapat meningkatkan beban server oleh 5-15%. Juga "
-"perlu diketahui bahwa menghasilkan statistik dari log adalah tugas beban "
-"intensif, sehingga disarankan untuk memilih hanya rentang waktu kecil dan "
-"untuk menonaktifkan general_log dan mengosongkan meja nya setelah pemantauan "
-"tidak diperlukan lagi."
-
-#: libraries/classes/Server/Status/Monitor.php:180
-#: libraries/classes/Server/Status/Monitor.php:288
-msgid "Add chart"
-msgstr "Tambahkan bagan"
-
-#: libraries/classes/Server/Status/Monitor.php:183
-msgid "Chart Title"
-msgstr "Judul Bagan"
-
-#: libraries/classes/Server/Status/Monitor.php:186
-msgid "Preset chart"
-msgstr "Bagan bawaan"
-
-#: libraries/classes/Server/Status/Monitor.php:191
-msgid "Status variable(s)"
-msgstr "Variabel status"
-
-#: libraries/classes/Server/Status/Monitor.php:194
-msgid "Select series:"
-msgstr "Pilih seri:"
-
-#: libraries/classes/Server/Status/Monitor.php:196
-msgid "Commonly monitored"
-msgstr "Biasa dipantau"
-
-#: libraries/classes/Server/Status/Monitor.php:212
-msgid "or type variable name:"
-msgstr "atau masukkan nama variabel:"
-
-#: libraries/classes/Server/Status/Monitor.php:219
-msgid "Display as differential value"
-msgstr "Tampilkan sebagai nilai diferensial"
-
-#: libraries/classes/Server/Status/Monitor.php:223
-msgid "Apply a divisor"
-msgstr "Terapkan pemisah"
-
-#: libraries/classes/Server/Status/Monitor.php:231
-msgid "Append unit to data values"
-msgstr "Sertakan satuan kepada nilai data"
-
-#: libraries/classes/Server/Status/Monitor.php:237
-msgid "Add this series"
-msgstr "Tambahkan seri ini"
-
-#: libraries/classes/Server/Status/Monitor.php:239
-msgid "Clear series"
-msgstr "Bersihkan seri"
-
-#: libraries/classes/Server/Status/Monitor.php:242
-msgid "Series in chart:"
-msgstr "Seri pada grafik:"
-
-#: libraries/classes/Server/Status/Monitor.php:263
-msgid "Start Monitor"
-msgstr "Jalankan Pemantauan"
-
-#: libraries/classes/Server/Status/Monitor.php:269
-msgid "Instructions/Setup"
-msgstr "Petunjuk/Penyiapan"
-
-#: libraries/classes/Server/Status/Monitor.php:272
-#, fuzzy
-#| msgid "Done rearranging/editing charts"
-msgid "Done dragging (rearranging) charts"
-msgstr "Selesai mengatur ulang/mengedit bagan"
-
-#: libraries/classes/Server/Status/Monitor.php:292
-#, fuzzy
-#| msgid "Enable highlighting"
-msgid "Enable charts dragging"
-msgstr "Aktifkan penyorotan"
-
-#: libraries/classes/Server/Status/Monitor.php:296
-#: libraries/classes/Server/Status/Processes.php:40
-msgid "Refresh rate"
-msgstr "Laju penyegaran"
-
-#: libraries/classes/Server/Status/Monitor.php:318
-msgid "Chart columns"
-msgstr "Kolom bagan"
-
-#: libraries/classes/Server/Status/Monitor.php:330
-msgid "Chart arrangement"
-msgstr "Pengaturan bagan"
-
-#: libraries/classes/Server/Status/Monitor.php:333
-#, fuzzy
-msgid ""
-"The arrangement of the charts is stored to the browsers local storage. You "
-"may want to export it if you have a complicated set up."
-msgstr ""
-"Susunan tangga lagu disimpan untuk browser penyimpanan lokal. Anda mungkin "
-"ingin mengekspornya jika Anda memiliki satu set yang rumit up."
-
-#: libraries/classes/Server/Status/Monitor.php:347
-msgid "Reset to default"
-msgstr "Kembalikan nilai bawaan"
-
 #: libraries/classes/Server/Status/Processes.php:35
 #, fuzzy
 #| msgid ""
@@ -12520,6 +12199,11 @@ msgstr ""
 "Perhatian: Pengaktifan statistik basis data dapat mengakibatkan lalu lintas "
 "besar antara webserver dan server MySQL."
 
+#: libraries/classes/Server/Status/Processes.php:40
+#: templates/server/status/monitor/index.twig:36
+msgid "Refresh rate"
+msgstr "Laju penyegaran"
+
 #: libraries/classes/Server/Status/Processes.php:93
 msgid "ID"
 msgstr "ID"
@@ -12531,6 +12215,14 @@ msgstr "Perintah"
 #: libraries/classes/Server/Status/Processes.php:121
 msgid "Progress"
 msgstr "Proses"
+
+#: libraries/classes/Server/Status/Processes.php:198
+msgid "Truncate Shown Queries"
+msgstr "Potongkan pencarian yang ditampilkan"
+
+#: libraries/classes/Server/Status/Processes.php:204
+msgid "Show Full Queries"
+msgstr "Tampilkan pencarian yang lengkap"
 
 #: libraries/classes/Server/Status/Processes.php:253
 #: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
@@ -13434,20 +13126,20 @@ msgstr "Server basis data"
 msgid "Table-level tabs"
 msgstr "Komentar tabel"
 
-#: libraries/classes/Sql.php:711
+#: libraries/classes/Sql.php:716
 msgid "Bookmark not created!"
 msgstr "Bookmark tidak dibuat!"
 
-#: libraries/classes/Sql.php:830
+#: libraries/classes/Sql.php:835
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Menggunakan markah \"%s\" sebagai kueri penjelajahan bawaan."
 
-#: libraries/classes/Sql.php:1333
+#: libraries/classes/Sql.php:1338
 msgid "Showing as PHP code"
 msgstr "Tampilkan sebagai kode PHP"
 
-#: libraries/classes/Sql.php:1706
+#: libraries/classes/Sql.php:1711
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13460,7 +13152,7 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: libraries/classes/Sql.php:1720
+#: libraries/classes/Sql.php:1725
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13473,7 +13165,7 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: libraries/classes/Sql.php:1760
+#: libraries/classes/Sql.php:1765
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Ditemukan masalah dengan indeks dalam tabel `%s`"
@@ -14370,10 +14062,10 @@ msgstr "keduanya dari yang di atas"
 msgid "neither of the above"
 msgstr "tidak keduanya dari yang di atas"
 
-#: libraries/mult_submits.inc.php:59
+#: libraries/mult_submits.inc.php:59 templates/select_all.twig:2
+#: templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Dengan pilihan:"
 
@@ -14533,15 +14225,6 @@ msgid ""
 msgstr ""
 "Username dan hostname tidak berubah. Jika Anda hanya ingin mengubah "
 "password, tab 'Ganti password' harus digunakan."
-
-#: server_status.php:40
-msgid "Not enough privilege to view server status."
-msgstr "Hak akses tidak cukup untuk melihat status peladen."
-
-#: server_status_advisor.php:38
-#, fuzzy
-msgid "Not enough privilege to view the advisor."
-msgstr "Hak akses tidak cukup untuk melihat pengguna."
 
 #: server_status_processes.php:38
 #, php-format
@@ -14758,8 +14441,8 @@ msgid "Wrong data or no validation for %s"
 msgstr "Salah data atau tidak ada validasi untuk %s"
 
 #: tbl_change.php:166 templates/database/tracking/tables.twig:19
-#: templates/table/tracking/main.twig:33
 #: templates/database/multi_table_query/form.twig:48
+#: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "Tampilkan"
 
@@ -14822,523 +14505,6 @@ msgstr "Tema"
 msgid "Get more themes!"
 msgstr "Dapatkan tema lainnya!"
 
-#: templates/sql/profiling_chart.twig:4
-#, fuzzy
-#| msgid "Data file grow size"
-msgid "Detailed profile"
-msgstr "Besar pertumbuhan berkas data"
-
-#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
-msgid "State"
-msgstr "Negara"
-
-#: templates/sql/profiling_chart.twig:30
-msgid "Summary by state"
-msgstr "Rangkuman berdasarkan negara"
-
-#: templates/sql/profiling_chart.twig:40
-msgid "Total Time"
-msgstr "Total waktu"
-
-#: templates/sql/profiling_chart.twig:44
-msgid "% Time"
-msgstr "% Waktu"
-
-#: templates/sql/profiling_chart.twig:48
-msgid "Calls"
-msgstr "Panggil"
-
-#: templates/sql/profiling_chart.twig:52
-msgid "ø Time"
-msgstr "ø Waktu"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-"Sambungkan perangkat FIDO U2F Anda ke port USB komputer Anda. Kemudian "
-"konfirmasikan login di perangkat."
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:473
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partitions"
-msgstr "Partisi %s"
-
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "Indeks belum ditentukan!"
-
-#: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partitioned by:"
-msgstr "dipartisi"
-
-#: templates/table/structure/display_partitions.twig:16
-#, fuzzy
-#| msgid "partitioned"
-msgid "Sub partitioned by:"
-msgstr "dipartisi"
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-msgid "Partition"
-msgstr "Partisi"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:30
-msgid "Expression"
-msgstr "Ekspresi"
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "Panjang baris"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "Panjang baris"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partition table"
-msgstr "dipartisi"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Remove partitioning"
-msgid "Edit partitioning"
-msgstr "Hapus partisi"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Nama indeks:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-"\"PRIMARY\" <b>harus</b> menjadi nama dan <b>hanya</b> dipakai sebagai nama "
-"kunci primer!"
-
-#: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index cache size"
-msgid "Index choice:"
-msgstr "Besar singgahan indeks"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
-msgid "Advanced Options"
-msgstr "Opsi aktif"
-
-#: templates/table/index_form.twig:52
-#, fuzzy
-msgid "Key block size:"
-msgstr "Ukuran blok kunci:"
-
-#: templates/table/index_form.twig:69
-msgid "Index type:"
-msgstr "Jenis indeks:"
-
-#: templates/table/index_form.twig:81
-#, fuzzy
-#| msgid "User:"
-msgid "Parser:"
-msgstr "Pengguna:"
-
-#: templates/table/index_form.twig:97
-msgid "Comment:"
-msgstr "Komentar:"
-
-#: templates/table/index_form.twig:122
-#: templates/database/structure/table_header.twig:36
-msgid "Size"
-msgstr "Ukuran"
-
-#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
-#, fuzzy
-#| msgid "Drag to reorder"
-msgid "Drag to reorder"
-msgstr "Seret untuk mengubah urutan"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Nama tabel"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
-#: templates/database/central_columns/main.twig:210
-#: templates/console/display.twig:99
-msgid "Add"
-msgstr "Tambah"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add column(s)"
-msgid "column(s)"
-msgstr "Tambahkan kolom"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "Penyortiran"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-#, fuzzy
-#| msgid "Storage Engine"
-msgid "Storage Engine:"
-msgstr "Mesin Penyimpanan"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Koneksi:"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-#, fuzzy
-#| msgid "PARTITION definition"
-msgid "PARTITION definition:"
-msgstr "Definisi PARTITION"
-
-#: templates/display/results/table_navigation.twig:26
-msgid "Save edited data"
-msgstr "Simpan data yang diedit"
-
-#: templates/display/results/table_navigation.twig:32
-msgid "Restore column order"
-msgstr "Pulihkan urutan kolom"
-
-#: templates/display/results/table_navigation.twig:53
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "Jumlah baris:"
-
-#: templates/display/results/table_navigation.twig:67
-msgid "All"
-msgstr "Semua"
-
-#: templates/display/results/table_navigation.twig:73
-#: templates/database/central_columns/main.twig:180
-msgid "Filter rows"
-msgstr "Saring baris"
-
-#: templates/display/results/table_navigation.twig:75
-#: templates/database/central_columns/main.twig:181
-msgid "Search this table"
-msgstr "Cari di tabel ini"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Klik untuk beralih"
-
-#: templates/server/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
-msgid "Remove selected user accounts"
-msgstr "Hapus pengguna yang dipilih"
-
-#: templates/server/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Cabut semua hak akses dari pengguna dan hapus setelahnya."
-
-#: templates/server/privileges/delete_user_fieldset.twig:7
-#: templates/server/privileges/delete_user_fieldset.twig:10
-#: templates/server/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Hapus basis data yang memiliki nama yang sama dengan pengguna."
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Templat nama berkas:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "gunakan ini untuk ekspor kedepannya"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Awal baris:"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-"Sambungkan perangkat FIDO U2F Anda ke port USB komputer Anda. Kemudian "
-"konfirmasikan pendaftaran di perangkat."
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Baris:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Dump beberapa baris"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Baris untuk memulai:"
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Dump semua row"
-
-#: templates/error/report_form.twig:6
-#, fuzzy
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-"phpMyAdmin telah mengalami kesalahan. Kami telah mengumpulkan data tentang "
-"kesalahan ini serta informasi tentang pengaturan konfigurasi yang relevan "
-"untuk mengirim ke tim phpMyAdmin untuk membantu kami dalam debugging masalah."
-
-#: templates/error/report_form.twig:12
-#, fuzzy
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-"Bisakah Anda ceritakan langkah-langkah yang mengarah ke kesalahan ini? Hal "
-"tegas membantu dalam debugging:"
-
-#: templates/error/report_form.twig:19
-#, fuzzy
-msgid "You may examine the data in the error report:"
-msgstr "Anda dapat memeriksa data dalam laporan galat:"
-
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "Mengekspor database sebagai file terpisah"
-
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "Mengekspor tabel sebagai file terpisah"
-
-#: templates/columns_definitions/column_length.twig:9
-#, fuzzy
-msgid "Edit ENUM/SET values"
-msgstr "Edit nilai ENUM/SET"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Tampilkan"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Buka"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Kueri ulang"
-
-#: templates/transformation_overview.twig:1
-msgid "Available MIME types"
-msgstr "Jenis MIME yang tersedia"
-
-#: templates/transformation_overview.twig:13
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available browser display transformations"
-msgstr "Transformasi yang tersedia"
-
-#: templates/transformation_overview.twig:18
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation"
-msgstr "Transformasi Browser"
-
-#: templates/transformation_overview.twig:19
-#: templates/transformation_overview.twig:38
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "Deskripsi"
-
-#: templates/transformation_overview.twig:32
-#, fuzzy
-#| msgid "Available transformations"
-msgid "Available input transformations"
-msgstr "Transformasi yang tersedia"
-
-#: templates/transformation_overview.twig:37
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Input transformation"
-msgstr "Transformasi Browser"
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Lanjutkan penambahan untuk %s baris"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s cocok dengan <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> cocok"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr "Tetapkan alias baru"
-
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "Pilih database:"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Nama database baru"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "Pilih tabel:"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Nama tabel baru"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "Pilih kolom:"
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "Nama kolom baru"
-
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Pilih template"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Gunakan nilai ini"
-
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
-msgctxt "Number"
-msgid "#"
-msgstr "#"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Tanggal"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Nama Pengguna"
-
-#: templates/database/structure/structure_table_row.twig:17
-#: templates/server/databases/index.twig:201
-#: templates/server/databases/index.twig:213
-msgid "Not replicated"
-msgstr "Tidak direplikasi"
-
-#: templates/database/structure/structure_table_row.twig:18
-#: templates/server/databases/index.twig:197
-#: templates/server/databases/index.twig:209
-msgid "Replicated"
-msgstr "Direplikasi"
-
-#: templates/database/structure/structure_table_row.twig:214
-msgid "in use"
-msgstr "sedang digunakan"
-
-#: templates/database/structure/show_create.twig:2
-#, fuzzy
-#| msgid "Show SQL queries"
-msgid "Showing create queries"
-msgstr "Tampilkan kueri SQL"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:44
-#: templates/prefs_twofactor.twig:56
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Configure two-factor authentication"
-msgstr "Konfigurasi Autentikasi"
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Enable two-factor authentication"
-msgstr "Konfigurasi Autentikasi"
-
-#: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Show/hide columns"
-msgstr "Hapus kolom"
-
-#: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Table structure"
-msgid "See table structure"
-msgstr "Struktur tabel"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Pilih log biner untuk ditampilkan"
-
-#: templates/database/designer/schema_export.twig:4
-#, fuzzy
-msgid "Select Export Relational Type"
-msgstr "Pilih Ekspor Relational Jenis"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:86
-#: templates/database/designer/main.twig:89
-msgid "Create table"
-msgstr "Buat tabel"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Jumlah kolom"
-
-#: templates/server/plugins/main.twig:18
-msgid "Plugin"
-msgstr "Plugin"
-
-#: templates/server/plugins/main.twig:20 templates/table/tracking/main.twig:28
-msgid "Version"
-msgstr "Versi"
-
-#: templates/server/plugins/main.twig:21
-msgid "Author"
-msgstr "Pembuat"
-
-#: templates/server/plugins/main.twig:32
-msgid "disabled"
-msgstr "tidak aktif"
-
 #: templates/database/structure/table_header.twig:27
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
@@ -15346,6 +14512,11 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq3-11]FAQ 3.11[/doc]."
+
+#: templates/database/structure/table_header.twig:36
+#: templates/table/index_form.twig:122
+msgid "Size"
+msgstr "Ukuran"
 
 #: templates/database/structure/table_header.twig:51
 #: templates/table/structure/display_table_stats.twig:147
@@ -15361,6 +14532,19 @@ msgstr "Pembaruan terakhir"
 #: templates/table/structure/display_table_stats.twig:161
 msgid "Last check"
 msgstr "Pemeriksaan terakhir"
+
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:376
+msgid "Edit view"
+msgstr "Tampilan edit"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "Nama VIEW"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Nama kolom"
 
 #: templates/database/tracking/tables.twig:4
 msgid "Tracked tables"
@@ -15399,125 +14583,397 @@ msgstr "Tabel yang tidak dilacak"
 msgid "Track table"
 msgstr "Lacak tabel"
 
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Kompresi:"
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "Tampilkan Visualisasi GIS"
 
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "di-zip"
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Kolom label"
 
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "di-gzip"
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- Tidak ada --"
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Set karakter berkas:"
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Kolom spasial"
 
-#: templates/display/export/options_output_save_dir.twig:5
+#: templates/table/gis_visualization/gis_visualization.twig:38
+#: templates/gis_data_editor_form.twig:22
+msgid "Use OpenStreetMaps as Base Layer"
+msgstr "Gunakan OpenStreetMaps sebagai Lapisan Dasar"
+
+#: templates/display/results/sort_by_key.twig:3
+#, fuzzy
+#| msgid "Sort by key"
+msgid "Sort by key:"
+msgstr "Urut berdasarkan kunci"
+
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
+msgstr "Hasil:"
+
 #: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Simpan ke server didalam direktori <b>%s</b>"
 
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:376
-msgid "Edit view"
-msgstr "Tampilan edit"
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Simpan hasil ke suatu berkas"
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Nama VIEW"
+#: templates/display/export/options_output.twig:51
+#, fuzzy, php-format
+#| msgid "Skip tables larger than"
+msgid "Skip tables larger than %s MiB"
+msgstr "Lewati tabel yang lebih besar dari"
 
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Nama kolom"
+#: templates/server/engines/show.twig:3 templates/server/engines/index.twig:3
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "Mesin Penyimpanan"
 
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-"Anda tidak menggunakan https untuk mengakses phpMyAdmin, oleh karena itu "
-"perangkat FIDO U2F kemungkinan besar akan menolak untuk mengotentikasi Anda."
+#: templates/server/engines/show.twig:47
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Unknown storage engine."
+msgstr "Mesin Penyimpanan"
 
-#: templates/prefs_autoload.twig:7
+#: templates/create_tracking_version.twig:11
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "Create version %1$s of %2$s"
+msgstr "Buat versi %s dari %s.%s"
+
+#: templates/create_tracking_version.twig:16
+#, fuzzy, php-format
+#| msgid "Create version"
+msgid "Create version %1$s"
+msgstr "Buat versi"
+
+#: templates/create_tracking_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Lacak definisi data dari pernyataan berikut:"
+
+#: templates/create_tracking_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Lacak manipulasi data dari pernyataan berikut:"
+
+#: templates/create_tracking_version.twig:76
+msgid "Create version"
+msgstr "Buat versi"
+
+#: templates/server/status/monitor/index.twig:8
+msgid "Start Monitor"
+msgstr "Jalankan Pemantauan"
+
+#: templates/server/status/monitor/index.twig:16
+msgid "Instructions/Setup"
+msgstr "Petunjuk/Penyiapan"
+
+#: templates/server/status/monitor/index.twig:20
+#, fuzzy
+#| msgid "Done rearranging/editing charts"
+msgid "Done dragging (rearranging) charts"
+msgstr "Selesai mengatur ulang/mengedit bagan"
+
+#: templates/server/status/monitor/index.twig:27
+#: templates/server/status/monitor/index.twig:106
+msgid "Add chart"
+msgstr "Tambahkan bagan"
+
+#: templates/server/status/monitor/index.twig:31
+#, fuzzy
+#| msgid "Enable highlighting"
+msgid "Enable charts dragging"
+msgstr "Aktifkan penyorotan"
+
+#: templates/server/status/monitor/index.twig:43
+msgid "Chart columns"
+msgstr "Kolom bagan"
+
+#: templates/server/status/monitor/index.twig:56
+msgid "Chart arrangement"
+msgstr "Pengaturan bagan"
+
+#: templates/server/status/monitor/index.twig:57
 #, fuzzy
 msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+"The arrangement of the charts is stored to the browsers local storage. You "
+"may want to export it if you have a complicated set up."
 msgstr ""
-"Browser Anda memiliki konfigurasi phpMyAdmin untuk domain ini. Apakah Anda "
-"ingin mengimpor untuk sesi saat ini?"
+"Susunan tangga lagu disimpan untuk browser penyimpanan lokal. Anda mungkin "
+"ingin mengekspornya jika Anda memiliki satu set yang rumit up."
 
-#: templates/prefs_autoload.twig:13
+#: templates/server/status/monitor/index.twig:66
+msgid "Reset to default"
+msgstr "Kembalikan nilai bawaan"
+
+#: templates/server/status/monitor/index.twig:71
+msgid "Monitor Instructions"
+msgstr "Instruksi Pemantauan"
+
+#: templates/server/status/monitor/index.twig:73
 #, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings"
-msgstr "Hapus pelacak"
-
-#: templates/display/results/options_block.twig:34
-msgid "Relational key"
-msgstr "Kunci relasi"
-
-#: templates/display/results/options_block.twig:34
-msgid "Display column for relationships"
-msgstr "Tampilkan kolom untuk hubungan"
-
-#: templates/display/results/options_block.twig:50
-msgid "Show binary contents"
-msgstr "Tampilkan konten biner"
-
-#: templates/display/results/options_block.twig:57
-msgid "Show BLOB contents"
-msgstr "Tampilkan konten BLOB"
-
-#: templates/display/results/options_block.twig:71
-msgid "Hide browser transformation"
-msgstr "Sembunyikan Transformasi Browser"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Text"
-msgstr "Teks Dikenali"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Binary"
-msgstr "Biner Diketahui"
-
-#: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:557
-#: templates/database/designer/main.twig:621
-#: templates/database/designer/main.twig:822
-#: templates/database/designer/main.twig:853
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1046
-msgid "Operator"
-msgstr "Operator"
-
-#: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Confirm disabling two-factor authentication"
-msgstr "Konfigurasi Autentikasi"
-
-#: templates/prefs_twofactor_confirm.twig:5
 msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
+"The phpMyAdmin Monitor can assist you in optimizing the server configuration "
+"and track down time intensive queries. For the latter you will need to set "
+"log_output to 'TABLE' and have either the slow_query_log or general_log "
+"enabled. Note however, that the general_log produces a lot of data and "
+"increases server load by up to 15%."
 msgstr ""
-"Dengan menonaktifkan otentikasi dua langkah, Anda akan kembali dapat login "
-"menggunakan password saja."
+"The phpMyAdmin Monitor dapat membantu Anda dalam mengoptimalkan konfigurasi "
+"server dan melacak waktu intensif query. Untuk yang terakhir, Anda akan "
+"perlu untuk mengatur log_output untuk 'TABLE' dan memiliki baik "
+"slow_query_log atau general_log diaktifkan. Namun perlu dicatat, bahwa "
+"general_log menghasilkan banyak data dan meningkatkan beban server hingga "
+"15%."
 
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:38
+#: templates/server/status/monitor/index.twig:83
+msgid "Using the monitor:"
+msgstr "Menggunakan monitor:"
+
+#: templates/server/status/monitor/index.twig:85
 #, fuzzy
-#| msgid "Config authentication"
-msgid "Disable two-factor authentication"
-msgstr "Konfigurasi Autentikasi"
+msgid ""
+"Your browser will refresh all displayed charts in a regular interval. You "
+"may add charts and change the refresh rate under 'Settings', or remove any "
+"chart using the cog icon on each respective chart."
+msgstr ""
+"Browser Anda akan me-refresh semua grafik ditampilkan dalam interval "
+"reguler. Anda dapat menambahkan grafik dan mengubah refresh rate di bawah "
+"'Settings', atau menghapus setiap tabel menggunakan ikon gigi pada setiap "
+"grafik masing."
+
+#: templates/server/status/monitor/index.twig:90
+#, fuzzy
+msgid ""
+"To display queries from the logs, select the relevant time span on any chart "
+"by holding down the left mouse button and panning over the chart. Once "
+"confirmed, this will load a table of grouped queries, there you may click on "
+"any occurring SELECT statements to further analyze them."
+msgstr ""
+"Untuk menampilkan query dari log, pilih rentang waktu yang relevan pada "
+"tabel apapun dengan menekan tombol kiri mouse dan panning atas bagan. "
+"Setelah dikonfirmasi, ini akan memuat tabel query dikelompokkan, di sana "
+"Anda bisa mengklik pada pernyataan SELECT yang terjadi untuk lebih "
+"menganalisis mereka."
+
+#: templates/server/status/monitor/index.twig:96
+msgid "Please note:"
+msgstr "Harap catat:"
+
+#: templates/server/status/monitor/index.twig:99
+#, fuzzy
+msgid ""
+"Enabling the general_log may increase the server load by 5-15%. Also be "
+"aware that generating statistics from the logs is a load intensive task, so "
+"it is advisable to select only a small time span and to disable the "
+"general_log and empty its table once monitoring is not required any more."
+msgstr ""
+"Mengaktifkan general_log dapat meningkatkan beban server oleh 5-15%. Juga "
+"perlu diketahui bahwa menghasilkan statistik dari log adalah tugas beban "
+"intensif, sehingga disarankan untuk memilih hanya rentang waktu kecil dan "
+"untuk menonaktifkan general_log dan mengosongkan meja nya setelah pemantauan "
+"tidak diperlukan lagi."
+
+#: templates/server/status/monitor/index.twig:109
+msgid "Chart Title"
+msgstr "Judul Bagan"
+
+#: templates/server/status/monitor/index.twig:113
+msgid "Preset chart"
+msgstr "Bagan bawaan"
+
+#: templates/server/status/monitor/index.twig:119
+msgid "Status variable(s)"
+msgstr "Variabel status"
+
+#: templates/server/status/monitor/index.twig:124
+msgid "Select series:"
+msgstr "Pilih seri:"
+
+#: templates/server/status/monitor/index.twig:127
+msgid "Commonly monitored"
+msgstr "Biasa dipantau"
+
+#: templates/server/status/monitor/index.twig:145
+msgid "or type variable name:"
+msgstr "atau masukkan nama variabel:"
+
+#: templates/server/status/monitor/index.twig:152
+msgid "Display as differential value"
+msgstr "Tampilkan sebagai nilai diferensial"
+
+#: templates/server/status/monitor/index.twig:157
+msgid "Apply a divisor"
+msgstr "Terapkan pemisah"
+
+#: templates/server/status/monitor/index.twig:168
+msgid "Append unit to data values"
+msgstr "Sertakan satuan kepada nilai data"
+
+#: templates/server/status/monitor/index.twig:176
+msgid "Add this series"
+msgstr "Tambahkan seri ini"
+
+#: templates/server/status/monitor/index.twig:179
+msgid "Clear series"
+msgstr "Bersihkan seri"
+
+#: templates/server/status/monitor/index.twig:183
+msgid "Series in chart:"
+msgstr "Seri pada grafik:"
+
+#: templates/server/status/monitor/index.twig:192
+msgid "Log statistics"
+msgstr "Statistik log"
+
+#: templates/server/status/monitor/index.twig:194
+msgid "Selected time range:"
+msgstr "Rentang waktu pilihan:"
+
+#: templates/server/status/monitor/index.twig:202
+msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
+msgstr "Hanya sertakan perintah SELECT, INSERT, UPDATE, dan DELETE"
+
+#: templates/server/status/monitor/index.twig:208
+#, fuzzy
+msgid "Remove variable data in INSERT statements for better grouping"
+msgstr ""
+"Hapus data variabel dalam laporan INSERT untuk pengelompokan yang lebih baik"
+
+#: templates/server/status/monitor/index.twig:212
+#, fuzzy
+msgid "Choose from which log you want the statistics to be generated from."
+msgstr ""
+"Memilih dari yang login Anda ingin statistik yang akan dihasilkan dari."
+
+#: templates/server/status/monitor/index.twig:215
+#, fuzzy
+msgid "Results are grouped by query text."
+msgstr "Hasil dikelompokkan oleh query teks."
+
+#: templates/server/status/monitor/index.twig:219
+msgid "Query analyzer"
+msgstr "Penganalisis kueri"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+"Sambungkan perangkat FIDO U2F Anda ke port USB komputer Anda. Kemudian "
+"konfirmasikan pendaftaran di perangkat."
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Templat nama berkas:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "gunakan ini untuk ekspor kedepannya"
+
+#: templates/table/relation/common_form.twig:9
+#, fuzzy
+#| msgid "Foreign key limit"
+msgid "Foreign key constraints"
+msgstr "Batas foreign key"
+
+#: templates/table/relation/common_form.twig:13
+#, fuzzy
+#| msgid "Action"
+msgid "Actions"
+msgstr "Tindakan"
+
+#: templates/table/relation/common_form.twig:14
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint properties"
+msgstr "Ketidakleluasaan untuk tabel"
+
+#: templates/table/relation/common_form.twig:18
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+"Membuat foreign key pada kolom tanpa index akan secara otomatis membuat "
+"index padanya. Sebagai alternatif, anda dapat dapat mendefinisikan index "
+"dibawah ini, sebelum anda membuat foreign key."
+
+#: templates/table/relation/common_form.twig:23
+#, fuzzy
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+"Hanya kolom dengan indeks akan ditampilkan. Anda dapat menentukan indeks di "
+"bawah ini."
+
+#: templates/table/relation/common_form.twig:27
+#, fuzzy
+msgid "Foreign key constraint"
+msgstr "Batasan kunci asing"
+
+#: templates/table/relation/common_form.twig:92
+#, fuzzy
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "Tambahkan batasan"
+
+#: templates/table/relation/common_form.twig:102
+#: templates/table/relation/common_form.twig:111
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "Relasi internal"
+
+#: templates/table/relation/common_form.twig:117
+msgid "Internal relation"
+msgstr "Relasi internal"
+
+#: templates/table/relation/common_form.twig:119
+#, fuzzy
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"Relasi internal tidak diperlukan bila hubungan FOREIGN KEY yang sesuai."
+
+#: templates/table/relation/common_form.twig:199
+msgid "Choose column to display:"
+msgstr "Pilih kolom untuk ditampilkan:"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+#, fuzzy
+#| msgid "#"
+msgctxt "Number"
+msgid "#"
+msgstr "#"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/display_structure.twig:91
+msgctxt "None for default"
+msgid "None"
+msgstr "Tidak ada"
+
+#: templates/database/designer/database_tables.twig:31
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Show/hide columns"
+msgstr "Hapus kolom"
+
+#: templates/database/designer/database_tables.twig:39
+#, fuzzy
+#| msgid "Table structure"
+msgid "See table structure"
+msgstr "Struktur tabel"
 
 #: templates/columns_definitions/partitions.twig:17
 #, fuzzy
@@ -15549,6 +15005,11 @@ msgstr "dipartisi"
 #| msgid "partitioned"
 msgid "Subpartitions:"
 msgstr "dipartisi"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "Partisi"
 
 #: templates/columns_definitions/partitions.twig:78
 msgid "Values"
@@ -15600,68 +15061,80 @@ msgstr "Pencarian Tabel"
 msgid "Node group"
 msgstr "Grup pengguna"
 
-#: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
-msgid "Referenced by %s."
-msgstr "Pilih kunci rujukan"
+#: templates/database/multi_table_query/form.twig:16
+msgid "Query window"
+msgstr "Jendela Pencarian"
 
-#: templates/columns_definitions/column_name.twig:12
+#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:125
 #, fuzzy
-#| msgid "Select Foreign Key"
-msgid "Is a foreign key."
-msgstr "Pilih Foreign Key"
+#| msgid "Select table:"
+msgid "select table"
+msgstr "Pilih tabel:"
 
-#: templates/columns_definitions/column_name.twig:39
+#: templates/database/multi_table_query/form.twig:44
+#: templates/database/multi_table_query/form.twig:133
+#, fuzzy
+#| msgid "Select column:"
+msgid "select column"
+msgstr "Pilih kolom:"
+
+#: templates/database/multi_table_query/form.twig:50
+#, fuzzy
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Tabel"
+
+#: templates/database/multi_table_query/form.twig:51
+#, fuzzy
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Nama kolom"
+
+#: templates/database/multi_table_query/form.twig:54
+#, fuzzy
+#| msgid "Use this column to label each point"
+msgid "Use this column in criteria"
+msgstr "Gunakan kolom ini untuk label setiap titik"
+
+#: templates/database/multi_table_query/form.twig:57
+#, fuzzy
+#| msgid "Criteria:"
+msgid "criteria"
+msgstr "Kriteria:"
+
+#: templates/database/multi_table_query/form.twig:71
+#, fuzzy
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "Tambahkan %s"
+
+#: templates/database/multi_table_query/form.twig:116
+#, fuzzy
+#| msgid "Alter column(s)"
+msgid "Another column"
+msgstr "Ubah kolom"
+
+#: templates/database/multi_table_query/form.twig:144
+msgid "Enter criteria as free text"
+msgstr "Masukan kriteria sebagai teks bebas"
+
+#: templates/database/multi_table_query/form.twig:152
 #, fuzzy
 #| msgid "Remove column(s)"
-msgid "Pick from Central Columns"
+msgid "Remove this column"
 msgstr "Hapus kolom"
 
-#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
+#: templates/database/multi_table_query/form.twig:162
+#: templates/table/relation/foreign_key_row.twig:86
+msgid "+ Add column"
+msgstr "+ Tambah kolom"
+
+#: templates/database/multi_table_query/form.twig:179
 #, fuzzy
-#| msgid "Create version"
-msgid "Delete version"
-msgstr "Buat versi"
-
-#: templates/table/tracking/main.twig:107
-#, fuzzy, php-format
-#| msgid "Activate tracking for %s.%s"
-msgid "Activate tracking for %s"
-msgstr "Aktifkan pelacakan untuk %s.%s"
-
-#: templates/table/tracking/main.twig:109
-msgid "Activate now"
-msgstr "Aktifkan sekarang"
-
-#: templates/table/tracking/main.twig:111
-#, fuzzy, php-format
-#| msgid "Deactivate tracking for %s.%s"
-msgid "Deactivate tracking for %s"
-msgstr "Nonaktifkan pelacakan untuk %s.%s"
-
-#: templates/table/tracking/main.twig:113
-msgid "Deactivate now"
-msgstr "Nonaktifkan sekarang"
-
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:174
-msgid "Format-specific options:"
-msgstr "Opsi format-spesifik:"
-
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:176
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Tarik ke bawah untuk mengisi pilihan untuk format yang dipilih dan "
-"mengabaikan pilihan untuk format lain."
-
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:185
-msgid "Encoding Conversion:"
-msgstr "Konversi Pengodean:"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Perbarui Kueri"
 
 #: templates/database/designer/main.twig:21
 #: templates/database/designer/main.twig:27
@@ -15695,6 +15168,12 @@ msgstr "Nama baru"
 #| msgid "Select page"
 msgid "Delete pages"
 msgstr "Pilih halaman"
+
+#: templates/database/designer/main.twig:86
+#: templates/database/designer/main.twig:89
+#: templates/database/create_table.twig:7
+msgid "Create table"
+msgstr "Buat tabel"
 
 #: templates/database/designer/main.twig:93
 #: templates/database/designer/main.twig:96
@@ -15828,67 +15307,83 @@ msgstr "Nama baru"
 msgid "Aggregate"
 msgstr "Agregasi"
 
+#: templates/database/designer/main.twig:557
+#: templates/database/designer/main.twig:621
+#: templates/database/designer/main.twig:822
+#: templates/database/designer/main.twig:853
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1046
+#: templates/table/search/fields_table.twig:10
+msgid "Operator"
+msgstr "Operator"
+
 #: templates/database/designer/main.twig:1128
 msgid "Active options"
 msgstr "Opsi aktif"
 
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Tidak ada pratayang tersedia."
-
-#: templates/theme_preview.twig:13
+#: templates/database/structure/show_create.twig:2
 #, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "ambil ini"
+#| msgid "Show SQL queries"
+msgid "Showing create queries"
+msgstr "Tampilkan kueri SQL"
 
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "Kriteria pencarian tambahan"
+
+#: templates/login/header.twig:15
+#, fuzzy
+#| msgid ""
+#| "There is mismatch between HTTPS indicated on the server and client. This "
+#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
+#| "server configuration to indicate HTTPS properly."
+msgid ""
+"There is a mismatch between HTTPS indicated on the server and client. This "
+"can lead to a non working phpMyAdmin or a security risk. Please fix your "
+"server configuration to indicate HTTPS properly."
+msgstr ""
+"Ada ketidakcocokan antara HTTPS yang ditunjukkan server dan client. Hal ini "
+"dapat menyebabkan phpMyAdmin tidak bekerja atau risiko keamanan. Mohon "
+"perbaiki konfigurasi server Anda untuk menunjukkan HTTPS dengan benar."
+
+#: templates/server/privileges/column_privileges.twig:21
+#: templates/server/privileges/column_privileges.twig:22
+msgctxt "None privileges"
 msgid "None"
 msgstr "Tidak ada"
 
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Seperti yang didefinisikan:"
+#: templates/server/binlog/index.twig:10
+msgid "Select binary log to view"
+msgstr "Pilih log biner untuk ditampilkan"
 
-#: templates/database/central_columns/main.twig:4
-msgid "Add new column"
-msgstr "Tambah kolom baru"
-
-#: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:242
+#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #, fuzzy
-#| msgid "Length/Values"
-msgid "Lenght/Value"
-msgstr "Panjang/Nilai"
+#| msgid "Truncate Shown Queries"
+msgid "Truncate shown queries"
+msgstr "Potongkan pencarian yang ditampilkan"
 
-#: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:254
-msgid "Attribute"
-msgstr "Atribut"
-
-#: templates/database/central_columns/main.twig:141
+#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #, fuzzy
-#| msgid "The central list of columns for the current database is empty."
-msgid "The central list of columns for the current database is empty"
-msgstr "Daftar utama kolom untuk database saat ini kosong."
+#| msgid "Show Full Queries"
+msgid "Show full queries"
+msgstr "Tampilkan pencarian yang lengkap"
 
-#: templates/database/central_columns/main.twig:192
-#: templates/table/structure/display_structure.twig:416
-msgid "Add column"
-msgstr "Tambah kolom"
+#: templates/server/binlog/index.twig:84
+msgid "Log name"
+msgstr "Catat nama"
 
-#: templates/database/central_columns/main.twig:201
-msgid "Select a table"
-msgstr "Pilih suatu tabel"
+#: templates/server/binlog/index.twig:85
+msgid "Position"
+msgstr "Posisi"
 
-#: templates/database/central_columns/main.twig:208
-msgid "Select a column."
-msgstr "Pilih sebuah kolom."
+#: templates/server/binlog/index.twig:88
+msgid "Original position"
+msgstr "Posisi aslinya"
 
-#: templates/database/central_columns/main.twig:227
-msgid "Click to sort."
-msgstr "Klik untuk mengurutkan."
+#: templates/server/binlog/index.twig:89
+#: templates/table/structure/display_table_stats.twig:3
+msgid "Information"
+msgstr "Informasi"
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -15908,6 +15403,477 @@ msgstr ""
 #| msgid "Authentication"
 msgid "Authentication code:"
 msgstr "Autentikasi"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabel"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Jumlah"
+
+#: templates/display/import/javascript.twig:12
+#, fuzzy
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"File yang diupload mungkin lebih besar dari ukuran maksimum diperbolehkan "
+"atau ini adalah bug yang dikenal dalam webkit berbasis (Safari, Google "
+"Chrome, Arora dll) browser."
+
+#: templates/display/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr "%s dari %s"
+
+#: templates/display/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr "%s/detik."
+
+#: templates/display/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Sekitar %MIN menit. %SEC detik. lagi."
+
+#: templates/display/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr "Sekitar %SEC detik. lagi."
+
+#: templates/display/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr "Berkas sedang diproses, harap bersabar."
+
+#: templates/display/import/javascript.twig:30
+msgid "Uploading your import file…"
+msgstr "Sedang memuat file impor anda…"
+
+#: templates/display/import/javascript.twig:155
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Harap bersabar, file sedang diunggah. Rincian tentang pengunggahan tidak "
+"tersedia."
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Cari dan gantikan - Pratinjau"
+
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Count"
+msgstr "Jumlah"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "String asli"
+
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Gantikan string"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Gantikan"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Tidak ada pratayang tersedia."
+
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "ambil ini"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr "Lepas"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "Jenis MIME yang tersedia"
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
+msgstr "Transformasi yang tersedia"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "Transformasi Browser"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "Deskripsi"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "Transformasi yang tersedia"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "Transformasi Browser"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Pelacakan aktif."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Pelacakan tidak aktif."
+
+#: templates/sql/profiling_chart.twig:4
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "Besar pertumbuhan berkas data"
+
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
+msgid "State"
+msgstr "Negara"
+
+#: templates/sql/profiling_chart.twig:30
+msgid "Summary by state"
+msgstr "Rangkuman berdasarkan negara"
+
+#: templates/sql/profiling_chart.twig:40
+msgid "Total Time"
+msgstr "Total waktu"
+
+#: templates/sql/profiling_chart.twig:44
+msgid "% Time"
+msgstr "% Waktu"
+
+#: templates/sql/profiling_chart.twig:48
+msgid "Calls"
+msgstr "Panggil"
+
+#: templates/sql/profiling_chart.twig:52
+msgid "ø Time"
+msgstr "ø Waktu"
+
+#: templates/table/structure/display_partitions.twig:4
+#: templates/table/structure/display_structure.twig:473
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "Partisi %s"
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Indeks belum ditentukan!"
+
+#: templates/table/structure/display_partitions.twig:11
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "dipartisi"
+
+#: templates/table/structure/display_partitions.twig:16
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "dipartisi"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:30
+msgid "Expression"
+msgstr "Ekspresi"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Panjang baris"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Panjang baris"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partition table"
+msgstr "dipartisi"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+#, fuzzy
+#| msgid "Remove partitioning"
+msgid "Edit partitioning"
+msgstr "Hapus partisi"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Lihat/Edit titik"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Cara pakai"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Set ulang pembesaran"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page titles"
+msgid "Page to open"
+msgstr "Judul halaman"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Page to delete"
+msgstr "Relasi dihapus"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Metode ekspor:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Cepat - menampilkan opsi minimum"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Kustom - menampilkan semua opsi"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s cocok dengan <strong>%2$s</strong>"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Total:</b> <i>%s</i> cocok"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
+msgstr "Tampilkan"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr "Buka"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+msgid "Requery"
+msgstr "Kueri ulang"
+
+#: templates/server/databases/index.twig:4
+msgid "Databases statistics"
+msgstr "Statistik basis data"
+
+#: templates/server/databases/index.twig:19
+#: templates/server/databases/index.twig:41
+msgid "Create database"
+msgstr "Buat basis data"
+
+#: templates/server/databases/index.twig:35
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "Buat"
+
+#: templates/server/databases/index.twig:52
+#, fuzzy
+#| msgid "Check privileges for database \"%s\"."
+msgid "No privileges to create databases"
+msgstr "Periksa hak akses untuk basis data \"%s\"."
+
+#: templates/server/databases/index.twig:163
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Jump to database '%s'"
+msgstr "Langsung ke basis data"
+
+#: templates/server/databases/index.twig:197
+#: templates/server/databases/index.twig:209
+#: templates/database/structure/structure_table_row.twig:18
+msgid "Replicated"
+msgstr "Direplikasi"
+
+#: templates/server/databases/index.twig:201
+#: templates/server/databases/index.twig:213
+#: templates/database/structure/structure_table_row.twig:17
+msgid "Not replicated"
+msgstr "Tidak direplikasi"
+
+#: templates/server/databases/index.twig:225
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Periksa hak akses untuk basis data \"%s\"."
+
+#: templates/server/databases/index.twig:226
+#, fuzzy
+#| msgid "Check Privileges"
+msgid "Check privileges"
+msgstr "Periksa Hak Akses"
+
+#: templates/server/databases/index.twig:294
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Perhatian: Pengaktifan statistik basis data dapat mengakibatkan lalu lintas "
+"besar antara webserver dan server MySQL."
+
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
+msgid "Enable statistics"
+msgstr "Aktifkan Statistik"
+
+#: templates/server/databases/index.twig:312
+msgid "No databases"
+msgstr "Basis data tidak ditemukan"
+
+#: templates/columns_definitions/column_name.twig:4
+#, fuzzy, php-format
+#| msgid "Select referenced key"
+msgid "Referenced by %s."
+msgstr "Pilih kunci rujukan"
+
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Select Foreign Key"
+msgid "Is a foreign key."
+msgstr "Pilih Foreign Key"
+
+#: templates/columns_definitions/column_name.twig:39
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Pick from Central Columns"
+msgstr "Hapus kolom"
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "Mengimpor ke dalam server saat ini"
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "Mengimpor ke dalam basis data \"%s\""
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "Mengimpor ke dalam tabel \"%s\""
+
+#: templates/display/import/import.twig:50
+msgid "File to import:"
+msgstr "Berkas untuk impor:"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "Dapat berupa berkas terkompresi (%s) atau tidak."
+
+#: templates/display/import/import.twig:58
+#, fuzzy
+#| msgid ""
+#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
+#| "Example: <b>.sql.zip</b>"
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"Nama berkas terkompresi harus diakhir dengan <b>.[format].[kompresi]</b>. "
+"Contoh: <b>.sql.zip</b>"
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr "Anda juga dapat drag dan drop sebuah file pada halaman manapun."
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr "Pengunggahan berkas tidak diizinkan di server ini."
+
+#: templates/display/import/import.twig:97
+#: templates/display/export/options_output_charset.twig:3
+msgid "Character set of the file:"
+msgstr "Set karakter berkas:"
+
+#: templates/display/import/import.twig:124
+msgid "Partial import:"
+msgstr "Impor sebagian:"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+"Proses impor sebelumnya kehabisan waktu, setelah mengirimkan kembali akan "
+"dilanjutkan dari posisi %d."
+
+#: templates/display/import/import.twig:137
+#, fuzzy
+#| msgid ""
+#| "Allow the interruption of an import in case the script detects it is "
+#| "close to the PHP timeout limit. <i>(This might be good way to import "
+#| "large files, however it can break transactions.)</i>"
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"Izinkan interupsi proses impor jika skrip hampir mencapai batas waktu habis "
+"PHP. <i>(Ini mungkin cara terbaik untuk mengimpor berkas besar, meskipun "
+"dapat memotong transaksi.)</i>"
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "Lewati beberapa kueri (untuk SQL) mulai dari yang pertama:"
+
+#: templates/display/import/import.twig:161
+msgid "Other options:"
+msgstr "Opsi lain:"
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr "Opsi format-spesifik:"
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Tarik ke bawah untuk mengisi pilihan untuk format yang dipilih dan "
+"mengabaikan pilihan untuk format lain."
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr "Konversi Pengodean:"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -16002,323 +15968,423 @@ msgstr "Nilai Kolom:"
 msgid "Save chart as image"
 msgstr "Simpan grafik sebagai gambar"
 
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Cari dan gantikan - Pratinjau"
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr "Verifikasi"
 
-#: templates/table/search/replace_preview.twig:17
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Count"
-msgstr "Jumlah"
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Template ekspor:"
 
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "String asli"
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Template Baru:"
 
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Gantikan string"
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Nama template"
 
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Gantikan"
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Template yang tersedia:"
 
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "Lepas"
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Template:"
 
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Export to selected page"
-msgid "Save to selected page"
-msgstr "Ekspor ke halaman terpilih"
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Perbaharui"
 
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a page and export to it"
-msgid "Create a page and save to it"
-msgstr "Buat halaman dan ekspor ke dalamnya"
+#: templates/database/search/main.twig:5
+msgid "Search in database"
+msgstr "Cari dalam basis data"
 
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "New page name: "
-msgid "New page name"
-msgstr "Nama halaman baru: "
+#: templates/database/search/main.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Kata atau hasil untuk dicari (wildcard: \"%\"):"
 
-#: templates/server/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Batas dari sumber"
+#: templates/database/search/main.twig:15
+#: templates/table/search/selection_form.twig:181
+msgid "Find:"
+msgstr "Cari:"
 
-#: templates/server/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Perhatian: Perubahan pilihan ini ke posisi 0 (zero) akan menghapus batas "
-"yang telah ditentukan."
+#: templates/database/search/main.twig:29
+msgid "Inside tables:"
+msgstr "Dalam tabel:"
 
-#: templates/display/import/javascript.twig:12
-#, fuzzy
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"File yang diupload mungkin lebih besar dari ukuran maksimum diperbolehkan "
-"atau ini adalah bug yang dikenal dalam webkit berbasis (Safari, Google "
-"Chrome, Arora dll) browser."
+#: templates/database/search/main.twig:56
+msgid "Inside column:"
+msgstr "Dalam kolom:"
 
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr "%s dari %s"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Baris:"
 
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr "%s/detik."
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Dump beberapa baris"
 
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Sekitar %MIN menit. %SEC detik. lagi."
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/table_navigation.twig:53
+msgid "Number of rows:"
+msgstr "Jumlah baris:"
 
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr "Sekitar %SEC detik. lagi."
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Baris untuk memulai:"
 
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr "Berkas sedang diproses, harap bersabar."
-
-#: templates/display/import/javascript.twig:30
-msgid "Uploading your import file…"
-msgstr "Sedang memuat file impor anda…"
-
-#: templates/display/import/javascript.twig:155
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Harap bersabar, file sedang diunggah. Rincian tentang pengunggahan tidak "
-"tersedia."
-
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "Membuat Pengguna"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Dump semua row"
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
 msgstr "Basis data:"
 
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Pilih tabel berbeban tambahan"
+#: templates/server/plugins/index.twig:23
+msgid "Plugin"
+msgstr "Plugin"
 
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Copy"
-msgid "Copy table"
-msgstr "Salin"
+#: templates/server/plugins/index.twig:25 templates/table/tracking/main.twig:28
+msgid "Version"
+msgstr "Versi"
 
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "Tampilkan warna"
+#: templates/server/plugins/index.twig:26
+msgid "Author"
+msgstr "Pembuat"
 
-#: templates/database/structure/check_all_tables.twig:25
-#, fuzzy
-#| msgid "Add prefix"
-msgid "Prefix"
-msgstr "Tambahkan prefiks"
+#: templates/server/plugins/index.twig:37
+msgid "disabled"
+msgstr "tidak aktif"
 
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "Tambahkan prefiks untuk tabel"
+#: templates/server/status/advisor/index.twig:7
+msgid "Instructions"
+msgstr "Instruksi"
 
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "Ganti prefiks tabel"
-
-#: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add columns to central list"
-msgstr "Kolom textarea CHAR"
-
-#: templates/database/structure/check_all_tables.twig:34
-#, fuzzy
-msgid "Remove columns from central list"
-msgstr "Menghapus kolom dari daftar pusat"
-
-#: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Make consistent with central list"
-msgstr "Kolom textarea CHAR"
-
-#: templates/server/databases/index.twig:4
-msgid "Databases statistics"
-msgstr "Statistik basis data"
-
-#: templates/server/databases/index.twig:19
-#: templates/server/databases/index.twig:41
-msgid "Create database"
-msgstr "Buat basis data"
-
-#: templates/server/databases/index.twig:35
-#: templates/display/export/template_loading.twig:10
-msgid "Create"
-msgstr "Buat"
-
-#: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
-msgid "No privileges to create databases"
-msgstr "Periksa hak akses untuk basis data \"%s\"."
-
-#: templates/server/databases/index.twig:163
-#, fuzzy, php-format
-#| msgid "Jump to database"
-msgid "Jump to database '%s'"
-msgstr "Langsung ke basis data"
-
-#: templates/server/databases/index.twig:225
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Periksa hak akses untuk basis data \"%s\"."
-
-#: templates/server/databases/index.twig:226
-#, fuzzy
-#| msgid "Check Privileges"
-msgid "Check privileges"
-msgstr "Periksa Hak Akses"
-
-#: templates/server/databases/index.twig:294
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Perhatian: Pengaktifan statistik basis data dapat mengakibatkan lalu lintas "
-"besar antara webserver dan server MySQL."
-
-#: templates/server/databases/index.twig:297
-#: templates/server/databases/index.twig:300
-msgid "Enable statistics"
-msgstr "Aktifkan Statistik"
-
-#: templates/server/databases/index.twig:312
-msgid "No databases"
-msgstr "Basis data tidak ditemukan"
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Foreign key limit"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Batas foreign key"
-
-#: templates/table/relation/foreign_key_row.twig:34
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint name"
-msgstr "Ketidakleluasaan untuk tabel"
-
-#: templates/table/relation/foreign_key_row.twig:86
-#: templates/database/multi_table_query/form.twig:162
-msgid "+ Add column"
-msgstr "+ Tambah kolom"
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "Pelacakan aktif."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "Pelacakan tidak aktif."
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr "Verifikasi"
-
-#: templates/table/page_with_secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "Tampilan hubungan"
-
-#: templates/table/relation/common_form.twig:9
-#, fuzzy
-#| msgid "Foreign key limit"
-msgid "Foreign key constraints"
-msgstr "Batas foreign key"
-
-#: templates/table/relation/common_form.twig:13
-#, fuzzy
-#| msgid "Action"
-msgid "Actions"
-msgstr "Tindakan"
-
-#: templates/table/relation/common_form.twig:14
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint properties"
-msgstr "Ketidakleluasaan untuk tabel"
-
-#: templates/table/relation/common_form.twig:18
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-"Membuat foreign key pada kolom tanpa index akan secara otomatis membuat "
-"index padanya. Sebagai alternatif, anda dapat dapat mendefinisikan index "
-"dibawah ini, sebelum anda membuat foreign key."
-
-#: templates/table/relation/common_form.twig:23
+#: templates/server/status/advisor/index.twig:13
 #, fuzzy
 msgid ""
-"Only columns with index will be displayed. You can define an index below."
+"The Advisor system can provide recommendations on server variables by "
+"analyzing the server status variables."
 msgstr ""
-"Hanya kolom dengan indeks akan ditampilkan. Anda dapat menentukan indeks di "
-"bawah ini."
+"Sistem Advisor dapat memberikan rekomendasi tentang variabel server dengan "
+"menganalisis variabel status server."
 
-#: templates/table/relation/common_form.twig:27
-#, fuzzy
-msgid "Foreign key constraint"
-msgstr "Batasan kunci asing"
-
-#: templates/table/relation/common_form.twig:92
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "Tambahkan batasan"
-
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "Relasi internal"
-
-#: templates/table/relation/common_form.twig:117
-msgid "Internal relation"
-msgstr "Relasi internal"
-
-#: templates/table/relation/common_form.twig:119
+#: templates/server/status/advisor/index.twig:18
 #, fuzzy
 msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
+"Do note however that this system provides recommendations based on simple "
+"calculations and by rule of thumb which may not necessarily apply to your "
+"system."
 msgstr ""
-"Relasi internal tidak diperlukan bila hubungan FOREIGN KEY yang sesuai."
+"Namun catatan agenda bahwa sistem ini memberikan rekomendasi berdasarkan "
+"perhitungan sederhana dan dengan aturan praktis yang mungkin tidak selalu "
+"berlaku untuk sistem anda."
 
-#: templates/table/relation/common_form.twig:199
-msgid "Choose column to display:"
-msgstr "Pilih kolom untuk ditampilkan:"
+#: templates/server/status/advisor/index.twig:23
+#, fuzzy
+msgid ""
+"Prior to changing any of the configuration, be sure to know what you are "
+"changing (by reading the documentation) and how to undo the change. Wrong "
+"tuning can have a very negative effect on performance."
+msgstr ""
+"Sebelum mengubah salah satu dari konfigurasi, pastikan untuk mengetahui apa "
+"yang Anda berubah (dengan membaca dokumentasi) dan bagaimana untuk "
+"membatalkan perubahan. Tuning yang salah dapat memiliki efek yang sangat "
+"negatif pada kinerja."
+
+#: templates/server/status/advisor/index.twig:28
+#, fuzzy
+msgid ""
+"The best way to tune your system would be to change only one setting at a "
+"time, observe or benchmark your database, and undo the change if there was "
+"no clearly measurable improvement."
+msgstr ""
+"Cara terbaik untuk menyempurnakan sistem anda akan berubah hanya satu "
+"pengaturan pada suatu waktu, mengamati atau patokan database Anda, dan "
+"membatalkan perubahan jika tidak ada perbaikan jelas terukur."
+
+#: templates/server/status/advisor/index.twig:36
+#, fuzzy
+msgid "Not enough privilege to view the advisor."
+msgstr "Hak akses tidak cukup untuk melihat pengguna."
+
+#: templates/database/designer/schema_export.twig:4
+#, fuzzy
+msgid "Select Export Relational Type"
+msgstr "Pilih Ekspor Relational Jenis"
+
+#: templates/error/report_form.twig:6
+#, fuzzy
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+"phpMyAdmin telah mengalami kesalahan. Kami telah mengumpulkan data tentang "
+"kesalahan ini serta informasi tentang pengaturan konfigurasi yang relevan "
+"untuk mengirim ke tim phpMyAdmin untuk membantu kami dalam debugging masalah."
+
+#: templates/error/report_form.twig:12
+#, fuzzy
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+"Bisakah Anda ceritakan langkah-langkah yang mengarah ke kesalahan ini? Hal "
+"tegas membantu dalam debugging:"
+
+#: templates/error/report_form.twig:19
+#, fuzzy
+msgid "You may examine the data in the error report:"
+msgstr "Anda dapat memeriksa data dalam laporan galat:"
+
+#: templates/display/results/options_block.twig:34
+msgid "Relational key"
+msgstr "Kunci relasi"
+
+#: templates/display/results/options_block.twig:34
+msgid "Display column for relationships"
+msgstr "Tampilkan kolom untuk hubungan"
+
+#: templates/display/results/options_block.twig:50
+msgid "Show binary contents"
+msgstr "Tampilkan konten biner"
+
+#: templates/display/results/options_block.twig:57
+msgid "Show BLOB contents"
+msgstr "Tampilkan konten BLOB"
+
+#: templates/display/results/options_block.twig:71
+msgid "Hide browser transformation"
+msgstr "Sembunyikan Transformasi Browser"
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Text"
+msgstr "Teks Dikenali"
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Binary"
+msgstr "Biner Diketahui"
 
 #: templates/server/collations/index.twig:3
 #, fuzzy
 #| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "Set dan Penyortiran Karakter"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:44
+#: templates/prefs_twofactor.twig:56
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Configure two-factor authentication"
+msgstr "Konfigurasi Autentikasi"
+
+#: templates/prefs_twofactor_configure.twig:8
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Enable two-factor authentication"
+msgstr "Konfigurasi Autentikasi"
+
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "Mengekspor database sebagai file terpisah"
+
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "Mengekspor tabel sebagai file terpisah"
+
+#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
+#, fuzzy
+#| msgid "Create version"
+msgid "Delete version"
+msgstr "Buat versi"
+
+#: templates/table/tracking/main.twig:107
+#, fuzzy, php-format
+#| msgid "Activate tracking for %s.%s"
+msgid "Activate tracking for %s"
+msgstr "Aktifkan pelacakan untuk %s.%s"
+
+#: templates/table/tracking/main.twig:109
+msgid "Activate now"
+msgstr "Aktifkan sekarang"
+
+#: templates/table/tracking/main.twig:111
+#, fuzzy, php-format
+#| msgid "Deactivate tracking for %s.%s"
+msgid "Deactivate tracking for %s"
+msgstr "Nonaktifkan pelacakan untuk %s.%s"
+
+#: templates/table/tracking/main.twig:113
+msgid "Deactivate now"
+msgstr "Nonaktifkan sekarang"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+"Anda tidak menggunakan https untuk mengakses phpMyAdmin, oleh karena itu "
+"perangkat FIDO U2F kemungkinan besar akan menolak untuk mengotentikasi Anda."
+
+#: templates/prefs_autoload.twig:7
+#, fuzzy
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"Browser Anda memiliki konfigurasi phpMyAdmin untuk domain ini. Apakah Anda "
+"ingin mengimpor untuk sesi saat ini?"
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Delete tracking"
+msgid "Delete settings"
+msgstr "Hapus pelacak"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Tidak ada"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr "Mengonversi ke Kana"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Gunakan nilai ini"
+
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Awal baris:"
+
+#: templates/table/structure/display_structure.twig:112
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "Kolom %s telah dihapus."
+
+#: templates/table/structure/display_structure.twig:135
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "Sebuah kunci primer telah ditambahkan pada %s."
+
+#: templates/table/structure/display_structure.twig:153
+#: templates/table/structure/display_structure.twig:171
+#: templates/table/structure/display_structure.twig:200
+#: templates/table/structure/display_structure.twig:223
+#, php-format
+msgid "An index has been added on %s."
+msgstr "Sebuah indeks telah ditambahkan pada %s."
+
+#: templates/table/structure/display_structure.twig:247
+#: templates/table/structure/display_structure.twig:350
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Remove from central columns"
+msgstr "Hapus kolom"
+
+#: templates/table/structure/display_structure.twig:251
+#: templates/table/structure/display_structure.twig:343
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add to central columns"
+msgstr "Kolom textarea CHAR"
+
+#: templates/table/structure/display_structure.twig:363
+#: templates/table/structure/display_structure.twig:398
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Move columns"
+msgstr "Hapus kolom"
+
+#: templates/table/structure/display_structure.twig:364
+#, fuzzy
+msgid "Move the columns by dragging them up and down."
+msgstr "Pindahkan kolom dengan menyeret mereka naik dan turun."
+
+#: templates/table/structure/display_structure.twig:385
+msgid "Propose table structure"
+msgstr "Usulkan struktur tabel"
+
+#: templates/table/structure/display_structure.twig:401
+msgid "Normalize"
+msgstr "Normalisasi"
+
+#: templates/table/structure/display_structure.twig:407
+#, fuzzy
+#| msgid "Track table"
+msgid "Track view"
+msgstr "Tampilan lacak"
+
+#: templates/table/structure/display_structure.twig:416
+#: templates/database/central_columns/main.twig:192
+msgid "Add column"
+msgstr "Tambah kolom"
+
+#: templates/table/structure/display_structure.twig:421
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Tambahkan %s kolom"
+
+#: templates/table/structure/display_structure.twig:426
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "Pada Awal Tabel"
+
+#: templates/table/structure/display_structure.twig:431
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr "setelah %s"
+
+#: templates/server/privileges/delete_user_fieldset.twig:3
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
+msgstr "Hapus pengguna yang dipilih"
+
+#: templates/server/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Cabut semua hak akses dari pengguna dan hapus setelahnya."
+
+#: templates/server/privileges/delete_user_fieldset.twig:7
+#: templates/server/privileges/delete_user_fieldset.twig:10
+#: templates/server/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Hapus basis data yang memiliki nama yang sama dengan pengguna."
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Pilih halaman"
+
+#: templates/server/variables/index.twig:3
+msgid "Server variables and settings"
+msgstr "Variabel dan pengaturan server"
+
+#: templates/server/variables/index.twig:40
+#, fuzzy
+msgid "This is a read-only variable and can not be edited"
+msgstr "Ini adalah read-only variabel dan tidak dapat diedit"
+
+#: templates/server/variables/index.twig:66
+msgid "Session value"
+msgstr "Nilai sesi"
+
+#: templates/server/variables/index.twig:75
+#, php-format
+msgid "Not enough privilege to view server variables and settings. %s"
+msgstr "Hak akses tidak cukup untuk melihat variabel dan pengaturan server. %s"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Tampilkan hasil sebagai teks"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -16328,222 +16394,67 @@ msgstr "Markahi kueri SQL ini"
 msgid "Label:"
 msgstr "Judul:"
 
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Variabel dan pengaturan server"
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Penggunaan ruang"
 
-#: templates/server/sub_page_header.twig:2
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Efektif"
+
+#: templates/table/structure/display_table_stats.twig:73
 #, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "Mesin Penyimpanan"
+#| msgid "Row Statistics"
+msgid "Row statistics"
+msgstr "Statistik Baris"
 
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "Mengimpor ke dalam server saat ini"
+#: templates/table/structure/display_table_stats.twig:79
+msgid "static"
+msgstr "statis"
 
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "Mengimpor ke dalam basis data \"%s\""
+#: templates/table/structure/display_table_stats.twig:81
+msgid "dynamic"
+msgstr "dinamis"
 
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "Mengimpor ke dalam tabel \"%s\""
+#: templates/table/structure/display_table_stats.twig:92
+msgid "partitioned"
+msgstr "dipartisi"
 
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "Berkas untuk impor:"
+#: templates/table/structure/display_table_stats.twig:121
+msgid "Row length"
+msgstr "Panjang baris"
 
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "Dapat berupa berkas terkompresi (%s) atau tidak."
+#: templates/table/structure/display_table_stats.twig:133
+msgid "Row size"
+msgstr "Besar baris"
 
-#: templates/display/import/import.twig:58
+#: templates/table/structure/display_table_stats.twig:140
+msgid "Next autoindex"
+msgstr "Indeks otomatis berikut"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "pertama"
+
+#: templates/prefs_twofactor_confirm.twig:2
 #, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
+#| msgid "Config authentication"
+msgid "Confirm disabling two-factor authentication"
+msgstr "Konfigurasi Autentikasi"
+
+#: templates/prefs_twofactor_confirm.twig:5
 msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
+"By disabling two factor authentication you will be again able to login using "
+"password only."
 msgstr ""
-"Nama berkas terkompresi harus diakhir dengan <b>.[format].[kompresi]</b>. "
-"Contoh: <b>.sql.zip</b>"
+"Dengan menonaktifkan otentikasi dua langkah, Anda akan kembali dapat login "
+"menggunakan password saja."
 
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "Anda juga dapat drag dan drop sebuah file pada halaman manapun."
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "Pengunggahan berkas tidak diizinkan di server ini."
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "Impor sebagian:"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"Proses impor sebelumnya kehabisan waktu, setelah mengirimkan kembali akan "
-"dilanjutkan dari posisi %d."
-
-#: templates/display/import/import.twig:137
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:38
 #, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be good way to import "
-#| "large files, however it can break transactions.)</i>"
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"Izinkan interupsi proses impor jika skrip hampir mencapai batas waktu habis "
-"PHP. <i>(Ini mungkin cara terbaik untuk mengimpor berkas besar, meskipun "
-"dapat memotong transaksi.)</i>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Lewati beberapa kueri (untuk SQL) mulai dari yang pertama:"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "Opsi lain:"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Pilih halaman"
-
-#: templates/gis_data_editor_form.twig:4
-#, php-format
-msgid "Value for the column \"%s\""
-msgstr "Nilai untuk kolom \"%s\""
-
-#: templates/gis_data_editor_form.twig:22
-#: templates/table/gis_visualization/gis_visualization.twig:38
-msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Gunakan OpenStreetMaps sebagai Lapisan Dasar"
-
-#: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
-msgctxt "Spatial Reference System Identifier"
-msgid "SRID:"
-msgstr "SRID:"
-
-#: templates/gis_data_editor_form.twig:52
-#, php-format
-msgid "Geometry %d:"
-msgstr "Geometri %d:"
-
-#: templates/gis_data_editor_form.twig:72
-msgid "Point:"
-msgstr "Titik:"
-
-#: templates/gis_data_editor_form.twig:92
-#: templates/gis_data_editor_form.twig:133
-#: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
-msgid "Point %d:"
-msgstr "Poin %d"
-
-#: templates/gis_data_editor_form.twig:112
-#, php-format
-msgid "Linestring %d:"
-msgstr "Deretan baris %d:"
-
-#: templates/gis_data_editor_form.twig:114
-#: templates/gis_data_editor_form.twig:169
-msgid "Outer ring:"
-msgstr "Lingkar luar:"
-
-#: templates/gis_data_editor_form.twig:116
-#: templates/gis_data_editor_form.twig:171
-#, php-format
-msgid "Inner ring %d:"
-msgstr "Lingkar dalam %d:"
-
-#: templates/gis_data_editor_form.twig:143
-msgid "Add a linestring"
-msgstr "Tambahkan segmen garis"
-
-#: templates/gis_data_editor_form.twig:156
-#, php-format
-msgid "Polygon %d:"
-msgstr "Poligon %d:"
-
-#: templates/gis_data_editor_form.twig:198
-msgid "Add a polygon"
-msgstr "Tambahkan poligon"
-
-#: templates/gis_data_editor_form.twig:203
-msgid "Add geometry"
-msgstr "Tambahkan geometri"
-
-#: templates/gis_data_editor_form.twig:212
-msgid "Output"
-msgstr "Keluaran"
-
-#: templates/gis_data_editor_form.twig:214
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr ""
-"Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string dibawahnya "
-"ke dalam isian \"Nilai\"."
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Tambahkan/Hapus baris kriteria"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Tambahkan/Hapus kolom"
-
-#: templates/server/privileges/column_privileges.twig:21
-#: templates/server/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Tidak ada"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tabel"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Jumlah"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Mengekspor basis data dari server saat ini"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Mengekspor tabel dari basis data \"%s\""
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Mengekspor baris dari tabel \"%s\""
-
-#: templates/server/privileges/add_user_fieldset.twig:2
-#, fuzzy
-#| msgid "New"
-msgctxt "Create new user"
-msgid "New"
-msgstr "Baru"
+#| msgid "Config authentication"
+msgid "Disable two-factor authentication"
+msgstr "Konfigurasi Autentikasi"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -16620,77 +16531,171 @@ msgstr ""
 msgid "Input transformation options"
 msgstr "Pilihan transformasi"
 
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+"Sambungkan perangkat FIDO U2F Anda ke port USB komputer Anda. Kemudian "
+"konfirmasikan login di perangkat."
+
+#: templates/table/operations/view.twig:11
+msgid "Rename view to"
+msgstr "Ubah nama tampilan menjadi"
+
+#: templates/server/status/status/index.twig:6
+#, php-format
+msgid "Network traffic since startup: %s"
+msgstr "Lalu lintas jaringan sejak awal: %sw"
+
+#: templates/server/status/status/index.twig:7
+#, php-format
+msgid "This MySQL server has been running for %1$s. It started up on %2$s."
+msgstr ""
+"Server MySQL ini telah berjalan selama %1$s. Server ini dijalankan pada %2$s."
+
+#: templates/server/status/status/index.twig:14
+#, fuzzy
+msgid ""
+"On a busy server, the byte counters may overrun, so those statistics as "
+"reported by the MySQL server may be incorrect."
+msgstr ""
+"Pada server sibuk, counter byte dapat dikuasai, sehingga statistik tersebut "
+"seperti dilansir server MySQL mungkin salah."
+
+#: templates/server/status/status/index.twig:57
+msgid ""
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
+msgstr ""
+"Server MySQL ini berfungsi sebagai <b>master</b> dan <b>slave</b> dalam "
+"proses <b>replication</b>."
+
+#: templates/server/status/status/index.twig:59
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr ""
+"Server MySQL ini berfungsi sebagai <b>master</b> dalam proses "
+"<b>replication</b>."
+
+#: templates/server/status/status/index.twig:61
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgstr ""
+"Server MySQL ini berfungsi sebagai <b>slave</b> dalam proses <b>replication</"
+"b>."
+
+#: templates/server/status/status/index.twig:68
+msgid "Replication status"
+msgstr "Status replikasi"
+
+#: templates/server/status/status/index.twig:75
+msgid "Not enough privilege to view server status."
+msgstr "Hak akses tidak cukup untuk melihat status peladen."
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Foreign key limit"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Batas foreign key"
+
+#: templates/table/relation/foreign_key_row.twig:34
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint name"
+msgstr "Ketidakleluasaan untuk tabel"
+
+#: templates/table/page_with_secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "Tampilan hubungan"
+
+#: templates/server/privileges/add_user_fieldset.twig:2
+#, fuzzy
+#| msgid "New"
+msgctxt "Create new user"
+msgid "New"
+msgstr "Baru"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "Lanjutkan penambahan untuk %s baris"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Tanggal"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Nama Pengguna"
+
+#: templates/columns_definitions/column_length.twig:9
+#, fuzzy
+msgid "Edit ENUM/SET values"
+msgstr "Edit nilai ENUM/SET"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Nama indeks:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+"\"PRIMARY\" <b>harus</b> menjadi nama dan <b>hanya</b> dipakai sebagai nama "
+"kunci primer!"
+
+#: templates/table/index_form.twig:34
+#, fuzzy
+#| msgid "Index cache size"
+msgid "Index choice:"
+msgstr "Besar singgahan indeks"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Active options"
+msgid "Advanced Options"
+msgstr "Opsi aktif"
+
+#: templates/table/index_form.twig:52
+#, fuzzy
+msgid "Key block size:"
+msgstr "Ukuran blok kunci:"
+
+#: templates/table/index_form.twig:69
+msgid "Index type:"
+msgstr "Jenis indeks:"
+
+#: templates/table/index_form.twig:81
+#, fuzzy
+#| msgid "User:"
+msgid "Parser:"
+msgstr "Pengguna:"
+
+#: templates/table/index_form.twig:97
+msgid "Comment:"
+msgstr "Komentar:"
+
+#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder"
+msgstr "Seret untuk mengubah urutan"
+
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
 msgid "None"
 msgstr "Tidak ada"
 
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "Mengonversi ke Kana"
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "Seperti yang didefinisikan:"
 
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Metode ekspor:"
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Jumlah kolom"
 
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Cepat - menampilkan opsi minimum"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Kustom - menampilkan semua opsi"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Penggunaan ruang"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Efektif"
-
-#: templates/table/structure/display_table_stats.twig:73
-#, fuzzy
-#| msgid "Row Statistics"
-msgid "Row statistics"
-msgstr "Statistik Baris"
-
-#: templates/table/structure/display_table_stats.twig:79
-msgid "static"
-msgstr "statis"
-
-#: templates/table/structure/display_table_stats.twig:81
-msgid "dynamic"
-msgstr "dinamis"
-
-#: templates/table/structure/display_table_stats.twig:92
-msgid "partitioned"
-msgstr "dipartisi"
-
-#: templates/table/structure/display_table_stats.twig:121
-msgid "Row length"
-msgstr "Panjang baris"
-
-#: templates/table/structure/display_table_stats.twig:133
-msgid "Row size"
-msgstr "Besar baris"
-
-#: templates/table/structure/display_table_stats.twig:140
-msgid "Next autoindex"
-msgstr "Indeks otomatis berikut"
-
-#: templates/server/variables/variable_row.twig:6
-#, fuzzy
-msgid "This is a read-only variable and can not be edited"
-msgstr "Ini adalah read-only variabel dan tidak dapat diedit"
-
-#: templates/server/variables/variable_row.twig:31
-msgid "Session value"
-msgstr "Nilai sesi"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Tambahkan ke favorit"
+#: templates/database/structure/structure_table_row.twig:214
+msgid "in use"
+msgstr "sedang digunakan"
 
 #: templates/prefs_twofactor.twig:3
 #, fuzzy
@@ -16731,246 +16736,6 @@ msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
 msgstr "Anda mengaktifkan otentikasi dua langkah."
-
-#: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
-msgid ""
-"There is a mismatch between HTTPS indicated on the server and client. This "
-"can lead to a non working phpMyAdmin or a security risk. Please fix your "
-"server configuration to indicate HTTPS properly."
-msgstr ""
-"Ada ketidakcocokan antara HTTPS yang ditunjukkan server dan client. Hal ini "
-"dapat menyebabkan phpMyAdmin tidak bekerja atau risiko keamanan. Mohon "
-"perbaiki konfigurasi server Anda untuk menunjukkan HTTPS dengan benar."
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "Kriteria pencarian tambahan"
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Lakukan \"kueri dengan contoh\" (wildcard: \"%\") untuk dua kolom yang "
-"berbeda"
-
-#: templates/table/search/selection_form.twig:29
-msgid "Use this column to label each point"
-msgstr "Gunakan kolom ini untuk label setiap titik"
-
-#: templates/table/search/selection_form.twig:55
-msgid "Maximum rows to plot"
-msgstr "Baris maksimum untuk plot"
-
-#: templates/table/search/selection_form.twig:80
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Lakukan \"kueri dengan contoh\" (wildcard: \"%\")"
-
-#: templates/table/search/selection_form.twig:106
-msgid "Select columns (at least one):"
-msgstr "Pilih kolom (paling tidak satu):"
-
-#: templates/table/search/selection_form.twig:126
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Tambahkan kriteria pencarian (bagian klausa \"where\"):"
-
-#: templates/table/search/selection_form.twig:134
-msgid "Number of rows per page"
-msgstr "Jumlah baris per halaman"
-
-#: templates/table/search/selection_form.twig:145
-msgid "Display order:"
-msgstr "Urutan tampilan:"
-
-#: templates/table/search/selection_form.twig:181
-#: templates/database/search/main.twig:15
-msgid "Find:"
-msgstr "Cari:"
-
-#: templates/table/search/selection_form.twig:183
-msgid "Replace with:"
-msgstr "Ganti dengan:"
-
-#: templates/table/search/selection_form.twig:199
-msgid "Use regular expression"
-msgstr "Gunakan regular expression"
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Template ekspor:"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Template Baru:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Nama template"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Template yang tersedia:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Template:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Perbaharui"
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Hasil:"
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Simpan hasil ke suatu berkas"
-
-#: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
-msgid "Skip tables larger than %s MiB"
-msgstr "Lewati tabel yang lebih besar dari"
-
-#: templates/table/structure/display_structure.twig:91
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr "Tidak ada"
-
-#: templates/table/structure/display_structure.twig:112
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Kolom %s telah dihapus."
-
-#: templates/table/structure/display_structure.twig:135
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "Sebuah kunci primer telah ditambahkan pada %s."
-
-#: templates/table/structure/display_structure.twig:153
-#: templates/table/structure/display_structure.twig:171
-#: templates/table/structure/display_structure.twig:200
-#: templates/table/structure/display_structure.twig:223
-#, php-format
-msgid "An index has been added on %s."
-msgstr "Sebuah indeks telah ditambahkan pada %s."
-
-#: templates/table/structure/display_structure.twig:247
-#: templates/table/structure/display_structure.twig:350
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Remove from central columns"
-msgstr "Hapus kolom"
-
-#: templates/table/structure/display_structure.twig:251
-#: templates/table/structure/display_structure.twig:343
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add to central columns"
-msgstr "Kolom textarea CHAR"
-
-#: templates/table/structure/display_structure.twig:363
-#: templates/table/structure/display_structure.twig:398
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Move columns"
-msgstr "Hapus kolom"
-
-#: templates/table/structure/display_structure.twig:364
-#, fuzzy
-msgid "Move the columns by dragging them up and down."
-msgstr "Pindahkan kolom dengan menyeret mereka naik dan turun."
-
-#: templates/table/structure/display_structure.twig:385
-msgid "Propose table structure"
-msgstr "Usulkan struktur tabel"
-
-#: templates/table/structure/display_structure.twig:401
-msgid "Normalize"
-msgstr "Normalisasi"
-
-#: templates/table/structure/display_structure.twig:407
-#, fuzzy
-#| msgid "Track table"
-msgid "Track view"
-msgstr "Tampilan lacak"
-
-#: templates/table/structure/display_structure.twig:421
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Tambahkan %s kolom"
-
-#: templates/table/structure/display_structure.twig:426
-#, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "Pada Awal Tabel"
-
-#: templates/table/structure/display_structure.twig:431
-#: templates/columns_definitions/move_column.twig:12
-#, php-format
-msgid "after %s"
-msgstr "setelah %s"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-"Buka aplikasi autentikasi dua langkah di perangkat Anda untuk melihat kode "
-"autentikasi dan verifikasi identitas Anda."
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "Judul halaman"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Page to delete"
-msgstr "Relasi dihapus"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Tampilkan hasil sebagai teks"
-
-#: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
-msgid "Sort by key:"
-msgstr "Urut berdasarkan kunci"
-
-#: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
-
-#: templates/database/search/main.twig:5
-msgid "Search in database"
-msgstr "Cari dalam basis data"
-
-#: templates/database/search/main.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Kata atau hasil untuk dicari (wildcard: \"%\"):"
-
-#: templates/database/search/main.twig:29
-msgid "Inside tables:"
-msgstr "Dalam tabel:"
-
-#: templates/database/search/main.twig:56
-msgid "Inside column:"
-msgstr "Dalam kolom:"
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -17063,6 +16828,14 @@ msgstr "Tampilkan warna"
 msgid "Hide trace"
 msgstr "Sembunyikan Panel"
 
+#: templates/console/display.twig:99
+#: templates/database/central_columns/main.twig:210
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+msgid "Add"
+msgstr "Tambah"
+
 #: templates/console/display.twig:112
 msgid "Add bookmark"
 msgstr "Tambah bookmark"
@@ -17092,135 +16865,91 @@ msgstr ""
 "Mengeksekusi query pada Masukkan dan memasukkan baris baru dengan Shift + "
 "Enter. Untuk membuat ini permanen, pengaturan tampilan."
 
-#: templates/create_tracking_version.twig:11
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
-msgid "Create version %1$s of %2$s"
-msgstr "Buat versi %s dari %s.%s"
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Mengekspor basis data dari server saat ini"
 
-#: templates/create_tracking_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s"
-msgstr "Buat versi"
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Mengekspor tabel dari basis data \"%s\""
 
-#: templates/create_tracking_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Lacak definisi data dari pernyataan berikut:"
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Mengekspor baris dari tabel \"%s\""
 
-#: templates/create_tracking_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Lacak manipulasi data dari pernyataan berikut:"
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Tambahkan ke favorit"
 
-#: templates/create_tracking_version.twig:76
-msgid "Create version"
-msgstr "Buat versi"
+#: templates/database/central_columns/main.twig:4
+msgid "Add new column"
+msgstr "Tambah kolom baru"
 
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "Tampilkan Visualisasi GIS"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Kolom label"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Tidak ada --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Kolom spasial"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "pertama"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Lihat/Edit titik"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Cara pakai"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Set ulang pembesaran"
-
-#: templates/database/multi_table_query/form.twig:16
-msgid "Query window"
-msgstr "Jendela Pencarian"
-
-#: templates/database/multi_table_query/form.twig:37
-#: templates/database/multi_table_query/form.twig:125
+#: templates/database/central_columns/main.twig:25
+#: templates/database/central_columns/main.twig:242
 #, fuzzy
-#| msgid "Select table:"
-msgid "select table"
-msgstr "Pilih tabel:"
+#| msgid "Length/Values"
+msgid "Lenght/Value"
+msgstr "Panjang/Nilai"
 
-#: templates/database/multi_table_query/form.twig:44
-#: templates/database/multi_table_query/form.twig:133
+#: templates/database/central_columns/main.twig:37
+#: templates/database/central_columns/main.twig:254
+msgid "Attribute"
+msgstr "Atribut"
+
+#: templates/database/central_columns/main.twig:141
 #, fuzzy
-#| msgid "Select column:"
-msgid "select column"
-msgstr "Pilih kolom:"
+#| msgid "The central list of columns for the current database is empty."
+msgid "The central list of columns for the current database is empty"
+msgstr "Daftar utama kolom untuk database saat ini kosong."
 
-#: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "Tabel"
+#: templates/database/central_columns/main.twig:180
+#: templates/display/results/table_navigation.twig:73
+msgid "Filter rows"
+msgstr "Saring baris"
 
-#: templates/database/multi_table_query/form.twig:51
-#, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "Nama kolom"
+#: templates/database/central_columns/main.twig:181
+#: templates/display/results/table_navigation.twig:75
+msgid "Search this table"
+msgstr "Cari di tabel ini"
 
-#: templates/database/multi_table_query/form.twig:54
-#, fuzzy
-#| msgid "Use this column to label each point"
-msgid "Use this column in criteria"
-msgstr "Gunakan kolom ini untuk label setiap titik"
+#: templates/database/central_columns/main.twig:201
+msgid "Select a table"
+msgstr "Pilih suatu tabel"
 
-#: templates/database/multi_table_query/form.twig:57
-#, fuzzy
-#| msgid "Criteria:"
-msgid "criteria"
-msgstr "Kriteria:"
+#: templates/database/central_columns/main.twig:208
+msgid "Select a column."
+msgstr "Pilih sebuah kolom."
 
-#: templates/database/multi_table_query/form.twig:71
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "Tambahkan %s"
+#: templates/database/central_columns/main.twig:227
+msgid "Click to sort."
+msgstr "Klik untuk mengurutkan."
 
-#: templates/database/multi_table_query/form.twig:116
-#, fuzzy
-#| msgid "Alter column(s)"
-msgid "Another column"
-msgstr "Ubah kolom"
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Kompresi:"
 
-#: templates/database/multi_table_query/form.twig:144
-msgid "Enter criteria as free text"
-msgstr "Masukan kriteria sebagai teks bebas"
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "di-zip"
 
-#: templates/database/multi_table_query/form.twig:152
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Remove this column"
-msgstr "Hapus kolom"
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "di-gzip"
 
-#: templates/database/multi_table_query/form.twig:179
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "Perbarui Kueri"
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+"Buka aplikasi autentikasi dua langkah di perangkat Anda untuk melihat kode "
+"autentikasi dan verifikasi identitas Anda."
 
-#: templates/table/operations/view.twig:11
-msgid "Rename view to"
-msgstr "Ubah nama tampilan menjadi"
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "Pilih template"
 
 #: templates/server/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -17249,6 +16978,295 @@ msgstr "Tambahkan hak akses pada tabel berikut"
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following routine:"
 msgstr "Tambahkan hak akses pada tabel berikut"
+
+#: templates/display/results/table_navigation.twig:26
+msgid "Save edited data"
+msgstr "Simpan data yang diedit"
+
+#: templates/display/results/table_navigation.twig:32
+msgid "Restore column order"
+msgstr "Pulihkan urutan kolom"
+
+#: templates/display/results/table_navigation.twig:67
+msgid "All"
+msgstr "Semua"
+
+#: templates/server/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Batas dari sumber"
+
+#: templates/server/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+"Perhatian: Perubahan pilihan ini ke posisi 0 (zero) akan menghapus batas "
+"yang telah ditentukan."
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "Membuat Pengguna"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Tambahkan/Hapus baris kriteria"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Tambahkan/Hapus kolom"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+"Lakukan \"kueri dengan contoh\" (wildcard: \"%\") untuk dua kolom yang "
+"berbeda"
+
+#: templates/table/search/selection_form.twig:29
+msgid "Use this column to label each point"
+msgstr "Gunakan kolom ini untuk label setiap titik"
+
+#: templates/table/search/selection_form.twig:55
+msgid "Maximum rows to plot"
+msgstr "Baris maksimum untuk plot"
+
+#: templates/table/search/selection_form.twig:80
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Lakukan \"kueri dengan contoh\" (wildcard: \"%\")"
+
+#: templates/table/search/selection_form.twig:106
+msgid "Select columns (at least one):"
+msgstr "Pilih kolom (paling tidak satu):"
+
+#: templates/table/search/selection_form.twig:126
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Tambahkan kriteria pencarian (bagian klausa \"where\"):"
+
+#: templates/table/search/selection_form.twig:134
+msgid "Number of rows per page"
+msgstr "Jumlah baris per halaman"
+
+#: templates/table/search/selection_form.twig:145
+msgid "Display order:"
+msgstr "Urutan tampilan:"
+
+#: templates/table/search/selection_form.twig:183
+msgid "Replace with:"
+msgstr "Ganti dengan:"
+
+#: templates/table/search/selection_form.twig:199
+msgid "Use regular expression"
+msgstr "Gunakan regular expression"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Klik untuk beralih"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Pilih tabel berbeban tambahan"
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy table"
+msgstr "Salin"
+
+#: templates/database/structure/check_all_tables.twig:11
+#, fuzzy
+#| msgid "Show color"
+msgid "Show create"
+msgstr "Tampilkan warna"
+
+#: templates/database/structure/check_all_tables.twig:25
+#, fuzzy
+#| msgid "Add prefix"
+msgid "Prefix"
+msgstr "Tambahkan prefiks"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "Tambahkan prefiks untuk tabel"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "Ganti prefiks tabel"
+
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "Kolom textarea CHAR"
+
+#: templates/database/structure/check_all_tables.twig:34
+#, fuzzy
+msgid "Remove columns from central list"
+msgstr "Menghapus kolom dari daftar pusat"
+
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Make consistent with central list"
+msgstr "Kolom textarea CHAR"
+
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Save to selected page"
+msgstr "Ekspor ke halaman terpilih"
+
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and save to it"
+msgstr "Buat halaman dan ekspor ke dalamnya"
+
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "New page name: "
+msgid "New page name"
+msgstr "Nama halaman baru: "
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Nama tabel"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Add column(s)"
+msgid "column(s)"
+msgstr "Tambahkan kolom"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "Penyortiran"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+#, fuzzy
+#| msgid "Storage Engine"
+msgid "Storage Engine:"
+msgstr "Mesin Penyimpanan"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Koneksi:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+#, fuzzy
+#| msgid "PARTITION definition"
+msgid "PARTITION definition:"
+msgstr "Definisi PARTITION"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr "Tetapkan alias baru"
+
+#: templates/export/alias_add.twig:9
+msgid "Select database:"
+msgstr "Pilih database:"
+
+#: templates/export/alias_add.twig:15
+msgid "New database name"
+msgstr "Nama database baru"
+
+#: templates/export/alias_add.twig:23
+msgid "Select table:"
+msgstr "Pilih tabel:"
+
+#: templates/export/alias_add.twig:29
+msgid "New table name"
+msgstr "Nama tabel baru"
+
+#: templates/export/alias_add.twig:37
+msgid "Select column:"
+msgstr "Pilih kolom:"
+
+#: templates/export/alias_add.twig:43
+msgid "New column name"
+msgstr "Nama kolom baru"
+
+#: templates/gis_data_editor_form.twig:4
+#, php-format
+msgid "Value for the column \"%s\""
+msgstr "Nilai untuk kolom \"%s\""
+
+#: templates/gis_data_editor_form.twig:38
+#, fuzzy
+#| msgid "SRID:"
+msgctxt "Spatial Reference System Identifier"
+msgid "SRID:"
+msgstr "SRID:"
+
+#: templates/gis_data_editor_form.twig:52
+#, php-format
+msgid "Geometry %d:"
+msgstr "Geometri %d:"
+
+#: templates/gis_data_editor_form.twig:72
+msgid "Point:"
+msgstr "Titik:"
+
+#: templates/gis_data_editor_form.twig:92
+#: templates/gis_data_editor_form.twig:133
+#: templates/gis_data_editor_form.twig:185
+#, fuzzy, php-format
+#| msgid "Point %d"
+msgid "Point %d:"
+msgstr "Poin %d"
+
+#: templates/gis_data_editor_form.twig:112
+#, php-format
+msgid "Linestring %d:"
+msgstr "Deretan baris %d:"
+
+#: templates/gis_data_editor_form.twig:114
+#: templates/gis_data_editor_form.twig:169
+msgid "Outer ring:"
+msgstr "Lingkar luar:"
+
+#: templates/gis_data_editor_form.twig:116
+#: templates/gis_data_editor_form.twig:171
+#, php-format
+msgid "Inner ring %d:"
+msgstr "Lingkar dalam %d:"
+
+#: templates/gis_data_editor_form.twig:143
+msgid "Add a linestring"
+msgstr "Tambahkan segmen garis"
+
+#: templates/gis_data_editor_form.twig:156
+#, php-format
+msgid "Polygon %d:"
+msgstr "Poligon %d:"
+
+#: templates/gis_data_editor_form.twig:198
+msgid "Add a polygon"
+msgstr "Tambahkan poligon"
+
+#: templates/gis_data_editor_form.twig:203
+msgid "Add geometry"
+msgstr "Tambahkan geometri"
+
+#: templates/gis_data_editor_form.twig:212
+msgid "Output"
+msgstr "Keluaran"
+
+#: templates/gis_data_editor_form.twig:214
+msgid ""
+"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+"below into the \"Value\" field."
+msgstr ""
+"Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string dibawahnya "
+"ke dalam isian \"Nilai\"."
+
+#: templates/login/twofactor/invalid.twig:2
+#, fuzzy
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 
 #: url.php:46
 #, fuzzy
