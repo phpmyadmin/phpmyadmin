@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-21 02:29-0300\n"
-"PO-Revision-Date: 2019-01-28 16:52+0000\n"
+"PO-Revision-Date: 2019-02-24 00:18+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -14089,10 +14089,8 @@ msgid "Storage engines"
 msgstr "Depolama motorları"
 
 #: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Depolama motorları"
+msgstr "Bilinmeyen depolama motoru."
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -14696,16 +14694,12 @@ msgid "Select binary log to view"
 msgstr "Görüntülemek için ikili değer günlüğünü seçin"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
-msgstr "Gösterilen Sorguları Kısalt"
+msgstr "Gösterilen sorguları kısalt"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
-msgstr "Tüm Sorguları Göster"
+msgstr "Tüm sorguları göster"
 
 #: templates/server/binlog/index.twig:84
 msgid "Log name"
