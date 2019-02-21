@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-21 02:29-0300\n"
-"PO-Revision-Date: 2019-02-12 03:10+0000\n"
+"PO-Revision-Date: 2019-02-21 16:35+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13894,10 +13894,8 @@ msgid "Storage engines"
 msgstr "ストレージエンジン"
 
 #: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "ストレージエンジン"
+msgstr "不明なストレージ エンジン"
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -14500,14 +14498,10 @@ msgid "Select binary log to view"
 msgstr "表示するバイナリログを選択してください"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "クエリの表示を切り詰める"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "クエリ全体を表示"
 
