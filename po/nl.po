@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-01 05:13+0000\n"
+"PO-Revision-Date: 2019-02-24 01:18+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-8/nl/>"
 "\n"
@@ -950,8 +950,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"U probeert het aantal rijen te verminderen maar u hebt al gegevens opgenomen "
-"in deze rijen, welke verloren zullen gaan. Wilt u toch doorgaan?"
+"U probeert het aantal rijen te verminderen, maar u hebt al gegevens "
+"opgenomen in deze rijen welke verloren zullen gaan. Wilt u toch doorgaan?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2314,7 +2314,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr "waarde/subQuery is leeg"
+msgstr "waarde/deelQuery is leeg"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
