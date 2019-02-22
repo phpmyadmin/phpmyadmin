@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-21 02:29-0300\n"
-"PO-Revision-Date: 2019-01-28 16:51+0000\n"
+"PO-Revision-Date: 2019-02-24 00:18+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -816,8 +816,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"U probeert het aantal rijen te verminderen maar u hebt al gegevens opgenomen "
-"in deze rijen, welke verloren zullen gaan. Wilt u toch doorgaan?"
+"U probeert het aantal rijen te verminderen, maar u hebt al gegevens "
+"opgenomen in deze rijen welke verloren zullen gaan. Wilt u toch doorgaan?"
 
 #: js/messages.php:79
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2276,7 +2276,7 @@ msgstr ""
 
 #: js/messages.php:571
 msgid "value/subQuery is empty"
-msgstr "waarde/subQuery is leeg"
+msgstr "waarde/deelQuery is leeg"
 
 #: js/messages.php:572 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -14203,10 +14203,8 @@ msgid "Storage engines"
 msgstr "Opslag-engines"
 
 #: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Opslag-engines"
+msgstr "Onbekende opslag-engine."
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -14814,14 +14812,10 @@ msgid "Select binary log to view"
 msgstr "Selecteer de te bekijken binaire log"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "Getoonde query's afkappen"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Toon volledige query's"
 
