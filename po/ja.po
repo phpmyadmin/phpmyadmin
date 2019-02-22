@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-21 02:29-0300\n"
-"PO-Revision-Date: 2019-02-21 16:35+0000\n"
+"PO-Revision-Date: 2019-02-23 05:58+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -8764,7 +8764,7 @@ msgstr "修復"
 #: libraries/classes/Operations.php:1652
 #: templates/table/structure/display_structure.twig:460
 msgid "Truncate"
-msgstr "Truncate"
+msgstr "切り捨て"
 
 #: libraries/classes/Operations.php:1667
 msgid "Coalesce"
@@ -8895,8 +8895,7 @@ msgstr "入力されたCAPTCHAは間違っている、もう一度お試しく�
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:365
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
-"recaptcha検証がない。adblockによってブロックされている可能性があります。"
+msgstr "reCAPTCHA検証がない。adblockによってブロックされている可能性があります。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:390
 msgid "You are not allowed to log in to this MySQL server!"
