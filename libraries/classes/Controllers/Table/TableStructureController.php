@@ -27,6 +27,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\StorageEngine;
 
 /**
  * Handles table structure logic
@@ -1317,10 +1318,7 @@ class TableStructureController extends TableController
                 $this->_showtable['Index_length'], $max_digits, $decimals
             );
         }
-        // InnoDB returns a huge value in Data_free, do not use it
-        if (! $is_innodb && isset($this->_showtable['Data_free'])
-            && $this->_showtable['Data_free'] > 0
-        ) {
+        if (isset($this->_showtable['Data_free'])) {
             list($free_size, $free_unit) = Util::formatByteDown(
                 $this->_showtable['Data_free'], $max_digits, $decimals
             );
@@ -1352,6 +1350,8 @@ class TableStructureController extends TableController
         } else {
             $avg_size = $avg_unit = '';
         }
+        $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
+        $innodb_file_per_table = $innodbEnginePlugin->supportsFilePerTable();
 
         return Template::get('table/structure/display_table_stats')->render(
             array(
@@ -1370,6 +1370,7 @@ class TableStructureController extends TableController
                 'data_unit' => $data_unit,
                 'index_size' => isset($index_size) ? $index_size : null,
                 'index_unit' => isset($index_unit) ? $index_unit : null,
+                'innodb_file_per_table' => $innodb_file_per_table,
                 'free_size' => isset($free_size) ? $free_size : null,
                 'free_unit' => isset($free_unit) ? $free_unit : null,
                 'effect_size' => $effect_size,
