@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-22 14:13+0000\n"
+"PO-Revision-Date: 2019-02-24 01:18+0000\n"
 "Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -6048,12 +6048,12 @@ msgstr "並び順"
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:524
 msgid "Not a positive number!"
-msgstr "正の値ではありません。"
+msgstr "正の値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:100
 #: libraries/classes/Config/Validator.php:546
 msgid "Not a non-negative number!"
-msgstr "負の値ではありません"
+msgstr "負でない値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:101
 #: libraries/classes/Config/Validator.php:502
