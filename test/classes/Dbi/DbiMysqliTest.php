@@ -31,7 +31,7 @@ class DbiMysqliTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new DbiMysqli();
     }

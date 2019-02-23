@@ -32,7 +32,7 @@ class NavigationTreeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_Config'] = new Config();
@@ -56,7 +56,7 @@ class NavigationTreeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

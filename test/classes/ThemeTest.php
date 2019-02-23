@@ -36,7 +36,7 @@ class ThemeTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Theme();
         $this->backup = $GLOBALS['PMA_Theme'];
@@ -53,7 +53,7 @@ class ThemeTest extends PmaTestCase
      *
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $GLOBALS['PMA_Theme'] = $this->backup;
     }
@@ -271,7 +271,7 @@ class ThemeTest extends PmaTestCase
      *
      * @dataProvider providerForGetImgPath
      */
-    public function testGetImgPath($file, $fallback, $output)
+    public function testGetImgPath($file, $fallback, $output): void
     {
         $this->assertEquals(
             $this->object->getImgPath($file, $fallback),

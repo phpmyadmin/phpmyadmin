@@ -36,7 +36,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -54,7 +54,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);
@@ -1063,7 +1063,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @dataProvider secretsProvider
      */
-    public function testMACSecretSplit($secret, $mac, $aes)
+    public function testMACSecretSplit($secret, $mac, $aes): void
     {
         $this->assertEquals(
             $mac,
@@ -1082,7 +1082,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @dataProvider secretsProvider
      */
-    public function testAESSecretSplit($secret, $mac, $aes)
+    public function testAESSecretSplit($secret, $mac, $aes): void
     {
         $this->assertEquals(
             $aes,
@@ -1211,7 +1211,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @dataProvider checkRulesProvider
      */
-    public function testCheckRules($user, $pass, $ip, $root, $nopass, $rules, $expected)
+    public function testCheckRules($user, $pass, $ip, $root, $nopass, $rules, $expected): void
     {
         $this->object->user = $user;
         $this->object->password = $pass;

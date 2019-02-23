@@ -38,7 +38,7 @@ class ResultsTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -66,7 +66,7 @@ class ResultsTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -1262,7 +1262,7 @@ class ResultsTest extends PmaTestCase
      *
      * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
      */
-    public function testSetHighlightedColumnGlobalField($analyzed_sql, $output)
+    public function testSetHighlightedColumnGlobalField($analyzed_sql, $output): void
     {
         $this->_callPrivateFunction(
             '_setHighlightedColumnGlobalField',
@@ -1340,7 +1340,7 @@ class ResultsTest extends PmaTestCase
      *
      * @dataProvider dataProviderForTestGetPartialText
      */
-    public function testGetPartialText($pftext, $limitChars, $str, $output)
+    public function testGetPartialText($pftext, $limitChars, $str, $output): void
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
         $GLOBALS['cfg']['LimitChars'] = $limitChars;

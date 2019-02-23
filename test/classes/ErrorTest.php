@@ -33,7 +33,7 @@ class ErrorTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Error(2, 'Compile Error', 'error.txt', 15);
     }
@@ -45,7 +45,7 @@ class ErrorTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -91,7 +91,7 @@ class ErrorTest extends PmaTestCase
      *
      * @dataProvider filePathProvider
      */
-    public function testSetFile($file, $expected)
+    public function testSetFile($file, $expected): void
     {
         $this->object->setFile($file);
         $this->assertEquals($expected, $this->object->getFile());

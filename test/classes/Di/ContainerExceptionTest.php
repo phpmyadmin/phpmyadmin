@@ -31,7 +31,7 @@ class ContainerExceptionTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->exception = new ContainerException();
     }
@@ -43,7 +43,7 @@ class ContainerExceptionTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->exception);
     }

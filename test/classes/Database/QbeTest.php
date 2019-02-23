@@ -32,7 +32,7 @@ class QbeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Qbe($GLOBALS['dbi'], 'pma_test');
         $GLOBALS['server'] = 0;
@@ -69,7 +69,7 @@ class QbeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);

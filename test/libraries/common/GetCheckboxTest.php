@@ -31,7 +31,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->template = new Template();
     }

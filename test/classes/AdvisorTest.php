@@ -28,7 +28,7 @@ class AdvisorTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
@@ -44,7 +44,7 @@ class AdvisorTest extends PmaTestCase
      *
      * @dataProvider escapeStrings
      */
-    public function testEscape($text, $expected)
+    public function testEscape($text, $expected): void
     {
         $this->assertEquals(Advisor::escapePercent($text), $expected);
     }
@@ -98,7 +98,7 @@ class AdvisorTest extends PmaTestCase
      *
      * @dataProvider advisorTimes
      */
-    public function testAdvisorBytime($time, $expected)
+    public function testAdvisorBytime($time, $expected): void
     {
         $result = Advisor::byTime($time, 2);
         $this->assertEquals($expected, $result);
@@ -159,7 +159,7 @@ class AdvisorTest extends PmaTestCase
      * @depends testParse
      * @dataProvider rulesProvider
      */
-    public function testAddRule($rule, $expected, $error)
+    public function testAddRule($rule, $expected, $error): void
     {
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile();

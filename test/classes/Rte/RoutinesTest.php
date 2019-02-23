@@ -32,7 +32,7 @@ class RoutinesTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['ShowFunctionFields'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -69,7 +69,7 @@ class RoutinesTest extends TestCase
      *
      * @dataProvider providerGetDataFromRequest
      */
-    public function testGetDataFromRequest($in, $out)
+    public function testGetDataFromRequest($in, $out): void
     {
         unset($_POST);
         unset($_REQUEST);
@@ -336,7 +336,7 @@ class RoutinesTest extends TestCase
      * @depends testGetParameterRowEmpty
      * @dataProvider providerGetParameterRow
      */
-    public function testGetParameterRow($data, $index, $matcher)
+    public function testGetParameterRow($data, $index, $matcher): void
     {
         $this->routines->setGlobals();
         $this->assertContains(
@@ -418,7 +418,7 @@ class RoutinesTest extends TestCase
      * @depends testGetParameterRow
      * @dataProvider providerGetParameterRowAjax
      */
-    public function testGetParameterRowAjax($data, $matcher)
+    public function testGetParameterRowAjax($data, $matcher): void
     {
         Response::getInstance()->setAjax(true);
         $this->routines->setGlobals();
@@ -1185,7 +1185,7 @@ class RoutinesTest extends TestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    public function testGetQueryFromRequest($request, $query, $num_err)
+    public function testGetQueryFromRequest($request, $query, $num_err): void
     {
         global $errors, $cfg;
 

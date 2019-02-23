@@ -23,7 +23,7 @@ class DbiDummyTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
@@ -65,7 +65,7 @@ class DbiDummyTest extends TestCase
      *
      * @dataProvider schemaData
      */
-    public function testSystemSchema($schema, $expected)
+    public function testSystemSchema($schema, $expected): void
     {
         $this->assertEquals($expected, $GLOBALS['dbi']->isSystemSchema($schema));
     }
@@ -100,7 +100,7 @@ class DbiDummyTest extends TestCase
      *
      * @dataProvider errorData
      */
-    public function testFormatError($number, $message, $expected)
+    public function testFormatError($number, $message, $expected): void
     {
         $GLOBALS['server'] = 1;
         $this->assertEquals(

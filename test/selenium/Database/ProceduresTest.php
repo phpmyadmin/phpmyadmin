@@ -33,7 +33,7 @@ class ProceduresTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         if ($this->originalSqlMode === -1) {
@@ -68,7 +68,7 @@ class ProceduresTest extends TestBase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         $this->dbQuery(
             "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"

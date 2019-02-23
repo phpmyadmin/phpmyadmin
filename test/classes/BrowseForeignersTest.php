@@ -27,7 +27,7 @@ class BrowseForeignersTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->browseForeigners = new BrowseForeigners(50, 25, 100, false, '');
     }

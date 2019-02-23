@@ -31,7 +31,7 @@ class NavigationTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Navigation();
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
@@ -47,7 +47,7 @@ class NavigationTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

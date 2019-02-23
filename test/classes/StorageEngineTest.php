@@ -30,7 +30,7 @@ class StorageEngineTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
@@ -46,7 +46,7 @@ class StorageEngineTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -113,7 +113,7 @@ class StorageEngineTest extends PmaTestCase
      *
      * @dataProvider providerGetEngine
      */
-    public function testGetEngine($expectedClass, $engineName)
+    public function testGetEngine($expectedClass, $engineName): void
     {
         $this->assertInstanceOf(
             $expectedClass,

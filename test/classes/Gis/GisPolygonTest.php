@@ -33,7 +33,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = GisPolygon::singleton();
     }
@@ -45,7 +45,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -212,7 +212,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @dataProvider providerForTestArea
      * @return void
      */
-    public function testArea($ring, $area)
+    public function testArea($ring, $area): void
     {
         $this->assertEquals($this->object->area($ring), $area);
     }
@@ -295,7 +295,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @dataProvider providerForTestIsPointInsidePolygon
      * @return void
      */
-    public function testIsPointInsidePolygon($point, $polygon, $isInside)
+    public function testIsPointInsidePolygon($point, $polygon, $isInside): void
     {
         $this->assertEquals(
             $this->object->isPointInsidePolygon($point, $polygon),
@@ -377,7 +377,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @dataProvider providerForTestGetPointOnSurface
      * @return void
      */
-    public function testGetPointOnSurface($ring)
+    public function testGetPointOnSurface($ring): void
     {
         $this->assertEquals(
             $this->object->isPointInsidePolygon(
@@ -681,7 +681,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @return void
      * @dataProvider providerForIsOuterRing
      */
-    public function testIsOuterRing($ring)
+    public function testIsOuterRing($ring): void
     {
         $this->assertTrue($this->object->isOuterRing($ring));
     }

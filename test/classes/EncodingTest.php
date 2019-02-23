@@ -22,7 +22,7 @@ class EncodingTest extends TestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         Encoding::initEngine();
     }
@@ -30,7 +30,7 @@ class EncodingTest extends TestCase
     /**
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         Encoding::initEngine();
     }

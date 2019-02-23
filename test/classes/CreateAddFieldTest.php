@@ -29,7 +29,7 @@ class CreateAddFieldTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->createAddField = new CreateAddField($GLOBALS['dbi']);
     }
@@ -44,7 +44,7 @@ class CreateAddFieldTest extends TestCase
      *
      * @return void
      */
-    public function testGetPartitionsDefinition($expected, $request)
+    public function testGetPartitionsDefinition($expected, $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getPartitionsDefinition();
@@ -86,7 +86,7 @@ class CreateAddFieldTest extends TestCase
      *
      * @return void
      */
-    public function testGetTableCreationQuery($expected, $db, $table, $request)
+    public function testGetTableCreationQuery($expected, $db, $table, $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getTableCreationQuery($db, $table);
@@ -127,7 +127,7 @@ class CreateAddFieldTest extends TestCase
      *
      * @return void
      */
-    public function testGetNumberOfFieldsFromRequest($expected, $request)
+    public function testGetNumberOfFieldsFromRequest($expected, $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getNumberOfFieldsFromRequest();

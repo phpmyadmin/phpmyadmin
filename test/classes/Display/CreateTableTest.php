@@ -29,7 +29,7 @@ class CreateTableTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$GLOBALS
         $GLOBALS['server'] = 0;

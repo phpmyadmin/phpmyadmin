@@ -24,7 +24,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['ProxyUrl'] = '';
     }

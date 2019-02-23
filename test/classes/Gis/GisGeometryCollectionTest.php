@@ -32,7 +32,7 @@ class GisGeometryCollectionTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = GisGeometryCollection::singleton();
     }
@@ -44,7 +44,7 @@ class GisGeometryCollectionTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -59,7 +59,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @dataProvider providerForScaleRow
      */
-    public function testScaleRow($spatial, $output)
+    public function testScaleRow($spatial, $output): void
     {
         $this->assertEquals($output, $this->object->scaleRow($spatial));
     }
@@ -97,7 +97,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @dataProvider providerForGenerateWkt
      */
-    public function testGenerateWkt($gis_data, $index, $empty, $output)
+    public function testGenerateWkt($gis_data, $index, $empty, $output): void
     {
         $this->assertEquals(
             $output,
@@ -149,7 +149,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @dataProvider providerForGenerateParams
      */
-    public function testGenerateParams($value, $output)
+    public function testGenerateParams($value, $output): void
     {
         $this->assertEquals($output, $this->object->generateParams($value));
     }

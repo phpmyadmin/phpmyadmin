@@ -31,7 +31,7 @@ class UserPreferencesTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         global $cfg;
         include ROOT_PATH . 'libraries/config.default.php';

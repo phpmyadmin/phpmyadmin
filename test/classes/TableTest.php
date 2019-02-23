@@ -29,7 +29,7 @@ class TableTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         /**
          * SET these to avoid undefined index error
@@ -410,7 +410,7 @@ class TableTest extends PmaTestCase
      *
      * @dataProvider dataValidateName
      */
-    public function testValidateName($name, $result, $is_backquoted = false)
+    public function testValidateName($name, $result, $is_backquoted = false): void
     {
         $this->assertEquals(
             $result,

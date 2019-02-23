@@ -32,7 +32,7 @@ class ScriptsTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Scripts();
         if (! defined('PMA_USR_BROWSER_AGENT')) {
@@ -47,7 +47,7 @@ class ScriptsTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

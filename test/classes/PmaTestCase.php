@@ -35,7 +35,7 @@ class PmaTestCase extends TestCase
      *
      * @return void
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         require ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
@@ -109,7 +109,7 @@ class PmaTestCase extends TestCase
      *
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         if (! is_null($this->attrInstance) && ! is_null($this->restoreInstance)) {
             $this->attrInstance->setValue($this->restoreInstance);

@@ -97,7 +97,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';

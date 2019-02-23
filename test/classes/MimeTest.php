@@ -28,7 +28,7 @@ class MimeTest extends TestCase
      * @return void
      * @dataProvider providerForTestDetect
      */
-    public function testDetect($test, $output)
+    public function testDetect($test, $output): void
     {
 
         $this->assertEquals(

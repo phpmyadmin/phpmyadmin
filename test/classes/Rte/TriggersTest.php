@@ -30,7 +30,7 @@ class TriggersTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['ServerDefault'] = '';
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
@@ -61,7 +61,7 @@ class TriggersTest extends TestCase
      *
      * @dataProvider providerGetDataFromRequestEmpty
      */
-    public function testGetDataFromRequestEmpty($in, $out)
+    public function testGetDataFromRequestEmpty($in, $out): void
     {
         unset($_POST);
         foreach ($in as $key => $value) {
@@ -134,7 +134,7 @@ class TriggersTest extends TestCase
      * @dataProvider providerGetEditorFormAdd
      * @group medium
      */
-    public function testGetEditorFormAdd($data, $matcher)
+    public function testGetEditorFormAdd($data, $matcher): void
     {
         $GLOBALS['server'] = 1;
         $this->triggers->setGlobals();
@@ -208,7 +208,7 @@ class TriggersTest extends TestCase
      * @dataProvider providerGetEditorFormEdit
      * @group medium
      */
-    public function testGetEditorFormEdit($data, $matcher)
+    public function testGetEditorFormEdit($data, $matcher): void
     {
         $GLOBALS['server'] = 1;
         $this->triggers->setGlobals();
@@ -281,7 +281,7 @@ class TriggersTest extends TestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
-    public function testGetEditorFormAjax($data, $matcher)
+    public function testGetEditorFormAjax($data, $matcher): void
     {
         $GLOBALS['server'] = 1;
         Response::getInstance()->setAjax(true);

@@ -39,7 +39,7 @@ class SqlQueryFormTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->sqlQueryForm = new SqlQueryForm();
 

@@ -35,7 +35,7 @@ class FormDisplayTemplateTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->config = new Config();
         $this->formDisplayTemplate = new FormDisplayTemplate($this->config);

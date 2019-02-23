@@ -40,7 +40,7 @@ class ReplicationGuiTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$_POST
         $_POST['mr_adduser'] = "mr_adduser";

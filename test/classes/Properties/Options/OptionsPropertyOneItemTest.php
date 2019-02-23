@@ -25,7 +25,7 @@ class OptionsPropertyOneItemTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyOneItem');
     }
@@ -35,7 +35,7 @@ class OptionsPropertyOneItemTest extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->stub);
     }

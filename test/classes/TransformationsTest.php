@@ -30,7 +30,7 @@ class TransformationsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
@@ -63,7 +63,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider getOptionsData
      */
-    public function testGetOptions($input, $expected)
+    public function testGetOptions($input, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -296,7 +296,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider fixupData
      */
-    public function testFixup($value, $expected)
+    public function testFixup($value, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -343,7 +343,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider providerGetDescription
      */
-    public function testGetDescription($file, $expectedDescription)
+    public function testGetDescription($file, $expectedDescription): void
     {
         $this->assertEquals(
             $expectedDescription,
@@ -382,7 +382,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider providerGetName
      */
-    public function testGetName($file, $expectedName)
+    public function testGetName($file, $expectedName): void
     {
         $this->assertEquals(
             $expectedName,

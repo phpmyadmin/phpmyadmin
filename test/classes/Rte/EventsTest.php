@@ -30,7 +30,7 @@ class EventsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -57,7 +57,7 @@ class EventsTest extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         if ($GLOBALS['tear_down']['server']) {
             unset($GLOBALS['cfg']['ServerDefault']);
@@ -75,7 +75,7 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetDataFromRequest
      */
-    public function testGetDataFromRequestEmpty($in, $out)
+    public function testGetDataFromRequestEmpty($in, $out): void
     {
         unset($_POST);
         foreach ($in as $key => $value) {
@@ -173,7 +173,7 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetEditorFormAdd
      */
-    public function testGetEditorFormAdd($data, $matcher)
+    public function testGetEditorFormAdd($data, $matcher): void
     {
         $this->events->setGlobals();
         $this->assertContains(
@@ -260,7 +260,7 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetEditorFormEdit
      */
-    public function testGetEditorFormEdit($data, $matcher)
+    public function testGetEditorFormEdit($data, $matcher): void
     {
         $this->events->setGlobals();
         $this->assertContains(
@@ -347,7 +347,7 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
-    public function testGetEditorFormAjax($data, $matcher)
+    public function testGetEditorFormAjax($data, $matcher): void
     {
         Response::getInstance()->setAjax(true);
         $this->events->setGlobals();
@@ -409,7 +409,7 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    public function testGetQueryFromRequest($request, $query, $num_err)
+    public function testGetQueryFromRequest($request, $query, $num_err): void
     {
         global $errors;
 

@@ -24,7 +24,7 @@ class ExportTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -52,7 +52,7 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testServerExport($plugin, $expected)
+    public function testServerExport($plugin, $expected): void
     {
         $text = $this->_doExport('server', $plugin);
 
@@ -72,7 +72,7 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testDbExport($plugin, $expected)
+    public function testDbExport($plugin, $expected): void
     {
         $this->navigateDatabase($this->database_name);
 
@@ -94,7 +94,7 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testTableExport($plugin, $expected)
+    public function testTableExport($plugin, $expected): void
     {
         $this->dbQuery("INSERT INTO `test_table` (val) VALUES (3);");
 

@@ -29,7 +29,7 @@ class TypesTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Types($GLOBALS['dbi']);
     }
@@ -161,7 +161,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators($type, $null, $output)
+    public function testGetTypeOperators($type, $null, $output): void
     {
         $this->assertEquals(
             $output,
@@ -269,7 +269,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerForTestGetTypeDescription
      */
-    public function testGetTypeDescription($type)
+    public function testGetTypeDescription($type): void
     {
         $this->assertNotEquals(
             '',
@@ -350,7 +350,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    public function testGetFunctionsClass($class, $output)
+    public function testGetFunctionsClass($class, $output): void
     {
         $this->assertEquals(
             $output,
@@ -778,7 +778,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerFortTestGetTypeClass
      */
-    public function testGetTypeClass($type, $output)
+    public function testGetTypeClass($type, $output): void
     {
         $this->assertEquals(
             $output,

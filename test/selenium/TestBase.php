@@ -75,7 +75,7 @@ abstract class TestBase extends TestCase
      *
      * @throws \Exception
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         /**
          * Needs to be implemented
@@ -1024,7 +1024,7 @@ abstract class TestBase extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         if ($this->_mysqli != null) {
             $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->database_name);

@@ -28,7 +28,7 @@ class FilesTest extends TestCase
      *
      * @dataProvider listScripts
      */
-    public function testDynamicJs($name, $expected)
+    public function testDynamicJs($name, $expected): void
     {
         $GLOBALS['pmaThemeImage'] = '';
         $GLOBALS['goto_whitelist'] = ['x'];

@@ -22,7 +22,7 @@ class CharsetsTest extends TestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -38,7 +38,7 @@ class CharsetsTest extends TestCase
      * @test
      * @dataProvider collationDescr
      */
-    public function testGetCollationDescr($collation, $desc)
+    public function testGetCollationDescr($collation, $desc): void
     {
         $this->assertEquals(
             $desc,

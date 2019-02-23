@@ -114,7 +114,7 @@ class UtilTest extends PmaTestCase
      * @test
      * @dataProvider charsetQueryData
      */
-    public function testGenerateCharsetQueryPart($collation, $expected)
+    public function testGenerateCharsetQueryPart($collation, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -168,7 +168,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::getBrowseUploadFileBlock
      * @dataProvider providerGetBrowseUploadFileBlock
      */
-    public function testGetBrowseUploadFileBlock($size, $unit, $res)
+    public function testGetBrowseUploadFileBlock($size, $unit, $res): void
     {
         $GLOBALS['is_upload'] = false;
         $this->assertEquals(
@@ -438,7 +438,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::convertBitDefaultValue
      * @dataProvider providerConvertBitDefaultValue
      */
-    public function testConvertBitDefaultValue($bit, $val)
+    public function testConvertBitDefaultValue($bit, $val): void
     {
         $this->assertEquals(
             $val,
@@ -523,7 +523,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::escapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
-    public function testEscapeMysqlWildcards($a, $b)
+    public function testEscapeMysqlWildcards($a, $b): void
     {
         $this->assertEquals(
             $a,
@@ -542,7 +542,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::unescapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
-    public function testUnescapeMysqlWildcards($a, $b)
+    public function testUnescapeMysqlWildcards($a, $b): void
     {
         $this->assertEquals(
             $b,
@@ -561,7 +561,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::expandUserString
      * @dataProvider providerExpandUserString
      */
-    public function testExpandUserString($in, $out)
+    public function testExpandUserString($in, $out): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -636,7 +636,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::extractColumnSpec
      * @dataProvider providerExtractColumnSpec
      */
-    public function testExtractColumnSpec($in, $out)
+    public function testExtractColumnSpec($in, $out): void
     {
         $GLOBALS['cfg']['LimitChars'] = 1000;
 
@@ -786,7 +786,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::extractValueFromFormattedSize
      * @dataProvider providerExtractValueFromFormattedSize
      */
-    public function testExtractValueFromFormattedSize($size, $expected)
+    public function testExtractValueFromFormattedSize($size, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -832,7 +832,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::isForeignKeySupported
      * @dataProvider providerIsForeignKeySupported
      */
-    public function testIsForeignKeySupported($a, $e)
+    public function testIsForeignKeySupported($a, $e): void
     {
         $GLOBALS['server'] = 1;
 
@@ -908,7 +908,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::formatByteDown
      * @dataProvider providerFormatByteDown
      */
-    public function testFormatByteDown($a, $b, $c, $e)
+    public function testFormatByteDown($a, $b, $c, $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
         $result[0] = trim($result[0]);
@@ -1043,7 +1043,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::formatNumber
      * @dataProvider providerFormatNumber
      */
-    public function testFormatNumber($a, $b, $c, $d)
+    public function testFormatNumber($a, $b, $c, $d): void
     {
         $this->assertFormatNumber($a, $b, $c, $d);
 
@@ -1197,7 +1197,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::generateHiddenMaxFileSize
      * @dataProvider providerGenerateHiddenMaxFileSize
      */
-    public function testGenerateHiddenMaxFileSize($size)
+    public function testGenerateHiddenMaxFileSize($size): void
     {
         $this->assertEquals(
             Util::generateHiddenMaxFileSize($size),
@@ -1502,7 +1502,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::getFormattedMaximumUploadSize
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
-    public function testGetFormattedMaximumUploadSize($size, $unit, $res)
+    public function testGetFormattedMaximumUploadSize($size, $unit, $res): void
     {
         $this->assertEquals(
             "(" . __('Max: ') . $res . $unit . ")",
@@ -1966,7 +1966,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::getTitleForTarget
      * @dataProvider providerGetTitleForTarget
      */
-    public function testGetTitleForTarget($target, $result)
+    public function testGetTitleForTarget($target, $result): void
     {
         $this->assertEquals(
             $result,
@@ -2033,7 +2033,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::localisedDate
      * @dataProvider providerLocalisedDate
      */
-    public function testLocalisedDate($a, $b, $e)
+    public function testLocalisedDate($a, $b, $e): void
     {
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set('Europe/London');
@@ -2078,7 +2078,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::timespanFormat
      * @dataProvider providerTimespanFormat
      */
-    public function testTimespanFormat($a, $e)
+    public function testTimespanFormat($a, $e): void
     {
         $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
         $tmpTimezone = date_default_timezone_get();
@@ -2123,7 +2123,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::printableBitValue
      * @dataProvider providerPrintableBitValue
      */
-    public function testPrintableBitValue($a, $b, $e)
+    public function testPrintableBitValue($a, $b, $e): void
     {
         $this->assertEquals(
             $e,
@@ -2163,7 +2163,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuote
      */
-    public function testUnQuote($param, $expected)
+    public function testUnQuote($param, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -2209,7 +2209,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuoteSelectedChar
      */
-    public function testUnQuoteSelectedChar($param, $expected)
+    public function testUnQuoteSelectedChar($param, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -2255,7 +2255,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::backquote
      * @dataProvider providerBackquote
      */
-    public function testBackquote($a, $b)
+    public function testBackquote($a, $b): void
     {
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($a, Util::backquote($a, false));
@@ -2312,7 +2312,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::backquoteCompat
      * @dataProvider providerBackquoteCompat
      */
-    public function testBackquoteCompat($a, $b)
+    public function testBackquoteCompat($a, $b): void
     {
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($a, Util::backquoteCompat($a, 'NONE', false));
@@ -2440,7 +2440,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::userDir
      * @dataProvider providerUserDir
      */
-    public function testUserDir($a, $e)
+    public function testUserDir($a, $e): void
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
@@ -2477,7 +2477,7 @@ class UtilTest extends PmaTestCase
      * @covers \PhpMyAdmin\Util::duplicateFirstNewline
      * @dataProvider providerDuplicateFirstNewline
      */
-    public function testDuplicateFirstNewline($a, $e)
+    public function testDuplicateFirstNewline($a, $e): void
     {
         $this->assertEquals(
             $e,
@@ -2539,7 +2539,7 @@ class UtilTest extends PmaTestCase
      *
      * @dataProvider linksOrButtons
      */
-    public function testLinkOrButton(array $params, $limit, $match)
+    public function testLinkOrButton(array $params, $limit, $match): void
     {
         $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
         $GLOBALS['cfg']['LinkLengthLimit'] = $limit;

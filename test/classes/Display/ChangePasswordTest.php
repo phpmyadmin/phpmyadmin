@@ -31,7 +31,7 @@ class ChangePasswordTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$GLOBALS
         $GLOBALS['PMA_Config'] = new Config();

@@ -32,7 +32,7 @@ class SearchTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
@@ -65,7 +65,7 @@ class SearchTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -96,7 +96,7 @@ class SearchTest extends PmaTestCase
      *
      * @dataProvider searchTypes
      */
-    public function testGetWhereClause($type, $expected)
+    public function testGetWhereClause($type, $expected): void
     {
         $_POST['criteriaSearchType'] = $type;
         $_POST['criteriaSearchString'] = 'search string';

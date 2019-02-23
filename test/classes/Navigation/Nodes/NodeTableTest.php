@@ -25,7 +25,7 @@ class NodeTableTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'b_browse';
@@ -67,7 +67,7 @@ class NodeTableTest extends PmaTestCase
      * @return void
      * @dataProvider providerForTestIcon
      */
-    public function testIcon($target, $imageName)
+    public function testIcon($target, $imageName): void
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
         $node = NodeFactory::getInstance('NodeTable');

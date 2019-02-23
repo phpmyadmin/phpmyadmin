@@ -37,7 +37,7 @@ class StructureControllerTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$_REQUEST
         $_REQUEST['log'] = "index1";

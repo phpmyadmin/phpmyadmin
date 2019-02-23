@@ -37,7 +37,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //Constants
         if (! defined("PMA_USR_BROWSER_AGENT")) {
