@@ -93,11 +93,11 @@ class UserPreferencesTest extends PmaTestCase
             $result['config_data']
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             time(),
             $result['mtime'],
-            '',
-            2
+            2,
+            ''
         );
 
         $this->assertEquals(
@@ -179,11 +179,11 @@ class UserPreferencesTest extends PmaTestCase
         );
 
         /* TODO: This breaks sometimes as there might be time difference! */
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             time(),
             $_SESSION['userconfig']['ts'],
-            '',
-            2
+            2,
+            ''
         );
 
         $assert = true;
