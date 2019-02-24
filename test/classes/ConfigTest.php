@@ -837,11 +837,8 @@ class ConfigTest extends PmaTestCase
     public function testGetThemeUniqueValue()
     {
         $partial_sum = (
-            Assert::readAttribute($this->object, 'source_mtime') +
-            Assert::readAttribute(
-                $this->object,
-                'default_source_mtime'
-            ) +
+            $this->object->source_mtime +
+            $this->object->default_source_mtime +
             $this->object->get('user_preferences_mtime') +
             $GLOBALS['PMA_Theme']->mtime_info +
             $GLOBALS['PMA_Theme']->filesize_info

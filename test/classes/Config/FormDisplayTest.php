@@ -60,9 +60,12 @@ class FormDisplayTest extends PmaTestCase
      */
     public function testFormDisplayContructor()
     {
+        $reflection = new ReflectionProperty(FormDisplay::class, '_jsLangStrings');
+        $reflection->setAccessible(true);
+
         $this->assertCount(
             5,
-            $this->readAttribute($this->object, '_jsLangStrings')
+            $reflection->getValue($this->object)
         );
     }
 
@@ -95,20 +98,26 @@ class FormDisplayTest extends PmaTestCase
             $_forms['pma_testform']
         );
 
+        $attrSystemPaths = $reflection->getProperty('_systemPaths');
+        $attrSystemPaths->setAccessible(true);
+
         $this->assertEquals(
             [
                 "Servers/2/test" => "Servers/1/test",
                 "Servers/2/:group:end:0" => "Servers/1/:group:end:0",
             ],
-            $this->readAttribute($this->object, '_systemPaths')
+            $attrSystemPaths->getValue($this->object)
         );
+
+        $attrTranslatedPaths = $reflection->getProperty('_translatedPaths');
+        $attrTranslatedPaths->setAccessible(true);
 
         $this->assertEquals(
             [
                 "Servers/2/test" => "Servers-2-test",
                 "Servers/2/:group:end:0" => "Servers-2-:group:end:0",
             ],
-            $this->readAttribute($this->object, '_translatedPaths')
+            $attrTranslatedPaths->getValue($this->object)
         );
     }
 

@@ -64,9 +64,12 @@ class TrackerTest extends PmaTestCase
      */
     public function testEnabled()
     {
+        $reflection = new \ReflectionProperty(Tracker::class, 'enabled');
+        $reflection->setAccessible(true);
+
         Tracker::enable();
         $this->assertTrue(
-            Assert::readAttribute('PhpMyAdmin\Tracker', 'enabled')
+            $reflection->getValue()
         );
     }
 

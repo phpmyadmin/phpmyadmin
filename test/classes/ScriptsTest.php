@@ -170,13 +170,12 @@ $(function() {});
      */
     public function testAddFile()
     {
+        $reflection = new \ReflectionProperty(Scripts::class, '_files');
+        $reflection->setAccessible(true);
+
         // Assert empty _files property of
         // Scripts
-        $this->assertAttributeEquals(
-            [],
-            '_files',
-            $this->object
-        );
+        $this->assertEquals([], $reflection->getValue($this->object));
 
         // Add one script file
         $file = 'common.js';
@@ -189,11 +188,7 @@ $(function() {});
             ],
         ];
         $this->object->addFile($file);
-        $this->assertAttributeEquals(
-            $_files,
-            '_files',
-            $this->object
-        );
+        $this->assertEquals($_files, $reflection->getValue($this->object));
     }
 
     /**
@@ -203,6 +198,9 @@ $(function() {});
      */
     public function testAddFiles()
     {
+        $reflection = new \ReflectionProperty(Scripts::class, '_files');
+        $reflection->setAccessible(true);
+
         $filenames = [
             'common.js',
             'sql.js',
@@ -221,10 +219,6 @@ $(function() {});
             ],
         ];
         $this->object->addFiles($filenames);
-        $this->assertAttributeEquals(
-            $_files,
-            '_files',
-            $this->object
-        );
+        $this->assertEquals($_files, $reflection->getValue($this->object));
     }
 }

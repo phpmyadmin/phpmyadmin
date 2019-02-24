@@ -143,13 +143,13 @@ class HeaderTest extends PmaTestCase
      */
     public function testDisableWarnings()
     {
+        $reflection = new \ReflectionProperty(Header::class, '_warningsEnabled');
+        $reflection->setAccessible(true);
+
         $header = new Header();
         $header->disableWarnings();
-        $this->assertAttributeEquals(
-            false,
-            '_warningsEnabled',
-            $header
-        );
+
+        $this->assertFalse($reflection->getValue($header));
     }
 
     /**
