@@ -404,27 +404,27 @@ class UserPreferencesTest extends PmaTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'phpunit';
         $result = $this->userPreferences->autoloadGetHeader();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form action="prefs_manage.php" method="post" class="disableAjax">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="token" value="token"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="json" value="">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="submit_import" value="1">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="return_url" value="phpunit?">',
             $result
         );

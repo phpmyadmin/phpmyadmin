@@ -151,79 +151,79 @@ class StatusControllerTest extends TestCase
 
         $traffic = $bytesReceived + $bytesSent;
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $trafficHtml,
             $html
         );
         //updatetime
         $upTimeHtml = 'This MySQL server has been running for '
             . '0 days, 10 hours, 0 minutes and 0 seconds';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $upTimeHtml,
             $html
         );
         //master state
         $masterHtml = 'This MySQL server works as <b>master</b>';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $masterHtml,
             $html
         );
 
         //validate 2: Status::getHtmlForServerStateTraffic
         $trafficHtml = '<table id="serverstatustraffic" class="width100 data noclick">';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $trafficHtml,
             $html
         );
         //traffic hint
         $trafficHtml = 'On a busy server, the byte counters may overrun';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $trafficHtml,
             $html
         );
         //$bytes_received
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="value">' . $bytesReceived . ' B',
             $html
         );
         //$bytes_sent
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="value">' . $bytesSent . ' B',
             $html
         );
 
         //validate 3: Status::getHtmlForServerStateConnections
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Connections</th>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>&oslash; per hour</th>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table id="serverstatusconnections" class="width100 data noclick">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="name">Max. concurrent connections</th>',
             $html
         );
         //Max_used_connections
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="value">' . $maxUsedConnections,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="name">Failed attempts</th>',
             $html
         );
         //Aborted_connects
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="value">' . $abortedConnections,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="name">Aborted</th>',
             $html
         );

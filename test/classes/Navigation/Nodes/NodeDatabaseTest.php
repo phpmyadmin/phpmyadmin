@@ -46,11 +46,11 @@ class NodeDatabaseTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_structure.php',
             $parent->links['text']
         );
-        $this->assertContains('database', $parent->classes);
+        $this->assertStringContainsString('database', $parent->classes);
     }
 
     /**

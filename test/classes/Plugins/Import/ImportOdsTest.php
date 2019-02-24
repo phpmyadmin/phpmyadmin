@@ -121,39 +121,39 @@ class ImportOdsTest extends PmaTestCase
         //Test function called
         $this->object->doImport();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET '
             . 'utf8 COLLATE utf8_general_ci',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES "
             . "(1, 'dbbase', NULL, 'ddd');",
             $sql_query
         );
 
         //asset that all databases and tables are imported
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to database: `ODS_DB`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `ODS_DB`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to table: `pma_bookmark`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `pma_bookmark`',
             $import_notice
         );

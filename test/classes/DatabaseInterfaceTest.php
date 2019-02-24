@@ -408,7 +408,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      */
     public function testFormatError($error_number, $error_message, $match): void
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             $match,
             DatabaseInterface::formatError($error_number, $error_message)
         );

@@ -136,7 +136,7 @@ class ExportYamlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "%YAML 1.1\n---\n",
             $result
         );

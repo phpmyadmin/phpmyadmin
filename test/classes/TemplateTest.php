@@ -50,8 +50,8 @@ class TemplateTest extends PmaTestCase
             'variable1' => 'value1',
             'variable2' => 'value2',
         ]);
-        $this->assertContains('value1', $result);
-        $this->assertContains('value2', $result);
+        $this->assertStringContainsString('value1', $result);
+        $this->assertStringContainsString('value2', $result);
     }
 
     /**

@@ -125,7 +125,7 @@ class ErrorHandlerTest extends PmaTestCase
         if ($output_hide == '') {
             $this->assertEquals('', $output);
         } else {
-            $this->assertContains($output_hide, $output);
+            $this->assertStringContainsString($output_hide, $output);
         }
     }
 
@@ -155,7 +155,7 @@ class ErrorHandlerTest extends PmaTestCase
     ) {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             $output_show,
             $this->object->getDispErrors()
         );

@@ -132,23 +132,23 @@ class ImportXmlTest extends PmaTestCase
         */
 
         //asset that all databases and tables are imported
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to database: `phpmyadmintest`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `phpmyadmintest`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to table: `pma_bookmarktest`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `pma_bookmarktest`',
             $import_notice
         );

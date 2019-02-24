@@ -1410,12 +1410,12 @@ class TableTest extends PmaTestCase
         $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
             . " SELECT `COLUMN_NAME1` FROM "
             . "`PMA`.`PMA_BookMark`";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $sql_query,
             $GLOBALS['sql_query']
         );
         $sql_query = "DROP VIEW `PMA`.`PMA_BookMark`";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $sql_query,
             $GLOBALS['sql_query']
         );
@@ -1439,12 +1439,12 @@ class TableTest extends PmaTestCase
         $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
             . " SELECT `COLUMN_NAME1` FROM "
             . "`PMA`.`PMA_BookMark`";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $sql_query,
             $GLOBALS['sql_query']
         );
         $sql_query = "DROP VIEW `PMA`.`PMA_BookMark`";
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             $sql_query,
             $GLOBALS['sql_query']
         );

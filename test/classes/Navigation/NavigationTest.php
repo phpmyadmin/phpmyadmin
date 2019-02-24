@@ -152,11 +152,11 @@ class NavigationTest extends PmaTestCase
         $this->object->relation = new Relation($dbi);
 
         $html = $this->object->getItemUnhideDialog('db');
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>tableName</td>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="navigation.php" data-post="'
             . 'unhideNavItem=1&amp;itemType=table&amp;'
             . 'itemName=tableName&amp;dbName=db&amp;lang=en"'

@@ -51,35 +51,35 @@ class TransformationOverviewControllerTest extends TestCase
 
         $actual = $controller->indexAction();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Available MIME types'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'id="transformation">' . __('Available browser display transformations'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'id="input_transformation">' . __('Available input transformations'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Text/Plain',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Image/JPEG: Inline',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Displays a clickable thumbnail.',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Image/JPEG: Upload',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Image upload functionality which also displays a thumbnail.',
             $actual
         );

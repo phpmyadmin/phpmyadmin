@@ -98,7 +98,7 @@ class CreateRemoveUserTest extends TestBase
         $this->waitForElement('id', "adduser_submit")->click();
 
         $success = $this->waitForElement('cssSelector', "div.success");
-        $this->assertContains('You have added a new user', $success->getText());
+        $this->assertStringContainsString('You have added a new user', $success->getText());
 
         // Removing the newly added user
         $this->waitForElement('partialLinkText', "User accounts")->click();
@@ -117,7 +117,7 @@ class CreateRemoveUserTest extends TestBase
         $this->acceptAlert();
 
         $success = $this->waitForElement('cssSelector', "div.success");
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The selected users have been deleted',
             $success->getText()
         );

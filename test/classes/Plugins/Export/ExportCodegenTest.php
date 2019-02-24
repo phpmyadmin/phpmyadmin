@@ -266,22 +266,22 @@ class ExportCodegenTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<?xml version="1.0" encoding="utf-8" ?>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<class name="TestTable" table="TestTable">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</class>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</hibernate-mapping>',
             $result
         );

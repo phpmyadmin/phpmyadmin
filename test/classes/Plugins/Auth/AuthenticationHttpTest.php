@@ -445,7 +445,7 @@ class AuthenticationHttpTest extends PmaTestCase
         $this->object->showFailure('');
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<p>error 123</p>',
             $result
         );

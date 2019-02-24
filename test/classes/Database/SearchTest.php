@@ -170,7 +170,7 @@ class SearchTest extends PmaTestCase
      */
     public function testGetSearchResults()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Search results for "<em></em>" :',
             $this->object->getSearchResults()
         );
@@ -186,28 +186,28 @@ class SearchTest extends PmaTestCase
         $main = $this->object->getMainHtml();
 
         // test selection form
-        $this->assertContains('<form', $main);
-        $this->assertContains('<a id="togglesearchformlink">', $main);
-        $this->assertContains('criteriaSearchType', $main);
+        $this->assertStringContainsString('<form', $main);
+        $this->assertStringContainsString('<a id="togglesearchformlink">', $main);
+        $this->assertStringContainsString('criteriaSearchType', $main);
 
         // test result divs
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="table-info"',
             $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a id="table-link"',
             $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="browse-results"',
             $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="sqlqueryform"',
             $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a id="togglequerybox"',
             $main
         );

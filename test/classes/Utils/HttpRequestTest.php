@@ -230,7 +230,7 @@ class HttpRequestTest extends PmaTestCase
         } elseif ($expected === null) {
             $this->assertNull($result);
         } else {
-            $this->assertContains($expected, $result);
+            $this->assertStringContainsString($expected, $result);
         }
     }
 

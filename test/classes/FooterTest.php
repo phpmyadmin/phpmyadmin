@@ -233,7 +233,7 @@ class FooterTest extends PmaTestCase
     public function testGetScripts()
     {
         $footer = new Footer();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<script data-cfasync="false" type="text/javascript">',
             $footer->getScripts()->getDisplay()
         );
@@ -248,7 +248,7 @@ class FooterTest extends PmaTestCase
     public function testDisplay()
     {
         $footer = new Footer();
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Open new phpMyAdmin window',
             $footer->getDisplay()
         );

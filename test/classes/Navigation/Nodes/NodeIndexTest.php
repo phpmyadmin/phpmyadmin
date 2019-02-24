@@ -42,7 +42,7 @@ class NodeIndexTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'tbl_indexes.php',
             $parent->links['text']
         );

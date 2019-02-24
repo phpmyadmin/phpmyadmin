@@ -339,7 +339,7 @@ class RoutinesTest extends TestCase
     public function testGetParameterRow($data, $index, $matcher): void
     {
         $this->routines->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->routines->getParameterRow($data, $index)
         );
@@ -422,7 +422,7 @@ class RoutinesTest extends TestCase
     {
         Response::getInstance()->setAjax(true);
         $this->routines->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->routines->getParameterRow($data)
         );
@@ -500,7 +500,7 @@ class RoutinesTest extends TestCase
     public function testGetEditorForm1($data, $matcher)
     {
         $this->routines->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->routines->getEditorForm('add', '', $data)
         );
@@ -621,7 +621,7 @@ class RoutinesTest extends TestCase
     public function testGetEditorForm2($data, $matcher)
     {
         $this->routines->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->routines->getEditorForm('edit', 'change', $data)
         );
@@ -743,7 +743,7 @@ class RoutinesTest extends TestCase
     {
         Response::getInstance()->setAjax(true);
         $this->routines->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->routines->getEditorForm('edit', 'remove', $data)
         );
@@ -865,7 +865,7 @@ class RoutinesTest extends TestCase
     public function testGetEditorForm4($data, $matcher)
     {
         $this->routines->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->routines->getEditorForm('edit', 'change', $data)
         );
@@ -927,7 +927,7 @@ class RoutinesTest extends TestCase
         $this->routines->setGlobals();
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->routines->getExecuteForm($data)
         );
@@ -1069,7 +1069,7 @@ class RoutinesTest extends TestCase
     {
         Response::getInstance()->setAjax(true);
         $this->routines->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->routines->getExecuteForm($data)
         );

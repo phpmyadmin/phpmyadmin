@@ -157,12 +157,12 @@ class IndexTest extends TestCase
         SetupIndex::messagesShowHtml();
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="type hiddenmessage" id="0"><h4>foo</h4>123</div>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="type" id="1"><h4>bar</h4>321</div>',
             $result
         );

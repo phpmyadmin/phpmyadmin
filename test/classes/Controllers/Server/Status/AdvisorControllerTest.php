@@ -107,35 +107,35 @@ class AdvisorControllerTest extends TestCase
 
         $html = $controller->index();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="#openAdvisorInstructions">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="advisorInstructionsDialog"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The Advisor system can provide recommendations',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Do note however that this system provides recommendations',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="advisorData" class="hide">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars(json_encode('parse')),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars(json_encode('errors')),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars(json_encode('run')),
             $html
         );

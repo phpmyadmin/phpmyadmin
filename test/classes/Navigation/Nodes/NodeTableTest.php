@@ -51,11 +51,11 @@ class NodeTableTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'sql.php',
             $parent->links['text']
         );
-        $this->assertContains('table', $parent->classes);
+        $this->assertStringContainsString('table', $parent->classes);
     }
 
     /**
@@ -71,7 +71,7 @@ class NodeTableTest extends PmaTestCase
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
         $node = NodeFactory::getInstance('NodeTable');
-        $this->assertContains($imageName, $node->icon[0]);
+        $this->assertStringContainsString($imageName, $node->icon[0]);
     }
 
     /**

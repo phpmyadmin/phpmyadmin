@@ -52,7 +52,7 @@ class ConfigGeneratorTest extends PmaTestCase
 
         $result = ConfigGenerator::getConfigFile($cf);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<?php\n" .
             "/*\n" .
             " * Generated configuration file\n" .
@@ -61,7 +61,7 @@ class ConfigGeneratorTest extends PmaTestCase
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "/* Servers configuration */\n" .
             '$i = 0;' . "\n\n" .
             "/* Server: localhost [0] */\n" .
@@ -73,7 +73,7 @@ class ConfigGeneratorTest extends PmaTestCase
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '?>',
             $result
         );

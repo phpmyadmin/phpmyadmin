@@ -650,12 +650,12 @@ class ExportHtmlwordTest extends PmaTestCase
             true
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="print">ftable (ffield)</td>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="print"></td><td class="print"></td>',
             $result
         );
@@ -762,7 +762,7 @@ class ExportHtmlwordTest extends PmaTestCase
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'database', 'table');
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="print">tna&quot;me</td>' .
             '<td class="print">ac&gt;t</td>' .
             '<td class="print">manip&amp;</td>' .

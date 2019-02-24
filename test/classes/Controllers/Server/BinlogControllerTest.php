@@ -112,87 +112,87 @@ class BinlogControllerTest extends TestCase
             'is_full_query' => null,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Select binary log to view',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="index1" selected>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="index2">',
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Your SQL query has been executed successfully',
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10",
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table id="binlogTable">',
             $actual
         );
 
         $urlNavigation = 'server_binlog.php" data-post="pos=3&amp;'
             . 'is_full_query=1&amp;server=1&amp';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $urlNavigation,
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'title="Previous"',
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Log name',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Position',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Event type',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Server ID',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Original position',
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value['Log_name'],
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value['Pos'],
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value['Event_type'],
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value['Server_id'],
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value['Orig_log_pos'],
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value['Info'],
             $actual
         );

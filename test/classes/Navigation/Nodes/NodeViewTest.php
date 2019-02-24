@@ -42,11 +42,11 @@ class NodeViewTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'sql.php',
             $parent->links['text']
         );
-        $this->assertContains('b_props', $parent->icon);
-        $this->assertContains('view', $parent->classes);
+        $this->assertStringContainsString('b_props', $parent->icon);
+        $this->assertStringContainsString('view', $parent->classes);
     }
 }

@@ -92,11 +92,11 @@ class IndexTest extends PmaTestCase
             'PMA_Non_unique',
             $index->getNonUnique()
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PMA_Comment',
             $index->getComments()
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PMA_Index_comment',
             $index->getComments()
         );

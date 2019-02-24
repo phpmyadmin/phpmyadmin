@@ -304,8 +304,8 @@ class LanguageTest extends PmaTestCase
         $this->manager->getLanguage($locale)->activate();
 
         /* Grab some texts */
-        $this->assertContains('%s', _ngettext('%s table', '%s tables', 10));
-        $this->assertContains('%s', _ngettext('%s table', '%s tables', 1));
+        $this->assertStringContainsString('%s', _ngettext('%s table', '%s tables', 10));
+        $this->assertStringContainsString('%s', _ngettext('%s table', '%s tables', 1));
 
         $this->assertEquals(
             $locale,

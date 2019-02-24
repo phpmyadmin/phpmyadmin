@@ -43,7 +43,7 @@ class FilesTest extends TestCase
         require ROOT_PATH . $name;
         $buffer->stop();
         $out = $buffer->getContents();
-        $this->assertContains($expected, $out);
+        $this->assertStringContainsString($expected, $out);
     }
 
     /**

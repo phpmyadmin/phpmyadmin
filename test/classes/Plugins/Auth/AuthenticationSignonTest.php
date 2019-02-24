@@ -62,7 +62,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'You must set SignonURL!',
             $result
         );

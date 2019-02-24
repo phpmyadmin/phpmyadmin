@@ -150,29 +150,29 @@ class VariablesTest extends TestCase
         $html = Variables::getHtmlForFilter($this->serverStatusData);
 
         //validate 1: Variables::getHtmlForFilter
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<fieldset id="tableFilter">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'server_status_variables.php',
             $html
         );
         //validate 2: filter
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<label for="filterText">Containing the word:</label>',
             $html
         );
         //validate 3:Items
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<label for="filterAlert">Show only alert values</label>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Filter by category',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Show unformatted values',
             $html
         );
@@ -189,20 +189,20 @@ class VariablesTest extends TestCase
         $html = Variables::getHtmlForLinkSuggestions($this->serverStatusData);
 
         //validate 1: Variables::getHtmlForLinkSuggestions
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="linkSuggestions" class="defaultLinks hide"',
             $html
         );
         //validate 2: linkSuggestions
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<p class="notice">Related links:',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Flush (close) all tables',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="status_binlog_cache">',
             $html
         );
@@ -222,44 +222,44 @@ class VariablesTest extends TestCase
         //validate 1: Variables::getHtmlForVariablesList
         $table = '<table class="data noclick" '
             . 'id="serverstatusvariables">';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $table,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Variable</th>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Value</th>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Description</th>',
             $html
         );
         //validate 3:Items
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="name">Aborted clients',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="allfine">0</span>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="name">Aborted connects',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="name">Com delete multi',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="name">Com create function',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="name">Com empty query',
             $html
         );

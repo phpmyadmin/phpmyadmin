@@ -63,34 +63,34 @@ class CreateTableTest extends TestCase
         $html = CreateTable::getHtml($db);
 
         //getImage
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::getImage('b_table_add'),
             $html
         );
 
         //__('Create table')
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Create table'),
             $html
         );
 
         //Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs($db),
             $html
         );
         //label
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Name'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Number of columns'),
             $html
         );
 
         //button
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Go'),
             $html
         );

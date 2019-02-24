@@ -185,7 +185,7 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', "success");
-        $this->assertContains("1 row affected", $success->getText());
+        $this->assertStringContainsString("1 row affected", $success->getText());
 
         $this->assertEquals(
             "foobar",
@@ -232,7 +232,7 @@ class BrowseTest extends TestBase
             'cssSelector',
             "span.ajax_notification div.success"
         );
-        $this->assertContains("1 row affected", $success->getText());
+        $this->assertStringContainsString("1 row affected", $success->getText());
 
         $this->assertEquals(
             "abcde",
@@ -276,7 +276,7 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', "success");
-        $this->assertContains("1 row inserted", $success->getText());
+        $this->assertStringContainsString("1 row inserted", $success->getText());
 
         $this->assertEquals(
             "ABCDEFG",
@@ -316,7 +316,7 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', "success");
-        $this->assertContains("Showing rows", $success->getText());
+        $this->assertStringContainsString("Showing rows", $success->getText());
 
         $this->assertEquals(
             "1",
@@ -348,7 +348,7 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', "success");
-        $this->assertContains("Showing rows", $success->getText());
+        $this->assertStringContainsString("Showing rows", $success->getText());
 
         $this->assertFalse(
             $this->isElementPresent(

@@ -43,7 +43,7 @@ class NodeTriggerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_triggers.php',
             $parent->links['text']
         );

@@ -47,11 +47,11 @@ class NodeViewContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_structure.php',
             $parent->links['text']
         );
         $this->assertEquals('views', $parent->real_name);
-        $this->assertContains('viewContainer', $parent->classes);
+        $this->assertStringContainsString('viewContainer', $parent->classes);
     }
 }

@@ -47,11 +47,11 @@ class NodeTableContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_structure.php',
             $parent->links['text']
         );
         $this->assertEquals('tables', $parent->real_name);
-        $this->assertContains('tableContainer', $parent->classes);
+        $this->assertStringContainsString('tableContainer', $parent->classes);
     }
 }

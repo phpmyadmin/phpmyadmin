@@ -115,7 +115,7 @@ class IndexesControllerTest extends PmaTestCase
         $ctrl->doSaveDataAction();
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
-        $this->assertContains(
+        $this->assertStringContainsString(
             $sql_query,
             $jsonArray['sql_data']
         );
@@ -175,7 +175,7 @@ class IndexesControllerTest extends PmaTestCase
         $html = $response->getHTMLResult();
 
         //Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs(
                 [
                     'db' => 'db',
@@ -194,33 +194,33 @@ class IndexesControllerTest extends PmaTestCase
                 )
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $doc_html,
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::showMySQLDocu('ALTER_TABLE'),
             $html
         );
 
         // generateIndexSelector
-        $this->assertContains(
+        $this->assertStringContainsString(
             $index->generateIndexChoiceSelector(false),
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             sprintf(__('Add %s column(s) to index'), 1),
             $html
         );
 
         //$field_name & $field_type
-        $this->assertContains(
+        $this->assertStringContainsString(
             "field_name",
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             "field_type",
             $html
         );

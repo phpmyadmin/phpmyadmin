@@ -97,44 +97,44 @@ class VariablesControllerTest extends TestCase
 
         $html = $controller->index([]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'server_variables.php' . Url::getCommon(),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::getIcon('b_save', __('Save')),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::getIcon('b_close', __('Cancel')),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend>' . __('Filters') . '</legend>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Containing the word:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Variable'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Value'),
             $html
         );
 
         $name = "auto_increment_increment";
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value,
             $html
         );
         $name = "auto_increment_offset";
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value,
             $html
         );

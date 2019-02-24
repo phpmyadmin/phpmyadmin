@@ -97,7 +97,7 @@ class StorageEngineTest extends PmaTestCase
     {
         $html = $this->object->getHtmlSelect();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="dummy" title="dummy comment">',
             $html
         );

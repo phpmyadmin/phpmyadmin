@@ -141,7 +141,7 @@ class ExportPhparrayTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<?php ',
             $result
         );
@@ -174,7 +174,7 @@ class ExportPhparrayTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "/**\n * Database `db`\n */",
             $result
         );
@@ -301,7 +301,7 @@ class ExportPhparrayTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '$_0_932table',
             $result
         );

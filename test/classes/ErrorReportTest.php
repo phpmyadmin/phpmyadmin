@@ -149,7 +149,7 @@ class ErrorReportTest extends TestCase
         $_POST['exception'] = [];
 
         $form = $this->errorReport->getForm();
-        $this->assertContains('<pre class="report-data">[]</pre>', $form);
+        $this->assertStringContainsString('<pre class="report-data">[]</pre>', $form);
 
         $_POST['exception'] = [
             'stack' => [],
@@ -180,6 +180,6 @@ class ErrorReportTest extends TestCase
         $expectedData = json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
         $form = $this->errorReport->getForm();
-        $this->assertContains('<pre class="report-data">' . $expectedData . '</pre>', $form);
+        $this->assertStringContainsString('<pre class="report-data">' . $expectedData . '</pre>', $form);
     }
 }

@@ -426,16 +426,16 @@ class CharsetsTest extends TestCase
             $GLOBALS['cfg']['Server']['DisableIS']
         );
 
-        $this->assertContains('name="collation"', $result);
-        $this->assertNotContains('id="', $result);
-        $this->assertNotContains('class="autosubmit"', $result);
-        $this->assertContains('<option value="">Collation', $result);
-        $this->assertContains('<option value=""></option>', $result);
-        $this->assertContains('<optgroup label="latin1', $result);
-        $this->assertNotContains('<optgroup label="latin2', $result);
-        $this->assertContains('title="cp1252', $result);
-        $this->assertNotContains('value="latin2_general1_ci"', $result);
-        $this->assertContains('title="Swedish', $result);
+        $this->assertStringContainsString('name="collation"', $result);
+        $this->assertStringNotContainsString('id="', $result);
+        $this->assertStringNotContainsString('class="autosubmit"', $result);
+        $this->assertStringContainsString('<option value="">Collation', $result);
+        $this->assertStringContainsString('<option value=""></option>', $result);
+        $this->assertStringContainsString('<optgroup label="latin1', $result);
+        $this->assertStringNotContainsString('<optgroup label="latin2', $result);
+        $this->assertStringContainsString('title="cp1252', $result);
+        $this->assertStringNotContainsString('value="latin2_general1_ci"', $result);
+        $this->assertStringContainsString('title="Swedish', $result);
     }
 
     /**
@@ -455,10 +455,10 @@ class CharsetsTest extends TestCase
             false,
             true
         );
-        $this->assertContains('name="character_set"', $result);
-        $this->assertNotContains('Charset</option>', $result);
-        $this->assertContains('class="autosubmit"', $result);
-        $this->assertContains('id="test_id"', $result);
-        $this->assertContains('selected="selected">latin1', $result);
+        $this->assertStringContainsString('name="character_set"', $result);
+        $this->assertStringNotContainsString('Charset</option>', $result);
+        $this->assertStringContainsString('class="autosubmit"', $result);
+        $this->assertStringContainsString('id="test_id"', $result);
+        $this->assertStringContainsString('selected="selected">latin1', $result);
     }
 }

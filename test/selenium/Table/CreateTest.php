@@ -131,7 +131,7 @@ class CreateTest extends TestBase
         $this->waitForElement('id', 'table_strucuture_id');
 
         // make assertions for first row
-        $this->assertContains(
+        $this->assertStringContainsString(
             "test_id",
             $this->byCssSelector('label[for=checkbox_row_1]')->getText()
         );
@@ -174,7 +174,7 @@ class CreateTest extends TestBase
         );
 
         // make assertions for second row
-        $this->assertContains(
+        $this->assertStringContainsString(
             "test_column",
             $this->byCssSelector('label[for=checkbox_row_2]')->getText()
         );

@@ -82,45 +82,45 @@ class PluginsControllerTest extends TestCase
         $actual = $controller->index();
 
         //validate 1:Items
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Plugin</th>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Description</th>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Version</th>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Author</th>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>License</th>',
             $actual
         );
 
         //validate 2: one Item HTML
-        $this->assertContains(
+        $this->assertStringContainsString(
             'plugin_name1',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>plugin_description1</td>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>plugin_version1</td>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>plugin_author1</td>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>plugin_license1</td>',
             $actual
         );

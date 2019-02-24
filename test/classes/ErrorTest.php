@@ -140,7 +140,7 @@ class ErrorTest extends PmaTestCase
      */
     public function testGetBacktraceDisplay()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
             $this->object->getBacktraceDisplay()
         );
@@ -153,7 +153,7 @@ class ErrorTest extends PmaTestCase
      */
     public function testGetDisplay()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="error"><strong>Warning</strong>',
             $this->object->getDisplay()
         );

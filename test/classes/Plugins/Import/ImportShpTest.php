@@ -138,7 +138,7 @@ class ImportShpTest extends PmaTestCase
         $this->runImport('test/test_data/dresden_osm.shp.zip');
 
         $this->assertMessages($import_notice);
-        $this->assertContains(
+        $this->assertStringContainsString(
             "(GeomFromText('MULTIPOLYGON((("
             . "13.737122 51.0542065,"
             . "13.7373039 51.0541298,"
@@ -167,22 +167,22 @@ class ImportShpTest extends PmaTestCase
         $this->runImport('test/test_data/timezone.shp.zip');
 
         //asset that all sql are executed
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER '
             . 'SET utf8 COLLATE utf8_general_ci',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` '
             . '(`SPATIAL` geometry) DEFAULT CHARACTER '
             . 'SET utf8 COLLATE utf8_general_ci;',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             "INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES",
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             "GeomFromText('POINT(1294523.1759236",
             $sql_query
         );
@@ -200,23 +200,23 @@ class ImportShpTest extends PmaTestCase
      */
     protected function assertMessages($import_notice)
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to database: `SHP_DB`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `SHP_DB`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to table: `TBL_NAME`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `TBL_NAME`',
             $import_notice
         );

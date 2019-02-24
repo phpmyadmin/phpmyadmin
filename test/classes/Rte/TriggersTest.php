@@ -138,7 +138,7 @@ class TriggersTest extends TestCase
     {
         $GLOBALS['server'] = 1;
         $this->triggers->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->triggers->getEditorForm('add', $data)
         );
@@ -212,7 +212,7 @@ class TriggersTest extends TestCase
     {
         $GLOBALS['server'] = 1;
         $this->triggers->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->triggers->getEditorForm('edit', $data)
         );
@@ -286,7 +286,7 @@ class TriggersTest extends TestCase
         $GLOBALS['server'] = 1;
         Response::getInstance()->setAjax(true);
         $this->triggers->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->triggers->getEditorForm('edit', $data)
         );

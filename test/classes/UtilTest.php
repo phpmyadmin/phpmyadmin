@@ -70,7 +70,7 @@ class UtilTest extends PmaTestCase
      */
     public function testPageSelector()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select class="pageselector ajax" name="pma" >',
             Util::pageselector("pma", 3)
         );

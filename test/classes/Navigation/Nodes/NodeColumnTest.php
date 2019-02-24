@@ -42,7 +42,7 @@ class NodeColumnTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'tbl_structure.php',
             $parent->links['text']
         );

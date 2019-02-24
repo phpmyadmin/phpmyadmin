@@ -203,22 +203,22 @@ class ExportOdsTest extends PmaTestCase
             $this->object->exportFooter()
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'header',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:spreadsheet>',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:body>',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:document-content>',
             $GLOBALS['ods_buffer']
         );

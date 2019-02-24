@@ -91,21 +91,21 @@ class DatabasesControllerTest extends TestCase
             'sort_order' => null,
         ]);
 
-        $this->assertContains('data-filter-row="SAKILA"', $actual);
-        $this->assertContains('sakila', $actual);
-        $this->assertContains('utf8_general_ci', $actual);
-        $this->assertContains('title="Unicode, case-insensitive"', $actual);
-        $this->assertContains('data-filter-row="SAKILA"', $actual);
-        $this->assertContains('sakila', $actual);
-        $this->assertContains('utf8mb4_general_ci', $actual);
-        $this->assertContains('title="Unicode (UCA 4.0.0), case-insensitive"', $actual);
-        $this->assertContains('<span id="filter-rows-count">2</span>', $actual);
-        $this->assertContains('name="pos" value="0"', $actual);
-        $this->assertContains('name="sort_by" value="SCHEMA_NAME"', $actual);
-        $this->assertContains('name="sort_order" value="asc"', $actual);
-        $this->assertContains(__('Enable statistics'), $actual);
-        $this->assertContains(__('No privileges to create databases'), $actual);
-        $this->assertNotContains(__('Indexes'), $actual);
+        $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
+        $this->assertStringContainsString('sakila', $actual);
+        $this->assertStringContainsString('utf8_general_ci', $actual);
+        $this->assertStringContainsString('title="Unicode, case-insensitive"', $actual);
+        $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
+        $this->assertStringContainsString('sakila', $actual);
+        $this->assertStringContainsString('utf8mb4_general_ci', $actual);
+        $this->assertStringContainsString('title="Unicode (UCA 4.0.0), case-insensitive"', $actual);
+        $this->assertStringContainsString('<span id="filter-rows-count">2</span>', $actual);
+        $this->assertStringContainsString('name="pos" value="0"', $actual);
+        $this->assertStringContainsString('name="sort_by" value="SCHEMA_NAME"', $actual);
+        $this->assertStringContainsString('name="sort_order" value="asc"', $actual);
+        $this->assertStringContainsString(__('Enable statistics'), $actual);
+        $this->assertStringContainsString(__('No privileges to create databases'), $actual);
+        $this->assertStringNotContainsString(__('Indexes'), $actual);
 
         $cfg['ShowCreateDb'] = true;
         $is_create_db_priv = true;
@@ -117,17 +117,17 @@ class DatabasesControllerTest extends TestCase
             'sort_order' => 'desc',
         ]);
 
-        $this->assertNotContains(__('Enable statistics'), $actual);
-        $this->assertContains(__('Indexes'), $actual);
-        $this->assertContains('name="sort_by" value="SCHEMA_TABLES"', $actual);
-        $this->assertContains('name="sort_order" value="desc"', $actual);
-        $this->assertContains('name="statistics" value="1"', $actual);
-        $this->assertContains('title="3912174"', $actual);
-        $this->assertContains('3,912,174', $actual);
-        $this->assertContains('title="4358144"', $actual);
-        $this->assertContains('4.2', $actual);
-        $this->assertContains('MiB', $actual);
-        $this->assertContains('name="db_collation"', $actual);
+        $this->assertStringNotContainsString(__('Enable statistics'), $actual);
+        $this->assertStringContainsString(__('Indexes'), $actual);
+        $this->assertStringContainsString('name="sort_by" value="SCHEMA_TABLES"', $actual);
+        $this->assertStringContainsString('name="sort_order" value="desc"', $actual);
+        $this->assertStringContainsString('name="statistics" value="1"', $actual);
+        $this->assertStringContainsString('title="3912174"', $actual);
+        $this->assertStringContainsString('3,912,174', $actual);
+        $this->assertStringContainsString('title="4358144"', $actual);
+        $this->assertStringContainsString('4.2', $actual);
+        $this->assertStringContainsString('MiB', $actual);
+        $this->assertStringContainsString('name="db_collation"', $actual);
     }
 
     /**
@@ -153,8 +153,8 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertContains('<div class="error">', $actual['message']->getDisplay());
-        $this->assertContains('CreateDatabaseError', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="error">', $actual['message']->getDisplay());
+        $this->assertStringContainsString('CreateDatabaseError', $actual['message']->getDisplay());
 
         $dbi->method('tryQuery')
             ->willReturn(true);
@@ -166,8 +166,8 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertContains('<div class="success">', $actual['message']->getDisplay());
-        $this->assertContains(
+        $this->assertStringContainsString('<div class="success">', $actual['message']->getDisplay());
+        $this->assertStringContainsString(
             sprintf(__('Database %1$s has been created.'), 'pma_test'),
             $actual['message']->getDisplay()
         );
@@ -194,7 +194,7 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertContains('<div class="error">', $actual['message']->getDisplay());
-        $this->assertContains(__('No databases selected.'), $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="error">', $actual['message']->getDisplay());
+        $this->assertStringContainsString(__('No databases selected.'), $actual['message']->getDisplay());
     }
 }

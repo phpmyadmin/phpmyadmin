@@ -359,32 +359,32 @@ class PrivilegesTest extends TestCase
             $name_for_current
         );
         //$name
-        $this->assertContains(
+        $this->assertStringContainsString(
             $name,
             $html
         );
         //$name_for_dfn
-        $this->assertContains(
+        $this->assertStringContainsString(
             $name_for_dfn,
             $html
         );
         //$priv_for_header
-        $this->assertContains(
+        $this->assertStringContainsString(
             $priv_for_header,
             $html
         );
         //$name_for_select
-        $this->assertContains(
+        $this->assertStringContainsString(
             $name_for_select,
             $html
         );
         //$columns and $row
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars('row1'),
             $html
         );
         //$columns and $row
-        $this->assertContains(
+        $this->assertStringContainsString(
             _pgettext('None privileges', 'None'),
             $html
         );
@@ -407,23 +407,23 @@ class PrivilegesTest extends TestCase
             $row
         );
         // <legend>SSL</legend>
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend>SSL</legend>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="NONE" checked="checked"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="ANY"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="X509"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="SPECIFIED"',
             $html
         );
@@ -438,23 +438,23 @@ class PrivilegesTest extends TestCase
             $row
         );
         // <legend>SSL</legend>
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend>SSL</legend>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="NONE"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="ANY" checked="checked"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="X509"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="SPECIFIED"',
             $html
         );
@@ -469,23 +469,23 @@ class PrivilegesTest extends TestCase
             $row
         );
         // <legend>SSL</legend>
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend>SSL</legend>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="NONE"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="ANY"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="X509" checked="checked"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="SPECIFIED"',
             $html
         );
@@ -500,23 +500,23 @@ class PrivilegesTest extends TestCase
             $row
         );
         // <legend>SSL</legend>
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend>SSL</legend>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="NONE"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="ANY"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="X509"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="SPECIFIED" checked="checked"',
             $html
         );
@@ -535,19 +535,19 @@ class PrivilegesTest extends TestCase
 
         /* Assertion 1 */
         $html = $this->serverPrivileges->getHtmlForUserGroupDialog($username, $is_menuswork);
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form class="ajax" id="changeUserGroupForm"',
             $html
         );
         //Url::getHiddenInputs
         $params = ['username' => $username];
         $html_output = Url::getHiddenInputs($params);
-        $this->assertContains(
+        $this->assertStringContainsString(
             $html_output,
             $html
         );
         //__('User group')
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User group'),
             $html
         );
@@ -575,31 +575,31 @@ class PrivilegesTest extends TestCase
         $this->serverPrivileges->dbi = $dbi;
 
         $actualHtml = $this->serverPrivileges->getHtmlForUserGroupDialog($username, $is_menuswork);
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form class="ajax" id="changeUserGroupForm"',
             $actualHtml
         );
         //Url::getHiddenInputs
         $params = ['username' => $username];
         $html_output = Url::getHiddenInputs($params);
-        $this->assertContains(
+        $this->assertStringContainsString(
             $html_output,
             $actualHtml
         );
         //__('User group')
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User group'),
             $actualHtml
         );
 
         // Empty default user group
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value=""></option>',
             $actualHtml
         );
 
         // Current user's group selected
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="userG" selected="selected">userG</option>',
             $actualHtml
         );
@@ -619,19 +619,19 @@ class PrivilegesTest extends TestCase
         $username = "pma_username";
 
         $html = $this->serverPrivileges->getHtmlToChooseUserGroup($username);
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form class="ajax" id="changeUserGroupForm"',
             $html
         );
         //Url::getHiddenInputs
         $params = ['username' => $username];
         $html_output = Url::getHiddenInputs($params);
-        $this->assertContains(
+        $this->assertStringContainsString(
             $html_output,
             $html
         );
         //__('User group')
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User group'),
             $html
         );
@@ -652,39 +652,39 @@ class PrivilegesTest extends TestCase
         ];
 
         $html = $this->serverPrivileges->getHtmlForResourceLimits($row);
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend>' . __('Resource limits') . '</legend>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Note: Setting these options to 0 (zero) removes the limit.'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'MAX QUERIES PER HOUR',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $row['max_connections'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $row['max_updates'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $row['max_connections'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $row['max_user_connections'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Limits the number of new connections the user may open per hour.'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Limits the number of simultaneous connections the user may have.'),
             $html
         );
@@ -823,15 +823,15 @@ class PrivilegesTest extends TestCase
             = $this->serverPrivileges->getListForExportUserDefinition($username, $hostname);
 
         //validate 1: $export
-        $this->assertContains(
+        $this->assertStringContainsString(
             'grant user2 delete',
             $export
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'grant user1 select',
             $export
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<textarea class="export"',
             $export
         );
@@ -839,7 +839,7 @@ class PrivilegesTest extends TestCase
         //validate 2: $title
         $title_user = __('User') . ' `' . htmlspecialchars($username)
             . '`@`' . htmlspecialchars($hostname) . '`';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $title_user,
             $title
         );
@@ -1108,79 +1108,79 @@ class PrivilegesTest extends TestCase
         $GLOBALS['username'] = "username";
 
         //validate 1: fieldset
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<fieldset id="fieldset_user_privtable_footer" ',
             $html
         );
 
         //validate 2: button
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Go'),
             $html
         );
 
         //validate 3: getHtmlForGlobalOrDbSpecificPrivs
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<fieldset id="fieldset_user_global_rights"><legend '
             . 'data-submenu-label="' . __('Global') . '">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Global privileges'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Check all'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Note: MySQL privilege names are expressed in English'),
             $html
         );
 
         //validate 4: getHtmlForGlobalPrivTableWithCheckboxes items
         //Select_priv
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="Select_priv"',
             $html
         );
         //Create_user_priv
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="Create_user_priv"',
             $html
         );
         //Insert_priv
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="Insert_priv"',
             $html
         );
         //Update_priv
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="Update_priv"',
             $html
         );
         //Create_priv
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="Create_priv"',
             $html
         );
         //Create_routine_priv
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="Create_routine_priv"',
             $html
         );
         //Execute_priv
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="Execute_priv"',
             $html
         );
 
         //validate 5: getHtmlForResourceLimits
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend>' . __('Resource limits') . '</legend>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Note: Setting these options to 0 (zero) removes the limit.'),
             $html
         );
@@ -1323,23 +1323,23 @@ class PrivilegesTest extends TestCase
             $columns,
             $row
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Allows reading data.'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Allows inserting and replacing data'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Allows changing data.'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Has no effect in this MySQL version.'),
             $html
         );
@@ -1348,15 +1348,15 @@ class PrivilegesTest extends TestCase
         $item = $this->serverPrivileges->getHtmlForNotAttachedPrivilegesToTableSpecificColumn(
             $row
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Create_view_priv',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ShowView_priv',
             $html
         );
@@ -1397,19 +1397,19 @@ class PrivilegesTest extends TestCase
         $html = $this->serverPrivileges->getHtmlForLoginInformationFields();
 
         //validate 1: __('Login Information')
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Login Information'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User name:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Any user'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Use text field'),
             $html
         );
@@ -1420,7 +1420,7 @@ class PrivilegesTest extends TestCase
                 . 'and values stored in Host table are used instead.'
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $output,
             $html
         );
@@ -1446,7 +1446,7 @@ class PrivilegesTest extends TestCase
         $expect = "WITH GRANT OPTION MAX_QUERIES_PER_HOUR 10 "
             . "MAX_CONNECTIONS_PER_HOUR 20"
             . " MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $expect,
             $sql_query
         );
@@ -1462,17 +1462,17 @@ class PrivilegesTest extends TestCase
         list($list_of_privileges, $list_of_compared_privileges)
             = $this->serverPrivileges->getListOfPrivilegesAndComparedPrivileges();
         $expect = "`User`, `Host`, `Select_priv`, `Insert_priv`";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $expect,
             $list_of_privileges
         );
         $expect = "`Select_priv` = 'N' AND `Insert_priv` = 'N'";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $expect,
             $list_of_compared_privileges
         );
         $expect = "`Create_routine_priv` = 'N' AND `Alter_routine_priv` = 'N'";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $expect,
             $list_of_compared_privileges
         );
@@ -1514,19 +1514,19 @@ class PrivilegesTest extends TestCase
         $html = $this->serverPrivileges->getHtmlForAddUser($dbname);
 
         //validate 1: Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs('', ''),
             $html
         );
 
         //validate 2: getHtmlForLoginInformationFields
-        $this->assertContains(
+        $this->assertStringContainsString(
             $this->serverPrivileges->getHtmlForLoginInformationFields('new'),
             $html
         );
 
         //validate 3: Database for user
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Database for user'),
             $html
         );
@@ -1539,19 +1539,19 @@ class PrivilegesTest extends TestCase
             'onclick' => false,
             'html_field_id' => 'createdb-2',
         ]);
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
 
         //validate 4: getHtmlToDisplayPrivilegesTable
-        $this->assertContains(
+        $this->assertStringContainsString(
             $this->serverPrivileges->getHtmlToDisplayPrivilegesTable('*', '*', false),
             $html
         );
 
         //validate 5: button
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Go'),
             $html
         );
@@ -1597,49 +1597,49 @@ class PrivilegesTest extends TestCase
         $html = $this->serverPrivileges->getHtmlForSpecificDbPrivileges($db);
 
         //validate 1: Url::getCommon
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getCommon(['db' => $db]),
             $html
         );
 
         //validate 2: htmlspecialchars
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($db),
             $html
         );
 
         //validate 3: items
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Host'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Type'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Privileges'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Grant'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Action'),
             $html
         );
 
         //_pgettext('Create new user', 'New')
-        $this->assertContains(
+        $this->assertStringContainsString(
             _pgettext('Create new user', 'New'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getCommon(['checkprivsdb' => $db]),
             $html
         );
@@ -1686,7 +1686,7 @@ class PrivilegesTest extends TestCase
         $html = $this->serverPrivileges->getHtmlForSpecificTablePrivileges($db, $table);
 
         //validate 1: $db, $table
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($db) . '.' . htmlspecialchars($table),
             $html
         );
@@ -1698,43 +1698,43 @@ class PrivilegesTest extends TestCase
                 'table' => $table,
             ]
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
 
         //validate 3: items
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Host'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Type'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Privileges'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Grant'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Action'),
             $html
         );
 
         //_pgettext('Create new user', 'New')
-        $this->assertContains(
+        $this->assertStringContainsString(
             _pgettext('Create new user', 'New'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getCommon(
                 [
                     'checkprivsdb' => $db,
@@ -1760,7 +1760,7 @@ class PrivilegesTest extends TestCase
 
         //$privMap = null
         $html = $this->serverPrivileges->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('No user found.'),
             $html
         );
@@ -1792,38 +1792,38 @@ class PrivilegesTest extends TestCase
         $current_privileges = $privMap["user1"]["hostname1"];
         $current_user = "user1";
         $current_host = "hostname1";
-        $this->assertContains(
+        $this->assertStringContainsString(
             count($current_privileges) . "",
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($current_user),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($current_host),
             $html
         );
 
         //validate 2: privileges[0]
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('global'),
             $html
         );
 
         //validate 3: privileges[1]
         $current = $current_privileges[1];
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('wildcard'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($current['Db']),
             $html
         );
 
         //validate 4: privileges[2]
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('table-specific'),
             $html
         );
@@ -1859,11 +1859,11 @@ class PrivilegesTest extends TestCase
                 'routinename' => '',
             ]
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_html,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Edit privileges'),
             $html
         );
@@ -1888,11 +1888,11 @@ class PrivilegesTest extends TestCase
             ],
             ''
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_html,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Revoke'),
             $html
         );
@@ -1907,11 +1907,11 @@ class PrivilegesTest extends TestCase
                 'export' => 1,
             ]
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_html,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Export'),
             $html
         );
@@ -1974,17 +1974,17 @@ class PrivilegesTest extends TestCase
         );
 
         //new_user_string
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($hostname),
             $extra_data['new_user_string']
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($username),
             $extra_data['new_user_string']
         );
 
         //new_privileges
-        $this->assertContains(
+        $this->assertStringContainsString(
             join(', ', $this->serverPrivileges->extractPrivInfo(null, true)),
             $extra_data['new_privileges']
         );
@@ -2032,34 +2032,34 @@ class PrivilegesTest extends TestCase
         $html = $this->serverPrivileges->getChangeLoginInformationHtmlForm($username, $hostname);
 
         //Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs('', ''),
             $html
         );
 
         //$username & $hostname
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($username),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($hostname),
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             $this->serverPrivileges->getHtmlForLoginInformationFields('change', $username, $hostname),
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="old_usergroup" value="'
                 . $expected_userGroup . '">',
             $html
         );
 
         //Create a new user with the same privileges
-        $this->assertContains(
+        $this->assertStringContainsString(
             "Create a new user account with the same privileges",
             $html
         );
@@ -2118,11 +2118,11 @@ class PrivilegesTest extends TestCase
         $html = $this->serverPrivileges->getLinkToDbAndTable($url_dbname, $dbname, $tablename);
 
         //$dbname
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Database'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
@@ -2135,21 +2135,21 @@ class PrivilegesTest extends TestCase
                 'reload' => 1,
             ]
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($dbname),
             $html
         );
 
         //$tablename
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Table'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'],
                 'table'
@@ -2163,18 +2163,18 @@ class PrivilegesTest extends TestCase
                 'reload' => 1,
             ]
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($tablename),
             $html
         );
         $item = Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabTable']
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
@@ -2201,31 +2201,31 @@ class PrivilegesTest extends TestCase
         );
 
         //Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs('', ''),
             $html
         );
 
         //items
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Host'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Password'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Global privileges'),
             $html
         );
 
         //Util::showHint
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::showHint(
                 __('Note: MySQL privilege names are expressed in English.')
             ),
@@ -2233,32 +2233,32 @@ class PrivilegesTest extends TestCase
         );
 
         //__('User group')
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User group'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Grant'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Action'),
             $html
         );
 
         //$pmaThemeImage
-        $this->assertContains(
+        $this->assertStringContainsString(
             $pmaThemeImage,
             $html
         );
 
         //$text_dir
-        $this->assertContains(
+        $this->assertStringContainsString(
             $text_dir,
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             $this->serverPrivileges->getFieldsetForAddDeleteUser(),
             $html
         );
@@ -2285,25 +2285,25 @@ class PrivilegesTest extends TestCase
         );
 
         //Url::getCommon
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getCommon(['adduser' => 1]),
             $html
         );
 
         //labels
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Add user account'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Remove selected user accounts'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Drop the databases that have the same names as the users.'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Drop the databases that have the same names as the users.'),
             $html
         );
@@ -2356,15 +2356,15 @@ class PrivilegesTest extends TestCase
     {
         $html = $this->serverPrivileges->getAddUserHtmlFieldset();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getCommon(['adduser' => 1]),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::getIcon('b_usradd'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Add user'),
             $html
         );
@@ -2396,11 +2396,11 @@ class PrivilegesTest extends TestCase
         );
 
         //title
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Edit privileges:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User account'),
             $html
         );
@@ -2414,29 +2414,29 @@ class PrivilegesTest extends TestCase
                 'tablename' => '',
             ]
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
 
         //$username & $hostname
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($username),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($hostname),
             $html
         );
 
         //$dbname_is_wildcard = true
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Databases'),
             $html
         );
 
         //$dbname_is_wildcard = true
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Databases'),
             $html
         );
@@ -2450,11 +2450,11 @@ class PrivilegesTest extends TestCase
                 'tablename' => '',
             ]
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $item,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $dbname,
             $html
         );
@@ -2467,7 +2467,7 @@ class PrivilegesTest extends TestCase
      */
     public function testGetHtmlForViewUsersError()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Not enough privilege to view users.',
             $this->serverPrivileges->getHtmlForViewUsersError()
         );
@@ -2488,17 +2488,17 @@ class PrivilegesTest extends TestCase
             'db',
             'table'
         );
-        $this->assertContains('addUsersForm', $actual);
-        $this->assertContains('SELECT', $actual);
-        $this->assertContains('Allows reading data.', $actual);
-        $this->assertContains('INSERT', $actual);
-        $this->assertContains('Allows inserting and replacing data.', $actual);
-        $this->assertContains('UPDATE', $actual);
-        $this->assertContains('Allows changing data.', $actual);
-        $this->assertContains('DELETE', $actual);
-        $this->assertContains('Allows deleting data.', $actual);
-        $this->assertContains('CREATE', $actual);
-        $this->assertContains('Allows creating new tables.', $actual);
+        $this->assertStringContainsString('addUsersForm', $actual);
+        $this->assertStringContainsString('SELECT', $actual);
+        $this->assertStringContainsString('Allows reading data.', $actual);
+        $this->assertStringContainsString('INSERT', $actual);
+        $this->assertStringContainsString('Allows inserting and replacing data.', $actual);
+        $this->assertStringContainsString('UPDATE', $actual);
+        $this->assertStringContainsString('Allows changing data.', $actual);
+        $this->assertStringContainsString('DELETE', $actual);
+        $this->assertStringContainsString('Allows deleting data.', $actual);
+        $this->assertStringContainsString('CREATE', $actual);
+        $this->assertStringContainsString('Allows creating new tables.', $actual);
     }
 
     /**
@@ -2509,11 +2509,11 @@ class PrivilegesTest extends TestCase
     public function testGetHtmlForUserOverview()
     {
         $actual = $this->serverPrivileges->getHtmlForUserOverview('theme', '');
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Note: MySQL privilege names are expressed in English.',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Note: phpMyAdmin gets the users’ privileges directly '
             . 'from MySQL’s privilege tables.',
             $actual
@@ -2529,19 +2529,19 @@ class PrivilegesTest extends TestCase
     {
         // Test case 1
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="username" value="pma">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="hostname" value="host">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend data-submenu-label="Table">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Table-specific privileges',
             $actual
         );
@@ -2554,11 +2554,11 @@ class PrivilegesTest extends TestCase
             'z',
         ];
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma2', 'host2', 'database', '');
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend data-submenu-label="Database">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Database-specific privileges',
             $actual
         );
@@ -2576,19 +2576,19 @@ class PrivilegesTest extends TestCase
             ->will($this->onConsecutiveCalls(['-']));
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
         $actual = $this->serverPrivileges->getHtmlForInitials(['"' => true]);
-        $this->assertContains('<td>A</td>', $actual);
-        $this->assertContains('<td>Z</td>', $actual);
-        $this->assertContains(
+        $this->assertStringContainsString('<td>A</td>', $actual);
+        $this->assertStringContainsString('<td>Z</td>', $actual);
+        $this->assertStringContainsString(
             '<a class="ajax" href="server_privileges.php?initial=-&amp;'
             . 'server=1&amp;lang=en">-</a>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a class="ajax" href="server_privileges.php?initial=%22&amp;'
             . 'server=1&amp;lang=en">"</a>',
             $actual
         );
-        $this->assertContains('Show all', $actual);
+        $this->assertStringContainsString('Show all', $actual);
     }
 
     /**

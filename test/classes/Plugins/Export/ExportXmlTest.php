@@ -292,13 +292,13 @@ class ExportXmlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
             'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;pma:structure_schemas&gt;' . "\n" .
             '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
             'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
@@ -381,7 +381,7 @@ class ExportXmlTest extends PmaTestCase
         $result = ob_get_clean();
 
         //echo $result; die;
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;pma:structure_schemas&gt;' . "\n" .
             '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
             'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
@@ -421,7 +421,7 @@ class ExportXmlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;database name=&quot;&amp;amp;db&quot;&gt;',
             $result
         );
@@ -448,7 +448,7 @@ class ExportXmlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;/database&gt;',
             $result
         );
@@ -543,33 +543,33 @@ class ExportXmlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<!-- Table ta&lt;ble -->",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<table name=\"ta&lt;ble\">",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<column name=\"fName1\">NULL</column>",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<column name=\"fNa&quot;me2\">&lt;a&gt;" .
             "</column>",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<column name=\"fName3\">NULL</column>",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "</table>",
             $result
         );

@@ -42,7 +42,7 @@ class NodeFunctionTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_routines.php',
             $parent->links['text']
         );

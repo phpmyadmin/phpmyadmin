@@ -140,19 +140,19 @@ class ResultsTest extends PmaTestCase
             ]
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form action="sql.php" method="post">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="pos" value="1"',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="btn" title="Submit"',
             $actual
         );
@@ -1829,12 +1829,12 @@ class ResultsTest extends PmaTestCase
         );
 
         // Dateformat
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Jan 01, 1970 at 01:00 AM',
             $output
         );
         // Bool2Text
-        $this->assertContains(
+        $this->assertStringContainsString(
             '>T<',
             $output
         );
