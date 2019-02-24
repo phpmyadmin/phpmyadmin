@@ -45,6 +45,7 @@
         "ext-pcre": "*",
         "ext-json": "*",
         "ext-hash": "*",
+        "ext-iconv": "*",
         "phpmyadmin/sql-parser": "^4.2.5",
         "phpmyadmin/motranslator": "^4.0",
         "phpmyadmin/shapefile": "^2.0",
@@ -73,6 +74,7 @@
         "ext-zip": "For zip import and export",
         "ext-gd2": "For image transformations",
         "ext-mbstring": "For best performance",
+        "ext-iconv": "For converting strings between character sets",
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "For 2FA authentication",
         "samyoul/u2f-php-server": "For FIDO U2F authentication"
