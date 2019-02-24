@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-21 02:29-0300\n"
-"PO-Revision-Date: 2019-02-13 14:11+0000\n"
-"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"PO-Revision-Date: 2019-02-24 14:58+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -8353,7 +8353,7 @@ msgstr "Paramètres du panneau de navigation"
 
 #: libraries/classes/Navigation/NavigationHeader.php:242
 msgid "Reload navigation panel"
-msgstr "Rechercher le panneau de navigation"
+msgstr "Recharger le panneau de navigation"
 
 #: libraries/classes/Navigation/NavigationTree.php:760
 msgid ""
@@ -14268,10 +14268,8 @@ msgid "Storage engines"
 msgstr "Moteurs de stockage"
 
 #: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Moteurs de stockage"
+msgstr "Moteur de stockage inconnu."
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -14881,14 +14879,10 @@ msgid "Select binary log to view"
 msgstr "Sélectionner le journal binaire à consulter"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "Tronquer les requêtes affichées"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Afficher les requêtes complètes"
 
