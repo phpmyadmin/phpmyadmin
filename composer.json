@@ -74,7 +74,6 @@
         "ext-zip": "For zip import and export",
         "ext-gd2": "For image transformations",
         "ext-mbstring": "For best performance",
-        "ext-iconv": "For converting strings between character sets",
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "For 2FA authentication",
         "samyoul/u2f-php-server": "For FIDO U2F authentication"
