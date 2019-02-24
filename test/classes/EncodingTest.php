@@ -22,7 +22,7 @@ class EncodingTest extends TestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         Encoding::initEngine();
     }
@@ -30,7 +30,7 @@ class EncodingTest extends TestCase
     /**
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         Encoding::initEngine();
     }
@@ -203,23 +203,23 @@ class EncodingTest extends TestCase
     public function testEncodingForm()
     {
         $actual = Encoding::kanjiEncodingForm();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="knjenc"',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'type="radio" name="knjenc"',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" name="xkana" value="kana" id="kj-kana">',
             $actual
         );

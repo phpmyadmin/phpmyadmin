@@ -31,7 +31,7 @@ class NavigationTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Navigation();
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
@@ -47,7 +47,7 @@ class NavigationTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -152,11 +152,11 @@ class NavigationTest extends PmaTestCase
         $this->object->relation = new Relation($dbi);
 
         $html = $this->object->getItemUnhideDialog('db');
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>tableName</td>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="navigation.php" data-post="'
             . 'unhideNavItem=1&amp;itemType=table&amp;'
             . 'itemName=tableName&amp;dbName=db&amp;lang=en"'

@@ -24,7 +24,7 @@ class FileTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['charset_conversion'] = false;
     }
@@ -38,7 +38,7 @@ class FileTest extends PmaTestCase
      * @return void
      * @dataProvider compressedFiles
      */
-    public function testMIME($file, $mime)
+    public function testMIME($file, $mime): void
     {
         $arr = new File($file);
         $this->assertEquals($mime, $arr->getCompression());
@@ -52,7 +52,7 @@ class FileTest extends PmaTestCase
      * @return void
      * @dataProvider compressedFiles
      */
-    public function testBinaryContent($file)
+    public function testBinaryContent($file): void
     {
         $data = '0x' . bin2hex(file_get_contents($file));
         $file = new File($file);
@@ -67,7 +67,7 @@ class FileTest extends PmaTestCase
      * @return void
      * @dataProvider compressedFiles
      */
-    public function testReadCompressed($file)
+    public function testReadCompressed($file): void
     {
         $file = new File($file);
         $file->setDecompressContent(true);

@@ -36,7 +36,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -54,7 +54,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);
@@ -212,58 +212,58 @@ class AuthenticationCookieTest extends PmaTestCase
 
         // assertions
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             ' id="imLogo"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="error">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php" name="login_form" ' .
             'class="disableAjax hide login js-show">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" name="pma_servername" id="input_servername" ' .
             'value="localhost"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" name="pma_username" id="input_username" ' .
             'value="pmauser" size="24" class="textfield">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="password" name="pma_password" id="input_password" ' .
             'value="" size="24" class="textfield">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="server" id="select_server" ' .
             'onchange="document.forms[\'login_form\'].' .
             'elements[\'pma_servername\'].value = \'\'" >',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="target" value="testTarget">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="db" value="testDb">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="table" value="testTable">',
             $result
         );
@@ -313,36 +313,36 @@ class AuthenticationCookieTest extends PmaTestCase
 
         // assertions
 
-        $this->assertContains('id="imLogo"', $result);
+        $this->assertStringContainsString('id="imLogo"', $result);
 
         // Check for language selection if locales are there
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
-            $this->assertContains(
+            $this->assertStringContainsString(
                 '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
                 'id="sel-lang">',
                 $result
             );
         }
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php" name="login_form" ' .
             'autocomplete="off" class="disableAjax hide login js-show">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="server" value="0">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
             . ' async defer></script>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input class="btn btn-primary g-recaptcha" data-sitekey="testpubkey"'
             . ' data-callback="recaptchaCallback" value="Go" type="submit" id="input_go">',
             $result
@@ -1063,7 +1063,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @dataProvider secretsProvider
      */
-    public function testMACSecretSplit($secret, $mac, $aes)
+    public function testMACSecretSplit($secret, $mac, $aes): void
     {
         $this->assertEquals(
             $mac,
@@ -1082,7 +1082,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @dataProvider secretsProvider
      */
-    public function testAESSecretSplit($secret, $mac, $aes)
+    public function testAESSecretSplit($secret, $mac, $aes): void
     {
         $this->assertEquals(
             $aes,
@@ -1211,7 +1211,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @dataProvider checkRulesProvider
      */
-    public function testCheckRules($user, $pass, $ip, $root, $nopass, $rules, $expected)
+    public function testCheckRules($user, $pass, $ip, $root, $nopass, $rules, $expected): void
     {
         $this->object->user = $user;
         $this->object->password = $pass;
@@ -1234,7 +1234,7 @@ class AuthenticationCookieTest extends PmaTestCase
         if (empty($expected)) {
             $this->assertEquals($expected, $result);
         } else {
-            $this->assertContains($expected, $result);
+            $this->assertStringContainsString($expected, $result);
         }
     }
 

@@ -33,7 +33,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = GisMultiPolygon::singleton();
     }
@@ -45,7 +45,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -228,7 +228,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForTestGetShape
      * @return void
      */
-    public function testGetShape($row_data, $shape)
+    public function testGetShape($row_data, $shape): void
     {
         $this->assertEquals($this->object->getShape($row_data), $shape);
     }

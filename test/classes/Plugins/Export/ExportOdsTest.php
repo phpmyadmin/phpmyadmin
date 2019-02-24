@@ -31,7 +31,7 @@ class ExportOdsTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -47,7 +47,7 @@ class ExportOdsTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -203,22 +203,22 @@ class ExportOdsTest extends PmaTestCase
             $this->object->exportFooter()
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'header',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:spreadsheet>',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:body>',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:document-content>',
             $GLOBALS['ods_buffer']
         );

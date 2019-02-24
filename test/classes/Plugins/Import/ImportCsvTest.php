@@ -33,7 +33,7 @@ class ImportCsvTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = "csv";
@@ -78,7 +78,7 @@ class ImportCsvTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -120,11 +120,11 @@ class ImportCsvTest extends PmaTestCase
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $sql_query
         );
@@ -157,11 +157,11 @@ class ImportCsvTest extends PmaTestCase
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`',
             $sql_query
         );
@@ -211,16 +211,16 @@ class ImportCsvTest extends PmaTestCase
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
             $sql_query
         );
 
-        /*$this->assertContains(
+        /*$this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`TBL_NAME`',
             $sql_query
         );*/
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $sql_query
         );

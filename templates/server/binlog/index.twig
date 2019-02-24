@@ -1,0 +1,107 @@
+<h2>
+  {{ get_image('s_tbl') }}
+  {% trans 'Binary log' %}
+</h2>
+
+<form action="server_binlog.php" method="post">
+  {{ get_hidden_inputs(url_params) }}
+  <fieldset>
+    <legend>
+      {% trans 'Select binary log to view' %}
+    </legend>
+
+    {% set full_size = 0 %}
+    <select name="log">
+      {% for each_log in binary_logs %}
+        <option value="{{ each_log['Log_name'] }}"
+          {{- each_log['Log_name'] == log ? ' selected' }}>
+          {{ each_log['Log_name'] }}
+          {% if each_log['File_size'] is defined %}
+            ({{ format_byte_down(each_log['File_size'], 3, 2)|join(' ') }})
+            {% set full_size = full_size + each_log['File_size'] %}
+          {% endif %}
+        </option>
+      {% endfor %}
+    </select>
+    {{ binary_logs|length }}
+    {% trans 'Files' %},
+    {% if full_size > 0 %}
+      {{ format_byte_down(full_size)|join(' ') }}
+    {% endif %}
+  </fieldset>
+
+  <fieldset class="tblFooters">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+  </fieldset>
+</form>
+
+{{ sql_message|raw }}
+
+<table id="binlogTable">
+  <thead>
+    <tr>
+      <td colspan="6" class="center">
+        {% if has_previous %}
+          {% if has_icons %}
+            <a href="server_binlog.php" data-post="{{ get_common(previous_params, '') }}" title="
+                {%- trans %}Previous{% context %}Previous page{% endtrans %}">
+              &laquo;
+            </a>
+          {% else %}
+            <a href="server_binlog.php" data-post="{{ get_common(previous_params, '') }}">
+              {% trans %}Previous{% context %}Previous page{% endtrans %} &laquo;
+            </a>
+          {% endif %}
+          -
+        {% endif %}
+
+        {% if is_full_query %}
+          <a href="server_binlog.php" data-post="{{ get_common(full_queries_params, '') }}" title="{% trans 'Truncate shown queries' %}">
+            <img src="{{ image_path }}s_partialtext.png" alt="{% trans 'Truncate shown queries' %}">
+          </a>
+        {% else %}
+          <a href="server_binlog.php" data-post="{{ get_common(full_queries_params, '') }}" title="{% trans 'Show full queries' %}">
+            <img src="{{ image_path }}s_fulltext.png" alt="{% trans 'Show full queries' %}">
+          </a>
+        {% endif %}
+
+        {% if has_next %}
+          -
+          {% if has_icons %}
+            <a href="server_binlog.php" data-post="{{ get_common(next_params, '') }}" title="
+                {%- trans %}Next{% context %}Next page{% endtrans %}">
+              &raquo;
+            </a>
+          {% else %}
+            <a href="server_binlog.php" data-post="{{ get_common(next_params, '') }}">
+              {% trans %}Next{% context %}Next page{% endtrans %} &raquo;
+            </a>
+          {% endif %}
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <th>{% trans 'Log name' %}</th>
+      <th>{% trans 'Position' %}</th>
+      <th>{% trans 'Event type' %}</th>
+      <th>{% trans 'Server ID' %}</th>
+      <th>{% trans 'Original position' %}</th>
+      <th>{% trans 'Information' %}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for value in values %}
+      <tr class="noclick">
+        <td>{{ value['Log_name'] }}</td>
+        <td class="right">{{ value['Pos'] }}</td>
+        <td>{{ value['Event_type'] }}</td>
+        <td class="right">{{ value['Server_id'] }}</td>
+        <td class="right">
+          {{- value['Orig_log_pos'] is defined ? value['Orig_log_pos'] : value['End_log_pos'] -}}
+        </td>
+        <td>{{ format_sql(value['Info'], not is_full_query) }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

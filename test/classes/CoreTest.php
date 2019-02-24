@@ -46,7 +46,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
@@ -315,7 +315,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestGotoNowhere
      */
-    public function testGotoNowhere($page, $whiteList, $include, $expected)
+    public function testGotoNowhere($page, $whiteList, $include, $expected): void
     {
         $this->assertSame($expected, Core::checkPageValidity($page, $whiteList, $include));
     }
@@ -415,7 +415,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestPathInfo
      */
-    public function testPathInfo($php_self, $request, $path_info, $expected)
+    public function testPathInfo($php_self, $request, $path_info, $expected): void
     {
         $_SERVER['PHP_SELF'] = $php_self;
         $_SERVER['REQUEST_URI'] = $request;
@@ -530,7 +530,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestGetRealSize
      */
-    public function testGetRealSize($size, $expected)
+    public function testGetRealSize($size, $expected): void
     {
         $this->assertEquals($expected, Core::getRealSize($size));
     }
@@ -595,7 +595,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestLinkURL
      */
-    public function testLinkURL($link, $url)
+    public function testLinkURL($link, $url): void
     {
         $this->assertEquals(Core::linkURL($link), $url);
     }
@@ -776,7 +776,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestIsAllowedDomain
      */
-    public function testIsAllowedDomain($url, $expected)
+    public function testIsAllowedDomain($url, $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
         $this->assertEquals(
@@ -839,7 +839,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestNoVarType
      */
-    public function testNoVarType($var, $type, $compare)
+    public function testNoVarType($var, $type, $compare): void
     {
         $this->assertTrue(Core::isValid($var, $type, $compare));
     }
@@ -1168,7 +1168,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestSimilarType
      */
-    public function testSimilarType($var, $compare)
+    public function testSimilarType($var, $compare): void
     {
         $this->assertTrue(Core::isValid($var, 'similar', $compare));
         $this->assertTrue(Core::isValid($var, 'equal', $compare));
@@ -1249,7 +1249,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestSafeUnserialize
      */
-    public function testSafeUnserialize($data, $expected)
+    public function testSafeUnserialize($data, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1322,7 +1322,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */
-    public function testSanitizeMySQLHost($host, $expected)
+    public function testSanitizeMySQLHost($host, $expected): void
     {
         $this->assertEquals(
             $expected,

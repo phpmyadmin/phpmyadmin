@@ -14,7 +14,7 @@ parameters:
         - '#Part \$k \(array|string|null\) of encapsed string cannot be cast to string#'
         - '#Method PhpMyAdmin\\Plugins\\ImportPlugin\:\:doImport\(\) invoked with 1 parameter, 0 required#'# Normal
         - '#Call to method ([a-zA-Z\(\)]+) on an unknown class COM#'
-        - '#TableStructureController has an unused parameter#'
+        - '#Table\\StructureController has an unused parameter#'
         - '#NodeTrans::__construct\(\) does not call parent constructor#'
         - '#Call to an undefined method PHPUnit\\Framework\\MockObject\\MockBuilder#'
         - '#Call to an undefined method PHPUnit\\Framework\\MockObject\\MockObject#'

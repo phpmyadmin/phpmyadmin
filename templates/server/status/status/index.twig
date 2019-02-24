@@ -1,0 +1,78 @@
+{% extends 'server/status/base.twig' %}
+{% set active = 'status' %}
+{% block content %}
+
+{% if is_data_loaded %}
+  <h3>{{ 'Network traffic since startup: %s'|trans|format(network_traffic) }}</h3>
+  <p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p>
+
+  <table id="serverstatustraffic" class="width100 data noclick">
+    <thead>
+      <tr>
+        <th>
+          {% trans 'Traffic' %}
+          {{ show_hint('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.'|trans) }}
+        </th>
+        <th>#</th>
+        <th>&oslash; {% trans 'per hour' %}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for each_traffic in traffic %}
+        <tr>
+          <th class="name">{{ each_traffic.name }}</th>
+          <td class="value">{{ each_traffic.number }}</td>
+          <td class="value">{{ each_traffic.per_hour }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <table id="serverstatusconnections" class="width100 data noclick">
+    <thead>
+      <tr>
+        <th>{% trans 'Connections' %}</th>
+        <th>#</th>
+        <th>&oslash; {% trans 'per hour' %}</th>
+        <th>%</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for connection in connections %}
+        <tr>
+          <th class="name">{{ connection.name }}</th>
+          <td class="value">{{ connection.number }}</td>
+          <td class="value">{{ connection.per_hour }}</td>
+          <td class="value">{{ connection.percentage }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% if is_master or is_slave %}
+    <p class="notice clearfloat">
+      {% if is_master and is_slave %}
+        {% trans 'This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.' %}
+      {% elseif is_master %}
+        {% trans 'This MySQL server works as <b>master</b> in <b>replication</b> process.' %}
+      {% elseif is_slave %}
+        {% trans 'This MySQL server works as <b>slave</b> in <b>replication</b> process.' %}
+      {% endif %}
+    </p>
+
+    <hr class="clearfloat">
+
+    <h3>
+      <a name="replication">{% trans 'Replication status' %}</a>
+    </h3>
+
+    {{ replication|raw }}
+  {% endif %}
+
+{% else %}
+  {{ 'Not enough privilege to view server status.'|trans|error }}
+{% endif %}
+
+{% endblock %}

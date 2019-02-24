@@ -31,7 +31,7 @@ class ExportTexytextTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -50,7 +50,7 @@ class ExportTexytextTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -287,12 +287,12 @@ class ExportTexytextTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "|fName1|fNa&amp;quot;me2|fName3",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "|&amp;gt;|0|test",
             $result
         );
@@ -353,7 +353,7 @@ class ExportTexytextTest extends PmaTestCase
 
         $result = $this->object->getTableDefStandIn('db', 'view', '#');
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "c1\nc2",
             $result
         );
@@ -457,7 +457,7 @@ class ExportTexytextTest extends PmaTestCase
             true
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '1|&lt;ftable (ffield&gt;)|comm|Test&lt;',
             $result
         );
@@ -492,12 +492,12 @@ class ExportTexytextTest extends PmaTestCase
 
         $result = $this->object->getTriggers('database', 'ta<ble');
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '|tna"me|ac>t|manip&|def',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '|Name|Time|Event|Definition',
             $result
         );
@@ -571,7 +571,7 @@ class ExportTexytextTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '== Table structure for table t&amp;bl' . "\n\ndumpText1",
             $result
         );

@@ -39,7 +39,7 @@ class SqlQueryFormTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->sqlQueryForm = new SqlQueryForm();
 
@@ -120,52 +120,52 @@ class SqlQueryFormTest extends TestCase
         $html = $this->sqlQueryForm->getHtmlForInsert($query);
 
         //validate 1: query
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($query),
             $html
         );
 
         //validate 2: enable auto select text in textarea
         $auto_sel = ' onclick="selectContent(this, sql_box_locked, true);"';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $auto_sel,
             $html
         );
 
         //validate 3: showMySQLDocu
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::showMySQLDocu('SELECT'),
             $html
         );
 
         //validate 4: $fields_list
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="DELETE" id="delete"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="UPDATE" id="update"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="INSERT" id="insert"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="SELECT" id="select"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="SELECT *" id="selectall"',
             $html
         );
 
         //validate 5: Clear button
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="DELETE" id="delete"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Clear'),
             $html
         );
@@ -185,20 +185,20 @@ class SqlQueryFormTest extends TestCase
         $html = $this->sqlQueryForm->getHtml($query);
 
         //validate 1: query
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($query),
             $html
         );
 
         //validate 2: $enctype
         $enctype = ' enctype="multipart/form-data"';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $enctype,
             $html
         );
 
         //validate 3: sqlqueryform
-        $this->assertContains(
+        $this->assertStringContainsString(
             'id="sqlqueryform" name="sqlform">',
             $html
         );
@@ -206,20 +206,20 @@ class SqlQueryFormTest extends TestCase
         //validate 4: $db, $table
         $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs($db, $table),
             $html
         );
 
         //validate 5: $goto
         $goto = empty($GLOBALS['goto']) ? 'tbl_sql.php' : $GLOBALS['goto'];
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($goto),
             $html
         );
 
         //validate 6: Kanji encoding form
-        $this->assertContains(
+        $this->assertStringContainsString(
             Encoding::kanjiEncodingForm(),
             $html
         );

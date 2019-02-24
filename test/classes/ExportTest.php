@@ -32,7 +32,7 @@ class ExportTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->export = new Export();
     }

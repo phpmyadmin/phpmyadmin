@@ -27,7 +27,7 @@ class HttpRequestTest extends PmaTestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->httpRequest = new HttpRequest();
     }
@@ -95,7 +95,7 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testCurl($url, $method, $return_only_status, $expected)
+    public function testCurl($url, $method, $return_only_status, $expected): void
     {
         $this->checkCurl();
         $result = $this->callProtectedMethod('curl', [$url, $method, $return_only_status]);
@@ -118,7 +118,7 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testCurlCAPath($url, $method, $return_only_status, $expected)
+    public function testCurlCAPath($url, $method, $return_only_status, $expected): void
     {
         $this->checkCurl(true);
         $result = $this->callProtectedMethod('curl', [
@@ -148,7 +148,7 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testCurlCAInfo($url, $method, $return_only_status, $expected)
+    public function testCurlCAInfo($url, $method, $return_only_status, $expected): void
     {
         $this->checkCurl(true);
         $result = $this->callProtectedMethod('curl', [
@@ -178,7 +178,7 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testFopen($url, $method, $return_only_status, $expected)
+    public function testFopen($url, $method, $return_only_status, $expected): void
     {
         if (! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('allow_url_fopen not supported');
@@ -204,7 +204,7 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testCreate($url, $method, $return_only_status, $expected)
+    public function testCreate($url, $method, $return_only_status, $expected): void
     {
         if (! function_exists('curl_init') && ! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('neither curl nor allow_url_fopen are supported');
@@ -230,7 +230,7 @@ class HttpRequestTest extends PmaTestCase
         } elseif ($expected === null) {
             $this->assertNull($result);
         } else {
-            $this->assertContains($expected, $result);
+            $this->assertStringContainsString($expected, $result);
         }
     }
 

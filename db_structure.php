@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
+use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
@@ -21,11 +21,11 @@ require_once ROOT_PATH . 'libraries/db_common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(
-    'PhpMyAdmin\Controllers\Database\DatabaseStructureController'
+    'PhpMyAdmin\Controllers\Database\StructureController'
 );
 $container->alias(
-    'DatabaseStructureController',
-    'PhpMyAdmin\Controllers\Database\DatabaseStructureController'
+    'StructureController',
+    'PhpMyAdmin\Controllers\Database\StructureController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
@@ -35,9 +35,9 @@ $dependency_definitions = [
     'db' => $db,
 ];
 
-/** @var DatabaseStructureController $controller */
+/** @var StructureController $controller */
 $controller = $container->get(
-    'DatabaseStructureController',
+    'StructureController',
     $dependency_definitions
 );
 $controller->indexAction();

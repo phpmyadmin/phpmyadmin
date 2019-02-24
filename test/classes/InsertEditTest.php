@@ -34,7 +34,7 @@ class InsertEditTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -500,12 +500,12 @@ class InsertEditTest extends TestCase
             $comments,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'title="comment&gt;"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'f1&lt;',
             $result
         );
@@ -677,7 +677,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ProtectBinary'] = 'blob';
         $column = [];
         $column['is_blob'] = true;
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
@@ -696,7 +696,7 @@ class InsertEditTest extends TestCase
 
         $GLOBALS['cfg']['ProtectBinary'] = 'all';
         $column['is_binary'] = true;
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
@@ -715,7 +715,7 @@ class InsertEditTest extends TestCase
 
         $GLOBALS['cfg']['ProtectBinary'] = 'noblob';
         $column['is_blob'] = false;
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
@@ -734,7 +734,7 @@ class InsertEditTest extends TestCase
 
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $column['True_Type'] = 'enum';
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
@@ -752,7 +752,7 @@ class InsertEditTest extends TestCase
         );
 
         $column['True_Type'] = 'set';
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
@@ -771,7 +771,7 @@ class InsertEditTest extends TestCase
 
         $column['True_Type'] = '';
         $column['pma_type'] = 'int';
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
@@ -789,7 +789,7 @@ class InsertEditTest extends TestCase
         );
 
         $column['Field'] = 'num';
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
@@ -837,30 +837,30 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fields_null_preva" value="on">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkbox_null" tabindex="2" '
             . 'name="fields_nulla" checked="checked" id="field_1_2"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" class="nullify_code" name="nullify_codea" '
             . 'value="2"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" class="hashed_field" name="hashed_fielda" '
             . 'value="foobar">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" class="multi_edit" name="multi_edita" '
             . 'value="<script>"',
             $result
@@ -993,19 +993,19 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="foreign"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a class="ajax browse_foreign" href="browse_'
             . 'foreigners.php" data-post="db=db&amp;table=tbl&amp;field=f&amp;rownumber=8'
             . '&amp;data=abc&amp;server=1&amp;lang=en">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" name="fieldsb" class="textfield" d tabindex="2" '
             . 'id="field_1_3" value="abc"',
             $result
@@ -1040,18 +1040,18 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "a\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="fieldsb" d class="textfield" tabindex="2" '
             . 'id="field_1_3">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="foreign"',
             $result
         );
@@ -1085,18 +1085,18 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "a\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="fieldsb" d class="textfield" tabindex="2" '
             . 'id="field_1_3">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="hex"',
             $result
         );
@@ -1133,7 +1133,7 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<textarea name="fieldsb" class="char charField" '
             . 'data-maxlength="10" rows="7" cols="1" dir="abc/" '
             . 'id="field_1_3" tabindex="2" data-type="CHAR">',
@@ -1170,12 +1170,12 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="enum">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="fieldsb"',
             $result
         );
@@ -1194,12 +1194,12 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="enum"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="fieldsb" d class="textfield" tabindex="2" '
             . 'id="field_1_3">',
             $result
@@ -1270,18 +1270,18 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="fieldsa" b class="textfield" tabindex="2" '
             . 'id="field_1_3">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="foo" selected="selected">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="bar">',
             $result
         );
@@ -1309,7 +1309,7 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="foo" selected="selected">',
             $result
         );
@@ -1345,24 +1345,24 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="fieldsa" class="textfield" value="foo" '
             . 'id="field_1_3_0" b checked="checked" tabindex="2">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<label for="field_1_3_0">foo</label>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="fieldsa" class="textfield" value="bar" '
             . 'id="field_1_3_1" b tabindex="2">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<label for="field_1_3_1">bar</label>',
             $result
         );
@@ -1390,7 +1390,7 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="fieldsa" class="textfield" value="foo" '
             . 'id="field_1_3_0" b checked="checked" tabindex="2">',
             $result
@@ -1427,19 +1427,19 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains("a\n", $result);
+        $this->assertStringContainsString("a\n", $result);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="set">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="&lt;" selected="selected">&lt;</option>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="fieldsb[]" class="textfield" size="1" '
             . 'multiple="multiple" c tabindex="2" id="field_1_3">',
             $result
@@ -1931,7 +1931,7 @@ class InsertEditTest extends TestCase
             false,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fields_typeb" value="datetime">',
             $result
         );
@@ -1984,7 +1984,7 @@ class InsertEditTest extends TestCase
     {
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['cfg']['LinkLengthLimit'] = 2;
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="#" target="_blank"><span class="nowrap"><img src="themes/dot.'
             . 'gif" title="Edit/Insert" alt="Edit/Insert" class="icon ic_b_edit">'
             . '</span></a>',
@@ -2013,38 +2013,38 @@ class InsertEditTest extends TestCase
             "localhost"
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form id="continueForm" method="post" action="tbl_replace.php" '
             . 'name="continueForm">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="db" value="db">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="table" value="tbl">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="goto" value="index.php">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="err_url" value="localhost">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="sql_query" value="SELECT 1">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="where_clause[0]" value="a&lt;b">',
             $result
         );
@@ -2060,17 +2060,17 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = false;
         $result = $this->insertEdit->getActionsPanel(null, 'back', 2, 1, false);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="submit_type" class="control_at_footer" tabindex="4">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="after_insert"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="submit" class="btn btn-primary control_at_footer" value="Go" '
             . 'tabindex="11" id="buttonYes"',
             $result
@@ -2090,12 +2090,12 @@ class InsertEditTest extends TestCase
             2,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select name="submit_type" class="control_at_footer" tabindex="5">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="save">',
             $result
         );
@@ -2114,17 +2114,17 @@ class InsertEditTest extends TestCase
             true,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="new_insert" selected="selected">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="same_insert"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="edit_next" >',
             $result
         );
@@ -2143,19 +2143,19 @@ class InsertEditTest extends TestCase
             0,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="submit" class="btn btn-primary control_at_footer" value="Go" '
             . 'tabindex="9" id="buttonYes">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" class="btn btn-secondary preview_sql" value="Preview SQL" '
             . 'tabindex="7">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="reset" class="btn btn-secondary control_at_footer" value="Reset" '
             . 'tabindex="8">',
             $result
@@ -2178,12 +2178,12 @@ class InsertEditTest extends TestCase
             $url_params
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
             $result
         );
@@ -3811,32 +3811,32 @@ class InsertEditTest extends TestCase
             '',
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'col',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option>AES_ENCRYPT</option>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="column_type" dir="ltr">varchar(20)</span>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<tr class="noclick">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="default_value hide">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<img src="" width="150" height="100" '
             . 'alt="Image preview here">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="file" '
             . 'name="fields_upload[d89e2ddb530bb8953b290ab0793aecb0]" '
             . 'accept="image/*" '
@@ -3890,19 +3890,19 @@ class InsertEditTest extends TestCase
             [],
             '',
         ]);
-        $this->assertContains(
+        $this->assertStringContainsString(
             'qwerty',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option>UUID</option>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="column_type" dir="ltr">datetime</span>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" '
             . 'name="fields[d8578edf8458ce06fbc5bb76a58c5ca4]" '
             . 'value="12-10-14.000000"',
@@ -3960,27 +3960,27 @@ class InsertEditTest extends TestCase
             [],
             ['wc']
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'test',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Column</th>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th class="fillPage">Value</th>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="column_type" dir="ltr">longtext</span>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<textarea name="fields[098f6bcd4621d373cade4e832627b4f6]"',
             $actual
         );
@@ -4046,11 +4046,11 @@ class InsertEditTest extends TestCase
             [],
             ['wc']
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'foo',
             $actual
         );
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             'bar',
             $actual
         );
@@ -4104,11 +4104,11 @@ class InsertEditTest extends TestCase
             [],
             ['wc']
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'foo',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<textarea name="fields[37b51d194a7513e45b56f6524f2d51f2]" '
             . 'class="" readonly="readonly"',
             $actual

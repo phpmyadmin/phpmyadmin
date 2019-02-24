@@ -38,7 +38,7 @@ class QueriesTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -136,21 +136,21 @@ class QueriesTest extends TestCase
         );
 
         //validate 1: Queries::getHtmlForQueryStatistics
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<h3 id="serverstatusqueries">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $questions_from_start,
             $html
         );
 
         //validate 2: per hour
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('per hour:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::formatNumber($total_queries * $hour_factor, 0),
             $html
         );
@@ -160,11 +160,11 @@ class QueriesTest extends TestCase
             $total_queries * 60 / $this->serverStatusData->status['Uptime'],
             0
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('per minute:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $value_per_minute,
             $html
         );
@@ -181,43 +181,43 @@ class QueriesTest extends TestCase
         $html = Queries::getHtmlForDetails($this->serverStatusData);
 
         //validate 1: Queries::getHtmlForDetails
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Statements'),
             $html
         );
 
         //validate 2: used queries
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars("change db"),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '54',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars("select"),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars("set option"),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars("show databases"),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars("show status"),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars("show tables"),
             $html
         );
 
         //validate 3:serverstatusquerieschart
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="serverstatusquerieschart" class="width100" data-chart="',
             $html
         );

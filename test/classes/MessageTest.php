@@ -33,7 +33,7 @@ class MessageTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Message();
     }
@@ -45,7 +45,7 @@ class MessageTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 
@@ -441,7 +441,7 @@ class MessageTest extends PmaTestCase
      *
      * @dataProvider decodeBBDataProvider
      */
-    public function testDecodeBB($actual, $expected)
+    public function testDecodeBB($actual, $expected): void
     {
         unset($GLOBALS['server']);
         $this->assertEquals($expected, Message::decodeBB($actual));
@@ -630,7 +630,7 @@ class MessageTest extends PmaTestCase
      *
      * @dataProvider providerAffectedRows
      */
-    public function testAffectedRows($rows, $output)
+    public function testAffectedRows($rows, $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForAffectedRows($rows);
@@ -675,7 +675,7 @@ class MessageTest extends PmaTestCase
      *
      * @dataProvider providerInsertedRows
      */
-    public function testInsertedRows($rows, $output)
+    public function testInsertedRows($rows, $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForInsertedRows($rows);
@@ -720,7 +720,7 @@ class MessageTest extends PmaTestCase
      *
      * @dataProvider providerDeletedRows
      */
-    public function testDeletedRows($rows, $output)
+    public function testDeletedRows($rows, $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForDeletedRows($rows);

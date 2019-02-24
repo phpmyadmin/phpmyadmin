@@ -31,7 +31,7 @@ class UserPreferencesTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         global $cfg;
         include ROOT_PATH . 'libraries/config.default.php';
@@ -93,11 +93,11 @@ class UserPreferencesTest extends PmaTestCase
             $result['config_data']
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             time(),
             $result['mtime'],
-            '',
-            2
+            2,
+            ''
         );
 
         $this->assertEquals(
@@ -179,11 +179,11 @@ class UserPreferencesTest extends PmaTestCase
         );
 
         /* TODO: This breaks sometimes as there might be time difference! */
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             time(),
             $_SESSION['userconfig']['ts'],
-            '',
-            2
+            2,
+            ''
         );
 
         $assert = true;
@@ -404,27 +404,27 @@ class UserPreferencesTest extends PmaTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'phpunit';
         $result = $this->userPreferences->autoloadGetHeader();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form action="prefs_manage.php" method="post" class="disableAjax">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="token" value="token"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="json" value="">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="submit_import" value="1">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="return_url" value="phpunit?">',
             $result
         );

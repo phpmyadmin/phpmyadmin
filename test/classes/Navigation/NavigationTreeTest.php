@@ -32,7 +32,7 @@ class NavigationTreeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_Config'] = new Config();
@@ -56,7 +56,7 @@ class NavigationTreeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -69,7 +69,7 @@ class NavigationTreeTest extends PmaTestCase
     public function testRenderState()
     {
         $result = $this->object->renderState();
-        $this->assertContains('pma_quick_warp', $result);
+        $this->assertStringContainsString('pma_quick_warp', $result);
     }
 
     /**
@@ -80,7 +80,7 @@ class NavigationTreeTest extends PmaTestCase
     public function testRenderPath()
     {
         $result = $this->object->renderPath();
-        $this->assertContains('list_container', $result);
+        $this->assertStringContainsString('list_container', $result);
     }
 
     /**
@@ -91,6 +91,6 @@ class NavigationTreeTest extends PmaTestCase
     public function testRenderDbSelect()
     {
         $result = $this->object->renderDbSelect();
-        $this->assertContains('pma_navigation_select_database', $result);
+        $this->assertStringContainsString('pma_navigation_select_database', $result);
     }
 }

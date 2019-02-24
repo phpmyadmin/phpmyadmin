@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerEnginesController;
+use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -18,19 +18,24 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerEnginesController'
-);
-$container->alias(
-    'ServerEnginesController',
-    'PhpMyAdmin\Controllers\Server\ServerEnginesController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->factory(EnginesController::class);
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
-/** @var ServerEnginesController $controller */
+/** @var EnginesController $controller */
 $controller = $container->get(
-    'ServerEnginesController',
+    EnginesController::class,
     []
 );
-$controller->indexAction();
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+if (isset($_GET['engine']) && $_GET['engine'] !== '') {
+    $response->addHTML($controller->show([
+        'engine' => $_GET['engine'],
+        'page' => $_GET['page'] ?? null,
+    ]));
+} else {
+    $response->addHTML($controller->index());
+}

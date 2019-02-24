@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerVariablesController;
+use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -18,19 +18,32 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerVariablesController'
-);
-$container->alias(
-    'ServerVariablesController',
-    'PhpMyAdmin\Controllers\Server\ServerVariablesController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->factory(VariablesController::class);
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
-/** @var ServerVariablesController $controller */
+/** @var VariablesController $controller */
 $controller = $container->get(
-    'ServerVariablesController',
+    VariablesController::class,
     []
 );
-$controller->indexAction();
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+if ($response->isAjax()
+    && isset($_GET['type']) && $_GET['type'] === 'getval') {
+    $response->addJSON($controller->getValue([
+        'varName' => $_GET['varName'] ?? null,
+    ]));
+} elseif ($response->isAjax()
+    && isset($_POST['type']) && $_POST['type'] === 'setval') {
+    $response->addJSON($controller->setValue([
+        'varName' => $_POST['varName'] ?? null,
+        'varValue' => $_POST['varValue'] ?? null,
+    ]));
+} else {
+    $response->addHTML($controller->index([
+        'filter' => $_REQUEST['filter'] ?? null,
+    ]));
+}

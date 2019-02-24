@@ -25,7 +25,7 @@ class NodeTableContainerTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
@@ -47,11 +47,11 @@ class NodeTableContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_structure.php',
             $parent->links['text']
         );
         $this->assertEquals('tables', $parent->real_name);
-        $this->assertContains('tableContainer', $parent->classes);
+        $this->assertStringContainsString('tableContainer', $parent->classes);
     }
 }

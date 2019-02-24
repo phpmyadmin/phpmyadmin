@@ -28,7 +28,7 @@ class FilesTest extends TestCase
      *
      * @dataProvider listScripts
      */
-    public function testDynamicJs($name, $expected)
+    public function testDynamicJs($name, $expected): void
     {
         $GLOBALS['pmaThemeImage'] = '';
         $GLOBALS['goto_whitelist'] = ['x'];
@@ -43,7 +43,7 @@ class FilesTest extends TestCase
         require ROOT_PATH . $name;
         $buffer->stop();
         $out = $buffer->getContents();
-        $this->assertContains($expected, $out);
+        $this->assertStringContainsString($expected, $out);
     }
 
     /**

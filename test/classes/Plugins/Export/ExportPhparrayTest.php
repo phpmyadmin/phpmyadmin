@@ -30,7 +30,7 @@ class ExportPhparrayTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -46,7 +46,7 @@ class ExportPhparrayTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -141,7 +141,7 @@ class ExportPhparrayTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<?php ',
             $result
         );
@@ -174,7 +174,7 @@ class ExportPhparrayTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "/**\n * Database `db`\n */",
             $result
         );
@@ -301,7 +301,7 @@ class ExportPhparrayTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '$_0_932table',
             $result
         );

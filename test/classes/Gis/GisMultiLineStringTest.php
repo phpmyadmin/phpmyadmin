@@ -33,7 +33,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = GisMultiLineString::singleton();
     }
@@ -45,7 +45,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

@@ -32,7 +32,7 @@ class DataTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['cfg']['Server']['host'] = "::1";
@@ -115,22 +115,22 @@ class DataTest extends PmaTestCase
     {
         $html = $this->object->getMenuHtml();
 
-        $this->assertContains('Server', $html);
-        $this->assertContains('server_status.php', $html);
+        $this->assertStringContainsString('Server', $html);
+        $this->assertStringContainsString('server_status.php', $html);
 
-        $this->assertContains('Processes', $html);
-        $this->assertContains('server_status_processes.php', $html);
+        $this->assertStringContainsString('Processes', $html);
+        $this->assertStringContainsString('server_status_processes.php', $html);
 
-        $this->assertContains('Query statistics', $html);
-        $this->assertContains('server_status_queries.php', $html);
+        $this->assertStringContainsString('Query statistics', $html);
+        $this->assertStringContainsString('server_status_queries.php', $html);
 
-        $this->assertContains('All status variables', $html);
-        $this->assertContains('server_status_variables.php', $html);
+        $this->assertStringContainsString('All status variables', $html);
+        $this->assertStringContainsString('server_status_variables.php', $html);
 
-        $this->assertContains('Monitor', $html);
-        $this->assertContains('server_status_monitor.php', $html);
+        $this->assertStringContainsString('Monitor', $html);
+        $this->assertStringContainsString('server_status_monitor.php', $html);
 
-        $this->assertContains('Advisor', $html);
-        $this->assertContains('server_status_advisor.php', $html);
+        $this->assertStringContainsString('Advisor', $html);
+        $this->assertStringContainsString('server_status_advisor.php', $html);
     }
 }

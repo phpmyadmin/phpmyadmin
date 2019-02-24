@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerPluginsController;
+use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -18,19 +18,17 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerPluginsController'
-);
-$container->alias(
-    'ServerPluginsController',
-    'PhpMyAdmin\Controllers\Server\ServerPluginsController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->factory(PluginsController::class);
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
-/** @var ServerPluginsController $controller */
+/** @var PluginsController $controller */
 $controller = $container->get(
-    'ServerPluginsController',
+    PluginsController::class,
     []
 );
-$controller->indexAction();
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+$response->addHTML($controller->index());

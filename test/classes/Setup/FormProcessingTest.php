@@ -24,7 +24,7 @@ class FormProcessingTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -85,22 +85,22 @@ class FormProcessingTest extends PmaTestCase
         FormProcessing::process($formDisplay);
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="error">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'mode=revert',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a class="btn" href="index.php?',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'mode=edit',
             $result
         );

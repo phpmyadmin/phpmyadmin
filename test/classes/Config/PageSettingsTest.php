@@ -25,7 +25,7 @@ class PageSettingsTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
@@ -58,7 +58,7 @@ class PageSettingsTest extends PmaTestCase
         $html = $object->getHTML();
 
         // Test some sample parts
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="page_settings_modal">'
             . '<div class="page_settings">'
             . '<form method="post" '
@@ -67,12 +67,12 @@ class PageSettingsTest extends PmaTestCase
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="submit_save" value="Browse">',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "validateField('MaxRows', 'PMA_validatePositiveNumber', true);\n"
             . "validateField('RepeatCells', 'PMA_validateNonNegativeNumber', true);\n"
             . "validateField('LimitChars', 'PMA_validatePositiveNumber', true);\n",
@@ -90,12 +90,12 @@ class PageSettingsTest extends PmaTestCase
         $html = PageSettings::getNaviSettings();
 
         // Test some sample parts
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="pma_navigation_settings">',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="submit_save" value="Navi">',
             $html
         );

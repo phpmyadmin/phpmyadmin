@@ -28,7 +28,7 @@ class HeaderTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
@@ -72,7 +72,7 @@ class HeaderTest extends PmaTestCase
     {
         $header = new Header();
         $header->setBodyId('PMA_header_id');
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PMA_header_id',
             $header->getDisplay()
         );
@@ -87,7 +87,7 @@ class HeaderTest extends PmaTestCase
     {
         $header = new Header();
         $header->enablePrintView();
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Print view',
             $header->getDisplay()
         );
@@ -115,7 +115,7 @@ class HeaderTest extends PmaTestCase
     public function testGetJsParamsCode()
     {
         $header = new Header();
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PMA_commonParams.setAll',
             $header->getJsParamsCode()
         );
@@ -129,7 +129,7 @@ class HeaderTest extends PmaTestCase
     public function testGetMessage()
     {
         $header = new Header();
-        $this->assertContains(
+        $this->assertStringContainsString(
             'phpmyadminmessage',
             $header->getMessage()
         );
@@ -143,13 +143,13 @@ class HeaderTest extends PmaTestCase
      */
     public function testDisableWarnings()
     {
+        $reflection = new \ReflectionProperty(Header::class, '_warningsEnabled');
+        $reflection->setAccessible(true);
+
         $header = new Header();
         $header->disableWarnings();
-        $this->assertAttributeEquals(
-            false,
-            '_warningsEnabled',
-            $header
-        );
+
+        $this->assertFalse($reflection->getValue($header));
     }
 
     /**

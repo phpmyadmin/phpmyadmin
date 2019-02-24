@@ -40,7 +40,7 @@ class FooterTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -68,7 +68,7 @@ class FooterTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -233,7 +233,7 @@ class FooterTest extends PmaTestCase
     public function testGetScripts()
     {
         $footer = new Footer();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<script data-cfasync="false" type="text/javascript">',
             $footer->getScripts()->getDisplay()
         );
@@ -248,7 +248,7 @@ class FooterTest extends PmaTestCase
     public function testDisplay()
     {
         $footer = new Footer();
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Open new phpMyAdmin window',
             $footer->getDisplay()
         );

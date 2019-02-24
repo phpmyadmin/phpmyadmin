@@ -1,0 +1,34 @@
+{% extends 'server/status/base.twig' %}
+{% set active = 'processes' %}
+{% block content %}
+
+<fieldset id="tableFilter">
+  <legend>{% trans 'Filters' %}</legend>
+  <form action="server_status_processes.php" method="post">
+    {{ get_hidden_inputs(url_params) }}
+    <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">
+    <div class="formelement">
+      <input type="checkbox" name="showExecuting" id="showExecuting" class="autosubmit"{{ is_checked ? ' checked' }}>
+      <label for="showExecuting">
+        {% trans 'Show only active' %}
+      </label>
+    </div>
+  </form>
+</fieldset>
+
+{{ server_process_list|raw }}
+
+{{ 'Note: Enabling the auto refresh here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
+
+<div class="tabLinks">
+  <label>
+    {% trans 'Refresh rate' %}:
+    {{ refresh_list|raw }}
+  </label>
+  <a id="toggleRefresh" href="#">
+    {{ get_image('play') }}
+    {% trans 'Start auto refresh' %}
+  </a>
+</div>
+
+{% endblock %}

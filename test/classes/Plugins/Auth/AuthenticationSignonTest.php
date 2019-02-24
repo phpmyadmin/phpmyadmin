@@ -27,7 +27,7 @@ class AuthenticationSignonTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -43,7 +43,7 @@ class AuthenticationSignonTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);
@@ -62,7 +62,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'You must set SignonURL!',
             $result
         );

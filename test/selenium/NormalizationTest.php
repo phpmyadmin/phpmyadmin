@@ -24,7 +24,7 @@ class NormalizationTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -137,7 +137,7 @@ class NormalizationTest extends TestBase
             "//legend[contains(., 'Step 1.2 Have a primary key')]"
         );
         $text = $this->byCssSelector("#mainContent h4")->getText();
-        $this->assertContains("Primary key already exists.", $text);
+        $this->assertStringContainsString("Primary key already exists.", $text);
         $this->waitForElement(
             'xpath',
             "//legend[contains(., 'Step 1.3 Move repeating groups')]"
@@ -171,7 +171,7 @@ class NormalizationTest extends TestBase
             'xpath',
             "//legend[contains(., 'End of step')]"
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             "The first step of normalization is complete for table 'test_table'.",
             $this->byCssSelector("#mainContent h4")->getText()
         );

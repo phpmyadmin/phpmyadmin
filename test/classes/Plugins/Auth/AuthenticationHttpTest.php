@@ -30,7 +30,7 @@ class AuthenticationHttpTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -51,7 +51,7 @@ class AuthenticationHttpTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);
@@ -445,7 +445,7 @@ class AuthenticationHttpTest extends PmaTestCase
         $this->object->showFailure('');
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<p>error 123</p>',
             $result
         );

@@ -198,6 +198,7 @@ class Sql
      */
     private function resultSetContainsUniqueKey($db, $table, array $fields_meta)
     {
+        $columns = $GLOBALS['dbi']->getColumns($db, $table);
         $resultSetColumnNames = [];
         foreach ($fields_meta as $oneMeta) {
             $resultSetColumnNames[] = $oneMeta->name;
@@ -208,6 +209,10 @@ class Sql
                 $numberFound = 0;
                 foreach ($indexColumns as $indexColumnName => $dummy) {
                     if (in_array($indexColumnName, $resultSetColumnNames)) {
+                        $numberFound++;
+                    } elseif (! in_array($indexColumnName, $columns)) {
+                        $numberFound++;
+                    } elseif (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
                         $numberFound++;
                     }
                 }

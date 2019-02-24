@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-30 16:59-0200\n"
-"PO-Revision-Date: 2019-02-02 06:49+0000\n"
+"POT-Creation-Date: 2019-02-21 02:29-0300\n"
+"PO-Revision-Date: 2019-02-12 03:10+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
@@ -37,13 +37,13 @@ msgstr "資料庫備註"
 
 #: db_datadict.php:117
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:638
-#: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
+#: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
 msgstr "資料表備註："
 
 #: db_datadict.php:126 libraries/classes/Index.php:720
-#: libraries/classes/InsertEdit.php:1959
+#: libraries/classes/InsertEdit.php:1953
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:295
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:391
@@ -55,12 +55,6 @@ msgstr "資料表備註："
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:539
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
-#: templates/table/index_form.twig:119
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/fields_table.twig:7
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
@@ -68,6 +62,12 @@ msgstr "資料表備註："
 #: templates/table/relation/common_form.twig:181
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/search/zoom_result_form.twig:34
+#: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/fields_table.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
+#: templates/table/index_form.twig:119
 msgid "Column"
 msgstr "欄位"
 
@@ -88,19 +88,19 @@ msgstr "欄位"
 #: libraries/classes/Rte/Routines.php:1685
 #: libraries/classes/Rte/RteList.php:120 libraries/classes/Rte/RteList.php:148
 #: libraries/classes/Server/Privileges.php:2699
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:30
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/search/fields_table.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/table/structure/display_structure.twig:22
+#: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:238
-#: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/table/structure/display_structure.twig:22
-#: templates/table/tracking/structure_snapshot_columns.twig:7
 msgid "Type"
 msgstr "類型"
 
 #: db_datadict.php:128 libraries/classes/CentralColumns.php:1011
-#: libraries/classes/Index.php:723 libraries/classes/InsertEdit.php:1968
+#: libraries/classes/Index.php:723 libraries/classes/InsertEdit.php:1962
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:301
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:397
 #: libraries/classes/Plugins/Export/ExportLatex.php:542
@@ -111,13 +111,13 @@ msgstr "類型"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:543
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:258
-#: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/structure/display_structure.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/table/structure/display_structure.twig:25
+#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/database/central_columns/main.twig:41
+#: templates/database/central_columns/main.twig:258
 msgid "Null"
 msgstr "空值(Null)"
 
@@ -133,12 +133,12 @@ msgstr "空值(Null)"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
 #: libraries/classes/ReplicationGui.php:181
+#: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/database/structure/body_for_table_summary.twig:54
+#: templates/table/structure/display_structure.twig:26
+#: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/main.twig:29
 #: templates/database/central_columns/main.twig:246
-#: templates/database/structure/body_for_table_summary.twig:54
-#: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/table/structure/display_structure.twig:26
-#: templates/table/tracking/structure_snapshot_columns.twig:10
 msgid "Default"
 msgstr "預設值"
 
@@ -162,18 +162,18 @@ msgstr "連結到"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:561
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/table/structure/display_structure.twig:28
+#: templates/columns_definitions/table_fields_definitions.twig:54
 msgid "Comments"
 msgstr "備註"
 
 #: db_datadict.php:164
-#: libraries/classes/Controllers/Table/TableStructureController.php:1247
-#: libraries/classes/Controllers/Table/TableStructureController.php:1252
-#: libraries/classes/Controllers/Table/TableStructureController.php:1356
-#: templates/columns_definitions/column_indexes.twig:4
-#: templates/table/structure/display_structure.twig:300
+#: libraries/classes/Controllers/Table/StructureController.php:1247
+#: libraries/classes/Controllers/Table/StructureController.php:1252
+#: libraries/classes/Controllers/Table/StructureController.php:1356
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/display_structure.twig:300
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "主鍵"
 
@@ -191,12 +191,12 @@ msgstr "主鍵"
 #: libraries/classes/Server/Privileges.php:3147
 #: libraries/classes/Server/Privileges.php:3815
 #: libraries/classes/Server/Privileges.php:3844 prefs_manage.php:151
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:12
-#: templates/database/central_columns/main.twig:362
 #: templates/table/structure/display_structure.twig:80
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/database/central_columns/main.twig:362
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
@@ -205,13 +205,13 @@ msgstr "否"
 
 #: db_datadict.php:174 js/messages.php:539
 #: libraries/classes/Config/FormDisplayTemplate.php:327
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:217
-#: libraries/classes/Controllers/Table/TableStructureController.php:805
-#: libraries/classes/Controllers/Table/TableStructureController.php:1579
-#: libraries/classes/Controllers/Table/TableStructureController.php:1588
-#: libraries/classes/Controllers/Table/TableStructureController.php:1593
-#: libraries/classes/Controllers/Table/TableStructureController.php:1598
-#: libraries/classes/Controllers/Table/TableStructureController.php:1603
+#: libraries/classes/Controllers/Server/DatabasesController.php:217
+#: libraries/classes/Controllers/Table/StructureController.php:805
+#: libraries/classes/Controllers/Table/StructureController.php:1579
+#: libraries/classes/Controllers/Table/StructureController.php:1588
+#: libraries/classes/Controllers/Table/StructureController.php:1593
+#: libraries/classes/Controllers/Table/StructureController.php:1598
+#: libraries/classes/Controllers/Table/StructureController.php:1603
 #: libraries/classes/Index.php:591 libraries/classes/IndexColumn.php:146
 #: libraries/classes/MultSubmits.php:432 libraries/classes/MultSubmits.php:465
 #: libraries/classes/MultSubmits.php:494 libraries/classes/MultSubmits.php:531
@@ -227,12 +227,12 @@ msgstr "否"
 #: libraries/classes/Server/Privileges.php:3844
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:228
 #: prefs_manage.php:149
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:11
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:11
-#: templates/database/central_columns/main.twig:362
 #: templates/table/structure/display_structure.twig:80
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/database/central_columns/main.twig:362
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
@@ -244,14 +244,14 @@ msgid "View dump (schema) of database"
 msgstr "檢視資料庫的傾印資料 (綱要)"
 
 #: db_export.php:61 db_tracking.php:105 export.php:407
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:174
+#: libraries/classes/Controllers/Database/StructureController.php:174
 #: libraries/classes/Database/Qbe.php:358
 #: libraries/classes/Navigation/NavigationTree.php:935
 msgid "No tables found in database."
 msgstr "資料庫沒有資料表。"
 
 #: db_export.php:76 libraries/classes/Config/Descriptions.php:314
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:366
+#: libraries/classes/Controllers/Server/DatabasesController.php:366
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:28
 #: libraries/classes/Plugins/Export/ExportXml.php:126
@@ -273,10 +273,11 @@ msgstr "資料表"
 #: libraries/classes/Util.php:3425 libraries/classes/Util.php:4201
 #: libraries/classes/Util.php:4218 libraries/config.values.php:62
 #: libraries/config.values.php:76 libraries/config.values.php:167
-#: libraries/config.values.php:177 templates/database/designer/main.twig:226
+#: libraries/config.values.php:177
+#: templates/table/tracking/structure_snapshot_columns.twig:1
+#: templates/database/designer/main.twig:226
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
-#: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "結構"
 
@@ -284,7 +285,7 @@ msgstr "結構"
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Config/Forms/User/ExportForm.php:145
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:376
+#: libraries/classes/Controllers/Server/DatabasesController.php:376
 #: libraries/classes/Server/Privileges.php:1227
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -430,7 +431,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入外掛程式，請檢查安裝是否有誤！"
 
-#: import.php:599 libraries/classes/Sql.php:707 libraries/classes/Sql.php:1516
+#: import.php:599 libraries/classes/Sql.php:712 libraries/classes/Sql.php:1521
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
@@ -579,8 +580,7 @@ msgstr "版本資訊："
 #: libraries/classes/Engines/Pbxt.php:169
 #: libraries/classes/Navigation/NavigationHeader.php:221
 #: libraries/classes/Sanitize.php:193 libraries/classes/Util.php:332
-#: libraries/classes/Util.php:436
-#: templates/server/variables/link_template.twig:7
+#: libraries/classes/Util.php:436 templates/server/variables/index.twig:14
 msgid "Documentation"
 msgstr "說明文件"
 
@@ -600,7 +600,7 @@ msgstr "技術支援"
 msgid "List of changes"
 msgstr "版本沿革"
 
-#: index.php:485 templates/server/plugins/main.twig:22
+#: index.php:485 templates/server/plugins/index.twig:27
 msgid "License"
 msgstr "授權"
 
@@ -851,7 +851,7 @@ msgstr "確定要更改所有欄位編碼與排序並轉換資料？"
 msgid "Save & close"
 msgstr "儲存並關閉"
 
-#: js/messages.php:118 libraries/classes/InsertEdit.php:1939
+#: js/messages.php:118 libraries/classes/InsertEdit.php:1933
 #: prefs_manage.php:365 prefs_manage.php:376
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -906,10 +906,10 @@ msgstr "組合使用："
 msgid "Please select column(s) for the index."
 msgstr "請選擇要建立索引的欄位。"
 
-#: js/messages.php:135 libraries/classes/InsertEdit.php:1937
+#: js/messages.php:135 libraries/classes/InsertEdit.php:1931
+#: templates/table/relation/common_form.twig:215
 #: templates/table/index_form.twig:220
 #: templates/columns_definitions/column_definitions_form.twig:145
-#: templates/table/relation/common_form.twig:215
 msgid "Preview SQL"
 msgstr "預覽 SQL"
 
@@ -1081,12 +1081,13 @@ msgstr "已傳送位元組"
 msgid "Bytes received"
 msgstr "已接收位元組"
 
-#: js/messages.php:201 libraries/classes/Server/Status.php:258
+#: js/messages.php:201 templates/server/status/status/index.twig:35
 msgid "Connections"
 msgstr "連線"
 
 #: js/messages.php:202 libraries/classes/Server/Status/Data.php:445
 #: libraries/classes/Server/Status/Processes.php:156
+#: templates/server/status/base.twig:10
 msgid "Processes"
 msgstr "程序"
 
@@ -1096,14 +1097,14 @@ msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:206 libraries/classes/Server/Status/Monitor.php:226
-#: libraries/classes/Util.php:1322
+#: js/messages.php:206 libraries/classes/Util.php:1322
+#: templates/server/status/monitor/index.twig:161
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:207 libraries/classes/Server/Status/Monitor.php:227
-#: libraries/classes/Util.php:1324
+#: js/messages.php:207 libraries/classes/Util.php:1324
+#: templates/server/status/monitor/index.twig:162
 msgid "MiB"
 msgstr "MB"
 
@@ -1137,13 +1138,13 @@ msgstr "%d 個資料表"
 msgid "Questions"
 msgstr "查詢次數"
 
-#: js/messages.php:216 libraries/classes/Server/Status.php:154
+#: js/messages.php:216 templates/server/status/status/index.twig:13
 msgid "Traffic"
 msgstr "流量"
 
 #: js/messages.php:217 libraries/classes/Menu.php:636
-#: libraries/classes/Server/Status/Monitor.php:266
 #: libraries/classes/Util.php:4192
+#: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "設定"
 
@@ -1158,15 +1159,15 @@ msgstr "請至少增加一個變數到資料序列！"
 #: js/messages.php:222 libraries/classes/Display/Results.php:1354
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
-#: libraries/classes/Server/Status/Monitor.php:245
 #: libraries/classes/Server/Status/Processes.php:303
 #: libraries/config.values.php:113
-#: templates/display/export/options_output_compression.twig:7
+#: templates/server/status/monitor/index.twig:186
 #: templates/database/designer/main.twig:629
-#: templates/columns_definitions/transformation.twig:4
 #: templates/table/search/rows_zoom.twig:20
-#: templates/table/search/selection_form.twig:35
+#: templates/columns_definitions/transformation.twig:4
+#: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
+#: templates/table/search/selection_form.twig:35
 msgid "None"
 msgstr "無"
 
@@ -1467,10 +1468,9 @@ msgstr "未能以匯入的設定檔建立圖表網格，將重設為預設的設
 
 #: js/messages.php:332 libraries/classes/Config/Forms/User/ImportForm.php:71
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:508
-#: libraries/classes/Menu.php:632
-#: libraries/classes/Server/Status/Monitor.php:339
-#: libraries/classes/Util.php:4191 libraries/classes/Util.php:4206
-#: libraries/classes/Util.php:4223 prefs_manage.php:234
+#: libraries/classes/Menu.php:632 libraries/classes/Util.php:4191
+#: libraries/classes/Util.php:4206 libraries/classes/Util.php:4223
+#: prefs_manage.php:234 templates/server/status/monitor/index.twig:60
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "匯入"
@@ -1541,8 +1541,8 @@ msgstr "查無參數！"
 
 #: js/messages.php:360 libraries/classes/BrowseForeigners.php:207
 #: libraries/classes/Display/ChangePassword.php:176
-#: libraries/classes/Index.php:661 libraries/classes/InsertEdit.php:1941
-#: libraries/classes/InsertEdit.php:1975
+#: libraries/classes/Index.php:661 libraries/classes/InsertEdit.php:1935
+#: libraries/classes/InsertEdit.php:1969
 #: libraries/classes/Normalization.php:223
 #: libraries/classes/Normalization.php:910 libraries/classes/Operations.php:68
 #: libraries/classes/Operations.php:134 libraries/classes/Operations.php:279
@@ -1566,23 +1566,22 @@ msgstr "查無參數！"
 #: libraries/classes/SqlQueryForm.php:387
 #: libraries/classes/SqlQueryForm.php:451 libraries/classes/Tracking.php:373
 #: libraries/classes/Tracking.php:524 prefs_manage.php:273 prefs_manage.php:359
-#: server_privileges.php:334 templates/table/index_form.twig:221
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/server/privileges/delete_user_fieldset.twig:16
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/server/binlog/log_selector.twig:27
-#: templates/database/create_table.twig:21 templates/view_create.twig:114
-#: templates/view_create.twig:120
-#: templates/server/privileges/edit_routine_privileges.twig:23
-#: templates/display/results/options_block.twig:118
-#: templates/display/export/options_format.twig:18
-#: templates/header_location.twig:18 templates/display/import/import.twig:191
-#: templates/gis_data_editor_form.twig:209
-#: templates/table/search/selection_form.twig:223
-#: templates/table/structure/display_structure.twig:435
+#: server_privileges.php:334 templates/view_create.twig:114
+#: templates/view_create.twig:120 templates/server/binlog/index.twig:34
+#: templates/display/import/import.twig:191
 #: templates/database/search/main.twig:63
-#: templates/table/operations/view.twig:21
+#: templates/display/results/options_block.twig:118
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/server/privileges/edit_routine_privileges.twig:23
+#: templates/table/structure/display_structure.twig:435
+#: templates/server/privileges/delete_user_fieldset.twig:16
+#: templates/header_location.twig:18 templates/table/operations/view.twig:21
+#: templates/display/export/options_format.twig:18
+#: templates/table/index_form.twig:221 templates/database/create_table.twig:21
 #: templates/server/privileges/privileges_summary.twig:102
+#: templates/table/search/selection_form.twig:223
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/gis_data_editor_form.twig:209
 msgid "Go"
 msgstr "執行"
 
@@ -1593,7 +1592,7 @@ msgstr "執行"
 #: templates/database/designer/main.twig:910
 #: templates/database/designer/main.twig:995
 #: templates/database/designer/main.twig:1101
-#: templates/server/variables/link_template.twig:5
+#: templates/server/variables/index.twig:12
 msgid "Cancel"
 msgstr "取消"
 
@@ -1606,7 +1605,7 @@ msgid "Apply"
 msgstr "套用"
 
 #: js/messages.php:368 libraries/classes/Navigation/NavigationHeader.php:79
-#: libraries/classes/Server/Status/Monitor.php:132
+#: templates/server/status/monitor/index.twig:77
 msgid "Loading…"
 msgstr "載入中…"
 
@@ -1643,7 +1642,7 @@ msgid ""
 msgstr "看來伺服器連線已中斷。請檢查網路及伺服器狀態。"
 
 #: js/messages.php:379
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:211
+#: libraries/classes/Controllers/Server/DatabasesController.php:211
 #: libraries/db_common.inc.php:78 libraries/db_table_exists.inc.php:35
 msgid "No databases selected."
 msgstr "尚未選擇資料庫。"
@@ -1731,13 +1730,12 @@ msgstr "預存函式的定義必須要有 RETURN 敘述句！"
 #: libraries/classes/Server/Privileges.php:2531
 #: libraries/classes/Server/Privileges.php:2618
 #: libraries/classes/Server/Privileges.php:2986
-#: libraries/classes/Server/Privileges.php:3725
-#: libraries/classes/Server/Status/Monitor.php:343
-#: libraries/classes/Util.php:3432 libraries/classes/Util.php:3433
-#: libraries/classes/Util.php:4190 libraries/classes/Util.php:4205
-#: libraries/classes/Util.php:4222 prefs_manage.php:302
-#: templates/database/structure/check_all_tables.twig:12
+#: libraries/classes/Server/Privileges.php:3725 libraries/classes/Util.php:3432
+#: libraries/classes/Util.php:3433 libraries/classes/Util.php:4190
+#: libraries/classes/Util.php:4205 libraries/classes/Util.php:4222
+#: prefs_manage.php:302 templates/server/status/monitor/index.twig:63
 #: templates/display/export/option_header.twig:3
+#: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "匯出"
 
@@ -1788,11 +1786,11 @@ msgstr "顯示查詢框"
 #: libraries/classes/Util.php:1139 libraries/classes/Util.php:3430
 #: libraries/classes/Util.php:3431 setup/frames/index.inc.php:165
 #: templates/console/bookmark_content.twig:7
+#: templates/server/variables/index.twig:38
+#: templates/server/variables/index.twig:41 templates/console/display.twig:31
+#: templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:279
 #: templates/database/central_columns/main.twig:394
-#: templates/server/variables/variable_row.twig:4
-#: templates/server/variables/variable_row.twig:7
-#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
 msgstr "編輯"
 
@@ -1801,12 +1799,12 @@ msgstr "編輯"
 #: libraries/classes/Display/Results.php:4688
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:299
-#: setup/frames/index.inc.php:168 templates/console/bookmark_content.twig:7
+#: setup/frames/index.inc.php:168 templates/database/designer/main.twig:429
 #: templates/database/search/results.twig:43
-#: templates/database/designer/main.twig:429
+#: templates/console/bookmark_content.twig:7
+#: templates/display/export/template_loading.twig:22
 #: templates/database/central_columns/main.twig:282
 #: templates/database/central_columns/main.twig:401
-#: templates/display/export/template_loading.twig:22
 msgid "Delete"
 msgstr "刪除"
 
@@ -1817,21 +1815,21 @@ msgid "%d is not valid row number."
 msgstr "%d 不是有效的資料列號。"
 
 #: js/messages.php:431
-#: libraries/classes/Controllers/Table/TableSearchController.php:375
-#: libraries/classes/Controllers/Table/TableSearchController.php:929
+#: libraries/classes/Controllers/Table/SearchController.php:375
+#: libraries/classes/Controllers/Table/SearchController.php:929
 #: tbl_change.php:161 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "瀏覽關聯的值"
 
 #: js/messages.php:432
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "沒有之前自動儲存的查詢。會載入預設值。"
 
 #: js/messages.php:433
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
-msgstr ""
+msgstr "之前儲存了查詢。按「取得自動儲存的查詢」載入。"
 
 #: js/messages.php:434
 #, php-format
@@ -1982,12 +1980,12 @@ msgid "No dependencies selected!"
 msgstr "尚未選擇依存！"
 
 #: js/messages.php:489 libraries/classes/CentralColumns.php:956
-#: libraries/classes/InsertEdit.php:1851
-#: templates/columns_definitions/column_definitions_form.twig:148
-#: templates/server/variables/link_template.twig:2
-#: templates/table/relation/common_form.twig:216
+#: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/relation/common_form.twig:216
+#: templates/server/variables/index.twig:9
 #: templates/table/structure/partition_definition_form.twig:12
+#: templates/columns_definitions/column_definitions_form.twig:148
 msgid "Save"
 msgstr "儲存"
 
@@ -2064,7 +2062,7 @@ msgid "Data point content"
 msgstr "資料點內容"
 
 #: js/messages.php:526 js/messages.php:694 js/messages.php:711
-#: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:3039
+#: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:3033
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "略過"
@@ -2299,8 +2297,8 @@ msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "點選下拉箭頭<br />以切換欄位的顯示程度。"
 
 #: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
-#: templates/display/results/table_navigation.twig:19
 #: templates/table/browse_foreigners/show_all.twig:4
+#: templates/display/results/table_navigation.twig:19
 #: templates/server/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "全部顯示"
@@ -2329,7 +2327,8 @@ msgstr "原始長度"
 msgid "cancel"
 msgstr "取消"
 
-#: js/messages.php:625 libraries/classes/Server/Status.php:312
+#: js/messages.php:625
+#: libraries/classes/Controllers/Server/Status/StatusController.php:198
 msgid "Aborted"
 msgstr "中斷連線"
 
@@ -2986,9 +2985,10 @@ msgstr "每秒"
 msgid "per minute"
 msgstr "每分鐘"
 
-#: libraries/classes/Advisor.php:634 libraries/classes/Server/Status.php:163
-#: libraries/classes/Server/Status.php:260
+#: libraries/classes/Advisor.php:634
 #: libraries/classes/Server/Status/Queries.php:107
+#: templates/server/status/status/index.twig:17
+#: templates/server/status/status/index.twig:37
 msgid "per hour"
 msgstr "每小時"
 
@@ -3009,9 +3009,9 @@ msgstr "鍵名"
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:232
-#: templates/server/plugins/main.twig:19
+#: templates/server/engines/index.twig:10
+#: templates/server/plugins/index.twig:24
 #: templates/server/collations/index.twig:11
-#: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "說明"
 
@@ -3065,43 +3065,42 @@ msgstr "否"
 #: libraries/classes/Rte/Routines.php:1684
 #: libraries/classes/Rte/RteList.php:118 libraries/classes/Rte/RteList.php:130
 #: libraries/classes/Rte/RteList.php:145 setup/frames/index.inc.php:149
+#: templates/table/structure/display_structure.twig:21
+#: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/create_table.twig:11
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:234
-#: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "名稱"
 
 #: libraries/classes/CentralColumns.php:1007
 #: libraries/classes/Rte/Routines.php:1008
 #: templates/columns_definitions/table_fields_definitions.twig:16
-#, fuzzy
 msgid "Length/Values"
 msgstr "長度／值"
 
 #: libraries/classes/CentralColumns.php:1009 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:31
-#: templates/table/search/fields_table.twig:9
-#: templates/database/central_columns/main.twig:33
-#: templates/database/central_columns/main.twig:250
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/server/databases/index.twig:104
 #: templates/server/collations/index.twig:10
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/display_table_stats.twig:101
+#: templates/table/search/fields_table.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/structure/display_structure.twig:23
-#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/table/structure/display_table_stats.twig:101
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/database/central_columns/main.twig:33
+#: templates/database/central_columns/main.twig:250
 msgid "Collation"
 msgstr "編碼與排序"
 
 #: libraries/classes/CentralColumns.php:1010
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:687
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/table/structure/display_structure.twig:24
+#: templates/columns_definitions/table_fields_definitions.twig:27
 msgid "Attributes"
 msgstr "屬性"
 
@@ -3109,7 +3108,7 @@ msgstr "屬性"
 #: templates/database/central_columns/main.twig:45
 #: templates/database/central_columns/main.twig:262
 msgid "A_I"
-msgstr "自動增長"
+msgstr "自動遞增"
 
 #: libraries/classes/Charsets.php:221
 #: templates/database/structure/table_header.twig:42
@@ -3887,8 +3886,8 @@ msgstr "儲存在伺服器"
 
 #: libraries/classes/Config/Descriptions.php:234
 #: libraries/classes/Config/Descriptions.php:237
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "覆蓋既有檔案"
 
@@ -4000,7 +3999,9 @@ msgstr "匯出時間使用世界協調時間(UTC)"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr "在外鍵下拉選單，項目的排列次序：[kbd]content[/kbd] 為關聯內容、[kbd]id[/kbd] 為鍵值。"
+msgstr ""
+"在外鍵下拉選單，項目的排列次序：[kbd]content[/kbd] 為關聯內容、[kbd]id[/kbd] "
+"為鍵值。"
 
 #: libraries/classes/Config/Descriptions.php:281
 msgid "Foreign key dropdown order"
@@ -4087,7 +4088,7 @@ msgstr "自訂常用匯入選項的預設值。"
 
 #: libraries/classes/Config/Descriptions.php:302
 msgid "Import / export"
-msgstr "匯入 / 匯出"
+msgstr "匯入／匯出"
 
 #: libraries/classes/Config/Descriptions.php:303
 msgid "Set import and export directories and compression options."
@@ -4164,7 +4165,9 @@ msgstr "頁面標題"
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
-msgstr "設定瀏覽器標題列顯示的文字。請參閱[doc@faq6-27]說明文件[/doc]的變數字串，用來替換為特殊內容。"
+msgstr ""
+"設定瀏覽器標題列顯示的文字。請參閱[doc@faq6-27]說明文件[/doc]的變數字串，用來"
+"替換為特殊內容。"
 
 #: libraries/classes/Config/Descriptions.php:329
 msgid "Security"
@@ -4343,7 +4346,9 @@ msgstr "iconv 的額外參數"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
-msgstr "如果開啟此選項，在執行多條指令查詢的時候，即使有指令發生錯誤，phpMyAdmin 仍會繼續執行其他的指令。"
+msgstr ""
+"如果開啟此選項，在執行多條指令查詢的時候，即使有指令發生錯誤，phpMyAdmin 仍會"
+"繼續執行其他的指令。"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Ignore multiple statement errors"
@@ -4354,7 +4359,9 @@ msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
 "transactions."
-msgstr "允許程式在偵測到執行時間快到上限時，自動中斷匯入。若要匯入大型檔案，這是很好的做法，不過使用這種方法會破壞指令中的交易事件。"
+msgstr ""
+"允許程式在偵測到執行時間快到上限時，自動中斷匯入。若要匯入大型檔案，這是很好"
+"的做法，不過使用這種方法會破壞指令中的交易事件。"
 
 #: libraries/classes/Config/Descriptions.php:396
 msgid "Enable drag and drop import"
@@ -4366,7 +4373,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:398
 msgid "Partial import: allow interrupt"
-msgstr "部分匯入: 允許中斷"
+msgstr "部分匯入：允許中斷"
 
 #: libraries/classes/Config/Descriptions.php:403
 #: libraries/classes/Config/Descriptions.php:414
@@ -4556,7 +4563,9 @@ msgstr "導覽樹分支的項目數量上限"
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
-msgstr "瀏覽查詢結果時，一次最多顯示的列數。如果結果超過此列數，則會顯示「上一頁」和「下一頁」的連結。"
+msgstr ""
+"瀏覽查詢結果時，一次最多顯示的列數。如果結果超過此列數，則會顯示「上一頁」和"
+"「下一頁」的連結。"
 
 #: libraries/classes/Config/Descriptions.php:472
 msgid "Maximum number of rows to display"
@@ -4662,7 +4671,8 @@ msgstr "設定顯示篩選框的資料庫數量下限"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
-msgstr "將導覽樹內的項目分組 (依上方「資料庫與資料表」分頁定義的分隔符號來分組)。"
+msgstr ""
+"將導覽樹內的項目分組 (依上方「資料庫與資料表」分頁定義的分隔符號來分組)。"
 
 #: libraries/classes/Config/Descriptions.php:510
 msgid "Group items in the tree"
@@ -5083,8 +5093,9 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"詳情請參閱 [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin "
-"問題追蹤系統[/a]與 [a@https://bugs.mysql.com/19588]MySQL 問題回報[/a]"
+"詳情請參閱 [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin 問題追蹤系統[/a]與 [a@https://bugs.mysql."
+"com/19588]MySQL 問題回報[/a]"
 
 #: libraries/classes/Config/Descriptions.php:644
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5650,11 +5661,11 @@ msgstr "選擇資料庫時，瀏覽器視窗顯示的標題。"
 #: libraries/classes/Server/Privileges.php:3501
 #: libraries/classes/Server/Privileges.php:4734
 #: libraries/classes/Server/Status/Processes.php:105
+#: templates/table/relation/common_form.twig:35
+#: templates/table/relation/common_form.twig:167
 #: templates/console/bookmark_content.twig:7
 #: templates/server/databases/index.twig:87
 #: templates/table/relation/foreign_key_row.twig:96
-#: templates/table/relation/common_form.twig:35
-#: templates/table/relation/common_form.twig:167
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Database"
 msgstr "資料庫"
@@ -5673,6 +5684,7 @@ msgstr "選擇伺服器時，瀏覽器視窗顯示的標題。"
 
 #: libraries/classes/Config/Descriptions.php:858 libraries/classes/Menu.php:217
 #: libraries/classes/Server/Status/Data.php:441
+#: templates/server/status/base.twig:5
 msgid "Server"
 msgstr "伺服器"
 
@@ -5692,9 +5704,9 @@ msgstr "選擇資料表時，瀏覽器視窗顯示的標題。"
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
-#: templates/table/relation/foreign_key_row.twig:106
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:174
+#: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "資料表"
 
@@ -6202,29 +6214,29 @@ msgstr "無書籤"
 msgid "SQL Query Console"
 msgstr "SQL 查詢主控台"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:302
+#: libraries/classes/Controllers/Database/StructureController.php:302
 msgid "Favorite List is full!"
 msgstr "最愛清單已滿！"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:565
+#: libraries/classes/Controllers/Database/StructureController.php:565
 #: tbl_operations.php:438 view_operations.php:111
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已刪除檢視表 %s。"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:566
+#: libraries/classes/Controllers/Database/StructureController.php:566
 #: tbl_operations.php:439
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已刪除資料表 %s。"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:629
+#: libraries/classes/Controllers/Database/StructureController.php:629
 #: tbl_operations.php:420
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空資料表 %s。"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:785
+#: libraries/classes/Controllers/Database/StructureController.php:785
 #: libraries/classes/Display/Results.php:4549
 #, php-format
 msgid ""
@@ -6232,70 +6244,16 @@ msgid ""
 "%s."
 msgstr "這個檢視表至少需有此數量的資料列，請參閱%sdocumentation%s。"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:1015
+#: libraries/classes/Controllers/Database/StructureController.php:1015
 msgid "unknown"
 msgstr "未知"
 
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:159
-msgid "Log name"
-msgstr "記錄檔名稱"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:160
-msgid "Position"
-msgstr "位置"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:161
-#: libraries/classes/Rte/Events.php:485
-msgid "Event type"
-msgstr "事件類型"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:162
-#: libraries/classes/ReplicationGui.php:655
-msgid "Server ID"
-msgstr "伺服器 ID"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:163
-msgid "Original position"
-msgstr "原始位置"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:164
-#: templates/table/structure/display_table_stats.twig:3
-msgid "Information"
-msgstr "資訊"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:201
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:203
-#: libraries/classes/Display/Results.php:946 libraries/classes/Util.php:2397
-#: libraries/classes/Util.php:2400
-msgctxt "Previous page"
-msgid "Previous"
-msgstr "上一頁"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:214
-#: libraries/classes/Server/Status/Processes.php:198
-msgid "Truncate Shown Queries"
-msgstr "截斷顯示的查詢"
-
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:218
-#: libraries/classes/Server/Status/Processes.php:204
-msgid "Show Full Queries"
-msgstr "顯示完整查詢"
-
-# 這應該使用於選擇日期的小月曆
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:235
-#: libraries/classes/Controllers/Server/ServerBinlogController.php:237
-#: libraries/classes/Display/Results.php:974 libraries/classes/Util.php:2429
-#: libraries/classes/Util.php:2436
-msgctxt "Next page"
-msgid "Next"
-msgstr "下一頁"
-
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:183
+#: libraries/classes/Controllers/Server/DatabasesController.php:183
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "已建立資料庫 %1$s。"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:225
+#: libraries/classes/Controllers/Server/DatabasesController.php:225
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -6303,16 +6261,16 @@ msgstr[0] ""
 "已成功刪除 %1$d 個資料庫。\n"
 "已成功刪除 %1$d 個資料庫。"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:371
+#: libraries/classes/Controllers/Server/DatabasesController.php:371
 #: libraries/classes/Import.php:129
-#: templates/table/structure/display_partitions.twig:28
 #: templates/database/structure/table_header.twig:26
-#: templates/table/structure/display_table_stats.twig:112
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/display_structure.twig:234
+#: templates/table/structure/display_table_stats.twig:112
 msgid "Rows"
 msgstr "資料列數"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:381
+#: libraries/classes/Controllers/Server/DatabasesController.php:381
 #: libraries/classes/Index.php:692 libraries/classes/Index.php:703
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:28
@@ -6320,56 +6278,67 @@ msgstr "資料列數"
 msgid "Indexes"
 msgstr "索引"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:386
+#: libraries/classes/Controllers/Server/DatabasesController.php:386
+#: libraries/classes/Controllers/Server/Status/StatusController.php:125
+#: libraries/classes/Controllers/Server/Status/StatusController.php:214
 #: libraries/classes/Engines/Innodb.php:169
-#: libraries/classes/Server/Status.php:214
-#: libraries/classes/Server/Status.php:347
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "總計"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:391
+#: libraries/classes/Controllers/Server/DatabasesController.php:391
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "資料分散"
 
-#: libraries/classes/Controllers/Server/ServerVariablesController.php:104
-#, php-format
-msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "權限不足檢視伺服器變數與設定。%s"
+#: libraries/classes/Controllers/Server/Status/StatusController.php:87
+msgid "Received"
+msgstr "已接收"
 
-#: libraries/classes/Controllers/Server/ServerVariablesController.php:228
+#: libraries/classes/Controllers/Server/Status/StatusController.php:106
+msgid "Sent"
+msgstr "已發送"
+
+#: libraries/classes/Controllers/Server/Status/StatusController.php:173
+msgid "Max. concurrent connections"
+msgstr "最大同時連線數"
+
+#: libraries/classes/Controllers/Server/Status/StatusController.php:182
+msgid "Failed attempts"
+msgstr "嘗試連線失敗數"
+
+#: libraries/classes/Controllers/Server/VariablesController.php:195
 msgid "Setting variable failed"
 msgstr "設定變數失敗"
 
-#: libraries/classes/Controllers/Table/TableChartController.php:90
-#: libraries/classes/Controllers/Table/TableGisVisualizationController.php:105
+#: libraries/classes/Controllers/Table/ChartController.php:90
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:105
 msgid "No SQL query was set to fetch data."
 msgstr "尚未設定 SQL 查詢來檢索資料。"
 
-#: libraries/classes/Controllers/Table/TableChartController.php:172
+#: libraries/classes/Controllers/Table/ChartController.php:172
 msgid "No numeric columns present in the table to plot."
 msgstr "目前資料表中沒有數值欄位可供繪製。"
 
-#: libraries/classes/Controllers/Table/TableChartController.php:242
+#: libraries/classes/Controllers/Table/ChartController.php:242
 msgid "No data to display"
 msgstr "無資料可顯示"
 
-#: libraries/classes/Controllers/Table/TableIndexesController.php:154
-#: libraries/classes/Controllers/Table/TableStructureController.php:761
-#: libraries/classes/Controllers/Table/TableStructureController.php:1019
+#: libraries/classes/Controllers/Table/IndexesController.php:154
+#: libraries/classes/Controllers/Table/StructureController.php:761
+#: libraries/classes/Controllers/Table/StructureController.php:1019
 #: tbl_addfield.php:105
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改資料表 %1$s 。"
 
-#: libraries/classes/Controllers/Table/TableRelationController.php:229
+#: libraries/classes/Controllers/Table/RelationController.php:229
 msgid "Display column was successfully updated."
 msgstr "顯示欄位已成功更新。"
 
-#: libraries/classes/Controllers/Table/TableRelationController.php:273
-#: libraries/classes/Controllers/Table/TableSearchController.php:627
+#: libraries/classes/Controllers/Table/RelationController.php:273
+#: libraries/classes/Controllers/Table/SearchController.php:627
 #: libraries/classes/Display/Results.php:4212 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1525
 #: libraries/classes/SqlQueryForm.php:97 tbl_row_action.php:146
@@ -6377,108 +6346,107 @@ msgstr "顯示欄位已成功更新。"
 msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 查詢已順利執行。"
 
-#: libraries/classes/Controllers/Table/TableRelationController.php:303
+#: libraries/classes/Controllers/Table/RelationController.php:303
 msgid "Internal relationships were successfully updated."
 msgstr "內部關聯已成功更新。"
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:852
+#: libraries/classes/Controllers/Table/SearchController.php:852
 msgid "Table search"
 msgstr "資料表搜尋"
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:859
+#: libraries/classes/Controllers/Table/SearchController.php:859
 msgid "Zoom search"
 msgstr "縮放搜尋"
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:864
+#: libraries/classes/Controllers/Table/SearchController.php:864
 #: templates/table/search/selection_form.twig:180
 msgid "Find and replace"
 msgstr "搜尋與取代"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:195
+#: libraries/classes/Controllers/Table/StructureController.php:195
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "名稱 '%s' 是 MySQL 保留字。"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:286
+#: libraries/classes/Controllers/Table/StructureController.php:286
 msgid "No column selected."
 msgstr "尚未選擇欄位。"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:499
+#: libraries/classes/Controllers/Table/StructureController.php:499
 msgid "The columns have been moved successfully."
 msgstr "已成功移動欄位。"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:539
+#: libraries/classes/Controllers/Table/StructureController.php:539
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "未能取得 %s 欄位的說明！"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:772
-#: libraries/classes/Controllers/Table/TableStructureController.php:1068
+#: libraries/classes/Controllers/Table/StructureController.php:772
+#: libraries/classes/Controllers/Table/StructureController.php:1068
 #: libraries/classes/Tracking.php:817
 msgid "Query error"
 msgstr "查詢錯誤"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1013
+#: libraries/classes/Controllers/Table/StructureController.php:1013
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "已成功修改資料表 %1$s 。已調整權限。"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1244
+#: libraries/classes/Controllers/Table/StructureController.php:1244
 #: templates/table/structure/display_structure.twig:284
 msgid "Change"
 msgstr "修改"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1245
-#: libraries/classes/Controllers/Table/TableStructureController.php:1246
+#: libraries/classes/Controllers/Table/StructureController.php:1245
+#: libraries/classes/Controllers/Table/StructureController.php:1246
 #: libraries/classes/Index.php:768 libraries/classes/Operations.php:1665
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3426
-#: libraries/classes/Util.php:3427
-#: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/index.twig:284
-#: templates/table/relation/foreign_key_row.twig:26
+#: libraries/classes/Util.php:3427 templates/server/databases/index.twig:284
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:469
+#: templates/table/relation/foreign_key_row.twig:26
+#: templates/database/structure/check_all_tables.twig:16
 msgid "Drop"
 msgstr "刪除"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1248
-#: libraries/classes/Controllers/Table/TableStructureController.php:1253
-#: libraries/classes/Controllers/Table/TableStructureController.php:1361
+#: libraries/classes/Controllers/Table/StructureController.php:1248
+#: libraries/classes/Controllers/Table/StructureController.php:1253
+#: libraries/classes/Controllers/Table/StructureController.php:1361
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:32
-#: templates/columns_definitions/column_indexes.twig:12
-#: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/table/structure/display_table_stats.twig:24
-#: templates/table/structure/display_structure.twig:314
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/display_structure.twig:314
+#: templates/table/structure/display_table_stats.twig:24
+#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "索引"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1249
-#: libraries/classes/Controllers/Table/TableStructureController.php:1254
+#: libraries/classes/Controllers/Table/StructureController.php:1249
+#: libraries/classes/Controllers/Table/StructureController.php:1254
 #: libraries/classes/Index.php:718
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
-#: templates/columns_definitions/column_indexes.twig:8
 #: templates/table/structure/display_structure.twig:307
+#: templates/columns_definitions/column_indexes.twig:8
 msgid "Unique"
 msgstr "唯一"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1250
-#: libraries/classes/Controllers/Table/TableStructureController.php:1255
+#: libraries/classes/Controllers/Table/StructureController.php:1250
+#: libraries/classes/Controllers/Table/StructureController.php:1255
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "空間"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1251
-#: libraries/classes/Controllers/Table/TableStructureController.php:1256
-#: templates/columns_definitions/column_indexes.twig:16
+#: libraries/classes/Controllers/Table/StructureController.php:1251
+#: libraries/classes/Controllers/Table/StructureController.php:1256
 #: templates/table/structure/display_structure.twig:321
 #: templates/table/structure/display_structure.twig:333
+#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "全文搜尋"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1257
+#: libraries/classes/Controllers/Table/StructureController.php:1257
 msgid "Distinct values"
 msgstr "顯示相異值"
 
@@ -6839,6 +6807,21 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "最前頁"
 
+#: libraries/classes/Display/Results.php:946 libraries/classes/Util.php:2397
+#: libraries/classes/Util.php:2400 templates/server/binlog/index.twig:47
+#: templates/server/binlog/index.twig:52
+msgctxt "Previous page"
+msgid "Previous"
+msgstr "上一頁"
+
+# 這應該使用於選擇日期的小月曆
+#: libraries/classes/Display/Results.php:974 libraries/classes/Util.php:2429
+#: libraries/classes/Util.php:2436 templates/server/binlog/index.twig:72
+#: templates/server/binlog/index.twig:77
+msgctxt "Next page"
+msgid "Next"
+msgstr "下一頁"
+
 #: libraries/classes/Display/Results.php:1004 libraries/classes/Util.php:2430
 #: libraries/classes/Util.php:2437
 msgctxt "Last page"
@@ -6860,12 +6843,13 @@ msgstr "完整內容"
 #: libraries/classes/Operations.php:847
 #: libraries/classes/Server/Status/Processes.php:184
 #: libraries/classes/Util.php:4916 libraries/classes/Util.php:4939
-#: libraries/config.values.php:115 templates/server/databases/index.twig:92
+#: libraries/config.values.php:115
+#: templates/database/multi_table_query/form.twig:67
+#: templates/server/databases/index.twig:92
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:128
-#: templates/table/search/selection_form.twig:154
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:67
+#: templates/table/search/selection_form.twig:154
 msgid "Descending"
 msgstr "遞減"
 
@@ -6874,12 +6858,13 @@ msgstr "遞減"
 #: libraries/classes/Operations.php:844
 #: libraries/classes/Server/Status/Processes.php:187
 #: libraries/classes/Util.php:4908 libraries/classes/Util.php:4931
-#: libraries/config.values.php:114 templates/server/databases/index.twig:90
+#: libraries/config.values.php:114
+#: templates/database/multi_table_query/form.twig:66
+#: templates/server/databases/index.twig:90
 #: templates/server/databases/index.twig:107
 #: templates/server/databases/index.twig:126
-#: templates/table/search/selection_form.twig:154
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:66
+#: templates/table/search/selection_form.twig:154
 msgid "Ascending"
 msgstr "遞增"
 
@@ -6913,7 +6898,7 @@ msgstr "總計 %1$d 筆，目前查詢 %2$d 筆"
 msgid "%d total"
 msgstr "總計 %d 筆"
 
-#: libraries/classes/Display/Results.php:4592 libraries/classes/Sql.php:1345
+#: libraries/classes/Display/Results.php:4592 libraries/classes/Sql.php:1350
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢用了 %01.4f 秒。"
@@ -7381,12 +7366,12 @@ msgid "Javascript must be enabled past this point!"
 msgstr "必須啟用 Javascript 才能繼續！"
 
 #: libraries/classes/Import.php:137 libraries/classes/InsertEdit.php:193
-#: libraries/classes/Rte/Routines.php:1546 libraries/classes/Sql.php:1339
+#: libraries/classes/Rte/Routines.php:1546 libraries/classes/Sql.php:1344
 #: tbl_get_field.php:59
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
 
-#: libraries/classes/Import.php:299 libraries/classes/Sql.php:1353
+#: libraries/classes/Import.php:299 libraries/classes/Sql.php:1358
 msgid "[ROLLBACK occurred.]"
 msgstr "[已發生回滾(ROLLBACK)。]"
 
@@ -7434,8 +7419,8 @@ msgstr "點選「結構」連結以編輯。"
 #: libraries/classes/Rte/Routines.php:1009
 #: templates/display/results/options_block.twig:10
 #: templates/table/structure/display_table_stats.twig:90
-#: templates/table/search/selection_form.twig:97
 #: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/table/search/selection_form.twig:97
 msgid "Options"
 msgstr "選項"
 
@@ -7490,16 +7475,16 @@ msgstr "沒有已定義的索引！"
 #: libraries/classes/Server/Privileges.php:2702
 #: libraries/classes/Server/Privileges.php:3707
 #: libraries/classes/Server/UserGroups.php:95
-#: templates/table/structure/display_partitions.twig:33
-#: templates/server/variables/variable_table_head.twig:3
-#: templates/table/tracking/report_table.twig:8
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:121
-#: templates/table/tracking/main.twig:32
-#: templates/database/central_columns/main.twig:232
+#: templates/table/structure/display_partitions.twig:33
 #: templates/server/databases/index.twig:144
+#: templates/table/tracking/main.twig:32
 #: templates/table/structure/display_structure.twig:34
+#: templates/server/variables/index.twig:27
+#: templates/table/tracking/report_table.twig:8
+#: templates/database/central_columns/main.twig:232
 #: templates/server/privileges/privileges_summary.twig:22
 msgid "Action"
 msgstr "動作"
@@ -7516,11 +7501,11 @@ msgstr "基數"
 
 #: libraries/classes/Index.php:724 libraries/classes/Rte/Events.php:572
 #: libraries/classes/Rte/Routines.php:1134
+#: templates/database/structure/table_header.twig:46
+#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/columns_definitions/partitions.twig:85
 #: templates/table/structure/display_partitions.twig:31
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/database/structure/table_header.twig:46
-#: templates/columns_definitions/partitions.twig:85
-#: templates/table/tracking/structure_snapshot_columns.twig:12
 msgid "Comment"
 msgstr "備註"
 
@@ -7581,77 +7566,77 @@ msgstr "或"
 msgid "web server upload directory:"
 msgstr "網頁伺服器上傳資料夾："
 
-#: libraries/classes/InsertEdit.php:1749
+#: libraries/classes/InsertEdit.php:1743
 #: templates/table/search/input_box.twig:38
 msgid "Edit/Insert"
 msgstr "修改/新增"
 
-#: libraries/classes/InsertEdit.php:1816
+#: libraries/classes/InsertEdit.php:1810
 msgid "and then"
 msgstr "然後"
 
-#: libraries/classes/InsertEdit.php:1854
+#: libraries/classes/InsertEdit.php:1848
 msgid "Insert as new row"
 msgstr "以新資料列新增"
 
-#: libraries/classes/InsertEdit.php:1857
+#: libraries/classes/InsertEdit.php:1851
 msgid "Insert as new row and ignore errors"
 msgstr "以新資料列新增 (忽略錯誤)"
 
-#: libraries/classes/InsertEdit.php:1860
+#: libraries/classes/InsertEdit.php:1854
 msgid "Show insert query"
 msgstr "顯示新增查詢"
 
-#: libraries/classes/InsertEdit.php:1880
+#: libraries/classes/InsertEdit.php:1874
 msgid "Go back to previous page"
 msgstr "返回上一頁"
 
-#: libraries/classes/InsertEdit.php:1883
+#: libraries/classes/InsertEdit.php:1877
 msgid "Insert another new row"
 msgstr "新增其他新資料列"
 
-#: libraries/classes/InsertEdit.php:1888
+#: libraries/classes/InsertEdit.php:1882
 msgid "Go back to this page"
 msgstr "返回到本頁"
 
-#: libraries/classes/InsertEdit.php:1911
+#: libraries/classes/InsertEdit.php:1905
 msgid "Edit next row"
 msgstr "編輯下一行"
 
-#: libraries/classes/InsertEdit.php:1931
+#: libraries/classes/InsertEdit.php:1925
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr "按 TAB 鍵跳到下一個值，或按「CTRL+方向鍵」作隨意移動。"
 
-#: libraries/classes/InsertEdit.php:1969
+#: libraries/classes/InsertEdit.php:1963
 #: libraries/classes/ReplicationGui.php:579
 #: libraries/classes/Rte/Routines.php:1689
 #: libraries/classes/Server/Status/Variables.php:231
-#: templates/server/variables/variable_table_head.twig:5
-#: templates/table/search/fields_table.twig:11
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
 #: templates/database/designer/main.twig:1085
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/table/search/fields_table.twig:11
+#: templates/server/variables/index.twig:29
 msgid "Value"
 msgstr "值"
 
-#: libraries/classes/InsertEdit.php:2351 libraries/classes/Sql.php:1336
+#: libraries/classes/InsertEdit.php:2345 libraries/classes/Sql.php:1341
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/classes/InsertEdit.php:2376 libraries/classes/Sql.php:1314
+#: libraries/classes/InsertEdit.php:2370 libraries/classes/Sql.php:1319
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 id: %1$d"
 
-#: libraries/classes/LanguageManager.php:931
+#: libraries/classes/LanguageManager.php:938
 msgid "Ignoring unsupported language code."
 msgstr "忽略不支援的語言代碼。"
 
-#: libraries/classes/LanguageManager.php:958
-#: libraries/classes/LanguageManager.php:959 setup/frames/index.inc.php:66
+#: libraries/classes/LanguageManager.php:965
+#: libraries/classes/LanguageManager.php:966 setup/frames/index.inc.php:66
 msgid "Language"
 msgstr "語系"
 
@@ -7667,7 +7652,7 @@ msgstr "%1$s (<code>%2$s</code> 附近)"
 
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Navigation/Nodes/NodeView.php:32 tbl_operations.php:69
-#: tbl_operations.php:234 tbl_structure.php:41
+#: tbl_operations.php:234 tbl_structure.php:37
 #: templates/database/structure/structure_table_row.twig:112
 #: templates/database/structure/structure_table_row.twig:177
 msgid "View"
@@ -7783,22 +7768,22 @@ msgid "User accounts"
 msgstr "使用者帳號"
 
 #: libraries/classes/Menu.php:648 libraries/classes/Server/Status/Data.php:123
-#: libraries/classes/Util.php:4193 templates/server/sub_page_header.twig:2
+#: libraries/classes/Util.php:4193 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "二進位記錄"
 
 #: libraries/classes/Menu.php:654 libraries/classes/Server/Status/Data.php:128
 #: libraries/classes/Util.php:4194
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/body_for_table_summary.twig:11
+#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "備援"
 
 #: libraries/classes/Menu.php:659 libraries/classes/Server/Status/Data.php:196
 #: libraries/classes/SqlQueryForm.php:443 libraries/classes/Util.php:4195
-#: libraries/config.values.php:161 templates/server/engines/show_engine.twig:12
-#: templates/server/engines/show_engine.twig:16
+#: libraries/config.values.php:161 templates/server/engines/show.twig:18
+#: templates/server/engines/show.twig:22
 msgid "Variables"
 msgstr "變數"
 
@@ -7811,7 +7796,7 @@ msgid "Engines"
 msgstr "引擎"
 
 #: libraries/classes/Menu.php:671 libraries/classes/Util.php:4197
-#: templates/server/sub_page_header.twig:2
+#: templates/server/plugins/index.twig:3
 msgid "Plugins"
 msgstr "附加元件"
 
@@ -8434,8 +8419,7 @@ msgstr "資料表備註"
 msgid "Table options"
 msgstr "資料表選項"
 
-#: libraries/classes/Operations.php:1117
-#: templates/server/engines/list_engines.twig:4
+#: libraries/classes/Operations.php:1117 templates/server/engines/index.twig:9
 msgid "Storage Engine"
 msgstr "儲存引擎"
 
@@ -8485,8 +8469,8 @@ msgid "Flush the table (FLUSH)"
 msgstr "更新資料表 (FLUSH)"
 
 #: libraries/classes/Operations.php:1526
-#: templates/database/structure/check_all_tables.twig:22
 #: templates/table/structure/display_table_stats.twig:61
+#: templates/database/structure/check_all_tables.twig:22
 msgid "Optimize table"
 msgstr "最佳化資料表"
 
@@ -8496,8 +8480,8 @@ msgid "Repair table"
 msgstr "修復資料表"
 
 #: libraries/classes/Operations.php:1587
-#: templates/database/structure/check_all_tables.twig:14
 #: templates/table/operations/view.twig:28
+#: templates/database/structure/check_all_tables.twig:14
 msgid "Delete data or table"
 msgstr "刪除資料或資料表"
 
@@ -8698,8 +8682,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "已啟用雙因素認證，請確認登入。"
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
 msgstr "格式："
 
@@ -9402,8 +9386,8 @@ msgstr "目錄"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:690
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: templates/table/structure/display_structure.twig:30
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/display_structure.twig:30
 msgid "Extra"
 msgstr "額外資訊"
 
@@ -9602,7 +9586,7 @@ msgid ""
 "(Default: \"…\")."
 msgstr ""
 "顯示部分字元串。第一個選項代表要略過多少個字元才開始顯示 (預設為 0)。第二個選"
-"項是要返回的字元數 (預設直到結尾)。第三個選項是當發生截取時，加在之前或之後的"
+"項是要回傳的字元數 (預設直到結尾)。第三個選項是當發生截取時，加在之前或之後的"
 "符號或文字 (預設為 …)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:33
@@ -10108,9 +10092,14 @@ msgstr "次要備援伺服器狀態"
 
 #: libraries/classes/ReplicationGui.php:578
 #: libraries/classes/Server/Status/Variables.php:230
-#: templates/server/variables/variable_table_head.twig:4
+#: templates/server/variables/index.twig:28
 msgid "Variable"
 msgstr "變數"
+
+#: libraries/classes/ReplicationGui.php:655
+#: templates/server/binlog/index.twig:87
+msgid "Server ID"
+msgstr "伺服器 ID"
 
 #: libraries/classes/ReplicationGui.php:656
 #: libraries/classes/ReplicationGui.php:742
@@ -10292,6 +10281,10 @@ msgstr "詳細資訊"
 msgid "Event name"
 msgstr "事件名稱"
 
+#: libraries/classes/Rte/Events.php:485 templates/server/binlog/index.twig:86
+msgid "Event type"
+msgstr "事件類型"
+
 #: libraries/classes/Rte/Events.php:506 libraries/classes/Rte/Routines.php:991
 #, php-format
 msgid "Change to %s"
@@ -10421,7 +10414,6 @@ msgid "Parameters"
 msgstr "參數"
 
 #: libraries/classes/Rte/Routines.php:1005
-#, fuzzy
 msgid "Direction"
 msgstr "方向"
 
@@ -10435,15 +10427,15 @@ msgstr "移除最後的參數"
 
 #: libraries/classes/Rte/Routines.php:1035
 msgid "Return type"
-msgstr "返回類型"
+msgstr "回傳類型"
 
 #: libraries/classes/Rte/Routines.php:1041
 msgid "Return length/values"
-msgstr "返回長度/值"
+msgstr "回傳長度／值"
 
 #: libraries/classes/Rte/Routines.php:1047
 msgid "Return options"
-msgstr "返回選項"
+msgstr "回傳選項"
 
 #: libraries/classes/Rte/Routines.php:1079
 msgid "Is deterministic"
@@ -10470,7 +10462,7 @@ msgstr "必須填寫預存程序名稱！"
 #: libraries/classes/Rte/Routines.php:1239
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr "給予的參數方向 \"%s\" 無效。"
+msgstr "給予的參數方向「%s」無效。"
 
 #: libraries/classes/Rte/Routines.php:1261
 #: libraries/classes/Rte/Routines.php:1327
@@ -10487,7 +10479,7 @@ msgstr "必須提供每個預存程序的參數名稱和類型。"
 
 #: libraries/classes/Rte/Routines.php:1309
 msgid "You must provide a valid return type for the routine."
-msgstr "必須為預存程序提供有效的返回類型。"
+msgstr "必須為預存程序提供有效的回傳類型。"
 
 #: libraries/classes/Rte/Routines.php:1370
 msgid "You must provide a routine definition."
@@ -10502,7 +10494,7 @@ msgstr "執行預存程序 %s 的結果"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "最後一筆查詢敘述句共影響 %d 筆資料列。"
+msgstr[0] "最後一句查詢敘述共影響 %d 筆資料。"
 
 #: libraries/classes/Rte/Routines.php:1591
 #: libraries/classes/Rte/Routines.php:1598
@@ -10516,7 +10508,7 @@ msgstr "預存程序的參數"
 
 #: libraries/classes/Rte/RteList.php:121
 msgid "Returns"
-msgstr "返回"
+msgstr "回傳"
 
 #: libraries/classes/Rte/Triggers.php:170
 msgid "Sorry, we failed to restore the dropped trigger."
@@ -10939,11 +10931,11 @@ msgstr "指定資料庫權限"
 
 #: libraries/classes/Server/Privileges.php:1256
 #: libraries/classes/Server/Privileges.php:1257
-#: libraries/classes/Server/UserGroups.php:253
+#: libraries/classes/Server/UserGroups.php:253 templates/select_all.twig:4
+#: templates/select_all.twig:5
 #: templates/server/privileges/global_priv_table.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
 msgid "Check all"
 msgstr "全選"
 
@@ -11254,96 +11246,6 @@ msgstr "已新增了新的使用者。"
 msgid "Current server:"
 msgstr "目前伺服器："
 
-#: libraries/classes/Server/Status.php:70
-#, php-format
-msgid "Network traffic since startup: %s"
-msgstr "自啟動後的累計網路流量：%s"
-
-#: libraries/classes/Server/Status.php:83
-#, php-format
-msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "自 %2$s 開始，此 MySQL 伺服器已經運行了 %1$s。"
-
-#: libraries/classes/Server/Status.php:105
-msgid ""
-"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
-"b> process."
-msgstr ""
-"此 MySQL 伺服器在<b>備援</b>程序中同時擔當<b>主要(Master)伺服器</b>和<b>次要"
-"(Slave)伺服器</b>的身份。"
-
-#: libraries/classes/Server/Status.php:110
-msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
-"此 MySQL 伺服器在<b>備援</b>程序中擔當<b>主要(Master)伺服器</b>的身份。"
-
-#: libraries/classes/Server/Status.php:115
-msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "此 MySQL 伺服器在<b>備援</b>程序中擔當<b>次要(Slave)伺服器</b>的身份。"
-
-#: libraries/classes/Server/Status.php:127
-msgid "Replication status"
-msgstr "備援狀態"
-
-#: libraries/classes/Server/Status.php:157
-msgid ""
-"On a busy server, the byte counters may overrun, so those statistics as "
-"reported by the MySQL server may be incorrect."
-msgstr ""
-"在高負載的伺服器，字元計數器可能會溢出，因此由 MySQL 返回的統計值可能會不正"
-"確。"
-
-#: libraries/classes/Server/Status.php:168
-msgid "Received"
-msgstr "已接收"
-
-#: libraries/classes/Server/Status.php:191
-msgid "Sent"
-msgstr "已發送"
-
-#: libraries/classes/Server/Status.php:266
-msgid "Max. concurrent connections"
-msgstr "最大同時連線數"
-
-#: libraries/classes/Server/Status.php:277
-msgid "Failed attempts"
-msgstr "嘗試連線失敗數"
-
-#: libraries/classes/Server/Status/Advisor.php:31
-msgid "Instructions"
-msgstr "說明"
-
-#: libraries/classes/Server/Status/Advisor.php:37
-msgid ""
-"The Advisor system can provide recommendations on server variables by "
-"analyzing the server status variables."
-msgstr "「建議系統」可以在分析伺服器狀態後，提供伺服器參數的設定建議。"
-
-#: libraries/classes/Server/Status/Advisor.php:43
-msgid ""
-"Do note however that this system provides recommendations based on simple "
-"calculations and by rule of thumb which may not necessarily apply to your "
-"system."
-msgstr "但請注意此系統提供的建議基於簡單的計算和規則，不一定適用於您的系統。"
-
-#: libraries/classes/Server/Status/Advisor.php:50
-msgid ""
-"Prior to changing any of the configuration, be sure to know what you are "
-"changing (by reading the documentation) and how to undo the change. Wrong "
-"tuning can have a very negative effect on performance."
-msgstr ""
-"在更改任何配置之前, 一定要知道您在改什麼 (請參閱文件) 以及如何還原變更。錯誤"
-"的調校對效能會有重大的負面影響。"
-
-#: libraries/classes/Server/Status/Advisor.php:58
-msgid ""
-"The best way to tune your system would be to change only one setting at a "
-"time, observe or benchmark your database, and undo the change if there was "
-"no clearly measurable improvement."
-msgstr ""
-"最好的調校方法，是一次只更改一個設置，觀察比較您資料庫的效能，如果沒有明顯改"
-"善，那麼就還原這個變更。"
-
 #: libraries/classes/Server/Status/Data.php:117
 #: libraries/classes/Server/Status/Processes.php:125
 msgid "SQL query"
@@ -11386,7 +11288,7 @@ msgid "Transaction coordinator"
 msgstr "交易協調器"
 
 #: libraries/classes/Server/Status/Data.php:132
-#: templates/server/binlog/log_selector.twig:21
+#: templates/server/binlog/index.twig:27
 msgid "Files"
 msgstr "檔案"
 
@@ -11411,18 +11313,22 @@ msgid "Flush query cache"
 msgstr "強制更新查詢快取"
 
 #: libraries/classes/Server/Status/Data.php:449
+#: templates/server/status/base.twig:15
 msgid "Query statistics"
 msgstr "查詢統計"
 
 #: libraries/classes/Server/Status/Data.php:453
+#: templates/server/status/base.twig:20
 msgid "All status variables"
 msgstr "伺服器狀態變數"
 
 #: libraries/classes/Server/Status/Data.php:457
+#: templates/server/status/base.twig:25
 msgid "Monitor"
 msgstr "即時監控"
 
 #: libraries/classes/Server/Status/Data.php:461
+#: templates/server/status/base.twig:30
 msgid "Advisor"
 msgstr "建議"
 
@@ -11438,185 +11344,16 @@ msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分"
 
-#: libraries/classes/Server/Status/Monitor.php:75
-msgid "Log statistics"
-msgstr "記錄統計"
-
-#: libraries/classes/Server/Status/Monitor.php:76
-msgid "Selected time range:"
-msgstr "選擇時間範圍："
-
-#: libraries/classes/Server/Status/Monitor.php:84
-msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "僅取得 SELECT、INSERT、UPDATE 和 DELETE 語句"
-
-#: libraries/classes/Server/Status/Monitor.php:90
-msgid "Remove variable data in INSERT statements for better grouping"
-msgstr "為了更好的分組，在 INSERT 語句中移除變數資料"
-
-#: libraries/classes/Server/Status/Monitor.php:94
-msgid "Choose from which log you want the statistics to be generated from."
-msgstr "選擇要從那個記錄來進行統計。"
-
-#: libraries/classes/Server/Status/Monitor.php:98
-msgid "Results are grouped by query text."
-msgstr "分組查詢文本的結果。"
-
-#: libraries/classes/Server/Status/Monitor.php:102
-msgid "Query analyzer"
-msgstr "查詢分析"
-
-#: libraries/classes/Server/Status/Monitor.php:119
-msgid "Monitor Instructions"
-msgstr "即時監控說明"
-
-#: libraries/classes/Server/Status/Monitor.php:121
-msgid ""
-"The phpMyAdmin Monitor can assist you in optimizing the server configuration "
-"and track down time intensive queries. For the latter you will need to set "
-"log_output to 'TABLE' and have either the slow_query_log or general_log "
-"enabled. Note however, that the general_log produces a lot of data and "
-"increases server load by up to 15%."
-msgstr ""
-"phpMyAdmin 監測器可以幫您最佳化伺服器的配置和追蹤有耗時的查詢。對後者，需要"
-"將 log_output 設為 TABLE，並啟用 slow_query_log 或 general_log。但請注意，"
-"general_log 會產生大量資料，並可能增加伺服器的負載達 15%。"
-
-#: libraries/classes/Server/Status/Monitor.php:137
-msgid "Using the monitor:"
-msgstr "使用即時監控："
-
-#: libraries/classes/Server/Status/Monitor.php:140
-msgid ""
-"Your browser will refresh all displayed charts in a regular interval. You "
-"may add charts and change the refresh rate under 'Settings', or remove any "
-"chart using the cog icon on each respective chart."
-msgstr ""
-"瀏覽器會在固定的時間間隔刷新顯示的所有圖表。您可以增加圖表和更改「設定」下的"
-"更新率，或在各個圖表上用齒輪圖示來刪除該圖表。"
-
-#: libraries/classes/Server/Status/Monitor.php:146
-msgid ""
-"To display queries from the logs, select the relevant time span on any chart "
-"by holding down the left mouse button and panning over the chart. Once "
-"confirmed, this will load a table of grouped queries, there you may click on "
-"any occurring SELECT statements to further analyze them."
-msgstr ""
-"若要從日誌顯示查詢，請在任何圖表上按下滑鼠左鍵並拖拽選擇一段時間範圍。確定後"
-"將會載入分好組別的查詢，然後可以點選任何 SELECT 語句做進一步分析。"
-
-#: libraries/classes/Server/Status/Monitor.php:156
-msgid "Please note:"
-msgstr "請注意："
-
-#: libraries/classes/Server/Status/Monitor.php:159
-msgid ""
-"Enabling the general_log may increase the server load by 5-15%. Also be "
-"aware that generating statistics from the logs is a load intensive task, so "
-"it is advisable to select only a small time span and to disable the "
-"general_log and empty its table once monitoring is not required any more."
-msgstr ""
-"啟用 general_log 可能會增加伺服器的負載 5-15%。此外，請注意從記錄生成統計資訊"
-"是沉重的任務，所以最好只選擇短的時間片段，並停用 general_log；一旦不再使用監"
-"控，應該要將這個表清空。"
-
-#: libraries/classes/Server/Status/Monitor.php:180
-#: libraries/classes/Server/Status/Monitor.php:288
-msgid "Add chart"
-msgstr "新增圖表"
-
-#: libraries/classes/Server/Status/Monitor.php:183
-msgid "Chart Title"
-msgstr "圖表標題"
-
-#: libraries/classes/Server/Status/Monitor.php:186
-msgid "Preset chart"
-msgstr "預設圖表"
-
-#: libraries/classes/Server/Status/Monitor.php:191
-msgid "Status variable(s)"
-msgstr "狀態變數"
-
-#: libraries/classes/Server/Status/Monitor.php:194
-msgid "Select series:"
-msgstr "選擇序列："
-
-#: libraries/classes/Server/Status/Monitor.php:196
-msgid "Commonly monitored"
-msgstr "常用的即時監控"
-
-#: libraries/classes/Server/Status/Monitor.php:212
-msgid "or type variable name:"
-msgstr "或輸入變數名稱："
-
-#: libraries/classes/Server/Status/Monitor.php:219
-msgid "Display as differential value"
-msgstr "顯示為差異的值"
-
-#: libraries/classes/Server/Status/Monitor.php:223
-msgid "Apply a divisor"
-msgstr "用於除數"
-
-#: libraries/classes/Server/Status/Monitor.php:231
-msgid "Append unit to data values"
-msgstr "在資料後面加入單位"
-
-#: libraries/classes/Server/Status/Monitor.php:237
-msgid "Add this series"
-msgstr "新增此序列"
-
-#: libraries/classes/Server/Status/Monitor.php:239
-msgid "Clear series"
-msgstr "清除序列"
-
-#: libraries/classes/Server/Status/Monitor.php:242
-msgid "Series in chart:"
-msgstr "圖表中的序列："
-
-#: libraries/classes/Server/Status/Monitor.php:263
-msgid "Start Monitor"
-msgstr "開始監控"
-
-#: libraries/classes/Server/Status/Monitor.php:269
-msgid "Instructions/Setup"
-msgstr "說明/安裝程式"
-
-#: libraries/classes/Server/Status/Monitor.php:272
-msgid "Done dragging (rearranging) charts"
-msgstr "完成拖曳 (重新排列) 圖表"
-
-#: libraries/classes/Server/Status/Monitor.php:292
-msgid "Enable charts dragging"
-msgstr "啓用圖表拖曳"
-
-#: libraries/classes/Server/Status/Monitor.php:296
-#: libraries/classes/Server/Status/Processes.php:40
-msgid "Refresh rate"
-msgstr "更新率"
-
-#: libraries/classes/Server/Status/Monitor.php:318
-msgid "Chart columns"
-msgstr "圖表欄位"
-
-#: libraries/classes/Server/Status/Monitor.php:330
-msgid "Chart arrangement"
-msgstr "圖表排列"
-
-#: libraries/classes/Server/Status/Monitor.php:333
-msgid ""
-"The arrangement of the charts is stored to the browsers local storage. You "
-"may want to export it if you have a complicated set up."
-msgstr "圖表的排列已儲存到瀏覽器的本機儲存區。如果設定很複雜，最好將之匯出。"
-
-#: libraries/classes/Server/Status/Monitor.php:347
-msgid "Reset to default"
-msgstr "還原預設值"
-
 #: libraries/classes/Server/Status/Processes.php:35
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr "注意：開啟自動更新可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
+
+#: libraries/classes/Server/Status/Processes.php:40
+#: templates/server/status/monitor/index.twig:36
+msgid "Refresh rate"
+msgstr "更新率"
 
 #: libraries/classes/Server/Status/Processes.php:93
 msgid "ID"
@@ -11629,6 +11366,14 @@ msgstr "指令"
 #: libraries/classes/Server/Status/Processes.php:121
 msgid "Progress"
 msgstr "進度"
+
+#: libraries/classes/Server/Status/Processes.php:198
+msgid "Truncate Shown Queries"
+msgstr "截斷顯示的查詢"
+
+#: libraries/classes/Server/Status/Processes.php:204
+msgid "Show Full Queries"
+msgstr "顯示完整查詢"
 
 #: libraries/classes/Server/Status/Processes.php:253
 #: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
@@ -12376,20 +12121,20 @@ msgstr "資料庫級別分頁"
 msgid "Table-level tabs"
 msgstr "資料表級別分頁"
 
-#: libraries/classes/Sql.php:711
+#: libraries/classes/Sql.php:716
 msgid "Bookmark not created!"
 msgstr "書籤尚未建立！"
 
-#: libraries/classes/Sql.php:830
+#: libraries/classes/Sql.php:835
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用書籤「%s」作為預設的瀏覽查詢。"
 
-#: libraries/classes/Sql.php:1333
+#: libraries/classes/Sql.php:1338
 msgid "Showing as PHP code"
 msgstr "顯示的內容為 PHP 程式碼"
 
-#: libraries/classes/Sql.php:1706
+#: libraries/classes/Sql.php:1711
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12398,7 +12143,7 @@ msgstr ""
 "目前選擇的項目不含獨一的資料欄位，以下功能無法執行：網格編輯、核選、編輯、複"
 "製、刪除。%s"
 
-#: libraries/classes/Sql.php:1720
+#: libraries/classes/Sql.php:1725
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12407,7 +12152,7 @@ msgstr ""
 "目前選擇的項目不含獨一的資料欄位，以下功能可能產生奇怪的結果：網格編輯、核"
 "選、複製、刪除。%s"
 
-#: libraries/classes/Sql.php:1760
+#: libraries/classes/Sql.php:1765
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "資料表「%s」的索引有問題"
@@ -13258,10 +13003,10 @@ msgstr "以上皆是"
 msgid "neither of the above"
 msgstr "以上皆非"
 
-#: libraries/mult_submits.inc.php:59
+#: libraries/mult_submits.inc.php:59 templates/select_all.twig:2
+#: templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "已選擇項目："
 
@@ -13405,14 +13150,6 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr "用戶名稱與主機名稱尚未更改。如只想更改密碼，應使用「更改密碼」分頁。"
-
-#: server_status.php:40
-msgid "Not enough privilege to view server status."
-msgstr "權限不足以檢視伺服器狀態。"
-
-#: server_status_advisor.php:38
-msgid "Not enough privilege to view the advisor."
-msgstr "權限不足以檢視建議。"
 
 #: server_status_processes.php:38
 #, php-format
@@ -13608,8 +13345,8 @@ msgid "Wrong data or no validation for %s"
 msgstr "資料錯誤或未通過 %s 審核"
 
 #: tbl_change.php:166 templates/database/tracking/tables.twig:19
-#: templates/table/tracking/main.twig:33
 #: templates/database/multi_table_query/form.twig:48
+#: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "顯示"
 
@@ -13665,452 +13402,6 @@ msgstr "佈景主題"
 msgid "Get more themes!"
 msgstr "取得更多的佈景主題！"
 
-#: templates/sql/profiling_chart.twig:4
-msgid "Detailed profile"
-msgstr "效能分析明細"
-
-#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
-msgid "State"
-msgstr "狀態"
-
-#: templates/sql/profiling_chart.twig:30
-msgid "Summary by state"
-msgstr "狀態摘要"
-
-#: templates/sql/profiling_chart.twig:40
-msgid "Total Time"
-msgstr "總時間"
-
-#: templates/sql/profiling_chart.twig:44
-msgid "% Time"
-msgstr "% 時間"
-
-#: templates/sql/profiling_chart.twig:48
-msgid "Calls"
-msgstr "呼叫數"
-
-#: templates/sql/profiling_chart.twig:52
-msgid "ø Time"
-msgstr "ø 時間"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr "請將 FIDO U2F 裝置連接電腦的 USB 埠，然後於裝置確認登入。"
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:473
-msgid "Partitions"
-msgstr "分區"
-
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr "沒有已定義的分區！"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr "已做分區依："
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr "已做子分區依："
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-msgid "Partition"
-msgstr "分割區"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:30
-msgid "Expression"
-msgstr "表示"
-
-#: templates/table/structure/display_partitions.twig:29
-msgid "Data length"
-msgstr "資料長度"
-
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "索引長度"
-
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "分區表"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-msgid "Edit partitioning"
-msgstr "編輯分區"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "索引名稱："
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "PRIMARY <b>必須</b>而且<b>只能</b>作為主鍵的名稱！"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "索引選擇："
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "進階選項"
-
-#: templates/table/index_form.twig:52
-msgid "Key block size:"
-msgstr "鍵值區塊大小："
-
-#: templates/table/index_form.twig:69
-msgid "Index type:"
-msgstr "索引類型："
-
-#: templates/table/index_form.twig:81
-msgid "Parser:"
-msgstr "分析器："
-
-#: templates/table/index_form.twig:97
-msgid "Comment:"
-msgstr "備註："
-
-#: templates/table/index_form.twig:122
-#: templates/database/structure/table_header.twig:36
-msgid "Size"
-msgstr "大小"
-
-#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
-msgid "Drag to reorder"
-msgstr "使用滑鼠拖曳來重新排序"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "資料表名稱"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
-#: templates/database/central_columns/main.twig:210
-#: templates/console/display.twig:99
-msgid "Add"
-msgstr "新增"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-msgid "column(s)"
-msgstr "欄位"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "編碼與排序："
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "儲存引擎："
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "連線："
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "PARTITION 定義:"
-
-#: templates/display/results/table_navigation.twig:26
-msgid "Save edited data"
-msgstr "儲存修改過的資料"
-
-#: templates/display/results/table_navigation.twig:32
-msgid "Restore column order"
-msgstr "還原欄位的順序"
-
-#: templates/display/results/table_navigation.twig:53
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "資料列數："
-
-#: templates/display/results/table_navigation.twig:67
-msgid "All"
-msgstr "全部"
-
-#: templates/display/results/table_navigation.twig:73
-#: templates/database/central_columns/main.twig:180
-msgid "Filter rows"
-msgstr "篩選資料列"
-
-#: templates/display/results/table_navigation.twig:75
-#: templates/database/central_columns/main.twig:181
-msgid "Search this table"
-msgstr "搜尋此資料表"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "點此切換"
-
-#: templates/server/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "刪除所選的使用者帳號"
-
-#: templates/server/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "移除使用者所有權限，然後刪除使用者。"
-
-#: templates/server/privileges/delete_user_fieldset.twig:7
-#: templates/server/privileges/delete_user_fieldset.twig:10
-#: templates/server/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "刪除與使用者同名的資料庫。"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "檔案名稱樣版："
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "以後匯出時，也使用此設定"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "起始列號："
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr "請將 FIDO U2F 裝置連接電腦的 USB 埠，然後在該裝置確認登記。"
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "資料列數："
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "傾印部份資料列"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "起始列數："
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "傾印所有資料列"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-"回報功能會自動取得相關的錯誤資料與及設定檔資訊。將會回報這些資料給 "
-"phpMyAdmin 開發團隊以協助解決問題。"
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr "可以告訴我們您做了什麼步驟導致問題發生嗎？這將能幫助我們找出問題："
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr "可以檢視錯誤報告的資料："
-
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "將每個資料庫為匯出為不同的檔案"
-
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "將每個資料表匯出為不同的檔案"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr "編輯 ENUM/SET 值"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "摺疊"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "展開"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "重新查詢"
-
-#: templates/transformation_overview.twig:1
-msgid "Available MIME types"
-msgstr "可用的 MIME 類型"
-
-#: templates/transformation_overview.twig:13
-msgid "Available browser display transformations"
-msgstr "可用的瀏覽器顯示轉換"
-
-#: templates/transformation_overview.twig:18
-#: templates/columns_definitions/table_fields_definitions.twig:78
-msgid "Browser display transformation"
-msgstr "瀏覽器顯示轉換"
-
-#: templates/transformation_overview.twig:19
-#: templates/transformation_overview.twig:38
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "說明"
-
-#: templates/transformation_overview.twig:32
-msgid "Available input transformations"
-msgstr "可用的輸入轉換"
-
-#: templates/transformation_overview.twig:37
-#: templates/columns_definitions/table_fields_definitions.twig:89
-msgid "Input transformation"
-msgstr "輸入轉換"
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "繼續新增 %s 列"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s 筆資料符合 <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>總計:</b> <i>%s</i> 筆資料符合條件"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr "定義新別名"
-
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "選擇資料庫："
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "新資料庫名稱"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "選擇資料表："
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "新資料表名稱"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "選擇欄位："
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "新欄位名稱"
-
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "選擇樣板"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "使用此值"
-
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-msgctxt "Number"
-msgid "#"
-msgstr "#"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "日期"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "使用者名稱"
-
-#: templates/database/structure/structure_table_row.twig:17
-#: templates/server/databases/index.twig:201
-#: templates/server/databases/index.twig:213
-msgid "Not replicated"
-msgstr "尚未備援"
-
-#: templates/database/structure/structure_table_row.twig:18
-#: templates/server/databases/index.twig:197
-#: templates/server/databases/index.twig:209
-msgid "Replicated"
-msgstr "已備援"
-
-#: templates/database/structure/structure_table_row.twig:214
-msgid "in use"
-msgstr "使用中"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "顯示建立查詢"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:44
-#: templates/prefs_twofactor.twig:56
-msgid "Configure two-factor authentication"
-msgstr "設定雙因素認證"
-
-#: templates/prefs_twofactor_configure.twig:8
-msgid "Enable two-factor authentication"
-msgstr "啟用雙因素認證"
-
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "顯示/隱藏欄位"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "檢視資料表結構"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "選擇要檢視的二進位記錄"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "選擇要匯出的關聯類型"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:86
-#: templates/database/designer/main.twig:89
-msgid "Create table"
-msgstr "建立資料表"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "欄位數"
-
-#: templates/server/plugins/main.twig:18
-msgid "Plugin"
-msgstr "外掛程式"
-
-#: templates/server/plugins/main.twig:20 templates/table/tracking/main.twig:28
-msgid "Version"
-msgstr "版本"
-
-#: templates/server/plugins/main.twig:21
-msgid "Author"
-msgstr "作者"
-
-#: templates/server/plugins/main.twig:32
-msgid "disabled"
-msgstr "已關閉"
-
 #: templates/database/structure/table_header.twig:27
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
@@ -14118,6 +13409,11 @@ msgid ""
 msgstr ""
 "可能為近似值，請點選數字以取得精確的數量。請參閱 [doc@faq3-11]FAQ 3.11[/"
 "doc]。"
+
+#: templates/database/structure/table_header.twig:36
+#: templates/table/index_form.twig:122
+msgid "Size"
+msgstr "大小"
 
 #: templates/database/structure/table_header.twig:51
 #: templates/table/structure/display_table_stats.twig:147
@@ -14133,6 +13429,19 @@ msgstr "最後更新時間"
 #: templates/table/structure/display_table_stats.twig:161
 msgid "Last check"
 msgstr "最後檢查時間"
+
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:376
+msgid "Edit view"
+msgstr "編輯檢視表"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "VIEW 名稱"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "欄位名稱"
 
 #: templates/database/tracking/tables.twig:4
 msgid "Tracked tables"
@@ -14171,111 +13480,340 @@ msgstr "尚未追蹤的資料表"
 msgid "Track table"
 msgstr "追蹤資料表"
 
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "壓縮："
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "顯示視覺化地理資訊(GIS)"
 
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zip 壓縮"
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "標籤欄位"
 
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzip 壓縮"
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- 無 --"
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "檔案字元編碼："
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "空間欄位"
 
-#: templates/display/export/options_output_save_dir.twig:5
+#: templates/table/gis_visualization/gis_visualization.twig:38
+#: templates/gis_data_editor_form.twig:22
+msgid "Use OpenStreetMaps as Base Layer"
+msgstr "使用 OpenStreetMaps 作為基礎圖層"
+
+#: templates/display/results/sort_by_key.twig:3
+#, fuzzy
+#| msgid "Sort by key"
+msgid "Sort by key:"
+msgstr "依主鍵排序"
+
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
+msgstr "輸出："
+
 #: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "儲存到伺服器的 <strong>%s</strong> 資料夾"
 
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:376
-msgid "Edit view"
-msgstr "編輯檢視表"
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "將輸出儲存為檔案"
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "VIEW 名稱"
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr "略過超過 %s MiB 的資料表"
 
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "欄位名稱"
+#: templates/server/engines/show.twig:3 templates/server/engines/index.twig:3
+msgid "Storage engines"
+msgstr "儲存引擎"
 
-#: templates/login/twofactor/key-https-warning.twig:3
+#: templates/server/engines/show.twig:47
+#, fuzzy
+#| msgid "Storage engines"
+msgid "Unknown storage engine."
+msgstr "儲存引擎"
+
+#: templates/create_tracking_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "建立 %2$s 的追蹤版本 %1$s"
+
+#: templates/create_tracking_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "建立版本 %1$s"
+
+#: templates/create_tracking_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "追蹤此等資料定義指令："
+
+#: templates/create_tracking_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "追蹤此等資料操作指令："
+
+#: templates/create_tracking_version.twig:76
+msgid "Create version"
+msgstr "建立版本"
+
+#: templates/server/status/monitor/index.twig:8
+msgid "Start Monitor"
+msgstr "開始監控"
+
+#: templates/server/status/monitor/index.twig:16
+msgid "Instructions/Setup"
+msgstr "說明/安裝程式"
+
+#: templates/server/status/monitor/index.twig:20
+msgid "Done dragging (rearranging) charts"
+msgstr "完成拖曳 (重新排列) 圖表"
+
+#: templates/server/status/monitor/index.twig:27
+#: templates/server/status/monitor/index.twig:106
+msgid "Add chart"
+msgstr "新增圖表"
+
+#: templates/server/status/monitor/index.twig:31
+msgid "Enable charts dragging"
+msgstr "啓用圖表拖曳"
+
+#: templates/server/status/monitor/index.twig:43
+msgid "Chart columns"
+msgstr "圖表欄位"
+
+#: templates/server/status/monitor/index.twig:56
+msgid "Chart arrangement"
+msgstr "圖表排列"
+
+#: templates/server/status/monitor/index.twig:57
 msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr "並未使用 https 存取 phpMyAdmin，故 FIDO U2F 裝置很可能不會為您作認證。"
+"The arrangement of the charts is stored to the browsers local storage. You "
+"may want to export it if you have a complicated set up."
+msgstr "圖表的排列已儲存到瀏覽器的本機儲存區。如果設定很複雜，最好將之匯出。"
 
-#: templates/prefs_autoload.twig:7
+#: templates/server/status/monitor/index.twig:66
+msgid "Reset to default"
+msgstr "還原預設值"
+
+#: templates/server/status/monitor/index.twig:71
+msgid "Monitor Instructions"
+msgstr "即時監控說明"
+
+#: templates/server/status/monitor/index.twig:73
 msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr "瀏覽器有此網域的 phpMyAdmin 設定，是否匯入到目前的連線階段?"
+"The phpMyAdmin Monitor can assist you in optimizing the server configuration "
+"and track down time intensive queries. For the latter you will need to set "
+"log_output to 'TABLE' and have either the slow_query_log or general_log "
+"enabled. Note however, that the general_log produces a lot of data and "
+"increases server load by up to 15%."
+msgstr ""
+"phpMyAdmin 監測器可以幫您最佳化伺服器的配置和追蹤有耗時的查詢。對後者，需要"
+"將 log_output 設為 TABLE，並啟用 slow_query_log 或 general_log。但請注意，"
+"general_log 會產生大量資料，並可能增加伺服器的負載達 15%。"
 
-#: templates/prefs_autoload.twig:13
-msgid "Delete settings"
-msgstr "刪除設定"
+#: templates/server/status/monitor/index.twig:83
+msgid "Using the monitor:"
+msgstr "使用即時監控："
 
-#: templates/display/results/options_block.twig:34
-msgid "Relational key"
-msgstr "關聯鍵"
-
-#: templates/display/results/options_block.twig:34
-msgid "Display column for relationships"
-msgstr "顯示關聯的欄位"
-
-#: templates/display/results/options_block.twig:50
-msgid "Show binary contents"
-msgstr "顯示二進位內容"
-
-#: templates/display/results/options_block.twig:57
-msgid "Show BLOB contents"
-msgstr "顯示 BLOB 內容"
-
-#: templates/display/results/options_block.twig:71
-msgid "Hide browser transformation"
-msgstr "隱藏瀏覽器轉換"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Text"
-msgstr "易懂的文字"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Binary"
-msgstr "易懂的二進位檔"
-
-#: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:557
-#: templates/database/designer/main.twig:621
-#: templates/database/designer/main.twig:822
-#: templates/database/designer/main.twig:853
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1046
-msgid "Operator"
-msgstr "運算子"
-
-#: templates/prefs_twofactor_confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr "確認停用雙因素認證"
-
-#: templates/prefs_twofactor_confirm.twig:5
+#: templates/server/status/monitor/index.twig:85
 msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr "由於停用了雙因素認證，現在又再只能以密碼登入。"
+"Your browser will refresh all displayed charts in a regular interval. You "
+"may add charts and change the refresh rate under 'Settings', or remove any "
+"chart using the cog icon on each respective chart."
+msgstr ""
+"瀏覽器會在固定的時間間隔刷新顯示的所有圖表。您可以增加圖表和更改「設定」下的"
+"更新率，或在各個圖表上用齒輪圖示來刪除該圖表。"
 
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:38
-msgid "Disable two-factor authentication"
-msgstr "停用雙因素認證"
+#: templates/server/status/monitor/index.twig:90
+msgid ""
+"To display queries from the logs, select the relevant time span on any chart "
+"by holding down the left mouse button and panning over the chart. Once "
+"confirmed, this will load a table of grouped queries, there you may click on "
+"any occurring SELECT statements to further analyze them."
+msgstr ""
+"若要從日誌顯示查詢，請在任何圖表上按下滑鼠左鍵並拖拽選擇一段時間範圍。確定後"
+"將會載入分好組別的查詢，然後可以點選任何 SELECT 語句做進一步分析。"
+
+#: templates/server/status/monitor/index.twig:96
+msgid "Please note:"
+msgstr "請注意："
+
+#: templates/server/status/monitor/index.twig:99
+msgid ""
+"Enabling the general_log may increase the server load by 5-15%. Also be "
+"aware that generating statistics from the logs is a load intensive task, so "
+"it is advisable to select only a small time span and to disable the "
+"general_log and empty its table once monitoring is not required any more."
+msgstr ""
+"啟用 general_log 可能會增加伺服器的負載 5-15%。此外，請注意從記錄生成統計資訊"
+"是沉重的任務，所以最好只選擇短的時間片段，並停用 general_log；一旦不再使用監"
+"控，應該要將這個表清空。"
+
+#: templates/server/status/monitor/index.twig:109
+msgid "Chart Title"
+msgstr "圖表標題"
+
+#: templates/server/status/monitor/index.twig:113
+msgid "Preset chart"
+msgstr "預設圖表"
+
+#: templates/server/status/monitor/index.twig:119
+msgid "Status variable(s)"
+msgstr "狀態變數"
+
+#: templates/server/status/monitor/index.twig:124
+msgid "Select series:"
+msgstr "選擇序列："
+
+#: templates/server/status/monitor/index.twig:127
+msgid "Commonly monitored"
+msgstr "常用的即時監控"
+
+#: templates/server/status/monitor/index.twig:145
+msgid "or type variable name:"
+msgstr "或輸入變數名稱："
+
+#: templates/server/status/monitor/index.twig:152
+msgid "Display as differential value"
+msgstr "顯示為差異的值"
+
+#: templates/server/status/monitor/index.twig:157
+msgid "Apply a divisor"
+msgstr "用於除數"
+
+#: templates/server/status/monitor/index.twig:168
+msgid "Append unit to data values"
+msgstr "在資料後面加入單位"
+
+#: templates/server/status/monitor/index.twig:176
+msgid "Add this series"
+msgstr "新增此序列"
+
+#: templates/server/status/monitor/index.twig:179
+msgid "Clear series"
+msgstr "清除序列"
+
+#: templates/server/status/monitor/index.twig:183
+msgid "Series in chart:"
+msgstr "圖表中的序列："
+
+#: templates/server/status/monitor/index.twig:192
+msgid "Log statistics"
+msgstr "記錄統計"
+
+#: templates/server/status/monitor/index.twig:194
+msgid "Selected time range:"
+msgstr "選擇時間範圍："
+
+#: templates/server/status/monitor/index.twig:202
+msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
+msgstr "僅取得 SELECT、INSERT、UPDATE 和 DELETE 語句"
+
+#: templates/server/status/monitor/index.twig:208
+msgid "Remove variable data in INSERT statements for better grouping"
+msgstr "為了更好的分組，在 INSERT 語句中移除變數資料"
+
+#: templates/server/status/monitor/index.twig:212
+msgid "Choose from which log you want the statistics to be generated from."
+msgstr "選擇要從那個記錄來進行統計。"
+
+#: templates/server/status/monitor/index.twig:215
+msgid "Results are grouped by query text."
+msgstr "分組查詢文本的結果。"
+
+#: templates/server/status/monitor/index.twig:219
+msgid "Query analyzer"
+msgstr "查詢分析"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr "請將 FIDO U2F 裝置連接電腦的 USB 埠，然後在該裝置確認登記。"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "檔案名稱樣版："
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "以後匯出時，也使用此設定"
+
+#: templates/table/relation/common_form.twig:9
+msgid "Foreign key constraints"
+msgstr "外鍵限制"
+
+#: templates/table/relation/common_form.twig:13
+msgid "Actions"
+msgstr "動作"
+
+#: templates/table/relation/common_form.twig:14
+msgid "Constraint properties"
+msgstr "限制屬性"
+
+#: templates/table/relation/common_form.twig:18
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+"在沒有索引的欄位建立外鍵，該欄位會自動建立索引。或者您可在建立外鍵之前，先在"
+"下方定義索引。"
+
+#: templates/table/relation/common_form.twig:23
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr "僅顯示已建立索引的欄位。您可以於下方定義索引。"
+
+#: templates/table/relation/common_form.twig:27
+msgid "Foreign key constraint"
+msgstr "外鍵限制"
+
+#: templates/table/relation/common_form.twig:92
+msgid "+ Add constraint"
+msgstr "+ 加入限制"
+
+#: templates/table/relation/common_form.twig:102
+#: templates/table/relation/common_form.twig:111
+msgid "Internal relationships"
+msgstr "內部關聯"
+
+#: templates/table/relation/common_form.twig:117
+msgid "Internal relation"
+msgstr "內部關聯"
+
+#: templates/table/relation/common_form.twig:119
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr "若有對應的外鍵關連，就不需要使用內部關聯。"
+
+#: templates/table/relation/common_form.twig:199
+msgid "Choose column to display:"
+msgstr "選擇要顯示的欄位："
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+msgctxt "Number"
+msgid "#"
+msgstr "#"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/display_structure.twig:91
+msgctxt "None for default"
+msgid "None"
+msgstr "無"
+
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "顯示/隱藏欄位"
+
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "檢視資料表結構"
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -14297,6 +13835,11 @@ msgstr "子分割區依："
 #: templates/columns_definitions/partitions.twig:65
 msgid "Subpartitions:"
 msgstr "子分割區依："
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "分割區"
 
 #: templates/columns_definitions/partitions.twig:78
 msgid "Values"
@@ -14334,57 +13877,60 @@ msgstr "資料表空間"
 msgid "Node group"
 msgstr "節點群組"
 
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "由 %s 參照。"
+#: templates/database/multi_table_query/form.twig:16
+msgid "Query window"
+msgstr "查詢視窗"
 
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "此為外鍵。"
+#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:125
+msgid "select table"
+msgstr "選擇資料表"
 
-#: templates/columns_definitions/column_name.twig:39
-msgid "Pick from Central Columns"
-msgstr "從中央欄位挑選"
+#: templates/database/multi_table_query/form.twig:44
+#: templates/database/multi_table_query/form.twig:133
+msgid "select column"
+msgstr "選擇欄位"
 
-#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
-msgid "Delete version"
-msgstr "刪除版本"
+#: templates/database/multi_table_query/form.twig:50
+msgid "Table alias"
+msgstr "資料表別名"
 
-#: templates/table/tracking/main.twig:107
-#, php-format
-msgid "Activate tracking for %s"
-msgstr "啓用 %s 的追蹤"
+#: templates/database/multi_table_query/form.twig:51
+msgid "Column alias"
+msgstr "欄位別名"
 
-#: templates/table/tracking/main.twig:109
-msgid "Activate now"
-msgstr "立即啓用"
+#: templates/database/multi_table_query/form.twig:54
+msgid "Use this column in criteria"
+msgstr "使用此欄位作為準則"
 
-#: templates/table/tracking/main.twig:111
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "停用 %s 的追蹤"
+#: templates/database/multi_table_query/form.twig:57
+msgid "criteria"
+msgstr "準則"
 
-#: templates/table/tracking/main.twig:113
-msgid "Deactivate now"
-msgstr "立即停用"
+#: templates/database/multi_table_query/form.twig:71
+msgid "Add as"
+msgstr "加入為"
 
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:174
-msgid "Format-specific options:"
-msgstr "格式選項："
+#: templates/database/multi_table_query/form.twig:116
+msgid "Another column"
+msgstr "另一個欄位"
 
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:176
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr "請下拉至所選格式並設定選項，其他格式的選項不用理會。"
+#: templates/database/multi_table_query/form.twig:144
+msgid "Enter criteria as free text"
+msgstr "以文字方式加入準則"
 
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:185
-msgid "Encoding Conversion:"
-msgstr "轉換編碼："
+#: templates/database/multi_table_query/form.twig:152
+msgid "Remove this column"
+msgstr "移除此欄位"
+
+#: templates/database/multi_table_query/form.twig:162
+#: templates/table/relation/foreign_key_row.twig:86
+msgid "+ Add column"
+msgstr "+ 新增欄位"
+
+#: templates/database/multi_table_query/form.twig:179
+msgid "Update query"
+msgstr "更新查詢"
 
 #: templates/database/designer/main.twig:21
 #: templates/database/designer/main.twig:27
@@ -14410,6 +13956,12 @@ msgstr "新頁面"
 #: templates/database/designer/main.twig:82
 msgid "Delete pages"
 msgstr "刪除頁面"
+
+#: templates/database/designer/main.twig:86
+#: templates/database/designer/main.twig:89
+#: templates/database/create_table.twig:7
+msgid "Create table"
+msgstr "建立資料表"
 
 #: templates/database/designer/main.twig:93
 #: templates/database/designer/main.twig:96
@@ -14527,63 +14079,73 @@ msgstr "新名稱"
 msgid "Aggregate"
 msgstr "聚合"
 
+#: templates/database/designer/main.twig:557
+#: templates/database/designer/main.twig:621
+#: templates/database/designer/main.twig:822
+#: templates/database/designer/main.twig:853
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1046
+#: templates/table/search/fields_table.twig:10
+msgid "Operator"
+msgstr "運算子"
+
 #: templates/database/designer/main.twig:1128
 msgid "Active options"
 msgstr "目前選項"
 
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "沒有預覽圖片。"
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "顯示建立查詢"
 
-#: templates/theme_preview.twig:13
-msgid "Take it"
-msgstr "使用"
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "額外搜尋準則"
 
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
+#: templates/login/header.twig:15
+msgid ""
+"There is a mismatch between HTTPS indicated on the server and client. This "
+"can lead to a non working phpMyAdmin or a security risk. Please fix your "
+"server configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/server/privileges/column_privileges.twig:21
+#: templates/server/privileges/column_privileges.twig:22
+msgctxt "None privileges"
 msgid "None"
 msgstr "無"
 
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "定義："
+#: templates/server/binlog/index.twig:10
+msgid "Select binary log to view"
+msgstr "選擇要檢視的二進位記錄"
 
-#: templates/database/central_columns/main.twig:4
-msgid "Add new column"
-msgstr "新增欄位"
-
-#: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:242
+#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #, fuzzy
-#| msgid "Length/Values"
-msgid "Lenght/Value"
-msgstr "長度/值"
+#| msgid "Truncate Shown Queries"
+msgid "Truncate shown queries"
+msgstr "截斷顯示的查詢"
 
-#: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:254
-msgid "Attribute"
-msgstr "屬性"
+#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
+#, fuzzy
+#| msgid "Show Full Queries"
+msgid "Show full queries"
+msgstr "顯示完整查詢"
 
-#: templates/database/central_columns/main.twig:141
-msgid "The central list of columns for the current database is empty"
-msgstr "目前資料庫的欄位中央清單為空的"
+#: templates/server/binlog/index.twig:84
+msgid "Log name"
+msgstr "記錄檔名稱"
 
-#: templates/database/central_columns/main.twig:192
-#: templates/table/structure/display_structure.twig:416
-msgid "Add column"
-msgstr "新增欄位"
+#: templates/server/binlog/index.twig:85
+msgid "Position"
+msgstr "位置"
 
-#: templates/database/central_columns/main.twig:201
-msgid "Select a table"
-msgstr "選擇資料表"
+#: templates/server/binlog/index.twig:88
+msgid "Original position"
+msgstr "原始位置"
 
-#: templates/database/central_columns/main.twig:208
-msgid "Select a column."
-msgstr "選擇欄位。"
-
-#: templates/database/central_columns/main.twig:227
-msgid "Click to sort."
-msgstr "點選排序。"
+#: templates/server/binlog/index.twig:89
+#: templates/table/structure/display_table_stats.twig:3
+msgid "Information"
+msgstr "資訊"
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -14599,6 +14161,415 @@ msgstr "密碼："
 #: templates/login/twofactor/application.twig:2
 msgid "Authentication code:"
 msgstr "認證碼："
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s 張資料表"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "總計"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"上傳的檔案可能超過了限制的大小；這是以 webkit 為基礎的瀏覽器 (Safari, Google "
+"Chrome, Arora 等) 的已知問題。"
+
+#: templates/display/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr "%s / %s"
+
+#: templates/display/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr "每秒%s。"
+
+#: templates/display/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "約剩 %MIN 分 %SEC 秒。"
+
+#: templates/display/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr "約剩 %SEC 秒。"
+
+#: templates/display/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr "檔案正在處理，請稍候。"
+
+#: templates/display/import/javascript.twig:30
+msgid "Uploading your import file…"
+msgstr "正在上傳您的匯入檔案…"
+
+#: templates/display/import/javascript.twig:155
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr "正在上傳，請稍候。沒有詳細資訊提供。"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "尋找和替換 - 預覽"
+
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Count"
+msgstr "次數"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "原有字串"
+
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "替換字串"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "替換"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "沒有預覽圖片。"
+
+#: templates/theme_preview.twig:13
+msgid "Take it"
+msgstr "使用"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr "移除"
+
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "可用的 MIME 類型"
+
+#: templates/transformation_overview.twig:13
+msgid "Available browser display transformations"
+msgstr "可用的瀏覽器顯示轉換"
+
+#: templates/transformation_overview.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:78
+msgid "Browser display transformation"
+msgstr "瀏覽器顯示轉換"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "說明"
+
+#: templates/transformation_overview.twig:32
+msgid "Available input transformations"
+msgstr "可用的輸入轉換"
+
+#: templates/transformation_overview.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:89
+msgid "Input transformation"
+msgstr "輸入轉換"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "已啓用追蹤。"
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "已停用追蹤。"
+
+#: templates/sql/profiling_chart.twig:4
+msgid "Detailed profile"
+msgstr "效能分析明細"
+
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
+msgid "State"
+msgstr "狀態"
+
+#: templates/sql/profiling_chart.twig:30
+msgid "Summary by state"
+msgstr "狀態摘要"
+
+#: templates/sql/profiling_chart.twig:40
+msgid "Total Time"
+msgstr "總時間"
+
+#: templates/sql/profiling_chart.twig:44
+msgid "% Time"
+msgstr "% 時間"
+
+#: templates/sql/profiling_chart.twig:48
+msgid "Calls"
+msgstr "呼叫數"
+
+#: templates/sql/profiling_chart.twig:52
+msgid "ø Time"
+msgstr "ø 時間"
+
+#: templates/table/structure/display_partitions.twig:4
+#: templates/table/structure/display_structure.twig:473
+msgid "Partitions"
+msgstr "分區"
+
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "沒有已定義的分區！"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "已做分區依："
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "已做子分區依："
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:30
+msgid "Expression"
+msgstr "表示"
+
+#: templates/table/structure/display_partitions.twig:29
+msgid "Data length"
+msgstr "資料長度"
+
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "索引長度"
+
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "分區表"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+msgid "Edit partitioning"
+msgstr "編輯分區"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "瀏覽或編輯資料點"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "如何使用"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "重設縮放大小"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr "要開啟的頁面"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "要刪除的頁面"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "匯出方式："
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "快速 - 僅顯示必要的選項"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "自訂 - 顯示所有可用的選項"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s 筆資料符合 <strong>%2$s</strong>"
+
+#: templates/database/search/results.twig:56
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<strong>總計：</strong> <em>%count%</em> 筆資料符合條件"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
+msgstr "摺疊"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr "展開"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+msgid "Requery"
+msgstr "重新查詢"
+
+#: templates/server/databases/index.twig:4
+msgid "Databases statistics"
+msgstr "資料庫統計"
+
+#: templates/server/databases/index.twig:19
+#: templates/server/databases/index.twig:41
+msgid "Create database"
+msgstr "建立新資料庫"
+
+#: templates/server/databases/index.twig:35
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "建立"
+
+#: templates/server/databases/index.twig:52
+#, fuzzy
+#| msgid "Check privileges for database \"%s\"."
+msgid "No privileges to create databases"
+msgstr "檢查「%s」資料庫的權限。"
+
+#: templates/server/databases/index.twig:163
+#, php-format
+msgid "Jump to database '%s'"
+msgstr "切換到「%s」資料庫"
+
+#: templates/server/databases/index.twig:197
+#: templates/server/databases/index.twig:209
+#: templates/database/structure/structure_table_row.twig:18
+msgid "Replicated"
+msgstr "已備援"
+
+#: templates/server/databases/index.twig:201
+#: templates/server/databases/index.twig:213
+#: templates/database/structure/structure_table_row.twig:17
+msgid "Not replicated"
+msgstr "尚未備援"
+
+#: templates/server/databases/index.twig:225
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "檢查「%s」資料庫的權限。"
+
+#: templates/server/databases/index.twig:226
+msgid "Check privileges"
+msgstr "檢查權限"
+
+#: templates/server/databases/index.twig:294
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"注意：在此開啟資料庫統計，可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
+
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
+msgid "Enable statistics"
+msgstr "開啟統計資訊"
+
+#: templates/server/databases/index.twig:312
+msgid "No databases"
+msgstr "無資料庫"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr "由 %s 參照。"
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "此為外鍵。"
+
+#: templates/columns_definitions/column_name.twig:39
+msgid "Pick from Central Columns"
+msgstr "從中央欄位挑選"
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "匯入到目前伺服器"
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "匯入到「%s」資料庫"
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "匯入到「%s」資料表"
+
+#: templates/display/import/import.twig:50
+msgid "File to import:"
+msgstr "要匯入的檔案："
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "可使用已壓縮 (%s) 或未壓縮的檔案。"
+
+#: templates/display/import/import.twig:58
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"壓縮檔案名稱必須以 <strong>.[格式].[壓縮方式]</strong> 結尾。如： <strong>."
+"sql.zip</strong>"
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr "也可以在任何頁面拖放檔案。"
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr "此伺服器不允許上傳檔案。"
+
+#: templates/display/import/import.twig:97
+#: templates/display/export/options_output_charset.twig:3
+msgid "Character set of the file:"
+msgstr "檔案字元編碼："
+
+#: templates/display/import/import.twig:124
+msgid "Partial import:"
+msgstr "部分匯入："
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr "上一個匯入逾時，隨後重新送出將會從 %d 處開始。"
+
+#: templates/display/import/import.twig:137
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"當偵測到執行時間已接近 PHP 執行時間的限制，允許中斷匯入的動作。<em>(若要匯入"
+"大型檔案，這是很好的方法，不過使用這種方法會破壞指令中的交易動作)</em>"
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "由第一行開始跳過此數量的查詢 (SQL)："
+
+#: templates/display/import/import.twig:161
+msgid "Other options:"
+msgstr "其他選項："
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr "格式選項："
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr "請下拉至所選格式並設定選項，其他格式的選項不用理會。"
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr "轉換編碼："
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -14688,273 +14659,372 @@ msgstr "資料欄位："
 msgid "Save chart as image"
 msgstr "另存圖表為影像"
 
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "尋找和替換 - 預覽"
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr "驗證"
 
-#: templates/table/search/replace_preview.twig:17
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Count"
-msgstr "次數"
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "匯出樣板："
 
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "原有字串"
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "新樣板："
 
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "替換字串"
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "樣板名稱"
 
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "替換"
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "已有的樣板："
 
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "移除"
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "樣板："
 
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "儲存至所選頁面"
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "更新"
 
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "建立頁面並儲存"
+#: templates/database/search/main.twig:5
+msgid "Search in database"
+msgstr "搜尋資料庫"
 
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "新頁面名稱"
+#: templates/database/search/main.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "要搜尋的文字或欄位值 (萬用字元：%)："
 
-#: templates/server/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "資源限制"
+#: templates/database/search/main.twig:15
+#: templates/table/search/selection_form.twig:181
+msgid "Find:"
+msgstr "尋找："
 
-#: templates/server/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "注意：設定為 0 即代表無限制。"
+#: templates/database/search/main.twig:29
+msgid "Inside tables:"
+msgstr "於以下資料表："
 
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"上傳的檔案可能超過了限制的大小；這是以 webkit 為基礎的瀏覽器 (Safari, Google "
-"Chrome, Arora 等) 的已知問題。"
+#: templates/database/search/main.twig:56
+msgid "Inside column:"
+msgstr "於以下欄位："
 
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr "%s / %s"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "資料列數："
 
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr "每秒%s。"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "傾印部份資料列"
 
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "約剩 %MIN 分 %SEC 秒。"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/table_navigation.twig:53
+msgid "Number of rows:"
+msgstr "資料列數："
 
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr "約剩 %SEC 秒。"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "起始列數："
 
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr "檔案正在處理，請稍候。"
-
-#: templates/display/import/javascript.twig:30
-msgid "Uploading your import file…"
-msgstr "正在上傳您的匯入檔案…"
-
-#: templates/display/import/javascript.twig:155
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr "正在上傳，請稍候。沒有詳細資訊提供。"
-
-#: templates/database/structure/show_create_row.twig:7
-#, php-format
-msgid "Create %s"
-msgstr "建立 %s"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "傾印所有資料列"
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
 msgstr "資料庫："
 
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "僅選擇資料分散的資料表"
+#: templates/server/plugins/index.twig:23
+msgid "Plugin"
+msgstr "外掛程式"
 
-#: templates/database/structure/check_all_tables.twig:10
-msgid "Copy table"
-msgstr "複製資料表"
+#: templates/server/plugins/index.twig:25 templates/table/tracking/main.twig:28
+msgid "Version"
+msgstr "版本"
 
-#: templates/database/structure/check_all_tables.twig:11
-msgid "Show create"
-msgstr "顯示建立"
+#: templates/server/plugins/index.twig:26
+msgid "Author"
+msgstr "作者"
 
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr "字首"
+#: templates/server/plugins/index.twig:37
+msgid "disabled"
+msgstr "已關閉"
 
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "為資料表加上字首"
+#: templates/server/status/advisor/index.twig:7
+msgid "Instructions"
+msgstr "說明"
 
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "取代資料表字首"
-
-#: templates/database/structure/check_all_tables.twig:33
-msgid "Add columns to central list"
-msgstr "新增欄位至中央清單"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr "從中央清單移除欄位"
-
-#: templates/database/structure/check_all_tables.twig:35
-msgid "Make consistent with central list"
-msgstr "設為與中央清單一致"
-
-#: templates/server/databases/index.twig:4
-msgid "Databases statistics"
-msgstr "資料庫統計"
-
-#: templates/server/databases/index.twig:19
-#: templates/server/databases/index.twig:41
-msgid "Create database"
-msgstr "建立新資料庫"
-
-#: templates/server/databases/index.twig:35
-#: templates/display/export/template_loading.twig:10
-msgid "Create"
-msgstr "建立"
-
-#: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
-msgid "No privileges to create databases"
-msgstr "檢查「%s」資料庫的權限。"
-
-#: templates/server/databases/index.twig:163
-#, php-format
-msgid "Jump to database '%s'"
-msgstr "切換到「%s」資料庫"
-
-#: templates/server/databases/index.twig:225
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "檢查「%s」資料庫的權限。"
-
-#: templates/server/databases/index.twig:226
-msgid "Check privileges"
-msgstr "檢查權限"
-
-#: templates/server/databases/index.twig:294
+#: templates/server/status/advisor/index.twig:13
 msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
+"The Advisor system can provide recommendations on server variables by "
+"analyzing the server status variables."
+msgstr "「建議系統」可以在分析伺服器狀態後，提供伺服器參數的設定建議。"
+
+#: templates/server/status/advisor/index.twig:18
+msgid ""
+"Do note however that this system provides recommendations based on simple "
+"calculations and by rule of thumb which may not necessarily apply to your "
+"system."
+msgstr "但請注意此系統提供的建議基於簡單的計算和規則，不一定適用於您的系統。"
+
+#: templates/server/status/advisor/index.twig:23
+msgid ""
+"Prior to changing any of the configuration, be sure to know what you are "
+"changing (by reading the documentation) and how to undo the change. Wrong "
+"tuning can have a very negative effect on performance."
 msgstr ""
-"注意：在此開啟資料庫統計，可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
+"在更改任何配置之前, 一定要知道您在改什麼 (請參閱文件) 以及如何還原變更。錯誤"
+"的調校對效能會有重大的負面影響。"
 
-#: templates/server/databases/index.twig:297
-#: templates/server/databases/index.twig:300
-msgid "Enable statistics"
-msgstr "開啟統計資訊"
-
-#: templates/server/databases/index.twig:312
-msgid "No databases"
-msgstr "無資料庫"
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "已移除外鍵限制 %s"
-
-#: templates/table/relation/foreign_key_row.twig:34
-msgid "Constraint name"
-msgstr "限制名稱"
-
-#: templates/table/relation/foreign_key_row.twig:86
-#: templates/database/multi_table_query/form.twig:162
-msgid "+ Add column"
-msgstr "+ 新增欄位"
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "已啓用追蹤。"
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "已停用追蹤。"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr "驗證"
-
-#: templates/table/page_with_secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "關聯檢視"
-
-#: templates/table/relation/common_form.twig:9
-msgid "Foreign key constraints"
-msgstr "外鍵限制"
-
-#: templates/table/relation/common_form.twig:13
-msgid "Actions"
-msgstr "動作"
-
-#: templates/table/relation/common_form.twig:14
-msgid "Constraint properties"
-msgstr "限制屬性"
-
-#: templates/table/relation/common_form.twig:18
+#: templates/server/status/advisor/index.twig:28
 msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
+"The best way to tune your system would be to change only one setting at a "
+"time, observe or benchmark your database, and undo the change if there was "
+"no clearly measurable improvement."
 msgstr ""
-"在沒有索引的欄位建立外鍵，該欄位會自動建立索引。或者您可在建立外鍵之前，先在"
-"下方定義索引。"
+"最好的調校方法，是一次只更改一個設置，觀察比較您資料庫的效能，如果沒有明顯改"
+"善，那麼就還原這個變更。"
 
-#: templates/table/relation/common_form.twig:23
+#: templates/server/status/advisor/index.twig:36
+msgid "Not enough privilege to view the advisor."
+msgstr "權限不足以檢視建議。"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "選擇要匯出的關聯類型"
+
+#: templates/error/report_form.twig:6
 msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr "僅顯示已建立索引的欄位。您可以於下方定義索引。"
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+"回報功能會自動取得相關的錯誤資料與及設定檔資訊。將會回報這些資料給 "
+"phpMyAdmin 開發團隊以協助解決問題。"
 
-#: templates/table/relation/common_form.twig:27
-msgid "Foreign key constraint"
-msgstr "外鍵限制"
-
-#: templates/table/relation/common_form.twig:92
-msgid "+ Add constraint"
-msgstr "+ 加入限制"
-
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
-msgid "Internal relationships"
-msgstr "內部關聯"
-
-#: templates/table/relation/common_form.twig:117
-msgid "Internal relation"
-msgstr "內部關聯"
-
-#: templates/table/relation/common_form.twig:119
+#: templates/error/report_form.twig:12
 msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr "若有對應的外鍵關連，就不需要使用內部關聯。"
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr "可以告訴我們您做了什麼步驟導致問題發生嗎？這將能幫助我們找出問題："
 
-#: templates/table/relation/common_form.twig:199
-msgid "Choose column to display:"
-msgstr "選擇要顯示的欄位："
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr "可以檢視錯誤報告的資料："
+
+#: templates/display/results/options_block.twig:34
+msgid "Relational key"
+msgstr "關聯鍵"
+
+#: templates/display/results/options_block.twig:34
+msgid "Display column for relationships"
+msgstr "顯示關聯的欄位"
+
+#: templates/display/results/options_block.twig:50
+msgid "Show binary contents"
+msgstr "顯示二進位內容"
+
+#: templates/display/results/options_block.twig:57
+msgid "Show BLOB contents"
+msgstr "顯示 BLOB 內容"
+
+#: templates/display/results/options_block.twig:71
+msgid "Hide browser transformation"
+msgstr "隱藏瀏覽器轉換"
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Text"
+msgstr "易懂的文字"
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Binary"
+msgstr "易懂的二進位檔"
 
 #: templates/server/collations/index.twig:3
 msgid "Character sets and collations"
 msgstr "字元編碼與排序規則"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:44
+#: templates/prefs_twofactor.twig:56
+msgid "Configure two-factor authentication"
+msgstr "設定雙因素認證"
+
+#: templates/prefs_twofactor_configure.twig:8
+msgid "Enable two-factor authentication"
+msgstr "啟用雙因素認證"
+
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "將每個資料庫為匯出為不同的檔案"
+
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "將每個資料表匯出為不同的檔案"
+
+#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
+msgid "Delete version"
+msgstr "刪除版本"
+
+#: templates/table/tracking/main.twig:107
+#, php-format
+msgid "Activate tracking for %s"
+msgstr "啓用 %s 的追蹤"
+
+#: templates/table/tracking/main.twig:109
+msgid "Activate now"
+msgstr "立即啓用"
+
+#: templates/table/tracking/main.twig:111
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "停用 %s 的追蹤"
+
+#: templates/table/tracking/main.twig:113
+msgid "Deactivate now"
+msgstr "立即停用"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr "並未使用 https 存取 phpMyAdmin，故 FIDO U2F 裝置很可能不會為您作認證。"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr "瀏覽器有此網域的 phpMyAdmin 設定，是否匯入到目前的連線階段?"
+
+#: templates/prefs_autoload.twig:13
+msgid "Delete settings"
+msgstr "刪除設定"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "無"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr "轉換為假名"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "使用此值"
+
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "起始列號："
+
+#: templates/table/structure/display_structure.twig:112
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "已刪除 %s 欄位。"
+
+#: templates/table/structure/display_structure.twig:135
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "已為 %s 加上主鍵。"
+
+#: templates/table/structure/display_structure.twig:153
+#: templates/table/structure/display_structure.twig:171
+#: templates/table/structure/display_structure.twig:200
+#: templates/table/structure/display_structure.twig:223
+#, php-format
+msgid "An index has been added on %s."
+msgstr "已為 %s 加上索引。"
+
+#: templates/table/structure/display_structure.twig:247
+#: templates/table/structure/display_structure.twig:350
+msgid "Remove from central columns"
+msgstr "從中央欄位移除"
+
+#: templates/table/structure/display_structure.twig:251
+#: templates/table/structure/display_structure.twig:343
+msgid "Add to central columns"
+msgstr "新增至中央欄位"
+
+#: templates/table/structure/display_structure.twig:363
+#: templates/table/structure/display_structure.twig:398
+msgid "Move columns"
+msgstr "移動欄位"
+
+#: templates/table/structure/display_structure.twig:364
+msgid "Move the columns by dragging them up and down."
+msgstr "請上下拖曳來移動欄位順序。"
+
+#: templates/table/structure/display_structure.twig:385
+msgid "Propose table structure"
+msgstr "分析資料表結構"
+
+#: templates/table/structure/display_structure.twig:401
+msgid "Normalize"
+msgstr "正規化"
+
+#: templates/table/structure/display_structure.twig:407
+msgid "Track view"
+msgstr "追蹤檢視表"
+
+#: templates/table/structure/display_structure.twig:416
+#: templates/database/central_columns/main.twig:192
+msgid "Add column"
+msgstr "新增欄位"
+
+#: templates/table/structure/display_structure.twig:421
+#, php-format
+msgid "Add %s column(s)"
+msgstr "增加 %s 個欄位"
+
+#: templates/table/structure/display_structure.twig:426
+msgid "at beginning of table"
+msgstr "於資料表開始"
+
+#: templates/table/structure/display_structure.twig:431
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr "於 %s 之後"
+
+#: templates/server/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "刪除所選的使用者帳號"
+
+#: templates/server/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "移除使用者所有權限，然後刪除使用者。"
+
+#: templates/server/privileges/delete_user_fieldset.twig:7
+#: templates/server/privileges/delete_user_fieldset.twig:10
+#: templates/server/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "刪除與使用者同名的資料庫。"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "選擇頁面"
+
+#: templates/server/variables/index.twig:3
+msgid "Server variables and settings"
+msgstr "伺服器變數和設定"
+
+#: templates/server/variables/index.twig:40
+msgid "This is a read-only variable and can not be edited"
+msgstr "此為唯讀變數，不可編輯"
+
+#: templates/server/variables/index.twig:66
+msgid "Session value"
+msgstr "連線階段值"
+
+#: templates/server/variables/index.twig:75
+#, php-format
+msgid "Not enough privilege to view server variables and settings. %s"
+msgstr "權限不足檢視伺服器變數與設定。%s"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "以文字顯示輸出結果"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -14964,201 +15034,59 @@ msgstr "將此 SQL 查詢加為書籤"
 msgid "Label:"
 msgstr "標籤："
 
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "伺服器變數和設定"
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "已用空間"
 
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "儲存引擎"
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "有效"
 
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "匯入到目前伺服器"
+#: templates/table/structure/display_table_stats.twig:73
+msgid "Row statistics"
+msgstr "資料列統計資訊"
 
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "匯入到「%s」資料庫"
+#: templates/table/structure/display_table_stats.twig:79
+msgid "static"
+msgstr "靜態"
 
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "匯入到「%s」資料表"
+#: templates/table/structure/display_table_stats.twig:81
+msgid "dynamic"
+msgstr "動態"
 
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "要匯入的檔案："
+#: templates/table/structure/display_table_stats.twig:92
+msgid "partitioned"
+msgstr "已分區"
 
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "可使用已壓縮 (%s) 或未壓縮的檔案。"
+#: templates/table/structure/display_table_stats.twig:121
+msgid "Row length"
+msgstr "資料列長度"
 
-#: templates/display/import/import.twig:58
+#: templates/table/structure/display_table_stats.twig:133
+msgid "Row size"
+msgstr "資料列大小"
+
+#: templates/table/structure/display_table_stats.twig:140
+msgid "Next autoindex"
+msgstr "下個自動索引"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "第一個"
+
+#: templates/prefs_twofactor_confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr "確認停用雙因素認證"
+
+#: templates/prefs_twofactor_confirm.twig:5
 msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"壓縮檔案名稱必須以 <strong>.[格式].[壓縮方式]</strong> 結尾。如： <strong>."
-"sql.zip</strong>"
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr "由於停用了雙因素認證，現在又再只能以密碼登入。"
 
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "也可以在任何頁面拖放檔案。"
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "此伺服器不允許上傳檔案。"
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "部分匯入："
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr "上一個匯入逾時，隨後重新送出將會從 %d 處開始。"
-
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"當偵測到執行時間已接近 PHP 執行時間的限制，允許中斷匯入的動作。<em>(若要匯入"
-"大型檔案，這是很好的方法，不過使用這種方法會破壞指令中的交易動作)</em>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "由第一行開始跳過此數量的查詢 (SQL)："
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "其他選項："
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "選擇頁面"
-
-#: templates/gis_data_editor_form.twig:4
-#, php-format
-msgid "Value for the column \"%s\""
-msgstr "「%s」欄位的值"
-
-#: templates/gis_data_editor_form.twig:22
-#: templates/table/gis_visualization/gis_visualization.twig:38
-msgid "Use OpenStreetMaps as Base Layer"
-msgstr "使用 OpenStreetMaps 作為基礎圖層"
-
-#: templates/gis_data_editor_form.twig:38
-msgctxt "Spatial Reference System Identifier"
-msgid "SRID:"
-msgstr "空間參考識別碼(SRID)："
-
-#: templates/gis_data_editor_form.twig:52
-#, php-format
-msgid "Geometry %d:"
-msgstr "幾何體 %d："
-
-#: templates/gis_data_editor_form.twig:72
-msgid "Point:"
-msgstr "點："
-
-#: templates/gis_data_editor_form.twig:92
-#: templates/gis_data_editor_form.twig:133
-#: templates/gis_data_editor_form.twig:185
-#, php-format
-msgid "Point %d:"
-msgstr "點 %d："
-
-#: templates/gis_data_editor_form.twig:112
-#, php-format
-msgid "Linestring %d:"
-msgstr "一維折線 %d："
-
-#: templates/gis_data_editor_form.twig:114
-#: templates/gis_data_editor_form.twig:169
-msgid "Outer ring:"
-msgstr "外環："
-
-#: templates/gis_data_editor_form.twig:116
-#: templates/gis_data_editor_form.twig:171
-#, php-format
-msgid "Inner ring %d:"
-msgstr "內環 %d："
-
-#: templates/gis_data_editor_form.twig:143
-msgid "Add a linestring"
-msgstr "新增一維折線"
-
-#: templates/gis_data_editor_form.twig:156
-#, php-format
-msgid "Polygon %d:"
-msgstr "多邊形 %d："
-
-#: templates/gis_data_editor_form.twig:198
-msgid "Add a polygon"
-msgstr "新增多邊形"
-
-#: templates/gis_data_editor_form.twig:203
-msgid "Add geometry"
-msgstr "新增幾何圖形"
-
-#: templates/gis_data_editor_form.twig:212
-msgid "Output"
-msgstr "輸出"
-
-#: templates/gis_data_editor_form.twig:214
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr "於「函式」欄位選擇「GeomFromText」，並將以下字串貼到「值」欄位。"
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "新增/刪除準則列"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "新增/刪除欄位"
-
-#: templates/server/privileges/column_privileges.twig:21
-#: templates/server/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "無"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s 張資料表"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "總計"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "從目前的伺服器匯出資料庫"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "正在匯出「%s」資料庫的資料表"
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "正在匯出「%s」資料表的資料列"
-
-#: templates/server/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "新增"
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:38
+msgid "Disable two-factor authentication"
+msgstr "停用雙因素認證"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -15221,74 +15149,147 @@ msgstr ""
 msgid "Input transformation options"
 msgstr "輸入轉換選項"
 
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr "請將 FIDO U2F 裝置連接電腦的 USB 埠，然後於裝置確認登入。"
+
+#: templates/table/operations/view.twig:11
+msgid "Rename view to"
+msgstr "重新命名檢視表為"
+
+#: templates/server/status/status/index.twig:6
+#, php-format
+msgid "Network traffic since startup: %s"
+msgstr "自啟動後的累計網路流量：%s"
+
+#: templates/server/status/status/index.twig:7
+#, php-format
+msgid "This MySQL server has been running for %1$s. It started up on %2$s."
+msgstr "自 %2$s 開始，此 MySQL 伺服器已經運行了 %1$s。"
+
+#: templates/server/status/status/index.twig:14
+msgid ""
+"On a busy server, the byte counters may overrun, so those statistics as "
+"reported by the MySQL server may be incorrect."
+msgstr ""
+"在高負載的伺服器，字元計數器可能會溢出，因此由 MySQL 返回的統計值可能會不正"
+"確。"
+
+#: templates/server/status/status/index.twig:57
+msgid ""
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
+msgstr ""
+"此 MySQL 伺服器在<b>備援</b>程序中同時擔當<b>主要(Master)伺服器</b>和<b>次要"
+"(Slave)伺服器</b>的身份。"
+
+#: templates/server/status/status/index.twig:59
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr ""
+"此 MySQL 伺服器在<b>備援</b>程序中擔當<b>主要(Master)伺服器</b>的身份。"
+
+#: templates/server/status/status/index.twig:61
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgstr "此 MySQL 伺服器在<b>備援</b>程序中擔當<b>次要(Slave)伺服器</b>的身份。"
+
+#: templates/server/status/status/index.twig:68
+msgid "Replication status"
+msgstr "備援狀態"
+
+#: templates/server/status/status/index.twig:75
+msgid "Not enough privilege to view server status."
+msgstr "權限不足以檢視伺服器狀態。"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, php-format
+msgid "Foreign key constraint %s has been dropped"
+msgstr "已移除外鍵限制 %s"
+
+#: templates/table/relation/foreign_key_row.twig:34
+msgid "Constraint name"
+msgstr "限制名稱"
+
+#: templates/table/page_with_secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "關聯檢視"
+
+#: templates/server/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "新增"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "繼續新增 %s 列"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "日期"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "使用者名稱"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr "編輯 ENUM/SET 值"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "索引名稱："
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "PRIMARY <b>必須</b>而且<b>只能</b>作為主鍵的名稱！"
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr "索引選擇："
+
+#: templates/table/index_form.twig:42
+msgid "Advanced Options"
+msgstr "進階選項"
+
+#: templates/table/index_form.twig:52
+msgid "Key block size:"
+msgstr "鍵值區塊大小："
+
+#: templates/table/index_form.twig:69
+msgid "Index type:"
+msgstr "索引類型："
+
+#: templates/table/index_form.twig:81
+msgid "Parser:"
+msgstr "分析器："
+
+#: templates/table/index_form.twig:97
+msgid "Comment:"
+msgstr "備註："
+
+#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
+msgid "Drag to reorder"
+msgstr "使用滑鼠拖曳來重新排序"
+
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
 msgid "None"
 msgstr "無"
 
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "轉換為假名"
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "定義："
 
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "匯出方式："
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "欄位數"
 
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "快速 - 僅顯示必要的選項"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "自訂 - 顯示所有可用的選項"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "已用空間"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "有效"
-
-#: templates/table/structure/display_table_stats.twig:73
-msgid "Row statistics"
-msgstr "資料列統計資訊"
-
-#: templates/table/structure/display_table_stats.twig:79
-msgid "static"
-msgstr "靜態"
-
-#: templates/table/structure/display_table_stats.twig:81
-msgid "dynamic"
-msgstr "動態"
-
-#: templates/table/structure/display_table_stats.twig:92
-msgid "partitioned"
-msgstr "已分區"
-
-#: templates/table/structure/display_table_stats.twig:121
-msgid "Row length"
-msgstr "資料列長度"
-
-#: templates/table/structure/display_table_stats.twig:133
-msgid "Row size"
-msgstr "資料列大小"
-
-#: templates/table/structure/display_table_stats.twig:140
-msgid "Next autoindex"
-msgstr "下個自動索引"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr "此為唯讀變數，不可編輯"
-
-#: templates/server/variables/variable_row.twig:31
-msgid "Session value"
-msgstr "連線階段值"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "新增至「最愛」"
+#: templates/database/structure/structure_table_row.twig:214
+msgid "in use"
+msgstr "使用中"
 
 #: templates/prefs_twofactor.twig:3
 msgid "Two-factor authentication status"
@@ -15322,216 +15323,6 @@ msgstr "未能提供雙因素認證；啟用 phpMyAdmin 設定儲存空間以使
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
 msgstr "已啟用雙因素認證。"
-
-#: templates/login/header.twig:15
-msgid ""
-"There is a mismatch between HTTPS indicated on the server and client. This "
-"can lead to a non working phpMyAdmin or a security risk. Please fix your "
-"server configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "額外搜尋準則"
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "請選擇兩個不同欄位使用「QBE 查詢」(萬用字元：%)"
-
-#: templates/table/search/selection_form.twig:29
-msgid "Use this column to label each point"
-msgstr "選擇作為資料點標籤的欄位"
-
-#: templates/table/search/selection_form.twig:55
-msgid "Maximum rows to plot"
-msgstr "圖表最多顯示列數"
-
-#: templates/table/search/selection_form.twig:80
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "執行「QBE 查詢」(萬用字元：%)"
-
-#: templates/table/search/selection_form.twig:106
-msgid "Select columns (at least one):"
-msgstr "選擇欄位 (至少一個)："
-
-#: templates/table/search/selection_form.twig:126
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "新增搜尋條件 (where 子句的內容)："
-
-#: templates/table/search/selection_form.twig:134
-msgid "Number of rows per page"
-msgstr "每頁列數"
-
-#: templates/table/search/selection_form.twig:145
-msgid "Display order:"
-msgstr "顯示次序："
-
-#: templates/table/search/selection_form.twig:181
-#: templates/database/search/main.twig:15
-msgid "Find:"
-msgstr "尋找："
-
-#: templates/table/search/selection_form.twig:183
-msgid "Replace with:"
-msgstr "取代為："
-
-#: templates/table/search/selection_form.twig:199
-msgid "Use regular expression"
-msgstr "使用正規表示法"
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "匯出樣板："
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "新樣板："
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "樣板名稱"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "已有的樣板："
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "樣板："
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "更新"
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "輸出："
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "將輸出儲存為檔案"
-
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr "略過超過 %s MiB 的資料表"
-
-#: templates/table/structure/display_structure.twig:91
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr "無"
-
-#: templates/table/structure/display_structure.twig:112
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "已刪除 %s 欄位。"
-
-#: templates/table/structure/display_structure.twig:135
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "已為 %s 加上主鍵。"
-
-#: templates/table/structure/display_structure.twig:153
-#: templates/table/structure/display_structure.twig:171
-#: templates/table/structure/display_structure.twig:200
-#: templates/table/structure/display_structure.twig:223
-#, php-format
-msgid "An index has been added on %s."
-msgstr "已為 %s 加上索引。"
-
-#: templates/table/structure/display_structure.twig:247
-#: templates/table/structure/display_structure.twig:350
-msgid "Remove from central columns"
-msgstr "從中央欄位移除"
-
-#: templates/table/structure/display_structure.twig:251
-#: templates/table/structure/display_structure.twig:343
-msgid "Add to central columns"
-msgstr "新增至中央欄位"
-
-#: templates/table/structure/display_structure.twig:363
-#: templates/table/structure/display_structure.twig:398
-msgid "Move columns"
-msgstr "移動欄位"
-
-#: templates/table/structure/display_structure.twig:364
-msgid "Move the columns by dragging them up and down."
-msgstr "請上下拖曳來移動欄位順序。"
-
-#: templates/table/structure/display_structure.twig:385
-msgid "Propose table structure"
-msgstr "分析資料表結構"
-
-#: templates/table/structure/display_structure.twig:401
-msgid "Normalize"
-msgstr "正規化"
-
-#: templates/table/structure/display_structure.twig:407
-msgid "Track view"
-msgstr "追蹤檢視表"
-
-#: templates/table/structure/display_structure.twig:421
-#, php-format
-msgid "Add %s column(s)"
-msgstr "增加 %s 個欄位"
-
-#: templates/table/structure/display_structure.twig:426
-msgid "at beginning of table"
-msgstr "於資料表開始"
-
-#: templates/table/structure/display_structure.twig:431
-#: templates/columns_definitions/move_column.twig:12
-#, php-format
-msgid "after %s"
-msgstr "於 %s 之後"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr "於裝置開啟雙因素認證應用程式，以檢視認證碼並驗證身分。"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr "要開啟的頁面"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "要刪除的頁面"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "以文字顯示輸出結果"
-
-#: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
-msgid "Sort by key:"
-msgstr "依主鍵排序"
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr "未能提供所設定的雙因素認證，請安裝缺少的元件。"
-
-#: templates/database/search/main.twig:5
-msgid "Search in database"
-msgstr "搜尋資料庫"
-
-#: templates/database/search/main.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "要搜尋的文字或欄位值 (萬用字元：%)："
-
-#: templates/database/search/main.twig:29
-msgid "Inside tables:"
-msgstr "於以下資料表："
-
-#: templates/database/search/main.twig:56
-msgid "Inside column:"
-msgstr "於以下欄位："
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -15605,6 +15396,14 @@ msgstr "顯示追蹤"
 msgid "Hide trace"
 msgstr "隱藏追蹤"
 
+#: templates/console/display.twig:99
+#: templates/database/central_columns/main.twig:210
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+msgid "Add"
+msgstr "新增"
+
 #: templates/console/display.twig:112
 msgid "Add bookmark"
 msgstr "新增書籤"
@@ -15633,113 +15432,87 @@ msgstr ""
 "按 Enter 執行查詢，或以 Shift + Enter 輸入新的一行。要永久儲存此設定，請檢視"
 "設定項目。"
 
-#: templates/create_tracking_version.twig:11
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "從目前的伺服器匯出資料庫"
+
+#: templates/display/export/option_header.twig:7
 #, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "建立 %2$s 的追蹤版本 %1$s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "正在匯出「%s」資料庫的資料表"
 
-#: templates/create_tracking_version.twig:16
+#: templates/display/export/option_header.twig:9
 #, php-format
-msgid "Create version %1$s"
-msgstr "建立版本 %1$s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "正在匯出「%s」資料表的資料列"
 
-#: templates/create_tracking_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "追蹤此等資料定義指令："
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "新增至「最愛」"
 
-#: templates/create_tracking_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "追蹤此等資料操作指令："
+#: templates/database/central_columns/main.twig:4
+msgid "Add new column"
+msgstr "新增欄位"
 
-#: templates/create_tracking_version.twig:76
-msgid "Create version"
-msgstr "建立版本"
+#: templates/database/central_columns/main.twig:25
+#: templates/database/central_columns/main.twig:242
+#, fuzzy
+#| msgid "Length/Values"
+msgid "Lenght/Value"
+msgstr "長度/值"
 
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "顯示視覺化地理資訊(GIS)"
+#: templates/database/central_columns/main.twig:37
+#: templates/database/central_columns/main.twig:254
+msgid "Attribute"
+msgstr "屬性"
 
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "標籤欄位"
+#: templates/database/central_columns/main.twig:141
+msgid "The central list of columns for the current database is empty"
+msgstr "目前資料庫的欄位中央清單為空的"
 
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- 無 --"
+#: templates/database/central_columns/main.twig:180
+#: templates/display/results/table_navigation.twig:73
+msgid "Filter rows"
+msgstr "篩選資料列"
 
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "空間欄位"
+#: templates/database/central_columns/main.twig:181
+#: templates/display/results/table_navigation.twig:75
+msgid "Search this table"
+msgstr "搜尋此資料表"
 
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "第一個"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "瀏覽或編輯資料點"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "如何使用"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "重設縮放大小"
-
-#: templates/database/multi_table_query/form.twig:16
-msgid "Query window"
-msgstr "查詢視窗"
-
-#: templates/database/multi_table_query/form.twig:37
-#: templates/database/multi_table_query/form.twig:125
-msgid "select table"
+#: templates/database/central_columns/main.twig:201
+msgid "Select a table"
 msgstr "選擇資料表"
 
-#: templates/database/multi_table_query/form.twig:44
-#: templates/database/multi_table_query/form.twig:133
-msgid "select column"
-msgstr "選擇欄位"
+#: templates/database/central_columns/main.twig:208
+msgid "Select a column."
+msgstr "選擇欄位。"
 
-#: templates/database/multi_table_query/form.twig:50
-msgid "Table alias"
-msgstr "資料表別名"
+#: templates/database/central_columns/main.twig:227
+msgid "Click to sort."
+msgstr "點選排序。"
 
-#: templates/database/multi_table_query/form.twig:51
-msgid "Column alias"
-msgstr "欄位別名"
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "壓縮："
 
-#: templates/database/multi_table_query/form.twig:54
-msgid "Use this column in criteria"
-msgstr "使用此欄位作為準則"
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "zip 壓縮"
 
-#: templates/database/multi_table_query/form.twig:57
-msgid "criteria"
-msgstr "準則"
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "gzip 壓縮"
 
-#: templates/database/multi_table_query/form.twig:71
-msgid "Add as"
-msgstr "加入為"
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr "於裝置開啟雙因素認證應用程式，以檢視認證碼並驗證身分。"
 
-#: templates/database/multi_table_query/form.twig:116
-msgid "Another column"
-msgstr "另一個欄位"
-
-#: templates/database/multi_table_query/form.twig:144
-msgid "Enter criteria as free text"
-msgstr "以文字方式加入準則"
-
-#: templates/database/multi_table_query/form.twig:152
-msgid "Remove this column"
-msgstr "移除此欄位"
-
-#: templates/database/multi_table_query/form.twig:179
-msgid "Update query"
-msgstr "更新查詢"
-
-#: templates/table/operations/view.twig:11
-msgid "Rename view to"
-msgstr "重新命名檢視表為"
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "選擇樣板"
 
 #: templates/server/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15760,6 +15533,258 @@ msgstr "為以下資料表加上權限："
 #: templates/server/privileges/privileges_summary.twig:86
 msgid "Add privileges on the following routine:"
 msgstr "在以下預存程序新增權限："
+
+#: templates/display/results/table_navigation.twig:26
+msgid "Save edited data"
+msgstr "儲存修改過的資料"
+
+#: templates/display/results/table_navigation.twig:32
+msgid "Restore column order"
+msgstr "還原欄位的順序"
+
+#: templates/display/results/table_navigation.twig:67
+msgid "All"
+msgstr "全部"
+
+#: templates/server/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "資源限制"
+
+#: templates/server/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "注意：設定為 0 即代表無限制。"
+
+#: templates/database/structure/show_create_row.twig:7
+#, php-format
+msgid "Create %s"
+msgstr "建立 %s"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "新增/刪除準則列"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "新增/刪除欄位"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "請選擇兩個不同欄位使用「QBE 查詢」(萬用字元：%)"
+
+#: templates/table/search/selection_form.twig:29
+msgid "Use this column to label each point"
+msgstr "選擇作為資料點標籤的欄位"
+
+#: templates/table/search/selection_form.twig:55
+msgid "Maximum rows to plot"
+msgstr "圖表最多顯示列數"
+
+#: templates/table/search/selection_form.twig:80
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "執行「QBE 查詢」(萬用字元：%)"
+
+#: templates/table/search/selection_form.twig:106
+msgid "Select columns (at least one):"
+msgstr "選擇欄位 (至少一個)："
+
+#: templates/table/search/selection_form.twig:126
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "新增搜尋條件 (where 子句的內容)："
+
+#: templates/table/search/selection_form.twig:134
+msgid "Number of rows per page"
+msgstr "每頁列數"
+
+#: templates/table/search/selection_form.twig:145
+msgid "Display order:"
+msgstr "顯示次序："
+
+#: templates/table/search/selection_form.twig:183
+msgid "Replace with:"
+msgstr "取代為："
+
+#: templates/table/search/selection_form.twig:199
+msgid "Use regular expression"
+msgstr "使用正規表示法"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "點此切換"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "僅選擇資料分散的資料表"
+
+#: templates/database/structure/check_all_tables.twig:10
+msgid "Copy table"
+msgstr "複製資料表"
+
+#: templates/database/structure/check_all_tables.twig:11
+msgid "Show create"
+msgstr "顯示建立"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr "字首"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "為資料表加上字首"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "取代資料表字首"
+
+#: templates/database/structure/check_all_tables.twig:33
+msgid "Add columns to central list"
+msgstr "新增欄位至中央清單"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr "從中央清單移除欄位"
+
+#: templates/database/structure/check_all_tables.twig:35
+msgid "Make consistent with central list"
+msgstr "設為與中央清單一致"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "儲存至所選頁面"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "建立頁面並儲存"
+
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "新頁面名稱"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "資料表名稱"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "欄位"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "編碼與排序："
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "儲存引擎："
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "連線："
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION 定義:"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr "定義新別名"
+
+#: templates/export/alias_add.twig:9
+msgid "Select database:"
+msgstr "選擇資料庫："
+
+#: templates/export/alias_add.twig:15
+msgid "New database name"
+msgstr "新資料庫名稱"
+
+#: templates/export/alias_add.twig:23
+msgid "Select table:"
+msgstr "選擇資料表："
+
+#: templates/export/alias_add.twig:29
+msgid "New table name"
+msgstr "新資料表名稱"
+
+#: templates/export/alias_add.twig:37
+msgid "Select column:"
+msgstr "選擇欄位："
+
+#: templates/export/alias_add.twig:43
+msgid "New column name"
+msgstr "新欄位名稱"
+
+#: templates/gis_data_editor_form.twig:4
+#, php-format
+msgid "Value for the column \"%s\""
+msgstr "「%s」欄位的值"
+
+#: templates/gis_data_editor_form.twig:38
+msgctxt "Spatial Reference System Identifier"
+msgid "SRID:"
+msgstr "空間參考識別碼(SRID)："
+
+#: templates/gis_data_editor_form.twig:52
+#, php-format
+msgid "Geometry %d:"
+msgstr "幾何體 %d："
+
+#: templates/gis_data_editor_form.twig:72
+msgid "Point:"
+msgstr "點："
+
+#: templates/gis_data_editor_form.twig:92
+#: templates/gis_data_editor_form.twig:133
+#: templates/gis_data_editor_form.twig:185
+#, php-format
+msgid "Point %d:"
+msgstr "點 %d："
+
+#: templates/gis_data_editor_form.twig:112
+#, php-format
+msgid "Linestring %d:"
+msgstr "一維折線 %d："
+
+#: templates/gis_data_editor_form.twig:114
+#: templates/gis_data_editor_form.twig:169
+msgid "Outer ring:"
+msgstr "外環："
+
+#: templates/gis_data_editor_form.twig:116
+#: templates/gis_data_editor_form.twig:171
+#, php-format
+msgid "Inner ring %d:"
+msgstr "內環 %d："
+
+#: templates/gis_data_editor_form.twig:143
+msgid "Add a linestring"
+msgstr "新增一維折線"
+
+#: templates/gis_data_editor_form.twig:156
+#, php-format
+msgid "Polygon %d:"
+msgstr "多邊形 %d："
+
+#: templates/gis_data_editor_form.twig:198
+msgid "Add a polygon"
+msgstr "新增多邊形"
+
+#: templates/gis_data_editor_form.twig:203
+msgid "Add geometry"
+msgstr "新增幾何圖形"
+
+#: templates/gis_data_editor_form.twig:212
+msgid "Output"
+msgstr "輸出"
+
+#: templates/gis_data_editor_form.twig:214
+msgid ""
+"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+"below into the \"Value\" field."
+msgstr "於「函式」欄位選擇「GeomFromText」，並將以下字串貼到「值」欄位。"
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr "未能提供所設定的雙因素認證，請安裝缺少的元件。"
 
 #: url.php:46
 msgid "Taking you to the target site."

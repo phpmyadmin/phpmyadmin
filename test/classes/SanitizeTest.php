@@ -61,7 +61,7 @@ class SanitizeTest extends TestCase
      *
      * @dataProvider docLinks
      */
-    public function testDoc($link, $expected)
+    public function testDoc($link, $expected): void
     {
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F' . $expected . '" target="documentation">doclink</a>',
@@ -198,7 +198,7 @@ class SanitizeTest extends TestCase
      *
      * @return void
      */
-    public function testGetJsValue($key, $value, $expected)
+    public function testGetJsValue($key, $value, $expected): void
     {
         $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
         $this->assertEquals('foo = 100', Sanitize::getJsValue('foo', '100', false));
@@ -283,7 +283,7 @@ class SanitizeTest extends TestCase
      *
      * @dataProvider escapeDataProvider
      */
-    public function testEscapeJsString($target, $source)
+    public function testEscapeJsString($target, $source): void
     {
         $this->assertEquals($target, Sanitize::escapeJsString($source));
     }
