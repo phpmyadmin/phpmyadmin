@@ -104,15 +104,12 @@
                     </select>
                 </td>
             </tr>
-
         </table>
     </fieldset>
 
     {% if ajax_dialog %}
-        <fieldset class="tblFooters">
-            <input type="hidden" name="{{ (view['operation'] == 'create') ? 'createview' : 'alterview' }}" value="1">
-            <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
-        </fieldset>
+        <input type="hidden" name="ajax_request" value="1">
+        <input type="hidden" name="{{ (view['operation'] == 'create') ? 'createview' : 'alterview' }}" value="1">
     {% else %}
         <input type="hidden" name="{{ (view['operation'] == 'create') ? 'createview' : 'alterview' }}" value="1">
         <input type="hidden" name="ajax_dialog" value="1">

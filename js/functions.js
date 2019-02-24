@@ -4605,7 +4605,7 @@ AJAX.registerOnload('functions.js', function () {
 
 function PMA_createViewDialog ($this) {
     var $msg = PMA_ajaxShowMessage();
-    var syntaxHighlighter = null;
+
     var sep = PMA_commonParams.get('arg_separator');
     var params = getJSConfirmCommonParam(this, $this.getPostData());
     params += sep + 'ajax_dialog=1';
@@ -4625,7 +4625,7 @@ function PMA_createViewDialog ($this) {
                         $('.result_query').html(data.message);
                         PMA_reloadNavigation();
                     } else {
-                        PMA_ajaxShowMessage(data.error, false);
+                        PMA_ajaxShowMessage(data.error);
                     }
                 });
             };
