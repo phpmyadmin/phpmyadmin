@@ -84,10 +84,6 @@ abstract class TestBase extends TestCase
          */
         parent::setUp();
 
-        if (! $this->hasCIConfig()) {
-            echo 'Not configured to run as CI.';
-        }
-
         if (! $this->hasTestSuiteDatabaseServer()) {
             $this->markTestSkipped('Database server is not configured.');
             return;
@@ -1038,11 +1034,11 @@ abstract class TestBase extends TestCase
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      *
-     * @param \Throwable $e Throwable
+     * @param \Throwable $t Throwable
      *
      * @return void
      */
-    public function onNotSuccessfulTest(\Throwable $e)
+    public function onNotSuccessfulTest(\Throwable $t): void
     {
         $SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
         // If this is being run on Browerstack,
@@ -1051,7 +1047,7 @@ abstract class TestBase extends TestCase
             $payload = json_encode(
                 [
                     'status' => 'failed',
-                    'reason' => $e->getMessage(),
+                    'reason' => $t->getMessage(),
                 ]
             );
 
@@ -1108,6 +1104,6 @@ abstract class TestBase extends TestCase
         }
 
         // Call parent's onNotSuccessful to handle everything else
-        parent::onNotSuccessfulTest($e);
+        parent::onNotSuccessfulTest($t);
     }
 }
