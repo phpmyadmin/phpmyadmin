@@ -1,150 +1,138 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * functions for displaying server status variables
+ * Displays a list of server status variables
  *
- * @usedby  server_status_variables.php
- *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Server\Status;
+namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Server\Status\Data;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\Server\Status\Variables class
- *
- * @package PhpMyAdmin
+ * Class VariablesController
+ * @package PhpMyAdmin\Controllers\Server\Status
  */
-class Variables
+class VariablesController extends Controller
 {
     /**
-     * Returns the html for the list filter
-     *
-     * @param Data $serverStatusData Server status data
-     *
-     * @return string
+     * @param array $params Request parameters
+     * @return string HTML
      */
-    public static function getHtmlForFilter(Data $serverStatusData)
+    public function index(array $params): string
     {
-        $filterAlert = '';
-        if (! empty($_POST['filterAlert'])) {
-            $filterAlert = ' checked="checked"';
-        }
-        $filterText = '';
-        if (! empty($_POST['filterText'])) {
-            $filterText = htmlspecialchars($_POST['filterText']);
-        }
-        $dontFormat = '';
-        if (! empty($_POST['dontFormat'])) {
-            $dontFormat = ' checked="checked"';
+        if (isset($params['flush'])) {
+            $this->flush($params['flush']);
         }
 
-        $retval  = '';
-        $retval .= '<fieldset id="tableFilter">';
-        $retval .= '<legend>' . __('Filters') . '</legend>';
-        $retval .= '<form action="server_status_variables.php" method="post">';
-        $retval .= Url::getHiddenInputs();
-        $retval .= '<input class="btn btn-secondary" type="submit" value="' . __('Refresh') . '">';
-        $retval .= '<div class="formelement">';
-        $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
-        $retval .= '<input name="filterText" type="text" id="filterText" '
-            . 'value="' . $filterText . '">';
-        $retval .= '</div>';
-        $retval .= '<div class="formelement">';
-        $retval .= '<input' . $filterAlert . ' type="checkbox" '
-            . 'name="filterAlert" id="filterAlert">';
-        $retval .= '<label for="filterAlert">';
-        $retval .= __('Show only alert values');
-        $retval .= '</label>';
-        $retval .= '</div>';
-        $retval .= '<div class="formelement">';
-        $retval .= '<select id="filterCategory" name="filterCategory">';
-        $retval .= '<option value="">' . __('Filter by category…') . '</option>';
-
-        foreach ($serverStatusData->sections as $section_id => $section_name) {
-            if (isset($serverStatusData->sectionUsed[$section_id])) {
-                if (! empty($_POST['filterCategory'])
-                    && $_POST['filterCategory'] == $section_id
-                ) {
-                    $selected = ' selected="selected"';
-                } else {
-                    $selected = '';
+        if ($this->data->dataLoaded) {
+            $categories = [];
+            foreach ($this->data->sections as $sectionId => $sectionName) {
+                if (isset($this->data->sectionUsed[$sectionId])) {
+                    $categories[$sectionId] = [
+                        'id' => $sectionId,
+                        'name' => $sectionName,
+                        'is_selected' => false,
+                    ];
+                    if (! empty($params['filterCategory'])
+                        && $params['filterCategory'] === $sectionId
+                    ) {
+                        $categories[$sectionId]['is_selected'] = true;
+                    }
                 }
-                $retval .= '<option' . $selected . ' value="' . $section_id . '">';
-                $retval .= htmlspecialchars($section_name) . '</option>';
+            }
+
+            $links = [];
+            foreach ($this->data->links as $sectionName => $sectionLinks) {
+                $links[$sectionName] = [
+                    'name' => 'status_' . $sectionName,
+                    'links' => $sectionLinks,
+                ];
+            }
+
+            $descriptions = $this->getDescriptions();
+            $alerts = $this->getAlerts();
+
+            $variables = [];
+            foreach ($this->data->status as $name => $value) {
+                $variables[$name] = [
+                    'name' => $name,
+                    'value' => $value,
+                    'is_numeric' => is_numeric($value),
+                    'class' => $this->data->allocationMap[$name] ?? null,
+                    'doc' => '',
+                    'has_alert' => false,
+                    'is_alert' => false,
+                    'description' => $descriptions[$name] ?? '',
+                    'description_doc' => [],
+                ];
+
+                // Fields containing % are calculated,
+                // they can not be described in MySQL documentation
+                if (mb_strpos($name, '%') === false) {
+                    $variables[$name]['doc'] = Util::linkToVarDocumentation(
+                        $name,
+                        $this->dbi->isMariaDB()
+                    );
+                }
+
+                if (isset($alerts[$name])) {
+                    $variables[$name]['has_alert'] = true;
+                    if ($value > $alerts[$name]) {
+                        $variables[$name]['is_alert'] = true;
+                    }
+                }
+
+                if (isset($this->data->links[$name])) {
+                    foreach ($this->data->links[$name] as $linkName => $linkUrl) {
+                        $variables[$name]['description_doc'][] = [
+                            'name' => $linkName,
+                            'url' => $linkUrl,
+                        ];
+                    }
+                }
             }
         }
-        $retval .= '</select>';
-        $retval .= '</div>';
-        $retval .= '<div class="formelement">';
-        $retval .= '<input' . $dontFormat . ' type="checkbox" '
-            . 'name="dontFormat" id="dontFormat">';
-        $retval .= '<label for="dontFormat">';
-        $retval .= __('Show unformatted values');
-        $retval .= '</label>';
-        $retval .= '</div>';
-        $retval .= '</form>';
-        $retval .= '</fieldset>';
 
-        return $retval;
+        return $this->template->render('server/status/variables/index', [
+            'is_data_loaded' => $this->data->dataLoaded,
+            'filter_text' => ! empty($params['filterText']) ? $params['filterText'] : '',
+            'is_only_alerts' => ! empty($params['filterAlert']),
+            'is_not_formatted' => ! empty($params['dontFormat']),
+            'categories' => $categories ?? [],
+            'links' => $links ?? [],
+            'variables' => $variables ?? [],
+        ]);
     }
 
     /**
-     * Prints the suggestion links
+     * Flush status variables if requested
      *
-     * @param Data $serverStatusData Server status data
-     *
-     * @return string
+     * @param string $flush Variable name
+     * @return void
      */
-    public static function getHtmlForLinkSuggestions(Data $serverStatusData)
+    private function flush(string $flush): void
     {
-        $retval  = '<div id="linkSuggestions" class="defaultLinks hide">';
-        $retval .= '<p class="notice">' . __('Related links:');
-        foreach ($serverStatusData->links as $section_name => $section_links) {
-            $retval .= '<span class="status_' . $section_name . '"> ';
-            $i = 0;
-            foreach ($section_links as $link_name => $link_url) {
-                if ($i > 0) {
-                    $retval .= ', ';
-                }
-                if ('doc' == $link_name) {
-                    $retval .= Util::showMySQLDocu($link_url);
-                } else {
-                    $retval .= '<a href="' . $link_url['url'] . '" data-post="' . $link_url['params'] . '">'
-                        . $link_name . '</a>';
-                }
-                $i++;
-            }
-            $retval .= '</span>';
-        }
-        unset($link_url, $link_name, $i);
-        $retval .= '</p>';
-        $retval .= '</div>';
+        $flushCommands = [
+            'STATUS',
+            'TABLES',
+            'QUERY CACHE',
+        ];
 
-        return $retval;
+        if (in_array($flush, $flushCommands)) {
+            $this->dbi->query('FLUSH ' . $flush . ';');
+        }
     }
 
     /**
-     * Returns a table with variables information
-     *
-     * @param Data $serverStatusData Server status data
-     *
-     * @return string
+     * @return array
      */
-    public static function getHtmlForVariablesList(Data $serverStatusData)
+    private function getAlerts(): array
     {
-        $retval  = '';
-        $strShowStatus = self::getDescriptions();
-        /**
-         * define some alerts
-         */
         // name => max value before alert
-        $alerts = [
+        return [
             // lower is better
             // variable => max value
             'Aborted_clients' => 0,
@@ -175,153 +163,30 @@ class Variables
             'Qcache_lowmem_prunes' => 0,
 
             'Qcache_free_blocks' =>
-                isset($serverStatusData->status['Qcache_total_blocks'])
-                ? $serverStatusData->status['Qcache_total_blocks'] / 5
-                : 0,
+                isset($this->data->status['Qcache_total_blocks'])
+                    ? $this->data->status['Qcache_total_blocks'] / 5
+                    : 0,
             'Slow_launch_threads' => 0,
 
             // depends on Key_read_requests
             // normally lower then 1:0.01
-            'Key_reads' => isset($serverStatusData->status['Key_read_requests'])
-                ? (0.01 * $serverStatusData->status['Key_read_requests']) : 0,
+            'Key_reads' => isset($this->data->status['Key_read_requests'])
+                ? (0.01 * $this->data->status['Key_read_requests']) : 0,
             // depends on Key_write_requests
             // normally nearly 1:1
-            'Key_writes' => isset($serverStatusData->status['Key_write_requests'])
-                ? (0.9 * $serverStatusData->status['Key_write_requests']) : 0,
+            'Key_writes' => isset($this->data->status['Key_write_requests'])
+                ? (0.9 * $this->data->status['Key_write_requests']) : 0,
 
             'Key_buffer_fraction' => 0.5,
 
             // alert if more than 95% of thread cache is in use
-            'Threads_cached' => isset($serverStatusData->variables['thread_cache_size'])
-                ? 0.95 * $serverStatusData->variables['thread_cache_size'] : 0
+            'Threads_cached' => isset($this->data->variables['thread_cache_size'])
+                ? 0.95 * $this->data->variables['thread_cache_size'] : 0
 
             // higher is better
             // variable => min value
             //'Handler read key' => '> ',
         ];
-
-        $retval .= self::getHtmlForRenderVariables(
-            $serverStatusData,
-            $alerts,
-            $strShowStatus
-        );
-
-        return $retval;
-    }
-
-    /**
-     * Returns HTML for render variables list
-     *
-     * @param Data  $serverStatusData Server status data
-     * @param array $alerts           Alert Array
-     * @param array $strShowStatus    Status Array
-     *
-     * @return string
-     */
-    public static function getHtmlForRenderVariables(Data $serverStatusData, array $alerts, array $strShowStatus)
-    {
-        $retval = '<div class="responsivetable">';
-        $retval  .= '<table class="data noclick" id="serverstatusvariables">';
-        $retval .= '<col class="namecol">';
-        $retval .= '<col class="valuecol">';
-        $retval .= '<col class="descrcol">';
-        $retval .= '<thead>';
-        $retval .= '<tr>';
-        $retval .= '<th>' . __('Variable') . '</th>';
-        $retval .= '<th>' . __('Value') . '</th>';
-        $retval .= '<th>' . __('Description') . '</th>';
-        $retval .= '</tr>';
-        $retval .= '</thead>';
-        $retval .= '<tbody>';
-
-        foreach ($serverStatusData->status as $name => $value) {
-            $retval .= '<tr class="' . (isset($serverStatusData->allocationMap[$name])
-                    ? ' s_' . $serverStatusData->allocationMap[$name]
-                    : '')
-                . '">';
-
-            $retval .= '<th class="name">';
-            $retval .= htmlspecialchars(str_replace('_', ' ', $name));
-            // Fields containing % are calculated,
-            // they can not be described in MySQL documentation
-            if (mb_strpos($name, '%') === false) {
-                $retval .= Util::linkToVarDocumentation($name, $GLOBALS['dbi']->isMariaDB());
-            }
-            $retval .= '</th>';
-
-            $retval .= '<td class="value"><span class="formatted">';
-            if (isset($alerts[$name])) {
-                if ($value > $alerts[$name]) {
-                    $retval .= '<span class="attention">';
-                } else {
-                    $retval .= '<span class="allfine">';
-                }
-            }
-            if (substr($name, -1) === '%') {
-                $retval .= htmlspecialchars(
-                    Util::formatNumber($value, 0, 2)
-                ) . ' %';
-            } elseif (strpos($name, 'Uptime') !== false) {
-                $retval .= htmlspecialchars(
-                    Util::timespanFormat($value)
-                );
-            } elseif (is_numeric($value) && $value > 1000) {
-                $retval .= '<abbr title="'
-                    // makes available the raw value as a title
-                    . htmlspecialchars(Util::formatNumber($value, 0))
-                    . '">'
-                    . htmlspecialchars(Util::formatNumber($value, 3, 1))
-                    . '</abbr>';
-            } elseif (is_numeric($value)) {
-                $retval .= htmlspecialchars(
-                    Util::formatNumber($value, 3, 1)
-                );
-            } else {
-                $retval .= htmlspecialchars($value);
-            }
-            if (isset($alerts[$name])) {
-                $retval .= '</span>';
-            }
-            $retval .= '</span>';
-            $retval .= '<span class="original hide">';
-            if (isset($alerts[$name])) {
-                if ($value > $alerts[$name]) {
-                    $retval .= '<span class="attention">';
-                } else {
-                    $retval .= '<span class="allfine">';
-                }
-            }
-            $retval .= htmlspecialchars((string) $value);
-            if (isset($alerts[$name])) {
-                $retval .= '</span>';
-            }
-            $retval .= '</span>';
-            $retval .= '</td>';
-            $retval .= '<td class="descr">';
-
-            if (isset($strShowStatus[$name])) {
-                $retval .= $strShowStatus[$name];
-            }
-
-            if (isset($serverStatusData->links[$name])) {
-                foreach ($serverStatusData->links[$name] as $link_name => $link_url) {
-                    if ('doc' == $link_name) {
-                        $retval .= Util::showMySQLDocu($link_url);
-                    } else {
-                        $retval .= ' <a href="' . $link_url['url'] . '" data-post="' . $link_url['params'] . '">'
-                            . $link_name . '</a>';
-                    }
-                }
-                unset($link_url, $link_name);
-            }
-            $retval .= '</td>';
-            $retval .= '</tr>';
-        }
-        $retval .= '</tbody>';
-        $retval .= '</table>';
-        $retval .= '</div>';
-
-        return $retval;
     }
 
     /**
@@ -329,7 +194,7 @@ class Variables
      *
      * @return array
      */
-    public static function getDescriptions()
+    private function getDescriptions(): array
     {
         /**
          * Messages are built using the message name

@@ -174,6 +174,10 @@ class UtilExtension extends AbstractExtension
                 'PhpMyAdmin\Util::sortableTableHeader',
                 ['is_safe' => ['html']]
             ),
+            new TwigFunction(
+                'timespan_format',
+                'PhpMyAdmin\Util::timespanFormat'
+            ),
         ];
     }
 

@@ -1,0 +1,137 @@
+{% extends 'server/status/base.twig' %}
+{% set active = 'variables' %}
+{% block content %}
+
+{% if is_data_loaded %}
+  <fieldset id="tableFilter">
+    <legend>{% trans 'Filters' %}</legend>
+    <form action="server_status_variables.php" method="post">
+      {{ get_hidden_inputs() }}
+
+      <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">
+
+      <div class="formelement">
+        <label for="filterText">{% trans 'Containing the word:' %}</label>
+        <input name="filterText" type="text" id="filterText" value="{{ filter_text }}">
+      </div>
+
+      <div class="formelement">
+        <input type="checkbox" name="filterAlert" id="filterAlert"{{ is_only_alerts ? ' checked' }}>
+        <label for="filterAlert">
+          {% trans 'Show only alert values' %}
+        </label>
+      </div>
+
+      <div class="formelement">
+        <select id="filterCategory" name="filterCategory">
+          <option value="">{% trans 'Filter by category…' %}</option>
+          {% for category in categories %}
+            <option value="{{ category.id }}"{{ category.is_selected ? ' selected' }}>{{ category.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="formelement">
+        <input type="checkbox" name="dontFormat" id="dontFormat"{{ is_not_formatted ? ' checked' }}>
+        <label for="dontFormat">
+          {% trans 'Show unformatted values' %}
+        </label>
+      </div>
+    </form>
+  </fieldset>
+
+  <div id="linkSuggestions" class="defaultLinks hide">
+    <p class="notice">
+      {% trans 'Related links:' %}
+      {% for link in links %}
+        <span class="{{ link.name }}">
+          {% for link_name, link_url in link.links %}
+            {% if link_name == 'doc' %}
+              {{ show_mysql_docu(link_url) }}
+            {% else %}
+              <a href="{{ link_url.url }}" data-post="{{ link_url.params }}">{{ link_name }}</a>
+            {% endif %}
+            |
+          {% endfor %}
+        </span>
+      {% endfor %}
+    </p>
+  </div>
+
+  <div class="responsivetable">
+    <table class="data noclick" id="serverstatusvariables">
+      <colgroup>
+        <col class="namecol">
+        <col class="valuecol">
+        <col class="descrcol">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>{% trans 'Variable' %}</th>
+          <th>{% trans 'Value' %}</th>
+          <th>{% trans 'Description' %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for variable in variables %}
+          <tr{% if variable.class is not empty %} class="s_{{ variable.class }}"{% endif %}>
+            <th class="name">
+              {{ variable.name|replace({'_': ' '}) }}
+              {{ variable.doc|raw }}
+            </th>
+
+            <td class="value">
+              <span class="formatted">
+                {% if variable.has_alert %}
+                  <span class="{{ variable.is_alert ? 'attention' : 'allfine' }}">
+                {% endif %}
+
+                {% if variable.name ends with '%' %}
+                  {{ format_number(variable.value, 0, 2) }} %
+                {% elseif 'Uptime' in variable.name %}
+                  {{ timespan_format(variable.value) }}
+                {% elseif variable.is_numeric and variable.value >= 1000 %}
+                  <abbr title="{{ format_number(variable.value, 0) }}">
+                    {{ format_number(variable.value, 3, 1) }}
+                  </abbr>
+                {% elseif variable.is_numeric %}
+                  {{ format_number(variable.value, 3, 1) }}
+                {% else %}
+                  {{ variable.value }}
+                {% endif %}
+
+                {% if variable.has_alert %}
+                  </span>
+                {% endif %}
+              </span>
+              <span class="original hide">
+                {% if variable.has_alert %}
+                  <span class="{{ variable.is_alert ? 'attention' : 'allfine' }}">
+                {% endif %}
+                {{ variable.value }}
+                {% if variable.has_alert %}
+                  </span>
+                {% endif %}
+              </span>
+            </td>
+
+            <td class="descr">
+              {{ variable.description }}
+              {% for doc in variable.description_doc %}
+                {% if doc.name == 'doc' %}
+                  {{ show_mysql_docu(doc.url) }}
+                {% else %}
+                  <a href="{{ doc.url.url }}" data-post="{{ doc.url.params }}">{{ doc.name }}</a>
+                {% endif %}
+              {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  {{ 'Not enough privilege to view status variables.'|trans|error }}
+{% endif %}
+
+{% endblock %}
