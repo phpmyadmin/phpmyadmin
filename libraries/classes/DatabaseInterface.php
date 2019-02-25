@@ -272,7 +272,7 @@ class DatabaseInterface
         $error_message = $this->getError($link);
         if ($result == false && is_string($error_message)) {
             $dbgInfo['error']
-                = '<span style="color:red">'
+                = '<span class="color_red">'
                 . htmlspecialchars($error_message) . '</span>';
         }
         $dbgInfo['query'] = htmlspecialchars($query);
