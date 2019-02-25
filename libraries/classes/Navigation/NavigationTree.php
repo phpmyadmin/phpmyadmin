@@ -771,7 +771,8 @@ class NavigationTree
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separator_depth = $node->separator_depth - 1;
                 $groups[$key]->icon = Util::getImage(
-                    'b_group'
+                    'b_group',
+                    __('Groups')
                 );
                 $groups[$key]->pos2 = $node->pos2;
                 $groups[$key]->pos3 = $node->pos3;
