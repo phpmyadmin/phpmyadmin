@@ -43,25 +43,6 @@ class MonitorController extends Controller
      */
     public function index(): string
     {
-        $refreshList = Data::getHtmlForRefreshList(
-            'gridChartRefresh',
-            5,
-            [
-                2,
-                3,
-                4,
-                5,
-                10,
-                20,
-                40,
-                60,
-                120,
-                300,
-                600,
-                1200,
-            ]
-        );
-
         $form = [
             'server_time' => microtime(true) * 1000,
             'server_os' => SysInfo::getOs(),
@@ -77,7 +58,6 @@ class MonitorController extends Controller
         }
 
         return $this->template->render('server/status/monitor/index', [
-            'refresh_list' => $refreshList,
             'image_path' => $GLOBALS['pmaThemeImage'],
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,

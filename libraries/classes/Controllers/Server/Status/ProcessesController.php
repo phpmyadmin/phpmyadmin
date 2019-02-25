@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Util;
 
 /**
@@ -40,29 +39,9 @@ class ProcessesController extends Controller
 
         $serverProcessList = $this->getList($params);
 
-        $refreshList = Data::getHtmlForRefreshList(
-            'refreshRate',
-            5,
-            [
-                2,
-                3,
-                4,
-                5,
-                10,
-                20,
-                40,
-                60,
-                120,
-                300,
-                600,
-                1200,
-            ]
-        );
-
         return $this->template->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $isChecked,
-            'refresh_list' => $refreshList,
             'server_process_list' => $serverProcessList,
         ]);
     }

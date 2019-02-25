@@ -35,7 +35,25 @@
   <div class="floatleft">
     {% trans 'Refresh rate' %}
     <br>
-    {{ refresh_list|raw }}
+    <select id="id_gridChartRefresh" class="refreshRate" name="gridChartRefresh">
+      {% for rate in [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200] %}
+        <option value="{{ rate }}"{{ rate == 5 ? ' selected' }}>
+          {% if rate < 60 %}
+            {% trans %}
+              {{ count }} second
+            {% plural rate %}
+              {{ count }} seconds
+            {% endtrans %}
+          {% else %}
+            {% trans %}
+              {{ count }} minute
+            {% plural rate / 60 %}
+              {{ count }} minutes
+            {% endtrans %}
+          {% endif %}
+        </option>
+      {% endfor %}
+    </select>
     <br>
   </div>
 
