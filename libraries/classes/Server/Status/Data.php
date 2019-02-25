@@ -429,60 +429,6 @@ class Data
     }
 
     /**
-     * Generates menu HTML
-     *
-     * @return string
-     */
-    public function getMenuHtml()
-    {
-        $url_params = Url::getCommon();
-        $items = [
-            [
-                'name' => __('Server'),
-                'url' => 'server_status.php'
-            ],
-            [
-                'name' => __('Processes'),
-                'url' => 'server_status_processes.php'
-            ],
-            [
-                'name' => __('Query statistics'),
-                'url' => 'server_status_queries.php'
-            ],
-            [
-                'name' => __('All status variables'),
-                'url' => 'server_status_variables.php'
-            ],
-            [
-                'name' => __('Monitor'),
-                'url' => 'server_status_monitor.php'
-            ],
-            [
-                'name' => __('Advisor'),
-                'url' => 'server_status_advisor.php'
-            ],
-        ];
-
-        $retval  = '<ul id="topmenu2">';
-        foreach ($items as $item) {
-            $class = '';
-            if ($item['url'] === $this->selfUrl) {
-                $class = ' class="tabactive"';
-            }
-            $retval .= '<li>';
-            $retval .= '<a' . $class;
-            $retval .= ' href="' . $item['url'] . $url_params . '">';
-            $retval .= $item['name'];
-            $retval .= '</a>';
-            $retval .= '</li>';
-        }
-        $retval .= '</ul>';
-        $retval .= '<div class="clearfloat"></div>';
-
-        return $retval;
-    }
-
-    /**
      * Builds a <select> list for refresh rates
      *
      * @param string $name         Name of select
