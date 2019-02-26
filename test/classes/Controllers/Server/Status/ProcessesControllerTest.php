@@ -144,11 +144,15 @@ class ProcessesControllerTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            '<select name="refreshRate"',
+            '<select id="id_refreshRate"',
             $html
         );
         $this->assertStringContainsString(
-            '<option value="5" selected="selected">5 seconds</option>',
+            '<option value="5" selected>',
+            $html
+        );
+        $this->assertStringContainsString(
+            '5 seconds',
             $html
         );
 
