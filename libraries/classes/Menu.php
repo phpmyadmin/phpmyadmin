@@ -103,7 +103,7 @@ class Menu
     {
         $url_params = [];
 
-        if (strlen($this->_table) > 0) {
+        if (strlen((string) $this->_table) > 0) {
             $tabs = $this->_getTableTabs();
             $url_params['db'] = $this->_db;
             $url_params['table'] = $this->_table;
@@ -178,7 +178,7 @@ class Menu
     private function _getBreadcrumbs()
     {
         $retval = '';
-        $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
+        $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, (string) $this->_table)
             ->isView();
         if (empty($GLOBALS['cfg']['Server']['host'])) {
             $GLOBALS['cfg']['Server']['host'] = '';
@@ -238,7 +238,7 @@ class Menu
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if (strlen($this->_table) > 0
+            if (strlen((string) $this->_table) > 0
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 $table_class_object = $GLOBALS['dbi']->getTable(
