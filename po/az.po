@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-02-21 02:29-0300\n"
+"POT-Creation-Date: 2019-02-27 14:28-0300\n"
 "PO-Revision-Date: 2019-01-28 18:24+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -179,7 +179,7 @@ msgstr "Şərhlər"
 msgid "Primary"
 msgstr "Birinci dərəcəli"
 
-#: db_datadict.php:174 js/messages.php:390
+#: db_datadict.php:174 js/messages.php:393
 #: libraries/classes/Config/FormDisplayTemplate.php:327
 #: libraries/classes/Index.php:564 libraries/classes/Index.php:592
 #: libraries/classes/IndexColumn.php:143 libraries/classes/MultSubmits.php:533
@@ -205,7 +205,7 @@ msgstr "Birinci dərəcəli"
 msgid "No"
 msgstr "Xeyr"
 
-#: db_datadict.php:174 js/messages.php:539
+#: db_datadict.php:174 js/messages.php:542
 #: libraries/classes/Config/FormDisplayTemplate.php:327
 #: libraries/classes/Controllers/Server/DatabasesController.php:217
 #: libraries/classes/Controllers/Table/StructureController.php:805
@@ -409,7 +409,7 @@ msgstr "Pis parametrlər!"
 msgid "Succeeded"
 msgstr "Uğurlu"
 
-#: import.php:85 js/messages.php:626
+#: import.php:85 js/messages.php:629
 msgid "Failed"
 msgstr "Uğursuz oldu"
 
@@ -486,7 +486,7 @@ msgstr "\"DROP DATABASE\" ifadeleri söndürülmüşdür (disabled)."
 msgid "Could not load the progress of the import."
 msgstr "İmport prosesinin iləriləmə vəziyyəti yüklənə bilmədi."
 
-#: import_status.php:120 js/messages.php:468 js/messages.php:634
+#: import_status.php:120 js/messages.php:471 js/messages.php:637
 #: libraries/classes/Export.php:516
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:727
@@ -521,7 +521,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Ümumi ayarlar"
 
-#: index.php:244 js/messages.php:659
+#: index.php:244 js/messages.php:662
 #: libraries/classes/Display/ChangePassword.php:71
 #: libraries/classes/Display/ChangePassword.php:74
 #: libraries/classes/UserPassword.php:275
@@ -960,75 +960,82 @@ msgid "Y values"
 msgstr "Y qiymətləri"
 
 #: js/messages.php:147
+#, fuzzy
+#| msgid "Please enter a valid page name"
+msgid "Please enter the SQL query first."
+msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
+
+#: js/messages.php:150
 msgid "The host name is empty!"
 msgstr "Host adı boşdur!"
 
-#: js/messages.php:148
+#: js/messages.php:151
 msgid "The user name is empty!"
 msgstr "İstifadəçi adı boş qaldı!"
 
-#: js/messages.php:149 libraries/classes/Server/Privileges.php:2003
+#: js/messages.php:152 libraries/classes/Server/Privileges.php:2003
 #: libraries/classes/UserPassword.php:83
 msgid "The password is empty!"
 msgstr "Parol boşdur!"
 
-#: js/messages.php:150 libraries/classes/Server/Privileges.php:2001
+#: js/messages.php:153 libraries/classes/Server/Privileges.php:2001
 #: libraries/classes/UserPassword.php:87
 msgid "The passwords aren't the same!"
 msgstr "Girdiyiniz parollar eyni deyil!"
 
-#: js/messages.php:151
+#: js/messages.php:154
 msgid "Removing Selected Users"
 msgstr "Seçilən İstifadəçilər Silinir"
 
-#: js/messages.php:152 js/messages.php:219 libraries/classes/Tracking.php:277
+#: js/messages.php:155 js/messages.php:222 libraries/classes/Tracking.php:277
 #: libraries/classes/Tracking.php:683
 msgid "Close"
 msgstr "Bağla"
 
-#: js/messages.php:155
+#: js/messages.php:158
 msgid "Template was created."
 msgstr "Şablon yaradıldı."
 
-#: js/messages.php:156
+#: js/messages.php:159
 msgid "Template was loaded."
 msgstr "Şablon yükləndi."
 
-#: js/messages.php:157
+#: js/messages.php:160
 msgid "Template was updated."
 msgstr "Şablon yeniləndi."
 
-#: js/messages.php:158
+#: js/messages.php:161
 msgid "Template was deleted."
 msgstr "Şablon silindi."
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:161 libraries/classes/Server/Status/Data.php:134
-#: libraries/classes/Server/Status/Queries.php:153
+#: js/messages.php:164
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:64
+#: libraries/classes/Server/Status/Data.php:134
 msgid "Other"
 msgstr "Digər"
 
 #. l10n: Thousands separator
-#: js/messages.php:163 libraries/classes/Util.php:1412
+#: js/messages.php:166 libraries/classes/Util.php:1412
 #: libraries/classes/Util.php:1443
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:165 libraries/classes/Util.php:1410
+#: js/messages.php:168 libraries/classes/Util.php:1410
 #: libraries/classes/Util.php:1441
 msgid "."
 msgstr "."
 
-#: js/messages.php:167
+#: js/messages.php:170
 msgid "Connections / Processes"
 msgstr "Əlaqələr / Proseslər"
 
-#: js/messages.php:171
+#: js/messages.php:174
 msgid "Local monitor configuration incompatible!"
 msgstr "Lokal izləmə konfiqurasiyası uyğun deyil!"
 
-#: js/messages.php:173
+#: js/messages.php:176
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1036,209 +1043,208 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: js/messages.php:179
+#: js/messages.php:182
 msgid "Query cache efficiency"
 msgstr "Sorğu keş effektivliyi"
 
-#: js/messages.php:180
+#: js/messages.php:183
 msgid "Query cache usage"
 msgstr "Sorğu keş istifadəsi"
 
-#: js/messages.php:181
+#: js/messages.php:184
 msgid "Query cache used"
 msgstr "İstifadə edilən sorğu keşi"
 
-#: js/messages.php:183
+#: js/messages.php:186
 msgid "System CPU usage"
 msgstr "Sistem prosessoru istifadəsi"
 
-#: js/messages.php:184
+#: js/messages.php:187
 msgid "System memory"
 msgstr "Sistem yaddaşı"
 
-#: js/messages.php:185
+#: js/messages.php:188
 msgid "System swap"
 msgstr "Sistem mübadiləsi"
 
-#: js/messages.php:187
+#: js/messages.php:190
 msgid "Average load"
 msgstr "Ortalama yükləmə"
 
-#: js/messages.php:188
+#: js/messages.php:191
 msgid "Total memory"
 msgstr "Toplam Yaddaş"
 
-#: js/messages.php:189
+#: js/messages.php:192
 msgid "Cached memory"
 msgstr "Keş edilmiş yaddaş"
 
-#: js/messages.php:190
+#: js/messages.php:193
 msgid "Buffered memory"
 msgstr "Bufer yaddaşı"
 
-#: js/messages.php:191
+#: js/messages.php:194
 msgid "Free memory"
 msgstr "Boş yaddaş"
 
-#: js/messages.php:192
+#: js/messages.php:195
 msgid "Used memory"
 msgstr "İstifadə olunan yaddaş"
 
-#: js/messages.php:194
+#: js/messages.php:197
 msgid "Total swap"
 msgstr "Toplam mübadilə"
 
-#: js/messages.php:195
+#: js/messages.php:198
 msgid "Cached swap"
 msgstr "Keş olunmuş mübadilə"
 
-#: js/messages.php:196
+#: js/messages.php:199
 msgid "Used swap"
 msgstr "İstifadə olunan mübadilə"
 
-#: js/messages.php:197
+#: js/messages.php:200
 msgid "Free swap"
 msgstr "Boş mübadilə"
 
-#: js/messages.php:199
+#: js/messages.php:202
 msgid "Bytes sent"
 msgstr "Göndərilmiş bayt"
 
-#: js/messages.php:200
+#: js/messages.php:203
 msgid "Bytes received"
 msgstr "Alınan bayt"
 
-#: js/messages.php:201 templates/server/status/status/index.twig:35
+#: js/messages.php:204 templates/server/status/status/index.twig:35
 msgid "Connections"
 msgstr "Əlaqələr"
 
-#: js/messages.php:202 libraries/classes/Server/Status/Data.php:445
-#: libraries/classes/Server/Status/Processes.php:156
-#: templates/server/status/base.twig:10
+#: js/messages.php:205 templates/server/status/base.twig:10
+#: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Prosesler"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:205 libraries/classes/Util.php:1320
+#: js/messages.php:208 libraries/classes/Util.php:1320
 msgid "B"
 msgstr "Bayt"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:206 libraries/classes/Util.php:1322
-#: templates/server/status/monitor/index.twig:161
+#: js/messages.php:209 libraries/classes/Util.php:1322
+#: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:207 libraries/classes/Util.php:1324
-#: templates/server/status/monitor/index.twig:162
+#: js/messages.php:210 libraries/classes/Util.php:1324
+#: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:208 libraries/classes/Util.php:1326
+#: js/messages.php:211 libraries/classes/Util.php:1326
 msgid "GiB"
 msgstr "QB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:209 libraries/classes/Util.php:1328
+#: js/messages.php:212 libraries/classes/Util.php:1328
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:210 libraries/classes/Util.php:1330
+#: js/messages.php:213 libraries/classes/Util.php:1330
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:211 libraries/classes/Util.php:1332
+#: js/messages.php:214 libraries/classes/Util.php:1332
 msgid "EiB"
 msgstr "EB"
 
-#: js/messages.php:212
+#: js/messages.php:215
 #, php-format
 msgid "%d table(s)"
 msgstr "%d cədvəl"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:215
+#: js/messages.php:218
 msgid "Questions"
 msgstr "Suallar"
 
-#: js/messages.php:216 templates/server/status/status/index.twig:13
+#: js/messages.php:219 templates/server/status/status/index.twig:13
 msgid "Traffic"
 msgstr "Trafik"
 
-#: js/messages.php:217 libraries/classes/Menu.php:636
+#: js/messages.php:220 libraries/classes/Menu.php:636
 #: libraries/classes/Util.php:4192
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Tənzimləmələr"
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add chart to grid"
 msgstr ""
 
-#: js/messages.php:221
+#: js/messages.php:224
 msgid "Please add at least one variable to the series!"
 msgstr "Zəhmət olmasa massivə ən azı bir dəyişən əlavə edin!"
 
-#: js/messages.php:222 libraries/classes/Display/Results.php:1354
+#: js/messages.php:225 libraries/classes/Display/Results.php:1354
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
-#: libraries/classes/Server/Status/Processes.php:303
 #: libraries/config.values.php:113
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:204
 #: templates/database/designer/main.twig:629
 #: templates/table/search/rows_zoom.twig:20
 #: templates/columns_definitions/transformation.twig:4
+#: templates/server/status/processes/list.twig:54
 #: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/table/search/selection_form.twig:35
 msgid "None"
 msgstr "Heç biri"
 
-#: js/messages.php:223
+#: js/messages.php:226
 msgid "Resume monitor"
 msgstr "İzləməyə davam et"
 
-#: js/messages.php:224
+#: js/messages.php:227
 msgid "Pause monitor"
 msgstr "İzləməni dayandır"
 
-#: js/messages.php:225 libraries/classes/Server/Status/Processes.php:61
+#: js/messages.php:228 templates/server/status/processes/index.twig:49
 msgid "Start auto refresh"
 msgstr "Avto yenilənməni başlat"
 
-#: js/messages.php:226
+#: js/messages.php:229
 msgid "Stop auto refresh"
 msgstr "Avto yenilənməni dayandır"
 
-#: js/messages.php:228
+#: js/messages.php:231
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log və slow_query_log aktivləşdirilib."
 
-#: js/messages.php:229
+#: js/messages.php:232
 msgid "general_log is enabled."
 msgstr "general_log aktivləşdirildi."
 
-#: js/messages.php:230
+#: js/messages.php:233
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log aktivləşdirildi."
 
-#: js/messages.php:231
+#: js/messages.php:234
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log və general_log deaktiv edildi."
 
-#: js/messages.php:232
+#: js/messages.php:235
 msgid "log_output is not set to TABLE."
 msgstr "log_output TABLE olaraq ayarlı deyil."
 
-#: js/messages.php:233
+#: js/messages.php:236
 msgid "log_output is set to TABLE."
 msgstr "log_output TABLE olaraq ayarlı."
 
-#: js/messages.php:235
+#: js/messages.php:238
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1249,12 +1255,12 @@ msgstr ""
 "çəkən sorğuları loglayır. Bu long_query_time-ın, sisteminizə bağlı olaraq "
 "0-2 saniyəyə ayarlanmasını tövsiyyə edirik."
 
-#: js/messages.php:239
+#: js/messages.php:242
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time %d saniyəyə qurulub."
 
-#: js/messages.php:241
+#: js/messages.php:244
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -1263,30 +1269,30 @@ msgstr ""
 "ilkin vəziyyətinə sıfırlanacaq:"
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:245
+#: js/messages.php:248
 #, php-format
 msgid "Set log_output to %s"
 msgstr "log_output-u %s-ə ayarla"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:247
+#: js/messages.php:250
 #, php-format
 msgid "Enable %s"
 msgstr "%s aktiv"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:249
+#: js/messages.php:252
 #, php-format
 msgid "Disable %s"
 msgstr "Söndürmək %s"
 
 #. l10n: %d seconds
-#: js/messages.php:251
+#: js/messages.php:254
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "long_query_time-ı %d saniyəyə ayarlayın."
 
-#: js/messages.php:253
+#: js/messages.php:256
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -1294,146 +1300,145 @@ msgstr ""
 "Bu dəyişənləri dəyişdirə bilməzsiniz. Zəhmət olmasa root olaraq daxil olun "
 "vəya Baza adminstartoru ilə əlaqə saxlayın."
 
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Change settings"
 msgstr "Dəyişdirmə tənzimləmələri"
 
-#: js/messages.php:257
+#: js/messages.php:260
 msgid "Current settings"
 msgstr "Cari Seçimlər"
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "Chart title"
 msgstr "Diaqram başlığı"
 
 #. l10n: As in differential values
-#: js/messages.php:261
+#: js/messages.php:264
 msgid "Differential"
 msgstr "Ayırıcı"
 
-#: js/messages.php:262
+#: js/messages.php:265
 #, php-format
 msgid "Divided by %s"
 msgstr "%s tərəfindən bölən"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "Unit"
 msgstr "Vahid"
 
-#: js/messages.php:265
+#: js/messages.php:268
 msgid "From slow log"
 msgstr "Yavaş logdan"
 
-#: js/messages.php:266
+#: js/messages.php:269
 msgid "From general log"
 msgstr "Ümumi logdan"
 
-#: js/messages.php:268
+#: js/messages.php:271
 msgid "The database name is not known for this query in the server's logs."
 msgstr "Serverin logunda bu sorğu üçün baza adı bilinmir."
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "Analysing logs"
 msgstr "Loglar analiz edilir"
 
-#: js/messages.php:272
+#: js/messages.php:275
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Loglar analiz olunur və yüklənir. Bu bir az çəkə bilər."
 
-#: js/messages.php:273
+#: js/messages.php:276
 msgid "Cancel request"
 msgstr "İstəyi ləğv et"
 
-#: js/messages.php:275
+#: js/messages.php:278
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:280
+#: js/messages.php:283
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:285
+#: js/messages.php:288
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:287
+#: js/messages.php:290
 msgid "Jump to Log table"
 msgstr "Log cədvəlinə keç"
 
-#: js/messages.php:288
+#: js/messages.php:291
 msgid "No data found"
 msgstr "Heç bir məlumat tapılmadı"
 
-#: js/messages.php:290
+#: js/messages.php:293
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: js/messages.php:292
+#: js/messages.php:295
 msgid "Analyzing…"
 msgstr "Analiz edilir…"
 
-#: js/messages.php:293
+#: js/messages.php:296
 msgid "Explain output"
 msgstr "Eksportu açıqla"
 
-#: js/messages.php:294 libraries/classes/Menu.php:599
-#: libraries/classes/Rte/Events.php:470 libraries/classes/Rte/RteList.php:146
-#: libraries/classes/Server/Status/Processes.php:117
-#: libraries/classes/Util.php:4188 libraries/config.values.php:159
-#: templates/database/tracking/tables.twig:17
+#: js/messages.php:297
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
+#: libraries/classes/Menu.php:599 libraries/classes/Rte/Events.php:470
+#: libraries/classes/Rte/RteList.php:146 libraries/classes/Util.php:4188
+#: libraries/config.values.php:159 templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Status"
 
-#: js/messages.php:295 js/messages.php:917
+#: js/messages.php:298 js/messages.php:920
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:128
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:491
 #: libraries/classes/Plugins/Export/ExportOdt.php:612
 #: libraries/classes/Plugins/Export/ExportTexytext.php:455
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:381
-#: libraries/classes/Rte/RteList.php:135
-#: libraries/classes/Server/Status/Processes.php:113
-#: templates/sql/profiling_chart.twig:18
+#: libraries/classes/Rte/RteList.php:135 templates/sql/profiling_chart.twig:18
 msgid "Time"
 msgstr "Müddət"
 
-#: js/messages.php:296
+#: js/messages.php:299
 msgid "Total time:"
 msgstr "Toplam vaxt:"
 
-#: js/messages.php:297
+#: js/messages.php:300
 msgid "Profiling results"
 msgstr "Nəticələrin profili çıxardılır"
 
-#: js/messages.php:298
+#: js/messages.php:301
 msgctxt "Display format"
 msgid "Table"
 msgstr "Cədvəl"
 
-#: js/messages.php:299
+#: js/messages.php:302
 msgid "Chart"
 msgstr "Diaqram"
 
-#: js/messages.php:301 libraries/classes/Display/Export.php:590
+#: js/messages.php:304 libraries/classes/Display/Export.php:590
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Verilənlər Bazası"
 
-#: js/messages.php:302 libraries/classes/Display/Export.php:602
+#: js/messages.php:305 libraries/classes/Display/Export.php:602
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Cədvəl"
 
-#: js/messages.php:303 libraries/classes/Display/Export.php:613
+#: js/messages.php:306 libraries/classes/Display/Export.php:613
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -1441,143 +1446,143 @@ msgid "Column"
 msgstr "Sütun"
 
 #. l10n: A collection of available filters
-#: js/messages.php:306
+#: js/messages.php:309
 msgid "Log table filter options"
 msgstr "Log Cədvəl Filtr seçənəkləri"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:308
+#: js/messages.php:311
 msgid "Filter"
 msgstr "Filtr"
 
-#: js/messages.php:309
+#: js/messages.php:312
 msgid "Filter queries by word/regexp:"
 msgstr "Söz/düzənli ifadəyə görə sorğuları filtrlə:"
 
-#: js/messages.php:311
+#: js/messages.php:314
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Qrup sorğuları, WHERE içərisindəki dəyişkən dəyərləri göz ardı edildi"
 
-#: js/messages.php:312
+#: js/messages.php:315
 msgid "Sum of grouped rows:"
 msgstr "Qruplanmış sətirlərin cəmi:"
 
-#: js/messages.php:313 templates/server/databases/index.twig:236
+#: js/messages.php:316 templates/server/databases/index.twig:236
 msgid "Total:"
 msgstr "Cəm:"
 
-#: js/messages.php:315
+#: js/messages.php:318
 msgid "Loading logs"
 msgstr "Loglar yüklənir"
 
-#: js/messages.php:316
+#: js/messages.php:319
 msgid "Monitor refresh failed"
 msgstr "Monitor yeniləmə uğursuz oldu"
 
-#: js/messages.php:318
+#: js/messages.php:321
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:322
+#: js/messages.php:325
 msgid "Reload page"
 msgstr "Səhifəi yenidən yüklə"
 
-#: js/messages.php:324
+#: js/messages.php:327
 msgid "Affected rows:"
 msgstr "Təsirlənən sətirlər:"
 
-#: js/messages.php:327
+#: js/messages.php:330
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:330
+#: js/messages.php:333
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: js/messages.php:332 libraries/classes/Config/Forms/User/ImportForm.php:71
+#: js/messages.php:335 libraries/classes/Config/Forms/User/ImportForm.php:71
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:508
 #: libraries/classes/Menu.php:632 libraries/classes/Util.php:4191
 #: libraries/classes/Util.php:4206 libraries/classes/Util.php:4223
-#: prefs_manage.php:234 templates/server/status/monitor/index.twig:60
+#: prefs_manage.php:234 templates/server/status/monitor/index.twig:78
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "İmport"
 
-#: js/messages.php:333
+#: js/messages.php:336
 msgid "Import monitor configuration"
 msgstr ""
 
-#: js/messages.php:335
+#: js/messages.php:338
 msgid "Please select the file you want to import."
 msgstr "Zəhmət olmasa import etmək istədiyiniz faylı seçin."
 
-#: js/messages.php:337
+#: js/messages.php:340
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:339
+#: js/messages.php:342
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:340
+#: js/messages.php:343
 msgid "No files available on server for import!"
 msgstr "İmport üçün serverdə fayllar yoxdur!"
 
-#: js/messages.php:342
+#: js/messages.php:345
 msgid "Analyse query"
 msgstr "Sorğunu analiz et"
 
-#: js/messages.php:346
+#: js/messages.php:349
 msgid "Advisor system"
 msgstr "Müşavir sistemi"
 
-#: js/messages.php:347
+#: js/messages.php:350
 msgid "Possible performance issues"
 msgstr "Ola biləcək performans problemləri"
 
-#: js/messages.php:348
+#: js/messages.php:351
 msgid "Issue"
 msgstr "Problem"
 
-#: js/messages.php:349
+#: js/messages.php:352
 msgid "Recommendation"
 msgstr "Tövsiyə"
 
-#: js/messages.php:350
+#: js/messages.php:353
 msgid "Rule details"
 msgstr "Qayda təfsilatları"
 
-#: js/messages.php:351
+#: js/messages.php:354
 msgid "Justification"
 msgstr "Əsaslandırma"
 
-#: js/messages.php:352
+#: js/messages.php:355
 msgid "Used variable / formula"
 msgstr "İstifadə olunan dəyişən / formula(düstur)"
 
-#: js/messages.php:353
+#: js/messages.php:356
 msgid "Test"
 msgstr "Sınaq"
 
-#: js/messages.php:356
+#: js/messages.php:359
 msgid "Formatting SQL…"
 msgstr ""
 
-#: js/messages.php:357
+#: js/messages.php:360
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "Pis parametrlər!"
 
-#: js/messages.php:360 libraries/classes/BrowseForeigners.php:207
+#: js/messages.php:363 libraries/classes/BrowseForeigners.php:207
 #: libraries/classes/Display/ChangePassword.php:176
 #: libraries/classes/Index.php:661 libraries/classes/InsertEdit.php:1935
 #: libraries/classes/InsertEdit.php:1969
@@ -1623,7 +1628,7 @@ msgstr "Pis parametrlər!"
 msgid "Go"
 msgstr "Davam"
 
-#: js/messages.php:361 templates/database/designer/main.twig:380
+#: js/messages.php:364 templates/database/designer/main.twig:380
 #: templates/database/designer/main.twig:431
 #: templates/database/designer/main.twig:705
 #: templates/database/designer/main.twig:771
@@ -1634,86 +1639,86 @@ msgstr "Davam"
 msgid "Cancel"
 msgstr "Ləğv et"
 
-#: js/messages.php:364 libraries/classes/Header.php:476
+#: js/messages.php:367 libraries/classes/Header.php:476
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "Dəyişdirmə tənzimləmələri"
 
-#: js/messages.php:365 templates/config/form_display/fieldset_bottom.twig:8
+#: js/messages.php:368 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
 msgstr "Təsdiqlə"
 
-#: js/messages.php:368 libraries/classes/Navigation/NavigationHeader.php:79
-#: templates/server/status/monitor/index.twig:77
+#: js/messages.php:371 libraries/classes/Navigation/NavigationHeader.php:79
+#: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "Yüklənir…"
 
-#: js/messages.php:369
+#: js/messages.php:372
 #, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "İstək ləğv edildi!"
 
-#: js/messages.php:370
+#: js/messages.php:373
 #, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "istək emal olunur"
 
-#: js/messages.php:371
+#: js/messages.php:374
 #, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
 msgstr "İstək ləğv edildi!"
 
-#: js/messages.php:372
+#: js/messages.php:375
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
 msgstr "Prosesler"
 
-#: js/messages.php:373
+#: js/messages.php:376
 #, php-format
 msgid "Error code: %s"
 msgstr "Xəta Kodu: %s"
 
-#: js/messages.php:374
+#: js/messages.php:377
 #, php-format
 msgid "Error text: %s"
 msgstr "Xəta mətni: %s"
 
-#: js/messages.php:376
+#: js/messages.php:379
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
 
-#: js/messages.php:379
+#: js/messages.php:382
 #: libraries/classes/Controllers/Server/DatabasesController.php:211
 #: libraries/db_common.inc.php:78 libraries/db_table_exists.inc.php:35
 msgid "No databases selected."
 msgstr "Heç bir baza seçilmemişdir."
 
-#: js/messages.php:380
+#: js/messages.php:383
 #, fuzzy
 #| msgid "No column selected."
 msgid "No accounts selected."
 msgstr "Sütun seçilməmişdir."
 
-#: js/messages.php:381
+#: js/messages.php:384
 #, fuzzy
 #| msgid "Series column:"
 msgid "Dropping column"
 msgstr "Ardıcıllıq sütunu:"
 
-#: js/messages.php:382
+#: js/messages.php:385
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Birinci dərəcəli açar əlavə et"
 
-#: js/messages.php:383 templates/database/designer/main.twig:378
+#: js/messages.php:386 templates/database/designer/main.twig:378
 #: templates/database/designer/main.twig:703
 #: templates/database/designer/main.twig:767
 #: templates/database/designer/main.twig:906
@@ -1723,66 +1728,66 @@ msgstr "Birinci dərəcəli açar əlavə et"
 msgid "OK"
 msgstr "Tamam"
 
-#: js/messages.php:384
+#: js/messages.php:387
 msgid "Click to dismiss this notification"
 msgstr "Bu bildirişi rədd etmək üçün klikləyin"
 
-#: js/messages.php:387
+#: js/messages.php:390
 #, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Verilənlər Bazası yenidən adlandırılır"
 
-#: js/messages.php:388
+#: js/messages.php:391
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Verilənlər Bazası kopyalanır"
 
-#: js/messages.php:389
+#: js/messages.php:392
 #, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Kodlaşdırma dəyişdirilir"
 
-#: js/messages.php:393 templates/fk_checkbox.twig:4
+#: js/messages.php:396 templates/fk_checkbox.twig:4
 msgid "Enable foreign key checks"
 msgstr ""
 
-#: js/messages.php:396
+#: js/messages.php:399
 msgid "Failed to get real row count."
 msgstr "Gerçək sətir sayını almaq mümkün olmadı."
 
-#: js/messages.php:399
+#: js/messages.php:402
 msgid "Searching"
 msgstr "Axtarır"
 
-#: js/messages.php:400
+#: js/messages.php:403
 msgid "Hide search results"
 msgstr "Axtarış nəticələrini gizlət"
 
-#: js/messages.php:401
+#: js/messages.php:404
 msgid "Show search results"
 msgstr "Axtarış nəticələrini göstər"
 
-#: js/messages.php:402
+#: js/messages.php:405
 msgid "Browsing"
 msgstr "Gözdən keçirilir"
 
-#: js/messages.php:403
+#: js/messages.php:406
 msgid "Deleting"
 msgstr "Silinir"
 
-#: js/messages.php:404
+#: js/messages.php:407
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "%s cədvəli üçün uyğunlaşmalar silinsinmi?"
 
-#: js/messages.php:408
+#: js/messages.php:411
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:409 libraries/classes/Config/Forms/User/ExportForm.php:158
+#: js/messages.php:412 libraries/classes/Config/Forms/User/ExportForm.php:158
 #: libraries/classes/Display/Results.php:4724
 #: libraries/classes/Display/Results.php:4970 libraries/classes/Menu.php:391
 #: libraries/classes/Menu.php:499 libraries/classes/Menu.php:628
@@ -1793,54 +1798,54 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3725 libraries/classes/Util.php:3432
 #: libraries/classes/Util.php:3433 libraries/classes/Util.php:4190
 #: libraries/classes/Util.php:4205 libraries/classes/Util.php:4222
-#: prefs_manage.php:302 templates/server/status/monitor/index.twig:63
+#: prefs_manage.php:302 templates/server/status/monitor/index.twig:81
 #: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "Eksport"
 
-#: js/messages.php:411
+#: js/messages.php:414
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: js/messages.php:414 libraries/classes/Rte/Routines.php:825
+#: js/messages.php:417 libraries/classes/Rte/Routines.php:825
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET redaktoru"
 
-#: js/messages.php:415
+#: js/messages.php:418
 #, php-format
 msgid "Values for column %s"
 msgstr "%s sütunu üçün qiymətlər"
 
-#: js/messages.php:416
+#: js/messages.php:419
 msgid "Values for a new column"
 msgstr "Yeni sütun üçün qiymətlər"
 
-#: js/messages.php:417
+#: js/messages.php:420
 msgid "Enter each value in a separate field."
 msgstr "Hər bir qiyməti ayrı sahəyə daxil edin."
 
-#: js/messages.php:418
+#: js/messages.php:421
 #, php-format
 msgid "Add %d value(s)"
 msgstr "%d qiymət əlavə et"
 
-#: js/messages.php:422
+#: js/messages.php:425
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Qeyd: Əgər faylda çoxlu cədvəl vardırsa, bunlar birinin içərisində "
 "birləşdiriləcək."
 
-#: js/messages.php:426
+#: js/messages.php:429
 msgid "Hide query box"
 msgstr "Sorğu qutusunu gizlət"
 
-#: js/messages.php:427
+#: js/messages.php:430
 msgid "Show query box"
 msgstr "Sorğu qutusunu göstər"
 
-#: js/messages.php:428 libraries/classes/CentralColumns.php:932
+#: js/messages.php:431 libraries/classes/CentralColumns.php:932
 #: libraries/classes/Config/Descriptions.php:828
 #: libraries/classes/Display/Results.php:3254
 #: libraries/classes/Display/Results.php:4699 libraries/classes/Index.php:742
@@ -1856,7 +1861,7 @@ msgstr "Sorğu qutusunu göstər"
 msgid "Edit"
 msgstr "Redaktə et"
 
-#: js/messages.php:429 libraries/classes/CentralColumns.php:939
+#: js/messages.php:432 libraries/classes/CentralColumns.php:939
 #: libraries/classes/Display/Results.php:3331
 #: libraries/classes/Display/Results.php:4688
 #: libraries/classes/Server/UserGroups.php:148
@@ -1870,47 +1875,47 @@ msgstr "Redaktə et"
 msgid "Delete"
 msgstr "Sil"
 
-#: js/messages.php:430 templates/display/results/table_navigation.twig:42
+#: js/messages.php:433 templates/display/results/table_navigation.twig:42
 #: templates/display/results/table_navigation.twig:44
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d keçərli sətir sayı deyil."
 
-#: js/messages.php:431
+#: js/messages.php:434
 #: libraries/classes/Controllers/Table/SearchController.php:375
 #: libraries/classes/Controllers/Table/SearchController.php:929
 #: tbl_change.php:161 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr ""
 
-#: js/messages.php:432
+#: js/messages.php:435
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: js/messages.php:433
+#: js/messages.php:436
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: js/messages.php:434
+#: js/messages.php:437
 #, php-format
 msgid "Variable %d:"
 msgstr "Dəyişən %d:"
 
-#: js/messages.php:437 libraries/classes/Normalization.php:979
+#: js/messages.php:440 libraries/classes/Normalization.php:979
 msgid "Pick"
 msgstr "Seç"
 
-#: js/messages.php:438
+#: js/messages.php:441
 msgid "Column selector"
 msgstr "Sütun seçici"
 
-#: js/messages.php:439
+#: js/messages.php:442
 msgid "Search this list"
 msgstr "Bu siyahıda axtar"
 
-#: js/messages.php:441
+#: js/messages.php:444
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1919,15 +1924,15 @@ msgstr ""
 "Mərkəzi siyahıda sütun yoxdur. %s Verilənlər Bazası üçün Mərkəzi sütunlar "
 "siyahısının, cari cədvəldə olmayan sütunlara sahib olduğundan əmin olun."
 
-#: js/messages.php:444
+#: js/messages.php:447
 msgid "See more"
 msgstr "Daha çoxuna bax"
 
-#: js/messages.php:445
+#: js/messages.php:448
 msgid "Are you sure?"
 msgstr "Əminsiniz?"
 
-#: js/messages.php:447
+#: js/messages.php:450
 #, fuzzy
 #| msgid ""
 #| "This action may change some of the columns definition.<br/>Are you sure "
@@ -1939,114 +1944,114 @@ msgstr ""
 "Bu addım bəzi sütunların tərifini dəyişdirə bilər. <br/>Davam etmək "
 "istəyirsinizmi?"
 
-#: js/messages.php:450
+#: js/messages.php:453
 msgid "Continue"
 msgstr "Davam"
 
-#: js/messages.php:453
+#: js/messages.php:456
 msgid "Add primary key"
 msgstr "Birinci dərəcəli açar əlavə et"
 
-#: js/messages.php:454
+#: js/messages.php:457
 msgid "Primary key added."
 msgstr "Birinci Dərəcəli Açar əlavə edildi."
 
-#: js/messages.php:455 libraries/classes/Normalization.php:249
+#: js/messages.php:458 libraries/classes/Normalization.php:249
 msgid "Taking you to next step…"
 msgstr "Sizi növbəti addıma aparır…"
 
-#: js/messages.php:457
+#: js/messages.php:460
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Normallaşdırmanın ilk addımı '%s' cədvəli üçün tamamlandı."
 
-#: js/messages.php:458 libraries/classes/Normalization.php:511
+#: js/messages.php:461 libraries/classes/Normalization.php:511
 #: libraries/classes/Normalization.php:559
 #: libraries/classes/Normalization.php:650
 #: libraries/classes/Normalization.php:715
 msgid "End of step"
 msgstr "Addım sonu"
 
-#: js/messages.php:459
+#: js/messages.php:462
 msgid "Second step of normalization (2NF)"
 msgstr "Normallaşdırmanın ikinci addımı(2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:460 js/messages.php:786
+#: js/messages.php:463 js/messages.php:789
 #: libraries/classes/Normalization.php:344
 msgid "Done"
 msgstr "Hazırdır"
 
-#: js/messages.php:461
+#: js/messages.php:464
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: js/messages.php:462
+#: js/messages.php:465
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:464
+#: js/messages.php:467
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: js/messages.php:467
+#: js/messages.php:470
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "Heç bir baza seçilmemişdir."
 
-#: js/messages.php:470
+#: js/messages.php:473
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: js/messages.php:471
+#: js/messages.php:474
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: js/messages.php:473
+#: js/messages.php:476
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: js/messages.php:476
+#: js/messages.php:479
 msgid "Step"
 msgstr ""
 
-#: js/messages.php:478
+#: js/messages.php:481
 msgid "The following actions will be performed:"
 msgstr ""
 
-#: js/messages.php:479
+#: js/messages.php:482
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: js/messages.php:480
+#: js/messages.php:483
 msgid "Create the following table"
 msgstr "Göstərilən cədvəli yarat"
 
-#: js/messages.php:483
+#: js/messages.php:486
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: js/messages.php:484
+#: js/messages.php:487
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: js/messages.php:485
+#: js/messages.php:488
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:486
+#: js/messages.php:489
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "Heç bir baza seçilmemişdir."
 
-#: js/messages.php:489 libraries/classes/CentralColumns.php:956
+#: js/messages.php:492 libraries/classes/CentralColumns.php:956
 #: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:216
@@ -2056,280 +2061,280 @@ msgstr "Heç bir baza seçilmemişdir."
 msgid "Save"
 msgstr "Yaddaşa ver"
 
-#: js/messages.php:492
+#: js/messages.php:495
 msgid "Hide search criteria"
 msgstr "Axtarış kriteriyalarını gizlət"
 
-#: js/messages.php:493
+#: js/messages.php:496
 msgid "Show search criteria"
 msgstr "Axtarış kriteriyalarını göstər"
 
-#: js/messages.php:494
+#: js/messages.php:497
 msgid "Range search"
 msgstr "Aralıq Axtarma"
 
-#: js/messages.php:495
+#: js/messages.php:498
 msgid "Column maximum:"
 msgstr "Maksimum Sütun:"
 
-#: js/messages.php:496
+#: js/messages.php:499
 msgid "Column minimum:"
 msgstr "Minimum Sütun:"
 
-#: js/messages.php:497
+#: js/messages.php:500
 msgid "Minimum value:"
 msgstr "Minimum dəyər:"
 
-#: js/messages.php:498
+#: js/messages.php:501
 msgid "Maximum value:"
 msgstr "Maksimum dəyər:"
 
-#: js/messages.php:501
+#: js/messages.php:504
 msgid "Hide find and replace criteria"
 msgstr "Axtar və Dəyişdir kriteriyalarını gizlət"
 
-#: js/messages.php:502
+#: js/messages.php:505
 msgid "Show find and replace criteria"
 msgstr "Axtar və Dəyişdir kriteriyalarını göstər"
 
-#: js/messages.php:506
+#: js/messages.php:509
 msgid "Each point represents a data row."
 msgstr "Hər nöqtə bir verilən sətrini təmsil edir."
 
-#: js/messages.php:508
+#: js/messages.php:511
 msgid "Hovering over a point will show its label."
 msgstr "Nöqtənin üzərində durmaq etiketini göstərəcəkdir."
 
-#: js/messages.php:510
+#: js/messages.php:513
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: js/messages.php:512
+#: js/messages.php:515
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Orjinal vəziyyətə qayıtmaq üçün yaxınlaşdırmağı sıfırla düyməsinə klikləyin."
 
-#: js/messages.php:514
+#: js/messages.php:517
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:516
+#: js/messages.php:519
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:519
+#: js/messages.php:522
 msgid "Select two columns"
 msgstr "İki sütun seçin"
 
-#: js/messages.php:521
+#: js/messages.php:524
 msgid "Select two different columns"
 msgstr "İki fərqli sütun seçin"
 
-#: js/messages.php:523
+#: js/messages.php:526
 msgid "Data point content"
 msgstr "Verilən nöqtə məzmunu"
 
-#: js/messages.php:526 js/messages.php:694 js/messages.php:711
+#: js/messages.php:529 js/messages.php:697 js/messages.php:714
 #: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:3033
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Diqqətə Alma"
 
-#: js/messages.php:527 libraries/classes/Display/Results.php:3258
+#: js/messages.php:530 libraries/classes/Display/Results.php:3258
 #: libraries/classes/Display/Results.php:4707 libraries/classes/Util.php:310
 msgid "Copy"
 msgstr ""
 
-#: js/messages.php:528 templates/gis_data_editor_form.twig:73
+#: js/messages.php:531 templates/gis_data_editor_form.twig:73
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
 msgid "X"
 msgstr "X"
 
-#: js/messages.php:529 templates/gis_data_editor_form.twig:75
+#: js/messages.php:532 templates/gis_data_editor_form.twig:75
 #: templates/gis_data_editor_form.twig:95
 #: templates/gis_data_editor_form.twig:136
 #: templates/gis_data_editor_form.twig:188
 msgid "Y"
 msgstr "Y"
 
-#: js/messages.php:530
+#: js/messages.php:533
 msgid "Point"
 msgstr ""
 
-#: js/messages.php:531
+#: js/messages.php:534
 #, php-format
 msgid "Point %d"
 msgstr "Nöqtə %d"
 
-#: js/messages.php:532
+#: js/messages.php:535
 msgid "Linestring"
 msgstr "Xətt"
 
-#: js/messages.php:533
+#: js/messages.php:536
 msgid "Polygon"
 msgstr "Poliqon"
 
-#: js/messages.php:534 templates/display/results/options_block.twig:83
+#: js/messages.php:537 templates/display/results/options_block.twig:83
 msgid "Geometry"
 msgstr ""
 
-#: js/messages.php:535
+#: js/messages.php:538
 #, fuzzy
 #| msgid "Inner ring %d:"
 msgid "Inner ring"
 msgstr "Daxili halqa %d:"
 
-#: js/messages.php:536
+#: js/messages.php:539
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "Xarici halqa:"
 
-#: js/messages.php:537 templates/gis_data_editor_form.twig:98
+#: js/messages.php:540 templates/gis_data_editor_form.twig:98
 #: templates/gis_data_editor_form.twig:139
 #: templates/gis_data_editor_form.twig:191
 msgid "Add a point"
 msgstr "Nöqtə əlavə et"
 
-#: js/messages.php:538 templates/gis_data_editor_form.twig:143
+#: js/messages.php:541 templates/gis_data_editor_form.twig:143
 #: templates/gis_data_editor_form.twig:194
 msgid "Add an inner ring"
 msgstr "Daxili halqa əlavə et"
 
-#: js/messages.php:540
+#: js/messages.php:543
 msgid "Do you want to copy encryption key?"
 msgstr "Şifrələmə açarını kopyalamaq istəyirsinizmi?"
 
-#: js/messages.php:541
+#: js/messages.php:544
 msgid "Encryption key"
 msgstr "Şifrələmə açarı"
 
-#: js/messages.php:545
+#: js/messages.php:548
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: js/messages.php:551
+#: js/messages.php:554
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: js/messages.php:557
+#: js/messages.php:560
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:562
+#: js/messages.php:565
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:563
+#: js/messages.php:566
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:565
+#: js/messages.php:568
 msgid "Please select the primary key or a unique key!"
 msgstr "Zəhmət olmasa birinci dərəcəli və ya unikal açar seçin!"
 
-#: js/messages.php:566 templates/database/designer/main.twig:100
+#: js/messages.php:569 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "Göstərmək üçün sütun seçin"
 
-#: js/messages.php:568
+#: js/messages.php:571
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:571
+#: js/messages.php:574
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: js/messages.php:572 templates/database/designer/main.twig:42
+#: js/messages.php:575 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
 msgstr "Verilənlər bazasında cədvəl yoxdur."
 
-#: js/messages.php:573
+#: js/messages.php:576
 msgid "Page name"
 msgstr "Səhifə adı"
 
-#: js/messages.php:574 templates/database/designer/main.twig:65
+#: js/messages.php:577 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "Səhifəni yaddaşa ver"
 
-#: js/messages.php:575 templates/database/designer/main.twig:72
+#: js/messages.php:578 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 #, fuzzy
 #| msgid "Save page"
 msgid "Save page as"
 msgstr "Səhifəni yaddaşa ver"
 
-#: js/messages.php:576 templates/database/designer/main.twig:58
+#: js/messages.php:579 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "Səhifəni aç"
 
-#: js/messages.php:577
+#: js/messages.php:580
 msgid "Delete page"
 msgstr "Səhifəni sil"
 
-#: js/messages.php:578 templates/database/designer/main.twig:12
+#: js/messages.php:581 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "Başlıqsız"
 
-#: js/messages.php:579
+#: js/messages.php:582
 msgid "Please select a page to continue"
 msgstr "Zəhmət olmasa davam etmək üçün bir səhifə seçin"
 
-#: js/messages.php:580
+#: js/messages.php:583
 msgid "Please enter a valid page name"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:582
+#: js/messages.php:585
 msgid "Do you want to save the changes to the current page?"
 msgstr "Bu səhifədə dəyişiklikləri yaddaşa vermək istəyirsiniz?"
 
-#: js/messages.php:583
+#: js/messages.php:586
 msgid "Successfully deleted the page"
 msgstr "Səhifə uğurla silindi"
 
-#: js/messages.php:584
+#: js/messages.php:587
 msgid "Export relational schema"
 msgstr "Əlaqəli sxemləri eksport et"
 
-#: js/messages.php:585
+#: js/messages.php:588
 msgid "Modifications have been saved"
 msgstr "Modifikasiyalar yaddaşa verildi"
 
-#: js/messages.php:588
+#: js/messages.php:591
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "\"%s\" sütunu üçün seçim əlavə edin."
 
-#: js/messages.php:589
+#: js/messages.php:592
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d obyekt yaradıldı."
 
-#: js/messages.php:590 libraries/classes/SqlQueryForm.php:430
+#: js/messages.php:593 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
 msgstr "Submit"
 
-#: js/messages.php:593
+#: js/messages.php:596
 msgid "Press escape to cancel editing."
 msgstr "Redaktəni ləğv etmək üçün Esc düyməsinə basın."
 
-#: js/messages.php:595
+#: js/messages.php:598
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2337,158 +2342,158 @@ msgstr ""
 "Bəzi verilənləri redaktə etdiniz və yaddaşa vermədiniz. Verilənləri yadda "
 "saxlamadan çıxmaq istəyirsinizmi?"
 
-#: js/messages.php:598
+#: js/messages.php:601
 msgid "Drag to reorder."
 msgstr "Yenidən düzənləmək üçün sürükləyin."
 
-#: js/messages.php:599
+#: js/messages.php:602
 msgid "Click to sort results by this column."
 msgstr "Nəticələri bu sütuna görə sıralamaq üçün klikləyin."
 
-#: js/messages.php:601
+#: js/messages.php:604
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:605
+#: js/messages.php:608
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:606
+#: js/messages.php:609
 msgid "Double-click to copy column name."
 msgstr "Sütun adını kopyalamaq üçün iki dəfə klikləyin."
 
-#: js/messages.php:608
+#: js/messages.php:611
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
+#: js/messages.php:613 libraries/classes/BrowseForeigners.php:353
 #: templates/table/browse_foreigners/show_all.twig:4
 #: templates/display/results/table_navigation.twig:19
 #: templates/server/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "Hamısını göstər"
 
-#: js/messages.php:612
+#: js/messages.php:615
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:616
+#: js/messages.php:619
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Zəhmət olamasa keçərli onaltılıq sətir daxil edin. Keçərli simvollar 0-9, A-"
 "F."
 
-#: js/messages.php:618
+#: js/messages.php:621
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:621
+#: js/messages.php:624
 #, fuzzy
 #| msgid "Original string"
 msgid "Original length"
 msgstr "Orjinal sətir"
 
-#: js/messages.php:624
+#: js/messages.php:627
 msgid "cancel"
 msgstr "ləğv et"
 
-#: js/messages.php:625
+#: js/messages.php:628
 #: libraries/classes/Controllers/Server/Status/StatusController.php:198
 msgid "Aborted"
 msgstr "Dayandırılmış Əlaqələr"
 
-#: js/messages.php:627
+#: js/messages.php:630
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:628
+#: js/messages.php:631
 msgid "Import status"
 msgstr "İmport statusu"
 
-#: js/messages.php:629 libraries/classes/Navigation/Navigation.php:134
+#: js/messages.php:632 libraries/classes/Navigation/Navigation.php:134
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:630
+#: js/messages.php:633
 msgid "Select database first"
 msgstr "Əvvəlcə Verilənlər Bazasını seçin"
 
-#: js/messages.php:633 libraries/classes/Display/Results.php:4862
+#: js/messages.php:636 libraries/classes/Display/Results.php:4862
 #: libraries/classes/Util.php:4085
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/display_structure.twig:380
 msgid "Print"
 msgstr "Çap et"
 
-#: js/messages.php:640
+#: js/messages.php:643
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:645
+#: js/messages.php:648
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:651
+#: js/messages.php:654
 msgid "Go to link:"
 msgstr "Bağlantıya get:"
 
-#: js/messages.php:652
+#: js/messages.php:655
 msgid "Copy column name."
 msgstr "Sütun adını kopyala."
 
-#: js/messages.php:654
+#: js/messages.php:657
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Sütun adını buferə kopyalamaq üçün sağ klikləyin."
 
-#: js/messages.php:657
+#: js/messages.php:660
 msgid "Generate password"
 msgstr "Parol yarat"
 
-#: js/messages.php:658 libraries/classes/ReplicationGui.php:919
+#: js/messages.php:661 libraries/classes/ReplicationGui.php:919
 msgid "Generate"
 msgstr "Yarat"
 
-#: js/messages.php:662 templates/table/structure/display_structure.twig:124
+#: js/messages.php:665 templates/table/structure/display_structure.twig:124
 msgid "More"
 msgstr "Daha çox"
 
-#: js/messages.php:665
+#: js/messages.php:668
 #, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Paneli Göstər"
 
-#: js/messages.php:666
+#: js/messages.php:669
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Paneli Gizlət"
 
-#: js/messages.php:667
+#: js/messages.php:670
 msgid "Show hidden navigation tree items."
 msgstr "Gizli naviqasiya ağac bəndlərini göstər."
 
-#: js/messages.php:668 libraries/classes/Config/Descriptions.php:486
+#: js/messages.php:671 libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Navigation/NavigationTree.php:1448
 msgid "Link with main panel"
 msgstr "Əsas panel ilə əlaqələndir"
 
-#: js/messages.php:669 libraries/classes/Navigation/NavigationTree.php:1451
+#: js/messages.php:672 libraries/classes/Navigation/NavigationTree.php:1451
 msgid "Unlink from main panel"
 msgstr "Əsas panel ilə əlaqəni kəs"
 
-#: js/messages.php:673
+#: js/messages.php:676
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "İstənilən səhifə tarixdə tapılmadı, ola bilsin vaxtı keçib."
 
-#: js/messages.php:677 setup/lib/Index.php:177
+#: js/messages.php:680 setup/lib/Index.php:177
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2498,57 +2503,57 @@ msgstr ""
 "versiya %s, %s tarixində yayımlanıb."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:681
+#: js/messages.php:684
 msgid ", latest stable version:"
 msgstr ", son stabil versiya:"
 
-#: js/messages.php:682
+#: js/messages.php:685
 msgid "up to date"
 msgstr "aktual"
 
-#: js/messages.php:684 libraries/classes/Display/Results.php:4796
+#: js/messages.php:687 libraries/classes/Display/Results.php:4796
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Görünüş yarat"
 
-#: js/messages.php:687
+#: js/messages.php:690
 #, fuzzy
 #| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Xəta hesabatları göndər"
 
-#: js/messages.php:688
+#: js/messages.php:691
 #, fuzzy
 #| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Xəta Hesabatı Göndər"
 
-#: js/messages.php:690
+#: js/messages.php:693
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Önəmli JavaScript xətası yarandı. Xəta hesabatı yollamaq istəyirsiniz?"
 
-#: js/messages.php:692
+#: js/messages.php:695
 #, fuzzy
 #| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "Hesabat tənzimləmələrini dəyişdir"
 
-#: js/messages.php:693
+#: js/messages.php:696
 #, fuzzy
 #| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "Hesabat Təfsilatlarını Göstər"
 
-#: js/messages.php:696
+#: js/messages.php:699
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Eksport PHP səviyyəsindəki aşağı icra(execution) vaxtına görə tamamlanmadı!"
 
-#: js/messages.php:700
+#: js/messages.php:703
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2558,76 +2563,76 @@ msgstr ""
 "edilmədə, bəzi sahələr, PHP-nin max_input_vars konfiqurasiyasından dolayı "
 "göz ardı edilə bilər."
 
-#: js/messages.php:706 js/messages.php:719
+#: js/messages.php:709 js/messages.php:722
 msgid "Some errors have been detected on the server!"
 msgstr "Serverdə bəzi xətalar aşkar edildi!"
 
-#: js/messages.php:708
+#: js/messages.php:711
 msgid "Please look at the bottom of this window."
 msgstr "Zəhmət olmasa bu pəncərənin altına baxın."
 
-#: js/messages.php:714 libraries/classes/ErrorHandler.php:386
+#: js/messages.php:717 libraries/classes/ErrorHandler.php:386
 msgid "Ignore All"
 msgstr "Heç birin diqqətə alma"
 
-#: js/messages.php:722
+#: js/messages.php:725
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Hər tənzimləmələriniz kimi bunlar da hal-hazırda göndərilir, zəhmət olmasa "
 "səbirli olun."
 
-#: js/messages.php:730
+#: js/messages.php:733
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Səhifə uğurla silindi"
 
-#: js/messages.php:731
+#: js/messages.php:734
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "Verilənlər Bazası kopyalanır"
 
-#: js/messages.php:734
+#: js/messages.php:737
 msgid "Execute this query again?"
 msgstr "Bu sorğu təkrar icra olunsunmu?"
 
-#: js/messages.php:736
+#: js/messages.php:739
 msgid "Do you really want to delete this bookmark?"
 msgstr "Bu əlfəcini silmək istədiyinizə əminsinizmi?"
 
-#: js/messages.php:738
+#: js/messages.php:741
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:740
+#: js/messages.php:743
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
-#: js/messages.php:741
+#: js/messages.php:744
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:742
+#: js/messages.php:745
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Cədvəl haqqında izahat"
 
-#: js/messages.php:743
+#: js/messages.php:746
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "Axtarış nəticələrini gizlət"
 
-#: js/messages.php:744
+#: js/messages.php:747
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:745
+#: js/messages.php:748
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2636,414 +2641,414 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:747
+#: js/messages.php:750
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Verilənlər Bazasını buraya kopyala"
 
-#: js/messages.php:748
+#: js/messages.php:751
 #, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "Cədvəl prefiksi əlavə et:"
 
-#: js/messages.php:749
+#: js/messages.php:752
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Cədvəl prefiksini dəyiş"
 
-#: js/messages.php:750 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:753 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Cədvəli prefiks ilə birgə kopyala"
 
-#: js/messages.php:753
+#: js/messages.php:756
 msgid "Extremely weak"
 msgstr ""
 
-#: js/messages.php:754
+#: js/messages.php:757
 msgid "Very weak"
 msgstr ""
 
-#: js/messages.php:755
+#: js/messages.php:758
 msgid "Weak"
 msgstr ""
 
-#: js/messages.php:756
+#: js/messages.php:759
 msgid "Good"
 msgstr ""
 
-#: js/messages.php:757
+#: js/messages.php:760
 msgid "Strong"
 msgstr ""
 
-#: js/messages.php:760
+#: js/messages.php:763
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
-#: js/messages.php:761
+#: js/messages.php:764
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr ""
 
-#: js/messages.php:790
+#: js/messages.php:793
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Əvvəlki"
 
-#: js/messages.php:795
+#: js/messages.php:798
 msgctxt "Next month"
 msgid "Next"
 msgstr "Sonrakı"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:798
+#: js/messages.php:801
 msgid "Today"
 msgstr "Bugün"
 
-#: js/messages.php:802
+#: js/messages.php:805
 msgid "January"
 msgstr "Yanvar"
 
-#: js/messages.php:803
+#: js/messages.php:806
 msgid "February"
 msgstr "Fevral"
 
-#: js/messages.php:804
+#: js/messages.php:807
 msgid "March"
 msgstr "Mart"
 
-#: js/messages.php:805
+#: js/messages.php:808
 msgid "April"
 msgstr "Aprel"
 
-#: js/messages.php:806
+#: js/messages.php:809
 msgid "May"
 msgstr "May"
 
-#: js/messages.php:807
+#: js/messages.php:810
 msgid "June"
 msgstr "İyun"
 
-#: js/messages.php:808
+#: js/messages.php:811
 msgid "July"
 msgstr "İyul"
 
-#: js/messages.php:809
+#: js/messages.php:812
 msgid "August"
 msgstr "Avqust"
 
-#: js/messages.php:810
+#: js/messages.php:813
 msgid "September"
 msgstr "Sentyabr"
 
-#: js/messages.php:811
+#: js/messages.php:814
 msgid "October"
 msgstr "Oktyabr"
 
-#: js/messages.php:812
+#: js/messages.php:815
 msgid "November"
 msgstr "Noyabr"
 
-#: js/messages.php:813
+#: js/messages.php:816
 msgid "December"
 msgstr "Dekabr"
 
 #. l10n: Short month name
-#: js/messages.php:820 libraries/classes/Util.php:1542
+#: js/messages.php:823 libraries/classes/Util.php:1542
 msgid "Jan"
 msgstr "Yan"
 
 #. l10n: Short month name
-#: js/messages.php:822 libraries/classes/Util.php:1544
+#: js/messages.php:825 libraries/classes/Util.php:1544
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1546
+#: js/messages.php:827 libraries/classes/Util.php:1546
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1548
+#: js/messages.php:829 libraries/classes/Util.php:1548
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1550
+#: js/messages.php:831 libraries/classes/Util.php:1550
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1552
+#: js/messages.php:833 libraries/classes/Util.php:1552
 msgid "Jun"
 msgstr "İyun"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1554
+#: js/messages.php:835 libraries/classes/Util.php:1554
 msgid "Jul"
 msgstr "İyul"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1556
+#: js/messages.php:837 libraries/classes/Util.php:1556
 msgid "Aug"
 msgstr "Avq"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1558
+#: js/messages.php:839 libraries/classes/Util.php:1558
 msgid "Sep"
 msgstr "Sent"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1560
+#: js/messages.php:841 libraries/classes/Util.php:1560
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1562
+#: js/messages.php:843 libraries/classes/Util.php:1562
 msgid "Nov"
 msgstr "Noy"
 
 #. l10n: Short month name
-#: js/messages.php:842 libraries/classes/Util.php:1564
+#: js/messages.php:845 libraries/classes/Util.php:1564
 msgid "Dec"
 msgstr "Dek"
 
-#: js/messages.php:848
+#: js/messages.php:851
 msgid "Sunday"
 msgstr "Bazar"
 
-#: js/messages.php:849
+#: js/messages.php:852
 msgid "Monday"
 msgstr "Bazar Ertəsi"
 
-#: js/messages.php:850
+#: js/messages.php:853
 msgid "Tuesday"
 msgstr "Çərşənbə axşamı"
 
-#: js/messages.php:851
+#: js/messages.php:854
 msgid "Wednesday"
 msgstr "Çərşənbə"
 
-#: js/messages.php:852
+#: js/messages.php:855
 msgid "Thursday"
 msgstr "Cümə axşamı"
 
-#: js/messages.php:853
+#: js/messages.php:856
 msgid "Friday"
 msgstr "Cümə"
 
-#: js/messages.php:854
+#: js/messages.php:857
 msgid "Saturday"
 msgstr "Şənbə"
 
 #. l10n: Short week day name
-#: js/messages.php:861
+#: js/messages.php:864
 msgid "Sun"
 msgstr "Baz"
 
 #. l10n: Short week day name
-#: js/messages.php:863 libraries/classes/Util.php:1570
+#: js/messages.php:866 libraries/classes/Util.php:1570
 msgid "Mon"
 msgstr "Baz Ert"
 
 #. l10n: Short week day name
-#: js/messages.php:865 libraries/classes/Util.php:1572
+#: js/messages.php:868 libraries/classes/Util.php:1572
 msgid "Tue"
 msgstr "Çerş Axş"
 
 #. l10n: Short week day name
-#: js/messages.php:867 libraries/classes/Util.php:1574
+#: js/messages.php:870 libraries/classes/Util.php:1574
 msgid "Wed"
 msgstr "Çerş"
 
 #. l10n: Short week day name
-#: js/messages.php:869 libraries/classes/Util.php:1576
+#: js/messages.php:872 libraries/classes/Util.php:1576
 msgid "Thu"
 msgstr "Cüme Axş"
 
 #. l10n: Short week day name
-#: js/messages.php:871 libraries/classes/Util.php:1578
+#: js/messages.php:874 libraries/classes/Util.php:1578
 msgid "Fri"
 msgstr "Cüme"
 
 #. l10n: Short week day name
-#: js/messages.php:873 libraries/classes/Util.php:1580
+#: js/messages.php:876 libraries/classes/Util.php:1580
 msgid "Sat"
 msgstr "Şen"
 
 #. l10n: Minimal week day name
-#: js/messages.php:880
+#: js/messages.php:883
 msgid "Su"
 msgstr "B"
 
 #. l10n: Minimal week day name
-#: js/messages.php:882
+#: js/messages.php:885
 msgid "Mo"
 msgstr "Baz Ert"
 
 #. l10n: Minimal week day name
-#: js/messages.php:884
+#: js/messages.php:887
 msgid "Tu"
 msgstr "Çərş Axş"
 
 #. l10n: Minimal week day name
-#: js/messages.php:886
+#: js/messages.php:889
 msgid "We"
 msgstr "Ç"
 
 #. l10n: Minimal week day name
-#: js/messages.php:888
+#: js/messages.php:891
 msgid "Th"
 msgstr "CA"
 
 #. l10n: Minimal week day name
-#: js/messages.php:890
+#: js/messages.php:893
 msgid "Fr"
 msgstr "C"
 
 #. l10n: Minimal week day name
-#: js/messages.php:892
+#: js/messages.php:895
 msgid "Sa"
 msgstr "Ş"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:896
+#: js/messages.php:899
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:903
+#: js/messages.php:906
 msgid "calendar-month-year"
 msgstr "təqvim-ay-il"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:906
+#: js/messages.php:909
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Heç biri"
 
-#: js/messages.php:918
+#: js/messages.php:921
 msgid "Hour"
 msgstr "Saat"
 
-#: js/messages.php:919
+#: js/messages.php:922
 msgid "Minute"
 msgstr "Dəqiqə"
 
-#: js/messages.php:920
+#: js/messages.php:923
 msgid "Second"
 msgstr "Saniyə"
 
-#: js/messages.php:931
+#: js/messages.php:934
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:932
+#: js/messages.php:935
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Mətn sahəsi istifadə et"
 
-#: js/messages.php:933
+#: js/messages.php:936
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:934
+#: js/messages.php:937
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
 
-#: js/messages.php:935
+#: js/messages.php:938
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:938
+#: js/messages.php:941
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:940
+#: js/messages.php:943
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
 msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
 
-#: js/messages.php:943
+#: js/messages.php:946
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
 msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
 
-#: js/messages.php:945
+#: js/messages.php:948
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "Zəhmət olmasa keçərli uzunluq daxil edin!"
 
-#: js/messages.php:948
+#: js/messages.php:951
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:952
+#: js/messages.php:955
 #, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter no more than {0} characters"
 msgstr "Lütfən düzgün captcha daxil edin!"
 
-#: js/messages.php:957
+#: js/messages.php:960
 #, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter at least {0} characters"
 msgstr "Lütfən düzgün captcha daxil edin!"
 
-#: js/messages.php:962
+#: js/messages.php:965
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:967
+#: js/messages.php:970
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:972
+#: js/messages.php:975
 #, fuzzy
 #| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Zəhmət olmasa keçərli uzunluq daxil edin!"
 
-#: js/messages.php:977
+#: js/messages.php:980
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:983
+#: js/messages.php:986
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
 msgstr "Zəhmət olmasa keçərli bir səhifə adı daxil edin"
 
-#: js/messages.php:988
+#: js/messages.php:991
 #, fuzzy
 #| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
 msgstr "Zəhmət olmasa keçərli bir nömrə daxil edin!"
 
-#: js/messages.php:993 libraries/classes/Core.php:292
+#: js/messages.php:996 libraries/classes/Core.php:292
 #: libraries/classes/Import.php:119 libraries/classes/InsertEdit.php:1541
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:598
 #: view_operations.php:82
@@ -3113,7 +3118,7 @@ msgid "per minute"
 msgstr "dəqiqədə"
 
 #: libraries/classes/Advisor.php:634
-#: libraries/classes/Server/Status/Queries.php:107
+#: templates/server/status/queries/index.twig:34
 #: templates/server/status/status/index.twig:17
 #: templates/server/status/status/index.twig:37
 msgid "per hour"
@@ -3135,10 +3140,10 @@ msgstr "Açar söz"
 
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
-#: libraries/classes/Server/Status/Variables.php:232
 #: templates/server/engines/index.twig:10
 #: templates/server/plugins/index.twig:24
 #: templates/server/collations/index.twig:11
+#: templates/server/status/variables/index.twig:72
 msgid "Description"
 msgstr "Haqqında"
 
@@ -5872,10 +5877,10 @@ msgid "Explain SQL"
 msgstr "SQL-i İzah Et"
 
 #: libraries/classes/Config/Descriptions.php:830
-#: libraries/classes/Export.php:520
-#: libraries/classes/Server/Status/Processes.php:256
-#: libraries/classes/Server/Status/Variables.php:52
-#: libraries/classes/Util.php:1183 templates/console/display.twig:99
+#: libraries/classes/Export.php:520 libraries/classes/Util.php:1183
+#: templates/server/status/processes/index.twig:9
+#: templates/console/display.twig:99
+#: templates/server/status/variables/index.twig:11
 msgid "Refresh"
 msgstr "Yenilə"
 
@@ -5947,8 +5952,9 @@ msgstr "Mətin Sahəsi sətirləri"
 msgid "Title of browser window when a database is selected."
 msgstr "Verilənlər Bazası seçildikdə brovser pəncərə başlığı."
 
-#: libraries/classes/Config/Descriptions.php:854 libraries/classes/Menu.php:237
-#: libraries/classes/MultSubmits.php:411
+#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:120
+#: libraries/classes/Menu.php:237 libraries/classes/MultSubmits.php:411
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:157
 #: libraries/classes/Plugins/Export/ExportOdt.php:204
 #: libraries/classes/Plugins/Export/ExportTexytext.php:141
@@ -5957,7 +5963,6 @@ msgstr "Verilənlər Bazası seçildikdə brovser pəncərə başlığı."
 #: libraries/classes/Server/Privileges.php:3499
 #: libraries/classes/Server/Privileges.php:3501
 #: libraries/classes/Server/Privileges.php:4734
-#: libraries/classes/Server/Status/Processes.php:105
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:167
 #: templates/console/bookmark_content.twig:7
@@ -5980,7 +5985,6 @@ msgid "Title of browser window when a server is selected."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:858 libraries/classes/Menu.php:217
-#: libraries/classes/Server/Status/Data.php:441
 #: templates/server/status/base.twig:5
 msgid "Server"
 msgstr "Server"
@@ -6589,6 +6593,49 @@ msgstr "Cəmi"
 msgid "Overhead"
 msgstr "Aşma dəyəri"
 
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:71
+#, php-format
+msgid "Thread %s was successfully killed."
+msgstr "Thread %s uğurla söndürüldü (killed)."
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:77
+#, php-format
+msgid ""
+"phpMyAdmin was unable to kill thread %s. It probably has already been closed."
+msgstr ""
+"phpMyAdmin %s emeliyyat thread-ini söndüre (kill) bilmedi. Böyük ehtimal "
+"artıq söndürülmüşdür."
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:108
+msgid "ID"
+msgstr "ID"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:112
+#: libraries/classes/Server/Privileges.php:4640
+#: libraries/classes/Server/UserGroups.php:51
+msgid "User"
+msgstr "İstifadəçi"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:116
+#: libraries/classes/ReplicationGui.php:656
+#: libraries/classes/ReplicationGui.php:742
+#: libraries/classes/ReplicationGui.php:876
+msgid "Host"
+msgstr "Host"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:124
+msgid "Command"
+msgstr "Komanda Tipi"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:136
+msgid "Progress"
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:140
+#: libraries/classes/Server/Status/Data.php:117
+msgid "SQL query"
+msgstr "SQL sorğusu"
+
 #: libraries/classes/Controllers/Server/Status/StatusController.php:87
 msgid "Received"
 msgstr "Alındı"
@@ -6606,6 +6653,593 @@ msgstr "Elaqeler"
 #: libraries/classes/Controllers/Server/Status/StatusController.php:182
 msgid "Failed attempts"
 msgstr "Uğursuz Cəhdlər"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:204
+msgid ""
+"The number of connections that were aborted because the client died without "
+"closing the connection properly."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:208
+msgid "The number of failed attempts to connect to the MySQL server."
+msgstr "MySQL serverinə bağlanmaq üçün uğursuz cəhdlərin sayıdır."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:211
+msgid ""
+"The number of transactions that used the temporary binary log cache but that "
+"exceeded the value of binlog_cache_size and used a temporary file to store "
+"statements from the transaction."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:216
+msgid "The number of transactions that used the temporary binary log cache."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:219
+msgid ""
+"The number of connection attempts (successful or not) to the MySQL server."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:223
+msgid ""
+"The number of temporary tables on disk created automatically by the server "
+"while executing statements. If Created_tmp_disk_tables is big, you may want "
+"to increase the tmp_table_size  value to cause temporary tables to be memory-"
+"based instead of disk-based."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:230
+msgid "How many temporary files mysqld has created."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:233
+msgid ""
+"The number of in-memory temporary tables created automatically by the server "
+"while executing statements."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:237
+msgid ""
+"The number of rows written with INSERT DELAYED for which some error occurred "
+"(probably duplicate key)."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
+msgid ""
+"The number of INSERT DELAYED handler threads in use. Every different table "
+"on which one uses INSERT DELAYED gets its own thread."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:246
+msgid "The number of INSERT DELAYED rows written."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:249
+msgid "The number of executed FLUSH statements."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:252
+msgid "The number of internal COMMIT statements."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:255
+msgid "The number of times a row was deleted from a table."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+msgid ""
+"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
+"table with a given name. This is called discovery. Handler_discover "
+"indicates the number of time tables have been discovered."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:264
+msgid ""
+"The number of times the first entry was read from an index. If this is high, "
+"it suggests that the server is doing a lot of full index scans; for example, "
+"SELECT col1 FROM foo, assuming that col1 is indexed."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
+msgid ""
+"The number of requests to read a row based on a key. If this is high, it is "
+"a good indication that your queries and tables are properly indexed."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+msgid ""
+"The number of requests to read the next row in key order. This is "
+"incremented if you are querying an index column with a range constraint or "
+"if you are doing an index scan."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:280
+msgid ""
+"The number of requests to read the previous row in key order. This read "
+"method is mainly used to optimize ORDER BY … DESC."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:284
+msgid ""
+"The number of requests to read a row based on a fixed position. This is high "
+"if you are doing a lot of queries that require sorting of the result. You "
+"probably have a lot of queries that require MySQL to scan whole tables or "
+"you have joins that don't use keys properly."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:291
+msgid ""
+"The number of requests to read the next row in the data file. This is high "
+"if you are doing a lot of table scans. Generally this suggests that your "
+"tables are not properly indexed or that your queries are not written to take "
+"advantage of the indexes you have."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
+msgid "The number of internal ROLLBACK statements."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
+msgid "The number of requests to update a row in a table."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:304
+msgid "The number of requests to insert a row in a table."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:307
+msgid "The number of pages containing data (dirty or clean)."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:310
+msgid "The number of pages currently dirty."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:313
+msgid "The number of buffer pool pages that have been requested to be flushed."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+msgid "The number of free pages."
+msgstr "Boş səhifə sayıdır."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:320
+msgid ""
+"The number of latched pages in InnoDB buffer pool. These are pages currently "
+"being read or written or that can't be flushed or removed for some other "
+"reason."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:325
+msgid ""
+"The number of pages busy because they have been allocated for administrative "
+"overhead such as row locks or the adaptive hash index. This value can also "
+"be calculated as Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:332
+msgid "Total size of buffer pool, in pages."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:335
+msgid ""
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:340
+msgid ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
+msgid "The number of logical read requests InnoDB has done."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
+msgid ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:351
+msgid ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+msgid "The number writes done to the InnoDB buffer pool."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+msgid "The number of fsync() operations so far."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
+msgid "The current number of pending fsync() operations."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:368
+msgid "The current number of pending reads."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
+msgid "The current number of pending writes."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
+msgid "The amount of data read so far, in bytes."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+msgid "The total number of data reads."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
+msgid "The total number of data writes."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:383
+msgid "The amount of data written so far, in bytes."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
+msgid "The number of pages that have been written for doublewrite operations."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
+msgid "The number of doublewrite operations that have been performed."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+msgid ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
+msgid "The number of log write requests."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:400
+msgid "The number of physical writes to the log file."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:403
+msgid "The number of fsync() writes done to the log file."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:406
+msgid "The number of pending log file fsyncs."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:409
+msgid "Pending log file writes."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:412
+msgid "The number of bytes written to the log file."
+msgstr "Log faylına yazılan bayt sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:415
+msgid "The number of pages created."
+msgstr "Yaradılmış səhifələrin sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:418
+msgid ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+msgstr ""
+"Kompiliyasiya edilmiş InnoDB səhifə ölçüsü(susmaya görə 16KB). Səhifələrdə "
+"çoxlu sayda dəyərlər sayılıb; səhifə ölçüsü bunları asanlıqla bayta "
+"çevirməyə icazə verir."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
+msgid "The number of pages read."
+msgstr "Oxunmuş səhifələrin sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
+msgid "The number of pages written."
+msgstr "Yazılmış səhifələrin sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:429
+msgid "The number of row locks currently being waited for."
+msgstr "Hal-hazırda gözlənən kilidli sətirlərin  sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
+msgid "The average time to acquire a row lock, in milliseconds."
+msgstr "Kilidli sətirləri əldə etmək üçün orta zaman(millisaniyə)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+msgid "The total time spent in acquiring row locks, in milliseconds."
+msgstr "Kilidli sətirləri əldə etmək üçün ümumi zaman(millisaniyə)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:438
+msgid "The maximum time to acquire a row lock, in milliseconds."
+msgstr "Kilidli sətirləri əldə etmək üçün maksimum zaman(millisaniyə)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
+msgid "The number of times a row lock had to be waited for."
+msgstr "Kilidli sətirlərin ümumi gözləmə miqdarı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:444
+msgid "The number of rows deleted from InnoDB tables."
+msgstr "InnoDB cədvəlindən silinmiş sətirlərin sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:447
+msgid "The number of rows inserted in InnoDB tables."
+msgstr "InnoDB cədvəlinə əlavə olunmuş sətirlərin sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
+msgid "The number of rows read from InnoDB tables."
+msgstr "InnoDB cədvəlindən oxunmuş sətirlərin sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:453
+msgid "The number of rows updated in InnoDB tables."
+msgstr "InnoDB cədvəlində yenilənmiş sətirlərin sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:456
+msgid ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
+msgid ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+msgstr ""
+"Açar keşində istifadə olunmayan blok sayı. Bu dəyər ilə açar keşindəki "
+"istifadənin miqdarını təyin edə bilərsiniz."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
+msgid ""
+"The number of used blocks in the key cache. This value is a high-water mark "
+"that indicates the maximum number of blocks that have ever been in use at "
+"one time."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:470
+msgid "Percentage of used key cache (calculated value)"
+msgstr "İstifadə olunan açar keşinin faizi(hesablanmış dəyər)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:473
+msgid "The number of requests to read a key block from the cache."
+msgstr "Keşdən açar blokunun oxunması üçün sorğu sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
+msgid ""
+"The number of physical reads of a key block from disk. If Key_reads is big, "
+"then your key_buffer_size value is probably too small. The cache miss rate "
+"can be calculated as Key_reads/Key_read_requests."
+msgstr ""
+"Diskdən açar blokunun fiziki oxunma sayı. Əgər Key_reads böyükdürsə, onda "
+"sizin key_buffer_size dəyəriniz çox kişikdir. Əksik keş nisbəti Key_reads/"
+"Key_read_requests kimi hesablanmalıdır."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:482
+msgid ""
+"Key cache miss calculated as rate of physical reads compared to read "
+"requests (calculated value)"
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
+msgid "The number of requests to write a key block to the cache."
+msgstr "Keşə açar bloku yazmaq üçün sorğuların sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:489
+msgid "The number of physical writes of a key block to disk."
+msgstr "Diskə açar bloklarının fiziki yazma sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:492
+msgid ""
+"Percentage of physical writes compared to write requests (calculated value)"
+msgstr ""
+"Fiziki yazmaların faizi yazma sorğuları ilə  müqayisə edilir(hesablanmış "
+"dəyər)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
+msgid ""
+"The total cost of the last compiled query as computed by the query "
+"optimizer. Useful for comparing the cost of different query plans for the "
+"same query. The default value of 0 means that no query has been compiled yet."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:502
+msgid ""
+"The maximum number of connections that have been in use simultaneously since "
+"the server started."
+msgstr ""
+"Serverin başladılmasından bu yana istifadədə olan eyni zamanlı ən çox əlaqə "
+"sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:506
+msgid "The number of rows waiting to be written in INSERT DELAYED queues."
+msgstr "INSERT DELAYED sıralarında yazılmaq üçün gözləyən sətir sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:509
+msgid ""
+"The number of tables that have been opened. If opened tables is big, your "
+"table cache value is probably too small."
+msgstr ""
+"Açıq olan cədvəl sayı. Əgər açıq cədvəllər böyükdürsə, cədvəl keş dəyəriniz "
+"ehtimal ki çox kişikdir."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:513
+msgid "The number of files that are open."
+msgstr "Açıq olan fayl sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:516
+msgid "The number of streams that are open (used mainly for logging)."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:519
+msgid "The number of tables that are open."
+msgstr "Açıq olan cədvəl sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:522
+msgid ""
+"The number of free memory blocks in query cache. High numbers can indicate "
+"fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
+"statement."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:527
+msgid "The amount of free memory for query cache."
+msgstr "Sorğu keşi üçün boş yaddaş miqdarıdır."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:530
+msgid "The number of cache hits."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:533
+msgid "The number of queries added to the cache."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:536
+msgid ""
+"The number of queries that have been removed from the cache to free up "
+"memory for caching new queries. This information can help you tune the query "
+"cache size. The query cache uses a least recently used (LRU) strategy to "
+"decide which queries to remove from the cache."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:543
+msgid ""
+"The number of non-cached queries (not cachable, or not cached due to the "
+"query_cache_type setting)."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:547
+msgid "The number of queries registered in the cache."
+msgstr "Keşdə qeydiyyatlı sorğuların sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:550
+msgid "The total number of blocks in the query cache."
+msgstr "Sorğu keşi içindəki toplam blok sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:553
+msgid "The status of failsafe replication (not yet implemented)."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:556
+msgid ""
+"The number of joins that do not use indexes. If this value is not 0, you "
+"should carefully check the indexes of your tables."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:560
+msgid "The number of joins that used a range search on a reference table."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:563
+msgid ""
+"The number of joins without keys that check for key usage after each row. "
+"(If this is not 0, you should carefully check the indexes of your tables.)"
+msgstr ""
+"Hər bir sətirdən sonra açar istifadəsini yoxlayan açarsız birləşdirmə "
+"sayıdır.(Əgər bu dəyər 0 deyildirsə, cədvəllərinizin açarlarını diqqətli "
+"olaraq yoxlamalısınız.)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:568
+msgid ""
+"The number of joins that used ranges on the first table. (It's normally not "
+"critical even if this is big.)"
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:572
+msgid "The number of joins that did a full scan of the first table."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:575
+msgid "The number of temporary tables currently open by the slave SQL thread."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:579
+msgid ""
+"Total (since startup) number of times the replication slave SQL thread has "
+"retried transactions."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:583
+msgid "This is ON if this server is a slave that is connected to a master."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:586
+msgid ""
+"The number of threads that have taken more than slow_launch_time seconds to "
+"create."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:590
+msgid ""
+"The number of queries that have taken more than long_query_time seconds."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:594
+msgid ""
+"The number of merge passes the sort algorithm has had to do. If this value "
+"is large, you should consider increasing the value of the sort_buffer_size "
+"system variable."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:599
+msgid "The number of sorts that were done with ranges."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:602
+msgid "The number of sorted rows."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
+msgid "The number of sorts that were done by scanning the table."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:608
+msgid "The number of times that a table lock was acquired immediately."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:611
+msgid ""
+"The number of times that a table lock could not be acquired immediately and "
+"a wait was needed. If this is high, and you have performance problems, you "
+"should first optimize your queries, and then either split your table or "
+"tables or use replication."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:617
+msgid ""
+"The number of threads in the thread cache. The cache hit rate can be "
+"calculated as Threads_created/Connections. If this value is red you should "
+"raise your thread_cache_size."
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:622
+msgid "The number of currently open connections."
+msgstr "Cari açıq bağlantıların sayı."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:625
+msgid ""
+"The number of threads created to handle connections. If Threads_created is "
+"big, you may want to increase the thread_cache_size value. (Normally this "
+"doesn't give a notable performance improvement if you have a good thread "
+"implementation.)"
+msgstr ""
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:632
+#, fuzzy
+msgid "Thread cache hit rate (calculated value)"
+msgstr "Sorğu tipi"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:635
+msgid "The number of threads that are not sleeping."
+msgstr ""
 
 #: libraries/classes/Controllers/Server/VariablesController.php:195
 msgid "Setting variable failed"
@@ -7178,14 +7812,13 @@ msgstr "Tam Mətnlər"
 
 #: libraries/classes/Display/Results.php:1997
 #: libraries/classes/Display/Results.php:2023
-#: libraries/classes/Operations.php:847
-#: libraries/classes/Server/Status/Processes.php:184
-#: libraries/classes/Util.php:4916 libraries/classes/Util.php:4939
-#: libraries/config.values.php:115
+#: libraries/classes/Operations.php:847 libraries/classes/Util.php:4916
+#: libraries/classes/Util.php:4939 libraries/config.values.php:115
 #: templates/database/multi_table_query/form.twig:67
 #: templates/server/databases/index.twig:92
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:128
+#: templates/server/status/processes/list.twig:12
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/table/search/selection_form.twig:154
 msgid "Descending"
@@ -7193,14 +7826,13 @@ msgstr "Azalan sırada"
 
 #: libraries/classes/Display/Results.php:2005
 #: libraries/classes/Display/Results.php:2015
-#: libraries/classes/Operations.php:844
-#: libraries/classes/Server/Status/Processes.php:187
-#: libraries/classes/Util.php:4908 libraries/classes/Util.php:4931
-#: libraries/config.values.php:114
+#: libraries/classes/Operations.php:844 libraries/classes/Util.php:4908
+#: libraries/classes/Util.php:4931 libraries/config.values.php:114
 #: templates/database/multi_table_query/form.twig:66
 #: templates/server/databases/index.twig:90
 #: templates/server/databases/index.twig:107
 #: templates/server/databases/index.twig:126
+#: templates/server/status/processes/list.twig:14
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/table/search/selection_form.twig:154
 msgid "Ascending"
@@ -7213,7 +7845,7 @@ msgstr "Sətir silindi."
 
 #: libraries/classes/Display/Results.php:3354
 #: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Server/Status/Processes.php:297
+#: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Söndür"
 
@@ -7929,7 +8561,6 @@ msgstr ""
 #: libraries/classes/InsertEdit.php:1963
 #: libraries/classes/ReplicationGui.php:579
 #: libraries/classes/Rte/Routines.php:1689
-#: libraries/classes/Server/Status/Variables.php:231
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
@@ -7937,6 +8568,7 @@ msgstr ""
 #: templates/table/search/zoom_result_form.twig:36
 #: templates/table/search/fields_table.twig:11
 #: templates/server/variables/index.twig:29
+#: templates/server/status/variables/index.twig:71
 msgid "Value"
 msgstr "Dəyər"
 
@@ -10444,8 +11076,8 @@ msgid "Slave status"
 msgstr "Slave statusu"
 
 #: libraries/classes/ReplicationGui.php:578
-#: libraries/classes/Server/Status/Variables.php:230
 #: templates/server/variables/index.twig:28
+#: templates/server/status/variables/index.twig:70
 msgid "Variable"
 msgstr "Dəyişən"
 
@@ -10453,13 +11085,6 @@ msgstr "Dəyişən"
 #: templates/server/binlog/index.twig:87
 msgid "Server ID"
 msgstr "Server ID"
-
-#: libraries/classes/ReplicationGui.php:656
-#: libraries/classes/ReplicationGui.php:742
-#: libraries/classes/ReplicationGui.php:876
-#: libraries/classes/Server/Status/Processes.php:101
-msgid "Host"
-msgstr "Host"
 
 #: libraries/classes/ReplicationGui.php:673
 msgid ""
@@ -11595,12 +12220,6 @@ msgstr "%s istifadeçisi mövcuddur!"
 msgid "Privileges for %s"
 msgstr "%s üçün səlahiyyətlər"
 
-#: libraries/classes/Server/Privileges.php:4640
-#: libraries/classes/Server/Status/Processes.php:97
-#: libraries/classes/Server/UserGroups.php:51
-msgid "User"
-msgstr "İstifadəçi"
-
 #: libraries/classes/Server/Privileges.php:4713
 #, fuzzy
 #| msgid "Edit Privileges:"
@@ -11681,11 +12300,6 @@ msgstr "Yeni istifadəçi əlavə etdiniz."
 msgid "Current server:"
 msgstr "Cari Server:"
 
-#: libraries/classes/Server/Status/Data.php:117
-#: libraries/classes/Server/Status/Processes.php:125
-msgid "SQL query"
-msgstr "SQL sorğusu"
-
 #: libraries/classes/Server/Status/Data.php:120
 msgid "Handler"
 msgstr ""
@@ -11746,715 +12360,6 @@ msgstr "Slave statusunu göstər"
 
 #: libraries/classes/Server/Status/Data.php:182
 msgid "Flush query cache"
-msgstr ""
-
-#: libraries/classes/Server/Status/Data.php:449
-#: templates/server/status/base.twig:15
-msgid "Query statistics"
-msgstr "Sorğu Statistikası"
-
-#: libraries/classes/Server/Status/Data.php:453
-#: templates/server/status/base.twig:20
-msgid "All status variables"
-msgstr "Bütün status dəyişənləri"
-
-#: libraries/classes/Server/Status/Data.php:457
-#: templates/server/status/base.twig:25
-msgid "Monitor"
-msgstr "Monitorinq"
-
-#: libraries/classes/Server/Status/Data.php:461
-#: templates/server/status/base.twig:30
-msgid "Advisor"
-msgstr "Müşavir"
-
-#: libraries/classes/Server/Status/Data.php:517
-#, php-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d saniyə"
-msgstr[1] "%d saniyə"
-
-#: libraries/classes/Server/Status/Data.php:523
-#, php-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d dəqiqə"
-msgstr[1] "%d dəqiqə"
-
-#: libraries/classes/Server/Status/Processes.php:35
-msgid ""
-"Note: Enabling the auto refresh here might cause heavy traffic between the "
-"web server and the MySQL server."
-msgstr ""
-"Qeyd: Burada avtomatik yenilənməni aktivləşdirməklə webserver-lə MySQL "
-"server arasında ağır nəqliyyata səbəb ola bilərsiniz."
-
-#: libraries/classes/Server/Status/Processes.php:40
-#: templates/server/status/monitor/index.twig:36
-msgid "Refresh rate"
-msgstr "Yenilənmə tezliyi"
-
-#: libraries/classes/Server/Status/Processes.php:93
-msgid "ID"
-msgstr "ID"
-
-#: libraries/classes/Server/Status/Processes.php:109
-msgid "Command"
-msgstr "Komanda Tipi"
-
-#: libraries/classes/Server/Status/Processes.php:121
-msgid "Progress"
-msgstr ""
-
-#: libraries/classes/Server/Status/Processes.php:198
-msgid "Truncate Shown Queries"
-msgstr ""
-
-#: libraries/classes/Server/Status/Processes.php:204
-msgid "Show Full Queries"
-msgstr "Emrleri Tam Olaraq Göster"
-
-#: libraries/classes/Server/Status/Processes.php:253
-#: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
-msgid "Filters"
-msgstr "Filtrlər"
-
-#: libraries/classes/Server/Status/Processes.php:261
-msgid "Show only active"
-msgstr "Sadəcə aktiv olanı göstər"
-
-#: libraries/classes/Server/Status/Queries.php:42
-#, php-format
-msgid "Questions since startup: %s"
-msgstr "Başlanğıcdan bəri suallar: %s"
-
-#: libraries/classes/Server/Status/Queries.php:55
-msgid "per hour:"
-msgstr "saat başına:"
-
-#: libraries/classes/Server/Status/Queries.php:58
-msgid "per minute:"
-msgstr "dəqiqədə:"
-
-#: libraries/classes/Server/Status/Queries.php:65
-msgid "per second:"
-msgstr "saniyədə:"
-
-#: libraries/classes/Server/Status/Queries.php:102
-msgid "Statements"
-msgstr "Variantlar"
-
-#. l10n: # = Amount of queries
-#: libraries/classes/Server/Status/Queries.php:105
-msgid "#"
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:54 templates/filter.twig:4
-msgid "Containing the word:"
-msgstr "İçərisində bu söz var:"
-
-#: libraries/classes/Server/Status/Variables.php:62
-msgid "Show only alert values"
-msgstr "Sadəcə bildiriş(alert) dəyərlərini göstər"
-
-#: libraries/classes/Server/Status/Variables.php:67
-msgid "Filter by category…"
-msgstr "Kateqoriyaya görə filtrlə…"
-
-#: libraries/classes/Server/Status/Variables.php:88
-msgid "Show unformatted values"
-msgstr "Formatlaşdırılmamış dəyərləri göstər"
-
-#: libraries/classes/Server/Status/Variables.php:107
-msgid "Related links:"
-msgstr "Əlaqəli linklər:"
-
-#: libraries/classes/Server/Status/Variables.php:339
-msgid ""
-"The number of connections that were aborted because the client died without "
-"closing the connection properly."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:343
-msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "MySQL serverinə bağlanmaq üçün uğursuz cəhdlərin sayıdır."
-
-#: libraries/classes/Server/Status/Variables.php:346
-msgid ""
-"The number of transactions that used the temporary binary log cache but that "
-"exceeded the value of binlog_cache_size and used a temporary file to store "
-"statements from the transaction."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:351
-msgid "The number of transactions that used the temporary binary log cache."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:354
-msgid ""
-"The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:358
-msgid ""
-"The number of temporary tables on disk created automatically by the server "
-"while executing statements. If Created_tmp_disk_tables is big, you may want "
-"to increase the tmp_table_size  value to cause temporary tables to be memory-"
-"based instead of disk-based."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:365
-msgid "How many temporary files mysqld has created."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:368
-msgid ""
-"The number of in-memory temporary tables created automatically by the server "
-"while executing statements."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:372
-msgid ""
-"The number of rows written with INSERT DELAYED for which some error occurred "
-"(probably duplicate key)."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:376
-msgid ""
-"The number of INSERT DELAYED handler threads in use. Every different table "
-"on which one uses INSERT DELAYED gets its own thread."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:381
-msgid "The number of INSERT DELAYED rows written."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:384
-msgid "The number of executed FLUSH statements."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:387
-msgid "The number of internal COMMIT statements."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:390
-msgid "The number of times a row was deleted from a table."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:393
-msgid ""
-"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
-"table with a given name. This is called discovery. Handler_discover "
-"indicates the number of time tables have been discovered."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:399
-msgid ""
-"The number of times the first entry was read from an index. If this is high, "
-"it suggests that the server is doing a lot of full index scans; for example, "
-"SELECT col1 FROM foo, assuming that col1 is indexed."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:405
-msgid ""
-"The number of requests to read a row based on a key. If this is high, it is "
-"a good indication that your queries and tables are properly indexed."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:410
-msgid ""
-"The number of requests to read the next row in key order. This is "
-"incremented if you are querying an index column with a range constraint or "
-"if you are doing an index scan."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:415
-msgid ""
-"The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY … DESC."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:419
-msgid ""
-"The number of requests to read a row based on a fixed position. This is high "
-"if you are doing a lot of queries that require sorting of the result. You "
-"probably have a lot of queries that require MySQL to scan whole tables or "
-"you have joins that don't use keys properly."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:426
-msgid ""
-"The number of requests to read the next row in the data file. This is high "
-"if you are doing a lot of table scans. Generally this suggests that your "
-"tables are not properly indexed or that your queries are not written to take "
-"advantage of the indexes you have."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:433
-msgid "The number of internal ROLLBACK statements."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:436
-msgid "The number of requests to update a row in a table."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:439
-msgid "The number of requests to insert a row in a table."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:442
-msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:445
-msgid "The number of pages currently dirty."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:448
-msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:452
-msgid "The number of free pages."
-msgstr "Boş səhifə sayıdır."
-
-#: libraries/classes/Server/Status/Variables.php:455
-msgid ""
-"The number of latched pages in InnoDB buffer pool. These are pages currently "
-"being read or written or that can't be flushed or removed for some other "
-"reason."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:460
-msgid ""
-"The number of pages busy because they have been allocated for administrative "
-"overhead such as row locks or the adaptive hash index. This value can also "
-"be calculated as Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:467
-msgid "Total size of buffer pool, in pages."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:470
-msgid ""
-"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
-"query is to scan a large portion of a table but in random order."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:475
-msgid ""
-"The number of sequential read-aheads InnoDB initiated. This happens when "
-"InnoDB does a sequential full table scan."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:479
-msgid "The number of logical read requests InnoDB has done."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:482
-msgid ""
-"The number of logical reads that InnoDB could not satisfy from buffer pool "
-"and had to do a single-page read."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:486
-msgid ""
-"Normally, writes to the InnoDB buffer pool happen in the background. "
-"However, if it's necessary to read or create a page and no clean pages are "
-"available, it's necessary to wait for pages to be flushed first. This "
-"counter counts instances of these waits. If the buffer pool size was set "
-"properly, this value should be small."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:494
-msgid "The number writes done to the InnoDB buffer pool."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:497
-msgid "The number of fsync() operations so far."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:500
-msgid "The current number of pending fsync() operations."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:503
-msgid "The current number of pending reads."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:506
-msgid "The current number of pending writes."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:509
-msgid "The amount of data read so far, in bytes."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:512
-msgid "The total number of data reads."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:515
-msgid "The total number of data writes."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:518
-msgid "The amount of data written so far, in bytes."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:521
-msgid "The number of pages that have been written for doublewrite operations."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:525
-msgid "The number of doublewrite operations that have been performed."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:528
-msgid ""
-"The number of waits we had because log buffer was too small and we had to "
-"wait for it to be flushed before continuing."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:532
-msgid "The number of log write requests."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:535
-msgid "The number of physical writes to the log file."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:538
-msgid "The number of fsync() writes done to the log file."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:541
-msgid "The number of pending log file fsyncs."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:544
-msgid "Pending log file writes."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:547
-msgid "The number of bytes written to the log file."
-msgstr "Log faylına yazılan bayt sayı."
-
-#: libraries/classes/Server/Status/Variables.php:550
-msgid "The number of pages created."
-msgstr "Yaradılmış səhifələrin sayı."
-
-#: libraries/classes/Server/Status/Variables.php:553
-msgid ""
-"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
-"pages; the page size allows them to be easily converted to bytes."
-msgstr ""
-"Kompiliyasiya edilmiş InnoDB səhifə ölçüsü(susmaya görə 16KB). Səhifələrdə "
-"çoxlu sayda dəyərlər sayılıb; səhifə ölçüsü bunları asanlıqla bayta "
-"çevirməyə icazə verir."
-
-#: libraries/classes/Server/Status/Variables.php:558
-msgid "The number of pages read."
-msgstr "Oxunmuş səhifələrin sayı."
-
-#: libraries/classes/Server/Status/Variables.php:561
-msgid "The number of pages written."
-msgstr "Yazılmış səhifələrin sayı."
-
-#: libraries/classes/Server/Status/Variables.php:564
-msgid "The number of row locks currently being waited for."
-msgstr "Hal-hazırda gözlənən kilidli sətirlərin  sayı."
-
-#: libraries/classes/Server/Status/Variables.php:567
-msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "Kilidli sətirləri əldə etmək üçün orta zaman(millisaniyə)."
-
-#: libraries/classes/Server/Status/Variables.php:570
-msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr "Kilidli sətirləri əldə etmək üçün ümumi zaman(millisaniyə)."
-
-#: libraries/classes/Server/Status/Variables.php:573
-msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "Kilidli sətirləri əldə etmək üçün maksimum zaman(millisaniyə)."
-
-#: libraries/classes/Server/Status/Variables.php:576
-msgid "The number of times a row lock had to be waited for."
-msgstr "Kilidli sətirlərin ümumi gözləmə miqdarı."
-
-#: libraries/classes/Server/Status/Variables.php:579
-msgid "The number of rows deleted from InnoDB tables."
-msgstr "InnoDB cədvəlindən silinmiş sətirlərin sayı."
-
-#: libraries/classes/Server/Status/Variables.php:582
-msgid "The number of rows inserted in InnoDB tables."
-msgstr "InnoDB cədvəlinə əlavə olunmuş sətirlərin sayı."
-
-#: libraries/classes/Server/Status/Variables.php:585
-msgid "The number of rows read from InnoDB tables."
-msgstr "InnoDB cədvəlindən oxunmuş sətirlərin sayı."
-
-#: libraries/classes/Server/Status/Variables.php:588
-msgid "The number of rows updated in InnoDB tables."
-msgstr "InnoDB cədvəlində yenilənmiş sətirlərin sayı."
-
-#: libraries/classes/Server/Status/Variables.php:591
-msgid ""
-"The number of key blocks in the key cache that have changed but haven't yet "
-"been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:596
-msgid ""
-"The number of unused blocks in the key cache. You can use this value to "
-"determine how much of the key cache is in use."
-msgstr ""
-"Açar keşində istifadə olunmayan blok sayı. Bu dəyər ilə açar keşindəki "
-"istifadənin miqdarını təyin edə bilərsiniz."
-
-#: libraries/classes/Server/Status/Variables.php:600
-msgid ""
-"The number of used blocks in the key cache. This value is a high-water mark "
-"that indicates the maximum number of blocks that have ever been in use at "
-"one time."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:605
-msgid "Percentage of used key cache (calculated value)"
-msgstr "İstifadə olunan açar keşinin faizi(hesablanmış dəyər)"
-
-#: libraries/classes/Server/Status/Variables.php:608
-msgid "The number of requests to read a key block from the cache."
-msgstr "Keşdən açar blokunun oxunması üçün sorğu sayı."
-
-#: libraries/classes/Server/Status/Variables.php:611
-msgid ""
-"The number of physical reads of a key block from disk. If Key_reads is big, "
-"then your key_buffer_size value is probably too small. The cache miss rate "
-"can be calculated as Key_reads/Key_read_requests."
-msgstr ""
-"Diskdən açar blokunun fiziki oxunma sayı. Əgər Key_reads böyükdürsə, onda "
-"sizin key_buffer_size dəyəriniz çox kişikdir. Əksik keş nisbəti Key_reads/"
-"Key_read_requests kimi hesablanmalıdır."
-
-#: libraries/classes/Server/Status/Variables.php:617
-msgid ""
-"Key cache miss calculated as rate of physical reads compared to read "
-"requests (calculated value)"
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:621
-msgid "The number of requests to write a key block to the cache."
-msgstr "Keşə açar bloku yazmaq üçün sorğuların sayı."
-
-#: libraries/classes/Server/Status/Variables.php:624
-msgid "The number of physical writes of a key block to disk."
-msgstr "Diskə açar bloklarının fiziki yazma sayı."
-
-#: libraries/classes/Server/Status/Variables.php:627
-msgid ""
-"Percentage of physical writes compared to write requests (calculated value)"
-msgstr ""
-"Fiziki yazmaların faizi yazma sorğuları ilə  müqayisə edilir(hesablanmış "
-"dəyər)"
-
-#: libraries/classes/Server/Status/Variables.php:631
-msgid ""
-"The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
-"same query. The default value of 0 means that no query has been compiled yet."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:637
-msgid ""
-"The maximum number of connections that have been in use simultaneously since "
-"the server started."
-msgstr ""
-"Serverin başladılmasından bu yana istifadədə olan eyni zamanlı ən çox əlaqə "
-"sayı."
-
-#: libraries/classes/Server/Status/Variables.php:641
-msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr "INSERT DELAYED sıralarında yazılmaq üçün gözləyən sətir sayı."
-
-#: libraries/classes/Server/Status/Variables.php:644
-msgid ""
-"The number of tables that have been opened. If opened tables is big, your "
-"table cache value is probably too small."
-msgstr ""
-"Açıq olan cədvəl sayı. Əgər açıq cədvəllər böyükdürsə, cədvəl keş dəyəriniz "
-"ehtimal ki çox kişikdir."
-
-#: libraries/classes/Server/Status/Variables.php:648
-msgid "The number of files that are open."
-msgstr "Açıq olan fayl sayı."
-
-#: libraries/classes/Server/Status/Variables.php:651
-msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:654
-msgid "The number of tables that are open."
-msgstr "Açıq olan cədvəl sayı."
-
-#: libraries/classes/Server/Status/Variables.php:657
-msgid ""
-"The number of free memory blocks in query cache. High numbers can indicate "
-"fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
-"statement."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:662
-msgid "The amount of free memory for query cache."
-msgstr "Sorğu keşi üçün boş yaddaş miqdarıdır."
-
-#: libraries/classes/Server/Status/Variables.php:665
-msgid "The number of cache hits."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:668
-msgid "The number of queries added to the cache."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:671
-msgid ""
-"The number of queries that have been removed from the cache to free up "
-"memory for caching new queries. This information can help you tune the query "
-"cache size. The query cache uses a least recently used (LRU) strategy to "
-"decide which queries to remove from the cache."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:678
-msgid ""
-"The number of non-cached queries (not cachable, or not cached due to the "
-"query_cache_type setting)."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:682
-msgid "The number of queries registered in the cache."
-msgstr "Keşdə qeydiyyatlı sorğuların sayı."
-
-#: libraries/classes/Server/Status/Variables.php:685
-msgid "The total number of blocks in the query cache."
-msgstr "Sorğu keşi içindəki toplam blok sayı."
-
-#: libraries/classes/Server/Status/Variables.php:688
-msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:691
-msgid ""
-"The number of joins that do not use indexes. If this value is not 0, you "
-"should carefully check the indexes of your tables."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:695
-msgid "The number of joins that used a range search on a reference table."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:698
-msgid ""
-"The number of joins without keys that check for key usage after each row. "
-"(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr ""
-"Hər bir sətirdən sonra açar istifadəsini yoxlayan açarsız birləşdirmə "
-"sayıdır.(Əgər bu dəyər 0 deyildirsə, cədvəllərinizin açarlarını diqqətli "
-"olaraq yoxlamalısınız.)"
-
-#: libraries/classes/Server/Status/Variables.php:703
-msgid ""
-"The number of joins that used ranges on the first table. (It's normally not "
-"critical even if this is big.)"
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:707
-msgid "The number of joins that did a full scan of the first table."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:710
-msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:714
-msgid ""
-"Total (since startup) number of times the replication slave SQL thread has "
-"retried transactions."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:718
-msgid "This is ON if this server is a slave that is connected to a master."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:721
-msgid ""
-"The number of threads that have taken more than slow_launch_time seconds to "
-"create."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:725
-msgid ""
-"The number of queries that have taken more than long_query_time seconds."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:729
-msgid ""
-"The number of merge passes the sort algorithm has had to do. If this value "
-"is large, you should consider increasing the value of the sort_buffer_size "
-"system variable."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:734
-msgid "The number of sorts that were done with ranges."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:737
-msgid "The number of sorted rows."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:740
-msgid "The number of sorts that were done by scanning the table."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:743
-msgid "The number of times that a table lock was acquired immediately."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:746
-msgid ""
-"The number of times that a table lock could not be acquired immediately and "
-"a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
-"tables or use replication."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:752
-msgid ""
-"The number of threads in the thread cache. The cache hit rate can be "
-"calculated as Threads_created/Connections. If this value is red you should "
-"raise your thread_cache_size."
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:757
-msgid "The number of currently open connections."
-msgstr "Cari açıq bağlantıların sayı."
-
-#: libraries/classes/Server/Status/Variables.php:760
-msgid ""
-"The number of threads created to handle connections. If Threads_created is "
-"big, you may want to increase the thread_cache_size value. (Normally this "
-"doesn't give a notable performance improvement if you have a good thread "
-"implementation.)"
-msgstr ""
-
-#: libraries/classes/Server/Status/Variables.php:767
-#, fuzzy
-msgid "Thread cache hit rate (calculated value)"
-msgstr "Sorğu tipi"
-
-#: libraries/classes/Server/Status/Variables.php:770
-msgid "The number of threads that are not sleeping."
 msgstr ""
 
 #: libraries/classes/Server/UserGroups.php:34
@@ -13571,31 +13476,6 @@ msgid ""
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: server_status_processes.php:38
-#, php-format
-msgid "Thread %s was successfully killed."
-msgstr "Thread %s uğurla söndürüldü (killed)."
-
-#: server_status_processes.php:44
-#, php-format
-msgid ""
-"phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr ""
-"phpMyAdmin %s emeliyyat thread-ini söndüre (kill) bilmedi. Böyük ehtimal "
-"artıq söndürülmüşdür."
-
-#: server_status_queries.php:48
-#, fuzzy
-#| msgid "Not enough privilege to view users."
-msgid "Not enough privilege to view query statistics."
-msgstr "İstifadəçiləri göstərmək üçün yetərsiz səlahiyyət."
-
-#: server_status_variables.php:57
-#, fuzzy
-#| msgid "Not enough privilege to view users."
-msgid "Not enough privilege to view status variables."
-msgstr "İstifadəçiləri göstərmək üçün yetərsiz səlahiyyət."
-
 #: setup/frames/config.inc.php:20 setup/frames/index.inc.php:197
 msgid "Configuration file"
 msgstr "Konfiqurasiya faylı"
@@ -14015,7 +13895,7 @@ msgid "Done dragging (rearranging) charts"
 msgstr ""
 
 #: templates/server/status/monitor/index.twig:27
-#: templates/server/status/monitor/index.twig:106
+#: templates/server/status/monitor/index.twig:124
 msgid "Add chart"
 msgstr "Diaqram əlave et"
 
@@ -14023,29 +13903,54 @@ msgstr "Diaqram əlave et"
 msgid "Enable charts dragging"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:43
+#: templates/server/status/monitor/index.twig:36
+#: templates/server/status/processes/index.twig:25
+msgid "Refresh rate"
+msgstr "Yenilənmə tezliyi"
+
+#: templates/server/status/monitor/index.twig:42
+#: templates/server/status/processes/index.twig:31
+#, fuzzy, php-format
+#| msgid "%d second"
+#| msgid_plural "%d seconds"
+msgid "%count% second"
+msgid_plural "%count% seconds"
+msgstr[0] "%d saniyə"
+msgstr[1] "%d saniyə"
+
+#: templates/server/status/monitor/index.twig:48
+#: templates/server/status/processes/index.twig:37
+#, fuzzy
+#| msgid "%d minute"
+#| msgid_plural "%d minutes"
+msgid "%count% minute"
+msgid_plural "%count% minutes"
+msgstr[0] "%d dəqiqə"
+msgstr[1] "%d dəqiqə"
+
+#: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
 msgstr "Diaqram sütunları"
 
-#: templates/server/status/monitor/index.twig:56
+#: templates/server/status/monitor/index.twig:74
 msgid "Chart arrangement"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:57
+#: templates/server/status/monitor/index.twig:75
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:66
+#: templates/server/status/monitor/index.twig:84
 msgid "Reset to default"
 msgstr "İlkin formaya sıfırla"
 
-#: templates/server/status/monitor/index.twig:71
+#: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:73
+#: templates/server/status/monitor/index.twig:91
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -14054,18 +13959,18 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:83
+#: templates/server/status/monitor/index.twig:101
 msgid "Using the monitor:"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:85
+#: templates/server/status/monitor/index.twig:103
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:90
+#: templates/server/status/monitor/index.twig:108
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -14073,11 +13978,11 @@ msgid ""
 "any occurring SELECT statements to further analyze them."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:96
+#: templates/server/status/monitor/index.twig:114
 msgid "Please note:"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:99
+#: templates/server/status/monitor/index.twig:117
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -14085,81 +13990,81 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:109
+#: templates/server/status/monitor/index.twig:127
 msgid "Chart Title"
 msgstr "Diaqram başlığı"
 
-#: templates/server/status/monitor/index.twig:113
+#: templates/server/status/monitor/index.twig:131
 msgid "Preset chart"
 msgstr "Hazır diaqram"
 
-#: templates/server/status/monitor/index.twig:119
+#: templates/server/status/monitor/index.twig:137
 msgid "Status variable(s)"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:124
+#: templates/server/status/monitor/index.twig:142
 msgid "Select series:"
 msgstr "Ardıcıllıq seçin:"
 
-#: templates/server/status/monitor/index.twig:127
+#: templates/server/status/monitor/index.twig:145
 msgid "Commonly monitored"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:145
+#: templates/server/status/monitor/index.twig:163
 msgid "or type variable name:"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:152
+#: templates/server/status/monitor/index.twig:170
 msgid "Display as differential value"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:157
+#: templates/server/status/monitor/index.twig:175
 msgid "Apply a divisor"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:168
+#: templates/server/status/monitor/index.twig:186
 msgid "Append unit to data values"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:176
+#: templates/server/status/monitor/index.twig:194
 msgid "Add this series"
 msgstr "Bu ardıcıllığı əlavə et"
 
-#: templates/server/status/monitor/index.twig:179
+#: templates/server/status/monitor/index.twig:197
 msgid "Clear series"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:183
+#: templates/server/status/monitor/index.twig:201
 #, fuzzy
 #| msgid "Series in Chart:"
 msgid "Series in chart:"
 msgstr "Diaqramdakı ardıcıllıqlar:"
 
-#: templates/server/status/monitor/index.twig:192
+#: templates/server/status/monitor/index.twig:210
 msgid "Log statistics"
 msgstr "Log Statistikası"
 
-#: templates/server/status/monitor/index.twig:194
+#: templates/server/status/monitor/index.twig:212
 msgid "Selected time range:"
 msgstr "Seçili zaman aralığı:"
 
-#: templates/server/status/monitor/index.twig:202
+#: templates/server/status/monitor/index.twig:220
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:208
+#: templates/server/status/monitor/index.twig:226
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:212
+#: templates/server/status/monitor/index.twig:230
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:215
+#: templates/server/status/monitor/index.twig:233
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: templates/server/status/monitor/index.twig:219
+#: templates/server/status/monitor/index.twig:237
 msgid "Query analyzer"
 msgstr "Sorğu analizatoru"
 
@@ -14632,12 +14537,14 @@ msgid "Select binary log to view"
 msgstr ""
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
+#: templates/server/status/processes/list.twig:20
 #, fuzzy
 #| msgid "Percentage of slow queries"
 msgid "Truncate shown queries"
 msgstr "Yavaş sorğuların faizi"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
+#: templates/server/status/processes/list.twig:26
 #, fuzzy
 #| msgid "Show Full Queries"
 msgid "Show full queries"
@@ -14957,6 +14864,22 @@ msgstr "Genişlət"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Sorğunu təkrarla"
+
+#: templates/server/status/base.twig:15
+msgid "Query statistics"
+msgstr "Sorğu Statistikası"
+
+#: templates/server/status/base.twig:20
+msgid "All status variables"
+msgstr "Bütün status dəyişənləri"
+
+#: templates/server/status/base.twig:25
+msgid "Monitor"
+msgstr "Monitorinq"
+
+#: templates/server/status/base.twig:30
+msgid "Advisor"
+msgstr "Müşavir"
 
 #: templates/server/databases/index.twig:4
 msgid "Databases statistics"
@@ -15389,6 +15312,15 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
+#: templates/filter.twig:2 templates/server/status/processes/index.twig:6
+#: templates/server/status/variables/index.twig:7
+msgid "Filters"
+msgstr "Filtrlər"
+
+#: templates/filter.twig:4 templates/server/status/variables/index.twig:14
+msgid "Containing the word:"
+msgstr "İçərisində bu söz var:"
+
 #: templates/display/results/options_block.twig:34
 msgid "Relational key"
 msgstr "Əlaqəli açar"
@@ -15427,6 +15359,40 @@ msgstr "Binar(WKB)"
 msgid "Character sets and collations"
 msgstr "Davam edən cədvəl başlığı"
 
+#. l10n: Questions is the name of a MySQL Status variable
+#: templates/server/status/queries/index.twig:7
+#, fuzzy
+#| msgid "Questions since startup: %s"
+msgid "Questions since startup:"
+msgstr "Başlanğıcdan bəri suallar: %s"
+
+#: templates/server/status/queries/index.twig:17
+msgid "per hour:"
+msgstr "saat başına:"
+
+#: templates/server/status/queries/index.twig:18
+msgid "per minute:"
+msgstr "dəqiqədə:"
+
+#: templates/server/status/queries/index.twig:20
+msgid "per second:"
+msgstr "saniyədə:"
+
+#: templates/server/status/queries/index.twig:32
+msgid "Statements"
+msgstr "Variantlar"
+
+#. l10n: # = Amount of queries
+#: templates/server/status/queries/index.twig:33
+msgid "#"
+msgstr ""
+
+#: templates/server/status/queries/index.twig:53
+#, fuzzy
+#| msgid "Not enough privilege to view users."
+msgid "Not enough privilege to view query statistics."
+msgstr "İstifadəçiləri göstərmək üçün yetərsiz səlahiyyət."
+
 #: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:44
 #: templates/prefs_twofactor.twig:56
 msgid "Configure two-factor authentication"
@@ -15437,6 +15403,18 @@ msgstr ""
 #| msgid "Change password"
 msgid "Enable two-factor authentication"
 msgstr "Parolu Dəyişdir"
+
+#: templates/server/status/processes/index.twig:13
+msgid "Show only active"
+msgstr "Sadəcə aktiv olanı göstər"
+
+#: templates/server/status/processes/index.twig:21
+msgid ""
+"Note: Enabling the auto refresh here might cause heavy traffic between the "
+"web server and the MySQL server."
+msgstr ""
+"Qeyd: Burada avtomatik yenilənməni aktivləşdirməklə webserver-lə MySQL "
+"server arasında ağır nəqliyyata səbəb ola bilərsiniz."
 
 #: templates/display/export/options_output_separate_files.twig:7
 #, fuzzy
@@ -16447,6 +16425,28 @@ msgid ""
 msgstr ""
 "\"Function\" sütunundan \"GeomFrromText\"-i seçin və \"Value\" sahəsinə alta "
 "sətri yapışdırın."
+
+#: templates/server/status/variables/index.twig:21
+msgid "Show only alert values"
+msgstr "Sadəcə bildiriş(alert) dəyərlərini göstər"
+
+#: templates/server/status/variables/index.twig:27
+msgid "Filter by category…"
+msgstr "Kateqoriyaya görə filtrlə…"
+
+#: templates/server/status/variables/index.twig:37
+msgid "Show unformatted values"
+msgstr "Formatlaşdırılmamış dəyərləri göstər"
+
+#: templates/server/status/variables/index.twig:45
+msgid "Related links:"
+msgstr "Əlaqəli linklər:"
+
+#: templates/server/status/variables/index.twig:134
+#, fuzzy
+#| msgid "Not enough privilege to view users."
+msgid "Not enough privilege to view status variables."
+msgstr "İstifadəçiləri göstərmək üçün yetərsiz səlahiyyət."
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
@@ -17561,6 +17561,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0-a konfiqurasiya edilib"
+
+#~ msgid "Show Full Queries"
+#~ msgstr "Emrleri Tam Olaraq Göster"
 
 #, fuzzy
 #~| msgid "No databases"

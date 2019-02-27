@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-02-21 02:29-0300\n"
+"POT-Creation-Date: 2019-02-27 14:28-0300\n"
 "PO-Revision-Date: 2018-02-10 23:35+0000\n"
 "Last-Translator: Marczis István <marczisi@yahoo.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -179,7 +179,7 @@ msgstr "Megjegyzések"
 msgid "Primary"
 msgstr "Elsődleges"
 
-#: db_datadict.php:174 js/messages.php:390
+#: db_datadict.php:174 js/messages.php:393
 #: libraries/classes/Config/FormDisplayTemplate.php:327
 #: libraries/classes/Index.php:564 libraries/classes/Index.php:592
 #: libraries/classes/IndexColumn.php:143 libraries/classes/MultSubmits.php:533
@@ -205,7 +205,7 @@ msgstr "Elsődleges"
 msgid "No"
 msgstr "Nem"
 
-#: db_datadict.php:174 js/messages.php:539
+#: db_datadict.php:174 js/messages.php:542
 #: libraries/classes/Config/FormDisplayTemplate.php:327
 #: libraries/classes/Controllers/Server/DatabasesController.php:217
 #: libraries/classes/Controllers/Table/StructureController.php:805
@@ -407,7 +407,7 @@ msgstr "Rossz paraméterek!"
 msgid "Succeeded"
 msgstr "Sikerült"
 
-#: import.php:85 js/messages.php:626
+#: import.php:85 js/messages.php:629
 msgid "Failed"
 msgstr "Nem sikerült"
 
@@ -488,7 +488,7 @@ msgstr "A \"DROP DATABASE\" utasítást letiltották."
 msgid "Could not load the progress of the import."
 msgstr "Nem sikerült betölteni az importálás folyamatát."
 
-#: import_status.php:120 js/messages.php:468 js/messages.php:634
+#: import_status.php:120 js/messages.php:471 js/messages.php:637
 #: libraries/classes/Export.php:516
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:727
@@ -522,7 +522,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Általános beállítások"
 
-#: index.php:244 js/messages.php:659
+#: index.php:244 js/messages.php:662
 #: libraries/classes/Display/ChangePassword.php:71
 #: libraries/classes/Display/ChangePassword.php:74
 #: libraries/classes/UserPassword.php:275
@@ -979,75 +979,82 @@ msgid "Y values"
 msgstr "Y érték"
 
 #: js/messages.php:147
+#, fuzzy
+#| msgid "Please enter the same value again"
+msgid "Please enter the SQL query first."
+msgstr "Adja meg ismét ugyanazt az értéket"
+
+#: js/messages.php:150
 msgid "The host name is empty!"
 msgstr "A gépnév üres!"
 
-#: js/messages.php:148
+#: js/messages.php:151
 msgid "The user name is empty!"
 msgstr "Üres a felhasználónév!"
 
-#: js/messages.php:149 libraries/classes/Server/Privileges.php:2003
+#: js/messages.php:152 libraries/classes/Server/Privileges.php:2003
 #: libraries/classes/UserPassword.php:83
 msgid "The password is empty!"
 msgstr "Üres a jelszó mező!"
 
-#: js/messages.php:150 libraries/classes/Server/Privileges.php:2001
+#: js/messages.php:153 libraries/classes/Server/Privileges.php:2001
 #: libraries/classes/UserPassword.php:87
 msgid "The passwords aren't the same!"
 msgstr "Nem egyeznek a jelszavak!"
 
-#: js/messages.php:151
+#: js/messages.php:154
 msgid "Removing Selected Users"
 msgstr "A kijelölt felhasználók törlése"
 
-#: js/messages.php:152 js/messages.php:219 libraries/classes/Tracking.php:277
+#: js/messages.php:155 js/messages.php:222 libraries/classes/Tracking.php:277
 #: libraries/classes/Tracking.php:683
 msgid "Close"
 msgstr "Bezárás"
 
-#: js/messages.php:155
+#: js/messages.php:158
 msgid "Template was created."
 msgstr "A sablon létre lett hozva."
 
-#: js/messages.php:156
+#: js/messages.php:159
 msgid "Template was loaded."
 msgstr "A sablon be lett töltve."
 
-#: js/messages.php:157
+#: js/messages.php:160
 msgid "Template was updated."
 msgstr "A sablon frissítve lett."
 
-#: js/messages.php:158
+#: js/messages.php:161
 msgid "Template was deleted."
 msgstr "A sablon törölve lett."
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:161 libraries/classes/Server/Status/Data.php:134
-#: libraries/classes/Server/Status/Queries.php:153
+#: js/messages.php:164
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:64
+#: libraries/classes/Server/Status/Data.php:134
 msgid "Other"
 msgstr "Egyéb"
 
 #. l10n: Thousands separator
-#: js/messages.php:163 libraries/classes/Util.php:1412
+#: js/messages.php:166 libraries/classes/Util.php:1412
 #: libraries/classes/Util.php:1443
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:165 libraries/classes/Util.php:1410
+#: js/messages.php:168 libraries/classes/Util.php:1410
 #: libraries/classes/Util.php:1441
 msgid "."
 msgstr "."
 
-#: js/messages.php:167
+#: js/messages.php:170
 msgid "Connections / Processes"
 msgstr "Kapcsolatok / Folyamatok"
 
-#: js/messages.php:171
+#: js/messages.php:174
 msgid "Local monitor configuration incompatible!"
 msgstr "A helyi megfigyelés beállításai nem kompatibilisek!"
 
-#: js/messages.php:173
+#: js/messages.php:176
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1059,209 +1066,208 @@ msgstr ""
 "nem működik többé. Állítsa vissza az alapértelmezést a <i>Beállítások</i> "
 "menüben."
 
-#: js/messages.php:179
+#: js/messages.php:182
 msgid "Query cache efficiency"
 msgstr "Lekérdezési gyorsítótár hatékonysága"
 
-#: js/messages.php:180
+#: js/messages.php:183
 msgid "Query cache usage"
 msgstr "Lekérdezési gyorsítótár használat"
 
-#: js/messages.php:181
+#: js/messages.php:184
 msgid "Query cache used"
 msgstr "Lekérdezési gyorsítótárat használatban"
 
-#: js/messages.php:183
+#: js/messages.php:186
 msgid "System CPU usage"
 msgstr "Rendszer CPU használat"
 
-#: js/messages.php:184
+#: js/messages.php:187
 msgid "System memory"
 msgstr "Rendszermemória"
 
-#: js/messages.php:185
+#: js/messages.php:188
 msgid "System swap"
 msgstr "Rendszer lapozófájl"
 
-#: js/messages.php:187
+#: js/messages.php:190
 msgid "Average load"
 msgstr "Átlagos terhelés"
 
-#: js/messages.php:188
+#: js/messages.php:191
 msgid "Total memory"
 msgstr "Teljes memória"
 
-#: js/messages.php:189
+#: js/messages.php:192
 msgid "Cached memory"
 msgstr "Gyorsítótárazott memória"
 
-#: js/messages.php:190
+#: js/messages.php:193
 msgid "Buffered memory"
 msgstr "Puffer memória"
 
-#: js/messages.php:191
+#: js/messages.php:194
 msgid "Free memory"
 msgstr "Szabad memória"
 
-#: js/messages.php:192
+#: js/messages.php:195
 msgid "Used memory"
 msgstr "Használt memória"
 
-#: js/messages.php:194
+#: js/messages.php:197
 msgid "Total swap"
 msgstr "Teljes lapozófájl"
 
-#: js/messages.php:195
+#: js/messages.php:198
 msgid "Cached swap"
 msgstr "Gyorsítótárazott lapozófájl"
 
-#: js/messages.php:196
+#: js/messages.php:199
 msgid "Used swap"
 msgstr "Használt lapozófájl"
 
-#: js/messages.php:197
+#: js/messages.php:200
 msgid "Free swap"
 msgstr "Szabad lapozófájl"
 
-#: js/messages.php:199
+#: js/messages.php:202
 msgid "Bytes sent"
 msgstr "Elküldött bájtok"
 
-#: js/messages.php:200
+#: js/messages.php:203
 msgid "Bytes received"
 msgstr "Fogadott bájtok"
 
-#: js/messages.php:201 templates/server/status/status/index.twig:35
+#: js/messages.php:204 templates/server/status/status/index.twig:35
 msgid "Connections"
 msgstr "Kapcsolatok"
 
-#: js/messages.php:202 libraries/classes/Server/Status/Data.php:445
-#: libraries/classes/Server/Status/Processes.php:156
-#: templates/server/status/base.twig:10
+#: js/messages.php:205 templates/server/status/base.twig:10
+#: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Folyamatok"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:205 libraries/classes/Util.php:1320
+#: js/messages.php:208 libraries/classes/Util.php:1320
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:206 libraries/classes/Util.php:1322
-#: templates/server/status/monitor/index.twig:161
+#: js/messages.php:209 libraries/classes/Util.php:1322
+#: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:207 libraries/classes/Util.php:1324
-#: templates/server/status/monitor/index.twig:162
+#: js/messages.php:210 libraries/classes/Util.php:1324
+#: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:208 libraries/classes/Util.php:1326
+#: js/messages.php:211 libraries/classes/Util.php:1326
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:209 libraries/classes/Util.php:1328
+#: js/messages.php:212 libraries/classes/Util.php:1328
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:210 libraries/classes/Util.php:1330
+#: js/messages.php:213 libraries/classes/Util.php:1330
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:211 libraries/classes/Util.php:1332
+#: js/messages.php:214 libraries/classes/Util.php:1332
 msgid "EiB"
 msgstr "EiB"
 
-#: js/messages.php:212
+#: js/messages.php:215
 #, php-format
 msgid "%d table(s)"
 msgstr "%d tábla"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:215
+#: js/messages.php:218
 msgid "Questions"
 msgstr "Kérdések"
 
-#: js/messages.php:216 templates/server/status/status/index.twig:13
+#: js/messages.php:219 templates/server/status/status/index.twig:13
 msgid "Traffic"
 msgstr "Forgalom"
 
-#: js/messages.php:217 libraries/classes/Menu.php:636
+#: js/messages.php:220 libraries/classes/Menu.php:636
 #: libraries/classes/Util.php:4192
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Beállítások"
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add chart to grid"
 msgstr "Diagram hozzáadása"
 
-#: js/messages.php:221
+#: js/messages.php:224
 msgid "Please add at least one variable to the series!"
 msgstr "Legalább egy változót adjon meg a sorozathoz!"
 
-#: js/messages.php:222 libraries/classes/Display/Results.php:1354
+#: js/messages.php:225 libraries/classes/Display/Results.php:1354
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
-#: libraries/classes/Server/Status/Processes.php:303
 #: libraries/config.values.php:113
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:204
 #: templates/database/designer/main.twig:629
 #: templates/table/search/rows_zoom.twig:20
 #: templates/columns_definitions/transformation.twig:4
+#: templates/server/status/processes/list.twig:54
 #: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/table/search/selection_form.twig:35
 msgid "None"
 msgstr "Nincs"
 
-#: js/messages.php:223
+#: js/messages.php:226
 msgid "Resume monitor"
 msgstr "Megfigyelés visszakapcsolása"
 
-#: js/messages.php:224
+#: js/messages.php:227
 msgid "Pause monitor"
 msgstr "Megfigyelés megállítása"
 
-#: js/messages.php:225 libraries/classes/Server/Status/Processes.php:61
+#: js/messages.php:228 templates/server/status/processes/index.twig:49
 msgid "Start auto refresh"
 msgstr "Automatikus frissítés indítása"
 
-#: js/messages.php:226
+#: js/messages.php:229
 msgid "Stop auto refresh"
 msgstr "Automatikus frissítés leállítása"
 
-#: js/messages.php:228
+#: js/messages.php:231
 msgid "general_log and slow_query_log are enabled."
 msgstr "A general_log és a slow_query_log engedélyezve vannak."
 
-#: js/messages.php:229
+#: js/messages.php:232
 msgid "general_log is enabled."
 msgstr "A general_log engedélyezve van."
 
-#: js/messages.php:230
+#: js/messages.php:233
 msgid "slow_query_log is enabled."
 msgstr "A slow_query_log engedélyezve van."
 
-#: js/messages.php:231
+#: js/messages.php:234
 msgid "slow_query_log and general_log are disabled."
 msgstr "A slow_query_log és a general_log titlva vannak."
 
-#: js/messages.php:232
+#: js/messages.php:235
 msgid "log_output is not set to TABLE."
 msgstr "log_output nincs beállítva a TÁBLÁHOZ."
 
-#: js/messages.php:233
+#: js/messages.php:236
 msgid "log_output is set to TABLE."
 msgstr "log_output be van állítva a TÁBLÁHOZ."
 
-#: js/messages.php:235
+#: js/messages.php:238
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1272,12 +1278,12 @@ msgstr ""
 "lekérdezéseket naplózza, amelyek %d másodpercnél hosszabb ideig tartanak. "
 "Ajánlott a long_query_time beállítása 0-2 másodpercre a rendszertől függően."
 
-#: js/messages.php:239
+#: js/messages.php:242
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "A long_query_time %d másodpercre van beállítva."
 
-#: js/messages.php:241
+#: js/messages.php:244
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -1286,30 +1292,30 @@ msgstr ""
 "alapértelmezettre a kiszolgáló újraindításakor:"
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:245
+#: js/messages.php:248
 #, php-format
 msgid "Set log_output to %s"
 msgstr "A log_output beállítása ehhez: %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:247
+#: js/messages.php:250
 #, php-format
 msgid "Enable %s"
 msgstr "%s engedélyezése"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:249
+#: js/messages.php:252
 #, php-format
 msgid "Disable %s"
 msgstr "%s letiltása"
 
 #. l10n: %d seconds
-#: js/messages.php:251
+#: js/messages.php:254
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "A long_query_time beállítása %d másodpercre."
 
-#: js/messages.php:253
+#: js/messages.php:256
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -1318,58 +1324,58 @@ msgstr ""
 "rendszergazdaként vagy vegye fel a kapcsolatot az adatbázis "
 "adminisztrátorával."
 
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Change settings"
 msgstr "Beállítások megváltoztatása"
 
-#: js/messages.php:257
+#: js/messages.php:260
 msgid "Current settings"
 msgstr "Jelenlegi beállítások"
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "Chart title"
 msgstr "Diagramcím"
 
 #. l10n: As in differential values
-#: js/messages.php:261
+#: js/messages.php:264
 msgid "Differential"
 msgstr "Megkülönböztető"
 
-#: js/messages.php:262
+#: js/messages.php:265
 #, php-format
 msgid "Divided by %s"
 msgstr "Osztva %s -el"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "Unit"
 msgstr "Egység"
 
-#: js/messages.php:265
+#: js/messages.php:268
 msgid "From slow log"
 msgstr "a slow naplóból"
 
-#: js/messages.php:266
+#: js/messages.php:269
 msgid "From general log"
 msgstr "az általános naplóból"
 
-#: js/messages.php:268
+#: js/messages.php:271
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Az adatbázis neve nem ismert ennél a lekérdezésnél a kiszolgáló naplójában."
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "Analysing logs"
 msgstr "Naplók elemzése"
 
-#: js/messages.php:272
+#: js/messages.php:275
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Elemzés és naplók betöltése. Ez eltarthat egy ideig."
 
-#: js/messages.php:273
+#: js/messages.php:276
 msgid "Cancel request"
 msgstr "Kérés elvetése"
 
-#: js/messages.php:275
+#: js/messages.php:278
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1380,7 +1386,7 @@ msgstr ""
 "rendezési kritériumként, ezért a lekérdezések más tulajdonságai, mint "
 "például a lekérdezés kezdete, eltérőek lehetnek."
 
-#: js/messages.php:280
+#: js/messages.php:283
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -1390,119 +1396,118 @@ msgstr ""
 "történt INSERT lekérdezések is egy csoportba kerültek, tekintet nélkül a "
 "beszúrt adatokra."
 
-#: js/messages.php:285
+#: js/messages.php:288
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "A naplóadatok betöltve. Végrehajtott lekérdezések ebben az időszakban:"
 
-#: js/messages.php:287
+#: js/messages.php:290
 msgid "Jump to Log table"
 msgstr "Ugrás a naplótáblához"
 
-#: js/messages.php:288
+#: js/messages.php:291
 msgid "No data found"
 msgstr "Nincs adat"
 
-#: js/messages.php:290
+#: js/messages.php:293
 msgid "Log analysed, but no data found in this time span."
 msgstr "A napló megvizsgálva, de nincs adat az adott időszakban."
 
-#: js/messages.php:292
+#: js/messages.php:295
 msgid "Analyzing…"
 msgstr "Elemzés…"
 
-#: js/messages.php:293
+#: js/messages.php:296
 msgid "Explain output"
 msgstr "A kimenet magyarázata"
 
-#: js/messages.php:294 libraries/classes/Menu.php:599
-#: libraries/classes/Rte/Events.php:470 libraries/classes/Rte/RteList.php:146
-#: libraries/classes/Server/Status/Processes.php:117
-#: libraries/classes/Util.php:4188 libraries/config.values.php:159
-#: templates/database/tracking/tables.twig:17
+#: js/messages.php:297
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
+#: libraries/classes/Menu.php:599 libraries/classes/Rte/Events.php:470
+#: libraries/classes/Rte/RteList.php:146 libraries/classes/Util.php:4188
+#: libraries/config.values.php:159 templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Állapot"
 
-#: js/messages.php:295 js/messages.php:917
+#: js/messages.php:298 js/messages.php:920
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:128
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:491
 #: libraries/classes/Plugins/Export/ExportOdt.php:612
 #: libraries/classes/Plugins/Export/ExportTexytext.php:455
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:381
-#: libraries/classes/Rte/RteList.php:135
-#: libraries/classes/Server/Status/Processes.php:113
-#: templates/sql/profiling_chart.twig:18
+#: libraries/classes/Rte/RteList.php:135 templates/sql/profiling_chart.twig:18
 msgid "Time"
 msgstr "Idő"
 
-#: js/messages.php:296
+#: js/messages.php:299
 msgid "Total time:"
 msgstr "Teljes idő:"
 
-#: js/messages.php:297
+#: js/messages.php:300
 msgid "Profiling results"
 msgstr "Eredmények elemzése"
 
-#: js/messages.php:298
+#: js/messages.php:301
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tábla"
 
-#: js/messages.php:299
+#: js/messages.php:302
 msgid "Chart"
 msgstr "Diagram"
 
-#: js/messages.php:301 libraries/classes/Display/Export.php:590
+#: js/messages.php:304 libraries/classes/Display/Export.php:590
 msgctxt "Alias"
 msgid "Database"
 msgstr "Adatbázis"
 
-#: js/messages.php:302 libraries/classes/Display/Export.php:602
+#: js/messages.php:305 libraries/classes/Display/Export.php:602
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tábla"
 
-#: js/messages.php:303 libraries/classes/Display/Export.php:613
+#: js/messages.php:306 libraries/classes/Display/Export.php:613
 msgctxt "Alias"
 msgid "Column"
 msgstr "Oszlop"
 
 #. l10n: A collection of available filters
-#: js/messages.php:306
+#: js/messages.php:309
 msgid "Log table filter options"
 msgstr "Naplótábla szűrőbeállításai"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:308
+#: js/messages.php:311
 msgid "Filter"
 msgstr "Szűrő"
 
-#: js/messages.php:309
+#: js/messages.php:312
 msgid "Filter queries by word/regexp:"
 msgstr "Lekérdezések szűrése szó/reguláris kifejezés alapján:"
 
-#: js/messages.php:311
+#: js/messages.php:314
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Lekérdezések csoportosítása, változóadat figyelmen kívül hagyása a WHERE "
 "feltételben"
 
-#: js/messages.php:312
+#: js/messages.php:315
 msgid "Sum of grouped rows:"
 msgstr "A csoportosított sorok összege:"
 
-#: js/messages.php:313 templates/server/databases/index.twig:236
+#: js/messages.php:316 templates/server/databases/index.twig:236
 msgid "Total:"
 msgstr "Összesen:"
 
-#: js/messages.php:315
+#: js/messages.php:318
 msgid "Loading logs"
 msgstr "Naplók betöltése"
 
-#: js/messages.php:316
+#: js/messages.php:319
 msgid "Monitor refresh failed"
 msgstr "A megfigyelés frissítése sikertelen"
 
-#: js/messages.php:318
+#: js/messages.php:321
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1512,104 +1517,104 @@ msgstr ""
 "Valószínűleg a munkamenet lejárt. Az oldal újratöltése, és a belépési adatok "
 "újbóli megadása segíthet."
 
-#: js/messages.php:322
+#: js/messages.php:325
 msgid "Reload page"
 msgstr "Oldal újratöltése"
 
-#: js/messages.php:324
+#: js/messages.php:327
 msgid "Affected rows:"
 msgstr "Érintett sorok:"
 
-#: js/messages.php:327
+#: js/messages.php:330
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "A beállítófájl feldolgozása nem sikerült. Nem tűnik érvényes JSON kódnak."
 
-#: js/messages.php:330
+#: js/messages.php:333
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "A grafikon felépítése az importált beállításokkal sikertelen. Eredet "
 "beállítások visszaállítása…"
 
-#: js/messages.php:332 libraries/classes/Config/Forms/User/ImportForm.php:71
+#: js/messages.php:335 libraries/classes/Config/Forms/User/ImportForm.php:71
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:508
 #: libraries/classes/Menu.php:632 libraries/classes/Util.php:4191
 #: libraries/classes/Util.php:4206 libraries/classes/Util.php:4223
-#: prefs_manage.php:234 templates/server/status/monitor/index.twig:60
+#: prefs_manage.php:234 templates/server/status/monitor/index.twig:78
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "Importálás"
 
-#: js/messages.php:333
+#: js/messages.php:336
 msgid "Import monitor configuration"
 msgstr "Megfigyelési beállítások importálása"
 
-#: js/messages.php:335
+#: js/messages.php:338
 msgid "Please select the file you want to import."
 msgstr "Válassza ki a fájlt, amelyet importálni szeretne."
 
-#: js/messages.php:337
+#: js/messages.php:340
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "Adjon meg egy érvényes oszlopnevet"
 
-#: js/messages.php:339
+#: js/messages.php:342
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "Adjon meg egy érvényes oszlopnevet"
 
-#: js/messages.php:340
+#: js/messages.php:343
 msgid "No files available on server for import!"
 msgstr "Nincs elérhető fájl a kiszolgálón az importáláshoz!"
 
-#: js/messages.php:342
+#: js/messages.php:345
 msgid "Analyse query"
 msgstr "Lekérdezés elemzése"
 
-#: js/messages.php:346
+#: js/messages.php:349
 msgid "Advisor system"
 msgstr "Tanácsadó rendszer"
 
-#: js/messages.php:347
+#: js/messages.php:350
 msgid "Possible performance issues"
 msgstr "Lehetséges teljesítmény problémák"
 
-#: js/messages.php:348
+#: js/messages.php:351
 msgid "Issue"
 msgstr "Kiadás"
 
-#: js/messages.php:349
+#: js/messages.php:352
 msgid "Recommendation"
 msgstr "Javaslat"
 
-#: js/messages.php:350
+#: js/messages.php:353
 msgid "Rule details"
 msgstr "Szabály részletek"
 
-#: js/messages.php:351
+#: js/messages.php:354
 msgid "Justification"
 msgstr "Indoklás"
 
-#: js/messages.php:352
+#: js/messages.php:355
 msgid "Used variable / formula"
 msgstr "Használt változó / képlet"
 
-#: js/messages.php:353
+#: js/messages.php:356
 msgid "Test"
 msgstr "Teszt"
 
-#: js/messages.php:356
+#: js/messages.php:359
 msgid "Formatting SQL…"
 msgstr "SQL formázása…"
 
-#: js/messages.php:357
+#: js/messages.php:360
 msgid "No parameters found!"
 msgstr "Nincs paraméter megadva!"
 
-#: js/messages.php:360 libraries/classes/BrowseForeigners.php:207
+#: js/messages.php:363 libraries/classes/BrowseForeigners.php:207
 #: libraries/classes/Display/ChangePassword.php:176
 #: libraries/classes/Index.php:661 libraries/classes/InsertEdit.php:1935
 #: libraries/classes/InsertEdit.php:1969
@@ -1655,7 +1660,7 @@ msgstr "Nincs paraméter megadva!"
 msgid "Go"
 msgstr "Indítás"
 
-#: js/messages.php:361 templates/database/designer/main.twig:380
+#: js/messages.php:364 templates/database/designer/main.twig:380
 #: templates/database/designer/main.twig:431
 #: templates/database/designer/main.twig:705
 #: templates/database/designer/main.twig:771
@@ -1666,46 +1671,46 @@ msgstr "Indítás"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: js/messages.php:364 libraries/classes/Header.php:476
+#: js/messages.php:367 libraries/classes/Header.php:476
 msgid "Page-related settings"
 msgstr "Oldallal kapcsolatos beállítások"
 
-#: js/messages.php:365 templates/config/form_display/fieldset_bottom.twig:8
+#: js/messages.php:368 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
 msgstr "Alkalmaz"
 
-#: js/messages.php:368 libraries/classes/Navigation/NavigationHeader.php:79
-#: templates/server/status/monitor/index.twig:77
+#: js/messages.php:371 libraries/classes/Navigation/NavigationHeader.php:79
+#: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "Betöltés…"
 
-#: js/messages.php:369
+#: js/messages.php:372
 msgid "Request aborted!!"
 msgstr "Kérés megszakítva!"
 
-#: js/messages.php:370
+#: js/messages.php:373
 msgid "Processing request"
 msgstr "Kérés feldolgozása"
 
-#: js/messages.php:371
+#: js/messages.php:374
 msgid "Request failed!!"
 msgstr "A kérés sikertelen!"
 
-#: js/messages.php:372
+#: js/messages.php:375
 msgid "Error in processing request"
 msgstr "Hiba a kérés feldolgozásában"
 
-#: js/messages.php:373
+#: js/messages.php:376
 #, php-format
 msgid "Error code: %s"
 msgstr "Hibakód: %s"
 
-#: js/messages.php:374
+#: js/messages.php:377
 #, php-format
 msgid "Error text: %s"
 msgstr "Hibaüzenet: %s"
 
-#: js/messages.php:376
+#: js/messages.php:379
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -1713,25 +1718,25 @@ msgstr ""
 "A kapcsolat megszűnt a szerverrel. Ellenőrizni kell a hálózati kapcsolatot "
 "és a szerver állapotot."
 
-#: js/messages.php:379
+#: js/messages.php:382
 #: libraries/classes/Controllers/Server/DatabasesController.php:211
 #: libraries/db_common.inc.php:78 libraries/db_table_exists.inc.php:35
 msgid "No databases selected."
 msgstr "Nincs kiválasztott adatbázis."
 
-#: js/messages.php:380
+#: js/messages.php:383
 msgid "No accounts selected."
 msgstr "Nem hozzáférés kijelölve."
 
-#: js/messages.php:381
+#: js/messages.php:384
 msgid "Dropping column"
 msgstr "Oszlop eldobása"
 
-#: js/messages.php:382
+#: js/messages.php:385
 msgid "Adding primary key"
 msgstr "Elsődleges kulcs hozzáadása"
 
-#: js/messages.php:383 templates/database/designer/main.twig:378
+#: js/messages.php:386 templates/database/designer/main.twig:378
 #: templates/database/designer/main.twig:703
 #: templates/database/designer/main.twig:767
 #: templates/database/designer/main.twig:906
@@ -1741,61 +1746,61 @@ msgstr "Elsődleges kulcs hozzáadása"
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:384
+#: js/messages.php:387
 msgid "Click to dismiss this notification"
 msgstr "Kattintson az értesítés elutasításához"
 
-#: js/messages.php:387
+#: js/messages.php:390
 msgid "Renaming databases"
 msgstr "Adatbázisok átnevezése"
 
-#: js/messages.php:388
+#: js/messages.php:391
 msgid "Copying database"
 msgstr "Adatbázis másolása"
 
-#: js/messages.php:389
+#: js/messages.php:392
 msgid "Changing charset"
 msgstr "Karakterkészlet megváltoztatása"
 
-#: js/messages.php:393 templates/fk_checkbox.twig:4
+#: js/messages.php:396 templates/fk_checkbox.twig:4
 msgid "Enable foreign key checks"
 msgstr "Idegen kulcsok ellenőrzésének engedélyezése"
 
-#: js/messages.php:396
+#: js/messages.php:399
 msgid "Failed to get real row count."
 msgstr "A valódi sorok számának lekérése sikertelen."
 
-#: js/messages.php:399
+#: js/messages.php:402
 msgid "Searching"
 msgstr "Keresés"
 
-#: js/messages.php:400
+#: js/messages.php:403
 msgid "Hide search results"
 msgstr "Keresési eredmények elrejtése"
 
-#: js/messages.php:401
+#: js/messages.php:404
 msgid "Show search results"
 msgstr "Keresési eredmények megjelenítése"
 
-#: js/messages.php:402
+#: js/messages.php:405
 msgid "Browsing"
 msgstr "Böngészés"
 
-#: js/messages.php:403
+#: js/messages.php:406
 msgid "Deleting"
 msgstr "Törlés"
 
-#: js/messages.php:404
+#: js/messages.php:407
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Törli a találatokat a %s táblában?"
 
-#: js/messages.php:408
+#: js/messages.php:411
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "A tárolt függvény meghatározásának tqartalmaznia kell VISSZATÉRÉSI utasítást!"
 
-#: js/messages.php:409 libraries/classes/Config/Forms/User/ExportForm.php:158
+#: js/messages.php:412 libraries/classes/Config/Forms/User/ExportForm.php:158
 #: libraries/classes/Display/Results.php:4724
 #: libraries/classes/Display/Results.php:4970 libraries/classes/Menu.php:391
 #: libraries/classes/Menu.php:499 libraries/classes/Menu.php:628
@@ -1806,54 +1811,54 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3725 libraries/classes/Util.php:3432
 #: libraries/classes/Util.php:3433 libraries/classes/Util.php:4190
 #: libraries/classes/Util.php:4205 libraries/classes/Util.php:4222
-#: prefs_manage.php:302 templates/server/status/monitor/index.twig:63
+#: prefs_manage.php:302 templates/server/status/monitor/index.twig:81
 #: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "Exportálás"
 
-#: js/messages.php:411
+#: js/messages.php:414
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Nincs exportálható eljárás. Talán hiányoznak a szükséges jogosultságok."
 
-#: js/messages.php:414 libraries/classes/Rte/Routines.php:825
+#: js/messages.php:417 libraries/classes/Rte/Routines.php:825
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET szerkesztő"
 
-#: js/messages.php:415
+#: js/messages.php:418
 #, php-format
 msgid "Values for column %s"
 msgstr "„%s” oszlop értékei"
 
-#: js/messages.php:416
+#: js/messages.php:419
 msgid "Values for a new column"
 msgstr "Az új oszlop értékei"
 
-#: js/messages.php:417
+#: js/messages.php:420
 msgid "Enter each value in a separate field."
 msgstr "Minden értéket külön mezőben adjon meg."
 
-#: js/messages.php:418
+#: js/messages.php:421
 #, php-format
 msgid "Add %d value(s)"
 msgstr "%d érték hozzáadása"
 
-#: js/messages.php:422
+#: js/messages.php:425
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Megjegyzés: Ha a fájl több táblát tartalmaz, akkor azok egyesítve lesznek."
 
-#: js/messages.php:426
+#: js/messages.php:429
 msgid "Hide query box"
 msgstr "SQL-lekérdezési panelek elrejtése"
 
-#: js/messages.php:427
+#: js/messages.php:430
 msgid "Show query box"
 msgstr "Lekérdezési doboz megjelenítése"
 
-#: js/messages.php:428 libraries/classes/CentralColumns.php:932
+#: js/messages.php:431 libraries/classes/CentralColumns.php:932
 #: libraries/classes/Config/Descriptions.php:828
 #: libraries/classes/Display/Results.php:3254
 #: libraries/classes/Display/Results.php:4699 libraries/classes/Index.php:742
@@ -1869,7 +1874,7 @@ msgstr "Lekérdezési doboz megjelenítése"
 msgid "Edit"
 msgstr "Módosítás"
 
-#: js/messages.php:429 libraries/classes/CentralColumns.php:939
+#: js/messages.php:432 libraries/classes/CentralColumns.php:939
 #: libraries/classes/Display/Results.php:3331
 #: libraries/classes/Display/Results.php:4688
 #: libraries/classes/Server/UserGroups.php:148
@@ -1883,47 +1888,47 @@ msgstr "Módosítás"
 msgid "Delete"
 msgstr "Törlés"
 
-#: js/messages.php:430 templates/display/results/table_navigation.twig:42
+#: js/messages.php:433 templates/display/results/table_navigation.twig:42
 #: templates/display/results/table_navigation.twig:44
 #, php-format
 msgid "%d is not valid row number."
 msgstr "A(z) %d érvénytelen sorszám."
 
-#: js/messages.php:431
+#: js/messages.php:434
 #: libraries/classes/Controllers/Table/SearchController.php:375
 #: libraries/classes/Controllers/Table/SearchController.php:929
 #: tbl_change.php:161 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "Az idegen kulcsok böngészése"
 
-#: js/messages.php:432
+#: js/messages.php:435
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: js/messages.php:433
+#: js/messages.php:436
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: js/messages.php:434
+#: js/messages.php:437
 #, php-format
 msgid "Variable %d:"
 msgstr "%d. változó:"
 
-#: js/messages.php:437 libraries/classes/Normalization.php:979
+#: js/messages.php:440 libraries/classes/Normalization.php:979
 msgid "Pick"
 msgstr "Kiválasztás"
 
-#: js/messages.php:438
+#: js/messages.php:441
 msgid "Column selector"
 msgstr "Oszlopkiválasztó"
 
-#: js/messages.php:439
+#: js/messages.php:442
 msgid "Search this list"
 msgstr "Keresés a listában"
 
-#: js/messages.php:441
+#: js/messages.php:444
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1933,15 +1938,15 @@ msgstr ""
 "adatbázis központi oszlopainak listája tartalmaz-e olyan oszlopokat, amelyek "
 "nincsenek a jelenlegi táblában."
 
-#: js/messages.php:444
+#: js/messages.php:447
 msgid "See more"
 msgstr "Több megtekintése"
 
-#: js/messages.php:445
+#: js/messages.php:448
 msgid "Are you sure?"
 msgstr "Biztos benne?"
 
-#: js/messages.php:447
+#: js/messages.php:450
 #, fuzzy
 #| msgid ""
 #| "This action may change some of the columns definition.<br/>Are you sure "
@@ -1953,53 +1958,53 @@ msgstr ""
 "Ez a művelet megváltoztathatja néhány oszlop meghatározását.<br/>Biztosan "
 "folytatni szeretné?"
 
-#: js/messages.php:450
+#: js/messages.php:453
 msgid "Continue"
 msgstr "Folytatás"
 
-#: js/messages.php:453
+#: js/messages.php:456
 msgid "Add primary key"
 msgstr "Elsődleges kulcs hozzáadása"
 
-#: js/messages.php:454
+#: js/messages.php:457
 msgid "Primary key added."
 msgstr "Elsődleges kulcs hozzáadva."
 
-#: js/messages.php:455 libraries/classes/Normalization.php:249
+#: js/messages.php:458 libraries/classes/Normalization.php:249
 msgid "Taking you to next step…"
 msgstr "Átvitel a következő lépésre…"
 
-#: js/messages.php:457
+#: js/messages.php:460
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "A normalizálás első lépése befejeződött a következő táblánál: „%s”."
 
-#: js/messages.php:458 libraries/classes/Normalization.php:511
+#: js/messages.php:461 libraries/classes/Normalization.php:511
 #: libraries/classes/Normalization.php:559
 #: libraries/classes/Normalization.php:650
 #: libraries/classes/Normalization.php:715
 msgid "End of step"
 msgstr "Lépés vége"
 
-#: js/messages.php:459
+#: js/messages.php:462
 msgid "Second step of normalization (2NF)"
 msgstr "A normalizálás második lépése (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:460 js/messages.php:786
+#: js/messages.php:463 js/messages.php:789
 #: libraries/classes/Normalization.php:344
 msgid "Done"
 msgstr "Kész"
 
-#: js/messages.php:461
+#: js/messages.php:464
 msgid "Confirm partial dependencies"
 msgstr "Részleges függőségek megerősítése"
 
-#: js/messages.php:462
+#: js/messages.php:465
 msgid "Selected partial dependencies are as follows:"
 msgstr "A kijelölt részleges függőségek a következők:"
 
-#: js/messages.php:464
+#: js/messages.php:467
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -2007,21 +2012,21 @@ msgstr ""
 "Megjegyzés: a, b -> d,f azt jelenti, hogy az „a” és „b” oszlopok értékei "
 "együtt meghatározzák a „d” és „f” oszlopok értékét."
 
-#: js/messages.php:467
+#: js/messages.php:470
 msgid "No partial dependencies selected!"
 msgstr "Nincsenek részleges függőségek kiválasztva!"
 
-#: js/messages.php:470
+#: js/messages.php:473
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Mutassa meg a táblában lévő adatok alapján a lehetséges részleges "
 "függőségeket"
 
-#: js/messages.php:471
+#: js/messages.php:474
 msgid "Hide partial dependencies list"
 msgstr "Részleges függőségek listájának elrejtése"
 
-#: js/messages.php:473
+#: js/messages.php:476
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -2029,40 +2034,40 @@ msgstr ""
 "Maradjon ülve! Az adatok méretétől és a tábla oszlopszámától függően "
 "eltarthat néhány másodpercig."
 
-#: js/messages.php:476
+#: js/messages.php:479
 msgid "Step"
 msgstr "Lépés"
 
-#: js/messages.php:478
+#: js/messages.php:481
 msgid "The following actions will be performed:"
 msgstr "A következő műveletek lesznek végrehajtva:"
 
-#: js/messages.php:479
+#: js/messages.php:482
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "%s oszlopok ELDOBÁSA a következő táblából: %s"
 
-#: js/messages.php:480
+#: js/messages.php:483
 msgid "Create the following table"
 msgstr "A következő tábla létrehozása"
 
-#: js/messages.php:483
+#: js/messages.php:486
 msgid "Third step of normalization (3NF)"
 msgstr "A normalizálás harmadik lépése (3NF)"
 
-#: js/messages.php:484
+#: js/messages.php:487
 msgid "Confirm transitive dependencies"
 msgstr "Tranzitív függőségek megerősítése"
 
-#: js/messages.php:485
+#: js/messages.php:488
 msgid "Selected dependencies are as follows:"
 msgstr "A kijelölt függőségek a következők:"
 
-#: js/messages.php:486
+#: js/messages.php:489
 msgid "No dependencies selected!"
 msgstr "Nincsenek függőségek kiválasztva!"
 
-#: js/messages.php:489 libraries/classes/CentralColumns.php:956
+#: js/messages.php:492 libraries/classes/CentralColumns.php:956
 #: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:216
@@ -2072,156 +2077,156 @@ msgstr "Nincsenek függőségek kiválasztva!"
 msgid "Save"
 msgstr "Mentés"
 
-#: js/messages.php:492
+#: js/messages.php:495
 msgid "Hide search criteria"
 msgstr "Keresési kritériumok elrejtése"
 
-#: js/messages.php:493
+#: js/messages.php:496
 msgid "Show search criteria"
 msgstr "Keresési kritériumok megjelenítése"
 
-#: js/messages.php:494
+#: js/messages.php:497
 msgid "Range search"
 msgstr "Tartomány keresés"
 
-#: js/messages.php:495
+#: js/messages.php:498
 msgid "Column maximum:"
 msgstr "Oszlop maximum:"
 
-#: js/messages.php:496
+#: js/messages.php:499
 msgid "Column minimum:"
 msgstr "Oszlop minimum:"
 
-#: js/messages.php:497
+#: js/messages.php:500
 msgid "Minimum value:"
 msgstr "Legkisebb érték:"
 
-#: js/messages.php:498
+#: js/messages.php:501
 msgid "Maximum value:"
 msgstr "Legnagyobb érték:"
 
-#: js/messages.php:501
+#: js/messages.php:504
 msgid "Hide find and replace criteria"
 msgstr "Keresési és csere kritériumok elrejtése"
 
-#: js/messages.php:502
+#: js/messages.php:505
 msgid "Show find and replace criteria"
 msgstr "Keresési és csere kritériumok megjelenítése"
 
-#: js/messages.php:506
+#: js/messages.php:509
 msgid "Each point represents a data row."
 msgstr "Minden pont egy adatsort ábrázol."
 
-#: js/messages.php:508
+#: js/messages.php:511
 msgid "Hovering over a point will show its label."
 msgstr "Egy pont fölé mutatás megjeleníti annak címkéjét."
 
-#: js/messages.php:510
+#: js/messages.php:513
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "A nagyításhoz jelöljön ki egy területet az egérrel."
 
-#: js/messages.php:512
+#: js/messages.php:515
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Kattints a nagyítás visszaállítása gombra, hogy visszatérj az eredeti "
 "állapotra."
 
-#: js/messages.php:514
+#: js/messages.php:517
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Kattintson az adat területére a megjelenítéshez és a rekord esetleges "
 "szerkesztéséhez."
 
-#: js/messages.php:516
+#: js/messages.php:519
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "A terület a jobb alsó sarok húzásával átméretezhető."
 
-#: js/messages.php:519
+#: js/messages.php:522
 msgid "Select two columns"
 msgstr "Válasszon két oszlopot"
 
-#: js/messages.php:521
+#: js/messages.php:524
 msgid "Select two different columns"
 msgstr "Válasszon két különböző oszlopot"
 
-#: js/messages.php:523
+#: js/messages.php:526
 msgid "Data point content"
 msgstr "Adatmutató tartalma"
 
-#: js/messages.php:526 js/messages.php:694 js/messages.php:711
+#: js/messages.php:529 js/messages.php:697 js/messages.php:714
 #: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:3033
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Kihagyás"
 
-#: js/messages.php:527 libraries/classes/Display/Results.php:3258
+#: js/messages.php:530 libraries/classes/Display/Results.php:3258
 #: libraries/classes/Display/Results.php:4707 libraries/classes/Util.php:310
 msgid "Copy"
 msgstr "Másolás"
 
-#: js/messages.php:528 templates/gis_data_editor_form.twig:73
+#: js/messages.php:531 templates/gis_data_editor_form.twig:73
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
 msgid "X"
 msgstr "X"
 
-#: js/messages.php:529 templates/gis_data_editor_form.twig:75
+#: js/messages.php:532 templates/gis_data_editor_form.twig:75
 #: templates/gis_data_editor_form.twig:95
 #: templates/gis_data_editor_form.twig:136
 #: templates/gis_data_editor_form.twig:188
 msgid "Y"
 msgstr "Y"
 
-#: js/messages.php:530
+#: js/messages.php:533
 msgid "Point"
 msgstr "Pont"
 
-#: js/messages.php:531
+#: js/messages.php:534
 #, php-format
 msgid "Point %d"
 msgstr "%d. pont"
 
-#: js/messages.php:532
+#: js/messages.php:535
 msgid "Linestring"
 msgstr "Karakterlánc"
 
-#: js/messages.php:533
+#: js/messages.php:536
 msgid "Polygon"
 msgstr "Sokszög"
 
-#: js/messages.php:534 templates/display/results/options_block.twig:83
+#: js/messages.php:537 templates/display/results/options_block.twig:83
 msgid "Geometry"
 msgstr "Geometria"
 
-#: js/messages.php:535
+#: js/messages.php:538
 msgid "Inner ring"
 msgstr "Belső gyűrű"
 
-#: js/messages.php:536
+#: js/messages.php:539
 msgid "Outer ring"
 msgstr "Külső gyűrű"
 
-#: js/messages.php:537 templates/gis_data_editor_form.twig:98
+#: js/messages.php:540 templates/gis_data_editor_form.twig:98
 #: templates/gis_data_editor_form.twig:139
 #: templates/gis_data_editor_form.twig:191
 msgid "Add a point"
 msgstr "Pont hozzáadása"
 
-#: js/messages.php:538 templates/gis_data_editor_form.twig:143
+#: js/messages.php:541 templates/gis_data_editor_form.twig:143
 #: templates/gis_data_editor_form.twig:194
 msgid "Add an inner ring"
 msgstr "Belső gyűrű hozzáadása"
 
-#: js/messages.php:540
+#: js/messages.php:543
 msgid "Do you want to copy encryption key?"
 msgstr "Szeretné másolni a titkosítási kulcsot?"
 
-#: js/messages.php:541
+#: js/messages.php:544
 msgid "Encryption key"
 msgstr "Titkosítási kulcs"
 
-#: js/messages.php:545
+#: js/messages.php:548
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -2229,7 +2234,7 @@ msgstr ""
 "A MySQL elfogad a csúszkával nem kiválasztható értékeket is, gépeljük be "
 "közvetlenül a kívánt értékeket szükség esetén."
 
-#: js/messages.php:551
+#: js/messages.php:554
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -2237,7 +2242,7 @@ msgstr ""
 "A MySQL elfogad olyan értékeket is, amelyek nem állíthatók be a "
 "dátumválasztóval - ezeket begépelheted"
 
-#: js/messages.php:557
+#: js/messages.php:560
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -2245,24 +2250,24 @@ msgstr ""
 "Azt jelzi, hogy módosításokat végzett ezen az oldalon; megerősítést fog "
 "kérni a módosítások elhagyása előtt"
 
-#: js/messages.php:562
+#: js/messages.php:565
 msgid "Select referenced key"
 msgstr "Válassza ki a hivatkozott kulcsot"
 
-#: js/messages.php:563
+#: js/messages.php:566
 msgid "Select Foreign Key"
 msgstr "Idegen kulcs kiválasztása"
 
-#: js/messages.php:565
+#: js/messages.php:568
 msgid "Please select the primary key or a unique key!"
 msgstr "Válassza ki az elsődleges kulcsot vagy egy egyedi kulcsot!"
 
-#: js/messages.php:566 templates/database/designer/main.twig:100
+#: js/messages.php:569 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "Válassza ki a megjelenítendő oszlopot"
 
-#: js/messages.php:568
+#: js/messages.php:571
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2270,85 +2275,85 @@ msgstr ""
 "Nem mentette a változtatásokat az elrendezésben. Mentés nélkül ezek el "
 "fognak veszni. Így is folytatni szeretné?"
 
-#: js/messages.php:571
+#: js/messages.php:574
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: js/messages.php:572 templates/database/designer/main.twig:42
+#: js/messages.php:575 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 msgid "Add tables from other databases"
 msgstr "Tábla hozzáadása más adatbázisból"
 
-#: js/messages.php:573
+#: js/messages.php:576
 msgid "Page name"
 msgstr "Oldal neve"
 
-#: js/messages.php:574 templates/database/designer/main.twig:65
+#: js/messages.php:577 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "Oldal mentése"
 
-#: js/messages.php:575 templates/database/designer/main.twig:72
+#: js/messages.php:578 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 msgid "Save page as"
 msgstr "Oldal mentése másként"
 
-#: js/messages.php:576 templates/database/designer/main.twig:58
+#: js/messages.php:579 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "Oldal megnyitása"
 
-#: js/messages.php:577
+#: js/messages.php:580
 msgid "Delete page"
 msgstr "Oldal törlése"
 
-#: js/messages.php:578 templates/database/designer/main.twig:12
+#: js/messages.php:581 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "Névtelen"
 
-#: js/messages.php:579
+#: js/messages.php:582
 msgid "Please select a page to continue"
 msgstr "Válasszon egy oldalt a folytatáshoz"
 
-#: js/messages.php:580
+#: js/messages.php:583
 msgid "Please enter a valid page name"
 msgstr "Adjon meg egy érvényes oszlopnevet"
 
-#: js/messages.php:582
+#: js/messages.php:585
 msgid "Do you want to save the changes to the current page?"
 msgstr "Szeretné menteni a jelenlegi oldal módosításait?"
 
-#: js/messages.php:583
+#: js/messages.php:586
 msgid "Successfully deleted the page"
 msgstr "Az oldal sikeresen törölve"
 
-#: js/messages.php:584
+#: js/messages.php:587
 msgid "Export relational schema"
 msgstr "Kapcsolati séma exportálása"
 
-#: js/messages.php:585
+#: js/messages.php:588
 msgid "Modifications have been saved"
 msgstr "A módosítások mentése megtörtént"
 
-#: js/messages.php:588
+#: js/messages.php:591
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Lehetőség hozzáadása a következő oszlophoz: „%s”."
 
-#: js/messages.php:589
+#: js/messages.php:592
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objektum létrehozva."
 
-#: js/messages.php:590 libraries/classes/SqlQueryForm.php:430
+#: js/messages.php:593 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
 msgstr "Indítás"
 
-#: js/messages.php:593
+#: js/messages.php:596
 msgid "Press escape to cancel editing."
 msgstr "Nyomja meg az Escape billentyűt a szerkesztés megszakításához."
 
-#: js/messages.php:595
+#: js/messages.php:598
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2356,15 +2361,15 @@ msgstr ""
 "Egy vagy több adat szerkesztve lett de nem lett még elmentve. Biztos benne, "
 "hogy mentés nélkül kívánja elhagyni az oldalt?"
 
-#: js/messages.php:598
+#: js/messages.php:601
 msgid "Drag to reorder."
 msgstr "Húzza az elemeket az újrarendezéshez."
 
-#: js/messages.php:599
+#: js/messages.php:602
 msgid "Click to sort results by this column."
 msgstr "Kattintson az eredmények rendezéséhez ezen oszlop szerint."
 
-#: js/messages.php:601
+#: js/messages.php:604
 #, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
@@ -2379,15 +2384,15 @@ msgstr ""
 "DESC váltogatása.<br />- Oszlop eltávolítása az ORDER BY kikötésből Ctrl"
 "+kattintás vagy Alt+kattintás (Mac: Shift+Option+kattintás) használatával"
 
-#: js/messages.php:605
+#: js/messages.php:608
 msgid "Click to mark/unmark."
 msgstr "Kattintson a kijelöléshez / kijelölés megszüntetéséhez."
 
-#: js/messages.php:606
+#: js/messages.php:609
 msgid "Double-click to copy column name."
 msgstr "Az oszlopnév másolásához kattintson duplán."
 
-#: js/messages.php:608
+#: js/messages.php:611
 #, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
@@ -2395,14 +2400,14 @@ msgstr ""
 "Kattintson a legördülő nyílra<br />az oszlop láthatóságának ki/"
 "bekapcsolásához."
 
-#: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
+#: js/messages.php:613 libraries/classes/BrowseForeigners.php:353
 #: templates/table/browse_foreigners/show_all.twig:4
 #: templates/display/results/table_navigation.twig:19
 #: templates/server/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "Összes megjelenítése"
 
-#: js/messages.php:612
+#: js/messages.php:615
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2411,13 +2416,13 @@ msgstr ""
 "rendelt funkciók mint Szerkesztés, Másolás és Törlés nem feltétlenül lesznek "
 "elérhetők mentés után."
 
-#: js/messages.php:616
+#: js/messages.php:619
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Adjon meg egy érvényes hexadecimális szöveget. Az érvényes karakterek: 0-9, "
 "A-F."
 
-#: js/messages.php:618
+#: js/messages.php:621
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2425,106 +2430,106 @@ msgstr ""
 "Valóban meg szeretné nézni az összes sort? Egy nagy tábla esetén ez "
 "összeomlaszthatja a böngészőt."
 
-#: js/messages.php:621
+#: js/messages.php:624
 msgid "Original length"
 msgstr "Eredeti hossz"
 
-#: js/messages.php:624
+#: js/messages.php:627
 msgid "cancel"
 msgstr "mégse"
 
-#: js/messages.php:625
+#: js/messages.php:628
 #: libraries/classes/Controllers/Server/Status/StatusController.php:198
 msgid "Aborted"
 msgstr "Megszakítva"
 
-#: js/messages.php:627
+#: js/messages.php:630
 msgid "Success"
 msgstr "Sikerült"
 
-#: js/messages.php:628
+#: js/messages.php:631
 msgid "Import status"
 msgstr "Importálás állapota"
 
-#: js/messages.php:629 libraries/classes/Navigation/Navigation.php:134
+#: js/messages.php:632 libraries/classes/Navigation/Navigation.php:134
 msgid "Drop files here"
 msgstr "Ejtse ide a fájlokat"
 
-#: js/messages.php:630
+#: js/messages.php:633
 msgid "Select database first"
 msgstr "Először válasszon adatbázist"
 
-#: js/messages.php:633 libraries/classes/Display/Results.php:4862
+#: js/messages.php:636 libraries/classes/Display/Results.php:4862
 #: libraries/classes/Util.php:4085
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/display_structure.twig:380
 msgid "Print"
 msgstr "Nyomtatás"
 
-#: js/messages.php:640
+#: js/messages.php:643
 #, fuzzy
 #| msgid ""
 #| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "Az elemek nagy része szerkeszthetővé válik<br />dupla kattintással."
 
-#: js/messages.php:645
+#: js/messages.php:648
 #, fuzzy
 #| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "Az elem szerkeszthetővé <br />válik kattintással."
 
-#: js/messages.php:651
+#: js/messages.php:654
 msgid "Go to link:"
 msgstr "Ugrás a hivatkozáshoz:"
 
-#: js/messages.php:652
+#: js/messages.php:655
 msgid "Copy column name."
 msgstr "Oszlopnév másolása."
 
-#: js/messages.php:654
+#: js/messages.php:657
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "A vágólapra való másoláshoz kattintson jobb egérgombbal az oszlop nevére."
 
-#: js/messages.php:657
+#: js/messages.php:660
 msgid "Generate password"
 msgstr "Jelszó generálása"
 
-#: js/messages.php:658 libraries/classes/ReplicationGui.php:919
+#: js/messages.php:661 libraries/classes/ReplicationGui.php:919
 msgid "Generate"
 msgstr "Generálás"
 
-#: js/messages.php:662 templates/table/structure/display_structure.twig:124
+#: js/messages.php:665 templates/table/structure/display_structure.twig:124
 msgid "More"
 msgstr "Több"
 
-#: js/messages.php:665
+#: js/messages.php:668
 msgid "Show panel"
 msgstr "Panel megjelenítése"
 
-#: js/messages.php:666
+#: js/messages.php:669
 msgid "Hide panel"
 msgstr "Panel elrejtése"
 
-#: js/messages.php:667
+#: js/messages.php:670
 msgid "Show hidden navigation tree items."
 msgstr "Rejtett navigációs faszerkezet elemeinek megjelenítése."
 
-#: js/messages.php:668 libraries/classes/Config/Descriptions.php:486
+#: js/messages.php:671 libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Navigation/NavigationTree.php:1448
 msgid "Link with main panel"
 msgstr "Hozzákapcsolás a fő panelhez"
 
-#: js/messages.php:669 libraries/classes/Navigation/NavigationTree.php:1451
+#: js/messages.php:672 libraries/classes/Navigation/NavigationTree.php:1451
 msgid "Unlink from main panel"
 msgstr "Eltávolítás a fő panelről"
 
-#: js/messages.php:673
+#: js/messages.php:676
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "A kért oldal nem található az Előzményekben, talán már lejárt."
 
-#: js/messages.php:677 setup/lib/Index.php:177
+#: js/messages.php:680 setup/lib/Index.php:177
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2534,42 +2539,42 @@ msgstr ""
 "%s, kiadás dátuma: %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:681
+#: js/messages.php:684
 msgid ", latest stable version:"
 msgstr ", utolsó stabil verzió:"
 
-#: js/messages.php:682
+#: js/messages.php:685
 msgid "up to date"
 msgstr "friss"
 
-#: js/messages.php:684 libraries/classes/Display/Results.php:4796
+#: js/messages.php:687 libraries/classes/Display/Results.php:4796
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Nézet létrehozása"
 
-#: js/messages.php:687
+#: js/messages.php:690
 msgid "Send error report"
 msgstr "Hibajelentés küldése"
 
-#: js/messages.php:688
+#: js/messages.php:691
 msgid "Submit error report"
 msgstr "Hibajelentés beküldése"
 
-#: js/messages.php:690
+#: js/messages.php:693
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Végzetes JavaScript hiba történt. Szeretne hibajelentést küldeni?"
 
-#: js/messages.php:692
+#: js/messages.php:695
 msgid "Change report settings"
 msgstr "Jelentés beállításainak megváltoztatása"
 
-#: js/messages.php:693
+#: js/messages.php:696
 msgid "Show report details"
 msgstr "Jelentés részleteinek megjelenítése"
 
-#: js/messages.php:696
+#: js/messages.php:699
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -2577,7 +2582,7 @@ msgstr ""
 "Az exportálás nem teljes a PHP szinten lévő alacsony végrehajtási időkorlát "
 "miatt!"
 
-#: js/messages.php:700
+#: js/messages.php:703
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2587,71 +2592,71 @@ msgstr ""
 "Elküldéskor a mezők egy része mellőzve lehet a PHP max_input_vars beállítása "
 "miatt."
 
-#: js/messages.php:706 js/messages.php:719
+#: js/messages.php:709 js/messages.php:722
 msgid "Some errors have been detected on the server!"
 msgstr "Hibák észlelhetők a kiszolgálón!"
 
-#: js/messages.php:708
+#: js/messages.php:711
 msgid "Please look at the bottom of this window."
 msgstr "Nézze meg ennek az ablaknak az alját."
 
-#: js/messages.php:714 libraries/classes/ErrorHandler.php:386
+#: js/messages.php:717 libraries/classes/ErrorHandler.php:386
 msgid "Ignore All"
 msgstr "Összes mellőzése"
 
-#: js/messages.php:722
+#: js/messages.php:725
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "A beállítások szerint jelenleg elküldés alatt vannak, legyen türelemmel."
 
-#: js/messages.php:730
+#: js/messages.php:733
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Az oldal sikeresen törölve"
 
-#: js/messages.php:731
+#: js/messages.php:734
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Adatbázis másolása"
 
-#: js/messages.php:734
+#: js/messages.php:737
 msgid "Execute this query again?"
 msgstr "Végrehajtja ismét ezt a lekérdezést?"
 
-#: js/messages.php:736
+#: js/messages.php:739
 msgid "Do you really want to delete this bookmark?"
 msgstr "Valóban törölni szeretné ezt a könyvjelzőt?"
 
-#: js/messages.php:738
+#: js/messages.php:741
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Hibák történtek az SQL hibakeresési információk lekérése közben."
 
-#: js/messages.php:740
+#: js/messages.php:743
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s kérés került végrehajtásra %s alkalommal %s másodperc alatt."
 
-#: js/messages.php:741
+#: js/messages.php:744
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s argumentum került átadásra"
 
-#: js/messages.php:742
+#: js/messages.php:745
 msgid "Show arguments"
 msgstr "Argumentumok megjelenítése"
 
-#: js/messages.php:743
+#: js/messages.php:746
 msgid "Hide arguments"
 msgstr "Argumentumok elrejtése"
 
-#: js/messages.php:744
+#: js/messages.php:747
 msgid "Time taken:"
 msgstr "Felhasznált idő:"
 
-#: js/messages.php:745
+#: js/messages.php:748
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2666,376 +2671,376 @@ msgstr ""
 "adatok törlése\" segíthet. Safari böngészőnél ezt a hibát általában a privát "
 "módú böngészés okozza."
 
-#: js/messages.php:747
+#: js/messages.php:750
 msgid "Copy tables to"
 msgstr "Táblák másolása ide"
 
-#: js/messages.php:748
+#: js/messages.php:751
 msgid "Add table prefix"
 msgstr "Táblaelőtag hozzáadása"
 
-#: js/messages.php:749
+#: js/messages.php:752
 msgid "Replace table with prefix"
 msgstr "Tábla cseréje előtaggal"
 
-#: js/messages.php:750 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:753 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Tábla másolása előtaggal"
 
-#: js/messages.php:753
+#: js/messages.php:756
 msgid "Extremely weak"
 msgstr "Extrém gyenge"
 
-#: js/messages.php:754
+#: js/messages.php:757
 msgid "Very weak"
 msgstr "Nagyon gyenge"
 
-#: js/messages.php:755
+#: js/messages.php:758
 msgid "Weak"
 msgstr "Gyenge"
 
-#: js/messages.php:756
+#: js/messages.php:759
 msgid "Good"
 msgstr "Jó"
 
-#: js/messages.php:757
+#: js/messages.php:760
 msgid "Strong"
 msgstr "Erős"
 
-#: js/messages.php:760
+#: js/messages.php:763
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
-#: js/messages.php:761
+#: js/messages.php:764
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr ""
 
-#: js/messages.php:790
+#: js/messages.php:793
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Előző"
 
-#: js/messages.php:795
+#: js/messages.php:798
 msgctxt "Next month"
 msgid "Next"
 msgstr "Következő"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:798
+#: js/messages.php:801
 msgid "Today"
 msgstr "Ma"
 
-#: js/messages.php:802
+#: js/messages.php:805
 msgid "January"
 msgstr "Január"
 
-#: js/messages.php:803
+#: js/messages.php:806
 msgid "February"
 msgstr "Február"
 
-#: js/messages.php:804
+#: js/messages.php:807
 msgid "March"
 msgstr "Március"
 
-#: js/messages.php:805
+#: js/messages.php:808
 msgid "April"
 msgstr "Április"
 
-#: js/messages.php:806
+#: js/messages.php:809
 msgid "May"
 msgstr "Május"
 
-#: js/messages.php:807
+#: js/messages.php:810
 msgid "June"
 msgstr "Június"
 
-#: js/messages.php:808
+#: js/messages.php:811
 msgid "July"
 msgstr "Július"
 
-#: js/messages.php:809
+#: js/messages.php:812
 msgid "August"
 msgstr "Augusztus"
 
-#: js/messages.php:810
+#: js/messages.php:813
 msgid "September"
 msgstr "Szeptember"
 
-#: js/messages.php:811
+#: js/messages.php:814
 msgid "October"
 msgstr "Október"
 
-#: js/messages.php:812
+#: js/messages.php:815
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:813
+#: js/messages.php:816
 msgid "December"
 msgstr "December"
 
 #. l10n: Short month name
-#: js/messages.php:820 libraries/classes/Util.php:1542
+#: js/messages.php:823 libraries/classes/Util.php:1542
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:822 libraries/classes/Util.php:1544
+#: js/messages.php:825 libraries/classes/Util.php:1544
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1546
+#: js/messages.php:827 libraries/classes/Util.php:1546
 msgid "Mar"
 msgstr "Már"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1548
+#: js/messages.php:829 libraries/classes/Util.php:1548
 msgid "Apr"
 msgstr "Ápr"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1550
+#: js/messages.php:831 libraries/classes/Util.php:1550
 msgctxt "Short month name"
 msgid "May"
 msgstr "Máj"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1552
+#: js/messages.php:833 libraries/classes/Util.php:1552
 msgid "Jun"
 msgstr "Jún"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1554
+#: js/messages.php:835 libraries/classes/Util.php:1554
 msgid "Jul"
 msgstr "Júl"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1556
+#: js/messages.php:837 libraries/classes/Util.php:1556
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1558
+#: js/messages.php:839 libraries/classes/Util.php:1558
 msgid "Sep"
 msgstr "Sze"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1560
+#: js/messages.php:841 libraries/classes/Util.php:1560
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1562
+#: js/messages.php:843 libraries/classes/Util.php:1562
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:842 libraries/classes/Util.php:1564
+#: js/messages.php:845 libraries/classes/Util.php:1564
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:848
+#: js/messages.php:851
 msgid "Sunday"
 msgstr "Vasárnap"
 
-#: js/messages.php:849
+#: js/messages.php:852
 msgid "Monday"
 msgstr "Hétfő"
 
-#: js/messages.php:850
+#: js/messages.php:853
 msgid "Tuesday"
 msgstr "Kedd"
 
-#: js/messages.php:851
+#: js/messages.php:854
 msgid "Wednesday"
 msgstr "Szerda"
 
-#: js/messages.php:852
+#: js/messages.php:855
 msgid "Thursday"
 msgstr "Csütörtök"
 
-#: js/messages.php:853
+#: js/messages.php:856
 msgid "Friday"
 msgstr "Péntek"
 
-#: js/messages.php:854
+#: js/messages.php:857
 msgid "Saturday"
 msgstr "Szombat"
 
 #. l10n: Short week day name
-#: js/messages.php:861
+#: js/messages.php:864
 msgid "Sun"
 msgstr "Vas"
 
 #. l10n: Short week day name
-#: js/messages.php:863 libraries/classes/Util.php:1570
+#: js/messages.php:866 libraries/classes/Util.php:1570
 msgid "Mon"
 msgstr "Hét"
 
 #. l10n: Short week day name
-#: js/messages.php:865 libraries/classes/Util.php:1572
+#: js/messages.php:868 libraries/classes/Util.php:1572
 msgid "Tue"
 msgstr "Ked"
 
 #. l10n: Short week day name
-#: js/messages.php:867 libraries/classes/Util.php:1574
+#: js/messages.php:870 libraries/classes/Util.php:1574
 msgid "Wed"
 msgstr "Sze"
 
 #. l10n: Short week day name
-#: js/messages.php:869 libraries/classes/Util.php:1576
+#: js/messages.php:872 libraries/classes/Util.php:1576
 msgid "Thu"
 msgstr "Csü"
 
 #. l10n: Short week day name
-#: js/messages.php:871 libraries/classes/Util.php:1578
+#: js/messages.php:874 libraries/classes/Util.php:1578
 msgid "Fri"
 msgstr "Pén"
 
 #. l10n: Short week day name
-#: js/messages.php:873 libraries/classes/Util.php:1580
+#: js/messages.php:876 libraries/classes/Util.php:1580
 msgid "Sat"
 msgstr "Szo"
 
 #. l10n: Minimal week day name
-#: js/messages.php:880
+#: js/messages.php:883
 msgid "Su"
 msgstr "Va"
 
 #. l10n: Minimal week day name
-#: js/messages.php:882
+#: js/messages.php:885
 msgid "Mo"
 msgstr "Hé"
 
 #. l10n: Minimal week day name
-#: js/messages.php:884
+#: js/messages.php:887
 msgid "Tu"
 msgstr "Ke"
 
 #. l10n: Minimal week day name
-#: js/messages.php:886
+#: js/messages.php:889
 msgid "We"
 msgstr "Sze"
 
 #. l10n: Minimal week day name
-#: js/messages.php:888
+#: js/messages.php:891
 msgid "Th"
 msgstr "Cs"
 
 #. l10n: Minimal week day name
-#: js/messages.php:890
+#: js/messages.php:893
 msgid "Fr"
 msgstr "Pé"
 
 #. l10n: Minimal week day name
-#: js/messages.php:892
+#: js/messages.php:895
 msgid "Sa"
 msgstr "Szo"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:896
+#: js/messages.php:899
 msgid "Wk"
 msgstr "Hét"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:903
+#: js/messages.php:906
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:906
+#: js/messages.php:909
 msgctxt "Year suffix"
 msgid "none"
 msgstr "nincs"
 
-#: js/messages.php:918
+#: js/messages.php:921
 msgid "Hour"
 msgstr "Óra"
 
-#: js/messages.php:919
+#: js/messages.php:922
 msgid "Minute"
 msgstr "Perc"
 
-#: js/messages.php:920
+#: js/messages.php:923
 msgid "Second"
 msgstr "másodperc"
 
-#: js/messages.php:931
+#: js/messages.php:934
 msgid "This field is required"
 msgstr "Ez a mező kötelező"
 
-#: js/messages.php:932
+#: js/messages.php:935
 msgid "Please fix this field"
 msgstr "Javítsa ezt a mezőt"
 
-#: js/messages.php:933
+#: js/messages.php:936
 msgid "Please enter a valid email address"
 msgstr "Adjon meg egy érvényes e-mail címet"
 
-#: js/messages.php:934
+#: js/messages.php:937
 msgid "Please enter a valid URL"
 msgstr "Adjon meg egy érvényes URL-t"
 
-#: js/messages.php:935
+#: js/messages.php:938
 msgid "Please enter a valid date"
 msgstr "Adjon meg egy érvényes dátumot"
 
-#: js/messages.php:938
+#: js/messages.php:941
 msgid "Please enter a valid date ( ISO )"
 msgstr "Adjon meg egy érvényes dátumot (ISO)"
 
-#: js/messages.php:940
+#: js/messages.php:943
 msgid "Please enter a valid number"
 msgstr "Adjon meg egy érvényes számot"
 
-#: js/messages.php:943
+#: js/messages.php:946
 msgid "Please enter a valid credit card number"
 msgstr "Adjon meg egy érvényes hitelkártya számot"
 
-#: js/messages.php:945
+#: js/messages.php:948
 msgid "Please enter only digits"
 msgstr "Csak számjegyeket adjon meg"
 
-#: js/messages.php:948
+#: js/messages.php:951
 msgid "Please enter the same value again"
 msgstr "Adja meg ismét ugyanazt az értéket"
 
-#: js/messages.php:952
+#: js/messages.php:955
 msgid "Please enter no more than {0} characters"
 msgstr "Ne adjon meg {0} karakternél többet"
 
-#: js/messages.php:957
+#: js/messages.php:960
 msgid "Please enter at least {0} characters"
 msgstr "Adjon meg legalább {0} karaktert"
 
-#: js/messages.php:962
+#: js/messages.php:965
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Adjon meg egy {0} és {1} közé eső karakterszámú értéket"
 
-#: js/messages.php:967
+#: js/messages.php:970
 msgid "Please enter a value between {0} and {1}"
 msgstr "Adjon meg egy értéket {0} és {1} között"
 
-#: js/messages.php:972
+#: js/messages.php:975
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Adjon meg értéket, amely kisebb vagy egyenlő mint {0}"
 
-#: js/messages.php:977
+#: js/messages.php:980
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Adjon meg értéket, amely nagyobb vagy egyenlő mint {0}"
 
-#: js/messages.php:983
+#: js/messages.php:986
 msgid "Please enter a valid date or time"
 msgstr "Adjon meg egy érvényes dátumot vagy időt"
 
-#: js/messages.php:988
+#: js/messages.php:991
 msgid "Please enter a valid HEX input"
 msgstr "Adjon meg egy érvényes HEX bemenetet"
 
-#: js/messages.php:993 libraries/classes/Core.php:292
+#: js/messages.php:996 libraries/classes/Core.php:292
 #: libraries/classes/Import.php:119 libraries/classes/InsertEdit.php:1541
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:598
 #: view_operations.php:82
@@ -3108,7 +3113,7 @@ msgid "per minute"
 msgstr "percenként"
 
 #: libraries/classes/Advisor.php:634
-#: libraries/classes/Server/Status/Queries.php:107
+#: templates/server/status/queries/index.twig:34
 #: templates/server/status/status/index.twig:17
 #: templates/server/status/status/index.twig:37
 msgid "per hour"
@@ -3130,10 +3135,10 @@ msgstr "Kulcsnév"
 
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
-#: libraries/classes/Server/Status/Variables.php:232
 #: templates/server/engines/index.twig:10
 #: templates/server/plugins/index.twig:24
 #: templates/server/collations/index.twig:11
+#: templates/server/status/variables/index.twig:72
 msgid "Description"
 msgstr "Leírás"
 
@@ -5896,10 +5901,10 @@ msgid "Explain SQL"
 msgstr "Az SQL magyarázata"
 
 #: libraries/classes/Config/Descriptions.php:830
-#: libraries/classes/Export.php:520
-#: libraries/classes/Server/Status/Processes.php:256
-#: libraries/classes/Server/Status/Variables.php:52
-#: libraries/classes/Util.php:1183 templates/console/display.twig:99
+#: libraries/classes/Export.php:520 libraries/classes/Util.php:1183
+#: templates/server/status/processes/index.twig:9
+#: templates/console/display.twig:99
+#: templates/server/status/variables/index.twig:11
 msgid "Refresh"
 msgstr "Frissítés"
 
@@ -5962,8 +5967,9 @@ msgstr "Szövegdoboz sorai"
 msgid "Title of browser window when a database is selected."
 msgstr "A böngészőablak címe, amikor egy adatbázis ki van választva."
 
-#: libraries/classes/Config/Descriptions.php:854 libraries/classes/Menu.php:237
-#: libraries/classes/MultSubmits.php:411
+#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:120
+#: libraries/classes/Menu.php:237 libraries/classes/MultSubmits.php:411
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:157
 #: libraries/classes/Plugins/Export/ExportOdt.php:204
 #: libraries/classes/Plugins/Export/ExportTexytext.php:141
@@ -5972,7 +5978,6 @@ msgstr "A böngészőablak címe, amikor egy adatbázis ki van választva."
 #: libraries/classes/Server/Privileges.php:3499
 #: libraries/classes/Server/Privileges.php:3501
 #: libraries/classes/Server/Privileges.php:4734
-#: libraries/classes/Server/Status/Processes.php:105
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:167
 #: templates/console/bookmark_content.twig:7
@@ -5995,7 +6000,6 @@ msgid "Title of browser window when a server is selected."
 msgstr "A böngészőablak címe, amikor egy kiszolgáló ki van választva."
 
 #: libraries/classes/Config/Descriptions.php:858 libraries/classes/Menu.php:217
-#: libraries/classes/Server/Status/Data.php:441
 #: templates/server/status/base.twig:5
 msgid "Server"
 msgstr "Kiszolgáló"
@@ -6688,6 +6692,49 @@ msgstr "Összesen"
 msgid "Overhead"
 msgstr "Felülírás"
 
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:71
+#, php-format
+msgid "Thread %s was successfully killed."
+msgstr "Sikerült leállítani a(z) %s. szálat."
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:77
+#, php-format
+msgid ""
+"phpMyAdmin was unable to kill thread %s. It probably has already been closed."
+msgstr ""
+"A phpMyAdmin nem tudta leállítani a(z) %s szálat. Valószínűleg már "
+"befejeződött."
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:108
+msgid "ID"
+msgstr "Azonosító"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:112
+#: libraries/classes/Server/Privileges.php:4640
+#: libraries/classes/Server/UserGroups.php:51
+msgid "User"
+msgstr "Felhasználó"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:116
+#: libraries/classes/ReplicationGui.php:656
+#: libraries/classes/ReplicationGui.php:742
+#: libraries/classes/ReplicationGui.php:876
+msgid "Host"
+msgstr "Gép"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:124
+msgid "Command"
+msgstr "Parancs"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:136
+msgid "Progress"
+msgstr "Folyamat"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:140
+#: libraries/classes/Server/Status/Data.php:117
+msgid "SQL query"
+msgstr "SQL-lekérdezés"
+
 #: libraries/classes/Controllers/Server/Status/StatusController.php:87
 msgid "Received"
 msgstr "Fogadott"
@@ -6703,6 +6750,701 @@ msgstr "Max. egyidejű kapcsolatok"
 #: libraries/classes/Controllers/Server/Status/StatusController.php:182
 msgid "Failed attempts"
 msgstr "Sikertelen próbák"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:204
+msgid ""
+"The number of connections that were aborted because the client died without "
+"closing the connection properly."
+msgstr ""
+"A kapcsolatok száma, amelyek megszakadtak, mert a kliens kilépett anélkül, "
+"hogy megfelelően lezárta volna a kapcsolat."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:208
+msgid "The number of failed attempts to connect to the MySQL server."
+msgstr "A MySQL-kiszolgálóhoz való csatlakozás sikertelen kísérleteinek száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:211
+msgid ""
+"The number of transactions that used the temporary binary log cache but that "
+"exceeded the value of binlog_cache_size and used a temporary file to store "
+"statements from the transaction."
+msgstr ""
+"A tranzakciók száma, melyek az ideiglenes bináris naplógyorsítótárat "
+"használt, azonban az túllépte a binlog_cache_size méretet, és ideiglenes "
+"fájlt használt az utasítások tárolásához a tranzakcióból."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:216
+msgid "The number of transactions that used the temporary binary log cache."
+msgstr ""
+"Az ideiglenes bináris naplógyorsítótár által használt tranzakciók száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:219
+msgid ""
+"The number of connection attempts (successful or not) to the MySQL server."
+msgstr ""
+"A MySQL-kiszolgálóhoz való (sikeres vagy sikertelen) csatlakozás "
+"kísérleteinek száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:223
+msgid ""
+"The number of temporary tables on disk created automatically by the server "
+"while executing statements. If Created_tmp_disk_tables is big, you may want "
+"to increase the tmp_table_size  value to cause temporary tables to be memory-"
+"based instead of disk-based."
+msgstr ""
+"A szerver által az utasítások végrehajtásakor a lemezen automatikusan "
+"létrehozott ideiglenes táblák száma. Ha a Created_tmp_disk_tables értéke "
+"nagy, akkor növelheti a tmp_table_size értékét, mely az ideiglenes táblákból "
+"memóriaalapúakat csinál a lemezalapú helyett."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:230
+msgid "How many temporary files mysqld has created."
+msgstr "Ennyi ideiglenes fájlt hozott létre a mysqld."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:233
+msgid ""
+"The number of in-memory temporary tables created automatically by the server "
+"while executing statements."
+msgstr ""
+"A szerver által az utasítások végrehajtásakor automatikusan létrehozott, a "
+"memóriában tárolt ideiglenes táblák száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:237
+msgid ""
+"The number of rows written with INSERT DELAYED for which some error occurred "
+"(probably duplicate key)."
+msgstr ""
+"Az INSERT DELAYED utasítással írt sorok száma, melyeknél néhány hiba történt "
+"(valószínűleg ismétlődő kulcs)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
+msgid ""
+"The number of INSERT DELAYED handler threads in use. Every different table "
+"on which one uses INSERT DELAYED gets its own thread."
+msgstr ""
+"A használatban lévő INSERT DELAYED kezelőszálak száma. Minden eltérő "
+"táblának, melyen valaki INSERT DELAYED parancsot használ, saját szála lesz."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:246
+msgid "The number of INSERT DELAYED rows written."
+msgstr "A beírt INSERT DELAYED sorok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:249
+msgid "The number of executed FLUSH statements."
+msgstr "A végrehajtott FLUSH utasítások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:252
+msgid "The number of internal COMMIT statements."
+msgstr "A belső COMMIT utasítások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:255
+msgid "The number of times a row was deleted from a table."
+msgstr "Egy sornak a táblázatból történő törléseinek a száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+msgid ""
+"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
+"table with a given name. This is called discovery. Handler_discover "
+"indicates the number of time tables have been discovered."
+msgstr ""
+"A MySQL szerver meg tudja kérdezni az NDB fürt tárolómotortól, hogy ismeri a "
+"megadott nevű táblát. Ezt hívják felfedezésnek. A handler_discover jelzi a "
+"táblák felfedezésének számát."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:264
+msgid ""
+"The number of times the first entry was read from an index. If this is high, "
+"it suggests that the server is doing a lot of full index scans; for example, "
+"SELECT col1 FROM foo, assuming that col1 is indexed."
+msgstr ""
+"Az első bejegyzés egy indexből történő beolvasásainak száma. Ha ez magas, "
+"akkor ez azt sugallja, hogy a szerver sok teljes indexvizsgálatot végez; "
+"például a SELECT col1 FROM foo azt feltételezi, hogy a col1 kerül "
+"indexelésre."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
+msgid ""
+"The number of requests to read a row based on a key. If this is high, it is "
+"a good indication that your queries and tables are properly indexed."
+msgstr ""
+"Egy sor kulcs alapján történő beolvasási kéréseinek száma. Ha ez magas, "
+"akkor jól mutatja, hogy a lekérdezések és a táblák megfelelően indexeltek."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+msgid ""
+"The number of requests to read the next row in key order. This is "
+"incremented if you are querying an index column with a range constraint or "
+"if you are doing an index scan."
+msgstr ""
+"A kulcssorrendben a következő sort beolvasandó kérések száma. Ez növekszik, "
+"ha Ön tartománymegkötéses index oszlopot kérdez le, vagy ha indexvizsgálatot "
+"végez."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:280
+msgid ""
+"The number of requests to read the previous row in key order. This read "
+"method is mainly used to optimize ORDER BY … DESC."
+msgstr ""
+"A kulcssorrendben előző sort beolvasandó kérések száma. Ezt a beolvasási "
+"módszert főleg az ORDER BY … DESC optimalizálásához használják."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:284
+msgid ""
+"The number of requests to read a row based on a fixed position. This is high "
+"if you are doing a lot of queries that require sorting of the result. You "
+"probably have a lot of queries that require MySQL to scan whole tables or "
+"you have joins that don't use keys properly."
+msgstr ""
+"Egy sor beolvasásához szükséges kérések száma egy rögzített pozíció alapján. "
+"Ez magas, ha Ön sok, az eredmény rendezését igénylő lekérdezést hajt végre. "
+"Valószínűleg sok olyan lekérdezés van, s a MySQL-nek teljes táblákat kell "
+"megvizsgálnia, vagy a kulcsokat nem megfelelően használó illesztések vannak."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:291
+msgid ""
+"The number of requests to read the next row in the data file. This is high "
+"if you are doing a lot of table scans. Generally this suggests that your "
+"tables are not properly indexed or that your queries are not written to take "
+"advantage of the indexes you have."
+msgstr ""
+"Az adatfájlban lévő következő sor beolvasásához szükséges kérések száma. Ez "
+"magas, ha Ön sokszor vizsgálja át a táblákat. Ez általában azt javasolja, "
+"hogy a táblák nem megfelelően indexeltek, vagy a lekérdezések nincsenek írva "
+"az indexek kihasználása végett."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
+msgid "The number of internal ROLLBACK statements."
+msgstr "A belső ROLLBACK utasítások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
+msgid "The number of requests to update a row in a table."
+msgstr "A kérések száma egy táblában lévő sor frissítéséhez."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:304
+msgid "The number of requests to insert a row in a table."
+msgstr "A kérések száma egy táblában lévő sor beszúrásához."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:307
+msgid "The number of pages containing data (dirty or clean)."
+msgstr "Az adatokat tartalmazó lapok száma (piszkos vagy tiszta)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:310
+msgid "The number of pages currently dirty."
+msgstr "A jelenleg piszkos lapok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:313
+msgid "The number of buffer pool pages that have been requested to be flushed."
+msgstr "A pufferkészlet oldalainak száma, melyeket kiírásra kértek."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+msgid "The number of free pages."
+msgstr "A szabad lapok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:320
+msgid ""
+"The number of latched pages in InnoDB buffer pool. These are pages currently "
+"being read or written or that can't be flushed or removed for some other "
+"reason."
+msgstr ""
+"Az InnoDB pufferkészletében zárolt oldalak száma. Ezek az épp beolvasás vagy "
+"írás alatt lévő oldalak, melyeket bizonyos más okok miatt nem lehet kiírni "
+"vagy eltávolítani."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:325
+msgid ""
+"The number of pages busy because they have been allocated for administrative "
+"overhead such as row locks or the adaptive hash index. This value can also "
+"be calculated as Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+msgstr ""
+"A foglalt oldalak száma, mert le lettek foglalva adminisztratív "
+"többletterheléshez, mint például a sorzárolások vagy az adaptív hashindex. "
+"Ez az érték Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
+"Innodb_buffer_pool_pages_data értékként is számolható."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:332
+msgid "Total size of buffer pool, in pages."
+msgstr "A pufferkészlet teljes mérete lapokban."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:335
+msgid ""
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
+msgstr ""
+"Az InnoDB által kezdeményezett \"véletlenszerű\" előreolvasások száma. Ez "
+"akkor történik, ha egy lekérdezés meg akarja vizsgálni egy tábla nagy "
+"részét, viszont véletlenszerű sorrendben."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:340
+msgid ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+msgstr ""
+"Az InnoDB által kezdeményezett sorozatos előreolvasások száma. Ez akkor "
+"történik, mikor az InnoDB sorozatos teljes táblavizsgálatot tart."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
+msgid "The number of logical read requests InnoDB has done."
+msgstr "Az InnoDB által elvégzett logikai olvasási kérések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
+msgid ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+msgstr ""
+"A logikai olvasások száma, melyeket az InnoDB nem tudott a pufferkészletből "
+"kielégíteni, s egyoldalas beolvasást végzett."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:351
+msgid ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+msgstr ""
+"Normál esetben az InnoDB pufferkészletébe írások a háttérben történnek. Ha "
+"viszont be kell olvasni vagy létre kell hozni egy oldalt, s nincs több "
+"tiszta oldal, akkor várni kell az előbb kiírandó oldalakra. Ez a számláló "
+"számolja ezeknek a várakozásoknak az előfordulásait. Ha a pufferkészlet "
+"méretét megfelelően állították be, akkor ennek az értéknek kicsinek kell "
+"lennie."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+msgid "The number writes done to the InnoDB buffer pool."
+msgstr "Az InnoDB pufferkészletébe történt írások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+msgid "The number of fsync() operations so far."
+msgstr "Az fsync() műveletek eddigi száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
+msgid "The current number of pending fsync() operations."
+msgstr "A folyamatban lévő fsync() műveletek száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:368
+msgid "The current number of pending reads."
+msgstr "A folyamatban lévő olvasások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
+msgid "The current number of pending writes."
+msgstr "A folyamatban lévő írások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
+msgid "The amount of data read so far, in bytes."
+msgstr "Az eddig beolvasott adatok mennyisége bájtban."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+msgid "The total number of data reads."
+msgstr "Az összes beolvasott adat."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
+msgid "The total number of data writes."
+msgstr "Az összes írott adat."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:383
+msgid "The amount of data written so far, in bytes."
+msgstr "Az összes írott adat, bájtban."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
+msgid "The number of pages that have been written for doublewrite operations."
+msgstr ""
+"A végrehajtott duplaírásos írások száma, s az e célból kiírt oldalak száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
+msgid "The number of doublewrite operations that have been performed."
+msgstr ""
+"A végrehajtott duplaírásos írások száma, s az e célból kiírt oldalak száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+msgid ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+msgstr ""
+"Várakozások száma, amiket a naplópuffer kis mérete okozott és folytatás "
+"előtt meg kellett várni a kiírást."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
+msgid "The number of log write requests."
+msgstr "A naplóírási kérések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:400
+msgid "The number of physical writes to the log file."
+msgstr "A naplófájlba történt fizikai írások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:403
+msgid "The number of fsync() writes done to the log file."
+msgstr "A naplófájlba történt fsync() írások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:406
+msgid "The number of pending log file fsyncs."
+msgstr "A folyamatban lévő naplófájl fsync-ek száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:409
+msgid "Pending log file writes."
+msgstr "A folyamatban lévő naplófájl írások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:412
+msgid "The number of bytes written to the log file."
+msgstr "A naplófájlba írt bájtok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:415
+msgid "The number of pages created."
+msgstr "A létrehozott lapok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:418
+msgid ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+msgstr ""
+"A belefordított InnoDB oldal mérete (alapértelmezés: 16 KB). Sok érték "
+"került számolásra az oldalakban; az oldal mérete teszi lehetővé a bájtokká "
+"történő könnyű átalakítást."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
+msgid "The number of pages read."
+msgstr "A beolvasott lapok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
+msgid "The number of pages written."
+msgstr "Az írott lapok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:429
+msgid "The number of row locks currently being waited for."
+msgstr "A jelenleg várakozás alatt lévő sorzárolások száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
+msgid "The average time to acquire a row lock, in milliseconds."
+msgstr "A sorzároláshoz szükséges átlag időtartam milliszekundumban."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+msgid "The total time spent in acquiring row locks, in milliseconds."
+msgstr "A sorzárolásokra fordított összes idő milliszekundumban."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:438
+msgid "The maximum time to acquire a row lock, in milliseconds."
+msgstr "A sorzároláshoz szükséges maximális időtartam milliszekundumban."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
+msgid "The number of times a row lock had to be waited for."
+msgstr "A sorzárolásra váráshoz szükséges alkalmak száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:444
+msgid "The number of rows deleted from InnoDB tables."
+msgstr "Az InnoDB táblákból törölt sorok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:447
+msgid "The number of rows inserted in InnoDB tables."
+msgstr "Az InnoDB táblákba beszúrt sorok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
+msgid "The number of rows read from InnoDB tables."
+msgstr "Az InnoDB táblákból beolvasott sorok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:453
+msgid "The number of rows updated in InnoDB tables."
+msgstr "Az InnoDB táblákban frissített sorok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:456
+msgid ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+msgstr ""
+"A kulcsgyorsítótárban lévő kulcsblokkok száma, melyek megváltoztak, de még "
+"nem kerültek lemezre kiírásra. Ez Not_flushed_key_blocks néven ismert."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
+msgid ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+msgstr ""
+"A kulcsgyorsítótárban lévő, nem használt blokkok száma. Ezzel az értékkel "
+"állapíthatja meg, hogy mennyire van használatban a kulcsgyorsítótár."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
+msgid ""
+"The number of used blocks in the key cache. This value is a high-water mark "
+"that indicates the maximum number of blocks that have ever been in use at "
+"one time."
+msgstr ""
+"A kulcsgyorsítótárban lévő használt blokkok száma. Ez az érték egy maximális "
+"jel, mely a valamikor használatban volt blokkok számát jelzi."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:470
+msgid "Percentage of used key cache (calculated value)"
+msgstr "Használt kulcs gyorsítótár százalékban (számított érték)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:473
+msgid "The number of requests to read a key block from the cache."
+msgstr "A gyorsítótárból egy kulcsblokk beolvasásához szükséges kérések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
+msgid ""
+"The number of physical reads of a key block from disk. If Key_reads is big, "
+"then your key_buffer_size value is probably too small. The cache miss rate "
+"can be calculated as Key_reads/Key_read_requests."
+msgstr ""
+"Egy kulcsblokk lemezről történő fizikai beolvasásainak száma. Ha a Key_reads "
+"nagy, akkor valószínűleg túl kicsi a key_buffer_size értéke. A gyorsítótár "
+"sikertelen találatainak aránya a Key_reads/Key_read_requests alapján "
+"számítható ki."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:482
+msgid ""
+"Key cache miss calculated as rate of physical reads compared to read "
+"requests (calculated value)"
+msgstr ""
+"Kulcs gyorsítótár-tévesztés számított mértéke a fizikai olvasás olvasási "
+"kérésekhez való viszonyítása alapján (számított érték)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
+msgid "The number of requests to write a key block to the cache."
+msgstr "A kérések száma egy kulcsblokk gyorsítótárba történő írásához."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:489
+msgid "The number of physical writes of a key block to disk."
+msgstr "Egy kulcsblokk lemezre történő fizikai írásainak száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:492
+msgid ""
+"Percentage of physical writes compared to write requests (calculated value)"
+msgstr ""
+"Fizikai írás százaléka az írási kérésekhez viszonyítva (számított érték)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
+msgid ""
+"The total cost of the last compiled query as computed by the query "
+"optimizer. Useful for comparing the cost of different query plans for the "
+"same query. The default value of 0 means that no query has been compiled yet."
+msgstr ""
+"Az utoljára lefordított lekérdezés összköltsége a lekérdezésoptimalizáló "
+"számítása szerint. Ugyanazon lekérdezés különféle lekérdezési tervei "
+"költségének lekérdezéséhez hasznos. Az alapértelmezett 0 érték azt jelenti, "
+"hogy lekérdezés lefordítására még nem került sor."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:502
+msgid ""
+"The maximum number of connections that have been in use simultaneously since "
+"the server started."
+msgstr ""
+"A kapcsolatok maximális száma, amely már egyidejűleg használatban van a "
+"szerver indítása óta."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:506
+msgid "The number of rows waiting to be written in INSERT DELAYED queues."
+msgstr "Az INSERT DELAYED sorokban írásra várakozó sorok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:509
+msgid ""
+"The number of tables that have been opened. If opened tables is big, your "
+"table cache value is probably too small."
+msgstr ""
+"Az eddig megnyitott táblák száma. Ha a megnyitott táblák nagyok, akkor "
+"valószínűleg túl kicsi a táblagyorsítótár értéke."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:513
+msgid "The number of files that are open."
+msgstr "A megnyitott fájlok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:516
+msgid "The number of streams that are open (used mainly for logging)."
+msgstr ""
+"Az adatfolyamok száma, melyek nyitottak (főleg a naplózáshoz kerül "
+"felhasználásra)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:519
+msgid "The number of tables that are open."
+msgstr "A megnyitott táblák száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:522
+msgid ""
+"The number of free memory blocks in query cache. High numbers can indicate "
+"fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
+"statement."
+msgstr ""
+"A szabad memória blokkok száma a lekérdezési gyorsítótárban. Nagy számoknál "
+"töredezettség állhat fenn, amelyet a FLUSH QUERY CACHE paranccsal lehet "
+"orvosolni."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:527
+msgid "The amount of free memory for query cache."
+msgstr "A szabad memória mérete a lekérdezési gyorsítótárhoz."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:530
+msgid "The number of cache hits."
+msgstr "A gyorsítótár találatok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:533
+msgid "The number of queries added to the cache."
+msgstr "A gyorsítótárhoz adott lekérdezések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:536
+msgid ""
+"The number of queries that have been removed from the cache to free up "
+"memory for caching new queries. This information can help you tune the query "
+"cache size. The query cache uses a least recently used (LRU) strategy to "
+"decide which queries to remove from the cache."
+msgstr ""
+"A lekérdezések száma, melyek eltávolításra kerültek a gyorsítórából az új "
+"lekérdezések gyorsítótárazásához történő memória felszabadításához. Ez az "
+"információ a lekérdezési gyorsítótár méretének szabályozásában segíthet. A "
+"lekérdezési gyorsítótár a legrégebben használt (LRU) stratégiával dönti el, "
+"hogy mely lekérdezéseket kell eltávolítani a gyorsítótárból."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:543
+msgid ""
+"The number of non-cached queries (not cachable, or not cached due to the "
+"query_cache_type setting)."
+msgstr ""
+"A nem gyorsítótárazott lekérdezések száma (nem gyorsítótárazható, vagy nem "
+"gyorsítótárazott a query_cache_type beállítás miatt)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:547
+msgid "The number of queries registered in the cache."
+msgstr "A gyorsítótárban bejegyzett lekérdezések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:550
+msgid "The total number of blocks in the query cache."
+msgstr "A blokkok száma a lekérdezési gyorsítótárban."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:553
+msgid "The status of failsafe replication (not yet implemented)."
+msgstr "A hibabiztos többszörözés állapota (még nincs megvalósítva)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:556
+msgid ""
+"The number of joins that do not use indexes. If this value is not 0, you "
+"should carefully check the indexes of your tables."
+msgstr ""
+"Az indexeket nem használó illesztések száma. Ha ez az érték nem 0, akkor "
+"ellenőrizze körültekintően a táblák indexeit."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:560
+msgid "The number of joins that used a range search on a reference table."
+msgstr "Egy hivatkozási táblán tartománykeresést használt illesztések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:563
+msgid ""
+"The number of joins without keys that check for key usage after each row. "
+"(If this is not 0, you should carefully check the indexes of your tables.)"
+msgstr ""
+"A kulcsok nélküli illesztések száma, melyek minden sor után kulcs "
+"használatát ellenőrzik. (Ha ez nem 0, akkor ellenőrizze körültekintően a "
+"táblák indexeit.))"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:568
+msgid ""
+"The number of joins that used ranges on the first table. (It's normally not "
+"critical even if this is big.)"
+msgstr ""
+"Az első táblán tartományokat használt illesztések száma. (Normál esetben ez "
+"nem súlyos, még ha túl nagy is ez.)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:572
+msgid "The number of joins that did a full scan of the first table."
+msgstr "Az első tábla teljes vizsgálatát elvégzett illesztések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:575
+msgid "The number of temporary tables currently open by the slave SQL thread."
+msgstr "A kisegítő SQL szál által épp megnyitott ideiglenes táblák száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:579
+msgid ""
+"Total (since startup) number of times the replication slave SQL thread has "
+"retried transactions."
+msgstr ""
+"A többszörözésben kisegítő SQL szál (az indítás óta) ennyiszer próbálta újra "
+"a tranzakciókat."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:583
+msgid "This is ON if this server is a slave that is connected to a master."
+msgstr "Ez BE, ha ez főszerverhez csatlakoztatott kisegítő szerver."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:586
+msgid ""
+"The number of threads that have taken more than slow_launch_time seconds to "
+"create."
+msgstr ""
+"A szálak száma, melyek létrehozásához slow_launch_time másodpercnél többre "
+"volt szükség."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:590
+msgid ""
+"The number of queries that have taken more than long_query_time seconds."
+msgstr ""
+"A lekérdezések száma, melyekhez long_query_time másodpercnél többre volt "
+"szükség."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:594
+msgid ""
+"The number of merge passes the sort algorithm has had to do. If this value "
+"is large, you should consider increasing the value of the sort_buffer_size "
+"system variable."
+msgstr ""
+"Az egyesítési menetek száma, amelyet a rendezési algoritmusnak el kellett "
+"végeznie. Ha ez az érték nagy, akkor fontolja meg a sort_buffer_size "
+"rendszerváltozó értékének növelését."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:599
+msgid "The number of sorts that were done with ranges."
+msgstr "A tartományokkal végzett rendezések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:602
+msgid "The number of sorted rows."
+msgstr "Rendezett sorok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
+msgid "The number of sorts that were done by scanning the table."
+msgstr "A tábla vizsgálatával végrehajtott rendezések száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:608
+msgid "The number of times that a table lock was acquired immediately."
+msgstr "Azonnali táblazárolás alkalmainak száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:611
+msgid ""
+"The number of times that a table lock could not be acquired immediately and "
+"a wait was needed. If this is high, and you have performance problems, you "
+"should first optimize your queries, and then either split your table or "
+"tables or use replication."
+msgstr ""
+"Ennyiszer nem lehetett azonnal megszerezni egy táblazárolást és várakozásra "
+"volt szükség. Ha ez magas, és Önnek teljesítményproblémái vannak, akkor "
+"előbb optimalizálja a lekérdezéseket, majd vagy ossza fel a táblát vagy "
+"táblákat, vagy használja a többszörözést."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:617
+msgid ""
+"The number of threads in the thread cache. The cache hit rate can be "
+"calculated as Threads_created/Connections. If this value is red you should "
+"raise your thread_cache_size."
+msgstr ""
+"A szálak száma a szál gyorsítótárban. A gyorsítótár találati aránya a "
+"Threads_created/Connections alapján számítható ki. Ha ez az érték piros, "
+"akkor növelnie kell a thread_cache_size méretét."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:622
+msgid "The number of currently open connections."
+msgstr "A jelenleg megnyitott kapcsolatok száma."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:625
+msgid ""
+"The number of threads created to handle connections. If Threads_created is "
+"big, you may want to increase the thread_cache_size value. (Normally this "
+"doesn't give a notable performance improvement if you have a good thread "
+"implementation.)"
+msgstr ""
+"A kapcsolatok kezeléséhez létrehozott szálak száma. Ha a Threads_created "
+"nagy, akkor növelheti a thread_cache_size értékét. (Normál esetben ez nem "
+"növeli jelentősen a teljesítményt, ha jó szálmegvalósítása van.)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:632
+msgid "Thread cache hit rate (calculated value)"
+msgstr "Szálkészlet-gyorsítótár találati aránya (számított érték)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:635
+msgid "The number of threads that are not sleeping."
+msgstr "A nem alvó szálak száma."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:195
 msgid "Setting variable failed"
@@ -7252,14 +7994,13 @@ msgstr "Teljes szövegek"
 
 #: libraries/classes/Display/Results.php:1997
 #: libraries/classes/Display/Results.php:2023
-#: libraries/classes/Operations.php:847
-#: libraries/classes/Server/Status/Processes.php:184
-#: libraries/classes/Util.php:4916 libraries/classes/Util.php:4939
-#: libraries/config.values.php:115
+#: libraries/classes/Operations.php:847 libraries/classes/Util.php:4916
+#: libraries/classes/Util.php:4939 libraries/config.values.php:115
 #: templates/database/multi_table_query/form.twig:67
 #: templates/server/databases/index.twig:92
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:128
+#: templates/server/status/processes/list.twig:12
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/table/search/selection_form.twig:154
 msgid "Descending"
@@ -7267,14 +8008,13 @@ msgstr "Csökkenő"
 
 #: libraries/classes/Display/Results.php:2005
 #: libraries/classes/Display/Results.php:2015
-#: libraries/classes/Operations.php:844
-#: libraries/classes/Server/Status/Processes.php:187
-#: libraries/classes/Util.php:4908 libraries/classes/Util.php:4931
-#: libraries/config.values.php:114
+#: libraries/classes/Operations.php:844 libraries/classes/Util.php:4908
+#: libraries/classes/Util.php:4931 libraries/config.values.php:114
 #: templates/database/multi_table_query/form.twig:66
 #: templates/server/databases/index.twig:90
 #: templates/server/databases/index.twig:107
 #: templates/server/databases/index.twig:126
+#: templates/server/status/processes/list.twig:14
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/table/search/selection_form.twig:154
 msgid "Ascending"
@@ -7287,7 +8027,7 @@ msgstr "A sor törlése megtörtént."
 
 #: libraries/classes/Display/Results.php:3354
 #: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Server/Status/Processes.php:297
+#: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Leállít"
 
@@ -8066,7 +8806,6 @@ msgstr ""
 #: libraries/classes/InsertEdit.php:1963
 #: libraries/classes/ReplicationGui.php:579
 #: libraries/classes/Rte/Routines.php:1689
-#: libraries/classes/Server/Status/Variables.php:231
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
@@ -8074,6 +8813,7 @@ msgstr ""
 #: templates/table/search/zoom_result_form.twig:36
 #: templates/table/search/fields_table.twig:11
 #: templates/server/variables/index.twig:29
+#: templates/server/status/variables/index.twig:71
 msgid "Value"
 msgstr "Érték"
 
@@ -10700,8 +11440,8 @@ msgid "Slave status"
 msgstr "Másodlagos állapot"
 
 #: libraries/classes/ReplicationGui.php:578
-#: libraries/classes/Server/Status/Variables.php:230
 #: templates/server/variables/index.twig:28
+#: templates/server/status/variables/index.twig:70
 msgid "Variable"
 msgstr "Változó"
 
@@ -10709,13 +11449,6 @@ msgstr "Változó"
 #: templates/server/binlog/index.twig:87
 msgid "Server ID"
 msgstr "Kiszolgáló azonosító"
-
-#: libraries/classes/ReplicationGui.php:656
-#: libraries/classes/ReplicationGui.php:742
-#: libraries/classes/ReplicationGui.php:876
-#: libraries/classes/Server/Status/Processes.php:101
-msgid "Host"
-msgstr "Gép"
 
 #: libraries/classes/ReplicationGui.php:673
 msgid ""
@@ -11815,12 +12548,6 @@ msgstr "%s felhasználó már létezik!"
 msgid "Privileges for %s"
 msgstr "%s jogosultságai"
 
-#: libraries/classes/Server/Privileges.php:4640
-#: libraries/classes/Server/Status/Processes.php:97
-#: libraries/classes/Server/UserGroups.php:51
-msgid "User"
-msgstr "Felhasználó"
-
 #: libraries/classes/Server/Privileges.php:4713
 msgid "Edit privileges:"
 msgstr "Jogok szerkesztése:"
@@ -11888,11 +12615,6 @@ msgstr "Az új felhasználó hozzáadása megtörtént."
 msgid "Current server:"
 msgstr "Jelenlegi kiszolgáló:"
 
-#: libraries/classes/Server/Status/Data.php:117
-#: libraries/classes/Server/Status/Processes.php:125
-msgid "SQL query"
-msgstr "SQL-lekérdezés"
-
 #: libraries/classes/Server/Status/Data.php:120
 msgid "Handler"
 msgstr "Kezelő"
@@ -11953,823 +12675,6 @@ msgstr "Kisegítő állapot megjelenítése"
 #: libraries/classes/Server/Status/Data.php:182
 msgid "Flush query cache"
 msgstr "Lekérdezési gyorsítótár kiírása"
-
-#: libraries/classes/Server/Status/Data.php:449
-#: templates/server/status/base.twig:15
-msgid "Query statistics"
-msgstr "Lekérdezések statisztikája"
-
-#: libraries/classes/Server/Status/Data.php:453
-#: templates/server/status/base.twig:20
-msgid "All status variables"
-msgstr "Minden állapotváltozó"
-
-#: libraries/classes/Server/Status/Data.php:457
-#: templates/server/status/base.twig:25
-msgid "Monitor"
-msgstr "Felügyelet"
-
-#: libraries/classes/Server/Status/Data.php:461
-#: templates/server/status/base.twig:30
-msgid "Advisor"
-msgstr "Tanácsadó"
-
-#: libraries/classes/Server/Status/Data.php:517
-#, php-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d másodperc"
-msgstr[1] "%d másodperc"
-
-#: libraries/classes/Server/Status/Data.php:523
-#, php-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d perc"
-msgstr[1] "%d perc"
-
-#: libraries/classes/Server/Status/Processes.php:35
-msgid ""
-"Note: Enabling the auto refresh here might cause heavy traffic between the "
-"web server and the MySQL server."
-msgstr ""
-"Megjegyzés: az automatikus frissítés itteni engedélyezése a webkiszolgáló és "
-"a MySQL kiszolgáló között nagy adatforgalomhoz vezethet."
-
-#: libraries/classes/Server/Status/Processes.php:40
-#: templates/server/status/monitor/index.twig:36
-msgid "Refresh rate"
-msgstr "Frissítési időköz"
-
-#: libraries/classes/Server/Status/Processes.php:93
-msgid "ID"
-msgstr "Azonosító"
-
-#: libraries/classes/Server/Status/Processes.php:109
-msgid "Command"
-msgstr "Parancs"
-
-#: libraries/classes/Server/Status/Processes.php:121
-msgid "Progress"
-msgstr "Folyamat"
-
-#: libraries/classes/Server/Status/Processes.php:198
-msgid "Truncate Shown Queries"
-msgstr "A megjelenített lekérdezések lerövidítése"
-
-#: libraries/classes/Server/Status/Processes.php:204
-msgid "Show Full Queries"
-msgstr "Teljes lekérdezések megjelenítése"
-
-#: libraries/classes/Server/Status/Processes.php:253
-#: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
-msgid "Filters"
-msgstr "Szűrők"
-
-#: libraries/classes/Server/Status/Processes.php:261
-msgid "Show only active"
-msgstr "Csak az aktívak megjelenítése"
-
-#: libraries/classes/Server/Status/Queries.php:42
-#, php-format
-msgid "Questions since startup: %s"
-msgstr "Kérdések az indítás óta: %s"
-
-#: libraries/classes/Server/Status/Queries.php:55
-msgid "per hour:"
-msgstr "óránként:"
-
-#: libraries/classes/Server/Status/Queries.php:58
-msgid "per minute:"
-msgstr "percenként:"
-
-#: libraries/classes/Server/Status/Queries.php:65
-msgid "per second:"
-msgstr "másodpercenként:"
-
-#: libraries/classes/Server/Status/Queries.php:102
-msgid "Statements"
-msgstr "Utasítások"
-
-#. l10n: # = Amount of queries
-#: libraries/classes/Server/Status/Queries.php:105
-msgid "#"
-msgstr "#"
-
-#: libraries/classes/Server/Status/Variables.php:54 templates/filter.twig:4
-msgid "Containing the word:"
-msgstr "Tartalmazza ezt a szót:"
-
-#: libraries/classes/Server/Status/Variables.php:62
-msgid "Show only alert values"
-msgstr "Csak a figyelmeztető értékek megjelenítése"
-
-#: libraries/classes/Server/Status/Variables.php:67
-msgid "Filter by category…"
-msgstr "Szűrés kategória szerint…"
-
-#: libraries/classes/Server/Status/Variables.php:88
-msgid "Show unformatted values"
-msgstr "Formázatlan értékek megjelenítése"
-
-#: libraries/classes/Server/Status/Variables.php:107
-msgid "Related links:"
-msgstr "Kapcsolódó hivatkozások:"
-
-#: libraries/classes/Server/Status/Variables.php:339
-msgid ""
-"The number of connections that were aborted because the client died without "
-"closing the connection properly."
-msgstr ""
-"A kapcsolatok száma, amelyek megszakadtak, mert a kliens kilépett anélkül, "
-"hogy megfelelően lezárta volna a kapcsolat."
-
-#: libraries/classes/Server/Status/Variables.php:343
-msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "A MySQL-kiszolgálóhoz való csatlakozás sikertelen kísérleteinek száma."
-
-#: libraries/classes/Server/Status/Variables.php:346
-msgid ""
-"The number of transactions that used the temporary binary log cache but that "
-"exceeded the value of binlog_cache_size and used a temporary file to store "
-"statements from the transaction."
-msgstr ""
-"A tranzakciók száma, melyek az ideiglenes bináris naplógyorsítótárat "
-"használt, azonban az túllépte a binlog_cache_size méretet, és ideiglenes "
-"fájlt használt az utasítások tárolásához a tranzakcióból."
-
-#: libraries/classes/Server/Status/Variables.php:351
-msgid "The number of transactions that used the temporary binary log cache."
-msgstr ""
-"Az ideiglenes bináris naplógyorsítótár által használt tranzakciók száma."
-
-#: libraries/classes/Server/Status/Variables.php:354
-msgid ""
-"The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
-"A MySQL-kiszolgálóhoz való (sikeres vagy sikertelen) csatlakozás "
-"kísérleteinek száma."
-
-#: libraries/classes/Server/Status/Variables.php:358
-msgid ""
-"The number of temporary tables on disk created automatically by the server "
-"while executing statements. If Created_tmp_disk_tables is big, you may want "
-"to increase the tmp_table_size  value to cause temporary tables to be memory-"
-"based instead of disk-based."
-msgstr ""
-"A szerver által az utasítások végrehajtásakor a lemezen automatikusan "
-"létrehozott ideiglenes táblák száma. Ha a Created_tmp_disk_tables értéke "
-"nagy, akkor növelheti a tmp_table_size értékét, mely az ideiglenes táblákból "
-"memóriaalapúakat csinál a lemezalapú helyett."
-
-#: libraries/classes/Server/Status/Variables.php:365
-msgid "How many temporary files mysqld has created."
-msgstr "Ennyi ideiglenes fájlt hozott létre a mysqld."
-
-#: libraries/classes/Server/Status/Variables.php:368
-msgid ""
-"The number of in-memory temporary tables created automatically by the server "
-"while executing statements."
-msgstr ""
-"A szerver által az utasítások végrehajtásakor automatikusan létrehozott, a "
-"memóriában tárolt ideiglenes táblák száma."
-
-#: libraries/classes/Server/Status/Variables.php:372
-msgid ""
-"The number of rows written with INSERT DELAYED for which some error occurred "
-"(probably duplicate key)."
-msgstr ""
-"Az INSERT DELAYED utasítással írt sorok száma, melyeknél néhány hiba történt "
-"(valószínűleg ismétlődő kulcs)."
-
-#: libraries/classes/Server/Status/Variables.php:376
-msgid ""
-"The number of INSERT DELAYED handler threads in use. Every different table "
-"on which one uses INSERT DELAYED gets its own thread."
-msgstr ""
-"A használatban lévő INSERT DELAYED kezelőszálak száma. Minden eltérő "
-"táblának, melyen valaki INSERT DELAYED parancsot használ, saját szála lesz."
-
-#: libraries/classes/Server/Status/Variables.php:381
-msgid "The number of INSERT DELAYED rows written."
-msgstr "A beírt INSERT DELAYED sorok száma."
-
-#: libraries/classes/Server/Status/Variables.php:384
-msgid "The number of executed FLUSH statements."
-msgstr "A végrehajtott FLUSH utasítások száma."
-
-#: libraries/classes/Server/Status/Variables.php:387
-msgid "The number of internal COMMIT statements."
-msgstr "A belső COMMIT utasítások száma."
-
-#: libraries/classes/Server/Status/Variables.php:390
-msgid "The number of times a row was deleted from a table."
-msgstr "Egy sornak a táblázatból történő törléseinek a száma."
-
-#: libraries/classes/Server/Status/Variables.php:393
-msgid ""
-"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
-"table with a given name. This is called discovery. Handler_discover "
-"indicates the number of time tables have been discovered."
-msgstr ""
-"A MySQL szerver meg tudja kérdezni az NDB fürt tárolómotortól, hogy ismeri a "
-"megadott nevű táblát. Ezt hívják felfedezésnek. A handler_discover jelzi a "
-"táblák felfedezésének számát."
-
-#: libraries/classes/Server/Status/Variables.php:399
-msgid ""
-"The number of times the first entry was read from an index. If this is high, "
-"it suggests that the server is doing a lot of full index scans; for example, "
-"SELECT col1 FROM foo, assuming that col1 is indexed."
-msgstr ""
-"Az első bejegyzés egy indexből történő beolvasásainak száma. Ha ez magas, "
-"akkor ez azt sugallja, hogy a szerver sok teljes indexvizsgálatot végez; "
-"például a SELECT col1 FROM foo azt feltételezi, hogy a col1 kerül "
-"indexelésre."
-
-#: libraries/classes/Server/Status/Variables.php:405
-msgid ""
-"The number of requests to read a row based on a key. If this is high, it is "
-"a good indication that your queries and tables are properly indexed."
-msgstr ""
-"Egy sor kulcs alapján történő beolvasási kéréseinek száma. Ha ez magas, "
-"akkor jól mutatja, hogy a lekérdezések és a táblák megfelelően indexeltek."
-
-#: libraries/classes/Server/Status/Variables.php:410
-msgid ""
-"The number of requests to read the next row in key order. This is "
-"incremented if you are querying an index column with a range constraint or "
-"if you are doing an index scan."
-msgstr ""
-"A kulcssorrendben a következő sort beolvasandó kérések száma. Ez növekszik, "
-"ha Ön tartománymegkötéses index oszlopot kérdez le, vagy ha indexvizsgálatot "
-"végez."
-
-#: libraries/classes/Server/Status/Variables.php:415
-msgid ""
-"The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY … DESC."
-msgstr ""
-"A kulcssorrendben előző sort beolvasandó kérések száma. Ezt a beolvasási "
-"módszert főleg az ORDER BY … DESC optimalizálásához használják."
-
-#: libraries/classes/Server/Status/Variables.php:419
-msgid ""
-"The number of requests to read a row based on a fixed position. This is high "
-"if you are doing a lot of queries that require sorting of the result. You "
-"probably have a lot of queries that require MySQL to scan whole tables or "
-"you have joins that don't use keys properly."
-msgstr ""
-"Egy sor beolvasásához szükséges kérések száma egy rögzített pozíció alapján. "
-"Ez magas, ha Ön sok, az eredmény rendezését igénylő lekérdezést hajt végre. "
-"Valószínűleg sok olyan lekérdezés van, s a MySQL-nek teljes táblákat kell "
-"megvizsgálnia, vagy a kulcsokat nem megfelelően használó illesztések vannak."
-
-#: libraries/classes/Server/Status/Variables.php:426
-msgid ""
-"The number of requests to read the next row in the data file. This is high "
-"if you are doing a lot of table scans. Generally this suggests that your "
-"tables are not properly indexed or that your queries are not written to take "
-"advantage of the indexes you have."
-msgstr ""
-"Az adatfájlban lévő következő sor beolvasásához szükséges kérések száma. Ez "
-"magas, ha Ön sokszor vizsgálja át a táblákat. Ez általában azt javasolja, "
-"hogy a táblák nem megfelelően indexeltek, vagy a lekérdezések nincsenek írva "
-"az indexek kihasználása végett."
-
-#: libraries/classes/Server/Status/Variables.php:433
-msgid "The number of internal ROLLBACK statements."
-msgstr "A belső ROLLBACK utasítások száma."
-
-#: libraries/classes/Server/Status/Variables.php:436
-msgid "The number of requests to update a row in a table."
-msgstr "A kérések száma egy táblában lévő sor frissítéséhez."
-
-#: libraries/classes/Server/Status/Variables.php:439
-msgid "The number of requests to insert a row in a table."
-msgstr "A kérések száma egy táblában lévő sor beszúrásához."
-
-#: libraries/classes/Server/Status/Variables.php:442
-msgid "The number of pages containing data (dirty or clean)."
-msgstr "Az adatokat tartalmazó lapok száma (piszkos vagy tiszta)."
-
-#: libraries/classes/Server/Status/Variables.php:445
-msgid "The number of pages currently dirty."
-msgstr "A jelenleg piszkos lapok száma."
-
-#: libraries/classes/Server/Status/Variables.php:448
-msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "A pufferkészlet oldalainak száma, melyeket kiírásra kértek."
-
-#: libraries/classes/Server/Status/Variables.php:452
-msgid "The number of free pages."
-msgstr "A szabad lapok száma."
-
-#: libraries/classes/Server/Status/Variables.php:455
-msgid ""
-"The number of latched pages in InnoDB buffer pool. These are pages currently "
-"being read or written or that can't be flushed or removed for some other "
-"reason."
-msgstr ""
-"Az InnoDB pufferkészletében zárolt oldalak száma. Ezek az épp beolvasás vagy "
-"írás alatt lévő oldalak, melyeket bizonyos más okok miatt nem lehet kiírni "
-"vagy eltávolítani."
-
-#: libraries/classes/Server/Status/Variables.php:460
-msgid ""
-"The number of pages busy because they have been allocated for administrative "
-"overhead such as row locks or the adaptive hash index. This value can also "
-"be calculated as Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
-msgstr ""
-"A foglalt oldalak száma, mert le lettek foglalva adminisztratív "
-"többletterheléshez, mint például a sorzárolások vagy az adaptív hashindex. "
-"Ez az érték Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
-"Innodb_buffer_pool_pages_data értékként is számolható."
-
-#: libraries/classes/Server/Status/Variables.php:467
-msgid "Total size of buffer pool, in pages."
-msgstr "A pufferkészlet teljes mérete lapokban."
-
-#: libraries/classes/Server/Status/Variables.php:470
-msgid ""
-"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
-"query is to scan a large portion of a table but in random order."
-msgstr ""
-"Az InnoDB által kezdeményezett \"véletlenszerű\" előreolvasások száma. Ez "
-"akkor történik, ha egy lekérdezés meg akarja vizsgálni egy tábla nagy "
-"részét, viszont véletlenszerű sorrendben."
-
-#: libraries/classes/Server/Status/Variables.php:475
-msgid ""
-"The number of sequential read-aheads InnoDB initiated. This happens when "
-"InnoDB does a sequential full table scan."
-msgstr ""
-"Az InnoDB által kezdeményezett sorozatos előreolvasások száma. Ez akkor "
-"történik, mikor az InnoDB sorozatos teljes táblavizsgálatot tart."
-
-#: libraries/classes/Server/Status/Variables.php:479
-msgid "The number of logical read requests InnoDB has done."
-msgstr "Az InnoDB által elvégzett logikai olvasási kérések száma."
-
-#: libraries/classes/Server/Status/Variables.php:482
-msgid ""
-"The number of logical reads that InnoDB could not satisfy from buffer pool "
-"and had to do a single-page read."
-msgstr ""
-"A logikai olvasások száma, melyeket az InnoDB nem tudott a pufferkészletből "
-"kielégíteni, s egyoldalas beolvasást végzett."
-
-#: libraries/classes/Server/Status/Variables.php:486
-msgid ""
-"Normally, writes to the InnoDB buffer pool happen in the background. "
-"However, if it's necessary to read or create a page and no clean pages are "
-"available, it's necessary to wait for pages to be flushed first. This "
-"counter counts instances of these waits. If the buffer pool size was set "
-"properly, this value should be small."
-msgstr ""
-"Normál esetben az InnoDB pufferkészletébe írások a háttérben történnek. Ha "
-"viszont be kell olvasni vagy létre kell hozni egy oldalt, s nincs több "
-"tiszta oldal, akkor várni kell az előbb kiírandó oldalakra. Ez a számláló "
-"számolja ezeknek a várakozásoknak az előfordulásait. Ha a pufferkészlet "
-"méretét megfelelően állították be, akkor ennek az értéknek kicsinek kell "
-"lennie."
-
-#: libraries/classes/Server/Status/Variables.php:494
-msgid "The number writes done to the InnoDB buffer pool."
-msgstr "Az InnoDB pufferkészletébe történt írások száma."
-
-#: libraries/classes/Server/Status/Variables.php:497
-msgid "The number of fsync() operations so far."
-msgstr "Az fsync() műveletek eddigi száma."
-
-#: libraries/classes/Server/Status/Variables.php:500
-msgid "The current number of pending fsync() operations."
-msgstr "A folyamatban lévő fsync() műveletek száma."
-
-#: libraries/classes/Server/Status/Variables.php:503
-msgid "The current number of pending reads."
-msgstr "A folyamatban lévő olvasások száma."
-
-#: libraries/classes/Server/Status/Variables.php:506
-msgid "The current number of pending writes."
-msgstr "A folyamatban lévő írások száma."
-
-#: libraries/classes/Server/Status/Variables.php:509
-msgid "The amount of data read so far, in bytes."
-msgstr "Az eddig beolvasott adatok mennyisége bájtban."
-
-#: libraries/classes/Server/Status/Variables.php:512
-msgid "The total number of data reads."
-msgstr "Az összes beolvasott adat."
-
-#: libraries/classes/Server/Status/Variables.php:515
-msgid "The total number of data writes."
-msgstr "Az összes írott adat."
-
-#: libraries/classes/Server/Status/Variables.php:518
-msgid "The amount of data written so far, in bytes."
-msgstr "Az összes írott adat, bájtban."
-
-#: libraries/classes/Server/Status/Variables.php:521
-msgid "The number of pages that have been written for doublewrite operations."
-msgstr ""
-"A végrehajtott duplaírásos írások száma, s az e célból kiírt oldalak száma."
-
-#: libraries/classes/Server/Status/Variables.php:525
-msgid "The number of doublewrite operations that have been performed."
-msgstr ""
-"A végrehajtott duplaírásos írások száma, s az e célból kiírt oldalak száma."
-
-#: libraries/classes/Server/Status/Variables.php:528
-msgid ""
-"The number of waits we had because log buffer was too small and we had to "
-"wait for it to be flushed before continuing."
-msgstr ""
-"Várakozások száma, amiket a naplópuffer kis mérete okozott és folytatás "
-"előtt meg kellett várni a kiírást."
-
-#: libraries/classes/Server/Status/Variables.php:532
-msgid "The number of log write requests."
-msgstr "A naplóírási kérések száma."
-
-#: libraries/classes/Server/Status/Variables.php:535
-msgid "The number of physical writes to the log file."
-msgstr "A naplófájlba történt fizikai írások száma."
-
-#: libraries/classes/Server/Status/Variables.php:538
-msgid "The number of fsync() writes done to the log file."
-msgstr "A naplófájlba történt fsync() írások száma."
-
-#: libraries/classes/Server/Status/Variables.php:541
-msgid "The number of pending log file fsyncs."
-msgstr "A folyamatban lévő naplófájl fsync-ek száma."
-
-#: libraries/classes/Server/Status/Variables.php:544
-msgid "Pending log file writes."
-msgstr "A folyamatban lévő naplófájl írások száma."
-
-#: libraries/classes/Server/Status/Variables.php:547
-msgid "The number of bytes written to the log file."
-msgstr "A naplófájlba írt bájtok száma."
-
-#: libraries/classes/Server/Status/Variables.php:550
-msgid "The number of pages created."
-msgstr "A létrehozott lapok száma."
-
-#: libraries/classes/Server/Status/Variables.php:553
-msgid ""
-"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
-"pages; the page size allows them to be easily converted to bytes."
-msgstr ""
-"A belefordított InnoDB oldal mérete (alapértelmezés: 16 KB). Sok érték "
-"került számolásra az oldalakban; az oldal mérete teszi lehetővé a bájtokká "
-"történő könnyű átalakítást."
-
-#: libraries/classes/Server/Status/Variables.php:558
-msgid "The number of pages read."
-msgstr "A beolvasott lapok száma."
-
-#: libraries/classes/Server/Status/Variables.php:561
-msgid "The number of pages written."
-msgstr "Az írott lapok száma."
-
-#: libraries/classes/Server/Status/Variables.php:564
-msgid "The number of row locks currently being waited for."
-msgstr "A jelenleg várakozás alatt lévő sorzárolások száma."
-
-#: libraries/classes/Server/Status/Variables.php:567
-msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "A sorzároláshoz szükséges átlag időtartam milliszekundumban."
-
-#: libraries/classes/Server/Status/Variables.php:570
-msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr "A sorzárolásokra fordított összes idő milliszekundumban."
-
-#: libraries/classes/Server/Status/Variables.php:573
-msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "A sorzároláshoz szükséges maximális időtartam milliszekundumban."
-
-#: libraries/classes/Server/Status/Variables.php:576
-msgid "The number of times a row lock had to be waited for."
-msgstr "A sorzárolásra váráshoz szükséges alkalmak száma."
-
-#: libraries/classes/Server/Status/Variables.php:579
-msgid "The number of rows deleted from InnoDB tables."
-msgstr "Az InnoDB táblákból törölt sorok száma."
-
-#: libraries/classes/Server/Status/Variables.php:582
-msgid "The number of rows inserted in InnoDB tables."
-msgstr "Az InnoDB táblákba beszúrt sorok száma."
-
-#: libraries/classes/Server/Status/Variables.php:585
-msgid "The number of rows read from InnoDB tables."
-msgstr "Az InnoDB táblákból beolvasott sorok száma."
-
-#: libraries/classes/Server/Status/Variables.php:588
-msgid "The number of rows updated in InnoDB tables."
-msgstr "Az InnoDB táblákban frissített sorok száma."
-
-#: libraries/classes/Server/Status/Variables.php:591
-msgid ""
-"The number of key blocks in the key cache that have changed but haven't yet "
-"been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr ""
-"A kulcsgyorsítótárban lévő kulcsblokkok száma, melyek megváltoztak, de még "
-"nem kerültek lemezre kiírásra. Ez Not_flushed_key_blocks néven ismert."
-
-#: libraries/classes/Server/Status/Variables.php:596
-msgid ""
-"The number of unused blocks in the key cache. You can use this value to "
-"determine how much of the key cache is in use."
-msgstr ""
-"A kulcsgyorsítótárban lévő, nem használt blokkok száma. Ezzel az értékkel "
-"állapíthatja meg, hogy mennyire van használatban a kulcsgyorsítótár."
-
-#: libraries/classes/Server/Status/Variables.php:600
-msgid ""
-"The number of used blocks in the key cache. This value is a high-water mark "
-"that indicates the maximum number of blocks that have ever been in use at "
-"one time."
-msgstr ""
-"A kulcsgyorsítótárban lévő használt blokkok száma. Ez az érték egy maximális "
-"jel, mely a valamikor használatban volt blokkok számát jelzi."
-
-#: libraries/classes/Server/Status/Variables.php:605
-msgid "Percentage of used key cache (calculated value)"
-msgstr "Használt kulcs gyorsítótár százalékban (számított érték)"
-
-#: libraries/classes/Server/Status/Variables.php:608
-msgid "The number of requests to read a key block from the cache."
-msgstr "A gyorsítótárból egy kulcsblokk beolvasásához szükséges kérések száma."
-
-#: libraries/classes/Server/Status/Variables.php:611
-msgid ""
-"The number of physical reads of a key block from disk. If Key_reads is big, "
-"then your key_buffer_size value is probably too small. The cache miss rate "
-"can be calculated as Key_reads/Key_read_requests."
-msgstr ""
-"Egy kulcsblokk lemezről történő fizikai beolvasásainak száma. Ha a Key_reads "
-"nagy, akkor valószínűleg túl kicsi a key_buffer_size értéke. A gyorsítótár "
-"sikertelen találatainak aránya a Key_reads/Key_read_requests alapján "
-"számítható ki."
-
-#: libraries/classes/Server/Status/Variables.php:617
-msgid ""
-"Key cache miss calculated as rate of physical reads compared to read "
-"requests (calculated value)"
-msgstr ""
-"Kulcs gyorsítótár-tévesztés számított mértéke a fizikai olvasás olvasási "
-"kérésekhez való viszonyítása alapján (számított érték)"
-
-#: libraries/classes/Server/Status/Variables.php:621
-msgid "The number of requests to write a key block to the cache."
-msgstr "A kérések száma egy kulcsblokk gyorsítótárba történő írásához."
-
-#: libraries/classes/Server/Status/Variables.php:624
-msgid "The number of physical writes of a key block to disk."
-msgstr "Egy kulcsblokk lemezre történő fizikai írásainak száma."
-
-#: libraries/classes/Server/Status/Variables.php:627
-msgid ""
-"Percentage of physical writes compared to write requests (calculated value)"
-msgstr ""
-"Fizikai írás százaléka az írási kérésekhez viszonyítva (számított érték)"
-
-#: libraries/classes/Server/Status/Variables.php:631
-msgid ""
-"The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
-"same query. The default value of 0 means that no query has been compiled yet."
-msgstr ""
-"Az utoljára lefordított lekérdezés összköltsége a lekérdezésoptimalizáló "
-"számítása szerint. Ugyanazon lekérdezés különféle lekérdezési tervei "
-"költségének lekérdezéséhez hasznos. Az alapértelmezett 0 érték azt jelenti, "
-"hogy lekérdezés lefordítására még nem került sor."
-
-#: libraries/classes/Server/Status/Variables.php:637
-msgid ""
-"The maximum number of connections that have been in use simultaneously since "
-"the server started."
-msgstr ""
-"A kapcsolatok maximális száma, amely már egyidejűleg használatban van a "
-"szerver indítása óta."
-
-#: libraries/classes/Server/Status/Variables.php:641
-msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr "Az INSERT DELAYED sorokban írásra várakozó sorok száma."
-
-#: libraries/classes/Server/Status/Variables.php:644
-msgid ""
-"The number of tables that have been opened. If opened tables is big, your "
-"table cache value is probably too small."
-msgstr ""
-"Az eddig megnyitott táblák száma. Ha a megnyitott táblák nagyok, akkor "
-"valószínűleg túl kicsi a táblagyorsítótár értéke."
-
-#: libraries/classes/Server/Status/Variables.php:648
-msgid "The number of files that are open."
-msgstr "A megnyitott fájlok száma."
-
-#: libraries/classes/Server/Status/Variables.php:651
-msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
-"Az adatfolyamok száma, melyek nyitottak (főleg a naplózáshoz kerül "
-"felhasználásra)."
-
-#: libraries/classes/Server/Status/Variables.php:654
-msgid "The number of tables that are open."
-msgstr "A megnyitott táblák száma."
-
-#: libraries/classes/Server/Status/Variables.php:657
-msgid ""
-"The number of free memory blocks in query cache. High numbers can indicate "
-"fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
-"statement."
-msgstr ""
-"A szabad memória blokkok száma a lekérdezési gyorsítótárban. Nagy számoknál "
-"töredezettség állhat fenn, amelyet a FLUSH QUERY CACHE paranccsal lehet "
-"orvosolni."
-
-#: libraries/classes/Server/Status/Variables.php:662
-msgid "The amount of free memory for query cache."
-msgstr "A szabad memória mérete a lekérdezési gyorsítótárhoz."
-
-#: libraries/classes/Server/Status/Variables.php:665
-msgid "The number of cache hits."
-msgstr "A gyorsítótár találatok száma."
-
-#: libraries/classes/Server/Status/Variables.php:668
-msgid "The number of queries added to the cache."
-msgstr "A gyorsítótárhoz adott lekérdezések száma."
-
-#: libraries/classes/Server/Status/Variables.php:671
-msgid ""
-"The number of queries that have been removed from the cache to free up "
-"memory for caching new queries. This information can help you tune the query "
-"cache size. The query cache uses a least recently used (LRU) strategy to "
-"decide which queries to remove from the cache."
-msgstr ""
-"A lekérdezések száma, melyek eltávolításra kerültek a gyorsítórából az új "
-"lekérdezések gyorsítótárazásához történő memória felszabadításához. Ez az "
-"információ a lekérdezési gyorsítótár méretének szabályozásában segíthet. A "
-"lekérdezési gyorsítótár a legrégebben használt (LRU) stratégiával dönti el, "
-"hogy mely lekérdezéseket kell eltávolítani a gyorsítótárból."
-
-#: libraries/classes/Server/Status/Variables.php:678
-msgid ""
-"The number of non-cached queries (not cachable, or not cached due to the "
-"query_cache_type setting)."
-msgstr ""
-"A nem gyorsítótárazott lekérdezések száma (nem gyorsítótárazható, vagy nem "
-"gyorsítótárazott a query_cache_type beállítás miatt)."
-
-#: libraries/classes/Server/Status/Variables.php:682
-msgid "The number of queries registered in the cache."
-msgstr "A gyorsítótárban bejegyzett lekérdezések száma."
-
-#: libraries/classes/Server/Status/Variables.php:685
-msgid "The total number of blocks in the query cache."
-msgstr "A blokkok száma a lekérdezési gyorsítótárban."
-
-#: libraries/classes/Server/Status/Variables.php:688
-msgid "The status of failsafe replication (not yet implemented)."
-msgstr "A hibabiztos többszörözés állapota (még nincs megvalósítva)."
-
-#: libraries/classes/Server/Status/Variables.php:691
-msgid ""
-"The number of joins that do not use indexes. If this value is not 0, you "
-"should carefully check the indexes of your tables."
-msgstr ""
-"Az indexeket nem használó illesztések száma. Ha ez az érték nem 0, akkor "
-"ellenőrizze körültekintően a táblák indexeit."
-
-#: libraries/classes/Server/Status/Variables.php:695
-msgid "The number of joins that used a range search on a reference table."
-msgstr "Egy hivatkozási táblán tartománykeresést használt illesztések száma."
-
-#: libraries/classes/Server/Status/Variables.php:698
-msgid ""
-"The number of joins without keys that check for key usage after each row. "
-"(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr ""
-"A kulcsok nélküli illesztések száma, melyek minden sor után kulcs "
-"használatát ellenőrzik. (Ha ez nem 0, akkor ellenőrizze körültekintően a "
-"táblák indexeit.))"
-
-#: libraries/classes/Server/Status/Variables.php:703
-msgid ""
-"The number of joins that used ranges on the first table. (It's normally not "
-"critical even if this is big.)"
-msgstr ""
-"Az első táblán tartományokat használt illesztések száma. (Normál esetben ez "
-"nem súlyos, még ha túl nagy is ez.)"
-
-#: libraries/classes/Server/Status/Variables.php:707
-msgid "The number of joins that did a full scan of the first table."
-msgstr "Az első tábla teljes vizsgálatát elvégzett illesztések száma."
-
-#: libraries/classes/Server/Status/Variables.php:710
-msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr "A kisegítő SQL szál által épp megnyitott ideiglenes táblák száma."
-
-#: libraries/classes/Server/Status/Variables.php:714
-msgid ""
-"Total (since startup) number of times the replication slave SQL thread has "
-"retried transactions."
-msgstr ""
-"A többszörözésben kisegítő SQL szál (az indítás óta) ennyiszer próbálta újra "
-"a tranzakciókat."
-
-#: libraries/classes/Server/Status/Variables.php:718
-msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "Ez BE, ha ez főszerverhez csatlakoztatott kisegítő szerver."
-
-#: libraries/classes/Server/Status/Variables.php:721
-msgid ""
-"The number of threads that have taken more than slow_launch_time seconds to "
-"create."
-msgstr ""
-"A szálak száma, melyek létrehozásához slow_launch_time másodpercnél többre "
-"volt szükség."
-
-#: libraries/classes/Server/Status/Variables.php:725
-msgid ""
-"The number of queries that have taken more than long_query_time seconds."
-msgstr ""
-"A lekérdezések száma, melyekhez long_query_time másodpercnél többre volt "
-"szükség."
-
-#: libraries/classes/Server/Status/Variables.php:729
-msgid ""
-"The number of merge passes the sort algorithm has had to do. If this value "
-"is large, you should consider increasing the value of the sort_buffer_size "
-"system variable."
-msgstr ""
-"Az egyesítési menetek száma, amelyet a rendezési algoritmusnak el kellett "
-"végeznie. Ha ez az érték nagy, akkor fontolja meg a sort_buffer_size "
-"rendszerváltozó értékének növelését."
-
-#: libraries/classes/Server/Status/Variables.php:734
-msgid "The number of sorts that were done with ranges."
-msgstr "A tartományokkal végzett rendezések száma."
-
-#: libraries/classes/Server/Status/Variables.php:737
-msgid "The number of sorted rows."
-msgstr "Rendezett sorok száma."
-
-#: libraries/classes/Server/Status/Variables.php:740
-msgid "The number of sorts that were done by scanning the table."
-msgstr "A tábla vizsgálatával végrehajtott rendezések száma."
-
-#: libraries/classes/Server/Status/Variables.php:743
-msgid "The number of times that a table lock was acquired immediately."
-msgstr "Azonnali táblazárolás alkalmainak száma."
-
-#: libraries/classes/Server/Status/Variables.php:746
-msgid ""
-"The number of times that a table lock could not be acquired immediately and "
-"a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
-"tables or use replication."
-msgstr ""
-"Ennyiszer nem lehetett azonnal megszerezni egy táblazárolást és várakozásra "
-"volt szükség. Ha ez magas, és Önnek teljesítményproblémái vannak, akkor "
-"előbb optimalizálja a lekérdezéseket, majd vagy ossza fel a táblát vagy "
-"táblákat, vagy használja a többszörözést."
-
-#: libraries/classes/Server/Status/Variables.php:752
-msgid ""
-"The number of threads in the thread cache. The cache hit rate can be "
-"calculated as Threads_created/Connections. If this value is red you should "
-"raise your thread_cache_size."
-msgstr ""
-"A szálak száma a szál gyorsítótárban. A gyorsítótár találati aránya a "
-"Threads_created/Connections alapján számítható ki. Ha ez az érték piros, "
-"akkor növelnie kell a thread_cache_size méretét."
-
-#: libraries/classes/Server/Status/Variables.php:757
-msgid "The number of currently open connections."
-msgstr "A jelenleg megnyitott kapcsolatok száma."
-
-#: libraries/classes/Server/Status/Variables.php:760
-msgid ""
-"The number of threads created to handle connections. If Threads_created is "
-"big, you may want to increase the thread_cache_size value. (Normally this "
-"doesn't give a notable performance improvement if you have a good thread "
-"implementation.)"
-msgstr ""
-"A kapcsolatok kezeléséhez létrehozott szálak száma. Ha a Threads_created "
-"nagy, akkor növelheti a thread_cache_size értékét. (Normál esetben ez nem "
-"növeli jelentősen a teljesítményt, ha jó szálmegvalósítása van.)"
-
-#: libraries/classes/Server/Status/Variables.php:767
-msgid "Thread cache hit rate (calculated value)"
-msgstr "Szálkészlet-gyorsítótár találati aránya (számított érték)"
-
-#: libraries/classes/Server/Status/Variables.php:770
-msgid "The number of threads that are not sleeping."
-msgstr "A nem alvó szálak száma."
 
 #: libraries/classes/Server/UserGroups.php:34
 #, php-format
@@ -13903,28 +13808,6 @@ msgstr ""
 "A felhasználónév és a kiszolgálónév nem változott. Ha csak a jelszót "
 "szeretné megváltoztatni, akkor használja a „Jelszócsere” lapot."
 
-#: server_status_processes.php:38
-#, php-format
-msgid "Thread %s was successfully killed."
-msgstr "Sikerült leállítani a(z) %s. szálat."
-
-#: server_status_processes.php:44
-#, php-format
-msgid ""
-"phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr ""
-"A phpMyAdmin nem tudta leállítani a(z) %s szálat. Valószínűleg már "
-"befejeződött."
-
-#: server_status_queries.php:48
-msgid "Not enough privilege to view query statistics."
-msgstr ""
-"Nincs elegendő jogosultság a lekérdezés statisztikáinak megtekintéséhez."
-
-#: server_status_variables.php:57
-msgid "Not enough privilege to view status variables."
-msgstr "Nincs elegendő jogosultság az állapotváltozók megtekintéséhez."
-
 #: setup/frames/config.inc.php:20 setup/frames/index.inc.php:197
 msgid "Configuration file"
 msgstr "Konfigurációs fájl"
@@ -14338,7 +14221,7 @@ msgid "Done dragging (rearranging) charts"
 msgstr "Diagramok áthúzása (újrarendezése) kész"
 
 #: templates/server/status/monitor/index.twig:27
-#: templates/server/status/monitor/index.twig:106
+#: templates/server/status/monitor/index.twig:124
 msgid "Add chart"
 msgstr "Diagram hozzáadása"
 
@@ -14346,15 +14229,40 @@ msgstr "Diagram hozzáadása"
 msgid "Enable charts dragging"
 msgstr "Diagramok megragadásának engedélyezése"
 
-#: templates/server/status/monitor/index.twig:43
+#: templates/server/status/monitor/index.twig:36
+#: templates/server/status/processes/index.twig:25
+msgid "Refresh rate"
+msgstr "Frissítési időköz"
+
+#: templates/server/status/monitor/index.twig:42
+#: templates/server/status/processes/index.twig:31
+#, fuzzy, php-format
+#| msgid "%d second"
+#| msgid_plural "%d seconds"
+msgid "%count% second"
+msgid_plural "%count% seconds"
+msgstr[0] "%d másodperc"
+msgstr[1] "%d másodperc"
+
+#: templates/server/status/monitor/index.twig:48
+#: templates/server/status/processes/index.twig:37
+#, fuzzy
+#| msgid "%d minute"
+#| msgid_plural "%d minutes"
+msgid "%count% minute"
+msgid_plural "%count% minutes"
+msgstr[0] "%d perc"
+msgstr[1] "%d perc"
+
+#: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
 msgstr "Diagram oszlopai"
 
-#: templates/server/status/monitor/index.twig:56
+#: templates/server/status/monitor/index.twig:74
 msgid "Chart arrangement"
 msgstr "Diagram elrendezés"
 
-#: templates/server/status/monitor/index.twig:57
+#: templates/server/status/monitor/index.twig:75
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -14362,15 +14270,15 @@ msgstr ""
 "A diagramok elrendezése a böngészők helyi tárolójában találhatók. Érdemes "
 "exportálni, ha összetett elrendezésről van szó."
 
-#: templates/server/status/monitor/index.twig:66
+#: templates/server/status/monitor/index.twig:84
 msgid "Reset to default"
 msgstr "Visszaállítás az alapértékre"
 
-#: templates/server/status/monitor/index.twig:71
+#: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
 msgstr "Felügyeleti utasítások"
 
-#: templates/server/status/monitor/index.twig:73
+#: templates/server/status/monitor/index.twig:91
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -14384,11 +14292,11 @@ msgstr ""
 "vagy a general_log-ot engedélyezze. Ne feledje azonban, hogy a general_log "
 "nagy adatmennyiséget eredményez, és növeli a szerver terhelését 15%-kal."
 
-#: templates/server/status/monitor/index.twig:83
+#: templates/server/status/monitor/index.twig:101
 msgid "Using the monitor:"
 msgstr "Felügyelet használata:"
 
-#: templates/server/status/monitor/index.twig:85
+#: templates/server/status/monitor/index.twig:103
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -14399,7 +14307,7 @@ msgstr ""
 "\"Beállításokban\", vagy el lehet távolítani a diagramokat a fogaskerék ikon "
 "használatával."
 
-#: templates/server/status/monitor/index.twig:90
+#: templates/server/status/monitor/index.twig:108
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -14412,11 +14320,11 @@ msgstr ""
 "fogja megnyitni, ahol a bármely előforduló SELECT utasításra való "
 "kattintással további elemzés végezhető el."
 
-#: templates/server/status/monitor/index.twig:96
+#: templates/server/status/monitor/index.twig:114
 msgid "Please note:"
 msgstr "Jegyezze meg:"
 
-#: templates/server/status/monitor/index.twig:99
+#: templates/server/status/monitor/index.twig:117
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -14429,79 +14337,79 @@ msgstr ""
 "letiltani a general_log-ot, kiüríteni a tábláját, ha az ellenőrzésére nincs "
 "szükség többé."
 
-#: templates/server/status/monitor/index.twig:109
+#: templates/server/status/monitor/index.twig:127
 msgid "Chart Title"
 msgstr "Diagramcím"
 
-#: templates/server/status/monitor/index.twig:113
+#: templates/server/status/monitor/index.twig:131
 msgid "Preset chart"
 msgstr "Diagram előre beállítása"
 
-#: templates/server/status/monitor/index.twig:119
+#: templates/server/status/monitor/index.twig:137
 msgid "Status variable(s)"
 msgstr "Állapot változó(k)"
 
-#: templates/server/status/monitor/index.twig:124
+#: templates/server/status/monitor/index.twig:142
 msgid "Select series:"
 msgstr "Sorozatok kijelölése:"
 
-#: templates/server/status/monitor/index.twig:127
+#: templates/server/status/monitor/index.twig:145
 msgid "Commonly monitored"
 msgstr "Rendszeresen ellenőrzött"
 
-#: templates/server/status/monitor/index.twig:145
+#: templates/server/status/monitor/index.twig:163
 msgid "or type variable name:"
 msgstr "vagy gépelje be a változó nevét:"
 
-#: templates/server/status/monitor/index.twig:152
+#: templates/server/status/monitor/index.twig:170
 msgid "Display as differential value"
 msgstr "Különbözeti értékként való megjelenítés"
 
-#: templates/server/status/monitor/index.twig:157
+#: templates/server/status/monitor/index.twig:175
 msgid "Apply a divisor"
 msgstr "Osztó alkalmazása"
 
-#: templates/server/status/monitor/index.twig:168
+#: templates/server/status/monitor/index.twig:186
 msgid "Append unit to data values"
 msgstr "Egység hozzáfűzése az adatértékekhez"
 
-#: templates/server/status/monitor/index.twig:176
+#: templates/server/status/monitor/index.twig:194
 msgid "Add this series"
 msgstr "E sorozat hozzáadása"
 
-#: templates/server/status/monitor/index.twig:179
+#: templates/server/status/monitor/index.twig:197
 msgid "Clear series"
 msgstr "Sorozatok törlése"
 
-#: templates/server/status/monitor/index.twig:183
+#: templates/server/status/monitor/index.twig:201
 msgid "Series in chart:"
 msgstr "Sorozatok a diagramban:"
 
-#: templates/server/status/monitor/index.twig:192
+#: templates/server/status/monitor/index.twig:210
 msgid "Log statistics"
 msgstr "Naplóstatisztikák"
 
-#: templates/server/status/monitor/index.twig:194
+#: templates/server/status/monitor/index.twig:212
 msgid "Selected time range:"
 msgstr "Kiválasztott időtartomány:"
 
-#: templates/server/status/monitor/index.twig:202
+#: templates/server/status/monitor/index.twig:220
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Csak SELECT,INSERT,UPDATE és DELETE utasítások lekérése"
 
-#: templates/server/status/monitor/index.twig:208
+#: templates/server/status/monitor/index.twig:226
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Változóadat eltávolítása az INSERT utasításból a jobb csoportosításért"
 
-#: templates/server/status/monitor/index.twig:212
+#: templates/server/status/monitor/index.twig:230
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Válassza ki, hogy melyik naplóból szeretne statisztikát előállítani."
 
-#: templates/server/status/monitor/index.twig:215
+#: templates/server/status/monitor/index.twig:233
 msgid "Results are grouped by query text."
 msgstr "Az eredmények csoportosítva vannak a lekérdezés szövege szerint."
 
-#: templates/server/status/monitor/index.twig:219
+#: templates/server/status/monitor/index.twig:237
 msgid "Query analyzer"
 msgstr "Lekérdezés elemző"
 
@@ -14921,12 +14829,14 @@ msgid "Select binary log to view"
 msgstr "Válassza ki a megtekintendő bináris naplót"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
+#: templates/server/status/processes/list.twig:20
 #, fuzzy
 #| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "A megjelenített lekérdezések lerövidítése"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
+#: templates/server/status/processes/list.twig:26
 #, fuzzy
 #| msgid "Show Full Queries"
 msgid "Show full queries"
@@ -15223,6 +15133,22 @@ msgstr "Kinyitás"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Újra lekérdezés"
+
+#: templates/server/status/base.twig:15
+msgid "Query statistics"
+msgstr "Lekérdezések statisztikája"
+
+#: templates/server/status/base.twig:20
+msgid "All status variables"
+msgstr "Minden állapotváltozó"
+
+#: templates/server/status/base.twig:25
+msgid "Monitor"
+msgstr "Felügyelet"
+
+#: templates/server/status/base.twig:30
+msgid "Advisor"
+msgstr "Tanácsadó"
 
 #: templates/server/databases/index.twig:4
 msgid "Databases statistics"
@@ -15655,6 +15581,15 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Meg kellene vizsgálni a hibajelentésben lévő adatokat:"
 
+#: templates/filter.twig:2 templates/server/status/processes/index.twig:6
+#: templates/server/status/variables/index.twig:7
+msgid "Filters"
+msgstr "Szűrők"
+
+#: templates/filter.twig:4 templates/server/status/variables/index.twig:14
+msgid "Containing the word:"
+msgstr "Tartalmazza ezt a szót:"
+
 #: templates/display/results/options_block.twig:34
 msgid "Relational key"
 msgstr "Relációs kulcs"
@@ -15691,6 +15626,39 @@ msgstr "Jól ismert bináris"
 msgid "Character sets and collations"
 msgstr "Karakterkészletek és illesztések"
 
+#. l10n: Questions is the name of a MySQL Status variable
+#: templates/server/status/queries/index.twig:7
+#, fuzzy
+#| msgid "Questions since startup: %s"
+msgid "Questions since startup:"
+msgstr "Kérdések az indítás óta: %s"
+
+#: templates/server/status/queries/index.twig:17
+msgid "per hour:"
+msgstr "óránként:"
+
+#: templates/server/status/queries/index.twig:18
+msgid "per minute:"
+msgstr "percenként:"
+
+#: templates/server/status/queries/index.twig:20
+msgid "per second:"
+msgstr "másodpercenként:"
+
+#: templates/server/status/queries/index.twig:32
+msgid "Statements"
+msgstr "Utasítások"
+
+#. l10n: # = Amount of queries
+#: templates/server/status/queries/index.twig:33
+msgid "#"
+msgstr "#"
+
+#: templates/server/status/queries/index.twig:53
+msgid "Not enough privilege to view query statistics."
+msgstr ""
+"Nincs elegendő jogosultság a lekérdezés statisztikáinak megtekintéséhez."
+
 #: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:44
 #: templates/prefs_twofactor.twig:56
 #, fuzzy
@@ -15703,6 +15671,18 @@ msgstr "Beállítás hitelesítés"
 #| msgid "Config authentication"
 msgid "Enable two-factor authentication"
 msgstr "Beállítás hitelesítés"
+
+#: templates/server/status/processes/index.twig:13
+msgid "Show only active"
+msgstr "Csak az aktívak megjelenítése"
+
+#: templates/server/status/processes/index.twig:21
+msgid ""
+"Note: Enabling the auto refresh here might cause heavy traffic between the "
+"web server and the MySQL server."
+msgstr ""
+"Megjegyzés: az automatikus frissítés itteni engedélyezése a webkiszolgáló és "
+"a MySQL kiszolgáló között nagy adatforgalomhoz vezethet."
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -16674,6 +16654,26 @@ msgid ""
 msgstr ""
 "Válassza a „GeomFromText”-et a „Függvény” oszlopból és illessze be az alábbi "
 "karakterláncot az „Érték” mezőbe."
+
+#: templates/server/status/variables/index.twig:21
+msgid "Show only alert values"
+msgstr "Csak a figyelmeztető értékek megjelenítése"
+
+#: templates/server/status/variables/index.twig:27
+msgid "Filter by category…"
+msgstr "Szűrés kategória szerint…"
+
+#: templates/server/status/variables/index.twig:37
+msgid "Show unformatted values"
+msgstr "Formázatlan értékek megjelenítése"
+
+#: templates/server/status/variables/index.twig:45
+msgid "Related links:"
+msgstr "Kapcsolódó hivatkozások:"
+
+#: templates/server/status/variables/index.twig:134
+msgid "Not enough privilege to view status variables."
+msgstr "Nincs elegendő jogosultság az állapotváltozók megtekintéséhez."
 
 #: templates/login/twofactor/invalid.twig:2
 #, fuzzy
@@ -17978,6 +17978,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "A concurrent_insert 0-ra van állítva"
+
+#~ msgid "Truncate Shown Queries"
+#~ msgstr "A megjelenített lekérdezések lerövidítése"
+
+#~ msgid "Show Full Queries"
+#~ msgstr "Teljes lekérdezések megjelenítése"
 
 #, fuzzy
 #~| msgid "No databases"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-02-21 02:29-0300\n"
+"POT-Creation-Date: 2019-02-27 14:28-0300\n"
 "PO-Revision-Date: 2019-02-07 12:02+0000\n"
 "Last-Translator: Oleh Ilnytskyi <rav.angell@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -180,7 +180,7 @@ msgstr "Коментарі"
 msgid "Primary"
 msgstr "Первинний"
 
-#: db_datadict.php:174 js/messages.php:390
+#: db_datadict.php:174 js/messages.php:393
 #: libraries/classes/Config/FormDisplayTemplate.php:327
 #: libraries/classes/Index.php:564 libraries/classes/Index.php:592
 #: libraries/classes/IndexColumn.php:143 libraries/classes/MultSubmits.php:533
@@ -206,7 +206,7 @@ msgstr "Первинний"
 msgid "No"
 msgstr "Ні"
 
-#: db_datadict.php:174 js/messages.php:539
+#: db_datadict.php:174 js/messages.php:542
 #: libraries/classes/Config/FormDisplayTemplate.php:327
 #: libraries/classes/Controllers/Server/DatabasesController.php:217
 #: libraries/classes/Controllers/Table/StructureController.php:805
@@ -403,7 +403,7 @@ msgstr "Помилкові параметри!"
 msgid "Succeeded"
 msgstr "Успішно"
 
-#: import.php:85 js/messages.php:626
+#: import.php:85 js/messages.php:629
 msgid "Failed"
 msgstr "Помилка"
 
@@ -484,7 +484,7 @@ msgstr "Оператор \"DROP DATABASE\" вимкнений."
 msgid "Could not load the progress of the import."
 msgstr "Не вдалося завантажити, щоб розпочати імпорт."
 
-#: import_status.php:120 js/messages.php:468 js/messages.php:634
+#: import_status.php:120 js/messages.php:471 js/messages.php:637
 #: libraries/classes/Export.php:516
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:727
@@ -519,7 +519,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Загальні налаштування"
 
-#: index.php:244 js/messages.php:659
+#: index.php:244 js/messages.php:662
 #: libraries/classes/Display/ChangePassword.php:71
 #: libraries/classes/Display/ChangePassword.php:74
 #: libraries/classes/UserPassword.php:275
@@ -974,75 +974,82 @@ msgid "Y values"
 msgstr "Значення Y"
 
 #: js/messages.php:147
+#, fuzzy
+#| msgid "Please enter the same value again"
+msgid "Please enter the SQL query first."
+msgstr "Будь ласка, введіть те ж значення знову"
+
+#: js/messages.php:150
 msgid "The host name is empty!"
 msgstr "Відсутнє ім'я хосту!"
 
-#: js/messages.php:148
+#: js/messages.php:151
 msgid "The user name is empty!"
 msgstr "Відсутнє ім'я користувача!"
 
-#: js/messages.php:149 libraries/classes/Server/Privileges.php:2003
+#: js/messages.php:152 libraries/classes/Server/Privileges.php:2003
 #: libraries/classes/UserPassword.php:83
 msgid "The password is empty!"
 msgstr "Відсутній пароль!"
 
-#: js/messages.php:150 libraries/classes/Server/Privileges.php:2001
+#: js/messages.php:153 libraries/classes/Server/Privileges.php:2001
 #: libraries/classes/UserPassword.php:87
 msgid "The passwords aren't the same!"
 msgstr "Паролі не співпадають!"
 
-#: js/messages.php:151
+#: js/messages.php:154
 msgid "Removing Selected Users"
 msgstr "Видалення вибраних користувачів"
 
-#: js/messages.php:152 js/messages.php:219 libraries/classes/Tracking.php:277
+#: js/messages.php:155 js/messages.php:222 libraries/classes/Tracking.php:277
 #: libraries/classes/Tracking.php:683
 msgid "Close"
 msgstr "Закрити"
 
-#: js/messages.php:155
+#: js/messages.php:158
 msgid "Template was created."
 msgstr "Шаблон створений."
 
-#: js/messages.php:156
+#: js/messages.php:159
 msgid "Template was loaded."
 msgstr "Шаблон завантажений."
 
-#: js/messages.php:157
+#: js/messages.php:160
 msgid "Template was updated."
 msgstr "Шаблон оновлено."
 
-#: js/messages.php:158
+#: js/messages.php:161
 msgid "Template was deleted."
 msgstr "Шаблон видалений."
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:161 libraries/classes/Server/Status/Data.php:134
-#: libraries/classes/Server/Status/Queries.php:153
+#: js/messages.php:164
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:64
+#: libraries/classes/Server/Status/Data.php:134
 msgid "Other"
 msgstr "Інше"
 
 #. l10n: Thousands separator
-#: js/messages.php:163 libraries/classes/Util.php:1412
+#: js/messages.php:166 libraries/classes/Util.php:1412
 #: libraries/classes/Util.php:1443
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:165 libraries/classes/Util.php:1410
+#: js/messages.php:168 libraries/classes/Util.php:1410
 #: libraries/classes/Util.php:1441
 msgid "."
 msgstr "."
 
-#: js/messages.php:167
+#: js/messages.php:170
 msgid "Connections / Processes"
 msgstr "З'єднань / Процесів"
 
-#: js/messages.php:171
+#: js/messages.php:174
 msgid "Local monitor configuration incompatible!"
 msgstr "Несумісна конфігурація локального монітору!"
 
-#: js/messages.php:173
+#: js/messages.php:176
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1054,209 +1061,208 @@ msgstr ""
 "імовірно, що ваша поточна конфігурація більше не буде працювати. Будь ласка, "
 "встановіть вашу конфігурацію за замовчанням в меню <i>Установки</i>."
 
-#: js/messages.php:179
+#: js/messages.php:182
 msgid "Query cache efficiency"
 msgstr "Ефективність кешу запитів"
 
-#: js/messages.php:180
+#: js/messages.php:183
 msgid "Query cache usage"
 msgstr "Використання кешу запитів"
 
-#: js/messages.php:181
+#: js/messages.php:184
 msgid "Query cache used"
 msgstr "Використано кеш запитів"
 
-#: js/messages.php:183
+#: js/messages.php:186
 msgid "System CPU usage"
 msgstr "Використання системного процесора"
 
-#: js/messages.php:184
+#: js/messages.php:187
 msgid "System memory"
 msgstr "Системна пам'ять"
 
-#: js/messages.php:185
+#: js/messages.php:188
 msgid "System swap"
 msgstr "Система підкачки"
 
-#: js/messages.php:187
+#: js/messages.php:190
 msgid "Average load"
 msgstr "Середнє навантаження"
 
-#: js/messages.php:188
+#: js/messages.php:191
 msgid "Total memory"
 msgstr "Загальна пам'ять"
 
-#: js/messages.php:189
+#: js/messages.php:192
 msgid "Cached memory"
 msgstr "Пам'яті кешовано"
 
-#: js/messages.php:190
+#: js/messages.php:193
 msgid "Buffered memory"
 msgstr "Пам'яті буферизовано"
 
-#: js/messages.php:191
+#: js/messages.php:194
 msgid "Free memory"
 msgstr "Вільна пам'ять"
 
-#: js/messages.php:192
+#: js/messages.php:195
 msgid "Used memory"
 msgstr "Пам'яті використано"
 
-#: js/messages.php:194
+#: js/messages.php:197
 msgid "Total swap"
 msgstr "Загальний об'єм підкачки"
 
-#: js/messages.php:195
+#: js/messages.php:198
 msgid "Cached swap"
 msgstr "Кешований об'єм підкачки"
 
-#: js/messages.php:196
+#: js/messages.php:199
 msgid "Used swap"
 msgstr "Використаний об'єм підкачки"
 
-#: js/messages.php:197
+#: js/messages.php:200
 msgid "Free swap"
 msgstr "Вільний об'єм підкачки"
 
-#: js/messages.php:199
+#: js/messages.php:202
 msgid "Bytes sent"
 msgstr "Байтів надіслано"
 
-#: js/messages.php:200
+#: js/messages.php:203
 msgid "Bytes received"
 msgstr "Байтів отримано"
 
-#: js/messages.php:201 templates/server/status/status/index.twig:35
+#: js/messages.php:204 templates/server/status/status/index.twig:35
 msgid "Connections"
 msgstr "З'єднань"
 
-#: js/messages.php:202 libraries/classes/Server/Status/Data.php:445
-#: libraries/classes/Server/Status/Processes.php:156
-#: templates/server/status/base.twig:10
+#: js/messages.php:205 templates/server/status/base.twig:10
+#: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Процесів"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:205 libraries/classes/Util.php:1320
+#: js/messages.php:208 libraries/classes/Util.php:1320
 msgid "B"
 msgstr "Б"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:206 libraries/classes/Util.php:1322
-#: templates/server/status/monitor/index.twig:161
+#: js/messages.php:209 libraries/classes/Util.php:1322
+#: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "КБ"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:207 libraries/classes/Util.php:1324
-#: templates/server/status/monitor/index.twig:162
+#: js/messages.php:210 libraries/classes/Util.php:1324
+#: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "МБ"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:208 libraries/classes/Util.php:1326
+#: js/messages.php:211 libraries/classes/Util.php:1326
 msgid "GiB"
 msgstr "ГБ"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:209 libraries/classes/Util.php:1328
+#: js/messages.php:212 libraries/classes/Util.php:1328
 msgid "TiB"
 msgstr "ТБ"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:210 libraries/classes/Util.php:1330
+#: js/messages.php:213 libraries/classes/Util.php:1330
 msgid "PiB"
 msgstr "ПБ"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:211 libraries/classes/Util.php:1332
+#: js/messages.php:214 libraries/classes/Util.php:1332
 msgid "EiB"
 msgstr "ЕБ"
 
-#: js/messages.php:212
+#: js/messages.php:215
 #, php-format
 msgid "%d table(s)"
 msgstr "%d таблиця(ь)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:215
+#: js/messages.php:218
 msgid "Questions"
 msgstr "Питання"
 
-#: js/messages.php:216 templates/server/status/status/index.twig:13
+#: js/messages.php:219 templates/server/status/status/index.twig:13
 msgid "Traffic"
 msgstr "Трафік"
 
-#: js/messages.php:217 libraries/classes/Menu.php:636
+#: js/messages.php:220 libraries/classes/Menu.php:636
 #: libraries/classes/Util.php:4192
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Налаштування"
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add chart to grid"
 msgstr "Додати графік до сітки"
 
-#: js/messages.php:221
+#: js/messages.php:224
 msgid "Please add at least one variable to the series!"
 msgstr "Будь ласка, додайте хоча б одну змінну в серії!"
 
-#: js/messages.php:222 libraries/classes/Display/Results.php:1354
+#: js/messages.php:225 libraries/classes/Display/Results.php:1354
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
-#: libraries/classes/Server/Status/Processes.php:303
 #: libraries/config.values.php:113
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:204
 #: templates/database/designer/main.twig:629
 #: templates/table/search/rows_zoom.twig:20
 #: templates/columns_definitions/transformation.twig:4
+#: templates/server/status/processes/list.twig:54
 #: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/table/search/selection_form.twig:35
 msgid "None"
 msgstr "Жодного"
 
-#: js/messages.php:223
+#: js/messages.php:226
 msgid "Resume monitor"
 msgstr "Відновити монітор"
 
-#: js/messages.php:224
+#: js/messages.php:227
 msgid "Pause monitor"
 msgstr "Призупинити монітор"
 
-#: js/messages.php:225 libraries/classes/Server/Status/Processes.php:61
+#: js/messages.php:228 templates/server/status/processes/index.twig:49
 msgid "Start auto refresh"
 msgstr "Почати автоматичне оновлення"
 
-#: js/messages.php:226
+#: js/messages.php:229
 msgid "Stop auto refresh"
 msgstr "Припинити автоматичне оновлення"
 
-#: js/messages.php:228
+#: js/messages.php:231
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log та slow_query_log ввімкнені."
 
-#: js/messages.php:229
+#: js/messages.php:232
 msgid "general_log is enabled."
 msgstr "general_log ввімкнений."
 
-#: js/messages.php:230
+#: js/messages.php:233
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log ввімкнений."
 
-#: js/messages.php:231
+#: js/messages.php:234
 msgid "slow_query_log and general_log are disabled."
 msgstr "general_log та slow_query_log вимкнені."
 
-#: js/messages.php:232
+#: js/messages.php:235
 msgid "log_output is not set to TABLE."
 msgstr "log_output не встановлений для TABLE."
 
-#: js/messages.php:233
+#: js/messages.php:236
 msgid "log_output is set to TABLE."
 msgstr "log_output встановлений для TABLE."
 
-#: js/messages.php:235
+#: js/messages.php:238
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1267,12 +1273,12 @@ msgstr ""
 "%d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
 "залежності від вашої системи."
 
-#: js/messages.php:239
+#: js/messages.php:242
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time встановлено на %d секунди(секунд)."
 
-#: js/messages.php:241
+#: js/messages.php:244
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -1281,30 +1287,30 @@ msgstr ""
 "замовчуванням після перезавантаження сервера:"
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:245
+#: js/messages.php:248
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Встановити log_output в %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:247
+#: js/messages.php:250
 #, php-format
 msgid "Enable %s"
 msgstr "Увімкнено %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:249
+#: js/messages.php:252
 #, php-format
 msgid "Disable %s"
 msgstr "Вимкнено %s"
 
 #. l10n: %d seconds
-#: js/messages.php:251
+#: js/messages.php:254
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Встановити long_query_time у %d секунд."
 
-#: js/messages.php:253
+#: js/messages.php:256
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -1312,57 +1318,57 @@ msgstr ""
 "Ви не можете змінити ці змінні. Будь ласка увійдіть як root або зв'яжіться з "
 "вашим адміністратором бази даних."
 
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Change settings"
 msgstr "Змінити налаштування"
 
-#: js/messages.php:257
+#: js/messages.php:260
 msgid "Current settings"
 msgstr "Поточні налаштування"
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "Chart title"
 msgstr "Назва графіку"
 
 #. l10n: As in differential values
-#: js/messages.php:261
+#: js/messages.php:264
 msgid "Differential"
 msgstr "Диференціальний"
 
-#: js/messages.php:262
+#: js/messages.php:265
 #, php-format
 msgid "Divided by %s"
 msgstr "Розділено на %s"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "Unit"
 msgstr "Блок"
 
-#: js/messages.php:265
+#: js/messages.php:268
 msgid "From slow log"
 msgstr "З журналу повільних запитів"
 
-#: js/messages.php:266
+#: js/messages.php:269
 msgid "From general log"
 msgstr "Із загального журналу"
 
-#: js/messages.php:268
+#: js/messages.php:271
 msgid "The database name is not known for this query in the server's logs."
 msgstr "Ім'я бази даних для цього запиту не присутнє в журналі сервера."
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "Analysing logs"
 msgstr "Аналіз журналів"
 
-#: js/messages.php:272
+#: js/messages.php:275
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Аналіз та завантаження журналів. Це може зайняти деякий час."
 
-#: js/messages.php:273
+#: js/messages.php:276
 msgid "Cancel request"
 msgstr "Скасувати запит"
 
-#: js/messages.php:275
+#: js/messages.php:278
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -1372,7 +1378,7 @@ msgstr ""
 "Однак тільки сам SQL запит був використаний в якості критеріїв класифікації, "
 "так що інші атрибути запиту, такі як час початку, можуть відрізнятися."
 
-#: js/messages.php:280
+#: js/messages.php:283
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -1381,117 +1387,116 @@ msgstr ""
 "Оскільки було обрано групування запитів INSERT, INSERT запити в тій же "
 "таблиці також групуються разом, незважаючи на вставлені дані."
 
-#: js/messages.php:285
+#: js/messages.php:288
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Журнальні дані завантажені. Запити виконані в цей проміжок часу:"
 
-#: js/messages.php:287
+#: js/messages.php:290
 msgid "Jump to Log table"
 msgstr "Перейти до таблиці Log"
 
-#: js/messages.php:288
+#: js/messages.php:291
 msgid "No data found"
 msgstr "Даних не знайдено"
 
-#: js/messages.php:290
+#: js/messages.php:293
 msgid "Log analysed, but no data found in this time span."
 msgstr "Журнал проаналізований, але даних в цей проміжок часу не знайдено."
 
-#: js/messages.php:292
+#: js/messages.php:295
 msgid "Analyzing…"
 msgstr "Аналізується…"
 
-#: js/messages.php:293
+#: js/messages.php:296
 msgid "Explain output"
 msgstr "Аналіз результатів"
 
-#: js/messages.php:294 libraries/classes/Menu.php:599
-#: libraries/classes/Rte/Events.php:470 libraries/classes/Rte/RteList.php:146
-#: libraries/classes/Server/Status/Processes.php:117
-#: libraries/classes/Util.php:4188 libraries/config.values.php:159
-#: templates/database/tracking/tables.twig:17
+#: js/messages.php:297
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
+#: libraries/classes/Menu.php:599 libraries/classes/Rte/Events.php:470
+#: libraries/classes/Rte/RteList.php:146 libraries/classes/Util.php:4188
+#: libraries/config.values.php:159 templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Статус"
 
-#: js/messages.php:295 js/messages.php:917
+#: js/messages.php:298 js/messages.php:920
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:128
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:491
 #: libraries/classes/Plugins/Export/ExportOdt.php:612
 #: libraries/classes/Plugins/Export/ExportTexytext.php:455
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:381
-#: libraries/classes/Rte/RteList.php:135
-#: libraries/classes/Server/Status/Processes.php:113
-#: templates/sql/profiling_chart.twig:18
+#: libraries/classes/Rte/RteList.php:135 templates/sql/profiling_chart.twig:18
 msgid "Time"
 msgstr "Час"
 
-#: js/messages.php:296
+#: js/messages.php:299
 msgid "Total time:"
 msgstr "Загальний час:"
 
-#: js/messages.php:297
+#: js/messages.php:300
 msgid "Profiling results"
 msgstr "Профільні результати"
 
-#: js/messages.php:298
+#: js/messages.php:301
 msgctxt "Display format"
 msgid "Table"
 msgstr "Таблиця"
 
-#: js/messages.php:299
+#: js/messages.php:302
 msgid "Chart"
 msgstr "Діаграма"
 
-#: js/messages.php:301 libraries/classes/Display/Export.php:590
+#: js/messages.php:304 libraries/classes/Display/Export.php:590
 msgctxt "Alias"
 msgid "Database"
 msgstr "База даних"
 
-#: js/messages.php:302 libraries/classes/Display/Export.php:602
+#: js/messages.php:305 libraries/classes/Display/Export.php:602
 msgctxt "Alias"
 msgid "Table"
 msgstr "Таблиця"
 
-#: js/messages.php:303 libraries/classes/Display/Export.php:613
+#: js/messages.php:306 libraries/classes/Display/Export.php:613
 msgctxt "Alias"
 msgid "Column"
 msgstr "Стовпець"
 
 #. l10n: A collection of available filters
-#: js/messages.php:306
+#: js/messages.php:309
 msgid "Log table filter options"
 msgstr "Опції фільтрів таблиці журнала"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:308
+#: js/messages.php:311
 msgid "Filter"
 msgstr "Фільтр"
 
-#: js/messages.php:309
+#: js/messages.php:312
 msgid "Filter queries by word/regexp:"
 msgstr "Фільтр запитів по слову/регулярному виразу:"
 
-#: js/messages.php:311
+#: js/messages.php:314
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Групувати запити, ігноруючи змінні в операторі WHERE"
 
-#: js/messages.php:312
+#: js/messages.php:315
 msgid "Sum of grouped rows:"
 msgstr "Сума згрупованих рядків:"
 
-#: js/messages.php:313 templates/server/databases/index.twig:236
+#: js/messages.php:316 templates/server/databases/index.twig:236
 msgid "Total:"
 msgstr "Всього:"
 
-#: js/messages.php:315
+#: js/messages.php:318
 msgid "Loading logs"
 msgstr "Завантаження журналів"
 
-#: js/messages.php:316
+#: js/messages.php:319
 msgid "Monitor refresh failed"
 msgstr "Оновлення монітору не вдалося"
 
-#: js/messages.php:318
+#: js/messages.php:321
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1501,100 +1506,100 @@ msgstr ""
 "швидше за все, тому що ваша сесія закінчилася. Перезавантаження сторінки і "
 "повторного введення облікових даних повинно допомогти."
 
-#: js/messages.php:322
+#: js/messages.php:325
 msgid "Reload page"
 msgstr "Перезавантажити сторінку"
 
-#: js/messages.php:324
+#: js/messages.php:327
 msgid "Affected rows:"
 msgstr "Рядки що зазнали змін:"
 
-#: js/messages.php:327
+#: js/messages.php:330
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Невдале зчитування файлу конфігурації. Схоже на неприпустимий JSON код."
 
-#: js/messages.php:330
+#: js/messages.php:333
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Неможливо побудувати сітку даних з імпортованою конфігурацією. Відновлення "
 "конфігурації за замовчуванням…"
 
-#: js/messages.php:332 libraries/classes/Config/Forms/User/ImportForm.php:71
+#: js/messages.php:335 libraries/classes/Config/Forms/User/ImportForm.php:71
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:508
 #: libraries/classes/Menu.php:632 libraries/classes/Util.php:4191
 #: libraries/classes/Util.php:4206 libraries/classes/Util.php:4223
-#: prefs_manage.php:234 templates/server/status/monitor/index.twig:60
+#: prefs_manage.php:234 templates/server/status/monitor/index.twig:78
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "Імпорт"
 
-#: js/messages.php:333
+#: js/messages.php:336
 msgid "Import monitor configuration"
 msgstr "Імпорт налаштувань монітору"
 
-#: js/messages.php:335
+#: js/messages.php:338
 msgid "Please select the file you want to import."
 msgstr "Будь ласка, оберіть файл, який ви бажаєте імпортувати."
 
-#: js/messages.php:337
+#: js/messages.php:340
 msgid "Please enter a valid table name."
 msgstr "Будь ласка, введіть дійсну назву таблиці."
 
-#: js/messages.php:339
+#: js/messages.php:342
 msgid "Please enter a valid database name."
 msgstr "Будь ласка, введіть дійсне ім'я бази даних."
 
-#: js/messages.php:340
+#: js/messages.php:343
 msgid "No files available on server for import!"
 msgstr "На сервері немає файлів для імпорту!"
 
-#: js/messages.php:342
+#: js/messages.php:345
 msgid "Analyse query"
 msgstr "Аналізувати запит"
 
-#: js/messages.php:346
+#: js/messages.php:349
 msgid "Advisor system"
 msgstr "Система порад"
 
-#: js/messages.php:347
+#: js/messages.php:350
 msgid "Possible performance issues"
 msgstr "Можливі проблеми з продуктивністю"
 
-#: js/messages.php:348
+#: js/messages.php:351
 msgid "Issue"
 msgstr "Результат"
 
-#: js/messages.php:349
+#: js/messages.php:352
 msgid "Recommendation"
 msgstr "Рекомендація"
 
-#: js/messages.php:350
+#: js/messages.php:353
 msgid "Rule details"
 msgstr "Деталі правила"
 
-#: js/messages.php:351
+#: js/messages.php:354
 msgid "Justification"
 msgstr "Правомірність"
 
-#: js/messages.php:352
+#: js/messages.php:355
 msgid "Used variable / formula"
 msgstr "Використана змінна / формула"
 
-#: js/messages.php:353
+#: js/messages.php:356
 msgid "Test"
 msgstr "Тест"
 
-#: js/messages.php:356
+#: js/messages.php:359
 msgid "Formatting SQL…"
 msgstr "Форматування SQL…"
 
-#: js/messages.php:357
+#: js/messages.php:360
 msgid "No parameters found!"
 msgstr "Параметри не знайдені!"
 
-#: js/messages.php:360 libraries/classes/BrowseForeigners.php:207
+#: js/messages.php:363 libraries/classes/BrowseForeigners.php:207
 #: libraries/classes/Display/ChangePassword.php:176
 #: libraries/classes/Index.php:661 libraries/classes/InsertEdit.php:1935
 #: libraries/classes/InsertEdit.php:1969
@@ -1640,7 +1645,7 @@ msgstr "Параметри не знайдені!"
 msgid "Go"
 msgstr "Виконати"
 
-#: js/messages.php:361 templates/database/designer/main.twig:380
+#: js/messages.php:364 templates/database/designer/main.twig:380
 #: templates/database/designer/main.twig:431
 #: templates/database/designer/main.twig:705
 #: templates/database/designer/main.twig:771
@@ -1651,46 +1656,46 @@ msgstr "Виконати"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: js/messages.php:364 libraries/classes/Header.php:476
+#: js/messages.php:367 libraries/classes/Header.php:476
 msgid "Page-related settings"
 msgstr "Налаштування пов'язаної сторінки"
 
-#: js/messages.php:365 templates/config/form_display/fieldset_bottom.twig:8
+#: js/messages.php:368 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
 msgstr "Застосувати"
 
-#: js/messages.php:368 libraries/classes/Navigation/NavigationHeader.php:79
-#: templates/server/status/monitor/index.twig:77
+#: js/messages.php:371 libraries/classes/Navigation/NavigationHeader.php:79
+#: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "Завантаження…"
 
-#: js/messages.php:369
+#: js/messages.php:372
 msgid "Request aborted!!"
 msgstr "Запит скасовано!"
 
-#: js/messages.php:370
+#: js/messages.php:373
 msgid "Processing request"
 msgstr "Обробка запиту"
 
-#: js/messages.php:371
+#: js/messages.php:374
 msgid "Request failed!!"
 msgstr "Запит скасовано!"
 
-#: js/messages.php:372
+#: js/messages.php:375
 msgid "Error in processing request"
 msgstr "Помилка при обробці запиту"
 
-#: js/messages.php:373
+#: js/messages.php:376
 #, php-format
 msgid "Error code: %s"
 msgstr "Код помилки: %s"
 
-#: js/messages.php:374
+#: js/messages.php:377
 #, php-format
 msgid "Error text: %s"
 msgstr "Текст помилки: %s"
 
-#: js/messages.php:376
+#: js/messages.php:379
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -1698,25 +1703,25 @@ msgstr ""
 "Здається, що з'єднання з сервером було втрачено. Перевірте стан з'єднання з "
 "мережею та стан сервера."
 
-#: js/messages.php:379
+#: js/messages.php:382
 #: libraries/classes/Controllers/Server/DatabasesController.php:211
 #: libraries/db_common.inc.php:78 libraries/db_table_exists.inc.php:35
 msgid "No databases selected."
 msgstr "Жодної бази даних не вибрано."
 
-#: js/messages.php:380
+#: js/messages.php:383
 msgid "No accounts selected."
 msgstr "Не вибрано жодного облікового запису."
 
-#: js/messages.php:381
+#: js/messages.php:384
 msgid "Dropping column"
 msgstr "Видалення стовпця"
 
-#: js/messages.php:382
+#: js/messages.php:385
 msgid "Adding primary key"
 msgstr "Додати первинний ключ"
 
-#: js/messages.php:383 templates/database/designer/main.twig:378
+#: js/messages.php:386 templates/database/designer/main.twig:378
 #: templates/database/designer/main.twig:703
 #: templates/database/designer/main.twig:767
 #: templates/database/designer/main.twig:906
@@ -1726,60 +1731,60 @@ msgstr "Додати первинний ключ"
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:384
+#: js/messages.php:387
 msgid "Click to dismiss this notification"
 msgstr "Натисніть для пропуску цьго повідомлення"
 
-#: js/messages.php:387
+#: js/messages.php:390
 msgid "Renaming databases"
 msgstr "Перейменувати бази даних"
 
-#: js/messages.php:388
+#: js/messages.php:391
 msgid "Copying database"
 msgstr "Копіювати базу даних"
 
-#: js/messages.php:389
+#: js/messages.php:392
 msgid "Changing charset"
 msgstr "Змінити кодування"
 
-#: js/messages.php:393 templates/fk_checkbox.twig:4
+#: js/messages.php:396 templates/fk_checkbox.twig:4
 msgid "Enable foreign key checks"
 msgstr "Відключити перевірку зовнішніх ключів"
 
-#: js/messages.php:396
+#: js/messages.php:399
 msgid "Failed to get real row count."
 msgstr "Не вдалося отримати реальну кількість рядків."
 
-#: js/messages.php:399
+#: js/messages.php:402
 msgid "Searching"
 msgstr "Пошук"
 
-#: js/messages.php:400
+#: js/messages.php:403
 msgid "Hide search results"
 msgstr "Сховати результати пошуку"
 
-#: js/messages.php:401
+#: js/messages.php:404
 msgid "Show search results"
 msgstr "Показати результати пошуку"
 
-#: js/messages.php:402
+#: js/messages.php:405
 msgid "Browsing"
 msgstr "Перегляд"
 
-#: js/messages.php:403
+#: js/messages.php:406
 msgid "Deleting"
 msgstr "Видалення"
 
-#: js/messages.php:404
+#: js/messages.php:407
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Видалити співставлення для таблиці  %s ?"
 
-#: js/messages.php:408
+#: js/messages.php:411
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Визначення збереженої функції має містити оператор RETURN!"
 
-#: js/messages.php:409 libraries/classes/Config/Forms/User/ExportForm.php:158
+#: js/messages.php:412 libraries/classes/Config/Forms/User/ExportForm.php:158
 #: libraries/classes/Display/Results.php:4724
 #: libraries/classes/Display/Results.php:4970 libraries/classes/Menu.php:391
 #: libraries/classes/Menu.php:499 libraries/classes/Menu.php:628
@@ -1790,53 +1795,53 @@ msgstr "Визначення збереженої функції має міст
 #: libraries/classes/Server/Privileges.php:3725 libraries/classes/Util.php:3432
 #: libraries/classes/Util.php:3433 libraries/classes/Util.php:4190
 #: libraries/classes/Util.php:4205 libraries/classes/Util.php:4222
-#: prefs_manage.php:302 templates/server/status/monitor/index.twig:63
+#: prefs_manage.php:302 templates/server/status/monitor/index.twig:81
 #: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "Експорт"
 
-#: js/messages.php:411
+#: js/messages.php:414
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr "Експорт неможливий. Відсутні необхідні привілеї."
 
-#: js/messages.php:414 libraries/classes/Rte/Routines.php:825
+#: js/messages.php:417 libraries/classes/Rte/Routines.php:825
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET редактор"
 
-#: js/messages.php:415
+#: js/messages.php:418
 #, php-format
 msgid "Values for column %s"
 msgstr "Значення для ставпця %s"
 
-#: js/messages.php:416
+#: js/messages.php:419
 msgid "Values for a new column"
 msgstr "Значення для нового стовпця"
 
-#: js/messages.php:417
+#: js/messages.php:420
 msgid "Enter each value in a separate field."
 msgstr "Введіть кожне значення в окреме поле."
 
-#: js/messages.php:418
+#: js/messages.php:421
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Додати %d значення(ь)"
 
-#: js/messages.php:422
+#: js/messages.php:425
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Примітка: Якщо файл містить кілька таблиць, то вони будуть об'єднані в одну."
 
-#: js/messages.php:426
+#: js/messages.php:429
 msgid "Hide query box"
 msgstr "Сховати вікно запиту"
 
-#: js/messages.php:427
+#: js/messages.php:430
 msgid "Show query box"
 msgstr "Показати вікно запиту"
 
-#: js/messages.php:428 libraries/classes/CentralColumns.php:932
+#: js/messages.php:431 libraries/classes/CentralColumns.php:932
 #: libraries/classes/Config/Descriptions.php:828
 #: libraries/classes/Display/Results.php:3254
 #: libraries/classes/Display/Results.php:4699 libraries/classes/Index.php:742
@@ -1852,7 +1857,7 @@ msgstr "Показати вікно запиту"
 msgid "Edit"
 msgstr "Редагувати"
 
-#: js/messages.php:429 libraries/classes/CentralColumns.php:939
+#: js/messages.php:432 libraries/classes/CentralColumns.php:939
 #: libraries/classes/Display/Results.php:3331
 #: libraries/classes/Display/Results.php:4688
 #: libraries/classes/Server/UserGroups.php:148
@@ -1866,26 +1871,26 @@ msgstr "Редагувати"
 msgid "Delete"
 msgstr "Видалити"
 
-#: js/messages.php:430 templates/display/results/table_navigation.twig:42
+#: js/messages.php:433 templates/display/results/table_navigation.twig:42
 #: templates/display/results/table_navigation.twig:44
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d неправильний номер рядка."
 
-#: js/messages.php:431
+#: js/messages.php:434
 #: libraries/classes/Controllers/Table/SearchController.php:375
 #: libraries/classes/Controllers/Table/SearchController.php:929
 #: tbl_change.php:161 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "Перегляд зовнішніх значень"
 
-#: js/messages.php:432
+#: js/messages.php:435
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 "Немає раніше автоматично збереженого запиту. Завантажується запит за "
 "замовчуванням."
 
-#: js/messages.php:433
+#: js/messages.php:436
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -1893,24 +1898,24 @@ msgstr ""
 "Ви маєте попередньо збережений запит. Натисніть кнопку Отримати автоматично "
 "збережений запит, щоб завантажити запит."
 
-#: js/messages.php:434
+#: js/messages.php:437
 #, php-format
 msgid "Variable %d:"
 msgstr "Змінна %d:"
 
-#: js/messages.php:437 libraries/classes/Normalization.php:979
+#: js/messages.php:440 libraries/classes/Normalization.php:979
 msgid "Pick"
 msgstr "Підібрати"
 
-#: js/messages.php:438
+#: js/messages.php:441
 msgid "Column selector"
 msgstr "Селектор стопця"
 
-#: js/messages.php:439
+#: js/messages.php:442
 msgid "Search this list"
 msgstr "Шукати в цьому списку"
 
-#: js/messages.php:441
+#: js/messages.php:444
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1919,15 +1924,15 @@ msgstr ""
 "У основному списку відсутні стовпці. Впевніться, що в основному списку "
 "стовпців для бази даних %s містяться стовпці, що відсутні у поточній таблиці."
 
-#: js/messages.php:444
+#: js/messages.php:447
 msgid "See more"
 msgstr "Бачити більше"
 
-#: js/messages.php:445
+#: js/messages.php:448
 msgid "Are you sure?"
 msgstr "Ви впевнені?"
 
-#: js/messages.php:447
+#: js/messages.php:450
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
@@ -1935,53 +1940,53 @@ msgstr ""
 "Ця дія може змінити деякі визначення стовпців.<br>Ви впевнені, що бажаєте "
 "продовжити?"
 
-#: js/messages.php:450
+#: js/messages.php:453
 msgid "Continue"
 msgstr "Продовжити"
 
-#: js/messages.php:453
+#: js/messages.php:456
 msgid "Add primary key"
 msgstr "Додати первинний ключ"
 
-#: js/messages.php:454
+#: js/messages.php:457
 msgid "Primary key added."
 msgstr "Додано первинний ключ."
 
-#: js/messages.php:455 libraries/classes/Normalization.php:249
+#: js/messages.php:458 libraries/classes/Normalization.php:249
 msgid "Taking you to next step…"
 msgstr "Перехід до наступного етапу…"
 
-#: js/messages.php:457
+#: js/messages.php:460
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Перший етап нормалізації для таблиці '%s' завершений."
 
-#: js/messages.php:458 libraries/classes/Normalization.php:511
+#: js/messages.php:461 libraries/classes/Normalization.php:511
 #: libraries/classes/Normalization.php:559
 #: libraries/classes/Normalization.php:650
 #: libraries/classes/Normalization.php:715
 msgid "End of step"
 msgstr "Кінець етапу"
 
-#: js/messages.php:459
+#: js/messages.php:462
 msgid "Second step of normalization (2NF)"
 msgstr "Другий етап нормалізації (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:460 js/messages.php:786
+#: js/messages.php:463 js/messages.php:789
 #: libraries/classes/Normalization.php:344
 msgid "Done"
 msgstr "Готово"
 
-#: js/messages.php:461
+#: js/messages.php:464
 msgid "Confirm partial dependencies"
 msgstr "Підтвердіть часткові залежності"
 
-#: js/messages.php:462
+#: js/messages.php:465
 msgid "Selected partial dependencies are as follows:"
 msgstr "Обрані часткові залежності такі:"
 
-#: js/messages.php:464
+#: js/messages.php:467
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -1989,20 +1994,20 @@ msgstr ""
 "Зауважте: a, b -> d, f означає, що поєднані разом значення стовпців a і b "
 "будуть визначати значення стовпців d та f."
 
-#: js/messages.php:467
+#: js/messages.php:470
 msgid "No partial dependencies selected!"
 msgstr "Немає обраних часткових залежностей!"
 
-#: js/messages.php:470
+#: js/messages.php:473
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Покажіть мені можливі часткові залежності, що ґрунтуються на даних у таблиці"
 
-#: js/messages.php:471
+#: js/messages.php:474
 msgid "Hide partial dependencies list"
 msgstr "Приховати список часткових залежностей"
 
-#: js/messages.php:473
+#: js/messages.php:476
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -2010,40 +2015,40 @@ msgstr ""
 "Всім залишатись на місцях! Це може зайняти деякий час, залежно від розміру "
 "даних та кількості стовпців у таблиці."
 
-#: js/messages.php:476
+#: js/messages.php:479
 msgid "Step"
 msgstr "Етап"
 
-#: js/messages.php:478
+#: js/messages.php:481
 msgid "The following actions will be performed:"
 msgstr "Будуть виконані наступні дії:"
 
-#: js/messages.php:479
+#: js/messages.php:482
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "СКИНУТИ стовпці %s для таблиці %s"
 
-#: js/messages.php:480
+#: js/messages.php:483
 msgid "Create the following table"
 msgstr "Створити наступну таблицю"
 
-#: js/messages.php:483
+#: js/messages.php:486
 msgid "Third step of normalization (3NF)"
 msgstr "Третій етап нормалізації (3NF)"
 
-#: js/messages.php:484
+#: js/messages.php:487
 msgid "Confirm transitive dependencies"
 msgstr "Підтвердіть перехресні залежності"
 
-#: js/messages.php:485
+#: js/messages.php:488
 msgid "Selected dependencies are as follows:"
 msgstr "Вибрані залежності такі:"
 
-#: js/messages.php:486
+#: js/messages.php:489
 msgid "No dependencies selected!"
 msgstr "Жодної залежності не обрано!"
 
-#: js/messages.php:489 libraries/classes/CentralColumns.php:956
+#: js/messages.php:492 libraries/classes/CentralColumns.php:956
 #: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:216
@@ -2053,155 +2058,155 @@ msgstr "Жодної залежності не обрано!"
 msgid "Save"
 msgstr "Зберегти"
 
-#: js/messages.php:492
+#: js/messages.php:495
 msgid "Hide search criteria"
 msgstr "Сховати критерії пошуку"
 
-#: js/messages.php:493
+#: js/messages.php:496
 msgid "Show search criteria"
 msgstr "Показати критерії пошуку"
 
-#: js/messages.php:494
+#: js/messages.php:497
 msgid "Range search"
 msgstr "Діапазон пошуку"
 
-#: js/messages.php:495
+#: js/messages.php:498
 msgid "Column maximum:"
 msgstr "Максимальний стовпець:"
 
-#: js/messages.php:496
+#: js/messages.php:499
 msgid "Column minimum:"
 msgstr "Мінімальний стовпець:"
 
-#: js/messages.php:497
+#: js/messages.php:500
 msgid "Minimum value:"
 msgstr "Мінімальне значення:"
 
-#: js/messages.php:498
+#: js/messages.php:501
 msgid "Maximum value:"
 msgstr "Максимальне значення:"
 
-#: js/messages.php:501
+#: js/messages.php:504
 msgid "Hide find and replace criteria"
 msgstr "Сховати критерії пошуку та заміни"
 
-#: js/messages.php:502
+#: js/messages.php:505
 msgid "Show find and replace criteria"
 msgstr "Показати критерії пошуку та заміни"
 
-#: js/messages.php:506
+#: js/messages.php:509
 msgid "Each point represents a data row."
 msgstr "Кожна точка являє собою рядок даних."
 
-#: js/messages.php:508
+#: js/messages.php:511
 msgid "Hovering over a point will show its label."
 msgstr "Наведення курсора над крапкою відобразить її назву."
 
-#: js/messages.php:510
+#: js/messages.php:513
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Щоб збільшити масштаб, виберіть ділянку діаграми за допомогою миші."
 
-#: js/messages.php:512
+#: js/messages.php:515
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Натисніть кнопку скидання масштабу, щоб повернутися до початкового стану."
 
-#: js/messages.php:514
+#: js/messages.php:517
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Натисніть на точку даних щоб переглянути та можливо редагувати дані рядка."
 
-#: js/messages.php:516
+#: js/messages.php:519
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Ділянка може бути змінена шляхом перетягування в нижньому правому куті."
 
-#: js/messages.php:519
+#: js/messages.php:522
 msgid "Select two columns"
 msgstr "Виберіть два стовпця"
 
-#: js/messages.php:521
+#: js/messages.php:524
 msgid "Select two different columns"
 msgstr "Виберіть два різних стовпця"
 
-#: js/messages.php:523
+#: js/messages.php:526
 msgid "Data point content"
 msgstr "Вміст точки даних"
 
-#: js/messages.php:526 js/messages.php:694 js/messages.php:711
+#: js/messages.php:529 js/messages.php:697 js/messages.php:714
 #: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:3033
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Ігнорувати"
 
-#: js/messages.php:527 libraries/classes/Display/Results.php:3258
+#: js/messages.php:530 libraries/classes/Display/Results.php:3258
 #: libraries/classes/Display/Results.php:4707 libraries/classes/Util.php:310
 msgid "Copy"
 msgstr "Копіювати"
 
-#: js/messages.php:528 templates/gis_data_editor_form.twig:73
+#: js/messages.php:531 templates/gis_data_editor_form.twig:73
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
 msgid "X"
 msgstr "X"
 
-#: js/messages.php:529 templates/gis_data_editor_form.twig:75
+#: js/messages.php:532 templates/gis_data_editor_form.twig:75
 #: templates/gis_data_editor_form.twig:95
 #: templates/gis_data_editor_form.twig:136
 #: templates/gis_data_editor_form.twig:188
 msgid "Y"
 msgstr "Y"
 
-#: js/messages.php:530
+#: js/messages.php:533
 msgid "Point"
 msgstr "Точка"
 
-#: js/messages.php:531
+#: js/messages.php:534
 #, php-format
 msgid "Point %d"
 msgstr "Точка %d"
 
-#: js/messages.php:532
+#: js/messages.php:535
 msgid "Linestring"
 msgstr "Відрізок"
 
-#: js/messages.php:533
+#: js/messages.php:536
 msgid "Polygon"
 msgstr "Багатокутник"
 
-#: js/messages.php:534 templates/display/results/options_block.twig:83
+#: js/messages.php:537 templates/display/results/options_block.twig:83
 msgid "Geometry"
 msgstr "Геометрія"
 
-#: js/messages.php:535
+#: js/messages.php:538
 msgid "Inner ring"
 msgstr "Внутрішнє кільце"
 
-#: js/messages.php:536
+#: js/messages.php:539
 msgid "Outer ring"
 msgstr "Зовнішнє кільце"
 
-#: js/messages.php:537 templates/gis_data_editor_form.twig:98
+#: js/messages.php:540 templates/gis_data_editor_form.twig:98
 #: templates/gis_data_editor_form.twig:139
 #: templates/gis_data_editor_form.twig:191
 msgid "Add a point"
 msgstr "Додати точку"
 
-#: js/messages.php:538 templates/gis_data_editor_form.twig:143
+#: js/messages.php:541 templates/gis_data_editor_form.twig:143
 #: templates/gis_data_editor_form.twig:194
 msgid "Add an inner ring"
 msgstr "Додати внутрішнє кільце"
 
-#: js/messages.php:540
+#: js/messages.php:543
 msgid "Do you want to copy encryption key?"
 msgstr "Ви хочете скопіювати ключ шифрування?"
 
-#: js/messages.php:541
+#: js/messages.php:544
 msgid "Encryption key"
 msgstr "Ключ шифрування"
 
-#: js/messages.php:545
+#: js/messages.php:548
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -2209,7 +2214,7 @@ msgstr ""
 "В MySQL можливе додавання значень не через вибір у колонці вибору. При "
 "необхідності це можна зробити безпосередньо з клавіатури"
 
-#: js/messages.php:551
+#: js/messages.php:554
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -2217,7 +2222,7 @@ msgstr ""
 "В MySQL додаткові значення, які неможливо вибрати через інтерфейс, при "
 "необхідності введіть  безпосередньо з клавіатури"
 
-#: js/messages.php:557
+#: js/messages.php:560
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -2225,24 +2230,24 @@ msgstr ""
 "Вказує, що ви внесли зміни в цю сторінку; Вам буде запропоновано "
 "підтвердити, перш ніж відмовитися від змін"
 
-#: js/messages.php:562
+#: js/messages.php:565
 msgid "Select referenced key"
 msgstr "Виберіть системний ключ"
 
-#: js/messages.php:563
+#: js/messages.php:566
 msgid "Select Foreign Key"
 msgstr "Виберіть зовнішній ключ"
 
-#: js/messages.php:565
+#: js/messages.php:568
 msgid "Please select the primary key or a unique key!"
 msgstr "Будь ласка, виберіть первинний ключ або унікальний ключ!"
 
-#: js/messages.php:566 templates/database/designer/main.twig:100
+#: js/messages.php:569 templates/database/designer/main.twig:100
 #: templates/database/designer/main.twig:103
 msgid "Choose column to display"
 msgstr "Виберіть стовпець для відображення"
 
-#: js/messages.php:568
+#: js/messages.php:571
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2250,85 +2255,85 @@ msgstr ""
 "Ви не зберегли зміни в макет. Вони будуть втрачені, якщо ви не збережете їх. "
 "Бажаєте продовжити?"
 
-#: js/messages.php:571
+#: js/messages.php:574
 msgid "value/subQuery is empty"
 msgstr "значення/підзапит пусті"
 
-#: js/messages.php:572 templates/database/designer/main.twig:42
+#: js/messages.php:575 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
 msgid "Add tables from other databases"
 msgstr "Додайте таблиці з інших баз даних"
 
-#: js/messages.php:573
+#: js/messages.php:576
 msgid "Page name"
 msgstr "Назва сторінки"
 
-#: js/messages.php:574 templates/database/designer/main.twig:65
+#: js/messages.php:577 templates/database/designer/main.twig:65
 #: templates/database/designer/main.twig:68
 msgid "Save page"
 msgstr "Зберегти сторінку"
 
-#: js/messages.php:575 templates/database/designer/main.twig:72
+#: js/messages.php:578 templates/database/designer/main.twig:72
 #: templates/database/designer/main.twig:75
 msgid "Save page as"
 msgstr "Зберегти сторінку як"
 
-#: js/messages.php:576 templates/database/designer/main.twig:58
+#: js/messages.php:579 templates/database/designer/main.twig:58
 #: templates/database/designer/main.twig:61
 msgid "Open page"
 msgstr "Відкрити сторінку"
 
-#: js/messages.php:577
+#: js/messages.php:580
 msgid "Delete page"
 msgstr "Видалити сторінку"
 
-#: js/messages.php:578 templates/database/designer/main.twig:12
+#: js/messages.php:581 templates/database/designer/main.twig:12
 msgid "Untitled"
 msgstr "Без назви"
 
-#: js/messages.php:579
+#: js/messages.php:582
 msgid "Please select a page to continue"
 msgstr "Будь ласка, виберіть сторінку для продовження"
 
-#: js/messages.php:580
+#: js/messages.php:583
 msgid "Please enter a valid page name"
 msgstr "Будь-ласка, введіть допустиме ім`я сторінки"
 
-#: js/messages.php:582
+#: js/messages.php:585
 msgid "Do you want to save the changes to the current page?"
 msgstr "Ви хочете зберегти зміни до поточної сторінки?"
 
-#: js/messages.php:583
+#: js/messages.php:586
 msgid "Successfully deleted the page"
 msgstr "Сторінка успішно видалена"
 
-#: js/messages.php:584
+#: js/messages.php:587
 msgid "Export relational schema"
 msgstr "Експортувати схему зв'язків"
 
-#: js/messages.php:585
+#: js/messages.php:588
 msgid "Modifications have been saved"
 msgstr "Зміни збережені"
 
-#: js/messages.php:588
+#: js/messages.php:591
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Додати опцію для стовпця \"%s\"."
 
-#: js/messages.php:589
+#: js/messages.php:592
 #, php-format
 msgid "%d object(s) created."
 msgstr "Створено %d об'єкт(ів)."
 
-#: js/messages.php:590 libraries/classes/SqlQueryForm.php:430
+#: js/messages.php:593 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
 msgstr "Виконати"
 
-#: js/messages.php:593
+#: js/messages.php:596
 msgid "Press escape to cancel editing."
 msgstr "Натисніть Escape для відміни редагування."
 
-#: js/messages.php:595
+#: js/messages.php:598
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2336,15 +2341,15 @@ msgstr ""
 "Ви змінили деякі дані, і вони не були збережені. Ви впевнені, що хочете "
 "залишити цю сторінку перед збереженням даних?"
 
-#: js/messages.php:598
+#: js/messages.php:601
 msgid "Drag to reorder."
 msgstr "Перетягніть для зміни порядку."
 
-#: js/messages.php:599
+#: js/messages.php:602
 msgid "Click to sort results by this column."
 msgstr "Натисніть для сортування за цим стовпцем."
 
-#: js/messages.php:601
+#: js/messages.php:604
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -2354,26 +2359,26 @@ msgstr ""
 "ASC/DESC.<br>- Ctrl+клік чи Alt+клік (для Mac: Shift+Option+клік) для "
 "видалення стовпця з списку ORDER BY"
 
-#: js/messages.php:605
+#: js/messages.php:608
 msgid "Click to mark/unmark."
 msgstr "Натисніть для встановлення/зняття позначки."
 
-#: js/messages.php:606
+#: js/messages.php:609
 msgid "Double-click to copy column name."
 msgstr "Натисніть двічі, щоб скопіювати назву стовпця."
 
-#: js/messages.php:608
+#: js/messages.php:611
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Натисніть на випадаючу стрілку<br> для перемикання видимості стовпця."
 
-#: js/messages.php:610 libraries/classes/BrowseForeigners.php:353
+#: js/messages.php:613 libraries/classes/BrowseForeigners.php:353
 #: templates/table/browse_foreigners/show_all.twig:4
 #: templates/display/results/table_navigation.twig:19
 #: templates/server/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "Показати все"
 
-#: js/messages.php:612
+#: js/messages.php:615
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2382,13 +2387,13 @@ msgstr ""
 "редагування, прапорцем, посиланнями Редагувати, Копіювати та Видаляти можуть "
 "не працювати після збереження."
 
-#: js/messages.php:616
+#: js/messages.php:619
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Будь-ласка введіть допустимий шістнадцятковий рядок. Допустимі символи: 0-9, "
 "A-F."
 
-#: js/messages.php:618
+#: js/messages.php:621
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2396,107 +2401,107 @@ msgstr ""
 "Ви дійсно хочете побачити усі рядки? Для великих таблиць це може призвести "
 "до зависання браузера."
 
-#: js/messages.php:621
+#: js/messages.php:624
 msgid "Original length"
 msgstr "Початкова довжина"
 
-#: js/messages.php:624
+#: js/messages.php:627
 msgid "cancel"
 msgstr "скасувати"
 
-#: js/messages.php:625
+#: js/messages.php:628
 #: libraries/classes/Controllers/Server/Status/StatusController.php:198
 msgid "Aborted"
 msgstr "Перервано"
 
-#: js/messages.php:627
+#: js/messages.php:630
 msgid "Success"
 msgstr "Успішно"
 
-#: js/messages.php:628
+#: js/messages.php:631
 msgid "Import status"
 msgstr "Статус імпорту"
 
-#: js/messages.php:629 libraries/classes/Navigation/Navigation.php:134
+#: js/messages.php:632 libraries/classes/Navigation/Navigation.php:134
 msgid "Drop files here"
 msgstr "Скинути файли сюди"
 
-#: js/messages.php:630
+#: js/messages.php:633
 msgid "Select database first"
 msgstr "Спочатку оберіть базу даних"
 
-#: js/messages.php:633 libraries/classes/Display/Results.php:4862
+#: js/messages.php:636 libraries/classes/Display/Results.php:4862
 #: libraries/classes/Util.php:4085
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/display_structure.twig:380
 msgid "Print"
 msgstr "Друк"
 
-#: js/messages.php:640
+#: js/messages.php:643
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 "Ви також можете редагувати більшість значень <br> двічі натиснувши прямо по "
 "них."
 
-#: js/messages.php:645
+#: js/messages.php:648
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 "Ви також можете редагувати більшість значень<br>натиснувши безпосередньо на "
 "них."
 
-#: js/messages.php:651
+#: js/messages.php:654
 msgid "Go to link:"
 msgstr "Перейти за посиланням:"
 
-#: js/messages.php:652
+#: js/messages.php:655
 msgid "Copy column name."
 msgstr "Копіювати назву стовпця(ів)."
 
-#: js/messages.php:654
+#: js/messages.php:657
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Натисніть правою кнопкою на назву стовпчика, щоб скопіювати його в буфер "
 "обміну."
 
-#: js/messages.php:657
+#: js/messages.php:660
 msgid "Generate password"
 msgstr "Згенерувати пароль"
 
-#: js/messages.php:658 libraries/classes/ReplicationGui.php:919
+#: js/messages.php:661 libraries/classes/ReplicationGui.php:919
 msgid "Generate"
 msgstr "Згенерувати"
 
-#: js/messages.php:662 templates/table/structure/display_structure.twig:124
+#: js/messages.php:665 templates/table/structure/display_structure.twig:124
 msgid "More"
 msgstr "Більше"
 
-#: js/messages.php:665
+#: js/messages.php:668
 msgid "Show panel"
 msgstr "Показати панель"
 
-#: js/messages.php:666
+#: js/messages.php:669
 msgid "Hide panel"
 msgstr "Приховати панель"
 
-#: js/messages.php:667
+#: js/messages.php:670
 msgid "Show hidden navigation tree items."
 msgstr "Показати приховані пункти дерева навігації."
 
-#: js/messages.php:668 libraries/classes/Config/Descriptions.php:486
+#: js/messages.php:671 libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Navigation/NavigationTree.php:1448
 msgid "Link with main panel"
 msgstr "Зв'язати з головною панеллю"
 
-#: js/messages.php:669 libraries/classes/Navigation/NavigationTree.php:1451
+#: js/messages.php:672 libraries/classes/Navigation/NavigationTree.php:1451
 msgid "Unlink from main panel"
 msgstr "Видалити зв'язок з головною панеллю"
 
-#: js/messages.php:673
+#: js/messages.php:676
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "Запитану сторінку не знайдено в історії, можливо минув її термін зберігання."
 
-#: js/messages.php:677 setup/lib/Index.php:177
+#: js/messages.php:680 setup/lib/Index.php:177
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2506,43 +2511,43 @@ msgstr ""
 "Нава версія %s, випущена %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:681
+#: js/messages.php:684
 msgid ", latest stable version:"
 msgstr ", остання стабільна версія:"
 
-#: js/messages.php:682
+#: js/messages.php:685
 msgid "up to date"
 msgstr "оновлено"
 
-#: js/messages.php:684 libraries/classes/Display/Results.php:4796
+#: js/messages.php:687 libraries/classes/Display/Results.php:4796
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Створити подання"
 
-#: js/messages.php:687
+#: js/messages.php:690
 msgid "Send error report"
 msgstr "Надіслати звіти про помилку"
 
-#: js/messages.php:688
+#: js/messages.php:691
 msgid "Submit error report"
 msgstr "Надіслати звіт про помилку"
 
-#: js/messages.php:690
+#: js/messages.php:693
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Трапилася фатальна помилка JavaScript. Ви хочете відіслати звіт про неї?"
 
-#: js/messages.php:692
+#: js/messages.php:695
 msgid "Change report settings"
 msgstr "Змінити налаштування звіту"
 
-#: js/messages.php:693
+#: js/messages.php:696
 msgid "Show report details"
 msgstr "Показати подробиці звіту"
 
-#: js/messages.php:696
+#: js/messages.php:699
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -2550,7 +2555,7 @@ msgstr ""
 "Ваш експорт є неповним у зв'язку з низьким часовим лімітом для виконання на "
 "рівні PHP!"
 
-#: js/messages.php:700
+#: js/messages.php:703
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2560,66 +2565,66 @@ msgstr ""
 "надсилання деякі поля може бути проігноровано через значення РНР "
 "max_input_vars."
 
-#: js/messages.php:706 js/messages.php:719
+#: js/messages.php:709 js/messages.php:722
 msgid "Some errors have been detected on the server!"
 msgstr "На сервері були виявлені деякі помилки!"
 
-#: js/messages.php:708
+#: js/messages.php:711
 msgid "Please look at the bottom of this window."
 msgstr "Будь-ласка зверніть увагу на нижню частину цього вікна."
 
-#: js/messages.php:714 libraries/classes/ErrorHandler.php:386
+#: js/messages.php:717 libraries/classes/ErrorHandler.php:386
 msgid "Ignore All"
 msgstr "Ігнорувати все"
 
-#: js/messages.php:722
+#: js/messages.php:725
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Згідно ваших налаштувань, що наразі вносяться, будьте терплячими."
 
-#: js/messages.php:730
+#: js/messages.php:733
 msgid "Successfully copied!"
 msgstr "Успішно скопійовано!"
 
-#: js/messages.php:731
+#: js/messages.php:734
 msgid "Copying failed!"
 msgstr "Копіювання не вдалося!"
 
-#: js/messages.php:734
+#: js/messages.php:737
 msgid "Execute this query again?"
 msgstr "Виконати цей запит ще раз?"
 
-#: js/messages.php:736
+#: js/messages.php:739
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ви дійсно бажаєте видалити цю закладку?"
 
-#: js/messages.php:738
+#: js/messages.php:741
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Сталася помилка при отриманні відомостей про налагодження SQL."
 
-#: js/messages.php:740
+#: js/messages.php:743
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s запитів виконано %s раз(и) за %s секунд(и)."
 
-#: js/messages.php:741
+#: js/messages.php:744
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s аргумент(ів) передано"
 
-#: js/messages.php:742
+#: js/messages.php:745
 msgid "Show arguments"
 msgstr "Показати аргументи"
 
-#: js/messages.php:743
+#: js/messages.php:746
 msgid "Hide arguments"
 msgstr "Сховати аргументи"
 
-#: js/messages.php:744
+#: js/messages.php:747
 msgid "Time taken:"
 msgstr "Час створення:"
 
-#: js/messages.php:745
+#: js/messages.php:748
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2634,376 +2639,376 @@ msgstr ""
 "\" може допомогти. В Safari, такі проблеми часто викликані установкою "
 "\"Приватний режим перегляду\"."
 
-#: js/messages.php:747
+#: js/messages.php:750
 msgid "Copy tables to"
 msgstr "Копіювати таблицю до"
 
-#: js/messages.php:748
+#: js/messages.php:751
 msgid "Add table prefix"
 msgstr "Додати префікс таблиці"
 
-#: js/messages.php:749
+#: js/messages.php:752
 msgid "Replace table with prefix"
 msgstr "Змінити префікс таблиці"
 
-#: js/messages.php:750 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:753 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Копіювати таблицю з префіксом"
 
-#: js/messages.php:753
+#: js/messages.php:756
 msgid "Extremely weak"
 msgstr "Надзвичайно слабкий"
 
-#: js/messages.php:754
+#: js/messages.php:757
 msgid "Very weak"
 msgstr "Дуже слабкий"
 
-#: js/messages.php:755
+#: js/messages.php:758
 msgid "Weak"
 msgstr "Слабкий"
 
-#: js/messages.php:756
+#: js/messages.php:759
 msgid "Good"
 msgstr "Хороший"
 
-#: js/messages.php:757
+#: js/messages.php:760
 msgid "Strong"
 msgstr "Надійний"
 
-#: js/messages.php:760
+#: js/messages.php:763
 msgid "Timed out waiting for security key activation."
 msgstr "Час очікування активації ключа безпеки."
 
-#: js/messages.php:761
+#: js/messages.php:764
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr "Не вдалося активізувати ключ безпеки (%s)."
 
-#: js/messages.php:790
+#: js/messages.php:793
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Попередня"
 
-#: js/messages.php:795
+#: js/messages.php:798
 msgctxt "Next month"
 msgid "Next"
 msgstr "Наступна"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:798
+#: js/messages.php:801
 msgid "Today"
 msgstr "Сьогодні"
 
-#: js/messages.php:802
+#: js/messages.php:805
 msgid "January"
 msgstr "Січень"
 
-#: js/messages.php:803
+#: js/messages.php:806
 msgid "February"
 msgstr "Лютий"
 
-#: js/messages.php:804
+#: js/messages.php:807
 msgid "March"
 msgstr "Березень"
 
-#: js/messages.php:805
+#: js/messages.php:808
 msgid "April"
 msgstr "Квітень"
 
-#: js/messages.php:806
+#: js/messages.php:809
 msgid "May"
 msgstr "Травень"
 
-#: js/messages.php:807
+#: js/messages.php:810
 msgid "June"
 msgstr "Червень"
 
-#: js/messages.php:808
+#: js/messages.php:811
 msgid "July"
 msgstr "Липень"
 
-#: js/messages.php:809
+#: js/messages.php:812
 msgid "August"
 msgstr "Серпень"
 
-#: js/messages.php:810
+#: js/messages.php:813
 msgid "September"
 msgstr "Вересень"
 
-#: js/messages.php:811
+#: js/messages.php:814
 msgid "October"
 msgstr "Жовтень"
 
-#: js/messages.php:812
+#: js/messages.php:815
 msgid "November"
 msgstr "Листопад"
 
-#: js/messages.php:813
+#: js/messages.php:816
 msgid "December"
 msgstr "Грудень"
 
 #. l10n: Short month name
-#: js/messages.php:820 libraries/classes/Util.php:1542
+#: js/messages.php:823 libraries/classes/Util.php:1542
 msgid "Jan"
 msgstr "Січ"
 
 #. l10n: Short month name
-#: js/messages.php:822 libraries/classes/Util.php:1544
+#: js/messages.php:825 libraries/classes/Util.php:1544
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1546
+#: js/messages.php:827 libraries/classes/Util.php:1546
 msgid "Mar"
 msgstr "Бер"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1548
+#: js/messages.php:829 libraries/classes/Util.php:1548
 msgid "Apr"
 msgstr "Квт"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1550
+#: js/messages.php:831 libraries/classes/Util.php:1550
 msgctxt "Short month name"
 msgid "May"
 msgstr "Трв"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1552
+#: js/messages.php:833 libraries/classes/Util.php:1552
 msgid "Jun"
 msgstr "Чрв"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1554
+#: js/messages.php:835 libraries/classes/Util.php:1554
 msgid "Jul"
 msgstr "Лип"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1556
+#: js/messages.php:837 libraries/classes/Util.php:1556
 msgid "Aug"
 msgstr "Сер"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1558
+#: js/messages.php:839 libraries/classes/Util.php:1558
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1560
+#: js/messages.php:841 libraries/classes/Util.php:1560
 msgid "Oct"
 msgstr "Жов"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1562
+#: js/messages.php:843 libraries/classes/Util.php:1562
 msgid "Nov"
 msgstr "Лис"
 
 #. l10n: Short month name
-#: js/messages.php:842 libraries/classes/Util.php:1564
+#: js/messages.php:845 libraries/classes/Util.php:1564
 msgid "Dec"
 msgstr "Гру"
 
-#: js/messages.php:848
+#: js/messages.php:851
 msgid "Sunday"
 msgstr "Неділя"
 
-#: js/messages.php:849
+#: js/messages.php:852
 msgid "Monday"
 msgstr "Понеділок"
 
-#: js/messages.php:850
+#: js/messages.php:853
 msgid "Tuesday"
 msgstr "Вівторок"
 
-#: js/messages.php:851
+#: js/messages.php:854
 msgid "Wednesday"
 msgstr "Середа"
 
-#: js/messages.php:852
+#: js/messages.php:855
 msgid "Thursday"
 msgstr "Четвер"
 
-#: js/messages.php:853
+#: js/messages.php:856
 msgid "Friday"
 msgstr "П'ятниця"
 
-#: js/messages.php:854
+#: js/messages.php:857
 msgid "Saturday"
 msgstr "Субота"
 
 #. l10n: Short week day name
-#: js/messages.php:861
+#: js/messages.php:864
 msgid "Sun"
 msgstr "Нед"
 
 #. l10n: Short week day name
-#: js/messages.php:863 libraries/classes/Util.php:1570
+#: js/messages.php:866 libraries/classes/Util.php:1570
 msgid "Mon"
 msgstr "Пон"
 
 #. l10n: Short week day name
-#: js/messages.php:865 libraries/classes/Util.php:1572
+#: js/messages.php:868 libraries/classes/Util.php:1572
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name
-#: js/messages.php:867 libraries/classes/Util.php:1574
+#: js/messages.php:870 libraries/classes/Util.php:1574
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name
-#: js/messages.php:869 libraries/classes/Util.php:1576
+#: js/messages.php:872 libraries/classes/Util.php:1576
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name
-#: js/messages.php:871 libraries/classes/Util.php:1578
+#: js/messages.php:874 libraries/classes/Util.php:1578
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name
-#: js/messages.php:873 libraries/classes/Util.php:1580
+#: js/messages.php:876 libraries/classes/Util.php:1580
 msgid "Sat"
 msgstr "Сб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:880
+#: js/messages.php:883
 msgid "Su"
 msgstr "Нд"
 
 #. l10n: Minimal week day name
-#: js/messages.php:882
+#: js/messages.php:885
 msgid "Mo"
 msgstr "Пн"
 
 #. l10n: Minimal week day name
-#: js/messages.php:884
+#: js/messages.php:887
 msgid "Tu"
 msgstr "Вт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:886
+#: js/messages.php:889
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:888
+#: js/messages.php:891
 msgid "Th"
 msgstr "Чт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:890
+#: js/messages.php:893
 msgid "Fr"
 msgstr "Пт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:892
+#: js/messages.php:895
 msgid "Sa"
 msgstr "Сб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:896
+#: js/messages.php:899
 msgid "Wk"
 msgstr "Тж"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:903
+#: js/messages.php:906
 msgid "calendar-month-year"
 msgstr "календар-місяць-рік"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:906
+#: js/messages.php:909
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
 
-#: js/messages.php:918
+#: js/messages.php:921
 msgid "Hour"
 msgstr "Година"
 
-#: js/messages.php:919
+#: js/messages.php:922
 msgid "Minute"
 msgstr "Хвилина"
 
-#: js/messages.php:920
+#: js/messages.php:923
 msgid "Second"
 msgstr "Секунда"
 
-#: js/messages.php:931
+#: js/messages.php:934
 msgid "This field is required"
 msgstr "Це поле є обов'язковим"
 
-#: js/messages.php:932
+#: js/messages.php:935
 msgid "Please fix this field"
 msgstr "Будь ласка, виправте це поле"
 
-#: js/messages.php:933
+#: js/messages.php:936
 msgid "Please enter a valid email address"
 msgstr "Будь ласка, введіть дійсну адресу електронної пошти"
 
-#: js/messages.php:934
+#: js/messages.php:937
 msgid "Please enter a valid URL"
 msgstr "Введіть дійсний URL"
 
-#: js/messages.php:935
+#: js/messages.php:938
 msgid "Please enter a valid date"
 msgstr "Будь ласка, введіть дійсну дату"
 
-#: js/messages.php:938
+#: js/messages.php:941
 msgid "Please enter a valid date ( ISO )"
 msgstr "Будь ласка, введіть правильну дату (ISO)"
 
-#: js/messages.php:940
+#: js/messages.php:943
 msgid "Please enter a valid number"
 msgstr "Будь ласка, введіть дійсний номер"
 
-#: js/messages.php:943
+#: js/messages.php:946
 msgid "Please enter a valid credit card number"
 msgstr "Будь ласка, введіть дійсний номер кредитної картки"
 
-#: js/messages.php:945
+#: js/messages.php:948
 msgid "Please enter only digits"
 msgstr "Будь ласка, введіть лише цифри"
 
-#: js/messages.php:948
+#: js/messages.php:951
 msgid "Please enter the same value again"
 msgstr "Будь ласка, введіть те ж значення знову"
 
-#: js/messages.php:952
+#: js/messages.php:955
 msgid "Please enter no more than {0} characters"
 msgstr "Будь ласка, введіть не більше {0} символів"
 
-#: js/messages.php:957
+#: js/messages.php:960
 msgid "Please enter at least {0} characters"
 msgstr "Будь ласка, введіть принаймні {0} символів"
 
-#: js/messages.php:962
+#: js/messages.php:965
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Будь ласка, введіть значення довжиною від {0} до {1} символів"
 
-#: js/messages.php:967
+#: js/messages.php:970
 msgid "Please enter a value between {0} and {1}"
 msgstr "Будь ласка, введіть значення між {0} і {1}"
 
-#: js/messages.php:972
+#: js/messages.php:975
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Будь ласка, введіть значення менше або дорівнює {0}"
 
-#: js/messages.php:977
+#: js/messages.php:980
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Будь ласка, введіть значення більше або дорівнює {0}"
 
-#: js/messages.php:983
+#: js/messages.php:986
 msgid "Please enter a valid date or time"
 msgstr "Будь ласка, введіть дійсну дату або час"
 
-#: js/messages.php:988
+#: js/messages.php:991
 msgid "Please enter a valid HEX input"
 msgstr "Будь ласка, введіть правильний вхід HEX"
 
-#: js/messages.php:993 libraries/classes/Core.php:292
+#: js/messages.php:996 libraries/classes/Core.php:292
 #: libraries/classes/Import.php:119 libraries/classes/InsertEdit.php:1541
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:598
 #: view_operations.php:82
@@ -3073,7 +3078,7 @@ msgid "per minute"
 msgstr "за хвилину"
 
 #: libraries/classes/Advisor.php:634
-#: libraries/classes/Server/Status/Queries.php:107
+#: templates/server/status/queries/index.twig:34
 #: templates/server/status/status/index.twig:17
 #: templates/server/status/status/index.twig:37
 msgid "per hour"
@@ -3095,10 +3100,10 @@ msgstr "Назва ключа"
 
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
-#: libraries/classes/Server/Status/Variables.php:232
 #: templates/server/engines/index.twig:10
 #: templates/server/plugins/index.twig:24
 #: templates/server/collations/index.twig:11
+#: templates/server/status/variables/index.twig:72
 msgid "Description"
 msgstr "Опис"
 
@@ -5806,10 +5811,10 @@ msgid "Explain SQL"
 msgstr "Тлумачити SQL"
 
 #: libraries/classes/Config/Descriptions.php:830
-#: libraries/classes/Export.php:520
-#: libraries/classes/Server/Status/Processes.php:256
-#: libraries/classes/Server/Status/Variables.php:52
-#: libraries/classes/Util.php:1183 templates/console/display.twig:99
+#: libraries/classes/Export.php:520 libraries/classes/Util.php:1183
+#: templates/server/status/processes/index.twig:9
+#: templates/console/display.twig:99
+#: templates/server/status/variables/index.twig:11
 msgid "Refresh"
 msgstr "Оновити"
 
@@ -5872,8 +5877,9 @@ msgstr "Текстове поле рядків"
 msgid "Title of browser window when a database is selected."
 msgstr "Заголовок вікна браузера при виборі бази даних."
 
-#: libraries/classes/Config/Descriptions.php:854 libraries/classes/Menu.php:237
-#: libraries/classes/MultSubmits.php:411
+#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:120
+#: libraries/classes/Menu.php:237 libraries/classes/MultSubmits.php:411
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:157
 #: libraries/classes/Plugins/Export/ExportOdt.php:204
 #: libraries/classes/Plugins/Export/ExportTexytext.php:141
@@ -5882,7 +5888,6 @@ msgstr "Заголовок вікна браузера при виборі ба�
 #: libraries/classes/Server/Privileges.php:3499
 #: libraries/classes/Server/Privileges.php:3501
 #: libraries/classes/Server/Privileges.php:4734
-#: libraries/classes/Server/Status/Processes.php:105
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:167
 #: templates/console/bookmark_content.twig:7
@@ -5905,7 +5910,6 @@ msgid "Title of browser window when a server is selected."
 msgstr "Заголовок вікна браузера при виборі сервера."
 
 #: libraries/classes/Config/Descriptions.php:858 libraries/classes/Menu.php:217
-#: libraries/classes/Server/Status/Data.php:441
 #: templates/server/status/base.twig:5
 msgid "Server"
 msgstr "Сервер"
@@ -6567,6 +6571,47 @@ msgstr "Разом"
 msgid "Overhead"
 msgstr "Фрагментовані"
 
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:71
+#, php-format
+msgid "Thread %s was successfully killed."
+msgstr "Процес %s припинено."
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:77
+#, php-format
+msgid ""
+"phpMyAdmin was unable to kill thread %s. It probably has already been closed."
+msgstr "phpMyAdmin не може припинити процес %s. Він вже напевно був зупинений."
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:108
+msgid "ID"
+msgstr "ID"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:112
+#: libraries/classes/Server/Privileges.php:4640
+#: libraries/classes/Server/UserGroups.php:51
+msgid "User"
+msgstr "Користувач"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:116
+#: libraries/classes/ReplicationGui.php:656
+#: libraries/classes/ReplicationGui.php:742
+#: libraries/classes/ReplicationGui.php:876
+msgid "Host"
+msgstr "Хост"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:124
+msgid "Command"
+msgstr "Команда"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:136
+msgid "Progress"
+msgstr "Прогрес"
+
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:140
+#: libraries/classes/Server/Status/Data.php:117
+msgid "SQL query"
+msgstr "SQL запит"
+
 #: libraries/classes/Controllers/Server/Status/StatusController.php:87
 msgid "Received"
 msgstr "Отримано"
@@ -6582,6 +6627,701 @@ msgstr "Максимум одночасних підключень"
 #: libraries/classes/Controllers/Server/Status/StatusController.php:182
 msgid "Failed attempts"
 msgstr "Невдалих спроб"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:204
+msgid ""
+"The number of connections that were aborted because the client died without "
+"closing the connection properly."
+msgstr ""
+"Кількість підключень, що було перервано через відключення клієнта без "
+"належного закриття з'єднання."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:208
+msgid "The number of failed attempts to connect to the MySQL server."
+msgstr "Кількість невдалих спроб підключитися до сервера MySQL."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:211
+msgid ""
+"The number of transactions that used the temporary binary log cache but that "
+"exceeded the value of binlog_cache_size and used a temporary file to store "
+"statements from the transaction."
+msgstr ""
+"Кількість транзакцій, що використовували кеш тимчасового двійкового журналу, "
+"але перевищили значення binlog_cache_size і використали тимчасовий файл для "
+"збереження команд транзакції."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:216
+msgid "The number of transactions that used the temporary binary log cache."
+msgstr "Кількість операцій, що використали кеш тимчасового двійкового журналу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:219
+msgid ""
+"The number of connection attempts (successful or not) to the MySQL server."
+msgstr "Кількість спроб підключення (успішних чи навпаки) до сервера MySQL."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:223
+msgid ""
+"The number of temporary tables on disk created automatically by the server "
+"while executing statements. If Created_tmp_disk_tables is big, you may want "
+"to increase the tmp_table_size  value to cause temporary tables to be memory-"
+"based instead of disk-based."
+msgstr ""
+"Кількість тимчасових таблиць на диску автоматично створених сервером під час "
+"виконання команд. Якщо Created_tmp_disk_tables велике, ви можете збільшити "
+"значення tmp_table_size, щоб тимчасові таблиці розміщувалися в пам'яті, а не "
+"на диску."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:230
+msgid "How many temporary files mysqld has created."
+msgstr "Скільки було створено тимчасових файлів mysqld."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:233
+msgid ""
+"The number of in-memory temporary tables created automatically by the server "
+"while executing statements."
+msgstr ""
+"Кількість тимчасових таблиць в пам'яті, автоматично створювані сервером під "
+"час виконання команд."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:237
+msgid ""
+"The number of rows written with INSERT DELAYED for which some error occurred "
+"(probably duplicate key)."
+msgstr ""
+"Кількість рядків, записаних за допомогою команди INSERT DELAYED, при яких "
+"виникла помилка (ймовірно через дублі ключа)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
+msgid ""
+"The number of INSERT DELAYED handler threads in use. Every different table "
+"on which one uses INSERT DELAYED gets its own thread."
+msgstr ""
+"Кількість використовуваних потоків обробника команди INSERT DELAYED. Кожній "
+"таблиці, на якій використана команда INSERT DELAYED, надається свій потік."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:246
+msgid "The number of INSERT DELAYED rows written."
+msgstr "Кількість рядків, записаних за допомогою команди INSERT DELAYED."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:249
+msgid "The number of executed FLUSH statements."
+msgstr "Кількість виконаних команд FLUSH."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:252
+msgid "The number of internal COMMIT statements."
+msgstr "Кількість внутрішніх команд COMMIT."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:255
+msgid "The number of times a row was deleted from a table."
+msgstr "Кількість разів, коли рядок було видалено з таблиці."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+msgid ""
+"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
+"table with a given name. This is called discovery. Handler_discover "
+"indicates the number of time tables have been discovered."
+msgstr ""
+"Сервер MySQL може запитати механіхмсховища NDB-кластера, що йому відомо про "
+"таблицю з вказаним іменем. Це називається виявлення. Handler_discover - це "
+"кількість виявлених таблиць."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:264
+msgid ""
+"The number of times the first entry was read from an index. If this is high, "
+"it suggests that the server is doing a lot of full index scans; for example, "
+"SELECT col1 FROM foo, assuming that col1 is indexed."
+msgstr ""
+"Кількість читань першого запису з індексу. Високе значення означае, що , "
+"можливо, сервер виконує забагато повних сканувань індексу; наприклад, "
+"командою SELECT col1 FROM foo, за умови, що col1 проіндексовано."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
+msgid ""
+"The number of requests to read a row based on a key. If this is high, it is "
+"a good indication that your queries and tables are properly indexed."
+msgstr ""
+"Кількість запитів на читання рядка на основі ключа. Високе значення означає, "
+"що ваші запити та таблиці правильно проіндексовані."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+msgid ""
+"The number of requests to read the next row in key order. This is "
+"incremented if you are querying an index column with a range constraint or "
+"if you are doing an index scan."
+msgstr ""
+"Кількість запитів на читання наступного рядка у ключовій послідовності. Це "
+"значення зростає, якщо ви створюєте запит індексу стовпчика з обмеженням "
+"діапазону або виконуєте сканування індексу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:280
+msgid ""
+"The number of requests to read the previous row in key order. This read "
+"method is mainly used to optimize ORDER BY … DESC."
+msgstr ""
+"Кількість запитів на читання попереднього рядка в порядку розташування "
+"індексів. Зазвичай використовується для оптимізації: ORDER BY … DESC."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:284
+msgid ""
+"The number of requests to read a row based on a fixed position. This is high "
+"if you are doing a lot of queries that require sorting of the result. You "
+"probably have a lot of queries that require MySQL to scan whole tables or "
+"you have joins that don't use keys properly."
+msgstr ""
+"Кількість запитів на читання рядка на основі фіксованої позиції. Це значення "
+"зростає, якщо виконується багато запитів, що вимагають сортування "
+"результатів. Ви, напевно, здійснюєте багато запитів, що вимагають сканування "
+"всієї таблиці, або маєте об'єднання, які неправильно використовують ключі."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:291
+msgid ""
+"The number of requests to read the next row in the data file. This is high "
+"if you are doing a lot of table scans. Generally this suggests that your "
+"tables are not properly indexed or that your queries are not written to take "
+"advantage of the indexes you have."
+msgstr ""
+"Кількість запитів на читання наступного рядка у файлі даних. Це значення "
+"зростає, якщо ви виконуєте робите багато сканувань таблиці. Як правило, це "
+"означає, що таблиці належним чином не індексуються, або запити не "
+"використовують переваг наявних індексів."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
+msgid "The number of internal ROLLBACK statements."
+msgstr "Кількість внутрішніх команд ROLLBACK."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
+msgid "The number of requests to update a row in a table."
+msgstr "Кількість запитів на оновлення рядка в таблиці."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:304
+msgid "The number of requests to insert a row in a table."
+msgstr "Кількість запитів на додавання рядка в таблицю."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:307
+msgid "The number of pages containing data (dirty or clean)."
+msgstr "Кількість сторінок, що містять дані (брудні або чисті)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:310
+msgid "The number of pages currently dirty."
+msgstr "Поточна кількість брудних сторінок."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:313
+msgid "The number of buffer pool pages that have been requested to be flushed."
+msgstr ""
+"Кількість сторінок буферного пулу, щодо яких був виконаний запит на очищення "
+"(FLUSH)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+msgid "The number of free pages."
+msgstr "Кількість вільних сторінок."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:320
+msgid ""
+"The number of latched pages in InnoDB buffer pool. These are pages currently "
+"being read or written or that can't be flushed or removed for some other "
+"reason."
+msgstr ""
+"Кількість сторінок, заблокованих у буферному пулі InnoDB. Це сторінки, котрі "
+"в даний момент читаються або записуються або не можуть бути очищені або "
+"видалені з іншої причини."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:325
+msgid ""
+"The number of pages busy because they have been allocated for administrative "
+"overhead such as row locks or the adaptive hash index. This value can also "
+"be calculated as Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+msgstr ""
+"Кількість сторінок, зайнятих через їх виділення під адміністративні процеси, "
+"як-от блокування рядка або адаптивне гещування індексу. Це значення також "
+"можна розрахувати за формулою Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:332
+msgid "Total size of buffer pool, in pages."
+msgstr "Загальний розмір буферного пулу, у сторінках."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:335
+msgid ""
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
+msgstr ""
+"Кількість \"випадкових\" випереджуючих читань, ініційованих InnoDB. Це "
+"відбувається при виконанні запиту на сканування великої частини таблиці, але "
+"у випадковому порядку."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:340
+msgid ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+msgstr ""
+"Кількість послідовних випереджуючих читань, ініційованих InnoDB. Це "
+"відбувається, коли InnoDB здійснює послідовне повне сканування таблиці."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
+msgid "The number of logical read requests InnoDB has done."
+msgstr "Кількість логічних запитів на читання, виконаних InnoDB."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
+msgid ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+msgstr ""
+"Кількість логічних читань, що InnoDB не зміг виконати з буферного пулу і був "
+"змушений здійснити посторінкове читання."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:351
+msgid ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+msgstr ""
+"Зазвичай, записи в буферний пул InnoDB відбувається у фоновому режимі. "
+"Однак, якщо необхідно прочитати або створити сторінку, а чистої сторінки "
+"немає, то необхідно почекати, поки сторінки будуть очищені. Цей лічильник "
+"підраховує кількість таких очікувань. Якщо правильно налаштовано розмір "
+"буферного пула, це значення буде невеликим."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+msgid "The number writes done to the InnoDB buffer pool."
+msgstr "Кількість записів, здійснених в буферний пул InnoDB."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+msgid "The number of fsync() operations so far."
+msgstr "Кількість операцій fsync() до цього моменту."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
+msgid "The current number of pending fsync() operations."
+msgstr "Поточна кількість незавершених операцій fsync()."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:368
+msgid "The current number of pending reads."
+msgstr "Поточна кількість незавершених операцій читання."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
+msgid "The current number of pending writes."
+msgstr "Поточна кількість незавершених операцій запису."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
+msgid "The amount of data read so far, in bytes."
+msgstr "Обсяг прочитаних даних до цього моменту, в байтах."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+msgid "The total number of data reads."
+msgstr "Загальна кількість прочитаних даних."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
+msgid "The total number of data writes."
+msgstr "Загальна кількість записаних даних."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:383
+msgid "The amount of data written so far, in bytes."
+msgstr "Обсяг записаних даних до цього моменту, в байтах."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
+msgid "The number of pages that have been written for doublewrite operations."
+msgstr "Кількість сторінок, записаних у операціях подвійного запису."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
+msgid "The number of doublewrite operations that have been performed."
+msgstr "Кількість виконаних операцій подвійного запису."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+msgid ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+msgstr ""
+"Кількість затримок, що сталися через малий буфер журналу і очікування його "
+"очищення для продовження."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
+msgid "The number of log write requests."
+msgstr "Кількість запитів на запис у журнал."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:400
+msgid "The number of physical writes to the log file."
+msgstr "Кількість фізичних записів у файл журналу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:403
+msgid "The number of fsync() writes done to the log file."
+msgstr "Кількість записів fsync() здійснених до файлу журналу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:406
+msgid "The number of pending log file fsyncs."
+msgstr "Кількість незавершених fsyncs до файлу журналу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:409
+msgid "Pending log file writes."
+msgstr "Відкладені записи у файл журналу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:412
+msgid "The number of bytes written to the log file."
+msgstr "Кількість байт, записаних у файл журналу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:415
+msgid "The number of pages created."
+msgstr "Кількість створених сторінок."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:418
+msgid ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+msgstr ""
+"Розмір сторінки, що компілюється в InnoDB (за замовчуванням 16 КБ). Багато "
+"значень наводяться у сторінках, але знаючи розмір сторінки їх легко "
+"перевести у байти."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
+msgid "The number of pages read."
+msgstr "Кількість прочитаних сторінок."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
+msgid "The number of pages written."
+msgstr "Кількість записаних сторінок."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:429
+msgid "The number of row locks currently being waited for."
+msgstr "Кількість наразі очікуваних блокувань рядків."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
+msgid "The average time to acquire a row lock, in milliseconds."
+msgstr "Середній час виконання блокування рядка, в мілісекундах."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+msgid "The total time spent in acquiring row locks, in milliseconds."
+msgstr ""
+"Загальний час, витрачений на виконання блокувань рядків, в мілісекундах."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:438
+msgid "The maximum time to acquire a row lock, in milliseconds."
+msgstr "Максимальний час виконання блокування рядка, в мілісекундах."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
+msgid "The number of times a row lock had to be waited for."
+msgstr "Кількість разів, коли довелося чекати на блокування рядка."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:444
+msgid "The number of rows deleted from InnoDB tables."
+msgstr "Кількість рядків, видалених з таблиць InnoDB."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:447
+msgid "The number of rows inserted in InnoDB tables."
+msgstr "Кількість рядків, доданих до таблиць InnoDB."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
+msgid "The number of rows read from InnoDB tables."
+msgstr "Кількість рядків, прочитаних з таблиць InnoDB."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:453
+msgid "The number of rows updated in InnoDB tables."
+msgstr "Кількість рядків, оновлених з таблиць InnoDB."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:456
+msgid ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+msgstr ""
+"Кількість індексних блоків в кеші індексу, що змінилися, але ще не були "
+"перенесені на диск. Раніше вона називалася Not_flushed_key_blocks."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
+msgid ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+msgstr ""
+"Кількість невикористаних блоків у кеші індексу. Цим значенням визначається "
+"ступінь використання кешу індексу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
+msgid ""
+"The number of used blocks in the key cache. This value is a high-water mark "
+"that indicates the maximum number of blocks that have ever been in use at "
+"one time."
+msgstr ""
+"Кількість використаних блоків в кеші індексу. Це значення сигналізує про "
+"максимальну кількість блоків, що були одночасно використані."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:470
+msgid "Percentage of used key cache (calculated value)"
+msgstr "Відсоток використаного кешу ключів (обчислене значення)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:473
+msgid "The number of requests to read a key block from the cache."
+msgstr "Кількість запитів на читання індексного блоку з кеша."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
+msgid ""
+"The number of physical reads of a key block from disk. If Key_reads is big, "
+"then your key_buffer_size value is probably too small. The cache miss rate "
+"can be calculated as Key_reads/Key_read_requests."
+msgstr ""
+"Кількість фізичних читань індексного блоку з диска. Якщо Key_reads великий, "
+"то значення key_buffer_size швидше за все  замале. Коефіцієнт невдалих "
+"звернень до кешу може бути обчислений як Key_reads/Key_read_requests."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:482
+msgid ""
+"Key cache miss calculated as rate of physical reads compared to read "
+"requests (calculated value)"
+msgstr ""
+"Невдалі звернення до кешу ключів відношення фізичних операцій читання до "
+"запитів на читання (розрахункове значення)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
+msgid "The number of requests to write a key block to the cache."
+msgstr "Кількість запитів запису індексного блоку до кеша."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:489
+msgid "The number of physical writes of a key block to disk."
+msgstr "Кількість фізичних записів індексного блоку на диску."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:492
+msgid ""
+"Percentage of physical writes compared to write requests (calculated value)"
+msgstr ""
+"Відсоток фізичних записів в порівнянні запитів на запис (розрахункове "
+"значення)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
+msgid ""
+"The total cost of the last compiled query as computed by the query "
+"optimizer. Useful for comparing the cost of different query plans for the "
+"same query. The default value of 0 means that no query has been compiled yet."
+msgstr ""
+"Загальна вартість останнього скомпільованого запиту, що обчислено "
+"оптимізатором запитів. Може знадобитися для порівняння вартості різних схем "
+"одного і того ж запиту. Початкове значення 0 означає, що запиту ще "
+"скомпільовано не було."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:502
+msgid ""
+"The maximum number of connections that have been in use simultaneously since "
+"the server started."
+msgstr ""
+"Максимальна кількість підключень, що були одночасно використані з моменту "
+"запуску сервера."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:506
+msgid "The number of rows waiting to be written in INSERT DELAYED queues."
+msgstr "Кількість рядків, які чекають запису в запитах INSERT DELAYED."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:509
+msgid ""
+"The number of tables that have been opened. If opened tables is big, your "
+"table cache value is probably too small."
+msgstr ""
+"Кількість таблиць, які були відкриті. Якщо відкритих таблиць забагато, кеш "
+"таблиць напевно вичерпується."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:513
+msgid "The number of files that are open."
+msgstr "Кількість відкритих файлів."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:516
+msgid "The number of streams that are open (used mainly for logging)."
+msgstr ""
+"Кількість відкритих потоків (використовуються в основному для ведення "
+"журналу)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:519
+msgid "The number of tables that are open."
+msgstr "Кількість відкритих таблиць."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:522
+msgid ""
+"The number of free memory blocks in query cache. High numbers can indicate "
+"fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
+"statement."
+msgstr ""
+"Кількість вільних блоків пам'яті в кеші запитів. Велике значення може "
+"вказувати на проблеми фрагментації, яку можна виправити виконавши команду "
+"FLUSH QUERY CACHE."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:527
+msgid "The amount of free memory for query cache."
+msgstr "Обсяг вільної пам'яті для кешу запитів."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:530
+msgid "The number of cache hits."
+msgstr "Кількість вдалих запитів у кеш."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:533
+msgid "The number of queries added to the cache."
+msgstr "Кількість запитів, доданих до кешу."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:536
+msgid ""
+"The number of queries that have been removed from the cache to free up "
+"memory for caching new queries. This information can help you tune the query "
+"cache size. The query cache uses a least recently used (LRU) strategy to "
+"decide which queries to remove from the cache."
+msgstr ""
+"Кількість запитів, які були видалені з кешу, щоб звільнити пам'ять для "
+"кешування нових запитів. Ця інформація допоможе вам налаштувати розмір кеша "
+"запитів. Кеш запитів для вирішення питання, які запити видалити з кеша, "
+"використовує стратегію LRU (найдовше невикористовувані сторінки замінюються "
+"новими)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:543
+msgid ""
+"The number of non-cached queries (not cachable, or not cached due to the "
+"query_cache_type setting)."
+msgstr ""
+"Кількість некешованих запитів (не кешується, або не кешовано через параметр "
+"query_cache_type)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:547
+msgid "The number of queries registered in the cache."
+msgstr "Кількість запитів зареєстрованих в кеші."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:550
+msgid "The total number of blocks in the query cache."
+msgstr "Загальна кількість блоків у кеші запитів."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:553
+msgid "The status of failsafe replication (not yet implemented)."
+msgstr "Стан відмовостійкі реплікації (поки не реалізовано)."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:556
+msgid ""
+"The number of joins that do not use indexes. If this value is not 0, you "
+"should carefully check the indexes of your tables."
+msgstr ""
+"Число запитів-об'єднань, які не використовують індекси. Якщо це значення не "
+"дорівнює 0, необхідно уважно перевірити індекси таблиць."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:560
+msgid "The number of joins that used a range search on a reference table."
+msgstr ""
+"Число запитів-об'єднань, які використовували пошук по діапазону таблиці, на "
+"яку посилаються."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:563
+msgid ""
+"The number of joins without keys that check for key usage after each row. "
+"(If this is not 0, you should carefully check the indexes of your tables.)"
+msgstr ""
+"Число запитів-об'єднань без індексів, що перевіряють використання індексу "
+"після кожного рядка. (Якщо це не 0, необхідно уважно перевірити індекси "
+"таблиць.)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:568
+msgid ""
+"The number of joins that used ranges on the first table. (It's normally not "
+"critical even if this is big.)"
+msgstr ""
+"Число запитів-сполук, які використовували діапазони в першій таблиці. "
+"(Значення не є критичним, навіть якщо завелике.)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:572
+msgid "The number of joins that did a full scan of the first table."
+msgstr "Число запитів-об'єднань, які зробили повне сканування першої таблиці."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:575
+msgid "The number of temporary tables currently open by the slave SQL thread."
+msgstr ""
+"Кількість тимчасових таблиць, відкритих в даний момент підпорядкованим SQL "
+"потоком."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:579
+msgid ""
+"Total (since startup) number of times the replication slave SQL thread has "
+"retried transactions."
+msgstr ""
+"Загальна кількість (з моменту запуску) повторних транзакцій реплікації "
+"підпорядкованим SQL потоком."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:583
+msgid "This is ON if this server is a slave that is connected to a master."
+msgstr ""
+"Надається значення ON, якщо цей сервер підпорядкованим, що підключений "
+"керуючого сервера."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:586
+msgid ""
+"The number of threads that have taken more than slow_launch_time seconds to "
+"create."
+msgstr ""
+"Кількість потоків, на створення яких знадобилося більш ніж slow_launch_time "
+"секунд."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:590
+msgid ""
+"The number of queries that have taken more than long_query_time seconds."
+msgstr "Кількість запитів, які виконувалися більш ніж long_query_time секунд."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:594
+msgid ""
+"The number of merge passes the sort algorithm has had to do. If this value "
+"is large, you should consider increasing the value of the sort_buffer_size "
+"system variable."
+msgstr ""
+"Число проходів, виконаних алгоритмом сортування. Якщо це значення велике, "
+"слід розглянути питання про збільшення значення системної змінної "
+"sort_buffer_size."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:599
+msgid "The number of sorts that were done with ranges."
+msgstr "Кількість сортувань, виконаних з використанням діапазонів."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:602
+msgid "The number of sorted rows."
+msgstr "Кількість відсортованих рядків."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
+msgid "The number of sorts that were done by scanning the table."
+msgstr "Кількість сортувань, виконаних шляхом сканування таблиці."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:608
+msgid "The number of times that a table lock was acquired immediately."
+msgstr "Кількість разів, коли блокування таблиці була виконано негайно."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:611
+msgid ""
+"The number of times that a table lock could not be acquired immediately and "
+"a wait was needed. If this is high, and you have performance problems, you "
+"should first optimize your queries, and then either split your table or "
+"tables or use replication."
+msgstr ""
+"Кількість разів, коли блокування таблиці не могло бути виконано негайно і "
+"довелося очікувати. Якщо це значення велике і виникають проблеми з "
+"продуктивністю, необхідно спочатку оптимізувати запити і потім, або "
+"розділити таблицю чи таблиці, або використовувати реплікацію."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:617
+msgid ""
+"The number of threads in the thread cache. The cache hit rate can be "
+"calculated as Threads_created/Connections. If this value is red you should "
+"raise your thread_cache_size."
+msgstr ""
+"Кількість потоків в кеші потоків. Частоту успішних звернень до кешу можна "
+"обчислити за формулою Threads_created/Connections. Якщо це значення червоне, "
+"необхідно збільшити thread_cache_size."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:622
+msgid "The number of currently open connections."
+msgstr "Кількість наразі відкритих з'єднань."
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:625
+msgid ""
+"The number of threads created to handle connections. If Threads_created is "
+"big, you may want to increase the thread_cache_size value. (Normally this "
+"doesn't give a notable performance improvement if you have a good thread "
+"implementation.)"
+msgstr ""
+"Кількість потоків, створених для обробки з'єднань. Якщо Threads_created "
+"завелике, можна збільшити значення thread_cache_size. (Зазвичай, це не дає "
+"помітного зростання продуктивності при гарній реалізації потоків.)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:632
+msgid "Thread cache hit rate (calculated value)"
+msgstr "Відношення звернень до кешу потоку (обчислене значення)"
+
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:635
+msgid "The number of threads that are not sleeping."
+msgstr "Кількість потоків в активному стані."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:195
 msgid "Setting variable failed"
@@ -7126,14 +7866,13 @@ msgstr "Повні тексти"
 
 #: libraries/classes/Display/Results.php:1997
 #: libraries/classes/Display/Results.php:2023
-#: libraries/classes/Operations.php:847
-#: libraries/classes/Server/Status/Processes.php:184
-#: libraries/classes/Util.php:4916 libraries/classes/Util.php:4939
-#: libraries/config.values.php:115
+#: libraries/classes/Operations.php:847 libraries/classes/Util.php:4916
+#: libraries/classes/Util.php:4939 libraries/config.values.php:115
 #: templates/database/multi_table_query/form.twig:67
 #: templates/server/databases/index.twig:92
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:128
+#: templates/server/status/processes/list.twig:12
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/table/search/selection_form.twig:154
 msgid "Descending"
@@ -7141,14 +7880,13 @@ msgstr "За спаданням"
 
 #: libraries/classes/Display/Results.php:2005
 #: libraries/classes/Display/Results.php:2015
-#: libraries/classes/Operations.php:844
-#: libraries/classes/Server/Status/Processes.php:187
-#: libraries/classes/Util.php:4908 libraries/classes/Util.php:4931
-#: libraries/config.values.php:114
+#: libraries/classes/Operations.php:844 libraries/classes/Util.php:4908
+#: libraries/classes/Util.php:4931 libraries/config.values.php:114
 #: templates/database/multi_table_query/form.twig:66
 #: templates/server/databases/index.twig:90
 #: templates/server/databases/index.twig:107
 #: templates/server/databases/index.twig:126
+#: templates/server/status/processes/list.twig:14
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/table/search/selection_form.twig:154
 msgid "Ascending"
@@ -7161,7 +7899,7 @@ msgstr "Рядок видалено."
 
 #: libraries/classes/Display/Results.php:3354
 #: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Server/Status/Processes.php:297
+#: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Анулювати"
 
@@ -7933,7 +8671,6 @@ msgstr ""
 #: libraries/classes/InsertEdit.php:1963
 #: libraries/classes/ReplicationGui.php:579
 #: libraries/classes/Rte/Routines.php:1689
-#: libraries/classes/Server/Status/Variables.php:231
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
@@ -7941,6 +8678,7 @@ msgstr ""
 #: templates/table/search/zoom_result_form.twig:36
 #: templates/table/search/fields_table.twig:11
 #: templates/server/variables/index.twig:29
+#: templates/server/status/variables/index.twig:71
 msgid "Value"
 msgstr "Значення"
 
@@ -10485,8 +11223,8 @@ msgid "Slave status"
 msgstr "Статус Slave"
 
 #: libraries/classes/ReplicationGui.php:578
-#: libraries/classes/Server/Status/Variables.php:230
 #: templates/server/variables/index.twig:28
+#: templates/server/status/variables/index.twig:70
 msgid "Variable"
 msgstr "Змінна"
 
@@ -10494,13 +11232,6 @@ msgstr "Змінна"
 #: templates/server/binlog/index.twig:87
 msgid "Server ID"
 msgstr "ID сервера"
-
-#: libraries/classes/ReplicationGui.php:656
-#: libraries/classes/ReplicationGui.php:742
-#: libraries/classes/ReplicationGui.php:876
-#: libraries/classes/Server/Status/Processes.php:101
-msgid "Host"
-msgstr "Хост"
 
 #: libraries/classes/ReplicationGui.php:673
 msgid ""
@@ -11607,12 +12338,6 @@ msgstr "Користувач %s вже існує!"
 msgid "Privileges for %s"
 msgstr "Привілеї для %s"
 
-#: libraries/classes/Server/Privileges.php:4640
-#: libraries/classes/Server/Status/Processes.php:97
-#: libraries/classes/Server/UserGroups.php:51
-msgid "User"
-msgstr "Користувач"
-
 #: libraries/classes/Server/Privileges.php:4713
 msgid "Edit privileges:"
 msgstr "Редагувати привілеї:"
@@ -11682,11 +12407,6 @@ msgstr "Ви додали нового користувача."
 msgid "Current server:"
 msgstr "Поточний сервер:"
 
-#: libraries/classes/Server/Status/Data.php:117
-#: libraries/classes/Server/Status/Processes.php:125
-msgid "SQL query"
-msgstr "SQL запит"
-
 #: libraries/classes/Server/Status/Data.php:120
 msgid "Handler"
 msgstr "Обробник"
@@ -11747,825 +12467,6 @@ msgstr "Показати статус підлеглих"
 #: libraries/classes/Server/Status/Data.php:182
 msgid "Flush query cache"
 msgstr "Очистити кеш запитів"
-
-#: libraries/classes/Server/Status/Data.php:449
-#: templates/server/status/base.twig:15
-msgid "Query statistics"
-msgstr "Статистика запиту"
-
-#: libraries/classes/Server/Status/Data.php:453
-#: templates/server/status/base.twig:20
-msgid "All status variables"
-msgstr "Всі змінні статусу"
-
-#: libraries/classes/Server/Status/Data.php:457
-#: templates/server/status/base.twig:25
-msgid "Monitor"
-msgstr "Монітор"
-
-#: libraries/classes/Server/Status/Data.php:461
-#: templates/server/status/base.twig:30
-msgid "Advisor"
-msgstr "Радник"
-
-#: libraries/classes/Server/Status/Data.php:517
-#, php-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d секунда"
-msgstr[1] "%d секунди"
-msgstr[2] "%d секунд"
-
-#: libraries/classes/Server/Status/Data.php:523
-#, php-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d хвилина"
-msgstr[1] "%d хвилини"
-msgstr[2] "%d хвилин"
-
-#: libraries/classes/Server/Status/Processes.php:35
-msgid ""
-"Note: Enabling the auto refresh here might cause heavy traffic between the "
-"web server and the MySQL server."
-msgstr ""
-"Примітка: Увімкнення автоматичного оновлення може спричинити великий трафік "
-"між веб-сервером та сервером MySQL."
-
-#: libraries/classes/Server/Status/Processes.php:40
-#: templates/server/status/monitor/index.twig:36
-msgid "Refresh rate"
-msgstr "Інтервал оновлення"
-
-#: libraries/classes/Server/Status/Processes.php:93
-msgid "ID"
-msgstr "ID"
-
-#: libraries/classes/Server/Status/Processes.php:109
-msgid "Command"
-msgstr "Команда"
-
-#: libraries/classes/Server/Status/Processes.php:121
-msgid "Progress"
-msgstr "Прогрес"
-
-#: libraries/classes/Server/Status/Processes.php:198
-msgid "Truncate Shown Queries"
-msgstr "Обрізати показані запити"
-
-#: libraries/classes/Server/Status/Processes.php:204
-msgid "Show Full Queries"
-msgstr "Показати повні запити"
-
-#: libraries/classes/Server/Status/Processes.php:253
-#: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
-msgid "Filters"
-msgstr "Фільтри"
-
-#: libraries/classes/Server/Status/Processes.php:261
-msgid "Show only active"
-msgstr "Показати тільки активні"
-
-#: libraries/classes/Server/Status/Queries.php:42
-#, php-format
-msgid "Questions since startup: %s"
-msgstr "Запитань із моменту запуску: %s"
-
-#: libraries/classes/Server/Status/Queries.php:55
-msgid "per hour:"
-msgstr "за годину:"
-
-#: libraries/classes/Server/Status/Queries.php:58
-msgid "per minute:"
-msgstr "за хвилину:"
-
-#: libraries/classes/Server/Status/Queries.php:65
-msgid "per second:"
-msgstr "за секунду:"
-
-#: libraries/classes/Server/Status/Queries.php:102
-msgid "Statements"
-msgstr "Параметри"
-
-#. l10n: # = Amount of queries
-#: libraries/classes/Server/Status/Queries.php:105
-msgid "#"
-msgstr "#"
-
-#: libraries/classes/Server/Status/Variables.php:54 templates/filter.twig:4
-msgid "Containing the word:"
-msgstr "Містить слово:"
-
-#: libraries/classes/Server/Status/Variables.php:62
-msgid "Show only alert values"
-msgstr "Показати тільки оповіщення значень"
-
-#: libraries/classes/Server/Status/Variables.php:67
-msgid "Filter by category…"
-msgstr "Фільтрувати за категорією…"
-
-#: libraries/classes/Server/Status/Variables.php:88
-msgid "Show unformatted values"
-msgstr "Показати неформатовані значення"
-
-#: libraries/classes/Server/Status/Variables.php:107
-msgid "Related links:"
-msgstr "Пов'язані посилання:"
-
-#: libraries/classes/Server/Status/Variables.php:339
-msgid ""
-"The number of connections that were aborted because the client died without "
-"closing the connection properly."
-msgstr ""
-"Кількість підключень, що було перервано через відключення клієнта без "
-"належного закриття з'єднання."
-
-#: libraries/classes/Server/Status/Variables.php:343
-msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Кількість невдалих спроб підключитися до сервера MySQL."
-
-#: libraries/classes/Server/Status/Variables.php:346
-msgid ""
-"The number of transactions that used the temporary binary log cache but that "
-"exceeded the value of binlog_cache_size and used a temporary file to store "
-"statements from the transaction."
-msgstr ""
-"Кількість транзакцій, що використовували кеш тимчасового двійкового журналу, "
-"але перевищили значення binlog_cache_size і використали тимчасовий файл для "
-"збереження команд транзакції."
-
-#: libraries/classes/Server/Status/Variables.php:351
-msgid "The number of transactions that used the temporary binary log cache."
-msgstr "Кількість операцій, що використали кеш тимчасового двійкового журналу."
-
-#: libraries/classes/Server/Status/Variables.php:354
-msgid ""
-"The number of connection attempts (successful or not) to the MySQL server."
-msgstr "Кількість спроб підключення (успішних чи навпаки) до сервера MySQL."
-
-#: libraries/classes/Server/Status/Variables.php:358
-msgid ""
-"The number of temporary tables on disk created automatically by the server "
-"while executing statements. If Created_tmp_disk_tables is big, you may want "
-"to increase the tmp_table_size  value to cause temporary tables to be memory-"
-"based instead of disk-based."
-msgstr ""
-"Кількість тимчасових таблиць на диску автоматично створених сервером під час "
-"виконання команд. Якщо Created_tmp_disk_tables велике, ви можете збільшити "
-"значення tmp_table_size, щоб тимчасові таблиці розміщувалися в пам'яті, а не "
-"на диску."
-
-#: libraries/classes/Server/Status/Variables.php:365
-msgid "How many temporary files mysqld has created."
-msgstr "Скільки було створено тимчасових файлів mysqld."
-
-#: libraries/classes/Server/Status/Variables.php:368
-msgid ""
-"The number of in-memory temporary tables created automatically by the server "
-"while executing statements."
-msgstr ""
-"Кількість тимчасових таблиць в пам'яті, автоматично створювані сервером під "
-"час виконання команд."
-
-#: libraries/classes/Server/Status/Variables.php:372
-msgid ""
-"The number of rows written with INSERT DELAYED for which some error occurred "
-"(probably duplicate key)."
-msgstr ""
-"Кількість рядків, записаних за допомогою команди INSERT DELAYED, при яких "
-"виникла помилка (ймовірно через дублі ключа)."
-
-#: libraries/classes/Server/Status/Variables.php:376
-msgid ""
-"The number of INSERT DELAYED handler threads in use. Every different table "
-"on which one uses INSERT DELAYED gets its own thread."
-msgstr ""
-"Кількість використовуваних потоків обробника команди INSERT DELAYED. Кожній "
-"таблиці, на якій використана команда INSERT DELAYED, надається свій потік."
-
-#: libraries/classes/Server/Status/Variables.php:381
-msgid "The number of INSERT DELAYED rows written."
-msgstr "Кількість рядків, записаних за допомогою команди INSERT DELAYED."
-
-#: libraries/classes/Server/Status/Variables.php:384
-msgid "The number of executed FLUSH statements."
-msgstr "Кількість виконаних команд FLUSH."
-
-#: libraries/classes/Server/Status/Variables.php:387
-msgid "The number of internal COMMIT statements."
-msgstr "Кількість внутрішніх команд COMMIT."
-
-#: libraries/classes/Server/Status/Variables.php:390
-msgid "The number of times a row was deleted from a table."
-msgstr "Кількість разів, коли рядок було видалено з таблиці."
-
-#: libraries/classes/Server/Status/Variables.php:393
-msgid ""
-"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
-"table with a given name. This is called discovery. Handler_discover "
-"indicates the number of time tables have been discovered."
-msgstr ""
-"Сервер MySQL може запитати механіхмсховища NDB-кластера, що йому відомо про "
-"таблицю з вказаним іменем. Це називається виявлення. Handler_discover - це "
-"кількість виявлених таблиць."
-
-#: libraries/classes/Server/Status/Variables.php:399
-msgid ""
-"The number of times the first entry was read from an index. If this is high, "
-"it suggests that the server is doing a lot of full index scans; for example, "
-"SELECT col1 FROM foo, assuming that col1 is indexed."
-msgstr ""
-"Кількість читань першого запису з індексу. Високе значення означае, що , "
-"можливо, сервер виконує забагато повних сканувань індексу; наприклад, "
-"командою SELECT col1 FROM foo, за умови, що col1 проіндексовано."
-
-#: libraries/classes/Server/Status/Variables.php:405
-msgid ""
-"The number of requests to read a row based on a key. If this is high, it is "
-"a good indication that your queries and tables are properly indexed."
-msgstr ""
-"Кількість запитів на читання рядка на основі ключа. Високе значення означає, "
-"що ваші запити та таблиці правильно проіндексовані."
-
-#: libraries/classes/Server/Status/Variables.php:410
-msgid ""
-"The number of requests to read the next row in key order. This is "
-"incremented if you are querying an index column with a range constraint or "
-"if you are doing an index scan."
-msgstr ""
-"Кількість запитів на читання наступного рядка у ключовій послідовності. Це "
-"значення зростає, якщо ви створюєте запит індексу стовпчика з обмеженням "
-"діапазону або виконуєте сканування індексу."
-
-#: libraries/classes/Server/Status/Variables.php:415
-msgid ""
-"The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY … DESC."
-msgstr ""
-"Кількість запитів на читання попереднього рядка в порядку розташування "
-"індексів. Зазвичай використовується для оптимізації: ORDER BY … DESC."
-
-#: libraries/classes/Server/Status/Variables.php:419
-msgid ""
-"The number of requests to read a row based on a fixed position. This is high "
-"if you are doing a lot of queries that require sorting of the result. You "
-"probably have a lot of queries that require MySQL to scan whole tables or "
-"you have joins that don't use keys properly."
-msgstr ""
-"Кількість запитів на читання рядка на основі фіксованої позиції. Це значення "
-"зростає, якщо виконується багато запитів, що вимагають сортування "
-"результатів. Ви, напевно, здійснюєте багато запитів, що вимагають сканування "
-"всієї таблиці, або маєте об'єднання, які неправильно використовують ключі."
-
-#: libraries/classes/Server/Status/Variables.php:426
-msgid ""
-"The number of requests to read the next row in the data file. This is high "
-"if you are doing a lot of table scans. Generally this suggests that your "
-"tables are not properly indexed or that your queries are not written to take "
-"advantage of the indexes you have."
-msgstr ""
-"Кількість запитів на читання наступного рядка у файлі даних. Це значення "
-"зростає, якщо ви виконуєте робите багато сканувань таблиці. Як правило, це "
-"означає, що таблиці належним чином не індексуються, або запити не "
-"використовують переваг наявних індексів."
-
-#: libraries/classes/Server/Status/Variables.php:433
-msgid "The number of internal ROLLBACK statements."
-msgstr "Кількість внутрішніх команд ROLLBACK."
-
-#: libraries/classes/Server/Status/Variables.php:436
-msgid "The number of requests to update a row in a table."
-msgstr "Кількість запитів на оновлення рядка в таблиці."
-
-#: libraries/classes/Server/Status/Variables.php:439
-msgid "The number of requests to insert a row in a table."
-msgstr "Кількість запитів на додавання рядка в таблицю."
-
-#: libraries/classes/Server/Status/Variables.php:442
-msgid "The number of pages containing data (dirty or clean)."
-msgstr "Кількість сторінок, що містять дані (брудні або чисті)."
-
-#: libraries/classes/Server/Status/Variables.php:445
-msgid "The number of pages currently dirty."
-msgstr "Поточна кількість брудних сторінок."
-
-#: libraries/classes/Server/Status/Variables.php:448
-msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr ""
-"Кількість сторінок буферного пулу, щодо яких був виконаний запит на очищення "
-"(FLUSH)."
-
-#: libraries/classes/Server/Status/Variables.php:452
-msgid "The number of free pages."
-msgstr "Кількість вільних сторінок."
-
-#: libraries/classes/Server/Status/Variables.php:455
-msgid ""
-"The number of latched pages in InnoDB buffer pool. These are pages currently "
-"being read or written or that can't be flushed or removed for some other "
-"reason."
-msgstr ""
-"Кількість сторінок, заблокованих у буферному пулі InnoDB. Це сторінки, котрі "
-"в даний момент читаються або записуються або не можуть бути очищені або "
-"видалені з іншої причини."
-
-#: libraries/classes/Server/Status/Variables.php:460
-msgid ""
-"The number of pages busy because they have been allocated for administrative "
-"overhead such as row locks or the adaptive hash index. This value can also "
-"be calculated as Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
-msgstr ""
-"Кількість сторінок, зайнятих через їх виділення під адміністративні процеси, "
-"як-от блокування рядка або адаптивне гещування індексу. Це значення також "
-"можна розрахувати за формулою Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
-
-#: libraries/classes/Server/Status/Variables.php:467
-msgid "Total size of buffer pool, in pages."
-msgstr "Загальний розмір буферного пулу, у сторінках."
-
-#: libraries/classes/Server/Status/Variables.php:470
-msgid ""
-"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
-"query is to scan a large portion of a table but in random order."
-msgstr ""
-"Кількість \"випадкових\" випереджуючих читань, ініційованих InnoDB. Це "
-"відбувається при виконанні запиту на сканування великої частини таблиці, але "
-"у випадковому порядку."
-
-#: libraries/classes/Server/Status/Variables.php:475
-msgid ""
-"The number of sequential read-aheads InnoDB initiated. This happens when "
-"InnoDB does a sequential full table scan."
-msgstr ""
-"Кількість послідовних випереджуючих читань, ініційованих InnoDB. Це "
-"відбувається, коли InnoDB здійснює послідовне повне сканування таблиці."
-
-#: libraries/classes/Server/Status/Variables.php:479
-msgid "The number of logical read requests InnoDB has done."
-msgstr "Кількість логічних запитів на читання, виконаних InnoDB."
-
-#: libraries/classes/Server/Status/Variables.php:482
-msgid ""
-"The number of logical reads that InnoDB could not satisfy from buffer pool "
-"and had to do a single-page read."
-msgstr ""
-"Кількість логічних читань, що InnoDB не зміг виконати з буферного пулу і був "
-"змушений здійснити посторінкове читання."
-
-#: libraries/classes/Server/Status/Variables.php:486
-msgid ""
-"Normally, writes to the InnoDB buffer pool happen in the background. "
-"However, if it's necessary to read or create a page and no clean pages are "
-"available, it's necessary to wait for pages to be flushed first. This "
-"counter counts instances of these waits. If the buffer pool size was set "
-"properly, this value should be small."
-msgstr ""
-"Зазвичай, записи в буферний пул InnoDB відбувається у фоновому режимі. "
-"Однак, якщо необхідно прочитати або створити сторінку, а чистої сторінки "
-"немає, то необхідно почекати, поки сторінки будуть очищені. Цей лічильник "
-"підраховує кількість таких очікувань. Якщо правильно налаштовано розмір "
-"буферного пула, це значення буде невеликим."
-
-#: libraries/classes/Server/Status/Variables.php:494
-msgid "The number writes done to the InnoDB buffer pool."
-msgstr "Кількість записів, здійснених в буферний пул InnoDB."
-
-#: libraries/classes/Server/Status/Variables.php:497
-msgid "The number of fsync() operations so far."
-msgstr "Кількість операцій fsync() до цього моменту."
-
-#: libraries/classes/Server/Status/Variables.php:500
-msgid "The current number of pending fsync() operations."
-msgstr "Поточна кількість незавершених операцій fsync()."
-
-#: libraries/classes/Server/Status/Variables.php:503
-msgid "The current number of pending reads."
-msgstr "Поточна кількість незавершених операцій читання."
-
-#: libraries/classes/Server/Status/Variables.php:506
-msgid "The current number of pending writes."
-msgstr "Поточна кількість незавершених операцій запису."
-
-#: libraries/classes/Server/Status/Variables.php:509
-msgid "The amount of data read so far, in bytes."
-msgstr "Обсяг прочитаних даних до цього моменту, в байтах."
-
-#: libraries/classes/Server/Status/Variables.php:512
-msgid "The total number of data reads."
-msgstr "Загальна кількість прочитаних даних."
-
-#: libraries/classes/Server/Status/Variables.php:515
-msgid "The total number of data writes."
-msgstr "Загальна кількість записаних даних."
-
-#: libraries/classes/Server/Status/Variables.php:518
-msgid "The amount of data written so far, in bytes."
-msgstr "Обсяг записаних даних до цього моменту, в байтах."
-
-#: libraries/classes/Server/Status/Variables.php:521
-msgid "The number of pages that have been written for doublewrite operations."
-msgstr "Кількість сторінок, записаних у операціях подвійного запису."
-
-#: libraries/classes/Server/Status/Variables.php:525
-msgid "The number of doublewrite operations that have been performed."
-msgstr "Кількість виконаних операцій подвійного запису."
-
-#: libraries/classes/Server/Status/Variables.php:528
-msgid ""
-"The number of waits we had because log buffer was too small and we had to "
-"wait for it to be flushed before continuing."
-msgstr ""
-"Кількість затримок, що сталися через малий буфер журналу і очікування його "
-"очищення для продовження."
-
-#: libraries/classes/Server/Status/Variables.php:532
-msgid "The number of log write requests."
-msgstr "Кількість запитів на запис у журнал."
-
-#: libraries/classes/Server/Status/Variables.php:535
-msgid "The number of physical writes to the log file."
-msgstr "Кількість фізичних записів у файл журналу."
-
-#: libraries/classes/Server/Status/Variables.php:538
-msgid "The number of fsync() writes done to the log file."
-msgstr "Кількість записів fsync() здійснених до файлу журналу."
-
-#: libraries/classes/Server/Status/Variables.php:541
-msgid "The number of pending log file fsyncs."
-msgstr "Кількість незавершених fsyncs до файлу журналу."
-
-#: libraries/classes/Server/Status/Variables.php:544
-msgid "Pending log file writes."
-msgstr "Відкладені записи у файл журналу."
-
-#: libraries/classes/Server/Status/Variables.php:547
-msgid "The number of bytes written to the log file."
-msgstr "Кількість байт, записаних у файл журналу."
-
-#: libraries/classes/Server/Status/Variables.php:550
-msgid "The number of pages created."
-msgstr "Кількість створених сторінок."
-
-#: libraries/classes/Server/Status/Variables.php:553
-msgid ""
-"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
-"pages; the page size allows them to be easily converted to bytes."
-msgstr ""
-"Розмір сторінки, що компілюється в InnoDB (за замовчуванням 16 КБ). Багато "
-"значень наводяться у сторінках, але знаючи розмір сторінки їх легко "
-"перевести у байти."
-
-#: libraries/classes/Server/Status/Variables.php:558
-msgid "The number of pages read."
-msgstr "Кількість прочитаних сторінок."
-
-#: libraries/classes/Server/Status/Variables.php:561
-msgid "The number of pages written."
-msgstr "Кількість записаних сторінок."
-
-#: libraries/classes/Server/Status/Variables.php:564
-msgid "The number of row locks currently being waited for."
-msgstr "Кількість наразі очікуваних блокувань рядків."
-
-#: libraries/classes/Server/Status/Variables.php:567
-msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "Середній час виконання блокування рядка, в мілісекундах."
-
-#: libraries/classes/Server/Status/Variables.php:570
-msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr ""
-"Загальний час, витрачений на виконання блокувань рядків, в мілісекундах."
-
-#: libraries/classes/Server/Status/Variables.php:573
-msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "Максимальний час виконання блокування рядка, в мілісекундах."
-
-#: libraries/classes/Server/Status/Variables.php:576
-msgid "The number of times a row lock had to be waited for."
-msgstr "Кількість разів, коли довелося чекати на блокування рядка."
-
-#: libraries/classes/Server/Status/Variables.php:579
-msgid "The number of rows deleted from InnoDB tables."
-msgstr "Кількість рядків, видалених з таблиць InnoDB."
-
-#: libraries/classes/Server/Status/Variables.php:582
-msgid "The number of rows inserted in InnoDB tables."
-msgstr "Кількість рядків, доданих до таблиць InnoDB."
-
-#: libraries/classes/Server/Status/Variables.php:585
-msgid "The number of rows read from InnoDB tables."
-msgstr "Кількість рядків, прочитаних з таблиць InnoDB."
-
-#: libraries/classes/Server/Status/Variables.php:588
-msgid "The number of rows updated in InnoDB tables."
-msgstr "Кількість рядків, оновлених з таблиць InnoDB."
-
-#: libraries/classes/Server/Status/Variables.php:591
-msgid ""
-"The number of key blocks in the key cache that have changed but haven't yet "
-"been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr ""
-"Кількість індексних блоків в кеші індексу, що змінилися, але ще не були "
-"перенесені на диск. Раніше вона називалася Not_flushed_key_blocks."
-
-#: libraries/classes/Server/Status/Variables.php:596
-msgid ""
-"The number of unused blocks in the key cache. You can use this value to "
-"determine how much of the key cache is in use."
-msgstr ""
-"Кількість невикористаних блоків у кеші індексу. Цим значенням визначається "
-"ступінь використання кешу індексу."
-
-#: libraries/classes/Server/Status/Variables.php:600
-msgid ""
-"The number of used blocks in the key cache. This value is a high-water mark "
-"that indicates the maximum number of blocks that have ever been in use at "
-"one time."
-msgstr ""
-"Кількість використаних блоків в кеші індексу. Це значення сигналізує про "
-"максимальну кількість блоків, що були одночасно використані."
-
-#: libraries/classes/Server/Status/Variables.php:605
-msgid "Percentage of used key cache (calculated value)"
-msgstr "Відсоток використаного кешу ключів (обчислене значення)"
-
-#: libraries/classes/Server/Status/Variables.php:608
-msgid "The number of requests to read a key block from the cache."
-msgstr "Кількість запитів на читання індексного блоку з кеша."
-
-#: libraries/classes/Server/Status/Variables.php:611
-msgid ""
-"The number of physical reads of a key block from disk. If Key_reads is big, "
-"then your key_buffer_size value is probably too small. The cache miss rate "
-"can be calculated as Key_reads/Key_read_requests."
-msgstr ""
-"Кількість фізичних читань індексного блоку з диска. Якщо Key_reads великий, "
-"то значення key_buffer_size швидше за все  замале. Коефіцієнт невдалих "
-"звернень до кешу може бути обчислений як Key_reads/Key_read_requests."
-
-#: libraries/classes/Server/Status/Variables.php:617
-msgid ""
-"Key cache miss calculated as rate of physical reads compared to read "
-"requests (calculated value)"
-msgstr ""
-"Невдалі звернення до кешу ключів відношення фізичних операцій читання до "
-"запитів на читання (розрахункове значення)"
-
-#: libraries/classes/Server/Status/Variables.php:621
-msgid "The number of requests to write a key block to the cache."
-msgstr "Кількість запитів запису індексного блоку до кеша."
-
-#: libraries/classes/Server/Status/Variables.php:624
-msgid "The number of physical writes of a key block to disk."
-msgstr "Кількість фізичних записів індексного блоку на диску."
-
-#: libraries/classes/Server/Status/Variables.php:627
-msgid ""
-"Percentage of physical writes compared to write requests (calculated value)"
-msgstr ""
-"Відсоток фізичних записів в порівнянні запитів на запис (розрахункове "
-"значення)"
-
-#: libraries/classes/Server/Status/Variables.php:631
-msgid ""
-"The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
-"same query. The default value of 0 means that no query has been compiled yet."
-msgstr ""
-"Загальна вартість останнього скомпільованого запиту, що обчислено "
-"оптимізатором запитів. Може знадобитися для порівняння вартості різних схем "
-"одного і того ж запиту. Початкове значення 0 означає, що запиту ще "
-"скомпільовано не було."
-
-#: libraries/classes/Server/Status/Variables.php:637
-msgid ""
-"The maximum number of connections that have been in use simultaneously since "
-"the server started."
-msgstr ""
-"Максимальна кількість підключень, що були одночасно використані з моменту "
-"запуску сервера."
-
-#: libraries/classes/Server/Status/Variables.php:641
-msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr "Кількість рядків, які чекають запису в запитах INSERT DELAYED."
-
-#: libraries/classes/Server/Status/Variables.php:644
-msgid ""
-"The number of tables that have been opened. If opened tables is big, your "
-"table cache value is probably too small."
-msgstr ""
-"Кількість таблиць, які були відкриті. Якщо відкритих таблиць забагато, кеш "
-"таблиць напевно вичерпується."
-
-#: libraries/classes/Server/Status/Variables.php:648
-msgid "The number of files that are open."
-msgstr "Кількість відкритих файлів."
-
-#: libraries/classes/Server/Status/Variables.php:651
-msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
-"Кількість відкритих потоків (використовуються в основному для ведення "
-"журналу)."
-
-#: libraries/classes/Server/Status/Variables.php:654
-msgid "The number of tables that are open."
-msgstr "Кількість відкритих таблиць."
-
-#: libraries/classes/Server/Status/Variables.php:657
-msgid ""
-"The number of free memory blocks in query cache. High numbers can indicate "
-"fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
-"statement."
-msgstr ""
-"Кількість вільних блоків пам'яті в кеші запитів. Велике значення може "
-"вказувати на проблеми фрагментації, яку можна виправити виконавши команду "
-"FLUSH QUERY CACHE."
-
-#: libraries/classes/Server/Status/Variables.php:662
-msgid "The amount of free memory for query cache."
-msgstr "Обсяг вільної пам'яті для кешу запитів."
-
-#: libraries/classes/Server/Status/Variables.php:665
-msgid "The number of cache hits."
-msgstr "Кількість вдалих запитів у кеш."
-
-#: libraries/classes/Server/Status/Variables.php:668
-msgid "The number of queries added to the cache."
-msgstr "Кількість запитів, доданих до кешу."
-
-#: libraries/classes/Server/Status/Variables.php:671
-msgid ""
-"The number of queries that have been removed from the cache to free up "
-"memory for caching new queries. This information can help you tune the query "
-"cache size. The query cache uses a least recently used (LRU) strategy to "
-"decide which queries to remove from the cache."
-msgstr ""
-"Кількість запитів, які були видалені з кешу, щоб звільнити пам'ять для "
-"кешування нових запитів. Ця інформація допоможе вам налаштувати розмір кеша "
-"запитів. Кеш запитів для вирішення питання, які запити видалити з кеша, "
-"використовує стратегію LRU (найдовше невикористовувані сторінки замінюються "
-"новими)."
-
-#: libraries/classes/Server/Status/Variables.php:678
-msgid ""
-"The number of non-cached queries (not cachable, or not cached due to the "
-"query_cache_type setting)."
-msgstr ""
-"Кількість некешованих запитів (не кешується, або не кешовано через параметр "
-"query_cache_type)."
-
-#: libraries/classes/Server/Status/Variables.php:682
-msgid "The number of queries registered in the cache."
-msgstr "Кількість запитів зареєстрованих в кеші."
-
-#: libraries/classes/Server/Status/Variables.php:685
-msgid "The total number of blocks in the query cache."
-msgstr "Загальна кількість блоків у кеші запитів."
-
-#: libraries/classes/Server/Status/Variables.php:688
-msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Стан відмовостійкі реплікації (поки не реалізовано)."
-
-#: libraries/classes/Server/Status/Variables.php:691
-msgid ""
-"The number of joins that do not use indexes. If this value is not 0, you "
-"should carefully check the indexes of your tables."
-msgstr ""
-"Число запитів-об'єднань, які не використовують індекси. Якщо це значення не "
-"дорівнює 0, необхідно уважно перевірити індекси таблиць."
-
-#: libraries/classes/Server/Status/Variables.php:695
-msgid "The number of joins that used a range search on a reference table."
-msgstr ""
-"Число запитів-об'єднань, які використовували пошук по діапазону таблиці, на "
-"яку посилаються."
-
-#: libraries/classes/Server/Status/Variables.php:698
-msgid ""
-"The number of joins without keys that check for key usage after each row. "
-"(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr ""
-"Число запитів-об'єднань без індексів, що перевіряють використання індексу "
-"після кожного рядка. (Якщо це не 0, необхідно уважно перевірити індекси "
-"таблиць.)"
-
-#: libraries/classes/Server/Status/Variables.php:703
-msgid ""
-"The number of joins that used ranges on the first table. (It's normally not "
-"critical even if this is big.)"
-msgstr ""
-"Число запитів-сполук, які використовували діапазони в першій таблиці. "
-"(Значення не є критичним, навіть якщо завелике.)"
-
-#: libraries/classes/Server/Status/Variables.php:707
-msgid "The number of joins that did a full scan of the first table."
-msgstr "Число запитів-об'єднань, які зробили повне сканування першої таблиці."
-
-#: libraries/classes/Server/Status/Variables.php:710
-msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr ""
-"Кількість тимчасових таблиць, відкритих в даний момент підпорядкованим SQL "
-"потоком."
-
-#: libraries/classes/Server/Status/Variables.php:714
-msgid ""
-"Total (since startup) number of times the replication slave SQL thread has "
-"retried transactions."
-msgstr ""
-"Загальна кількість (з моменту запуску) повторних транзакцій реплікації "
-"підпорядкованим SQL потоком."
-
-#: libraries/classes/Server/Status/Variables.php:718
-msgid "This is ON if this server is a slave that is connected to a master."
-msgstr ""
-"Надається значення ON, якщо цей сервер підпорядкованим, що підключений "
-"керуючого сервера."
-
-#: libraries/classes/Server/Status/Variables.php:721
-msgid ""
-"The number of threads that have taken more than slow_launch_time seconds to "
-"create."
-msgstr ""
-"Кількість потоків, на створення яких знадобилося більш ніж slow_launch_time "
-"секунд."
-
-#: libraries/classes/Server/Status/Variables.php:725
-msgid ""
-"The number of queries that have taken more than long_query_time seconds."
-msgstr "Кількість запитів, які виконувалися більш ніж long_query_time секунд."
-
-#: libraries/classes/Server/Status/Variables.php:729
-msgid ""
-"The number of merge passes the sort algorithm has had to do. If this value "
-"is large, you should consider increasing the value of the sort_buffer_size "
-"system variable."
-msgstr ""
-"Число проходів, виконаних алгоритмом сортування. Якщо це значення велике, "
-"слід розглянути питання про збільшення значення системної змінної "
-"sort_buffer_size."
-
-#: libraries/classes/Server/Status/Variables.php:734
-msgid "The number of sorts that were done with ranges."
-msgstr "Кількість сортувань, виконаних з використанням діапазонів."
-
-#: libraries/classes/Server/Status/Variables.php:737
-msgid "The number of sorted rows."
-msgstr "Кількість відсортованих рядків."
-
-#: libraries/classes/Server/Status/Variables.php:740
-msgid "The number of sorts that were done by scanning the table."
-msgstr "Кількість сортувань, виконаних шляхом сканування таблиці."
-
-#: libraries/classes/Server/Status/Variables.php:743
-msgid "The number of times that a table lock was acquired immediately."
-msgstr "Кількість разів, коли блокування таблиці була виконано негайно."
-
-#: libraries/classes/Server/Status/Variables.php:746
-msgid ""
-"The number of times that a table lock could not be acquired immediately and "
-"a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
-"tables or use replication."
-msgstr ""
-"Кількість разів, коли блокування таблиці не могло бути виконано негайно і "
-"довелося очікувати. Якщо це значення велике і виникають проблеми з "
-"продуктивністю, необхідно спочатку оптимізувати запити і потім, або "
-"розділити таблицю чи таблиці, або використовувати реплікацію."
-
-#: libraries/classes/Server/Status/Variables.php:752
-msgid ""
-"The number of threads in the thread cache. The cache hit rate can be "
-"calculated as Threads_created/Connections. If this value is red you should "
-"raise your thread_cache_size."
-msgstr ""
-"Кількість потоків в кеші потоків. Частоту успішних звернень до кешу можна "
-"обчислити за формулою Threads_created/Connections. Якщо це значення червоне, "
-"необхідно збільшити thread_cache_size."
-
-#: libraries/classes/Server/Status/Variables.php:757
-msgid "The number of currently open connections."
-msgstr "Кількість наразі відкритих з'єднань."
-
-#: libraries/classes/Server/Status/Variables.php:760
-msgid ""
-"The number of threads created to handle connections. If Threads_created is "
-"big, you may want to increase the thread_cache_size value. (Normally this "
-"doesn't give a notable performance improvement if you have a good thread "
-"implementation.)"
-msgstr ""
-"Кількість потоків, створених для обробки з'єднань. Якщо Threads_created "
-"завелике, можна збільшити значення thread_cache_size. (Зазвичай, це не дає "
-"помітного зростання продуктивності при гарній реалізації потоків.)"
-
-#: libraries/classes/Server/Status/Variables.php:767
-msgid "Thread cache hit rate (calculated value)"
-msgstr "Відношення звернень до кешу потоку (обчислене значення)"
-
-#: libraries/classes/Server/Status/Variables.php:770
-msgid "The number of threads that are not sleeping."
-msgstr "Кількість потоків в активному стані."
 
 #: libraries/classes/Server/UserGroups.php:34
 #, php-format
@@ -13697,25 +13598,6 @@ msgstr ""
 "Ім'я користувача та ім'я хоста не змінилося. Якщо ви хочете змінити пароль, "
 "скористайтеся вкладкою 'Змінити пароль."
 
-#: server_status_processes.php:38
-#, php-format
-msgid "Thread %s was successfully killed."
-msgstr "Процес %s припинено."
-
-#: server_status_processes.php:44
-#, php-format
-msgid ""
-"phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "phpMyAdmin не може припинити процес %s. Він вже напевно був зупинений."
-
-#: server_status_queries.php:48
-msgid "Not enough privilege to view query statistics."
-msgstr "Недостатньо привілеїв для перегляду статистики запитів."
-
-#: server_status_variables.php:57
-msgid "Not enough privilege to view status variables."
-msgstr "Недостатньо привілеїв для перегляду змінних стану."
-
 #: setup/frames/config.inc.php:20 setup/frames/index.inc.php:197
 msgid "Configuration file"
 msgstr "Конфігураційний файл"
@@ -14124,7 +14006,7 @@ msgid "Done dragging (rearranging) charts"
 msgstr "Впорядкування/перетягування діаграм завершено"
 
 #: templates/server/status/monitor/index.twig:27
-#: templates/server/status/monitor/index.twig:106
+#: templates/server/status/monitor/index.twig:124
 msgid "Add chart"
 msgstr "Додати діаграму"
 
@@ -14132,15 +14014,42 @@ msgstr "Додати діаграму"
 msgid "Enable charts dragging"
 msgstr "Увімкнути перетягування діаграм"
 
-#: templates/server/status/monitor/index.twig:43
+#: templates/server/status/monitor/index.twig:36
+#: templates/server/status/processes/index.twig:25
+msgid "Refresh rate"
+msgstr "Інтервал оновлення"
+
+#: templates/server/status/monitor/index.twig:42
+#: templates/server/status/processes/index.twig:31
+#, fuzzy, php-format
+#| msgid "%d second"
+#| msgid_plural "%d seconds"
+msgid "%count% second"
+msgid_plural "%count% seconds"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунди"
+msgstr[2] "%d секунд"
+
+#: templates/server/status/monitor/index.twig:48
+#: templates/server/status/processes/index.twig:37
+#, fuzzy
+#| msgid "%d minute"
+#| msgid_plural "%d minutes"
+msgid "%count% minute"
+msgid_plural "%count% minutes"
+msgstr[0] "%d хвилина"
+msgstr[1] "%d хвилини"
+msgstr[2] "%d хвилин"
+
+#: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
 msgstr "Діаграма стовпців"
 
-#: templates/server/status/monitor/index.twig:56
+#: templates/server/status/monitor/index.twig:74
 msgid "Chart arrangement"
 msgstr "Розташування діаграми"
 
-#: templates/server/status/monitor/index.twig:57
+#: templates/server/status/monitor/index.twig:75
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -14148,15 +14057,15 @@ msgstr ""
 "Розташування діаграм зберігаються у локальному сховищі браузерів. Його можна "
 "експортувати, якщо при налаштуванні виникають складнощі."
 
-#: templates/server/status/monitor/index.twig:66
+#: templates/server/status/monitor/index.twig:84
 msgid "Reset to default"
 msgstr "Скинути до початкових значень"
 
-#: templates/server/status/monitor/index.twig:71
+#: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
 msgstr "Інструкції моніторингу"
 
-#: templates/server/status/monitor/index.twig:73
+#: templates/server/status/monitor/index.twig:91
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -14170,11 +14079,11 @@ msgstr ""
 "що general_log призводить до великої кількості даних і збільшує навантаження "
 "на сервер до 15%."
 
-#: templates/server/status/monitor/index.twig:83
+#: templates/server/status/monitor/index.twig:101
 msgid "Using the monitor:"
 msgstr "Використання моніторингу:"
 
-#: templates/server/status/monitor/index.twig:85
+#: templates/server/status/monitor/index.twig:103
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -14185,7 +14094,7 @@ msgstr ""
 "інтервал їх оновлення, або видалити будь-який графік за допомогою "
 "відповідної іконки на кожному з них."
 
-#: templates/server/status/monitor/index.twig:90
+#: templates/server/status/monitor/index.twig:108
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -14197,11 +14106,11 @@ msgstr ""
 "підтвердження буде завантажена таблиця згрупованих запитів, де можна "
 "клацнути на будь-якому виразі SELECT для подальшого аналізу."
 
-#: templates/server/status/monitor/index.twig:96
+#: templates/server/status/monitor/index.twig:114
 msgid "Please note:"
 msgstr "Зверніть увагу:"
 
-#: templates/server/status/monitor/index.twig:99
+#: templates/server/status/monitor/index.twig:117
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -14214,79 +14123,79 @@ msgstr ""
 "вимикати директиву general_log та чистити таблицю щойно в моніторингу більше "
 "немає потреби."
 
-#: templates/server/status/monitor/index.twig:109
+#: templates/server/status/monitor/index.twig:127
 msgid "Chart Title"
 msgstr "Заголовок діаграми"
 
-#: templates/server/status/monitor/index.twig:113
+#: templates/server/status/monitor/index.twig:131
 msgid "Preset chart"
 msgstr "Вбудований графік"
 
-#: templates/server/status/monitor/index.twig:119
+#: templates/server/status/monitor/index.twig:137
 msgid "Status variable(s)"
 msgstr "Змінні стана"
 
-#: templates/server/status/monitor/index.twig:124
+#: templates/server/status/monitor/index.twig:142
 msgid "Select series:"
 msgstr "Оберіть серії:"
 
-#: templates/server/status/monitor/index.twig:127
+#: templates/server/status/monitor/index.twig:145
 msgid "Commonly monitored"
 msgstr "Зазвичай відстежувані"
 
-#: templates/server/status/monitor/index.twig:145
+#: templates/server/status/monitor/index.twig:163
 msgid "or type variable name:"
 msgstr "або введіть назву змінної:"
 
-#: templates/server/status/monitor/index.twig:152
+#: templates/server/status/monitor/index.twig:170
 msgid "Display as differential value"
 msgstr "Показати, як значення різниці"
 
-#: templates/server/status/monitor/index.twig:157
+#: templates/server/status/monitor/index.twig:175
 msgid "Apply a divisor"
 msgstr "Застосувати дільник"
 
-#: templates/server/status/monitor/index.twig:168
+#: templates/server/status/monitor/index.twig:186
 msgid "Append unit to data values"
 msgstr "Додати до значень одиниці виміру"
 
-#: templates/server/status/monitor/index.twig:176
+#: templates/server/status/monitor/index.twig:194
 msgid "Add this series"
 msgstr "Додати ці серії"
 
-#: templates/server/status/monitor/index.twig:179
+#: templates/server/status/monitor/index.twig:197
 msgid "Clear series"
 msgstr "Очистити серії"
 
-#: templates/server/status/monitor/index.twig:183
+#: templates/server/status/monitor/index.twig:201
 msgid "Series in chart:"
 msgstr "Послідовність в графіку:"
 
-#: templates/server/status/monitor/index.twig:192
+#: templates/server/status/monitor/index.twig:210
 msgid "Log statistics"
 msgstr "Статистика"
 
-#: templates/server/status/monitor/index.twig:194
+#: templates/server/status/monitor/index.twig:212
 msgid "Selected time range:"
 msgstr "Обраний проміжок часу:"
 
-#: templates/server/status/monitor/index.twig:202
+#: templates/server/status/monitor/index.twig:220
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Виконувати лише вирази SELECT, INSERT, UPDATE і DELETE"
 
-#: templates/server/status/monitor/index.twig:208
+#: templates/server/status/monitor/index.twig:226
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Для покращення групування видаліть дані змінної у виразах INSERT"
 
-#: templates/server/status/monitor/index.twig:212
+#: templates/server/status/monitor/index.twig:230
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Оберіть, з якого журналу має генеруватися статистика."
 
-#: templates/server/status/monitor/index.twig:215
+#: templates/server/status/monitor/index.twig:233
 msgid "Results are grouped by query text."
 msgstr "Результати згруповані за текстом запиту."
 
-#: templates/server/status/monitor/index.twig:219
+#: templates/server/status/monitor/index.twig:237
 msgid "Query analyzer"
 msgstr "Аналіз запиту"
 
@@ -14691,12 +14600,14 @@ msgid "Select binary log to view"
 msgstr "Вибрати двійковий журнал для перегляду"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
+#: templates/server/status/processes/list.twig:20
 #, fuzzy
 #| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "Обрізати показані запити"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
+#: templates/server/status/processes/list.twig:26
 #, fuzzy
 #| msgid "Show Full Queries"
 msgid "Show full queries"
@@ -14989,6 +14900,22 @@ msgstr "Розгорнути"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Повторити запит"
+
+#: templates/server/status/base.twig:15
+msgid "Query statistics"
+msgstr "Статистика запиту"
+
+#: templates/server/status/base.twig:20
+msgid "All status variables"
+msgstr "Всі змінні статусу"
+
+#: templates/server/status/base.twig:25
+msgid "Monitor"
+msgstr "Монітор"
+
+#: templates/server/status/base.twig:30
+msgid "Advisor"
+msgstr "Радник"
 
 #: templates/server/databases/index.twig:4
 msgid "Databases statistics"
@@ -15409,6 +15336,15 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Ви можете перевірити дані в звіті про помилку:"
 
+#: templates/filter.twig:2 templates/server/status/processes/index.twig:6
+#: templates/server/status/variables/index.twig:7
+msgid "Filters"
+msgstr "Фільтри"
+
+#: templates/filter.twig:4 templates/server/status/variables/index.twig:14
+msgid "Containing the word:"
+msgstr "Містить слово:"
+
 #: templates/display/results/options_block.twig:34
 msgid "Relational key"
 msgstr "Ключ відношення"
@@ -15443,6 +15379,38 @@ msgstr "Добре відомий бінарний"
 msgid "Character sets and collations"
 msgstr "Набори символів і співставлення"
 
+#. l10n: Questions is the name of a MySQL Status variable
+#: templates/server/status/queries/index.twig:7
+#, fuzzy
+#| msgid "Questions since startup: %s"
+msgid "Questions since startup:"
+msgstr "Запитань із моменту запуску: %s"
+
+#: templates/server/status/queries/index.twig:17
+msgid "per hour:"
+msgstr "за годину:"
+
+#: templates/server/status/queries/index.twig:18
+msgid "per minute:"
+msgstr "за хвилину:"
+
+#: templates/server/status/queries/index.twig:20
+msgid "per second:"
+msgstr "за секунду:"
+
+#: templates/server/status/queries/index.twig:32
+msgid "Statements"
+msgstr "Параметри"
+
+#. l10n: # = Amount of queries
+#: templates/server/status/queries/index.twig:33
+msgid "#"
+msgstr "#"
+
+#: templates/server/status/queries/index.twig:53
+msgid "Not enough privilege to view query statistics."
+msgstr "Недостатньо привілеїв для перегляду статистики запитів."
+
 #: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:44
 #: templates/prefs_twofactor.twig:56
 msgid "Configure two-factor authentication"
@@ -15451,6 +15419,18 @@ msgstr "Налаштувати двофакторну аутентифікаці
 #: templates/prefs_twofactor_configure.twig:8
 msgid "Enable two-factor authentication"
 msgstr "Увімкнути двофакторну аутентифікацію"
+
+#: templates/server/status/processes/index.twig:13
+msgid "Show only active"
+msgstr "Показати тільки активні"
+
+#: templates/server/status/processes/index.twig:21
+msgid ""
+"Note: Enabling the auto refresh here might cause heavy traffic between the "
+"web server and the MySQL server."
+msgstr ""
+"Примітка: Увімкнення автоматичного оновлення може спричинити великий трафік "
+"між веб-сервером та сервером MySQL."
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -16395,6 +16375,26 @@ msgid ""
 msgstr ""
 "Оберіть \"GeomFromText\" зі стовпця \"Функції\" та вставте нижче у поле "
 "\"Значення\"."
+
+#: templates/server/status/variables/index.twig:21
+msgid "Show only alert values"
+msgstr "Показати тільки оповіщення значень"
+
+#: templates/server/status/variables/index.twig:27
+msgid "Filter by category…"
+msgstr "Фільтрувати за категорією…"
+
+#: templates/server/status/variables/index.twig:37
+msgid "Show unformatted values"
+msgstr "Показати неформатовані значення"
+
+#: templates/server/status/variables/index.twig:45
+msgid "Related links:"
+msgstr "Пов'язані посилання:"
+
+#: templates/server/status/variables/index.twig:134
+msgid "Not enough privilege to view status variables."
+msgstr "Недостатньо привілеїв для перегляду змінних стану."
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
@@ -17684,6 +17684,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлено у 0"
+
+#~ msgid "Truncate Shown Queries"
+#~ msgstr "Обрізати показані запити"
+
+#~ msgid "Show Full Queries"
+#~ msgstr "Показати повні запити"
 
 #, fuzzy
 #~| msgid "No databases"
