@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-01-28 15:40-0200\n"
+"POT-Creation-Date: 2019-02-27 14:23-0300\n"
 "PO-Revision-Date: 2018-06-08 04:43+0000\n"
 "Last-Translator: ۋولقان <nureliosman@gmail.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/4-8/ug/"
@@ -59,7 +59,7 @@ msgid "Table comments:"
 msgstr "جەدۋەل ئىزاھى"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
-#: libraries/classes/InsertEdit.php:1917
+#: libraries/classes/InsertEdit.php:1914
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:30
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:291
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:387
@@ -75,15 +75,15 @@ msgstr "جەدۋەل ئىزاھى"
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/internal_relational_row.twig:24
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/search/zoom_result_form.twig:34
+#: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/index_form.twig:115
 #: templates/table/search/table_header.twig:6
 #: templates/columns_definitions/column_name.twig:16
-#: templates/table/relation/foreign_key_row.twig:122
-#: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/relation/internal_relational_row.twig:24
 msgid "Column"
 msgstr "سۆزلەم"
 
@@ -105,18 +105,18 @@ msgstr "سۆزلەم"
 #: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2568
-#: templates/table/tracking/structure_snapshot_columns.twig:7
+#: templates/table/structure/table_structure_header.twig:6
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/database/structure/table_header.twig:32
 #: templates/table/search/table_header.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/table/structure/table_structure_header.twig:6
 msgid "Type"
 msgstr "تۈرى"
 
 #: db_datadict.php:119 libraries/classes/CentralColumns.php:755
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Index.php:726
-#: libraries/classes/InsertEdit.php:1926
+#: libraries/classes/InsertEdit.php:1923
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:297
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
@@ -127,11 +127,11 @@ msgstr "تۈرى"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:516
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
-#: templates/table/tracking/structure_snapshot_columns.twig:9
+#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
 #: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/structure/table_structure_header.twig:9
+#: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
 msgstr "بوش"
 
@@ -148,10 +148,10 @@ msgstr "بوش"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:633
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165
-#: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
+#: templates/columns_definitions/table_fields_definitions.twig:20
+#: templates/table/tracking/structure_snapshot_columns.twig:10
 msgid "Default"
 msgstr "ئەندىز"
 
@@ -175,8 +175,8 @@ msgstr "ئۇلانما"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:534
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:646
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:659
-#: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/table/structure/table_structure_header.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:54
 msgid "Comments"
 msgstr "ئىزاھلار"
 
@@ -184,13 +184,13 @@ msgstr "ئىزاھلار"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1210
 #: libraries/classes/Controllers/Table/TableStructureController.php:1215
 #: templates/table/structure/display_structure.twig:61
-#: templates/table/structure/check_all_table_column.twig:33
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/check_all_table_column.twig:33
 #: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr ""
 
-#: db_datadict.php:166 js/messages.php:382
+#: db_datadict.php:166 js/messages.php:385
 #: libraries/classes/CentralColumns.php:998
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Index.php:568 libraries/classes/Index.php:596
@@ -206,17 +206,17 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3665
 #: libraries/classes/Server/Privileges.php:3694 prefs_manage.php:145
 #: templates/table/structure/table_structure_row.twig:25
-#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/prefs_autoload.twig:12
 msgid "No"
 msgstr "يوق"
 
-#: db_datadict.php:166 js/messages.php:530
+#: db_datadict.php:166 js/messages.php:533
 #: libraries/classes/CentralColumns.php:998
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
@@ -241,12 +241,12 @@ msgstr "يوق"
 #: libraries/classes/Server/Privileges.php:3694
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
 #: prefs_manage.php:143 templates/table/structure/table_structure_row.twig:25
-#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/prefs_autoload.twig:11
 msgid "Yes"
 msgstr "بولدى"
@@ -286,10 +286,10 @@ msgstr ""
 #: libraries/classes/Util.php:3995 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/designer/table_list.twig:24
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/columns_definitions/table_fields_definitions.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "تۈزۈلىشى"
 
@@ -304,8 +304,8 @@ msgid "Data"
 msgstr "سانلىق مەلۇمات"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
-#: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
+#: templates/database/search/selection_form.twig:32
 #, fuzzy
 #| msgid "Select All"
 msgid "Select all"
@@ -447,23 +447,23 @@ msgid "Point:"
 msgstr ""
 
 #: gis_data_editor.php:220 gis_data_editor.php:247 gis_data_editor.php:303
-#: gis_data_editor.php:376 js/messages.php:519
+#: gis_data_editor.php:376 js/messages.php:522
 msgid "X"
 msgstr ""
 
 #: gis_data_editor.php:223 gis_data_editor.php:251 gis_data_editor.php:307
-#: gis_data_editor.php:382 js/messages.php:520
+#: gis_data_editor.php:382 js/messages.php:523
 msgid "Y"
 msgstr ""
 
 #: gis_data_editor.php:245 gis_data_editor.php:301 gis_data_editor.php:374
-#: js/messages.php:522
+#: js/messages.php:525
 #, php-format
 msgid "Point %d"
 msgstr ""
 
 #: gis_data_editor.php:258 gis_data_editor.php:314 gis_data_editor.php:392
-#: js/messages.php:528
+#: js/messages.php:531
 #, fuzzy
 #| msgid "Routines"
 msgid "Add a point"
@@ -490,7 +490,7 @@ msgstr ""
 msgid "Add a linestring"
 msgstr "مەجبۇرى قوشۇش"
 
-#: gis_data_editor.php:318 gis_data_editor.php:397 js/messages.php:529
+#: gis_data_editor.php:318 gis_data_editor.php:397 js/messages.php:532
 msgid "Add an inner ring"
 msgstr ""
 
@@ -509,11 +509,11 @@ msgstr ""
 msgid "Add geometry"
 msgstr "مەجبۇرى قوشۇش"
 
-#: gis_data_editor.php:415 js/messages.php:352
+#: gis_data_editor.php:415 js/messages.php:355
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:159
-#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1895
-#: libraries/classes/InsertEdit.php:1933
+#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1892
+#: libraries/classes/InsertEdit.php:1930
 #: libraries/classes/Normalization.php:216
 #: libraries/classes/Normalization.php:898 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:133 libraries/classes/Operations.php:275
@@ -537,21 +537,22 @@ msgstr "مەجبۇرى قوشۇش"
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:322 templates/database/search/selection_form.twig:58
-#: templates/privileges/edit_routine_privileges.twig:23
-#: templates/header_location.twig:18 templates/table/index_form.twig:217
-#: templates/database/create_table.twig:21
-#: templates/privileges/delete_user_fieldset.twig:16
-#: templates/table/structure/add_column.twig:23
-#: templates/privileges/privileges_summary.twig:60
-#: templates/display/import/import.twig:191 templates/view_create.twig:114
-#: templates/view_create.twig:120
+#: server_privileges.php:322 templates/database/create_table.twig:21
+#: templates/view_create.twig:114 templates/view_create.twig:120
+#: templates/display/results/options_block.twig:114
 #: templates/start_and_number_of_rows_panel.twig:14
+#: templates/header_location.twig:18
 #: templates/table/search/selection_form.twig:99
-#: templates/display/export/options_format.twig:18
+#: templates/table/structure/add_column.twig:23
+#: templates/database/search/selection_form.twig:58
+#: templates/privileges/edit_routine_privileges.twig:23
 #: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/privileges/privileges_summary.twig:60
+#: templates/table/index_form.twig:217
+#: templates/display/export/options_format.twig:18
 #: templates/server/binlog/log_selector.twig:27
-#: templates/display/results/options_block.twig:114 view_operations.php:115
+#: templates/privileges/delete_user_fieldset.twig:16
+#: templates/display/import/import.twig:191 view_operations.php:115
 msgid "Go"
 msgstr "ئىجرا قىلىش"
 
@@ -571,7 +572,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "رەت قىلىندى"
 
-#: import.php:77 js/messages.php:617
+#: import.php:77 js/messages.php:620
 msgid "Failed"
 msgstr ""
 
@@ -610,7 +611,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "قىستۇرمىلار كىرگۈزىشكە ئامالسىز، قاچىلانمىنى تەكشۈرۈپ بىقىڭ!"
 
-#: import.php:587 libraries/classes/Sql.php:822 libraries/classes/Sql.php:1609
+#: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1614
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -644,7 +645,7 @@ msgstr "ساندان ئۆچۈرۈش بۇيرۇقى (\"DROP DATABASE\") چەكل�
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: import_status.php:116 js/messages.php:459 js/messages.php:625
+#: import_status.php:116 js/messages.php:462 js/messages.php:628
 #: libraries/classes/Export.php:509
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:305
 #: libraries/classes/UserPassword.php:248 libraries/classes/Util.php:665
@@ -676,7 +677,7 @@ msgstr ""
 msgid "General settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: index.php:245 js/messages.php:650
+#: index.php:245 js/messages.php:653
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:242
@@ -1066,7 +1067,7 @@ msgstr ""
 msgid "Save & close"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
-#: js/messages.php:114 libraries/classes/InsertEdit.php:1899
+#: js/messages.php:114 libraries/classes/InsertEdit.php:1896
 #: prefs_manage.php:357 prefs_manage.php:368
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -1142,10 +1143,10 @@ msgstr "مەزمۇن ئايرىش بەلگىسى"
 msgid "Please select column(s) for the index."
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: js/messages.php:131 libraries/classes/InsertEdit.php:1897
+#: js/messages.php:131 libraries/classes/InsertEdit.php:1894
 #: templates/table/relation/common_form.twig:188
-#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
+#: templates/table/index_form.twig:216
 msgid "Preview SQL"
 msgstr ""
 
@@ -1175,82 +1176,88 @@ msgid "Y values"
 msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
 
 #: js/messages.php:143
+#, fuzzy
+#| msgid "%d is not valid row number."
+msgid "Please enter the SQL query first."
+msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
+
+#: js/messages.php:146
 msgid "The host name is empty!"
 msgstr "مۇلازىمىتېر ئىسمى بوشكەن!"
 
-#: js/messages.php:144
+#: js/messages.php:147
 msgid "The user name is empty!"
 msgstr "قوللانغۇچى ئىسمى بوشكەن!"
 
-#: js/messages.php:145 libraries/classes/Server/Privileges.php:1878
+#: js/messages.php:148 libraries/classes/Server/Privileges.php:1878
 #: libraries/classes/UserPassword.php:66
 msgid "The password is empty!"
 msgstr "پارول بوشكەن!"
 
-#: js/messages.php:146 libraries/classes/Server/Privileges.php:1876
+#: js/messages.php:149 libraries/classes/Server/Privileges.php:1876
 #: libraries/classes/UserPassword.php:70
 msgid "The passwords aren't the same!"
 msgstr "كىرگۈزگەن پارولار ئوخشاش ئەمەس!"
 
-#: js/messages.php:147
+#: js/messages.php:150
 msgid "Removing Selected Users"
 msgstr ""
 
-#: js/messages.php:148 js/messages.php:215 libraries/classes/Tracking.php:335
+#: js/messages.php:151 js/messages.php:218 libraries/classes/Tracking.php:335
 #: libraries/classes/Tracking.php:651
 msgid "Close"
 msgstr ""
 
-#: js/messages.php:151
+#: js/messages.php:154
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Template was created."
 msgstr "%s جەدۋەل"
 
-#: js/messages.php:152
+#: js/messages.php:155
 msgid "Template was loaded."
 msgstr ""
 
-#: js/messages.php:153
+#: js/messages.php:156
 msgid "Template was updated."
 msgstr ""
 
-#: js/messages.php:154
+#: js/messages.php:157
 #, fuzzy
 #| msgid "The bookmark has been deleted."
 msgid "Template was deleted."
 msgstr "خەتكۈچ ئۆچۈرۈلدى."
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:157 libraries/classes/Server/Status/Data.php:132
+#: js/messages.php:160 libraries/classes/Server/Status/Data.php:132
 #: libraries/classes/Server/Status/Queries.php:149
 msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:159 libraries/classes/Util.php:1351
+#: js/messages.php:162 libraries/classes/Util.php:1351
 #: libraries/classes/Util.php:1382
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:161 libraries/classes/Util.php:1349
+#: js/messages.php:164 libraries/classes/Util.php:1349
 #: libraries/classes/Util.php:1380
 msgid "."
 msgstr "."
 
-#: js/messages.php:163
+#: js/messages.php:166
 msgid "Connections / Processes"
 msgstr ""
 
-#: js/messages.php:167
+#: js/messages.php:170
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Local monitor configuration incompatible!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: js/messages.php:169
+#: js/messages.php:172
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1258,137 +1265,137 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: js/messages.php:175
+#: js/messages.php:178
 #, fuzzy
 #| msgid "Tracking is not active."
 msgid "Query cache efficiency"
 msgstr "ئىزلاش ئاكتىپ ئەمەس"
 
-#: js/messages.php:176
+#: js/messages.php:179
 #, fuzzy
 #| msgid "Latched pages"
 msgid "Query cache usage"
 msgstr "قۇلۇپلانغان بەت"
 
-#: js/messages.php:177
+#: js/messages.php:180
 #, fuzzy
 #| msgid "Latched pages"
 msgid "Query cache used"
 msgstr "قۇلۇپلانغان بەت"
 
-#: js/messages.php:179
+#: js/messages.php:182
 msgid "System CPU usage"
 msgstr ""
 
-#: js/messages.php:180
+#: js/messages.php:183
 msgid "System memory"
 msgstr ""
 
-#: js/messages.php:181
+#: js/messages.php:184
 msgid "System swap"
 msgstr ""
 
-#: js/messages.php:183
+#: js/messages.php:186
 msgid "Average load"
 msgstr ""
 
-#: js/messages.php:184
+#: js/messages.php:187
 #, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
 msgstr "كۈندىلىك ھۆججەت ئۇمۇمىي سانى"
 
-#: js/messages.php:185
+#: js/messages.php:188
 msgid "Cached memory"
 msgstr ""
 
-#: js/messages.php:186
+#: js/messages.php:189
 msgid "Buffered memory"
 msgstr ""
 
-#: js/messages.php:187
+#: js/messages.php:190
 msgid "Free memory"
 msgstr ""
 
-#: js/messages.php:188
+#: js/messages.php:191
 msgid "Used memory"
 msgstr ""
 
-#: js/messages.php:190
+#: js/messages.php:193
 #, fuzzy
 #| msgid "Total"
 msgid "Total swap"
 msgstr "يىغىندىسى"
 
-#: js/messages.php:191
+#: js/messages.php:194
 msgid "Cached swap"
 msgstr ""
 
-#: js/messages.php:192
+#: js/messages.php:195
 msgid "Used swap"
 msgstr ""
 
-#: js/messages.php:193
+#: js/messages.php:196
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free swap"
 msgstr "ئاق(قۇرۇق)بەت"
 
-#: js/messages.php:195
+#: js/messages.php:198
 msgid "Bytes sent"
 msgstr ""
 
-#: js/messages.php:196
+#: js/messages.php:199
 msgid "Bytes received"
 msgstr ""
 
-#: js/messages.php:197 libraries/classes/Server/Status.php:243
+#: js/messages.php:200 libraries/classes/Server/Status.php:243
 msgid "Connections"
 msgstr ""
 
-#: js/messages.php:198 libraries/classes/Server/Status/Data.php:431
+#: js/messages.php:201 libraries/classes/Server/Status/Data.php:431
 #: libraries/classes/Server/Status/Processes.php:140
 msgid "Processes"
 msgstr ""
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:201 libraries/classes/Util.php:1262
+#: js/messages.php:204 libraries/classes/Util.php:1262
 msgid "B"
 msgstr "بايت"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:202 libraries/classes/Server/Status/Monitor.php:224
+#: js/messages.php:205 libraries/classes/Server/Status/Monitor.php:224
 #: libraries/classes/Util.php:1264
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:203 libraries/classes/Server/Status/Monitor.php:225
+#: js/messages.php:206 libraries/classes/Server/Status/Monitor.php:225
 #: libraries/classes/Util.php:1266
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:204 libraries/classes/Util.php:1268
+#: js/messages.php:207 libraries/classes/Util.php:1268
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:205 libraries/classes/Util.php:1270
+#: js/messages.php:208 libraries/classes/Util.php:1270
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:206 libraries/classes/Util.php:1272
+#: js/messages.php:209 libraries/classes/Util.php:1272
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:207 libraries/classes/Util.php:1274
+#: js/messages.php:210 libraries/classes/Util.php:1274
 msgid "EiB"
 msgstr "EB"
 
-#: js/messages.php:208
+#: js/messages.php:211
 #, fuzzy, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
@@ -1396,17 +1403,17 @@ msgid "%d table(s)"
 msgstr "%s جەدۋەل"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:211
+#: js/messages.php:214
 #, fuzzy
 #| msgid "Versions"
 msgid "Questions"
 msgstr "نەشىر"
 
-#: js/messages.php:212 libraries/classes/Server/Status.php:151
+#: js/messages.php:215 libraries/classes/Server/Status.php:151
 msgid "Traffic"
 msgstr ""
 
-#: js/messages.php:213 libraries/classes/Menu.php:625
+#: js/messages.php:216 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3969
 #, fuzzy
@@ -1414,69 +1421,70 @@ msgstr ""
 msgid "Settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: js/messages.php:214
+#: js/messages.php:217
 msgid "Add chart to grid"
 msgstr ""
 
-#: js/messages.php:217
+#: js/messages.php:220
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
-#: js/messages.php:218 libraries/classes/Display/Results.php:1470
+#: js/messages.php:221 libraries/classes/Display/Results.php:1470
 #: libraries/classes/Plugins/Export/ExportSql.php:2195
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:282
-#: libraries/config.values.php:69 templates/table/search/rows_zoom.twig:20
+#: libraries/config.values.php:69
+#: templates/display/export/options_output_compression.twig:7
 #: templates/database/designer/options_panel.twig:177
 #: templates/table/search/options_zoom.twig:12
 #: templates/privileges/privileges_summary.twig:30
+#: templates/table/search/rows_zoom.twig:20
 #: templates/columns_definitions/transformation.twig:4
-#: templates/display/export/options_output_compression.twig:7
 msgid "None"
 msgstr "يوق"
 
-#: js/messages.php:219
+#: js/messages.php:222
 msgid "Resume monitor"
 msgstr ""
 
-#: js/messages.php:220
+#: js/messages.php:223
 msgid "Pause monitor"
 msgstr ""
 
-#: js/messages.php:221 libraries/classes/Server/Status/Processes.php:46
+#: js/messages.php:224 libraries/classes/Server/Status/Processes.php:46
 msgid "Start auto refresh"
 msgstr ""
 
-#: js/messages.php:222
+#: js/messages.php:225
 msgid "Stop auto refresh"
 msgstr ""
 
-#: js/messages.php:224
+#: js/messages.php:227
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: js/messages.php:225
+#: js/messages.php:228
 msgid "general_log is enabled."
 msgstr ""
 
-#: js/messages.php:226
+#: js/messages.php:229
 msgid "slow_query_log is enabled."
 msgstr ""
 
-#: js/messages.php:227
+#: js/messages.php:230
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
-#: js/messages.php:228
+#: js/messages.php:231
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: js/messages.php:229
+#: js/messages.php:232
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: js/messages.php:231
+#: js/messages.php:234
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1484,155 +1492,155 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: js/messages.php:235
+#: js/messages.php:238
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: js/messages.php:237
+#: js/messages.php:240
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:241
+#: js/messages.php:244
 #, fuzzy, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:243
+#: js/messages.php:246
 #, php-format
 msgid "Enable %s"
 msgstr ""
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:245
+#: js/messages.php:248
 #, fuzzy, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
 msgstr "تاقالدى"
 
 #. l10n: %d seconds
-#: js/messages.php:247
+#: js/messages.php:250
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr ""
 
-#: js/messages.php:249
+#: js/messages.php:252
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: js/messages.php:252
+#: js/messages.php:255
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: js/messages.php:253
+#: js/messages.php:256
 #, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: js/messages.php:255
+#: js/messages.php:258
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart title"
 msgstr "دوكلات تېمىسى"
 
 #. l10n: As in differential values
-#: js/messages.php:257
+#: js/messages.php:260
 msgid "Differential"
 msgstr ""
 
-#: js/messages.php:258
+#: js/messages.php:261
 #, php-format
 msgid "Divided by %s"
 msgstr ""
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "Unit"
 msgstr ""
 
-#: js/messages.php:261
+#: js/messages.php:264
 msgid "From slow log"
 msgstr ""
 
-#: js/messages.php:262
+#: js/messages.php:265
 msgid "From general log"
 msgstr ""
 
-#: js/messages.php:264
+#: js/messages.php:267
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
-#: js/messages.php:266
+#: js/messages.php:269
 #, fuzzy
 #| msgid "No Privileges"
 msgid "Analysing logs"
 msgstr "ھوقۇقسىز"
 
-#: js/messages.php:268
+#: js/messages.php:271
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: js/messages.php:269
+#: js/messages.php:272
 #, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
 msgstr "ئۇقۇش تەلىپى"
 
-#: js/messages.php:271
+#: js/messages.php:274
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:276
+#: js/messages.php:279
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:281
+#: js/messages.php:284
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:283
+#: js/messages.php:286
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Jump to Log table"
 msgstr "%s جەدۋەل"
 
-#: js/messages.php:284
+#: js/messages.php:287
 msgid "No data found"
 msgstr ""
 
-#: js/messages.php:286
+#: js/messages.php:289
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: js/messages.php:288
+#: js/messages.php:291
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Analyzing…"
 msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
 
-#: js/messages.php:289
+#: js/messages.php:292
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "SQL ئىزاھى"
 
-#: js/messages.php:290 libraries/classes/Menu.php:591
+#: js/messages.php:293 libraries/classes/Menu.php:591
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
 #: libraries/classes/Server/Status/Processes.php:101
 #: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3965
@@ -1641,57 +1649,57 @@ msgstr "SQL ئىزاھى"
 msgid "Status"
 msgstr "ھالەت"
 
-#: js/messages.php:291 js/messages.php:906
+#: js/messages.php:294 js/messages.php:909
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:487
 #: libraries/classes/Plugins/Export/ExportOdt.php:608
 #: libraries/classes/Plugins/Export/ExportTexytext.php:451
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:354
 #: libraries/classes/Rte/RteList.php:105
 #: libraries/classes/Server/Status/Processes.php:97
-#: libraries/classes/Sql.php:272
+#: libraries/classes/Sql.php:277
 msgid "Time"
 msgstr "ۋاقىت"
 
-#: js/messages.php:292
+#: js/messages.php:295
 #, fuzzy
 #| msgid "Total"
 msgid "Total time:"
 msgstr "يىغىندىسى"
 
-#: js/messages.php:293
+#: js/messages.php:296
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "ئاساسىي مەزمۇن"
 
-#: js/messages.php:294
+#: js/messages.php:297
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "جەدۋەل"
 
-#: js/messages.php:295
+#: js/messages.php:298
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart"
 msgstr "دوكلات تېمىسى"
 
-#: js/messages.php:297 libraries/classes/Display/Export.php:579
+#: js/messages.php:300 libraries/classes/Display/Export.php:579
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "ساندان"
 
-#: js/messages.php:298 libraries/classes/Display/Export.php:591
+#: js/messages.php:301 libraries/classes/Display/Export.php:591
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "جەدۋەل"
 
-#: js/messages.php:299 libraries/classes/Display/Export.php:602
+#: js/messages.php:302 libraries/classes/Display/Export.php:602
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -1699,72 +1707,72 @@ msgid "Column"
 msgstr "سۆزلەم"
 
 #. l10n: A collection of available filters
-#: js/messages.php:302
+#: js/messages.php:305
 msgid "Log table filter options"
 msgstr ""
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:304
+#: js/messages.php:307
 msgid "Filter"
 msgstr ""
 
-#: js/messages.php:305
+#: js/messages.php:308
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:307
+#: js/messages.php:310
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:308
+#: js/messages.php:311
 #, fuzzy
 #| msgid "Number of columns"
 msgid "Sum of grouped rows:"
 msgstr "سۆزلەم سانى"
 
-#: js/messages.php:309
+#: js/messages.php:312
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "يىغىندىسى"
 
-#: js/messages.php:311
+#: js/messages.php:314
 #, fuzzy
 #| msgid "No Privileges"
 msgid "Loading logs"
 msgstr "ھوقۇقسىز"
 
-#: js/messages.php:312
+#: js/messages.php:315
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:314
+#: js/messages.php:317
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:318
+#: js/messages.php:321
 #, fuzzy
 #| msgid "Remove database"
 msgid "Reload page"
 msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
-#: js/messages.php:320
+#: js/messages.php:323
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:323
+#: js/messages.php:326
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:326
+#: js/messages.php:329
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: js/messages.php:328 libraries/classes/Config/Forms/User/ImportForm.php:58
+#: js/messages.php:331 libraries/classes/Config/Forms/User/ImportForm.php:58
 #: libraries/classes/Menu.php:391 libraries/classes/Menu.php:500
 #: libraries/classes/Menu.php:621
 #: libraries/classes/Server/Status/Monitor.php:324
@@ -1774,245 +1782,246 @@ msgstr ""
 msgid "Import"
 msgstr "كىرگۈزۈش"
 
-#: js/messages.php:329
+#: js/messages.php:332
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Import monitor configuration"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: js/messages.php:331
+#: js/messages.php:334
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import."
 msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
-#: js/messages.php:332
+#: js/messages.php:335
 msgid "No files available on server for import!"
 msgstr ""
 
-#: js/messages.php:334
+#: js/messages.php:337
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse query"
 msgstr "يېڭلاش"
 
-#: js/messages.php:338
+#: js/messages.php:341
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:339
+#: js/messages.php:342
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:340
+#: js/messages.php:343
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:344
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "قوللانما"
 
-#: js/messages.php:342
+#: js/messages.php:345
 #, fuzzy
 #| msgid "Details…"
 msgid "Rule details"
 msgstr "تەپسىلاتلار…"
 
-#: js/messages.php:343
+#: js/messages.php:346
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Justification"
 msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
 
-#: js/messages.php:344
+#: js/messages.php:347
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:345
+#: js/messages.php:348
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:348
+#: js/messages.php:351
 msgid "Formatting SQL…"
 msgstr ""
 
-#: js/messages.php:349
+#: js/messages.php:352
 #, fuzzy
 #| msgid "Routines"
 msgid "No parameters found!"
 msgstr "دائىملىق"
 
-#: js/messages.php:353 templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:45
-#: templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/where_query_panel.twig:85
-#: templates/server/variables/link_template.twig:5
-#: templates/database/designer/options_panel.twig:253
+#: js/messages.php:356
 #: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/where_query_panel.twig:85
 #: templates/database/designer/aggregate_query_panel.twig:64
+#: templates/database/designer/having_query_panel.twig:118
+#: templates/database/designer/rename_to_panel.twig:45
+#: templates/server/variables/link_template.twig:5
+#: templates/database/designer/new_relation_panel.twig:90
 msgid "Cancel"
 msgstr "بىكار قىلىش"
 
-#: js/messages.php:356 libraries/classes/Header.php:461
+#: js/messages.php:359 libraries/classes/Header.php:461
 #, fuzzy
 #| msgid "General relation features"
 msgid "Page-related settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: js/messages.php:357 templates/config/form_display/fieldset_bottom.twig:8
+#: js/messages.php:360 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
 msgstr ""
 
-#: js/messages.php:360 libraries/classes/Navigation/NavigationHeader.php:61
+#: js/messages.php:363 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
 #, fuzzy
 #| msgid "No Privileges"
 msgid "Loading…"
 msgstr "ھوقۇقسىز"
 
-#: js/messages.php:361
+#: js/messages.php:364
 msgid "Request aborted!!"
 msgstr ""
 
-#: js/messages.php:362
+#: js/messages.php:365
 #, fuzzy
 #| msgid "Profiling"
 msgid "Processing request"
 msgstr "ئاساسىي مەزمۇن"
 
-#: js/messages.php:363
+#: js/messages.php:366
 #, fuzzy
 #| msgid "Query"
 msgid "Request failed!!"
 msgstr "تەكشۈرۈش"
 
-#: js/messages.php:364
+#: js/messages.php:367
 msgid "Error in processing request"
 msgstr ""
 
-#: js/messages.php:365
+#: js/messages.php:368
 #, php-format
 msgid "Error code: %s"
 msgstr ""
 
-#: js/messages.php:366
+#: js/messages.php:369
 #, php-format
 msgid "Error text: %s"
 msgstr ""
 
-#: js/messages.php:368
+#: js/messages.php:371
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
 
-#: js/messages.php:371
+#: js/messages.php:374
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
 #: libraries/db_common.inc.php:72 libraries/db_table_exists.inc.php:34
 msgid "No databases selected."
 msgstr ""
 
-#: js/messages.php:372
+#: js/messages.php:375
 #, fuzzy
 #| msgid "With selected:"
 msgid "No accounts selected."
 msgstr "تاللانغىنى:"
 
-#: js/messages.php:373
+#: js/messages.php:376
 #, fuzzy
 #| msgid "Inside column:"
 msgid "Dropping column"
 msgstr "ئىچىدىكى سۆزلەم:"
 
-#: js/messages.php:374
+#: js/messages.php:377
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Adding primary key"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: js/messages.php:375 templates/database/designer/new_relation_panel.twig:88
-#: templates/database/designer/rename_to_panel.twig:41
-#: templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/where_query_panel.twig:83
+#: js/messages.php:378 templates/console/display.twig:129
 #: templates/database/designer/options_panel.twig:251
-#: templates/console/display.twig:129
+#: templates/database/designer/where_query_panel.twig:83
 #: templates/database/designer/aggregate_query_panel.twig:60
+#: templates/database/designer/having_query_panel.twig:114
+#: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/new_relation_panel.twig:88
 msgid "OK"
 msgstr ""
 
-#: js/messages.php:376
+#: js/messages.php:379
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:379
+#: js/messages.php:382
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming databases"
 msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
-#: js/messages.php:380
+#: js/messages.php:383
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying database"
 msgstr "كۆچۈرۈلگەن ساندان"
 
-#: js/messages.php:381
+#: js/messages.php:384
 msgid "Changing charset"
 msgstr ""
 
-#: js/messages.php:385 templates/fk_checkbox.twig:4
+#: js/messages.php:388 templates/fk_checkbox.twig:4
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Enable foreign key checks"
 msgstr "تاشقى ئاچقۇق قىممىتى"
 
-#: js/messages.php:388
+#: js/messages.php:391
 #, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
 msgstr "ھۆججەتنى دېسكىغا يىزىشتا خاتالىق كۆرۈلدى."
 
-#: js/messages.php:391
+#: js/messages.php:394
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "ئىزدەش"
 
-#: js/messages.php:392
+#: js/messages.php:395
 msgid "Hide search results"
 msgstr ""
 
-#: js/messages.php:393
+#: js/messages.php:396
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show search results"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:394
+#: js/messages.php:397
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "كۆزەت"
 
-#: js/messages.php:395
+#: js/messages.php:398
 #, fuzzy
 #| msgid "Delete"
 msgid "Deleting"
 msgstr "ئۆچۈرۈش"
 
-#: js/messages.php:396
+#: js/messages.php:399
 #, fuzzy, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
 msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
 
-#: js/messages.php:400
+#: js/messages.php:403
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:401 libraries/classes/Config/Forms/User/ExportForm.php:140
+#: js/messages.php:404 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Results.php:4709
 #: libraries/classes/Display/Results.php:4990 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
@@ -2025,54 +2034,54 @@ msgstr ""
 #: libraries/classes/Util.php:3329 libraries/classes/Util.php:3330
 #: libraries/classes/Util.php:3967 libraries/classes/Util.php:3982
 #: libraries/classes/Util.php:3999 prefs_manage.php:294
-#: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
+#: templates/display/export/option_header.twig:3
 msgid "Export"
 msgstr "چىقىرىش"
 
-#: js/messages.php:403
+#: js/messages.php:406
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: js/messages.php:406 libraries/classes/Rte/Routines.php:760
+#: js/messages.php:409 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
 msgstr ""
 
-#: js/messages.php:407
+#: js/messages.php:410
 #, fuzzy, php-format
 #| msgid "Number of columns"
 msgid "Values for column %s"
 msgstr "سۆزلەم سانى"
 
-#: js/messages.php:408
+#: js/messages.php:411
 msgid "Values for a new column"
 msgstr ""
 
-#: js/messages.php:409
+#: js/messages.php:412
 msgid "Enter each value in a separate field."
 msgstr ""
 
-#: js/messages.php:410
+#: js/messages.php:413
 #, php-format
 msgid "Add %d value(s)"
 msgstr ""
 
-#: js/messages.php:414
+#: js/messages.php:417
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
-#: js/messages.php:418
+#: js/messages.php:421
 msgid "Hide query box"
 msgstr ""
 
-#: js/messages.php:419
+#: js/messages.php:422
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show query box"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:420 libraries/classes/CentralColumns.php:879
+#: js/messages.php:423 libraries/classes/CentralColumns.php:879
 #: libraries/classes/CentralColumns.php:1234
 #: libraries/classes/Config/Descriptions.php:1329
 #: libraries/classes/Display/Results.php:3336
@@ -2080,653 +2089,654 @@ msgstr "SQL سورىقى"
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1077 libraries/classes/Util.php:3327
 #: libraries/classes/Util.php:3328 setup/frames/index.inc.php:157
-#: templates/console/bookmark_content.twig:7
+#: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
-#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 msgid "Edit"
 msgstr "تەھىرلەش"
 
-#: js/messages.php:421 libraries/classes/CentralColumns.php:881
+#: js/messages.php:424 libraries/classes/CentralColumns.php:881
 #: libraries/classes/CentralColumns.php:1238
 #: libraries/classes/Display/Results.php:3405
 #: libraries/classes/Display/Results.php:4677
 #: libraries/classes/Server/UserGroups.php:143
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:354
-#: setup/frames/index.inc.php:160 templates/console/bookmark_content.twig:7
+#: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
-#: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
+#: templates/display/export/template_loading.twig:22
+#: templates/console/bookmark_content.twig:7
 msgid "Delete"
 msgstr "ئۆچۈرۈش"
 
-#: js/messages.php:422 libraries/classes/Display/Results.php:934
+#: js/messages.php:425 libraries/classes/Display/Results.php:934
 #: libraries/classes/Display/Results.php:942
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس."
 
-#: js/messages.php:423
+#: js/messages.php:426
 #: libraries/classes/Controllers/Table/TableSearchController.php:365
 #: libraries/classes/Controllers/Table/TableSearchController.php:861
-#: libraries/classes/Sql.php:227 tbl_change.php:142
+#: libraries/classes/Sql.php:232 tbl_change.php:142
 msgid "Browse foreign values"
 msgstr ""
 
-#: js/messages.php:424
+#: js/messages.php:427
 msgid "No auto-saved query"
 msgstr ""
 
-#: js/messages.php:425
+#: js/messages.php:428
 #, fuzzy, php-format
 #| msgid "Disabled"
 msgid "Variable %d:"
 msgstr "تاقالدى"
 
-#: js/messages.php:428 libraries/classes/Normalization.php:967
+#: js/messages.php:431 libraries/classes/Normalization.php:967
 msgid "Pick"
 msgstr ""
 
-#: js/messages.php:429
+#: js/messages.php:432
 #, fuzzy
 #| msgid "Click to unselect"
 msgid "Column selector"
 msgstr "بىر چىكىپ بىكار قىلىڭ"
 
-#: js/messages.php:430
+#: js/messages.php:433
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "سانداندىن ئىزدەش"
 
-#: js/messages.php:432
+#: js/messages.php:435
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: js/messages.php:435
+#: js/messages.php:438
 msgid "See more"
 msgstr ""
 
-#: js/messages.php:436
+#: js/messages.php:439
 msgid "Are you sure?"
 msgstr ""
 
-#: js/messages.php:438
+#: js/messages.php:441
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
 
-#: js/messages.php:441
+#: js/messages.php:444
 #, fuzzy
 #| msgid "(continued)"
 msgid "Continue"
 msgstr "داۋاملاشتۇرلىدىغان"
 
-#: js/messages.php:444
+#: js/messages.php:447
 msgid "Add primary key"
 msgstr ""
 
-#: js/messages.php:445
+#: js/messages.php:448
 #, fuzzy
 #| msgid "The primary key has been dropped."
 msgid "Primary key added."
 msgstr "ئاساسىي قىممەت ئۆچۈرۈلدى"
 
-#: js/messages.php:446 libraries/classes/Normalization.php:242
+#: js/messages.php:449 libraries/classes/Normalization.php:242
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "ئىزلاش خاتىرىسى"
 
-#: js/messages.php:448
+#: js/messages.php:451
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: js/messages.php:449 libraries/classes/Normalization.php:510
+#: js/messages.php:452 libraries/classes/Normalization.php:510
 #: libraries/classes/Normalization.php:557
 #: libraries/classes/Normalization.php:643
 #: libraries/classes/Normalization.php:707
 msgid "End of step"
 msgstr ""
 
-#: js/messages.php:450
+#: js/messages.php:453
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:451 js/messages.php:775
+#: js/messages.php:454 js/messages.php:778
 #: libraries/classes/Normalization.php:340
 msgid "Done"
 msgstr "تامام"
 
-#: js/messages.php:452
+#: js/messages.php:455
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: js/messages.php:453
+#: js/messages.php:456
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:455
+#: js/messages.php:458
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: js/messages.php:458
+#: js/messages.php:461
 msgid "No partial dependencies selected!"
 msgstr ""
 
-#: js/messages.php:461
+#: js/messages.php:464
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: js/messages.php:462
+#: js/messages.php:465
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: js/messages.php:464
+#: js/messages.php:467
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: js/messages.php:467
+#: js/messages.php:470
 msgid "Step"
 msgstr ""
 
-#: js/messages.php:469
+#: js/messages.php:472
 msgid "The following actions will be performed:"
 msgstr ""
 
-#: js/messages.php:470
+#: js/messages.php:473
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: js/messages.php:471
+#: js/messages.php:474
 msgid "Create the following table"
 msgstr ""
 
-#: js/messages.php:474
+#: js/messages.php:477
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: js/messages.php:475
+#: js/messages.php:478
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: js/messages.php:476
+#: js/messages.php:479
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:477
+#: js/messages.php:480
 msgid "No dependencies selected!"
 msgstr ""
 
-#: js/messages.php:480 libraries/classes/CentralColumns.php:1254
-#: libraries/classes/InsertEdit.php:1809
-#: templates/table/structure/partition_definition_form.twig:12
+#: js/messages.php:483 libraries/classes/CentralColumns.php:1254
+#: libraries/classes/InsertEdit.php:1806
 #: templates/table/relation/common_form.twig:189
-#: templates/server/variables/link_template.twig:2
-#: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/columns_definitions/column_definitions_form.twig:149
+#: templates/table/structure/partition_definition_form.twig:12
+#: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/server/variables/link_template.twig:2
 msgid "Save"
 msgstr ""
 
-#: js/messages.php:483
+#: js/messages.php:486
 msgid "Hide search criteria"
 msgstr ""
 
-#: js/messages.php:484
+#: js/messages.php:487
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show search criteria"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:485
+#: js/messages.php:488
 #, fuzzy
 #| msgid "Search"
 msgid "Range search"
 msgstr "ئىزدەش"
 
-#: js/messages.php:486
+#: js/messages.php:489
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Column maximum:"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: js/messages.php:487
+#: js/messages.php:490
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Column minimum:"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: js/messages.php:488
+#: js/messages.php:491
 msgid "Minimum value:"
 msgstr ""
 
-#: js/messages.php:489
+#: js/messages.php:492
 msgid "Maximum value:"
 msgstr ""
 
-#: js/messages.php:492
+#: js/messages.php:495
 #, fuzzy
 #| msgid "SQL query"
 msgid "Hide find and replace criteria"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:493
+#: js/messages.php:496
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show find and replace criteria"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:497
+#: js/messages.php:500
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:499
+#: js/messages.php:502
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:501
+#: js/messages.php:504
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: js/messages.php:503
+#: js/messages.php:506
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: js/messages.php:505
+#: js/messages.php:508
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:507
+#: js/messages.php:510
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:510
+#: js/messages.php:513
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: js/messages.php:512
+#: js/messages.php:515
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:514
+#: js/messages.php:517
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "سانلىق مەلۇمات قوللانمىسىنىڭ چوڭ كىچىكلىكى"
 
-#: js/messages.php:517 js/messages.php:685 js/messages.php:702
-#: libraries/classes/ErrorHandler.php:371 libraries/classes/InsertEdit.php:2979
+#: js/messages.php:520 js/messages.php:688 js/messages.php:705
+#: libraries/classes/ErrorHandler.php:371 libraries/classes/InsertEdit.php:2976
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
 msgstr ""
 
-#: js/messages.php:518 libraries/classes/Display/Results.php:3339
+#: js/messages.php:521 libraries/classes/Display/Results.php:3339
 #: libraries/classes/Display/Results.php:4698
 msgid "Copy"
 msgstr ""
 
-#: js/messages.php:521
-msgid "Point"
-msgstr ""
-
-#: js/messages.php:523
-#, fuzzy
-#| msgid "Lines terminated by"
-msgid "Linestring"
-msgstr "قۇر ئالماشۇرۇش بەلگىسى"
-
 #: js/messages.php:524
-msgid "Polygon"
-msgstr ""
-
-#: js/messages.php:525 templates/display/results/options_block.twig:79
-msgid "Geometry"
+msgid "Point"
 msgstr ""
 
 #: js/messages.php:526
 #, fuzzy
 #| msgid "Lines terminated by"
-msgid "Inner ring"
+msgid "Linestring"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
 #: js/messages.php:527
+msgid "Polygon"
+msgstr ""
+
+#: js/messages.php:528 templates/display/results/options_block.twig:79
+msgid "Geometry"
+msgstr ""
+
+#: js/messages.php:529
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Inner ring"
+msgstr "قۇر ئالماشۇرۇش بەلگىسى"
+
+#: js/messages.php:530
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Outer ring"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: js/messages.php:531
+#: js/messages.php:534
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: js/messages.php:532
+#: js/messages.php:535
 msgid "Encryption key"
 msgstr ""
 
-#: js/messages.php:536
+#: js/messages.php:539
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: js/messages.php:542
+#: js/messages.php:545
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: js/messages.php:548
+#: js/messages.php:551
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:553
+#: js/messages.php:556
 msgid "Select referenced key"
 msgstr "سېرتقى ئۇلىنىشنى تاللاش"
 
-#: js/messages.php:554
+#: js/messages.php:557
 msgid "Select Foreign Key"
 msgstr "تاشقى ئاچقۇق قىممىتى"
 
-#: js/messages.php:556
+#: js/messages.php:559
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
 # column نى سۆزلەم دەپ ئالساق مۇۋاپىق بولغىدەك
-#: js/messages.php:557 templates/database/designer/side_menu.twig:92
+#: js/messages.php:560 templates/database/designer/side_menu.twig:92
 #: templates/database/designer/side_menu.twig:95
 msgid "Choose column to display"
 msgstr "سۆزلەمنى كۆرسەتمەسلىك"
 
-#: js/messages.php:559
+#: js/messages.php:562
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:562
+#: js/messages.php:565
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: js/messages.php:563 templates/database/designer/side_menu.twig:34
+#: js/messages.php:566 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
 msgstr "سانداندا جەدۋەل يوق."
 
-#: js/messages.php:564
+#: js/messages.php:567
 msgid "Page name"
 msgstr ""
 
-#: js/messages.php:565 templates/database/designer/side_menu.twig:57
+#: js/messages.php:568 templates/database/designer/side_menu.twig:57
 #: templates/database/designer/side_menu.twig:60
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:566 templates/database/designer/side_menu.twig:64
+#: js/messages.php:569 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page as"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:567 templates/database/designer/side_menu.twig:50
+#: js/messages.php:570 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
 msgstr "ئاق(قۇرۇق)بەت"
 
-#: js/messages.php:568
+#: js/messages.php:571
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:569 templates/database/designer/side_menu.twig:4
+#: js/messages.php:572 templates/database/designer/side_menu.twig:4
 msgid "Untitled"
 msgstr ""
 
-#: js/messages.php:570
+#: js/messages.php:573
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select a page to continue"
 msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
-#: js/messages.php:571
+#: js/messages.php:574
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:573
+#: js/messages.php:576
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:574
+#: js/messages.php:577
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:575
+#: js/messages.php:578
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Export relational schema"
 msgstr "PDF تىزىىسىنى كۆرسىتىش"
 
-#: js/messages.php:576
+#: js/messages.php:579
 msgid "Modifications have been saved"
 msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
-#: js/messages.php:579
+#: js/messages.php:582
 #, fuzzy, php-format
 #| msgid "Number of columns"
 msgid "Add an option for column \"%s\"."
 msgstr "سۆزلەم سانى"
 
-#: js/messages.php:580
+#: js/messages.php:583
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:581 libraries/classes/SqlQueryForm.php:419
+#: js/messages.php:584 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
 msgstr ""
 
-#: js/messages.php:584
+#: js/messages.php:587
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:586
+#: js/messages.php:589
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:589
+#: js/messages.php:592
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:590
+#: js/messages.php:593
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:592
+#: js/messages.php:595
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:596
+#: js/messages.php:599
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:597
+#: js/messages.php:600
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Double-click to copy column name."
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: js/messages.php:599
+#: js/messages.php:602
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:601 libraries/classes/BrowseForeigners.php:340
-#: templates/display/results/show_all_checkbox.twig:11
+#: js/messages.php:604 libraries/classes/BrowseForeigners.php:340
 #: templates/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
+#: templates/display/results/show_all_checkbox.twig:11
 msgid "Show all"
 msgstr "ھەممىسىنى كۆرسىتىش"
 
-#: js/messages.php:603
+#: js/messages.php:606
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:607
+#: js/messages.php:610
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:609
+#: js/messages.php:612
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:612
+#: js/messages.php:615
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Original length"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: js/messages.php:615
+#: js/messages.php:618
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "بىكار قىلىش"
 
-#: js/messages.php:616 libraries/classes/Server/Status.php:288
+#: js/messages.php:619 libraries/classes/Server/Status.php:288
 msgid "Aborted"
 msgstr ""
 
-#: js/messages.php:618
+#: js/messages.php:621
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:619
+#: js/messages.php:622
 #, fuzzy
 #| msgid "Import"
 msgid "Import status"
 msgstr "كىرگۈزۈش"
 
-#: js/messages.php:620 libraries/classes/Navigation/Navigation.php:127
+#: js/messages.php:623 libraries/classes/Navigation/Navigation.php:127
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:621
+#: js/messages.php:624
 #, fuzzy
 #| msgid "Select All"
 msgid "Select database first"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:624 libraries/classes/Display/Results.php:4884
+#: js/messages.php:627 libraries/classes/Display/Results.php:4884
 #: libraries/classes/Util.php:3860
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
 msgid "Print"
 msgstr "يازدۇر"
 
-#: js/messages.php:631
+#: js/messages.php:634
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:636
+#: js/messages.php:639
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:642
+#: js/messages.php:645
 msgid "Go to link:"
 msgstr ""
 
-#: js/messages.php:643
+#: js/messages.php:646
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Copy column name."
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: js/messages.php:645
+#: js/messages.php:648
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:648
+#: js/messages.php:651
 msgid "Generate password"
 msgstr "پارول ھاسىللاش"
 
-#: js/messages.php:649 libraries/classes/ReplicationGui.php:886
+#: js/messages.php:652 libraries/classes/ReplicationGui.php:886
 msgid "Generate"
 msgstr "ھاسىللاش"
 
-#: js/messages.php:653
+#: js/messages.php:656
 #: templates/table/structure/actions_in_table_structure.twig:4
 msgid "More"
 msgstr "تېخىمۇ كۆپ"
 
-#: js/messages.php:656
+#: js/messages.php:659
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "ھەممىسىنى كۆرسىتىش"
 
-#: js/messages.php:657
+#: js/messages.php:660
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide panel"
 msgstr "تېزىسلار"
 
-#: js/messages.php:658
+#: js/messages.php:661
 #, fuzzy
 #| msgid "Indexes"
 msgid "Show hidden navigation tree items."
 msgstr "تېزىسلار"
 
-#: js/messages.php:659 libraries/classes/Config/Descriptions.php:778
+#: js/messages.php:662 libraries/classes/Config/Descriptions.php:778
 #: libraries/classes/Navigation/NavigationTree.php:1433
 #, fuzzy
 #| msgid "Indexes"
 msgid "Link with main panel"
 msgstr "تېزىسلار"
 
-#: js/messages.php:660 libraries/classes/Navigation/NavigationTree.php:1436
+#: js/messages.php:663 libraries/classes/Navigation/NavigationTree.php:1436
 #, fuzzy
 #| msgid "Indexes"
 msgid "Unlink from main panel"
 msgstr "تېزىسلار"
 
-#: js/messages.php:664
+#: js/messages.php:667
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 
-#: js/messages.php:668 setup/lib/Index.php:171
+#: js/messages.php:671 setup/lib/Index.php:171
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2734,123 +2744,123 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:672
+#: js/messages.php:675
 #, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
 msgstr "ېيڭى نەشىر"
 
-#: js/messages.php:673
+#: js/messages.php:676
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "up to date"
 msgstr "%s جەدۋەل"
 
-#: js/messages.php:675 libraries/classes/Display/Results.php:4818
+#: js/messages.php:678 libraries/classes/Display/Results.php:4818
 #: templates/view_create.twig:11
 #, fuzzy
 #| msgid "Create version"
 msgid "Create view"
 msgstr "نەشىرنى قۇىماق"
 
-#: js/messages.php:678
+#: js/messages.php:681
 msgid "Send error report"
 msgstr ""
 
-#: js/messages.php:679
+#: js/messages.php:682
 msgid "Submit error report"
 msgstr ""
 
-#: js/messages.php:681
+#: js/messages.php:684
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:683
+#: js/messages.php:686
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change report settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: js/messages.php:684
+#: js/messages.php:687
 #, fuzzy
 #| msgid "Report title"
 msgid "Show report details"
 msgstr "دوكلات تېمىسى"
 
-#: js/messages.php:687
+#: js/messages.php:690
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:691
+#: js/messages.php:694
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:697 js/messages.php:710
+#: js/messages.php:700 js/messages.php:713
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:699
+#: js/messages.php:702
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:705 libraries/classes/ErrorHandler.php:375
+#: js/messages.php:708 libraries/classes/ErrorHandler.php:375
 msgid "Ignore All"
 msgstr ""
 
-#: js/messages.php:713
+#: js/messages.php:716
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:723
+#: js/messages.php:726
 #, fuzzy
 #| msgid "Select All"
 msgid "Execute this query again?"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:725
+#: js/messages.php:728
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "راستىنلا ئجرا قىلىمسىز"
 
-#: js/messages.php:727
+#: js/messages.php:730
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:729
+#: js/messages.php:732
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
-#: js/messages.php:730
+#: js/messages.php:733
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:731
+#: js/messages.php:734
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "جەدۋەل ئىزاھى"
 
-#: js/messages.php:732
+#: js/messages.php:735
 msgid "Hide arguments"
 msgstr ""
 
-#: js/messages.php:733
+#: js/messages.php:736
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:734
+#: js/messages.php:737
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2859,65 +2869,65 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:736
+#: js/messages.php:739
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "كۆچۈرۈلگەن ساندان"
 
-#: js/messages.php:737
+#: js/messages.php:740
 #, fuzzy
 #| msgid "Repair table"
 msgid "Add table prefix"
 msgstr "جەدۋەلنى ئوڭشاش"
 
-#: js/messages.php:738
+#: js/messages.php:741
 #, fuzzy
 #| msgid "Repair table"
 msgid "Replace table with prefix"
 msgstr "جەدۋەلنى ئوڭشاش"
 
-#: js/messages.php:739 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:742 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr ""
 
-#: js/messages.php:742
+#: js/messages.php:745
 msgid "Extremely weak"
 msgstr ""
 
-#: js/messages.php:743
+#: js/messages.php:746
 msgid "Very weak"
 msgstr ""
 
-#: js/messages.php:744
+#: js/messages.php:747
 msgid "Weak"
 msgstr ""
 
-#: js/messages.php:745
+#: js/messages.php:748
 msgid "Good"
 msgstr ""
 
-#: js/messages.php:746
+#: js/messages.php:749
 msgid "Strong"
 msgstr ""
 
-#: js/messages.php:749
+#: js/messages.php:752
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
-#: js/messages.php:750
+#: js/messages.php:753
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr ""
 
-#: js/messages.php:779
+#: js/messages.php:782
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "ئالدىنقى ئاي"
 
-#: js/messages.php:784
+#: js/messages.php:787
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2925,149 +2935,149 @@ msgid "Next"
 msgstr "كىيىنكى ئاي"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:787
+#: js/messages.php:790
 msgid "Today"
 msgstr "بۈگۈن"
 
-#: js/messages.php:791
+#: js/messages.php:794
 msgid "January"
 msgstr "قەھرىتان"
 
-#: js/messages.php:792
+#: js/messages.php:795
 msgid "February"
 msgstr "ھۇت"
 
-#: js/messages.php:793
+#: js/messages.php:796
 msgid "March"
 msgstr "نورۇز"
 
-#: js/messages.php:794
+#: js/messages.php:797
 msgid "April"
 msgstr "ئۈمىد"
 
-#: js/messages.php:795
+#: js/messages.php:798
 msgid "May"
 msgstr "باھار"
 
-#: js/messages.php:796
+#: js/messages.php:799
 msgid "June"
 msgstr "6-ئاي"
 
-#: js/messages.php:797
+#: js/messages.php:800
 msgid "July"
 msgstr "7-ئاي"
 
-#: js/messages.php:798
+#: js/messages.php:801
 msgid "August"
 msgstr "8-ئاي"
 
-#: js/messages.php:799
+#: js/messages.php:802
 msgid "September"
 msgstr "9-ئاي"
 
-#: js/messages.php:800
+#: js/messages.php:803
 msgid "October"
 msgstr "10-ئاي"
 
-#: js/messages.php:801
+#: js/messages.php:804
 msgid "November"
 msgstr "11-ئاي"
 
-#: js/messages.php:802
+#: js/messages.php:805
 msgid "December"
 msgstr "12-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:809 libraries/classes/Util.php:1479
+#: js/messages.php:812 libraries/classes/Util.php:1479
 msgid "Jan"
 msgstr "1-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:811 libraries/classes/Util.php:1481
+#: js/messages.php:814 libraries/classes/Util.php:1481
 msgid "Feb"
 msgstr "2-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:813 libraries/classes/Util.php:1483
+#: js/messages.php:816 libraries/classes/Util.php:1483
 msgid "Mar"
 msgstr "3-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:815 libraries/classes/Util.php:1485
+#: js/messages.php:818 libraries/classes/Util.php:1485
 msgid "Apr"
 msgstr "4-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:817 libraries/classes/Util.php:1487
+#: js/messages.php:820 libraries/classes/Util.php:1487
 msgctxt "Short month name"
 msgid "May"
 msgstr "5-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:819 libraries/classes/Util.php:1489
+#: js/messages.php:822 libraries/classes/Util.php:1489
 msgid "Jun"
 msgstr "6-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:821 libraries/classes/Util.php:1491
+#: js/messages.php:824 libraries/classes/Util.php:1491
 msgid "Jul"
 msgstr "چىللە"
 
 #. l10n: Short month name
-#: js/messages.php:823 libraries/classes/Util.php:1493
+#: js/messages.php:826 libraries/classes/Util.php:1493
 msgid "Aug"
 msgstr "تومۇز"
 
 #. l10n: Short month name
-#: js/messages.php:825 libraries/classes/Util.php:1495
+#: js/messages.php:828 libraries/classes/Util.php:1495
 msgid "Sep"
 msgstr "مىزان"
 
 #. l10n: Short month name
-#: js/messages.php:827 libraries/classes/Util.php:1497
+#: js/messages.php:830 libraries/classes/Util.php:1497
 msgid "Oct"
 msgstr "ئوغۇز"
 
 #. l10n: Short month name
-#: js/messages.php:829 libraries/classes/Util.php:1499
+#: js/messages.php:832 libraries/classes/Util.php:1499
 msgid "Nov"
 msgstr "ئوغلاق"
 
 #. l10n: Short month name
-#: js/messages.php:831 libraries/classes/Util.php:1501
+#: js/messages.php:834 libraries/classes/Util.php:1501
 msgid "Dec"
 msgstr "كۆنەك"
 
-#: js/messages.php:837
+#: js/messages.php:840
 msgid "Sunday"
 msgstr "يەكشەنبە"
 
-#: js/messages.php:838
+#: js/messages.php:841
 msgid "Monday"
 msgstr "دۈشەنبە"
 
-#: js/messages.php:839
+#: js/messages.php:842
 msgid "Tuesday"
 msgstr "سەيشەنبە"
 
-#: js/messages.php:840
+#: js/messages.php:843
 msgid "Wednesday"
 msgstr "چارشەنبە"
 
-#: js/messages.php:841
+#: js/messages.php:844
 msgid "Thursday"
 msgstr "پەيشەنبە"
 
-#: js/messages.php:842
+#: js/messages.php:845
 msgid "Friday"
 msgstr "جۈمە"
 
-#: js/messages.php:843
+#: js/messages.php:846
 msgid "Saturday"
 msgstr "شەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:850
+#: js/messages.php:853
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -3075,203 +3085,203 @@ msgid "Sun"
 msgstr "يەكشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:852 libraries/classes/Util.php:1506
+#: js/messages.php:855 libraries/classes/Util.php:1506
 msgid "Mon"
 msgstr "دۈشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:854 libraries/classes/Util.php:1508
+#: js/messages.php:857 libraries/classes/Util.php:1508
 msgid "Tue"
 msgstr "سەيشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:856 libraries/classes/Util.php:1510
+#: js/messages.php:859 libraries/classes/Util.php:1510
 msgid "Wed"
 msgstr "چارشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:858 libraries/classes/Util.php:1512
+#: js/messages.php:861 libraries/classes/Util.php:1512
 msgid "Thu"
 msgstr "پەيشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:860 libraries/classes/Util.php:1514
+#: js/messages.php:863 libraries/classes/Util.php:1514
 msgid "Fri"
 msgstr "جۈمە"
 
 #. l10n: Short week day name
-#: js/messages.php:862 libraries/classes/Util.php:1516
+#: js/messages.php:865 libraries/classes/Util.php:1516
 msgid "Sat"
 msgstr "شەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:869
+#: js/messages.php:872
 msgid "Su"
 msgstr "يەكشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:871
+#: js/messages.php:874
 msgid "Mo"
 msgstr "دۈشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:873
+#: js/messages.php:876
 msgid "Tu"
 msgstr "سەيشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:875
+#: js/messages.php:878
 msgid "We"
 msgstr "چارشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:877
+#: js/messages.php:880
 msgid "Th"
 msgstr "پەيشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:879
+#: js/messages.php:882
 msgid "Fr"
 msgstr "جۈمە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:881
+#: js/messages.php:884
 msgid "Sa"
 msgstr "شەنبە"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:885
+#: js/messages.php:888
 msgid "Wk"
 msgstr "ھەپتە"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:892
+#: js/messages.php:895
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:895
+#: js/messages.php:898
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "يوق"
 
-#: js/messages.php:907
+#: js/messages.php:910
 msgid "Hour"
 msgstr "سائەت"
 
-#: js/messages.php:908
+#: js/messages.php:911
 msgid "Minute"
 msgstr "مىنۇت"
 
-#: js/messages.php:909
+#: js/messages.php:912
 msgid "Second"
 msgstr "سېكنۇت"
 
-#: js/messages.php:920
+#: js/messages.php:923
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:921
+#: js/messages.php:924
 msgid "Please fix this field"
 msgstr ""
 
-#: js/messages.php:922
+#: js/messages.php:925
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid email address"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:923
+#: js/messages.php:926
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid URL"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:924
+#: js/messages.php:927
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:927
+#: js/messages.php:930
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date ( ISO )"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:929
+#: js/messages.php:932
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:932
+#: js/messages.php:935
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid credit card number"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:934
+#: js/messages.php:937
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter only digits"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:937
+#: js/messages.php:940
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter the same value again"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:941
+#: js/messages.php:944
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:946
+#: js/messages.php:949
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter at least {0} characters"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:951
+#: js/messages.php:954
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:956
+#: js/messages.php:959
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value between {0} and {1}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:961
+#: js/messages.php:964
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value less than or equal to {0}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:966
+#: js/messages.php:969
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:972
+#: js/messages.php:975
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date or time"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:977
+#: js/messages.php:980
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid HEX input"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:982 libraries/classes/Core.php:297
+#: js/messages.php:985 libraries/classes/Core.php:297
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1497
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
@@ -3421,15 +3431,15 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3557
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/variables/variable_table_head.twig:3
-#: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/untracked_tables.twig:10
-#: templates/table/tracking/report_table.twig:8
 #: templates/table/structure/table_structure_header.twig:18
-#: templates/privileges/privileges_summary.twig:22
-#: templates/table/structure/display_partitions.twig:33
 #: templates/server/databases/table_header.twig:37
+#: templates/privileges/privileges_summary.twig:22
 #: templates/database/tracking/tracked_tables.twig:16
+#: templates/table/structure/display_partitions.twig:33
+#: templates/database/structure/table_header.twig:22
+#: templates/table/tracking/report_table.twig:8
+#: templates/database/tracking/untracked_tables.twig:10
+#: templates/server/variables/variable_table_head.twig:3
 msgid "Action"
 msgstr "ئامال"
 
@@ -3442,9 +3452,10 @@ msgstr "ئامال"
 #: libraries/classes/Rte/Routines.php:943
 #: libraries/classes/Rte/Routines.php:1622 libraries/classes/Rte/RteList.php:88
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
-#: setup/frames/index.inc.php:141 templates/database/create_table.twig:11
-#: templates/columns_definitions/table_fields_definitions.twig:9
+#: setup/frames/index.inc.php:141
 #: templates/table/structure/table_structure_header.twig:5
+#: templates/database/create_table.twig:11
+#: templates/columns_definitions/table_fields_definitions.twig:9
 msgid "Name"
 msgstr "ئىسمى"
 
@@ -3460,14 +3471,14 @@ msgstr ""
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
-#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/table/structure/table_structure_header.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/table/structure/row_stats_table.twig:30
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/database/structure/table_header.twig:33
 #: templates/server/collations/charsets.twig:5
 #: templates/table/search/table_header.twig:8
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "تاسقاش"
 
@@ -3500,8 +3511,8 @@ msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:654
-#: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/table/structure/table_structure_header.twig:8
+#: templates/columns_definitions/table_fields_definitions.twig:27
 msgid "Attributes"
 msgstr ""
 
@@ -4334,8 +4345,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "مەۋجۇت ھۆججەت ئۈستىدىن يېزىش"
 
@@ -6128,11 +6139,11 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:4552
 #: libraries/classes/Server/Status/Processes.php:89
 #: templates/table/relation/common_form.twig:32
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/table/relation/foreign_key_row.twig:100
-#: templates/table/relation/internal_relational_row.twig:10
 #: templates/server/databases/table_header.twig:8
+#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/table/relation/internal_relational_row.twig:10
+#: templates/table/relation/foreign_key_row.twig:100
+#: templates/console/bookmark_content.twig:7
 msgid "Database"
 msgstr "ساندان"
 
@@ -6170,11 +6181,11 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3352
 #: libraries/classes/Server/Privileges.php:4566
 #: templates/table/relation/common_form.twig:33
+#: templates/table/relation/internal_relational_row.twig:17
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/database/tracking/tracked_tables.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/untracked_tables.twig:9
-#: templates/table/relation/foreign_key_row.twig:110
-#: templates/table/relation/internal_relational_row.twig:17
-#: templates/database/tracking/tracked_tables.twig:11
 msgid "Table"
 msgstr "جەدۋەل"
 
@@ -6356,7 +6367,7 @@ msgstr ""
 msgid "Group queries"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:1482 libraries/classes/Sql.php:267
+#: libraries/classes/Config/Descriptions.php:1482 libraries/classes/Sql.php:272
 msgid "Order"
 msgstr ""
 
@@ -6796,9 +6807,9 @@ msgstr[0] "ساندان %s ئۆچۈرۈلدى."
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
 #: templates/table/structure/actions_in_table_structure.twig:114
-#: templates/table/structure/row_stats_table.twig:41
-#: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
+#: templates/database/structure/table_header.twig:26
+#: templates/table/structure/row_stats_table.twig:41
 msgid "Rows"
 msgstr "سەپ سانى"
 
@@ -6814,14 +6825,14 @@ msgstr "تېزىسلار"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/server/databases/databases_footer.twig:7
 #: templates/table/structure/display_table_stats.twig:45
+#: templates/server/databases/databases_footer.twig:7
 msgid "Total"
 msgstr "يىغىندىسى"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:357
-#: templates/database/structure/table_header.twig:40
 #: templates/table/structure/display_table_stats.twig:32
+#: templates/database/structure/table_header.twig:40
 msgid "Overhead"
 msgstr "ئېغىر يۈك"
 
@@ -6956,21 +6967,21 @@ msgstr "ئۆزگەرتتىش"
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3323
 #: libraries/classes/Util.php:3324
 #: templates/table/structure/display_structure.twig:188
-#: templates/table/structure/check_all_table_column.twig:24
-#: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/databases_footer.twig:55
 #: templates/table/relation/foreign_key_row.twig:30
+#: templates/database/structure/check_all_tables.twig:16
+#: templates/table/structure/check_all_table_column.twig:24
+#: templates/server/databases/databases_footer.twig:55
 msgid "Drop"
 msgstr "ئۆچۈرۈش"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1211
 #: libraries/classes/Controllers/Table/TableStructureController.php:1216
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/display_structure.twig:66
-#: templates/table/structure/check_all_table_column.twig:47
-#: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_table_stats.twig:24
+#: templates/table/structure/display_structure.twig:66
+#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/check_all_table_column.twig:47
 #: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr ""
@@ -6978,8 +6989,8 @@ msgstr ""
 #: libraries/classes/Controllers/Table/TableStructureController.php:1212
 #: libraries/classes/Controllers/Table/TableStructureController.php:1217
 #: libraries/classes/Index.php:721
-#: templates/table/structure/check_all_table_column.twig:40
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
+#: templates/table/structure/check_all_table_column.twig:40
 #: templates/columns_definitions/column_indexes.twig:8
 msgid "Unique"
 msgstr "بىردىنبىر"
@@ -7489,10 +7500,10 @@ msgstr ""
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
-#: templates/database/qbe/sort_select_cell.twig:7
-#: templates/table/search/options.twig:54
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:63
+#: templates/database/qbe/sort_select_cell.twig:7
 msgid "Descending"
 msgstr "كېمىيىش"
 
@@ -7502,10 +7513,10 @@ msgstr "كېمىيىش"
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
-#: templates/database/qbe/sort_select_cell.twig:5
-#: templates/table/search/options.twig:54
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:62
+#: templates/database/qbe/sort_select_cell.twig:5
 msgid "Ascending"
 msgstr "ئارتىش"
 
@@ -7544,16 +7555,16 @@ msgstr ""
 msgid "%d total"
 msgstr "ئۇمۇمىي"
 
-#: libraries/classes/Display/Results.php:4583 libraries/classes/Sql.php:1425
+#: libraries/classes/Display/Results.php:4583 libraries/classes/Sql.php:1430
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
+#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "تاللانغىنى:"
 
@@ -7561,10 +7572,10 @@ msgstr "تاللانغىنى:"
 #: libraries/classes/Display/Results.php:4688
 #: libraries/classes/Server/Privileges.php:1179
 #: libraries/classes/Server/Privileges.php:1180
-#: libraries/classes/Server/UserGroups.php:248
+#: libraries/classes/Server/UserGroups.php:248 templates/select_all.twig:4
+#: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
 #: templates/privileges/global_priv_table.twig:5
 #, fuzzy
 #| msgid "Check All"
@@ -8026,12 +8037,12 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Cookies نى قوزغاتقاندىن كېيىن ئاندىن كېرىڭ."
 
 #: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:178
-#: libraries/classes/Rte/Routines.php:1485 libraries/classes/Sql.php:1419
+#: libraries/classes/Rte/Routines.php:1485 libraries/classes/Sql.php:1424
 #: tbl_get_field.php:50
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/classes/Import.php:290 libraries/classes/Sql.php:1433
+#: libraries/classes/Import.php:290 libraries/classes/Sql.php:1438
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -8077,10 +8088,10 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
 #: libraries/classes/Rte/Routines.php:946
-#: templates/table/structure/row_stats_table.twig:19
-#: templates/table/search/options.twig:1 templates/console/display.twig:7
-#: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
+#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/table/structure/row_stats_table.twig:19
+#: templates/table/search/options.twig:1
 msgid "Options"
 msgstr ""
 
@@ -8142,11 +8153,11 @@ msgstr "تۈپ سان"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/columns_definitions/partitions.twig:85
-#: templates/database/structure/table_header.twig:48
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/structure/display_partitions.twig:31
+#: templates/database/structure/table_header.twig:48
+#: templates/columns_definitions/partitions.twig:85
 msgid "Comment"
 msgstr "ئىزاھات"
 
@@ -8195,8 +8206,9 @@ msgstr ""
 msgid "The directory you set for upload work cannot be reached."
 msgstr "كۆرسىتىلگەن مۇندەرىجىگە يۈكلىيەلمىدى."
 
-#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1501
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "ياكى"
 
@@ -8206,79 +8218,79 @@ msgstr "ياكى"
 msgid "web server upload directory:"
 msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 
-#: libraries/classes/InsertEdit.php:1707
+#: libraries/classes/InsertEdit.php:1704
 #: templates/table/search/input_box.twig:38
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "قىستۇرۇش"
 
-#: libraries/classes/InsertEdit.php:1774
+#: libraries/classes/InsertEdit.php:1771
 msgid "and then"
 msgstr "كېيىن"
 
-#: libraries/classes/InsertEdit.php:1812
+#: libraries/classes/InsertEdit.php:1809
 msgid "Insert as new row"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1815
+#: libraries/classes/InsertEdit.php:1812
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1818
+#: libraries/classes/InsertEdit.php:1815
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1838
+#: libraries/classes/InsertEdit.php:1835
 msgid "Go back to previous page"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1841
+#: libraries/classes/InsertEdit.php:1838
 msgid "Insert another new row"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1846
+#: libraries/classes/InsertEdit.php:1843
 msgid "Go back to this page"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1869
+#: libraries/classes/InsertEdit.php:1866
 msgid "Edit next row"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1889
+#: libraries/classes/InsertEdit.php:1886
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1927
+#: libraries/classes/InsertEdit.php:1924
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1627
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/server/variables/variable_table_head.twig:5
-#: templates/database/designer/having_query_panel.twig:100
-#: templates/database/designer/where_query_panel.twig:69
-#: templates/table/search/zoom_result_form.twig:36
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
+#: templates/database/designer/where_query_panel.twig:69
+#: templates/table/search/zoom_result_form.twig:36
 #: templates/table/search/table_header.twig:10
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/server/variables/variable_table_head.twig:5
 msgid "Value"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2297 libraries/classes/Sql.php:1416
+#: libraries/classes/InsertEdit.php:2294 libraries/classes/Sql.php:1421
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2322 libraries/classes/Sql.php:1394
+#: libraries/classes/InsertEdit.php:2319 libraries/classes/Sql.php:1399
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:915
+#: libraries/classes/LanguageManager.php:922
 msgid "Ignoring unsupported language code."
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:942
-#: libraries/classes/LanguageManager.php:943 setup/frames/index.inc.php:63
+#: libraries/classes/LanguageManager.php:949
+#: libraries/classes/LanguageManager.php:950 setup/frames/index.inc.php:63
 msgid "Language"
 msgstr "تىلى"
 
@@ -8311,8 +8323,8 @@ msgstr ""
 #: libraries/classes/Util.php:3316 libraries/classes/Util.php:3317
 #: libraries/classes/Util.php:3994 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/table/structure/check_all_table_column.twig:8
 #: templates/database/search/results.twig:34
+#: templates/table/structure/check_all_table_column.twig:8
 msgid "Browse"
 msgstr "كۆزەت"
 
@@ -8417,10 +8429,9 @@ msgid "Binary log"
 msgstr ""
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
-#: libraries/classes/Util.php:3971
-#: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
+#: libraries/classes/Util.php:3971 templates/server/sub_page_header.twig:2
 #: templates/database/structure/body_for_table_summary.twig:11
+#: templates/database/structure/table_header.twig:10
 msgid "Replication"
 msgstr "كۆچۈرۈش"
 
@@ -8559,8 +8570,8 @@ msgstr "قاراش"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tracked_tables.twig:17
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "كۆرسىتىش"
 
@@ -9153,8 +9164,8 @@ msgid "Flush the table (FLUSH)"
 msgstr ""
 
 #: libraries/classes/Operations.php:1470
-#: templates/database/structure/check_all_tables.twig:22
 #: templates/table/structure/display_table_stats.twig:61
+#: templates/database/structure/check_all_tables.twig:22
 msgid "Optimize table"
 msgstr "جەدۋەلنى ئەلالاش"
 
@@ -9376,8 +9387,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
-#: templates/display/import/import.twig:168
 #: templates/display/export/format_dropdown.twig:2
+#: templates/display/import/import.twig:168
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
@@ -10119,8 +10130,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr ""
 
@@ -10770,8 +10781,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:389
-#: templates/database/search/selection_form.twig:35
 #: templates/display/export/select_options.twig:8
+#: templates/database/search/selection_form.twig:35
 #, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
@@ -13151,93 +13162,93 @@ msgstr "ساندان"
 msgid "Table-level tabs"
 msgstr "جەدۋەل ئىزاھى"
 
-#: libraries/classes/Sql.php:261 libraries/classes/Util.php:1145
+#: libraries/classes/Sql.php:266 libraries/classes/Util.php:1145
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Profiling"
 msgstr "ئاساسىي مەزمۇن"
 
-#: libraries/classes/Sql.php:264
+#: libraries/classes/Sql.php:269
 #, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
 msgstr "سانلىق مەلۇمات ھۆججىتىنىڭ ئېشىش چوڭ-كىچىكلىكى"
 
-#: libraries/classes/Sql.php:269 libraries/classes/Sql.php:285
+#: libraries/classes/Sql.php:274 libraries/classes/Sql.php:290
 #, fuzzy
 #| msgid "Sat"
 msgid "State"
 msgstr "شەنبە"
 
-#: libraries/classes/Sql.php:282
+#: libraries/classes/Sql.php:287
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/classes/Sql.php:288
+#: libraries/classes/Sql.php:293
 #, fuzzy
 #| msgid "Total"
 msgid "Total Time"
 msgstr "يىغىندىسى"
 
-#: libraries/classes/Sql.php:290
+#: libraries/classes/Sql.php:295
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "ۋاقىت"
 
-#: libraries/classes/Sql.php:292
+#: libraries/classes/Sql.php:297
 msgid "Calls"
 msgstr ""
 
-#: libraries/classes/Sql.php:294
+#: libraries/classes/Sql.php:299
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "ۋاقىت"
 
-#: libraries/classes/Sql.php:599 libraries/classes/Sql.php:617
+#: libraries/classes/Sql.php:604 libraries/classes/Sql.php:622
 msgid "Bookmark this SQL query"
 msgstr ""
 
-#: libraries/classes/Sql.php:603
+#: libraries/classes/Sql.php:608
 #, fuzzy
 #| msgid "Label key"
 msgid "Label:"
 msgstr "ئاچقۇچلۇق ئېمزا"
 
-#: libraries/classes/Sql.php:610 libraries/classes/SqlQueryForm.php:316
+#: libraries/classes/Sql.php:615 libraries/classes/SqlQueryForm.php:316
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/classes/Sql.php:826
+#: libraries/classes/Sql.php:831
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "قۇرۇلغان خەتكۈچ %s"
 
-#: libraries/classes/Sql.php:936
+#: libraries/classes/Sql.php:941
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:1413
+#: libraries/classes/Sql.php:1418
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/classes/Sql.php:1788
+#: libraries/classes/Sql.php:1793
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1802
+#: libraries/classes/Sql.php:1807
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1844
+#: libraries/classes/Sql.php:1849
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -14554,17 +14565,38 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr ""
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr ""
 
-#: templates/database/designer/new_relation_panel.twig:22
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr ""
+
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr ""
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr ""
+
+#: templates/database/designer/page_save_as.twig:17
 #, fuzzy
-#| msgid "Create version"
-msgid "Create relationship"
-msgstr "نەشىرنى قۇىماق"
+#| msgid "Invalid table name"
+msgid "Save to selected page"
+msgstr "ئۈنۈمسىز جەدۋەل ئىسمى"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr ""
+
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "Keyname"
+msgid "New page name"
+msgstr "قىممەت ئىسمى"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
@@ -14614,285 +14646,10 @@ msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 msgid "New column name"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Show/hide columns"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Databases"
-msgid "See table structure"
-msgstr "ساندان"
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:26
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save output to a file"
-msgstr "ھۆججەتنى باشقا ساقلاش"
-
-#: templates/display/export/options_output.twig:51
+#: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
-msgid "Skip tables larger than %s MiB"
+msgid "Continue insertion with %s rows"
 msgstr ""
-
-#: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export"
-msgid "Export method:"
-msgstr "چىقىرىش"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr ""
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "سانداندىن ئىزدەش"
-
-#: templates/database/search/selection_form.twig:8
-#, fuzzy
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "ئىزدەشكە تىگىشلىك خەت ياكى قىقىممىتى(دەرىجىسى:«%»"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "تاپقىنى:"
-
-#: templates/database/search/selection_form.twig:29
-#, fuzzy
-#| msgid "Inside table(s):"
-msgid "Inside tables:"
-msgstr "تۆۋەندىكى جەدۋەل(لەر): "
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "ئىچىدىكى سۆزلەم:"
-
-#: templates/display/export/option_header.twig:5
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "Exporting databases from the current server"
-msgstr "MySQL مۇلازىمىتېرىغا ئۇلىنالمىدى."
-
-#: templates/display/export/option_header.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting tables from \"%s\" database"
-msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
-
-#: templates/display/export/option_header.twig:9
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting rows from \"%s\" table"
-msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
-
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
-msgid "Jump to database '%s'"
-msgstr "ساندان \"%s\" .غا ئۆتۈش."
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr ""
-
-#: templates/server/databases/table_row.twig:62
-#, fuzzy
-#| msgid "Privileges"
-msgid "Check privileges"
-msgstr "ھۇقۇقى"
-
-#: templates/database/designer/rename_to_panel.twig:22
-#: templates/database/designer/options_panel.twig:84
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Rename to"
-msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
-
-#: templates/database/designer/rename_to_panel.twig:30
-#: templates/database/designer/options_panel.twig:90
-#, fuzzy
-#| msgid "Keyname"
-msgid "New name"
-msgstr "قىممەت ئىسمى"
-
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/database/designer/where_query_panel.twig:30
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/aggregate_query_panel.twig:30
-msgid "Operator"
-msgstr ""
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/where_query_panel.twig:59
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#, fuzzy
-#| msgid "Export"
-msgid "Except"
-msgstr "چىقىرىش"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/where_query_panel.twig:71
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#, fuzzy
-#| msgid "Query"
-msgid "subquery"
-msgstr "تەكشۈرۈش"
-
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "پىرىسلاش"
-
-#: templates/table/structure/display_structure.twig:137
-#: templates/view_create.twig:13
-#, fuzzy
-#| msgid "Print view"
-msgid "Edit view"
-msgstr "بېسىپ كۆرسىتىش"
-
-#: templates/table/structure/display_structure.twig:191
-#: templates/table/structure/display_partitions.twig:4
-#, fuzzy
-#| msgid "Relations"
-msgid "Partitions"
-msgstr "مۇناسىۋىتى"
-
-#: templates/table/structure/move_columns_dialog.twig:1
-#: templates/table/structure/optional_action_links.twig:19
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Move columns"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/table/structure/move_columns_dialog.twig:2
-msgid "Move the columns by dragging them up and down."
-msgstr ""
-
-#: templates/table/structure/table_structure_row.twig:34
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr ""
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr ""
-
-#: templates/table/structure/check_all_table_column.twig:76
-#: templates/table/structure/actions_in_table_structure.twig:131
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Add to central columns"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/table/structure/check_all_table_column.twig:83
-#: templates/table/structure/actions_in_table_structure.twig:127
-#, fuzzy
-#| msgid "Remove database"
-msgid "Remove from central columns"
-msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
-
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr ""
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr ""
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Routines"
-msgid "Add to Favorites"
-msgstr "دائىملىق"
-
-#: templates/table/structure/partition_definition_form.twig:6
-#: templates/table/structure/display_partitions.twig:141
-#, fuzzy
-#| msgid "Print view"
-msgid "Edit partitioning"
-msgstr "بېسىپ كۆرسىتىش"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Create"
-msgid "Page to open"
-msgstr "قۇرۇش"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Page to delete"
-msgstr ".باغلانمىلار ئۆچۈرۈلدى"
-
-#: templates/table/structure/actions_in_table_structure.twig:15
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr ""
-
-#: templates/table/structure/actions_in_table_structure.twig:33
-#: templates/table/structure/actions_in_table_structure.twig:51
-#: templates/table/structure/actions_in_table_structure.twig:80
-#: templates/table/structure/actions_in_table_structure.twig:103
-#, php-format
-msgid "An index has been added on %s."
-msgstr ""
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr ""
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr ""
-
-#: templates/server/plugins/section.twig:23
-#, fuzzy
-#| msgid "Disabled"
-msgid "disabled"
-msgstr "تاقالدى"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "ئالدىن كۆرگىنى بولمايدۇ."
-
-#: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "ئېلىش"
 
 #: templates/table/relation/common_form.twig:6
 #, fuzzy
@@ -14958,733 +14715,39 @@ msgstr ""
 msgid "Choose column to display:"
 msgstr "سۆزلەمنى كۆرسەتمەسلىك"
 
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-msgctxt "Number"
-msgid "#"
-msgstr ""
-
-#: templates/privileges/add_privileges_database.twig:1
-msgid "Add privileges on the following database(s):"
-msgstr ""
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "مۇلازىمىتېرنىڭ  %s مۇندەرىجىسىدە ساقلاش"
-
 #: templates/privileges/add_privileges_table.twig:3
 msgid "Add privileges on the following table:"
 msgstr ""
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr ""
+#: templates/table/structure/display_structure.twig:137
+#: templates/view_create.twig:13
+#, fuzzy
+#| msgid "Print view"
+msgid "Edit view"
+msgstr "بېسىپ كۆرسىتىش"
 
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr ""
-
-#: templates/columns_definitions/partitions.twig:17
+#: templates/table/structure/display_structure.twig:191
+#: templates/table/structure/display_partitions.twig:4
 #, fuzzy
 #| msgid "Relations"
-msgid "Partition by:"
+msgid "Partitions"
 msgstr "مۇناسىۋىتى"
 
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
+#: templates/display/export/options_output_format.twig:3
 #, fuzzy
-#| msgid "Number of columns"
-msgid "Expression or column list"
-msgstr "سۆزلەم سانى"
+#| msgid "File name template"
+msgid "File name template:"
+msgstr "ھۆججەت ئېتى ئەندىزىسى"
 
-#: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Relations"
-msgid "Partitions:"
-msgstr "مۇناسىۋىتى"
-
-#: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Relations"
-msgid "Subpartition by:"
-msgstr "مۇناسىۋىتى"
-
-#: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Relations"
-msgid "Subpartitions:"
-msgstr "مۇناسىۋىتى"
-
-#: templates/columns_definitions/partitions.twig:76
-#: templates/table/structure/display_partitions.twig:24
-#, fuzzy
-#| msgid "Relations"
-msgid "Partition"
-msgstr "مۇناسىۋىتى"
-
-#: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Use this value"
-msgid "Values"
-msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
-
-#: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Relations"
-msgid "Subpartition"
-msgstr "مۇناسىۋىتى"
-
-#: templates/columns_definitions/partitions.twig:84
-msgid "Engine"
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
 msgstr ""
 
-#: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data Dictionary"
-msgid "Data directory"
-msgstr "مەلۇمات لۇغىتى"
-
-#: templates/columns_definitions/partitions.twig:87
-msgid "Index directory"
-msgstr ""
-
-#: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Latched pages"
-msgid "Max rows"
-msgstr "قۇلۇپلانغان بەت"
-
-#: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
-msgid "Min rows"
-msgstr "كۆزەت"
-
-#: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Search"
-msgid "Table space"
-msgstr "ئىزدەش"
-
-#: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "Add %s"
-msgid "Node group"
-msgstr "قوشۇلغىنى %s"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "مەزمۇن بارلارنى تاللاش"
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
-msgid "Copy table"
-msgstr "%s جەدۋەل"
-
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "رەڭنى كۆرسىتىش"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:27
-#, fuzzy
-#| msgid "Repair table"
-msgid "Replace table prefix"
-msgstr "جەدۋەلنى ئوڭشاش"
-
-#: templates/database/structure/check_all_tables.twig:33
+#: templates/database/central_columns/add_column.twig:13
 #, fuzzy
 #| msgid "Add/Delete columns"
-msgid "Add columns to central list"
+msgid "Select a column."
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Make consistent with central list"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-#, fuzzy
-#| msgid "Query"
-msgid "Requery"
-msgstr "تەكشۈرۈش"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr ""
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "بىتەرەپ قىلىنىۋاتىدۇ، ساقلاڭ."
-
-#: templates/display/import/javascript.twig:36
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Uploading your import file…"
-msgstr "كىرگۈزگەن ھۆججەت شەكلى"
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr "يوللىنىۋاتىدۇ،تەپسىلىي ئۇچۇرى يوق،ساقلاڭ."
-
-#: templates/toggle_button.twig:3
-#, fuzzy
-#| msgid "Click to select"
-msgid "Click to toggle"
-msgstr "بىر چىكىپ تاللاڭ"
-
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:76
-#: templates/database/structure/table_header.twig:53
-msgid "Creation"
-msgstr "قۇرۇش"
-
-#: templates/table/structure/row_stats_table.twig:83
-#: templates/database/structure/table_header.twig:58
-msgid "Last update"
-msgstr "ئاخىرقى يېڭلىنىش"
-
-#: templates/table/structure/row_stats_table.twig:90
-#: templates/database/structure/table_header.twig:63
-msgid "Last check"
-msgstr "ئاخىرقى تەكشۈرۈش"
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr ""
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
-
-#: templates/table/search/rows_zoom.twig:12
-#, fuzzy
-#| msgid "SQL query"
-msgid "Additional search criteria"
-msgstr "SQL سورىقى"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Confirm disabling two-factor authentication"
-msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Disable two-factor authentication"
-msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr ""
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-
-#: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Indexes"
-msgid "Index choice:"
-msgstr "تېزىسلار"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Action"
-msgid "Advanced Options"
-msgstr "ئامال"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr ""
-
-#: templates/table/index_form.twig:77
-#, fuzzy
-#| msgid "Username:"
-msgid "Parser:"
-msgstr "ئابۇنىت ئىسمى:"
-
-#: templates/table/index_form.twig:93
-#, fuzzy
-#| msgid "Comment"
-msgid "Comment:"
-msgstr "ئىزاھات"
-
-#: templates/table/index_form.twig:118
-#: templates/database/structure/table_header.twig:38
-msgid "Size"
-msgstr "ھەجىم"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr ""
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr ""
-
-#: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "ئېنىقسىزلىك بولۇشى مۇمكىن. [doc@faq3-11]FAQ 3.11[/doc] غا قاراڭ."
-
-#: templates/display/export/options_output_radio.twig:5
-#, fuzzy
-#| msgid "Save as file"
-msgid "View output as text"
-msgstr "ھۆججەتنى باشقا ساقلاش"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:21
-#: templates/login/twofactor/application.twig:2
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Authentication code:"
-msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Relationship operator"
-msgstr ".باغلانمىلار ئۆچۈرۈلدى"
-
-#: templates/database/designer/options_panel.twig:99
-#: templates/database/designer/aggregate_query_panel.twig:22
-#, fuzzy
-#| msgid "Create"
-msgid "Aggregate"
-msgstr "قۇرۇش"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "ئىزلانمىغان جەدۋەللەر"
-
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-#: templates/table/structure/optional_action_links.twig:15
-msgid "Track table"
-msgstr "جەدۋەل ئىزلاش"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr ""
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-msgid "Create table"
-msgstr ""
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "سۆزلەم سانى"
-
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-#, fuzzy
-#| msgid "Search"
-msgid "Enable statistics"
-msgstr "ئىزدەش"
-
-#: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "With selected:"
-msgid "Remove selected user accounts"
-msgstr "تاللانغىنى:"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr ""
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr ""
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr ""
-
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-#, fuzzy
-#| msgid "Number of columns"
-msgid "Number of rows:"
-msgstr "سۆزلەم سانى"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr ""
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "ساندان"
-
-#: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relations"
-msgid "Relation view"
-msgstr "مۇناسىۋىتى"
-
-#: templates/privileges/add_privileges_routine.twig:3
-msgid "Add privileges on the following routine:"
-msgstr ""
-
-#: templates/table/tracking/activate_deactivate.twig:7
-#, php-format
-msgid "Activate tracking for %s"
-msgstr ""
-
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr ""
-
-#: templates/table/tracking/activate_deactivate.twig:11
-#, fuzzy, php-format
-#| msgid "Deactivate now"
-msgid "Deactivate tracking for %s"
-msgstr "دەرھال ئىشلىتىشنى توختۇتۇڭ"
-
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
-msgstr "دەرھال ئىشلىتىشنى توختۇتۇڭ"
-
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Delete tracking data for this table"
-msgid "Delete relationship"
-msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Label column"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Log file count"
-msgid "Spatial column"
-msgstr "كۈندىلىك ھۆججەت ئۇمۇمىي سانى"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Move column"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Action"
-msgid "Input transformation options"
-msgstr "ئامال"
-
-#: templates/database/designer/query_details.twig:6
-#, fuzzy
-#| msgid "Action"
-msgid "Active options"
-msgstr "ئامال"
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "ئىشلىتىلمەكتە"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr ""
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr ""
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Continued table caption"
-msgid "Character sets and collations"
-msgstr "داۋاملاشتۇرىدىغان جەدېۋەلنىڭ تىمىسى"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr ""
-
-#: templates/table/structure/add_column.twig:9
-#, php-format
-msgid "Add %s column(s)"
-msgstr ""
-
-#: templates/table/structure/add_column.twig:14
-#, fuzzy
-#| msgid "Show dimension of tables"
-msgid "at beginning of table"
-msgstr "جەدېۋەلنىڭ چوڭ-كىچىكلىكىنى كۆرسىتىش"
-
-#: templates/table/structure/add_column.twig:19
-#: templates/columns_definitions/move_column.twig:12
-#, php-format
-msgid "after %s"
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
-msgid "Referenced by %s."
-msgstr "سېرتقى ئۇلىنىشنى تاللاش"
-
-#: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
-msgid "Is a foreign key."
-msgstr "تاشقى ئاچقۇق قىممىتى"
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove database"
-msgid "Pick from Central Columns"
-msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:15
 #, fuzzy
@@ -15794,147 +14857,187 @@ msgstr "سۆزلەم سانى"
 msgid "Save chart as image"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
-#: templates/display/export/options_output_compression.twig:4
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr ""
+
+#: templates/database/designer/table_list.twig:14
 #, fuzzy
-#| msgid "Compression"
-msgid "Compression:"
-msgstr "پىرىسلاش"
+#| msgid "Include table caption"
+msgid "Hide/Show tables with no relationship"
+msgstr "ئۆزئىچىگە ئالغان جەدېۋەلنىڭ تىمىسى"
 
-#: templates/display/export/options_output_compression.twig:11
+#: templates/database/designer/table_list.twig:55
 #, fuzzy
-#| msgid "\"zipped\""
-msgid "zipped"
-msgstr "zipپىرىسلاش"
+#| msgid "Number of columns"
+msgid "Number of tables:"
+msgstr "سۆزلەم سانى"
 
-#: templates/display/export/options_output_compression.twig:17
+#: templates/database/create_table.twig:7
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+msgid "Create table"
+msgstr ""
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "سۆزلەم سانى"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr ""
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr ""
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr ""
+
+#: templates/display/results/options_block.twig:30
 #, fuzzy
-#| msgid "\"gzipped\""
-msgid "gzipped"
-msgstr "gzipپىرىسلاش"
+#| msgid "Display PDF schema"
+msgid "Display column for relationships"
+msgstr "PDF تىزىىسىنى كۆرسىتىش"
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "ھۆججەتنىڭ ھەرىپ-بەلگە توپلىمى"
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
 msgstr ""
 
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
 msgstr ""
 
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
 msgstr ""
 
-#: templates/table/search/options.twig:45
-msgid "Display order:"
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
 msgstr ""
 
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "نەشىرنى قۇىماق"
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr ""
 
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "ئالدىن كۆرگىنى بولمايدۇ."
+
+#: templates/theme_preview.twig:13
 #, fuzzy
-#| msgid "Show dimension of tables"
-msgid "Show/Hide tables list"
-msgstr "جەدېۋەلنىڭ چوڭ-كىچىكلىكىنى كۆرسىتىش"
+#| msgid "take it"
+msgid "Take it"
+msgstr "ئېلىش"
 
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
 msgstr ""
 
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
+#: templates/start_and_number_of_rows_panel.twig:3
 #, fuzzy
-#| msgid "Keyname"
-msgid "New page"
-msgstr "قىممەت ئىسمى"
+#| msgid "Sort"
+msgid "Start row:"
+msgstr "تۈرلەش"
 
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
 #, fuzzy
-#| msgid "Select All"
-msgid "Delete pages"
-msgstr "ھەممىنى تاللاش"
+#| msgid "Number of columns"
+msgid "Number of rows:"
+msgstr "سۆزلەم سانى"
 
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-msgid "Toggle relationship lines"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
+#: templates/database/designer/delete_relation_panel.twig:21
 #, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "چىقىرىش"
+#| msgid "Delete tracking data for this table"
+msgid "Delete relationship"
+msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
 
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-#, fuzzy
-#| msgid "Submit Query"
-msgid "Build Query"
-msgstr "تاپشۇرۇش"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
+#: templates/display/export/options_output.twig:2
+#: templates/display/export/options_quick_export.twig:2
+msgid "Output:"
 msgstr ""
 
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
+#: templates/display/export/options_output.twig:26
 #, fuzzy
-#| msgid "Partial import"
-msgid "Pin text"
-msgstr "بۆلۈپ كىرگۈزىش"
+#| msgid "Save as file"
+msgid "Save output to a file"
+msgstr "ھۆججەتنى باشقا ساقلاش"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr ""
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Configure two-factor authentication"
+msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
+
+#: templates/prefs_twofactor_configure.twig:8
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Enable two-factor authentication"
+msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
+
+#: templates/prefs_twofactor_confirm.twig:2
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Confirm disabling two-factor authentication"
+msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Disable two-factor authentication"
+msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
+
+#: templates/prefs_twofactor.twig:3
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Two-factor authentication status"
+msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr ""
 
 #: templates/console/display.twig:7
 #, fuzzy
@@ -15959,6 +15062,23 @@ msgstr "ھەممىنى تاللاش"
 #| msgid "Select All"
 msgid "Press Enter to execute query"
 msgstr "ھەممىنى تاللاش"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Collapse"
+msgstr ""
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Expand"
+msgstr ""
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
+#, fuzzy
+#| msgid "Query"
+msgid "Requery"
+msgstr "تەكشۈرۈش"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #, fuzzy
@@ -16075,6 +15195,1290 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "رەت قوشۇش\\ئۆچۈرۈش"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/privileges/add_privileges_routine.twig:3
+msgid "Add privileges on the following routine:"
+msgstr ""
+
+#: templates/display/export/options_output_compression.twig:4
+#, fuzzy
+#| msgid "Compression"
+msgid "Compression:"
+msgstr "پىرىسلاش"
+
+#: templates/display/export/options_output_compression.twig:11
+#, fuzzy
+#| msgid "\"zipped\""
+msgid "zipped"
+msgstr "zipپىرىسلاش"
+
+#: templates/display/export/options_output_compression.twig:17
+#, fuzzy
+#| msgid "\"gzipped\""
+msgid "gzipped"
+msgstr "gzipپىرىسلاش"
+
+#: templates/display/export/options_rows.twig:2
+#, fuzzy
+#| msgid "Rows"
+msgid "Rows:"
+msgstr "سەپ سانى"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+#| msgid "Routines"
+msgid "Add to Favorites"
+msgstr "دائىملىق"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Relationship operator"
+msgstr ".باغلانمىلار ئۆچۈرۈلدى"
+
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/having_query_panel.twig:90
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "چىقىرىش"
+
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/having_query_panel.twig:102
+#, fuzzy
+#| msgid "Query"
+msgid "subquery"
+msgstr "تەكشۈرۈش"
+
+#: templates/database/designer/options_panel.twig:84
+#: templates/database/designer/rename_to_panel.twig:22
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Rename to"
+msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
+
+#: templates/database/designer/options_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:30
+#, fuzzy
+#| msgid "Keyname"
+msgid "New name"
+msgstr "قىممەت ئىسمى"
+
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/aggregate_query_panel.twig:22
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "قۇرۇش"
+
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/where_query_panel.twig:30
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/table/search/table_header.twig:9
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+msgid "Operator"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr ""
+
+#: templates/display/export/options_output_separate_files.twig:7
+#, fuzzy
+#| msgid "Create table on database %s"
+msgid "Export databases as separate files"
+msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
+
+#: templates/display/export/options_output_separate_files.twig:9
+#, fuzzy
+#| msgid "Export"
+msgid "Export tables as separate files"
+msgstr "چىقىرىش"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Add constraints"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "مەجبۇرى قوشۇش"
+
+#: templates/table/relation/foreign_key_row.twig:38
+#, fuzzy
+#| msgid "Routines"
+msgid "Constraint name"
+msgstr "دائىملىق"
+
+#: templates/table/relation/foreign_key_row.twig:90
+#: templates/database/multi_table_query/form.twig:158
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "+ Add column"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, fuzzy, php-format
+#| msgid "Save on server in %s directory"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "مۇلازىمىتېرنىڭ  %s مۇندەرىجىسىدە ساقلاش"
+
+#: templates/display/export/template_options.twig:1
+#, fuzzy
+#| msgid "Select All"
+msgid "Select a template"
+msgstr "ھەممىنى تاللاش"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "ھۆججەتنىڭ ھەرىپ-بەلگە توپلىمى"
+
+#: templates/table/structure/actions_in_table_structure.twig:15
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr ""
+
+#: templates/table/structure/actions_in_table_structure.twig:33
+#: templates/table/structure/actions_in_table_structure.twig:51
+#: templates/table/structure/actions_in_table_structure.twig:80
+#: templates/table/structure/actions_in_table_structure.twig:103
+#, php-format
+msgid "An index has been added on %s."
+msgstr ""
+
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
+#, fuzzy
+#| msgid "Remove database"
+msgid "Remove from central columns"
+msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
+
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Add to central columns"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+
+#: templates/table/structure/table_structure_row.twig:34
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+msgctxt "None for default"
+msgid "None"
+msgstr ""
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr ""
+
+#: templates/display/export/method.twig:3
+#, fuzzy
+#| msgid "Export"
+msgid "Export method:"
+msgstr "چىقىرىش"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "مەزمۇن بارلارنى تاللاش"
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "Copy table"
+msgstr "%s جەدۋەل"
+
+#: templates/database/structure/check_all_tables.twig:11
+#, fuzzy
+#| msgid "Show color"
+msgid "Show create"
+msgstr "رەڭنى كۆرسىتىش"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:27
+#, fuzzy
+#| msgid "Repair table"
+msgid "Replace table prefix"
+msgstr "جەدۋەلنى ئوڭشاش"
+
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Add columns to central list"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Make consistent with central list"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Authentication code:"
+msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/table/structure/add_column.twig:9
+#, php-format
+msgid "Add %s column(s)"
+msgstr ""
+
+#: templates/table/structure/add_column.twig:14
+#, fuzzy
+#| msgid "Show dimension of tables"
+msgid "at beginning of table"
+msgstr "جەدېۋەلنىڭ چوڭ-كىچىكلىكىنى كۆرسىتىش"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr ""
+
+#: templates/database/search/results.twig:12
+#, fuzzy, php-format
+#| msgid "%s match inside table <i>%s</i>"
+#| msgid_plural "%s matches inside table <i>%s</i>"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%s ئۇيغۇنلۇق تىپىلدى، جەدۋىلى <i>%s</i>"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>جەمئىي:</b> <i>%s</i> ئوخشاشلىق"
+
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr ""
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr ""
+
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
+msgstr ""
+
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr ""
+
+#: templates/table/tracking/activate_deactivate.twig:11
+#, fuzzy, php-format
+#| msgid "Deactivate now"
+msgid "Deactivate tracking for %s"
+msgstr "دەرھال ئىشلىتىشنى توختۇتۇڭ"
+
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr "دەرھال ئىشلىتىشنى توختۇتۇڭ"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "سانداندىن ئىزدەش"
+
+#: templates/database/search/selection_form.twig:8
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "ئىزدەشكە تىگىشلىك خەت ياكى قىقىممىتى(دەرىجىسى:«%»"
+
+#: templates/database/search/selection_form.twig:15
+#: templates/table/search/search_and_replace.twig:1
+msgid "Find:"
+msgstr "تاپقىنى:"
+
+#: templates/database/search/selection_form.twig:29
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
+msgstr "تۆۋەندىكى جەدۋەل(لەر): "
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "ئىچىدىكى سۆزلەم:"
+
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+#, fuzzy
+#| msgid "Show dimension of tables"
+msgid "Show/Hide tables list"
+msgstr "جەدېۋەلنىڭ چوڭ-كىچىكلىكىنى كۆرسىتىش"
+
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+#, fuzzy
+#| msgid "Keyname"
+msgid "New page"
+msgstr "قىممەت ئىسمى"
+
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+#, fuzzy
+#| msgid "Select All"
+msgid "Delete pages"
+msgstr "ھەممىنى تاللاش"
+
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+#: templates/database/designer/new_relation_panel.twig:22
+#, fuzzy
+#| msgid "Create version"
+msgid "Create relationship"
+msgstr "نەشىرنى قۇىماق"
+
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+msgid "Toggle relationship lines"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "چىقىرىش"
+
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Build Query"
+msgstr "تاپشۇرۇش"
+
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+#, fuzzy
+#| msgid "Partial import"
+msgid "Pin text"
+msgstr "بۆلۈپ كىرگۈزىش"
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr ""
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr ""
+
+#: templates/server/plugins/section.twig:23
+#, fuzzy
+#| msgid "Disabled"
+msgid "disabled"
+msgstr "تاقالدى"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr ""
+
+#: templates/server/sub_page_header.twig:2
+msgid "Storage engines"
+msgstr ""
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Continued table caption"
+msgid "Character sets and collations"
+msgstr "داۋاملاشتۇرىدىغان جەدېۋەلنىڭ تىمىسى"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr ""
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr ""
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr ""
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s جەدۋەل"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "جەمئىي"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "column(s)"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "تاسقاش"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Creation"
+msgid "Connection:"
+msgstr "قۇرۇش"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:6
+msgid "Propose table structure"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:15
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "جەدۋەل ئىزلاش"
+
+#: templates/table/structure/optional_action_links.twig:19
+#: templates/table/structure/move_columns_dialog.twig:1
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Move columns"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:28
+#, fuzzy
+#| msgid "Track table"
+msgid "Track view"
+msgstr "جەدۋەل ئىزلاش"
+
+#: templates/table/search/search_and_replace.twig:3
+#, fuzzy
+#| msgid "Replace NULL by"
+msgid "Replace with:"
+msgstr "نى ئالماشتۇرۇش ئۈچۈنNULL "
+
+#: templates/table/search/search_and_replace.twig:19
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "مۇنتىزىم ئىپادە"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr ""
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr ""
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+#, fuzzy
+#| msgid "Create new database"
+msgid "Create database"
+msgstr "ساندان قۇرۇش"
+
+#: templates/server/databases/create.twig:30
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "قۇرۇش"
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+#, fuzzy
+#| msgid "Print view"
+msgid "Edit partitioning"
+msgstr "بېسىپ كۆرسىتىش"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "ئىزلانغان جەدۋەل"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "ېيڭى نەشىر"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+#, fuzzy
+#| msgid "Delete tracking data for this table"
+msgid "Delete tracking"
+msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "نەشىر"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Move column"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+#, fuzzy
+#| msgid "Action"
+msgid "Input transformation options"
+msgstr "ئامال"
+
+#: templates/table/structure/move_columns_dialog.twig:2
+msgid "Move the columns by dragging them up and down."
+msgstr ""
+
+#: templates/display/export/options_output_radio.twig:5
+#, fuzzy
+#| msgid "Save as file"
+msgid "View output as text"
+msgstr "ھۆججەتنى باشقا ساقلاش"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+msgctxt "Number"
+msgid "#"
+msgstr ""
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr ""
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+
+#: templates/table/index_form.twig:34
+#, fuzzy
+#| msgid "Indexes"
+msgid "Index choice:"
+msgstr "تېزىسلار"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Action"
+msgid "Advanced Options"
+msgstr "ئامال"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr ""
+
+#: templates/table/index_form.twig:77
+#, fuzzy
+#| msgid "Username:"
+msgid "Parser:"
+msgstr "ئابۇنىت ئىسمى:"
+
+#: templates/table/index_form.twig:93
+#, fuzzy
+#| msgid "Comment"
+msgid "Comment:"
+msgstr "ئىزاھات"
+
+#: templates/table/index_form.twig:118
+#: templates/database/structure/table_header.twig:38
+msgid "Size"
+msgstr "ھەجىم"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "index قىممىتى بەلگىلەنمىگەن!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:24
+#: templates/columns_definitions/partitions.twig:76
+#, fuzzy
+#| msgid "Relations"
+msgid "Partition"
+msgstr "مۇناسىۋىتى"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:29
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "پىرىسلاش"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Data length"
+msgstr "قۇر ئالماشۇرۇش بەلگىسى"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Indexes"
+msgid "Index length"
+msgstr "تېزىسلار"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "Relations"
+msgid "Partition table"
+msgstr "مۇناسىۋىتى"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "بىتەرەپ قىلىنىۋاتىدۇ، ساقلاڭ."
+
+#: templates/display/import/javascript.twig:36
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Uploading your import file…"
+msgstr "كىرگۈزگەن ھۆججەت شەكلى"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr "يوللىنىۋاتىدۇ،تەپسىلىي ئۇچۇرى يوق،ساقلاڭ."
+
+#: templates/database/structure/table_header.twig:27
+#, fuzzy
+#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr "ئېنىقسىزلىك بولۇشى مۇمكىن. [doc@faq3-11]FAQ 3.11[/doc] غا قاراڭ."
+
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "قۇرۇش"
+
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "ئاخىرقى يېڭلىنىش"
+
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "ئاخىرقى تەكشۈرۈش"
+
+#: templates/display/export/options_format.twig:2
+#: templates/display/import/import.twig:174
+msgid "Format-specific options:"
+msgstr ""
+
+#: templates/display/export/options_format.twig:4
+#: templates/display/import/import.twig:176
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+
+#: templates/display/export/options_format.twig:12
+#: templates/display/import/import.twig:185
+msgid "Encoding Conversion:"
+msgstr ""
+
+#: templates/display/export/option_header.twig:5
+#, fuzzy
+#| msgid "Cannot log in to the MySQL server"
+msgid "Exporting databases from the current server"
+msgstr "MySQL مۇلازىمىتېرىغا ئۇلىنالمىدى."
+
+#: templates/display/export/option_header.twig:7
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
+
+#: templates/display/export/option_header.twig:9
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "نەشىرنى قۇىماق"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr ""
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "ئاكتىپ ئىزلاش."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "ئىزلاش ئاكتىپ ئەمەس."
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+#| msgid "Export"
+msgid "Export templates:"
+msgstr "چىقىرىش"
+
+#: templates/display/export/template_loading.twig:6
+#, fuzzy
+#| msgid "File name template"
+msgid "New template:"
+msgstr "ھۆججەت ئېتى ئەندىزىسى"
+
+#: templates/display/export/template_loading.twig:8
+#, fuzzy
+#| msgid "Keyname"
+msgid "Template name"
+msgstr "قىممەت ئىسمى"
+
+#: templates/display/export/template_loading.twig:16
+#, fuzzy
+#| msgid "File name template"
+msgid "Existing templates:"
+msgstr "ھۆججەت ئېتى ئەندىزىسى"
+
+#: templates/display/export/template_loading.twig:17
+#, fuzzy
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "Template:"
+msgstr "%s جەدۋەل"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgid "Updated"
+msgid "Update"
+msgstr "يېڭلاش"
+
+#: templates/database/designer/database_tables.twig:31
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Show/hide columns"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/database/designer/database_tables.twig:39
+#, fuzzy
+#| msgid "Databases"
+msgid "See table structure"
+msgstr "ساندان"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/display/export/selection.twig:3
+#, fuzzy
+#| msgid "Databases"
+msgid "Databases:"
+msgstr "ساندان"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
+
+#: templates/table/search/rows_zoom.twig:12
+#, fuzzy
+#| msgid "SQL query"
+msgid "Additional search criteria"
+msgstr "SQL سورىقى"
+
+#: templates/columns_definitions/column_name.twig:4
+#, fuzzy, php-format
+#| msgid "Select referenced key"
+msgid "Referenced by %s."
+msgstr "سېرتقى ئۇلىنىشنى تاللاش"
+
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Select Foreign Key"
+msgid "Is a foreign key."
+msgstr "تاشقى ئاچقۇق قىممىتى"
+
+#: templates/columns_definitions/column_name.twig:40
+#, fuzzy
+#| msgid "Remove database"
+msgid "Pick from Central Columns"
+msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr ""
+
+#: templates/database/designer/query_details.twig:6
+#, fuzzy
+#| msgid "Action"
+msgid "Active options"
+msgstr "ئامال"
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "ئىشلىتىلمەكتە"
+
+#: templates/table/secondary_tabs.twig:9
+#, fuzzy
+#| msgid "Relations"
+msgid "Relation view"
+msgstr "مۇناسىۋىتى"
+
+#: templates/privileges/add_privileges_database.twig:1
+msgid "Add privileges on the following database(s):"
+msgstr ""
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "ئىزلانمىغان جەدۋەللەر"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr ""
+
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Original string"
+msgstr "قۇر ئالماشۇرۇش بەلگىسى"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "مۇناسىۋىتى"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replace NULL by"
+msgid "Replace"
+msgstr "نى ئالماشتۇرۇش ئۈچۈنNULL"
+
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Delete tracking data for this table"
+msgid "Delete settings"
+msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr ""
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "Jump to database \"%s\"."
+msgid "Jump to database '%s'"
+msgstr "ساندان \"%s\" .غا ئۆتۈش."
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr ""
+
+#: templates/server/databases/table_row.twig:62
+#, fuzzy
+#| msgid "Privileges"
+msgid "Check privileges"
+msgstr "ھۇقۇقى"
+
+#: templates/toggle_button.twig:3
+#, fuzzy
+#| msgid "Click to select"
+msgid "Click to toggle"
+msgstr "بىر چىكىپ تاللاڭ"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/database/designer/page_selector.twig:2
+#, fuzzy
+#| msgid "Select All"
+msgid "Select page"
+msgstr "ھەممىنى تاللاش"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/privileges/delete_user_fieldset.twig:3
+#, fuzzy
+#| msgid "With selected:"
+msgid "Remove selected user accounts"
+msgstr "تاللانغىنى:"
+
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr ""
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Label column"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+#, fuzzy
+#| msgid "Log file count"
+msgid "Spatial column"
+msgstr "كۈندىلىك ھۆججەت ئۇمۇمىي سانى"
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:11
+#, fuzzy, php-format
+#| msgid "Create version"
+msgid "Create version %1$s of %2$s"
+msgstr "نەشىرنى قۇىماق"
+
+#: templates/table/tracking/create_version.twig:16
+#, fuzzy, php-format
+#| msgid "Create version"
+msgid "Create version %1$s"
+msgstr "نەشىرنى قۇىماق"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "نەشىرنى قۇىماق"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
+
 #: templates/display/import/import.twig:40
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
@@ -16150,365 +16554,107 @@ msgstr ""
 msgid "Other options:"
 msgstr "ئىشلەملەر"
 
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr ""
-
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr ""
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr ""
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr ""
-
-#: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Include table caption"
-msgid "Hide/Show tables with no relationship"
-msgstr "ئۆزئىچىگە ئالغان جەدېۋەلنىڭ تىمىسى"
-
-#: templates/database/designer/table_list.twig:55
-#, fuzzy
-#| msgid "Number of columns"
-msgid "Number of tables:"
-msgstr "سۆزلەم سانى"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Invalid table name"
-msgid "Save to selected page"
-msgstr "ئۈنۈمسىز جەدۋەل ئىسمى"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr ""
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "Keyname"
-msgid "New page name"
-msgstr "قىممەت ئىسمى"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr ""
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
 #: templates/privileges/column_privileges.twig:21
 #: templates/privileges/column_privileges.twig:22
 msgctxt "None privileges"
 msgid "None"
 msgstr ""
 
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Lines terminated by"
-msgid "Original string"
-msgstr "قۇر ئالماشۇرۇش بەلگىسى"
-
-#: templates/table/search/replace_preview.twig:19
+#: templates/columns_definitions/partitions.twig:17
 #, fuzzy
 #| msgid "Relations"
-msgid "Replaced string"
+msgid "Partition by:"
 msgstr "مۇناسىۋىتى"
 
-#: templates/table/search/replace_preview.twig:37
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
 #, fuzzy
-#| msgid "Replace NULL by"
-msgid "Replace"
-msgstr "نى ئالماشتۇرۇش ئۈچۈنNULL"
+#| msgid "Number of columns"
+msgid "Expression or column list"
+msgstr "سۆزلەم سانى"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
+#: templates/columns_definitions/partitions.twig:37
+#, fuzzy
+#| msgid "Relations"
+msgid "Partitions:"
+msgstr "مۇناسىۋىتى"
+
+#: templates/columns_definitions/partitions.twig:45
+#, fuzzy
+#| msgid "Relations"
+msgid "Subpartition by:"
+msgstr "مۇناسىۋىتى"
+
+#: templates/columns_definitions/partitions.twig:65
+#, fuzzy
+#| msgid "Relations"
+msgid "Subpartitions:"
+msgstr "مۇناسىۋىتى"
+
+#: templates/columns_definitions/partitions.twig:78
+#, fuzzy
+#| msgid "Use this value"
+msgid "Values"
+msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
+
+#: templates/columns_definitions/partitions.twig:82
+#, fuzzy
+#| msgid "Relations"
+msgid "Subpartition"
+msgstr "مۇناسىۋىتى"
+
+#: templates/columns_definitions/partitions.twig:84
+msgid "Engine"
 msgstr ""
 
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "ئاكتىپ ئىزلاش."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "ئىزلاش ئاكتىپ ئەمەس."
-
-#: templates/display/export/template_loading.twig:2
+#: templates/columns_definitions/partitions.twig:86
 #, fuzzy
-#| msgid "Export"
-msgid "Export templates:"
-msgstr "چىقىرىش"
+#| msgid "Data Dictionary"
+msgid "Data directory"
+msgstr "مەلۇمات لۇغىتى"
 
-#: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
-msgid "New template:"
-msgstr "ھۆججەت ئېتى ئەندىزىسى"
-
-#: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Keyname"
-msgid "Template name"
-msgstr "قىممەت ئىسمى"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "قۇرۇش"
-
-#: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template"
-msgid "Existing templates:"
-msgstr "ھۆججەت ئېتى ئەندىزىسى"
-
-#: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
-msgid "Template:"
-msgstr "%s جەدۋەل"
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgid "Updated"
-msgid "Update"
-msgstr "يېڭلاش"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s جەدۋەل"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "جەمئىي"
-
-#: templates/display/export/options_output_format.twig:3
-#, fuzzy
-#| msgid "File name template"
-msgid "File name template:"
-msgstr "ھۆججەت ئېتى ئەندىزىسى"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
+#: templates/columns_definitions/partitions.twig:87
+msgid "Index directory"
 msgstr ""
 
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
+#: templates/columns_definitions/partitions.twig:88
+#, fuzzy
+#| msgid "Latched pages"
+msgid "Max rows"
+msgstr "قۇلۇپلانغان بەت"
+
+#: templates/columns_definitions/partitions.twig:89
+#, fuzzy
+#| msgid "rows"
+msgid "Min rows"
+msgstr "كۆزەت"
+
+#: templates/columns_definitions/partitions.twig:90
+#, fuzzy
+#| msgid "Search"
+msgid "Table space"
+msgstr "ئىزدەش"
+
+#: templates/columns_definitions/partitions.twig:91
+#, fuzzy
+#| msgid "Add %s"
+msgid "Node group"
+msgstr "قوشۇلغىنى %s"
+
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
 msgstr ""
 
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
 msgstr ""
 
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Sort"
-msgid "Start row:"
-msgstr "تۈرلەش"
-
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-#, fuzzy
-#| msgid "Create new database"
-msgid "Create database"
-msgstr "ساندان قۇرۇش"
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Add constraints"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "مەجبۇرى قوشۇش"
-
-#: templates/table/relation/foreign_key_row.twig:38
-#, fuzzy
-#| msgid "Routines"
-msgid "Constraint name"
-msgstr "دائىملىق"
-
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "+ Add column"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
 msgstr ""
 
-#: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select All"
-msgid "Select a template"
-msgstr "ھەممىنى تاللاش"
-
-#: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match inside table <i>%s</i>"
-#| msgid_plural "%s matches inside table <i>%s</i>"
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s ئۇيغۇنلۇق تىپىلدى، جەدۋىلى <i>%s</i>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>جەمئىي:</b> <i>%s</i> ئوخشاشلىق"
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "رەت قوشۇش\\ئۆچۈرۈش"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr ""
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Configure two-factor authentication"
-msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Enable two-factor authentication"
-msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
-
-#: templates/database/central_columns/add_column.twig:13
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Select a column."
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/table/tracking/create_version.twig:11
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s of %2$s"
-msgstr "نەشىرنى قۇىماق"
-
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s"
-msgstr "نەشىرنى قۇىماق"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "نەشىرنى قۇىماق"
-
-#: templates/table/search/search_and_replace.twig:3
-#, fuzzy
-#| msgid "Replace NULL by"
-msgid "Replace with:"
-msgstr "نى ئالماشتۇرۇش ئۈچۈنNULL "
-
-#: templates/table/search/search_and_replace.twig:19
-#, fuzzy
-#| msgid "as regular expression"
-msgid "Use regular expression"
-msgstr "مۇنتىزىم ئىپادە"
-
-#: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select All"
-msgid "Select page"
-msgstr "ھەممىنى تاللاش"
-
-#: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Two-factor authentication status"
-msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
-
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
+#: templates/table/search/options.twig:45
+msgid "Display order:"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:16
@@ -16581,184 +16727,49 @@ msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 msgid "Update query"
 msgstr "يېڭلاش"
 
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "index قىممىتى بەلگىلەنمىگەن!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
 msgstr ""
 
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Lines terminated by"
-msgid "Data length"
-msgstr "قۇر ئالماشۇرۇش بەلگىسى"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Indexes"
-msgid "Index length"
-msgstr "تېزىسلار"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Relations"
-msgid "Partition table"
-msgstr "مۇناسىۋىتى"
-
-#: templates/login/twofactor/application.twig:4
+#: templates/server/databases/databases_footer.twig:65
 msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr ""
-
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
-msgstr ""
-
-#: templates/table/structure/optional_action_links.twig:28
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
 #, fuzzy
-#| msgid "Track table"
-msgid "Track view"
-msgstr "جەدۋەل ئىزلاش"
+#| msgid "Search"
+msgid "Enable statistics"
+msgstr "ئىزدەش"
 
-#: templates/prefs_autoload.twig:7
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr ""
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr ""
+
+#: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
 msgstr ""
 
-#: templates/prefs_autoload.twig:13
+#: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
-#| msgid "Delete tracking data for this table"
-msgid "Delete settings"
-msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "column(s)"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "تاسقاش"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Creation"
-msgid "Connection:"
+#| msgid "Create"
+msgid "Page to open"
 msgstr "قۇرۇش"
 
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr ""
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr ""
-
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "ئىزلانغان جەدۋەل"
-
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "ېيڭى نەشىر"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
+#: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
-#| msgid "Delete tracking data for this table"
-msgid "Delete tracking"
-msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
-
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "نەشىر"
-
-#: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Create table on database %s"
-msgid "Export databases as separate files"
-msgstr "ساندان %s غا جەدىۋەل قۇرۇش"
-
-#: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "Export"
-msgid "Export tables as separate files"
-msgstr "چىقىرىش"
-
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr ""
-
-#: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Display PDF schema"
-msgid "Display column for relationships"
-msgstr "PDF تىزىىسىنى كۆرسىتىش"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr ""
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr ""
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr ""
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr ""
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:2
-#, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "سەپ سانى"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr ""
+#| msgid "Relation deleted"
+msgid "Page to delete"
+msgstr ".باغلانمىلار ئۆچۈرۈلدى"
 
 #: url.php:41
 #, fuzzy
