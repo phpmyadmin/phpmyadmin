@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:28-0300\n"
-"PO-Revision-Date: 2019-02-26 04:39+0000\n"
+"PO-Revision-Date: 2019-02-27 17:29+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
@@ -8509,12 +8509,12 @@ msgstr "僅資料"
 
 #: libraries/classes/MultSubmits.php:426
 msgid "Add AUTO INCREMENT value"
-msgstr "加入自動遞增 (AUTO INCREMENT) 數值"
+msgstr "加入自動遞增(AUTO INCREMENT)值"
 
 #: libraries/classes/MultSubmits.php:428 libraries/classes/Operations.php:251
 #: libraries/classes/Operations.php:1366
 msgid "Add constraints"
-msgstr "加入限制(Constraint)"
+msgstr "加入限制式"
 
 #: libraries/classes/MultSubmits.php:430 libraries/classes/Operations.php:128
 #: libraries/classes/Operations.php:269 libraries/classes/Operations.php:917
@@ -8614,7 +8614,7 @@ msgstr[0] "找到 %s 筆結果"
 #: libraries/classes/Navigation/NavigationTree.php:1383
 #: libraries/classes/Navigation/NavigationTree.php:1415
 msgid "Type to filter these, Enter to search all"
-msgstr "輸入文字來篩選清單，按下 Enter 來搜尋全部"
+msgstr "輸入文字來篩選清單，按下 Enter 來全部搜尋"
 
 #: libraries/classes/Navigation/NavigationTree.php:1385
 #: libraries/classes/Navigation/NavigationTree.php:1416
@@ -8629,7 +8629,7 @@ msgstr "全部摺疊"
 #: libraries/classes/Navigation/NodeFactory.php:36
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr "類別名稱「%1$s」無效，使用「節點」的預設值"
+msgstr "類別名稱「%1$s」無效，會使用「節點」的預設值"
 
 #: libraries/classes/Navigation/NodeFactory.php:63
 #, php-format
@@ -8638,7 +8638,7 @@ msgstr "無法載入「%1$s」類別"
 
 #: libraries/classes/Navigation/Nodes/Node.php:803
 msgid "Expand/Collapse"
-msgstr "展開/摺疊"
+msgstr "展開／摺疊"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:28
@@ -8727,7 +8727,7 @@ msgstr "新增"
 
 #: libraries/classes/Normalization.php:189
 msgid "Make all columns atomic"
-msgstr "將所有欄位設定為不可分割"
+msgstr "令所有欄位成為不可拆分的單元"
 
 #: libraries/classes/Normalization.php:191
 #: libraries/classes/Normalization.php:894
@@ -8745,9 +8745,7 @@ msgstr "第一步："
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
-msgstr ""
-"是否有任何欄位是可以分割成一個以上的欄位呢？例如：地址可以分割為城市、街道、"
-"郵遞區號等。"
+msgstr "是否有欄位可以拆分呢？例如：地址可以拆分為國家、城市、街道、郵遞區號等。"
 
 #: libraries/classes/Normalization.php:203
 msgid "Show me the central list of columns that are not already in this table"
@@ -8757,7 +8755,7 @@ msgstr "顯示此資料表未有的欄位中央清單"
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
-msgstr "選擇可切割的欄位 (選擇「無此欄位」，將會進行下一步)。"
+msgstr "選擇可拆分的欄位 (選擇「無此欄位」，將會進行下一步)。"
 
 #: libraries/classes/Normalization.php:213 normalization.php:24
 msgid "Select one…"
@@ -8775,11 +8773,11 @@ msgstr "字串"
 
 #: libraries/classes/Normalization.php:221
 msgid "split into "
-msgstr "分割為： "
+msgstr "拆分為： "
 
 #: libraries/classes/Normalization.php:242
 msgid "Have a primary key"
-msgstr "擁有主鍵"
+msgstr "具有主鍵"
 
 #: libraries/classes/Normalization.php:248
 msgid "Primary key already exists."
@@ -8819,9 +8817,7 @@ msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
-msgstr ""
-"是否有欄位可由其他已有的欄位合併組成？舉例，若您有「姓」、「名」與「姓名」欄"
-"位，合併「姓」與「名」便可組成「姓名」，代表「姓名」欄位是冗餘的。"
+msgstr "是否有欄位可由其他已有的欄位合併組成？舉例，若有「姓」、「名」與「姓名」欄位，合併「姓」與「名」便可組成「姓名」，代表「姓名」欄位是冗餘的。"
 
 #: libraries/classes/Normalization.php:301
 msgid ""
@@ -8831,7 +8827,7 @@ msgstr "檢查是否有冗餘的欄位並點選移除。若無冗餘欄位，請
 
 #: libraries/classes/Normalization.php:306
 msgid "Remove selected"
-msgstr "移除已選擇欄位"
+msgstr "移除所選欄位"
 
 #: libraries/classes/Normalization.php:307
 msgid "No redundant column"
@@ -8908,7 +8904,7 @@ msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
-msgstr "於以下欄位，請選擇可足夠用來辨識欄位值的<b>最少</b>欄位值組合。"
+msgstr "於以下欄位，請選擇可足夠用來辨識欄位值的<b>最小</b>欄位組合。"
 
 #: libraries/classes/Normalization.php:429
 #: libraries/classes/Normalization.php:847
@@ -8921,7 +8917,7 @@ msgstr "「%1$s」依存於："
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr "若主鍵 ( %1$s ) 只有一個欄位，不會有部分依存。"
+msgstr "由於主鍵 ( %1$s ) 只有一個欄位，所以不會有部分依存。"
 
 #: libraries/classes/Normalization.php:469
 #, php-format
@@ -8955,7 +8951,7 @@ msgstr "已完成第三正規化。"
 #: libraries/classes/Normalization.php:754
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "選擇的重複群組已經移至「%s」資料表"
+msgstr "所選的重複群組已經移至「%s」資料表"
 
 #: libraries/classes/Normalization.php:805
 msgid "Step 3."
@@ -8985,7 +8981,7 @@ msgstr ""
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
-msgstr "若資料表沒有非主鍵的欄位，不會有遞移依存"
+msgstr "由於資料表沒有非主鍵的欄位，因此不會有遞移依存"
 
 #: libraries/classes/Normalization.php:865
 msgid "Table is already in Third normal form!"
@@ -9017,7 +9013,7 @@ msgstr "提示：請謹慎依照程序，以完成正確的正規化"
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr "此清單依據資料表資料的子集合組成，不需要準確。 "
+msgstr "此清單依據資料表資料的子集合組成，不一定準確。 "
 
 #: libraries/classes/Normalization.php:989
 msgid "No partial dependencies found!"
@@ -9071,7 +9067,7 @@ msgstr "更改所有資料表欄位的編碼與排序"
 
 #: libraries/classes/Operations.php:832
 msgid "Alter table order by"
-msgstr "修改資料表的排序依"
+msgstr "修改資料表的排序，依據："
 
 #: libraries/classes/Operations.php:840
 msgid "(singly)"
@@ -9127,11 +9123,11 @@ msgstr "檢查資料表"
 #: libraries/classes/Operations.php:1480
 #: templates/database/structure/check_all_tables.twig:21
 msgid "Checksum table"
-msgstr "Checksum 資料表"
+msgstr "檢驗碼資料表"
 
 #: libraries/classes/Operations.php:1494
 msgid "Defragment table"
-msgstr "重組(defragment)資料表"
+msgstr "去碎片化資料表"
 
 #: libraries/classes/Operations.php:1506
 #, php-format
@@ -9275,7 +9271,7 @@ msgstr "歡迎使用 %s"
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
-msgstr "可能還沒有建立設定檔案。您可以使用 %1$s 設定指令 %2$s 來建立。"
+msgstr "可能還沒有建立設定檔案。可以使用 %1$s 設定指令 %2$s 來建立。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:127
 msgid ""
@@ -9284,8 +9280,8 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin 曾經嘗試連線到 MySQL 伺服器，但被伺服器拒絕。請檢查設定檔案中的主"
-"機、帳號和密碼，並確認這些資訊與 MySQL 伺服器管理員所提供的資訊一致。"
+"phpMyAdmin 曾經嘗試連線到 MySQL 伺服器，但遭伺服器拒絕。請檢查設定檔案中的主機、帳號和密碼，並確認這些資訊與 MySQL "
+"伺服器管理員所提供的資訊一致。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:155
 msgid "Retry to connect"
@@ -9330,7 +9326,7 @@ msgstr "無權登入此 MySQL 伺服器！"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
-msgstr "帳號/密碼錯誤，拒絕存取。"
+msgstr "帳號／密碼錯誤，存取遭拒。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:85
 msgid "Can not find signon authentication script:"
@@ -9437,7 +9433,7 @@ msgstr "資料"
 #: libraries/config.values.php:331 libraries/config.values.php:339
 #: libraries/config.values.php:344
 msgid "structure and data"
-msgstr "結構與資料"
+msgstr "結構和資料"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:85
 #: libraries/classes/Plugins/Export/ExportLatex.php:167
@@ -9757,9 +9753,7 @@ msgstr ""
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
-msgstr ""
-"傾印二進位欄位時，使用 16 進位(HEX)表示法 <i>(例：\"abc\" 會以 0x616263 表"
-"示)</i>"
+msgstr "傾印二進位欄位時，使用 16 進位(HEX)表示法 <i>(例如 abc 會以 0x616263 表示)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:477
 msgid ""
@@ -9771,7 +9765,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:543
 msgid "It appears your database uses routines;"
-msgstr "資料庫使用了預存程序(routine);"
+msgstr "資料庫使用了預存程序；"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:546
 #: libraries/classes/Plugins/Export/ExportSql.php:1597
@@ -9781,17 +9775,17 @@ msgstr "別名匯出可能無法在所有情況正常運作。"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1033
 msgid "Metadata"
-msgstr "詮釋資料(metadata)"
+msgstr "元資料"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1103
 #, php-format
 msgid "Metadata for table %s"
-msgstr "資料表 %s 的 metadata"
+msgstr "資料表 %s 的元資料"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1110
 #, php-format
 msgid "Metadata for database %s"
-msgstr "資料庫 %s 的 metadata"
+msgstr "資料庫 %s 的元資料"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1440
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:649
@@ -9815,15 +9809,15 @@ msgstr "讀取資料表 %s 的結構時出現錯誤："
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1594
 msgid "It appears your database uses views;"
-msgstr "資料庫使用了檢視表(view);"
+msgstr "資料庫使用了檢視表；"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1770
 msgid "Constraints for dumped tables"
-msgstr "已傾印資料表的限制(constraint)"
+msgstr "已傾印資料表的限制式"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1771
 msgid "Constraints for table"
-msgstr "資料表的限制(constraint)"
+msgstr "資料表的限制式"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1801
 msgid "Indexes for dumped tables"
@@ -9835,11 +9829,11 @@ msgstr "資料表索引"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1835
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "在傾印的資料表使用自動增長(AUTO_INCREMENT)"
+msgstr "在傾印的資料表使用自動遞增(AUTO_INCREMENT)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1836
 msgid "AUTO_INCREMENT for table"
-msgstr "使用資料表自動增長(AUTO_INCREMENT)"
+msgstr "使用資料表自動遞增(AUTO_INCREMENT)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 msgid "MIME TYPES FOR TABLE"
@@ -9851,7 +9845,7 @@ msgstr "資料表的關聯"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2115
 msgid "It appears your table uses triggers;"
-msgstr "資料表使用了觸發(trigger);"
+msgstr "資料表使用了觸發器；"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2152
 #, php-format
@@ -9931,16 +9925,14 @@ msgstr "欄位名稱："
 #: libraries/classes/Plugins/Import/ImportCsv.php:193
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr "匯入 CSV 檔案 %s 時有無效參數"
+msgstr "匯入 CSV 檔案 %s 時，有參數無效"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:246
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
-msgstr ""
-"欄位無效 (%s)！請檢查欄位名稱是否拼寫正確，使用半形逗號分隔，並且不要用引號括"
-"起。"
+msgstr "欄位(%s)無效！請確保欄位名稱拼寫正確，使用半形逗號分隔，並且不要用引號括起。"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:352
 #: libraries/classes/Plugins/Import/ImportCsv.php:743
@@ -9973,11 +9965,11 @@ msgstr "mediawiki 輸入在此行格式錯誤:<br />%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "匯入百分數為小數 <i>(如：12.00% 會匯入為 .12)</i>"
+msgstr "匯入百分數為小數 <i>(例如 12.00% 會匯入為 .12)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:87
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "匯入貨幣 <i>(如：$5.00 會匯入為 5.00)</i>"
+msgstr "匯入貨幣 <i>(例如 $5.00 會匯入為 5.00)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:153
 #: libraries/classes/Plugins/Import/ImportXml.php:112
@@ -10137,11 +10129,9 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"將 TIME、TIMESTAMP、DATETIME 或 UNIX 時間戳記欄位以格式化後的日期顯示。第一個"
-"選項是小時偏移量，該值將會加到時間戳記中 (預設: 0)。第二個選項用於指定時間格"
-"式字元串。第三個選項決定顯示本地時間還是 UTC 時間 (填入 local 或  utc )，所以"
-"填 local (請參考 PHP 的 strftime() 函數檔案) 和 utc (請參考 PHP 的 gmdate() "
-"函數文件) 所得到的結果是不一樣的。"
+"將 TIME、TIMESTAMP、DATETIME 或 UNIX 時間戳記欄位以格式化後的日期顯示。第一個選項是小時偏移量，該值將會加到時間戳記中 "
+"(預設: 0)。第二個選項用於指定時間格式字元串。第三個選項決定顯示本地時間還是 UTC 時間 (填入 local 或 utc )，所以填 local ("
+"請參考 PHP 的 strftime() 函數檔案) 和 utc (請參考 PHP 的 gmdate() 函數文件) 所得到的結果是不一樣的。"
 
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:66
@@ -10470,7 +10460,7 @@ msgstr "配置選單"
 
 #: libraries/classes/Relation.php:333
 msgid "Hide/show navigation items"
-msgstr "隱藏/顯示導覽項目"
+msgstr "隱藏／顯示導覽項目"
 
 #: libraries/classes/Relation.php:344
 msgid "Saving Query-By-Example searches"
@@ -10550,25 +10540,25 @@ msgstr "%s建立%s缺少的 phpMyAdmin 設定儲存空間資料表。"
 #: libraries/classes/ReplicationGui.php:367
 #: templates/server/databases/index.twig:137
 msgid "Master replication"
-msgstr "主要(Master)備援伺服器"
+msgstr "主要備援伺服器"
 
 #: libraries/classes/ReplicationGui.php:74
 msgid "This server is configured as master in a replication process."
-msgstr "此伺服器已設定為備援程序中的主要(master)伺服器。"
+msgstr "此伺服器已設定為備援程序的主要伺服器。"
 
 #: libraries/classes/ReplicationGui.php:77
 #: libraries/classes/Server/Status/Data.php:168
 msgid "Show master status"
-msgstr "顯示主要(master)伺服器狀態"
+msgstr "顯示主要伺服器狀態"
 
 #: libraries/classes/ReplicationGui.php:82
 msgid "Show connected slaves"
-msgstr "顯示已連線的次要(slave)伺服器"
+msgstr "顯示已連線的次要伺服器"
 
 #: libraries/classes/ReplicationGui.php:93
 #: libraries/classes/ReplicationGui.php:734
 msgid "Add slave replication user"
-msgstr "新增次要(slave)備援伺服器使用者"
+msgstr "新增次要備援伺服器使用者"
 
 #: libraries/classes/ReplicationGui.php:115
 msgid "Master configuration"
@@ -10582,9 +10572,7 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"此伺服器尚未設定為備援程序中的主要(master)伺服器。您可以選擇複製所有資料庫，"
-"但忽略一部分 (當要備援大多數資料庫時很有用) 或者僅備援某些資料庫。請選擇模"
-"式："
+"此伺服器尚未設定為備援程序的主要伺服器。您可以選擇複製所有資料庫，但忽略一部分 (當要備援大多數資料庫時很有用) 或者僅備援某些資料庫。請選擇模式："
 
 #: libraries/classes/ReplicationGui.php:126
 msgid "Replicate all databases; Ignore:"
@@ -10618,24 +10606,24 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:169
 #: templates/server/databases/index.twig:141
 msgid "Slave replication"
-msgstr "次要(slave)備援伺服器"
+msgstr "次要備援伺服器"
 
 #: libraries/classes/ReplicationGui.php:177
 msgid "Master connection:"
-msgstr "主要(master)伺服器連線："
+msgstr "主要伺服器連線："
 
 #: libraries/classes/ReplicationGui.php:239
 msgid "Slave SQL Thread not running!"
-msgstr "次要備援伺服器的 SQL 程序未啓動！"
+msgstr "次要備援伺服器的 SQL 執行緒未啓動！"
 
 #: libraries/classes/ReplicationGui.php:244
 msgid "Slave IO Thread not running!"
-msgstr "次要備援伺服器的 IO 程序未啓動！"
+msgstr "次要備援伺服器的 IO 執行緒未啓動！"
 
 #: libraries/classes/ReplicationGui.php:255
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr "伺服器已設定為備援程序中的次要(slave)伺服器。您是否要："
+msgstr "伺服器已設定為備援程序的次要伺服器。是否要："
 
 #: libraries/classes/ReplicationGui.php:261
 msgid "See slave status table"
@@ -10659,19 +10647,19 @@ msgstr "重設次要備援伺服器"
 
 #: libraries/classes/ReplicationGui.php:279
 msgid "Start SQL Thread only"
-msgstr "僅啓動 SQL 程序"
+msgstr "僅啓動 SQL 執行緒"
 
 #: libraries/classes/ReplicationGui.php:282
 msgid "Stop SQL Thread only"
-msgstr "僅停止 SQL 程序"
+msgstr "僅停止 SQL 執行緒"
 
 #: libraries/classes/ReplicationGui.php:286
 msgid "Start IO Thread only"
-msgstr "僅啓動 IO 程序"
+msgstr "僅啓動 IO 執行緒"
 
 #: libraries/classes/ReplicationGui.php:289
 msgid "Stop IO Thread only"
-msgstr "僅停止 IO 程序"
+msgstr "僅停止 IO 執行緒"
 
 #: libraries/classes/ReplicationGui.php:298
 #: libraries/classes/ReplicationGui.php:426
@@ -10683,7 +10671,7 @@ msgstr "更改或重新設定主要備援伺服器"
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr "此伺服器尚未設定為備援程序中的次要(slave)伺服器。要立即%s設定%s嗎？"
+msgstr "此伺服器尚未設定為備援程序的次要伺服器。要立即%s設定%s嗎？"
 
 #: libraries/classes/ReplicationGui.php:331
 msgid "Error management:"
@@ -10707,7 +10695,7 @@ msgstr "忽略接下來的 %s 個錯誤。"
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr "此伺服器尚未設定為備援程序中的主要(master)伺服器。要立即%s設定%s嗎？"
+msgstr "此伺服器尚未設定為備援程序的主要伺服器。要立即%s設定%s嗎？"
 
 #: libraries/classes/ReplicationGui.php:404
 #: templates/display/export/select_options.twig:8
@@ -10731,7 +10719,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:824
 #: libraries/classes/Server/Privileges.php:1627
 msgid "User name:"
-msgstr "帳號："
+msgstr "使用者名稱："
 
 #: libraries/classes/ReplicationGui.php:444
 #: libraries/classes/ReplicationGui.php:828
@@ -10741,7 +10729,7 @@ msgstr "帳號："
 #: libraries/classes/Server/Privileges.php:2697
 #: libraries/classes/Server/Privileges.php:3694
 msgid "User name"
-msgstr "帳號"
+msgstr "使用者名稱"
 
 #: libraries/classes/ReplicationGui.php:458
 #: libraries/classes/ReplicationGui.php:891
@@ -10871,7 +10859,7 @@ msgstr "錯誤。"
 
 #: libraries/classes/ReplicationGui.php:1015
 msgid "Unknown error"
-msgstr "未知錯誤"
+msgstr "不明錯誤"
 
 #: libraries/classes/ReplicationGui.php:1028
 #, php-format
@@ -10933,7 +10921,7 @@ msgstr "建立了 %1$s 事件。"
 #: libraries/classes/Rte/Events.php:239 libraries/classes/Rte/Routines.php:344
 #: libraries/classes/Rte/Triggers.php:211
 msgid "One or more errors have occurred while processing your request:"
-msgstr "在處理您的請求時，發生一個或多個錯誤："
+msgstr "在處理請求時，發生一個或以上的錯誤："
 
 #: libraries/classes/Rte/Events.php:294
 msgid "Edit event"
