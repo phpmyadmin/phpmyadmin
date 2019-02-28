@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2019-02-24 01:18+0000\n"
-"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
+"PO-Revision-Date: 2019-02-28 23:32+0000\n"
+"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -1104,10 +1104,8 @@ msgid "Y values"
 msgstr "Y軸の値"
 
 #: js/messages.php:143
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "同じ値をもう一度入力してください"
+msgstr "SQLクエリを最初に入力してください。"
 
 #: js/messages.php:146
 msgid "The host name is empty!"
