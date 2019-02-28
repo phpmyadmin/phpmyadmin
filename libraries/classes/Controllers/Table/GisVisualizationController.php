@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Message;
@@ -20,7 +19,7 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin\Controllers
  */
-class GisVisualizationController extends TableController
+class GisVisualizationController extends Controller
 {
     /**
      * @var array
