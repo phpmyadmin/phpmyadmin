@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
 "PO-Revision-Date: 2019-02-28 23:32+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
+"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -6125,14 +6125,16 @@ msgstr "負でない値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:101
 #: libraries/classes/Config/Validator.php:502
+#, fuzzy
 msgid "Not a valid port number!"
-msgstr "有効なポート番号ではありません。"
+msgstr "有効なポート番号ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:102
 #: libraries/classes/Config/FormDisplay.php:656
 #: libraries/classes/Config/Validator.php:567
+#, fuzzy
 msgid "Incorrect value!"
-msgstr "不正な値です。"
+msgstr "不正な値です!"
 
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:583
@@ -8426,7 +8428,7 @@ msgstr "第1正規化(1NF)"
 #: libraries/classes/Normalization.php:287
 #: libraries/classes/Normalization.php:325
 msgid "Step 1."
-msgstr "ステップ １"
+msgstr "ステップ １."
 
 #: libraries/classes/Normalization.php:189
 msgid ""
@@ -8557,7 +8559,7 @@ msgstr "繰り返しグループ無し"
 
 #: libraries/classes/Normalization.php:370
 msgid "Step 2."
-msgstr "ステップ 2"
+msgstr "ステップ 2."
 
 #: libraries/classes/Normalization.php:370
 msgid "Find partial dependencies"
@@ -8658,7 +8660,7 @@ msgstr "選択された繰り返しグループが「%s」のテーブルへ移�
 
 #: libraries/classes/Normalization.php:793
 msgid "Step 3."
-msgstr "ステップ 3"
+msgstr "ステップ 3."
 
 #: libraries/classes/Normalization.php:793
 msgid "Find transitive dependencies"
