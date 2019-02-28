@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:28-0300\n"
-"PO-Revision-Date: 2019-02-24 14:58+0000\n"
+"PO-Revision-Date: 2019-03-01 21:27+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -994,10 +994,8 @@ msgid "Y values"
 msgstr "Valeurs en Y"
 
 #: js/messages.php:147
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Merci de saisir la même valeur à nouveau"
+msgstr "Veuillez d'abord entrer la requête SQL."
 
 #: js/messages.php:150
 msgid "The host name is empty!"
@@ -14205,23 +14203,18 @@ msgstr "Fréquence de rafraîchissement&nbsp;"
 
 #: templates/server/status/monitor/index.twig:42
 #: templates/server/status/processes/index.twig:31
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%count% second"
 msgid_plural "%count% seconds"
-msgstr[0] "%d seconde"
-msgstr[1] "%d secondes"
+msgstr[0] "%count% seconde"
+msgstr[1] "%count% secondes"
 
 #: templates/server/status/monitor/index.twig:48
 #: templates/server/status/processes/index.twig:37
-#, fuzzy
-#| msgid "%d minute"
-#| msgid_plural "%d minutes"
 msgid "%count% minute"
 msgid_plural "%count% minutes"
-msgstr[0] "%d minute"
-msgstr[1] "%d minutes"
+msgstr[0] "%count% minute"
+msgstr[1] "%count% minutes"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -15565,10 +15558,8 @@ msgstr "Jeux de caractères et interclassements"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:7
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "Nombre d'instructions exécutées depuis le démarrage : %s"
+msgstr "Nombre d'instructions exécutées depuis le démarrage :"
 
 #: templates/server/status/queries/index.twig:17
 msgid "per hour:"
