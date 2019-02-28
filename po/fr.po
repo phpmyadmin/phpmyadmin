@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2019-02-28 11:32+0000\n"
-"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"PO-Revision-Date: 2019-03-02 14:13+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-8/fr/"
 ">\n"
 "Language: fr\n"
@@ -1129,7 +1129,7 @@ msgstr "Valeurs en Y"
 
 #: js/messages.php:143
 msgid "Please enter the SQL query first."
-msgstr "Merci de saisir d'abord la requête SQL."
+msgstr "Veuillez d'abord entrer la requête SQL."
 
 #: js/messages.php:146
 msgid "The host name is empty!"
