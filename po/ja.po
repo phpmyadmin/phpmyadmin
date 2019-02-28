@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:28-0300\n"
-"PO-Revision-Date: 2019-02-23 05:58+0000\n"
+"PO-Revision-Date: 2019-03-01 23:33+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -970,10 +970,8 @@ msgid "Y values"
 msgstr "Y軸の値"
 
 #: js/messages.php:147
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "同じ値をもう一度入力してください"
+msgstr "SQLクエリを最初に入力してください。"
 
 #: js/messages.php:150
 msgid "The host name is empty!"
@@ -6083,13 +6081,13 @@ msgstr "負の値ではありません"
 #: libraries/classes/Config/FormDisplay.php:104
 #: libraries/classes/Config/Validator.php:508
 msgid "Not a valid port number!"
-msgstr "有効なポート番号ではありません。"
+msgstr "有効なポート番号ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:105
 #: libraries/classes/Config/FormDisplay.php:683
 #: libraries/classes/Config/Validator.php:573
 msgid "Incorrect value!"
-msgstr "不正な値です。"
+msgstr "不正な値です!"
 
 #: libraries/classes/Config/FormDisplay.php:106
 #: libraries/classes/Config/Validator.php:590
@@ -9006,7 +9004,7 @@ msgstr "第1正規化(1NF)"
 #: libraries/classes/Normalization.php:293
 #: libraries/classes/Normalization.php:329
 msgid "Step 1."
-msgstr "ステップ １"
+msgstr "ステップ １."
 
 #: libraries/classes/Normalization.php:196
 msgid ""
@@ -9136,7 +9134,7 @@ msgstr "繰り返しグループ無し"
 
 #: libraries/classes/Normalization.php:372
 msgid "Step 2."
-msgstr "ステップ 2"
+msgstr "ステップ 2."
 
 #: libraries/classes/Normalization.php:372
 msgid "Find partial dependencies"
@@ -9237,7 +9235,7 @@ msgstr "選択された繰り返しグループが「%s」のテーブルへ移�
 
 #: libraries/classes/Normalization.php:805
 msgid "Step 3."
-msgstr "ステップ 3"
+msgstr "ステップ 3."
 
 #: libraries/classes/Normalization.php:805
 msgid "Find transitive dependencies"
@@ -13833,21 +13831,16 @@ msgstr "再描画間隔"
 
 #: templates/server/status/monitor/index.twig:42
 #: templates/server/status/processes/index.twig:31
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%count% second"
 msgid_plural "%count% seconds"
-msgstr[0] "%d 秒"
+msgstr[0] "%count% 秒"
 
 #: templates/server/status/monitor/index.twig:48
 #: templates/server/status/processes/index.twig:37
-#, fuzzy
-#| msgid "%d minute"
-#| msgid_plural "%d minutes"
 msgid "%count% minute"
 msgid_plural "%count% minutes"
-msgstr[0] "%d 分"
+msgstr[0] "%count% 分"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -15175,10 +15168,8 @@ msgstr "文字セットと照合順序"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:7
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "起動以後の問い合わせ数：%s"
+msgstr "起動以後の問い合わせ数："
 
 #: templates/server/status/queries/index.twig:17
 msgid "per hour:"
