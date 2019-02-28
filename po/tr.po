@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:28-0300\n"
-"PO-Revision-Date: 2019-02-24 00:18+0000\n"
+"PO-Revision-Date: 2019-03-02 04:39+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -978,10 +978,8 @@ msgid "Y values"
 msgstr "Y değerleri"
 
 #: js/messages.php:147
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Lütfen aynı değeri tekrar girin"
+msgstr "Lütfen önce SQL sorgusu girin."
 
 #: js/messages.php:150
 msgid "The host name is empty!"
@@ -14026,23 +14024,18 @@ msgstr "Yenileme oranı"
 
 #: templates/server/status/monitor/index.twig:42
 #: templates/server/status/processes/index.twig:31
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%count% second"
 msgid_plural "%count% seconds"
-msgstr[0] "%d saniye"
-msgstr[1] "%d saniye"
+msgstr[0] "%count% saniye"
+msgstr[1] "%count% saniye"
 
 #: templates/server/status/monitor/index.twig:48
 #: templates/server/status/processes/index.twig:37
-#, fuzzy
-#| msgid "%d minute"
-#| msgid_plural "%d minutes"
 msgid "%count% minute"
 msgid_plural "%count% minutes"
-msgstr[0] "%d dakika"
-msgstr[1] "%d dakika"
+msgstr[0] "%count% dakika"
+msgstr[1] "%count% dakika"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -15378,10 +15371,8 @@ msgstr "Karakter grupları ve karşılaştırmalar"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:7
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "Başlangıçtan bu yana sorular: %s"
+msgstr "Başlangıçtan bu yana sorular:"
 
 #: templates/server/status/queries/index.twig:17
 msgid "per hour:"
