@@ -34,6 +34,9 @@ phpMyAdmin - ChangeLog
 - issue #14515 Values cannot be edited in SYSTEM VERSIONING tables with INVISIBLE timestamps
 - issue        Fix header icon on server plugins page
 - issue #14298 Fixed error 500 on MultiTableQuery page when a empty query is passed
+- issue #14402 Fixed fatal javascript error while adding index to a new column
+- issue #14896 Fixed issue with plus/minus icon when refreshing an expanded database
+- issue #14922 Fixed json encode error in export
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
