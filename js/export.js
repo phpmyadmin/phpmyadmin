@@ -309,7 +309,7 @@ AJAX.registerOnload('export.js', function () {
     });
     
     // When MS Excel is selected as the Format automatically Switch to Character Set as windows-1252
-    $('#plugins').change(function () { 
+    $('#plugins').change(function () {
         var selected_plugin_name = $('#plugins').find('option:selected').val();
         if(selected_plugin_name == "excel"){
             $('#select_charset').val('windows-1252');
@@ -318,7 +318,7 @@ AJAX.registerOnload('export.js', function () {
             $('#select_charset').val('utf-8');
         }
     });
-
+    
     // For separate-file exports only ZIP compression is allowed
     $('input[type="checkbox"][name="as_separate_files"]').on('change', function () {
         if ($(this).is(':checked')) {
