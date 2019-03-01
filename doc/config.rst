@@ -2691,7 +2691,7 @@ Web server settings
     want to use rules for IP addresses behind proxy.
 
     The following example specifies that phpMyAdmin should trust a
-    HTTP\_X\_FORWARDED\_FOR (``X -Forwarded-For``) header coming from the proxy
+    HTTP\_X\_FORWARDED\_FOR (``X-Forwarded-For``) header coming from the proxy
     1.2.3.4:
 
     .. code-block:: php
