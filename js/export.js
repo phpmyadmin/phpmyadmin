@@ -307,18 +307,17 @@ AJAX.registerOnload('export.js', function () {
             $('#checkbox_sql_auto_increment').prop('disabled', false).parent().fadeTo('fast', 1);
         }
     });
-    
+
     // When MS Excel is selected as the Format automatically Switch to Character Set as windows-1252
     $('#plugins').change(function () {
         var selected_plugin_name = $('#plugins').find('option:selected').val();
-        if(selected_plugin_name == "excel"){
+        if (selected_plugin_name == "excel") {
             $('#select_charset').val('windows-1252');
-        }
-        else{
+        } else {
             $('#select_charset').val('utf-8');
         }
     });
-    
+
     // For separate-file exports only ZIP compression is allowed
     $('input[type="checkbox"][name="as_separate_files"]').on('change', function () {
         if ($(this).is(':checked')) {
