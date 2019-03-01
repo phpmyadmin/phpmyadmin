@@ -198,7 +198,7 @@ class ZipExtension
         foreach ($data as $table => $dump) {
             $temp_name = str_replace('\\', '/', $table);
 
-            /* Convert Unix timestamp to DOS timestamp */
+            /* Get Local Time */
             $timearray = getdate();
 
             if ($timearray['year'] < 1980) {
