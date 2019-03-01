@@ -311,7 +311,7 @@ AJAX.registerOnload('export.js', function () {
     // When MS Excel is selected as the Format automatically Switch to Character Set as windows-1252
     $('#plugins').change(function () {
         var selected_plugin_name = $('#plugins').find('option:selected').val();
-        if (selected_plugin_name == "excel") {
+        if (selected_plugin_name === 'excel') {
             $('#select_charset').val('windows-1252');
         } else {
             $('#select_charset').val('utf-8');
