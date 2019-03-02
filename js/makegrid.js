@@ -823,7 +823,14 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                             $checkbox.prop('checked', false);
                         });
                     }
-
+                    // if some text is written in textbox automatically unmark the null checkbox and if it is emptied again mark the checkbox.
+                    $(g.cEdit).find('.edit_box').on('input', function() {
+                        if ($(g.cEdit).find('.edit_box').val() !== '') {
+                            $checkbox.prop('checked', false);
+                        } else {
+                            $checkbox.prop('checked', true);
+                        }
+                    });
                     // if null checkbox is clicked empty the corresponding select/editor.
                     $checkbox.click(function () {
                         if ($td.is('.enum')) {
