@@ -4063,7 +4063,7 @@ class Util
             }
         } elseif (! $server['ssl_verify']) {
             $message = __('SSL is used with disabled verification');
-        } elseif (empty($server['ssl_ca']) && empty($server['ssl_ca'])) {
+        } elseif (empty($server['ssl_ca'])) {
             $message = __('SSL is used without certification authority');
         } else {
             $class = '';
