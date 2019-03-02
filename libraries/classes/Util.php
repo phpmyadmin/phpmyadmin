@@ -4072,20 +4072,6 @@ class Util
         return '<span class="' . $class . '">' . $message . '</span> ' . self::showDocu('setup', 'ssl');
     }
 
-
-    /**
-     * Prepare HTML code for display button.
-     *
-     * @return String
-     */
-    public static function getButton()
-    {
-        return '<p class="print_ignore">'
-            . '<input type="button" class="btn btn-secondary button" id="print" value="'
-            . __('Print') . '">'
-            . '</p>';
-    }
-
     /**
      * Parses ENUM/SET values
      *
@@ -4469,25 +4455,6 @@ class Util
         $serverVersion = $GLOBALS['dbi']->getVersion();
         return $serverType == 'MySQL' && $serverVersion >= 50705
              || ($serverType == 'MariaDB' && $serverVersion >= 50200);
-    }
-
-    /**
-     * Returns the proper class clause according to the column type
-     *
-     * @param string $type the column type
-     *
-     * @return string the HTML class clause
-     */
-    public static function getClassForType($type)
-    {
-        if ('set' == $type
-            || 'enum' == $type
-        ) {
-            $class_clause = '';
-        } else {
-            $class_clause = ' class="nowrap"';
-        }
-        return $class_clause;
     }
 
     /**
