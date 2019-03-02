@@ -778,7 +778,7 @@ AJAX.registerOnload('indexes.js', function () {
         var array_index  = previous_index[1];
 
         var source_array = PMA_getIndexArray(index_choice);
-        if(source_array != null){
+        if (source_array !== null) {
             var source_length = source_array[array_index].columns.length;
 
             var target_columns = [];

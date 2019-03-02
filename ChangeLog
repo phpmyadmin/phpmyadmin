@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - issue #14402 Fixed fatal javascript error while adding index to a new column
 - issue #14896 Fixed issue with plus/minus icon when refreshing an expanded database
 - issue #14922 Fixed json encode error in export
+- issue #13975 Fixed missing query time in German (fix decimal number format issue)
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
