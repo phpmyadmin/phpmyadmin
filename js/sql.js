@@ -164,7 +164,7 @@ function getFieldName ($table_results, $this_field) {
 AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'a.delete_row.ajax');
     $(document).off('submit', '.bookmarkQueryForm');
-    $('input#bkm_label').off('keyup');
+    $('input#bkm_label').off('input');
     $(document).off('makegrid', '.sqlqueryresults');
     $(document).off('stickycolumns', '.sqlqueryresults');
     $('#togglequerybox').off('click');
@@ -280,11 +280,11 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
-    $('input#bkm_label').on('keyup', function () {
+    $('input#bkm_label').on('input', function () {
         $('input#id_bkm_all_users, input#id_bkm_replace')
             .parent()
             .toggle($(this).val().length > 0);
-    }).trigger('keyup');
+    }).trigger('input');
 
     /**
      * Attach Event Handler for 'Copy to clipbpard

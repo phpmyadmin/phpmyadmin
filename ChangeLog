@@ -39,6 +39,8 @@ phpMyAdmin - ChangeLog
 - issue #14896 Fixed issue with plus/minus icon when refreshing an expanded database
 - issue #14922 Fixed json encode error in export
 - issue #13975 Fixed missing query time in German (fix decimal number format issue)
+- issue #14503 Fixed JavaScript events not activating on input (sql bookmark issue)
+- issue #14898 Fixed Bottom table is blocked in database list (left panel)
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
