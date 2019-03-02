@@ -3100,9 +3100,6 @@ class InsertEdit
     ) {
         $column = $table_columns[$column_number];
         $readOnly = false;
-        if (! $this->userHasColumnPrivileges($column, $insert_mode)) {
-            $readOnly = true;
-        }
 
         if (! isset($column['processed'])) {
             $column = $this->analyzeTableColumnsArray(
