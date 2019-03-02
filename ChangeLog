@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 - issue #14503 Fixed JavaScript events not activating on input (sql bookmark issue)
 - issue #14898 Fixed Bottom table is blocked in database list (left panel)
 - issue #14425 Fixed Null Checkbox automatically unmarked
+- issue #14870 Display correct date and time in Zip files
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
