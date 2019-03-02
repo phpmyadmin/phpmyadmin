@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue #14765 Add initial support for Bootstrap 4
 - issue #14829 Change table column comment field from input to textarea
 - issue #14725 Console: ctrl+l clear line and ctrl+u clear console
+- issue #14837 Use charset 'windows-1252' when format is MS Excel
 
 4.8.6 (not yet released)
 - issue #14478 phpMyAdmin no longer streams the export data
