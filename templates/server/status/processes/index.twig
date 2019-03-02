@@ -28,17 +28,17 @@
       {% for rate in [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200] %}
         <option value="{{ rate }}"{{ rate == 5 ? ' selected' }}>
           {% if rate < 60 %}
-            {% trans %}
-              {{ count }} second
-            {% plural rate %}
-              {{ count }} seconds
-            {% endtrans %}
+            {% if rate == 1 %}
+              {{ '%d second'|trans|format(rate) }}
+            {% else %}
+              {{ '%d seconds'|trans|format(rate) }}
+            {% endif %}
           {% else %}
-            {% trans %}
-              {{ count }} minute
-            {% plural rate / 60 %}
-              {{ count }} minutes
-            {% endtrans %}
+            {% if rate / 60 == 1 %}
+              {{ '%d minute'|trans|format(rate / 60) }}
+            {% else %}
+              {{ '%d minutes'|trans|format(rate / 60) }}
+            {% endif %}
           {% endif %}
         </option>
       {% endfor %}
