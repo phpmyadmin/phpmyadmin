@@ -26,10 +26,10 @@ function nullify (theType, urlField, md5Field, multi_edit) {
     }
 
     // "ENUM" field with more than 20 characters
-    if (theType == 1) {
+    if (Number(theType) === 1) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  ']'][1].selectedIndex = -1;
     // Other "ENUM" field
-    } else if (theType == 2) {
+    } else if (Number(theType) === 2) {
         var elts     = rowForm.elements['fields' + multi_edit + '[' + md5Field + ']'];
         // when there is just one option in ENUM:
         if (elts.checked) {
@@ -41,13 +41,13 @@ function nullify (theType, urlField, md5Field, multi_edit) {
             } // end for
         } // end if
     // "SET" field
-    } else if (theType == 3) {
+    } else if (Number(theType) === 3) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  '][]'].selectedIndex = -1;
     // Foreign key field (drop-down)
-    } else if (theType == 4) {
+    } else if (Number(theType) === 4) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  ']'].selectedIndex = -1;
     // foreign key field (with browsing icon for foreign values)
-    } else if (theType == 6) {
+    } else if (Number(theType) === 6) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field + ']'].value = '';
     // Other field types
     } else /* if (theType === 5)*/ {
