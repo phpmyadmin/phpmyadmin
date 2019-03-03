@@ -38,6 +38,7 @@ jobs:
     - php: nightly
     - os: windows
     - name: "PHP 7.1 with dbase extension"
+    - name: "PHP 7.4"
 
   include:
     - stage: "Lint and analyse code"
@@ -73,6 +74,11 @@ jobs:
     - stage: "PHP Unit tests"
       php: 7.3
       name: "PHP 7.3"
+      env: CI_MODE=test
+
+    - stage: "PHP Unit tests"
+      php: 7.4snapshot
+      name: "PHP 7.4"
       env: CI_MODE=test
 
     - stage: "PHP Unit tests"
