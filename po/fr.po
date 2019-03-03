@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-03-01 21:27+0000\n"
+"PO-Revision-Date: 2019-03-04 20:58+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.5\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -14208,33 +14208,27 @@ msgstr "Fréquence de rafraîchissement&nbsp;"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:32
-#, fuzzy, php-format
-#| msgid "\"%d\" second"
-#| msgid_plural "\"%d\" seconds"
+#, php-format
 msgid "%d second"
-msgstr "« %d » seconde"
+msgstr "%d seconde"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:34
-#, fuzzy, php-format
-#| msgid "\"%d\" second"
-#| msgid_plural "\"%d\" seconds"
+#, php-format
 msgid "%d seconds"
-msgstr "« %d » seconde"
+msgstr "%d secondes"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "par minute"
+msgstr "%d minute"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "par minute"
+msgstr "%d minutes"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -15658,10 +15652,8 @@ msgid "Deactivate now"
 msgstr "Désactiver maintenant"
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Commentaire de base de données"
+msgstr "Commentaire de base de données :"
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
