@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-01-28 16:52+0000\n"
+"PO-Revision-Date: 2019-03-03 22:12+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.5\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -783,10 +783,8 @@ msgid "Y values"
 msgstr "Valores pro le axis Y"
 
 #: js/messages.php:147
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Pro favor inserta novemente le mesme valor"
+msgstr "Pro favor inserta in prime momento le query SQL."
 
 #: js/messages.php:150
 msgid "The host name is empty!"
@@ -13794,10 +13792,8 @@ msgid "Storage engines"
 msgstr "Motores de immagazinage"
 
 #: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "Motores de immagazinage"
+msgstr "Motor de immagazinage incognite."
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -13849,33 +13845,27 @@ msgstr "Frequentia de Refrescamento"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:32
-#, fuzzy, php-format
-#| msgid "\"%d\" second"
-#| msgid_plural "\"%d\" seconds"
+#, php-format
 msgid "%d second"
-msgstr "\"%d\" secunda"
+msgstr "%d seconda"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:34
-#, fuzzy, php-format
-#| msgid "\"%d\" second"
-#| msgid_plural "\"%d\" seconds"
+#, php-format
 msgid "%d seconds"
-msgstr "\"%d\" secunda"
+msgstr "\"%d\" secundas"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "per minuta"
+msgstr "%d minuta"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "per minuta"
+msgstr "%d minutas"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -14405,15 +14395,11 @@ msgstr ""
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
-msgstr "Trunca Queries monstrate"
+msgstr "Trunca queries monstrate"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Monstra queries complete"
 
@@ -15245,10 +15231,8 @@ msgid "Deactivate now"
 msgstr ""
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Commento del base de datos"
+msgstr "Commento del base de datos:"
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
