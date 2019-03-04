@@ -34,27 +34,27 @@ class StructureController extends Controller
     /**
      * @var int Number of tables
      */
-    protected $_num_tables;
+    protected $numTables;
     /**
      * @var int Current position in the list
      */
-    protected $_pos;
+    protected $position;
     /**
      * @var bool DB is information_schema
      */
-    protected $_db_is_system_schema;
+    protected $dbIsSystemSchema;
     /**
      * @var int Number of tables
      */
-    protected $_total_num_tables;
+    protected $totalNumTables;
     /**
      * @var array Tables in the database
      */
-    protected $_tables;
+    protected $tables;
     /**
      * @var bool whether stats show or not
      */
-    protected $_is_show_stats;
+    protected $isShowStats;
 
     /**
      * @var Relation
@@ -69,94 +69,75 @@ class StructureController extends Controller
     /**
      * Constructor
      *
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param string            $db       Database name
+     * @param Response          $response    Response instance
+     * @param DatabaseInterface $dbi         DatabaseInterface instance
+     * @param string            $db          Database name
+     * @param Relation          $relation    Relation instance
+     * @param Replication       $replication Replication instance
      */
-    public function __construct($response, $dbi, $db)
+    public function __construct($response, $dbi, $db, $relation, $replication)
     {
         parent::__construct($response, $dbi, $db);
-        $this->relation = new Relation($dbi);
-        $this->replication = new Replication();
+        $this->relation = $relation;
+        $this->replication = $replication;
     }
 
     /**
-     * Retrieves databse information for further use
+     * Retrieves database information for further use
      *
-     * @param string $sub_part Page part name
+     * @param string $subPart Page part name
      *
      * @return void
      */
-    private function _getDbInfo($sub_part)
+    private function getDatabaseInfo(string $subPart): void
     {
         list(
             $tables,
-            $num_tables,
-            $total_num_tables,
+            $numTables,
+            $totalNumTables,
             ,
-            $is_show_stats,
-            $db_is_system_schema,
+            $isShowStats,
+            $dbIsSystemSchema,
             ,
             ,
-            $pos
-        ) = Util::getDbInfo($this->db, $sub_part);
+            $position
+        ) = Util::getDbInfo($this->db, $subPart);
 
-        $this->_tables = $tables;
-        $this->_num_tables = $num_tables;
-        $this->_pos = $pos;
-        $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_total_num_tables = $total_num_tables;
-        $this->_is_show_stats = $is_show_stats;
+        $this->tables = $tables;
+        $this->numTables = $numTables;
+        $this->position = $position;
+        $this->dbIsSystemSchema = $dbIsSystemSchema;
+        $this->totalNumTables = $totalNumTables;
+        $this->isShowStats = $isShowStats;
     }
 
     /**
      * Index action
      *
-     * @return void
+     * @param array $params Request parameters
+     * @return string HTML
      */
-    public function indexAction()
+    public function index(array $params): string
     {
-        $response = Response::getInstance();
-
-        // Add/Remove favorite tables using Ajax request.
-        if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
-            $this->addRemoveFavoriteTablesAction();
-            return;
-        }
-
-        // If there is an Ajax request for real row count of a table.
-        if ($response->isAjax()
-            && isset($_REQUEST['real_row_count'])
-            && $_REQUEST['real_row_count'] == true
-        ) {
-            $this->handleRealRowCountRequestAction();
-            return;
-        }
+        global $cfg;
 
         // Drops/deletes/etc. multiple tables if required
-        if ((! empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
-            || isset($_POST['mult_btn'])
+        if ((! empty($params['submit_mult']) && isset($params['selected_tbl']))
+            || isset($params['mult_btn'])
         ) {
             $this->multiSubmitAction();
         }
 
-        $this->response->getHeader()->getScripts()->addFiles(
-            [
-                'db_structure.js',
-                'tbl_change.js',
-            ]
-        );
-
         // Gets the database structure
-        $this->_getDbInfo('_structure');
+        $this->getDatabaseInfo('_structure');
 
         // Checks if there are any tables to be shown on current page.
         // If there are no tables, the user is redirected to the last page
         // having any.
-        if ($this->_total_num_tables > 0 && $this->_pos > $this->_total_num_tables) {
+        if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
             $uri = './db_structure.php' . Url::getCommonRaw([
                 'db' => $this->db,
-                'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
+                'pos' => max(0, $this->totalNumTables - $cfg['MaxTableList']),
                 'reload' => 1,
             ]);
             Core::sendHeaderLocation($uri);
@@ -166,200 +147,161 @@ class StructureController extends Controller
 
         PageSettings::showGroup('DbStructure');
 
-        // 1. No tables
-        if ($this->_num_tables == 0) {
-            $this->response->addHTML(
-                Message::notice(__('No tables found in database.'))
-            );
-            if (empty($this->_db_is_system_schema)) {
-                $this->response->addHTML(CreateTable::getHtml($this->db));
+        if ($this->numTables > 0) {
+            $urlParams = [
+                'pos' => $this->position,
+                'db' => $this->db,
+            ];
+            if (isset($params['sort'])) {
+                $urlParams['sort'] = $params['sort'];
             }
-            return;
-        }
-
-        // else
-        // 2. Shows table information
-        /**
-         * Displays the tables list
-         */
-        $this->response->addHTML('<div id="tableslistcontainer">');
-        $_url_params = [
-            'pos' => $this->_pos,
-            'db'  => $this->db,
-        ];
-
-        // Add the sort options if they exists
-        if (isset($_REQUEST['sort'])) {
-            $_url_params['sort'] = $_REQUEST['sort'];
-        }
-
-        if (isset($_REQUEST['sort_order'])) {
-            $_url_params['sort_order'] = $_REQUEST['sort_order'];
-        }
-
-        $this->response->addHTML(
-            Util::getListNavigator(
-                $this->_total_num_tables,
-                $this->_pos,
-                $_url_params,
+            if (isset($params['sort_order'])) {
+                $urlParams['sort_order'] = $params['sort_order'];
+            }
+            $listNavigator = Util::getListNavigator(
+                $this->totalNumTables,
+                $this->position,
+                $urlParams,
                 'db_structure.php',
                 'frame_content',
-                $GLOBALS['cfg']['MaxTableList']
-            )
-        );
+                $cfg['MaxTableList']
+            );
 
-        $this->displayTableList();
-
-        // display again the table list navigator
-        $this->response->addHTML(
-            Util::getListNavigator(
-                $this->_total_num_tables,
-                $this->_pos,
-                $_url_params,
-                'db_structure.php',
-                'frame_content',
-                $GLOBALS['cfg']['MaxTableList']
-            )
-        );
-
-        $this->response->addHTML('</div><hr>');
-
-        /**
-         * Work on the database
-         */
-        /* DATABASE WORK */
-        /* Printable view of a table */
-        $this->response->addHTML(
-            $this->template->render('database/structure/print_view_data_dictionary_link', [
-                'url_query' => Url::getCommon([
-                    'db' => $this->db,
-                    'goto' => 'db_structure.php',
-                ]),
-            ])
-        );
-
-        if (empty($this->_db_is_system_schema)) {
-            $this->response->addHTML(CreateTable::getHtml($this->db));
+            $tableList = $this->displayTableList();
         }
+
+        $createTable = '';
+        if (empty($this->dbIsSystemSchema)) {
+            $createTable = CreateTable::getHtml($this->db);
+        }
+
+        return $this->template->render('database/structure/index', [
+            'database' => $this->db,
+            'has_tables' => $this->numTables > 0,
+            'list_navigator_html' => $listNavigator ?? '',
+            'table_list_html' => $tableList ?? '',
+            'is_system_schema' => ! empty($this->dbIsSystemSchema),
+            'create_table_html' => $createTable,
+        ]);
     }
 
     /**
      * Add or remove favorite tables
      *
-     * @return void
+     * @param array $params Request parameters
+     * @return array|null JSON
      */
-    public function addRemoveFavoriteTablesAction()
+    public function addRemoveFavoriteTablesAction(array $params): ?array
     {
-        $fav_instance = RecentFavoriteTable::getInstance('favorite');
-        if (isset($_REQUEST['favorite_tables'])) {
-            $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
+        global $cfg;
+
+        $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
+        if (isset($params['favorite_tables'])) {
+            $favoriteTables = json_decode($params['favorite_tables'], true);
         } else {
-            $favorite_tables = [];
+            $favoriteTables = [];
         }
         // Required to keep each user's preferences separate.
-        $user = sha1($GLOBALS['cfg']['Server']['user']);
+        $user = sha1($cfg['Server']['user']);
 
         // Request for Synchronization of favorite tables.
-        if (isset($_REQUEST['sync_favorite_tables'])) {
+        if (isset($params['sync_favorite_tables'])) {
             $cfgRelation = $this->relation->getRelationsParam();
             if ($cfgRelation['favoritework']) {
-                $this->synchronizeFavoriteTables($fav_instance, $user, $favorite_tables);
+                return $this->synchronizeFavoriteTables($favoriteInstance, $user, $favoriteTables);
             }
-            return;
+            return null;
         }
         $changes = true;
         $titles = Util::buildActionTitles();
-        $favorite_table = $_REQUEST['favorite_table'];
-        $already_favorite = $this->checkFavoriteTable($favorite_table);
+        $favoriteTable = $params['favorite_table'];
+        $alreadyFavorite = $this->checkFavoriteTable($favoriteTable);
 
-        if (isset($_REQUEST['remove_favorite'])) {
-            if ($already_favorite) {
+        if (isset($params['remove_favorite'])) {
+            if ($alreadyFavorite) {
                 // If already in favorite list, remove it.
-                $fav_instance->remove($this->db, $favorite_table);
-                $already_favorite = false; // for favorite_anchor template
+                $favoriteInstance->remove($this->db, $favoriteTable);
+                $alreadyFavorite = false; // for favorite_anchor template
             }
-        } elseif (isset($_REQUEST['add_favorite'])) {
-            if (! $already_favorite) {
-                $nbTables = count($fav_instance->getTables());
-                if ($nbTables == $GLOBALS['cfg']['NumFavoriteTables']) {
+        } elseif (isset($params['add_favorite'])) {
+            if (! $alreadyFavorite) {
+                $numTables = count($favoriteInstance->getTables());
+                if ($numTables == $cfg['NumFavoriteTables']) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.
-                    $fav_instance->add($this->db, $favorite_table);
-                    $already_favorite = true;  // for favorite_anchor template
+                    $favoriteInstance->add($this->db, $favoriteTable);
+                    $alreadyFavorite = true;  // for favorite_anchor template
                 }
             }
         }
 
-        $favorite_tables[$user] = $fav_instance->getTables();
-        $this->response->addJSON('changes', $changes);
+        $favoriteTables[$user] = $favoriteInstance->getTables();
+
+        $json = [];
+        $json['changes'] = $changes;
         if (! $changes) {
-            $this->response->addJSON(
-                'message',
-                $this->template->render('components/error_message', [
-                    'msg' => __("Favorite List is full!"),
-                ])
-            );
-            return;
+            $json['message'] = $this->template->render('components/error_message', [
+                'msg' => __("Favorite List is full!"),
+            ]);
+            return $json;
         }
         // Check if current table is already in favorite list.
-        $favParams = [
+        $favoriteParams = [
             'db' => $this->db,
             'ajax_request' => true,
-            'favorite_table' => $favorite_table,
-            ($already_favorite ? 'remove' : 'add') . '_favorite' => true,
+            'favorite_table' => $favoriteTable,
+            ($alreadyFavorite ? 'remove' : 'add') . '_favorite' => true,
         ];
-        $this->response->addJSON([
-            'user' => $user,
-            'favorite_tables' => json_encode($favorite_tables),
-            'list' => $fav_instance->getHtmlList(),
-            'anchor' => $this->template->render('database/structure/favorite_anchor', [
-                'table_name_hash' => md5($favorite_table),
-                'db_table_name_hash' => md5($this->db . "." . $favorite_table),
-                'fav_params' => $favParams,
-                'already_favorite' => $already_favorite,
-                'titles' => $titles,
-            ]),
+
+        $json['user'] = $user;
+        $json['favorite_tables'] = json_encode($favoriteTables);
+        $json['list'] = $favoriteInstance->getHtmlList();
+        $json['anchor'] = $this->template->render('database/structure/favorite_anchor', [
+            'table_name_hash' => md5($favoriteTable),
+            'db_table_name_hash' => md5($this->db . "." . $favoriteTable),
+            'fav_params' => $favoriteParams,
+            'already_favorite' => $alreadyFavorite,
+            'titles' => $titles,
         ]);
+
+        return $json;
     }
 
     /**
      * Handles request for real row count on database level view page.
      *
-     * @return void
+     * @param array $params Request parameters
+     * @return array JSON
      */
-    public function handleRealRowCountRequestAction()
+    public function handleRealRowCountRequestAction(array $params): array
     {
-        $ajax_response = $this->response;
         // If there is a request to update all table's row count.
-        if (! isset($_REQUEST['real_row_count_all'])) {
+        if (! isset($params['real_row_count_all'])) {
             // Get the real row count for the table.
-            $real_row_count = $this->dbi
-                ->getTable($this->db, $_REQUEST['table'])
+            $realRowCount = $this->dbi
+                ->getTable($this->db, (string) $params['table'])
                 ->getRealRowCountTable();
             // Format the number.
-            $real_row_count = Util::formatNumber($real_row_count, 0);
-            $ajax_response->addJSON('real_row_count', $real_row_count);
-            return;
+            $realRowCount = Util::formatNumber($realRowCount, 0);
+
+            return ['real_row_count' => $realRowCount];
         }
 
         // Array to store the results.
-        $real_row_count_all = [];
+        $realRowCountAll = [];
         // Iterate over each table and fetch real row count.
-        foreach ($this->_tables as $table) {
-            $row_count = $this->dbi
+        foreach ($this->tables as $table) {
+            $rowCount = $this->dbi
                 ->getTable($this->db, $table['TABLE_NAME'])
                 ->getRealRowCountTable();
-            $real_row_count_all[] = [
+            $realRowCountAll[] = [
                 'table' => $table['TABLE_NAME'],
-                'row_count' => $row_count,
+                'row_count' => $rowCount,
             ];
         }
 
-        $ajax_response->addJSON(
-            'real_row_count_all',
-            json_encode($real_row_count_all)
-        );
+        return ['real_row_count_all' => json_encode($realRowCountAll)];
     }
 
     /**
@@ -367,7 +309,7 @@ class StructureController extends Controller
      *
      * @return void
      */
-    public function multiSubmitAction()
+    public function multiSubmitAction(): void
     {
         $action = 'db_structure.php';
         $err_url = 'db_structure.php' . Url::getCommon(
@@ -389,30 +331,28 @@ class StructureController extends Controller
     /**
      * Displays the list of tables
      *
-     * @return void
+     * @return string HTML
      */
-    protected function displayTableList()
+    protected function displayTableList(): string
     {
+        $html = '';
+
         // filtering
-        $this->response->addHTML(
-            $this->template->render('filter', ['filter_value' => ''])
-        );
+        $html .= $this->template->render('filter', ['filter_value' => '']);
         // table form
-        $this->response->addHTML(
-            $this->template->render('database/structure/table_header', [
-                'db' => $this->db,
-                'db_is_system_schema' => $this->_db_is_system_schema,
-                'replication' => $GLOBALS['replication_info']['slave']['status'],
-                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                'is_show_stats' => $GLOBALS['is_show_stats'],
-                'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-                'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-                'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-                'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-                'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-            ])
-        );
+        $html .= $this->template->render('database/structure/table_header', [
+            'db' => $this->db,
+            'db_is_system_schema' => $this->dbIsSystemSchema,
+            'replication' => $GLOBALS['replication_info']['slave']['status'],
+            'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+            'is_show_stats' => $GLOBALS['is_show_stats'],
+            'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+            'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+            'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+            'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+            'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+        ]);
 
         $i = $sum_entries = 0;
         $overhead_check = false;
@@ -420,7 +360,7 @@ class StructureController extends Controller
         $update_time_all = '';
         $check_time_all = '';
         $num_columns = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
-            ? ceil($this->_num_tables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
+            ? ceil($this->numTables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
             : 0;
         $row_count      = 0;
         $sum_size       = 0;
@@ -428,7 +368,7 @@ class StructureController extends Controller
 
         $hidden_fields = [];
         $overall_approx_rows = false;
-        foreach ($this->_tables as $keyname => $current_table) {
+        foreach ($this->tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
 
             $drop_query = '';
@@ -468,7 +408,7 @@ class StructureController extends Controller
                 $collation = '---';
             }
 
-            if ($this->_is_show_stats) {
+            if ($this->isShowStats) {
                 if ($formatted_overhead != '') {
                     $overhead = '<a href="tbl_structure.php'
                         . $tbl_url_query . '#showusage">'
@@ -549,7 +489,7 @@ class StructureController extends Controller
             $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
             $titles = Util::buildActionTitles();
 
-            if (! $this->_db_is_system_schema) {
+            if (! $this->dbIsSystemSchema) {
                 $drop_query = sprintf(
                     'DROP %s %s',
                     $table_is_view || $current_table['ENGINE'] == null ? 'VIEW'
@@ -571,30 +511,26 @@ class StructureController extends Controller
             }
 
             if ($num_columns > 0
-                && $this->_num_tables > $num_columns
+                && $this->numTables > $num_columns
                 && ($row_count % $num_columns) == 0
             ) {
                 $row_count = 1;
 
-                $this->response->addHTML(
-                    '</tr></tbody></table></div></form>'
-                );
+                $html .= '</tr></tbody></table></div></form>';
 
-                $this->response->addHTML(
-                    $this->template->render('database/structure/table_header', [
-                        'db' => $this->db,
-                        'db_is_system_schema' => $this->_db_is_system_schema,
-                        'replication' => $GLOBALS['replication_info']['slave']['status'],
-                        'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                        'is_show_stats' => $GLOBALS['is_show_stats'],
-                        'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-                        'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-                        'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-                        'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-                        'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                        'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-                    ])
-                );
+                $html .= $this->template->render('database/structure/table_header', [
+                    'db' => $this->db,
+                    'db_is_system_schema' => $this->dbIsSystemSchema,
+                    'replication' => $GLOBALS['replication_info']['slave']['status'],
+                    'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                    'is_show_stats' => $GLOBALS['is_show_stats'],
+                    'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                    'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+                    'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                    'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                    'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+                    'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                ]);
             }
 
             list($approx_rows, $show_superscript) = $this->isRowCountApproximated(
@@ -604,121 +540,117 @@ class StructureController extends Controller
 
             list($do, $ignored) = $this->getReplicationStatus($truename);
 
-            $this->response->addHTML(
-                $this->template->render('database/structure/structure_table_row', [
-                    'table_name_hash' => md5($current_table['TABLE_NAME']),
-                    'db_table_name_hash' => md5($this->db . '.' . $current_table['TABLE_NAME']),
-                    'db' => $this->db,
-                    'curr' => $i,
-                    'input_class' => implode(' ', $input_class),
-                    'table_is_view' => $table_is_view,
-                    'current_table' => $current_table,
-                    'browse_table_title' => $may_have_rows ? $titles['Browse'] : $titles['NoBrowse'],
-                    'search_table_title' => $may_have_rows ? $titles['Search'] : $titles['NoSearch'],
-                    'browse_table_label_title' => htmlspecialchars($current_table['TABLE_COMMENT']),
-                    'browse_table_label_truename' => $truename,
-                    'empty_table_sql_query' => urlencode(
-                        'TRUNCATE ' . Util::backquote(
+            $html .= $this->template->render('database/structure/structure_table_row', [
+                'table_name_hash' => md5($current_table['TABLE_NAME']),
+                'db_table_name_hash' => md5($this->db . '.' . $current_table['TABLE_NAME']),
+                'db' => $this->db,
+                'curr' => $i,
+                'input_class' => implode(' ', $input_class),
+                'table_is_view' => $table_is_view,
+                'current_table' => $current_table,
+                'browse_table_title' => $may_have_rows ? $titles['Browse'] : $titles['NoBrowse'],
+                'search_table_title' => $may_have_rows ? $titles['Search'] : $titles['NoSearch'],
+                'browse_table_label_title' => htmlspecialchars($current_table['TABLE_COMMENT']),
+                'browse_table_label_truename' => $truename,
+                'empty_table_sql_query' => urlencode(
+                    'TRUNCATE ' . Util::backquote(
+                        $current_table['TABLE_NAME']
+                    )
+                ),
+                'empty_table_message_to_show' => urlencode(
+                    sprintf(
+                        __('Table %s has been emptied.'),
+                        htmlspecialchars(
                             $current_table['TABLE_NAME']
                         )
-                    ),
-                    'empty_table_message_to_show' => urlencode(
-                        sprintf(
-                            __('Table %s has been emptied.'),
-                            htmlspecialchars(
-                                $current_table['TABLE_NAME']
-                            )
-                        )
-                    ),
-                    'empty_table_title' => $may_have_rows ? $titles['Empty'] : $titles['NoEmpty'],
-                    'tracking_icon' => $this->getTrackingIcon($truename),
-                    'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
-                    'tbl_url_query' => $tbl_url_query,
-                    'db_is_system_schema' => $this->_db_is_system_schema,
-                    'titles' => $titles,
-                    'drop_query' => $drop_query,
-                    'drop_message' => $drop_message,
-                    'collation' => $collation,
-                    'formatted_size' => $formatted_size,
-                    'unit' => $unit,
-                    'overhead' => $overhead,
-                    'create_time' => isset($create_time) && $create_time
-                        ? Util::localisedDate(strtotime($create_time)) : '-',
-                    'update_time' => isset($update_time) && $update_time
-                        ? Util::localisedDate(strtotime($update_time)) : '-',
-                    'check_time' => isset($check_time) && $check_time
-                        ? Util::localisedDate(strtotime($check_time)) : '-',
-                    'charset' => isset($charset)
-                        ? $charset : '',
-                    'is_show_stats' => $this->_is_show_stats,
-                    'ignored' => $ignored,
-                    'do' => $do,
-                    'approx_rows' => $approx_rows,
-                    'show_superscript' => $show_superscript,
-                    'already_favorite' => $this->checkFavoriteTable(
-                        $current_table['TABLE_NAME']
-                    ),
-                    'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-                    'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                    'limit_chars' => $GLOBALS['cfg']['LimitChars'],
-                    'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-                    'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-                    'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-                    'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-                    'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                ])
-            );
-
-            $overall_approx_rows = $overall_approx_rows || $approx_rows;
-        } // end foreach
-
-        $this->response->addHTML('</tbody>');
-
-        $db_collation = $this->dbi->getDbCollation($this->db);
-        $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
-
-        // Show Summary
-        $this->response->addHTML(
-            $this->template->render('database/structure/body_for_table_summary', [
-                'num_tables' => $this->_num_tables,
+                    )
+                ),
+                'empty_table_title' => $may_have_rows ? $titles['Empty'] : $titles['NoEmpty'],
+                'tracking_icon' => $this->getTrackingIcon($truename),
                 'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
-                'db_is_system_schema' => $this->_db_is_system_schema,
-                'sum_entries' => $sum_entries,
-                'db_collation' => $db_collation,
-                'is_show_stats' => $this->_is_show_stats,
-                'db_charset' => $db_charset,
-                'sum_size' => $sum_size,
-                'overhead_size' => $overhead_size,
-                'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
-                'update_time_all' => $update_time_all ? Util::localisedDate(strtotime($update_time_all)) : '-',
-                'check_time_all' => $check_time_all ? Util::localisedDate(strtotime($check_time_all)) : '-',
-                'approx_rows' => $overall_approx_rows,
+                'tbl_url_query' => $tbl_url_query,
+                'db_is_system_schema' => $this->dbIsSystemSchema,
+                'titles' => $titles,
+                'drop_query' => $drop_query,
+                'drop_message' => $drop_message,
+                'collation' => $collation,
+                'formatted_size' => $formatted_size,
+                'unit' => $unit,
+                'overhead' => $overhead,
+                'create_time' => isset($create_time) && $create_time
+                        ? Util::localisedDate(strtotime($create_time)) : '-',
+                'update_time' => isset($update_time) && $update_time
+                        ? Util::localisedDate(strtotime($update_time)) : '-',
+                'check_time' => isset($check_time) && $check_time
+                        ? Util::localisedDate(strtotime($check_time)) : '-',
+                'charset' => isset($charset)
+                        ? $charset : '',
+                'is_show_stats' => $this->isShowStats,
+                'ignored' => $ignored,
+                'do' => $do,
+                'approx_rows' => $approx_rows,
+                'show_superscript' => $show_superscript,
+                'already_favorite' => $this->checkFavoriteTable(
+                    $current_table['TABLE_NAME']
+                ),
                 'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-                'db' => $GLOBALS['db'],
                 'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                'dbi' => $this->dbi,
+                'limit_chars' => $GLOBALS['cfg']['LimitChars'],
                 'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                 'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
                 'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
                 'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                 'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-            ])
-        );
-        $this->response->addHTML('</table>');
+            ]);
+
+            $overall_approx_rows = $overall_approx_rows || $approx_rows;
+        } // end foreach
+
+        $html .= '</tbody>';
+
+        $db_collation = $this->dbi->getDbCollation($this->db);
+        $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
+
+        // Show Summary
+        $html .= $this->template->render('database/structure/body_for_table_summary', [
+            'num_tables' => $this->numTables,
+            'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
+            'db_is_system_schema' => $this->dbIsSystemSchema,
+            'sum_entries' => $sum_entries,
+            'db_collation' => $db_collation,
+            'is_show_stats' => $this->isShowStats,
+            'db_charset' => $db_charset,
+            'sum_size' => $sum_size,
+            'overhead_size' => $overhead_size,
+            'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
+            'update_time_all' => $update_time_all ? Util::localisedDate(strtotime($update_time_all)) : '-',
+            'check_time_all' => $check_time_all ? Util::localisedDate(strtotime($check_time_all)) : '-',
+            'approx_rows' => $overall_approx_rows,
+            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+            'db' => $GLOBALS['db'],
+            'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+            'dbi' => $this->dbi,
+            'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+            'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+            'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+            'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+            'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+        ]);
+        $html .= '</table>';
 
         //check all
-        $this->response->addHTML(
-            $this->template->render('database/structure/check_all_tables', [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                'text_dir' => $GLOBALS['text_dir'],
-                'overhead_check' => $overhead_check,
-                'db_is_system_schema' => $this->_db_is_system_schema,
-                'hidden_fields' => $hidden_fields,
-                'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
-                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
-            ])
-        );
-        $this->response->addHTML('</form>'); //end of form
+        $html .= $this->template->render('database/structure/check_all_tables', [
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            'text_dir' => $GLOBALS['text_dir'],
+            'overhead_check' => $overhead_check,
+            'db_is_system_schema' => $this->dbIsSystemSchema,
+            'hidden_fields' => $hidden_fields,
+            'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
+            'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+        ]);
+        $html .= '</form>'; //end of form
+
+        return $html;
     }
 
     /**
@@ -728,7 +660,7 @@ class StructureController extends Controller
      *
      * @return string HTML for tracking icon
      */
-    protected function getTrackingIcon($table)
+    protected function getTrackingIcon(string $table): string
     {
         $tracking_icon = '';
         if (Tracker::isActive()) {
@@ -754,8 +686,10 @@ class StructureController extends Controller
      *
      * @return array
      */
-    protected function isRowCountApproximated(array $current_table, $table_is_view)
-    {
+    protected function isRowCountApproximated(
+        array $current_table,
+        bool $table_is_view
+    ): array {
         $approx_rows = false;
         $show_superscript = '';
 
@@ -804,7 +738,7 @@ class StructureController extends Controller
      *
      * @return array
      */
-    protected function getReplicationStatus($table)
+    protected function getReplicationStatus(string $table): array
     {
         $do = $ignored = false;
         if ($GLOBALS['replication_info']['slave']['status']) {
@@ -857,52 +791,52 @@ class StructureController extends Controller
      * Synchronize favorite tables
      *
      *
-     * @param RecentFavoriteTable $fav_instance    Instance of this class
-     * @param string              $user            The user hash
-     * @param array               $favorite_tables Existing favorites
+     * @param RecentFavoriteTable $favoriteInstance Instance of this class
+     * @param string              $user             The user hash
+     * @param array               $favoriteTables   Existing favorites
      *
-     * @return void
+     * @return array
      */
     protected function synchronizeFavoriteTables(
-        $fav_instance,
-        $user,
-        array $favorite_tables
-    ) {
-        $fav_instance_tables = $fav_instance->getTables();
+        RecentFavoriteTable $favoriteInstance,
+        string $user,
+        array $favoriteTables
+    ): array {
+        $favoriteInstanceTables = $favoriteInstance->getTables();
 
-        if (empty($fav_instance_tables)
-            && isset($favorite_tables[$user])
+        if (empty($favoriteInstanceTables)
+            && isset($favoriteTables[$user])
         ) {
-            foreach ($favorite_tables[$user] as $key => $value) {
-                $fav_instance->add($value['db'], $value['table']);
+            foreach ($favoriteTables[$user] as $key => $value) {
+                $favoriteInstance->add($value['db'], $value['table']);
             }
         }
-        $favorite_tables[$user] = $fav_instance->getTables();
+        $favoriteTables[$user] = $favoriteInstance->getTables();
 
-        $this->response->addJSON(
-            [
-                'favorite_tables' => json_encode($favorite_tables),
-                'list' => $fav_instance->getHtmlList()
-            ]
-        );
-        $server_id = $GLOBALS['server'];
+        $json = [
+            'favorite_tables' => json_encode($favoriteTables),
+            'list' => $favoriteInstance->getHtmlList()
+        ];
+        $serverId = $GLOBALS['server'];
         // Set flag when localStorage and pmadb(if present) are in sync.
-        $_SESSION['tmpval']['favorites_synced'][$server_id] = true;
+        $_SESSION['tmpval']['favorites_synced'][$serverId] = true;
+
+        return $json;
     }
 
     /**
      * Function to check if a table is already in favorite list.
      *
-     * @param string $current_table current table
+     * @param string $currentTable current table
      *
-     * @return true|false
+     * @return bool
      */
-    protected function checkFavoriteTable($current_table)
+    protected function checkFavoriteTable(string $currentTable): bool
     {
         // ensure $_SESSION['tmpval']['favorite_tables'] is initialized
         RecentFavoriteTable::getInstance('favorite');
         foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value) {
-            if ($value['db'] == $this->db && $value['table'] == $current_table) {
+            if ($value['db'] == $this->db && $value['table'] == $currentTable) {
                 return true;
             }
         }
@@ -996,7 +930,7 @@ class StructureController extends Controller
             case 'MERGE':
             case 'BerkeleyDB':
                 // Merge or BerkleyDB table: Only row count is accurate.
-                if ($this->_is_show_stats) {
+                if ($this->isShowStats) {
                     $formatted_size =  ' - ';
                     $unit          =  '';
                 }
@@ -1009,7 +943,7 @@ class StructureController extends Controller
                 break;
             default:
                 // Unknown table type.
-                if ($this->_is_show_stats) {
+                if ($this->isShowStats) {
                     $formatted_size =  __('unknown');
                     $unit          =  '';
                 }
@@ -1059,13 +993,13 @@ class StructureController extends Controller
         $formatted_overhead,
         $overhead_unit
     ) {
-        if ($this->_db_is_system_schema) {
+        if ($this->dbIsSystemSchema) {
             $current_table['Rows'] = $this->dbi
                 ->getTable($this->db, $current_table['Name'])
                 ->countRecords();
         }
 
-        if ($this->_is_show_stats) {
+        if ($this->isShowStats) {
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
@@ -1123,7 +1057,7 @@ class StructureController extends Controller
             $current_table['COUNTED'] = false;
         }
 
-        if ($this->_is_show_stats) {
+        if ($this->isShowStats) {
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
