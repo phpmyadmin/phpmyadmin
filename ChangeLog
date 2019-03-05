@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #14898 Fixed Bottom table is blocked in database list (left panel)
 - issue #14425 Fixed Null Checkbox automatically unmarked
 - issue #14870 Display correct date and time in Zip files
+- issue #14763 Fixed the loading symbol not appearing when refreshing the navigation
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
