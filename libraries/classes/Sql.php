@@ -1166,6 +1166,11 @@ EOT;
             // "Showing rows..." message
             // $_SESSION['tmpval']['max_rows'] = 'all';
             $unlim_num_rows = $num_rows;
+        } elseif ($this->isAppendLimitClause($analyzed_sql_results) && $_SESSION['tmpval']['max_rows'] > $num_rows) {
+            // When user has not defined a limit in query and total rows in
+            // result are less than max_rows to display, there is no need
+            // to count total rows for that query again
+            $unlim_num_rows = $_SESSION['tmpval']['pos'] + $num_rows;
         } elseif ($analyzed_sql_results['querytype'] == 'SELECT'
             || $analyzed_sql_results['is_subquery']
         ) {
