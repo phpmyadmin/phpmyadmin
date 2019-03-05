@@ -309,19 +309,20 @@ $(function () {
      */
     $(document).on('click', '#pma_navigation_reload', function (event) {
         event.preventDefault();
-        // reload icon object
-        var $icon = $(this).find('img');
-        // source of the hidden throbber icon
-        var icon_throbber_src = $('#pma_navigation').find('.throbber').attr('src');
-        // source of the reload icon
-        var icon_reload_src = $icon.attr('src');
-        // replace the source of the reload icon with the one for throbber
-        $icon.attr('src', icon_throbber_src);
-        PMA_reloadNavigation();
-        // after one second, put back the reload icon
-        setTimeout(function () {
-            $icon.attr('src', icon_reload_src);
-        }, 1000);
+
+        // Find the loading symbol and show it
+        var $icon_throbber_src = $('#pma_navigation').find('.throbber');
+        $icon_throbber_src.show();
+        // TODO Why is a loading symbol both hidden, and invisible?
+        $icon_throbber_src.css('visibility', '');
+
+        // Callback to be used to hide the loading symbol when done reloading
+        function hideNav() {
+            $icon_throbber_src.hide();
+        }
+
+        // Reload the navigation
+        PMA_reloadNavigation(hideNav);
     });
 
     $(document).on('change', '#navi_db_select',  function (event) {
