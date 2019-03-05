@@ -60,11 +60,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_class_for_type',
-                'PhpMyAdmin\Util::getClassForType',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_docu_link',
                 'PhpMyAdmin\Util::getDocuLink',
                 ['is_safe' => ['html']]

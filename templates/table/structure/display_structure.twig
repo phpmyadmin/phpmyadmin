@@ -62,7 +62,7 @@
                     {{ displayed_fields[rownum].icon|raw }}
                 </label>
             </th>
-            <td {{ get_class_for_type(extracted_columnspec['type']) }}>
+            <td{{ 'set' != extracted_columnspec['type'] and 'enum' != extracted_columnspec['type'] ? ' class="nowrap"' }}>
                 <bdo dir="ltr" lang="en">
                     {{ extracted_columnspec['displayed_type']|raw }}
                     {% if relation_commwork and relation_mimework and browse_mime
