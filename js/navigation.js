@@ -317,7 +317,7 @@ $(function () {
         $icon_throbber_src.css('visibility', '');
 
         // Callback to be used to hide the loading symbol when done reloading
-        function hideNav() {
+        function hideNav () {
             $icon_throbber_src.hide();
         }
 
