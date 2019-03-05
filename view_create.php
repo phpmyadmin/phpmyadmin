@@ -185,8 +185,8 @@ $view = array(
     'with' => '',
 );
 
-if (Core::isValid($_POST['view'], 'array')) {
-    $view = array_merge($view, $_POST['view']);
+if (Core::isValid($_GET['view'], 'array')) {
+    $view = array_merge($view, $_GET['view']);
 }
 
 $url_params['db'] = $GLOBALS['db'];
