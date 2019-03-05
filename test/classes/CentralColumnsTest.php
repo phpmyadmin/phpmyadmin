@@ -313,6 +313,7 @@ class CentralColumnsTest extends TestCase
 
         $this->assertTrue(
             $this->centralColumns->deleteColumnsFromList(
+                $_POST['db'],
                 ["col1"],
                 false
             )
@@ -322,6 +323,7 @@ class CentralColumnsTest extends TestCase
         $this->assertInstanceOf(
             'PhpMyAdmin\Message',
             $this->centralColumns->deleteColumnsFromList(
+                $_POST['db'],
                 ['column1'],
                 false
             )
@@ -330,6 +332,7 @@ class CentralColumnsTest extends TestCase
         $this->assertInstanceOf(
             'PhpMyAdmin\Message',
             $this->centralColumns->deleteColumnsFromList(
+                $_POST['db'],
                 ['PMA_table']
             )
         );
@@ -470,41 +473,41 @@ class CentralColumnsTest extends TestCase
      */
     public function testUpdateMultipleColumn()
     {
-        $_POST['db'] = 'phpmyadmin';
-        $_POST['orig_col_name'] = [
+        $params['db'] = 'phpmyadmin';
+        $params['orig_col_name'] = [
             "col1",
             "col2",
         ];
-        $_POST['field_name'] = [
+        $params['field_name'] = [
             "col1",
             "col2",
         ];
-        $_POST['field_default_type'] = [
+        $params['field_default_type'] = [
             "",
             "",
         ];
-        $_POST['col_extra'] = [
+        $params['col_extra'] = [
             "",
             "",
         ];
-        $_POST['field_length'] = [
+        $params['field_length'] = [
             "",
             "",
         ];
-        $_POST['field_attribute'] = [
+        $params['field_attribute'] = [
             "",
             "",
         ];
-        $_POST['field_type'] = [
+        $params['field_type'] = [
             "",
             "",
         ];
-        $_POST['field_collation'] = [
+        $params['field_collation'] = [
             "",
             "",
         ];
         $this->assertTrue(
-            $this->centralColumns->updateMultipleColumn()
+            $this->centralColumns->updateMultipleColumn($params)
         );
     }
 
@@ -599,7 +602,7 @@ class CentralColumnsTest extends TestCase
                 $this->returnValue($this->columnData)
             );
         $this->assertEquals(
-            json_encode($this->modifiedColumnData),
+            $this->modifiedColumnData,
             $this->centralColumns->getListRaw(
                 'phpmyadmin',
                 ''
@@ -628,7 +631,7 @@ class CentralColumnsTest extends TestCase
                 $this->returnValue($this->columnData)
             );
         $this->assertEquals(
-            json_encode($this->modifiedColumnData),
+            $this->modifiedColumnData,
             $this->centralColumns->getListRaw(
                 'phpmyadmin',
                 'table1'

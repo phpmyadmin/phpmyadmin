@@ -415,13 +415,15 @@ class CentralColumns
      * central columns list otherwise $field_select is columns list and it removes
      * given columns if present in central list
      *
-     * @param array $field_select if $isTable selected list of tables otherwise
-     *                            selected list of columns to remove from central list
-     * @param bool  $isTable      if passed array is of tables or columns
+     * @param string $database     Database name
+     * @param array  $field_select if $isTable selected list of tables otherwise
+     *                             selected list of columns to remove from central list
+     * @param bool   $isTable      if passed array is of tables or columns
      *
      * @return true|\PhpMyAdmin\Message
      */
     public function deleteColumnsFromList(
+        string $database,
         array $field_select,
         bool $isTable = true
     ) {
@@ -429,10 +431,9 @@ class CentralColumns
         if (empty($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
-        $db = $_POST['db'];
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
-        $this->dbi->selectDb($db);
+        $this->dbi->selectDb($database);
         $message = true;
         $colNotExist = [];
         $fields = [];
@@ -440,7 +441,7 @@ class CentralColumns
             $cols = '';
             foreach ($field_select as $table) {
                 $fields[$table] = (array) $this->dbi->getColumnNames(
-                    $db,
+                    $database,
                     $table
                 );
                 foreach ($fields[$table] as $col_select) {
@@ -448,7 +449,7 @@ class CentralColumns
                 }
             }
             $cols = trim($cols, ',');
-            $has_list = $this->findExistingColNames($db, $cols);
+            $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $column) {
                     if (! in_array($column, $has_list)) {
@@ -462,7 +463,7 @@ class CentralColumns
                 $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
             }
             $cols = trim($cols, ',');
-            $has_list = $this->findExistingColNames($db, $cols);
+            $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $column) {
                 if (! in_array($column, $has_list)) {
                     $colNotExist[] = "'" . $column . "'";
@@ -484,7 +485,7 @@ class CentralColumns
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
 
         $query = 'DELETE FROM ' . Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
+            . 'WHERE db_name = \'' . $this->dbi->escapeString($database) . '\' AND col_name IN (' . $cols . ');';
 
         if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not remove columns!'));
@@ -678,45 +679,38 @@ class CentralColumns
     }
 
     /**
-     * Update Multiple column in central columns list if a chnage is requested
+     * Update Multiple column in central columns list if a change is requested
      *
+     * @param array $params Request parameters
      * @return true|\PhpMyAdmin\Message
      */
-    public function updateMultipleColumn()
+    public function updateMultipleColumn(array $params)
     {
-        $db = $_POST['db'];
-        $col_name = $_POST['field_name'];
-        $orig_col_name = $_POST['orig_col_name'];
-        $col_default = $_POST['field_default_type'];
-        $col_length = $_POST['field_length'];
-        $col_attribute = $_POST['field_attribute'];
-        $col_type = $_POST['field_type'];
-        $collation = $_POST['field_collation'];
-        $col_isNull = [];
-        $col_extra = [];
-        $num_central_fields = count($orig_col_name);
-        for ($i = 0; $i < $num_central_fields; $i++) {
-            $col_isNull[$i] = isset($_POST['field_null'][$i]) ? 1 : 0;
-            $col_extra[$i] = isset($_POST['col_extra'][$i])
-                ? $_POST['col_extra'][$i] : '';
+        $columnDefault = $params['field_default_type'];
+        $columnIsNull = [];
+        $columnExtra = [];
+        $numberCentralFields = count($params['orig_col_name']);
+        for ($i = 0; $i < $numberCentralFields; $i++) {
+            $columnIsNull[$i] = isset($params['field_null'][$i]) ? 1 : 0;
+            $columnExtra[$i] = $params['col_extra'][$i] ?? '';
 
-            if ($col_default[$i] == 'NONE') {
-                $col_default[$i] = "";
-            } elseif ($col_default[$i] == 'USER_DEFINED') {
-                $col_default[$i] = $_POST['field_default_value'][$i];
+            if ($columnDefault[$i] === 'NONE') {
+                $columnDefault[$i] = '';
+            } elseif ($columnDefault[$i] === 'USER_DEFINED') {
+                $columnDefault[$i] = $params['field_default_value'][$i];
             }
 
             $message = $this->updateOneColumn(
-                $db,
-                $orig_col_name[$i],
-                $col_name[$i],
-                $col_type[$i],
-                $col_attribute[$i],
-                $col_length[$i],
-                $col_isNull[$i],
-                $collation[$i],
-                $col_extra[$i],
-                $col_default[$i]
+                $params['db'],
+                $params['orig_col_name'][$i],
+                $params['field_name'][$i],
+                $params['field_type'][$i],
+                $params['field_attribute'][$i],
+                $params['field_length'][$i],
+                $columnIsNull[$i],
+                $params['field_collation'][$i],
+                $columnExtra[$i],
+                $columnDefault[$i]
             );
             if (! is_bool($message)) {
                 return $message;
@@ -872,11 +866,11 @@ class CentralColumns
      * @return string encoded list of columns present in central list for the given
      *                database
      */
-    public function getListRaw(string $db, string $table): string
+    public function getListRaw(string $db, string $table): array
     {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
-            return json_encode([]);
+            return [];
         }
         $centralTable = $cfgCentralColumns['table'];
         if (empty($table) || $table == '') {
@@ -908,7 +902,7 @@ class CentralColumns
             DatabaseInterface::CONNECT_CONTROL
         );
         $this->handleColumnExtra($columns_list);
-        return json_encode($columns_list);
+        return $columns_list;
     }
 
     /**

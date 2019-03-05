@@ -136,6 +136,7 @@ if (! empty($submit_mult)
                 break;
             case 'delete_unique_columns_central_list':
                 $centralColsError = $centralColumns->deleteColumnsFromList(
+                    $_POST['db'],
                     $selected
                 );
                 break;

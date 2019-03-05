@@ -1608,6 +1608,7 @@ class StructureController extends Controller
                 break;
             case 'remove_from_central_columns':
                 $centralColsError = $centralColumns->deleteColumnsFromList(
+                    $_POST['db'],
                     $selected,
                     false
                 );
