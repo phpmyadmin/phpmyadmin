@@ -25,8 +25,8 @@ distribution and you will automatically get security updates from your distribut
 
 .. _debian-package:
 
-Debian
-------
+Debian and Ubuntu
+-----------------
 
 Debian's package repositories include a phpMyAdmin package, but be aware that
 the configuration file is maintained in ``/etc/phpmyadmin`` and may differ in
@@ -46,18 +46,6 @@ OpenSUSE
 
 OpenSUSE already comes with phpMyAdmin package, just install packages from
 the `openSUSE Build Service <https://software.opensuse.org/package/phpMyAdmin>`_.
-
-Ubuntu
-------
-
-Ubuntu ships phpMyAdmin package, however if you want to use recent version, you
-can use packages from
-`phpMyAdmin PPA <https://launchpad.net/~nijel/+archive/ubuntu/phpmyadmin>`_.
-
-.. seealso::
-
-    The packages are same as in :ref:`debian-package` please check the documentation
-    there for more details.
 
 Gentoo
 ------
