@@ -45,6 +45,8 @@ phpMyAdmin - ChangeLog
 - issue #14870 Display correct date and time in Zip files
 - issue #14763 Fixed the loading symbol not appearing when refreshing the navigation
 - issue #14607 Count rows only if needed
+- issue #14832 Show Designer combo boxes when adding a constraint
+- issue #14948 Fix change password is not showing password strength difference at the second attempt
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
