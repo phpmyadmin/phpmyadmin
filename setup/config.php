@@ -26,6 +26,7 @@ $form_display = new ConfigForm($GLOBALS['ConfigFile']);
 $form_display->save('Config');
 
 $response = Response::getInstance();
+$response->disable();
 
 if (isset($_POST['eol'])) {
     $_SESSION['eol'] = ($_POST['eol'] == 'unix') ? 'unix' : 'win';
