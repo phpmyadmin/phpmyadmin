@@ -47,6 +47,7 @@ phpMyAdmin - ChangeLog
 - issue #14607 Count rows only if needed
 - issue #14832 Show Designer combo boxes when adding a constraint
 - issue #14948 Fix change password is not showing password strength difference at the second attempt
+- issue #14868 Fix edit view
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
