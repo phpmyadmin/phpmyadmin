@@ -1203,7 +1203,7 @@ function Click_field (db, T, f, PK) {
                 alert(PMA_messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }// PK
-            if (j_tabs[db + '.' + T] !== '1') {
+            if (j_tabs[db + '.' + T] !== 1) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             click_field = 1;
@@ -1211,7 +1211,7 @@ function Click_field (db, T, f, PK) {
             document.getElementById('designer_hint').innerHTML = PMA_messages.strSelectForeignKey;
         } else {
             Start_relation(); // hidden hint...
-            if (j_tabs[db + '.' + T] !== '1' || !PK) {
+            if (j_tabs[db + '.' + T] !== 1 || !PK) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             var left = Glob_X - (document.getElementById('layer_new_relation').offsetWidth >> 1);
