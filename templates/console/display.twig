@@ -168,6 +168,16 @@
                     <input type="checkbox" name="dark_theme">{% trans 'Switch to dark theme' %}
                 </label>
                 <br>
+                <label>
+                    Console Size : <select name="console_size" onclick="
+                        $('#pma_console')[0].style.fontSize = $('#pma_console_options').find('select[name=console_size]')[0].value;
+                    ">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                        <option value="x-large">Extra Large</option>
+                        </select>
+                </label>
             </div>
         </div> <!-- Options card -->
         <div class="templates">
