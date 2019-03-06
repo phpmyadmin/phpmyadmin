@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue #14832 Show Designer combo boxes when adding a constraint
 - issue #14948 Fix change password is not showing password strength difference at the second attempt
 - issue #14868 Fix edit view
+- issue #14943 Fixed loading Forever when creating new view without filling any field
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
