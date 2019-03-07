@@ -88,22 +88,23 @@ class Index
     /**
      * Prints message list, must be called after self::messagesEnd()
      *
-     * @return void
+     * @return array
      */
     public static function messagesShowHtml()
     {
+        $return = [];
         foreach ($_SESSION['messages'] as $type => $messages) {
             foreach ($messages as $id => $msg) {
-                if (! $msg['fresh'] && $type != 'error') {
-                    $extra = ' hiddenmessage';
-                } else {
-                    $extra = '';
-                }
-                echo '<div class="' , $type, $extra , '" id="' , $id , '">'
-                    , '<h4>' , $msg['title'] , '</h4>'
-                    , $msg['message'] , '</div>';
+                $return[] = [
+                    'id' => $id,
+                    'title' => $msg['title'],
+                    'type' => $type,
+                    'message' => $msg['message'],
+                    'is_hidden' => ! $msg['fresh'] && $type !== 'error',
+                ];
             }
         }
+        return $return;
     }
 
     /**

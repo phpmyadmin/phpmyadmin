@@ -22,8 +22,7 @@
     "non-feature-branches": ["RELEASE_.*"],
     "autoload": {
         "psr-4": {
-            "PhpMyAdmin\\": "libraries/classes",
-            "PhpMyAdmin\\Setup\\": "setup/lib"
+            "PhpMyAdmin\\": "libraries/classes"
         }
     },
     "autoload-dev": {

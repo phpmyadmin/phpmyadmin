@@ -2843,7 +2843,7 @@ class Util
      */
     public static function convertBitDefaultValue($bit_default_value)
     {
-        return rtrim(ltrim($bit_default_value, "b'"), "'");
+        return rtrim(ltrim(htmlspecialchars_decode($bit_default_value, ENT_QUOTES), "b'"), "'");
     }
 
     /**

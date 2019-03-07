@@ -21,7 +21,6 @@ if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
 }
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
-require_once ROOT_PATH . 'setup/lib/ConfigGenerator.php';
 
 // use default error handler
 restore_error_handler();
