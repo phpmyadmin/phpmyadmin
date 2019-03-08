@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2018-03-30 20:08+0000\n"
+"PO-Revision-Date: 2019-03-10 11:03+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "it/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.5.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -335,16 +335,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Devi scegliere almeno un campo da mostrare!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simula query"
+msgstr "Query multi-tabella"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Query fallita"
+msgstr "Query by example"
 
 #: db_qbe.php:168
 #, php-format
@@ -961,6 +957,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Stai cercando di ridurre il numero di righe, ma alcune di queste righe "
+"contengono dati che andranno persi. Desideri procedere lo stesso?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1125,10 +1123,8 @@ msgid "Y values"
 msgstr "Valori per l'asse Y"
 
 #: js/messages.php:143
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Si prega di inserire lo stesso valore di nuovo"
+msgstr "Si prega di inserire prima la query SQL."
 
 #: js/messages.php:146
 msgid "The host name is empty!"
@@ -2329,7 +2325,7 @@ msgstr ""
 
 #: js/messages.php:565
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "value/subQuery è vuoto"
 
 #: js/messages.php:566 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -7207,6 +7203,8 @@ msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
 msgstr ""
+"Disabilita il parametro mysql.allow_local_infile nella configurazione PHP "
+"oppure installa l'estensione mysqlii."
 
 #: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -10280,6 +10278,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"Non trovo l'estensione gd nella configurazione PHP. Il QRcode non può essere "
+"visualizzato senza l'estensione gd."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
@@ -10656,16 +10656,13 @@ msgid "Change or reconfigure master server"
 msgstr "Modifica o riconfigura il server master"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Questo server non é configurato come slave in un processo di replicazione. "
-"Vorresti <a href=\"%s\">configurarlo ora</a>?"
+"Vuoi %sconfigurarlo ora%s?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10686,16 +10683,13 @@ msgid "Skip next %s errors."
 msgstr "Salta i prossimi %s errori."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Questo server non é configurato come master in un processo di replicazione. "
-"Vorresti <a href=\"%s\">configurarlo ora</a>?"
+"Vuoi %sconfigurarlo ora%s?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
@@ -16143,25 +16137,21 @@ msgstr ""
 "generato dal dispositivo."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Esegui una scansione del QR code che segue e inseriscila nella app di "
-"autenticazione del tuo dispositivo a due fattori, quindi inserisci il codice "
-"generato dal dispositivo."
+"Inserisci la seguente secret/key nella app di autenticazione del tuo "
+"dispositivo a due fattori, quindi inserisci il codice generato dal "
+"dispositivo."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP url:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Secret/key:"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
