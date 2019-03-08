@@ -2932,9 +2932,9 @@ class DatabaseInterface
      * @param object $result result set identifier
      * @param int    $i      field
      *
-     * @return int length of field
+     * @return int|bool length of field
      */
-    public function fieldLen($result, int $i): int
+    public function fieldLen($result, int $i)
     {
         return $this->_extension->fieldLen($result, $i);
     }

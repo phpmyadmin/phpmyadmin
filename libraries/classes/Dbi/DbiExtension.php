@@ -210,7 +210,7 @@ interface DbiExtension
      * @param object $result result set identifier
      * @param int    $i      field
      *
-     * @return int length of field
+     * @return int|bool length of field
      */
     public function fieldLen($result, $i);
 
