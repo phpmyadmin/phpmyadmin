@@ -156,6 +156,10 @@ var PMA_console = {
                 PMA_console.updateConfig();
             });
 
+            $('#pma_console_options').find('select[name=console_size]').on('click', function(){
+                $('#pma_console')[0].style.fontSize = $('#pma_console_options').find('select[name=console_size]')[0].value;
+            })
+
             $('#pma_console_options').find('.button.default').on('click', function () {
                 $('#pma_console_options input[name=always_expand]').prop('checked', false);
                 $('#pma_console_options').find('input[name=start_history]').prop('checked', false);
