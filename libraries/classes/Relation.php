@@ -1498,7 +1498,7 @@ class Relation
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 
-                $f_query_limit = ! empty($foreign_limit) ?: '';
+                $f_query_limit = ! empty($foreign_limit) ? $foreign_limit : '';
 
                 if (! empty($foreign_filter)) {
                     $the_total = $this->dbi->fetchValue(
