@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-03-02 14:13+0000\n"
-"Last-Translator: André A. Peixoto <alfonso.peixoto@gmail.com>\n"
+"PO-Revision-Date: 2019-03-10 11:03+0000\n"
+"Last-Translator: J.M. Rütter <jm@jublo.net>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.5.1-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -14236,33 +14236,27 @@ msgstr "Aktualisierungs-Intervall"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:32
-#, fuzzy, php-format
-#| msgid "\"%d\" second"
-#| msgid_plural "\"%d\" seconds"
+#, php-format
 msgid "%d second"
-msgstr "\"%d\" Sekunde"
+msgstr "%d Sekunde"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:34
-#, fuzzy, php-format
-#| msgid "\"%d\" second"
-#| msgid_plural "\"%d\" seconds"
+#, php-format
 msgid "%d seconds"
-msgstr "\"%d\" Sekunde"
+msgstr "%d Sekunden"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "pro Minute"
+msgstr "%d Minute"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "pro Minute"
+msgstr "%d Minuten"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -14830,8 +14824,6 @@ msgstr "Binäres Protokoll zur Anzeige auswählen"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "Zeige die SQL-Abfragen verkürzt an"
 
@@ -15110,8 +15102,8 @@ msgstr[1] "%1$s Treffer in <strong>%2$s</strong>"
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Insgesamt</strong> <em>%s</em> Treffer"
-msgstr[1] "<strong>Insgesamt</strong> <em>%s</em> Treffer"
+msgstr[0] "<strong>Insgesamt</strong> <em>%count%</em> Treffer"
+msgstr[1] "<strong>Insgesamt</strong> <em>%count%</em> Treffer"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -15691,10 +15683,8 @@ msgid "Deactivate now"
 msgstr "Jetzt deaktivieren"
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Datenbankkommentar"
+msgstr "Datenbankkommentar:"
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
