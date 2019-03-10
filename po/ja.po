@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2019-03-02 14:13+0000\n"
+"PO-Revision-Date: 2019-03-12 10:04+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2245,8 +2245,7 @@ msgstr "暗号化キー"
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
-msgstr ""
-"MySQLはスライダーで選択できない追加の値を直接キー入力することもできます。"
+msgstr "スライダーで選択できない値はMySQLで入力することができます"
 
 #: js/messages.php:545
 msgid ""
@@ -4583,7 +4582,7 @@ msgstr "パーセントは適切な小数に変換する (例：12.00% を .12)"
 
 #: libraries/classes/Config/Descriptions.php:674
 msgid "Number of queries to skip from start."
-msgstr "先頭から数えたスキップするクエリの数"
+msgstr "先頭から数えたスキップするクエリの数。"
 
 #: libraries/classes/Config/Descriptions.php:676
 msgid "Partial import: skip queries"
@@ -9025,8 +9024,7 @@ msgstr "入力されたCAPTCHAは間違っている、もう一度お試しく�
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
-"reCAPTCHA検証がない。adblockによってブロックされている可能性があります。"
+msgstr "reCAPTCHA検証がない。adblockによってブロックされている可能性があるでしょうか？"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
 msgid "You are not allowed to log in to this MySQL server!"
