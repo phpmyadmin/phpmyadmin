@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-01-28 15:40-0200\n"
-"PO-Revision-Date: 2019-02-27 17:23+0000\n"
+"PO-Revision-Date: 2019-03-12 10:04+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hant/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -413,7 +413,7 @@ msgstr "空間參考識別碼(SRID)："
 #: gis_data_editor.php:197
 #, php-format
 msgid "Geometry %d:"
-msgstr "幾何體 %d："
+msgstr "幾何圖形 %d："
 
 #: gis_data_editor.php:219
 msgid "Point:"
@@ -759,9 +759,7 @@ msgstr ""
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
-msgstr ""
-"找不到 curl 擴充功能，且 allow_url_fopen 已停用；故此某些功能，例如錯誤回報與"
-"版本檢查等，會無法使用。"
+msgstr "找不到 curl 擴充套件，且 allow_url_fopen 已停用；故此某些功能，例如錯誤回報與版本檢查等，會無法使用。"
 
 #: index.php:541
 msgid ""
@@ -1066,10 +1064,8 @@ msgid "Y values"
 msgstr "Y 軸值"
 
 #: js/messages.php:143
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "請再輸入一次"
+msgstr "請先輸入 SQL 查詢。"
 
 #: js/messages.php:146
 msgid "The host name is empty!"
@@ -2069,11 +2065,11 @@ msgstr "儲存"
 
 #: js/messages.php:486
 msgid "Hide search criteria"
-msgstr "隱藏搜尋條件"
+msgstr "隱藏搜尋準則"
 
 #: js/messages.php:487
 msgid "Show search criteria"
-msgstr "顯示搜尋條件"
+msgstr "顯示搜尋準則"
 
 #: js/messages.php:488
 msgid "Range search"
@@ -2335,7 +2331,7 @@ msgstr "雙擊點選以複製欄位名稱。"
 
 #: js/messages.php:602
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "點選下拉箭頭<br />以切換欄位的顯示程度。"
+msgstr "點選下拉箭頭<br />以切換欄位的顯示。"
 
 #: js/messages.php:604 libraries/classes/BrowseForeigners.php:340
 #: templates/privileges/initials_row.twig:20
@@ -2967,7 +2963,7 @@ msgstr "在檢查預先狀況時，條件「%s」失敗。"
 #: libraries/classes/Advisor.php:297
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "在計算數值時，條件「%s」失敗。"
+msgstr "在計算值時，條件「%s」失敗。"
 
 #: libraries/classes/Advisor.php:316
 #, php-format
@@ -4054,9 +4050,7 @@ msgstr "匯出時間使用世界協調時間(UTC)"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr ""
-"在外鍵下拉選單，項目的排列次序：[kbd]content[/kbd] 為關聯內容、[kbd]id[/kbd] "
-"為鍵值。"
+msgstr "在外鍵下拉選單，項目的排序：[kbd]content[/kbd] 為關聯內容、[kbd]id[/kbd] 為鍵值。"
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Foreign key dropdown order"
@@ -4652,7 +4646,7 @@ msgstr "導覽面板寬度"
 
 #: libraries/classes/Config/Descriptions.php:774
 msgid "Set to 0 to collapse navigation panel."
-msgstr "設為 0 則摺起導覽面板。"
+msgstr "設為 0 則摺疊導覽面板。"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -4983,7 +4977,7 @@ msgstr "重複顯示標題"
 
 #: libraries/classes/Config/Descriptions.php:957
 msgid "Grid editing: trigger action"
-msgstr "表格編輯：觸發動作"
+msgstr "表格編輯：觸發器動作"
 
 #: libraries/classes/Config/Descriptions.php:959
 msgid "Relational display"
@@ -5011,7 +5005,7 @@ msgstr "若不使用，請留空。"
 
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Host authorization order"
-msgstr "主機授權次序"
+msgstr "主機授權排序"
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "Leave blank for defaults."
@@ -5194,7 +5188,7 @@ msgstr "匯出樣板資料表"
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
-msgstr "如不支援匯出樣板，請留空。建議值：[kbd]pma__export_templates[/kbd]。"
+msgstr "如不支援匯出模板，請留空。建議值：[kbd]pma__export_templates[/kbd]。"
 
 #: libraries/classes/Config/Descriptions.php:1083
 msgid "Central columns table"
@@ -5232,7 +5226,7 @@ msgstr "config 認證方式的密碼"
 #: libraries/classes/Config/Descriptions.php:1102
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
-msgstr "如不支援 PDF 大綱功能，請留空。建議值：[kbd]pma__pdf_pages[/kbd]。"
+msgstr "如不支援 PDF 綱要功能，請留空。建議值：[kbd]pma__pdf_pages[/kbd]。"
 
 #: libraries/classes/Config/Descriptions.php:1104
 msgid "PDF schema: pages table"
@@ -5618,7 +5612,7 @@ msgstr "顯示統計"
 #: libraries/classes/Config/Descriptions.php:1325
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
-msgstr "將已鎖定的資料表在資料庫中顯示為「使用中」。"
+msgstr "標注使用過的資料表，並且顯示帶有已鎖定的資料表的資料庫。"
 
 #: libraries/classes/Config/Descriptions.php:1327
 msgid "Skip locked tables"
@@ -6761,7 +6755,7 @@ msgstr "設定編碼與排序連線失敗！"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "伺服器沒有回應 (又或者未有正確設定本地伺服器的 socket)。"
+msgstr "伺服器沒有回應 (又或者未有正確設定本地伺服器的套接字[socket])。"
 
 #: libraries/classes/DatabaseInterface.php:2175
 msgid "The server is not responding."
@@ -6803,7 +6797,7 @@ msgstr ""
 msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
-msgstr "請於 PHP 設定停用 mysql.allow_local_infile，或安裝 mysqli 延伸套件。"
+msgstr "請於 PHP 設定停用 mysql.allow_local_infile，或安裝 mysqli 擴充套件。"
 
 #: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -6913,7 +6907,7 @@ msgstr "儲存修改過的資料"
 
 #: libraries/classes/Display/Results.php:917
 msgid "Restore column order"
-msgstr "還原欄位的次序"
+msgstr "還原欄位的排序"
 
 #: libraries/classes/Display/Results.php:965
 #: templates/database/central_columns/table_navigation.twig:37
@@ -7506,7 +7500,7 @@ msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
 
 #: libraries/classes/Import.php:290 libraries/classes/Sql.php:1438
 msgid "[ROLLBACK occurred.]"
-msgstr "[已發生回滾(ROLLBACK)。]"
+msgstr "[已發生回退(ROLLBACK)。]"
 
 #: libraries/classes/Import.php:1209
 msgid ""
@@ -8299,16 +8293,14 @@ msgstr "第二步："
 
 #: libraries/classes/Normalization.php:370
 msgid "Find partial dependencies"
-msgstr "尋找「部分依存」"
+msgstr "尋找「部份依存」"
 
 #: libraries/classes/Normalization.php:393
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
-msgstr ""
-"若主鍵 ( %1$s ) 由資料表所有的欄位組成，由於沒有非主要欄位，因此不會有部分依"
-"存。"
+msgstr "若主鍵 ( %1$s ) 由資料表所有的欄位組成，由於沒有非主要欄位，因此不會有部份依存。"
 
 #: libraries/classes/Normalization.php:399
 #: libraries/classes/Normalization.php:444
@@ -8320,7 +8312,7 @@ msgstr "資料表已完成第二正規化。"
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
-msgstr "由於主鍵 ( %1$s ) 由多個欄位組成，所以需要尋找部分依存。"
+msgstr "由於主鍵 ( %1$s ) 由多個欄位組成，所以需要尋找部份依存。"
 
 #: libraries/classes/Normalization.php:409
 #: libraries/classes/Normalization.php:796
@@ -8331,7 +8323,7 @@ msgstr "請謹慎回答以下問題，以完成正確的正規化。"
 
 #: libraries/classes/Normalization.php:413
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr "+ 根據資料表的資料，顯示可能的部分依存"
+msgstr "+ 根據資料表的資料，顯示可能的部份依存"
 
 #: libraries/classes/Normalization.php:417
 msgid ""
@@ -8351,7 +8343,7 @@ msgstr "「%1$s」依存於："
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
-msgstr "由於主鍵 ( %1$s ) 只有一個欄位，所以不會有部分依存。"
+msgstr "由於主鍵 ( %1$s ) 只有一個欄位，所以不會有部份依存。"
 
 #: libraries/classes/Normalization.php:468
 #, php-format
@@ -8443,7 +8435,7 @@ msgstr "此清單依據資料表資料的子集合組成，不一定準確。 "
 
 #: libraries/classes/Normalization.php:977
 msgid "No partial dependencies found!"
-msgstr "查無部分依存！"
+msgstr "查無部份依存！"
 
 #: libraries/classes/Operations.php:104
 msgid "Rename database to"
@@ -8626,12 +8618,12 @@ msgstr "接合(Coalesce)"
 
 #: libraries/classes/Operations.php:1616
 msgid "Partition maintenance"
-msgstr "分割區維護"
+msgstr "分區維護"
 
 #: libraries/classes/Operations.php:1633
 #, php-format
 msgid "Partition %s"
-msgstr "分割區 %s"
+msgstr "分區 %s"
 
 #: libraries/classes/Operations.php:1651
 #: templates/table/structure/display_partitions.twig:137
@@ -9301,9 +9293,7 @@ msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
-msgstr ""
-"若檔案每行的資料和資料庫的順序不一致，請在此列出對應的欄位名稱。欄位名稱用半"
-"形逗號分隔，且毋須用引號括起。"
+msgstr "若檔案每行的資料和資料庫的排序不一致，請在此列出對應的欄位名稱。欄位名稱用半形逗號分隔，且毋須用引號括起。"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:80
 #: libraries/classes/Plugins/Import/ImportLdi.php:75
@@ -9482,11 +9472,11 @@ msgstr "資料表排序"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:104
 msgid "Name (Ascending)"
-msgstr "名稱 (順序)"
+msgstr "名稱 (遞增)"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 msgid "Name (Descending)"
-msgstr "名稱 (逆序)"
+msgstr "名稱 (遞減)"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:69
 msgid "Show color"
@@ -9698,7 +9688,7 @@ msgstr "將文字以 XML 語法凸顯標示。"
 msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
-msgstr "找不到 gd PHP 擴充程式，所以未能顯示 QRcode。"
+msgstr "找不到 gd PHP 擴充套件，所以未能顯示 QRcode。"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
@@ -10101,9 +10091,7 @@ msgstr "次要備援伺服器設定"
 msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
-msgstr ""
-"請確認在設定檔案 (my.cnf) 已設定了唯一的伺服器代號 (server-id)。若沒有，請將"
-"以下設定新增到 [mysqld] 設定區塊："
+msgstr "請確認在設定檔案 (my.cnf) 已設定了獨一的伺服器代號 (server-id)。若沒有，請將以下設定新增到 [mysqld] 設定區塊："
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:791
@@ -10414,9 +10402,8 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"目前正在使用 PHP 已過時的 mysql 擴充套件，該擴充套件無法處理多重查詢，並且"
-"[strong]可能無法執行某些預存程序 (stored routine)[/strong]！請改用 mysqli 擴"
-"充套件以避免出錯。"
+"目前正在使用 PHP 已過時的 mysql 擴充套件，該擴充套件無法處理多重查詢，[strong]並且可能無法執行某些預存程序[/strong]！請改用 "
+"mysqli 擴充套件，以避免出錯。"
 
 #: libraries/classes/Rte/Routines.php:143
 msgid "Edit routine"
@@ -10426,7 +10413,7 @@ msgstr "編輯預存程序"
 #: libraries/classes/Rte/Routines.php:1135
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "預存程序類型無效：\"%s\""
+msgstr "預存程序類型無效：「%s」"
 
 #: libraries/classes/Rte/Routines.php:274
 #, php-format
@@ -10504,16 +10491,14 @@ msgstr "必須填寫預存程序名稱！"
 #: libraries/classes/Rte/Routines.php:1176
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr "給予的參數方向「%s」無效。"
+msgstr "提供的參數方向「%s」無效。"
 
 #: libraries/classes/Rte/Routines.php:1198
 #: libraries/classes/Rte/Routines.php:1262
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr ""
-"必須為以下類型的預存程序參數，提供長度或值：列舉(ENUM)、集合(SET)、VARCHAR "
-"和 VARBINARY。"
+msgstr "必須為此等類型的預存程序參數，提供長度或值：列舉(ENUM)、集合(SET)、VARCHAR 和 VARBINARY。"
 
 #: libraries/classes/Rte/Routines.php:1226
 msgid "You must provide a name and a type for each routine parameter."
@@ -10621,23 +10606,19 @@ msgstr "無建立預存程序的權限。"
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
-msgstr ""
-"資料庫 %2$s 中查無名稱為 %1$s 的預存程序 (Routine)，您可能缺少能夠編輯該程序"
-"的權限。"
+msgstr "資料庫 %2$s 中查無名稱為 %1$s 的預存程序，您可能缺少能夠編輯該程序的權限。"
 
 #: libraries/classes/Rte/Words.php:44
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
-msgstr ""
-"在資料庫 %2$s 中查無名稱為 %1$s 的預存程序 (Routine)，您可能缺少能夠檢視/匯出"
-"該程序的權限。"
+msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的預存程序，您可能缺少能夠檢視/匯出該程序的權限。"
 
 #: libraries/classes/Rte/Words.php:47
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的預存程序 (Routine)。"
+msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的預存程序。"
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
@@ -10663,7 +10644,7 @@ msgstr "沒有建立觸發器所需的權限。"
 #: libraries/classes/Rte/Words.php:61
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的觸發器 (Trigger)。"
+msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的觸發器。"
 
 #: libraries/classes/Rte/Words.php:62
 msgid "There are no triggers to display."
@@ -10825,12 +10806,12 @@ msgstr "允許鎖定目前執行緒的資料表。"
 #: libraries/classes/Server/Privileges.php:393
 #: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
 msgid "Needed for the replication slaves."
-msgstr "使用次要(slave)備援伺服器所需的權限。"
+msgstr "使用次要備援伺服器所需的權限。"
 
 #: libraries/classes/Server/Privileges.php:398
 #: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "允許使用者查詢次要(slave)/主要(master)備援伺服器在哪。"
+msgstr "允許使用者查詢次要／主要備援伺服器的位置。"
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
@@ -10988,7 +10969,7 @@ msgstr "允許新增使用者和權限，但不允許重新載入權限表。"
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
-msgstr "允許使用者將自己的權限，分派予其他使用者。"
+msgstr "允許使用者將自己的權限，分派予其他使用者，又或從其他使用者取走該權限。"
 
 #: libraries/classes/Server/Privileges.php:1431
 #: libraries/classes/Server/Privileges.php:1462
@@ -11125,7 +11106,7 @@ msgstr "編輯權限"
 
 #: libraries/classes/Server/Privileges.php:2843
 msgid "Revoke"
-msgstr "收回"
+msgstr "撤銷"
 
 #: libraries/classes/Server/Privileges.php:2867
 msgid "Edit user group"
@@ -11142,7 +11123,7 @@ msgstr "… 從使用者資料表中刪除舊使用者。"
 #: libraries/classes/Server/Privileges.php:3088
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr "… 收回舊使用者的所有權限，然後將之刪除。"
+msgstr "… 撤銷舊使用者的所有權限，然後將之刪除。"
 
 #: libraries/classes/Server/Privileges.php:3092
 msgid ""
@@ -11292,18 +11273,15 @@ msgstr "自 %2$s 開始，此 MySQL 伺服器已經運行了 %1$s。"
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr ""
-"此 MySQL 伺服器在<b>備援</b>程序中同時擔當<b>主要(Master)伺服器</b>和<b>次要"
-"(Slave)伺服器</b>的身份。"
+msgstr "此 MySQL 伺服器在<b>備援</b>程序中同時擔當<b>主要伺服器</b>和<b>次要伺服器</b>的身份。"
 
 #: libraries/classes/Server/Status.php:107
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
-"此 MySQL 伺服器在<b>備援</b>程序中擔當<b>主要(Master)伺服器</b>的身份。"
+msgstr "此 MySQL 伺服器在<b>備援</b>程序中擔當<b>主要伺服器</b>的身份。"
 
 #: libraries/classes/Server/Status.php:112
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "此 MySQL 伺服器在<b>備援</b>程序中擔當<b>次要(Slave)伺服器</b>的身份。"
+msgstr "此 MySQL 伺服器在<b>備援</b>程序中擔當<b>次要伺服器</b>的身份。"
 
 #: libraries/classes/Server/Status.php:124
 msgid "Replication status"
@@ -11313,9 +11291,7 @@ msgstr "備援狀態"
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
-msgstr ""
-"在高負載的伺服器，字元計數器可能會溢出，因此由 MySQL 返回的統計值可能會不正"
-"確。"
+msgstr "在高負載的伺服器，字元計數器可能會溢出，因此由 MySQL 回傳的統計值可能會不正確。"
 
 #: libraries/classes/Server/Status.php:165
 msgid "Received"
@@ -11424,11 +11400,11 @@ msgstr "顯示開啟的表"
 
 #: libraries/classes/Server/Status/Data.php:159
 msgid "Show slave hosts"
-msgstr "顯示次要(slave)伺服器"
+msgstr "顯示次要伺服器"
 
 #: libraries/classes/Server/Status/Data.php:172
 msgid "Show slave status"
-msgstr "顯示次要(slave)伺服器狀態"
+msgstr "顯示次要伺服器狀態"
 
 #: libraries/classes/Server/Status/Data.php:180
 msgid "Flush query cache"
@@ -11603,7 +11579,7 @@ msgstr "開始監控"
 
 #: libraries/classes/Server/Status/Monitor.php:267
 msgid "Instructions/Setup"
-msgstr "說明/安裝程式"
+msgstr "說明／安裝程式"
 
 #: libraries/classes/Server/Status/Monitor.php:270
 msgid "Done dragging (rearranging) charts"
@@ -11855,7 +11831,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:435
 msgid "The number of internal ROLLBACK statements."
-msgstr "使用內部回滾(ROLLBACK)敘述句的次數。"
+msgstr "使用內部回退(ROLLBACK)敘述句的次數。"
 
 #: libraries/classes/Server/Status/Variables.php:438
 msgid "The number of requests to update a row in a table."
@@ -12527,7 +12503,7 @@ msgstr "在此再次顯示此查詢"
 
 #: libraries/classes/SqlQueryForm.php:363
 msgid "Rollback when finished"
-msgstr "完成後回滾(rollback)"
+msgstr "完成後回退(rollback)"
 
 #: libraries/classes/SqlQueryForm.php:410
 msgid "shared"
@@ -12872,7 +12848,7 @@ msgstr "倍準浮點數的別名 (例外: 在 REAL_AS_FLOAT 的模式中為 FLOA
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr "位元欄型態 (M)，每個值使用 M 個位元 (預設值為 1，最大值為 64)"
+msgstr "位元欄類型 (M)，每個值使用 M 個位元 (預設值為 1，最大值為 64)"
 
 #: libraries/classes/Types.php:258
 msgid ""
@@ -12887,39 +12863,38 @@ msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE 的別名"
 #: libraries/classes/Types.php:265
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "日期的有效範圍為 %1$s 至 %2$s"
+msgstr "日期，有效範圍為 %1$s 至 %2$s"
 
 #: libraries/classes/Types.php:270
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "日期與時間組合的有效範圍為 %1$s 至 %2$s"
+msgstr "日期與時間組合，有效範圍為 %1$s 至 %2$s"
 
 #: libraries/classes/Types.php:275
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"時間戳記的有效範圍為 1970-01-01 00:00:01 UTC 至 2038-01-09 03:14:07 UTC，以"
-"自 1970-01-01 00:00:00 UTC 計算的秒數儲存"
+"時間戳記，有效範圍為 1970-01-01 00:00:01 UTC 至 2038-01-09 03:14:07 UTC，以自 1970-01-01 "
+"00:00:00 UTC 計算的秒數儲存"
 
 #: libraries/classes/Types.php:281
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "時間的有效範圍為 %1$s 至 %2$s"
+msgstr "時間，有效範圍為 %1$s 至 %2$s"
 
 #: libraries/classes/Types.php:285
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
-"以 4 位數或 2 位數的方式表示年份的有效範圍為 70 (1970) 至 69 (2069) 或 1901 "
-"至 2155 和 0000"
+"以 4 位數 (預設) 或 2 位數的方式表示年份，有效範圍為 70 (1970年) 至 69 (2069年) 或 1901 至 2155 和 0000"
 
 #: libraries/classes/Types.php:291
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
-msgstr "固定長度 (0 至 255，預設為 1) 的字串，在儲存長度不足時會自右邊補足空白"
+msgstr "固定長度 (0 至 255，預設為 1) 的字串，在儲存長度不足時會在右邊以空格補足"
 
 #: libraries/classes/Types.php:297
 #, php-format
@@ -12965,13 +12940,13 @@ msgstr ""
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr "類似 CHAR 型態，但此類型以二進位的方式儲存字串，而不是字元"
+msgstr "類似 CHAR 類型，但此類型以二進位的方式儲存字串，而不是字元"
 
 #: libraries/classes/Types.php:332
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr "類似 VARCHAR 型態，但此類型以二進位的方式儲存字串，而不是字元"
+msgstr "類似 VARCHAR 類型，但此類型以二進位的方式儲存字串，而不是字元"
 
 #: libraries/classes/Types.php:337
 msgid ""
@@ -13009,7 +12984,7 @@ msgstr ""
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
-msgstr "列舉型態(ENUM)在清單中最多可有 65,535 個值或特殊 '' 錯誤值"
+msgstr "列舉類型(ENUM)，在清單中最多可有 65,535 個值或特殊 '' 錯誤值"
 
 #: libraries/classes/Types.php:363
 msgid "A single value chosen from a set of up to 64 members"
@@ -13017,7 +12992,7 @@ msgstr "可從最多可 64 個成員中複選組成的一個值"
 
 #: libraries/classes/Types.php:365
 msgid "A type that can store a geometry of any type"
-msgstr "類型可以儲存幾何的任何型態"
+msgstr "可以儲存任何幾何圖形的類型"
 
 #: libraries/classes/Types.php:367
 msgid "A point in 2-dimensional space"
@@ -13045,13 +13020,13 @@ msgstr "多邊形的集合"
 
 #: libraries/classes/Types.php:381
 msgid "A collection of geometry objects of any type"
-msgstr "任何類型幾何物件的集合"
+msgstr "任何類型幾何圖形的集合"
 
 #: libraries/classes/Types.php:384
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
-msgstr "儲存並開啟對 JSON (JavaScript Object Notation) 文件資料的存取"
+msgstr "儲存並開啟對 JSON (JavaScript Object Notation) 文件資料的快速存取"
 
 #: libraries/classes/Types.php:695
 msgctxt "numeric types"
@@ -13316,7 +13291,7 @@ msgstr "自訂 - 顯示所有可用的選項"
 
 #: libraries/config.values.php:172
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "自訂 - 同上，但不顯示快速/自訂選項"
+msgstr "自訂 - 同上，但不顯示快速／自訂選項"
 
 #: libraries/config.values.php:201
 msgid "complete inserts"
@@ -13535,9 +13510,7 @@ msgstr "設定已儲存。"
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
-msgstr ""
-"配置已儲存到 phpMyAdmin 目錄下的 config/config.inc.php 檔，請將之複製到上層後"
-"再刪除 config 目錄。"
+msgstr "設定已儲存到 phpMyAdmin 目錄下的 config/config.inc.php 檔，請將之複製到上層後再刪除 config 目錄。"
 
 #: setup/frames/index.inc.php:97
 msgid "Configuration not saved!"
@@ -13630,7 +13603,7 @@ msgstr "送出的表單中有錯誤"
 
 #: setup/lib/FormProcessing.php:64
 msgid "Try to revert erroneous fields to their default values"
-msgstr "嘗試恢復錯誤參數為預設值"
+msgstr "嘗試將有問題的參數，改為使用預設值"
 
 #: setup/lib/FormProcessing.php:69
 msgid "Ignore errors"
@@ -13825,7 +13798,7 @@ msgstr "繼續新增 %s 列"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
-msgstr "外鍵限制"
+msgstr "外鍵限制式"
 
 #: templates/table/relation/common_form.twig:10
 msgid "Actions"
@@ -13833,7 +13806,7 @@ msgstr "動作"
 
 #: templates/table/relation/common_form.twig:11
 msgid "Constraint properties"
-msgstr "限制屬性"
+msgstr "限制式屬性"
 
 #: templates/table/relation/common_form.twig:15
 msgid ""
@@ -13851,11 +13824,11 @@ msgstr "僅顯示已建立索引的欄位。您可以於下方定義索引。"
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
-msgstr "外鍵限制"
+msgstr "外鍵限制式"
 
 #: templates/table/relation/common_form.twig:89
 msgid "+ Add constraint"
-msgstr "+ 加入限制"
+msgstr "+ 加入限制式"
 
 #: templates/table/relation/common_form.twig:99
 #: templates/table/relation/common_form.twig:104
@@ -13892,7 +13865,7 @@ msgstr "分區"
 
 #: templates/display/export/options_output_format.twig:3
 msgid "File name template:"
-msgstr "檔案名稱樣版："
+msgstr "檔案名稱模版："
 
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
@@ -13992,11 +13965,11 @@ msgstr "另存圖表為影像"
 
 #: templates/database/designer/table_list.twig:4
 msgid "Hide/Show all"
-msgstr "全部隱藏/顯示"
+msgstr "全部隱藏／顯示"
 
 #: templates/database/designer/table_list.twig:14
 msgid "Hide/Show tables with no relationship"
-msgstr "隱藏/顯示沒有關聯的資料表"
+msgstr "隱藏／顯示沒有關聯的資料表"
 
 #: templates/database/designer/table_list.twig:55
 msgid "Number of tables:"
@@ -14014,7 +13987,7 @@ msgstr "欄位數"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
-msgstr "VIEW 名稱"
+msgstr "檢視(VIEW)名稱"
 
 #: templates/view_create.twig:79
 msgid "Column names"
@@ -14199,11 +14172,11 @@ msgstr "於目前連線階段"
 
 #: templates/console/display.twig:64
 msgid "ascending"
-msgstr "順序"
+msgstr "遞增"
 
 #: templates/console/display.twig:64
 msgid "descending"
-msgstr "逆序"
+msgstr "遞減"
 
 #: templates/console/display.twig:64
 msgid "Order:"
@@ -14268,11 +14241,11 @@ msgstr ""
 
 #: templates/database/qbe/footer_options.twig:3
 msgid "Add/Delete criteria rows"
-msgstr "新增/刪除準則列"
+msgstr "新增／刪除準則列"
 
 #: templates/database/qbe/footer_options.twig:5
 msgid "Add/Delete columns"
-msgstr "新增/刪除欄位"
+msgstr "新增／刪除欄位"
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
@@ -14370,7 +14343,7 @@ msgstr "執行「QBE 查詢」(萬用字元：%)"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
-msgstr "將每個資料庫為匯出為不同的檔案"
+msgstr "將每個資料庫匯出為不同的檔案"
 
 #: templates/display/export/options_output_separate_files.twig:9
 msgid "Export tables as separate files"
@@ -14379,11 +14352,11 @@ msgstr "將每個資料表匯出為不同的檔案"
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "已移除外鍵限制 %s"
+msgstr "已移除外鍵限制式 %s"
 
 #: templates/table/relation/foreign_key_row.twig:38
 msgid "Constraint name"
-msgstr "限制名稱"
+msgstr "限制式名稱"
 
 #: templates/table/relation/foreign_key_row.twig:90
 #: templates/database/multi_table_query/form.twig:158
@@ -14398,7 +14371,7 @@ msgstr "儲存到伺服器的 <strong>%s</strong> 資料夾"
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
-msgstr "選擇樣板"
+msgstr "選擇模板"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -14520,7 +14493,7 @@ msgstr "增加 %s 個欄位"
 
 #: templates/table/structure/add_column.twig:14
 msgid "at beginning of table"
-msgstr "於資料表開始"
+msgstr "於資料表起始"
 
 #: templates/table/structure/add_column.twig:19
 #: templates/columns_definitions/move_column.twig:12
@@ -14589,7 +14562,7 @@ msgstr "於以下欄位："
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
 msgid "Show/Hide tables list"
-msgstr "顯示/隱藏資料表清單"
+msgstr "顯示／隱藏資料表清單"
 
 #: templates/database/designer/side_menu.twig:23
 #: templates/database/designer/side_menu.twig:29
@@ -14620,7 +14593,7 @@ msgstr "建立關聯"
 #: templates/database/designer/side_menu.twig:99
 #: templates/database/designer/side_menu.twig:102
 msgid "Reload"
-msgstr "重新讀取"
+msgstr "重新載入"
 
 #: templates/database/designer/side_menu.twig:108
 #: templates/database/designer/side_menu.twig:111
@@ -14645,12 +14618,12 @@ msgstr "對齊格線"
 #: templates/database/designer/side_menu.twig:129
 #: templates/database/designer/side_menu.twig:135
 msgid "Small/Big All"
-msgstr "全部摺疊/展開"
+msgstr "全部摺疊／展開"
 
 #: templates/database/designer/side_menu.twig:139
 #: templates/database/designer/side_menu.twig:142
 msgid "Toggle small/big"
-msgstr "摺疊/展開"
+msgstr "摺疊／展開"
 
 #: templates/database/designer/side_menu.twig:146
 #: templates/database/designer/side_menu.twig:149
@@ -14745,7 +14718,7 @@ msgstr "連線："
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
-msgstr "PARTITION 定義:"
+msgstr "分區(PARTITION)定義："
 
 #: templates/table/search/zoom_result_form.twig:7
 msgid "Browse/Edit the points"
@@ -14761,7 +14734,7 @@ msgstr "重設縮放大小"
 
 #: templates/table/structure/optional_action_links.twig:6
 msgid "Propose table structure"
-msgstr "分析資料表結構"
+msgstr "提議資料表結構"
 
 #: templates/table/structure/optional_action_links.twig:15
 #: templates/database/tracking/untracked_tables.twig:28
@@ -14888,7 +14861,7 @@ msgstr "輸入轉換選項"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
-msgstr "請上下拖曳來移動欄位順序。"
+msgstr "請上下拖曳來移動欄位次序。"
 
 #: templates/display/export/options_output_radio.twig:5
 msgid "View output as text"
@@ -14907,7 +14880,7 @@ msgstr "索引名稱："
 #: templates/table/index_form.twig:16
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "PRIMARY <b>必須</b>而且<b>只能</b>作為主鍵的名稱！"
+msgstr "主鍵的名稱<b>必須</b>而且<b>只能</b>是 PRIMARY！"
 
 #: templates/table/index_form.twig:34
 msgid "Index choice:"
@@ -14948,16 +14921,16 @@ msgstr "沒有已定義的分區！"
 
 #: templates/table/structure/display_partitions.twig:11
 msgid "Partitioned by:"
-msgstr "已做分區依："
+msgstr "分區依："
 
 #: templates/table/structure/display_partitions.twig:16
 msgid "Sub partitioned by:"
-msgstr "已做子分區依："
+msgstr "子分區依："
 
 #: templates/table/structure/display_partitions.twig:24
 #: templates/columns_definitions/partitions.twig:76
 msgid "Partition"
-msgstr "分割區"
+msgstr "分區"
 
 #: templates/table/structure/display_partitions.twig:26
 #: templates/columns_definitions/column_virtuality.twig:29
@@ -15090,23 +15063,23 @@ msgstr "已停用追蹤。"
 
 #: templates/display/export/template_loading.twig:2
 msgid "Export templates:"
-msgstr "匯出樣板："
+msgstr "匯出模板："
 
 #: templates/display/export/template_loading.twig:6
 msgid "New template:"
-msgstr "新樣板："
+msgstr "新模板："
 
 #: templates/display/export/template_loading.twig:8
 msgid "Template name"
-msgstr "樣板名稱"
+msgstr "模板名稱"
 
 #: templates/display/export/template_loading.twig:16
 msgid "Existing templates:"
-msgstr "已有的樣板："
+msgstr "已有模板："
 
 #: templates/display/export/template_loading.twig:17
 msgid "Template:"
-msgstr "樣板："
+msgstr "模板："
 
 #: templates/display/export/template_loading.twig:21
 msgid "Update"
@@ -15114,7 +15087,7 @@ msgstr "更新"
 
 #: templates/database/designer/database_tables.twig:31
 msgid "Show/hide columns"
-msgstr "顯示/隱藏欄位"
+msgstr "顯示／隱藏欄位"
 
 #: templates/database/designer/database_tables.twig:39
 msgid "See table structure"
@@ -15196,11 +15169,11 @@ msgstr "原有字串"
 
 #: templates/table/search/replace_preview.twig:19
 msgid "Replaced string"
-msgstr "替換字串"
+msgstr "取代字串"
 
 #: templates/table/search/replace_preview.twig:37
 msgid "Replace"
-msgstr "替換"
+msgstr "取代"
 
 #: templates/table/structure/row_stats_table.twig:2
 msgid "Row statistics"
@@ -15315,7 +15288,7 @@ msgstr "刪除所選的使用者帳號"
 
 #: templates/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "移除使用者所有權限，然後刪除使用者。"
+msgstr "撤銷使用者所有權限，然後刪除使用者。"
 
 #: templates/privileges/delete_user_fieldset.twig:7
 #: templates/privileges/delete_user_fieldset.twig:10
@@ -15392,7 +15365,7 @@ msgstr "要匯入的檔案："
 #: templates/display/import/import.twig:56
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr "可使用已壓縮 (%s) 或未壓縮的檔案。"
+msgstr "可使用壓縮 (%s) 或無壓縮的檔案。"
 
 #: templates/display/import/import.twig:58
 msgid ""
@@ -15446,7 +15419,7 @@ msgstr "無"
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
-msgstr "分割區依："
+msgstr "分區依："
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
@@ -15455,15 +15428,15 @@ msgstr "表示法或欄位清單"
 
 #: templates/columns_definitions/partitions.twig:37
 msgid "Partitions:"
-msgstr "分割區："
+msgstr "分區："
 
 #: templates/columns_definitions/partitions.twig:45
 msgid "Subpartition by:"
-msgstr "子分割區依："
+msgstr "子分區依："
 
 #: templates/columns_definitions/partitions.twig:65
 msgid "Subpartitions:"
-msgstr "子分割區依："
+msgstr "子分區："
 
 #: templates/columns_definitions/partitions.twig:78
 msgid "Values"
@@ -15471,7 +15444,7 @@ msgstr "值"
 
 #: templates/columns_definitions/partitions.twig:82
 msgid "Subpartition"
-msgstr "子分割區"
+msgstr "子分區"
 
 #: templates/columns_definitions/partitions.twig:84
 msgid "Engine"
@@ -15515,7 +15488,7 @@ msgstr "每頁列數"
 
 #: templates/table/search/options.twig:45
 msgid "Display order:"
-msgstr "顯示次序："
+msgstr "顯示排序："
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -15581,7 +15554,7 @@ msgstr ""
 #: templates/server/databases/databases_footer.twig:68
 #: templates/server/databases/databases_footer.twig:71
 msgid "Enable statistics"
-msgstr "開啟統計資訊"
+msgstr "啟用統計資訊"
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
@@ -15632,7 +15605,7 @@ msgstr "上線時間不到一天"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "上線時間不到 1 天，效能調整的資料可能不準確。"
+msgstr "上線時間不到 1 天，根據來作效能調整的資料可能不準確。"
 
 #: libraries/advisory_rules.txt:53
 msgid ""
@@ -15653,13 +15626,13 @@ msgstr "查詢次數低於 1,000"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr "查詢次數少於 1,000。建議可能不夠精確。"
+msgstr "查詢次數少於 1,000。建議可能不夠準確。"
 
 #: libraries/advisory_rules.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr "讓伺服器執行較久一點的時間，直到執行更多的查詢指令。"
+msgstr "讓伺服器執行較久一點的時間，直到執行了多一些查詢指令。"
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -16256,11 +16229,10 @@ msgid ""
 "mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助。但某些暫存資料表"
-"仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存"
-"資料表中儲存 BLOB 或 TEXT 型態的欄位，或者使用長度大於 512 位元組的欄位，如 "
-"<a href=\"HTTP://www.facebook.com/note.php?note_id=10150111255065841&comments"
-"\">Pythian 小組文章</a>開首所提到的狀況"
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能有所幫助。但某些暫存資料表仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存資料表中儲存 BLOB 或 TEXT "
+"類型的欄位，或者使用長度大於 512 位元組的欄位，如 <a href=\"HTTP://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">Pythian 小組文章</a>開首所提到的狀況"
 
 #: libraries/advisory_rules.txt:267
 #, php-format
@@ -16283,11 +16255,10 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助，但某些暫存資料表"
-"仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存"
-"資料表中儲存 BLOB 或 TEXT 型態的欄位，或者使用長度大於 512 位元組的欄位，如 "
-"<a href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables."
-"html\">MySQL 說明文件</a>所提到的狀況"
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能有所幫助，但某些暫存資料表仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存資料表中儲存 BLOB 或 TEXT "
+"類型的欄位，或者使用長度大於 512 位元組的欄位，如 <a href=\"https://dev.mysql.com/doc/refman/5.5/"
+"en/internal-temporary-tables.html\">MySQL 說明文件</a>所提到的狀況"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
