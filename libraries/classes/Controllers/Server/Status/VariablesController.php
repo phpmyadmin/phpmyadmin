@@ -15,7 +15,7 @@ use PhpMyAdmin\Util;
  * Class VariablesController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
-class VariablesController extends Controller
+class VariablesController extends AbstractController
 {
     /**
      * @param array $params Request parameters

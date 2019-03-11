@@ -17,7 +17,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
  *
  * @package PhpMyAdmin\Controllers
  */
-class AdvisorController extends Controller
+class AdvisorController extends AbstractController
 {
     /**
      * @var Advisor

@@ -16,7 +16,7 @@ use PhpMyAdmin\Util;
  * Class StatusController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
-class StatusController extends Controller
+class StatusController extends AbstractController
 {
     /**
      * @return string

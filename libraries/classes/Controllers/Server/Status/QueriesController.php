@@ -13,7 +13,7 @@ namespace PhpMyAdmin\Controllers\Server\Status;
  * Class QueriesController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
-class QueriesController extends Controller
+class QueriesController extends AbstractController
 {
     /**
      * @return string HTML

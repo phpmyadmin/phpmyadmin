@@ -16,7 +16,7 @@ use PhpMyAdmin\Util;
  * Class ProcessesController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
-class ProcessesController extends Controller
+class ProcessesController extends AbstractController
 {
     /**
      * @param array $params Request parameters

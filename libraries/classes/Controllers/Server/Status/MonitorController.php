@@ -17,7 +17,7 @@ use PhpMyAdmin\SysInfo;
  * Class MonitorController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
-class MonitorController extends Controller
+class MonitorController extends AbstractController
 {
     /**
      * @var Monitor
