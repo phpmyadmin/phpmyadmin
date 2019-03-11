@@ -34,7 +34,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class StructureController extends Controller
+class StructureController extends AbstractController
 {
     /**
      * @var Table  The table object

@@ -19,7 +19,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class IndexesController extends Controller
+class IndexesController extends AbstractController
 {
     /**
      * @var Index

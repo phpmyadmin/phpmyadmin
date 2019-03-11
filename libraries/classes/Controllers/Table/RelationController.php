@@ -21,7 +21,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class RelationController extends Controller
+class RelationController extends AbstractController
 {
     /**
      * @var array

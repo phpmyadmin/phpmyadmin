@@ -19,7 +19,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class SearchController extends Controller
+class SearchController extends AbstractController
 {
     /**
      * Normal search or Zoom search

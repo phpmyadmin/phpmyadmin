@@ -21,7 +21,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class ChartController extends Controller
+class ChartController extends AbstractController
 {
     /**
      * @var string

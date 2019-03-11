@@ -19,7 +19,7 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin\Controllers
  */
-class GisVisualizationController extends Controller
+class GisVisualizationController extends AbstractController
 {
     /**
      * @var array
