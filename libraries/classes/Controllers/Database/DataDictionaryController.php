@@ -18,7 +18,7 @@ use PhpMyAdmin\Util;
  * Class DataDictionaryController
  * @package PhpMyAdmin\Controllers\Database
  */
-class DataDictionaryController extends Controller
+class DataDictionaryController extends AbstractController
 {
     /**
      * @var Relation

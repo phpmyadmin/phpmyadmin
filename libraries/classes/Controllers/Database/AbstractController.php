@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PhpMyAdmin\Controllers\Database\Controller
+ * Holds the PhpMyAdmin\Controllers\Database\AbstractController
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -16,7 +16,7 @@ use PhpMyAdmin\Controllers\Controller as BaseController;
  *
  * @package PhpMyAdmin\Controllers
  */
-abstract class Controller extends BaseController
+abstract class AbstractController extends BaseController
 {
     /**
      * @var string
@@ -24,7 +24,7 @@ abstract class Controller extends BaseController
     protected $db;
 
     /**
-     * Constructor
+     * AbstractController constructor.
      *
      * @param \PhpMyAdmin\Response          $response Response object
      * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object

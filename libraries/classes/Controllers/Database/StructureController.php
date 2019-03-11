@@ -29,7 +29,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class StructureController extends Controller
+class StructureController extends AbstractController
 {
     /**
      * @var int Number of tables

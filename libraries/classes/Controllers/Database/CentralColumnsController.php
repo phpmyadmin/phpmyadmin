@@ -16,7 +16,7 @@ use PhpMyAdmin\Core;
  * Class CentralColumnsController
  * @package PhpMyAdmin\Controllers\Database
  */
-class CentralColumnsController extends Controller
+class CentralColumnsController extends AbstractController
 {
     /**
      * @var CentralColumns
