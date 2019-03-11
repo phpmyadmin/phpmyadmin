@@ -57,7 +57,7 @@ class Privileges
      */
     public function __construct(
         Template $template,
-        DatabaseInterface $dbi,
+        $dbi,
         Relation $relation,
         RelationCleanup $relationCleanup
     ) {
