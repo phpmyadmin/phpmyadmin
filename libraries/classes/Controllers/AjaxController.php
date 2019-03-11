@@ -15,7 +15,7 @@ use PhpMyAdmin\Config;
  * Class AjaxController
  * @package PhpMyAdmin\Controllers
  */
-class AjaxController extends Controller
+class AjaxController extends AbstractController
 {
     /**
      * @var Config

@@ -9,14 +9,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Controllers\Controller as BaseController;
+use PhpMyAdmin\Controllers\AbstractController as Controller;
 use PhpMyAdmin\Server\Status\Data;
 
 /**
  * Abstract class Controller
  * @package PhpMyAdmin\Controllers\Server\Status
  */
-abstract class AbstractController extends BaseController
+abstract class AbstractController extends Controller
 {
     /**
      * @var Data

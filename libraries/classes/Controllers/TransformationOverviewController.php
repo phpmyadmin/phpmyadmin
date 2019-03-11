@@ -18,7 +18,7 @@ use PhpMyAdmin\Transformations;
  *
  * @package PhpMyAdmin\Controllers
  */
-class TransformationOverviewController extends Controller
+class TransformationOverviewController extends AbstractController
 {
     /**
      * @var Transformations

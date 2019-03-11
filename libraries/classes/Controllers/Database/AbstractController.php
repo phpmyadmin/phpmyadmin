@@ -9,14 +9,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Controllers\Controller as BaseController;
+use PhpMyAdmin\Controllers\AbstractController as Controller;
 
 /**
  * Handles database related logic
  *
  * @package PhpMyAdmin\Controllers
  */
-abstract class AbstractController extends BaseController
+abstract class AbstractController extends Controller
 {
     /**
      * @var string

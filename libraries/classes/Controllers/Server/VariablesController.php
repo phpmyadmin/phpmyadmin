@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Controller;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Util;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\KBException;
@@ -19,7 +19,7 @@ use Williamdes\MariaDBMySQLKBS\KBException;
  *
  * @package PhpMyAdmin\Controllers
  */
-class VariablesController extends Controller
+class VariablesController extends AbstractController
 {
     /**
      * Index action

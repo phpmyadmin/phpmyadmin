@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Controller;
+use PhpMyAdmin\Controllers\AbstractController;
 
 /**
  * Handles viewing server plugin details
  *
  * @package PhpMyAdmin\Controllers
  */
-class PluginsController extends Controller
+class PluginsController extends AbstractController
 {
     /**
      * @var array plugin details

@@ -17,7 +17,7 @@ use PhpMyAdmin\Relation;
  *
  * @package PhpMyAdmin\Controllers
  */
-class BrowseForeignersController extends Controller
+class BrowseForeignersController extends AbstractController
 {
     /**
      * @var BrowseForeigners
@@ -35,7 +35,7 @@ class BrowseForeignersController extends Controller
      * @param \PhpMyAdmin\Response          $response         Response instance
      * @param \PhpMyAdmin\DatabaseInterface $dbi              DatabaseInterface instance
      * @param BrowseForeigners              $browseForeigners BrowseForeigners instance
-     * @param Relation                      $relation
+     * @param Relation                      $relation         Relation instance
      */
     public function __construct($response, $dbi, $browseForeigners, $relation)
     {

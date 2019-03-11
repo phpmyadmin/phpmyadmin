@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Controllers\Controller;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 
@@ -19,7 +19,7 @@ use PhpMyAdmin\Response;
  *
  * @package PhpMyAdmin\Controllers
  */
-class CollationsController extends Controller
+class CollationsController extends AbstractController
 {
     /**
      * @var array|null

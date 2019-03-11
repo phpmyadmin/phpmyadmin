@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Controller;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
@@ -19,7 +19,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class BinlogController extends Controller
+class BinlogController extends AbstractController
 {
     /**
      * array binary log files
