@@ -134,13 +134,14 @@ if (isset($_POST['input_name'])) {
 echo Url::getHiddenInputs();
 
 echo '<!-- Visualization section -->';
-echo '<div id="placeholder" '
-    , ($srid != 0 ? 'class="hide' : '') , '">';
+echo '<div id="placeholder"'
+    , ($srid != 0 ? 'class="hide"' : '') , '>';
 echo $visualization;
 echo '</div>';
 
-echo '<div id="openlayersmap" '
-    , ($srid == 0 ? 'class="hide' : '') , '">';
+// No not remove inline style or it will cause "Cannot read property 'w' of null" on GIS editor map init
+echo '<div id="openlayersmap" style="width: ' . $visualizationSettings['width'] . 'px; height: ' . $visualizationSettings['height'] . 'px;" '
+    , ($srid == 0 ? 'class="hide"' : '') , '>';
 echo '</div>';
 
 echo '<div class="choice floatright">';
