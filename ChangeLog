@@ -24,6 +24,8 @@ phpMyAdmin - ChangeLog
 - issue #14843 Fix Bookmark::get() id matching SQL
 - issue #14734 Fixed invalid default value for bit field
 - issue #14311 Fixed undefined index in setup script
+- issue #14991 Fixed TypeError in GIS editor
+- issue        Fixed GIS data editor for multi server setup
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
