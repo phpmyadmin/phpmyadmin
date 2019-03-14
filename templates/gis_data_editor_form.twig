@@ -15,7 +15,7 @@
             {{ visualization|raw }}
         </div>
 
-        <div id="openlayersmap"{{ srid == 0 ? ' class="hide"' }}></div>
+        <div id="openlayersmap" style="width: {{width}}px; height: {{height}}px;"{{ srid == 0 ? ' class="hide"' }}></div>
 
         <div class="choice floatright">
             <input type="checkbox" id="choice" value="useBaseLayer"{{ srid != 0 ? ' checked="checked"' }}>

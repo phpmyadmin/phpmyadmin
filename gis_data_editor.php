@@ -119,6 +119,8 @@ if ($geom_type == 'GEOMETRYCOLLECTION') {
 }
 
 $templateOutput = $template->render('gis_data_editor_form', [
+    'width' => $visualizationSettings['width'],
+    'height' => $visualizationSettings['height'],
     'pma_theme_image' => $GLOBALS['pmaThemeImage'],
     'field' => $_POST['field'],
     'input_name' => $_POST['input_name'],
