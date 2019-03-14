@@ -30,3 +30,4 @@ js/jquery
 vendor/
     The download kit includes various Composer packages as
     dependencies.
+Signed-off-by: Agha Saad Fraz <afraz.bese16seecs@seecs.edu.pk>
