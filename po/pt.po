@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-02-09 04:36+0000\n"
+"PO-Revision-Date: 2019-03-17 15:04+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -779,10 +779,8 @@ msgid "Y values"
 msgstr "Valores para Y"
 
 #: js/messages.php:147
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Por favor, digite o mesmo valor novamente"
+msgstr "Por favor, introduza primeiro a consulta SQL."
 
 #: js/messages.php:150
 msgid "The host name is empty!"
@@ -10049,6 +10047,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Envolver nomes de tabela e colunas com crases <i>(Protege os nomes de "
+"colunas e tabelas formados com caracteres especiais ou palavras chaves)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:364
 msgid "Data creation options"
@@ -10887,26 +10887,31 @@ msgstr "Salvando exportação de modelos"
 
 #: libraries/classes/Relation.php:384
 msgid "Quick steps to set up advanced features:"
-msgstr ""
+msgstr "Passos rápidos para a instalação de funcionalidades avançadas:"
 
 #: libraries/classes/Relation.php:390
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
+msgstr "Criar tabelas necessárias através de <code>%screate_tables.sql</code>."
 
 #: libraries/classes/Relation.php:395
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Criar um usuário pma e dar acesso a essas tabelas."
 
 #: libraries/classes/Relation.php:398
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Ativar recursos avançados no ficheiro de configuração "
+"(<code>config.inc.php</code>), por exemplo iniciando em "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/classes/Relation.php:403
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Fazer o login novamente no phpMyAdmin para carregar o ficheiro de "
+"configuração atualizado."
 
 #: libraries/classes/Relation.php:1803
 msgid "no description"
@@ -10918,37 +10923,43 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Você não tem privilégios suficientes para criar uma base de dados chamada "
+"'phpmyadmin'. Você pode configurar o phpMyAdmin na aba 'Operações' de "
+"qualquer base de dados."
 
 #: libraries/classes/Relation.php:2114
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Tabelas de configuração de armazenamento phpMyAdmin em falta"
+msgstr ""
+"%sCriar%s um banco de dados chamado 'phpmyadmin' e instalar as configurações "
+"do phpMyAdmin nele."
 
 #: libraries/classes/Relation.php:2122
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Tabelas de configuração de armazenamento phpMyAdmin em falta"
+msgstr ""
+"%sCriar%s o armazenamento de configuração do phpMyAdmin na base de dados "
+"atual."
 
 #: libraries/classes/Relation.php:2130
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tabelas de configuração de armazenamento phpMyAdmin em falta"
+msgstr ""
+"%sCriar%s as tabelas de armazenamento de configuração do phpMyAdmin que "
+"faltam."
 
 #: libraries/classes/ReplicationGui.php:73
 #: libraries/classes/ReplicationGui.php:367
 #: templates/server/databases/index.twig:137
 msgid "Master replication"
-msgstr ""
+msgstr "Replicação de master"
 
 #: libraries/classes/ReplicationGui.php:74
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Este servidor é configurado como master num processo de replicação."
 
 #: libraries/classes/ReplicationGui.php:77
 #: libraries/classes/Server/Status/Data.php:168
@@ -10957,16 +10968,16 @@ msgstr "Ver estado do principal"
 
 #: libraries/classes/ReplicationGui.php:82
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Mostrar servidores slave conectados"
 
 #: libraries/classes/ReplicationGui.php:93
 #: libraries/classes/ReplicationGui.php:734
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Adicionar usuário de replicação de escravo"
 
 #: libraries/classes/ReplicationGui.php:115
 msgid "Master configuration"
-msgstr ""
+msgstr "Configuração master"
 
 #: libraries/classes/ReplicationGui.php:117
 msgid ""
@@ -10976,25 +10987,31 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
+"Este servidor não está configurado como servidor master num processo de "
+"replicação. Você pode escolher ou replicar todos os bancos de dados e "
+"ignorar alguns deles (útil se você quiser replicar a maioria dos bancos de "
+"dados) ou ignorar todos os bancos de dados por predefinição e permitir "
+"somente certos bancos de dados serem replicados. Favor selecionar o modo:"
 
 #: libraries/classes/ReplicationGui.php:126
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Replicar todos bancos de dados; Ignorar:"
 
 #: libraries/classes/ReplicationGui.php:128
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Ignorar todos bancos de dados; Replicar:"
 
 #: libraries/classes/ReplicationGui.php:132
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Por favor seleccione uma base de dados"
+msgstr "Favor selecionar os bancos de dados:"
 
 #: libraries/classes/ReplicationGui.php:136
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Agora adicione as seguintes linhas ao final da seção [mysqld] no seu my.cnf "
+"e por favor reinicie o servidor MySQL em seguida."
 
 #: libraries/classes/ReplicationGui.php:141
 msgid ""
@@ -11002,62 +11019,61 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
+"Assim que tiver reiniciado o servidor MySQL, por favor clique no botão Go. "
+"Em seguida, você deveria ver uma mensagem informando que este servidor "
+"<b>está</b> configurado como master."
 
 #: libraries/classes/ReplicationGui.php:169
 #: templates/server/databases/index.twig:141
 msgid "Slave replication"
-msgstr ""
+msgstr "Replicação de slave"
 
 #: libraries/classes/ReplicationGui.php:177
-#, fuzzy
-#| msgid "% aborted connections"
 msgid "Master connection:"
-msgstr "Ligações"
+msgstr "Conexão master:"
 
 #: libraries/classes/ReplicationGui.php:239
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Thread SQL slave não está em execução!"
 
 #: libraries/classes/ReplicationGui.php:244
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Thread IO slave não está em execução!"
 
 #: libraries/classes/ReplicationGui.php:255
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"O servidor está configurado como slave num processo de replicação. Você "
+"deseja:"
 
 #: libraries/classes/ReplicationGui.php:261
 msgid "See slave status table"
-msgstr ""
+msgstr "Ver a tabela de estado de slave"
 
 #: libraries/classes/ReplicationGui.php:266
 msgid "Control slave:"
-msgstr ""
+msgstr "Controlar slave:"
 
 #: libraries/classes/ReplicationGui.php:272
-#, fuzzy
 msgid "Full start"
-msgstr "Texto Completo"
+msgstr "Inicialização completa"
 
 #: libraries/classes/ReplicationGui.php:273
-#, fuzzy
 msgid "Full stop"
-msgstr "Texto Completo"
+msgstr "Paragem completa"
 
 #: libraries/classes/ReplicationGui.php:276
 msgid "Reset slave"
-msgstr ""
+msgstr "Reiniciar slave"
 
 #: libraries/classes/ReplicationGui.php:279
-#, fuzzy
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Somente estrutura"
+msgstr "Iniciar apenas thread SQL"
 
 #: libraries/classes/ReplicationGui.php:282
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Parar apenas o thread SQL"
 
 #: libraries/classes/ReplicationGui.php:286
 #, fuzzy
