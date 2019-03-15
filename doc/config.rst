@@ -2821,6 +2821,13 @@ Design customization
     Maximum number of characters shown in any non-numeric field on browse
     view. Can be turned off by a toggle button on the browse page.
 
+.. config:option:: $cfg['CommentLimitChars']
+
+    :type: integer
+    :default: 200
+
+    Maximum number of characters shown in the tooltip of truncated string.
+
 .. config:option:: $cfg['RowActionLinks']
 
     :type: string
