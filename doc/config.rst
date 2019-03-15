@@ -2826,7 +2826,7 @@ Design customization
     :type: integer
     :default: 200
 
-    Maximum number of characters shown in the tooltip of truncated string.
+    Maximum number of characters displayed in the tooltip of truncated string.
 
 .. config:option:: $cfg['RowActionLinks']
 
