@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 - issue #14311 Fixed undefined index in setup script
 - issue #14991 Fixed TypeError in GIS editor
 - issue        Fixed GIS data editor for multi server setup
+- issue #14312 Fixed type error in setup script when adding new server
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
