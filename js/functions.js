@@ -5049,7 +5049,11 @@ function configSet (key, value, only_local) {
         success: function (data) {
             // Updating value in local storage.
             if (! data.success) {
-                PMA_ajaxShowMessage(data.message);
+                if(data.error) {
+                    PMA_ajaxShowMessage(data.error);
+                } else {
+                    PMA_ajaxShowMessage(data.message);
+                }
             }
             // Eventually, call callback.
         }
