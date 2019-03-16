@@ -1,3 +1,11 @@
+{% if is_git_revision %}
+  <div id="is_git_revision"></div>
+{% endif %}
+
+{{ message|raw }}
+
+{{ partial_logout|raw }}
+
 <div id="maincontainer">
   {{ sync_favorite_tables|raw }}
 
@@ -182,3 +190,5 @@
     </div>
   </div>
 </div>
+
+{{ config_storage_message|raw }}

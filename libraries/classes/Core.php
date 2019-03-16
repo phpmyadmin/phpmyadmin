@@ -1253,46 +1253,6 @@ class Core
     }
 
     /**
-     * prints list item for main page
-     *
-     * @param string $name            displayed text
-     * @param string $listId          id, used for css styles
-     * @param string $url             make item as link with $url as target
-     * @param string $mysql_help_page display a link to MySQL's manual
-     * @param string $target          special target for $url
-     * @param string $a_id            id for the anchor,
-     *                                used for jQuery to hook in functions
-     * @param string $class           class for the li element
-     * @param string $a_class         class for the anchor element
-     *
-     * @return void
-     */
-    public static function printListItem(
-        string $name,
-        ?string $listId = null,
-        ?string $url = null,
-        ?string $mysql_help_page = null,
-        ?string $target = null,
-        ?string $a_id = null,
-        ?string $class = null,
-        ?string $a_class = null
-    ): void {
-        $template = new Template();
-        echo $template->render('list/item', [
-            'content' => $name,
-            'id' => $listId,
-            'class' => $class,
-            'url' => [
-                'href' => $url,
-                'target' => $target,
-                'id' => $a_id,
-                'class' => $a_class,
-            ],
-            'mysql_help_page' => $mysql_help_page,
-        ]);
-    }
-
-    /**
      * Checks request and fails with fatal error if something problematic is found
      *
      * @return void
