@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - issue #14053 Fix missed padding on query results
 - issue #14826 Fixed javascript error PMA_messages is not defined
 - issue        Show error message if config-set fails and not "loading..." forever
+- issue #14359 Prevent multiple error modals, and error-report request spamming from script
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
