@@ -209,6 +209,7 @@ var ErrorReport = {
      */
     _get_report_data: function (exception) {
         var report_data = {
+            'server': PMA_commonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
             'current_url': window.location.href,
