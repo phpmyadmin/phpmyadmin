@@ -128,7 +128,9 @@ $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 /**
  * include session handling after the globals, to prevent overwriting
  */
-Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
+if (! defined('PMA_NO_SESSION')) {
+    Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
+}
 
 /**
  * init some variables LABEL_variables_init
