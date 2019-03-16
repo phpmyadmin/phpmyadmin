@@ -38,7 +38,6 @@ parameters:
         - '#Variable \$(routine|mode|title|message|output|nbResultsetToDisplay|item) might not be defined#'# Rte
         - '#Variable \$time might not be defined#'#DatabaseInterface.php
         - '#Variable \$contentPath in isset\(\) always exists and is not nullable#'#DatabaseInterface.php
-        - '#Variable \$server_info might not be defined#'#DatabaseInterface.php
         - '#Function mysqli_get_client_info invoked with 0 parameters, 1 required#'#libraries/classes/Dbi/DbiMysqli.php
         - '#Variable \$default_fk_check_value might not be defined#'#libraries/mult_submits.inc.php
         - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'

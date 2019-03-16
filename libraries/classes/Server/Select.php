@@ -13,7 +13,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\Server\Select class
+ * Displays the MySQL servers choice form
  *
  * @package PhpMyAdmin
  */

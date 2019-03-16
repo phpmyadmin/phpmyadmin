@@ -32,6 +32,10 @@ class CoreExtension extends AbstractExtension
                 'PhpMyAdmin\Core::mimeDefaultFunction',
                 ['is_safe' => ['html']]
             ),
+            new TwigFilter(
+                'link',
+                'PhpMyAdmin\Core::linkURL'
+            ),
         ];
     }
 }

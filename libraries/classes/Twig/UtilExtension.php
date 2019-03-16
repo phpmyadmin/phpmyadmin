@@ -165,6 +165,11 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
+                'show_php_docu',
+                'PhpMyAdmin\Util::showPHPDocu',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
                 'sortable_table_header',
                 'PhpMyAdmin\Util::sortableTableHeader',
                 ['is_safe' => ['html']]

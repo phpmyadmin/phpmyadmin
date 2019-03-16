@@ -7,18 +7,13 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Config;
+use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\GitRevision;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -28,9 +23,6 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Gets some core libraries and displays a top message if required
- */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
@@ -121,6 +113,12 @@ if (! empty($_REQUEST['db'])) {
 }
 
 $response = Response::getInstance();
+
+$controller = new HomeController(
+    $response,
+    $GLOBALS['dbi']
+);
+
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
@@ -159,341 +157,11 @@ if (isset($_SESSION['partial_logout'])) {
     unset($_SESSION['partial_logout']);
 }
 
-$common_url_query =  Url::getCommon();
-$mysql_cur_user_and_host = '';
-
-// when $server > 0, a server has been chosen so we can display
-// all MySQL-related information
 if ($server > 0) {
     include ROOT_PATH . 'libraries/server_common.inc.php';
-
-    // Use the verbose name of the server instead of the hostname
-    // if a value is set
-    $server_info = '';
-    if (! empty($cfg['Server']['verbose'])) {
-        $server_info .= htmlspecialchars($cfg['Server']['verbose']);
-        if ($GLOBALS['cfg']['ShowServerInfo']) {
-            $server_info .= ' (';
-        }
-    }
-    if ($GLOBALS['cfg']['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
-        $server_info .= $GLOBALS['dbi']->getHostInfo();
-    }
-    if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
-        $server_info .= ')';
-    }
-    $mysql_cur_user_and_host = $GLOBALS['dbi']->fetchValue('SELECT USER();');
-
-    // should we add the port info here?
-    $short_server_info = (! empty($GLOBALS['cfg']['Server']['verbose'])
-                ? $GLOBALS['cfg']['Server']['verbose']
-                : $GLOBALS['cfg']['Server']['host']);
 }
 
-echo '<div id="maincontainer">' , "\n";
-// Anchor for favorite tables synchronization.
-echo RecentFavoriteTable::getInstance('favorite')->getHtmlSyncFavoriteTables();
-echo '<div id="main_pane_left">';
-if ($server > 0 || count($cfg['Servers']) > 1
-) {
-    if ($cfg['DBG']['demo']) {
-        echo '<div class="group">';
-        echo '<h2>' , __('phpMyAdmin Demo Server') , '</h2>';
-        echo '<p class="cfg_dbg_demo">';
-        printf(
-            __(
-                'You are using the demo server. You can do anything here, but '
-                . 'please do not change root, debian-sys-maint and pma users. '
-                . 'More information is available at %s.'
-            ),
-            '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>'
-        );
-        echo '</p>';
-        echo '</div>';
-    }
-    echo '<div class="group">';
-    echo '<h2>' , __('General settings') , '</h2>';
-    echo '<ul>';
-
-    /**
-     * Displays the MySQL servers choice form
-     */
-    if ($cfg['ServerDefault'] == 0
-        || (! $cfg['NavigationDisplayServers']
-        && (count($cfg['Servers']) > 1
-        || ($server == 0 && count($cfg['Servers']) == 1)))
-    ) {
-        echo '<li id="li_select_server" class="no_bullets" >';
-        echo Util::getImage('s_host') , " "
-            , Select::render(true, true);
-        echo '</li>';
-    }
-
-    /**
-     * Displays the mysql server related links
-     */
-    if ($server > 0) {
-        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
-        $checkUserPrivileges->getPrivileges();
-
-        // Logout for advanced authentication
-        if (($cfg['Server']['auth_type'] != 'config') && $cfg['ShowChgPassword']) {
-            $conditional_class = 'ajax';
-            Core::printListItem(
-                Util::getImage('s_passwd') . "&nbsp;" . __(
-                    'Change password'
-                ),
-                'li_change_password',
-                'user_password.php' . $common_url_query,
-                null,
-                null,
-                'change_password_anchor',
-                "no_bullets",
-                $conditional_class
-            );
-        } // end if
-        echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
-        echo '        <form class="disableAjax" method="post" action="index.php">' , "\n"
-           . Url::getHiddenInputs(null, null, 4, 'collation_connection')
-           . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . Util::getImage('s_asci')
-            . "&nbsp;" . __('Server connection collation') . "\n"
-           // put the doc link in the form so that it appears on the same line
-           . Util::showMySQLDocu('Charset-connection')
-           . ': ' . "\n"
-           . '            </label>' . "\n"
-
-           . Charsets::getCollationDropdownBox(
-               $GLOBALS['dbi'],
-               $GLOBALS['cfg']['Server']['DisableIS'],
-               'collation_connection',
-               'select_collation_connection',
-               $collation_connection,
-               true,
-               true
-           )
-           . '        </form>' . "\n"
-           . '    </li>' . "\n";
-    } // end of if ($server > 0)
-    echo '</ul>';
-    echo '</div>';
-}
-
-echo '<div class="group">';
-echo '<h2>' , __('Appearance settings') , '</h2>';
-echo '  <ul>';
-
-// Displays language selection combo
-$language_manager = LanguageManager::getInstance();
-if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
-    echo '<li id="li_select_lang" class="no_bullets">';
-
-    echo Util::getImage('s_lang') , " "
-        , $language_manager->getSelectorDisplay();
-    echo '</li>';
-}
-
-// ThemeManager if available
-
-if ($GLOBALS['cfg']['ThemeManager']) {
-    echo '<li id="li_select_theme" class="no_bullets">';
-    echo Util::getImage('s_theme') , " "
-            ,  ThemeManager::getInstance()->getHtmlSelectBox();
-    echo '</li>';
-}
-
-echo '</ul>';
-
-// User preferences
-
-if ($server > 0) {
-    echo '<ul>';
-    Core::printListItem(
-        Util::getImage('b_tblops') . "&nbsp;" . __(
-            'More settings'
-        ),
-        'li_user_preferences',
-        'prefs_manage.php' . $common_url_query,
-        null,
-        null,
-        null,
-        "no_bullets"
-    );
-    echo '</ul>';
-}
-
-echo '</div>';
-
-
-echo '</div>';
-echo '<div id="main_pane_right">';
-
-
-if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
-    echo '<div class="group">';
-    echo '<h2>' , __('Database server') , '</h2>';
-    echo '<ul>' , "\n";
-    Core::printListItem(
-        __('Server:') . ' ' . $server_info,
-        'li_server_info'
-    );
-    Core::printListItem(
-        __('Server type:') . ' ' . Util::getServerType(),
-        'li_server_type'
-    );
-    Core::printListItem(
-        __('Server connection:') . ' ' . Util::getServerSSL(),
-        'li_server_type'
-    );
-    Core::printListItem(
-        __('Server version:')
-        . ' '
-        . $GLOBALS['dbi']->getVersionString() . ' - ' . $GLOBALS['dbi']->getVersionComment(),
-        'li_server_version'
-    );
-    Core::printListItem(
-        __('Protocol version:') . ' ' . $GLOBALS['dbi']->getProtoInfo(),
-        'li_mysql_proto'
-    );
-    Core::printListItem(
-        __('User:') . ' ' . htmlspecialchars($mysql_cur_user_and_host),
-        'li_user_info'
-    );
-
-    echo '    <li id="li_select_mysql_charset">';
-    echo '        ' , __('Server charset:') , ' '
-       . '        <span lang="en" dir="ltr">';
-    $unicode = Charsets::$mysql_charset_map['utf-8'];
-    $charsets = Charsets::getMySQLCharsetsDescriptions(
-        $GLOBALS['dbi'],
-        $GLOBALS['cfg']['Server']['DisableIS']
-    );
-    echo '           ' , $charsets[$unicode], ' (' . $unicode, ')';
-    echo '        </span>'
-       . '    </li>'
-       . '  </ul>'
-       . ' </div>';
-}
-
-if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
-    echo '<div class="group">';
-    echo '<h2>' , __('Web server') , '</h2>';
-    echo '<ul>';
-    if ($GLOBALS['cfg']['ShowServerInfo']) {
-        Core::printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
-
-        if ($server > 0) {
-            $client_version_str = $GLOBALS['dbi']->getClientInfo();
-            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)) {
-                $client_version_str = 'libmysql - ' . $client_version_str;
-            }
-            Core::printListItem(
-                __('Database client version:') . ' ' . $client_version_str,
-                'li_mysql_client_version'
-            );
-
-            $php_ext_string = __('PHP extension:') . ' ';
-
-            $extensions = Util::listPHPExtensions();
-
-            foreach ($extensions as $extension) {
-                $php_ext_string  .= '  ' . $extension
-                    . Util::showPHPDocu('book.' . $extension . '.php');
-            }
-
-            Core::printListItem(
-                $php_ext_string,
-                'li_used_php_extension'
-            );
-
-            $php_version_string = __('PHP version:') . ' ' . phpversion();
-
-            Core::printListItem(
-                $php_version_string,
-                'li_used_php_version'
-            );
-        }
-    }
-
-    if ($cfg['ShowPhpInfo']) {
-        Core::printListItem(
-            __('Show PHP information'),
-            'li_phpinfo',
-            'phpinfo.php' . $common_url_query,
-            null,
-            '_blank'
-        );
-    }
-    echo '  </ul>';
-    echo ' </div>';
-}
-
-echo '<div class="group pmagroup">';
-echo '<h2>phpMyAdmin</h2>';
-echo '<ul>';
-$class = null;
-if ($GLOBALS['cfg']['VersionCheck']) {
-    $class = 'jsversioncheck';
-}
-Core::printListItem(
-    __('Version information:') . ' <span class="version">' . PMA_VERSION . '</span>',
-    'li_pma_version',
-    null,
-    null,
-    null,
-    null,
-    $class
-);
-Core::printListItem(
-    __('Documentation'),
-    'li_pma_docs',
-    Util::getDocuLink('index'),
-    null,
-    '_blank'
-);
-
-// does not work if no target specified, don't know why
-Core::printListItem(
-    __('Official Homepage'),
-    'li_pma_homepage',
-    Core::linkURL('https://www.phpmyadmin.net/'),
-    null,
-    '_blank'
-);
-Core::printListItem(
-    __('Contribute'),
-    'li_pma_contribute',
-    Core::linkURL('https://www.phpmyadmin.net/contribute/'),
-    null,
-    '_blank'
-);
-Core::printListItem(
-    __('Get support'),
-    'li_pma_support',
-    Core::linkURL('https://www.phpmyadmin.net/support/'),
-    null,
-    '_blank'
-);
-Core::printListItem(
-    __('List of changes'),
-    'li_pma_changes',
-    'changelog.php' . Url::getCommon(),
-    null,
-    '_blank'
-);
-Core::printListItem(
-    __('License'),
-    'li_pma_license',
-    'license.php' . Url::getCommon(),
-    null,
-    '_blank'
-);
-echo '    </ul>';
-echo ' </div>';
-
-echo '</div>';
-
-echo '</div>';
+echo $controller->index();
 
 /**
  * mbstring is used for handling multibytes inside parser, so it is good
@@ -631,7 +299,7 @@ if ($server > 0) {
                 );
         }
         $msg = Message::notice($msg_text);
-        $msg->addParamHtml('<a href="./chk_rel.php" data-post="' . $common_url_query . '">');
+        $msg->addParamHtml('<a href="./chk_rel.php" data-post="' . Url::getCommon() . '">');
         $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (! empty($cfg['Servers'][$server]['pmadb'])) {
