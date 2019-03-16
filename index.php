@@ -7,18 +7,13 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Charsets;
-use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Config;
+use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\GitRevision;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -28,9 +23,6 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Gets some core libraries and displays a top message if required
- */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
@@ -121,6 +113,12 @@ if (! empty($_REQUEST['db'])) {
 }
 
 $response = Response::getInstance();
+
+$controller = new HomeController(
+    $response,
+    $GLOBALS['dbi']
+);
+
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
@@ -159,11 +157,6 @@ if (isset($_SESSION['partial_logout'])) {
     unset($_SESSION['partial_logout']);
 }
 
-$common_url_query =  Url::getCommon();
-$mysql_cur_user_and_host = '';
-
-// when $server > 0, a server has been chosen so we can display
-// all MySQL-related information
 if ($server > 0) {
     include ROOT_PATH . 'libraries/server_common.inc.php';
 
@@ -435,65 +428,8 @@ $class = null;
 if ($GLOBALS['cfg']['VersionCheck']) {
     $class = 'jsversioncheck';
 }
-Core::printListItem(
-    __('Version information:') . ' <span class="version">' . PMA_VERSION . '</span>',
-    'li_pma_version',
-    null,
-    null,
-    null,
-    null,
-    $class
-);
-Core::printListItem(
-    __('Documentation'),
-    'li_pma_docs',
-    Util::getDocuLink('index'),
-    null,
-    '_blank'
-);
 
-// does not work if no target specified, don't know why
-Core::printListItem(
-    __('Official Homepage'),
-    'li_pma_homepage',
-    Core::linkURL('https://www.phpmyadmin.net/'),
-    null,
-    '_blank'
-);
-Core::printListItem(
-    __('Contribute'),
-    'li_pma_contribute',
-    Core::linkURL('https://www.phpmyadmin.net/contribute/'),
-    null,
-    '_blank'
-);
-Core::printListItem(
-    __('Get support'),
-    'li_pma_support',
-    Core::linkURL('https://www.phpmyadmin.net/support/'),
-    null,
-    '_blank'
-);
-Core::printListItem(
-    __('List of changes'),
-    'li_pma_changes',
-    'changelog.php' . Url::getCommon(),
-    null,
-    '_blank'
-);
-Core::printListItem(
-    __('License'),
-    'li_pma_license',
-    'license.php' . Url::getCommon(),
-    null,
-    '_blank'
-);
-echo '    </ul>';
-echo ' </div>';
-
-echo '</div>';
-
-echo '</div>';
+echo $controller->index();
 
 /**
  * mbstring is used for handling multibytes inside parser, so it is good
@@ -631,7 +567,7 @@ if ($server > 0) {
                 );
         }
         $msg = Message::notice($msg_text);
-        $msg->addParamHtml('<a href="./chk_rel.php" data-post="' . $common_url_query . '">');
+        $msg->addParamHtml('<a href="./chk_rel.php" data-post="' . Url::getCommon() . '">');
         $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (! empty($cfg['Servers'][$server]['pmadb'])) {
