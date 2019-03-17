@@ -421,6 +421,22 @@ function displayErrors (error_list) {
 }
 
 /**
+ * Validates fields and fieldsets and call displayError function as required
+ */
+function setDisplayError(){
+    var $elements = $('.optbox input[id], .optbox select[id], .optbox textarea[id]');
+    // run all field validators
+    var errors = {};
+    for (var i = 0; i < $elements.length; i++) {
+        validate_field($elements[i], false, errors);
+    }
+    // run all fieldset validators
+    $('fieldset.optbox').each(function () {
+        validate_fieldset(this, false, errors);
+    });
+    displayErrors(errors);
+}
+/**
  * Validates fieldset and puts errors in 'errors' object
  *
  * @param {Element} fieldset
@@ -648,6 +664,7 @@ AJAX.registerOnload('config.js', function () {
         for (var i = 0, imax = fields.length; i < imax; i++) {
             setFieldValue(fields[i], getFieldType(fields[i]), defaultValues[fields[i].id]);
         }
+        setDisplayError();
     });
 });
 
