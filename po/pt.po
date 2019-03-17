@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2019-03-17 15:04+0000\n"
+"PO-Revision-Date: 2019-03-18 23:04+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/pt/>\n"
@@ -9483,7 +9483,6 @@ msgid "View structure"
 msgstr "Estrutura da vista"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:286
-#, fuzzy
 msgid "Stand in"
 msgstr "Substituir"
 
@@ -10454,7 +10453,7 @@ msgstr "Este servidor é configurado como master num processo de replicação."
 #: libraries/classes/ReplicationGui.php:62
 #: libraries/classes/Server/Status/Data.php:166
 msgid "Show master status"
-msgstr "Ver estado do principal"
+msgstr "Ver estado do master"
 
 #: libraries/classes/ReplicationGui.php:67
 msgid "Show connected slaves"
@@ -10463,7 +10462,7 @@ msgstr "Mostrar servidores slave conectados"
 #: libraries/classes/ReplicationGui.php:78
 #: libraries/classes/ReplicationGui.php:701
 msgid "Add slave replication user"
-msgstr "Adicionar usuário de replicação de escravo"
+msgstr "Adicionar usuário de replicação de slave"
 
 #: libraries/classes/ReplicationGui.php:100
 msgid "Master configuration"
@@ -10566,59 +10565,52 @@ msgid "Stop SQL Thread only"
 msgstr "Parar apenas o thread SQL"
 
 #: libraries/classes/ReplicationGui.php:270
-#, fuzzy
-#| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Somente iniciar o processo IO"
+msgstr "Iniciar somente o thread IO"
 
 #: libraries/classes/ReplicationGui.php:273
-#, fuzzy
 msgid "Stop IO Thread only"
-msgstr "Somente parar o processo IO"
+msgstr "Parar somente o thread IO"
 
 #: libraries/classes/ReplicationGui.php:282
 #: libraries/classes/ReplicationGui.php:411
-#, fuzzy
 msgid "Change or reconfigure master server"
-msgstr "Alterar ou reconfigurar o servidor mestre"
+msgstr "Alterar ou reconfigurar o servidor master"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Este servidor não está configurado como escravo em um processo de "
-"replicação. Deseja %sconfigurá-lo%s para tal?"
+"Este servidor não está configurado como slave num processo de replicação. "
+"Deseja %sconfigurá-lo%s?"
 
 #: libraries/classes/ReplicationGui.php:316
-#, fuzzy
 msgid "Error management:"
 msgstr "Administração de erros:"
 
 #: libraries/classes/ReplicationGui.php:319
-#, fuzzy
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr "Pular erros pode resultar em mestre e escravo dessincronizados!"
+msgstr "Pular erros pode resultar em master e slave dessincronizados!"
 
 #: libraries/classes/ReplicationGui.php:323
-#, fuzzy
 msgid "Skip current error"
 msgstr "Pular erro atual"
 
 #: libraries/classes/ReplicationGui.php:328
-#, fuzzy, php-format
+#, php-format
 msgid "Skip next %s errors."
 msgstr "Pular próximos %s erros."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Esse servidor não está configurado como mestre em um processo de replicação. "
-"Deseja %sconfigurá-lo%s assim?"
+"Este servidor não está configurado como master num processo de replicação. "
+"Deseja %sconfigurá-lo%s?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
@@ -10627,25 +10619,21 @@ msgid "Unselect all"
 msgstr "Desseleccionar tudo"
 
 #: libraries/classes/ReplicationGui.php:410
-#, fuzzy
 msgid "Slave configuration"
-msgstr "Configuração do escravo"
+msgstr "Configuração do slave"
 
 #: libraries/classes/ReplicationGui.php:413
-#, fuzzy
 msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Certifique-se de que você tem um ID de servidor único no seu ficheiro de "
-"configuração (my.cfn). Senão, favor adicionar a seguinte linha dentro da "
+"Certifique-se de que tem um ID de servidor único no seu ficheiro de "
+"configuração (my.cnf). Senão, favor adicionar a seguinte linha dentro da "
 "seção [mysqld]:"
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:791
 #: libraries/classes/Server/Privileges.php:1501
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
 msgstr "Nome de usuário:"
 
@@ -10669,19 +10657,16 @@ msgid "Password"
 msgstr "Palavra-passe"
 
 #: libraries/classes/ReplicationGui.php:455
-#, fuzzy
 msgid "Port:"
 msgstr "Porta:"
 
 #: libraries/classes/ReplicationGui.php:539
-#, fuzzy
 msgid "Master status"
-msgstr "Status do master"
+msgstr "Estado do master"
 
 #: libraries/classes/ReplicationGui.php:542
-#, fuzzy
 msgid "Slave status"
-msgstr "Status do(s) slave(s)"
+msgstr "Estado(s) do(s) slave(s)"
 
 #: libraries/classes/ReplicationGui.php:551
 #: libraries/classes/Server/Status/Variables.php:228
@@ -10697,12 +10682,11 @@ msgid "Host"
 msgstr "Máquina"
 
 #: libraries/classes/ReplicationGui.php:643
-#, fuzzy
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Apenas os escravos iniciados com a opção --report-host=host_name estão "
+"Apenas os slaves iniciados com a opção --report-host=host_name estão "
 "visíveis nesta lista."
 
 #: libraries/classes/ReplicationGui.php:747
@@ -10729,8 +10713,6 @@ msgstr "Qualquer utilizador"
 #: libraries/classes/ReplicationGui.php:837
 #: libraries/classes/ReplicationGui.php:866
 #: libraries/classes/Server/Privileges.php:1638
-#, fuzzy
-#| msgid "Use text field"
 msgid "Use text field:"
 msgstr "Usar campo de texto:"
 
@@ -10741,13 +10723,12 @@ msgstr "Usar a tabela do anfitrião"
 
 #: libraries/classes/ReplicationGui.php:847
 #: libraries/classes/Server/Privileges.php:1655
-#, fuzzy
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
-"Quanto a tabela Host é usada, este campo é ignorado e os valores armazenados "
-"na tabela Host são usados no lugar."
+"Quando a tabela Host é usada, este campo é ignorado e em vey disso os "
+"valores armazenados na tabela Host são usados."
 
 #: libraries/classes/ReplicationGui.php:878
 #: libraries/classes/Server/Privileges.php:1699
@@ -10755,90 +10736,73 @@ msgid "Re-type"
 msgstr "Confirma"
 
 #: libraries/classes/ReplicationGui.php:882
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
 msgstr "Gerar palavra-passe:"
 
 #: libraries/classes/ReplicationGui.php:914
-#, fuzzy
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
-"A conexão com o servidor está desabilitada. Por favor habilite em "
-"$cfg['AllowArbitraryServer'] nas configurações do phpMyAdmin."
+"A conexão ao servidor está desativada. Por favor ative "
+"$cfg['AllowArbitraryServer'] nas configuração do phpMyAdmin."
 
 #: libraries/classes/ReplicationGui.php:923
-#, fuzzy
 msgid "Replication started successfully."
 msgstr "Replicação iniciada com sucesso."
 
 #: libraries/classes/ReplicationGui.php:924
-#, fuzzy
 msgid "Error starting replication."
-msgstr "Erro ao iniciar replicação."
+msgstr "Erro ao iniciar a replicação."
 
 #: libraries/classes/ReplicationGui.php:927
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Replicação encerrada com sucesso."
+msgstr "Replicação parada com sucesso."
 
 #: libraries/classes/ReplicationGui.php:928
-#, fuzzy
 msgid "Error stopping replication."
-msgstr "Erro ao parar replicação."
+msgstr "Erro ao parar a replicação."
 
 #: libraries/classes/ReplicationGui.php:931
-#, fuzzy
 msgid "Replication resetting successfully."
 msgstr "Replicação reiniciada com sucesso."
 
 #: libraries/classes/ReplicationGui.php:932
-#, fuzzy
 msgid "Error resetting replication."
-msgstr "Erro ao reiniciar replicação."
+msgstr "Erro ao reiniciar a replicação."
 
 #: libraries/classes/ReplicationGui.php:935
-#, fuzzy
 msgid "Success."
 msgstr "Sucesso."
 
 #: libraries/classes/ReplicationGui.php:936
-#, fuzzy
-#| msgid "Error"
 msgid "Error."
 msgstr "Erro."
 
 #: libraries/classes/ReplicationGui.php:982
-#, fuzzy
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
 #: libraries/classes/ReplicationGui.php:992
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to connect to master %s."
-msgstr "Não foi possível conectar ao mestre %s."
+msgstr "Não foi possível conectar ao master %s."
 
 #: libraries/classes/ReplicationGui.php:1003
-#, fuzzy
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
-"Não foi possível fazer a leitura da posição de log mestre. Possível problema "
-"de permissões no mestre."
+"Não foi possível ler a posição do master log. Possívelmente é um problema de "
+"permissões no master."
 
 #: libraries/classes/ReplicationGui.php:1021
-#, fuzzy
 msgid "Unable to change master!"
-msgstr "Não foi possível alterar o mestre!"
+msgstr "Não foi possível mudar de master!"
 
 #: libraries/classes/ReplicationGui.php:1025
-#, fuzzy, php-format
-#| msgid "The privileges were reloaded successfully."
+#, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Servidor mestre alterado com sucesso para %s."
+msgstr "Servidor master mudado com sucesso para %s."
 
 #: libraries/classes/Rte/Events.php:122 libraries/classes/Rte/Events.php:131
 #: libraries/classes/Rte/Events.php:162 libraries/classes/Rte/Routines.php:240
@@ -10847,7 +10811,7 @@ msgstr "Servidor mestre alterado com sucesso para %s."
 #: libraries/classes/Rte/Routines.php:1494
 #: libraries/classes/Rte/Triggers.php:97 libraries/classes/Rte/Triggers.php:106
 #: libraries/classes/Rte/Triggers.php:138
-#, fuzzy, php-format
+#, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "A seguinte consulta falhou: \"%s\""
 
@@ -10864,302 +10828,247 @@ msgid "MySQL said: "
 msgstr "Mensagens do MySQL : "
 
 #: libraries/classes/Rte/Events.php:142
-#, fuzzy
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Desculpe, mas falhamos em restaurar o evento eliminado."
+msgstr "Desculpe, não conseguimos restaurar o evento eliminado."
 
 #: libraries/classes/Rte/Events.php:149
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Event %1$s has been modified."
 msgstr "O evento %1$s foi modificado."
 
 #: libraries/classes/Rte/Events.php:169
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
 msgstr "O evento %1$s foi criado."
 
 #: libraries/classes/Rte/Events.php:183 libraries/classes/Rte/Routines.php:287
 #: libraries/classes/Rte/Triggers.php:159
-#, fuzzy
 msgid "One or more errors have occurred while processing your request:"
-msgstr "Um ou mais erros ocorreram durante o processamento da sua solicitação:"
+msgstr "Um ou mais erros ocorreram durante o processamento da sua requisição:"
 
 #: libraries/classes/Rte/Events.php:238
-#, fuzzy
 msgid "Edit event"
 msgstr "Editar evento"
 
 #: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:905
 #: libraries/classes/Rte/Triggers.php:339 templates/view_create.twig:8
-#, fuzzy
 msgid "Details"
 msgstr "Detalhes"
 
 #: libraries/classes/Rte/Events.php:407
-#, fuzzy
 msgid "Event name"
 msgstr "Nome do evento"
 
 #: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:928
-#, fuzzy, php-format
-#| msgid "Change"
+#, php-format
 msgid "Change to %s"
 msgstr "Alterar para %s"
 
 #: libraries/classes/Rte/Events.php:456
-#, fuzzy
 msgid "Execute at"
 msgstr "Executar em"
 
 #: libraries/classes/Rte/Events.php:464
-#, fuzzy
 msgid "Execute every"
-msgstr "Executar sempre"
+msgstr "Executar cada"
 
 #: libraries/classes/Rte/Events.php:483
-#, fuzzy
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Início"
 
 #: libraries/classes/Rte/Events.php:492
-#, fuzzy
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "Final"
+msgstr "Fim"
 
 #: libraries/classes/Rte/Events.php:506
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "On completion preserve"
-msgstr "Guardar após a conclusão"
+msgstr "Preservar após a conclusão"
 
 #: libraries/classes/Rte/Events.php:511 libraries/classes/Rte/Routines.php:1045
 #: libraries/classes/Rte/Triggers.php:399 templates/view_create.twig:45
-#, fuzzy
 msgid "Definer"
 msgstr "Definidor"
 
 #: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1126
 #: libraries/classes/Rte/Triggers.php:438
-#, fuzzy
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "O definidor deve estar no formato \"username@hostname\"!"
 
 #: libraries/classes/Rte/Events.php:562
-#, fuzzy
 msgid "You must provide an event name!"
-msgstr "Você deve informar o nome do evento!"
+msgstr "Você deve fornecer um nome de evento!"
 
 #: libraries/classes/Rte/Events.php:577
-#, fuzzy
 msgid "You must provide a valid interval value for the event."
-msgstr "Você deve informar um valor de intervalo válido para o evento."
+msgstr "Você deve fornecer um valor de intervalo válido para o evento."
 
 #: libraries/classes/Rte/Events.php:596
-#, fuzzy
 msgid "You must provide a valid execution time for the event."
-msgstr "Você deve informar um tempo de execução válido para o evento."
+msgstr "Você deve fornecer um tempo de execução válido para o evento."
 
 #: libraries/classes/Rte/Events.php:600
-#, fuzzy
 msgid "You must provide a valid type for the event."
-msgstr "Você deve informar um tipo válido para o evento."
+msgstr "Você deve fornecer um tipo válido para o evento."
 
 #: libraries/classes/Rte/Events.php:624
-#, fuzzy
 msgid "You must provide an event definition."
-msgstr "Você deve informar uma definição do evento."
+msgstr "Você deve fornecer uma definição de evento."
 
 #: libraries/classes/Rte/Export.php:54 libraries/classes/Rte/General.php:84
 #: libraries/classes/Rte/Routines.php:172
 #: libraries/classes/Rte/Routines.php:1331
 #: libraries/classes/Rte/Routines.php:1541
-#, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing request:"
-msgstr "Erro no processamento do request:"
+msgstr "Erro no processamento da requisição:"
 
 #: libraries/classes/Rte/Footer.php:102
-#, fuzzy
 msgid "OFF"
 msgstr "Desligado"
 
 #: libraries/classes/Rte/Footer.php:107
-#, fuzzy
 msgid "ON"
 msgstr "Ligado"
 
 #: libraries/classes/Rte/Footer.php:119
-#, fuzzy
 msgid "Event scheduler status"
-msgstr "Status do agendador de eventos"
+msgstr "Estado do agendador de eventos"
 
 #: libraries/classes/Rte/General.php:46
-#, fuzzy
 msgid "The backed up query was:"
-msgstr "A consulta armazenada em backup foi:"
+msgstr "A consulta com backup foi:"
 
 #: libraries/classes/Rte/Routines.php:92
-#, fuzzy
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. [strong]The execution of some stored routines may "
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Você está usando a extensão 'mysql' que está obsoleta no PHP e ela não é "
+"Você está usando a extensão 'mysql' que está obsoleta no PHP, que não é "
 "capaz de lidar com multi consultas. [strong]A execução de algumas rotinas de "
 "armazenamento podem falhar![/strong] Por favor, use a extensão melhorada "
 "'mysqli' para evitar quaisquer problemas."
 
 #: libraries/classes/Rte/Routines.php:143
-#, fuzzy
 msgid "Edit routine"
 msgstr "Editar rotina"
 
 #: libraries/classes/Rte/Routines.php:221
 #: libraries/classes/Rte/Routines.php:1135
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Tipo de rotina inválido: \"%s\""
 
 #: libraries/classes/Rte/Routines.php:274
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been created."
 msgstr "A rotina %1$s foi criada."
 
 #: libraries/classes/Rte/Routines.php:393
-#, fuzzy
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Desculpe, mas falhamos em restaurar a rotina eliminada."
 
 #: libraries/classes/Rte/Routines.php:449
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "A rotina %1$s foi modificada. Os privilégios foram ajustados."
 
 #: libraries/classes/Rte/Routines.php:454
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified."
 msgstr "A rotina %1$s foi modificada."
 
 #: libraries/classes/Rte/Routines.php:908
-#, fuzzy
-#| msgid "Column names"
 msgid "Routine name"
-msgstr "Nome das rotinas"
+msgstr "Nome da rotina"
 
 #: libraries/classes/Rte/Routines.php:934
-#, fuzzy
 msgid "Parameters"
 msgstr "Parâmetros"
 
 #: libraries/classes/Rte/Routines.php:942
-#, fuzzy
-#| msgid "Creation"
 msgid "Direction"
 msgstr "Direção"
 
 #: libraries/classes/Rte/Routines.php:963
-#, fuzzy
 msgid "Add parameter"
 msgstr "Adicionar parâmetro"
 
 #: libraries/classes/Rte/Routines.php:967
-#, fuzzy
-#| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "Remover último parâmetro"
 
 #: libraries/classes/Rte/Routines.php:972
-#, fuzzy
 msgid "Return type"
-msgstr "Tipo de returno"
+msgstr "Tipo de retorno"
 
 #: libraries/classes/Rte/Routines.php:978
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Retornar comprimento/valores"
 
 #: libraries/classes/Rte/Routines.php:984
-#, fuzzy
-#| msgid "Table options"
 msgid "Return options"
 msgstr "Opções de retorno"
 
 #: libraries/classes/Rte/Routines.php:1016
-#, fuzzy
 msgid "Is deterministic"
 msgstr "É determinístico"
 
 #: libraries/classes/Rte/Routines.php:1035
-#, fuzzy
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
-"Você não tem privilégios suficientes para executar esta operação; Por favor "
-"verifique a documentação para maiores detalhes"
+"Você não tem privilégios suficientes para executar esta operação, verifique "
+"a documentação para mais detalhes"
 
 #: libraries/classes/Rte/Routines.php:1050
-#, fuzzy
-#| msgid "Query type"
 msgid "Security type"
 msgstr "Tipo de segurança"
 
 #: libraries/classes/Rte/Routines.php:1059
-#, fuzzy
 msgid "SQL data access"
 msgstr "Acesso de dados SQL"
 
 #: libraries/classes/Rte/Routines.php:1142
-#, fuzzy
 msgid "You must provide a routine name!"
-msgstr "Você deve informar o nome da rotina!"
+msgstr "Você deve fornecer um nome de rotina!"
 
 #: libraries/classes/Rte/Routines.php:1176
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Direção inválida \"%s\" dada para o parâmetro."
 
 #: libraries/classes/Rte/Routines.php:1198
 #: libraries/classes/Rte/Routines.php:1262
-#, fuzzy
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
-"Você deve informar tamanhos/comprimentos para os parâmetros de rotina do "
-"tipo ENUM, SET, VARCHAR and VARBINARY."
+"Você deve fornecer o comprimento/valores para parâmetros de rotina do tipo "
+"ENUM, SET, VARCHAR e VARBINARY."
 
 #: libraries/classes/Rte/Routines.php:1226
-#, fuzzy
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Você deve informar um nome e um tipo para cada parâmetro de rotina."
+msgstr "Você deve fornecer um nome e um tipo para cada parâmetro de rotina."
 
 #: libraries/classes/Rte/Routines.php:1245
-#, fuzzy
 msgid "You must provide a valid return type for the routine."
-msgstr "Você deve informar um tipo de retorno válido para a rotina."
+msgstr "Você deve fornecer um tipo válido de retorno para a rotina."
 
 #: libraries/classes/Rte/Routines.php:1305
-#, fuzzy
 msgid "You must provide a routine definition."
-msgstr "Você deve informar uma definição da rotina."
+msgstr "Você deve fornecer uma definição de rotina."
 
 #: libraries/classes/Rte/Routines.php:1417
-#, fuzzy, php-format
+#, php-format
 msgid "Execution results of routine %s"
 msgstr "Resultados da execução da rotina %s"
 
 #: libraries/classes/Rte/Routines.php:1472
-#, fuzzy, php-format
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d linha afetada pela última instrução dentro do procedimento."
@@ -11167,197 +11076,160 @@ msgstr[1] "%d linhas afetadas pela última instrução dentro do procedimento."
 
 #: libraries/classes/Rte/Routines.php:1529
 #: libraries/classes/Rte/Routines.php:1536
-#, fuzzy
 msgid "Execute routine"
 msgstr "Executar rotina"
 
 #: libraries/classes/Rte/Routines.php:1615
 #: libraries/classes/Rte/Routines.php:1618
-#, fuzzy
 msgid "Routine parameters"
 msgstr "Parâmetros da rotina"
 
 #: libraries/classes/Rte/RteList.php:91
-#, fuzzy
-#| msgid "Table options"
 msgid "Returns"
-msgstr "Retornos"
+msgstr "Retorna"
 
 #: libraries/classes/Rte/Triggers.php:118
-#, fuzzy
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Desculpe, mas falhamos em restaurar o gatilho eliminado."
 
 #: libraries/classes/Rte/Triggers.php:125
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "O gatilho %1$s foi modificado."
 
 #: libraries/classes/Rte/Triggers.php:145
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
 msgstr "O gatilho %1$s foi criado."
 
 #: libraries/classes/Rte/Triggers.php:221
-#, fuzzy
 msgid "Edit trigger"
 msgstr "Editar gatilho"
 
 #: libraries/classes/Rte/Triggers.php:342
-#, fuzzy
-#| msgid "User name"
 msgid "Trigger name"
 msgstr "Nome do gatilho"
 
 #: libraries/classes/Rte/Triggers.php:365
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "Momento de ação do gatilho"
+msgstr "Tempo"
 
 #: libraries/classes/Rte/Triggers.php:445
-#, fuzzy
 msgid "You must provide a trigger name!"
-msgstr "Você deve informar o nome do gatilho!"
+msgstr "Você deve fornecer um nome de gatilho!"
 
 #: libraries/classes/Rte/Triggers.php:452
-#, fuzzy
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Você deve informar um tempo válido para o gatilho!"
+msgstr "Você deve fornecer um tempo válido para o gatilho!"
 
 #: libraries/classes/Rte/Triggers.php:459
-#, fuzzy
 msgid "You must provide a valid event for the trigger!"
-msgstr "Você deve informar um evento válido para o gatilho!"
+msgstr "Você deve fornecer um evento válido para o gatilho!"
 
 #: libraries/classes/Rte/Triggers.php:467
-#, fuzzy
 msgid "You must provide a valid table name!"
-msgstr "Você precisa colocar um nome de tabela válido!"
+msgstr "Você deve fornecer um nome de tabela válido!"
 
 #: libraries/classes/Rte/Triggers.php:473
-#, fuzzy
 msgid "You must provide a trigger definition."
-msgstr "Você deve informar uma definição para o gatilho."
+msgstr "Você deve fornecer uma definição do gatilho."
 
 #: libraries/classes/Rte/Words.php:32
-#, fuzzy
 msgid "Add routine"
 msgstr "Adicionar rotina"
 
 #: libraries/classes/Rte/Words.php:34
-#, fuzzy, php-format
+#, php-format
 msgid "Export of routine %s"
-msgstr "Exportação de rotina %s"
+msgstr "Exportação da rotina %s"
 
 #: libraries/classes/Rte/Words.php:35
-#, fuzzy
 msgid "routine"
-msgstr "Adiciona novo campo"
+msgstr "rotina"
 
 #: libraries/classes/Rte/Words.php:37
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine."
 msgstr "Você não possui privilégios suficientes para criar uma nova rotina."
 
 #: libraries/classes/Rte/Words.php:40
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
-"Nenhum rotina com o nome %1$s encontrada no banco de dados %2$s. Você pode "
-"não ter os privilégios necessários para editar essa rotina."
+"Nenhuma rotina com nome %1$s encontrada na base de dados %2$s. Você pode não "
+"ter os privilégios necessários para editar essa rotina."
 
 #: libraries/classes/Rte/Words.php:44
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
-"Nenhum rotina com o nome %1$s encontrada no banco de dados %2$s. Você pode "
-"não ter os privilégios necessários para visualizar/exportar essa rotina."
+"Nenhuma rotina com nome %1$s encontrada na base de dados %2$s. Você pode não "
+"ter os privilégios necessários para editar/exportar essa rotina."
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Nenhuma rotina com o nome %1$s foi encontrada no banco de dados %2$s."
+msgstr "Nenhuma rotina com nome %1$s encontrada na base de dados %2$s."
 
 #: libraries/classes/Rte/Words.php:48
-#, fuzzy
-#| msgid "Tracked tables"
 msgid "There are no routines to display."
-msgstr "Não existem rotinas para mostrar."
+msgstr "Não há rotinas para exibir."
 
 #: libraries/classes/Rte/Words.php:54
-#, fuzzy
 msgid "Add trigger"
 msgstr "Adicionar gatilho"
 
 #: libraries/classes/Rte/Words.php:56
-#, fuzzy, php-format
+#, php-format
 msgid "Export of trigger %s"
 msgstr "Exportação do gatilho %s"
 
 #: libraries/classes/Rte/Words.php:57
-#, fuzzy
 msgid "trigger"
 msgstr "gatilho"
 
 #: libraries/classes/Rte/Words.php:59
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger."
 msgstr "Você não possui permissões suficientes para criar um novo gatilho."
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Nenhum gatilho com o nome %1$s foi encontrado no banco de dados %2$s."
 
 #: libraries/classes/Rte/Words.php:62
-#, fuzzy
-#| msgid "Tracked tables"
 msgid "There are no triggers to display."
-msgstr "Não existem gatilhos para mostrar."
+msgstr "Não há gatilhos para exibir."
 
 #: libraries/classes/Rte/Words.php:68
-#, fuzzy
 msgid "Add event"
 msgstr "Adicionar evento"
 
 #: libraries/classes/Rte/Words.php:70
-#, fuzzy, php-format
+#, php-format
 msgid "Export of event %s"
 msgstr "Exportação do evento %s"
 
 #: libraries/classes/Rte/Words.php:71
-#, fuzzy
 msgid "event"
-msgstr "Enviado"
+msgstr "evento"
 
 #: libraries/classes/Rte/Words.php:73
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event."
 msgstr "Você não possui permissões suficientes para criar um evento."
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Nenhum evento com o nome %1$s foi encontrado no banco de dados %2$s."
 
 #: libraries/classes/Rte/Words.php:76
-#, fuzzy
-#| msgid "Tracked tables"
 msgid "There are no events to display."
-msgstr "Não existem eventos para serem mostrados."
+msgstr "Não há eventos para exibir."
 
 #: libraries/classes/SavedSearches.php:267
 msgid "Please provide a name for this bookmarked search."
@@ -11427,10 +11299,10 @@ msgstr "Permite apagar Bases de Dados e tabelas."
 
 #: libraries/classes/Server/Privileges.php:334
 #: libraries/classes/Server/Privileges.php:1337 server_privileges.php:102
-#, fuzzy
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
-"Permitir recarregar configurações do servidor e limpar o cache do servidor."
+"Permite recarregar as configurações do servidor e limpar os caches do "
+"servidor."
 
 #: libraries/classes/Server/Privileges.php:339
 #: libraries/classes/Server/Privileges.php:1341 server_privileges.php:111
@@ -11439,9 +11311,8 @@ msgstr "Permite desligar o servidor."
 
 #: libraries/classes/Server/Privileges.php:344
 #: libraries/classes/Server/Privileges.php:1333 server_privileges.php:99
-#, fuzzy
 msgid "Allows viewing processes of all users."
-msgstr "Permitir visualizar processos de todos os usuários."
+msgstr "Permite visualizar processos de todos os usuários."
 
 #: libraries/classes/Server/Privileges.php:349
 #: libraries/classes/Server/Privileges.php:1221 server_privileges.php:78
@@ -11471,15 +11342,14 @@ msgstr "Dá acesso à lista de bases de dados completa."
 
 #: libraries/classes/Server/Privileges.php:375
 #: libraries/classes/Server/Privileges.php:1325 server_privileges.php:113
-#, fuzzy
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-"Permitir conectar, mesmo que o número máximo de conexões seja alcançado; "
+"Permite conectar, mesmo que o número máximo de conexões seja alcançado; "
 "necessário para a maioria das operações administrativas, como definir "
-"variáveis globais e matar processos de outros usuários."
+"variáveis globais ou matar processos de outros usuários."
 
 #: libraries/classes/Server/Privileges.php:383
 #: libraries/classes/Server/Privileges.php:1259 server_privileges.php:70
@@ -11488,61 +11358,51 @@ msgstr "Permite criar tabelas temporárias."
 
 #: libraries/classes/Server/Privileges.php:388
 #: libraries/classes/Server/Privileges.php:1361 server_privileges.php:85
-#, fuzzy
 msgid "Allows locking tables for the current thread."
-msgstr "Permitir bloquear tabelas para a processo atual."
+msgstr "Permite bloquear tabelas para a thread atual."
 
 #: libraries/classes/Server/Privileges.php:393
 #: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
-#, fuzzy
 msgid "Needed for the replication slaves."
 msgstr "Necessário para a replicação dos slaves."
 
 #: libraries/classes/Server/Privileges.php:398
 #: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
-#, fuzzy
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Permitir que o usuário pergunte onde estão os escravos / mestres."
+msgstr "Permitir que o usuário pergunte onde os slaves / masters estão."
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
 #: libraries/classes/Server/Privileges.php:1279
 #: libraries/classes/Server/Privileges.php:1286 server_privileges.php:72
-#, fuzzy
 msgid "Allows creating new views."
-msgstr "Permitir criar novas views."
+msgstr "Permitir criar novas vistas."
 
 #: libraries/classes/Server/Privileges.php:408
 #: libraries/classes/Server/Privileges.php:1293 server_privileges.php:76
-#, fuzzy
-#| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Permitir definir eventos no agendador de eventos."
+msgstr "Permite definir eventos no agendador de eventos."
 
 #: libraries/classes/Server/Privileges.php:413
 #: libraries/classes/Server/Privileges.php:1297 server_privileges.php:117
-#, fuzzy
 msgid "Allows creating and dropping triggers."
-msgstr "Permitir criar e apagar gatilhos."
+msgstr "Permite criar e apagar gatilhos."
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
 #: libraries/classes/Server/Privileges.php:1263 server_privileges.php:110
-#, fuzzy
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Permitir executar consultas SHOW CREATE VIEW."
+msgstr "Permite executar consultas SHOW CREATE VIEW."
 
 #: libraries/classes/Server/Privileges.php:435
 #: libraries/classes/Server/Privileges.php:1267 server_privileges.php:68
-#, fuzzy
 msgid "Allows creating stored routines."
-msgstr "Permitir criar rotinas armazenadas."
+msgstr "Permite criar rotinas armazenadas."
 
 #: libraries/classes/Server/Privileges.php:440
 #: libraries/classes/Server/Privileges.php:1271 server_privileges.php:66
-#, fuzzy
 msgid "Allows altering and dropping stored routines."
-msgstr "Permitir alterar e apagar rotinas armazenadas."
+msgstr "Permite alterar e apagar rotinas armazenadas."
 
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:1378 server_privileges.php:71
@@ -11551,98 +11411,80 @@ msgstr "Permite criar, apagar e mudar o nome das contas dos utilizadores."
 
 #: libraries/classes/Server/Privileges.php:450
 #: libraries/classes/Server/Privileges.php:1273 server_privileges.php:77
-#, fuzzy
 msgid "Allows executing stored routines."
-msgstr "Permitir executar rotinas armazenadas."
+msgstr "Permite executar rotinas armazenadas."
 
 #: libraries/classes/Server/Privileges.php:728
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
 msgstr "Não requer conexões criptografadas com SSL."
 
 #: libraries/classes/Server/Privileges.php:744
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "Requer conexões criptografadas SSL."
 
 #: libraries/classes/Server/Privileges.php:758
-#, fuzzy
 msgid "Requires a valid X509 certificate."
 msgstr "Requer um certificado X509 válido."
 
 #: libraries/classes/Server/Privileges.php:783
-#, fuzzy
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 "Requer que um método de criptografia específico seja usado para uma conexão."
 
 #: libraries/classes/Server/Privileges.php:796
-#, fuzzy
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 "Requer que um certificado X509 válido emitido por esta AC seja apresentado."
 
 #: libraries/classes/Server/Privileges.php:809
-#, fuzzy
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 "Requer que um certificado X509 válido com este assunto seja apresentado."
 
 #: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
-#, fuzzy
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Limitar o número de consultas que podem ser enviadas ao servidor por hora."
 
 #: libraries/classes/Server/Privileges.php:847 server_privileges.php:93
-#, fuzzy
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limitar o número de comandos que alteram tabelas ou bancos de dados que o "
+"Limita o número de comandos que alteram tabelas ou bancos de dados que o "
 "usuário pode executar por hora."
 
 #: libraries/classes/Server/Privileges.php:856 server_privileges.php:87
-#, fuzzy
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limitar o numero de novas conexões que o usuário pode abrir por hora."
+msgstr "Limita o número de novas conexões que o usuário pode abrir por hora."
 
 #: libraries/classes/Server/Privileges.php:865 server_privileges.php:97
-#, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Limitar o número de conexões simultâneas que o usuário pode ter."
+msgstr "Limita o número de conexões simultâneas que o usuário pode ter."
 
 #: libraries/classes/Server/Privileges.php:910
 #: libraries/classes/Server/Privileges.php:3356
 #: libraries/classes/Server/Privileges.php:3358
 #: libraries/classes/Server/Privileges.php:4581
 #: templates/privileges/edit_routine_privileges.twig:11
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
-msgstr "Rotinas"
+msgstr "Rotina"
 
 #: libraries/classes/Server/Privileges.php:942
-#, fuzzy
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
-"Permite ao usuário dar a outros usuários ou remover de outros usuários "
-"privilégios que o usuário possui nesta rotina."
+"Permite ao usuário dar privilégios que o usuário possui nesta rotina a "
+"outros usuários ou remover de outros usuários."
 
 #: libraries/classes/Server/Privileges.php:949
-#, fuzzy
 msgid "Allows altering and dropping this routine."
-msgstr "Permitir alterar e apagar esta rotina."
+msgstr "Permite alterar e apagar esta rotina."
 
 #: libraries/classes/Server/Privileges.php:954
-#, fuzzy
 msgid "Allows executing this routine."
-msgstr "Permitir executar esta rotina."
+msgstr "Permite executar esta rotina."
 
 #: libraries/classes/Server/Privileges.php:1004
 #: libraries/classes/Server/Privileges.php:1173
@@ -11655,8 +11497,6 @@ msgstr "Privilégios específicos da tabela"
 #: libraries/classes/Server/Privileges.php:1183
 #: libraries/classes/Server/Privileges.php:3549
 #: templates/privileges/edit_routine_privileges.twig:16
-#, fuzzy
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Nota: os nomes de privilégios do MySQL são expressos em inglês."
 
@@ -11670,10 +11510,8 @@ msgid "Global privileges"
 msgstr "Privilégios Globais"
 
 #: libraries/classes/Server/Privileges.php:1168
-#, fuzzy
-#| msgid "global"
 msgid "Global"
-msgstr "global"
+msgstr "Global"
 
 #: libraries/classes/Server/Privileges.php:1170
 #: libraries/classes/Server/Privileges.php:3345
@@ -11696,24 +11534,19 @@ msgstr ""
 "privilégios."
 
 #: libraries/classes/Server/Privileges.php:1353 server_privileges.php:80
-#, fuzzy
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
-"Permite que o usuário dê a outros usuários ou remova de outros usuários os "
-"privilégios que ele mesmo possui."
+"Permite que o usuário dê os privilégios que ele mesmo possui a outros "
+"usuários ou remova de outros usuários."
 
 #: libraries/classes/Server/Privileges.php:1431
 #: libraries/classes/Server/Privileges.php:1462
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
 msgstr "Autenticação nativa do MySQL"
 
 #: libraries/classes/Server/Privileges.php:1464
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
 msgstr "Autenticação com palavra-passe SHA256"
 
@@ -11730,7 +11563,6 @@ msgid "Use text field"
 msgstr "Usar campo de texto"
 
 #: libraries/classes/Server/Privileges.php:1547
-#, fuzzy
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
@@ -11739,8 +11571,6 @@ msgstr ""
 "nome de servidor diferente."
 
 #: libraries/classes/Server/Privileges.php:1556
-#, fuzzy
-#| msgid "User name"
 msgid "Host name:"
 msgstr "Nome do Host:"
 
@@ -11748,8 +11578,6 @@ msgstr "Nome do Host:"
 #: libraries/classes/Server/Privileges.php:1646
 #: libraries/classes/Server/Privileges.php:2567
 #: libraries/classes/Server/Privileges.php:3545
-#, fuzzy
-#| msgid "Constraints for table"
 msgid "Host name"
 msgstr "Nome do Host"
 
@@ -11758,14 +11586,10 @@ msgid "Do not change the password"
 msgstr "Mantendo a palavra-passe"
 
 #: libraries/classes/Server/Privileges.php:1719
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "Plugin de autenticação"
 
 #: libraries/classes/Server/Privileges.php:1726
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password Hashing Method"
 msgstr "Método de hash de palavra-passe"
 
@@ -11781,31 +11605,25 @@ msgstr "Anulou os privilégios para %s."
 
 #: libraries/classes/Server/Privileges.php:2160
 #: templates/privileges/add_user_fieldset.twig:7
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user account"
 msgstr "Adicionar conta de usuário"
 
 #: libraries/classes/Server/Privileges.php:2169
-#, fuzzy
-#| msgid "Database export options"
 msgid "Database for user account"
-msgstr "Banco de dados por conta de usuário"
+msgstr "Banco de dados para a conta de usuário"
 
 #: libraries/classes/Server/Privileges.php:2175
-#, fuzzy
 msgid "Create database with same name and grant all privileges."
 msgstr "Criar banco de dados com o mesmo nome e conceder todos os privilégios."
 
 #: libraries/classes/Server/Privileges.php:2186
-#, fuzzy
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Conceder todos os privilégios no nome coringa (nome_do_usuário_%)."
+msgstr "Conceder todos os privilégios no nome curinga (nome_do_usuário_%)."
 
 #: libraries/classes/Server/Privileges.php:2199
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Conceder todos os privilégios no banco de dados %s."
+msgstr "Conceder todos os privilégios ao banco de dados %s."
 
 #: libraries/classes/Server/Privileges.php:2373
 #: libraries/classes/Server/Privileges.php:2447
@@ -11814,10 +11632,8 @@ msgid "Users having access to \"%s\""
 msgstr "Utilizadores que tem acesso a \"%s\""
 
 #: libraries/classes/Server/Privileges.php:2417
-#, fuzzy
-#| msgid "View %s has been dropped."
 msgid "User has been added."
-msgstr "Usuário foi adicionado."
+msgstr "O usuário foi adicionado."
 
 #: libraries/classes/Server/Privileges.php:2570
 #: libraries/classes/Server/Privileges.php:3555
@@ -11826,14 +11642,11 @@ msgid "Grant"
 msgstr "Conceder/Grant"
 
 #: libraries/classes/Server/Privileges.php:2585
-#, fuzzy
 msgid "Not enough privilege to view users."
-msgstr "Privilégio insuficiente para exibir o(s) usuário(s)."
+msgstr "Privilégio insuficiente para exibir usuário(s)."
 
 #: libraries/classes/Server/Privileges.php:2604
 #: libraries/classes/Server/Privileges.php:3978
-#, fuzzy
-#| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Nenhum usuário encontrado."
 
@@ -11852,19 +11665,14 @@ msgid "database-specific"
 msgstr "Especifico da Base de Dados"
 
 #: libraries/classes/Server/Privileges.php:2691
-#, fuzzy
 msgid "wildcard"
-msgstr "coringa"
+msgstr "curinga"
 
 #: libraries/classes/Server/Privileges.php:2697
-#, fuzzy
-#| msgid "database-specific"
 msgid "table-specific"
 msgstr "específico de tabela"
 
 #: libraries/classes/Server/Privileges.php:2840
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "Editar privilégios"
 
@@ -11873,8 +11681,6 @@ msgid "Revoke"
 msgstr "Anula"
 
 #: libraries/classes/Server/Privileges.php:2867
-#, fuzzy
-#| msgid "Edit next row"
 msgid "Edit user group"
 msgstr "Editar grupo de usuários"
 
@@ -11900,21 +11706,15 @@ msgstr ""
 "privilégios."
 
 #: libraries/classes/Server/Privileges.php:3114
-#, fuzzy
-#| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "Mudar informações de login / Copiar conta de usuário"
 
 #: libraries/classes/Server/Privileges.php:3120
-#, fuzzy
-#| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Criar uma nova conta de usuário com os mesmos privilégios e …"
 
 #: libraries/classes/Server/Privileges.php:3357
 #: templates/privileges/edit_routine_privileges.twig:12
-#, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Privilégios específicos de rotina"
 
@@ -11922,7 +11722,6 @@ msgstr "Privilégios específicos de rotina"
 #: libraries/classes/Server/UserGroups.php:89
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
-#, fuzzy
 msgid "User group"
 msgstr "Grupo de usuários"
 
@@ -11932,7 +11731,6 @@ msgid "The selected user was not found in the privilege table."
 msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
 
 #: libraries/classes/Server/Privileges.php:3854
-#, fuzzy
 msgid "No users selected for deleting!"
 msgstr "Nenhum usuário selecionado para exclusão!"
 
@@ -11964,8 +11762,7 @@ msgid "The user %s already exists!"
 msgstr "O utilizador %s já existe!"
 
 #: libraries/classes/Server/Privileges.php:4454
-#, fuzzy, php-format
-#| msgid "Privileges"
+#, php-format
 msgid "Privileges for %s"
 msgstr "Privilégios para %s"
 
@@ -11976,33 +11773,26 @@ msgid "User"
 msgstr "Utilizador"
 
 #: libraries/classes/Server/Privileges.php:4531
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges:"
 msgstr "Editar privilégios:"
 
 #: libraries/classes/Server/Privileges.php:4532
-#, fuzzy
-#| msgid "Users"
 msgid "User account"
 msgstr "Conta de usuário"
 
 #: libraries/classes/Server/Privileges.php:4606
-#, fuzzy
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
-"Nota: Você está tentando editar os privilégios do usuário da sessão atual."
+"Nota: você está tentando editar os privilégios do usuário da sessão atual."
 
 #: libraries/classes/Server/Privileges.php:4626
 #: libraries/classes/Server/Users.php:30
-#, fuzzy
 msgid "User accounts overview"
 msgstr "Visão geral das contas de usuário"
 
 #: libraries/classes/Server/Privileges.php:4701
-#, fuzzy
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12013,12 +11803,7 @@ msgstr ""
 "dessas contas permitir uma conexão de qualquer host (%)."
 
 #: libraries/classes/Server/Privileges.php:4743
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12031,12 +11816,6 @@ msgstr ""
 "caso, você deve %srecarregar os privilégios%s antes de continuar."
 
 #: libraries/classes/Server/Privileges.php:4760
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12046,7 +11825,7 @@ msgid ""
 msgstr ""
 "Nota: o phpMyAdmin obtém os privilégios dos usuários diretamente das tabelas "
 "de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
-"privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
+"privilégios que o servidor usa, se eles foram manualmente modificados. Nesse "
 "caso, os privilégios devem ser recarregados, mas atualmente você não tem o "
 "privilégio RELOAD."
 
@@ -12056,58 +11835,50 @@ msgstr "Acrescentou um novo utilizador."
 
 #: libraries/classes/Server/Select.php:53
 #: libraries/classes/Server/Select.php:58
-#, fuzzy
-#| msgid "Current Server"
 msgid "Current server:"
 msgstr "Servidor atual:"
 
 #: libraries/classes/Server/Status.php:68
-#, fuzzy, php-format
+#, php-format
 msgid "Network traffic since startup: %s"
 msgstr "Tráfico de rede desde inicialização: %s"
 
 #: libraries/classes/Server/Status.php:81
-#, fuzzy, php-format
-#| msgid "s MySQL server has been running for %s. It started up on %s."
+#, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Esse servidor MySQL está rodando por %1$s. Ele foi iniciado em %2$s."
+msgstr "Esse servidor MySQL está executado por %1$s. Ele foi iniciado em %2$s."
 
 #: libraries/classes/Server/Status.php:102
-#, fuzzy
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"Este servidor MySQL funciona como <b>mestre</b> e <b>escravo</b> em processo "
+"Este servidor MySQL funciona como <b>master</b> e <b>slave</b> em processo "
 "de <b>replicação</b>."
 
 #: libraries/classes/Server/Status.php:107
-#, fuzzy
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Este servidor MySQL funciona como <b>mestre</b> em processo de "
+"Este servidor MySQL funciona como <b>master</b> em processo de "
 "<b>replicação</b>."
 
 #: libraries/classes/Server/Status.php:112
-#, fuzzy
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Este servidor MySQL funciona como <b>escravo</b> em processo de "
+"Este servidor MySQL funciona como <b>slave</b> em processo de "
 "<b>replicação</b>."
 
 #: libraries/classes/Server/Status.php:124
-#, fuzzy
 msgid "Replication status"
-msgstr "Status de replicação"
+msgstr "Estado de replicação"
 
 #: libraries/classes/Server/Status.php:154
-#, fuzzy
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
-"Em servidores ocupados, os contadores de byte podem sobrecarregar, então as "
-"estatísticas relatadas pelo servidor MySQL como estão podem estar incorretas."
+"Em servidores atarefados, os contadores de byte podem sobrecarregar, por "
+"isso essas estatísticas relatadas pelo servidor MySQL podem estar incorretas."
 
 #: libraries/classes/Server/Status.php:165
 msgid "Received"
@@ -12118,8 +11889,6 @@ msgid "Sent"
 msgstr "Enviado"
 
 #: libraries/classes/Server/Status.php:251
-#, fuzzy
-#| msgid "Connections"
 msgid "Max. concurrent connections"
 msgstr "Máx. de conexões simultâneas"
 
@@ -12128,21 +11897,18 @@ msgid "Failed attempts"
 msgstr "Tentativas falhadas"
 
 #: libraries/classes/Server/Status/Advisor.php:29
-#, fuzzy
 msgid "Instructions"
 msgstr "Instruções"
 
 #: libraries/classes/Server/Status/Advisor.php:35
-#, fuzzy
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
 "O sistema de Assessoria pode fornecer recomendações sobre variáveis de "
-"servidor, analisando as variáveis de status do servidor."
+"servidor, analisando as variáveis de estado do servidor."
 
 #: libraries/classes/Server/Status/Advisor.php:41
-#, fuzzy
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
@@ -12152,26 +11918,24 @@ msgstr ""
 "simples e por princípios, o que não necessariamente se aplica ao seu sistema."
 
 #: libraries/classes/Server/Status/Advisor.php:48
-#, fuzzy
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
 "Antes da alterar qualquer configuração, certifique-se de que sabe o que está "
-"alterando (leia a documentação) e como desfazer tal alteração. "
+"alterando (lendo a documentação) e como desfazer tal alteração. "
 "Aperfeiçoamentos incorretos podem resultar em efeitos negativos na "
 "performance."
 
 #: libraries/classes/Server/Status/Advisor.php:56
-#, fuzzy
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
 "A melhor forma de aperfeiçoar seu sistema é alterar somente uma configuração "
-"de cada vez, observar ou testar a performance do seu banco de dados, e "
+"de cada vez, observar ou testar a performance da sua base de dados, e "
 "desfazer a alteração se não houver melhoramentos claramente mensuráveis."
 
 #: libraries/classes/Server/Status/Data.php:115
@@ -12271,49 +12035,38 @@ msgstr[0] "$d minuto"
 msgstr[1] "%d minutos"
 
 #: libraries/classes/Server/Status/Monitor.php:73
-#, fuzzy
 msgid "Log statistics"
 msgstr "Estatísticas de log"
 
 #: libraries/classes/Server/Status/Monitor.php:74
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr "Faixa de tempo selecionada:"
+msgstr "Período de tempo selecionado:"
 
 #: libraries/classes/Server/Status/Monitor.php:82
-#, fuzzy
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "Somente obter os comandos SELECT, INSERT, UPDATE e DELETE"
+msgstr "Obter somente os comandos SELECT, INSERT, UPDATE e DELETE"
 
 #: libraries/classes/Server/Status/Monitor.php:88
-#, fuzzy
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Remova dados de variável em comandos INSERT para melhor agrupamento"
 
 #: libraries/classes/Server/Status/Monitor.php:92
-#, fuzzy
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Escolha de qual log você deseja que as estatísticas sejam geradas."
 
 #: libraries/classes/Server/Status/Monitor.php:96
-#, fuzzy
 msgid "Results are grouped by query text."
 msgstr "Resultados são agrupados por texto de consulta."
 
 #: libraries/classes/Server/Status/Monitor.php:100
-#, fuzzy
-#| msgid "Query type"
 msgid "Query analyzer"
 msgstr "Analisador de consulta"
 
 #: libraries/classes/Server/Status/Monitor.php:117
-#, fuzzy
 msgid "Monitor Instructions"
 msgstr "Instruções do monitor"
 
 #: libraries/classes/Server/Status/Monitor.php:119
-#, fuzzy
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -12324,25 +12077,23 @@ msgstr ""
 "O Monitor do phpMyAdmin pode auxiliá-lo na otimização da configuração do "
 "servidor e rastrear consultas com tempos intensos. Para este último, você "
 "precisará definir log_output na 'TABLE', e ter slow_query_log ou general_log "
-"habilitado. Note, porém, que general_log produz muitos dados e aumenta a "
-"carga do servidor em até 15%."
+"ativado. Saiba, porém, que general_log produz muitos dados e aumenta a carga "
+"do servidor por até 15%."
 
 #: libraries/classes/Server/Status/Monitor.php:135
-#, fuzzy
 msgid "Using the monitor:"
 msgstr "Usando o monitor:"
 
 #: libraries/classes/Server/Status/Monitor.php:138
-#, fuzzy
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 "Seu navegador vai atualizar todos os gráficos exibidos em intervalo regular. "
-"Você pode adicionar gráficos e alterar a taxa de atualização em "
-"\"Configurações\", ou remover qualquer gráfico usando o ícone da engrenagem "
-"em cada gráfico."
+"Você pode adicionar gráficos e alterar a taxa de atualização em \""
+"Configurações\", ou remover qualquer gráfico usando o ícone da engrenagem em "
+"cada gráfico."
 
 #: libraries/classes/Server/Status/Monitor.php:144
 #, fuzzy
@@ -12394,9 +12145,8 @@ msgid "Preset chart"
 msgstr "Gráfico predefinido"
 
 #: libraries/classes/Server/Status/Monitor.php:189
-#, fuzzy
 msgid "Status variable(s)"
-msgstr "Variável(is) de status"
+msgstr "Variável(is) de estado"
 
 #: libraries/classes/Server/Status/Monitor.php:192
 #, fuzzy
@@ -13236,9 +12986,8 @@ msgid "The total number of blocks in the query cache."
 msgstr "O número total de blocos no cache de consultas."
 
 #: libraries/classes/Server/Status/Variables.php:690
-#, fuzzy
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "O status da replicação à prova de falhas (não implementado ainda)."
+msgstr "O estado da replicação à prova de falhas (ainda não implementado)."
 
 #: libraries/classes/Server/Status/Variables.php:693
 #, fuzzy
@@ -13281,25 +13030,22 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "O número junções que fez uma varredura completa da primeira tabela."
 
 #: libraries/classes/Server/Status/Variables.php:712
-#, fuzzy
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
-"O número de tabelas temporárias abertas atualmente pelo processo SQL escravo."
+"O número de tabelas temporárias abertas atualmente pelo thread SQL do slave."
 
 #: libraries/classes/Server/Status/Variables.php:716
-#, fuzzy
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
-"Número total (desde o início) de vezes que o processo de replicação SQL "
-"escravo tentou refazer transações."
+"Número total de vezes (desde o início) que o processo de replicação SQL "
+"slave tentou refazer transações."
 
 #: libraries/classes/Server/Status/Variables.php:720
-#, fuzzy
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
-"Isto é ON se este servidor é um escravo que está conectado a um mestre."
+"Isto está LIGADO se este servidor é um slave que está conectado a um master."
 
 #: libraries/classes/Server/Status/Variables.php:723
 #, fuzzy
@@ -14691,9 +14437,8 @@ msgstr ""
 "alterar a palavra-passe, utilize a guia \"Alterar palavra-passe\"."
 
 #: server_status.php:35
-#, fuzzy
 msgid "Not enough privilege to view server status."
-msgstr "Privilégio insuficiente para exibir o status do servidor."
+msgstr "Privilégio insuficiente para exibir o estado do servidor."
 
 #: server_status_advisor.php:33
 #, fuzzy
@@ -14719,9 +14464,8 @@ msgid "Not enough privilege to view query statistics."
 msgstr "Privilégio insuficiente para exibir as estatísticas de consultas."
 
 #: server_status_variables.php:52
-#, fuzzy
 msgid "Not enough privilege to view status variables."
-msgstr "Privilégio insuficiente para exibir as variáveis de status."
+msgstr "Privilégio insuficiente para exibir as variáveis de estado."
 
 #: setup/frames/config.inc.php:17 setup/frames/index.inc.php:189
 msgid "Configuration file"
@@ -15500,10 +15244,8 @@ msgid "Disable two-factor authentication"
 msgstr "Desativar autenticação por dois fatores"
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Status da autenticação em dois fatores"
+msgstr "Estado da autenticação em dois fatores"
 
 #: templates/prefs_twofactor.twig:9
 #, fuzzy
