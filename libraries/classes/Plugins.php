@@ -283,6 +283,7 @@ class Plugins
     ) {
         $ret = "\n";
 
+        $properties = null;
         if (! $is_subgroup) {
             // for subgroup headers
             if (mb_strpos(get_class($propertyGroup), "PropertyItem")) {

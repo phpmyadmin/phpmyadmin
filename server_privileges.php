@@ -458,7 +458,7 @@ if (isset($_GET['adduser'])) {
         $response->addHTML(
             $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
                 $username,
-                $hostname,
+                $hostname ?? '',
                 $dbname,
                 $routinename,
                 (isset($url_dbname) ? $url_dbname : '')
@@ -476,7 +476,7 @@ if (isset($_GET['adduser'])) {
                 (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
                 (isset($url_dbname) ? $url_dbname : ''),
                 $username,
-                $hostname,
+                $hostname ?? '',
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )

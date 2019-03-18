@@ -2325,23 +2325,23 @@ class Results
     /**
      * Adds the relevant classes.
      *
-     * @param string                $class                 class of table cell
-     * @param bool                  $condition_field       whether to add CSS class
-     *                                                     condition
-     * @param stdClass              $meta                  the meta-information about the
-     *                                                     field
-     * @param string                $nowrap                avoid wrapping
-     * @param bool                  $is_field_truncated    is field truncated (display ...)
-     * @param TransformationsPlugin $transformation_plugin transformation plugin.
-     *                                                     Can also be the default function:
-     *                                                     Core::mimeDefaultFunction
-     * @param string                $default_function      default transformation function
+     * @param string                       $class                 class of table cell
+     * @param bool                         $condition_field       whether to add CSS class
+     *                                                            condition
+     * @param stdClass                     $meta                  the meta-information about the
+     *                                                            field
+     * @param string                       $nowrap                avoid wrapping
+     * @param bool                         $is_field_truncated    is field truncated (display ...)
+     * @param TransformationsPlugin|string $transformation_plugin transformation plugin.
+     *                                                            Can also be the default function:
+     *                                                            Core::mimeDefaultFunction
+     * @param string                       $default_function      default transformation function
      *
      * @return string the list of classes
      *
-     * @access  private
+     * @access private
      *
-     * @see     _buildNullDisplay(), _getRowData()
+     * @see _buildNullDisplay(), _getRowData()
      */
     private function _addClass(
         $class,

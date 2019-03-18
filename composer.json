@@ -85,7 +85,7 @@
         "pragmarx/google2fa-qrcode": "^1.0.1",
         "samyoul/u2f-php-server": "^1.1",
         "phpmyadmin/coding-standard": "^1.0",
-        "phpstan/phpstan": "^0.10.3",
+        "phpstan/phpstan": "^0.11.4",
         "facebook/webdriver": "^1.6"
     },
     "extra": {

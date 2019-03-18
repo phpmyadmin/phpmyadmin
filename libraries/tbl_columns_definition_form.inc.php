@@ -80,9 +80,7 @@ if ($action == 'tbl_create.php') {
     $form_params['table'] = $table;
 }
 
-if (isset($num_fields)) {
-    $form_params['orig_num_fields'] = $num_fields;
-}
+$form_params['orig_num_fields'] = $num_fields;
 
 $form_params = array_merge(
     $form_params,
