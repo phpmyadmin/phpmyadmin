@@ -49,6 +49,7 @@
               </form>
             </li>
           {% endif %}
+          {{ user_preferences is not empty ? user_preferences|raw }}
         </ul>
       </div>
     {% endif %}
@@ -70,12 +71,6 @@
           </li>
         {% endif %}
       </ul>
-
-      {% if user_preferences is not empty %}
-        <ul>
-          {{ user_preferences|raw }}
-        </ul>
-      {% endif %}
     </div>
   </div>
 
