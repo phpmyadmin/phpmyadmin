@@ -677,7 +677,7 @@ function setupRestoreField () {
             $(this).css('opacity', 1);
         })
         .on('mouseleave', '.restore-default, .set-value', function () {
-            $(this).css('opacity', 0.25);
+            $(this).css('opacity', 0.75);
         })
         .on('click', '.restore-default, .set-value', function (e) {
             e.preventDefault();
@@ -695,7 +695,7 @@ function setupRestoreField () {
         })
         .find('.restore-default, .set-value')
         // inline-block for IE so opacity inheritance works
-        .css({ display: 'inline-block', opacity: 0.25 });
+        .css({ display: 'inline-block', opacity: 0.75 });
 }
 
 AJAX.registerOnload('config.js', function () {
