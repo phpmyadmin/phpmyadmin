@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
 "PO-Revision-Date: 2019-03-20 15:25+0000\n"
-"Last-Translator: Alvaro Enrique Ruano <alvaro.ruano90@outlook.com>\n"
+"Last-Translator: Jamaro Ja Ma Ro <jamaropop@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "es/>\n"
 "Language: es\n"
@@ -14312,7 +14312,7 @@ msgstr "Sin privilegios"
 
 #: server_privileges.php:151
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "¡No posee privilegios para manipular usuarios!"
+msgstr "¡No posee privilegios para manipular los usuarios!"
 
 #: server_privileges.php:165
 msgid ""
