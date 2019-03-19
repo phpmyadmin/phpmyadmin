@@ -5,10 +5,8 @@ parameters:
     bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
     reportUnmatchedIgnoredErrors: true
     ignoreErrors:
-        - '#Function strpos invoked with 0 parameters, 2-3 required#'
         - '#Function (get_login_credentials|uploadprogress_get_info) not found#'
         - '#Instantiated class COM not found#'
-        - '#Binary operation #'
         - '#Part \$k \(array|string|null\) of encapsed string cannot be cast to string#'
         - '#Method PhpMyAdmin\\Plugins\\ImportPlugin\:\:doImport\(\) invoked with 1 parameter, 0 required#'# Normal
         - '#Call to method ([a-zA-Z\(\)]+) on an unknown class COM#'
