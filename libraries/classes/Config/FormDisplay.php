@@ -100,7 +100,7 @@ class FormDisplay
             'error_nan_nneg' => __('Not a non-negative number!'),
             'error_incorrect_port' => __('Not a valid port number!'),
             'error_invalid_value' => __('Incorrect value!'),
-            'error_value_lte' => __('Value must be equal or lower than %s!'));
+            'error_value_lte' => __('Value must be lower than or equal to %s!'));
         $this->_configFile = $cf;
         // initialize validators
         Validator::getValidators($this->_configFile);
