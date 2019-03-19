@@ -39,8 +39,8 @@ class SysInfoLinux extends SysInfoBase
         );
 
         return [
-            'busy' => $nums[1] + $nums[2] + $nums[3],
-            'idle' => intval($nums[4]),
+            'busy' => (int) $nums[1] + (int) $nums[2] + (int) $nums[3],
+            'idle' => (int) $nums[4],
         ];
     }
 

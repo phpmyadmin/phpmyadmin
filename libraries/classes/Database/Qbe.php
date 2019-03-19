@@ -472,9 +472,7 @@ class Qbe
         $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Column:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++) {
+        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
@@ -517,9 +515,7 @@ class Qbe
         $html_output .= '<th>' . __('Alias:') . '</th>';
         $new_column_count = 0;
 
-        for ($colInd = 0;
-        $colInd < $this->_criteria_column_count;
-        $colInd++) {
+        for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
                 && $this->_criteriaColumnInsert[$colInd] == 'on'
@@ -567,9 +563,7 @@ class Qbe
         $html_output .= '<th>' . __('Sort:') . '</th>';
         $new_column_count = 0;
 
-        for ($colInd = 0;
-            $colInd < $this->_criteria_column_count;
-            $colInd++) {
+        for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
                 && $this->_criteriaColumnInsert[$colInd] == 'on'
@@ -628,9 +622,7 @@ class Qbe
         $html_output .= '<th>' . __('Sort order:') . '</th>';
         $new_column_count = 0;
 
-        for ($colInd = 0;
-        $colInd < $this->_criteria_column_count;
-        $colInd++) {
+        for ($colInd = 0; $colInd < $this->_criteria_column_count; $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
                 && $this->_criteriaColumnInsert[$colInd] == 'on'
@@ -676,9 +668,7 @@ class Qbe
         $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Show:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++) {
+        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -723,9 +713,7 @@ class Qbe
         $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Criteria:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++) {
+        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -888,9 +876,7 @@ class Qbe
         $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Modify:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0;
-        $column_index < $this->_criteria_column_count;
-        $column_index++) {
+        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -992,9 +978,7 @@ class Qbe
     {
         $html_output = '';
         $new_column_count = 0;
-        for ($column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++) {
+        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -1045,9 +1029,7 @@ class Qbe
         $html_output = '';
         $new_row_count = 0;
         $checked_options = [];
-        for ($row_index = 0;
-        $row_index <= $this->_criteria_row_count;
-        $row_index++) {
+        for ($row_index = 0; $row_index <= $this->_criteria_row_count; $row_index++) {
             if (isset($this->_criteriaRowInsert[$row_index])
                 && $this->_criteriaRowInsert[$row_index] == 'on'
             ) {
@@ -1106,9 +1088,7 @@ class Qbe
     {
         $select_clause = '';
         $select_clauses = [];
-        for ($column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++) {
+        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_formColumns[$column_index])
                 && isset($this->_formShows[$column_index])
                 && $this->_formShows[$column_index] == 'on'
@@ -1137,9 +1117,7 @@ class Qbe
     {
         $where_clause = '';
         $criteria_cnt = 0;
-        for ($column_index = 0;
-        $column_index < $this->_criteria_column_count;
-        $column_index++) {
+        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_formColumns[$column_index])
                 && ! empty($this->_formCriterions[$column_index])
                 && $column_index
@@ -1166,15 +1144,11 @@ class Qbe
         if (! isset($this->_formAndOrRows)) {
             $this->_formAndOrRows = [];
         }
-        for ($row_index = 0;
-        $row_index <= $this->_criteria_row_count;
-        $row_index++) {
+        for ($row_index = 0; $row_index <= $this->_criteria_row_count; $row_index++) {
             $criteria_cnt = 0;
             $qry_orwhere = '';
             $last_orwhere = '';
-            for ($column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++) {
+            for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
                 if (! empty($this->_formColumns[$column_index])
                     && ! empty($_POST['Or' . $row_index][$column_index])
                     && $column_index
@@ -1238,9 +1212,7 @@ class Qbe
             array_multisort($sortOrder, $sort, $columns);
         }
 
-        for ($column_index = 0;
-            $column_index < $this->_criteria_column_count;
-            $column_index++) {
+        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             // if all columns are chosen with * selector,
             // then sorting isn't available
             // Fix for Bug #570698
@@ -1473,9 +1445,7 @@ class Qbe
         $where_clause_tables = [];
 
         // Now we need all tables that we have in the where clause
-        for ($column_index = 0, $nb = count($this->_criteria);
-            $column_index < $nb;
-            $column_index++) {
+        for ($column_index = 0, $nb = count($this->_criteria); $column_index < $nb; $column_index++) {
             $current_table = explode('.', $_POST['criteriaColumn'][$column_index]);
             if (empty($current_table[0]) || empty($current_table[1])) {
                 continue;

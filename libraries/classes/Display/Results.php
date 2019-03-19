@@ -2662,9 +2662,7 @@ class Results
         $mimeMap = [];
         $added = [];
 
-        for ($currentColumn = 0;
-                $currentColumn < $this->__get('fields_cnt');
-                ++$currentColumn) {
+        for ($currentColumn = 0; $currentColumn < $this->__get('fields_cnt'); ++$currentColumn) {
             $meta = $fields_meta[$currentColumn];
             $orgFullTableName = $this->__get('db') . '.' . $meta->orgtable;
 
@@ -2771,9 +2769,7 @@ class Results
         $whereClauseMap = $this->__get('whereClauseMap');
 
         $columnCount = $this->__get('fields_cnt');
-        for ($currentColumn = 0;
-                $currentColumn < $columnCount;
-                ++$currentColumn) {
+        for ($currentColumn = 0; $currentColumn < $columnCount; ++$currentColumn) {
             // assign $i with appropriate column order
             $i = $col_order ? $col_order[$currentColumn] : $currentColumn;
 

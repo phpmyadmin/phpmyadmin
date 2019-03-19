@@ -863,8 +863,8 @@ class CentralColumns
      * @param string $db    selected database
      * @param string $table current table name
      *
-     * @return string encoded list of columns present in central list for the given
-     *                database
+     * @return array encoded list of columns present in central list for the given
+     *               database
      */
     public function getListRaw(string $db, string $table): array
     {

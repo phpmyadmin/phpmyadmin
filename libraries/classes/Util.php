@@ -1513,17 +1513,26 @@ class Util
         $formatted_size = (string) $formatted_size;
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
-            $return_value = mb_substr($formatted_size, 0, -2)
-                * pow(1024, 3);
+            $return_value = (int) mb_substr(
+                $formatted_size,
+                0,
+                -2
+            ) * pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
-            $return_value = mb_substr($formatted_size, 0, -2)
-                * pow(1024, 2);
+            $return_value = (int) mb_substr(
+                $formatted_size,
+                0,
+                -2
+            ) * pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
-            $return_value = mb_substr($formatted_size, 0, -1)
-                * pow(1024, 1);
+            $return_value = (int) mb_substr(
+                $formatted_size,
+                0,
+                -1
+            ) * pow(1024, 1);
         }
         return $return_value;
-    }// end of the 'extractValueFromFormattedSize' function
+    }
 
     /**
      * Writes localised date
@@ -4091,9 +4100,7 @@ class Util
         $in_string = false;
         $buffer = '';
 
-        for ($i = 0, $length = mb_strlen($values_string);
-             $i < $length;
-             $i++) {
+        for ($i = 0, $length = mb_strlen($values_string); $i < $length; $i++) {
             $curr = mb_substr($values_string, $i, 1);
             $next = ($i == mb_strlen($values_string) - 1)
                 ? ''

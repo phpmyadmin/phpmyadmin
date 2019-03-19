@@ -30,10 +30,10 @@ class Scripts
      */
     private $_files;
     /**
-     * An array of discrete javascript code snippets
+     * A string of discrete javascript code snippets
      *
      * @access private
-     * @var array of strings
+     * @var string
      */
     private $_code;
 
