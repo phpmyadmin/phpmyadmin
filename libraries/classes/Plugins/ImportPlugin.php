@@ -43,9 +43,11 @@ abstract class ImportPlugin
     /**
      * Handles the whole import logic
      *
+     * @param array $sql_data 2-element array with sql data
+     *
      * @return void
      */
-    abstract public function doImport();
+    abstract public function doImport(array &$sql_data = []);
 
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

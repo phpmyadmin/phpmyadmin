@@ -328,11 +328,13 @@ class DbiMysqli implements DbiExtension
     /**
      * returns a string that represents the client library version
      *
+     * @param \mysqli $mysqli mysql link
+     *
      * @return string MySQL client library version
      */
-    public function getClientInfo()
+    public function getClientInfo($mysqli)
     {
-        return mysqli_get_client_info();
+        return $mysqli->get_client_info();
     }
 
     /**

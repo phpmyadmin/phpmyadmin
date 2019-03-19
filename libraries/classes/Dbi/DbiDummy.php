@@ -302,9 +302,11 @@ class DbiDummy implements DbiExtension
     /**
      * returns a string that represents the client library version
      *
+     * @param resource $link connection link
+     *
      * @return string MySQL client library version
      */
-    public function getClientInfo()
+    public function getClientInfo($link)
     {
         return '';
     }

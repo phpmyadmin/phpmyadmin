@@ -2806,11 +2806,16 @@ class DatabaseInterface
     /**
      * returns a string that represents the client library version
      *
+     * @param integer $link link type
+     *
      * @return string MySQL client library version
      */
-    public function getClientInfo(): string
+    public function getClientInfo($link = DatabaseInterface::CONNECT_USER): string
     {
-        return $this->_extension->getClientInfo();
+        if (! isset($this->_links[$link])) {
+            return '';
+        }
+        return $this->_extension->getClientInfo($this->_links[$link]);
     }
 
     /**

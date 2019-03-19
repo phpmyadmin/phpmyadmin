@@ -91,13 +91,7 @@ class StructureController extends AbstractController
      * @param \PhpMyAdmin\DatabaseInterface $dbi                 DatabaseInterface object
      * @param string                        $db                  Database name
      * @param string                        $table               Table name
-     * @param string                        $type                Indicate the db_structure or tbl_structure
-     * @param int                           $num_tables          Number of tables
-     * @param int                           $pos                 Current position in the list
      * @param bool                          $db_is_system_schema DB is information_schema
-     * @param int                           $total_num_tables    Number of tables
-     * @param array                         $tables              Tables in the DB
-     * @param bool                          $is_show_stats       Whether stats show or not
      * @param bool                          $tbl_is_view         Table is a view
      * @param string                        $tbl_storage_engine  Table storage engine
      * @param int                           $table_info_num_rows Number of rows
@@ -109,13 +103,7 @@ class StructureController extends AbstractController
         $dbi,
         $db,
         $table,
-        $type,
-        $num_tables,
-        $pos,
         $db_is_system_schema,
-        $total_num_tables,
-        $tables,
-        $is_show_stats,
         $tbl_is_view,
         $tbl_storage_engine,
         $table_info_num_rows,
