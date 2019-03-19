@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
 "PO-Revision-Date: 2019-03-20 15:25+0000\n"
-"Last-Translator: Jon Echeve <dragonportis1@gmail.com>\n"
+"Last-Translator: Alvaro Enrique Ruano <alvaro.ruano90@outlook.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "es/>\n"
 "Language: es\n"
@@ -3939,7 +3939,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:241
 msgid "Disable multi table maintenance"
-msgstr "Dsactivar mantenimiento de muchas tabla"
+msgstr "Desactivar mantenimiento multi tabla"
 
 #: libraries/classes/Config/Descriptions.php:244
 msgid ""
@@ -8992,10 +8992,8 @@ msgid "Change all tables collations"
 msgstr "Cambiar todas las intercalaciones de columna"
 
 #: libraries/classes/Operations.php:326
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Cambiar todas las intercalaciones de columna"
+msgstr "Cambiar la intercalación de todas las columnas de las tablas"
 
 #: libraries/classes/Operations.php:803
 msgid "Alter table order by"
