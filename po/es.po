@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-03-17 15:04+0000\n"
+"PO-Revision-Date: 2019-03-20 15:25+0000\n"
 "Last-Translator: Alvaro Enrique Ruano <alvaro.ruano90@outlook.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
@@ -607,6 +607,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Usted está intentando reducir el numero de filas, pero ya ha ingresado datos "
+"en ellas los cuales se perderán. ¿Desea continuar?"
 
 #: js/messages.php:79
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2576,9 +2578,9 @@ msgstr ""
 "Se acabó el tiempo de espera para la activación de la clave de seguridad."
 
 #: js/messages.php:764
-#, fuzzy, php-format
+#, php-format
 msgid "Failed security key activation (%s)."
-msgstr "Ha fallado la activación de la clave de seguridad (%s)."
+msgstr "Ha fallado la activación de la llave de seguridad (%s)."
 
 #: js/messages.php:793
 msgctxt "Previous month"
@@ -3810,7 +3812,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:179
 msgid "Disable multi table maintenance"
-msgstr "Dsactivar mantenimiento de muchas tabla"
+msgstr "Desactivar mantenimiento multi tabla"
 
 #: libraries/classes/Config/Descriptions.php:181
 msgid ""
@@ -9641,10 +9643,8 @@ msgid "Change all tables collations"
 msgstr "Cambiar todas las intercalaciones de columna"
 
 #: libraries/classes/Operations.php:330
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Cambiar todas las intercalaciones de columna"
+msgstr "Cambiar la intercalación de todas las columnas de las tablas"
 
 #: libraries/classes/Operations.php:832
 msgid "Alter table order by"
