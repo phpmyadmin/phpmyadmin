@@ -61,6 +61,7 @@ phpMyAdmin - ChangeLog
 - issue #14359 Prevent multiple error modals, and error-report request spamming from script
 - issue        Fixed error reporting javascript errors on multi server setup
 - issue        Fixed wrong property name on TableStructureController
+- issue #14811 Fix SHOW FULL TABLES FROM when a table is locked
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
