@@ -640,6 +640,29 @@ $(function () {
             }
         });
     });
+    /**
+     * for issue #15042
+     */
+    $(document).on('change', '#NavigationDisplayLogo', function () {
+        if ($('#NavigationDisplayLogo').prop('checked')) {
+            // display
+            if ($('#imgpmalogo').length === 0) {
+                // append node
+                $('a.hide.navigation_url').after(
+                    '<div id="pmalogo">' +
+                    '<a href="' + getAllValues().NavigationLogoLink + '">' +
+                    '<img src="./themes/pmahomme/img/logo_left.png" alt="phpMyAdmin" id="imgpmalogo">' +
+                    '</a>' +
+                    '</div>'
+                );
+            } else {
+                $('#imgpmalogo')[0].style.display = '';
+            }
+        } else {
+            // hide the logo
+            $('#imgpmalogo')[0].style.display = 'none';
+        }
+    });
     // Check if session storage is supported
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
