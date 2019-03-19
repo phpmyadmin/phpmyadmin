@@ -437,7 +437,7 @@ class StructureController extends AbstractController
             $data['Expression'] = '';
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
-                $expressions = $this->table->getColumnGenerationExpression($column);
+                $expressions = $this->table_obj->getColumnGenerationExpression($column);
                 $data['Expression'] = $expressions[$column];
             }
 

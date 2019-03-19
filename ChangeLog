@@ -60,6 +60,7 @@ phpMyAdmin - ChangeLog
 - issue        Show error message if config-set fails and not "loading..." forever
 - issue #14359 Prevent multiple error modals, and error-report request spamming from script
 - issue        Fixed error reporting javascript errors on multi server setup
+- issue        Fixed wrong property name on TableStructureController
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
