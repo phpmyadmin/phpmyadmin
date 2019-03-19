@@ -329,7 +329,9 @@ function validateField (id, type, onKeyUp, params) {
     if (typeof validate[id] === 'undefined') {
         validate[id] = [];
     }
+    if(validate[id].length == 0) {
     validate[id].push([type, params, onKeyUp]);
+    }
 }
 
 /**
