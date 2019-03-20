@@ -85,6 +85,9 @@ jobs:
       php: nightly
       name: "PHP nightly"
       env: CI_MODE=test
+      install:
+        - composer install --no-interaction --ignore-platform-reqs
+        - yarn install --non-interactive
 
     - stage: "PHP Unit tests"
       name: "PHP 7.3"
