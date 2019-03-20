@@ -6035,7 +6035,7 @@ msgstr "不正な値です!"
 #: libraries/classes/Config/FormDisplay.php:106
 #: libraries/classes/Config/Validator.php:590
 #, php-format
-msgid "Value must be equal or lower than %s!"
+msgid "Value must be less than or equal to %s!"
 msgstr "値は %s 以下でなければいけません!"
 
 #: libraries/classes/Config/FormDisplay.php:643

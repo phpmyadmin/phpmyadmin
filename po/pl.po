@@ -6283,7 +6283,7 @@ msgstr "Nieprawidłowa wartość!"
 #: libraries/classes/Config/FormDisplay.php:106
 #: libraries/classes/Config/Validator.php:590
 #, php-format
-msgid "Value must be equal or lower than %s!"
+msgid "Value must be less than or equal to %s!"
 msgstr "Wartość musi być równa lub niższa niż %s!"
 
 #: libraries/classes/Config/FormDisplay.php:643
