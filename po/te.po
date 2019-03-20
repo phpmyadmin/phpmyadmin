@@ -6400,8 +6400,8 @@ msgstr "తప్పుడు విలువ"
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:583
 #, fuzzy, php-format
-#| msgid "Value must be equal or lower than %s"
-msgid "Value must be equal or lower than %s!"
+#| msgid "Value must be less than or equal to %s"
+msgid "Value must be less than or equal to %s!"
 msgstr "విలువ తప్పనిసరిగా %s కి సమానంగా లేదా తక్కువగా ఉండాలి"
 
 #: libraries/classes/Config/FormDisplay.php:616

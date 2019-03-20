@@ -6967,8 +6967,8 @@ msgstr "Neteisinga reikšmė"
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:583
 #, fuzzy, php-format
-#| msgid "Value must be equal or lower than %s"
-msgid "Value must be equal or lower than %s!"
+#| msgid "Value must be less than or equal to %s"
+msgid "Value must be less than or equal to %s!"
 msgstr "Reikšmė turi būti tokia pati kaip arba mažesnė negu %s"
 
 #: libraries/classes/Config/FormDisplay.php:616

@@ -6129,7 +6129,7 @@ msgstr "잘못된 값!"
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:583
 #, php-format
-msgid "Value must be equal or lower than %s!"
+msgid "Value must be less than or equal to %s!"
 msgstr "값은 %s보다 작거나 같아야 합니다!"
 
 #: libraries/classes/Config/FormDisplay.php:616

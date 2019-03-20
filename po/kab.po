@@ -6020,7 +6020,7 @@ msgstr ""
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:583
 #, php-format
-msgid "Value must be equal or lower than %s!"
+msgid "Value must be less than or equal to %s!"
 msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:616

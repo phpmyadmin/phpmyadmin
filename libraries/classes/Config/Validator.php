@@ -580,6 +580,6 @@ class Validator
     {
         $result = $values[$path] <= $max_value;
         return array($path => ($result ? ''
-            : sprintf(__('Value must be equal or lower than %s!'), $max_value)));
+            : sprintf(__('Value must be less than or equal to %s!'), $max_value)));
     }
 }
