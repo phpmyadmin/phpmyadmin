@@ -90,7 +90,7 @@ jobs:
         - yarn install --non-interactive
 
     - stage: "PHP Unit tests"
-      name: "PHP 7.3"
+      name: "PHP 7.2"
       os: osx
       env: CI_MODE=test
       language: node_js
