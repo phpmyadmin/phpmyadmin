@@ -110,6 +110,9 @@ class TwoFactorTest extends PmaTestCase
 
     public function testApplication()
     {
+        if (! extension_loaded('gd')) {
+            $this->markTestSkipped('GD extension missing!');
+        }
         $object = new TwoFactor('user');
         if (! in_array('application', $object->available)) {
             $this->markTestSkipped('google2fa not available');
