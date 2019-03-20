@@ -23,7 +23,6 @@ php:
   - "hhvm-3.21"
   - "hhvm-3.24"
   - "hhvm-3.27"
-  - "nightly"
 
 sudo: required
 
@@ -75,14 +74,20 @@ matrix:
     - php: "7.1"
       env: CI_MODE=apidocs
     - os: osx
-      language: generic
+      name: "PHP 7.2"
+      language: node_js
+      node_js: 10
       env: CI_MODE=test
       before_install:
-        - brew update
-        - brew install openldap libiconv php@7.2 composer mariadb
         - brew link --force gettext
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
         - mysql.server start
+      addons:
+        homebrew:
+          packages:
+            - php
+            - composer
+            - mariadb
     - php: "7.1"
       env: CI_MODE=test DBASE=true
       install:
@@ -98,8 +103,6 @@ matrix:
 
   allow_failures:
     - php: "7.4snapshot"
-    - php: "nightly"
-    - os: osx
     - env: CI_MODE=test DBASE=true
 
 cache:
