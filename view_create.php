@@ -178,7 +178,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
     exit;
 }
 
-$sql_query = ! empty($_GET['sql_query']) ? $_GET['sql_query'] : '';
+$sql_query = ! empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 
 // prefill values if not already filled from former submission
 $view = [
@@ -193,8 +193,8 @@ $view = [
     'with' => '',
 ];
 
-if (Core::isValid($_GET['view'], 'array')) {
-    $view = array_merge($view, $_GET['view']);
+if (Core::isValid($_POST['view'], 'array')) {
+    $view = array_merge($view, $_POST['view']);
 }
 
 $url_params['db'] = $GLOBALS['db'];

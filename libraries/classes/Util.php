@@ -1835,6 +1835,7 @@ class Util
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
             || strpos($url, 'sql_query=') !== false
+            || strpos($url, 'view[as]=') !== false
         ) {
             $parts = explode('?', $url, 2);
             /*
