@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed error reporting javascript errors on multi server setup
 - issue        Fixed wrong property name on TableStructureController
 - issue #14811 Fix SHOW FULL TABLES FROM when a table is locked
+- issue #14916 Fix bug when creating or editing views
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
