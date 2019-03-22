@@ -361,6 +361,7 @@ class FormDisplayTemplate
             if (isset($opts['comment_warning']) && $opts['comment_warning']) {
                 $class .= ' field-comment-warning';
             }
+           
         }
         if ($isSetupScript
             && isset($opts['userprefs_comment'])
@@ -376,10 +377,7 @@ class FormDisplayTemplate
                 . sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue']))
                 . '">' . $icons['edit'] . '</a>';
         }
-        if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
-            $htmlOutput .= '<a class="restore-default hide" href="#' . $path . '" title="'
-                . __('Restore default value') . '">' . $icons['reload'] . '</a>';
-        }
+       
         // this must match with displayErrors() in scripts/config.js
         if ($hasErrors) {
             $htmlOutput .= "\n        <dl class=\"inline_errors\">";
