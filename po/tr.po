@@ -16054,7 +16054,7 @@ msgstr "Yeni sütun ekle"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Uzunluk/Değer"
 
 #: templates/database/central_columns/main.twig:37

@@ -17136,7 +17136,7 @@ msgstr "%s талбар(ууд) нэмэх"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Урт/Утгууд*"
 
 #: templates/database/central_columns/main.twig:37

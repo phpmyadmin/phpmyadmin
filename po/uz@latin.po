@@ -18323,7 +18323,7 @@ msgstr "Ustun(lar) qo‘shish"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Uzunlik/qiymatlar"
 
 #: templates/database/central_columns/main.twig:37

@@ -15392,7 +15392,7 @@ msgstr "നിരകൾ ചേർക്കുക/മായക്കുക"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr ""
 
 #: templates/database/central_columns/main.twig:37

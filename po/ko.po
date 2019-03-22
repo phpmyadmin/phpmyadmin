@@ -15970,7 +15970,7 @@ msgstr "새 컬럼 추가"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "길이/값*"
 
 #: templates/database/central_columns/main.twig:37

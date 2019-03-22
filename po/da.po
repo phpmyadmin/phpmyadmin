@@ -16138,7 +16138,7 @@ msgstr "Tilføj ny kolonne"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Længde/Værdi*"
 
 #: templates/database/central_columns/main.twig:37

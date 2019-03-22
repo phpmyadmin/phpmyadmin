@@ -16949,7 +16949,7 @@ msgstr "স্বম্ভ যোগ করা"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "দৈর্ঘ্য/মানসমূহ"
 
 #: templates/database/central_columns/main.twig:37

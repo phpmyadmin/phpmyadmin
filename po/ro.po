@@ -16172,7 +16172,7 @@ msgstr "Adaugă coloană nouă"
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Lungime/Setare"
 
 #: templates/database/central_columns/main.twig:37

@@ -16994,7 +16994,7 @@ msgstr "Engadir unha columna nova"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Tamaño/Valores"
 
 #: templates/database/central_columns/main.twig:37

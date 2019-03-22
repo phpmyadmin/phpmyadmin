@@ -16096,7 +16096,7 @@ msgstr "Yeni sütun əlavə et"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Uzunluq/Dəyərlər"
 
 #: templates/database/central_columns/main.twig:37

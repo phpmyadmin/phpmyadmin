@@ -15342,7 +15342,7 @@ msgstr "添加新字段"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "长度/值"
 
 #: templates/database/central_columns/main.twig:37

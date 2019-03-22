@@ -15845,7 +15845,7 @@ msgstr "新しいカラムを追加する"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "長さ/値"
 
 #: templates/database/central_columns/main.twig:37

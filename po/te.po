@@ -16444,7 +16444,7 @@ msgstr "స్పందనలకు చేర్చు"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "పొడవు/విలువలు"
 
 #: templates/database/central_columns/main.twig:37

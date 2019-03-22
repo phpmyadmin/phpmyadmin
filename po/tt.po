@@ -17012,7 +17012,7 @@ msgstr "%s alan östäw"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Ozınlıq/Bäyä*"
 
 #: templates/database/central_columns/main.twig:37

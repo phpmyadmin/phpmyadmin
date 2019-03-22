@@ -15827,7 +15827,7 @@ msgstr "Thêm cột mới"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Dài/Giá-trị"
 
 #: templates/database/central_columns/main.twig:37

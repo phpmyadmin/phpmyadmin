@@ -16372,7 +16372,7 @@ msgstr "Přidat nový sloupec"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Délka/Množina"
 
 #: templates/database/central_columns/main.twig:37

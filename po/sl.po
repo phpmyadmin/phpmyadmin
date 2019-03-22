@@ -16018,7 +16018,7 @@ msgstr "Dodaj nov stolpec"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Dolžina/Vrednost"
 
 #: templates/database/central_columns/main.twig:37

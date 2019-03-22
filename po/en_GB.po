@@ -16020,7 +16020,7 @@ msgstr "Add new column"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Length/Values"
 
 #: templates/database/central_columns/main.twig:37

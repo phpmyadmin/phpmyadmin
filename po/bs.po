@@ -16756,7 +16756,7 @@ msgstr "Dodaj novo polje"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Dužina/Vrijednost*"
 
 #: templates/database/central_columns/main.twig:37

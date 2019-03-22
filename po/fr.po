@@ -16247,7 +16247,7 @@ msgstr "Ajouter une nouvelle colonne"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Taille/valeur*"
 
 #: templates/database/central_columns/main.twig:37

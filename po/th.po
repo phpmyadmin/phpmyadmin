@@ -16773,7 +16773,7 @@ msgstr "เพิ่มฟิลด์ใหม่"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "ความยาว/เซต*"
 
 #: templates/database/central_columns/main.twig:37

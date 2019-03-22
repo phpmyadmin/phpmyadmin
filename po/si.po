@@ -16755,7 +16755,7 @@ msgstr "තීරයක් එක් කරන්න"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "දිග/අගයන්"
 
 #: templates/database/central_columns/main.twig:37

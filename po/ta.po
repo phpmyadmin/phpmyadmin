@@ -15714,7 +15714,7 @@ msgstr "புதிய நெடுவரிசையை சேர்க்க"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "நீளம்/மதிப்புகள்"
 
 #: templates/database/central_columns/main.twig:37

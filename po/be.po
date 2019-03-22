@@ -15356,7 +15356,7 @@ msgstr "Дадаць новы слупок"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Даўжыня/Значэньні*"
 
 #: templates/database/central_columns/main.twig:37

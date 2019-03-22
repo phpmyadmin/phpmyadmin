@@ -16455,7 +16455,7 @@ msgstr "Dodaj nową kolumnę"
 #: templates/database/central_columns/main.twig:242
 #, fuzzy
 #| msgid "Length/Values"
-msgid "Lenght/Value"
+msgid "Length/Value"
 msgstr "Długość/Wartości"
 
 #: templates/database/central_columns/main.twig:37
