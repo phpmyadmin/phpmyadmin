@@ -12,9 +12,6 @@ namespace PhpMyAdmin\Rte;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Rte\Events;
-use PhpMyAdmin\Rte\Triggers;
-use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Util;
 
 /**

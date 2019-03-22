@@ -17,7 +17,6 @@ parameters:
         - '#Undefined variable: \$array#'
         - '#Undefined variable: \$(cfg|db|table|url_query|text_dir|server|pmaThemeImage|action|sql_query|lang|export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|partitionDetails|token_mismatch|auth_plugin|username|hostname|display_query|where_clause)#'#Others
         - '#Undefined variable: \$(dir|error_header|error_message)#'#error.inc.php
-        - '#Undefined variable: \$_PMA_RTE#'#rte/rte_main.inc.php
         - '#Undefined variable: \$(unsaved_values|is_upload)#'#tbl_change.php
         - '#Undefined variable: \$max_upload_size#'#tbl_import.php
         - '#Undefined variable: \$(repobase|fullrevision|revision|repobranchbase|branch)#'#Footer.php

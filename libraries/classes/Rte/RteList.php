@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Routine;

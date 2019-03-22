@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Util;
 
 /**
