@@ -361,7 +361,6 @@ class FormDisplayTemplate
             if (isset($opts['comment_warning']) && $opts['comment_warning']) {
                 $class .= ' field-comment-warning';
             }
-           
         }
         if ($isSetupScript
             && isset($opts['userprefs_comment'])
@@ -377,10 +376,6 @@ class FormDisplayTemplate
                 . sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue']))
                 . '">' . $icons['edit'] . '</a>';
         }
-<<<<<<< HEAD
-=======
-       
->>>>>>> f191cf9016fc8d04987a94763ed13f4fed89d0cd
         // this must match with displayErrors() in scripts/config.js
         if ($hasErrors) {
             $htmlOutput .= "\n        <dl class=\"inline_errors\">";
