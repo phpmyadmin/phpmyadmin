@@ -1627,11 +1627,10 @@ class Sql
             } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
         } else {
             $fields_meta = [];
-            $fields_cnt = 0;
-            if (isset($result) && $result !== false) {
+            if (isset($result) && ! is_bool($result)) {
                 $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-                $fields_cnt  = count($fields_meta);
             }
+            $fields_cnt = count($fields_meta);
             $_SESSION['is_multi_query'] = false;
             $displayResultsObject->setProperties(
                 $unlim_num_rows,
@@ -1655,12 +1654,14 @@ class Sql
                 $browse_dist
             );
 
-            $table_html .= $displayResultsObject->getTable(
-                $result,
-                $displayParts,
-                $analyzed_sql_results,
-                $is_limited_display
-            );
+            if (! is_bool($result)) {
+                $table_html .= $displayResultsObject->getTable(
+                    $result,
+                    $displayParts,
+                    $analyzed_sql_results,
+                    $is_limited_display
+                );
+            }
             $GLOBALS['dbi']->freeResult($result);
         }
 
