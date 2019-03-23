@@ -28,14 +28,9 @@ AJAX.registerOnload('server_status_advisor.js', function () {
         .html($('#advisorInstructionsDialog').html());
 
     $('a[href="#openAdvisorInstructions"]').on('click', function () {
-        var dlgBtns = {};
-        dlgBtns[PMA_messages.strClose] = function () {
-            $(this).dialog('close');
-        };
         $instructionsDialog.dialog({
             title: PMA_messages.strAdvisorSystem,
-            width: 700,
-            buttons: dlgBtns
+            width: 700
         });
     });
 
