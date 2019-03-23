@@ -50,7 +50,7 @@ class Sanitize
             './tbl_select.php?',
             './tbl_change.php?',
             './sql.php?',
-            // Hardcoded options in libraries/special_schema_links.inc.php
+            // Hardcoded options in \PhpMyAdmin\Config\SpecialSchemaLinks
             './db_events.php?',
             './db_routines.php?',
             './server_privileges.php?',

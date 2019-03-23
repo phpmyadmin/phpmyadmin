@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
 
+use PhpMyAdmin\Config\SpecialSchemaLinks;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
@@ -2876,12 +2877,11 @@ class Results
             }
 
             // Check for the predefined fields need to show as link in schemas
-            include_once ROOT_PATH . 'libraries/special_schema_links.inc.php';
+            $specialSchemaLinks = SpecialSchemaLinks::get();
 
-            if (isset($GLOBALS['special_schema_links'])
-                && ! empty($GLOBALS['special_schema_links'][$dbLower][$tblLower][$nameLower])
-            ) {
+            if (! empty($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
                 $linking_url = $this->_getSpecialLinkUrl(
+                    $specialSchemaLinks,
                     $row[$i],
                     $row_info,
                     mb_strtolower($meta->orgname)
@@ -3016,17 +3016,21 @@ class Results
     /**
      * Get link for display special schema links
      *
-     * @param string $column_value column value
-     * @param array  $row_info     information about row
-     * @param string $field_name   column name
+     * @param array  $specialSchemaLinks special schema links
+     * @param string $column_value       column value
+     * @param array  $row_info           information about row
+     * @param string $field_name         column name
      *
      * @return string generated link
      */
-    private function _getSpecialLinkUrl($column_value, array $row_info, $field_name)
-    {
-
+    private function _getSpecialLinkUrl(
+        array $specialSchemaLinks,
+        $column_value,
+        array $row_info,
+        $field_name
+    ) {
         $linking_url_params = [];
-        $link_relations = $GLOBALS['special_schema_links'][mb_strtolower($this->__get('db'))][mb_strtolower($this->__get('table'))][$field_name];
+        $link_relations = $specialSchemaLinks[mb_strtolower($this->__get('db'))][mb_strtolower($this->__get('table'))][$field_name];
 
         if (! is_array($link_relations['link_param'])) {
             $linking_url_params[$link_relations['link_param']] = $column_value;

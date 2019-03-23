@@ -1086,7 +1086,7 @@ class ResultsTest extends PmaTestCase
         $field_name,
         $output
     ) {
-        $GLOBALS['special_schema_links'] = [
+        $specialSchemaLinks = [
             'information_schema' => [
                 'routines' => [
                     'routine_name' => [
@@ -1137,6 +1137,7 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getSpecialLinkUrl',
                 [
+                    $specialSchemaLinks,
                     $column_value,
                     $row_info,
                     $field_name,
