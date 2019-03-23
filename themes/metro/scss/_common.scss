@@ -2041,11 +2041,6 @@ li {
       margin: 0 !important;
     }
 
-    &::after {
-      content: "Scheme: #{$color-scheme}";
-      margin-#{$left}: 10px;
-    }
-
     &:hover {
       background: #f6f6f6;
     }
