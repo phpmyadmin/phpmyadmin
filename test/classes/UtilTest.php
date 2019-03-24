@@ -2045,6 +2045,19 @@ class UtilTest extends PmaTestCase
     }
 
     /**
+     * Test for Util::getPageFromPosition
+     * 
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getPageFromPosition
+     */
+    function testGetPageFromPosition() {
+        $this->assertEquals(getPageFromPosition(0,1), 1);
+        $this->assertEquals(getPageFromPosition(1,1), 2);
+        $this->assertEquals(getPageFromPosition(1,2), 1);
+        $this->assertEquals(getPageFromPosition(1,6), 1);
+    }
+    /**
      * Test for Util::linkOrButton
      *
      * @return void
@@ -2096,4 +2109,5 @@ class UtilTest extends PmaTestCase
             ],
         ];
     }
+
 }
