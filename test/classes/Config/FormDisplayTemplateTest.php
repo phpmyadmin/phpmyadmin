@@ -218,12 +218,6 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<span class="field-comment-mark field-comment-warning" '
-            . 'title="testComment">',
-            $result
-        );
-
-        $this->assertStringContainsString(
             '<a class="restore-default hide" href="#test/path"',
             $result
         );
