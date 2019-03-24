@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2017-05-27 21:57+0000\n"
-"Last-Translator: Hamid Khanahmadloo <h.khanahmadloo@gmail.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fa/>\n"
+"PO-Revision-Date: 2019-03-25 19:39+0000\n"
+"Last-Translator: manssour <nikman360@yahoo.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.14.1\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -341,13 +341,13 @@ msgstr "شما حذاقل بايد يك ستون را براي نمايش انت
 #, fuzzy
 #| msgid "in query"
 msgid "Multi-table query"
-msgstr "داخل کوئری"
+msgstr "کوئری چند جدول"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 #, fuzzy
 #| msgid "Query"
 msgid "Query by example"
-msgstr "پرس و جو"
+msgstr "نمونه پرس و جو"
 
 #: db_qbe.php:168
 #, php-format
@@ -460,7 +460,7 @@ msgstr "افزودن درجه جديد"
 #, fuzzy, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "رشته خطی"
+msgstr "%d رشته خطی"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 msgid "Outer ring:"
@@ -552,7 +552,7 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"گزینه \"شکل از متن\" را از ستون \"عملکرد\" انتخاب کنید و رشته زیر را در بخش "
+".گزینه \"شکل از متن\" را از ستون \"عملکرد\" انتخاب کنید و رشته زیر را در بخش "
 "\"مقدار\" وارد کنید"
 
 #: import.php:73
@@ -609,8 +609,8 @@ msgstr "نشانه گذاری %s ایجاد شده است."
 #, fuzzy, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "وارد کردن اطلاعات با موفقیت به پایان رسید، درخواست ها اجرا شد."
-msgstr[1] "وارد کردن اطلاعات با موفقیت به پایان رسید، درخواست ها اجرا شد."
+msgstr[0] "وارد کردن اطلاعات با موفقیت به پایان رسید،%d درخواست ها اجرا شد."
+msgstr[1] "وارد کردن اطلاعات با موفقیت به پایان رسید،%d درخواست ها اجرا شد."
 
 #: import.php:628
 #, fuzzy, php-format
@@ -621,8 +621,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"زمان انتظار اسکریپت به پایان رسیده، اگر مایلید عملیات را به پایان برسانید، "
-"همان فایل را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه پیدا کند."
+"زمان انتظار اسکریپت به پایان رسیده، اگر مایلید عملیات را به پایان برسانید،%s "
+"همان فایل%s را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه پیدا کند."
 
 #: import.php:638
 msgid ""
@@ -649,10 +649,13 @@ msgid "Back"
 msgstr "بازگشت"
 
 #: index.php:158
+#, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"شما از روی سرور خارج شدید،برای خروج کامل از ما ادمین،شما باید از تمام سرور "
+"ها خارج شوید"
 
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
@@ -708,7 +711,7 @@ msgstr "نوع سرور:"
 #: index.php:351
 #, fuzzy
 msgid "Server connection:"
-msgstr "توضيحات جدول"
+msgstr "اتصال سرور"
 
 #: index.php:355 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
@@ -739,13 +742,13 @@ msgstr "نسخه کلاینت پایگاه داده:"
 #: index.php:401
 #, fuzzy
 msgid "PHP extension:"
-msgstr "نسخه PHP"
+msgstr "افزونه PHP"
 
 #: index.php:415
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "نسخه PHP"
+msgstr "نسخه PHP:"
 
 #: index.php:426
 msgid "Show PHP information"
@@ -786,25 +789,36 @@ msgid "License"
 msgstr "اعتبار"
 
 #: index.php:511
+#, fuzzy
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"افزونه mbstring یافت نشد و به نظر می رسد از کاراکتر چندبایتی استفاده می "
+"کنید.بدون این افزونه مای ادمین نمی تواند رشته جاری را جدا کند و ممکن است "
+"نتیجه غیر معمول مشاهده نمایید"
 
 #: index.php:526
+#, fuzzy
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"افزونه curl یافت نشد و allow_url_fopen غیر فعال هست.لطفا ورژن برنامه را "
+"بررسی نمایید و ان را فعال کنید"
 
 #: index.php:541
+#, fuzzy
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
+"پارامتر [a@https://secure.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-maxlifetime@_blank] "
+"session.gc_maxlifetime[/a] کمتر از تنظیمات کوکی در مای ادمین هست"
 
 #: index.php:560
 msgid ""
