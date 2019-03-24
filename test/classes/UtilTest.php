@@ -2046,7 +2046,7 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for Util::getPageFromPosition
-     * 
+     *
      * @return void
      *
      * @covers PhpMyAdmin\Util::getPageFromPosition
@@ -2057,6 +2057,7 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(Util::getPageFromPosition(1,2), 1);
         $this->assertEquals(Util::getPageFromPosition(1,6), 1);
     }
+
     /**
      * Test for Util::linkOrButton
      *
