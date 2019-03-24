@@ -213,10 +213,14 @@ input {
   &[type=text],
   &[type=password],
   &[type=number],
-  &[type=date],
-  &[type=checkbox] {
+  &[type=date]{
     margin: 6px;
   }
+  
+  &[type=checkbox]{
+    margin: 6px 6px 6px 0px;
+  } 
+  
 }
 
 select {
