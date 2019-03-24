@@ -3415,36 +3415,45 @@ class InsertEdit
             if (isset($mime_map[$table_column['Field']])) {
                 $column_mime = $mime_map[$table_column['Field']];
             }
-            $html_output .= $this->getHtmlForInsertEditFormColumn(
-                $table_columns,
-                $column_number,
-                $comments_map,
-                $timestamp_seen,
-                $current_result,
-                $chg_evt_handler,
-                $jsvkey,
-                $vkey,
-                $insert_mode,
-                $current_row,
-                $o_rows,
-                $tabindex,
-                $columns_cnt,
-                $is_upload,
-                $tabindex_for_function,
-                $foreigners,
-                $tabindex_for_null,
-                $tabindex_for_value,
-                $table,
-                $db,
-                $row_id,
-                $titles,
-                $biggest_max_file_size,
-                $default_char_editing,
-                $text_dir,
-                $repopulate,
-                $column_mime,
-                $where_clause
-            );
+
+            $virtual = [
+                'VIRTUAL',
+                'PERSISTENT',
+                'VIRTUAL GENERATED',
+                'STORED GENERATED',
+            ];
+            if (! in_array($table_column['Extra'], $virtual)) {
+                $html_output .= $this->getHtmlForInsertEditFormColumn(
+                    $table_columns,
+                    $column_number,
+                    $comments_map,
+                    $timestamp_seen,
+                    $current_result,
+                    $chg_evt_handler,
+                    $jsvkey,
+                    $vkey,
+                    $insert_mode,
+                    $current_row,
+                    $o_rows,
+                    $tabindex,
+                    $columns_cnt,
+                    $is_upload,
+                    $tabindex_for_function,
+                    $foreigners,
+                    $tabindex_for_null,
+                    $tabindex_for_value,
+                    $table,
+                    $db,
+                    $row_id,
+                    $titles,
+                    $biggest_max_file_size,
+                    $default_char_editing,
+                    $text_dir,
+                    $repopulate,
+                    $column_mime,
+                    $where_clause
+                );
+            }
         } // end for
         $o_rows++;
         $html_output .= '  </tbody>'
