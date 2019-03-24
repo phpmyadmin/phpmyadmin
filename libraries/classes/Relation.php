@@ -841,14 +841,12 @@ class Relation
             && ($source == 'internal' || $source == 'both')
         ) {
             if ($isInformationSchema) {
-                $relations_key = 'information_schema_relations';
-                include_once ROOT_PATH . 'libraries/information_schema_relations.inc.php';
+                $internalRelations = InternalRelations::getInformationSchema();
             } else {
-                $relations_key = 'mysql_relations';
-                include_once ROOT_PATH . 'libraries/mysql_relations.inc.php';
+                $internalRelations = InternalRelations::getMySql();
             }
-            if (isset($GLOBALS[$relations_key][$table])) {
-                foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
+            if (isset($internalRelations[$table])) {
+                foreach ($internalRelations[$table] as $field => $relations) {
                     if ((strlen($column) === 0 || $column == $field)
                         && (! isset($foreign[$field])
                         || strlen($foreign[$field]) === 0)
