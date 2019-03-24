@@ -2374,7 +2374,6 @@ class Util
         $name = 'pos',
         $classes = []
     ) {
-
         // This is often coming from $cfg['MaxTableList'] and
         // people sometimes set it to empty string
         $max_count = intval($max_count);
@@ -2422,16 +2421,16 @@ class Util
 
             $list_navigator_html .= '<form action="' . basename($script)
                 . '" method="post">';
-
             $list_navigator_html .= Url::getHiddenInputs($_url_params);
+            $cur_page = floor($pos / $max_count)+1;
+            $last_page = ceil($count / $max_count);
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
-                floor(($pos + 1) / $max_count) + 1,
-                ceil($count / $max_count)
+                $cur_page,
+                $last_page
             );
             $list_navigator_html .= '</form>';
-
             if ($pos + $max_count < $count) {
                 $caption3 = '';
                 $caption4 = '';
