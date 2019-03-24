@@ -33,7 +33,11 @@ $userPreferences->pageInit($cf);
 $form_param = isset($_GET['form']) ? $_GET['form'] : null;
 $form_class = UserFormList::get($form_param);
 if (is_null($form_class)) {
-    Core::fatalError(__('Incorrect form specified!'));
+    ?><script>
+        location.reload();
+    </script>
+    <?php
+    //Core::fatalError(__('Incorrect form specified!'));
 }
 
 $form_display = new $form_class($cf, 1);
