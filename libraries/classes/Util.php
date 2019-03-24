@@ -2333,7 +2333,7 @@ class Util
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
-                floor(($pos + 1) / $max_count) + 1,
+                floor($pos / $max_count)+1,
                 ceil($count / $max_count)
             );
             $list_navigator_html .= '</form>';
