@@ -748,7 +748,6 @@ div#modalOverlay {
 }
 
 form.login label {
-  float: $left;
   width: 10em;
   font-weight: bolder;
 }
@@ -1031,6 +1030,7 @@ div#tablestatistics table {
   background: white;
   font-weight: bold;
   padding-bottom: 0.5em;
+  padding-#{$left}: 2.2em;
   width: 10000px;
   overflow: hidden;
   box-sizing: content-box;
@@ -1274,7 +1274,6 @@ table#chartGrid {
 
   div.monitorChart {
     background: #ebebeb;
-    overflow: hidden;
     border: none;
   }
 }

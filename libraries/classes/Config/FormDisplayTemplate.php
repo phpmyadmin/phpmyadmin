@@ -361,8 +361,6 @@ class FormDisplayTemplate
             if (isset($opts['comment_warning']) && $opts['comment_warning']) {
                 $class .= ' field-comment-warning';
             }
-            $htmlOutput .= '<span class="' . $class . '" title="'
-                . htmlspecialchars($opts['comment']) . '">i</span>';
         }
         if ($isSetupScript
             && isset($opts['userprefs_comment'])

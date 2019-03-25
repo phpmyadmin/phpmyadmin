@@ -898,7 +898,7 @@ class Import
                     $sizes[$i],
                     $types[$i],
                     $curr_type,
-                    $table[self::ROWS][$j][$i]
+                    (string) $table[self::ROWS][$j][$i]
                 );
 
                 /**
@@ -1143,7 +1143,7 @@ class Import
                         }
 
                         /* Don't put quotes around NULL fields */
-                        if (! strcmp($tables[$i][self::ROWS][$j][$k], 'NULL')) {
+                        if (! strcmp((string) $tables[$i][self::ROWS][$j][$k], 'NULL')) {
                             $is_varchar = false;
                         }
 

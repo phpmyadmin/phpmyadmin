@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-03-18 02:29+0000\n"
+"PO-Revision-Date: 2019-03-25 19:40+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -1087,7 +1087,7 @@ msgid ""
 "restart:"
 msgstr ""
 "As seguintes configurações vão ser aplicadas globalmente e redefinidas para "
-"o valor padrão após o reinicio do servidor:"
+"o valor predefinição após o reinicio do servidor:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:248
@@ -1334,7 +1334,7 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Falha ao construir grelha do gráfico com a configuração importada. "
-"Redefinindo os valores padrão…"
+"Redefinindo os valores de predefinição…"
 
 #: js/messages.php:335 libraries/classes/Config/Forms/User/ImportForm.php:71
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:508
@@ -3462,7 +3462,7 @@ msgstr ""
 #: libraries/classes/Config.php:1192
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
+msgstr "Não foi possível carregar configuração predefinida de: \"%1$s\""
 
 #: libraries/classes/Config.php:1199
 msgid "Failed to read configuration file!"
@@ -3690,7 +3690,7 @@ msgstr "Separador que é exibido quando entrar numa base de dados."
 
 #: libraries/classes/Config/Descriptions.php:143
 msgid "Default database tab"
-msgstr "Separador padrão da base de dados"
+msgstr "Separador predefinido da base de dados"
 
 #: libraries/classes/Config/Descriptions.php:144
 msgid "Tab that is displayed when entering a server."
@@ -3698,7 +3698,7 @@ msgstr "Separador que é mostrado quando entrar num servidor."
 
 #: libraries/classes/Config/Descriptions.php:145
 msgid "Default server tab"
-msgstr "Separador padrão do servidor"
+msgstr "Separador predefinido do servidor"
 
 #: libraries/classes/Config/Descriptions.php:146
 msgid "Tab that is displayed when entering a table."
@@ -3706,7 +3706,7 @@ msgstr "Separador que é mostrado quando se entra numa tabela."
 
 #: libraries/classes/Config/Descriptions.php:147
 msgid "Default table tab"
-msgstr "Separador padrão para a tabela"
+msgstr "Separador predefinido para a tabela"
 
 #: libraries/classes/Config/Descriptions.php:148
 msgid "Autocomplete of the table and column names in the SQL queries."
@@ -3714,7 +3714,7 @@ msgstr "Autocompletar os nomes das tabelas e colunas nas consultas SQL."
 
 #: libraries/classes/Config/Descriptions.php:149
 msgid "Enable autocomplete for table and column names"
-msgstr "Habilitar autocompletar para nomes de tabelas e colunas"
+msgstr "Ativar autocompletar para nomes de tabelas e colunas"
 
 #: libraries/classes/Config/Descriptions.php:150
 msgid "Whether the table structure actions should be hidden."
@@ -3736,7 +3736,7 @@ msgstr "Ocultar as acções à estrutura da tabela"
 
 #: libraries/classes/Config/Descriptions.php:154
 msgid "Default transformations for Hex"
-msgstr "Transformações padrão para Hex"
+msgstr "Transformações predefinidas para Hex"
 
 #: libraries/classes/Config/Descriptions.php:155
 #: libraries/classes/Config/Descriptions.php:157
@@ -3751,41 +3751,41 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
-"Valores para a lista de opções de transformações padrão. Estas serão "
+"Valores para a lista de opções de transformações predefinidas. Estas serão "
 "substituídas se a transformação for preenchida na pagina da estrutura da "
 "tabela."
 
 #: libraries/classes/Config/Descriptions.php:156
 msgid "Default transformations for Substring"
-msgstr "Transformações para Substrings padrão"
+msgstr "Transformações predefinidas para Substrings"
 
 #: libraries/classes/Config/Descriptions.php:158
 msgid "Default transformations for Bool2Text"
-msgstr "Transformações para Bool2Text padrão"
+msgstr "Transformações predefinidas para Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:160
 msgid "Default transformations for External"
-msgstr "Transformações para External padrão"
+msgstr "Transformações predefinidas para External"
 
 #: libraries/classes/Config/Descriptions.php:162
 msgid "Default transformations for PreApPend"
-msgstr "Transformações para PreApPend padrão"
+msgstr "Transformações predefinidas para PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:164
 msgid "Default transformations for DateFormat"
-msgstr "Transformações para DateFormat padrão"
+msgstr "Transformações predefinidas para DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:166
 msgid "Default transformations for Inline"
-msgstr "Transformações para Inline padrão"
+msgstr "Transformações predefinidas para Inline"
 
 #: libraries/classes/Config/Descriptions.php:168
 msgid "Default transformations for TextImageLink"
-msgstr "Transformações para TextImageLink padrão"
+msgstr "Transformações predefinidas para TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:170
 msgid "Default transformations for TextLink"
-msgstr "Transformações para TextLink padrão"
+msgstr "Transformações predefinidas para TextLink"
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Show server listing as a list instead of a drop down."
@@ -4135,7 +4135,8 @@ msgstr "Limite de chave estrangeira"
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
-"Valor padrão para checkbox de chaves estrangeiras para algumas consultas."
+"Valor predefinido para checkbox de chaves estrangeiras para algumas "
+"consultas."
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "Foreign key checks"
@@ -4443,7 +4444,7 @@ msgstr "Texto Texy!"
 
 #: libraries/classes/Config/Descriptions.php:376
 msgid "Customize default options"
-msgstr "Personalizar as opções padrão"
+msgstr "Personalizar as opções predefinidas"
 
 #: libraries/classes/Config/Descriptions.php:377
 msgid "Warnings"
@@ -4460,7 +4461,7 @@ msgstr "Consola"
 
 #: libraries/classes/Config/Descriptions.php:381
 msgid "Enable gzip compression for import and export operations."
-msgstr "Habilitar a compressão gzip nas operações de importação e exportação."
+msgstr "Ativar a compressão gzip nas operações de importação e exportação."
 
 #: libraries/classes/Config/Descriptions.php:384
 msgid "GZip"
@@ -4527,8 +4528,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
-"Formato padrão; esteja ciente que esta lista depende da localização (base de "
-"dados, tabela) e somente o SQL está sempre disponível."
+"Formato predefinido; esteja ciente que esta lista depende da localização ("
+"base de dados, tabela) e somente o SQL está sempre disponível."
 
 #: libraries/classes/Config/Descriptions.php:411
 msgid "Format of imported file"
@@ -4630,8 +4631,8 @@ msgid ""
 "recommended for non-trusted environments."
 msgstr ""
 "Define quanto tempo (em segundos) um cookie de login deve ser armazenado no "
-"navegador. O padrão de 0 significa que será mantido apenas para a sessão "
-"actual, e será apagado assim que fechar a janela do navegador. Isto é "
+"navegador. A predefinição de 0 significa que será mantido apenas para a "
+"sessão actual e será apagado assim que fechar a janela do navegador. Isto é "
 "recomendado para ambientes não-confiáveis."
 
 #: libraries/classes/Config/Descriptions.php:450
@@ -5002,7 +5003,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:552
 msgid "Default sorting order"
-msgstr "Ordenação padrão"
+msgstr "Ordenação predefinida"
 
 #: libraries/classes/Config/Descriptions.php:553
 msgid "Use persistent connections to MySQL databases."
@@ -5018,9 +5019,9 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
-"Desativa o aviso padrão que é exibido na página de detalhes de Estrutura da "
-"base de dados se alguma das tabelas requeridas para a configuração do "
-"armazenamento do phpMyAdmin não for encontrada."
+"Desativa o aviso predefinido que é exibido na página de detalhes de "
+"Estrutura da base de dados se alguma das tabelas requeridas para a "
+"configuração do armazenamento do phpMyAdmin não for encontrada."
 
 #: libraries/classes/Config/Descriptions.php:560
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -5031,9 +5032,9 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr ""
-"Desativa o aviso padrão que é mostrado na página de detalhes de estrutura da "
-"base de dados se algum dos nomes de coluna numa tabela forem palavras "
-"reservadas do MySQL."
+"Desativa o aviso predefinido que é mostrado na página de detalhes de "
+"estrutura da base de dados se algum dos nomes de coluna numa tabela forem "
+"palavras reservadas do MySQL."
 
 #: libraries/classes/Config/Descriptions.php:565
 msgid "MySQL reserved word warning"
@@ -5097,7 +5098,7 @@ msgstr "Lembrar ordenação da tabela"
 
 #: libraries/classes/Config/Descriptions.php:585
 msgid "Default sort order for tables with a primary key."
-msgstr "Ordem padrão de ordenação para tabelas com chave primária."
+msgstr "Ordem predefinida de ordenação para tabelas com chave primária."
 
 #: libraries/classes/Config/Descriptions.php:586
 msgid "Primary key default sort order"
@@ -5257,8 +5258,8 @@ msgid ""
 "if the controlhost equals host."
 msgstr ""
 "Uma porta alternativa para conectar ao servidor que contém o armazém de "
-"configuração; deixe em branco para utilizar a porta padrão, ou a porta pré-"
-"definida, se o servidor de controlo for igual ao servidor."
+"configuração; deixe em branco para utilizar a porta predefinida ou a porta "
+"pré-definida, se o servidor de controlo for igual ao servidor."
 
 #: libraries/classes/Config/Descriptions.php:638
 msgid "Control port"
@@ -5470,7 +5471,8 @@ msgstr "URL de Signon"
 #: libraries/classes/Config/Descriptions.php:714
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
-"O socket no qual MySQL server está atento, deixe em branco para o padrão."
+"O socket no qual MySQL server está atento, deixe em branco para a "
+"predefinição."
 
 #: libraries/classes/Config/Descriptions.php:715
 msgid "Server socket"
@@ -5623,9 +5625,9 @@ msgid ""
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 "Tanto esta tabela como a tabela de utilizadores são necessárias para "
-"disponibilizar a funcionalidade de menus configuráveis; Deixando um deles em "
-"branco irá desabilitar esta funcionalidade, sugerido: [kbd]pma__usergroups[/"
-"kbd]."
+"disponibilizar a funcionalidade de menus configuráveis; deixando um deles em "
+"branco irá desativar esta funcionalidade, sugerido: "
+"[kbd]pma__usergroups[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:773
 msgid "User groups table"
@@ -5636,7 +5638,7 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Deixe em branco para desabilitar a funcionalidade de esconder ou mostrar os "
+"Deixe em branco para desativar a funcionalidade de esconder ou mostrar os "
 "itens de navegação, sugerido: [kbd]pma_navigationhiding[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:778
@@ -5993,8 +5995,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
-"Quando desabilitado, os utilizadores não podem definir nenhuma das opções em "
-"baixo, independentemente da caixa de verificação da direita."
+"Quando desativado, os utilizadores não podem definir nenhuma das opções em "
+"baixo, independentemente da caixa de verificação à direita."
 
 #: libraries/classes/Config/Descriptions.php:876
 msgid "Enable the Developer tab in settings"
@@ -6230,7 +6232,7 @@ msgstr "Definir valor: %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:383
 msgid "Restore default value"
-msgstr "Restaurar valor padrão"
+msgstr "Restaurar valor predefinido"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:396
 msgid "Allow users to customize this value"
@@ -6617,7 +6619,7 @@ msgstr "Comando"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:136
 msgid "Progress"
-msgstr ""
+msgstr "Progresso"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:140
 #: libraries/classes/Server/Status/Data.php:117
@@ -6645,11 +6647,12 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"O número de conexões que foram abortadas porque o cliente morreu sem fechar "
+"a conexão corretamente."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:208
-#, fuzzy
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr "O número de tentativas de conexão sem sucesso ao servidor MySQL."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:211
 msgid ""
@@ -6657,15 +6660,19 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
+"O número de transações que usaram o cache do log binário temporário mas que "
+"excederam o valor do binlog_cache_size e usaram o ficheiro temporário para "
+"armazenar enunciados da transação."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:216
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr ""
+msgstr "O número de transações que usaram o cache do log binário temporário."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:219
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
+"O número de tentativas de conexão (com sucesso ou não) ao servidor MySQL."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:223
 msgid ""
@@ -6674,6 +6681,10 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
+"O número de tabelas temporárias no disco criadas automaticamente pelo "
+"servidor enquanto executava os enunciados. Se Created_tmp_disk_tables é "
+"grande, você pode aumentar o valor de tmp_table_size para fazer as tabelas "
+"temporárias serem baseadas na memória em vez de serem baseadas em disco."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:230
 msgid "How many temporary files mysqld has created."
@@ -6684,34 +6695,40 @@ msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
+"O número de tabelas temporárias na memória criadas automaticamente pelo "
+"servidor enquanto executava os enunciados."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:237
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
+"O número de linhas escritas com INSERT DELAYED para cada erro ocorrido ("
+"provavelmente chave duplicada)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:241
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
+"O número de processos manipuladores de INSERT DELAYED em uso. Cada tabela "
+"diferente em que se usa INSERT DELAYED começa seu próprio processo."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:246
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "O número de linhas INSERT DELAYED escritas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:249
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "O número de enunciados FLUSH executados."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:252
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "O número de enunciados COMMIT internos."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:255
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "O número de vezes que uma linha foi deletada de uma tabela."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:258
 msgid ""
@@ -6923,6 +6940,9 @@ msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
+"O tamanho de página compilada do InnoDB (predefinição 16KB). Muitos valores "
+"são contados em páginas; o tamanho de página permite que sejam facilmente "
+"convertidos em bytes."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of pages read."
@@ -7028,6 +7048,10 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
+"O custo total da última consulta compilada conforme computada pelo "
+"otimizador de consultas. Útil para comparar o custo de diferentes planos de "
+"consulta para a mesma consulta. O valor predefinido 0 significa que ainda "
+"nenhuma consulta foi compilada."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:502
 msgid ""
@@ -7581,9 +7605,9 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 "Não é possível usar o fuso horário de \"%1$s\" para o servidor %2$d. Por "
-"favor, verifique sua configuração em [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. O phpMyAdmin está atualmente usando o fuso horário "
-"padrão do servidor de banco de dados."
+"favor, verifique sua configuração em "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. O phpMyAdmin está "
+"atualmente usando o fuso horário predefinido do servidor de banco de dados."
 
 #: libraries/classes/DatabaseInterface.php:1618
 msgid "Failed to set configured collation connection!"
@@ -8048,6 +8072,9 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Esta é a quantidade de memória alocada para a cache da índice. O valor "
+"predefinido é 32MB. A memória alocada aqui é usada apenas para armazenar "
+"páginas de índice em cache."
 
 #: libraries/classes/Engines/Pbxt.php:41
 msgid "Record cache size"
@@ -8109,6 +8136,8 @@ msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"A quantidade de dados gravados no log de transações antes de um ponto de "
+"verificação ser executado. O valor predefinido é 24MB."
 
 #: libraries/classes/Engines/Pbxt.php:86
 msgid "Data log threshold"
@@ -8293,9 +8322,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Tentou importar um ficheiro com uma compressão não suportada (%s). Ou o "
-"suporte não se encontra implementado ou está desabilitado na sua "
-"configuração."
+"Você tentou importar um ficheiro com uma compressão não suportada (%s). Ou o "
+"suporte não está implementado ou está desativado na sua configuração."
 
 #: libraries/classes/Footer.php:78
 #, php-format
@@ -12509,7 +12537,7 @@ msgstr "Marcador %s criado"
 #: libraries/classes/Sql.php:835
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Usando marcador \"%s\" como query predefinido de navegação."
 
 #: libraries/classes/Sql.php:1338
 msgid "Showing as PHP code"
@@ -12726,7 +12754,7 @@ msgstr "Encontrado caminho inválido para imagens do tema %s!"
 #: libraries/classes/ThemeManager.php:98
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "Tema padrão %s não encontrado!"
+msgstr "Tema predefinido %s não encontrado!"
 
 #: libraries/classes/ThemeManager.php:178
 #, php-format
@@ -12948,8 +12976,8 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
-"Um tipo de campo bit (M), armazena M de bits por valor (o padrão é 1 e o "
-"máximo é 64)"
+"Um tipo de campo bit (M), armazena M de bits por valor (a predefinição é 1 e "
+"o máximo é 64)"
 
 #: libraries/classes/Types.php:260
 msgid ""
@@ -12992,16 +13020,18 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
-"Um ano no formato de quatro dígitos (4, padrão) ou de dois dígitos (2), os "
-"valores permitidos são de 70 (1970) até 69 (2069) ou 1901 até 2155 e 0000"
+"Um ano no formato de quatro dígitos (4, predefinição) ou de dois dígitos (2)"
+", os valores permitidos são de 70 (1970) até 69 (2069) ou 1901 até 2155 e "
+"0000"
 
 #: libraries/classes/Types.php:297
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
-"Uma string de comprimento fixo (0-255, padrão 1) que é sempre preenchida à "
-"direita com espaços até o tamanho especificado quando guardada"
+"Uma cadeia de caracteres de comprimento fixo (0-255, predefinição 1) que é "
+"sempre preenchida à direita com espaços até o tamanho especificado quando "
+"armazenado"
 
 #: libraries/classes/Types.php:303
 #, php-format
@@ -13401,7 +13431,7 @@ msgstr "Nunca enviar relatórios de erro"
 
 #: libraries/config.values.php:198
 msgid "Server default"
-msgstr "Servidor padrão"
+msgstr "Servidor predefinido"
 
 #: libraries/config.values.php:199
 msgid "Enable"
@@ -13572,7 +13602,8 @@ msgstr "As configurações existentes serão sobre-escritas!"
 #: prefs_manage.php:370
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
-"Pode eliminar todas as definições e restaurá-las para os valores padrão."
+"Pode eliminar todas as definições e restaurá-las para os valores "
+"predefinidos."
 
 #: prefs_twofactor.php:36
 #, fuzzy
@@ -13675,7 +13706,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:218
 msgid "Default language"
-msgstr ""
+msgstr "Idioma predefinido"
 
 #: setup/frames/index.inc.php:233
 msgid "let the user choose"
@@ -13687,7 +13718,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:249
 msgid "Default server"
-msgstr ""
+msgstr "Servidor predefinido"
 
 #: setup/frames/index.inc.php:268
 msgid "End of line"
@@ -13722,7 +13753,7 @@ msgstr "Acrescenta um utilizador"
 
 #: setup/index.php:23
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "A configuração já existe, a configuração está desativada!"
 
 #: setup/index.php:33
 msgid "Wrong GET file attribute value"
@@ -14020,35 +14051,30 @@ msgid "Create version"
 msgstr "Criar versão"
 
 #: templates/server/status/monitor/index.twig:8
-#, fuzzy
 msgid "Start Monitor"
-msgstr "Estado"
+msgstr "Iniciar monitor"
 
 #: templates/server/status/monitor/index.twig:16
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "Instruções/Configurações"
 
 #: templates/server/status/monitor/index.twig:20
 msgid "Done dragging (rearranging) charts"
-msgstr ""
+msgstr "Terminou de arrastar (reorganizar) os gráficos"
 
 #: templates/server/status/monitor/index.twig:27
 #: templates/server/status/monitor/index.twig:124
-#, fuzzy
 msgid "Add chart"
-msgstr "Adiciona novo campo"
+msgstr "Adicionar gráfico"
 
 #: templates/server/status/monitor/index.twig:31
-#, fuzzy
-#| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Ativar destaque"
+msgstr "Ativar o arraste de gráficos"
 
 #: templates/server/status/monitor/index.twig:36
 #: templates/server/status/processes/index.twig:25
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Gerado por"
+msgstr "Taxa de atualização"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:32
@@ -14081,24 +14107,24 @@ msgid "%d minutes"
 msgstr "por minuto"
 
 #: templates/server/status/monitor/index.twig:61
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "Adicionar/Remover Campos"
+msgstr "Colunas do gráfico"
 
 #: templates/server/status/monitor/index.twig:74
 msgid "Chart arrangement"
-msgstr ""
+msgstr "Organização de gráficos"
 
 #: templates/server/status/monitor/index.twig:75
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"A organização dos gráficos é armazenada no armazenamento local dos "
+"navegadores. Você pode exportá-la, se você tiver uma configuração complicada."
 
 #: templates/server/status/monitor/index.twig:84
 msgid "Reset to default"
-msgstr ""
+msgstr "Resetar para a predefinição"
 
 #: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
@@ -14140,10 +14166,15 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
+"Para exibir consultas dos logs, selecione o intervalo de tempo relevante em "
+"cada gráfico segurando o botão esquerdo do rato e deslocando pelo gráfico. "
+"Uma vez confirmado, irá carregar uma tabela de consultas agrupadas e lá é "
+"possível clicar em qualquer ocorrência de comandos SELECT para "
+"adicionalmente analisá-los."
 
 #: templates/server/status/monitor/index.twig:114
 msgid "Please note:"
-msgstr ""
+msgstr "Por favor, note:"
 
 #: templates/server/status/monitor/index.twig:117
 msgid ""
@@ -14152,60 +14183,59 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"Ativando o general_log pode aumentar a carga do servidor entre 5 e 15%. "
+"Também esteja ciente de que a criação de estatísticas a partir de logs é uma "
+"tarefa de carga intensiva. Então, aconselha-se a selecionar somente um "
+"pequeno intervalo de tempo, desativando o general_log e esvaziar sua tabela "
+"assim que o monitoramento não for mais necessário."
 
 #: templates/server/status/monitor/index.twig:127
 msgid "Chart Title"
 msgstr "Titulo do gráfico"
 
 #: templates/server/status/monitor/index.twig:131
-#, fuzzy
-#| msgid "Remove database"
 msgid "Preset chart"
-msgstr "Remover a Base de Dados"
+msgstr "Gráfico predefinido"
 
 #: templates/server/status/monitor/index.twig:137
 msgid "Status variable(s)"
 msgstr "Variável(is) de estado"
 
 #: templates/server/status/monitor/index.twig:142
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Seleccionar Tabelas"
+msgstr "Selecionar série:"
 
 #: templates/server/status/monitor/index.twig:145
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Normalmente monitorado"
 
 #: templates/server/status/monitor/index.twig:163
 msgid "or type variable name:"
-msgstr ""
+msgstr "ou digite o nome da variável:"
 
 #: templates/server/status/monitor/index.twig:170
 msgid "Display as differential value"
-msgstr ""
+msgstr "Exibir como valor diferencial"
 
 #: templates/server/status/monitor/index.twig:175
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Aplicar um divisor"
 
 #: templates/server/status/monitor/index.twig:186
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Acrescentar a unidade a valores de dados"
 
 #: templates/server/status/monitor/index.twig:194
-#, fuzzy
 msgid "Add this series"
-msgstr "Acrescenta um utilizador"
+msgstr "Adicionar esta série"
 
 #: templates/server/status/monitor/index.twig:197
 msgid "Clear series"
-msgstr ""
+msgstr "Limpar séries"
 
 #: templates/server/status/monitor/index.twig:201
-#, fuzzy
 msgid "Series in chart:"
-msgstr "Comando SQL"
+msgstr "Séries no gráfico:"
 
 #: templates/server/status/monitor/index.twig:210
 msgid "Log statistics"
@@ -15549,15 +15579,12 @@ msgstr ""
 
 #: templates/filter.twig:2 templates/server/status/processes/index.twig:6
 #: templates/server/status/variables/index.twig:7
-#, fuzzy
 msgid "Filters"
-msgstr "Qtd Campos"
+msgstr "Filtros"
 
 #: templates/filter.twig:4 templates/server/status/variables/index.twig:14
-#, fuzzy
-#| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Mantendo a palavra-passe "
+msgstr "Contendo a palavra:"
 
 #: templates/display/results/options_block.twig:34
 msgid "Relational key"
@@ -15603,22 +15630,16 @@ msgid "Questions since startup:"
 msgstr "Perguntas desde a ultima actualização"
 
 #: templates/server/status/queries/index.twig:17
-#, fuzzy
-#| msgid "per hour"
 msgid "per hour:"
-msgstr "por hora"
+msgstr "por hora:"
 
 #: templates/server/status/queries/index.twig:18
-#, fuzzy
-#| msgid "per minute"
 msgid "per minute:"
-msgstr "por minuto"
+msgstr "por minuto:"
 
 #: templates/server/status/queries/index.twig:20
-#, fuzzy
-#| msgid "per second"
 msgid "per second:"
-msgstr "por segundo"
+msgstr "por segundo:"
 
 #: templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -15627,7 +15648,7 @@ msgstr "Itens"
 #. l10n: # = Amount of queries
 #: templates/server/status/queries/index.twig:33
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/server/status/queries/index.twig:53
 msgid "Not enough privilege to view query statistics."
@@ -15641,27 +15662,20 @@ msgid "Configure two-factor authentication"
 msgstr "Autenticação por config"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Autenticação por config"
+msgstr "Ativar a autenticação em dois fatores"
 
 #: templates/server/status/processes/index.twig:13
-#, fuzzy
 msgid "Show only active"
-msgstr "Mostra tabelas"
+msgstr "Mostrar somente ativo(s)"
 
 #: templates/server/status/processes/index.twig:21
-#, fuzzy
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Nota: Activar as estatísticas aqui pode causar um grande volume de tráfego "
-"entre os servidores web e MySQL."
+"Nota: ativar a atualização automática aqui pode causar tráfego intenso entre "
+"o servidor web e o servidor MySQL."
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -15930,6 +15944,8 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Ao desativar a autenticação em dois fatores será possível novamente logar "
+"usando apenas a palavra-passe."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:38
 #, fuzzy
@@ -15960,6 +15976,8 @@ msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
+"Para valores predefinidos, digite um único valor, sem barras invertidas de "
+"escape ou citações, usando este formato: a"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
@@ -16182,6 +16200,8 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Autenticação em dois fatores não está disponível, por favor instale as "
+"dependências opcionais para ativar os backends de autenticação."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
@@ -16324,7 +16344,7 @@ msgstr "Partilhar marcador"
 
 #: templates/console/display.twig:140
 msgid "Set default"
-msgstr "Definir como padrão"
+msgstr "Definir como predefinição"
 
 #: templates/console/display.twig:162
 msgid ""
@@ -16732,24 +16752,20 @@ msgstr ""
 "abaixo no campo \"Valor\"."
 
 #: templates/server/status/variables/index.twig:21
-#, fuzzy
 msgid "Show only alert values"
-msgstr "Mostra tabelas"
+msgstr "Exibir somente valores de alerta"
 
 #: templates/server/status/variables/index.twig:27
 msgid "Filter by category…"
-msgstr ""
+msgstr "Filtrar por categoria…"
 
 #: templates/server/status/variables/index.twig:37
-#, fuzzy
 msgid "Show unformatted values"
-msgstr "Mostra tabelas"
+msgstr "Exibir valores não formatados"
 
 #: templates/server/status/variables/index.twig:45
-#, fuzzy
-#| msgid "Relations"
 msgid "Related links:"
-msgstr "Relações"
+msgstr "Links relacionados:"
 
 #: templates/server/status/variables/index.twig:134
 msgid "Not enough privilege to view status variables."
@@ -17028,14 +17044,12 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:146
-#, fuzzy
 msgid "Query cache disabled"
-msgstr "Tipo de Query"
+msgstr "Cache de query desativado"
 
 #: libraries/advisory_rules.txt:149
-#, fuzzy
 msgid "The query cache is not enabled."
-msgstr "Tipo de Query"
+msgstr "O cache de query não está ativado."
 
 #: libraries/advisory_rules.txt:150
 msgid ""
@@ -17144,6 +17158,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"O cache está atualmente fragmentado em %s%%, sendo que 100%% de fragmentação "
+"significa que o cache de consulta é um padrão alternante de blocos livres e "
+"utilizados. Esse valor deveria estar abaixo de 20%%."
 
 #: libraries/advisory_rules.txt:181
 #, fuzzy
@@ -17204,6 +17221,8 @@ msgstr "Resultado SQL"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"O tamanho máximo dos resultados definido no cache de query é por "
+"predefinição de 1 MB."
 
 #: libraries/advisory_rules.txt:199
 msgid ""
