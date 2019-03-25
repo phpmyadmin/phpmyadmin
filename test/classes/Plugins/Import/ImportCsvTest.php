@@ -60,7 +60,7 @@ class ImportCsvTest extends PmaTestCase
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
         $GLOBALS['csv_new_line'] = 'auto';
-        $GLOBALS['import_file_name']=basename($GLOBALS['import_file'], ".csv");
+        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], ".csv");
 
         //$_SESSION
 
@@ -216,10 +216,6 @@ class ImportCsvTest extends PmaTestCase
             $sql_query
         );
 
-        /*$this->assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`TBL_NAME`',
-            $sql_query
-        );*/
         $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
             $sql_query
