@@ -133,6 +133,7 @@
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}
+        {% set edit_view_url = 'view_create.php' ~ edit_view_url %}
         {{ Util_linkOrButton(
             edit_view_url,
             Util_getIcon('b_edit', 'Edit view'|trans, true)
