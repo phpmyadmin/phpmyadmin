@@ -53,17 +53,7 @@
         <td class="insert_table center print_ignore">
             <a href="tbl_change.php{{ tbl_url_query|raw }}">{{ titles['Insert']|raw }}</a>
         </td>
-        {% if table_is_view %}
-            <td class="center print_ignore">
-                <a href="view_create.php{{- Url_getCommon({
-                                'db': db,
-                                'table': current_table['TABLE_NAME']
-                            }) }}">{{ titles['Edit']|raw }}</a>
-            </td>
-        {% endif %}
-        {% if empty_table is not empty %}
-            <td class="center print_ignore">{{ empty_table|raw }}</td>
-        {% endif %}
+        <td class="center print_ignore">{{ empty_table|raw }}</td>
         <td class="center print_ignore">
             <a class="ajax drop_table_anchor
                 {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}"
