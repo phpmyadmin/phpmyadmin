@@ -866,6 +866,7 @@ div#tablestatistics table {
     background: white;
     font-weight:        bold;
     padding-bottom: 0.5em;
+    padding-<?php echo $left; ?>: 2.2em;
     width: 10000px;
     overflow: hidden;
 }
