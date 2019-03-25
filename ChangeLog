@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 - issue #14811 Fix SHOW FULL TABLES FROM when a table is locked
 - issue #14916 Fix bug when creating or editing views
 - issue #14931 Fixed php error when using a query like SELECT 1 INTO @a; SELECT @a; in inline query edit
+- issue #15074 Make the server logo visible on theme "original"
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
