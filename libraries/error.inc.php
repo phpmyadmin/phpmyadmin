@@ -26,7 +26,6 @@ if (! defined('TESTSUITE')) {
     <title>phpMyAdmin</title>
     <meta charset="utf-8">
     <style type="text/css">
-    <!--
     html {
         padding: 0;
         margin: 0;
@@ -52,7 +51,6 @@ if (! defined('TESTSUITE')) {
         border: 0.1em solid red;
         background-color: #ffeeee;
     }
-    //-->
     </style>
 </head>
 <body>
