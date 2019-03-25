@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - issue #15030 Move 'More settings' link from 'Appearance settings' to 'General settings'
 - issue #15029 Remove the redundant 'i' help/tool tip in page settings "Query History Length" area
 - issue #13424 Importing CSV now uses file name as the table name instead of 'TABLE #'
+- issue #14926 Add an Edit link for each view in tables list
 
 4.8.6 (not yet released)
 - issue #14478 phpMyAdmin no longer streams the export data
