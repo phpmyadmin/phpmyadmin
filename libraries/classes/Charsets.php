@@ -49,6 +49,7 @@ class Charsets
     );
 
     private static $_charsets = array();
+    private static $_charset;
     private static $_charsets_descriptions = array();
     private static $_collations = array();
     private static $_default_collations = array();
@@ -125,6 +126,26 @@ class Charsets
         foreach (self::$_collations as $key => $value) {
             sort(self::$_collations[$key], SORT_STRING);
         }
+    }
+
+     /**
+     * Get current MySQL server charset.
+     *
+     * @param DatabaseInterface $dbi       DatabaseInterface instance
+     * @param boolean           $disableIs Disable use of INFORMATION_SCHEMA
+     *
+     * @return string
+     */
+    public static function getCharset(DatabaseInterface $dbi, $disableIs)
+    {
+        $sql = 'SHOW VARIABLES LIKE  \'character_set_server\';';
+        $res = $dbi->query($sql);
+        while ($row = $dbi->fetchAssoc($res)) {
+            $charset = $row['Value'];
+            self::$_charset = $charset;
+        }
+        $dbi->freeResult($res);
+        return self::$_charset ;
     }
 
     /**
