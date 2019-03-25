@@ -16,7 +16,7 @@ if (! defined('ROOT_PATH')) {
 }
 
 /**
- *
+ * Does the common work
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
