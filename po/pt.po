@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2019-03-25 19:39+0000\n"
+"PO-Revision-Date: 2019-03-30 19:26+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/pt/>\n"
@@ -956,8 +956,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Está a tentar reduzir o número de linhas, mas já inseriu dados nessas linhas "
-"que serão perdidas. Deseja continuar?"
+"Você está a tentar reduzir o número de linhas, mas já inseriu dados nessas "
+"linhas que serão perdidas. Deseja continuar?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -12384,39 +12384,35 @@ msgid "The number of times a row was deleted from a table."
 msgstr "O número de vezes que uma linha foi deletada de uma tabela."
 
 #: libraries/classes/Server/Status/Variables.php:395
-#, fuzzy
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
 "O servidor MySQL pode perguntar ao motor de armazenamento do NDB Cluster se "
-"ele sabe sobre uma tabela com um nome dado. Isto é chamado descoberta. "
-"Handler_discover indica o número de vezes que tabelas foram descobertas."
+"ele sabe sobre uma tabela com um determinado nome. Isto é chamado "
+"descoberta. Handler_discover indica a quantidade de tabelas descobertas."
 
 #: libraries/classes/Server/Status/Variables.php:401
-#, fuzzy
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"O número de vezes que a primeira entrada foi lida de um índice. Se isto for "
-"alto, sugere que o usuário está fazendo muitas varreduras completas do "
-"índice; por exemplo, SELECT col1 FROM foo, supondo que col1 é um índice."
+"As vezes que a primeira entrada foi lida de um índice. Se for alto, sugere "
+"que o usuário está fazendo muitas varreduras completas do índice; por "
+"exemplo, SELECT col1 FROM foo, supondo que col1 é um índice."
 
 #: libraries/classes/Server/Status/Variables.php:407
-#, fuzzy
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
-"O número de requisições para ler uma linha baseada em uma chave. Se ele for "
-"grande, é uma boa indicação de que suas consultas e tabelas estão "
-"corretamente indexadas."
+"O número de requisições lendo uma linha baseada numa chave. Se for grande, é "
+"uma boa indicação de que suas consultas e tabelas estão corretamente "
+"indexadas."
 
 #: libraries/classes/Server/Status/Variables.php:412
-#, fuzzy
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -12424,145 +12420,127 @@ msgid ""
 msgstr ""
 "O número de requisições para ler a linha seguinte na ordem da chave. Isto é "
 "incrementado se você estiver consultando uma coluna do índice com uma "
-"restrição da escala ou se você estiver fazendo uma varredura do índice."
+"restrição de escala ou se você estiver fazendo uma varredura do índice."
 
 #: libraries/classes/Server/Status/Variables.php:417
-#, fuzzy
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
-"O número de requisições para ler a linha precedente na ordem da chave. Este "
-"método de leitura é usado principalmente para otimizar ORDER BY … DESC."
+"A quantidade de requisições para ler a linha precedente na ordem da chave. "
+"Este método de leitura é usado principalmente para otimizar ORDER BY … DESC."
 
 #: libraries/classes/Server/Status/Variables.php:421
-#, fuzzy
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
-"O número de requisições pra ler uma linha baseada em uma posição fixa. Ele é "
+"A quantidade de requisições para ler uma linha baseada numa posição fixa. É "
 "grande se você estiver fazendo muitas consultas que requerem a ordenação do "
 "resultado. Você provavelmente tem muitas consultas que requerem que o MySQL "
-"faça a varredura de tabelas inteiras ou você tem junções que não usam as "
+"faça a varredura inteira de tabelas ou você tem junções que não usam as "
 "chaves corretamente."
 
 #: libraries/classes/Server/Status/Variables.php:428
-#, fuzzy
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"O número de requisições para ler a linha seguinte no ficheiro de dados. Ele "
-"é grande se você estiver fazendo muitas varreduras de tabela. Geralmente "
+"A quantidade de requisições para ler a linha seguinte no ficheiro de dados. "
+"É grande se você estiver fazendo muitas varreduras de tabela. Geralmente "
 "isto sugere que suas tabelas não estão corretamente indexadas ou que suas "
 "consultas não estão escritas para tomar vantagem dos índices que você têm."
 
 #: libraries/classes/Server/Status/Variables.php:435
-#, fuzzy
 msgid "The number of internal ROLLBACK statements."
 msgstr "O número de enunciados ROLLBACK internos."
 
 #: libraries/classes/Server/Status/Variables.php:438
-#, fuzzy
 msgid "The number of requests to update a row in a table."
-msgstr "O número de requisições para atualizar uma linha na tabela."
+msgstr "A quantidade de requisições para atualizar uma linha na tabela."
 
 #: libraries/classes/Server/Status/Variables.php:441
-#, fuzzy
 msgid "The number of requests to insert a row in a table."
-msgstr "O número de requisições para inserir uma linha na tabela."
+msgstr "A quantidade de requisições para inserir uma linha na tabela."
 
 #: libraries/classes/Server/Status/Variables.php:444
-#, fuzzy
 msgid "The number of pages containing data (dirty or clean)."
-msgstr "O número de páginas que contém dados (sujos ou limpos)."
+msgstr "A quantidade de páginas que contém dados (sujos ou limpos)."
 
 #: libraries/classes/Server/Status/Variables.php:447
-#, fuzzy
 msgid "The number of pages currently dirty."
-msgstr "O número de páginas atualmente sujas."
+msgstr "A quantidade de páginas atualmente sujas."
 
 #: libraries/classes/Server/Status/Variables.php:450
-#, fuzzy
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
-"O número de páginas do buffer pool que foram requisitadas para serem "
-"niveladas."
+"A quantidade de páginas do pool de buffer que foram requisitadas para serem "
+"vazadas."
 
 #: libraries/classes/Server/Status/Variables.php:454
-#, fuzzy
 msgid "The number of free pages."
-msgstr "O número de páginas livres."
+msgstr "A quantidade de páginas livres."
 
 #: libraries/classes/Server/Status/Variables.php:457
-#, fuzzy
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"O número de páginas trancadas no buffer pool do InnoDB. Estas são páginas "
-"que estão sendo lidas ou escritas atualmente ou que não podem ser niveladas "
-"ou removidas por alguma outra razão."
+"A quantidade de páginas trancadas no pool de buffer do InnoDB. Estas são "
+"páginas que estão sendo lidas ou escritas atualmente ou que não podem ser "
+"vazadas ou removidas por alguma razão."
 
 #: libraries/classes/Server/Status/Variables.php:462
-#, fuzzy
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"O número de páginas ocupadas porque foram alocados para rotinas "
+"A quantidade de páginas ocupadas porque foram alocados para rotinas "
 "administrativas tais como trancamento de linhas ou índice hash adaptável. "
 "Este valor também pode ser calculado como Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: libraries/classes/Server/Status/Variables.php:469
-#, fuzzy
 msgid "Total size of buffer pool, in pages."
 msgstr "Tamanho total do buffer pool, em páginas."
 
 #: libraries/classes/Server/Status/Variables.php:472
-#, fuzzy
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"O número de read-aheads \"aleatórios\" InnoDB iniciados. Isto acontece "
-"quando uma consulta faz a varredura de uma parcela grande de uma tabela mas "
-"em ordem aleatória."
+"A quantidade de read-aheads \"aleatórios\" iniciados pelo InnoDB. Isto "
+"acontece quando uma consulta faz a varredura de uma parcela grande de uma "
+"tabela mas em ordem aleatória."
 
 #: libraries/classes/Server/Status/Variables.php:477
-#, fuzzy
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
-"O número de read-aheads sequenciais InnoDB iniciados. Isto acontece quando o "
-"InnoDB faz uma varredura sequencial completa da tabela."
+"A quantidade de read-aheads sequenciais iniciados pelo InnoDB. Isto acontece "
+"quando o InnoDB faz uma varredura sequencial completa da tabela."
 
 #: libraries/classes/Server/Status/Variables.php:481
-#, fuzzy
 msgid "The number of logical read requests InnoDB has done."
-msgstr "O número de requisições de leitura lógica feitas pelo InnoDB."
+msgstr "A quantidade de requisições de leitura lógica feitas pelo InnoDB."
 
 #: libraries/classes/Server/Status/Variables.php:484
-#, fuzzy
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
-"O número de leituras lógicas que o InnoDB não pôde satisfazer com buffer "
+"A quantidade de leituras lógicas que o InnoDB não pôde satisfazer com buffer "
 "pool e teve que fazer uma leitura de página simples."
 
 #: libraries/classes/Server/Status/Variables.php:488
-#, fuzzy
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -12571,92 +12549,78 @@ msgid ""
 "properly, this value should be small."
 msgstr ""
 "Normalmente, escritas para o buffer pool do InnoDB acontecem em segundo "
-"plano. Entretanto, se for necessário ler ou criar uma página e nenhuma "
-"página limpa estiver disponível, é necessário esperar as páginas serem "
-"niveladas primeiro. Este contador conta instâncias dessas esperas. Se o "
+"plano. No entanto, se for necessário ler ou criar uma página e nenhuma "
+"página limpa estiver disponível, é necessário esperar que as páginas sejam "
+"vazadas primeiro. Este contador conta instâncias dessas esperas. Se o "
 "tamanho do buffer pool for ajustado corretamente, este valor deve ser "
 "pequeno."
 
 #: libraries/classes/Server/Status/Variables.php:496
-#, fuzzy
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr "O número de escritas feitas para o buffer pool do InnoDB."
+msgstr "A quantidade de escritas feitas para o buffer pool do InnoDB."
 
 #: libraries/classes/Server/Status/Variables.php:499
-#, fuzzy
 msgid "The number of fsync() operations so far."
-msgstr "O número de operações fsync() até agora."
+msgstr "A quantidade de operações fsync() até agora."
 
 #: libraries/classes/Server/Status/Variables.php:502
-#, fuzzy
 msgid "The current number of pending fsync() operations."
-msgstr "O número atual de operações fsync() pendentes."
+msgstr "A quantidade atual de operações fsync() pendentes."
 
 #: libraries/classes/Server/Status/Variables.php:505
-#, fuzzy
 msgid "The current number of pending reads."
-msgstr "O número atual de leituras pendentes."
+msgstr "A quantidade atual de leituras pendentes."
 
 #: libraries/classes/Server/Status/Variables.php:508
-#, fuzzy
 msgid "The current number of pending writes."
-msgstr "O número atual de escritas pendentes."
+msgstr "A quantidade atual de escritas pendentes."
 
 #: libraries/classes/Server/Status/Variables.php:511
-#, fuzzy
 msgid "The amount of data read so far, in bytes."
 msgstr "A quantidade de dados lidos até agora, em bytes."
 
 #: libraries/classes/Server/Status/Variables.php:514
-#, fuzzy
 msgid "The total number of data reads."
-msgstr "O número total de leituras de dados."
+msgstr "A quantidade total de leituras de dados."
 
 #: libraries/classes/Server/Status/Variables.php:517
-#, fuzzy
 msgid "The total number of data writes."
-msgstr "O número total de escritas de dados."
+msgstr "A quantidade total de escritas de dados."
 
 #: libraries/classes/Server/Status/Variables.php:520
-#, fuzzy
 msgid "The amount of data written so far, in bytes."
 msgstr "A quantidade de dados escritos até agora, em bytes."
 
 #: libraries/classes/Server/Status/Variables.php:523
-#, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
-"O número de páginas que foram escritas para operações doublewrite (dupla-"
+"A quantidade de páginas que foram escritas para operações doublewrite (dupla-"
 "escrita)."
 
 #: libraries/classes/Server/Status/Variables.php:527
-#, fuzzy
 msgid "The number of doublewrite operations that have been performed."
-msgstr "O número de operações doublewrite (dupla-escrita) que foi executado."
+msgstr ""
+"A quantidade de operações doublewrite (dupla-escrita) que foi executado."
 
 #: libraries/classes/Server/Status/Variables.php:530
-#, fuzzy
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
-"O número de esperas ocorridas porque o buffer de log era muito pequeno e "
-"teve que esperar seu nivelamento antes de continuar."
+"A quantidade de esperas ocorridas porque o buffer de log era muito pequeno e "
+"foi necessário de esperar seu vazamento antes de continuar."
 
 #: libraries/classes/Server/Status/Variables.php:534
-#, fuzzy
 msgid "The number of log write requests."
-msgstr "O número de requisições de escrita de log."
+msgstr "A quantidade de requisições de escrita de log."
 
 #: libraries/classes/Server/Status/Variables.php:537
-#, fuzzy
 msgid "The number of physical writes to the log file."
-msgstr "O número de escritas físicas para o ficheiro de log."
+msgstr "A quantidade de escritas físicas para o ficheiro de log."
 
 #: libraries/classes/Server/Status/Variables.php:540
-#, fuzzy
 msgid "The number of fsync() writes done to the log file."
-msgstr "O número de escritas fsyncs feitas no ficheiro de log."
+msgstr "A quantidade de escritas fsyncs feitas no ficheiro de log."
 
 #: libraries/classes/Server/Status/Variables.php:543
 msgid "The number of pending log file fsyncs."
@@ -12667,14 +12631,12 @@ msgid "Pending log file writes."
 msgstr "Escritas pendentes nos ficheiros de log."
 
 #: libraries/classes/Server/Status/Variables.php:549
-#, fuzzy
 msgid "The number of bytes written to the log file."
-msgstr "O número de bytes escritos para o ficheiro de log."
+msgstr "A quantidade de bytes escritos para o ficheiro de log."
 
 #: libraries/classes/Server/Status/Variables.php:552
-#, fuzzy
 msgid "The number of pages created."
-msgstr "O número de páginas criadas."
+msgstr "A quantidade de páginas criadas."
 
 #: libraries/classes/Server/Status/Variables.php:555
 msgid ""
@@ -12686,111 +12648,96 @@ msgstr ""
 "convertidos em bytes."
 
 #: libraries/classes/Server/Status/Variables.php:560
-#, fuzzy
 msgid "The number of pages read."
-msgstr "O número de páginas lidas."
+msgstr "A quantidade de páginas lidas."
 
 #: libraries/classes/Server/Status/Variables.php:563
-#, fuzzy
 msgid "The number of pages written."
-msgstr "O número de páginas escritas."
+msgstr "A quantidade de páginas escritas."
 
 #: libraries/classes/Server/Status/Variables.php:566
-#, fuzzy
 msgid "The number of row locks currently being waited for."
-msgstr "O número de linhas trancadas que estão esperando atualmente."
+msgstr "A quantidade de linhas trancadas que estão atualmente esperando."
 
 #: libraries/classes/Server/Status/Variables.php:569
-#, fuzzy
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "O tempo médio para recuperar uma linha trancada, em milisegundos."
+msgstr "O tempo médio para recuperar uma linha bloqueado, em milisegundos."
 
 #: libraries/classes/Server/Status/Variables.php:572
-#, fuzzy
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "O tempo total gasto para recuperar linhas trancadas, em milisegundos."
 
 #: libraries/classes/Server/Status/Variables.php:575
-#, fuzzy
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "O tempo máximo para recuperar uma linha trancada, em milisegundos."
+msgstr "O tempo máximo para recuperar uma linha bloquada, em milisegundos."
 
 #: libraries/classes/Server/Status/Variables.php:578
-#, fuzzy
 msgid "The number of times a row lock had to be waited for."
-msgstr "O número de vezes que uma trava de linha teve que esperar."
+msgstr ""
+"O número de vezes que foi necessário de esperar por uma linha bloqueada."
 
 #: libraries/classes/Server/Status/Variables.php:581
-#, fuzzy
 msgid "The number of rows deleted from InnoDB tables."
-msgstr "O número de linhas deletadas de tabelas InnoDB."
+msgstr "A quantidade de linhas deletadas de tabelas InnoDB."
 
 #: libraries/classes/Server/Status/Variables.php:584
-#, fuzzy
 msgid "The number of rows inserted in InnoDB tables."
-msgstr "O número de linhas inseridas em tabelas InnoDB."
+msgstr "A quantidade de linhas inseridas em tabelas InnoDB."
 
 #: libraries/classes/Server/Status/Variables.php:587
-#, fuzzy
 msgid "The number of rows read from InnoDB tables."
-msgstr "O número de linhas lidas de tabelas InnoDB."
+msgstr "A quantidade de linhas lidas de tabelas InnoDB."
 
 #: libraries/classes/Server/Status/Variables.php:590
-#, fuzzy
 msgid "The number of rows updated in InnoDB tables."
-msgstr "O número de linhas atualizadas em tabelas InnoDB."
+msgstr "A quantidade de linhas atualizadas em tabelas InnoDB."
 
 #: libraries/classes/Server/Status/Variables.php:593
-#, fuzzy
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
-"O número de blocos chave no key cache que mudaram mas que não foram "
-"nivelados ainda para disco. Costumava ser chamado de Not_flushed_key_blocks."
+"A quantidade de chaves bloqueadas no cache de chaves que mudaram mas que "
+"ainda não foram vazadas para o disco. Costumava ser chamado de "
+"Not_flushed_key_blocks."
 
 #: libraries/classes/Server/Status/Variables.php:598
-#, fuzzy
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
-"O número de blocos não usados no key cache. Você pode usar este valor para "
-"determinar quanto do key cache está em uso."
+"A quantidade de blocos não usados no key cache. Você pode usar este valor "
+"para determinar quanto do cache de chaves está em uso."
 
 #: libraries/classes/Server/Status/Variables.php:602
-#, fuzzy
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
-"O número de blocos usados no key cache. Este valor é uma marca d'água que "
-"indica o número máximo de blocos que já estiveram em uso em algum momento."
+"A quantidade de blocos usados no key cache. Este valor é um nível máximo de "
+"maré cheia que indica a quantidade máxima de blocos que já estiveram em uso "
+"ao mesmo tempo."
 
 #: libraries/classes/Server/Status/Variables.php:607
-#, fuzzy
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Porcentagem utilizada do key cache (valor calculado)"
+msgstr "Percentagem do key cache utilizada (valor calculado)"
 
 #: libraries/classes/Server/Status/Variables.php:610
-#, fuzzy
 msgid "The number of requests to read a key block from the cache."
-msgstr "O número de requisições para ler um bloco chave do cache."
+msgstr "A quantidade de requisições para ler um bloco chave do cache."
 
 #: libraries/classes/Server/Status/Variables.php:613
-#, fuzzy
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
-"O número de leituras físicas de um bloco chave do disco. Se Key_reads for "
-"alto, então seu valor do key_buffer_size provavelmente está muito baixo. A "
-"taxa de falta de cache pode ser calculada como Key_reads/Key_read_requests."
+"A quantidade de leituras físicas de um bloco chave do disco. Se Key_reads "
+"for alto, o valor do key_buffer_size provavelmente está muito baixo. A taxa "
+"de falta de cache pode ser calculada como Key_reads/Key_read_requests."
 
 #: libraries/classes/Server/Status/Variables.php:619
-#, fuzzy
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -12799,21 +12746,18 @@ msgstr ""
 "pedidos de leitura (valor calculado)"
 
 #: libraries/classes/Server/Status/Variables.php:623
-#, fuzzy
 msgid "The number of requests to write a key block to the cache."
-msgstr "O número de requisições para escrever um bloco chave para o cache."
+msgstr "A quantidade de requisições para escrever um bloco chave para o cache."
 
 #: libraries/classes/Server/Status/Variables.php:626
-#, fuzzy
 msgid "The number of physical writes of a key block to disk."
-msgstr "O número de escritas físicas para um bloco chave para o disco."
+msgstr "A quantidade de escritas físicas de um bloco chave para o disco."
 
 #: libraries/classes/Server/Status/Variables.php:629
-#, fuzzy
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
-"Porcentagem de escritas físicas comparada aos pedidos de escrita (valor "
+"Percentagem de escritas físicas comparado com os pedidos de escrita (valor "
 "calculado)"
 
 #: libraries/classes/Server/Status/Variables.php:633
@@ -12828,144 +12772,128 @@ msgstr ""
 "nenhuma consulta foi compilada."
 
 #: libraries/classes/Server/Status/Variables.php:639
-#, fuzzy
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
-"O número máximo de conexões que estiveram em uso simultaneamente desde a "
+"A quantidade máxima de conexões que estiveram em uso simultaneamente desde a "
 "inicialização do servidor."
 
 #: libraries/classes/Server/Status/Variables.php:643
-#, fuzzy
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
-"O número de linhas esperando para serem escritas na fila de INSERT DELAYED."
+"A quantidade de linhas esperando a serem escritas na fila de INSERT DELAYED."
 
 #: libraries/classes/Server/Status/Variables.php:646
-#, fuzzy
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
-"O número de tabelas que foram abertas. Se este número for grande, o valor do "
-"cache de tabelas provavelmente está muito pequeno."
+"A quantidade de tabelas que foram abertas. Se esta quantidade for grande, o "
+"valor do cache de tabelas provavelmente é muito pequeno."
 
 #: libraries/classes/Server/Status/Variables.php:650
 msgid "The number of files that are open."
 msgstr "O número de ficheiros que estão abertos."
 
 #: libraries/classes/Server/Status/Variables.php:653
-#, fuzzy
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
-"O número de streams que estão abertos (usados principalmente para log)."
+msgstr "O número de streams que estão abertos (usados principalmente para log)."
 
 #: libraries/classes/Server/Status/Variables.php:656
-#, fuzzy
 msgid "The number of tables that are open."
-msgstr "O número de tabelas que estão abertas."
+msgstr "A quantidade de tabelas que estão abertas."
 
 #: libraries/classes/Server/Status/Variables.php:659
-#, fuzzy
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
-"O número de blocos de memória livres no cache de pesquisa. Números altos "
-"podem indicar problemas de fragmentação, o que pode ser resolvido com "
-"execução de um comando FLUSH QUERY CACHE."
+"A quantidade de blocos de memória livres no cache de consulta. Altas "
+"quantias podem indicar problemas de fragmentação, o que pode ser resolvido "
+"com execução de um comando FLUSH QUERY CACHE."
 
 #: libraries/classes/Server/Status/Variables.php:664
-#, fuzzy
 msgid "The amount of free memory for query cache."
 msgstr "O montante de memória livre para o cache de consultas."
 
 #: libraries/classes/Server/Status/Variables.php:667
-#, fuzzy
 msgid "The number of cache hits."
-msgstr "O número de hits do cache."
+msgstr "A quantidade de hits do cache."
 
 #: libraries/classes/Server/Status/Variables.php:670
 msgid "The number of queries added to the cache."
 msgstr "O número de consultas adicionadas à cache."
 
 #: libraries/classes/Server/Status/Variables.php:673
-#, fuzzy
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
-"O número de consultas que foram removidas do cache para liberar memória para "
-"novas consultas. Essa informação pode ajudar você a ajustar o tamanho do "
-"cache de consultas. O cache de consultas usa a estratégia LRU (menos usadas "
-"recentemente) para decidir quais consultas remover do cache."
+"A quantidade de consultas que foram removidas do cache para liberar memória "
+"para novas consultas. Essa informação pode ajudar-lhe a ajustar o tamanho do "
+"cache de consultas. O cache de consultas usa a estratégia LRU (lear recent "
+"used - menos recentemente usadas) para decidir quais consultas remover do "
+"cache."
 
 #: libraries/classes/Server/Status/Variables.php:680
-#, fuzzy
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
-"O número de consultas sem cache (não cacheável, ou não pode ser cacheável "
-"devido à configuração em query_cache_type)."
+"A quantidade de consultas não cacheadas (não cacheável ou não pode ser "
+"cacheável devido à configuração em query_cache_type)."
 
 #: libraries/classes/Server/Status/Variables.php:684
-#, fuzzy
 msgid "The number of queries registered in the cache."
-msgstr "O número de consultas registradas no cache."
+msgstr "A quantidade de consultas registradas no cache."
 
 #: libraries/classes/Server/Status/Variables.php:687
-#, fuzzy
 msgid "The total number of blocks in the query cache."
-msgstr "O número total de blocos no cache de consultas."
+msgstr "A quantidade total de blocos no cache de consultas."
 
 #: libraries/classes/Server/Status/Variables.php:690
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "O estado da replicação à prova de falhas (ainda não implementado)."
 
 #: libraries/classes/Server/Status/Variables.php:693
-#, fuzzy
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"O número de junções que não usam índices. Se este valor não for 0, você deve "
-"verificar com cuidado os índices de suas tabelas."
+"A quantidade de junções que não usam índices. Se este valor não for 0, você "
+"deve verificar bem os índices de suas tabelas."
 
 #: libraries/classes/Server/Status/Variables.php:697
-#, fuzzy
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
-"O número de junções que usaram uma pesquisa de escala em uma tabela de "
+"A quantidade de junções que usaram uma pesquisa de escala numa tabela de "
 "referência."
 
 #: libraries/classes/Server/Status/Variables.php:700
-#, fuzzy
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"O número de junções sem chaves que procuram por uso de chaves após cada "
-"linha. (Se isto não for 0, você deve verificar com cuidado os índices de "
-"suas tabelas.)"
+"A quantidade de junções sem chaves que procuram pelo uso de chaves após cada "
+"linha. (Se não for 0, você deve verificar bem os índices de suas tabelas.)"
 
 #: libraries/classes/Server/Status/Variables.php:705
-#, fuzzy
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
-"O número de junções que usaram escalas na primeira tabela. (Isso normalmente "
-"não é crítico mesmo se for grande.)"
+"A quantidade de junções que usaram escalas na primeira tabela. (Isso "
+"normalmente não é crítico mesmo se for grande.)"
 
 #: libraries/classes/Server/Status/Variables.php:709
-#, fuzzy
 msgid "The number of joins that did a full scan of the first table."
-msgstr "O número junções que fez uma varredura completa da primeira tabela."
+msgstr ""
+"A quantidade de junções que fizeram uma varredura completa da primeira "
+"tabela."
 
 #: libraries/classes/Server/Status/Variables.php:712
 msgid "The number of temporary tables currently open by the slave SQL thread."
@@ -12986,51 +12914,45 @@ msgstr ""
 "Isto está LIGADO se este servidor é um slave que está conectado a um master."
 
 #: libraries/classes/Server/Status/Variables.php:723
-#, fuzzy
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
-"O número de processos que levaram mais que slow_launch_time segundos para "
-"serem criadas."
+"A quantidade de processos que levaram mais que slow_launch_time segundos "
+"para serem criadas."
 
 #: libraries/classes/Server/Status/Variables.php:727
-#, fuzzy
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr "O número de consultas que levaram mais que long_query_time segundos."
+msgstr ""
+"A quantidade de consultas que levaram mais que long_query_time segundos."
 
 #: libraries/classes/Server/Status/Variables.php:731
-#, fuzzy
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
-"O número de fusões que o algoritmo de ordenação teve que fazer. Se este "
-"valor for alto, você deve considerar aumentar o valor da variável "
+"A quantidade de passes de fusão que o algoritmo de ordenação teve que fazer. "
+"Se este valor for alto, você deve considerar aumentar o valor da variável "
 "sort_buffer_size do sistema."
 
 #: libraries/classes/Server/Status/Variables.php:736
-#, fuzzy
 msgid "The number of sorts that were done with ranges."
-msgstr "O número de ordenações que foram feitas com escalas."
+msgstr "A quantidade de ordenações que foram feitas com escalas."
 
 #: libraries/classes/Server/Status/Variables.php:739
-#, fuzzy
 msgid "The number of sorted rows."
-msgstr "O número de linhas ordenadas."
+msgstr "A quantidade de linhas ordenadas."
 
 #: libraries/classes/Server/Status/Variables.php:742
-#, fuzzy
 msgid "The number of sorts that were done by scanning the table."
-msgstr "O número de ordenações que foram feitas por leituras da tabela."
+msgstr "A quantidade de ordenações que foram feitas por varreduras da tabela."
 
 #: libraries/classes/Server/Status/Variables.php:745
-#, fuzzy
 msgid "The number of times that a table lock was acquired immediately."
 msgstr ""
-"O número de vezes que uma tabela trancada foi recuperada imediatamente."
+"O número de vezes que uma tabela bloqueada foi recuperada imediatamente."
 
 #: libraries/classes/Server/Status/Variables.php:748
 #, fuzzy
@@ -14392,11 +14314,11 @@ msgid "Thread %s was successfully killed."
 msgstr "O processo %s foi finalizado com sucesso."
 
 #: server_status_processes.php:39
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
-"O phpMyAdmin não foi capaz de matar o processo %s. É possível que ele já "
+"O phpMyAdmin não foi capaz de matar o thread %s. É possível que ele já "
 "esteja fechado."
 
 #: server_status_queries.php:43
@@ -16124,9 +16046,8 @@ msgid "Input transformation options"
 msgstr "Opções de transformação de dado"
 
 #: templates/table/structure/move_columns_dialog.twig:2
-#, fuzzy
 msgid "Move the columns by dragging them up and down."
-msgstr "Mover o(s) campo(s) arrastando ele(s) para cima e para baixo."
+msgstr "Mova as colunas arrastando-as para cima e para baixo."
 
 #: templates/display/export/options_output_radio.twig:5
 msgid "View output as text"
@@ -18088,31 +18009,27 @@ msgstr ""
 "Taxa de ficheiros abertos: %s. Este valor deveria ser menor do que 5 por hora"
 
 #: libraries/advisory_rules.txt:330
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Immediate table locks %%"
-msgstr "Porcentagem de travas de tabela imediatas"
+msgstr "Blocos de tabela imediatos %%"
 
 #: libraries/advisory_rules.txt:333 libraries/advisory_rules.txt:340
-#, fuzzy
 msgid "Too many table locks were not granted immediately."
-msgstr "Travas de tabela demais não foram concedidas imediatamente."
+msgstr "Demais blocos de tabela não foram imediatamente concedidos."
 
 #: libraries/advisory_rules.txt:334 libraries/advisory_rules.txt:341
-#, fuzzy
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr "Otimize as queries e/ou use InnoDB para reduzir a espera de trava."
+msgstr "Otimize as queries e/ou use InnoDB para reduzir a espera de blocos."
 
 #: libraries/advisory_rules.txt:335
-#, fuzzy, php-format
+#, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
-"Travas de tabela imediatas: %s%%. Este valor deveria ser maior do que 95%%"
+"Blocos de tabela imediatos: %s%%. Este valor deveria ser maior do que 95%%"
 
 #: libraries/advisory_rules.txt:337
-#, fuzzy
 msgid "Table lock wait rate"
-msgstr "Taxa de espera de trava de tabela"
+msgstr "Taxa de espera de bloco de tabela"
 
 #: libraries/advisory_rules.txt:342
 #, fuzzy, php-format
