@@ -3925,6 +3925,7 @@ class InsertEditTest extends TestCase
         $table_columns = [
             [
                 'Field' => 'test',
+                'Extra' => '',
                 'Type' => 'longtext',
                 'Null' => 'Yes',
                 'pma_type' => 'longtext',
@@ -4004,6 +4005,7 @@ class InsertEditTest extends TestCase
             [
                 'Field' => 'foo',
                 'Type' => 'longtext',
+                'Extra' => '',
                 'Null' => 'Yes',
                 'pma_type' => 'longtext',
                 'True_Type' => 'longtext',
@@ -4012,6 +4014,7 @@ class InsertEditTest extends TestCase
             [
                 'Field' => 'bar',
                 'Type' => 'longtext',
+                'Extra' => '',
                 'Null' => 'Yes',
                 'pma_type' => 'longtext',
                 'True_Type' => 'longtext',
@@ -4060,6 +4063,7 @@ class InsertEditTest extends TestCase
             [
                 'Field' => 'foo',
                 'Type' => 'longtext',
+                'Extra' => '',
                 'Null' => 'Yes',
                 'Key' => '',
                 'pma_type' => 'longtext',
@@ -4069,6 +4073,7 @@ class InsertEditTest extends TestCase
             [
                 'Field' => 'bar',
                 'Type' => 'longtext',
+                'Extra' => '',
                 'Null' => 'Yes',
                 'Key' => '',
                 'pma_type' => 'longtext',
