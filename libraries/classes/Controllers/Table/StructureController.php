@@ -1246,7 +1246,8 @@ class StructureController extends AbstractController
         $edit_view_url = '';
         if ($this->_tbl_is_view && ! $this->_db_is_system_schema) {
             $edit_view_url = Url::getCommon([
-                'db' => $this->db, 'table' => $this->table
+                'db' => $this->db,
+                'table' => $this->table,
             ]);
         }
 

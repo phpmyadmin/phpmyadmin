@@ -191,7 +191,6 @@ $view = [
     'column_names' => '',
     'as' => $sql_query,
     'with' => '',
-    'algorithm' => '',
 ];
 
 // Used to prefill the fields when editing a view
@@ -221,7 +220,6 @@ if (isset($_GET['db']) && isset($_GET['table'])) {
     $view['as'] = $item['VIEW_DEFINITION'];
     $view['with'] = $item['CHECK_OPTION'];
     $view['algorithm'] = $item['ALGORITHM'];
-
 }
 
 if (Core::isValid($_POST['view'], 'array')) {
