@@ -45,4 +45,3 @@ parameters:
         - %rootDir%/../../../themes/*/css/*.css.php
         - %rootDir%/../../../examples/signon-script.php
         - %rootDir%/../../../examples/openid.php
-        - %rootDir%/../../../libraries/classes/ReplicationGui.php #https://github.com/phpstan/phpstan/issues/2010
