@@ -2257,6 +2257,18 @@ class Util
         return $gotopage;
     } // end function
 
+
+    /**
+     * Calculate page number through position
+     * @param int      $pos         position of first item
+     * @param int      $max_count   number of items per page
+     * @return int     $page_num
+     * @access public
+    */
+
+    public static function getPageFromPosition($pos, $max_count) {
+        return floor($pos / $max_count)+1;
+    }
     /**
      * Prepare navigation for a list
      *
@@ -2276,6 +2288,7 @@ class Util
      *
      * @todo    use $pos from $_url_params
      */
+
     public static function getListNavigator(
         $count, $pos, array $_url_params, $script, $frame, $max_count, $name = 'pos',
         $classes = array()
@@ -2333,7 +2346,7 @@ class Util
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
-                floor(($pos + 1) / $max_count) + 1,
+                self::getPageFromPosition($pos, $max_count),
                 ceil($count / $max_count)
             );
             $list_navigator_html .= '</form>';
