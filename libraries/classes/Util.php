@@ -2260,15 +2260,16 @@ class Util
 
     /**
      * Calculate page number through position
-     * @param int      $pos         position of first item
-     * @param int      $max_count   number of items per page
-     * @return int     $page_num
+     * @param int $pos       position of first item
+     * @param int $max_count number of items per page
+     * @return int $page_num
      * @access public
-    */
-
-    public static function getPageFromPosition($pos, $max_count) {
-        return floor($pos / $max_count)+1;
+     */
+    public static function getPageFromPosition($pos, $max_count)
+    {
+        return floor($pos / $max_count) + 1;
     }
+
     /**
      * Prepare navigation for a list
      *

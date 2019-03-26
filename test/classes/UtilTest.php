@@ -2051,11 +2051,12 @@ class UtilTest extends PmaTestCase
      *
      * @covers PhpMyAdmin\Util::getPageFromPosition
      */
-    function testGetPageFromPosition() {
-        $this->assertEquals(Util::getPageFromPosition(0,1), 1);
-        $this->assertEquals(Util::getPageFromPosition(1,1), 2);
-        $this->assertEquals(Util::getPageFromPosition(1,2), 1);
-        $this->assertEquals(Util::getPageFromPosition(1,6), 1);
+    public function testGetPageFromPosition()
+    {
+        $this->assertEquals(Util::getPageFromPosition(0, 1), 1);
+        $this->assertEquals(Util::getPageFromPosition(1, 1), 2);
+        $this->assertEquals(Util::getPageFromPosition(1, 2), 1);
+        $this->assertEquals(Util::getPageFromPosition(1, 6), 1);
     }
 
     /**
