@@ -280,6 +280,17 @@ if (! empty($submit_mult) && ! empty($what)) {
         }
     }
 
+    // Unset cache values for tables count, issue #14205
+    if ($query_type === 'drop_tbl' && isset($_SESSION['tmpval'])) {
+        if (isset($_SESSION['tmpval']['table_limit_offset'])) {
+            unset($_SESSION['tmpval']['table_limit_offset']);
+        }
+
+        if (isset($_SESSION['tmpval']['table_limit_offset_db'])) {
+            unset($_SESSION['tmpval']['table_limit_offset_db']);
+        }
+    }
+
     if ($execute_query_later) {
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
