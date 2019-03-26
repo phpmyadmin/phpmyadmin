@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-03-25 19:40+0000\n"
+"PO-Revision-Date: 2019-04-01 06:16+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -614,8 +614,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Está a tentar reduzir o número de linhas, mas já inseriu dados nessas linhas "
-"que serão perdidas. Deseja continuar?"
+"Você está a tentar reduzir o número de linhas, mas já inseriu dados nessas "
+"linhas que serão perdidas. Deseja continuar?"
 
 #: js/messages.php:79
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -6595,6 +6595,8 @@ msgstr ""
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
+"O phpMyAdmin não foi capaz de matar o thread %s. É possível que ele já "
+"esteja fechado."
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:108
 msgid "ID"
@@ -6736,6 +6738,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
+"O servidor MySQL pode perguntar ao motor de armazenamento do NDB Cluster se "
+"ele sabe sobre uma tabela com um determinado nome. Isto é chamado "
+"descoberta. Handler_discover indica a quantidade de tabelas descobertas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:264
 msgid ""
@@ -6743,12 +6748,18 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
+"As vezes que a primeira entrada foi lida de um índice. Se for alto, sugere "
+"que o usuário está fazendo muitas varreduras completas do índice; por "
+"exemplo, SELECT col1 FROM foo, supondo que col1 é um índice."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
+"O número de requisições lendo uma linha baseada numa chave. Se for grande, é "
+"uma boa indicação de que suas consultas e tabelas estão corretamente "
+"indexadas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:275
 msgid ""
@@ -6756,12 +6767,17 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"O número de requisições para ler a linha seguinte na ordem da chave. Isto é "
+"incrementado se você estiver consultando uma coluna do índice com uma "
+"restrição de escala ou se você estiver fazendo uma varredura do índice."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:280
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
+"A quantidade de requisições para ler a linha precedente na ordem da chave. "
+"Este método de leitura é usado principalmente para otimizar ORDER BY … DESC."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:284
 msgid ""
@@ -6770,6 +6786,11 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
+"A quantidade de requisições para ler uma linha baseada numa posição fixa. É "
+"grande se você estiver fazendo muitas consultas que requerem a ordenação do "
+"resultado. Você provavelmente tem muitas consultas que requerem que o MySQL "
+"faça a varredura inteira de tabelas ou você tem junções que não usam as "
+"chaves corretamente."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:291
 msgid ""
@@ -6778,34 +6799,40 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
+"A quantidade de requisições para ler a linha seguinte no ficheiro de dados. "
+"É grande se você estiver fazendo muitas varreduras de tabela. Geralmente "
+"isto sugere que suas tabelas não estão corretamente indexadas ou que suas "
+"consultas não estão escritas para tomar vantagem dos índices que você têm."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "O número de enunciados ROLLBACK internos."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:301
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "A quantidade de requisições para atualizar uma linha na tabela."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:304
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "A quantidade de requisições para inserir uma linha na tabela."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:307
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
+msgstr "A quantidade de páginas que contém dados (sujos ou limpos)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:310
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "A quantidade de páginas atualmente sujas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:313
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
+"A quantidade de páginas do pool de buffer que foram requisitadas para serem "
+"vazadas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid "The number of free pages."
-msgstr ""
+msgstr "A quantidade de páginas livres."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:320
 msgid ""
@@ -6813,6 +6840,9 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
+"A quantidade de páginas trancadas no pool de buffer do InnoDB. Estas são "
+"páginas que estão sendo lidas ou escritas atualmente ou que não podem ser "
+"vazadas ou removidas por alguma razão."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:325
 msgid ""
@@ -6821,32 +6851,43 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
+"A quantidade de páginas ocupadas porque foram alocados para rotinas "
+"administrativas tais como trancamento de linhas ou índice hash adaptável. "
+"Este valor também pode ser calculado como Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:332
 msgid "Total size of buffer pool, in pages."
-msgstr ""
+msgstr "Tamanho total do buffer pool, em páginas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:335
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
+"A quantidade de read-aheads \"aleatórios\" iniciados pelo InnoDB. Isto "
+"acontece quando uma consulta faz a varredura de uma parcela grande de uma "
+"tabela mas em ordem aleatória."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:340
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
+"A quantidade de read-aheads sequenciais iniciados pelo InnoDB. Isto acontece "
+"quando o InnoDB faz uma varredura sequencial completa da tabela."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:344
 msgid "The number of logical read requests InnoDB has done."
-msgstr ""
+msgstr "A quantidade de requisições de leitura lógica feitas pelo InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:347
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
+"A quantidade de leituras lógicas que o InnoDB não pôde satisfazer com buffer "
+"pool e teve que fazer uma leitura de página simples."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:351
 msgid ""
@@ -6856,68 +6897,79 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
+"Normalmente, escritas para o buffer pool do InnoDB acontecem em segundo "
+"plano. No entanto, se for necessário ler ou criar uma página e nenhuma "
+"página limpa estiver disponível, é necessário esperar que as páginas sejam "
+"vazadas primeiro. Este contador conta instâncias dessas esperas. Se o "
+"tamanho do buffer pool for ajustado corretamente, este valor deve ser "
+"pequeno."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:359
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr ""
+msgstr "A quantidade de escritas feitas para o buffer pool do InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 msgid "The number of fsync() operations so far."
-msgstr ""
+msgstr "A quantidade de operações fsync() até agora."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:365
 msgid "The current number of pending fsync() operations."
-msgstr ""
+msgstr "A quantidade atual de operações fsync() pendentes."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:368
 msgid "The current number of pending reads."
-msgstr ""
+msgstr "A quantidade atual de leituras pendentes."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:371
 msgid "The current number of pending writes."
-msgstr ""
+msgstr "A quantidade atual de escritas pendentes."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:374
 msgid "The amount of data read so far, in bytes."
-msgstr ""
+msgstr "A quantidade de dados lidos até agora, em bytes."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid "The total number of data reads."
-msgstr ""
+msgstr "A quantidade total de leituras de dados."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:380
 msgid "The total number of data writes."
-msgstr ""
+msgstr "A quantidade total de escritas de dados."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:383
 msgid "The amount of data written so far, in bytes."
-msgstr ""
+msgstr "A quantidade de dados escritos até agora, em bytes."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:386
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
+"A quantidade de páginas que foram escritas para operações doublewrite (dupla-"
+"escrita)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:390
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
+"A quantidade de operações doublewrite (dupla-escrita) que foi executado."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:393
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
+"A quantidade de esperas ocorridas porque o buffer de log era muito pequeno e "
+"foi necessário de esperar seu vazamento antes de continuar."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:397
 msgid "The number of log write requests."
-msgstr ""
+msgstr "A quantidade de requisições de escrita de log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:400
 msgid "The number of physical writes to the log file."
-msgstr ""
+msgstr "A quantidade de escritas físicas para o ficheiro de log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:403
 msgid "The number of fsync() writes done to the log file."
-msgstr ""
+msgstr "A quantidade de escritas fsyncs feitas no ficheiro de log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:406
 msgid "The number of pending log file fsyncs."
@@ -6929,11 +6981,11 @@ msgstr "Escritas pendentes nos ficheiros de log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:412
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "A quantidade de bytes escritos para o ficheiro de log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:415
 msgid "The number of pages created."
-msgstr ""
+msgstr "A quantidade de páginas criadas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:418
 msgid ""
@@ -6946,59 +6998,65 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of pages read."
-msgstr ""
+msgstr "A quantidade de páginas lidas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:426
 msgid "The number of pages written."
-msgstr ""
+msgstr "A quantidade de páginas escritas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:429
 msgid "The number of row locks currently being waited for."
-msgstr ""
+msgstr "A quantidade de linhas trancadas que estão atualmente esperando."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:432
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "O tempo médio para recuperar uma linha bloqueado, em milisegundos."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:435
 msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr ""
+msgstr "O tempo total gasto para recuperar linhas trancadas, em milisegundos."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:438
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "O tempo máximo para recuperar uma linha bloquada, em milisegundos."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:441
 msgid "The number of times a row lock had to be waited for."
 msgstr ""
+"O número de vezes que foi necessário de esperar por uma linha bloqueada."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:444
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "A quantidade de linhas deletadas de tabelas InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:447
 msgid "The number of rows inserted in InnoDB tables."
-msgstr ""
+msgstr "A quantidade de linhas inseridas em tabelas InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:450
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "A quantidade de linhas lidas de tabelas InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:453
 msgid "The number of rows updated in InnoDB tables."
-msgstr ""
+msgstr "A quantidade de linhas atualizadas em tabelas InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:456
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
+"A quantidade de chaves bloqueadas no cache de chaves que mudaram mas que "
+"ainda não foram vazadas para o disco. Costumava ser chamado de "
+"Not_flushed_key_blocks."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:461
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
+"A quantidade de blocos não usados no key cache. Você pode usar este valor "
+"para determinar quanto do cache de chaves está em uso."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:465
 msgid ""
@@ -7006,15 +7064,17 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
+"A quantidade de blocos usados no key cache. Este valor é um nível máximo de "
+"maré cheia que indica a quantidade máxima de blocos que já estiveram em uso "
+"ao mesmo tempo."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:470
-#, fuzzy
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Configurar o Mapa de Caracteres do ficheiro:"
+msgstr "Percentagem do key cache utilizada (valor calculado)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:473
 msgid "The number of requests to read a key block from the cache."
-msgstr ""
+msgstr "A quantidade de requisições para ler um bloco chave do cache."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:476
 msgid ""
@@ -7022,25 +7082,32 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"A quantidade de leituras físicas de um bloco chave do disco. Se Key_reads "
+"for alto, o valor do key_buffer_size provavelmente está muito baixo. A taxa "
+"de falta de cache pode ser calculada como Key_reads/Key_read_requests."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:482
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Key cache mal calculado quanto a taxa de leitura física comparada aos "
+"pedidos de leitura (valor calculado)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:486
 msgid "The number of requests to write a key block to the cache."
-msgstr ""
+msgstr "A quantidade de requisições para escrever um bloco chave para o cache."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:489
 msgid "The number of physical writes of a key block to disk."
-msgstr ""
+msgstr "A quantidade de escritas físicas de um bloco chave para o disco."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:492
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Percentagem de escritas físicas comparado com os pedidos de escrita (valor "
+"calculado)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:496
 msgid ""
@@ -7058,16 +7125,21 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"A quantidade máxima de conexões que estiveram em uso simultaneamente desde a "
+"inicialização do servidor."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:506
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
+"A quantidade de linhas esperando a serem escritas na fila de INSERT DELAYED."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:509
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
+"A quantidade de tabelas que foram abertas. Se esta quantidade for grande, o "
+"valor do cache de tabelas provavelmente é muito pequeno."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:513
 msgid "The number of files that are open."
@@ -7075,11 +7147,11 @@ msgstr "O número de ficheiros que estão abertos."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:516
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
+msgstr "O número de streams que estão abertos (usados principalmente para log)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:519
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "A quantidade de tabelas que estão abertas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:522
 msgid ""
@@ -7087,14 +7159,17 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"A quantidade de blocos de memória livres no cache de consulta. Altas "
+"quantias podem indicar problemas de fragmentação, o que pode ser resolvido "
+"com execução de um comando FLUSH QUERY CACHE."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:527
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "O montante de memória livre para o cache de consultas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:530
 msgid "The number of cache hits."
-msgstr ""
+msgstr "A quantidade de hits do cache."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:533
 msgid "The number of queries added to the cache."
@@ -7107,20 +7182,27 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
+"A quantidade de consultas que foram removidas do cache para liberar memória "
+"para novas consultas. Essa informação pode ajudar-lhe a ajustar o tamanho do "
+"cache de consultas. O cache de consultas usa a estratégia LRU (lear recent "
+"used - menos recentemente usadas) para decidir quais consultas remover do "
+"cache."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:543
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
+"A quantidade de consultas não cacheadas (não cacheável ou não pode ser "
+"cacheável devido à configuração em query_cache_type)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:547
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "A quantidade de consultas registradas no cache."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:550
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "A quantidade total de blocos no cache de consultas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The status of failsafe replication (not yet implemented)."
@@ -7131,26 +7213,36 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
+"A quantidade de junções que não usam índices. Se este valor não for 0, você "
+"deve verificar bem os índices de suas tabelas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:560
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
+"A quantidade de junções que usaram uma pesquisa de escala numa tabela de "
+"referência."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:563
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
+"A quantidade de junções sem chaves que procuram pelo uso de chaves após cada "
+"linha. (Se não for 0, você deve verificar bem os índices de suas tabelas.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:568
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
+"A quantidade de junções que usaram escalas na primeira tabela. (Isso "
+"normalmente não é crítico mesmo se for grande.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:572
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
+"A quantidade de junções que fizeram uma varredura completa da primeira "
+"tabela."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:575
 msgid "The number of temporary tables currently open by the slave SQL thread."
@@ -7175,11 +7267,14 @@ msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
+"A quantidade de processos que levaram mais que slow_launch_time segundos "
+"para serem criadas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:590
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
+"A quantidade de consultas que levaram mais que long_query_time segundos."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:594
 msgid ""
@@ -7187,22 +7282,26 @@ msgid ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
+"A quantidade de passes de fusão que o algoritmo de ordenação teve que fazer. "
+"Se este valor for alto, você deve considerar aumentar o valor da variável "
+"sort_buffer_size do sistema."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:599
 msgid "The number of sorts that were done with ranges."
-msgstr ""
+msgstr "A quantidade de ordenações que foram feitas com escalas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:602
 msgid "The number of sorted rows."
-msgstr ""
+msgstr "A quantidade de linhas ordenadas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:605
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "A quantidade de ordenações que foram feitas por varreduras da tabela."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:608
 msgid "The number of times that a table lock was acquired immediately."
 msgstr ""
+"O número de vezes que uma tabela bloqueada foi recuperada imediatamente."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:611
 msgid ""
@@ -15797,7 +15896,7 @@ msgstr "Adicionar colunas"
 
 #: templates/table/structure/display_structure.twig:364
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Mova as colunas arrastando-as para cima e para baixo."
 
 #: templates/table/structure/display_structure.twig:385
 msgid "Propose table structure"
@@ -17606,27 +17705,27 @@ msgstr ""
 "Taxa de ficheiros abertos: %s. Este valor deveria ser menor do que 5 por hora"
 
 #: libraries/advisory_rules.txt:330
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Immediate table locks %%"
-msgstr "Criar nova tabela na base de dados %s"
+msgstr "Blocos de tabela imediatos %%"
 
 #: libraries/advisory_rules.txt:333 libraries/advisory_rules.txt:340
 msgid "Too many table locks were not granted immediately."
-msgstr ""
+msgstr "Demais blocos de tabela não foram imediatamente concedidos."
 
 #: libraries/advisory_rules.txt:334 libraries/advisory_rules.txt:341
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
+msgstr "Otimize as queries e/ou use InnoDB para reduzir a espera de blocos."
 
 #: libraries/advisory_rules.txt:335
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
+"Blocos de tabela imediatos: %s%%. Este valor deveria ser maior do que 95%%"
 
 #: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Taxa de espera de bloco de tabela"
 
 #: libraries/advisory_rules.txt:342
 #, php-format
