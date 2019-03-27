@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue #14205 Fixed "No tables found in database" when you delete all tables from last page
 - issue #14957 Virtuality is not selected when editing generated column (added virtuality(stored) option for mariadb)
 - issue #14853 Insert page should not allow entering things into virtual columns
+- issue #15110 Fixed TypeError e.preventDefaulut is not a function
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
