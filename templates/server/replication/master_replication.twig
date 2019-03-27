@@ -1,0 +1,29 @@
+{% if not clear_screen %}
+  <fieldset>
+    <legend>{% trans 'Master replication' %}</legend>
+    {% trans 'This server is configured as master in a replication process.' %}
+    <ul>
+      <li>
+        <a href="#master_status_href" id="master_status_href">
+          {% trans 'Show master status' %}
+        </a>
+        {{ master_status_table|raw }}
+      </li>
+      <li>
+        <a href="#master_slaves_href" id="master_slaves_href">
+          {% trans 'Show connected slaves' %}
+        </a>
+        {{ slaves_table|raw }}
+      </li>
+      <li>
+        <a href="server_replication.php" data-post="{{ get_common(url_params, '') }}" id="master_addslaveuser_href">
+          {% trans 'Add slave replication user' %}
+        </a>
+      </li>
+{% endif %}
+{% if master_add_user %}
+    {{ master_add_slave_user|raw }}
+{% elseif not clear_screen %}
+    </ul>
+  </fieldset>
+{% endif %}

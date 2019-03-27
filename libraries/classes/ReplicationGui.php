@@ -29,11 +29,17 @@ class ReplicationGui
     private $replication;
 
     /**
+     * @var Template
+     */
+    private $template;
+
+    /**
      * ReplicationGui constructor.
      */
     public function __construct()
     {
         $this->replication = new Replication();
+        $this->template = new Template();
     }
 
     /**
@@ -67,41 +73,27 @@ class ReplicationGui
      */
     public function getHtmlForMasterReplication()
     {
-        $html = '';
         if (! isset($_POST['repl_clear_scr'])) {
-            $html .= '<fieldset>';
-            $html .= '<legend>' . __('Master replication') . '</legend>';
-            $html .= __('This server is configured as master in a replication process.');
-            $html .= '<ul>';
-            $html .= '  <li><a href="#master_status_href" id="master_status_href">';
-            $html .= __('Show master status') . '</a>';
-            $html .= $this->getHtmlForReplicationStatusTable('master', true, false);
-            $html .= '  </li>';
+            $masterStatusTable = $this->getHtmlForReplicationStatusTable('master', true, false);
+            $slavesTable = $this->getHtmlForReplicationSlavesTable(true);
 
-            $html .= '  <li><a href="#master_slaves_href" id="master_slaves_href">';
-            $html .= __('Show connected slaves') . '</a>';
-            $html .= $this->getHtmlForReplicationSlavesTable(true);
-            $html .= '  </li>';
-
-            $_url_params = $GLOBALS['url_params'];
-            $_url_params['mr_adduser'] = true;
-            $_url_params['repl_clear_scr'] = true;
-
-            $html .= '  <li><a href="server_replication.php" data-post="';
-            $html .= Url::getCommon($_url_params, '')
-                . '" id="master_addslaveuser_href">';
-            $html .= __('Add slave replication user') . '</a></li>';
+            $urlParams = $GLOBALS['url_params'];
+            $urlParams['mr_adduser'] = true;
+            $urlParams['repl_clear_scr'] = true;
         }
 
-        // Display 'Add replication slave user' form
         if (isset($_POST['mr_adduser'])) {
-            $html .= $this->getHtmlForReplicationMasterAddSlaveUser();
-        } elseif (! isset($_POST['repl_clear_scr'])) {
-            $html .= "</ul>";
-            $html .= "</fieldset>";
+            $masterAddSlaveUser = $this->getHtmlForReplicationMasterAddSlaveUser();
         }
 
-        return $html;
+        return $this->template->render('server/replication/master_replication', [
+            'clear_screen' => isset($_POST['repl_clear_scr']),
+            'master_status_table' => $masterStatusTable ?? '',
+            'slaves_table' => $slavesTable ?? '',
+            'url_params' => $urlParams ?? [],
+            'master_add_user' => isset($_POST['mr_adduser']),
+            'master_add_slave_user' => $masterAddSlaveUser ?? '',
+        ]);
     }
 
     /**
