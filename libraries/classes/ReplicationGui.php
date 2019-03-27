@@ -103,46 +103,11 @@ class ReplicationGui
      */
     public function getHtmlForMasterConfiguration()
     {
-        $html  = '<fieldset>';
-        $html .= '<legend>' . __('Master configuration') . '</legend>';
-        $html .= __(
-            'This server is not configured as a master server in a '
-            . 'replication process. You can choose from either replicating '
-            . 'all databases and ignoring some of them (useful if you want to '
-            . 'replicate a majority of the databases) or you can choose to ignore '
-            . 'all databases by default and allow only certain databases to be '
-            . 'replicated. Please select the mode:'
-        ) . '<br><br>';
+        $databaseMultibox = $this->getHtmlForReplicationDbMultibox();
 
-        $html .= '<select name="db_type" id="db_type">';
-        $html .= '<option value="all">' . __('Replicate all databases; Ignore:');
-        $html .= '</option>';
-        $html .= '<option value="ign">' . __('Ignore all databases; Replicate:');
-        $html .= '</option>';
-        $html .= '</select>';
-        $html .= '<br><br>';
-        $html .= __('Please select databases:') . '<br>';
-        $html .= $this->getHtmlForReplicationDbMultibox();
-        $html .= '<br><br>';
-        $html .= __(
-            'Now, add the following lines at the end of [mysqld] section'
-            . ' in your my.cnf and please restart the MySQL server afterwards.'
-        ) . '<br>';
-        $html .= '<pre id="rep"></pre>';
-        $html .= __(
-            'Once you restarted MySQL server, please click on Go button. '
-            . 'Afterwards, you should see a message informing you, that this server'
-            . ' <b>is</b> configured as master.'
-        );
-        $html .= '</fieldset>';
-        $html .= '<fieldset class="tblFooters">';
-        $html .= ' <form method="post" action="server_replication.php" >';
-        $html .= Url::getHiddenInputs('', '');
-        $html .= '  <input id="goButton" class="btn btn-primary" type="submit" value="' . __('Go') . '">';
-        $html .= ' </form>';
-        $html .= '</fieldset>';
-
-        return $html;
+        return $this->template->render('server/replication/master_configuration', [
+            'database_multibox' => $databaseMultibox,
+        ]);
     }
 
     /**
