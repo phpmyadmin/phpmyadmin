@@ -2377,7 +2377,6 @@ class Util
      *
      * @todo    use $pos from $_url_params
      */
-
     public static function getListNavigator(
         $count,
         $pos,
