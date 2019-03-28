@@ -314,7 +314,7 @@ if (@file_exists(ROOT_PATH . 'setup/index.php') && ! @file_exists(CONFIG_FILE)) 
                     <input type="radio" id="export_text_file" name="export_type"
                            value="text_file" checked="checked">
                     <label for="export_text_file">
-                        <?php echo __('Save as file'); ?>
+                        <?php echo __('Save as JSON file'); ?>
                     </label><br>
                     <input type="radio" id="export_php_file" name="export_type"
                            value="php_file">
