@@ -85,9 +85,6 @@ var grid_size = 10;
 
 // window.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP);
 // ---CROSS
-document.onmousedown = MouseDown;
-document.onmouseup   = MouseUp;
-document.onmousemove = MouseMove;
 
 var isIE = document.all && !window.opera;
 
@@ -1943,6 +1940,9 @@ AJAX.registerTeardown('designer/move.js', function () {
     $('#cancel_close_option').off('click');
     $('#ok_new_rel_panel').off('click');
     $('#cancel_new_rel_panel').off('click');
+    $("#page_content").off('mouseup');
+    $("#page_content").off('mousedown');
+    $("#page_content").off('mousemove');
 });
 
 AJAX.registerOnload('designer/move.js', function () {
@@ -2106,5 +2106,14 @@ AJAX.registerOnload('designer/move.js', function () {
     });
     $('input#cancel_new_rel_panel').click(function () {
         document.getElementById('layer_new_relation').style.display = 'none';
+    });
+    $("#page_content").on('mousedown', function(e) {
+        MouseDown(e);
+    });
+    $("#page_content").on('mouseup', function(e) {
+        MouseUp(e);
+    });
+    $("#page_content").on('mousemove', function(e) {
+        MouseMove(e);
     });
 });
