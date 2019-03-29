@@ -113,165 +113,90 @@ class ReplicationGui
     /**
      * returns HTML for slave replication configuration
      *
-     * @param bool  $server_slave_status      Whether it is Master or Slave
-     * @param array $server_slave_replication Slave replication
+     * @param bool  $serverSlaveStatus      Whether it is Master or Slave
+     * @param array $serverSlaveReplication Slave replication
      *
      * @return string HTML code
      */
     public function getHtmlForSlaveConfiguration(
-        $server_slave_status,
-        array $server_slave_replication
+        $serverSlaveStatus,
+        array $serverSlaveReplication
     ) {
-        $html  = '<fieldset>';
-        $html .= '<legend>' . __('Slave replication') . '</legend>';
-        /**
-         * check for multi-master replication functionality
-         */
-        $server_slave_multi_replication = $GLOBALS['dbi']->fetchResult(
+        $serverSlaveMultiReplication = $GLOBALS['dbi']->fetchResult(
             'SHOW ALL SLAVES STATUS'
         );
-        if ($server_slave_multi_replication) {
-            $html .= __('Master connection:');
-            $html .= '<form method="get" action="server_replication.php">';
-            $html .= Url::getHiddenInputs($GLOBALS['url_params']);
-            $html .= ' <select name="master_connection">';
-            $html .= '<option value="">' . __('Default') . '</option>';
-            foreach ($server_slave_multi_replication as $server) {
-                $html .= '<option' . (isset($_POST['master_connection'])
-                    && $_POST['master_connection'] == $server['Connection_name'] ?
-                        ' selected="selected"' : '') . '>' . $server['Connection_name']
-                    . '</option>';
-            }
-            $html .= '</select>';
-            $html .= ' <input class="btn btn-primary" type="submit" value="' . __('Go') . '" id="goButton">';
-            $html .= '</form>';
-            $html .= '<br><br>';
-        }
-        if ($server_slave_status) {
-            $html .= '<div id="slave_configuration_gui">';
+        if ($serverSlaveStatus) {
+            $urlParams = $GLOBALS['url_params'];
+            $urlParams['sr_take_action'] = true;
+            $urlParams['sr_slave_server_control'] = true;
 
-            $_url_params = $GLOBALS['url_params'];
-            $_url_params['sr_take_action'] = true;
-            $_url_params['sr_slave_server_control'] = true;
-
-            if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
-                $_url_params['sr_slave_action'] = 'start';
+            if ($serverSlaveReplication[0]['Slave_IO_Running'] == 'No') {
+                $urlParams['sr_slave_action'] = 'start';
             } else {
-                $_url_params['sr_slave_action'] = 'stop';
+                $urlParams['sr_slave_action'] = 'stop';
             }
 
-            $_url_params['sr_slave_control_parm'] = 'IO_THREAD';
-            $slave_control_io_link = Url::getCommon($_url_params, '');
+            $urlParams['sr_slave_control_parm'] = 'IO_THREAD';
+            $slaveControlIoLink = Url::getCommon($urlParams, '');
 
-            if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
-                $_url_params['sr_slave_action'] = 'start';
+            if ($serverSlaveReplication[0]['Slave_SQL_Running'] == 'No') {
+                $urlParams['sr_slave_action'] = 'start';
             } else {
-                $_url_params['sr_slave_action'] = 'stop';
+                $urlParams['sr_slave_action'] = 'stop';
             }
 
-            $_url_params['sr_slave_control_parm'] = 'SQL_THREAD';
-            $slave_control_sql_link = Url::getCommon($_url_params, '');
+            $urlParams['sr_slave_control_parm'] = 'SQL_THREAD';
+            $slaveControlSqlLink = Url::getCommon($urlParams, '');
 
-            if ($server_slave_replication[0]['Slave_IO_Running'] == 'No'
-                || $server_slave_replication[0]['Slave_SQL_Running'] == 'No'
+            if ($serverSlaveReplication[0]['Slave_IO_Running'] == 'No'
+                || $serverSlaveReplication[0]['Slave_SQL_Running'] == 'No'
             ) {
-                $_url_params['sr_slave_action'] = 'start';
+                $urlParams['sr_slave_action'] = 'start';
             } else {
-                $_url_params['sr_slave_action'] = 'stop';
+                $urlParams['sr_slave_action'] = 'stop';
             }
 
-            $_url_params['sr_slave_control_parm'] = null;
-            $slave_control_full_link = Url::getCommon($_url_params, '');
+            $urlParams['sr_slave_control_parm'] = null;
+            $slaveControlFullLink = Url::getCommon($urlParams, '');
 
-            $_url_params['sr_slave_action'] = 'reset';
-            $slave_control_reset_link = Url::getCommon($_url_params, '');
+            $urlParams['sr_slave_action'] = 'reset';
+            $slaveControlResetLink = Url::getCommon($urlParams, '');
 
-            $_url_params = $GLOBALS['url_params'];
-            $_url_params['sr_take_action'] = true;
-            $_url_params['sr_slave_skip_error'] = true;
-            $slave_skip_error_link = Url::getCommon($_url_params, '');
+            $urlParams = $GLOBALS['url_params'];
+            $urlParams['sr_take_action'] = true;
+            $urlParams['sr_slave_skip_error'] = true;
+            $slaveSkipErrorLink = Url::getCommon($urlParams, '');
 
-            if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
-                $html .= Message::error(
-                    __('Slave SQL Thread not running!')
-                )->getDisplay();
-            }
-            if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
-                $html .= Message::error(
-                    __('Slave IO Thread not running!')
-                )->getDisplay();
-            }
+            $urlParams = $GLOBALS['url_params'];
+            $urlParams['sl_configure'] = true;
+            $urlParams['repl_clear_scr'] = true;
 
-            $_url_params = $GLOBALS['url_params'];
-            $_url_params['sl_configure'] = true;
-            $_url_params['repl_clear_scr'] = true;
+            $reconfigureMasterLink =  Url::getCommon($urlParams, '');
 
-            $reconfiguremaster_link =  Url::getCommon($_url_params, '');
+            $slaveStatusTable = $this->getHtmlForReplicationStatusTable('slave', true, false);
 
-            $html .= __(
-                'Server is configured as slave in a replication process. Would you ' .
-                'like to:'
-            );
-            $html .= '<br>';
-            $html .= '<ul>';
-            $html .= ' <li><a href="#slave_status_href" id="slave_status_href">';
-            $html .= __('See slave status table') . '</a>';
-            $html .= $this->getHtmlForReplicationStatusTable('slave', true, false);
-            $html .= ' </li>';
+            $slaveIoRunning = $serverSlaveReplication[0]['Slave_IO_Running'] !== 'No';
+            $slaveSqlRunning = $serverSlaveReplication[0]['Slave_SQL_Running'] !== 'No';
 
-            $html .= ' <li><a href="#slave_control_href" id="slave_control_href">';
-            $html .= __('Control slave:') . '</a>';
-            $html .= ' <div id="slave_control_gui" class="hide">';
-            $html .= '  <ul>';
-            $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_full_link . '">';
-            $html .= (($server_slave_replication[0]['Slave_IO_Running'] == 'No' ||
-                       $server_slave_replication[0]['Slave_SQL_Running'] == 'No')
-                     ? __('Full start')
-                     : __('Full stop')) . ' </a></li>';
-            $html .= '   <li><a class="ajax" id="reset_slave"'
-                . ' href="server_replication.php" data-post="' . $slave_control_reset_link . '">';
-            $html .= __('Reset slave') . '</a></li>';
-            if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
-                $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_sql_link . '">';
-                $html .= __('Start SQL Thread only') . '</a></li>';
-            } else {
-                $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_sql_link . '">';
-                $html .= __('Stop SQL Thread only') . '</a></li>';
-            }
-            if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
-                $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_io_link . '">';
-                $html .= __('Start IO Thread only') . '</a></li>';
-            } else {
-                $html .= '   <li><a href="server_replication.php" data-post="' . $slave_control_io_link . '">';
-                $html .= __('Stop IO Thread only') . '</a></li>';
-            }
-            $html .= '  </ul>';
-            $html .= ' </div>';
-            $html .= ' </li>';
-            $html .= ' <li>';
-            $html .= $this->getHtmlForSlaveErrorManagement($slave_skip_error_link);
-            $html .= ' </li>';
-            $html .= ' <li><a href="server_replication.php" data-post="' . $reconfiguremaster_link . '">';
-            $html .=  __('Change or reconfigure master server') . '</a></li>';
-            $html .= '</ul>';
-            $html .= '</div>';
-        } elseif (! isset($_POST['sl_configure'])) {
-            $_url_params = $GLOBALS['url_params'];
-            $_url_params['sl_configure'] = true;
-            $_url_params['repl_clear_scr'] = true;
-
-            $html .= sprintf(
-                __(
-                    'This server is not configured as slave in a replication process. '
-                    . 'Would you like to %sconfigure%s it?'
-                ),
-                '<a href="server_replication.php" data-post="' . Url::getCommon($_url_params, '') . '">',
-                '</a>'
-            );
+            $slaveErrorManagement = $this->getHtmlForSlaveErrorManagement($slaveSkipErrorLink);
         }
-        $html .= '</fieldset>';
 
-        return $html;
+        return $this->template->render('server/replication/slave_configuration', [
+            'server_slave_multi_replication' => $serverSlaveMultiReplication,
+            'url_params' => $GLOBALS['url_params'],
+            'master_connection' => $_POST['master_connection'] ?? '',
+            'server_slave_status' => $serverSlaveStatus,
+            'slave_status_table' => $slaveStatusTable ?? '',
+            'slave_sql_running' => $slaveSqlRunning ?? false,
+            'slave_io_running' => $slaveIoRunning ?? false,
+            'slave_control_full_link' => $slaveControlFullLink ?? '',
+            'slave_control_reset_link' => $slaveControlResetLink ?? '',
+            'slave_control_sql_link' => $slaveControlSqlLink ?? '',
+            'slave_control_io_link' => $slaveControlIoLink ?? '',
+            'slave_error_management' => $slaveErrorManagement ?? '',
+            'reconfigure_master_link' => $reconfigureMasterLink ?? '',
+            'has_slave_configure' => isset($_POST['sl_configure']),
+        ]);
     }
 
     /**
