@@ -558,7 +558,8 @@ function Add_Other_db_tables () {
             'ajax_request' : true,
             'dialog' : 'add_table',
             'db' : db,
-            'table' : table
+            'table' : table,
+            'server': PMA_commonParams.get('server')
         }, function (data) {
             $new_table_dom = $(data.message);
             $new_table_dom.find('a').first().remove();
@@ -590,7 +591,8 @@ function Add_Other_db_tables () {
 
     $.post('sql.php', {
         'ajax_request' : true,
-        'sql_query' : 'SHOW databases;'
+        'sql_query' : 'SHOW databases;',
+        'server': PMA_commonParams.get('server')
     }, function (data) {
         $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
             var val = $(this)[0].innerHTML;
@@ -620,7 +622,8 @@ function Add_Other_db_tables () {
             $.post('sql.php', {
                 'ajax_request' : true,
                 'sql_query': sql_query,
-                'db' : db_name
+                'db' : db_name,
+                'server': PMA_commonParams.get('server')
             }, function (data) {
                 $select_table.html('');
                 $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
