@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-03-13 07:04+0000\n"
+"PO-Revision-Date: 2019-03-29 17:50+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ajax.php:26 ajax.php:55 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -15005,14 +15005,14 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如果欄位類型為 \"enum\" 或 \"set\"，請使用以下格式輸入值: 'a','b','c'…<br>如果需要輸入反斜線(\"\\\")或單引號("
-"\"'\")，請在前面加上反斜線(如 '\\\\xyz' 或 'a\\'b')。"
+"如果欄位類型為 enum 或 set，請使用以下格式輸入值: 'a','b','c'…<br>如果需要輸入反斜線(\\"
+")或單引號(')，請在前面加上反斜線(如 '\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
-msgstr "欄位預設值，請輸入單一值，不可加反斜線或引號，如: a"
+msgstr "欄位預設值，請輸入單一值，不可加反斜線或引號，即是 a"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
@@ -15039,8 +15039,8 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"請使用此格式輸入轉換選項的值: 'a', 100, b, 'c'…<br>如果需要在值中輸入反斜線 (\"\\\")或單引號(\"'\")，"
-"請在前面加上反斜線 (如 '\\\\xyz' 或 'a\\'b')。"
+"請使用此格式輸入轉換選項的值: 'a', 100, b, 'c'…<br>如果需要在值中輸入反斜線 (\\)或單引號(')，請在前面加上反斜線 (如 '"
+"\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15348,10 +15348,8 @@ msgstr "新增欄位"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Length/Value"
-msgstr "長度/值"
+msgstr "長度／值"
 
 #: templates/database/central_columns/main.twig:37
 #: templates/database/central_columns/main.twig:254
