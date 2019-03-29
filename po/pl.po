@@ -105,9 +105,6 @@ msgstr "Kolumna"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Typ"
@@ -128,8 +125,6 @@ msgstr "Typ"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -151,9 +146,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Ustawienia domyślne"
 
@@ -1366,7 +1359,6 @@ msgstr "Dodaj co najmniej jedną zmienną do serii!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Żaden"
 
@@ -3257,7 +3249,6 @@ msgstr "Długość/Wartości"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Metoda porównywania napisów"
 
@@ -3313,7 +3304,7 @@ msgstr "Unicode"
 #: libraries/classes/Charsets.php:346 libraries/classes/Charsets.php:517
 msgctxt "Collation"
 msgid "West European"
-msgstr "Zachodnia Europa"
+msgstr "Zachodnioeuropejski"
 
 #: libraries/classes/Charsets.php:353
 #, fuzzy
@@ -7477,7 +7468,6 @@ msgstr "Pełne teksty"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7491,7 +7481,6 @@ msgstr "Malejąco"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8104,8 +8093,6 @@ msgstr "Edytuj strukturę, klikając link \"Struktura\"."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Opcje"
 
@@ -8447,8 +8434,6 @@ msgstr "Dziennik binarny"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikacja"
 
@@ -10100,8 +10085,8 @@ msgstr "Spis treści"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Dodatkowo"
 
@@ -15190,25 +15175,25 @@ msgstr "Liczba kolumn"
 msgid "first"
 msgstr "pierwszy"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabela"
+msgstr[1] "%s tabel"
+msgstr[2] "%s tabele"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Wyjście:"
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Suma"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
 msgstr "Ograniczenia zasobów"
 
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Zmień nazwę na"
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie."
 
 #: templates/database/designer/where_query_panel.twig:59
 #: templates/database/designer/having_query_panel.twig:90
@@ -15232,15 +15217,13 @@ msgstr "W tej kolumnie oznacz każdy punkt"
 msgid "Maximum rows to plot"
 msgstr "Maksymalna liczba wierszy do wykreślenia"
 
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Nowy"
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "Pokaż/Ukryj kolumny"
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Kodowanie znaków pliku:"
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "Zobacz strukturę tabeli"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15287,13 +15270,15 @@ msgstr "Włącz statystyki"
 msgid "Exporting databases from the current server"
 msgstr "Eksport bazy danych z bieżącego serwera"
 
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
-msgstr ""
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Eksportowanie tabeli z bazy \"%s\""
 
-#: templates/table/structure/optional_action_links.twig:28
-msgid "Track view"
-msgstr "Widok śledzenia"
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Eksportuj wiersze z tabeli \"%s\""
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
@@ -15858,34 +15843,29 @@ msgstr "Przenieś kolumny"
 msgid "Move the columns by dragging them up and down."
 msgstr "Aby przenieś kolumny, przeciągając je w górę i w dół."
 
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Docelowa baza danych"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Nazwa tabeli"
 
-#: templates/console/display.twig:127
-msgid "Share this bookmark"
-msgstr "Podziel się tą zakładką"
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "kolumna(y)"
 
-#: templates/console/display.twig:140
-msgid "Set default"
-msgstr "Ustaw wartość domyślną"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Sortowanie:"
 
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-"Wykonywanie zapytań przy wprowadzaniu i wstawianiu nowej linii za pomocą "
-"Shift + Enter. Aby było to trwałe, wyświetl ustawienia."
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Silnik składowania:"
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Nazwa indeksu :"
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Połączenie:"
 
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" <b>musi</b> być nazwą <b>jedynie</b> klucza podstawowego!"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "Definicja podziału:"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15948,17 +15928,17 @@ msgstr ""
 "Symbole wieloznaczne % i _ należy poprzedzić \\ aby z nich korzystać "
 "dosłownie."
 
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Znajdź i zamień - podgląd"
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "Nie zdefiniowano podziału na partycje!"
 
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Oryginalny ciąg"
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "Partycjonowane przez:"
 
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Zastępuje ciąg"
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "Sub podzielony na partycje przez:"
 
 #: templates/table/structure/display_partitions.twig:26
 #: templates/columns_definitions/column_virtuality.twig:29
@@ -15969,13 +15949,13 @@ msgstr "Wyrażenie"
 msgid "Data length"
 msgstr "Długość danych"
 
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Data"
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "Długość indeksu"
 
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Użytkownik"
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "Tabela partycji"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6

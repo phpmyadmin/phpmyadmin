@@ -105,9 +105,6 @@ msgstr "Kolona"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tipi"
@@ -128,8 +125,6 @@ msgstr "Tipi"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -151,9 +146,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Parazgjedhur"
 
@@ -1370,7 +1363,6 @@ msgstr "Ju lutem, shtoni së paku një variabël në seri!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Asnjë"
 
@@ -3279,7 +3271,6 @@ msgstr "Gjatësia/Vlerat"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Përshtatja"
 
@@ -7336,7 +7327,6 @@ msgstr "Tekstet e plota"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7350,7 +7340,6 @@ msgstr "Zbritëse"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7968,8 +7957,6 @@ msgstr "Redakto strukturën duke ndjekur lidhjen \"Struktura\"."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Opsionet"
 
@@ -8312,8 +8299,6 @@ msgstr "Regjistër (log) binar"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikimi"
 
@@ -9950,8 +9935,8 @@ msgstr "Tabela e përmajtjes"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -14840,32 +14825,27 @@ msgstr "Ruaj rezultatin në një fil"
 msgid "Skip tables larger than %s MiB"
 msgstr "Shmang tabelat më të mëdha se"
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Ruaj në server në drejtorinë <b>%s</b>"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Radhët:"
 
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Shprehje"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Zbraz disa radhë"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Ngushto"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+msgid "Number of rows:"
+msgstr "Numri i radhëve:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Zgjero"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Radha fillon në:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Requery (kërkesë)"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Zbraz të gjitha radhët"
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -15748,17 +15728,17 @@ msgstr ""
 "Wildcards (karakteret e veçanta) % dhe _ duhet të shmangen me një \\ për t'i "
 "përdorur ato fjalë për fjalë."
 
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "Zgjidh bazën e të dhënave:"
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "Nuk është përcaktuar copëzimi!"
 
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Emër i ri databaze"
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "Ndarë nga:"
 
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "Zgjidh tabelën:"
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "Nën-ndarë nga:"
 
 #: templates/table/structure/display_partitions.twig:26
 #: templates/columns_definitions/column_virtuality.twig:29
@@ -15769,9 +15749,9 @@ msgstr "Shprehje"
 msgid "Data length"
 msgstr "Gjatësia e të dhënave"
 
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "Zgjidh kolonën:"
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "Gjatësia e indeksit"
 
 #: templates/table/structure/display_partitions.twig:135
 msgid "Partition table"
@@ -15915,9 +15895,11 @@ msgstr "Modeli i emrit të filit:"
 msgid "use this for future exports"
 msgstr "përdore këtë për eksporte në të ardhmen"
 
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Shto tek Preferencat"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Asnjë"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

@@ -106,9 +106,6 @@ msgstr "நிரல்வரிசை"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "வகை"
@@ -129,8 +126,6 @@ msgstr "வகை"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -152,9 +147,7 @@ msgstr "வெற்று"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "இயல்நிலை"
 
@@ -1375,7 +1368,6 @@ msgstr "தயவுசெய்து குறைந்தது ஒரு ம
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "எதுவுமில்லை"
 
@@ -3331,7 +3323,6 @@ msgstr "நீளம்/மதிப்புகள்"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "அடுக்கு"
 
@@ -7204,7 +7195,6 @@ msgstr "முழுவுரைகள்"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7218,7 +7208,6 @@ msgstr "இறங்குவரிசை"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7779,8 +7768,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "விருப்பத்தேர்வுகள்"
 
@@ -8115,8 +8102,6 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "படியெடுத்தல்"
 
@@ -9682,8 +9667,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "மிகை"
 
@@ -14477,9 +14462,8 @@ msgstr "கூட்டுத்தொகை"
 msgid "Resource limits"
 msgstr ""
 
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 
 #: templates/database/designer/where_query_panel.twig:59
@@ -14504,33 +14488,17 @@ msgstr ""
 msgid "Maximum rows to plot"
 msgstr ""
 
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "புதியது"
-
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr ""
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
+#: templates/database/designer/database_tables.twig:31
 #, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings"
-msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
+#| msgid "Move columns"
+msgid "Show/hide columns"
+msgstr "நெடுவரிசைகளை நகர்த்து"
+
+#: templates/database/designer/database_tables.twig:39
+#, fuzzy
+#| msgid "Table structure"
+msgid "See table structure"
+msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -14578,7 +14546,7 @@ msgstr ""
 msgid "Exporting tables from \"%s\" database"
 msgstr ""
 
-#: templates/table/tracking/activate_deactivate.twig:11
+#: templates/display/export/option_header.twig:9
 #, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr ""
@@ -14695,9 +14663,9 @@ msgstr "ஒரு நெடுவரிசையை தேர்ந்தெட�
 
 #: templates/database/multi_table_query/form.twig:46
 #, fuzzy
-#| msgid "Display comments"
-msgid "Display column for relationships"
-msgstr "கருத்துரைகளை காட்டுக"
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "அட்டவணைகள்"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
@@ -15087,8 +15055,8 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:11
@@ -15140,43 +15108,33 @@ msgstr "நெடுவரிசைகளை நகர்த்து"
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "பதிலிடப்பட்ட சரம்"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "பதிலிடு"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "திகதி"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
 msgstr ""
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "இம்மதிப்பை பயன்படுத்துக"
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "கண்காணிக்கபடாத அட்டவணைகள்"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
+#: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
-#| msgid "Select database"
-msgid "Select database:"
-msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
+#| msgid "Add %s column(s)"
+msgid "column(s)"
+msgstr "%s நெடுவரிசைகளை சேர்க்க"
 
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "தரவுத்தளத்தின் புதிய பெயர்"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "குறிமுறை அடுக்குவரிசை:"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "இணைப்புகள்"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
 
 #: templates/database/structure/table_header.twig:27
 msgid ""

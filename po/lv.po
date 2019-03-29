@@ -102,9 +102,6 @@ msgstr "Lauks"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tips"
@@ -125,8 +122,6 @@ msgstr "Tips"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -148,9 +143,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Noklusēts"
 
@@ -1385,7 +1378,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Nav"
 
@@ -3442,7 +3434,6 @@ msgstr "Garums/Vērtības*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Komplektēšana"
 
@@ -7596,7 +7587,6 @@ msgstr "Pilni teksti"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7610,7 +7600,6 @@ msgstr "Dilstošā secībā"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8192,8 +8181,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 #, fuzzy
 msgid "Options"
 msgstr "Darbības"
@@ -8546,8 +8533,6 @@ msgstr "Binārais log-fails"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 #, fuzzy
 msgid "Replication"
 msgstr "Relācijas"
@@ -10277,8 +10262,8 @@ msgstr "Satura rādītājs"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ekstras"
 
@@ -15379,26 +15364,22 @@ msgstr "Lapas numurs:"
 msgid "Page to delete"
 msgstr "Relāciju pārskats"
 
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
 msgstr ""
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Tabulas kodējums:"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr ""
+
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
@@ -15545,38 +15526,51 @@ msgstr ""
 msgid "Enable statistics"
 msgstr "Ieslēgt statistiku"
 
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Nav datubāzu"
+#: templates/display/export/option_header.twig:5
+#, fuzzy
+#| msgid "Allows locking tables for the current thread."
+msgid "Exporting databases from the current server"
+msgstr "Ļauj bloķēt tabulas tekošajai darbībai."
+
+#: templates/display/export/option_header.twig:7
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "Izveidot jaunu tabulu datubāzē %s"
+
+#: templates/display/export/option_header.twig:9
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "Izveidot jaunu tabulu datubāzē %s"
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Piezīme: Datubāzes statistikas ieslēgšana šeit var izsaukt palielināto datu "
-"apmaiņu starp webserveri un MySQL serveri."
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "Ieslēgt statistiku"
+#| msgid "Column"
+msgid "Count"
+msgstr "Lauks"
 
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Kolonnu specifiskās privilēģijas"
-
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/table/search/replace_preview.twig:18
 #, fuzzy
-#| msgid "Page number:"
-msgid "Page to open"
-msgstr "Lapas numurs:"
+#| msgid "Original position"
+msgid "Original string"
+msgstr "Oriģinālā pozīcija"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "Relācijas"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+msgid "Replace"
+msgstr "Relācijas"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15655,9 +15649,9 @@ msgstr ""
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 #, fuzzy
-#| msgid "Import files"
-msgid "Chart title:"
-msgstr "Importēt failus"
+#| msgid "in query"
+msgid "Requery"
+msgstr "vaicājumā"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -16143,11 +16137,13 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%s rezultāti tabulā <i>%s</i>"
 msgstr[1] "%s rezultāti tabulā <i>%s</i>"
 
-#: templates/display/export/template_options.twig:1
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select a template"
-msgstr "Izvēlieties tabulas"
+#| msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Kopumā:</b> <i>%s</i> rezultāti"
+msgstr[1] "<b>Kopumā:</b> <i>%s</i> rezultāti"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16261,14 +16257,18 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 "Aizstājējzīmes _ un % jāaizsargā ar \\ priekšā, lai izmantotu tās burtiski."
 
-#: templates/database/multi_table_query/form.twig:47
+#: templates/table/structure/display_partitions.twig:8
 #, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "Kolonnu nosaukumi"
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Nav definēti indeksi!"
 
-#: templates/database/multi_table_query/form.twig:50
-msgid "Use this column in criteria"
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
 msgstr ""
 
 #: templates/table/structure/display_partitions.twig:26
@@ -16292,9 +16292,9 @@ msgstr "Rindas garums"
 
 #: templates/table/structure/display_partitions.twig:135
 #, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "Kritērijs"
+#| msgid "Position"
+msgid "Partition table"
+msgstr "Pozīcija"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
@@ -16859,20 +16859,23 @@ msgstr ""
 msgid "disabled"
 msgstr "Izslēgts"
 
-#: templates/database/designer/delete_relation_panel.twig:21
+#: templates/display/results/options_block.twig:30
 #, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete relationship"
-msgstr "Izsekošanas datu dzēšana"
+msgid "Relational key"
+msgstr "Relāciju shēma"
 
-#: templates/display/export/options_rows.twig:2
+#: templates/display/results/options_block.twig:30
 #, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "Rindas"
+#| msgid "Disable foreign key checks"
+msgid "Display column for relationships"
+msgstr "Nepārbaudīt ārējās atslēgas"
 
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
 msgstr ""
 
 #: templates/display/results/options_block.twig:67

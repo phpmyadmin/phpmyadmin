@@ -104,9 +104,6 @@ msgstr "Στήλη"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Τύπος"
@@ -127,8 +124,6 @@ msgstr "Τύπος"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -150,9 +145,7 @@ msgstr "Κενό"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -1369,7 +1362,6 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Καμία"
 
@@ -3271,7 +3263,6 @@ msgstr "Μήκος/Τιμές*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Σύνθεση"
 
@@ -7337,7 +7328,6 @@ msgstr "Πλήρη κείμενα"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7351,7 +7341,6 @@ msgstr "Φθίνουσα"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7972,8 +7961,6 @@ msgstr "Επεξεργαστείτε τη δομή πατώντας τον σύ�
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Επιλογές"
 
@@ -8316,8 +8303,6 @@ msgstr "Δυαδικό αρχείο καταγραφής"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Αναπαραγωγή"
 
@@ -9962,8 +9947,8 @@ msgstr "Πίνακας περιεχομένων"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Πρόσθετα"
 
@@ -14913,31 +14898,27 @@ msgstr "Αποθήκευση εξαγόμενου σε αρχείο"
 msgid "Skip tables larger than %s MiB"
 msgstr "Αγνόηση πινάκων μεγαλύτερων από %s MiB"
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Αποθήκευση στον διακομιστή στον κατάλογο <strong>%s</strong>"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Εγγραφές:"
 
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Έκφραση"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Μετατροπή εγγραφής(ών)"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Σύμπτηξη"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+msgid "Number of rows:"
+msgstr "Αριθμός εγγραφών:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Ανάπτυξη"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Η εγγραφή θα ξεκινάει στο:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Επανερώτημα"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Μετατροπή όλων των γραμμών"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
@@ -15712,21 +15693,21 @@ msgstr "Απομάκρυνση στήλης"
 msgid "Move the columns by dragging them up and down."
 msgstr "Μετακινήστε τις στήλες, σύροντας τες επάνω και κάτω."
 
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Μέγιστος αριθμός γραμμών για εκτύπωση"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Ονομασία πίνακα"
 
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Τιμή συνεδρίας"
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "στήλη(ες)"
 
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Πρόσθετο"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Σύνθεση:"
 
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Δημιουργός"
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Μηχανή αποθήκευσης:"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
 msgid "Connection:"
@@ -15965,9 +15946,11 @@ msgstr "Πρότυπο ονόματος αρχείου:"
 msgid "use this for future exports"
 msgstr "χρησιμοποιήστε το για μελλοντικές εξαγωγές"
 
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Προσθήκη στα Αγαπημένα"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Κανένα"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

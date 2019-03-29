@@ -109,9 +109,6 @@ msgstr "Ustun nomlari"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tur"
@@ -132,8 +129,6 @@ msgstr "Tur"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -155,9 +150,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Andoza"
 
@@ -1519,7 +1512,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Yo‘q"
 
@@ -3670,7 +3662,6 @@ msgstr "Uzunlik/qiymatlar"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Taqqoslash"
 
@@ -8510,7 +8501,6 @@ msgstr "Ma`lumotlarni kengaytirilgan holda ko‘rsatish"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -8524,7 +8514,6 @@ msgstr "Kamayish tartibida"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -9174,8 +9163,6 @@ msgstr "Tuzilmani o‘zgartirish uchun, \"Tuzilma\" bog‘iga kiring"
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Parametrlar"
 
@@ -9529,8 +9516,6 @@ msgstr "Ikkilik jurnal"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikatsiya (zaxira nusxa ko‘chirish)"
 
@@ -11302,8 +11287,8 @@ msgstr "Mundarija"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Qo‘shimcha"
 
@@ -17635,9 +17620,9 @@ msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<b>Jami:</b> <i>\"%s\"</i> o‘xshashlik"
 msgstr[1] "<b>Jami:</b> <i>\"%s\"</i> o‘xshashlik"
 
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Qidirish shartini ko‘shish (ya`ni \"where\" jumlasi):"
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Ushbu qiymatni ishlatish"
 
 #: templates/table/structure/move_columns_dialog.twig:1
 #: templates/table/structure/optional_action_links.twig:19
@@ -17964,8 +17949,6 @@ msgstr "Fayl nomi shabloni"
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
 msgstr ""
-"pmadb usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion faylida "
-"foydalanuvchi belgilanmagan"
 
 #: templates/privileges/column_privileges.twig:21
 #: templates/privileges/column_privileges.twig:22
@@ -18225,35 +18208,42 @@ msgstr "zip"
 msgid "gzipped"
 msgstr "gzip"
 
-#: templates/display/import/import.twig:161
+#: templates/display/export/template_loading.twig:2
 #, fuzzy
-#| msgid "Options"
-msgid "Other options:"
-msgstr "Parametrlar"
+#| msgid "Export tables"
+msgid "Export templates:"
+msgstr "Jadvallarni eksport qilish"
 
-#: templates/display/export/options_output_format.twig:3
+#: templates/display/export/template_loading.twig:6
 #, fuzzy
 #| msgid "File name template"
-msgid "File name template:"
+msgid "New template:"
 msgstr "Fayl nomi shabloni"
 
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr ""
-
-#: templates/console/display.twig:7
+#: templates/display/export/template_loading.twig:8
 #, fuzzy
-#| msgid "SQL history"
-msgid "History"
-msgstr "SQL-so‘rovlar tarixi"
+#| msgid "Table name"
+msgid "Template name"
+msgstr "Jadval nomi"
 
-#: templates/console/display.twig:11 templates/console/display.twig:99
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Tuzish"
+
+#: templates/display/export/template_loading.twig:16
 #, fuzzy
-#| msgid "Bookmark table"
-msgid "Bookmarks"
-msgstr "Xatcho‘plar jadvali"
+#| msgid "File name template"
+msgid "Existing templates:"
+msgstr "Fayl nomi shabloni"
 
-#: templates/console/display.twig:20
+#: templates/display/export/template_loading.twig:17
+#, fuzzy
+#| msgid "%s table(s)"
+msgid "Template:"
+msgstr "Jadvallar soni: \"%s\""
+
+#: templates/display/export/template_loading.twig:21
 #, fuzzy
 #| msgid "Updated"
 msgid "Update"
@@ -18425,81 +18415,73 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Nom ko‘rinishi"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Maydon nomlari"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "<i>\"%s\"</i> jadvalida o‘xshashliklar soni \"%s\" ta"
-msgstr[1] "<i>\"%s\"</i> jadvalida o‘xshashliklar soni \"%s\" ta"
-
-#: templates/database/search/results.twig:56
+#: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Jami:</b> <i>\"%s\"</i> o‘xshashlik"
-msgstr[1] "<b>Jami:</b> <i>\"%s\"</i> o‘xshashlik"
-
-#: templates/login/twofactor/key_configure.twig:3
+#| msgid ""
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
 msgstr ""
+"\"enum\" va \"set\" turidagi maydonlar tuzganda, ma`lumotlar quyidagi "
+"formatda bo‘lishi kerak: \"a\",\"b\",\"c\"…<br />Teskari egri chiziq (\\) va "
+"bittalik qo‘shtirnoq (\") belgilari oldidan teskari egri chiziq bo‘lishi "
+"kerak, masalan: \"\\\\xyz\" yoki \"a\\\"b\"."
 
-#: templates/privileges/add_privileges_table.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following table:"
-msgstr "Quyidagi jadvalga privilegiya qo‘shish"
-
-#: templates/login/twofactor/key-https-warning.twig:3
+#: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"\"Andozaviy\" maydonlar qiymatlarida teskari egri chiziq va qo‘shtirnoqlarni "
+"ishlatmang: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
 msgstr ""
 
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
+#: templates/columns_definitions/table_fields_definitions.twig:65
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Move column"
+msgstr "Ustun(lar)ni olib tashlash"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+#, fuzzy
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "Mavjud o‘girishlar"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "O‘girish"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+#, fuzzy
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
 msgstr ""
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "Asl pozitsiya"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Relations"
-msgid "Replaced string"
-msgstr "Aloqalar"
-
-#: templates/table/search/replace_preview.twig:37
-#, fuzzy
-#| msgid "Replication"
-msgid "Replace"
-msgstr "Replikatsiya (zaxira nusxa ko‘chirish)"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Sanani"
+"O‘girishlar paramerlari qiymatlari quyidagi formatda bo‘lishi shart: \"a\", "
+"100, \"b\", \"c\"…<br />Teskari egri chiziq (\\) va bittalik qo‘shtirnoq "
+"(\") belgilari oldidan teskari egri chiziq bo‘lishi kerak, masalan: \"\\\\xyz"
+"\" yoki \"a\\\"b\"."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 #, fuzzy

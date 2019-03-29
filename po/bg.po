@@ -103,9 +103,6 @@ msgstr "Kолона"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Тип"
@@ -126,8 +123,6 @@ msgstr "Тип"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -149,9 +144,7 @@ msgstr "Празно"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "По подразбиране"
 
@@ -1360,7 +1353,6 @@ msgstr "Моля добавете поне една променлива към 
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Няма"
 
@@ -3254,7 +3246,6 @@ msgstr "Дължина/Стойности"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Колация"
 
@@ -7594,7 +7585,6 @@ msgstr "Пълни текстове"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7608,7 +7598,6 @@ msgstr "Низходящо"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8169,8 +8158,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Настройки"
 
@@ -8515,8 +8502,6 @@ msgstr "Двоичен дневник"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Репликация"
 
@@ -10224,8 +10209,8 @@ msgstr "Съдържание"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Допълнително"
 
@@ -14782,8 +14767,6 @@ msgstr "Сплайн"
 msgctxt "Chart type"
 msgid "Area"
 msgstr ""
-"Изпълняване \"заявка по шаблон\" (знак за заместване: \"%\") за две различни "
-"колони"
 
 #: templates/table/chart/tbl_chart.twig:35
 msgctxt "Chart type"
@@ -15263,25 +15246,19 @@ msgstr "Заглавие в браузъра"
 msgid "Page to delete"
 msgstr "Релацията изтрита"
 
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
+msgstr "Включване проследяването за %s"
 
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"Браузърът ви има настройки на phpMyAdmin за този домейн. Искате ли да бъдат "
-"използвани за текущата сесия?"
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr "Включване сега"
 
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings"
-msgstr "Изтриване информацията за следене"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "Изключване проследяването за %s"
 
 #: templates/table/tracking/activate_deactivate.twig:13
 msgid "Deactivate now"
@@ -15379,7 +15356,7 @@ msgstr "Преместване колони"
 msgid "See table structure"
 msgstr "Структура на таблица"
 
-#: templates/server/databases/databases_footer.twig:65
+#: templates/prefs_autoload.twig:7
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
@@ -15443,25 +15420,29 @@ msgstr "Експортиране на редове от таблица \"%s\""
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
 msgstr ""
-"Забележка: Разрешаването на статистика на БД може да коства много голям "
-"трафик между web сървъра и MySQL сървъра."
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Count"
+msgstr "Броене"
+
+#: templates/table/search/replace_preview.twig:18
 #, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "Разрешаване на статистика"
+#| msgid "Original position"
+msgid "Original string"
+msgstr "Първоначално положение"
 
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Специфични за колоната права"
-
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/table/search/replace_preview.twig:19
 #, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "Заглавие в браузъра"
+#| msgid "Replace table prefix"
+msgid "Replaced string"
+msgstr "Замяна на представката на таблица"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replicated"
+msgid "Replace"
+msgstr "Реплицирана"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15558,96 +15539,39 @@ msgstr "Изберете колона."
 
 #: templates/database/multi_table_query/form.twig:46
 #, fuzzy
-#| msgid "Display column for relations"
-msgid "Display column for relationships"
-msgstr "Показване колоните за релации"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Показване на двоичните данни"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "Показване на BLOB-данните"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Без трансформация от браузъра"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Добре познат текст"
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Таблици"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
-#| msgid "Export to selected page"
-msgid "Save to selected page"
-msgstr "Експорт към избраната страница"
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Име на колона"
 
 #: templates/database/multi_table_query/form.twig:50
 #, fuzzy
-#| msgid "Create a page and export to it"
-msgid "Create a page and save to it"
-msgstr "създаване на страница и експорт към нея"
+#| msgid "Use this column to label each point"
+msgid "Use this column in criteria"
+msgstr "Използване колоната като етикет за всяка точка"
 
 #: templates/database/multi_table_query/form.twig:53
 #, fuzzy
-#| msgid "New page name: "
-msgid "New page name"
-msgstr "Име: "
-
-#: templates/table/chart/tbl_chart.twig:15
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "Стълб"
-
-#: templates/table/chart/tbl_chart.twig:19
-msgctxt "Chart type"
-msgid "Column"
-msgstr "Kолона"
-
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
-msgstr "Линия"
-
-#: templates/table/chart/tbl_chart.twig:27
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "Сплайн"
-
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:35
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "Пита"
+#| msgid "Criteria:"
+msgid "criteria"
+msgstr "Критерии:"
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
-#| msgid "Time"
-msgctxt "Chart type"
-msgid "Timeline"
-msgstr "Време"
-
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:48
-msgid "Stacked"
-msgstr "Припокриващи се"
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "Добавяне на %s"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
-#| msgid "Chart title"
-msgid "Chart title:"
-msgstr "Заглавие на диаграмата"
+#| msgid "Alter column(s)"
+msgid "Another column"
+msgstr "Промяна колона(и)"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
@@ -15655,22 +15579,22 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:148
 #, fuzzy
-#| msgid "Inside column:"
-msgid "Series column:"
-msgstr "В колона:"
+#| msgid "Remove column(s)"
+msgid "Remove this column"
+msgstr "Изтриване колона(и)"
 
 #: templates/database/multi_table_query/form.twig:158
 #: templates/table/relation/foreign_key_row.twig:90
 #, fuzzy
-#| msgid "Values for column %s"
-msgid "Value Column:"
-msgstr "Стойности за колоната %s"
+#| msgid "Add column"
+msgid "+ Add column"
+msgstr "Добавяне колона"
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Save as file"
-msgid "Save chart as image"
-msgstr "Изпращане"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Допълване заявка"
 
 #: templates/table/relation/common_form.twig:6
 #, fuzzy
@@ -16032,8 +15956,8 @@ msgstr "Проследяването е неактивно."
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:11
@@ -16085,65 +16009,37 @@ msgstr "Преместване колони"
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/table/search/replace_preview.twig:18
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Име на таблица"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "Първоначално положение"
+#| msgid "Add column(s)"
+msgid "column(s)"
+msgstr "Добавяне колона(и)"
 
-#: templates/table/search/replace_preview.twig:19
+#: templates/columns_definitions/column_definitions_form.twig:74
 #, fuzzy
-#| msgid "Replace table prefix"
-msgid "Replaced string"
-msgstr "Замяна на представката на таблица"
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "Колация"
 
-#: templates/table/search/replace_preview.twig:37
+#: templates/columns_definitions/column_definitions_form.twig:77
 #, fuzzy
-#| msgid "Replicated"
-msgid "Replace"
-msgstr "Реплицирана"
+#| msgid "Storage Engine"
+msgid "Storage Engine:"
+msgstr "Хранилище"
 
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Дата"
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "Връзки"
 
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Потребителско име"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Използване тази стойност"
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Непроследявани таблици"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
 msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "Избор на таблици"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Ново име на БД"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "Избор на таблици"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New page name: "
-msgid "New table name"
-msgstr "Име: "
 
 #: templates/database/structure/table_header.twig:27
 #, fuzzy
@@ -16181,9 +16077,9 @@ msgstr "Избор на страница"
 
 #: templates/start_and_number_of_rows_panel.twig:3
 #, fuzzy
-#| msgid "Select a column."
-msgid "Select column:"
-msgstr "Изберете колона."
+#| msgid "Start row"
+msgid "Start row:"
+msgstr "Начален ред"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -16768,15 +16664,23 @@ msgstr "изключено"
 msgid "Relational key"
 msgstr "Сроден ключ"
 
-#: templates/database/designer/delete_relation_panel.twig:21
+#: templates/display/results/options_block.twig:30
 #, fuzzy
-#| msgid "Delete relation"
-msgid "Delete relationship"
-msgstr "Изтриване релация"
+#| msgid "Display column for relations"
+msgid "Display column for relationships"
+msgstr "Показване колоните за релации"
 
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Редове:"
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "Показване на двоичните данни"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "Показване на BLOB-данните"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Без трансформация от браузъра"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96

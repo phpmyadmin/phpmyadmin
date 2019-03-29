@@ -105,9 +105,6 @@ msgstr "Kolom"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Jenis"
@@ -128,8 +125,6 @@ msgstr "Jenis"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -151,9 +146,7 @@ msgstr "Tak Ternilai"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Bawaan"
 
@@ -1363,7 +1356,6 @@ msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Tidak ada"
 
@@ -3249,7 +3241,6 @@ msgstr "Panjang/Nilai"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Penyortiran"
 
@@ -7408,7 +7399,6 @@ msgstr "Teks penuh"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7422,7 +7412,6 @@ msgstr "Menurun"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8040,8 +8029,6 @@ msgstr "Edit struktur dengan mengikuti link \"Struktur\"."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Opsi"
 
@@ -8384,8 +8371,6 @@ msgstr "Log biner"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikasi"
 
@@ -10098,8 +10083,8 @@ msgstr "Daftar Isi"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -15338,17 +15323,13 @@ msgstr "Dump beberapa baris"
 msgid "Number of rows:"
 msgstr "Jumlah baris:"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Hasil:"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Baris untuk memulai:"
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Simpan ke server didalam direktori <b>%s</b>"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Dump semua row"
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -15785,9 +15766,9 @@ msgstr "+ Tambah kolom"
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Create a page and export to it"
-msgid "Create a page and save to it"
-msgstr "Buat halaman dan ekspor ke dalamnya"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Perbarui Kueri"
 
 #: templates/table/relation/common_form.twig:6
 #, fuzzy
@@ -16142,15 +16123,13 @@ msgstr "Pilih kolom:"
 msgid "New column name"
 msgstr "Nama kolom baru"
 
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "Membuat Pengguna"
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Pelacakan aktif."
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Nama VIEW"
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Pelacakan tidak aktif."
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""
@@ -16226,23 +16205,27 @@ msgstr "Nama tabel"
 msgid "column(s)"
 msgstr "Tambahkan kolom"
 
-#: templates/error/report_form.twig:12
+#: templates/columns_definitions/column_definitions_form.twig:74
 #, fuzzy
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-"Bisakah Anda ceritakan langkah-langkah yang mengarah ke kesalahan ini? Hal "
-"tegas membantu dalam debugging:"
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "Penyortiran"
 
-#: templates/error/report_form.twig:19
+#: templates/columns_definitions/column_definitions_form.twig:77
 #, fuzzy
-msgid "You may examine the data in the error report:"
-msgstr "Anda dapat memeriksa data dalam laporan galat:"
+#| msgid "Storage Engine"
+msgid "Storage Engine:"
+msgstr "Mesin Penyimpanan"
 
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Pilih halaman"
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Koneksi:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+#, fuzzy
+#| msgid "PARTITION definition"
+msgid "PARTITION definition:"
+msgstr "Definisi PARTITION"
 
 #: templates/database/structure/table_header.twig:27
 #, fuzzy

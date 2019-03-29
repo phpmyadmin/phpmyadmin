@@ -110,9 +110,6 @@ msgstr "Kolom naam"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tipe"
@@ -133,8 +130,6 @@ msgstr "Tipe"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -156,9 +151,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Verstekwaarde (default)"
 
@@ -1425,7 +1418,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Geen"
 
@@ -3467,7 +3459,6 @@ msgstr "Lengte/Waardes*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr ""
 
@@ -7455,7 +7446,6 @@ msgstr "Volle Tekste"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7469,7 +7459,6 @@ msgstr "Dalend"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8049,8 +8038,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 #, fuzzy
 msgid "Options"
 msgstr "Operasies"
@@ -8398,8 +8385,6 @@ msgstr "Biner"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr ""
 
@@ -10064,8 +10049,8 @@ msgstr "Tabel kommentaar"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -14811,18 +14796,24 @@ msgstr "Export"
 msgid "Search in database"
 msgstr "Soek in databasis"
 
-#: templates/database/designer/table_list.twig:4
+#: templates/database/search/selection_form.twig:8
 #, fuzzy
-msgid "Hide/Show all"
-msgstr "Wys alles"
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Woord(e) of waarde(s) om voor te soek (wildcard: \"%\"):"
 
-#: templates/database/designer/table_list.twig:14
+#: templates/database/search/selection_form.twig:15
+#: templates/table/search/search_and_replace.twig:1
+msgid "Find:"
+msgstr "Vind:"
+
+#: templates/database/search/selection_form.twig:29
 #, fuzzy
-#| msgid "Propose table structure"
-msgid "Hide/Show tables with no relationship"
-msgstr "Stel tabel struktuur voor"
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
+msgstr "Binne tabel(le):"
 
-#: templates/database/designer/table_list.twig:55
+#: templates/database/search/selection_form.twig:51
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
@@ -14854,23 +14845,31 @@ msgstr "Stoor as leer (file)"
 msgid "Skip tables larger than %s MiB"
 msgstr ""
 
-#: templates/table/search/options.twig:6
+#: templates/display/export/options_rows.twig:2
 #, fuzzy
-#| msgid "Select fields (at least one):"
-msgid "Select columns (at least one):"
-msgstr "Kies Velde (ten minste een):"
+#| msgid "Rows"
+msgid "Rows:"
+msgstr "Rye"
 
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Voeg soek kriteria by (laaste deel van die \"where\" in SQL SELECT):"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr ""
 
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of rows:"
 msgstr "Hoeveelheid rye per bladsy"
 
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Vertoon volgorde:"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -14959,17 +14958,17 @@ msgstr "Relasie uitsig"
 msgid "Activate tracking for %s"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:71
-#, fuzzy
-msgid "Series:"
-msgstr "SQL-stelling"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:102
-msgid "X-Axis label:"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
@@ -15069,19 +15068,17 @@ msgstr "Voeg 'n nuwe veld by"
 msgid "See table structure"
 msgstr "databasisse"
 
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 msgstr ""
 
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr ""
-
-#: templates/server/plugins/section.twig:23
+#: templates/prefs_autoload.twig:13
 #, fuzzy
-#| msgid "Disabled"
-msgid "disabled"
-msgstr "Onbeskikbaar"
+#| msgid "Delete"
+msgid "Delete settings"
+msgstr "Verwyder"
 
 #: templates/database/designer/page_save_as.twig:17
 #, fuzzy
@@ -15135,24 +15132,28 @@ msgstr "Skep 'n nuwe tabel op databasis %s"
 msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/server/sub_page_header.twig:2
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-msgid "Character sets and collations"
-msgstr "Karakterstel van die leer:"
+#| msgid "Column names"
+msgid "Count"
+msgstr "Kolom name"
 
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Databasis statistieke"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr ""
-
-#: templates/display/export/options_output_compression.twig:11
+#: templates/table/search/replace_preview.twig:18
 #, fuzzy
-#| msgid "\"zipped\""
-msgid "zipped"
-msgstr "\"ge-zip\""
+#| msgid "Lines terminated by"
+msgid "Original string"
+msgstr "Lyne beeindig deur"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+msgid "Replaced string"
+msgstr "Operasies"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+msgid "Replace"
+msgstr "Herstel tabel"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15176,10 +15177,6 @@ msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
-"If field type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
-"single quote (\"'\") amongst those values, backslashes it (for example '\\"
-"\\xyz' or 'a\\'b')."
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
@@ -15241,22 +15238,16 @@ msgstr "in navraag"
 
 #: templates/database/multi_table_query/form.twig:16
 #, fuzzy
-#| msgid "Databases"
-msgid "See table structure"
-msgstr "databasisse"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start"
-msgid "Start row:"
-msgstr "Sa"
+#| msgid "Query"
+msgid "Query window"
+msgstr "Navraag dmv Voorbeeld"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
 #, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of rows:"
-msgstr "Hoeveelheid rye per bladsy"
+#| msgid "Select Tables"
+msgid "select table"
+msgstr "Kies Tabelle"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
@@ -15267,16 +15258,14 @@ msgstr "Voeg By/Verwyder Veld Kolomme"
 
 #: templates/database/multi_table_query/form.twig:46
 #, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "By Begin van Tabel"
+msgid "Table alias"
+msgstr "Tabel"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
-#| msgid "None"
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Geen"
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Kolom name"
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
@@ -15296,9 +15285,9 @@ msgstr "Enige gebruiker"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
-#| msgid "Partial Texts"
-msgid "File to import:"
-msgstr "Gedeeltelike Tekste"
+#| msgid "Add/Delete Field Columns"
+msgid "Another column"
+msgstr "Voeg By/Verwyder Veld Kolomme"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
@@ -15744,38 +15733,33 @@ msgstr "Voeg 'n nuwe veld by"
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Select column:"
-msgstr "Voeg By/Verwyder Veld Kolomme"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr ""
 
-#: templates/export/alias_add.twig:43
+#: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
 #| msgid "Column names"
-msgid "New column name"
+msgid "column(s)"
 msgstr "Kolom name"
 
-#: templates/database/structure/favorite_anchor.twig:4
+#: templates/columns_definitions/column_definitions_form.twig:74
 #, fuzzy
-msgid "Add to Favorites"
-msgstr "Voeg 'n nuwe gebruiker by"
+msgid "Collation:"
+msgstr "Skep"
 
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
 msgstr ""
 
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Creation:"
+msgid "Connection:"
+msgstr "Skepping:"
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
 msgstr ""
 
 #: templates/database/structure/table_header.twig:27
@@ -15814,9 +15798,9 @@ msgstr "Kies Alles"
 
 #: templates/start_and_number_of_rows_panel.twig:3
 #, fuzzy
-#| msgid "Select All"
-msgid "Select page"
-msgstr "Kies Alles"
+#| msgid "Start"
+msgid "Start row:"
+msgstr "Sa"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -16034,7 +16018,8 @@ msgstr ""
 msgid "use this for future exports"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:47
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
@@ -16424,15 +16409,22 @@ msgstr "Relasie uitsig"
 
 #: templates/display/results/options_block.twig:30
 #, fuzzy
-#| msgid "Delete"
-msgid "Delete relationship"
-msgstr "Verwyder"
+#| msgid "Displaying Column Comments"
+msgid "Display column for relationships"
+msgstr "Kolom Kommentaar word vertoon"
 
-#: templates/display/export/options_rows.twig:2
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:67
 #, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "Rye"
+msgid "Hide browser transformation"
+msgstr "Wys PHP informasie"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96

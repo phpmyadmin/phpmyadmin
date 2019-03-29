@@ -104,9 +104,6 @@ msgstr "컬럼명"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "종류"
@@ -127,8 +124,6 @@ msgstr "종류"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -150,9 +145,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "기본값"
 
@@ -1337,7 +1330,6 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "없음"
 
@@ -3196,7 +3188,6 @@ msgstr "길이/값*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "데이터정렬방식"
 
@@ -7192,7 +7183,6 @@ msgstr "전체 텍스트"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7206,7 +7196,6 @@ msgstr "내림차순"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7797,8 +7786,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "옵션"
 
@@ -8132,8 +8119,6 @@ msgstr "바이너리 로그"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "복제"
 
@@ -9702,8 +9687,8 @@ msgstr "목차(차례)"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "추가"
 
@@ -14608,28 +14593,23 @@ msgstr "열 페이지"
 msgid "Page to delete"
 msgstr "삭제할 페이지"
 
-#: templates/table/tracking/create_version.twig:11
+#: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "%2$s의 %1$s 버전 생성"
+msgid "Activate tracking for %s"
+msgstr "%s 에 대한 추적을 활성화하기"
 
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s"
-msgstr "버전 생성"
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr "지금 활성화"
 
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "%s 에 대한 추적을 비활성화하기"
 
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "버전 생성"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr "지금 비활성화"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
@@ -14721,7 +14701,7 @@ msgstr "컬럼 이동"
 msgid "See table structure"
 msgstr "테이블 구조"
 
-#: templates/server/databases/databases_footer.twig:65
+#: templates/prefs_autoload.twig:7
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
@@ -15266,15 +15246,13 @@ msgstr "컬럼 선택."
 msgid "New column name"
 msgstr "새로운 컬럼 이름"
 
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create"
-msgid "Create %s"
-msgstr "만들기"
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "트래킹이 활성화되었습니다."
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "뷰 이름"
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "트래킹이 활성화되어 있지 않습니다."
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""

@@ -107,9 +107,6 @@ msgstr "Устун"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Тур"
@@ -130,8 +127,6 @@ msgstr "Тур"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -153,9 +148,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Андоза"
 
@@ -1527,7 +1520,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Йўқ"
 
@@ -3669,7 +3661,6 @@ msgstr "Узунлик/қийматлар"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Таққослаш"
 
@@ -8497,7 +8488,6 @@ msgstr "Маълумотларни кенгайтирилган ҳолда кў�
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -8511,7 +8501,6 @@ msgstr "Камайиш тартибида"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -9159,8 +9148,6 @@ msgstr "Тузилмани ўзгартириш учун, \"Тузилма\" б�
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Параметрлар"
 
@@ -9513,8 +9500,6 @@ msgstr "Иккилик журнал"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Репликация (захира нусха кўчириш)"
 
@@ -11274,8 +11259,8 @@ msgstr "Мундарижа"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Қўшимча"
 
@@ -17264,9 +17249,9 @@ msgstr "Кўриниш номини ўзгартириш"
 #: templates/database/designer/rename_to_panel.twig:30
 #: templates/database/designer/options_panel.twig:90
 #, fuzzy
-#| msgid "Select Foreign Key"
-msgid "Is a foreign key."
-msgstr "Ташқи калитни танланг"
+#| msgid "User name"
+msgid "New name"
+msgstr "Фойдаланувчи номи"
 
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
@@ -17356,8 +17341,6 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
-"ИЗОҲ: Статискани ёқиш веб-сервер ва MySQL сервери ўртасида катта траффикка "
-"сабаб бўлиши мумкин."
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -18153,39 +18136,46 @@ msgstr "zip"
 msgid "gzipped"
 msgstr "gzip"
 
-#: templates/console/display.twig:84
+#: templates/display/export/template_loading.twig:2
 #, fuzzy
-#| msgid "Apply index(s)"
-msgid "Hide trace"
-msgstr "Индекс(лар)ни сақлаш"
+#| msgid "Export tables"
+msgid "Export templates:"
+msgstr "Жадвалларни экспорт қилиш"
 
-#: templates/console/display.twig:112
+#: templates/display/export/template_loading.twig:6
 #, fuzzy
-#| msgid "Delete relation"
-msgid "Add bookmark"
-msgstr "Боғлиқликни ўчириш"
+#| msgid "File name template"
+msgid "New template:"
+msgstr "Файл номи шаблони"
 
-#: templates/console/display.twig:121
+#: templates/display/export/template_loading.twig:8
 #, fuzzy
-#| msgid "Label"
-msgid "Label"
-msgstr "Хатчўп белгиси"
+#| msgid "Table name"
+msgid "Template name"
+msgstr "Жадвал номи"
 
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Нишон база"
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Тузиш"
 
-#: templates/console/display.twig:127
+#: templates/display/export/template_loading.twig:16
 #, fuzzy
-#| msgid "Delete relation"
-msgid "Share this bookmark"
-msgstr "Боғлиқликни ўчириш"
+#| msgid "File name template"
+msgid "Existing templates:"
+msgstr "Файл номи шаблони"
 
-#: templates/console/display.twig:140
+#: templates/display/export/template_loading.twig:17
 #, fuzzy
-#| msgid "Restore default value"
-msgid "Set default"
-msgstr "Асл қийматларни тиклаш"
+#| msgid "%s table(s)"
+msgid "Template:"
+msgstr "Жадваллар сони: \"%s\""
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgid "Updated"
+msgid "Update"
+msgstr "Янгиланди"
 
 #: templates/display/import/import.twig:40
 #, fuzzy
@@ -18352,62 +18342,54 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: templates/export/alias_add.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Select column:"
-msgstr "Устун қўшиш/ўчириш"
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Column names"
-msgid "New column name"
-msgstr "Майдон номлари"
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add to Favorites"
-msgstr "Янги фойдаланувчи қўшиш"
-
-#: templates/error/report_form.twig:6
+#| msgid ""
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
 msgstr ""
+"\"enum\" ва \"set\" туридаги майдонлар тузганда, маълумотлар қуйидаги "
+"форматда бўлиши керак: \"a\",\"b\",\"c\"…<br />Тескари эгри чизиқ (\\) ва "
+"битталик қўштирноқ (\") белгилари олдидан тескари эгри чизиқ бўлиши керак, "
+"масалан: \"\\\\xyz\" ёки \"a\\\"b\"."
 
-#: templates/error/report_form.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"\"Андозавий\" майдонлар қийматларида тескари эгри чизиқ ва қўштирноқларни "
+"ишлатманг."
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
 msgstr ""
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/database/designer/page_selector.twig:2
+#: templates/columns_definitions/table_fields_definitions.twig:65
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select page"
-msgstr "Жадвалларни танланг"
+#| msgid "Remove column(s)"
+msgid "Move column"
+msgstr "Устун(лар)ни олиб ташлаш"
 
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Оптималлаштириш лозим бўлгн жадвалларни белгилаш"
-
-#: templates/database/structure/check_all_tables.twig:10
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
 #, fuzzy
-#| msgid "No tables"
-msgid "Copy table"
-msgstr "Жадвал мавжуд эмас"
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "Мавжуд ўгиришлар"
 
-#: templates/database/structure/check_all_tables.twig:11
+#: templates/columns_definitions/table_fields_definitions.twig:82
 #, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "Рангда кўрсатиш"
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "Ўгириш"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94

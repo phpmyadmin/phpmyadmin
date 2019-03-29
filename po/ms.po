@@ -107,9 +107,6 @@ msgstr "Lajur"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Jenis"
@@ -130,8 +127,6 @@ msgstr "Jenis"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -153,9 +148,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Asal"
 
@@ -1419,7 +1412,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Tiada"
 
@@ -3463,7 +3455,6 @@ msgstr "Panjang/Nilai*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Pengumpulan"
 
@@ -7489,7 +7480,6 @@ msgstr "Teks Penuh"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7503,7 +7493,6 @@ msgstr "Menurun"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8082,8 +8071,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 #, fuzzy
 msgid "Options"
 msgstr "Operasi"
@@ -8432,8 +8419,6 @@ msgstr "Binari"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikasi"
 
@@ -10123,8 +10108,8 @@ msgstr "Kandungan"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -14951,16 +14936,21 @@ msgstr "Baris"
 msgid "Dump some row(s)"
 msgstr ""
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of rows:"
+msgstr "Bilangan baris per halaman"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
 msgstr ""
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "direktori muatnaik pelayan-web"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -15044,36 +15034,22 @@ msgstr "Muka Surat:"
 msgid "Page to delete"
 msgstr "Paparan Hubungan"
 
-#: templates/columns_definitions/column_name.twig:4
+#: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
-msgid "Referenced by %s."
+msgid "Activate tracking for %s"
 msgstr ""
 
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-msgid "Pick from Central Columns"
-msgstr "Tukarnama jadual ke"
-
-#: templates/table/tracking/create_version.twig:11
-#, fuzzy, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Versi Pelayan"
-
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-msgid "Create version %1$s"
-msgstr "Versi Pelayan"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
 msgstr ""
 
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
@@ -15174,8 +15150,8 @@ msgstr "pangkalan data"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 msgstr ""
 
 #: templates/prefs_autoload.twig:13
@@ -15236,11 +15212,27 @@ msgstr "Cipta jadual baru pada pangkalan data %s"
 msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-#| msgid "Page number:"
-msgid "Page to open"
-msgstr "Muka Surat:"
+msgid "Count"
+msgstr "Pangkalan data %1$s telah dijana."
+
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Linestring"
+msgid "Original string"
+msgstr "Rentetan talian"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+msgid "Replaced string"
+msgstr "Operasi"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+msgid "Replace"
+msgstr "Baiki jadual"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15326,28 +15318,28 @@ msgstr "pada kueri"
 
 #: templates/database/multi_table_query/form.twig:16
 #, fuzzy
-msgid "Hide/Show all"
-msgstr "Papar semua"
+msgid "Query window"
+msgstr "Jenis Kueri"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
 #, fuzzy
-#| msgid "Propose table structure"
-msgid "Hide/Show tables with no relationship"
-msgstr "Cadangkan struktur jadual"
+#| msgid "Select Tables"
+msgid "select table"
+msgstr "Pilih Jadual"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
 #, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of tables:"
-msgstr "Bilangan baris per halaman"
+#| msgid "Add/Delete Field Columns"
+msgid "select column"
+msgstr "Tambah/Padam Kolum Medan"
 
 #: templates/database/multi_table_query/form.twig:46
 #, fuzzy
-#| msgid "Select fields (at least one):"
-msgid "Select columns (at least one):"
-msgstr "Pilih medan (sekurang-kurangnya satu):"
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Jadual-jadual"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
@@ -15367,14 +15359,15 @@ msgstr "Kriteria"
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
-msgid "Relational key"
-msgstr "Skema Hubungan"
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "Tambah %s"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
-#| msgid "Displaying Column Comments"
-msgid "Display column for relationships"
-msgstr "Memaparkan Komen Kolum"
+#| msgid "Add/Delete Field Columns"
+msgid "Another column"
+msgstr "Tambah/Padam Kolum Medan"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
@@ -15821,44 +15814,34 @@ msgstr "Tambah medan baru"
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New table"
-msgid "New table name"
-msgstr "Tiada Jadual"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr ""
 
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Select column:"
-msgstr "Tambah/Padam Kolum Medan"
-
-#: templates/export/alias_add.twig:43
+#: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
 #| msgid "Column names"
-msgid "New column name"
+msgid "column(s)"
 msgstr "Nama Kolum"
 
-#: templates/database/structure/favorite_anchor.twig:4
+#: templates/columns_definitions/column_definitions_form.twig:74
 #, fuzzy
-msgid "Add to Favorites"
-msgstr "Tambah Pengguna Baru"
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "Pengumpulan"
 
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
 msgstr ""
 
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "Hubungan"
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
 msgstr ""
 
 #: templates/database/structure/table_header.twig:27
@@ -15897,9 +15880,9 @@ msgstr "Sila pilih pangkalan data"
 
 #: templates/start_and_number_of_rows_panel.twig:3
 #, fuzzy
-#| msgid "Select All"
-msgid "Select page"
-msgstr "Sila pilih pangkalan data"
+#| msgid "Start"
+msgid "Start row:"
+msgstr "Sab"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -16117,7 +16100,8 @@ msgstr "Percubaan Gagal"
 msgid "use this for future exports"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:47
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
@@ -16513,15 +16497,22 @@ msgstr "Skema Hubungan"
 
 #: templates/display/results/options_block.twig:30
 #, fuzzy
-#| msgid "Delete"
-msgid "Delete relationship"
-msgstr "Padam"
+#| msgid "Displaying Column Comments"
+msgid "Display column for relationships"
+msgstr "Memaparkan Komen Kolum"
 
-#: templates/display/export/options_rows.twig:2
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:67
 #, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "Baris"
+msgid "Hide browser transformation"
+msgstr "Informasi MasaJana"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96

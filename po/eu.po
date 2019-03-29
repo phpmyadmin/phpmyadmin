@@ -103,9 +103,6 @@ msgstr "Zutabea"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Mota"
@@ -126,8 +123,6 @@ msgstr "Mota"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -149,9 +144,7 @@ msgstr "Nulua"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Lehenetsia"
 
@@ -1410,7 +1403,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Batez"
 
@@ -3473,7 +3465,6 @@ msgstr "Luzera/Balioak*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Ordenamendua"
 
@@ -7612,7 +7603,6 @@ msgstr "Testu osoak"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7626,7 +7616,6 @@ msgstr "Beherantz"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8204,8 +8193,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 #, fuzzy
 msgid "Options"
 msgstr "Eragiketak"
@@ -8553,8 +8540,6 @@ msgstr "Binarioa "
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Ihardetsi"
 
@@ -10271,8 +10256,8 @@ msgstr "Edukinen taula"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Extra"
 
@@ -15256,33 +15241,24 @@ msgstr ""
 msgid "Rows:"
 msgstr "Errenkadak"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
 msgstr ""
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Zerbitzariren %s direktorioan gorde"
-
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
 #, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "Trinkotzea"
+#| msgid "Number of rows per page"
+msgid "Number of rows:"
+msgstr "Errenkada kopurua orriko"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
@@ -15368,23 +15344,23 @@ msgstr "Orri zenbakia:"
 msgid "Page to delete"
 msgstr "Erlazioen ikuspegia"
 
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:48
-msgid "Stacked"
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Import files"
-msgid "Chart title:"
-msgstr "Fitxategiak inportatu"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Deactivate tracking for %s"
+msgstr "Ezabatu taula honetako jarraipen datuak"
 
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
@@ -15530,50 +15506,51 @@ msgstr ""
 msgid "Enable statistics"
 msgstr "Estatistikak gaitu"
 
-#: templates/table/structure/display_partitions.twig:30
+#: templates/display/export/option_header.twig:5
 #, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "Errenkadaren luzera"
+#| msgid "Allows locking tables for the current thread."
+msgid "Exporting databases from the current server"
+msgstr "Momentuko harian taulak blokeatzea baimentzen du."
 
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Relations"
-msgid "Partition table"
-msgstr "Erlazioak"
+#: templates/display/export/option_header.twig:7
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "Taula berri bat sortu %s datu-basean"
 
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
+#: templates/display/export/option_header.twig:9
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "Taula berri bat sortu %s datu-basean"
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/server/sub_page_header.twig:2
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Karaktere-multzoak eta ordenamenduak"
+#| msgid "Column"
+msgid "Count"
+msgstr "Zutabea"
 
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Datu-baseen estatistikak"
-
-#: templates/display/export/options_output_compression.twig:4
+#: templates/table/search/replace_preview.twig:18
 #, fuzzy
-#| msgid "Compression"
-msgid "Compression:"
-msgstr "Trinkotzea"
+#| msgid "Linestring"
+msgid "Original string"
+msgstr "Lerro kateak"
 
-#: templates/display/export/options_output_compression.twig:11
+#: templates/table/search/replace_preview.twig:19
 #, fuzzy
-#| msgid "\"zipped\""
-msgid "zipped"
-msgstr "\"zipatuta\""
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "Erlazioak"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+msgid "Replace"
+msgstr "Erlazioak"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15597,8 +15574,6 @@ msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
-"Lehenetsitako balioak erabiltzeko, mesedez sartu balio bakar bat, komatxo "
-"edota alderantzikaturiko barrarik gabe, formato hau erabiliz: a"
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
@@ -15665,34 +15640,28 @@ msgstr "Kontsulta-leihoa"
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
 #, fuzzy
-#| msgid "Databases"
-msgid "See table structure"
-msgstr "Datu-baseak"
+#| msgid "Select Tables"
+msgid "select table"
+msgstr "Taulak hautatu"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
 #, fuzzy
-#| msgid "Start"
-msgid "Start row:"
-msgstr "Lar"
+#| msgid "Add/Delete Field Columns"
+msgid "select column"
+msgstr "Gehitu/ezabatu irizpide-zutabea"
 
 #: templates/database/multi_table_query/form.twig:46
 #, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of rows:"
-msgstr "Errenkada kopurua orriko"
-
-#: templates/table/structure/add_column.twig:9
-#, fuzzy, php-format
-#| msgid "Add %s field(s)"
-msgid "Add %s column(s)"
-msgstr "Gehitu %s zutabe"
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Taulak"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "Taularen hasieran"
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Zutabe izenak"
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
@@ -15700,32 +15669,21 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:53
 #, fuzzy
-#| msgid "None"
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Batez"
+#| msgid "Criteria"
+msgid "criteria"
+msgstr "Irizpidea"
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "Importing into the current server"
-msgstr "Ezinezkoa MySql zerbitzarian saioa hastea"
-
-#: templates/display/import/import.twig:42
-#, fuzzy, php-format
-msgid "Importing into the database \"%s\""
-msgstr "Datu-baserik ez"
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "%s gehitu"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
-#| msgid "Partial Texts"
-msgid "File to import:"
-msgstr "Testu partzialak"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+#| msgid "Add/Delete Field Columns"
+msgid "Another column"
+msgstr "Gehitu/ezabatu irizpide-zutabea"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
@@ -15745,9 +15703,9 @@ msgstr "Gehitu %s zutabe"
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Partial Texts"
-msgid "Partial import:"
-msgstr "Testu partzialak"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Kontsulta eguneratu"
 
 #: templates/table/relation/common_form.twig:6
 #, fuzzy
@@ -16158,11 +16116,14 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%s emaitza <i>%s</i> taulan"
 msgstr[1] "%s emaitzak <i>%s</i> taulan"
 
-#: templates/display/export/template_options.twig:1
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select a template"
-msgstr "Taulak hautatu"
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Guztira:</b> <i>%s</i> emaitza"
+msgstr[1] "<b>Guztira:</b> <i>%s</i> emaitza"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16273,14 +16234,18 @@ msgstr "Pribilegioak gehitu datu-base honetan"
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:47
+#: templates/table/structure/display_partitions.twig:8
 #, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "Zutabe izenak"
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Ez dago indizerik definituta!"
 
-#: templates/database/multi_table_query/form.twig:50
-msgid "Use this column in criteria"
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
 msgstr ""
 
 #: templates/table/structure/display_partitions.twig:26
@@ -16304,9 +16269,9 @@ msgstr "Errenkadaren luzera"
 
 #: templates/table/structure/display_partitions.twig:135
 #, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "Irizpidea"
+#| msgid "Relations"
+msgid "Partition table"
+msgstr "Erlazioak"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
@@ -16863,21 +16828,30 @@ msgstr ""
 msgid "disabled"
 msgstr "Ezgaituta"
 
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Oharra: Aukera hauek zerora ezarriz gero muga kentzen da."
-
-#: templates/database/designer/delete_relation_panel.twig:21
+#: templates/display/results/options_block.twig:30
 #, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete relationship"
-msgstr "Jarraipen datuak ezabatzen"
+msgid "Relational key"
+msgstr "Erlazio-eskema"
 
-#: templates/display/export/options_rows.twig:2
+#: templates/display/results/options_block.twig:30
 #, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "Errenkadak"
+#| msgid "Displaying Column Comments"
+msgid "Display column for relationships"
+msgstr "Zutabearen iruzkinak erakusten"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:67
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
+msgstr "Nabigatzailearen eraldaketa"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96

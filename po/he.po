@@ -102,9 +102,6 @@ msgstr "עמודה"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "סוג"
@@ -125,8 +122,6 @@ msgstr "סוג"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -148,9 +143,7 @@ msgstr "ריק"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "בררת מחדל"
 
@@ -1318,7 +1311,6 @@ msgstr "נא להוסיף לסדרה משתנה אחד לפחות!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "ללא"
 
@@ -3147,7 +3139,6 @@ msgstr "אורך/ערכים*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "איסוף"
 
@@ -6878,7 +6869,6 @@ msgstr "טקסטים מלאים"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -6892,7 +6882,6 @@ msgstr "יורד"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7449,8 +7438,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "אפשרויות"
 
@@ -7785,8 +7772,6 @@ msgstr "דו\"ח בינארי"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "שכפול"
 
@@ -9415,8 +9400,8 @@ msgstr "תוכן עניניים"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "תוספת"
 
@@ -14250,49 +14235,22 @@ msgstr "מספר דף:"
 msgid "Page to delete"
 msgstr "תצוגת יחסים"
 
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete settings"
-msgstr "נתוני המעקב נמחקים"
-
-#: templates/columns_definitions/column_name.twig:4
+#: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
-msgid "Referenced by %s."
+msgid "Activate tracking for %s"
 msgstr ""
 
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Pick from Central Columns"
-msgstr "שינוי שם מאגר נתונים אל"
-
-#: templates/table/tracking/create_version.twig:11
+#: templates/table/tracking/activate_deactivate.twig:11
 #, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "יצירת גרסה %1$s מתוך %2$s"
-
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "יצירת גרסה %1$s"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
+msgid "Deactivate tracking for %s"
 msgstr ""
 
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
@@ -14463,7 +14421,7 @@ msgstr "מיקום מקורי"
 msgid "Replaced string"
 msgstr "יחסים"
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/table/search/replace_preview.twig:37
 #, fuzzy
 msgid "Replace"
 msgstr "יחסים"
@@ -14929,16 +14887,13 @@ msgstr "בחירת עמודה:"
 msgid "New column name"
 msgstr "שם חדש לעמודה"
 
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "המעקב פעיל."
 
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "המעקב אינו פעיל."
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""
@@ -15281,44 +15236,13 @@ msgstr "תבנית שם קובץ"
 msgid "use this for future exports"
 msgstr ""
 
-#: templates/display/export/template_loading.twig:2
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
 #, fuzzy
-msgid "Export templates:"
-msgstr "סוג ייצוא"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "תבנית חדשה:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "שם טבלה"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "תבניות קיימות:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "תבנית:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "עדכון"
-
-#: templates/database/multi_table_query/form.twig:16
-msgid "Query window"
-msgstr "חלון שאילתה"
-
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
-msgid "select table"
-msgstr "בחירת טבלה"
-
-#: templates/database/multi_table_query/form.twig:40
-#: templates/database/multi_table_query/form.twig:129
-msgid "select column"
-msgstr "בחירת עמודה"
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "ללא"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199
@@ -15697,17 +15621,18 @@ msgstr "מפתח יחסי"
 msgid "Display column for relationships"
 msgstr "הצגת עמודת יחסים"
 
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "הערה: הגדרת אפשרויות אלו אל 0 (אפס) יבטלו את ההגבלה."
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr ""
 
-#: templates/database/designer/delete_relation_panel.twig:21
-msgid "Delete relationship"
-msgstr "מחיקת יחס"
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr ""
 
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "שורות:"
+#: templates/display/results/options_block.twig:67
+#, fuzzy
+msgid "Hide browser transformation"
+msgstr "שינויי צורה זמינים"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96

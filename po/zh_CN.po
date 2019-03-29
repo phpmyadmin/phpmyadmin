@@ -102,9 +102,6 @@ msgstr "字段"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "类型"
@@ -125,8 +122,6 @@ msgstr "类型"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -148,9 +143,7 @@ msgstr "空"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "默认"
 
@@ -1311,7 +1304,6 @@ msgstr "请至少添加一个数据！"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "无"
 
@@ -3139,7 +3131,6 @@ msgstr "长度/值"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "排序规则"
 
@@ -6933,7 +6924,6 @@ msgstr "完整内容"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -6947,7 +6937,6 @@ msgstr "递减"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7523,8 +7512,6 @@ msgstr "请通过点击 \"结构\" 链接来编辑结构."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "选项"
 
@@ -7859,8 +7846,6 @@ msgstr "二进制日志"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "复制"
 
@@ -9421,8 +9406,8 @@ msgstr "目录"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "额外"
 
@@ -14201,11 +14186,15 @@ msgstr "字段数"
 msgid "first"
 msgstr "第一"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr "请将您的FIDO U2F设备连接到计算机的USB端口。然后确认在设备上登录。"
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s 张表"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "总计"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -14811,414 +14800,29 @@ msgstr "移动字段"
 msgid "Move the columns by dragging them up and down."
 msgstr "请通过拖拽来移动字段的位置。"
 
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "使用该字段标记每个点"
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "图表中的最大行数"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "会话值"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "插件"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "作者"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "已禁用"
-
-#: templates/table/search/search_and_replace.twig:3
-msgid "Replace with:"
-msgstr "替换为："
-
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "使用正则表达式"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "已删除字段 %s。"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "服务器变量和设置"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "存储引擎"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "字符集和排序规则"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "数据库统计"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "压缩："
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zip 压缩"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzip 压缩"
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr "配置的双因素身份验证不可用，请安装缺少的依赖项。"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "已用空间"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "有效"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"如字段类型是“enum”或“set”，请使用以下格式输入：'a','b','c'…<br />如果需要输入"
-"反斜杠(“”)或单引号(“'”)，请在前面加上反斜杠(如 '\\\\xyz' 或 'a\\'b')。"
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr "对于默认值，请只输入单个值，不要加反斜杠或引号，请用此格式：a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "虚拟"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "移动字段"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "可用转换列表及其选项"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "浏览器显示转换选项"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"请使用此格式输入转换选项的值：'a',100,b,'c'…<br />如果您需要在值中输入反斜杠 "
-"(“\\”)或单引号(“'”)，请在前面加上反斜杠 (如 '\\\\xyz' 或 'a\\'b')。"
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "输入转换选项"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "浏览/编辑点"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "如何使用"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "重置缩放"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "选择要查看的二进制日志"
-
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "显示/隐藏字段"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "显示表结构"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "起始行："
-
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/results/additional_fields.twig:6
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "行数："
-
-#: templates/table/structure/add_column.twig:9
-#, php-format
-msgid "Add %s column(s)"
-msgstr "添加 %s 个字段"
-
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "于表开头"
-
-#: templates/table/structure/add_column.twig:19
-#: templates/columns_definitions/move_column.twig:12
-#, php-format
-msgid "after %s"
-msgstr "于 %s 之后"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "无"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "转换为假名"
-
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "正在导入到当前服务器"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "正在导入到数据库 \"%s\""
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "正在导入到数据表 \"%s\""
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "要导入的文件："
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "文件可能已压缩 (%s) 或未压缩。"
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"压缩文件名必须以 <strong>.[格式].[压缩方式]</strong> 结尾。如：<strong>.sql."
-"zip</strong>"
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "您可在各页面间拖放文件。"
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "此服务器禁止了文件上传。"
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "部分导入："
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
-
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"在导入时脚本若检测到接近PHP超时时限（即需要花费很长时间）则允许中断。<em>(这"
-"在导入大文件时是个很好的方法，不过这会中断事务)</em>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "从第一个开始跳过这些数量的查询（对于SQL）："
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "其它选项："
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "文件名模板："
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "以后也使用此设置"
-
-#: templates/console/display.twig:7
-msgid "History"
-msgstr "历史"
-
-#: templates/console/display.twig:11 templates/console/display.twig:99
-msgid "Bookmarks"
-msgstr "书签"
-
-#: templates/console/display.twig:20
-msgid "Press Ctrl+Enter to execute query"
-msgstr "按 Ctrl+Enter 键执行查询"
-
-#: templates/console/display.twig:23
-msgid "Press Enter to execute query"
-msgstr "按 Enter 执行查询"
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-msgid "Explain"
-msgstr "解析"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Bookmark"
-msgstr "书签"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Query failed"
-msgstr "查询失败"
-
-#: templates/console/display.twig:42 templates/console/display.twig:184
-msgid "Queried time"
-msgstr "查询时间"
-
-#: templates/console/display.twig:47
-msgid "During current session"
-msgstr "在当前会话期间"
-
-#: templates/console/display.twig:64
-msgid "ascending"
-msgstr "递增排序"
-
-#: templates/console/display.twig:64
-msgid "descending"
-msgstr "递减排序"
-
-#: templates/console/display.twig:64
-msgid "Order:"
-msgstr "命令："
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-msgid "Count"
-msgstr "数量"
-
-#: templates/console/display.twig:64
-msgid "Execution order"
-msgstr "运行顺序"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Time taken"
-msgstr "用时"
-
-#: templates/console/display.twig:64
-msgid "Order by:"
-msgstr "排序条件："
-
-#: templates/console/display.twig:64
-msgid "Ungroup queries"
-msgstr "不使用联合查询"
-
-#: templates/console/display.twig:84
-msgid "Show trace"
-msgstr "显示跟踪"
-
-#: templates/console/display.twig:84
-msgid "Hide trace"
-msgstr "隐藏跟踪"
-
-#: templates/console/display.twig:112
-msgid "Add bookmark"
-msgstr "添加书签"
-
-#: templates/console/display.twig:121
-msgid "Label"
-msgstr "标签"
-
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "目标数据库"
-
-#: templates/console/display.twig:127
-msgid "Share this bookmark"
-msgstr "共享和谐书签"
-
-#: templates/console/display.twig:140
-msgid "Set default"
-msgstr "恢复默认"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr "浏览设置，使按Shift+Enter键执行输入和插入新行作为永久设置。"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "索引名称："
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "“PRIMARY”<b>必须</b>而且<b>只能</b>作为主键的名称！"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "索引选择："
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "高级选项"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "密钥块大小："
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "索引类型："
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "解析器："
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "注释:"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "拖拽以重排顺序"
-
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "当前选项"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr "配置双因素身份验证"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "数据表名"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "列"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "整理："
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "存储引擎:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "连接："
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "分区定义："
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15442,10 +15046,11 @@ msgstr "文件名模板："
 msgid "use this for future exports"
 msgstr "以后也使用此设置"
 
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
-msgid "select table"
-msgstr "选择表"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "无"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

@@ -111,9 +111,6 @@ msgstr "Սյունակ"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Տեսակ"
@@ -134,8 +131,6 @@ msgstr "Տեսակ"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -157,9 +152,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Լռելյան"
 
@@ -1360,7 +1353,6 @@ msgstr "Ավելացրեք առնվազն մեկ փոփոխական այս շա�
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Չկա"
 
@@ -3262,7 +3254,6 @@ msgstr "Երկարությունը/Արժեքները"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Համադրում"
 
@@ -7248,7 +7239,6 @@ msgstr "Ամբողջական գրվածքներ"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7262,7 +7252,6 @@ msgstr "Ըստ նվազման"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7825,8 +7814,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Կայանքներ"
 
@@ -8167,8 +8154,6 @@ msgstr "Երկուական մատյան"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Կրկնապատկում"
 
@@ -9714,8 +9699,8 @@ msgstr "Բովանդակության աղյուսակը"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Լրացուցիչ"
 
@@ -14453,36 +14438,11 @@ msgstr "Ընդամենը"
 msgid "Resource limits"
 msgstr "Պաշարների օգտագործման սահմանափակումները"
 
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Վերանվանել"
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-msgid "New name"
-msgstr "Նոր անուն"
-
-#: templates/database/designer/options_panel.twig:99
-#: templates/database/designer/aggregate_query_panel.twig:22
-msgid "Aggregate"
-msgstr "Միաձուլել"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Նոր"
-
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Ֆայլի կոդավորում՝"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
+"Նշում՝ այս կայանքների համար 0 (զրոյի) նշանակումը հանում է բոլոր "
+"սահմանափակումները։"
 
 #: templates/database/designer/where_query_panel.twig:59
 #: templates/database/designer/having_query_panel.twig:90
@@ -14506,22 +14466,19 @@ msgstr "Օգտագործեք այս սյունակը՝ ամեն կետը պիտ�
 msgid "Maximum rows to plot"
 msgstr "Կառուցման ենթակա տողերի առավելագույն քանակը"
 
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr ""
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "Ցուցադրել/թաքցնել սյունակները"
 
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Սա՝ արտաքին բանալի է։"
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "Դիտել աղյուսակի կառուցվածքը"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
-"Նշում՝ տվյալների բազաների վիճակագրության գործունացումը կարող է պատճառել "
-"մեծածավալ փոխանակում՝ վեբ սպասարկչի և MySQL սպասարկչի միջև։"
 
 #: templates/prefs_autoload.twig:13
 #, fuzzy
@@ -14688,9 +14645,9 @@ msgstr "Աղյուսակներ"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
-#| msgid "Display column for relations"
-msgid "Display column for relationships"
-msgstr "Սյունակների մեկնաբանությունների ցուցադրումը"
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Սյունակների անուններ"
 
 #: templates/database/multi_table_query/form.twig:50
 #, fuzzy
@@ -15022,8 +14979,6 @@ msgstr "Ընտելական՝ ցուցադրել բոլոր առկա կայանք
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
 msgstr ""
-"Կատարել հարցումը՝  Enter սեղմելով, և զետեղել նոր տող՝ Shift + Enter "
-"սեղմելով։ Այս հնարավորությունը մշտական դարձնելու համար՝ դիմեք կայանքներին։"
 
 #: templates/export/alias_add.twig:9
 #, fuzzy
@@ -15125,39 +15080,31 @@ msgstr "Տեղափոխել սյունակները"
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Չհետագծվող աղյուսակներ"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Աղյուսակի անուն"
 
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
+#: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
-#| msgid "Select database"
-msgid "Select database:"
-msgstr "Ընտրեք տվյալների բազան"
+#| msgid "Columns"
+msgid "column(s)"
+msgstr "Սյունակներ"
 
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Նոր տվյալների բազայի անունը"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Համադրում՝"
 
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select table"
-msgid "Select table:"
-msgstr "Ընտրեք աղյուսակը"
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Պահպանման տեսակը՝"
 
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Նոր աղյուսակի անունը"
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Միացում՝"
 
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
-msgid "Select column:"
-msgstr "Ընտրեք սյունակը։"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "Մասնաբաժինների (PARTITION) սահմանումը՝"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15383,12 +15330,11 @@ msgstr ""
 msgid "use this for future exports"
 msgstr "օգտագործել հետագա արտահանուների համար"
 
-#: templates/database/multi_table_query/form.twig:40
-#: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select a column."
-msgid "select column"
-msgstr "Ընտրեք սյունակը։"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Չկա"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

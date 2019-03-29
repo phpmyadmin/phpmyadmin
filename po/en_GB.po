@@ -106,9 +106,6 @@ msgstr "Column"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Type"
@@ -129,8 +126,6 @@ msgstr "Type"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -152,9 +147,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Default"
 
@@ -1352,7 +1345,6 @@ msgstr "Please add at least one variable to the series!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "None"
 
@@ -3225,7 +3217,6 @@ msgstr "Length/Values"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Collation"
 
@@ -7192,7 +7183,6 @@ msgstr "Full texts"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7206,7 +7196,6 @@ msgstr "Descending"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7815,8 +7804,6 @@ msgstr "Edit structure by following the \"Structure\" link."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Options"
 
@@ -8155,8 +8142,6 @@ msgstr "Binary log"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replication"
 
@@ -9774,8 +9759,8 @@ msgstr "Table of contents"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Extra"
 
@@ -14600,33 +14585,27 @@ msgstr "Save output to a file"
 msgid "Skip tables larger than %s MiB"
 msgstr "Skip tables larger than %s MiB"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Collapse"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Rows:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Expand"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Dump some row(s)"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Requery"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+msgid "Number of rows:"
+msgstr "Number of rows:"
 
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Row to begin at:"
 
-#: templates/database/structure/table_header.twig:38
-#: templates/table/index_form.twig:118
-msgid "Size"
-msgstr "Size"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Dump all rows"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
@@ -14810,157 +14789,17 @@ msgstr "Show/hide columns"
 msgid "See table structure"
 msgstr "See table structure"
 
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Hide browser transformation"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Well Known Text"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Well Known Binary"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "Save to selected page"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "Create a page and save to it"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "New page name"
-
-#: templates/table/chart/tbl_chart.twig:15
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "Bar"
-
-#: templates/table/chart/tbl_chart.twig:19
-msgctxt "Chart type"
-msgid "Column"
-msgstr "Column"
-
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
-msgstr "Line"
-
-#: templates/table/chart/tbl_chart.twig:27
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "Spline"
-
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
-msgstr "Area"
-
-#: templates/table/chart/tbl_chart.twig:35
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "Pie"
-
-#: templates/table/chart/tbl_chart.twig:39
-msgctxt "Chart type"
-msgid "Timeline"
-msgstr "Timeline"
-
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
-msgstr "Scatter"
-
-#: templates/table/chart/tbl_chart.twig:48
-msgid "Stacked"
-msgstr "Stacked"
-
-#: templates/table/chart/tbl_chart.twig:51
-msgid "Chart title:"
-msgstr "Chart title:"
-
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
-msgstr "X-Axis:"
-
-#: templates/table/chart/tbl_chart.twig:71
-msgid "Series:"
-msgstr "Series:"
-
-#: templates/table/chart/tbl_chart.twig:102
-msgid "X-Axis label:"
-msgstr "X-Axis label:"
-
-#: templates/table/chart/tbl_chart.twig:104
-msgid "X Values"
-msgstr "X Values"
-
-#: templates/table/chart/tbl_chart.twig:107
-msgid "Y-Axis label:"
-msgstr "Y-Axis label:"
-
-#: templates/table/chart/tbl_chart.twig:109
-msgid "Y Values"
-msgstr "Y Values"
-
-#: templates/table/chart/tbl_chart.twig:115
-msgid "Series names are in a column"
-msgstr "Series names are in a column"
-
-#: templates/table/chart/tbl_chart.twig:118
-msgid "Series column:"
-msgstr "Series column:"
-
-#: templates/table/chart/tbl_chart.twig:132
-msgid "Value Column:"
-msgstr "Value Column:"
-
-#: templates/table/chart/tbl_chart.twig:153
-msgid "Save chart as image"
-msgstr "Save chart as image"
-
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr "No partitioning defined!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr "Partitioned by:"
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr "Sub partitioned by:"
-
-#: templates/table/structure/display_partitions.twig:29
-msgid "Data length"
-msgstr "Data length"
-
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "Index length"
-
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "Partition table"
-
-#: templates/login/header.twig:12
+#: templates/prefs_autoload.twig:7
 msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 msgstr ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Use this column to label each point"
+#: templates/prefs_autoload.twig:13
+msgid "Delete settings"
+msgstr "Delete settings"
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
@@ -15001,41 +14840,26 @@ msgstr "Exporting tables from \"%s\" database"
 msgid "Exporting rows from \"%s\" table"
 msgstr "Exporting rows from \"%s\" table"
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Space usage"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Find and replace - preview"
 
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Effective"
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Count"
+msgstr "Count"
 
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Original string"
 
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Replaced string"
 
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Virtuality"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Move column"
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Replace"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15563,13 +15387,13 @@ msgstr "Collation:"
 msgid "Storage Engine:"
 msgstr "Storage Engine:"
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr "You may examine the data in the error report:"
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Connection:"
 
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Select page"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION definition:"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15795,9 +15619,11 @@ msgstr "File name template:"
 msgid "use this for future exports"
 msgstr "use this for future exports"
 
-#: templates/database/multi_table_query/form.twig:16
-msgid "Query window"
-msgstr "Query window"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "None"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

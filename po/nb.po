@@ -103,9 +103,6 @@ msgstr "Kolonne"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Type"
@@ -126,8 +123,6 @@ msgstr "Type"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -149,9 +144,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Standard"
 
@@ -1352,7 +1345,6 @@ msgstr "Legg minst én variabel til serien!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Ingen"
 
@@ -3233,7 +3225,6 @@ msgstr "Lengde/Sett*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Sammenligning"
 
@@ -7353,9 +7344,9 @@ msgstr "Sorter:"
 
 #: libraries/classes/Database/Qbe.php:616
 #, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Feil: Relasjon ikke opprettet."
+#| msgid "Sort:"
+msgid "Sort order:"
+msgstr "Sorter:"
 
 #: libraries/classes/Database/Qbe.php:665
 msgid "Show:"
@@ -7689,7 +7680,6 @@ msgstr "Hele tekster"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7703,7 +7693,6 @@ msgstr "Synkende"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8326,8 +8315,6 @@ msgstr "Endre dens struktur ved å følge \"Struktur\" linken"
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Innstillinger"
 
@@ -8680,8 +8667,6 @@ msgstr "Binærlogg"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikering"
 
@@ -10398,8 +10383,8 @@ msgstr "Innholdsfortegnelse"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -15339,8 +15324,6 @@ msgstr "Tid"
 msgctxt "Chart type"
 msgid "Scatter"
 msgstr ""
-"Utfør en \"spørring ved eksempel\" (jokertegn: \"%\") for to forskjellige "
-"kolonner"
 
 #: templates/table/chart/tbl_chart.twig:48
 #, fuzzy
@@ -16103,9 +16086,9 @@ msgstr "Tabeller"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Display column for relationships"
-msgstr "Slå av kontroll av fremmednøkler"
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Kolonnenavn"
 
 #: templates/database/multi_table_query/form.twig:50
 #, fuzzy
@@ -16127,9 +16110,9 @@ msgstr "Legg til %s"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
-#| msgid "Export/Import to scale"
-msgid "Save to selected page"
-msgstr "Eksporter/Importer til skala"
+#| msgid "Alter column(s)"
+msgid "Another column"
+msgstr "Endre kolonne(r)"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
@@ -16137,24 +16120,22 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:148
 #, fuzzy
-#| msgid "User name"
-msgid "New page name"
-msgstr "Brukernavn"
+#| msgid "Remove column(s)"
+msgid "Remove this column"
+msgstr "Fjern kolonne(r)"
 
 #: templates/database/multi_table_query/form.twig:158
 #: templates/table/relation/foreign_key_row.twig:90
 #, fuzzy
-#| msgid "Mar"
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "Mar"
+#| msgid "Add column"
+msgid "+ Add column"
+msgstr "Legg til kolonne(r)"
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Column"
-msgctxt "Chart type"
-msgid "Column"
-msgstr "Kolonne"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Oppdater spørring"
 
 #: templates/table/relation/common_form.twig:6
 #, fuzzy
@@ -16421,9 +16402,6 @@ msgstr "Klikk for å endre"
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
 msgstr ""
-"Tillat avbrudd av importering i tilfelle skriptet oppdager at det er rett "
-"før det når tidsavbrudd. Dette kan være en god måte å importere store filer "
-"på, men det kan knekke transaksjoner."
 
 #: templates/table/search/options.twig:6
 msgid "Select columns (at least one):"
@@ -16543,7 +16521,6 @@ msgstr ""
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
 msgstr ""
-"\"PRIMARY\" <b>må</b> være navnet til og <b>bare til</b> en primærnøkkel!"
 
 #: templates/prefs_twofactor_configure.twig:8
 #, fuzzy
@@ -16558,11 +16535,14 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s treff i <strong>%2$s</strong>"
 msgstr[1] "%1$s treff i <strong>%2$s</strong>"
 
-#: templates/table/index_form.twig:42
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "Table options"
-msgid "Advanced Options"
-msgstr "Tabellinnstillinger"
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Totalt:</b> <i>%s</i> treff"
+msgstr[1] "<b>Totalt:</b> <i>%s</i> treff"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16685,53 +16665,17 @@ msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte."
 msgid "No partitioning defined!"
 msgstr "Ingen indeks definert!"
 
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Opprinnelig"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Erstattet"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Erstatt"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Dato"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Brukernavn"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Bruk denne verdien"
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Ikke overvåkede tabeller"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
+#: templates/table/structure/display_partitions.twig:11
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "Velg tabeller"
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "partisjonert"
 
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Databasenavn"
-
-#: templates/export/alias_add.twig:23
+#: templates/table/structure/display_partitions.twig:16
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "Velg tabeller"
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "partisjonert"
 
 #: templates/table/structure/display_partitions.twig:26
 #: templates/columns_definitions/column_virtuality.twig:29
@@ -16742,21 +16686,21 @@ msgstr "Kompresjon"
 
 #: templates/table/structure/display_partitions.twig:29
 #, fuzzy
-#| msgid "User name"
-msgid "New table name"
-msgstr "Brukernavn"
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Radlengde"
 
-#: templates/export/alias_add.twig:37
+#: templates/table/structure/display_partitions.twig:30
 #, fuzzy
-#| msgid "Select a column."
-msgid "Select column:"
-msgstr "Velg en kolonne."
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Radlengde"
 
-#: templates/export/alias_add.twig:43
+#: templates/table/structure/display_partitions.twig:135
 #, fuzzy
-#| msgid "Copy column name"
-msgid "New column name"
-msgstr "Kopier kolonnenavn"
+#| msgid "partitioned"
+msgid "Partition table"
+msgstr "partisjonert"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
@@ -17321,11 +17265,11 @@ msgstr ""
 msgid "disabled"
 msgstr "Avslått"
 
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Merk: Ved å sette disse til 0 (null) fjernes begrensningen."
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Relasjonsnøkkel"
 
-#: templates/database/designer/delete_relation_panel.twig:21
+#: templates/display/results/options_block.twig:30
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display column for relationships"

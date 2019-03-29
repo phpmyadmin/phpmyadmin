@@ -106,9 +106,6 @@ msgstr "ستون"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "نوع"
@@ -129,8 +126,6 @@ msgstr "نوع"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -152,9 +147,7 @@ msgstr "تهی"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "پيش‌ فرض"
 
@@ -1415,7 +1408,6 @@ msgstr "لطفا حداقل یک مقدار به این سری اضافه نما
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "هیچ یک"
 
@@ -3454,7 +3446,6 @@ msgstr "طول/مقادير*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "مقایسه"
 
@@ -7556,7 +7547,6 @@ msgstr "كاملا متن"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7570,7 +7560,6 @@ msgstr "نزولي"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8151,8 +8140,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 #, fuzzy
 msgid "Options"
 msgstr "عمليات"
@@ -8497,8 +8484,6 @@ msgstr "دودويي"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "تکرار"
 
@@ -10194,8 +10179,8 @@ msgstr "توضيحات جدول"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "اضافي"
 
@@ -15048,18 +15033,21 @@ msgstr "سطرها"
 msgid "Dump some row(s)"
 msgstr ""
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of rows:"
+msgstr "تعداد سطرها در هر صفحه"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
 msgstr ""
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "%1$s match in <strong>%2$s</strong>"
-#| msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "%1$s همتا در <strong>%2$s</strong>"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -15146,29 +15134,23 @@ msgstr "عنوان صفحه"
 msgid "Page to delete"
 msgstr "رابطه حذف شد"
 
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
 msgstr ""
 
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete settings"
-msgstr "در حال حذف اطلاعات پیگیری"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr ""
 
-#: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
-msgid "Referenced by %s."
-msgstr "انتخاب کلید اشاره"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
@@ -15320,34 +15302,33 @@ msgstr "ساخت جدول جديد در پايگاه داده %s"
 msgid "Exporting rows from \"%s\" table"
 msgstr "ساخت جدول جديد در پايگاه داده %s"
 
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"نکته: فعال کردن آمارگیری پایگاه داده ممکن است ترافیک سنگینی بین وب سرور و "
-"سرور پایگاه داده به وجود بیاورد."
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "فعال سازی آمارها"
+#| msgid "Column"
+msgid "Count"
+msgstr "ستون"
 
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr ""
-
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/table/search/replace_preview.twig:18
 #, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "عنوان صفحه"
+#| msgid "Original position"
+msgid "Original string"
+msgstr "موقعیت اصلی"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+msgid "Replaced string"
+msgstr "عمليات"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replicated"
+msgid "Replace"
+msgstr "تکراری"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15432,9 +15413,9 @@ msgstr "کوئری داخلی"
 
 #: templates/database/multi_table_query/form.twig:16
 #, fuzzy
-#| msgid "Select fields (at least one):"
-msgid "Select columns (at least one):"
-msgstr "ستونها را انتخاب نماييد (حداقل يكي)"
+#| msgid "Query"
+msgid "Query window"
+msgstr "پرس و جو"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
@@ -15458,9 +15439,9 @@ msgstr "جدولها"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
-#| msgid "Displaying Column Comments"
-msgid "Display column for relationships"
-msgstr "نمايش توضيحات ستون"
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "نام ستونها"
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
@@ -15474,8 +15455,9 @@ msgstr "معيارها"
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
-msgid "Hide browser transformation"
-msgstr "اطلاعات ورود"
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "افزودن %s"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
@@ -15489,23 +15471,21 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:148
 #, fuzzy
-#| msgid "Create a page and export to it"
-msgid "Create a page and save to it"
-msgstr "ایجاد صفحه و صدور اطلاعات به آن"
+#| msgid "Remove chart"
+msgid "Remove this column"
+msgstr "حذف نمودار"
 
 #: templates/database/multi_table_query/form.twig:158
 #: templates/table/relation/foreign_key_row.twig:90
 #, fuzzy
-#| msgid "New page name: "
-msgid "New page name"
-msgstr "نام صفحه جدید : "
+msgid "+ Add column"
+msgstr "افزودن ستون جديد"
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Mar"
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "مارس"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "به‌هنگام سازي پرس و جو"
 
 #: templates/table/relation/common_form.twig:6
 #, fuzzy
@@ -15911,17 +15891,14 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s همتا در <strong>%2$s</strong>"
 msgstr[1] "%1$s همتا در <strong>%2$s</strong>"
 
-#: templates/display/export/options_output_radio.twig:5
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "Save as file"
-msgid "View output as text"
-msgstr "ذخيره به صورت پرونده"
-
-#: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select a template"
-msgstr "Select Tables"
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>مجموع:</b> <i>%s</i> مطابقت"
+msgstr[1] "<b>مجموع:</b> <i>%s</i> مطابقتها"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16056,23 +16033,21 @@ msgstr "فشرده‌سازي"
 
 #: templates/table/structure/display_partitions.twig:29
 #, fuzzy
-#| msgid "Query"
-msgid "Query window"
-msgstr "پرس و جو"
+#| msgid "Row length"
+msgid "Data length"
+msgstr "طول سطر"
 
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
+#: templates/table/structure/display_partitions.twig:30
 #, fuzzy
-#| msgid "Select Tables"
-msgid "select table"
-msgstr "Select Tables"
+#| msgid "Row length"
+msgid "Index length"
+msgstr "طول سطر"
 
-#: templates/database/multi_table_query/form.twig:40
-#: templates/database/multi_table_query/form.twig:129
+#: templates/table/structure/display_partitions.twig:135
 #, fuzzy
-#| msgid "Select two columns"
-msgid "select column"
-msgstr "انتخاب دو ستون"
+#| msgid "Position"
+msgid "Partition table"
+msgstr "موقعیت"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
@@ -16627,19 +16602,25 @@ msgstr "نویسنده"
 msgid "disabled"
 msgstr "غيرفعال"
 
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
 msgstr ""
 
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Displaying Column Comments"
+msgid "Display column for relationships"
+msgstr "نمايش توضيحات ستون"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
 msgstr ""
 
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
 msgstr ""
 
-#: templates/table/structure/row_stats_table.twig:2
+#: templates/display/results/options_block.twig:67
 #, fuzzy
 msgid "Hide browser transformation"
 msgstr "اطلاعات ورود"
