@@ -74,6 +74,8 @@ phpMyAdmin - ChangeLog
 - issue #14853 Insert page should not allow entering things into virtual columns
 - issue #15110 Fixed TypeError e.preventDefaulut is not a function
 - issue #15115 Improved label in Settings export, clarifying that it's a JSON file
+- issue #14816 Fixed [designer] Cannot read property 'style' of null
+- issue        Fixed [designer] Add new tables with database/table list modal
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log

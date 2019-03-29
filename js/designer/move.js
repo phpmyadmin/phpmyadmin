@@ -85,9 +85,6 @@ var grid_size = 10;
 
 // window.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP);
 // ---CROSS
-document.onmousedown = MouseDown;
-document.onmouseup   = MouseUp;
-document.onmousemove = MouseMove;
 
 var isIE = document.all && !window.opera;
 
@@ -566,7 +563,8 @@ function Add_Other_db_tables () {
             'ajax_request' : true,
             'dialog' : 'add_table',
             'db' : db,
-            'table' : table
+            'table' : table,
+            'server': PMA_commonParams.get('server')
         }, function (data) {
             $new_table_dom = $(data.message);
             $new_table_dom.find('a').first().remove();
@@ -598,7 +596,8 @@ function Add_Other_db_tables () {
 
     $.post('sql.php', {
         'ajax_request' : true,
-        'sql_query' : 'SHOW databases;'
+        'sql_query' : 'SHOW databases;',
+        'server': PMA_commonParams.get('server')
     }, function (data) {
         $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
             var val = $(this)[0].innerHTML;
@@ -628,7 +627,8 @@ function Add_Other_db_tables () {
             $.post('sql.php', {
                 'ajax_request' : true,
                 'sql_query': sql_query,
-                'db' : db_name
+                'db' : db_name,
+                'server': PMA_commonParams.get('server')
             }, function (data) {
                 $select_table.html('');
                 $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
@@ -1947,6 +1947,9 @@ AJAX.registerTeardown('designer/move.js', function () {
     $('#cancel_close_option').off('click');
     $('#ok_new_rel_panel').off('click');
     $('#cancel_new_rel_panel').off('click');
+    $("#page_content").off('mouseup');
+    $("#page_content").off('mousedown');
+    $("#page_content").off('mousemove');
 });
 
 AJAX.registerOnload('designer/move.js', function () {
@@ -2110,5 +2113,14 @@ AJAX.registerOnload('designer/move.js', function () {
     });
     $('input#cancel_new_rel_panel').on('click', function () {
         document.getElementById('layer_new_relation').style.display = 'none';
+    });
+    $("#page_content").on('mousedown', function(e) {
+        MouseDown(e);
+    });
+    $("#page_content").on('mouseup', function(e) {
+        MouseUp(e);
+    });
+    $("#page_content").on('mousemove', function(e) {
+        MouseMove(e);
     });
 });
