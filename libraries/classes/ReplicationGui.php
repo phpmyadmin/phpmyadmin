@@ -250,29 +250,18 @@ class ReplicationGui
     /**
      * returns HTML for changing master
      *
-     * @param string $submitname - submit button name
+     * @param string $submitName submit button name
      *
      * @return string HTML code
      */
-    public function getHtmlForReplicationChangeMaster($submitname)
+    public function getHtmlForReplicationChangeMaster($submitName)
     {
-        $html = '';
-        list($username_length, $hostname_length)
-            = $this->getUsernameHostnameLength();
+        list(
+            $usernameLength,
+            $hostnameLength
+        ) = $this->getUsernameHostnameLength();
 
-        $html .= '<form method="post" action="server_replication.php">';
-        $html .= Url::getHiddenInputs('', '');
-        $html .= ' <fieldset id="fieldset_add_user_login">';
-        $html .= '  <legend>' . __('Slave configuration');
-        $html .= ' - ' . __('Change or reconfigure master server') . '</legend>';
-        $html .= __(
-            'Make sure you have a unique server-id in your configuration file (my.cnf). '
-            . 'If not, please add the following line into [mysqld] section:'
-        );
-        $html .= '<br>';
-        $html .= '<pre>server-id=' . time() . '</pre>';
-
-        $html .= $this->getHtmlForAddUserInputDiv(
+        $usernameInput = $this->getHtmlForAddUserInputDiv(
             [
                 'text' => __('User name:'),
                 'for' => "text_username"
@@ -281,13 +270,13 @@ class ReplicationGui
                 'type' => 'text',
                 'name' => 'username',
                 'id' => 'text_username',
-                'maxlength' => $username_length,
+                'maxlength' => $usernameLength,
                 'title' => __('User name'),
                 'required' => 'required'
             ]
         );
 
-        $html .= $this->getHtmlForAddUserInputDiv(
+        $passwordInput = $this->getHtmlForAddUserInputDiv(
             [
                 'text' => __('Password:'),
                 'for' => "text_pma_pw"
@@ -301,7 +290,7 @@ class ReplicationGui
             ]
         );
 
-        $html .= $this->getHtmlForAddUserInputDiv(
+        $hostnameInput = $this->getHtmlForAddUserInputDiv(
             [
                 'text' => __('Host:'),
                 'for' => "text_hostname"
@@ -310,13 +299,13 @@ class ReplicationGui
                 'type' => 'text',
                 'name' => 'hostname',
                 'id' => 'text_hostname',
-                'maxlength' => $hostname_length,
+                'maxlength' => $hostnameLength,
                 'value' => '',
                 'required' => 'required'
             ]
         );
 
-        $html .= $this->getHtmlForAddUserInputDiv(
+        $portInput = $this->getHtmlForAddUserInputDiv(
             [
                 'text' => __('Port:'),
                 'for' => "text_port"
@@ -331,16 +320,14 @@ class ReplicationGui
             ]
         );
 
-        $html .= ' </fieldset>';
-        $html .= ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
-        $html .= '    <input type="hidden" name="sr_take_action" value="true">';
-        $html .= '     <input type="hidden" name="' . $submitname . '" value="1">';
-        $html .= '     <input class="btn btn-primary" type="submit" id="confslave_submit" value="';
-        $html .= __('Go') . '">';
-        $html .= ' </fieldset>';
-        $html .= '</form>';
-
-        return $html;
+        return $this->template->render('server/replication/change_master', [
+            'server_id' => time(),
+            'username_input' => $usernameInput,
+            'password_input' => $passwordInput,
+            'hostname_input' => $hostnameInput,
+            'port_input' => $portInput,
+            'submit_name' => $submitName,
+        ]);
     }
 
     /**

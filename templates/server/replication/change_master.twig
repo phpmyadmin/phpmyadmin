@@ -1,0 +1,22 @@
+<form method="post" action="server_replication.php">
+  {{ get_hidden_inputs('', '') }}
+  <fieldset id="fieldset_add_user_login">
+    <legend>
+      {% trans 'Slave configuration' %} -
+      {% trans 'Change or reconfigure master server' %}
+    </legend>
+    <p>
+      {% trans 'Make sure you have a unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:' %}
+    </p>
+    <pre>server-id={{ server_id }}</pre>
+    {{ username_input|raw }}
+    {{ password_input|raw }}
+    {{ hostname_input|raw }}
+    {{ port_input|raw }}
+  </fieldset>
+  <fieldset id="fieldset_user_privtable_footer" class="tblFooters">
+    <input type="hidden" name="sr_take_action" value="true">
+    <input type="hidden" name="{{ submit_name }}" value="1">
+    <input class="btn btn-primary" type="submit" id="confslave_submit" value="{% trans 'Go' %}">
+  </fieldset>
+</form>
