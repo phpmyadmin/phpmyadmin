@@ -220,21 +220,12 @@ class ReplicationGui
      */
     public function getHtmlForNotServerReplication()
     {
-        $_url_params = $GLOBALS['url_params'];
-        $_url_params['mr_configure'] = true;
+        $urlParams = $GLOBALS['url_params'];
+        $urlParams['mr_configure'] = true;
 
-        $html  = '<fieldset>';
-        $html .= '<legend>' . __('Master replication') . '</legend>';
-        $html .= sprintf(
-            __(
-                'This server is not configured as master in a replication process. '
-                . 'Would you like to %sconfigure%s it?'
-            ),
-            '<a href="server_replication.php" data-post="' . Url::getCommon($_url_params, '') . '">',
-            '</a>'
-        );
-        $html .= '</fieldset>';
-        return $html;
+        return $this->template->render('server/replication/not_server_replication', [
+            'url_params' => $urlParams,
+        ]);
     }
 
     /**
