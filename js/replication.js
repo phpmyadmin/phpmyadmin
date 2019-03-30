@@ -82,10 +82,10 @@ AJAX.registerOnload('replication.js', function () {
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             PMA_ajaxShowMessage();
             AJAX.source = $anchor;
-            var params = {
+            var params = getJSConfirmCommonParam({
                 'ajax_page_request': true,
-                'ajax_request': true,
-            };
+                'ajax_request': true
+            }, $anchor.getPostData());
             $.post(url, params, AJAX.responseHandler);
         });
     });

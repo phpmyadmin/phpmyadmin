@@ -575,7 +575,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var blob = new Blob([JSON.stringify(exportData)], { type: 'application/octet-stream' });
         var url = window.URL.createObjectURL(blob);
         window.location.href = url;
-        window.URL.revokeObjectURL(url);
+        setTimeout(function () {
+            // For some browsers it is necessary to delay revoking the ObjectURL
+            window.URL.revokeObjectURL(url);
+            url = undefined;
+            blob = undefined;
+        }, 100);
     });
 
     $('a[href="#importMonitorConfig"]').on('click', function (event) {

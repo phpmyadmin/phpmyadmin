@@ -77,6 +77,11 @@ phpMyAdmin - ChangeLog
 - issue #14816 Fixed [designer] Cannot read property 'style' of null
 - issue        Fixed [designer] Add new tables with database/table list modal
 - issue        Fixed query format on multi server setup
+- issue        Fixed remove partitioning on multi server setup
+- issue        Fixed normalization
+- issue        Fixed 'RESET SLAVE' button on replication slave
+- issue        Fixed sending a php error report on multi server setup
+- issue        Fixed downloading of monitor parameters
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
