@@ -3866,6 +3866,23 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
     }); // end $.get()
 };
 
+/**
+ * Initialise dialog modal handler on window resize
+ */
+AJAX.registerOnload('functions.js', function () {
+    $(window).resize(function () {
+        $('.ui-dialog-content').dialog('option', 'position', {
+            my: 'center',
+            at: 'center',
+            of: window
+        });
+    });
+});
+
+AJAX.registerTeardown('functions.js', function () {
+    $(window).off('resize');
+});
+
 Functions.showIndexEditDialog = function ($outer) {
     Indexes.checkIndexType();
     Functions.checkIndexName('index_frm');
