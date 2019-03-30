@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2019-03-20 15:25+0000\n"
-"Last-Translator: Jamaro Ja Ma Ro <jamaropop@gmail.com>\n"
+"PO-Revision-Date: 2019-03-31 22:48+0000\n"
+"Last-Translator: Dranthos <dranthos@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "es/>\n"
 "Language: es\n"
@@ -1117,10 +1117,8 @@ msgid "Y values"
 msgstr "Valores Y"
 
 #: js/messages.php:143
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Ingrese el mismo valor de nuevo"
+msgstr "Ingrese la consulta SQL primero."
 
 #: js/messages.php:146
 msgid "The host name is empty!"
@@ -7194,6 +7192,8 @@ msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
 msgstr ""
+"Por favor deshabilite mysql.allow_local_infile en su configuración de PHP o "
+"instale la extensión de mysqli."
 
 #: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -10314,7 +10314,7 @@ msgstr "Autenticación por sesión"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "¡Solo para testear!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, fuzzy, php-format
