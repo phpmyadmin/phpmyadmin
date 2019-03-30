@@ -202,37 +202,15 @@ class ReplicationGui
     /**
      * returns HTML for Slave Error Management
      *
-     * @param string $slave_skip_error_link error link
+     * @param string $slaveSkipErrorLink error link
      *
      * @return string HTML code
      */
-    public function getHtmlForSlaveErrorManagement($slave_skip_error_link)
+    public function getHtmlForSlaveErrorManagement($slaveSkipErrorLink)
     {
-        $html  = '<a href="#slave_errormanagement_href" '
-            . 'id="slave_errormanagement_href">';
-        $html .= __('Error management:') . '</a>';
-        $html .= ' <div id="slave_errormanagement_gui" class="hide">';
-        $html .= Message::error(
-            __('Skipping errors might lead into unsynchronized master and slave!')
-        )->getDisplay();
-        $html .= '  <ul>';
-        $html .= '   <li><a href="server_replication.php" data-post="' . $slave_skip_error_link . '">';
-        $html .= __('Skip current error') . '</a></li>';
-        $html .= '   <li>';
-        $html .= '    <form method="post" action="server_replication.php">';
-        $html .= Url::getHiddenInputs('', '');
-        $html .= sprintf(
-            __('Skip next %s errors.'),
-            '<input type="text" name="sr_skip_errors_count" value="1" '
-            . 'class = "repl_gui_skip_err_cnt">'
-        );
-        $html .= '              <input class="btn btn-primary" type="submit" name="sr_slave_skip_error" ';
-        $html .= 'value="' . __('Go') . '">';
-        $html .= '      <input type="hidden" name="sr_take_action" value="1">';
-        $html .= '    </form></li>';
-        $html .= '  </ul>';
-        $html .= ' </div>';
-        return $html;
+        return $this->template->render('server/replication/slave_error_management', [
+            'slave_skip_error_link' => $slaveSkipErrorLink,
+        ]);
     }
 
     /**
