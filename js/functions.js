@@ -1187,7 +1187,8 @@ function insertQuery (queryType) {
             var href = 'db_sql_format.php';
             var params = {
                 'ajax_request': true,
-                'sql': codemirror_editor.getValue()
+                'sql': codemirror_editor.getValue(),
+                'server': PMA_commonParams.get('server')
             };
             $.ajax({
                 type: 'POST',
