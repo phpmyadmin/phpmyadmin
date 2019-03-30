@@ -824,7 +824,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         });
                     }
                     // if some text is written in textbox automatically unmark the null checkbox and if it is emptied again mark the checkbox.
-                    $(g.cEdit).find('.edit_box').on('input', function() {
+                    $(g.cEdit).find('.edit_box').on('input', function () {
                         if ($(g.cEdit).find('.edit_box').val() !== '') {
                             $checkbox.prop('checked', false);
                         } else {

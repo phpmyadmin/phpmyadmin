@@ -108,7 +108,7 @@ AJAX.registerOnload('db_operations.js', function () {
      * Change tables columns visible only if change tables is checked
      */
     $('#span_change_all_tables_columns_collations').hide();
-    $('#checkbox_change_all_tables_collations').on('click', function() {
+    $('#checkbox_change_all_tables_collations').on('click', function () {
         $('#span_change_all_tables_columns_collations').toggle();
     });
 

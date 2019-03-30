@@ -293,8 +293,8 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
-        	//Don't copy ordering number text within <small> tag
-        	textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
+            // Don't copy ordering number text within <small> tag
+            textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
         });
 
         textArea.value += '\n';

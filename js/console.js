@@ -281,7 +281,7 @@ var PMA_console = {
         PMA_console.setConfig('Mode', 'show');
 
         var pmaConsoleHeight = Math.max(92, PMA_console.config.Height);
-        pmaConsoleHeight = Math.min(PMA_console.config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight)-25);
+        pmaConsoleHeight = Math.min(PMA_console.config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
         PMA_console.$consoleContent.css({ display:'block' });
         if (PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
