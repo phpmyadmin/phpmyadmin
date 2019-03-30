@@ -355,6 +355,7 @@ class ErrorHandler
             $retval .= Url::getHiddenFields(array(
                 'exception_type' => 'php',
                 'send_error_report' => '1',
+                'server' => $GLOBALS['server'],
             ));
             $retval .= '<input type="submit" value="'
                     . __('Report')
