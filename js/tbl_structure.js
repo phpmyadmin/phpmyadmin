@@ -450,10 +450,10 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $link = $(this);
         var question = PMA_messages.strRemovePartitioningWarning;
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
-            var params = {
+            var params = getJSConfirmCommonParam({
                 'ajax_request' : true,
                 'ajax_page_request' : true
-            };
+            }, $link.getPostData());
             PMA_ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
