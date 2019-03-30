@@ -235,26 +235,16 @@ class ReplicationGui
      */
     public function getHtmlForReplicationDbMultibox()
     {
-        $multi_values = '';
-        $multi_values .= '<select name="db_select[]" '
-            . 'size="6" multiple="multiple" id="db_select" class="width96">';
-
-        foreach ($GLOBALS['dblist']->databases as $current_db) {
-            if ($GLOBALS['dbi']->isSystemSchema($current_db)) {
-                continue;
+        $databases = [];
+        foreach ($GLOBALS['dblist']->databases as $database) {
+            if (! $GLOBALS['dbi']->isSystemSchema($database)) {
+                $databases[] = $database;
             }
-            $current_db = htmlspecialchars($current_db);
-            $multi_values .= '                <option value="' . $current_db . '" ';
-            $multi_values .= '>';
-            $multi_values .= $current_db . '</option>';
-        } // end while
+        }
 
-        $multi_values .= '</select><br>';
-        $multi_values .= '<a href="#" id="db_select_href">' . __('Select all') . '</a>';
-        $multi_values .= '&nbsp;/&nbsp;';
-        $multi_values .= '<a href="#" id="db_reset_href">' . __('Unselect all') . '</a>';
-
-        return $multi_values;
+        return $this->template->render('server/replication/database_multibox', [
+            'databases' => $databases,
+        ]);
     }
 
     /**
