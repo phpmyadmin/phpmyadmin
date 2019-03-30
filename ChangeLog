@@ -45,6 +45,7 @@ phpMyAdmin - ChangeLog
 - issue #15115 Improved label in Settings export, clarifying that it's a JSON file
 - issue #14816 Fixed [designer] Cannot read property 'style' of null
 - issue        Fixed [designer] Add new tables with database/table list modal
+- issue        Fixed query format on multi server setup
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
