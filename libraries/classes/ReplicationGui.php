@@ -75,7 +75,7 @@ class ReplicationGui
     {
         if (! isset($_POST['repl_clear_scr'])) {
             $masterStatusTable = $this->getHtmlForReplicationStatusTable('master', true, false);
-            $slavesTable = $this->getHtmlForReplicationSlavesTable(true);
+            $slaves = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
 
             $urlParams = $GLOBALS['url_params'];
             $urlParams['mr_adduser'] = true;
@@ -89,7 +89,7 @@ class ReplicationGui
         return $this->template->render('server/replication/master_replication', [
             'clear_screen' => isset($_POST['repl_clear_scr']),
             'master_status_table' => $masterStatusTable ?? '',
-            'slaves_table' => $slavesTable ?? '',
+            'slaves' => $slaves ?? [],
             'url_params' => $urlParams ?? [],
             'master_add_user' => isset($_POST['mr_adduser']),
             'master_add_slave_user' => $masterAddSlaveUser ?? '',
@@ -372,54 +372,6 @@ class ReplicationGui
         $html .= ' </table>';
         $html .= ' <br>';
         $html .= '</div>';
-
-        return $html;
-    }
-
-    /**
-     * returns html code for table with slave users connected to this master
-     *
-     * @param boolean $hidden - if true, then default style is set to hidden,
-     *                        - default value false
-     *
-     * @return string
-     */
-    public function getHtmlForReplicationSlavesTable($hidden = false)
-    {
-        $html = '';
-        // Fetch data
-        $data = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
-
-        $html .= '  <br>';
-        $html .= '  <div id="replication_slaves_section" style="';
-        $html .=  ($hidden ? 'display: none;' : '') . '"> ';
-        $html .= '    <table class="data">';
-        $html .= '    <thead>';
-        $html .= '      <tr>';
-        $html .= '        <th>' . __('Server ID') . '</th>';
-        $html .= '        <th>' . __('Host') . '</th>';
-        $html .= '      </tr>';
-        $html .= '    </thead>';
-        $html .= '    <tbody>';
-
-        foreach ($data as $slave) {
-            $html .= '    <tr>';
-            $html .= '      <td class="value">' . $slave['Server_id'] . '</td>';
-            $html .= '      <td class="value">' . $slave['Host'] . '</td>';
-            $html .= '    </tr>';
-        }
-
-        $html .= '    </tbody>';
-        $html .= '    </table>';
-        $html .= '    <br>';
-        $html .= Message::notice(
-            __(
-                'Only slaves started with the '
-                . '--report-host=host_name option are visible in this list.'
-            )
-        )->getDisplay();
-        $html .= '    <br>';
-        $html .= '  </div>';
 
         return $html;
     }
