@@ -4563,16 +4563,20 @@ AJAX.registerTeardown('functions.js', function () {
 
 AJAX.registerOnload('functions.js', function () {
     $('input#print').on('click', printPage);
-    $('.logout').on('click', function () {
+    $('.logout').on('click', function (event) {
+        event.preventDefault();
         var form = $(
             '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
             '<input type="hidden" name="token" value="' + escapeHtml(PMA_commonParams.get('token')) + '">' +
             '</form>'
         );
-        $('body').append(form);
-        form.submit();
-        sessionStorage.clear();
-        return false;
+        var thisLogout = $(this);
+        thisLogout.PMA_confirm(PMA_messages.strConfirmLogout, $(this).attr('href'), function(url){
+            $('body').append(form);
+            form.submit();
+            sessionStorage.clear();
+            return false;
+        });
     });
     /**
      * Ajaxification for the "Create View" action

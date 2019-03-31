@@ -111,6 +111,8 @@ $js_messages['strChangeAllColumnCollationsWarning'] = __(
 . __(
     'Are you sure you wish to change all the column collations and convert the data?'
 );
+$js_messages['strConfirmLogout']
+    = __('Do you really want to logout?');
 
 /* For modal dialog buttons */
 $js_messages['strSaveAndClose'] = __('Save & close');
