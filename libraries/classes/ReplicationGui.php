@@ -414,47 +414,31 @@ class ReplicationGui
      */
     public function getHtmlForReplicationMasterAddSlaveUser()
     {
-        $html = '';
-        list($username_length, $hostname_length)
-            = $this->getUsernameHostnameLength();
+        list(
+            $usernameLength,
+            $hostnameLength
+        ) = $this->getUsernameHostnameLength();
 
         if (isset($_POST['username']) && strlen($_POST['username']) === 0) {
             $GLOBALS['pred_username'] = 'any';
         }
-        $html .= '<div id="master_addslaveuser_gui">';
-        $html .= '<form autocomplete="off" method="post" ';
-        $html .= 'action="server_privileges.php"';
-        $html .= ' onsubmit="return checkAddUser(this);">';
-        $html .= Url::getHiddenInputs('', '');
-        $html .= '<fieldset id="fieldset_add_user_login">'
-            . '<legend>' . __('Add slave replication user') . '</legend>'
-            . $this->getHtmlForAddUserLoginForm($username_length)
-            . '<div class="item">'
-            . '<label for="select_pred_hostname">'
-            . '    ' . __('Host:')
-            . '</label>'
-            . '<span class="options">'
-            . '    <select name="pred_hostname" id="select_pred_hostname" title="'
-            . __('Host') . '"';
 
-        $_current_user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
-        if (! empty($_current_user)) {
-            $thishost = str_replace(
+        $addUserLoginForm = $this->getHtmlForAddUserLoginForm($usernameLength);
+
+        $currentUser = $GLOBALS['dbi']->fetchValue('SELECT USER();');
+        if (! empty($currentUser)) {
+            $userHost = str_replace(
                 "'",
                 '',
                 mb_substr(
-                    $_current_user,
-                    mb_strrpos($_current_user, '@') + 1
+                    $currentUser,
+                    mb_strrpos($currentUser, '@') + 1
                 )
             );
-            if ($thishost != 'localhost' && $thishost != '127.0.0.1') {
-                $html .= ' data-thishost="' . htmlspecialchars($thishost) . '" ';
-            } else {
-                unset($thishost);
+            if ($userHost !== 'localhost' && $userHost !== '127.0.0.1') {
+                $thisHost = $userHost;
             }
         }
-        $html .= '>' . "\n";
-        unset($_current_user);
 
         // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
         if (! isset($GLOBALS['pred_hostname']) && isset($_POST['hostname'])) {
@@ -471,30 +455,15 @@ class ReplicationGui
                     break;
             }
         }
-        $html .= '        <option value="any"'
-            . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any')
-            ? ' selected="selected"' : '') . '>' . __('Any host')
-            . '</option>'
-            . '        <option value="localhost"'
-            . ((isset($GLOBALS['pred_hostname'])
-                && $GLOBALS['pred_hostname'] == 'localhost')
-            ? ' selected="selected"' : '') . '>' . __('Local')
-            . '</option>';
 
-        if (! empty($thishost)) {
-            $html .= '        <option value="thishost"'
-                . ((isset($GLOBALS['pred_hostname'])
-                    && $GLOBALS['pred_hostname'] == 'thishost')
-                ? ' selected="selected"' : '') . '>' . __('This Host')
-                . '</option>';
-        }
-        unset($thishost);
+        $tableInfoForm = $this->getHtmlForTableInfoForm($hostnameLength);
 
-        $html .= $this->getHtmlForTableInfoForm($hostname_length);
-        $html .= '</form>';
-        $html .= '</div>';
-
-        return $html;
+        return $this->template->render('server/replication/master_add_slave_user', [
+            'add_user_login_form' => $addUserLoginForm,
+            'this_host' => $thisHost ?? null,
+            'predefined_hostname' => $GLOBALS['pred_hostname'] ?? '',
+            'table_info_form' => $tableInfoForm,
+        ]);
     }
 
     /**

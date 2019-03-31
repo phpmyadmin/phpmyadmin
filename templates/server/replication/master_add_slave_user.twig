@@ -1,0 +1,24 @@
+<div id="master_addslaveuser_gui">
+  <form action="server_privileges.php" method="post" autocomplete="off" onsubmit="return checkAddUser(this);">
+    {{ get_hidden_inputs('', '') }}
+    <fieldset id="fieldset_add_user_login">
+      <legend>{% trans 'Add slave replication user' %}</legend>
+
+      {{ add_user_login_form|raw }}
+
+      <div class="item">
+        <label for="select_pred_hostname">
+          {% trans 'Host:' %}
+        </label>
+        <span class="options">
+          <select name="pred_hostname" id="select_pred_hostname" title="{% trans 'Host' %}"
+            {%- if this_host is not null %} data-thishost="{{ this_host }}"{% endif %}>
+            <option value="any"{{ predefined_hostname == 'any' ? ' selected' }}>{% trans 'Any host' %}</option>
+            <option value="localhost"{{ predefined_hostname == 'localhost' ? ' selected' }}>{% trans 'Local' %}</option>
+            {% if this_host is not null %}
+              <option value="thishost"{{ predefined_hostname == 'thishost' ? ' selected' }}>{% trans 'This Host' %}</option>
+            {% endif %}
+
+            {{ table_info_form|raw }}
+  </form>
+</div>
