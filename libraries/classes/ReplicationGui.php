@@ -261,96 +261,12 @@ class ReplicationGui
             $hostnameLength
         ) = $this->getUsernameHostnameLength();
 
-        $usernameInput = $this->getHtmlForAddUserInputDiv(
-            [
-                'text' => __('User name:'),
-                'for' => "text_username"
-            ],
-            [
-                'type' => 'text',
-                'name' => 'username',
-                'id' => 'text_username',
-                'maxlength' => $usernameLength,
-                'title' => __('User name'),
-                'required' => 'required'
-            ]
-        );
-
-        $passwordInput = $this->getHtmlForAddUserInputDiv(
-            [
-                'text' => __('Password:'),
-                'for' => "text_pma_pw"
-            ],
-            [
-                'type' => 'password',
-                'name' => 'pma_pw',
-                'id' => 'text_pma_pw',
-                'title' => __('Password'),
-                'required' => 'required',
-            ]
-        );
-
-        $hostnameInput = $this->getHtmlForAddUserInputDiv(
-            [
-                'text' => __('Host:'),
-                'for' => "text_hostname"
-            ],
-            [
-                'type' => 'text',
-                'name' => 'hostname',
-                'id' => 'text_hostname',
-                'maxlength' => $hostnameLength,
-                'value' => '',
-                'required' => 'required'
-            ]
-        );
-
-        $portInput = $this->getHtmlForAddUserInputDiv(
-            [
-                'text' => __('Port:'),
-                'for' => "text_port"
-            ],
-            [
-                'type' => 'number',
-                'name' => 'text_port',
-                'id' => 'text_port',
-                'maxlength' => 6,
-                'value' => '3306',
-                'required' => 'required'
-            ]
-        );
-
         return $this->template->render('server/replication/change_master', [
             'server_id' => time(),
-            'username_input' => $usernameInput,
-            'password_input' => $passwordInput,
-            'hostname_input' => $hostnameInput,
-            'port_input' => $portInput,
+            'username_length' => $usernameLength,
+            'hostname_length' => $hostnameLength,
             'submit_name' => $submitName,
         ]);
-    }
-
-    /**
-     * returns HTML code for Add user input div
-     *
-     * @param array $label_array label tag elements
-     * @param array $input_array input tag elements
-     *
-     * @return string HTML code
-     */
-    public function getHtmlForAddUserInputDiv(array $label_array, array $input_array)
-    {
-        $html  = '  <div class="item">';
-        $html .= '     <label for="' . $label_array['for'] . '">';
-        $html .=  $label_array['text'] . '</label>';
-
-        $html .= '    <input ';
-        foreach ($input_array as $key => $value) {
-            $html .= ' ' . $key . '="' . $value . '" ';
-        }
-        $html .= '>';
-        $html .= '  </div>';
-        return $html;
     }
 
     /**
