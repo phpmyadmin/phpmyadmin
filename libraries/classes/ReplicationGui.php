@@ -423,7 +423,10 @@ class ReplicationGui
             $GLOBALS['pred_username'] = 'any';
         }
 
-        $addUserLoginForm = $this->getHtmlForAddUserLoginForm($usernameLength);
+        $username = '';
+        if (! empty($_POST['username'])) {
+            $username = $GLOBALS['new_username'] ?? $_POST['username'];
+        }
 
         $currentUser = $GLOBALS['dbi']->fetchValue('SELECT USER();');
         if (! empty($currentUser)) {
@@ -459,59 +462,13 @@ class ReplicationGui
         $tableInfoForm = $this->getHtmlForTableInfoForm($hostnameLength);
 
         return $this->template->render('server/replication/master_add_slave_user', [
-            'add_user_login_form' => $addUserLoginForm,
-            'this_host' => $thisHost ?? null,
+            'username_length' => $usernameLength,
+            'username' => $username,
+            'predefined_username' => $GLOBALS['pred_username'] ?? '',
             'predefined_hostname' => $GLOBALS['pred_hostname'] ?? '',
+            'this_host' => $thisHost ?? null,
             'table_info_form' => $tableInfoForm,
         ]);
-    }
-
-    /**
-     *  returns html code to add a replication slave user to the master
-     *
-     * @param int $username_length Username length
-     *
-     * @return string HTML code
-     */
-    public function getHtmlForAddUserLoginForm($username_length)
-    {
-        $html = '<input type="hidden" name="grant_count" value="25">'
-            . '<input type="hidden" name="createdb" id="createdb_0" value="0">'
-            . '<input id="checkbox_Repl_slave_priv" type="hidden"'
-            . ' title="Needed for the replication slaves." '
-            . 'value="Y" name="Repl_slave_priv">'
-            . '<input id="checkbox_Repl_client_priv" type="hidden" '
-            . 'title="Needed for the replication slaves."'
-            . ' value="Y" name="Repl_client_priv"> '
-            . '<input type="hidden" name="sr_take_action" value="true">'
-            . '<div class="item">'
-            . '<label for="select_pred_username">'
-            . '    ' . __('User name:')
-            . '</label>'
-            . '<span class="options">'
-            . '    <select name="pred_username" id="select_pred_username" '
-            . 'title="' . __('User name') . '">'
-            . '        <option value="any"'
-            . ((isset($GLOBALS['pred_username'])
-                && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '')
-            . '>' . __('Any user') . '</option>'
-            . '        <option value="userdefined"'
-            . ((! isset($GLOBALS['pred_username'])
-                || $GLOBALS['pred_username'] == 'userdefined')
-                ? ' selected="selected"' : '')
-            . '>' . __('Use text field:') . '</option>'
-            . '    </select>'
-            . '</span>'
-            . '<input type="text" name="username" id="pma_username" maxlength="'
-            . $username_length . '" title="' . __('User name') . '"'
-            . (empty($_POST['username']) ? '' : ' value="'
-            . (isset($GLOBALS['new_username'])
-                ? $GLOBALS['new_username']
-                : htmlspecialchars($_POST['username'])) . '"')
-            . '>'
-            . '</div>';
-
-        return $html;
     }
 
     /**

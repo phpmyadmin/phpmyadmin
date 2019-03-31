@@ -1,10 +1,27 @@
 <div id="master_addslaveuser_gui">
   <form action="server_privileges.php" method="post" autocomplete="off" onsubmit="return checkAddUser(this);">
     {{ get_hidden_inputs('', '') }}
+    <input type="hidden" name="grant_count" value="25">
+    <input type="hidden" name="createdb" id="createdb_0" value="0">
+    {# Needed for the replication slaves. #}
+    <input type="hidden" name="Repl_slave_priv" id="checkbox_Repl_slave_priv" value="Y">
+    <input type="hidden" name="sr_take_action" value="true">
+
     <fieldset id="fieldset_add_user_login">
       <legend>{% trans 'Add slave replication user' %}</legend>
 
-      {{ add_user_login_form|raw }}
+      <div class="item">
+        <label for="select_pred_username">
+          {% trans 'User name:' %}
+        </label>
+        <span class="options">
+          <select name="pred_username" id="select_pred_username" title="{% trans 'User name' %}">
+            <option value="any"{{ predefined_username == 'any' ? ' selected' }}>{% trans 'Any user' %}</option>
+            <option value="userdefined"{{ predefined_username == 'userdefined' ? ' selected' }}>{% trans 'Use text field:' %}</option>
+          </select>
+        </span>
+        <input type="text" name="username" id="pma_username" maxlength="{{ username_length }}" title="{% trans 'User name' %}" value="{{ username }}">
+      </div>
 
       <div class="item">
         <label for="select_pred_hostname">
