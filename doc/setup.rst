@@ -242,8 +242,8 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
     The credentials you need to log in are stored in the MySQL server, in case
     of Docker image there are various ways to set it (for example
     :samp:`MYSQL_ROOT_PASSWORD` when starting the MySQL container). Please check
-    documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
-    or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
+    documentation for `MariaDB container <https://hub.docker.com/_/mariadb>`_
+    or `MySQL container <https://hub.docker.com/_/mysql>`_.
 
 .. _docker-custom:
 
