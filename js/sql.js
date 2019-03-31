@@ -959,7 +959,7 @@ function initStickyColumns ($table_results) {
     return $('<table class="sticky_columns"></table>')
         .insertBefore($table_results)
         .css('position', 'fixed')
-        .css('z-index', '99')
+        .css('z-index', '98')
         .css('width', $table_results.width())
         .css('margin-left', $('#page_content').css('margin-left'))
         .css('top', $('#floating_menubar').height())
