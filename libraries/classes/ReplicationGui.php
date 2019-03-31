@@ -459,96 +459,16 @@ class ReplicationGui
             }
         }
 
-        $tableInfoForm = $this->getHtmlForTableInfoForm($hostnameLength);
-
         return $this->template->render('server/replication/master_add_slave_user', [
             'username_length' => $usernameLength,
+            'hostname_length' => $hostnameLength,
+            'has_username' => isset($_POST['username']),
             'username' => $username,
+            'hostname' => $_POST['hostname'] ?? '',
             'predefined_username' => $GLOBALS['pred_username'] ?? '',
             'predefined_hostname' => $GLOBALS['pred_hostname'] ?? '',
             'this_host' => $thisHost ?? null,
-            'table_info_form' => $tableInfoForm,
         ]);
-    }
-
-    /**
-     * returns HTML for TableInfoForm
-     *
-     * @param int $hostname_length Selected hostname length
-     *
-     * @return string HTML code
-     */
-    public function getHtmlForTableInfoForm($hostname_length)
-    {
-        $html = '        <option value="hosttable"'
-            . ((isset($GLOBALS['pred_hostname'])
-                && $GLOBALS['pred_hostname'] == 'hosttable')
-            ? ' selected="selected"' : '') . '>' . __('Use Host Table')
-            . '</option>'
-            . '        <option value="userdefined"'
-            . ((isset($GLOBALS['pred_hostname'])
-                && $GLOBALS['pred_hostname'] == 'userdefined')
-            ? ' selected="selected"' : '')
-            . '>' . __('Use text field:') . '</option>'
-            . '    </select>'
-            . '</span>'
-            . '<input type="text" name="hostname" id="pma_hostname" maxlength="'
-            . $hostname_length . '" value="'
-            . (isset($_POST['hostname']) ? htmlspecialchars($_POST['hostname']) : '')
-            . '" title="' . __('Host')
-            . '">'
-            . Util::showHint(
-                __(
-                    'When Host table is used, this field is ignored '
-                    . 'and values stored in Host table are used instead.'
-                )
-            )
-            . '</div>'
-            . '<div class="item">'
-            . '<label for="select_pred_password">'
-            . '    ' . __('Password:')
-            . '</label>'
-            . '<span class="options">'
-            . '    <select name="pred_password" id="select_pred_password" title="'
-            . __('Password') . '">'
-            . '        <option value="none"';
-        if (isset($_POST['username'])) {
-            $html .= '  selected="selected"';
-        }
-        $html .= '>' . __('No Password') . '</option>'
-            . '        <option value="userdefined"'
-            . (isset($_POST['username']) ? '' : ' selected="selected"')
-            . '>' . __('Use text field:') . '</option>'
-            . '    </select>'
-            . '</span>'
-            . '<input type="password" id="text_pma_pw" name="pma_pw" title="'
-            . __('Password') . '">'
-            . '</div>'
-            . '<div class="item">'
-            . '<label for="text_pma_pw2">'
-            . '    ' . __('Re-type:')
-            . '</label>'
-            . '<span class="options">&nbsp;</span>'
-            . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="'
-            . __('Re-type') . '">'
-            . '</div>'
-            . '<div class="item">'
-            . '<label for="button_generate_password">'
-            . '    ' . __('Generate password:')
-            . '</label>'
-            . '<span class="options">'
-            . '    <input type="button" class="btn btn-secondary button" '
-            . 'id="button_generate_password" value="' . __('Generate')
-            . '" onclick="suggestPassword(this.form)">'
-            . '</span>'
-            . '<input type="text" name="generated_pw" id="generated_pw">'
-            . '</div>'
-            . '</fieldset>';
-        $html .= '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">'
-            . '    <input type="hidden" name="adduser_submit" value="1">'
-            . '    <input class="btn btn-primary" type="submit" id="adduser_submit" value="' . __('Go') . '">'
-            . '</fieldset>';
-        return $html;
     }
 
     /**
