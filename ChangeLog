@@ -51,6 +51,8 @@ phpMyAdmin - ChangeLog
 - issue        Fixed 'RESET SLAVE' button on replication slave
 - issue        Fixed sending a php error report on multi server setup
 - issue        Fixed downloading of monitor parameters
+- issue #15141 Fixed php notice Undefined index: designer_settings
+- issue #12729 Fixed sticky table header over dropdown menu
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
