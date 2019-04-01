@@ -35,12 +35,15 @@ $err_url   = 'tbl_sql.php' . $err_url;
 $goto = 'tbl_sql.php';
 $back = 'tbl_sql.php';
 
+// Decides what query to show in SQL box.
+$query_to_show = isset($_GET['sql_query']) ? $_GET['sql_query'] : true;
+
 /**
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(
     SqlQueryForm::getHtml(
-        true, false,
+        $query_to_show, false,
         isset($_POST['delimiter'])
         ? htmlspecialchars($_POST['delimiter'])
         : ';'
