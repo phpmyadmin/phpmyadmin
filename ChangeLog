@@ -53,6 +53,8 @@ phpMyAdmin - ChangeLog
 - issue        Fixed downloading of monitor parameters
 - issue #15141 Fixed php notice Undefined index: designer_settings
 - issue #12729 Fixed sticky table header over dropdown menu
+- issue #15140 Fixed edit link does not work on failed insert
+- issue #14334 Fixed export table structure shows rows fields
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
