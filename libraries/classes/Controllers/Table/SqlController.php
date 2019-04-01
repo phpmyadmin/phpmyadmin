@@ -43,7 +43,7 @@ class SqlController extends AbstractController
         $sqlQueryForm = new SqlQueryForm();
 
         return $sqlQueryForm->getHtml(
-            true,
+            $params['sql_query'] ?? true,
             false,
             isset($params['delimiter'])
                 ? htmlspecialchars($params['delimiter'])

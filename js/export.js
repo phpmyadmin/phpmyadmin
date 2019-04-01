@@ -393,6 +393,8 @@ function toggle_structure_data_opts () {
     var dataDiv = '#' + pluginName + '_data';
     var structureDiv = '#' + pluginName + '_structure';
     var show = $('input[type=\'radio\'][name=\'' + radioFormName + '\']:checked').val();
+    // Show the #rows if 'show' is not structure
+    $('#rows').toggle(show !== 'structure');
     if (show === 'data') {
         $(dataDiv).slideDown('slow');
         $(structureDiv).slideUp('slow');

@@ -789,7 +789,6 @@ class Common
         $cfgRelation = $this->relation->getRelationsParam();
         $success = true;
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
-
             $cfgDesigner = [
                 'user'  => $GLOBALS['cfg']['Server']['user'],
                 'db'    => $cfgRelation['db'],

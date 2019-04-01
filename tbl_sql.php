@@ -33,4 +33,5 @@ $scripts->addFile('sql.js');
 
 $response->addHTML($controller->index([
     'delimiter' => $_POST['delimiter'] ?? null,
+    'sql_query' => $_GET['sql_query'] ?? true,
 ]));
