@@ -242,6 +242,8 @@ class TableRelationController extends TableController
         $multi_edit_columns_name = isset($_POST['foreign_key_fields_name'])
             ? $_POST['foreign_key_fields_name']
             : null;
+        $preview_sql_data = '';
+        $seen_error = false;
 
         // (for now, one index name only; we keep the definitions if the
         // foreign db is not the same)
