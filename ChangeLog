@@ -55,6 +55,7 @@ phpMyAdmin - ChangeLog
 - issue #12729 Fixed sticky table header over dropdown menu
 - issue #15140 Fixed edit link does not work on failed insert
 - issue #14334 Fixed export table structure shows rows fields
+- issue #15010 Fixed empty SQL preview modal on tbl_relation
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
