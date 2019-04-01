@@ -748,14 +748,14 @@ class Common
     public function saveSetting($index, $value)
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        $cfgDesigner = array(
-            'user'  => $GLOBALS['cfg']['Server']['user'],
-            'db'    => $cfgRelation['db'],
-            'table' => $cfgRelation['designer_settings']
-        );
-
         $success = true;
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
+
+            $cfgDesigner = array(
+                'user'  => $GLOBALS['cfg']['Server']['user'],
+                'db'    => $cfgRelation['db'],
+                'table' => $cfgRelation['designer_settings']
+            );
 
             $orig_data_query = "SELECT settings_data"
                 . " FROM " . Util::backquote($cfgDesigner['db'])
