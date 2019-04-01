@@ -1237,7 +1237,12 @@ class Operations
         } else {
             $innodb_file_format = '';
         }
-        if ('Barracuda' == $innodb_file_format
+        /**
+         * Newer MySQL/MariaDB always return empty a.k.a '' on $innodb_file_format otherwise
+         * old versions of MySQL/MariaDB must be returning something or not empty.
+         * This patch is to support newer MySQL/MariaDB while also for backward compatibilities.
+         */
+        if (( ('Barracuda' == $innodb_file_format) || ($innodb_file_format == '') )
             && $innodbEnginePlugin->supportsFilePerTable()
         ) {
             $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
