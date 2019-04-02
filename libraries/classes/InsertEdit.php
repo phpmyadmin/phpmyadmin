@@ -2563,6 +2563,11 @@ class InsertEdit
                 return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                     . $this->dbi->escapeString($multi_edit_salt[$key]) . "')";
             }
+            elseif ($multi_edit_funcs[$key] == "HEX") {
+                $len = strlen($current_value);
+                $value = substr($current_value,1,$len-2);
+                return $multi_edit_funcs[$key] . '(' . (int)$value . ')';
+            }
 
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
