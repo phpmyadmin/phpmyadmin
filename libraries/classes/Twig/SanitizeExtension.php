@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 /**
  * Class SanitizeExtension
@@ -42,6 +43,22 @@ class SanitizeExtension extends AbstractExtension
                 'PhpMyAdmin\Sanitize::sanitize',
                 ['is_safe' => ['html']]
             ),
+        ];
+    }
+
+    /**
+     * Returns a list of functions to add to the existing list.
+     *
+     * @return TwigFunction[]
+     */
+    public function getFunctions()
+    {
+        return [
+            new TwigFunction(
+                'get_js_value',
+                'PhpMyAdmin\Sanitize::getJsValue',
+                ['is_safe' => ['html']]
+            )
         ];
     }
 }
