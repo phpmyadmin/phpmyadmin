@@ -21,6 +21,7 @@ class FeaturesForm extends BaseForm
                 'VersionCheck',
                 'NaturalOrder',
                 'InitialSlidersState',
+                'LoginCookieValidity',
                 'SkipLockedTables',
                 'DisableMultiTableMaintenance',
                 'ShowHint',
