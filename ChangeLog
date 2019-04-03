@@ -57,6 +57,7 @@ phpMyAdmin - ChangeLog
 - issue #14334 Fixed export table structure shows rows fields
 - issue #15010 Fixed empty SQL preview modal on tbl_relation
 - issue #14673 Fixed innodb & MySQL 8: DYNAMIC & COMPRESSED ROW_FORMAT missing
+- issue        Fixed empty success message when adding a new INDEX from left panel
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
