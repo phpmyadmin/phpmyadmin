@@ -573,11 +573,19 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         };
 
         var blob = new Blob([JSON.stringify(exportData)], { type: 'application/octet-stream' });
-        var url = window.URL.createObjectURL(blob);
-        window.location.href = url;
+        var url = null;
+        var fileName = 'monitor-config.json';
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            window.navigator.msSaveOrOpenBlob(blob, fileName);
+        } else {
+            url = URL.createObjectURL(blob);
+            window.location.href = url;
+        }
         setTimeout(function () {
             // For some browsers it is necessary to delay revoking the ObjectURL
-            window.URL.revokeObjectURL(url);
+            if (url !== null) {
+                window.URL.revokeObjectURL(url);
+            }
             url = undefined;
             blob = undefined;
         }, 100);
