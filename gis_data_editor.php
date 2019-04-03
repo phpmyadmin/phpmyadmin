@@ -420,7 +420,7 @@ echo '<div id="gis_data_output">';
 echo '<h3>' , __('Output') , '</h3>';
 echo '<p>';
 echo __(
-    'Choose "GeomFromText" from the "Function" column and paste the'
+    'Choose "ST_GeomFromText" from the "Function" column and paste the'
     . ' string below into the "Value" field.'
 );
 echo '</p>';
