@@ -163,6 +163,14 @@ class GisVisualization
     private function _modifySqlQuery($sql_query, $rows, $pos)
     {
         $modified_query = 'SELECT ';
+        $spatialAsText = 'ASTEXT';
+        $spatialSrid = 'SRID';
+
+        if ($this->_userSpecifiedSettings['mysqlVersion'] >= 50600) {
+            $spatialAsText = 'ST_ASTEXT';
+            $spatialSrid = 'ST_SRID';
+        }
+
         // If label column is chosen add it to the query
         if (!empty($this->_userSpecifiedSettings['labelColumn'])) {
             $modified_query .= Util::backquote(
@@ -170,8 +178,8 @@ class GisVisualization
             )
             . ', ';
         }
-        // Wrap the spatial column with 'ASTEXT()' function and add it
-        $modified_query .= 'ASTEXT('
+        // Wrap the spatial column with 'ST_ASTEXT()' function and add it
+        $modified_query .= $spatialAsText . '('
             . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
             . ') AS ' . Util::backquote(
                 $this->_userSpecifiedSettings['spatialColumn']
@@ -179,7 +187,7 @@ class GisVisualization
             . ', ';
 
         // Get the SRID
-        $modified_query .= 'SRID('
+        $modified_query .= $spatialSrid . '('
             . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
             . ') AS ' . Util::backquote('srid') . ' ';
 
@@ -542,7 +550,12 @@ class GisVisualization
      */
     private function _scaleDataSet(array $data)
     {
-        $min_max = array();
+        $min_max = array(
+            'maxX' => 0.0,
+            'maxY' => 0.0,
+            'minX' => 0.0,
+            'minY' => 0.0
+        );
         $border = 15;
         // effective width and height of the plot
         $plot_width = $this->_settings['width'] - 2 * $border;

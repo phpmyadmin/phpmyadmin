@@ -2991,9 +2991,15 @@ class Util
     {
         // Convert to WKT format
         $hex = bin2hex($data);
-        $wktsql     = "SELECT ASTEXT(x'" . $hex . "')";
+        $spatialAsText = 'ASTEXT';
+        $spatialSrid = 'SRID';
+        if ($GLOBALS['dbi']->getVersion() >= 50600) {
+            $spatialAsText = 'ST_ASTEXT';
+            $spatialSrid = 'ST_SRID';
+        }
+        $wktsql     = "SELECT $spatialAsText(x'" . $hex . "')";
         if ($includeSRID) {
-            $wktsql .= ", SRID(x'" . $hex . "')";
+            $wktsql .= ", $spatialSrid(x'" . $hex . "')";
         }
 
         $wktresult  = $GLOBALS['dbi']->tryQuery(
