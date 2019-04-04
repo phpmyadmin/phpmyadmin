@@ -81,7 +81,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed normalization
 - issue        Fixed 'RESET SLAVE' button on replication slave
 - issue        Fixed sending a php error report on multi server setup
-- issue        Fixed downloading of monitor parameters
+- issue        Fixed downloading of monitor parameters for IE 11, Edge, Chrome and others
 - issue #15141 Fixed php notice Undefined index: designer_settings
 - issue #12729 Fixed sticky table header over dropdown menu
 - issue #15140 Fixed edit link does not work on failed insert
@@ -89,6 +89,8 @@ phpMyAdmin - ChangeLog
 - issue #15010 Fixed empty SQL preview modal on tbl_relation
 - issue #14673 Fixed innodb & MySQL 8: DYNAMIC & COMPRESSED ROW_FORMAT missing
 - issue        Fixed empty success message when adding a new INDEX from left panel
+- issue #15150 Fixed generate password hidden on second open of change password modal
+- issue        Fixed import XML data with leading zeros
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log

@@ -468,7 +468,6 @@ AJAX.registerOnload('server_privileges.js', function () {
 
     $('input.autofocus').focus();
     $(checkboxes_sel).trigger('change');
-    displayPasswordGenerateButton();
     if ($('#edit_user_dialog').length > 0) {
         addOrUpdateSubmenu();
     }
