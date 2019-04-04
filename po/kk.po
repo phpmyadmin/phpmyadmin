@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-03-02 14:12-0300\n"
-"PO-Revision-Date: 2019-04-04 11:25+0000\n"
+"PO-Revision-Date: 2019-04-06 12:05+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kk/>\n"
@@ -234,6 +234,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Importtaýǵa eshqandaı derekter alynbady. Ne faıl aty jiberilmedi, nemese "
+"faıl ólshemi PHP konfıgýrasıasymen ruqsat etilgen eń úlken ólshemnen asyp "
+"ketti. [doc@faq1-16]FAQ 1.16[/doc] qarańyz."
 
 #: import.php:559 libraries/classes/Display/Import.php:60
 msgid "Could not load import plugins, please check your installation!"
@@ -257,6 +260,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"Skrıptiniń kútý ýaqyty ótti, eger bul ımporttaýdy doǵarǵyńyz kelse, %ssol "
+"faıldy qaıta jiberińiz%s, al ımporttaý jalǵasady."
 
 #: import.php:650
 msgid ""
@@ -3299,7 +3304,7 @@ msgstr ""
 #: libraries/classes/Config.php:1192
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
+msgstr "Ádepki konfıgýrasıany mynadan júkteý múmkin bolmady: %1$s"
 
 #: libraries/classes/Config.php:1199
 msgid "Failed to read configuration file!"
@@ -4271,7 +4276,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:398
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Ishinara ımport: úzilýge ruqsat etý"
 
 #: libraries/classes/Config/Descriptions.php:403
 #: libraries/classes/Config/Descriptions.php:414
@@ -4328,7 +4333,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "İshinara ımport: saýaldardy ótkizý"
 
 #: libraries/classes/Config/Descriptions.php:426
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -4899,6 +4904,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
+"[doc@bookmarks@]Betbelgi[/doc] qoldaýyn óshirý úshin bos qaldyryńyz, "
+"usynylatyny: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:614
 msgid "Bookmark table"
@@ -4909,6 +4916,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
+"Baǵandaǵy ańǵartpalar/mime-túrlerin óshirý úshin bos qaldyryńyz, usynylatyny:"
+" [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -4981,6 +4990,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
+"SQL-saýal tarıhynyń qoldaýyn óshirý úshin bos qaldyryńyz, usynylatyny: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "SQL query history table"
@@ -5017,6 +5028,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
+"QBE saqtalǵan izdestirýlerdi qoldaýyn óshirý úshin bos qaldyryńyz, "
+"usynylatyny: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:664
 msgid "Export templates table"
@@ -5027,6 +5040,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
+"Eksporttaý úlginiń qoldaýyn óshirý úshin bos qaldyryńyz, usynylatyny: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:669
 msgid "Central columns table"
@@ -5037,6 +5052,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
+"Ortalyq baǵandar qoldaýyn óshirý úshin bos qaldyryńyz, usynylatyny: "
+"[kbd]pma__central_columns[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:675
 msgid ""
@@ -5062,6 +5079,8 @@ msgstr "«config» ókilettigi úshin paról"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
+"PDF sulbasynyń qoldaýyn ósirý úshin bos qaldyryńyz, usynylatyny: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:683
 msgid "PDF schema: pages table"
@@ -10793,11 +10812,11 @@ msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1289
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Ár rásim parametri úshin aty men túrin jetkizýińiz  mindetti."
 
 #: libraries/classes/Rte/Routines.php:1309
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "Rásim úshin jaramdy qaıtarý túrin jetkizýińiz  mindetti."
 
 #: libraries/classes/Rte/Routines.php:1370
 msgid "You must provide a routine definition."
@@ -15053,7 +15072,7 @@ msgstr ""
 
 #: templates/server/privileges/privileges_summary.twig:71
 msgid "Add privileges on the following table:"
-msgstr ""
+msgstr "Kelesi kestede artyqshylyqtardy ústeý:"
 
 #: templates/server/privileges/privileges_summary.twig:86
 msgid "Add privileges on the following routine:"
@@ -15073,7 +15092,7 @@ msgstr "Barlyǵy"
 
 #: templates/server/privileges/resource_limits.twig:2
 msgid "Resource limits"
-msgstr ""
+msgstr "Qorkózi shekteri"
 
 #: templates/server/privileges/resource_limits.twig:5
 msgid "Note: Setting these options to 0 (zero) removes the limit."
