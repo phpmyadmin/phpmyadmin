@@ -59,6 +59,7 @@ phpMyAdmin - ChangeLog
 - issue #14673 Fixed innodb & MySQL 8: DYNAMIC & COMPRESSED ROW_FORMAT missing
 - issue        Fixed empty success message when adding a new INDEX from left panel
 - issue #15150 Fixed generate password hidden on second open of change password modal
+- issue        Fixed import XML data with leading zeros
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
