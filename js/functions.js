@@ -3196,6 +3196,7 @@ AJAX.registerOnload('functions.js', function () {
                 .find('input#text_pma_pw').focus();
             $('#fieldset_change_password_footer').hide();
             PMA_ajaxRemoveMessage($msgbox);
+            displayPasswordGenerateButton();
             $('#change_password_form').on('submit', function (e) {
                 e.preventDefault();
                 $(this)
