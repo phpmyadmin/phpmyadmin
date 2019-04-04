@@ -839,7 +839,7 @@ class Import
             return self::BIGINT;
         }
 
-        if ($cell !== (string)(int)$cell) {
+        if ($cell !== (string) (int) $cell) {
             return self::VARCHAR;
         }
 

@@ -429,6 +429,8 @@ return [
         'MaxNavigationItems' => 'validatePositiveNumber',
         'MaxCharactersInDisplayedSQL' => 'validatePositiveNumber',
         'MaxRows' => 'validatePositiveNumber',
+        'MaxSizeForInputField' => 'validatePositiveNumber',
+        'MinSizeForInputField' => 'validateNonNegativeNumber',
         'MaxTableList' => 'validatePositiveNumber',
         'MemoryLimit' => [
             [

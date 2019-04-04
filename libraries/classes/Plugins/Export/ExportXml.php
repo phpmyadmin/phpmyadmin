@@ -276,7 +276,7 @@ class ExportXml extends ExportPlugin
                 . '">' . $crlf;
 
             if (is_null($tables)) {
-                $tables = array();
+                $tables = [];
             }
 
             if (count($tables) === 0) {
