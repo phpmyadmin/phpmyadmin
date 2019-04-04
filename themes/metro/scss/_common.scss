@@ -2313,7 +2313,6 @@ input {
 .ajax_notification {
   top: 0;
   position: fixed;
-  width: 100%;
   z-index: 1100;
   text-align: center;
   display: inline;
@@ -2327,7 +2326,6 @@ input {
   color: $main-color;
   padding: 10px !important;
   border: none;
-  height: 19px;
 }
 
 .dismissable {
