@@ -639,6 +639,7 @@ class Menu
             [
                 'prefs_forms.php',
                 'prefs_manage.php',
+                'prefs_twofactor.php',
             ]
         );
 
