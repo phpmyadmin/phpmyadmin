@@ -248,7 +248,7 @@ class Descriptions
                 return __('Maximum execution time');
             case 'Export_lock_tables_name':
                 return sprintf(
-                    __('Use %s statement'), '<code>LOCK TABLES</code>'
+                    __('Use %s statement'), htmlspecialchars('<code>LOCK TABLES</code>')
                 );
             case 'Export_asfile_name':
                 return __('Save as file');
