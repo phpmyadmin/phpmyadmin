@@ -211,26 +211,6 @@ class ReplicationGuiTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForNotServerReplication
-     *
-     * @return void
-     */
-    public function testGetHtmlForNotServerReplication()
-    {
-        //Call the test function
-        $html = $this->replicationGui->getHtmlForNotServerReplication();
-
-        $this->assertStringContainsString(
-            '<legend>Master replication</legend>',
-            $html
-        );
-        $this->assertStringContainsString(
-            'This server is not configured as master in a replication process.',
-            $html
-        );
-    }
-
-    /**
      * Test for getHtmlForSlaveConfiguration
      *
      * @return void

@@ -69,7 +69,27 @@
           </div>
         </li>
         <li>
-          {{ slave_error_management|raw }}
+          <a href="#slave_errormanagement_href" id="slave_errormanagement_href">
+            {% trans 'Error management:' %}
+          </a>
+          <div id="slave_errormanagement_gui" class="hide">
+            {{ 'Skipping errors might lead into unsynchronized master and slave!'|trans|error }}
+            <ul>
+              <li>
+                <a href="server_replication.php" data-post="{{ slave_skip_error_link }}">
+                  {% trans 'Skip current error' %}
+                </a>
+              </li>
+              <li>
+                <form method="post" action="server_replication.php">
+                  {{ get_hidden_inputs('', '') }}
+                  {{ 'Skip next %s errors.'|trans|format('<input type="text" name="sr_skip_errors_count" value="1" class="repl_gui_skip_err_cnt">')|raw }}
+                  <input class="btn btn-primary" type="submit" name="sr_slave_skip_error" value="{% trans 'Go' %}">
+                  <input type="hidden" name="sr_take_action" value="1">
+                </form>
+              </li>
+            </ul>
+          </div>
         </li>
         <li>
           <a href="server_replication.php" data-post="{{ reconfigure_master_link }}">

@@ -9,13 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Replication;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Functions for the replication GUI
  *
@@ -177,8 +170,6 @@ class ReplicationGui
 
             $slaveIoRunning = $serverSlaveReplication[0]['Slave_IO_Running'] !== 'No';
             $slaveSqlRunning = $serverSlaveReplication[0]['Slave_SQL_Running'] !== 'No';
-
-            $slaveErrorManagement = $this->getHtmlForSlaveErrorManagement($slaveSkipErrorLink);
         }
 
         return $this->template->render('server/replication/slave_configuration', [
@@ -193,38 +184,9 @@ class ReplicationGui
             'slave_control_reset_link' => $slaveControlResetLink ?? '',
             'slave_control_sql_link' => $slaveControlSqlLink ?? '',
             'slave_control_io_link' => $slaveControlIoLink ?? '',
-            'slave_error_management' => $slaveErrorManagement ?? '',
+            'slave_skip_error_link' => $slaveSkipErrorLink ?? '',
             'reconfigure_master_link' => $reconfigureMasterLink ?? '',
             'has_slave_configure' => isset($_POST['sl_configure']),
-        ]);
-    }
-
-    /**
-     * returns HTML for Slave Error Management
-     *
-     * @param string $slaveSkipErrorLink error link
-     *
-     * @return string HTML code
-     */
-    public function getHtmlForSlaveErrorManagement($slaveSkipErrorLink)
-    {
-        return $this->template->render('server/replication/slave_error_management', [
-            'slave_skip_error_link' => $slaveSkipErrorLink,
-        ]);
-    }
-
-    /**
-     * returns HTML for not configure for a server replication
-     *
-     * @return string HTML code
-     */
-    public function getHtmlForNotServerReplication()
-    {
-        $urlParams = $GLOBALS['url_params'];
-        $urlParams['mr_configure'] = true;
-
-        return $this->template->render('server/replication/not_server_replication', [
-            'url_params' => $urlParams,
         ]);
     }
 
