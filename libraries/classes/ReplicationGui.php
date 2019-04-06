@@ -234,80 +234,53 @@ class ReplicationGui
     /**
      * This function returns html code for table with replication status.
      *
-     * @param string  $type   either master or slave
-     * @param boolean $hidden if true, then default style is set to hidden,
-     *                        default value false
-     * @param boolean $title  if true, then title is displayed, default true
+     * @param string  $type     either master or slave
+     * @param boolean $isHidden if true, then default style is set to hidden,
+     *                          default value false
+     * @param boolean $hasTitle if true, then title is displayed, default true
      *
      * @return string HTML code
      */
-    public function getHtmlForReplicationStatusTable($type, $hidden = false, $title = true)
-    {
-        global ${"{$type}_variables"};
-        global ${"{$type}_variables_alerts"};
-        global ${"{$type}_variables_oks"};
-        global ${"server_{$type}_replication"};
-        global ${"strReplicationStatus_{$type}"};
+    public function getHtmlForReplicationStatusTable(
+        $type,
+        $isHidden = false,
+        $hasTitle = true
+    ): string {
+        global $master_variables, $slave_variables;
+        global $master_variables_alerts, $slave_variables_alerts;
+        global $master_variables_oks, $slave_variables_oks;
+        global $server_master_replication, $server_slave_replication;
 
-        $html = '';
-
-        // TODO check the Masters server id?
-        // seems to default to '1' when queried via SHOW VARIABLES ,
-        // but resulted in error on the master when slave connects
-        // [ERROR] Error reading packet from server: Misconfigured master
-        // - server id was not set ( server_errno=1236)
-        // [ERROR] Got fatal error 1236: 'Misconfigured master
-        // - server id was not set' from master when reading data from binary log
-        //
-        //$server_id = $GLOBALS['dbi']->fetchValue(
-        //    "SHOW VARIABLES LIKE 'server_id'", 0, 1
-        //);
-
-        $html .= '<div id="replication_' . $type . '_section" style="';
-        $html .= ($hidden ? 'display: none;' : '') . '"> ';
-
-        if ($title) {
-            if ($type == 'master') {
-                $html .= '<h4><a name="replication_' . $type . '"></a>';
-                $html .= __('Master status') . '</h4>';
-            } else {
-                $html .= '<h4><a name="replication_' . $type . '"></a>';
-                $html .= __('Slave status') . '</h4>';
-            }
-        } else {
-            $html .= '<br>';
+        $replicationVariables = $master_variables;
+        $variablesAlerts = $master_variables_alerts;
+        $variablesOks = $master_variables_oks;
+        $serverReplication = $server_master_replication;
+        if ($type === 'slave') {
+            $replicationVariables = $slave_variables;
+            $variablesAlerts = $slave_variables_alerts;
+            $variablesOks = $slave_variables_oks;
+            $serverReplication = $server_slave_replication;
         }
 
-        $html .= '   <table id="server' . $type . 'replicationsummary" class="data"> ';
-        $html .= '   <thead>';
-        $html .= '    <tr>';
-        $html .= '     <th>' . __('Variable') . '</th>';
-        $html .= '        <th>' . __('Value') . '</th>';
-        $html .= '    </tr>';
-        $html .= '   </thead>';
-        $html .= '   <tbody>';
+        $variables = [];
+        foreach ($replicationVariables as $variable) {
+            $variables[$variable] = [
+                'name' => $variable,
+                'status' => '',
+                'value' => $serverReplication[0][$variable],
+            ];
 
-        foreach (${"{$type}_variables"} as $variable) {
-            $html .= '   <tr>';
-            $html .= '     <td class="name">';
-            $html .= htmlspecialchars($variable);
-            $html .= '     </td>';
-            $html .= '     <td class="value">';
-
-            // TODO change to regexp or something, to allow for negative match
-            if (isset(${"{$type}_variables_alerts"}[$variable])
-                && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
+            if (isset($variablesAlerts[$variable])
+                && $variablesAlerts[$variable] === $serverReplication[0][$variable]
             ) {
-                $html .= '<span class="attention">';
-            } elseif (isset(${"{$type}_variables_oks"}[$variable])
-                && ${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
+                $variables[$variable]['status'] = 'attention';
+            } elseif (isset($variablesOks[$variable])
+                && $variablesOks[$variable] === $serverReplication[0][$variable]
             ) {
-                $html .= '<span class="allfine">';
-            } else {
-                $html .= '<span>';
+                $variables[$variable]['status'] = 'allfine';
             }
-            // allow wrapping long table lists into multiple lines
-            $variables_wrap = [
+
+            $variablesWrap = [
                 'Replicate_Do_DB',
                 'Replicate_Ignore_DB',
                 'Replicate_Do_Table',
@@ -315,27 +288,21 @@ class ReplicationGui
                 'Replicate_Wild_Do_Table',
                 'Replicate_Wild_Ignore_Table',
             ];
-            if (in_array($variable, $variables_wrap)) {
-                $html .= htmlspecialchars(str_replace(
+            if (in_array($variable, $variablesWrap)) {
+                $variables[$variable]['value'] = str_replace(
                     ',',
                     ', ',
-                    ${"server_{$type}_replication"}[0][$variable]
-                ));
-            } else {
-                $html .= htmlspecialchars(${"server_{$type}_replication"}[0][$variable]);
+                    $serverReplication[0][$variable]
+                );
             }
-            $html .= '</span>';
-
-            $html .= '  </td>';
-            $html .= ' </tr>';
         }
 
-        $html .= '   </tbody>';
-        $html .= ' </table>';
-        $html .= ' <br>';
-        $html .= '</div>';
-
-        return $html;
+        return $this->template->render('server/replication/status_table', [
+            'type' => $type,
+            'is_hidden' => $isHidden,
+            'has_title' => $hasTitle,
+            'variables' => $variables,
+        ]);
     }
 
     /**
