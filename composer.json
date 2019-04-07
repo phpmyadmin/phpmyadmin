@@ -97,6 +97,11 @@
         "phpcbf": "phpcbf",
         "phpcs": "phpcs",
         "phpstan": "phpstan analyse",
-        "test": "phpunit"
+        "phpunit": "phpunit",
+        "test": [
+            "@phpcs",
+            "@phpstan",
+            "@phpunit"
+        ]
     }
 }
