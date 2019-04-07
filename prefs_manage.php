@@ -124,7 +124,7 @@ if (isset($_POST['submit_export'])
             // mimic original form and post json in a hidden field
             include ROOT_PATH . 'libraries/user_preferences.inc.php';
 
-            echo $template->render('prefs_manage_error', [
+            echo $template->render('preferences/manage/error', [
                 'form_errors' => $form_display->displayErrors(),
                 'json' => $json,
                 'import_merge' => isset($_POST['import_merge']) ? $_POST['import_merge'] : null,
@@ -202,7 +202,7 @@ if ($error) {
     $error->getDisplay();
 }
 
-echo $template->render('prefs_manage', [
+echo $template->render('preferences/manage/main', [
     'error' => $error,
     'max_upload_size' => $GLOBALS['max_upload_size'],
     'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php') && ! @file_exists(CONFIG_FILE),
