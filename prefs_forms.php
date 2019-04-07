@@ -8,9 +8,11 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
@@ -23,6 +25,7 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
+$template = new Template();
 $userPreferences = new UserPreferences();
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
@@ -36,6 +39,7 @@ if (is_null($form_class)) {
     Core::fatalError(__('Incorrect form specified!'));
 }
 
+/** @var BaseForm $form_display */
 $form_display = new $form_class($cf, 1);
 
 if (isset($_POST['revert'])) {
@@ -77,21 +81,17 @@ $scripts  = $header->getScripts();
 $scripts->addFile('config.js');
 
 require ROOT_PATH . 'libraries/user_preferences.inc.php';
-if ($error) {
-    $error->display();
-}
+
 if ($form_display->hasErrors()) {
-    // form has errors
-    ?>
-    <div class="error config-form">
-        <b>
-            <?php echo __('Cannot save settings, submitted form contains errors!') ?>
-        </b>
-        <?php echo $form_display->displayErrors(); ?>
-    </div>
-    <?php
+    $formErrors = $form_display->displayErrors();
 }
-echo $form_display->getDisplay(true, true);
+
+echo $template->render('preferences/forms/main', [
+    'error' => $error ? $error->getDisplay() : '',
+    'has_errors' => $form_display->hasErrors(),
+    'errors' => $formErrors ?? null,
+    'form' => $form_display->getDisplay(true, true),
+]);
 
 if ($response->isAjax()) {
     $response->addJSON('_disableNaviSettings', true);
