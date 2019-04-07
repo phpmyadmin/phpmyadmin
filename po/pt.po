@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-02-27 14:23-0300\n"
-"PO-Revision-Date: 2019-03-30 19:26+0000\n"
+"PO-Revision-Date: 2019-04-09 02:42+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/pt/>\n"
@@ -956,8 +956,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Você está a tentar reduzir o número de linhas, mas já inseriu dados nessas "
-"linhas que serão perdidas. Deseja continuar?"
+"Você está a tentar reduzir a quantidade de linhas, mas já inseriu dados "
+"nessas linhas que serão perdidas. Deseja continuar?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1853,7 +1853,7 @@ msgstr "Ativa a verificação de chaves estrangeiras"
 
 #: js/messages.php:391
 msgid "Failed to get real row count."
-msgstr "Falha na leitura do número real de linhas."
+msgstr "Falha na leitura da quantidade real de linhas."
 
 #: js/messages.php:394
 msgid "Searching"
@@ -2104,7 +2104,7 @@ msgid ""
 "of the table."
 msgstr ""
 "Aguarde uns instantes! Isto poderá demorar alguns segundos dependendo do "
-"tamanho dos dados e do número de colunas da tabela."
+"tamanho dos dados e da quantidade de colunas da tabela."
 
 #: js/messages.php:470
 msgid "Step"
@@ -3937,8 +3937,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
-"Define o número máximo de segundos que um script tem para executar ([kbd]0[/"
-"kbd] para sem limite)."
+"Define a quantidade máxima de segundos que um script tem para executar "
+"([kbd]0[/kbd] para sem limite)."
 
 #: libraries/classes/Config/Descriptions.php:248
 msgid "Maximum execution time"
@@ -4771,8 +4771,8 @@ msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
-"O número de itens que podem ser mostrados em cada página no primeiro nível "
-"da árvore de navegação."
+"A quantidade de itens que podem ser mostrados em cada página no primeiro "
+"nível da árvore de navegação."
 
 #: libraries/classes/Config/Descriptions.php:741
 msgid "Maximum items on first level"
@@ -4783,7 +4783,7 @@ msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
-"O número de itens que podem ser mostradas em cada página da árvore de "
+"A quantidade de itens que podem ser mostradas em cada página da árvore de "
 "navegação."
 
 #: libraries/classes/Config/Descriptions.php:745
@@ -4815,8 +4815,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"O número de bytes que um script pode alocar, ex. [kbd]32M[/kbd] ([kbd]-1[/"
-"kbd] para nenhum limite e [kbd]0[/kbd] para sem alteração)."
+"A quantidade de bytes que um script pode alocar, ex. [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] para nenhum limite e [kbd]0[/kbd] para sem alteração)."
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Memory limit"
@@ -4893,7 +4893,7 @@ msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
-"Define o número mínimo de itens (tabelas, vistas, rotinas e eventos) a "
+"Define a quantidade mínima de itens (tabelas, vistas, rotinas e eventos) a "
 "apresentar numa caixa de filtragem."
 
 #: libraries/classes/Config/Descriptions.php:808
@@ -5392,8 +5392,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
-"Limita o número de preferências de tabela armazenadas na base de dados, os "
-"registos mais antigos são automaticamente removidos."
+"Limita a quantidade de preferências de tabela armazenadas na base de dados, "
+"os registos mais antigos são automaticamente removidos."
 
 #: libraries/classes/Config/Descriptions.php:1067
 msgid "Maximal number of table preferences to store"
@@ -7740,10 +7740,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Este é o número de ficheiros de log de transação (pbxt/system/xlog*.xt) que "
-"o sistema irá manter. Se o número de logs exceder esse valor, os ficheiros "
-"de log antigos serão deletados, caso contrário eles serão renomeados com o "
-"próximo número da contagem de logs."
+"Este é a quantidade de ficheiros de log de transação (pbxt/system/xlog*.xt) "
+"que o sistema irá manter. Se a quantidade de logs exceder esse valor, os "
+"ficheiros de log antigos serão deletados, caso contrário eles serão "
+"renomeados com o próximo número da contagem de logs."
 
 #: libraries/classes/Engines/Pbxt.php:182
 #, php-format
@@ -10129,11 +10129,11 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
-"Mostra uma parte de uma cadeia. A primeira opção é o número de caracteres a "
-"pular a partir do começo da string. (A predefinição é 0). A segunda opção é "
-"o número de caracteres a retornar (Predefinição: até o fim da cadeia). A "
-"terceira opção é a cadiea a adicionar depois ou antes quando truncamentos "
-"ocorrerem (Predefinição: \"...\")."
+"Mostra uma parte de uma cadeia. A primeira opção é a quantidade de "
+"caracteres a pular a partir do início da cadeia. (A predefinição é 0). A "
+"segunda opção é a quantidade de caracteres a retornar (Predefinição: até o "
+"fim da cadeia). A terceira opção é a cadiea a adicionar depois ou antes "
+"quando truncamentos ocorrerem (Predefinição: \"...\")."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:30
 msgid ""
@@ -11348,7 +11348,7 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-"Permite conectar, mesmo que o número máximo de conexões seja alcançado; "
+"Permite conectar, mesmo que a quantidade máxima de conexões seja alcançado; "
 "necessário para a maioria das operações administrativas, como definir "
 "variáveis globais ou matar processos de outros usuários."
 
@@ -11445,7 +11445,8 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
-"Limitar o número de consultas que podem ser enviadas ao servidor por hora."
+"Limitar a quantidade de consultas que podem ser enviadas ao servidor por "
+"hora."
 
 #: libraries/classes/Server/Privileges.php:847 server_privileges.php:93
 msgid ""
@@ -11457,11 +11458,12 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:856 server_privileges.php:87
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limita o número de novas conexões que o usuário pode abrir por hora."
+msgstr ""
+"Limita a quantidade de novas conexões que o usuário pode abrir por hora."
 
 #: libraries/classes/Server/Privileges.php:865 server_privileges.php:97
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Limita o número de conexões simultâneas que o usuário pode ter."
+msgstr "Limita a quantidade de conexões simultâneas que o usuário pode ter."
 
 #: libraries/classes/Server/Privileges.php:910
 #: libraries/classes/Server/Privileges.php:3356
@@ -12300,12 +12302,12 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
-"O número de conexões que foram abortadas porque o cliente morreu sem fechar "
-"a conexão corretamente."
+"A quantidade de conexões que foram abortadas porque o cliente morreu sem "
+"fechar a conexão corretamente."
 
 #: libraries/classes/Server/Status/Variables.php:345
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "O número de tentativas de conexão sem sucesso ao servidor MySQL."
+msgstr "A quantidade de tentativas de conexão sem sucesso ao servidor MySQL."
 
 #: libraries/classes/Server/Status/Variables.php:348
 msgid ""
@@ -12313,19 +12315,20 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"O número de transações que usaram o cache do log binário temporário mas que "
-"excederam o valor do binlog_cache_size e usaram o ficheiro temporário para "
-"armazenar enunciados da transação."
+"A quantidade de transações que usaram o cache do log binário temporário mas "
+"que excederam o valor do binlog_cache_size e usaram o ficheiro temporário "
+"para armazenar enunciados da transação."
 
 #: libraries/classes/Server/Status/Variables.php:353
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "O número de transações que usaram o cache do log binário temporário."
+msgstr ""
+"A quantidade de transações que usaram o cache do log binário temporário."
 
 #: libraries/classes/Server/Status/Variables.php:356
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
-"O número de tentativas de conexão (com sucesso ou não) ao servidor MySQL."
+"A quantidade de tentativas de conexão (com sucesso ou não) ao servidor MySQL."
 
 #: libraries/classes/Server/Status/Variables.php:360
 msgid ""
@@ -12334,7 +12337,7 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
-"O número de tabelas temporárias no disco criadas automaticamente pelo "
+"A quantidade de tabelas temporárias no disco criadas automaticamente pelo "
 "servidor enquanto executava os enunciados. Se Created_tmp_disk_tables é "
 "grande, você pode aumentar o valor de tmp_table_size para fazer as tabelas "
 "temporárias serem baseadas na memória em vez de serem baseadas em disco."
@@ -12348,7 +12351,7 @@ msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
-"O número de tabelas temporárias na memória criadas automaticamente pelo "
+"A quantidade de tabelas temporárias na memória criadas automaticamente pelo "
 "servidor enquanto executava os enunciados."
 
 #: libraries/classes/Server/Status/Variables.php:374
@@ -12356,7 +12359,7 @@ msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
-"O número de linhas escritas com INSERT DELAYED para cada erro ocorrido ("
+"A quantidade de linhas escritas com INSERT DELAYED para cada erro ocorrido ("
 "provavelmente chave duplicada)."
 
 #: libraries/classes/Server/Status/Variables.php:378
@@ -12364,24 +12367,24 @@ msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
-"O número de processos manipuladores de INSERT DELAYED em uso. Cada tabela "
+"A quantidade de threads handler de INSERT DELAYED em uso. Cada tabela "
 "diferente em que se usa INSERT DELAYED começa seu próprio processo."
 
 #: libraries/classes/Server/Status/Variables.php:383
 msgid "The number of INSERT DELAYED rows written."
-msgstr "O número de linhas INSERT DELAYED escritas."
+msgstr "A quantidade de linhas INSERT DELAYED escritas."
 
 #: libraries/classes/Server/Status/Variables.php:386
 msgid "The number of executed FLUSH statements."
-msgstr "O número de enunciados FLUSH executados."
+msgstr "A quantidade de enunciados FLUSH executados."
 
 #: libraries/classes/Server/Status/Variables.php:389
 msgid "The number of internal COMMIT statements."
-msgstr "O número de enunciados COMMIT internos."
+msgstr "A quantidade de enunciados COMMIT internos."
 
 #: libraries/classes/Server/Status/Variables.php:392
 msgid "The number of times a row was deleted from a table."
-msgstr "O número de vezes que uma linha foi deletada de uma tabela."
+msgstr "A quantidade de vezes que uma linha foi deletada de uma tabela."
 
 #: libraries/classes/Server/Status/Variables.php:395
 msgid ""
@@ -12408,9 +12411,9 @@ msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
-"O número de requisições lendo uma linha baseada numa chave. Se for grande, é "
-"uma boa indicação de que suas consultas e tabelas estão corretamente "
-"indexadas."
+"A quantidade de requisições lendo uma linha baseada numa chave. Se for "
+"grande, é uma boa indicação de que suas consultas e tabelas estão "
+"corretamente indexadas."
 
 #: libraries/classes/Server/Status/Variables.php:412
 msgid ""
@@ -12418,8 +12421,8 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
-"O número de requisições para ler a linha seguinte na ordem da chave. Isto é "
-"incrementado se você estiver consultando uma coluna do índice com uma "
+"A quantidade de requisições para ler a linha seguinte na ordem da chave. "
+"Isto é incrementado se você estiver consultando uma coluna do índice com uma "
 "restrição de escala ou se você estiver fazendo uma varredura do índice."
 
 #: libraries/classes/Server/Status/Variables.php:417
@@ -12457,7 +12460,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:435
 msgid "The number of internal ROLLBACK statements."
-msgstr "O número de enunciados ROLLBACK internos."
+msgstr "A quantidade de enunciados ROLLBACK internos."
 
 #: libraries/classes/Server/Status/Variables.php:438
 msgid "The number of requests to update a row in a table."
@@ -12624,7 +12627,7 @@ msgstr "A quantidade de escritas fsyncs feitas no ficheiro de log."
 
 #: libraries/classes/Server/Status/Variables.php:543
 msgid "The number of pending log file fsyncs."
-msgstr "O número de ficheiros de log fsyncs pendentes."
+msgstr "A quantidade de ficheiros de log fsyncs pendentes."
 
 #: libraries/classes/Server/Status/Variables.php:546
 msgid "Pending log file writes."
@@ -12674,7 +12677,7 @@ msgstr "O tempo máximo para recuperar uma linha bloquada, em milisegundos."
 #: libraries/classes/Server/Status/Variables.php:578
 msgid "The number of times a row lock had to be waited for."
 msgstr ""
-"O número de vezes que foi necessário de esperar por uma linha bloqueada."
+"A quantidade de vezes que foi necessário de esperar por uma linha bloqueada."
 
 #: libraries/classes/Server/Status/Variables.php:581
 msgid "The number of rows deleted from InnoDB tables."
@@ -12794,11 +12797,12 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:650
 msgid "The number of files that are open."
-msgstr "O número de ficheiros que estão abertos."
+msgstr "A quantidade de ficheiros que estão abertos."
 
 #: libraries/classes/Server/Status/Variables.php:653
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr "O número de streams que estão abertos (usados principalmente para log)."
+msgstr ""
+"A quantidade de streams que estão abertos (usados principalmente para log)."
 
 #: libraries/classes/Server/Status/Variables.php:656
 msgid "The number of tables that are open."
@@ -12824,7 +12828,7 @@ msgstr "A quantidade de hits do cache."
 
 #: libraries/classes/Server/Status/Variables.php:670
 msgid "The number of queries added to the cache."
-msgstr "O número de consultas adicionadas à cache."
+msgstr "A quantidade de consultas adicionadas à cache."
 
 #: libraries/classes/Server/Status/Variables.php:673
 msgid ""
@@ -12898,7 +12902,8 @@ msgstr ""
 #: libraries/classes/Server/Status/Variables.php:712
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
-"O número de tabelas temporárias abertas atualmente pelo thread SQL do slave."
+"A quantidade de tabelas temporárias abertas atualmente pelo thread SQL do "
+"slave."
 
 #: libraries/classes/Server/Status/Variables.php:716
 msgid ""
@@ -12952,122 +12957,100 @@ msgstr "A quantidade de ordenações que foram feitas por varreduras da tabela."
 #: libraries/classes/Server/Status/Variables.php:745
 msgid "The number of times that a table lock was acquired immediately."
 msgstr ""
-"O número de vezes que uma tabela bloqueada foi recuperada imediatamente."
+"A quantidade de vezes que uma tabela bloqueada foi recuperada imediatamente."
 
 #: libraries/classes/Server/Status/Variables.php:748
-#, fuzzy
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
-"O número de vezes que uma tabela trancada não foi recuperada imediatamente e "
-"uma espera foi necessária. Se isso for alto e você tiver problemas de "
-"performance, você precisa otimizar suas consultas primeiro e então, ou "
-"dividir sua(s) tabela(s) ou usar replicação."
+"A quantidade de vezes que uma tabela trancada não foi recuperada "
+"imediatamente e uma espera foi necessária. Se isso for alto e você tiver "
+"problemas de performance, você precisa otimizar suas consultas primeiro e "
+"então, ou separar sua(s) tabela(s) ou usar replicação."
 
 #: libraries/classes/Server/Status/Variables.php:754
-#, fuzzy
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"O número de processos no cache de processos. A taxa de hits do cache pode "
-"ser calculada como Threads_created/conexões. Se este valor for vermelho você "
-"deve aumentar seu thread_cache_size."
+"A quantidade de processos no cache de processos. A taxa de hits do cache "
+"pode ser calculada como Threads_created/conexões. Se este valor for vermelho "
+"você deve aumentar seu thread_cache_size."
 
 #: libraries/classes/Server/Status/Variables.php:759
-#, fuzzy
 msgid "The number of currently open connections."
-msgstr "O número de conexões atualmente abertas."
+msgstr "A quantidade de conexões atualmente abertas."
 
 #: libraries/classes/Server/Status/Variables.php:762
-#, fuzzy
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
-"O número de processos criados para manipular conexões. Se Threads_created "
-"for grande, você deve aumentar o valor do thread_cache_size. (Normalmente "
-"isso não dá um aumento notável de performance se você tiver uma boa "
-"implementação de processos.)"
+"A quantidade de processos criados para manipular conexões. Se "
+"Threads_created for grande, você deve aumentar o valor do thread_cache_size. "
+"(Normalmente isso não dá um aumento notável de performance se você tiver uma "
+"boa implementação de processos.)"
 
 #: libraries/classes/Server/Status/Variables.php:769
-#, fuzzy
-#| msgid "Tracking is not active."
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Taxa de acesso a cache de threads (valor calculado)"
 
 #: libraries/classes/Server/Status/Variables.php:772
-#, fuzzy
 msgid "The number of threads that are not sleeping."
-msgstr "O número de processos que não estão dormindo."
+msgstr "A quantidade de processos que não estão dormindo."
 
 #: libraries/classes/Server/UserGroups.php:32
-#, fuzzy, php-format
+#, php-format
 msgid "Users of '%s' user group"
 msgstr "Usuários do grupo '%s'"
 
 #: libraries/classes/Server/UserGroups.php:45
-#, fuzzy
 msgid "No users were found belonging to this user group."
-msgstr "Nenhum usuário pertencente a este grupo foi encontrado."
+msgstr ""
+"Não foram encontrados utilizadores pertencentes a este grupo de utilizadores."
 
 #: libraries/classes/Server/UserGroups.php:75
 #: libraries/classes/Server/Users.php:38
-#, fuzzy
-#| msgid "Users"
 msgid "User groups"
 msgstr "Grupos de usuários"
 
 #: libraries/classes/Server/UserGroups.php:90
-#, fuzzy
-#| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Guias de Servidor"
+msgstr "Abas de nível de servidor"
 
 #: libraries/classes/Server/UserGroups.php:91
-#, fuzzy
-#| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Guias de Bancos de Dados"
+msgstr "Abas de nível de base de dados"
 
 #: libraries/classes/Server/UserGroups.php:92
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Guias de Tabelas"
+msgstr "Abas de nível de tabela"
 
 #: libraries/classes/Server/UserGroups.php:121
-#, fuzzy
 msgid "View users"
 msgstr "Ver usuários"
 
 #: libraries/classes/Server/UserGroups.php:159
 #: libraries/classes/Server/UserGroups.php:225
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user group"
 msgstr "Adicionar grupo de usuários"
 
 #: libraries/classes/Server/UserGroups.php:228
-#, fuzzy, php-format
+#, php-format
 msgid "Edit user group: '%s'"
 msgstr "Editar grupo de usuários: '%s'"
 
 #: libraries/classes/Server/UserGroups.php:244
-#, fuzzy
-#| msgid "No privileges."
 msgid "User group menu assignments"
 msgstr "Atribuições do menu de grupos de usuários"
 
 #: libraries/classes/Server/UserGroups.php:252
-#, fuzzy
-#| msgid "Column names"
 msgid "Group name:"
 msgstr "Nome do Grupo:"
 
@@ -13075,19 +13058,15 @@ msgstr "Nome do Grupo:"
 #, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Guias do Servidor"
+msgstr "Abas de nível de servidor"
 
 #: libraries/classes/Server/UserGroups.php:292
-#, fuzzy
-#| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Guias do Banco de Dados"
+msgstr "Abas de nível de base de dados"
 
 #: libraries/classes/Server/UserGroups.php:295
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Guias de Tabelas"
+msgstr "Abas de nível de tabela"
 
 #: libraries/classes/Sql.php:266 libraries/classes/Util.php:1145
 #: templates/console/display.twig:31 templates/console/display.twig:175
@@ -13095,41 +13074,30 @@ msgid "Profiling"
 msgstr "Perfil"
 
 #: libraries/classes/Sql.php:269
-#, fuzzy
 msgid "Detailed profile"
 msgstr "Perfil detalhado"
 
 #: libraries/classes/Sql.php:274 libraries/classes/Sql.php:290
-#, fuzzy
 msgid "State"
 msgstr "Estado"
 
 #: libraries/classes/Sql.php:287
-#, fuzzy
 msgid "Summary by state"
-msgstr "Índice por estado"
+msgstr "Resumo por estado"
 
 #: libraries/classes/Sql.php:293
-#, fuzzy
-#| msgid "Total time:"
 msgid "Total Time"
 msgstr "Tempo Total"
 
 #: libraries/classes/Sql.php:295
-#, fuzzy
-#| msgid "Time"
 msgid "% Time"
 msgstr "% Tempo"
 
 #: libraries/classes/Sql.php:297
-#, fuzzy
-#| msgid "Close"
 msgid "Calls"
 msgstr "Chamadas"
 
 #: libraries/classes/Sql.php:299
-#, fuzzy
-#| msgid "Time"
 msgid "ø Time"
 msgstr "ø Tempo"
 
@@ -13138,8 +13106,6 @@ msgid "Bookmark this SQL query"
 msgstr "Marcar este comando SQL"
 
 #: libraries/classes/Sql.php:608
-#, fuzzy
-#| msgid "Label"
 msgid "Label:"
 msgstr "Rótulo:"
 
@@ -13148,8 +13114,6 @@ msgid "Let every user access this bookmark"
 msgstr "Deixar todos os utilizadores acederem a este marcador"
 
 #: libraries/classes/Sql.php:831
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "Marcador não criado!"
 
@@ -13159,7 +13123,6 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usando marcador \"%s\" como query predefinido de navegação."
 
 #: libraries/classes/Sql.php:1418
-#, fuzzy
 msgid "Showing as PHP code"
 msgstr "Exibindo como código PHP"
 
@@ -13188,14 +13151,14 @@ msgstr ""
 "editar, copiar e apagar podem apresentar resultados indesejados. %s"
 
 #: libraries/classes/Sql.php:1849
-#, fuzzy, php-format
+#, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemas com os índices da tabela `%s`"
 
 #: libraries/classes/SqlQueryForm.php:140
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Rodar consulta(s) SQL no servidor “%s”"
+msgstr "Executar consulta(s) SQL no servidor “%s”"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
@@ -13203,8 +13166,7 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Executa comando(s) SQL na base de dados %s"
 
 #: libraries/classes/SqlQueryForm.php:178
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr "Executar consulta(s) SQL na tabela %s"
 
@@ -13214,7 +13176,6 @@ msgid "Clear"
 msgstr "Limpar"
 
 #: libraries/classes/SqlQueryForm.php:254
-#, fuzzy
 msgid "Get auto-saved query"
 msgstr "Obter consulta auto-salva"
 
@@ -13225,29 +13186,24 @@ msgid "Bind parameters"
 msgstr "Unir parâmetros"
 
 #: libraries/classes/SqlQueryForm.php:308
-#, fuzzy
-#| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Marcar essa query SQL:"
+msgstr "Marcar esta query SQL:"
 
 #: libraries/classes/SqlQueryForm.php:322
-#, fuzzy
 msgid "Replace existing bookmark of same name"
-msgstr "Substituir marcador de mesmo nome existente"
+msgstr "Substituir marcador existente de mesmo nome"
 
 #: libraries/classes/SqlQueryForm.php:336
-#, fuzzy
 msgid "Delimiter"
-msgstr "Delimitadores"
+msgstr "Delimitador"
 
 #: libraries/classes/SqlQueryForm.php:346
 msgid "Show this query here again"
 msgstr "Mostrar de novo aqui este comando"
 
 #: libraries/classes/SqlQueryForm.php:363
-#, fuzzy
 msgid "Rollback when finished"
-msgstr "Recuar quando finalizado"
+msgstr "Rollback quando terminado"
 
 #: libraries/classes/SqlQueryForm.php:410
 msgid "shared"
@@ -13359,8 +13315,7 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Erro criando chave estrangeira em %1$s (verifique tipo de dados)"
 
 #: libraries/classes/Template.php:127
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
 msgstr "Erro ao trabalhar com o cache do modelo: %s"
 
@@ -13389,7 +13344,6 @@ msgid "Theme:"
 msgstr "Tema:"
 
 #: libraries/classes/Tracking.php:159 templates/server/plugins/section.twig:11
-#, fuzzy
 msgid "Version"
 msgstr "Versão"
 
@@ -13404,8 +13358,6 @@ msgid "Updated"
 msgstr "Actualizado"
 
 #: libraries/classes/Tracking.php:170 libraries/classes/Tracking.php:234
-#, fuzzy
-#| msgid "Create version"
 msgid "Delete version"
 msgstr "Excluir versão"
 
@@ -13593,8 +13545,9 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
-"Um número de ponto fixo (M, D), o número máximo de dígitos (M) é de 65 (por "
-"defeito 10), o número máximo de decimais (D) é de 30 (por defeito 0)"
+"Um número de ponto fixo (M, D), a quantidade máxima de dígitos (M) é de 65 ("
+"por predefinição 10), a quantidade máxima de decimais (D) é de 30 (por "
+"predefinição 0)"
 
 #: libraries/classes/Types.php:236
 msgid ""
@@ -16205,13 +16158,11 @@ msgstr ""
 "mais detalhes."
 
 #: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
-"Pode ser aproximado. Clique no número para obter a contagem exata. Veja a "
+"Pode ser aproximado. Clique no número para obter a contagem exata. Veja "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: templates/database/structure/table_header.twig:53
@@ -17974,8 +17925,9 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
-"O número de ficheiros abertos está aproximando o número máximo de ficheiros "
-"abertos. Você pode acabar tendo um erro \"Demais ficheiros abertos\"."
+"A quantidade de ficheiros abertos está aproximando a quantidade máxima de "
+"ficheiros abertos. Você pode acabar tendo um erro \"Demais ficheiros "
+"abertos\"."
 
 #: libraries/advisory_rules.txt:320 libraries/advisory_rules.txt:327
 #, fuzzy
@@ -17991,8 +17943,8 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
-"O número de ficheiros abertos está em %s%% do limite. Deveria ser menor do "
-"que 85%%"
+"A quantidade de ficheiros abertos está em %s%% do limite. Deveria ser menor "
+"do que 85%%"
 
 #: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
@@ -18149,7 +18101,7 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
-"O número máximo de ligações utilizadas está a aproximar-se do valor de "
+"A quantidade máxima de ligações utilizadas está a aproximar-se do valor de "
 "{max_connections}."
 
 #: libraries/advisory_rules.txt:378
@@ -18212,8 +18164,8 @@ msgstr "Taxa de ligações interrompidas"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"O número de ligações interrompidas é de %s, este valor devia ser inferior a "
-"1 por hora"
+"A quantidade de ligações interrompidas é de %s, este valor devia ser "
+"inferior a 1 por hora"
 
 #: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
