@@ -262,7 +262,7 @@ class FormDisplayTemplate
 
         $htmlOutput = '<tr' . $trClass . '>';
         $htmlOutput .= '<th>';
-        $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . $name
+        $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . htmlspecialchars_decode($name)
             . '</label>';
 
         if (! empty($opts['doc'])) {

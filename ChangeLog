@@ -92,6 +92,8 @@ phpMyAdmin - ChangeLog
 - issue #15150 Fixed generate password hidden on second open of change password modal
 - issue        Fixed import XML data with leading zeros
 - issue #15036 Fixed missing input fields checks for MaxSizeForInputField
+- issue #15119 Fixed uninterpreted HTML on Settings->Export page
+- issue #15159 Fixed missing query time and database in console
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
