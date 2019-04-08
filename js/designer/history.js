@@ -9,7 +9,8 @@
 
 var history_array = []; // Global array to store history objects
 var select_field = [];  // Global array to store informaation for columns which are used in select clause
-var g_index, vqb_editor = null;
+var g_index;
+var vqb_editor = null;
 
 /**
  * To display details of objects(where,rename,Having,aggregate,groupby,orderby,having)
@@ -59,7 +60,12 @@ function detail (index) {
 **/
 
 function display (init, finit) {
-    var str, i, j, k, sto, temp;
+    var str;
+    var i;
+    var j;
+    var k;
+    var sto;
+    var temp;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
     for (i = init; i < finit; i++) {
         sto = history_array[i];
@@ -162,50 +168,50 @@ function history_edit (index) {
     g_index = index;
     var type = history_array[index].get_type();
     if (type === 'Where') {
-        $("#eQuery").value = history_array[index].get_obj().getquery(); // get_obj(),get_query might be removed
-        $("#erel_opt").value = history_array[index].get_obj().getrelation_operator();
-        $("#query_where").style.{
-            left: 530px;
-            top: 130px;
-            position: absolute;
-            zIndex: 103;
-            visibility: visible;
-            display: block;
-        }
+        $('#eQuery').value = history_array[index].get_obj().getquery();
+        $('#erel_opt').value = history_array[index].get_obj().getrelation_operator();
+        $('#query_where').css({
+            'left': '530px',
+            'top': '130px',
+            'position': 'absolute',
+            'zIndex': '103',
+            'visibility': 'visible',
+            'display': 'block'
+        });
     }
     if (type === 'Having') {
-        $("#hQuery").value = history_array[index].get_obj().getquery();
-        $("#hrel_opt").value = history_array[index].get_obj().getrelation_operator();
-        $("#query_having").style.{
-            left: 530px;
-            top: 130px;
-            position: absolute;
-            zIndex: 103;
-            visibility: visible;
-            display: block;
-        }
+        $('#hQuery').value = history_array[index].get_obj().getquery();
+        $('#hrel_opt').value = history_array[index].get_obj().getrelation_operator();
+        $('#query_having').css({
+            'left': '530px',
+            'top': '130px',
+            'position': 'absolute',
+            'zIndex': '103',
+            'visibility': 'visible',
+            'display': 'block'
+        });
     }
     if (type === 'Rename') {
-        $("#e_rename").value = history_array[index].get_obj().getrename_to();
-        $("#query_rename_to").style.{
-            left: 530px;
-            top: 130px;
-            position: absolute;
-            zIndex: 103;
-            visibility: visible;
-            display: block;
-        }
+        $('#e_rename').value = history_array[index].get_obj().getrename_to();
+        $('#query_rename_to').css({
+            'left': '530px',
+            'top': '130px',
+            'position': 'absolute',
+            'zIndex': '103',
+            'visibility': 'visible',
+            'display': 'block'
+        });
     }
     if (type === 'Aggregate') {
-        $("#e_operator").value = history_array[index].get_obj().get_operator();
-        $("#query_Aggregate").style.{
-            left: 530px;
-            top: 130px;
-            position: absolute;
-            zIndex: 103;
-            visibility: visible;
-            display: block;
-        }
+        $('#e_operator').value = history_array[index].get_obj().get_operator();
+        $('#query_Aggregate').css({
+            'left': '530px',
+            'top': '130px',
+            'position': 'absolute',
+            'zIndex': '103',
+            'visibility': 'visible',
+            'display': 'block'
+        });
     }
 }
 
@@ -263,7 +269,12 @@ function edit (type) {
 **/
 
 function history_obj (ncolumn_name, nobj, ntab, nobj_no, ntype) {
-    var and_or, obj, tab, column_name, obj_no, type;
+    var and_or;
+    var obj;
+    var tab;
+    var column_name;
+    var obj_no;
+    var type;
     this.set_column_name = function (ncolumn_name) {
         column_name = ncolumn_name;
     };
@@ -321,7 +332,8 @@ function history_obj (ncolumn_name, nobj, ntab, nobj_no, ntype) {
 
 
 var where = function (nrelation_operator, nquery) {
-    var relation_operator, query;
+    var relation_operator;
+    var query;
     this.setrelation_operator = function (nrelation_operator) {
         relation_operator = nrelation_operator;
     };
@@ -363,7 +375,9 @@ var orderby = function (norder) {
 **/
 
 var having = function (nrelation_operator, nquery, noperator) {
-    var relation_operator, query, operator;
+    var relation_operator;
+    var query;
+    var operator;
     this.set_operator = function (noperator) {
         operator = noperator;
     };
@@ -482,7 +496,8 @@ function add_array (add, arr) {
  *
  */
 function remove_array (rem, arr) {
-    var lenghtRem = rem.length, lengthArr = arr.length;
+    var lenghtRem = rem.length;
+    var lengthArr = arr.length;
     for (var i = 0; i < lenghtRem; i++) {
         for (var j = 0; j < lengthArr; j++) {
             if (rem[i] === arr[j]) {
@@ -499,7 +514,8 @@ function remove_array (rem, arr) {
  */
 
 function query_groupby () {
-    var i, str = '';
+    var i;
+    var str = '';
     var lenghtH = history_array.length;
     for (i = 0; i < lengthH ;i++) {
         if (history_array[i].get_type() === 'GroupBy') {
@@ -516,7 +532,9 @@ function query_groupby () {
  */
 
 function query_having () {
-    var i, and = '(', lengthH = history_array.length;
+    var i;
+    var and = '(';
+    var lengthH = history_array.length;
 
     for (i = 0; i < lengthH; i++) {
         if (history_array[i].get_type() === 'Having') {
@@ -542,7 +560,9 @@ function query_having () {
  */
 
 function query_orderby () {
-    var i, str = '', lenghtH = history_array.length;
+    var i;
+    var str = '';
+    var lenghtH = history_array.length;
 
     for (i = 0; i < lengthH; i++) {
         if (history_array[i].get_type() === 'OrderBy') {
@@ -561,7 +581,10 @@ function query_orderby () {
  */
 
 function query_where () {
-    var i, and = '(', or = '(', lenghtH = history_array.length;
+    var i;
+    var and = '(';
+    var or = '(';
+    var lenghtH = history_array.length;
     for (i = 0; i < lengthH; i++) {
         if (history_array[i].get_type() === 'Where') {
             if (history_array[i].get_and_or() === 0) {
@@ -588,7 +611,8 @@ function query_where () {
 }
 
 function check_aggregate (id_this) {
-    var i, lenghtH = history_array.length;
+    var i;
+    var lenghtH = history_array.length;
     for (i = 0; i < lengthH; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
         if (temp === id_this && history_array[i].get_type() === 'Aggregate') {
@@ -599,7 +623,8 @@ function check_aggregate (id_this) {
 }
 
 function check_rename (id_this) {
-    var i, lenghtH = history_array.length;
+    var i;
+    var lenghtH = history_array.length;
     for (i = 0; i < lengthH; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
         if (temp === id_this && history_array[i].get_type() === 'Rename') {
@@ -616,15 +641,27 @@ function check_rename (id_this) {
   *
   */
 function query_from () {
-    var i, temp, K = 0, k;
-    var tab_left = [], tab_used = [], t_tab_used = [], t_tab_left = [];
-    var query = '', quer = '', t_array = [],
-    var key, key2, key3;
-    var parts = [], parts1;
+    var i;
+    var temp;
+    var K = 0;
+    var k;
+    var tab_left = [];
+    var tab_used = [];
+    var t_tab_used = [];
+    var t_tab_left = [];
+    var query = '';
+    var quer = '';
+    var t_array = [];
+    var key;
+    var key2;
+    var key3;
+    var parts = [];
+    var parts1;
     t_array = from_array;
 
     // the constraints that have been used in the LEFT JOIN
-    var constraints_added = [], lenghtH = history_array.length;
+    var constraints_added = [];
+    var lenghtH = history_array.length;
 
     for (i = 0; i < lengthH; i++) {
         from_array.push(history_array[i].get_tab());
@@ -712,7 +749,9 @@ function query_from () {
  */
 
 function build_query (formtitle, fadin) {
-    var q_select = 'SELECT ', temp, lengthSF = select_field.length;
+    var q_select = 'SELECT ';
+    var temp;
+    var lengthSF = select_field.length;
     if (lengthSF > 0) {
         for (var i = 0; i < lengthSF; i++) {
             temp = check_aggregate(select_field[i]);
