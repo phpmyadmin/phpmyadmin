@@ -2,8 +2,7 @@ var designer_tables = [{ name: 'pdf_pages', key: 'pg_nr', auto_inc: true },
     { name: 'table_coords', key: 'id', auto_inc: true }];
 
 var DesignerOfflineDB = (function () {
-    var designerDB = {};
-    var datastore = null;
+    var designerDB = {}, datastore = null;
 
     designerDB.open = function (callback) {
         var version = 1;

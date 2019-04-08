@@ -9,8 +9,7 @@
 
 var history_array = []; // Global array to store history objects
 var select_field = [];  // Global array to store informaation for columns which are used in select clause
-var g_index;
-var vqb_editor = null;
+var g_index, vqb_editor = null;
 
 /**
  * To display details of objects(where,rename,Having,aggregate,groupby,orderby,having)
@@ -40,8 +39,7 @@ function detail (index) {
     if (type === 'Having') {
         str = 'Having ';
         if (history_array[index].get_obj().get_operator() !== 'None') {
-            str += history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
-            str += history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
+            str += history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )' + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
         } else {
             str = 'Having ' + history_array[index].get_column_name() + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
         }
@@ -61,12 +59,7 @@ function detail (index) {
 **/
 
 function display (init, finit) {
-    var str;
-    var i;
-    var j;
-    var k;
-    var sto;
-    var temp;
+    var str, i, j, k, sto, temp;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
     for (i = init; i < finit; i++) {
         sto = history_array[i];
@@ -83,13 +76,12 @@ function display (init, finit) {
     }
     // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
     str = ''; // string to store Html code for history tab
-    for (i = 0; i < history_array.length; i++) {
+    var lengthH = history_array.length;
+    for (i = 0; i < lenghtH; i++) {
         temp = history_array[i].get_tab(); // + '.' + history_array[i].get_obj_no(); for Self JOIN
-        str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
-        str += '<div class="toggle_container">\n';
+        str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>' + '<div class="toggle_container">\n';
         while ((history_array[i].get_tab()) === temp) { // + '.' + history_array[i].get_obj_no()) === temp) {
-            str += '<div class="block"> <table width ="250">';
-            str += '<thead><tr><td>';
+            str += '<div class="block"> <table width ="250">' + '<thead><tr><td>';
             if (history_array[i].get_and_or()) {
                 str += '<img src="' + pmaThemeImage + 'designer/or_icon.png" onclick="and_or(' + i + ')" title="OR"></td>';
             } else {
@@ -264,12 +256,7 @@ function edit (type) {
 **/
 
 function history_obj (ncolumn_name, nobj, ntab, nobj_no, ntype) {
-    var and_or;
-    var obj;
-    var tab;
-    var column_name;
-    var obj_no;
-    var type;
+    var and_or, obj, tab, column_name, obj_no, type;
     this.set_column_name = function (ncolumn_name) {
         column_name = ncolumn_name;
     };
@@ -327,8 +314,7 @@ function history_obj (ncolumn_name, nobj, ntab, nobj_no, ntype) {
 
 
 var where = function (nrelation_operator, nquery) {
-    var relation_operator;
-    var query;
+    var relation_operator, query;
     this.setrelation_operator = function (nrelation_operator) {
         relation_operator = nrelation_operator;
     };
@@ -370,9 +356,7 @@ var orderby = function (norder) {
 **/
 
 var having = function (nrelation_operator, nquery, noperator) {
-    var relation_operator;
-    var query;
-    var operator;
+    var relation_operator, query, operator;
     this.set_operator = function (noperator) {
         operator = noperator;
     };
@@ -462,7 +446,8 @@ function unique (arrayName) {
  */
 
 function found (arrayName, value) {
-    for (var i = 0; i < arrayName.length; i++) {
+    var lenghtArray = arrayName.length;
+    for (var i = 0; i < lenghtArray; i++) {
         if (arrayName[i] === value) {
             return 1;
         }
@@ -490,8 +475,9 @@ function add_array (add, arr) {
  *
  */
 function remove_array (rem, arr) {
-    for (var i = 0; i < rem.length; i++) {
-        for (var j = 0; j < arr.length; j++) {
+    var lenghtRem = rem.length, lengthArr = arr.length;
+    for (var i = 0; i < lenghtRem; i++) {
+        for (var j = 0; j < lengthArr; j++) {
             if (rem[i] === arr[j]) {
                 arr.splice(j, 1);
             }
@@ -506,9 +492,9 @@ function remove_array (rem, arr) {
  */
 
 function query_groupby () {
-    var i;
-    var str = '';
-    for (i = 0; i < history_array.length;i++) {
+    var i, str = '';
+    var lenghtH = history_array.length;
+    for (i = 0; i < lengthH ;i++) {
         if (history_array[i].get_type() === 'GroupBy') {
             str += '`' + history_array[i].get_column_name() + '`, ';
         }
@@ -523,13 +509,12 @@ function query_groupby () {
  */
 
 function query_having () {
-    var i;
-    var and = '(';
-    for (i = 0; i < history_array.length;i++) {
+    var i, and = '(', lengthH = history_array.length;
+
+    for (i = 0; i < lengthH; i++) {
         if (history_array[i].get_type() === 'Having') {
             if (history_array[i].get_obj().get_operator() !== 'None') {
-                and += history_array[i].get_obj().get_operator() + '(`' + history_array[i].get_column_name() + '`) ' + history_array[i].get_obj().getrelation_operator();
-                and += ' ' + history_array[i].get_obj().getquery() + ', ';
+                and += history_array[i].get_obj().get_operator() + '(`' + history_array[i].get_column_name() + '`) ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ', ';
             } else {
                 and += '`' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ', ';
             }
@@ -550,9 +535,9 @@ function query_having () {
  */
 
 function query_orderby () {
-    var i;
-    var str = '';
-    for (i = 0; i < history_array.length;i++) {
+    var i, str = '', lenghtH = history_array.length;
+
+    for (i = 0; i < lengthH; i++) {
         if (history_array[i].get_type() === 'OrderBy') {
             str += '`' + history_array[i].get_column_name() + '` ' +
                 history_array[i].get_obj().get_order() + ', ';
@@ -569,17 +554,13 @@ function query_orderby () {
  */
 
 function query_where () {
-    var i;
-    var and = '(';
-    var or = '(';
-    for (i = 0; i < history_array.length;i++) {
+    var i, and = '(', or = '(', lenghtH = history_array.length;
+    for (i = 0; i < lengthH; i++) {
         if (history_array[i].get_type() === 'Where') {
             if (history_array[i].get_and_or() === 0) {
-                and += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')';
-                and += ' AND ';
+                and += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')' + ' AND ';
             } else {
-                or += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')';
-                or += ' OR ';
+                or += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')' + ' OR ';
             }
         }
     }
@@ -600,8 +581,8 @@ function query_where () {
 }
 
 function check_aggregate (id_this) {
-    var i;
-    for (i = 0; i < history_array.length; i++) {
+    var i, lenghtH = history_array.length;
+    for (i = 0; i < lengthH; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
         if (temp === id_this && history_array[i].get_type() === 'Aggregate') {
             return history_array[i].get_obj().get_operator() + '(' + id_this + ')';
@@ -611,8 +592,8 @@ function check_aggregate (id_this) {
 }
 
 function check_rename (id_this) {
-    var i;
-    for (i = 0; i < history_array.length; i++) {
+    var i, lenghtH = history_array.length;
+    for (i = 0; i < lengthH; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
         if (temp === id_this && history_array[i].get_type() === 'Rename') {
             return ' AS `' + history_array[i].get_obj().getrename_to() + '`';
@@ -628,28 +609,17 @@ function check_rename (id_this) {
   *
   */
 function query_from () {
-    var i;
-    var tab_left = [];
-    var tab_used = [];
-    var t_tab_used = [];
-    var t_tab_left = [];
-    var temp;
-    var query = '';
-    var quer = '';
-    var parts = [];
-    var t_array = [];
+    var i, temp, K = 0, k;
+    var tab_left = [], tab_used = [], t_tab_used = [], t_tab_left = [];
+    var query = '', quer = '', t_array = [],
+    var key, key2, key3;
+    var parts = [], parts1;
     t_array = from_array;
-    var K = 0;
-    var k;
-    var key;
-    var key2;
-    var key3;
-    var parts1;
 
     // the constraints that have been used in the LEFT JOIN
-    var constraints_added = [];
+    var constraints_added = [], lenghtH = history_array.length;
 
-    for (i = 0; i < history_array.length; i++) {
+    for (i = 0; i < lengthH; i++) {
         from_array.push(history_array[i].get_tab());
     }
     from_array = unique(from_array);
@@ -670,14 +640,9 @@ function query_from () {
                             parts1 = contr[K][key][key2][key3][0].split('.');
                             if (found(tab_left, parts1[1]) > 0) {
                                 if (found(constraints_added, key) > 0) {
-                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ' + '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
                                 } else {
-                                    query += '\n' + 'LEFT JOIN ';
-                                    query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
-                                    query += '`' + parts[1] + '`.`' + key3 + '` ';
-
+                                    query += '\n' + 'LEFT JOIN ' + '`' + parts[1] + '` ON ' + '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ' + '`' + parts[1] + '`.`' + key3 + '` ';
                                     constraints_added.push(key);
                                 }
                                 t_tab_left.push(parts[1]);
@@ -701,14 +666,9 @@ function query_from () {
                             parts1 = contr[K][key][key2][key3][0].split('.');
                             if (found(tab_used, parts1[1]) > 0) {
                                 if (found(constraints_added, key) > 0) {
-                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ' + '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
                                 } else {
-                                    query += '\n' + 'LEFT JOIN ';
-                                    query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
-                                    query += '`' + parts[1] + '`.`' + key3 + '` ';
-
+                                    query += '\n' + 'LEFT JOIN ' + '`' + parts[1] + '` ON ' + '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ' + '`' + parts[1] + '`.`' + key3 + '` ';
                                     constraints_added.push(key);
                                 }
                                 t_tab_left.push(parts[1]);
@@ -745,10 +705,9 @@ function query_from () {
  */
 
 function build_query (formtitle, fadin) {
-    var q_select = 'SELECT ';
-    var temp;
-    if (select_field.length > 0) {
-        for (var i = 0; i < select_field.length; i++) {
+    var q_select = 'SELECT ', temp, lengthSF = select_field.length;
+    if (lengthSF > 0) {
+        for (var i = 0; i < lengthSF; i++) {
             temp = check_aggregate(select_field[i]);
             if (temp !== '') {
                 q_select += temp;
