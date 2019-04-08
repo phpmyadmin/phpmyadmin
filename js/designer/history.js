@@ -162,43 +162,50 @@ function history_edit (index) {
     g_index = index;
     var type = history_array[index].get_type();
     if (type === 'Where') {
-        document.getElementById('eQuery').value = history_array[index].get_obj().getquery();
-        document.getElementById('erel_opt').value = history_array[index].get_obj().getrelation_operator();
-        document.getElementById('query_where').style.left =  '530px';
-        document.getElementById('query_where').style.top  = '130px';
-        document.getElementById('query_where').style.position  = 'absolute';
-        document.getElementById('query_where').style.zIndex = '103';
-        document.getElementById('query_where').style.visibility = 'visible';
-        document.getElementById('query_where').style.display = 'block';
+        $("#eQuery").value = history_array[index].get_obj().getquery(); // get_obj(),get_query might be removed
+        $("#erel_opt").value = history_array[index].get_obj().getrelation_operator();
+        $("#query_where").style.{
+            left: 530px;
+            top: 130px;
+            position: absolute;
+            zIndex: 103;
+            visibility: visible;
+            display: block;
+        }
     }
     if (type === 'Having') {
-        document.getElementById('hQuery').value = history_array[index].get_obj().getquery();
-        document.getElementById('hrel_opt').value = history_array[index].get_obj().getrelation_operator();
-        document.getElementById('hoperator').value = history_array[index].get_obj().get_operator();
-        document.getElementById('query_having').style.left =  '530px';
-        document.getElementById('query_having').style.top  = '130px';
-        document.getElementById('query_having').style.position  = 'absolute';
-        document.getElementById('query_having').style.zIndex = '103';
-        document.getElementById('query_having').style.visibility = 'visible';
-        document.getElementById('query_having').style.display = 'block';
+        $("#hQuery").value = history_array[index].get_obj().getquery();
+        $("#hrel_opt").value = history_array[index].get_obj().getrelation_operator();
+        $("#query_having").style.{
+            left: 530px;
+            top: 130px;
+            position: absolute;
+            zIndex: 103;
+            visibility: visible;
+            display: block;
+        }
     }
     if (type === 'Rename') {
-        document.getElementById('e_rename').value = history_array[index].get_obj().getrename_to();
-        document.getElementById('query_rename_to').style.left =  '530px';
-        document.getElementById('query_rename_to').style.top  = '130px';
-        document.getElementById('query_rename_to').style.position  = 'absolute';
-        document.getElementById('query_rename_to').style.zIndex = '103';
-        document.getElementById('query_rename_to').style.visibility = 'visible';
-        document.getElementById('query_rename_to').style.display = 'block';
+        $("#e_rename").value = history_array[index].get_obj().getrename_to();
+        $("#query_rename_to").style.{
+            left: 530px;
+            top: 130px;
+            position: absolute;
+            zIndex: 103;
+            visibility: visible;
+            display: block;
+        }
     }
     if (type === 'Aggregate') {
-        document.getElementById('e_operator').value = history_array[index].get_obj().get_operator();
-        document.getElementById('query_Aggregate').style.left = '530px';
-        document.getElementById('query_Aggregate').style.top  = '130px';
-        document.getElementById('query_Aggregate').style.position  = 'absolute';
-        document.getElementById('query_Aggregate').style.zIndex = '103';
-        document.getElementById('query_Aggregate').style.visibility = 'visible';
-        document.getElementById('query_Aggregate').style.display = 'block';
+        $("#e_operator").value = history_array[index].get_obj().get_operator();
+        $("#query_Aggregate").style.{
+            left: 530px;
+            top: 130px;
+            position: absolute;
+            zIndex: 103;
+            visibility: visible;
+            display: block;
+        }
     }
 }
 
