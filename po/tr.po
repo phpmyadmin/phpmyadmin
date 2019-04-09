@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:45-0300\n"
-"PO-Revision-Date: 2019-03-04 20:58+0000\n"
+"PO-Revision-Date: 2019-04-16 19:07+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ajax.php:33 ajax.php:71 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -13618,10 +13618,8 @@ msgid "Overview"
 msgstr "Genel Bakış"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "Gizli öğeleri göster"
+msgstr "Gizli iletileri göster"
 
 #: templates/setup/home/index.twig:72
 msgid "There are no configured servers"
@@ -13826,20 +13824,14 @@ msgid "Add slave replication user"
 msgstr "Bağımlı sunucu kopya etme kullanıcısı ekle"
 
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
-msgstr "Bu Anamakine"
+msgstr "Bu anamakine"
 
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
-msgstr "Anamakine Tablosu kullan"
+msgstr "Anamakine tablosu kullan"
 
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "Parola yok"
 
@@ -14651,10 +14643,8 @@ msgid "Master replication"
 msgstr "Asıl sunucu kopya etme"
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Yetkiniz yok."
+msgstr "Yetkiler yok"
 
 #: templates/server/replication/index.twig:16
 #, php-format
@@ -15433,10 +15423,8 @@ msgid "General settings"
 msgstr "Genel ayarlar"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Sunucu bağlantısı karşılaştırması"
+msgstr "Sunucu bağlantısı karşılaştırması:"
 
 #: templates/home/index.twig:58
 msgid "Appearance settings"
@@ -15592,19 +15580,15 @@ msgstr ""
 "sonuna ekleyin ve ondan sonra lütfen MySQL sunucusunu yeniden başlatın."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "MySQL sunucusunu bir kez yeniden başlattığınızda, lütfen Git düğmesine "
-"tıklayın. Ondan sonra bu sunucunun asıl sunucu olarak <b>yapılandırıldığını</"
-"b> gösteren, sizi uyaran bir ileti görmelisiniz."
+"tıklayın. Ondan sonra bu sunucunun asıl sunucu olarak "
+"<strong>yapılandırıldığını</strong> gösteren, sizi uyaran bir ileti "
+"görmelisiniz."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -15995,10 +15979,8 @@ msgstr ""
 "%sKur programcığı%s kullanarak."
 
 #: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Dosya olarak kaydet"
+msgstr "JSON dosyası olarak kaydet"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"
