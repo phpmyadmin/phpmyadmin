@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2019-04-07 20:24+0000\n"
+"PO-Revision-Date: 2019-04-09 02:42+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/4-8/kk/"
 ">\n"
@@ -247,7 +247,7 @@ msgstr "Joq"
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "Yes"
-msgstr "Iá"
+msgstr "Ia"
 
 #: db_export.php:48
 msgid "View dump (schema) of database"
@@ -2139,7 +2139,7 @@ msgstr ""
 
 #: js/messages.php:503
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Ulǵaıtý úshin, tintýirben syzba bóligin bólekteńiz."
 
 #: js/messages.php:505
 msgid "Click reset zoom button to come back to original state."
@@ -2148,10 +2148,12 @@ msgstr ""
 #: js/messages.php:507
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Derekter jolyn kórý jáne yqtımalmen óńdeý úshin derekter núktesin basyńyz."
 
 #: js/messages.php:509
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Syzbany tómengi oń jaq buryshqa súırep aparyp ólshemi ózgertilýi múmkin."
 
 #: js/messages.php:512
 msgid "Select two columns"
@@ -2996,28 +2998,31 @@ msgstr "«%s» erejesi úshin joldyń pishimdelýi sátsiz aıaqtaldy."
 #: libraries/classes/Advisor.php:496
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Faıldy oqý qatesi: «%s» faıly joq nemese oqylmaıdy!"
 
 #: libraries/classes/Advisor.php:521
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
+"%1$s joly boıynsha ereje jarıalaýy jaramsyz, aldyńǵy erejeniń %2$s joly "
+"kútilgen."
 
 #: libraries/classes/Advisor.php:540
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr ""
+msgstr "%s joly boıynsha ereje jarıalaýy jaramsyz."
 
 #: libraries/classes/Advisor.php:548
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "%s joly boıynsha kútpegen tańbalar."
 
 #: libraries/classes/Advisor.php:563
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
+"%1$s joly boıynsha kútpegen tańba. Qoıyndy kútilgen, biraq «%2$s» tabyldy."
 
 #: libraries/classes/Advisor.php:598
 msgid "per second"
@@ -3073,7 +3078,7 @@ msgstr ""
 #: libraries/classes/CentralColumns.php:362
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "%1$s ústeý múmkin emes, sebebi olar ortalyq tizimde áldeqashan bar!"
 
 #: libraries/classes/CentralColumns.php:377
 msgid "Could not add columns!"
@@ -3083,7 +3088,7 @@ msgstr "Baǵandardy qosý múmkin bolmady!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "%1$s baǵan(dar) joıylmady, sebebi olar ortalyq baǵandar tiziminde joq!"
 
 #: libraries/classes/CentralColumns.php:466
 msgid "Could not remove columns!"
@@ -3091,7 +3096,7 @@ msgstr "Baǵandardy alastaý múmkin bolmady!"
 
 #: libraries/classes/CentralColumns.php:626
 msgid "YES"
-msgstr "IÁ"
+msgstr "IA"
 
 #: libraries/classes/CentralColumns.php:626
 msgid "NO"
@@ -3162,7 +3167,7 @@ msgstr "Tólsıpat"
 #: libraries/classes/CentralColumns.php:757
 #: libraries/classes/CentralColumns.php:1429
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/classes/CentralColumns.php:793
 msgid "Select a table"
@@ -3462,7 +3467,7 @@ msgstr "ekilik"
 #: libraries/classes/Config.php:1122
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Qoldanysta bar konfıgýrasıa faıly (%s) oqylmaıdy."
 
 #: libraries/classes/Config.php:1152
 msgid "Wrong permissions on configuration file, should not be world writable!"
@@ -3824,7 +3829,7 @@ msgstr "Pishim"
 
 #: libraries/classes/Config/Descriptions.php:260
 msgid "Compression"
-msgstr "Syǵý"
+msgstr "Qysý"
 
 #: libraries/classes/Config/Descriptions.php:262
 #: libraries/classes/Config/Descriptions.php:276
@@ -3914,7 +3919,7 @@ msgstr "Keste atynyń úlgisi"
 #: libraries/classes/Plugins/Export/ExportSql.php:209
 #: libraries/classes/Plugins/Export/ExportTexytext.php:63
 msgid "Dump table"
-msgstr "Keste dampyn isteý"
+msgstr "Kesteni damptaý"
 
 #: libraries/classes/Config/Descriptions.php:298
 #: libraries/classes/Plugins/Export/ExportLatex.php:89
@@ -4390,7 +4395,7 @@ msgstr "Konsól"
 
 #: libraries/classes/Config/Descriptions.php:606
 msgid "Enable gzip compression for import and export operations."
-msgstr "Importtaý jáne eksporttaý áreketteri úshin gzip syǵýyn qosý."
+msgstr "Importtaý jáne eksporttaý áreketteri úshin gzip qysýyn qosý."
 
 #: libraries/classes/Config/Descriptions.php:610
 msgid "GZip"
@@ -4546,7 +4551,7 @@ msgstr "Kirý cookie-faıldyń qoımasy"
 
 #: libraries/classes/Config/Descriptions.php:718
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr ""
+msgstr "Kirý cookie-faıly qansha ýaqyt (sekýntine) jaramdy ekenin anyqtaý."
 
 #: libraries/classes/Config/Descriptions.php:720
 msgid "Login cookie validity"
@@ -4554,7 +4559,7 @@ msgstr "Kirý cookie-faıldyń jaramdylyǵy"
 
 #: libraries/classes/Config/Descriptions.php:722
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr ""
+msgstr "LONGTEXT baǵandary úshin mátinaýmaqtyń eki ese ólshemi."
 
 #: libraries/classes/Config/Descriptions.php:724
 msgid "Bigger textarea for LONGTEXT"
@@ -4562,7 +4567,7 @@ msgstr "LONGTEXT úshin úlkenirek mátinaýmaq"
 
 #: libraries/classes/Config/Descriptions.php:726
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr ""
+msgstr "SQL-saýal beınelenegen kezde paıdalanylatyn tańbanyń eń kóp sany."
 
 #: libraries/classes/Config/Descriptions.php:728
 msgid "Maximum displayed SQL length"
@@ -4576,7 +4581,7 @@ msgstr "Paıdalanýshylar joǵarylaý mándi ornata almaıdy"
 
 #: libraries/classes/Config/Descriptions.php:732
 msgid "Maximum number of databases displayed in database list."
-msgstr ""
+msgstr "Derekqorlar tiziminde beınelenetin derekqordyń eń kóp sany."
 
 #: libraries/classes/Config/Descriptions.php:734
 msgid "Maximum databases"
@@ -4600,7 +4605,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Tarmaqtaǵy elementtiń eń kóp sany"
 
 #: libraries/classes/Config/Descriptions.php:748
 msgid ""
@@ -4660,7 +4665,7 @@ msgstr "Logotıpty beıneleý"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "URL where logo in the navigation panel will point to."
-msgstr ""
+msgstr "Sharlaý taqtasyndaǵyi logotıp meńzeıtin URL."
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "Logo link URL"
@@ -4686,11 +4691,11 @@ msgstr "Serverler bólekteýdi beıneleý"
 
 #: libraries/classes/Config/Descriptions.php:799
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Jyldam qatynaý beligishesi úshin maqsat"
 
 #: libraries/classes/Config/Descriptions.php:801
 msgid "Target for second quick access icon"
-msgstr ""
+msgstr "Ekinshi jyldam qatynaý beligishesi úshin maqsat"
 
 #: libraries/classes/Config/Descriptions.php:804
 msgid ""
@@ -4738,7 +4743,7 @@ msgstr "Keste tarmǵynyń eń kóp terendigi"
 
 #: libraries/classes/Config/Descriptions.php:829
 msgid "Highlight server under the mouse cursor."
-msgstr ""
+msgstr "Tintýir kórsetkisi astynda serverdi bólekteý."
 
 #: libraries/classes/Config/Descriptions.php:831
 msgid "Enable highlighting"
@@ -4897,19 +4902,19 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "MySQL qorǵalǵan sóz eskertýi"
 
 #: libraries/classes/Config/Descriptions.php:917
 msgid "How to display the menu tabs"
-msgstr ""
+msgstr "Mázir qoıyndylary qalaı beınelenedi"
 
 #: libraries/classes/Config/Descriptions.php:921
 msgid "How to display various action links"
-msgstr ""
+msgstr "Ártúrli áreket siltemeleri qalaı beınelenedi"
 
 #: libraries/classes/Config/Descriptions.php:923
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr ""
+msgstr "BLOB jáne BINARY baǵandaryn óńdeýge tyıym salý."
 
 #: libraries/classes/Config/Descriptions.php:925
 msgid "Protect binary columns"
@@ -4928,7 +4933,7 @@ msgstr "Turaqty saýal tarıhy"
 
 #: libraries/classes/Config/Descriptions.php:937
 msgid "How many queries are kept in history."
-msgstr ""
+msgstr "Tarihta qansha saýal saqtalady."
 
 #: libraries/classes/Config/Descriptions.php:939
 msgid "Query history length"
@@ -4985,7 +4990,7 @@ msgstr "Torlyq óńdeýde: barlyq óńdelgen uıashyqtardy birden saqtaý"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Directory where exports can be saved on server."
-msgstr ""
+msgstr "Eksporttar saqtalýy múmkin serverdegi katalog."
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Save directory"
@@ -5024,6 +5029,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Jaramdy ýaqyt beldeýin ornatady; derekqor serverińizden góri basqasha bolýy "
+"yqtımal"
 
 #: libraries/classes/Config/Descriptions.php:988
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -5067,11 +5074,11 @@ msgstr "Baǵan aqparatynyń kestesi"
 
 #: libraries/classes/Config/Descriptions.php:1010
 msgid "Compress connection to MySQL server."
-msgstr "MySQL-serverine qosylymdy syǵý."
+msgstr "MySQL-serverine qysylǵysh qosylym."
 
 #: libraries/classes/Config/Descriptions.php:1012
 msgid "Compress connection"
-msgstr "Qosylymdy syǵý"
+msgstr "Qysylǵysh qosylym"
 
 #: libraries/classes/Config/Descriptions.php:1014
 msgid "Control user password"
@@ -5141,7 +5148,7 @@ msgstr "SQL-saýal tarıhynyń kestesi"
 
 #: libraries/classes/Config/Descriptions.php:1056
 msgid "Hostname where MySQL server is running."
-msgstr ""
+msgstr "MySQL serveri jumys isteıtin túıin aty."
 
 #: libraries/classes/Config/Descriptions.php:1058
 msgid "Server hostname"
@@ -5159,11 +5166,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1067
 msgid "Maximal number of table preferences to store"
-msgstr ""
+msgstr "Saqtaý úshin keste teńshelimderiniń eń kóp sany"
 
 #: libraries/classes/Config/Descriptions.php:1069
 msgid "QBE saved searches table"
-msgstr ""
+msgstr "QBE saqtalǵan izdestirýler kestesi"
 
 #: libraries/classes/Config/Descriptions.php:1072
 msgid ""
@@ -6025,6 +6032,8 @@ msgstr "Ádepki túrlendirýler"
 #: libraries/classes/Config/PageSettings.php:141
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
+"Parametrlerdi saqtaý múmkin emes, jiberilgen konfıgýrasıa pishininde qateler "
+"bar!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:71
 #, php-format
@@ -6132,11 +6141,13 @@ msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
+"%1$sGZip qysý men qysýdan shyǵarý%2$s osy júıede qoljetimdi emes "
+"fýnksıalardy qajet etedi (%3$s)."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
 msgid "Could not connect to the database server!"
-msgstr ""
+msgstr "Derekqor serverine qosylý múmkin bolmady!"
 
 #: libraries/classes/Config/Validator.php:249
 msgid "Invalid authentication type!"
@@ -6145,27 +6156,37 @@ msgstr "Túpnusqalyq rastamanyń túri jaramsyz!"
 #: libraries/classes/Config/Validator.php:256
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
+"[kbd]config[/kbd] túpnusqalyq rastama ádisin paıdalanǵanda, bos paıdalanýshy "
+"aty!"
 
 #: libraries/classes/Config/Validator.php:264
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
+"[kbd]«Signon»[/kbd] túpnusqalyq rastama ádisin paıdalanǵanda, bos «signon» "
+"seansynyń aty!"
 
 #: libraries/classes/Config/Validator.php:273
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
+"[kbd]«Signon»[/kbd] túpnusqalyq rastama ádisin paıdalanǵanda, bos «signon» "
+"URL-y!"
 
 #: libraries/classes/Config/Validator.php:326
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
+"phpMyAdmin konfıgýrasıasy saqtaýyshyn paıdalanǵanda, bos phpMyAdmin basqarý "
+"paıdalanýshysy!"
 
 #: libraries/classes/Config/Validator.php:333
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
+"PhpMyAdmin konfıgýrasıa saqtaýyshyn paıdalanǵanda, bos phpMyAdmin basqarý "
+"paıdalanýshynyń paróli!"
 
 #: libraries/classes/Config/Validator.php:431
 msgid "Incorrect value:"
@@ -6180,8 +6201,8 @@ msgstr "Durys emes IP-mekenjaı: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d betbelgi kórsetý (ekeýin de jeke men bóliskendi)"
+msgstr[1] "sany %1$d betbelgi kórsetý (ekeýin de jeke men bóliskendi)"
 
 #: libraries/classes/Console.php:100
 msgid "No bookmarks"
@@ -6287,8 +6308,8 @@ msgstr "%1$s derekqory jasaldy."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d derekqor sátti joıyldy."
+msgstr[1] "sany %1$d derekqor sátti joıyldy."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
@@ -6325,12 +6346,12 @@ msgstr "Ústińgi"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:424
 #: templates/database/structure/structure_table_row.twig:15
 msgid "Not replicated"
-msgstr ""
+msgstr "Replıkalanbaǵan"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:437
 #: templates/database/structure/structure_table_row.twig:16
 msgid "Replicated"
-msgstr ""
+msgstr "Replıkalanǵan"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:116
 #, php-format
@@ -6348,7 +6369,7 @@ msgstr "Derekterdi shyǵaryp alý úshin SQL-saýal ornatylmaǵan."
 
 #: libraries/classes/Controllers/Table/TableChartController.php:160
 msgid "No numeric columns present in the table to plot."
-msgstr "Kestede qoıylatyn sandyq baǵandar kórsetilmegen."
+msgstr "Syzba úshin kestede sandyq baǵandar kórsetilmegen."
 
 #: libraries/classes/Controllers/Table/TableChartController.php:228
 msgid "No data to display"
@@ -6635,7 +6656,7 @@ msgstr "Saýaldy jiberý"
 
 #: libraries/classes/Database/Qbe.php:1856
 msgid "Saved bookmarked search:"
-msgstr "Saqtalǵan izdeý betbelgisi:"
+msgstr "Saqtaýdaǵy betbelgi qoıylǵan izdestirý:"
 
 #: libraries/classes/Database/Qbe.php:1858
 msgid "New bookmark"
@@ -6702,11 +6723,11 @@ msgstr "Server jaýap bermeıdi."
 
 #: libraries/classes/DatabaseInterface.php:2179
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Shyǵýp, basqa paıdalanýshy retinde kirińiz."
 
 #: libraries/classes/DatabaseInterface.php:2185
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Derekqory bar katalogtyń artyqshylyqtaryn tekserińiz."
 
 #: libraries/classes/DatabaseInterface.php:2196
 msgid "Details…"
@@ -6714,7 +6735,7 @@ msgstr "Egjeıler…"
 
 #: libraries/classes/DatabaseInterface.php:2500
 msgid "Missing connection parameters!"
-msgstr ""
+msgstr "Qosylym parametrleri jetispeıdi!"
 
 #: libraries/classes/DatabaseInterface.php:2527
 msgid "Connection for controluser as defined in your configuration failed."
@@ -7790,7 +7811,7 @@ msgstr "Ekilik jurnal"
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
 msgid "Replication"
-msgstr "Replıkasıa"
+msgstr "Replıkalaý"
 
 #: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:194
 #: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3989
@@ -8070,7 +8091,7 @@ msgstr "Jańa"
 
 #: libraries/classes/Normalization.php:182
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Barlyq baǵandardy «atomic» etip jasaý"
 
 #: libraries/classes/Normalization.php:184
 #: libraries/classes/Normalization.php:883
@@ -8341,7 +8362,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:977
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Ishinara táýeldilikter tabylmady!"
 
 #: libraries/classes/Operations.php:104
 msgid "Rename database to"
@@ -8399,7 +8420,7 @@ msgstr "(jalǵyzdaı)"
 
 #: libraries/classes/Operations.php:847
 msgid "Move table to (database<b>.</b>table)"
-msgstr ""
+msgstr "Kesteni mynaǵan (derekqor<b>.</b>keste) jyljytý"
 
 #: libraries/classes/Operations.php:952
 msgid "Rename table to"
@@ -8452,7 +8473,7 @@ msgstr "Kesteniń baqylaý somasy"
 
 #: libraries/classes/Operations.php:1443
 msgid "Defragment table"
-msgstr ""
+msgstr "Kesteni defragmentasıalaý"
 
 #: libraries/classes/Operations.php:1455
 #, php-format
@@ -8538,51 +8559,51 @@ msgstr "Bólinýin alastaý"
 
 #: libraries/classes/Operations.php:1682
 msgid "Check referential integrity:"
-msgstr ""
+msgstr "Derekter tutastyǵyn tekserý:"
 
 #: libraries/classes/Operations.php:2068
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "Kesteni ózine jyljytý múmkin emes!"
 
 #: libraries/classes/Operations.php:2070
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "Kesteni ózine kóshirý múmkin emes!"
 
 #: libraries/classes/Operations.php:2094
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr ""
+msgstr "%s kestesi %s úshin jyljytyldy. Artyqshylyqtar naqtylandy."
 
 #: libraries/classes/Operations.php:2101
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr ""
+msgstr "%s kestesi %s úshin kóshirildi. Artyqshylyqtar naqtylandy."
 
 #: libraries/classes/Operations.php:2110
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr ""
+msgstr "%s kestesi %s úshin jyljytyldy."
 
 #: libraries/classes/Operations.php:2114
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr ""
+msgstr "%s kestesi %s úshin kóshirildi."
 
 #: libraries/classes/Operations.php:2144
 msgid "The table name is empty!"
-msgstr ""
+msgstr "Keste aty bos!"
 
 #: libraries/classes/Pdf.php:131
 msgid "Error while creating PDF:"
-msgstr ""
+msgstr "PDF jasaǵan kezde qate oryn aldy:"
 
 #: libraries/classes/Plugins.php:578
 msgid "This format has no options"
-msgstr ""
+msgstr "Bul pishimde opsıalar joq"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:75
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Qosylý múmkin emes: jaramsyz parametrler."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:83
@@ -8622,6 +8643,7 @@ msgstr "Kirý"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:172
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
+"Siz túıin atyn / IP-mekenjaıyn jáne bosorynmen bólingen portty engize alasyz."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:177
 msgid "Username:"
@@ -8633,15 +8655,15 @@ msgstr "Serverdi tańdaý:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:313
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr ""
+msgstr "reCAPTCHA qyzmetine qosylý sátsiz aıaqtaldy!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:315
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Engizilgen kapcha durys emes, qaıtalap kórińiz!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "reCAPTCHA rastaýy jetispeıdi, ol adblock arqyly buǵattalǵany múmkin be?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
 msgid "You are not allowed to log in to this MySQL server!"
@@ -8649,11 +8671,11 @@ msgstr "Bul MySQL-serverge kirý úshin ruqsatyńyz joq!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "Paıdalanýshy aty / paról durys emes. Qatynaýǵa ruqsat joq."
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:83
 msgid "Can not find signon authentication script:"
-msgstr ""
+msgstr "«Signon» túpnusqalyq rastama skrıpti tabylmady:"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:167
 msgid ""
@@ -8663,12 +8685,12 @@ msgstr ""
 #: libraries/classes/Plugins/AuthenticationPlugin.php:174
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr ""
+msgstr "%s sekýnt ishinde áreket bolmaıdy; qaıtadan kirińiz."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:184
 #: libraries/classes/Plugins/AuthenticationPlugin.php:187
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "MySQL-serverge kirý múmkin emes"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:335
 msgid "You have enabled two factor authentication, please confirm your login."
@@ -8765,7 +8787,7 @@ msgstr "Derekter dampynyń opsıalary"
 #: libraries/classes/Plugins/Export/ExportSql.php:2352
 #: libraries/classes/Plugins/Export/ExportTexytext.php:194
 msgid "Dumping data for table"
-msgstr "Keste úshin derekterdi damp isteý"
+msgstr "Keste úshin derekterdi damptaý"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:488
 #: libraries/classes/Plugins/Export/ExportOdt.php:611
@@ -8917,7 +8939,7 @@ msgstr "Esep taqyryby:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:228
 msgid "Dumping data"
-msgstr "Derekter dampyn isteý"
+msgstr "Derekterdi damptaý"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:283
 msgid "View structure"
@@ -9006,7 +9028,7 @@ msgstr "<code>INSERT IGNORE</code> nusqaýlary"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:390
 msgid "Function to use when dumping data:"
-msgstr "Derekter dampyn istegende paıdalanylatyn funksıa:"
+msgstr "Derekterdi damptaý kezinde paıdalanylatyn funksıa:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:405
 msgid "Syntax to use when inserting data:"
@@ -9100,7 +9122,7 @@ msgstr "Derekqoryńyz kórinisterdi paıdalanatyny kórinedi;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1724
 msgid "Constraints for dumped tables"
-msgstr "Damp istelgen kesteler úshin shekteýler"
+msgstr "Damptalǵan kesteler úshin shekteýler"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1725
 msgid "Constraints for table"
@@ -9108,7 +9130,7 @@ msgstr "Keste úshin shekteýler"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1755
 msgid "Indexes for dumped tables"
-msgstr "Damp istelgen kesteler úshin ındekster"
+msgstr "Damptalǵan kesteler úshin ındekster"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1756
 msgid "Indexes for table"
@@ -9116,7 +9138,7 @@ msgstr "Keste úshin ındekster"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1789
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Damp istelgen kesteler úshin AUTO_INCREMENT"
+msgstr "Damptalǵan kesteler úshin AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1790
 msgid "AUTO_INCREMENT for table"
@@ -9198,7 +9220,7 @@ msgstr "Baǵan ataýlary: "
 #: libraries/classes/Plugins/Import/ImportCsv.php:155
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "CSV ımporttaý úshin parametr jaramsyz: %s"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:207
 #, php-format
@@ -9561,12 +9583,14 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Aparattyq qaýipsizdik kilti (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"FIDO U2F qoldaıtyn aparattyq qaýipsizdik tańbalaýyshtary arqyly túpnusqalyq "
+"rastamasyn jetkizedi."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 msgid "Simple two-factor authentication"
@@ -9587,7 +9611,7 @@ msgstr "Qos-faktorly túpnusqalyq rastamasy sátsiz aıaqtaldy."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr ""
+msgstr "Qos-faktor joq"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
@@ -9641,11 +9665,11 @@ msgstr "Qosylǵan"
 
 #: libraries/classes/Relation.php:116
 msgid "Configuration of pmadb…"
-msgstr ""
+msgstr "pmadb konfıgýrasıasy…"
 
 #: libraries/classes/Relation.php:120 libraries/classes/Relation.php:156
 msgid "General relation features"
-msgstr ""
+msgstr "Jalpy qatynas múmkindikteri"
 
 #: libraries/classes/Relation.php:167
 msgid "Display Features"
@@ -9653,11 +9677,11 @@ msgstr "Múmkindikterdi beıneleý"
 
 #: libraries/classes/Relation.php:184
 msgid "Designer and creation of PDFs"
-msgstr ""
+msgstr "Qurastyrǵysh pen PDF-ti jasaý"
 
 #: libraries/classes/Relation.php:195
 msgid "Displaying Column Comments"
-msgstr ""
+msgstr "Baǵan túsiniktemelerin beıneleý"
 
 #: libraries/classes/Relation.php:201
 msgid "Browser transformation"
@@ -9669,7 +9693,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:224 libraries/classes/SqlQueryForm.php:401
 msgid "Bookmarked SQL query"
-msgstr ""
+msgstr "Betrbelgi qoıylǵan SQL-saýal"
 
 #: libraries/classes/Relation.php:235
 msgid "SQL history"
@@ -9677,7 +9701,7 @@ msgstr "SQL tarihy"
 
 #: libraries/classes/Relation.php:246
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "Turaqty jýyqtaǵy paıdalanylǵan kesteler"
 
 #: libraries/classes/Relation.php:257
 msgid "Persistent favorite tables"
@@ -9685,7 +9709,7 @@ msgstr "Turaqty tańdaýly kesteler"
 
 #: libraries/classes/Relation.php:268
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Turaqty kestelerdiń ınterfeıs teńshelimderi"
 
 #: libraries/classes/Relation.php:290
 msgid "User preferences"
@@ -9693,7 +9717,7 @@ msgstr "Paıdalanushy teńshelimderi"
 
 #: libraries/classes/Relation.php:307
 msgid "Configurable menus"
-msgstr ""
+msgstr "Teńsheletin mázirler"
 
 #: libraries/classes/Relation.php:318
 msgid "Hide/show navigation items"
@@ -9701,15 +9725,15 @@ msgstr "Sharlaý elementterin jasyrý/kórsetý"
 
 #: libraries/classes/Relation.php:329
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Mysal-boıynsha-saýal izdestirýlerin saqtaý"
 
 #: libraries/classes/Relation.php:340
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Ortalyq baǵandar tizimin basqarý"
 
 #: libraries/classes/Relation.php:351
 msgid "Remembering Designer Settings"
-msgstr ""
+msgstr "Qurastyrǵysh parametrlerin este saqtaý"
 
 #: libraries/classes/Relation.php:362
 msgid "Saving export templates"
@@ -9740,7 +9764,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:1697
 msgid "no description"
-msgstr ""
+msgstr "sipattamasy joq"
 
 #: libraries/classes/Relation.php:1888
 msgid ""
@@ -9771,7 +9795,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:352
 #: templates/server/databases/table_header.twig:32
 msgid "Master replication"
-msgstr "Jetekshi replıkasıa"
+msgstr "Jetekshini replıkalaý"
 
 #: libraries/classes/ReplicationGui.php:59
 msgid "This server is configured as master in a replication process."
@@ -9789,7 +9813,7 @@ msgstr "Qosylǵan jetektegilerdi kórsetý"
 #: libraries/classes/ReplicationGui.php:78
 #: libraries/classes/ReplicationGui.php:701
 msgid "Add slave replication user"
-msgstr "Jetektegi replıkasıa paıdalanushysyn ústeý"
+msgstr "Jetektegi replıkalaý paıdalanushysyn ústeý"
 
 #: libraries/classes/ReplicationGui.php:100
 msgid "Master configuration"
@@ -9806,11 +9830,11 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:111
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Barlyq dekekqorlardy replıkalaý; Elemeý:"
 
 #: libraries/classes/ReplicationGui.php:113
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Barlyq derekqorlardy elemeý; Replıkalaý:"
 
 #: libraries/classes/ReplicationGui.php:117
 msgid "Please select databases:"
@@ -9832,7 +9856,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:153
 #: templates/server/databases/table_header.twig:35
 msgid "Slave replication"
-msgstr "Jetektegi replıkasıa"
+msgstr "Jetektegini replıkalaý"
 
 #: libraries/classes/ReplicationGui.php:161
 msgid "Master connection:"
@@ -9840,11 +9864,11 @@ msgstr "Jetekshi qosylym:"
 
 #: libraries/classes/ReplicationGui.php:223
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Jetektegi SQL-tizbek jumys istemeıdi!"
 
 #: libraries/classes/ReplicationGui.php:228
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Jetektegi kirgizý-shyǵarý tizbegi jumys istemeıdi!"
 
 #: libraries/classes/ReplicationGui.php:239
 msgid ""
@@ -9853,7 +9877,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:245
 msgid "See slave status table"
-msgstr ""
+msgstr "Jetekteginiń mártebe kestesin qaraý"
 
 #: libraries/classes/ReplicationGui.php:250
 msgid "Control slave:"
@@ -9873,24 +9897,24 @@ msgstr "Jetektegini ysyrý"
 
 #: libraries/classes/ReplicationGui.php:263
 msgid "Start SQL Thread only"
-msgstr ""
+msgstr "Tek SQL-tizbekti iske qosý"
 
 #: libraries/classes/ReplicationGui.php:266
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Tek SQL-tizbekti toqtatý"
 
 #: libraries/classes/ReplicationGui.php:270
 msgid "Start IO Thread only"
-msgstr ""
+msgstr "Tek kirgizý-shyǵarý tizbegin iske qosý"
 
 #: libraries/classes/ReplicationGui.php:273
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "Tek kirgizý-shyǵarý tizbegin toqtatý"
 
 #: libraries/classes/ReplicationGui.php:282
 #: libraries/classes/ReplicationGui.php:411
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Jetekshi serverdi ózgertý nemese qaıta teńsheý"
 
 #: libraries/classes/ReplicationGui.php:293
 #, php-format
@@ -9922,6 +9946,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
+"Bul server replıkalaý prosesinde jetekshi retinde teńshelmegen. Ony "
+"%steńshegińiz%s kele me?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/database/search/selection_form.twig:35
@@ -10055,27 +10081,27 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:923
 msgid "Replication started successfully."
-msgstr "Replıkasıa sátti bastaldy."
+msgstr "Replıkalaý sátti bastaldy."
 
 #: libraries/classes/ReplicationGui.php:924
 msgid "Error starting replication."
-msgstr "Replıkasıa bastalýynyń qatesi."
+msgstr "Replıkalaý bastalǵandaǵy qate."
 
 #: libraries/classes/ReplicationGui.php:927
 msgid "Replication stopped successfully."
-msgstr "Replıkasıa sátti toqtatyldy."
+msgstr "Replıkalaý sátti toqtatyldy."
 
 #: libraries/classes/ReplicationGui.php:928
 msgid "Error stopping replication."
-msgstr "Replıkasıa toqtatylý qatesi."
+msgstr "Replıkalaýdy toqtatý qatesi."
 
 #: libraries/classes/ReplicationGui.php:931
 msgid "Replication resetting successfully."
-msgstr "Replıkasıa sátti ysyryldy."
+msgstr "Replıkalaý sátti ysyryldy."
 
 #: libraries/classes/ReplicationGui.php:932
 msgid "Error resetting replication."
-msgstr "Replıkasıany ysyrý qatesi."
+msgstr "Replıkalaýdy ysyrý qatesi."
 
 #: libraries/classes/ReplicationGui.php:935
 msgid "Success."
@@ -10655,7 +10681,7 @@ msgstr "Aǵymdyq tizbek úshin kestelerdi qulyptaýǵa ruqsat etedi."
 #: libraries/classes/Server/Privileges.php:393
 #: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
 msgid "Needed for the replication slaves."
-msgstr "Replıkasıa jetektegileri úshin qajet."
+msgstr "Replıkalaý jetektegileri úshin qajet."
 
 #: libraries/classes/Server/Privileges.php:398
 #: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
@@ -10787,7 +10813,7 @@ msgstr "Kestege tán artyqshylyqtar"
 #: libraries/classes/Server/Privileges.php:3549
 #: templates/privileges/edit_routine_privileges.twig:16
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr ""
+msgstr "Eskerim: MySQL artyqshylyq ataýlary aǵylshyn tilinde kórsetiledi."
 
 #: libraries/classes/Server/Privileges.php:1147
 msgid "Administration"
@@ -10883,12 +10909,12 @@ msgstr "Paróldi heshteý ádisi"
 #: libraries/classes/Server/Privileges.php:2016
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr ""
+msgstr "%s úshin paról sátti ózgertildi."
 
 #: libraries/classes/Server/Privileges.php:2060
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr ""
+msgstr "%s úshin artyqshylyqtardy qaıtaryp aldyńyz."
 
 #: libraries/classes/Server/Privileges.php:2160
 #: templates/privileges/add_user_fieldset.twig:7
@@ -10901,16 +10927,17 @@ msgstr "Paıdalanýshy tirkelgisi úshin derekqor"
 
 #: libraries/classes/Server/Privileges.php:2175
 msgid "Create database with same name and grant all privileges."
-msgstr ""
+msgstr "Birdeı atymen derekqor jasaý jáne barlyq artyqshylyqtardy berý."
 
 #: libraries/classes/Server/Privileges.php:2186
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
+"Qoıylmaly ataý boıynsha barlyq artyqshylyqtardy berý (paıdalanýshy aty\\_%)."
 
 #: libraries/classes/Server/Privileges.php:2199
 #, php-format
 msgid "Grant all privileges on database %s."
-msgstr ""
+msgstr "%s derekqorynda barlyq artyqshylyqtardy berý."
 
 #: libraries/classes/Server/Privileges.php:2373
 #: libraries/classes/Server/Privileges.php:2447
@@ -10930,7 +10957,7 @@ msgstr "Ruqsat etý"
 
 #: libraries/classes/Server/Privileges.php:2585
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Paıdalanýshylardy qaraý úshin artyqshylyqtar jetkiliksiz."
 
 #: libraries/classes/Server/Privileges.php:2604
 #: libraries/classes/Server/Privileges.php:3978
@@ -11140,7 +11167,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status.php:124
 msgid "Replication status"
-msgstr "Replıkasıa mártebesi"
+msgstr "Replıkalaýdyń mártebesi"
 
 #: libraries/classes/Server/Status.php:154
 msgid ""
@@ -12439,7 +12466,7 @@ msgstr "Qadaǵalaý esebi"
 #: libraries/classes/Tracking.php:172 libraries/classes/Tracking.php:650
 #: templates/database/tracking/tracked_tables.twig:87
 msgid "Structure snapshot"
-msgstr "Qurylymnyń túsirilimi"
+msgstr "Qurylymnyń sýreti"
 
 #: libraries/classes/Tracking.php:338
 msgid "Tracking statements"
@@ -12460,11 +12487,11 @@ msgstr ""
 
 #: libraries/classes/Tracking.php:513
 msgid "SQL dump (file download)"
-msgstr "SQL dampy (faıldy júktep alý)"
+msgstr "SQL-damp (faıldy júktep alý)"
 
 #: libraries/classes/Tracking.php:515
 msgid "SQL dump"
-msgstr "SQL dampy"
+msgstr "SQL-damp"
 
 #: libraries/classes/Tracking.php:518
 msgid "This option will replace your table and contained data."
@@ -12481,24 +12508,24 @@ msgstr "%s retinde eksporttaý"
 
 #: libraries/classes/Tracking.php:550
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Derekterdi basqarý nusqaýy"
 
 #: libraries/classes/Tracking.php:574
 msgid "Data definition statement"
-msgstr ""
+msgstr "Derekterdi anyqtaý nusqaýy"
 
 #: libraries/classes/Tracking.php:668
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "%s nusqasynyń sýreti (SQL-kod)"
 
 #: libraries/classes/Tracking.php:735
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "Derekter anyqtaýynyń qadaǵalaýy sátti joıyldy"
 
 #: libraries/classes/Tracking.php:745
 msgid "Tracking data manipulation successfully deleted"
-msgstr ""
+msgstr "Derekter basqarýynyń qadaǵalaýy sátti joıyldy"
 
 #: libraries/classes/Tracking.php:799
 msgid ""
@@ -12512,32 +12539,32 @@ msgstr ""
 
 #: libraries/classes/Tracking.php:813
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "SQL-nusqaýlar eksporttalady. Dampty kóshirińiz nemese ony oryndańyz."
 
 #: libraries/classes/Tracking.php:861
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "«%s» kestesi úshin qadaǵalaý esebi"
 
 #: libraries/classes/Tracking.php:891
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr ""
+msgstr "%1$s úshin qadaǵalaý %2$s nusqasynda belsendirildi."
 
 #: libraries/classes/Tracking.php:894
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr ""
+msgstr "%1$s úshin qadaǵalaý %2$s nusqasynda óshirildi."
 
 #: libraries/classes/Tracking.php:986
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr ""
+msgstr "%2$s ishindegi %1$s nusqasy joıyldy."
 
 #: libraries/classes/Tracking.php:1017
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr ""
+msgstr "%1$s nusqasy jasaldy, %2$s úshin qadaǵalaý belsendi."
 
 #: libraries/classes/Tracking.php:1114 libraries/classes/Tracking.php:1258
 #: templates/table/tracking/selectable_tables.twig:9
@@ -12553,30 +12580,41 @@ msgstr "belsendi emes"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Bir-baıttyq bútin san, belgilengen aýqym -128-den 127-ge deıin, "
+"belgilenbegen aýqym 0-den 255-ke deıin"
 
 #: libraries/classes/Types.php:208
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Eki-baıttyq bútin san, belgilengen aýqym -32768-den 32767-ke deıin, "
+"belgilenbegen aýqym 0-den 65535-ke deıin"
 
 #: libraries/classes/Types.php:213
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Ysh-baıttyq bútin san, belgilengen aýqym -8388608-den 8388607-ge deıin, "
+"belgilenbegen aýqym 0-den 16777215-ke deıin"
 
 #: libraries/classes/Types.php:218
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"Tórt-baıttyq bútin san, belgilengen aýqym -2147483648-den 2147483647-ge "
+"deıin, belgilenbegen aýqym 0-den 4294967295-ge deıin"
 
 #: libraries/classes/Types.php:224
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Segiz-baıttyq bútin san, belgilengen aýqym -9223372036854775808-den "
+"9223372036854775807 deıin, belgilenbegen aýqym 0-den 18446744073709551615-ge "
+"deıin"
 
 #: libraries/classes/Types.php:230
 msgid ""
@@ -12883,7 +12921,7 @@ msgstr ""
 #: libraries/classes/Util.php:3342 libraries/classes/Util.php:3343
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
-msgstr "Bos"
+msgstr "Bosatý"
 
 #: libraries/classes/Util.php:3348 libraries/classes/Util.php:3349
 msgid "Execute"
@@ -13177,7 +13215,7 @@ msgstr ""
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
-msgstr ""
+msgstr "Derekqorlardyń dampyn (sulbasyn) qaraý"
 
 #: server_privileges.php:144 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
@@ -13400,7 +13438,7 @@ msgstr ""
 
 #: tbl_export.php:45
 msgid "View dump (schema) of table"
-msgstr ""
+msgstr "Kesteniń dampyn (sulbasyn) qaraý"
 
 #: tbl_get_field.php:38
 msgid "Invalid table name"
@@ -13768,7 +13806,7 @@ msgstr "Qos-faktorly túpnusqalyq rastamany qosý"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
-msgstr ""
+msgstr "Server aınymalylary men parametrleri"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
@@ -13979,7 +14017,7 @@ msgstr "Qosylym:"
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "PARTITION anyqtaýy:"
 
 #: templates/database/central_columns/add_column.twig:13
 msgid "Select a column."
@@ -13991,11 +14029,11 @@ msgstr ""
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Árbir núkteni belgileý úshin osy baǵandy paıdalaný"
 
 #: templates/table/search/options_zoom.twig:32
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Syzba úshin eń kóp jol"
 
 #: templates/login/header.twig:12
 msgid ""
@@ -14003,6 +14041,8 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"FIDO U2F qurylǵysyn kompúterińizdiń USB-portyna jalǵańyz. Sodan keıin "
+"qurylǵyda kirýdi rastańyz."
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -14031,7 +14071,7 @@ msgstr "Shamamen %SEC sek qalǵan."
 
 #: templates/display/import/javascript.twig:20
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Faıl óńdep shyǵarylýda, shydamdy bolyńyz."
 
 #: templates/display/import/javascript.twig:36
 msgid "Uploading your import file…"
@@ -14042,6 +14082,7 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Eki túrli baǵandar úshin «mysal boıynsha saýal» isteý (qoıylmaly tańba: «%»)"
 
 #: templates/display/export/option_header.twig:5
 msgid "Exporting databases from the current server"
@@ -14062,6 +14103,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"FIDO U2F qurylǵysyn kompúterińizdiń USB-portyna jalǵańyz. Sodan keıin "
+"qurylǵyda tirkeýdi rastańyz."
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -14131,6 +14174,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"phpMyAdmin úshin qatynaýǵa https protokolyn paıdalanbaısyz, sondyqtan FIDO "
+"U2F qurylǵysy túpnusqalyǵyńyzdy rastaýdan bas tartýy eń yqtımal."
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -14323,7 +14368,7 @@ msgstr "Anyqtama"
 #: templates/database/designer/side_menu.twig:116
 #: templates/database/designer/side_menu.twig:119
 msgid "Angular links"
-msgstr ""
+msgstr "«Angular» siltemeleri"
 
 #: templates/database/designer/side_menu.twig:116
 #: templates/database/designer/side_menu.twig:119
@@ -14333,17 +14378,17 @@ msgstr "Tike siltemeler"
 #: templates/database/designer/side_menu.twig:123
 #: templates/database/designer/side_menu.twig:125
 msgid "Snap to grid"
-msgstr ""
+msgstr "Torǵa baılastyrý"
 
 #: templates/database/designer/side_menu.twig:129
 #: templates/database/designer/side_menu.twig:135
 msgid "Small/Big All"
-msgstr ""
+msgstr "Barlyǵyn Kishireıtý/Úlkeıtý"
 
 #: templates/database/designer/side_menu.twig:139
 #: templates/database/designer/side_menu.twig:142
 msgid "Toggle small/big"
-msgstr "Kishkentaı/úlkendi aýystyrý"
+msgstr "Aýystyrmaly kishireıtý/úlkeıtý"
 
 #: templates/database/designer/side_menu.twig:146
 #: templates/database/designer/side_menu.twig:149
@@ -14396,7 +14441,7 @@ msgstr ""
 
 #: templates/table/search/selection_form.twig:42
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr ""
+msgstr "«Mysal boıynsha saýal» isteý (qoıylmaly tańba: «%»)"
 
 #: templates/table/search/options.twig:6
 msgid "Select columns (at least one):"
@@ -14623,15 +14668,15 @@ msgstr "Joldar:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Keıbir jol(dar)dy damptaý"
 
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Bastalatyn jol:"
 
 #: templates/display/export/options_rows.twig:32
 msgid "Dump all rows"
-msgstr ""
+msgstr "Barlyq joldardy damptaý"
 
 #: templates/database/create_table.twig:15
 msgid "Number of columns"
@@ -15058,7 +15103,7 @@ msgstr "Teńsheýli - barlyq yqtımal opsıalardy beıneleý"
 
 #: templates/display/export/options_output_compression.twig:4
 msgid "Compression:"
-msgstr "Syǵý:"
+msgstr "Qysý:"
 
 #: templates/display/export/options_output_compression.twig:11
 msgid "zipped"
@@ -15085,7 +15130,7 @@ msgstr "Jańa aty"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
-msgstr ""
+msgstr "Kestege tán artyqshylyqtar"
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
@@ -15245,7 +15290,7 @@ msgstr "Qos-faktorly túpnusqalyq rastamasyn qosqansyz."
 
 #: templates/table/structure/optional_action_links.twig:6
 msgid "Propose table structure"
-msgstr ""
+msgstr "Keste qurylymyn usyný"
 
 #: templates/table/structure/optional_action_links.twig:15
 #: templates/database/tracking/untracked_tables.twig:28
