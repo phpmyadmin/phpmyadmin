@@ -140,6 +140,22 @@ abstract class ExportPlugin
     }
 
     /**
+     * Outputs for raw query
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the seperator for a file
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(
+        string $err_url,
+        string $sql_query,
+        string $crlf
+    ): bool {
+    }
+
+    /**
      * Outputs table's structure
      *
      * @param string $db          database name

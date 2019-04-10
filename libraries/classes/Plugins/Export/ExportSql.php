@@ -90,6 +90,13 @@ class ExportSql extends ExportPlugin
             $hide_sql = true;
         }
 
+        // In case we have `raw_query` parameter set,
+        // we initialize SQL option
+        if (isset($_REQUEST['raw_query'])) {
+            $hide_structure = false;
+            $hide_sql = false;
+        }
+
         if (! $hide_sql) {
             $exportPluginProperties = new ExportPluginProperties();
             $exportPluginProperties->setText('SQL');
@@ -2005,6 +2012,20 @@ class ExportSql extends ExportPlugin
 
         return $schema_create;
     } // end of the '_getTableComments()' function
+
+    /**
+     * Outputs raw query
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the seperator for a file
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->export->outputHandler($sql_query);
+    }
 
     /**
      * Outputs table's structure

@@ -313,6 +313,14 @@ class Export
                     $filename_template
                 );
             }
+        } elseif ($export_type == 'raw') {
+            if (! empty($remember_template)) {
+                $GLOBALS['PMA_Config']->setUserValue(
+                    'pma_raw_filename_template',
+                    'Export/file_template_raw',
+                    $filename_template
+                );
+            }
         } else {
             if (! empty($remember_template)) {
                 $GLOBALS['PMA_Config']->setUserValue(
@@ -886,6 +894,38 @@ class Export
 
             if ($separate_files == 'database') {
                 $this->saveObjectInBuffer('events');
+            }
+        }
+    }
+
+    /**
+     * Export raw query
+     *
+     * @param string       $whatStrucOrData whether to export structure for each table or raw
+     * @param ExportPlugin $export_plugin   the selected export plugin
+     * @param string       $crlf            end of line character(s)
+     * @param string       $err_url         the URL in case of error
+     * @param string       $sql_query       the query to be executed
+     * @param string       $export_type     the export type
+     *
+     * @return void
+     */
+    public static function exportRaw(
+        string $whatStrucOrData,
+        ExportPlugin $export_plugin,
+        string $crlf,
+        string $err_url,
+        string $sql_query,
+        string $export_type
+    ): void {
+        // In case the we need to dump just the raw query
+        if ($whatStrucOrData == 'raw') {
+            if (! $export_plugin->exportRawQuery(
+                $err_url,
+                $sql_query,
+                $crlf
+            )) {
+                return;
             }
         }
     }

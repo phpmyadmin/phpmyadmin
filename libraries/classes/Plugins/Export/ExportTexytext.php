@@ -186,7 +186,9 @@ class ExportTexytext extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         if (! $this->export->outputHandler(
-            '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
+            $table_alias != ''
+                ? '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
+                : '==' . __('Dumping data for query result') . "\n\n"
         )
         ) {
             return false;
@@ -243,6 +245,20 @@ class ExportTexytext extends ExportPlugin
         $GLOBALS['dbi']->freeResult($result);
 
         return true;
+    }
+
+    /**
+     * Outputs result raw query in TexyText format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
     }
 
     /**

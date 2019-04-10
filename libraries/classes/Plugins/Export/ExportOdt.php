@@ -260,9 +260,12 @@ class ExportOdt extends ExportPlugin
 
         $GLOBALS['odt_buffer']
             .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
-            . ' text:is-list-header="true">'
-            . __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
-            . '</text:h>'
+            . ' text:is-list-header="true">';
+        $table_alias != ''
+            ? $GLOBALS['odt_buffer'] .= __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
+            : $GLOBALS['odt_buffer'] .= __('Dumping data for query result');
+        $GLOBALS['odt_buffer']
+            .= '</text:h>'
             . '<table:table'
             . ' table:name="' . htmlspecialchars($table_alias) . '_structure">'
             . '<table:table-column'
@@ -338,6 +341,20 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
         return true;
+    }
+
+    /**
+     * Outputs result raw query in ODT format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
     }
 
     /**

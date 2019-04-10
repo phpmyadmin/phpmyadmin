@@ -552,7 +552,7 @@ class Export
         $html .= $this->getHtmlForOptionsSelection($exportType, $multiValues);
 
         $tableObject = new Table($table, $db);
-        if (strlen($table) > 0 && empty($numTables) && ! $tableObject->isMerge()) {
+        if (strlen($table) > 0 && empty($numTables) && ! $tableObject->isMerge() && $exportType != 'raw') {
             $html .= $this->getHtmlForOptionsRows($db, $table, $unlimNumRows);
         }
 

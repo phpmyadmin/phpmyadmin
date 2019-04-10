@@ -219,4 +219,18 @@ class ExportYaml extends ExportPlugin
 
         return true;
     } // end getTableYAML
+
+    /**
+     * Outputs result raw query in YAML format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
+    }
 }
