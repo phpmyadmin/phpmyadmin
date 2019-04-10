@@ -626,7 +626,7 @@ function displayPasswordGenerateButton () {
         .attr({ type: 'text', name: 'generated_pw', id: 'generated_pw' });
     pwdCell.append(pwdButton).append(pwdTextbox);
 
-    if (document.getElementById('button_generate_password') === null) {
+    if ($('#button_generate_password') === null) {
         $('#tr_element_before_generate_password').parent().append(generatePwdRow);
     }
 
@@ -639,7 +639,7 @@ function displayPasswordGenerateButton () {
     pwdButton.clone(true).appendTo(optionsSpan);
     pwdTextbox.clone(true).appendTo(generatePwdDiv);
 
-    if (document.getElementById('button_generate_password') === null) {
+    if ($('#button_generate_password') === null) {
         $('#div_element_before_generate_password').parent().append(generatePwdDiv);
     }
 }

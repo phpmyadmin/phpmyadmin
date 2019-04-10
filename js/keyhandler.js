@@ -73,12 +73,12 @@ function onKeyDownArrowsHandler (e) {
 
     var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox/') > -1;
 
-    var id = 'field_' + y + '_' + x;
+    var id = '#'+'field_' + y + '_' + x;
 
-    var nO = document.getElementById(id);
+    var nO = $(id);
     if (! nO) {
-        id = 'field_' + y + '_' + x + '_0';
-        nO = document.getElementById(id);
+        id = '#'+'field_' + y + '_' + x + '_0';
+        nO = $(id);
     }
 
     // skip non existent fields

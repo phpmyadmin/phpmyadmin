@@ -3,7 +3,7 @@
  * Conditionally included if framing is not allowed
  */
 if (self === top) {
-    var style_element = document.getElementById('cfs-style');
+    var style_element = $('#cfs-style');
     // check if style_element has already been removed
     // to avoid frequently reported js error
     if (typeof(style_element) !== 'undefined' && style_element !== null) {

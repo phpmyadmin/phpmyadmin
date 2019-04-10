@@ -183,7 +183,7 @@ AJAX.registerOnload('db_search.js', function () {
 
                 $('#sqlqueryform').html(data.sql_query);
                 /** Refresh the search results after the deletion */
-                document.getElementById('buttonGo').trigger('click');
+                $('#buttonGo').trigger('click');
                 $('#togglequerybox').html(PMA_messages.strHideQueryBox);
                 /** Show the results of the deletion option */
                 $('#browse-results').hide();

@@ -747,7 +747,7 @@ var AJAX = {
          * @return void
          */
         appendScript: function (name, callback) {
-            var head = document.head || document.getElementsByTagName('head')[0];
+            var head = document.head || $('head')[0];
             var script = document.createElement('script');
             var self = this;
 

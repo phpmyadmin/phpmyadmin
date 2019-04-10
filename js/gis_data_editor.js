@@ -90,7 +90,7 @@ function initGISEditorVisualization () {
  * @param token      token
  */
 function loadJSAndGISEditor (value, field, type, input_name) {
-    var head = document.getElementsByTagName('head')[0];
+    var head = $('head')[0];
     var script;
 
     // Loads a set of small JS file needed for the GIS editor
