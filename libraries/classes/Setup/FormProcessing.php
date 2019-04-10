@@ -11,8 +11,9 @@ namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 /**
  * PhpMyAdmin\Setup\FormProcessing class
@@ -60,22 +61,17 @@ class FormProcessing
             // we've just added a new server, get its id
             $formId = $form_display->getConfigFile()->getServerCount();
         }
-        ?>
-        <div class="error">
-            <h4><?php echo __('Warning') ?></h4>
-            <?php echo __('Submitted form contains errors') ?><br>
-            <a href="<?php echo Url::getCommon(['page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'revert']) ?>">
-                <?php echo __('Try to revert erroneous fields to their default values') ?>
-            </a>
-        </div>
-        <?php echo $form_display->displayErrors() ?>
-        <a class="btn" href="index.php<?php echo Url::getCommon() ?>">
-            <?php echo __('Ignore errors') ?>
-        </a>
-        &nbsp;
-        <a class="btn" href="<?php echo Url::getCommon(['page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'edit']) ?>">
-            <?php echo __('Show form') ?>
-        </a>
-        <?php
+
+        $urlParams = [
+            'page' => $page,
+            'formset' => $formset,
+            'id' => $formId,
+        ];
+
+        $template = new Template();
+        echo $template->render('setup/error', [
+            'url_params' => $urlParams,
+            'errors' => $form_display->displayErrors(),
+        ]);
     }
 }
