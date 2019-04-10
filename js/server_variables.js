@@ -1,5 +1,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
+/**
+ * @fileoverview    Javascript functions used in server variables page
+ * @name            Server Replication
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    js/functions.js 
+ */
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -9,7 +16,6 @@ AJAX.registerTeardown('server_variables.js', function () {
 });
 
 AJAX.registerOnload('server_variables.js', function () {
-    var $editLink = $('a.editLink');
     var $saveLink = $('a.saveLink');
     var $cancelLink = $('a.cancelLink');
 

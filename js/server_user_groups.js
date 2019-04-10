@@ -1,3 +1,12 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @fileoverview    Javascript functions used in server user groups page
+ * @name            Server User Groups
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ */
+
 /**
  * Unbind all event handlers before tearing down a page
  */

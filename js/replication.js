@@ -1,7 +1,11 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * for server_replication.php
+ * @fileoverview    Javascript functions used in server replication page
+ * @name            Server Replication
  *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    js/functions.js 
  */
 
 var random_server_id = Math.floor(Math.random() * 10000000);
