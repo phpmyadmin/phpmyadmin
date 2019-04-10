@@ -1530,7 +1530,8 @@ function Hide_tab_all (id_this) {
         id_this.src = id_this.dataset.down;
     }
     var E = document.form1;
-    for (var i = 0; i < E.elements.length; i++) {
+    var ElementLength = E.elements.length;
+    for (var i = 0; i < ElementLength; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (id_this.alt === 'v') {
                 E.elements[i].checked = true;
@@ -1582,7 +1583,8 @@ function No_have_constr (id_this) {
         id_this.src = id_this.dataset.down;
     }
     var E = document.form1;
-    for (var i = 0; i < E.elements.length; i++) {
+    var ElementLength = E.elements.length;
+    for (var i = 0; i < ElementLength; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (!in_array_k(E.elements[i].value, a)) {
                 if (id_this.alt === 'v') {
@@ -1780,12 +1782,15 @@ function Select_all (id_this, owner) {
         tab = id_this.split('.');
         from_array.push(tab[1]);
     } else {
-        for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] === ('`' + id_this.substring(owner.length + 1) + '`.*')) {
+        var select_field_length = select_field.length;
+        var owner_length = owner.length;
+        var from_array_length = from_array.length;
+        for (i = 0; i < select_field_length; i++) {
+            if (select_field[i] === ('`' + id_this.substring(owner_length + 1) + '`.*')) {
                 select_field.splice(i, 1);
             }
         }
-        for (k = 0; k < from_array.length; k++) {
+        for (k = 0; k < from_array_length; k++) {
             if (from_array[k] === id_this) {
                 from_array.splice(k, 1);
                 break;
@@ -1821,13 +1826,15 @@ function store_column (id_this, owner, col) {
         select_field.push('`' + id_this + '`.`' + col + '`');
         from_array.push(id_this);
     } else {
-        for (i = 0; i < select_field.length; i++) {
+        var select_field_length = select_field.length;
+        var from_array_length = from_array.length;
+        for (i = 0; i < select_field_length; i++) {
             if (select_field[i] === ('`' + id_this + '`.`' + col + '`')) {
                 select_field.splice(i, 1);
                 break;
             }
         }
-        for (k = 0; k < from_array.length; k++) {
+        for (k = 0; k < from_array_length; k++) {
             if (from_array[k] === id_this) {
                 from_array.splice(k, 1);
                 break;
