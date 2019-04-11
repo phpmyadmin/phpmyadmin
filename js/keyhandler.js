@@ -73,11 +73,11 @@ function onKeyDownArrowsHandler (e) {
 
     var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox/') > -1;
 
-    var id = '#'+'field_' + y + '_' + x;
+    var id = '#' + 'field_' + y + '_' + x;
 
     var nO = $(id);
     if (! nO) {
-        id = '#'+'field_' + y + '_' + x + '_0';
+        id = '#' + 'field_' + y + '_' + x + '_0';
         nO = $(id);
     }
 
