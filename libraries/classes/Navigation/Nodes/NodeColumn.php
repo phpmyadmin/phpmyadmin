@@ -86,10 +86,36 @@ class NodeColumn extends Node
             if (! empty($value) && $key != 'name') {
                 $flag == 0 ? $retval .= ' (' : $retval .= ', ';
                 $flag = 1;
-                $retval .= $value;
+                $retval .= $this->getTruncateValue($key, $value);
             }
         }
         $retval .= ')';
+        return $retval;
+    }
+
+    /**
+     * Get truncated value for display in node column view
+     * 
+     * @param $key string   key to identify default,datatype etc
+     * @param $value string value corresponding to key
+     *
+     * @return $retval string truncated value
+     */
+    public function getTruncateValue($key, $value)
+    {
+        $retval = '';
+
+        switch ($key) {
+            case 'default':
+                strlen($value) > 6 ?
+                    $retval .= substr($value, 0, 6) . '...' :
+                    $retval = $value;
+                break;
+            default:
+                $retval = $value;
+                break;
+        }
+
         return $retval;
     }
 }
