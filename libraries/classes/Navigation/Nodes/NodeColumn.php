@@ -95,7 +95,7 @@ class NodeColumn extends Node
 
     /**
      * Get truncated value for display in node column view
-     * 
+     *
      * @param $key string   key to identify default,datatype etc
      * @param $value string value corresponding to key
      *
