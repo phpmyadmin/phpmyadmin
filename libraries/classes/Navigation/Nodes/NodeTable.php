@@ -172,6 +172,7 @@ class NodeTable extends NodeDatabaseChild
                     $query .= ",`COLUMN_KEY` AS `key` ";
                     $query .= ",`DATA_TYPE` AS `type` ";
                     $query .= ",`COLUMN_DEFAULT` AS `default` ";
+                    $query .= ",IF (`IS_NULLABLE` = 'NO', '', 'nullable') AS `nullable` ";
                     $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                     $query .= "WHERE `TABLE_NAME`='$table' ";
                     $query .= "AND `TABLE_SCHEMA`='$db' ";
