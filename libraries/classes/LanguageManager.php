@@ -949,7 +949,7 @@ class LanguageManager
         $language_title = __('Language')
             . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
         if ($show_doc) {
-            $language_title .= Util::showDocu('faq', 'faq7-2');
+            $info_link = Util::showDocu('faq', 'faq7-2');
         }
 
         $available_languages = $this->sortedLanguages();
@@ -959,6 +959,7 @@ class LanguageManager
                 'language_title' => $language_title,
                 'use_fieldset' => $use_fieldset,
                 'available_languages' => $available_languages,
+                'info_link' => $info_link,
                 '_form_params' => $_form_params,
             )
         );

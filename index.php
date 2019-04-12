@@ -259,12 +259,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
            . Url::getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . Util::getImage('s_asci')
-            . "&nbsp;" . __('Server connection collation') . "\n"
-           // put the doc link in the form so that it appears on the same line
-           . Util::showMySQLDocu('Charset-connection')
-           . ': ' .  "\n"
-           . '            </label>' . "\n"
-
+            . "&nbsp;" . __('Server connection collation :') . "\n"
+               
            . Charsets::getCollationDropdownBox(
                $GLOBALS['dbi'],
                $GLOBALS['cfg']['Server']['DisableIS'],
@@ -274,6 +270,10 @@ if ($server > 0 || count($cfg['Servers']) > 1
                true,
                true
            )
+        // put the doc link in the form so that it appears on the same line
+            . Util::showMySQLDocu('Charset-connection')
+           . ': ' .  "\n"
+           . '            </label>' . "\n"
            . '        </form>' . "\n"
            . '    </li>' . "\n";
     } // end of if ($server > 0)
@@ -287,11 +287,12 @@ echo '  <ul>';
 
 // Displays language selection combo
 $language_manager = LanguageManager::getInstance();
+$info_link = Util::showDocu('faq', 'faq7-2');
 if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
     echo '<li id="li_select_lang" class="no_bullets">';
 
     echo Util::getImage('s_lang') , " "
-        , $language_manager->getSelectorDisplay();
+        , $language_manager->getSelectorDisplay(), $info_link;
     echo '</li>';
 }
 
