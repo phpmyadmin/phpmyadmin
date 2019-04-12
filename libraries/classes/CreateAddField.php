@@ -64,7 +64,7 @@ class CreateAddField
         $param = $_REQUEST['const'];
         $param['db_name'] = $_REQUEST['db'];
         $param['table_name'] = $_REQUEST['table'];
-        $const = new CheckConstraint($param);
+        $const = new CheckConstraint($GLOBALS['dbi'], $param);
         $definition = CheckConstraint::generateConstraintStatement($const);
         return $definition;
     }
@@ -127,7 +127,7 @@ class CreateAddField
             $previousField = $i;
             $definitions[] = $definition;
         } // end for
-        if($isCreateTable === true && isset($_REQUEST['add_check_constraint'])) {
+        if ($isCreateTable === true && isset($_POST['add_check_constraint'])) {
             $definition = $this->getCheckConstraints();
             $definitions[] = $definition;
         }

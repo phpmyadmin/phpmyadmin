@@ -105,11 +105,11 @@ if (isset($_POST['do_save_data'])) {
                 }
             }
         }
-        if(isset($_REQUEST['add_check_constraint'])) {
+        if (isset($_POST['add_check_constraint'])) {
             $param = $_REQUEST['const'];
             $param['db_name'] = $db;
             $param['table_name'] = $table;
-            $const = new CheckConstraint($param);
+            $const = new CheckConstraint($GLOBALS['dbi'], $param);
             $const->saveToDb();
         }
     } else {

@@ -1270,7 +1270,7 @@ class DatabaseInterface
                 = substr(
                     (string) $columns[$column_name]['COLLATION_NAME'],
                     0,
-                    (int)strpos((string) $columns[$column_name]['COLLATION_NAME'], '_')
+                    (int) strpos((string) $columns[$column_name]['COLLATION_NAME'], '_')
                 );
 
             $ordinal_position++;

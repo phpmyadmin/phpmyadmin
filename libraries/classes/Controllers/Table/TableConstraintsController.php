@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\CheckConstraint;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -21,7 +20,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class TableConstraintsController extends TableController
+class TableConstraintsController extends AbstractController
 {
     /**
      * @var Constraint $constraint
@@ -31,11 +30,11 @@ class TableConstraintsController extends TableController
     /**
      * Constructor
      *
-     * @param Response                      $response Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
-     * @param string                        $db       Database name
-     * @param string                        $table    Table name
-     * @param Constraint                         $constraint    Constraint object
+     * @param Response                      $response   Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi        DatabaseInterface object
+     * @param string                        $db         Database name
+     * @param string                        $table      Table name
+     * @param Constraint                    $constraint Constraint object
      */
     public function __construct(
         $response,
@@ -82,9 +81,9 @@ class TableConstraintsController extends TableController
         }
         $this->response->getHeader()->getScripts()->addFiles([
             'vendor/jquery/jquery.md5.js',
-            'check_constraint.js'
+            'check_constraint.js',
         ]);
-        if(isset($_REQUEST['edit_constraint'])) {
+        if (isset($_REQUEST['edit_constraint'])) {
             $this->response->addHTML(
                 $this->template->render('table/constraint_form', [
                     'db' => $this->db,
@@ -95,7 +94,7 @@ class TableConstraintsController extends TableController
                     'edit_constraint' => 1
                 ])
             );
-        } else if(isset($_REQUEST['create_constraint'])) {
+        } elseif (isset($_REQUEST['create_constraint'])) {
             $this->response->addHTML(
                 $this->template->render('table/constraint_form', [
                     'db' => $this->db,
@@ -105,7 +104,7 @@ class TableConstraintsController extends TableController
                     'create_constraint' => 1
                 ])
             );
-        } else if(isset($_REQUEST['drop_constraint'])) {
+        } elseif (isset($_REQUEST['drop_constraint'])) {
             $sql_query = " ALTER TABLE " . Util::backquote($this->table) . " DROP CONSTRAINT " . Util::backquote($_REQUEST['constraint']);
             $success = $this->dbi->tryQuery($sql_query);
             $message = '';
@@ -139,7 +138,7 @@ class TableConstraintsController extends TableController
         $this->dbi->selectDb($GLOBALS['db']);
         $sql_query = '';
         $param = $_REQUEST['const'];
-        $const = new CheckConstraint($param);
+        $const = new CheckConstraint($this->dbi, $param);
         $create = isset($_REQUEST['create_constraint_submit']) ? 1 : 0;
         $sql_query = $const->getSqlQueryForCreateOrEdit($create);
 
@@ -149,14 +148,14 @@ class TableConstraintsController extends TableController
                 'sql_data',
                 $this->template->render('preview_sql', ['query_data' => $sql_query])
             );
-        } else if (!$error) {
+        } elseif (! $error) {
             $success = $this->dbi->tryQuery($sql_query);
             $message = '';
             if (! $success) {
                 $message = Message::error($this->dbi->getError());
                 $this->response->setRequestStatus(false);
             } else {
-                if($create) {
+                if ($create) {
                     $const->saveToDb();
                 } else {
                     $const->changeInDb();

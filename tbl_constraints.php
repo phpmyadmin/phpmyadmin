@@ -28,9 +28,9 @@ $db = $container->get('db');
 $table = $container->get('table');
 $dbi = $container->get('dbi');
 
-if(isset($_REQUEST['edit_constraint'])) {
+if (isset($_REQUEST['edit_constraint'])) {
     $constraint = CheckConstraint::getFromDb($table, $db, $_REQUEST['constraint']);
-    if(count($constraint) === 0) {
+    if (count($constraint) === 0) {
         $error_msg = __('Could not fetch Constraint!');
         $response = Response::getInstance();
         $response->setRequestStatus(false);
@@ -41,7 +41,7 @@ if(isset($_REQUEST['edit_constraint'])) {
 }
 
 $dependency_definitions = [
-    "constraint" => $constraint
+    "constraint" => $constraint,
 ];
 
 /** @var TableConstraintsController $controller */

@@ -2054,7 +2054,7 @@ class Relation
             'pma__central_columns' => 'central_columns',
             'pma__designer_settings' => 'designer_settings',
             'pma__export_templates' => 'export_templates',
-            'pma__check_constraints' => 'check_constraints'
+            'pma__check_constraints' => 'check_constraints',
         ];
 
         $existingTables = $this->dbi->getTables($db, DatabaseInterface::CONNECT_CONTROL);

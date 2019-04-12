@@ -86,14 +86,21 @@ class CheckConstraint
     private $relation;
 
     /**
+     * @var \PhpMyAdmin\DatabaseInterface $dbi
+     */
+    protected $dbi;
+
+    /**
      * Constructor
      *
-     * @param array $params parameters
+     * @param \PhpMyAdmin\DatabaseInterface $dbi    DatabaseInterface object
+     * @param array                         $params parameters
      */
-    public function __construct(array $params = [])
+    public function __construct($dbi, array $params = [])
     {
         $this->set($params);
-        $this->relation = new Relation();
+        $this->dbi = $dbi;
+        $this->relation = new Relation($this->dbi);
     }
 
     /**
@@ -102,7 +109,7 @@ class CheckConstraint
      * @param string $table  table
      * @param string $schema schema
      *
-     * @return Check[]  array of check constraints
+     * @return CheckConstraint[]  array of check constraints
      */
     public static function getFromTable($table, $schema)
     {
@@ -140,7 +147,7 @@ class CheckConstraint
      *
      * @return string
      */
-    public function getLogical_op()
+    public function getLogicalOp()
     {
         return $this->logical_op;
     }
@@ -150,7 +157,7 @@ class CheckConstraint
      *
      * @return string
      */
-    public function getCriteria_op()
+    public function getCriteriaOp()
     {
         return $this->criteria_op;
     }
@@ -160,7 +167,7 @@ class CheckConstraint
      *
      * @return string
      */
-    public function getCriteria_rhs()
+    public function getCriteriaRhs()
     {
         return $this->criteria_rhs;
     }
@@ -233,7 +240,7 @@ class CheckConstraint
         foreach ($_raw_ccs as $_each_cc) {
             $constraintName = $_each_cc['const_name'];
             if (! isset(CheckConstraint::$_registry[$schema][$table][$constraintName])) {
-                $constraint = new CheckConstraint($_each_cc);
+                $constraint = new CheckConstraint($GLOBALS['dbi'], $_each_cc);
                 CheckConstraint::$_registry[$schema][$table][$constraintName] = $constraint;
             } else {
                 $constraint = CheckConstraint::$_registry[$schema][$table][$constraintName];
@@ -256,7 +263,7 @@ class CheckConstraint
             $this->const_name = $params['const_name'];
         }
         if (isset($params['columns'])) {
-            if(!is_array($params['columns'])) {
+            if (! is_array($params['columns'])) {
                 $this->columns = json_decode($params['columns']);
             } else {
                 $this->columns = $params['columns'];
@@ -268,43 +275,43 @@ class CheckConstraint
         if (isset($params['table_name'])) {
             $this->table_name = $params['table_name'];
         }
-        if(isset($params['logical_op'])) {
-            if(!is_array($params['logical_op'])) {
+        if (isset($params['logical_op'])) {
+            if (! is_array($params['logical_op'])) {
                 $this->logical_op = json_decode($params['logical_op']);
             } else {
                 $this->logical_op = $params['logical_op'];
             }
         }
-        if(isset($params['criteria_op'])) {
-            if(!is_array($params['criteria_op'])) {
+        if (isset($params['criteria_op'])) {
+            if (! is_array($params['criteria_op'])) {
                 $this->criteria_op = json_decode($params['criteria_op']);
             } else {
                 $this->criteria_op = $params['criteria_op'];
             }
         }
-        if(isset($params['criteria_rhs'])) {
-            if(!is_array($params['criteria_rhs'])) {
+        if (isset($params['criteria_rhs'])) {
+            if (! is_array($params['criteria_rhs'])) {
                 $this->criteria_rhs = json_decode($params['criteria_rhs']);
             } else {
                 $this->criteria_rhs = $params['criteria_rhs'];
             }
         }
-        if(isset($params['rhs_text_val'])) {
-            if(!is_array($params['rhs_text_val'])) {
+        if (isset($params['rhs_text_val'])) {
+            if (! is_array($params['rhs_text_val'])) {
                 $this->rhs_text_val = json_decode($params['rhs_text_val']);
             } else {
                 $this->rhs_text_val = $params['rhs_text_val'];
             }
         }
-        if(isset($params['tableNameSelect'])) {
-            if(!is_array($params['tableNameSelect'])) {
-               $this->tableNameSelect = json_decode($params['tableNameSelect']);
+        if (isset($params['tableNameSelect'])) {
+            if (! is_array($params['tableNameSelect'])) {
+                $this->tableNameSelect = json_decode($params['tableNameSelect']);
             } else {
                 $this->tableNameSelect = $params['tableNameSelect'];
             }
         }
-        if(isset($params['columnNameSelect'])) {
-            if(!is_array($params['columnNameSelect'])) {
+        if (isset($params['columnNameSelect'])) {
+            if (! is_array($params['columnNameSelect'])) {
                 $this->columnNameSelect = json_decode($params['columnNameSelect']);
             } else {
                 $this->columnNameSelect = $params['columnNameSelect'];
@@ -312,27 +319,27 @@ class CheckConstraint
         }
     }
 
-    /*
+    /**
      * SQL for check constraint statement
      *
-     * @param $constraint Constraint object
+     * @param CheckConstraint $constraint Constraint object
      *
-     * @return SQL for check constraint statement
+     * @return string SQL for check constraint statement
      */
-    public static function generateConstraintStatement($constraint)
+    public static function generateConstraintStatement(CheckConstraint $constraint)
     {
         $constraintName = $constraint->getName();
         $columnNames = $constraint->getColumns();
-        $logical_op = $constraint->getLogical_op();
-        $criteria_op = $constraint->getCriteria_op();
-        $criteria_rhs = $constraint->getCriteria_rhs();
+        $logical_op = $constraint->getLogicalOp();
+        $criteria_op = $constraint->getCriteriaOp();
+        $criteria_rhs = $constraint->getCriteriaRhs();
         $tableNameSelect = $constraint->getTableNameSelect();
         $columnNameSelect = $constraint->getColumnNameSelect();
         $rhs_text_val = $constraint->getText();
         $definition = 'CONSTRAINT ' . Util::backquote($constraintName) . ' CHECK (';
-        for($i=1; $i<count($columnNames); ++$i) {
+        for ($i=1; $i<count($columnNames); ++$i) {
             $columnNames[$i] = trim($columnNames[$i]);
-            if($columnNames[$i] === '' && ! isset($_REQUEST['preview_sql'])) {
+            if ($columnNames[$i] === '' && ! isset($_REQUEST['preview_sql'])) {
                 $error_msg = Message::error(__("Please fill out all the criteria."));
                 $response = Response::getInstance();
                 if ($response->isAjax()) {
@@ -341,17 +348,15 @@ class CheckConstraint
                     exit;
                 }
             }
-            if($i>1) {
+            if ($i>1) {
                 $definition .= ' ' . $logical_op[$i-1] . ' ';
             }
             $definition .= Util::backquote($columnNames[$i]);
-            if($criteria_op[$i] === 'IS NULL' || $criteria_op[$i] === 'IS NOT NULL') {
+            if ($criteria_op[$i] === 'IS NULL' || $criteria_op[$i] === 'IS NOT NULL') {
                 $definition .= ' ' . $criteria_op[$i];
-            }
-            else if($criteria_rhs[$i] === 'text') {
+            } elseif ($criteria_rhs[$i] === 'text') {
                 $definition .= ' ' . $criteria_op[$i] . ' \'' . $rhs_text_val[$i] . '\'';
-            }
-            else if($criteria_rhs[$i] === 'anotherColumn') {
+            } elseif ($criteria_rhs[$i] === 'anotherColumn') {
                 $definition .= ' ' . $criteria_op[$i] . Util::backquote($tableNameSelect[$i]) . '.' . Util::backquote($columnNameSelect[$i]);
             }
         }
@@ -373,7 +378,7 @@ class CheckConstraint
             $GLOBALS['db'],
             $check_constraints_work
         );
-        if($check_constraints_work) {
+        if ($check_constraints_work) {
             $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
                 . 'left;"><form action="tbl_constraints.php" method="post">';
             $html_output .= Url::getHiddenInputs(
@@ -396,24 +401,23 @@ class CheckConstraint
     /**
      * Show Check Constraint data
      *
-     * @param string  $table      The table name
-     * @param string  $schema     The schema name
-     * @param boolean $print_mode Whether the output is for the print mode
+     * @param string  $table                  The table name
+     * @param string  $schema                 The schema name
      * @param boolean $check_constraints_work Whether check constraints are configured properly or not
+     * @param boolean $print_mode             Whether the output is for the print mode
      *
      * @return string HTML for showing check constraint
      *
      * @access  public
      */
-    public static function getHtmlForCCs($table, $schema, bool $check_constraints_work, $print_mode = false)
+    public static function getHtmlForCCs(string $table, string $schema, bool $check_constraints_work, bool $print_mode = false)
     {
         $constraints = CheckConstraint::getFromTable($table, $schema);
         $no_constraints_class = (count($constraints) > 0) && $check_constraints_work ? ' hide' : '';
         $no_constraints  = "<div class='no_constraints_defined$no_constraints_class'>";
-        if(! $check_constraints_work) {
+        if (! $check_constraints_work) {
             $no_constraints .= Message::notice(__('Check Constraints haven\'t been configured properly!&nbsp;<a href="check_rel.php">Configure Now</a>'))->getDisplay();
-        }
-        else {
+        } else {
             $no_constraints .= Message::notice(__('No constraint defined!'))->getDisplay();
         }
         $no_constraints .= '</div>';
@@ -500,20 +504,20 @@ class CheckConstraint
 
     /**
      * Returns CHECK Constraint(s) defined on the table
-     * @param string $table    table
-     * @param string $db database
+     * @param string $table     table
+     * @param string $db        database
      * @param string $constName Name of the constraint to be fetched from db, if absent, all constraints are fetched
      *
      * @return array
      */
-    public static function getFromDb($table, $db, $constName='')
+    public static function getFromDb($table, $db, $constName = '')
     {
         /** first check from information_schema.table_constraints which server uses to store constraints then read from phpMyAdmin database, if a record exists in information_schema and not in pma database (maybe due to some inconsistency), merge the results from the two.
         */
-        $tmp = new CheckConstraint();
+        $tmp = new CheckConstraint($GLOBALS['dbi']);
         $sql_query
             = " SELECT `CONSTRAINT_NAME` FROM `information_schema`.`TABLE_CONSTRAINTS` WHERE CONSTRAINT_TYPE='CHECK' AND `TABLE_SCHEMA` = '" . $db . "' AND `TABLE_NAME` = '" . $table . "'";
-        if($constName !== '') {
+        if ($constName !== '') {
             $sql_query .= " AND `CONSTRAINT_NAME` = '" . $constName . "'";
         }
         $sql_query .= ";";
@@ -528,9 +532,20 @@ class CheckConstraint
             . " AND `const_name` IN('" . implode("','", $result) . "');";
 
         $result2 = $GLOBALS['dbi']->fetchResult($sql_query, null, null, DatabaseInterface::CONNECT_CONTROL);
-        $result_append = array();
+        $result_append = [];
         foreach ($result as $constraint) {
-            $result_append[] = array('const_name' => $constraint, 'table_name' => '', 'db_name' => '', 'columns' => '[]', 'logical_op' => '[]', 'criteria_op' => '[]', 'criteria_rhs' => '[]', 'rhs_text_val' => '[]', 'tableNameSelect' => '[]', 'columnNameSelect' => '[]');
+            $result_append[] = [
+                'const_name' => $constraint,
+                'table_name' => '',
+                'db_name' => '',
+                'columns' => '[]',
+                'logical_op' => '[]',
+                'criteria_op' => '[]',
+                'criteria_rhs' => '[]',
+                'rhs_text_val' => '[]',
+                'tableNameSelect' => '[]',
+                'columnNameSelect' => '[]',
+            ];
         }
         $result2 = array_merge($result2, $result_append);
         if (! is_array($result2) || count($result2) < 1) {
@@ -556,8 +571,9 @@ class CheckConstraint
      *
      * @return string SQL query
      */
-    public function getSqlQueryForCreateOrEdit($createEdit) {
-        if($createEdit === 1) {
+    public function getSqlQueryForCreateOrEdit($createEdit)
+    {
+        if ($createEdit === 1) {
             return
                 " ALTER TABLE " . Util::backquote($this->getTbl()) .
                 " ADD " . CheckConstraint::generateConstraintStatement($this);
@@ -574,13 +590,13 @@ class CheckConstraint
      *
      * @return void
      */
-    public function saveToDb($create_table = false)
+    public function saveToDb()
     {
         $constraintName = $this->getName();
         $columnNames = $this->encodeString($this->getColumns());
-        $logical_op = $this->encodeString($this->getLogical_op());
-        $criteria_op = $this->encodeString($this->getCriteria_op());
-        $criteria_rhs = $this->encodeString($this->getCriteria_rhs());
+        $logical_op = $this->encodeString($this->getLogicalOp());
+        $criteria_op = $this->encodeString($this->getCriteriaOp());
+        $criteria_rhs = $this->encodeString($this->getCriteriaRhs());
         $tableNameSelect = $this->encodeString($this->getTableNameSelect());
         $columnNameSelect = $this->encodeString($this->getColumnNameSelect());
         $rhs_text_val = $this->encodeString($this->getText());
@@ -588,24 +604,24 @@ class CheckConstraint
         $db = $this->getDb();
         $sql_query
             = " INSERT INTO " . $this->_getPmaTable() .
-                " VALUES('" . $constraintName . "', '" . $table . "', '" . $db . "', '" . $columnNames . "', '" . $logical_op . "', '" . $criteria_op ."', '" . $criteria_rhs . "', '" . $rhs_text_val . "', '" . $tableNameSelect . "', '" .
+                " VALUES('" . $constraintName . "', '" . $table . "', '" . $db . "', '" . $columnNames . "', '" . $logical_op . "', '" . $criteria_op . "', '" . $criteria_rhs . "', '" . $rhs_text_val . "', '" . $tableNameSelect . "', '" .
                 $columnNameSelect . "');";
 
-        $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
+        $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**
      * Change CHECK contraints in phpMyAdmin database.
      *
-     * @return
+     * @return void
      */
-    public function changeInDb()
+    public function changeInDb(): void
     {
         $constraintName = $this->getName();
         $columnNames = $this->encodeString($this->getColumns());
-        $logical_op = $this->encodeString($this->getLogical_op());
-        $criteria_op = $this->encodeString($this->getCriteria_op());
-        $criteria_rhs = $this->encodeString($this->getCriteria_rhs());
+        $logical_op = $this->encodeString($this->getLogicalOp());
+        $criteria_op = $this->encodeString($this->getCriteriaOp());
+        $criteria_rhs = $this->encodeString($this->getCriteriaRhs());
         $tableNameSelect = $this->encodeString($this->getTableNameSelect());
         $columnNameSelect = $this->encodeString($this->getColumnNameSelect());
         $rhs_text_val = $this->encodeString($this->getText());
@@ -614,29 +630,29 @@ class CheckConstraint
 
         $sql_query
             = " UPDATE " . $this->_getPmaTable() .
-                " SET `const_name`='" . $constraintName . "', `table_name`='" . $table . "', `db_name`='" . $db . "', `columns`='" . $columnNames . "', `logical_op`='" . $logical_op . "', `criteria_op`='" . $criteria_op ."', `criteria_rhs`='" . $criteria_rhs . "', `rhs_text_val`='" . $rhs_text_val . "', `tableNameSelect`='" . $tableNameSelect . "', `columnNameSelect`='" .
+                " SET `const_name`='" . $constraintName . "', `table_name`='" . $table . "', `db_name`='" . $db . "', `columns`='" . $columnNames . "', `logical_op`='" . $logical_op . "', `criteria_op`='" . $criteria_op . "', `criteria_rhs`='" . $criteria_rhs . "', `rhs_text_val`='" . $rhs_text_val . "', `tableNameSelect`='" . $tableNameSelect . "', `columnNameSelect`='" .
                 $columnNameSelect . "' WHERE `db_name` = '" . $db . "' AND `table_name` = '" . $table . "' AND `const_name` = '" . $_REQUEST['old_const'] . "';";
 
-        $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
+        $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**
      * Removes Constraint from phpmyadmin database
-     * @param string $constName
-     * @param string $table
-     * @param string $database
+     * @param string $constName The constraint name
+     * @param string $table     The table
+     * @param string $db        The database
      *
      * @return void
      */
     public static function removeFromDb($constName, $table, $db)
     {
-        $tmp = new CheckConstraint();
+        $tmp = new CheckConstraint($GLOBALS['dbi']);
         $sql_query
             = " DELETE FROM " . $tmp->_getPmaTable() .
                 " WHERE `db_name` = '" . $db . "' AND `table_name` = '" . $table . "' AND" .
                 " `const_name` = '" . $constName . "'";
 
-        $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
+        $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**

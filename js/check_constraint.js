@@ -23,7 +23,6 @@ AJAX.registerTeardown('check_constraint.js', function () {
     $(document).off('click', '.criteria_col');
     $(document).off('click', 'a.edit_constraint_anchor.ajax');
     $(document).off('submit', '#constraint_frm');
-
 });
 
 AJAX.registerOnload('check_constraint.js', function () {
@@ -144,8 +143,8 @@ AJAX.registerOnload('check_constraint.js', function () {
         });
     });
 
-    function ProcessEditForm() {
-        if($("#hidden_fields_old").length > 0) {
+    function ProcessEditForm () {
+        if ($('#hidden_fields_old').length > 0) {
             $name = $('#constName').val();
             $columns = JSON.parse($('#constcolumns').val());
             $logical_op = JSON.parse($('#constLogicalOps').val());
@@ -154,17 +153,17 @@ AJAX.registerOnload('check_constraint.js', function () {
             $criteria_val = JSON.parse($('#constCriteriaVal').val());
             $tableNameSelect = JSON.parse($('#constTblName').val());
             $columnNameSelect = JSON.parse($('#constColName').val());
-            $("#const_name").val($name);
-            $(".column_details").each(function(i) {
-                if(i > 0) {
+            $('#const_name').val($name);
+            $('.column_details').each(function (i) {
+                if (i > 0) {
                     $(this).find('.columnName').val($columns[i]);
                     $(this).find('.rhs_text_val').val($criteria_val[i]);
                     $(this).find('.criteria_op').val($criteria_op[i]);
                     $(this).find('.criteria_rhs').val($criteria_rhs[i]);
                     $(this).find('.tableNameSelect').val($tableNameSelect[i]);
                     $(this).find('.columnNameSelect').val($columnNameSelect[i]);
-                    if(i > 1) {
-                        $(this).find(".logical_op").val($logical_op[i-2]);
+                    if (i > 1) {
+                        $(this).find('.logical_op').val($logical_op[i - 2]);
                     }
                 }
             });
