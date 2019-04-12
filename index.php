@@ -272,7 +272,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
            )
         // put the doc link in the form so that it appears on the same line
             . Util::showMySQLDocu('Charset-connection')
-            . ': ' .  "\n"
+            . "\n"
             . '            </label>' . "\n"
             . '        </form>' . "\n"
             . '    </li>' . "\n";
