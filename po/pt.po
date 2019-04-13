@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:45-0300\n"
-"PO-Revision-Date: 2019-04-09 02:46+0000\n"
+"PO-Revision-Date: 2019-04-16 19:07+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -12523,10 +12523,8 @@ msgid "Get auto-saved query"
 msgstr "Obter consulta auto-salva"
 
 #: libraries/classes/SqlQueryForm.php:273
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Parâmetros inválidos!"
+msgstr "Unir parâmetros"
 
 #: libraries/classes/SqlQueryForm.php:321
 msgid "Bookmark this SQL query:"
