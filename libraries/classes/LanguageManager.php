@@ -946,11 +946,8 @@ class LanguageManager
         // For non-English, display "Language" with emphasis because it's
         // not a proper word in the current language; we show it to help
         // people recognize the dialog
-        $language_title = __('Language')
-            . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
-        if ($show_doc) {
-            $info_link = Util::showDocu('faq', 'faq7-2');
-        }
+        $language_title = __('Language :')
+            . (__('Language :') != 'Language :' ? ' - <em>Language</em>' : '');
 
         $available_languages = $this->sortedLanguages();
 
@@ -959,7 +956,6 @@ class LanguageManager
                 'language_title' => $language_title,
                 'use_fieldset' => $use_fieldset,
                 'available_languages' => $available_languages,
-                'info_link' => $info_link,
                 '_form_params' => $_form_params,
             )
         );
