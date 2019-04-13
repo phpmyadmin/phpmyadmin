@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
 "PO-Revision-Date: 2019-04-16 19:07+0000\n"
-"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
+"Last-Translator: Bauyrzhan <bauyrzhan.maksot@mail.ru>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/4-8/kk/"
 ">\n"
 "Language: kk\n"
@@ -861,6 +861,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$Cfg['TempDir'](%s) қол жетімді емес. phpMyAdmin шаблондарды кэштай алмайды "
+"және сол үшін баяу болады."
 
 #: js/messages.php:42
 msgid "Confirm"
@@ -1388,6 +1390,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log қосулы, бірақ сервер тек %d секундтан ұзағырақ сұрауларды "
+"тіркейді. Жүйеңізге байланысты long_query_timeды 0-2 секунд аралығында "
+"орнату ұсынылады."
 
 #: js/messages.php:237
 #, php-format
@@ -1431,6 +1436,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Сіз бұл айнымалыларды өзгерте алмайсыз. Өтініш root ретінде кіріңіз немесе "
+"дерекқор әкімшісіне хабарласыңыз."
 
 #: js/messages.php:254
 msgid "Change settings"
@@ -1488,6 +1495,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Бұл баған топтастырылған бірдей сұраулардың санын көрсетеді. Алайда, тек SQL "
+"сұрауы топтық өлшем ретінде пайдаланылған, сондықтан басталу уақыты сияқты "
+"сұраулардың басқа атрибуттары әртүрлі болуы мүмкін."
 
 #: js/messages.php:278
 msgid ""
@@ -1495,6 +1505,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"INSERT сұрауларын топтастыру таңдалғаннан кейін, сол кестеге INSERT "
+"сұраулары кірістірілген деректерді елемей, бірге топтастырылады."
 
 #: js/messages.php:283
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1614,6 +1626,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Жаңа диаграмма деректерін сұрау кезінде сервер дұрыс емес жауапты қайтарды. "
+"Ол сеанстың мерзімі біткендіктен болуы мүмкін. Бетті қайта жүктеп және "
+"деректерді қайта енгізу көмектесуі керек."
 
 #: js/messages.php:320
 msgid "Reload page"
