@@ -82,8 +82,8 @@ function display (init, finit) {
     }
     // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
     str = ''; // string to store Html code for history tab
-    var lengthH = history_array.length;
-    for (i = 0; i < lenghtH; i++) {
+    var history_array_length = history_array.length;
+    for (i = 0; i < history_array_length; i++) {
         temp = history_array[i].get_tab(); // + '.' + history_array[i].get_obj_no(); for Self JOIN
         str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>' + '<div class="toggle_container">\n';
         while ((history_array[i].get_tab()) === temp) { // + '.' + history_array[i].get_obj_no()) === temp) {
@@ -107,7 +107,7 @@ function display (init, finit) {
             }
             str += '</tr></thead>';
             i++;
-            if (i >= history_array.length) {
+            if (i >= history_array_length) {
                 break;
             }
             str += '</table></div>';
@@ -145,7 +145,8 @@ function and_or (index) {
 **/
 
 function history_delete (index) {
-    for (var k = 0; k < from_array.length; k++) {
+    var from_array_length = from_array.length;
+    for (var k = 0; k < from_array_length; k++) {
         if (from_array[k] === history_array[index].get_tab()) {
             from_array.splice(k, 1);
             break;
@@ -447,7 +448,8 @@ var aggregate = function (noperator) {
 function unique (arrayName) {
     var newArray = [];
     uniquetop:
-    for (var i = 0; i < arrayName.length; i++) {
+    var arrayName_length = arrayName.length;
+    for (var i = 0; i < arrayName_length; i++) {
         for (var j = 0; j < newArray.length; j++) {
             if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
@@ -467,8 +469,8 @@ function unique (arrayName) {
  */
 
 function found (arrayName, value) {
-    var lenghtArray = arrayName.length;
-    for (var i = 0; i < lenghtArray; i++) {
+    var arrayName_length = arrayName.length;
+    for (var i = 0; i < arrayName_length; i++) {
         if (arrayName[i] === value) {
             return 1;
         }
@@ -483,7 +485,8 @@ function found (arrayName, value) {
  * @params arr array in which elements are added
  */
 function add_array (add, arr) {
-    for (var i = 0; i < add.length; i++) {
+    var add_length = add.length;
+    for (var i = 0; i < add_length; i++) {
         arr.push(add[i]);
     }
     return arr;
@@ -496,10 +499,9 @@ function add_array (add, arr) {
  *
  */
 function remove_array (rem, arr) {
-    var lenghtRem = rem.length;
-    var lengthArr = arr.length;
-    for (var i = 0; i < lenghtRem; i++) {
-        for (var j = 0; j < lengthArr; j++) {
+    var rem_length = rem.length;
+    for (var i = 0; i < rem_length; i++) {
+        for (var j = 0; j < arr.length; j++) {
             if (rem[i] === arr[j]) {
                 arr.splice(j, 1);
             }
@@ -516,8 +518,8 @@ function remove_array (rem, arr) {
 function query_groupby () {
     var i;
     var str = '';
-    var lenghtH = history_array.length;
-    for (i = 0; i < lengthH ;i++) {
+    var history_array_length = history_array.length;
+    for (i = 0; i < history_array_length ;i++) {
         if (history_array[i].get_type() === 'GroupBy') {
             str += '`' + history_array[i].get_column_name() + '`, ';
         }
@@ -534,9 +536,9 @@ function query_groupby () {
 function query_having () {
     var i;
     var and = '(';
-    var lengthH = history_array.length;
+    var history_array_length = history_array.length;
 
-    for (i = 0; i < lengthH; i++) {
+    for (i = 0; i < history_array_length; i++) {
         if (history_array[i].get_type() === 'Having') {
             if (history_array[i].get_obj().get_operator() !== 'None') {
                 and += history_array[i].get_obj().get_operator() + '(`' + history_array[i].get_column_name() + '`) ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ', ';
@@ -562,9 +564,9 @@ function query_having () {
 function query_orderby () {
     var i;
     var str = '';
-    var lenghtH = history_array.length;
+    var history_array_length = history_array.length;
 
-    for (i = 0; i < lengthH; i++) {
+    for (i = 0; i < history_array_length; i++) {
         if (history_array[i].get_type() === 'OrderBy') {
             str += '`' + history_array[i].get_column_name() + '` ' +
                 history_array[i].get_obj().get_order() + ', ';
@@ -584,8 +586,8 @@ function query_where () {
     var i;
     var and = '(';
     var or = '(';
-    var lenghtH = history_array.length;
-    for (i = 0; i < lengthH; i++) {
+    var history_array_length = history_array.length;
+    for (i = 0; i < history_array_length; i++) {
         if (history_array[i].get_type() === 'Where') {
             if (history_array[i].get_and_or() === 0) {
                 and += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')' + ' AND ';
@@ -612,8 +614,8 @@ function query_where () {
 
 function check_aggregate (id_this) {
     var i;
-    var lenghtH = history_array.length;
-    for (i = 0; i < lengthH; i++) {
+    var history_array_length = history_array.length;
+    for (i = 0; i < history_array_length; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
         if (temp === id_this && history_array[i].get_type() === 'Aggregate') {
             return history_array[i].get_obj().get_operator() + '(' + id_this + ')';
@@ -624,8 +626,8 @@ function check_aggregate (id_this) {
 
 function check_rename (id_this) {
     var i;
-    var lenghtH = history_array.length;
-    for (i = 0; i < lengthH; i++) {
+    var history_array_length = history_array.length;
+    for (i = 0; i < history_array_length; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
         if (temp === id_this && history_array[i].get_type() === 'Rename') {
             return ' AS `' + history_array[i].get_obj().getrename_to() + '`';
@@ -661,9 +663,9 @@ function query_from () {
 
     // the constraints that have been used in the LEFT JOIN
     var constraints_added = [];
-    var lenghtH = history_array.length;
+    var history_array_length = history_array.length;
 
-    for (i = 0; i < lengthH; i++) {
+    for (i = 0; i < history_array_length; i++) {
         from_array.push(history_array[i].get_tab());
     }
     from_array = unique(from_array);
@@ -751,9 +753,9 @@ function query_from () {
 function build_query (formtitle, fadin) {
     var q_select = 'SELECT ';
     var temp;
-    var lengthSF = select_field.length;
-    if (lengthSF > 0) {
-        for (var i = 0; i < lengthSF; i++) {
+    var select_field_length = select_field.length;
+    if (select_field_length > 0) {
+        for (var i = 0; i < select_field_length; i++) {
             temp = check_aggregate(select_field[i]);
             if (temp !== '') {
                 q_select += temp;

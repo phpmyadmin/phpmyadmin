@@ -13,11 +13,13 @@ function Save_to_new_page (db, page_name, table_positions, callback) {
     Create_new_page(db, page_name, function (page) {
         if (page) {
             var tbl_cords = [];
-            for (var pos = 0; pos < table_positions.length; pos++) {
+            var table_positions_length = table_positions.length;
+            var tbl_cords_length = tbl_cords.length;
+            for (var pos = 0; pos < table_positions_length; pos++) {
                 table_positions[pos].pdf_pg_nr = page.pg_nr;
                 Save_table_positions(table_positions[pos], function (id) {
                     tbl_cords.push(id);
-                    if (table_positions.length === tbl_cords.length) {
+                    if (table_positions_length === tbl_cords_length) {
                         page.tbl_cords = tbl_cords;
                         DesignerOfflineDB.addObject('pdf_pages', page);
                     }
@@ -57,7 +59,8 @@ function Save_table_positions (positions, callback) {
 function Create_page_list (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var html = '';
-        for (var p = 0; p < pages.length; p++) {
+        var pages_length = pages.length;
+        for (var p = 0; p < pages_length; p++) {
             var page = pages[p];
             if (page.db_name === db) {
                 html += '<option value="' + page.pg_nr + '">';
@@ -73,7 +76,8 @@ function Create_page_list (db, callback) {
 function Delete_page (page_id, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         if (page) {
-            for (var i = 0; i < page.tbl_cords.length; i++) {
+            var page_tbl_cords_length = page.tbl_cords.length;
+            for (var i = 0; i < page_tbl_cords_length; i++) {
                 DesignerOfflineDB.deleteObject('table_coords', page.tbl_cords[i]);
             }
             DesignerOfflineDB.deleteObject('pdf_pages', page_id, callback);
@@ -84,7 +88,8 @@ function Delete_page (page_id, callback) {
 function Load_first_page (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var firstPage = null;
-        for (var i = 0; i < pages.length; i++) {
+        var pages_length = pages.length;
+        for (var i = 0; i < pages_length; i++) {
             var page = pages[i];
             if (page.db_name === db) {
                 // give preference to a page having same name as the db
@@ -104,7 +109,8 @@ function Load_first_page (db, callback) {
 function Show_new_page_tables (check) {
     var all_tables = $('#id_scroll_tab').find('td input:checkbox');
     all_tables.prop('checked', check);
-    for (var tab = 0; tab < all_tables.length; tab++) {
+    var all_tables_length = all_tables.length;
+    for (var tab = 0; tab < all_tables_length; tab++) {
         var input = all_tables[tab];
         if (input.value) {
             var element = document.getElementById(input.value);
@@ -123,7 +129,8 @@ function Load_HTML_for_page (page_id) {
     Load_page_objects(page_id, function (page, tbl_cords) {
         $('#name-panel').find('#page_name').text(page.page_descr);
         MarkSaved();
-        for (var t = 0; t < tbl_cords.length; t++) {
+        var tbl_cords_length = tbl_cords.length;
+        for (var t = 0; t < tbl_cords_length; t++) {
             var tb_id = db + '.' + tbl_cords[t].table_name;
             var table = document.getElementById(tb_id);
             table.style.top = tbl_cords[t].y + 'px';
@@ -141,10 +148,11 @@ function Load_page_objects (page_id, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         var tbl_cords = [];
         var count = page.tbl_cords.length;
+        var tbl_cords_length = tbl_cords.length;
         for (var i = 0; i < count; i++) {
             DesignerOfflineDB.loadObject('table_coords', page.tbl_cords[i], function (tbl_cord) {
                 tbl_cords.push(tbl_cord);
-                if (tbl_cords.length === count) {
+                if (tbl_cords_length === count) {
                     if (typeof callback !== 'undefined') {
                         callback(page, tbl_cords);
                     }

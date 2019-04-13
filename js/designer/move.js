@@ -1530,8 +1530,8 @@ function Hide_tab_all (id_this) {
         id_this.src = id_this.dataset.down;
     }
     var E = document.form1;
-    var ElementLength = E.elements.length;
-    for (var i = 0; i < ElementLength; i++) {
+    var E_elements_length = E.elements.length;
+    for (var i = 0; i < E_elements_length; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (id_this.alt === 'v') {
                 E.elements[i].checked = true;
@@ -1583,8 +1583,8 @@ function No_have_constr (id_this) {
         id_this.src = id_this.dataset.down;
     }
     var E = document.form1;
-    var ElementLength = E.elements.length;
-    for (var i = 0; i < ElementLength; i++) {
+    var E_elements_length = E.elements.length;
+    for (var i = 0; i < E_elements_length; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (!in_array_k(E.elements[i].value, a)) {
                 if (id_this.alt === 'v') {
@@ -1765,12 +1765,15 @@ function Select_all (id_this, owner) {
     var i;
     var k;
     var tab = [];
-    for (i = 0; i < parent.elements.length; i++) {
-        if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + id_this.length)) === 'select_' + id_this + '._') {
+    var parent_elements_length = parent.elements.length;
+    var owner_length = owner.length;
+    var id_this_length = id_this.length;
+    for (i = 0; i < parent_elements_length; i++) {
+        if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + id_this_length)) === 'select_' + id_this + '._') {
             if (document.getElementById('select_all_' + id_this).checked === true) {
                 parent.elements[i].checked = true;
                 parent.elements[i].disabled = true;
-                var temp = '`' + id_this.substring(owner.length + 1) + '`.*';
+                var temp = '`' + id_this.substring(owner_length + 1) + '`.*';
             } else {
                 parent.elements[i].checked = false;
                 parent.elements[i].disabled = false;
@@ -1778,12 +1781,11 @@ function Select_all (id_this, owner) {
         }
     }
     if (document.getElementById('select_all_' + id_this).checked === true) {
-        select_field.push('`' + id_this.substring(owner.length + 1) + '`.*');
+        select_field.push('`' + id_this.substring(owner_length + 1) + '`.*');
         tab = id_this.split('.');
         from_array.push(tab[1]);
     } else {
         var select_field_length = select_field.length;
-        var owner_length = owner.length;
         var from_array_length = from_array.length;
         for (i = 0; i < select_field_length; i++) {
             if (select_field[i] === ('`' + id_this.substring(owner_length + 1) + '`.*')) {
