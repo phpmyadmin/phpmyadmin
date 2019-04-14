@@ -1985,11 +1985,12 @@ Navigation panel setup
 .. config:option:: $cfg['NavigationLogoLink']
 
     :type: string
-    :default: ``'index.php'``
+    :default: ``'./index.php'`` or ``'./'``
 
     Enter :term:`URL` where logo in the navigation panel will point to.
     For use especially with self made theme which changes this.
-    For external URLs, you should include URL scheme as well.
+    For relative/internal URLs, you need to have leading `` ./ `` or trailing characters `` ? `` such as ``'./sql.php?'``.
+    For external URLs, you should include URL protocol schemes (``http`` or ``https``) with absolute URLs.
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
