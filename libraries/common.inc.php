@@ -344,7 +344,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         $auth_plugin = new $auth_class();
 
-        $auth_plugin->authenticate();
+        if ($auth_plugin->isAuthenticated() == false) {
+            $auth_plugin->authenticate();
+        } else {
+            $auth_plugin->rememberCredentials();
+        }
 
         // Try to connect MySQL with the control user profile (will be used to
         // get the privileges list for the current user but the true user link

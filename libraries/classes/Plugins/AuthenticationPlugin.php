@@ -89,6 +89,8 @@ abstract class AuthenticationPlugin
 
         $cfg['Server']['user']     = $this->user;
         $cfg['Server']['password'] = $this->password;
+        $_SESSION['authUser']      = $this->user;
+        $_SESSION['authPass']      = $this->password;
 
         return true;
     }
@@ -100,6 +102,12 @@ abstract class AuthenticationPlugin
      */
     public function rememberCredentials()
     {
+        global $cfg;
+
+        $this->setSessionAccessTime();
+
+        $cfg['Server']['user']     = $_SESSION['authUser'];
+        $cfg['Server']['password'] = $_SESSION['authPass'];
     }
 
     /**
@@ -131,6 +139,9 @@ abstract class AuthenticationPlugin
         /* Clear credentials */
         $this->user = '';
         $this->password = '';
+
+        /* Clear session saved authentication */
+        unset($_SESSION['isAuthenticated']);
 
         /*
          * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
@@ -248,6 +259,23 @@ abstract class AuthenticationPlugin
     }
 
     /**
+     * High level check for user authentification interface
+     *
+     * Checks, if the user is already authenticated
+     *
+     * @return boolean
+     */
+    public function isAuthenticated()
+    {
+        if (isset($_SESSION['isAuthenticated']) && !empty($_SESSION['isAuthenticated']) && $_SESSION['isAuthenticated'] == true)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * High level authentication interface
      *
      * Gets the credentials or shows login form if necessary
@@ -260,6 +288,9 @@ abstract class AuthenticationPlugin
 
         /* Show login form (this exits) */
         if (! $success) {
+            /* Clear session saved authentication */
+            unset($_SESSION['isAuthenticated']);
+
             /* Force generating of new session */
             Session::secure();
             $this->showLoginForm();
@@ -267,6 +298,8 @@ abstract class AuthenticationPlugin
 
         /* Store credentials (eg. in cookies) */
         $this->storeCredentials();
+        /* Save authentication in session */
+        $_SESSION['isAuthenticated'] = true;
         /* Check allow/deny rules */
         $this->checkRules();
     }
