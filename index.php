@@ -259,7 +259,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
            . Url::getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . Util::getImage('s_asci')
-            . "&nbsp;" . __('Server connection collation :') . "\n"
+            . "&nbsp;" . __('Server connection collation:') . "\n"
                
            . Charsets::getCollationDropdownBox(
                $GLOBALS['dbi'],

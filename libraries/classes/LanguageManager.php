@@ -946,8 +946,8 @@ class LanguageManager
         // For non-English, display "Language" with emphasis because it's
         // not a proper word in the current language; we show it to help
         // people recognize the dialog
-        $language_title = __('Language :')
-            . (__('Language :') != 'Language :' ? ' - <em>Language</em>' : '');
+        $language_title = __('Language:')
+            . (__('Language:') != 'Language:' ? ' - <em>Language</em>' : '');
 
         $available_languages = $this->sortedLanguages();
 
