@@ -267,8 +267,7 @@ abstract class AuthenticationPlugin
      */
     public function isAuthenticated()
     {
-        if (isset($_SESSION['isAuthenticated']) && !empty($_SESSION['isAuthenticated']) && $_SESSION['isAuthenticated'] == true)
-        {
+        if (isset($_SESSION['isAuthenticated']) && ! empty($_SESSION['isAuthenticated']) && $_SESSION['isAuthenticated'] == true) {
             return true;
         } else {
             return false;
