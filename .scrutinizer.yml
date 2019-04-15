@@ -17,7 +17,7 @@ build:
         analysis:
             environment:
                 php: 7.1
-                node: 8
+                node: 10
             dependencies:
                 before:
                     - composer install
