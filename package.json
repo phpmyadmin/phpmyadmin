@@ -23,7 +23,7 @@
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
-    "eslint": "^4.9.0",
+    "eslint": "^5.16.0",
     "stylelint": "^9.8.0",
     "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",
