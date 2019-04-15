@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2019-02-02 06:48+0000\n"
+"PO-Revision-Date: 2019-04-16 19:05+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1109,10 +1109,8 @@ msgid "Y values"
 msgstr "Y väärtused"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Palun sisesta sama väärtus uuesti"
+msgstr "Palun sisesta esmalt SQL päring."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -13915,10 +13913,8 @@ msgstr ""
 "näiteks %sPaigaldaja skripti%s."
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Salvesta failina"
+msgstr "Salvesta JSON failina"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
