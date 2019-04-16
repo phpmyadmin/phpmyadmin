@@ -2966,14 +2966,17 @@ fieldset {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table {
-  td {
-    position: static;
-  }
-
+.pma_table,
+.sticky_columns {
   th.draggable span {
     display: block;
     overflow: hidden;
+  }
+}
+
+.pma_table {
+  td {
+    position: static;
   }
 
   tbody td span {
