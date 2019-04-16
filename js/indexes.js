@@ -602,10 +602,10 @@ AJAX.registerOnload('indexes.js', function () {
         /** SQL Preview Statement **/
         var preview = question.split("`");
         if(preview[5] == " DROP PRIMARY KEY;") {
-            question = "ALTER TABLE " + "`" + preview[3] + "` " + preview[5] ;
+            question = "ALTER TABLE " + "`" + preview[3] + "` " + preview[5];
         }
-        else{
-            question = "ALTER TABLE " + "`" + preview[3] + "` " + "DROP INDEX " + "`" + preview[7] + "` " + " ;" ;
+        else {
+            question = "ALTER TABLE " + "`" + preview[3] + "` " + "DROP INDEX " + "`" + preview[7] + "` " + " ;";
         }
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
