@@ -751,7 +751,7 @@ class Index
                         . ' DROP PRIMARY KEY;';
                     $this_params['message_to_show']
                         = __('The primary key has been dropped.');
-                    $js_msg = Sanitize::jsFormat($this_params['sql_query']);
+                    $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
                 } else {
                     $this_params['sql_query'] = 'ALTER TABLE '
                         . Util::backquote($table) . ' DROP INDEX '

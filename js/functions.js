@@ -2408,6 +2408,52 @@ function PMA_previewSQL ($form) {
 }
 
 /**
+ *
+ * @param sql_data  Sql query to preview
+ * @param url       url to be sent to callback
+ * @param callback  callback function
+ *
+ * @return void
+ */
+function PMA_confirmPreviewSQL (sql_data, url, callback) {
+    var $dialog_content = $('<div class="preview_sql"><code class="sql"><pre>'
+        + sql_data
+        + '</pre></code></div>'
+    );
+    var button_options = {};
+    var button_options = [
+        {
+            text: PMA_messages.strOK,
+            'class': 'submitOK',
+            click: function () {
+                callback(url);
+            }
+        },
+        {
+            text: PMA_messages.strCancel,
+            'class': 'submitCancel',
+            click: function () {
+                $(this).dialog('close');
+            }
+        }
+    ];
+    var $response_dialog = $dialog_content.dialog({
+        minWidth: 550,
+        maxHeight: 400,
+        modal: true,
+        buttons: button_options,
+        title: PMA_messages.strPreviewSQL,
+        close: function () {
+            $(this).remove();
+        },
+        open: function () {
+            // Pretty SQL printing.
+            PMA_highlightSQL($(this));
+        }
+    });
+}
+
+/**
  * check for reserved keyword column name
  *
  * @param jQuery Object $form Form
