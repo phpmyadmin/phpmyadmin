@@ -902,9 +902,9 @@ body#loginform div.container {
 }
 
 form.login label {
-    float: <?php echo $left; ?>;
     width: 10em;
     font-weight: bolder;
+    margin-<?php echo $left; ?>: 2em;
 }
 
 form.login input[type=text],
