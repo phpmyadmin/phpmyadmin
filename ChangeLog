@@ -63,6 +63,7 @@ phpMyAdmin - ChangeLog
 - issue #15036 Fixed missing input fields checks for MaxSizeForInputField
 - issue #15119 Fixed uninterpreted HTML on Settings->Export page
 - issue #15159 Fixed missing query time and database in console
+- issue #13713 Fixed column comments in the floating table header
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log

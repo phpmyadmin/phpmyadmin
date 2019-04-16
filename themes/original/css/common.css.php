@@ -2188,6 +2188,7 @@ fieldset .disabled-field td {
 }
 
 .pma_table th.draggable span,
+.sticky_columns th.draggable span,
 .pma_table tbody td span {
     display: block;
     overflow: hidden;
