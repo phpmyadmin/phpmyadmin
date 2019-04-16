@@ -598,6 +598,15 @@ AJAX.registerOnload('indexes.js', function () {
                 .children('.drop_primary_key_index_msg')
                 .val()
         );
+        
+        /** SQL Preview Statement **/
+        var preview = question.split("`");
+        if(preview[5] == " DROP PRIMARY KEY;") {
+            question = "ALTER TABLE " + "`" + preview[3] + "` " + preview[5] ;
+        }
+        else{
+            question = "ALTER TABLE " + "`" + preview[3] + "` " + "DROP INDEX " + "`" + preview[7] + "` " + " ;" ;
+        }
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
