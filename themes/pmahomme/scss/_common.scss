@@ -1006,9 +1006,9 @@ div#modalOverlay {
 
 form.login {
   label {
-    float: $left;
     width: 10em;
     font-weight: bolder;
+    margin-left: 2em;
   }
 
   input {
