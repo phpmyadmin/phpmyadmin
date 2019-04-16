@@ -1008,7 +1008,7 @@ form.login {
   label {
     width: 10em;
     font-weight: bolder;
-    margin-left: 2em;
+    margin-#{$left}: 2em;
   }
 
   input {
