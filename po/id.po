@@ -3,17 +3,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2018-05-19 17:57+0000\n"
-"Last-Translator: Muhammad Rifqi Priyo Susanto "
-"<muhammadrifqipriyosusanto@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-8/id/>\n"
+"PO-Revision-Date: 2019-04-21 05:28+0000\n"
+"Last-Translator: Hammam Afiq Murtadho <hammam.afiq277@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-8/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.6\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
@@ -337,16 +336,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Anda harus memilih paling sedikit satu kolom untuk ditampilkan!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulasikan query"
+msgstr "Kueri multi-tabel"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Kueri gagal"
+msgstr "Kueri melalui contoh"
 
 #: db_qbe.php:168
 #, php-format
@@ -924,7 +919,6 @@ msgid "Dropping Primary Key/Index"
 msgstr "Menghapus Kunci Primer/Indeks"
 
 #: js/messages.php:62
-#, fuzzy
 msgid "Dropping Foreign key."
 msgstr "Penghapusan Foreign Key."
 
@@ -953,6 +947,9 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Kamu mencoba mengurangi jumlah baris, tapi kamu telah memasukkan data di "
+"salah satu baris yang mau kamu hapus kalau lanjut nanti datanya hilang. "
+"Tetap lanjut?"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1117,10 +1114,8 @@ msgid "Y values"
 msgstr "Nilai Y"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Silakan masukkan lagi nilai yang sama"
+msgstr "Masukkan kueri SQL terlebih dahulu."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -2308,7 +2303,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "nilai/subKueri kosong"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -5130,7 +5125,6 @@ msgid "Remember table's sorting"
 msgstr "Ingat urutan tabel"
 
 #: libraries/classes/Config/Descriptions.php:949
-#, fuzzy
 msgid "Default sort order for tables with a primary key."
 msgstr "Urutan default untuk tabel dengan primary key."
 
@@ -5208,10 +5202,9 @@ msgstr ""
 "database Anda"
 
 #: libraries/classes/Config/Descriptions.php:988
-#, fuzzy
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
-"nama HTTP Basic Auth Realm untuk ditampilkan ketika melakukan HTTP Auth."
+"Nama HTTP Basic Auth Realm untuk ditampilkan ketika melakukan HTTP Auth."
 
 #: libraries/classes/Config/Descriptions.php:990
 msgid "HTTP Realm"
@@ -5304,19 +5297,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Sembunyikan pencocokan ekspresi reguler database(PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Informasi lebih lanjut kunjungi [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]PMA bug tracker[/a] dan [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"Informasi lebih lanjut kunjungi [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] dan [a@https://bugs.mysql.com/19588]"
+"MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5379,16 +5367,12 @@ msgid "Export templates table"
 msgstr "Mengekspor templates sebagai tabel"
 
 #: libraries/classes/Config/Descriptions.php:1079
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Biarkan kosong agar tidak mendukung skema PDF, saran: [kbd]pma__pdf_pages[/"
-"kbd]."
+"Biarkan kosong agar tidak mendukung templat, saran: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1083
 msgid "Central columns table"
@@ -5437,19 +5421,14 @@ msgid "PDF schema: pages table"
 msgstr "Skema PDF: tabel halaman"
 
 #: libraries/classes/Config/Descriptions.php:1107
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat [a@https://"
-"wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]  untuk informasi lengkap. Biarkan "
-"kosong agar tanpa dukungan tersebut. Disarankan: [kbd]phpmyadmin[/kbd]."
+"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat [doc@linked-"
+"tables]pmadb[/doc] untuk informasi yang lengkap. Jika tidak menginginkan "
+"dukungan tersebut, biarkan kosong. Disarankan: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
