@@ -523,7 +523,7 @@ class LanguageManager
         ),
         'sq' => array(
             'sq',
-            'Slbanian',
+            'Albanian',
             'Shqip',
             'sq|albanian',
             'sq_AL',
