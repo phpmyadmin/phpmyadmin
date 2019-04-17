@@ -6,11 +6,9 @@
 <div id="plugins_plugins">
   <div id="sectionlinks">
     {% for plugin_type in plugins|keys %}
-      <button class="plugin-btn">
-        <a href="#plugins-{{- plugins_type_clean[plugin_type] }}">
+      <a class="btn btn-primary" href="#plugins-{{- plugins_type_clean[plugin_type] }}">
           {{ plugin_type }}
-        </a>
-      </button>
+      </a>
     {% endfor %}
   </div>
   {% for plugin_type, plugin_list in plugins %}
