@@ -572,7 +572,7 @@ if ($file_to_unlink != '') {
 // Reset charset back, if we did some changes
 if ($reset_charset) {
     $GLOBALS['dbi']->query('SET CHARACTER SET ' . $GLOBALS['charset_connection']);
-    $GLOBALS['dbi']->setCollationConnection($collation_connection);
+    $GLOBALS['dbi']->setCollation($collation_connection);
 }
 
 // Show correct message
