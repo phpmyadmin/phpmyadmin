@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2019-03-31 22:48+0000\n"
-"Last-Translator: Dranthos <dranthos@gmail.com>\n"
+"PO-Revision-Date: 2019-04-21 22:36+0000\n"
+"Last-Translator: Pablo Mayordomo <cartman322es@yahoo.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.6\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -951,8 +951,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Usted está intentando reducir el numero de filas, pero ya ha ingresado datos "
-"en ellas los cuales se perderán. ¿Desea continuar?"
+"Está intentando reducir el número de filas, pero ya ha introducido datos en "
+"esas filas que se perderán. ¿Desea continuar?"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1117,7 +1117,7 @@ msgstr "Valores Y"
 
 #: js/messages.php:142
 msgid "Please enter the SQL query first."
-msgstr "Ingrese la consulta SQL primero."
+msgstr "Por favor, introduzca primero la consulta SQL."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -2317,7 +2317,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr "valor/subconsulta está vacía"
+msgstr "valor/subconsulta está vacío"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -5366,18 +5366,14 @@ msgstr ""
 "regulares (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Más información en [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] y [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Más información en[a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"Rastreador de problemas de phpMyAdmin[/a] y[a@https://bugs.mysql.com/19588]"
+"Errores de MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -6528,28 +6524,22 @@ msgstr ""
 "sesión%s debe ser definida a un valor menor o igual al mismo."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sLa compresión y descompresión Bzip2%s requiere funciones (%s) que no están "
-"disponibles en este sistema."
+"%1$sLa compresión y descompresión Bzip2%2$s requiere funciones (%3$s) que no "
+"están disponibles en este sistema."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sla compresión y descompresión GZip%s requiere funciones (%s) que no están "
-"disponibles en este sistema."
+"%1$sLa compresión y descompresión GZip%2$s requiere funciones (%3$s) que no "
+"están disponibles en este sistema."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -7118,21 +7108,17 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Las palabras están separadas por un espacio (\" \")."
 
 #: libraries/classes/DatabaseInterface.php:1505
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"No se puede utilizar la zona horaria %1$s para el servidor %2$d. Revise su "
-"configuración para [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin utiliza actualmente la zona horaria predeterminada del servidor "
-"de la base de datos."
+"No se puede usar la zona horaria \"%1$s\" para el servidor %2$d. Por favor, "
+"compruebe su configuración "
+"para[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin está "
+"utilizando actualmente la zona horaria predeterminada del servidor de base "
+"de datos."
 
 #: libraries/classes/DatabaseInterface.php:1552
 msgid "Failed to set configured collation connection!"
@@ -8982,10 +8968,8 @@ msgid "Switch to copied database"
 msgstr "Seleccionar la base de datos copiada"
 
 #: libraries/classes/Operations.php:320
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Cambiar todas las intercalaciones de columna"
+msgstr "Modificar el cotejamiento de todas las tablas"
 
 #: libraries/classes/Operations.php:326
 msgid "Change all tables columns collations"
@@ -9288,8 +9272,8 @@ msgstr "El servidor MySQL no autorizó su acceso"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:335
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
-"Ha habilitado la autenticación de dos factores, confirme su inicio de sesión "
-"por favor."
+"Ha habilitado el factor de doble autentificación, confirme su inicio de "
+"sesión por favor."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/export/format_dropdown.twig:2
@@ -10280,57 +10264,54 @@ msgstr ""
 "sin ella."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Complemento de autenticación"
+msgstr "Aplicación de autenticación (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Proporciona autenticación utilizando aplicaciones HOTP y TOTP como FreeOTP, "
+"Google Authenticator o Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Clave de seguridad de hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Proporciona autenticación mediante tokens de seguridad de hardware que "
+"soportan FIDO U2F."
 
 # Description of signon value for configuration described at
 # https://www.phpmyadmin.net/documentation/Documentation.html#cfg_Servers_auth_type
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Autenticación por sesión"
+msgstr "factor de doble autentificación"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr "¡Solo para testear!"
+msgstr "¡Solo para fines de prueba!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "¡Fracasó la autenticación de hardware!"
+msgstr "Fallo del factor de doble autentificación: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "¡Fracasó la autenticación de hardware!"
+msgstr "factor de doble autentificación fallida."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr ""
+msgstr "No existe factor de doble autentificación"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "Inicie sesión utilizando solo la contraseña."
 
 #: libraries/classes/RecentFavoriteTable.php:145
 msgid "Could not save recent table!"
@@ -10661,16 +10642,13 @@ msgid "Change or reconfigure master server"
 msgstr "Cambiar o reconfigurar el servidor maestro"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Este servidor no está configurado como esclavo en un proceso de replicación. "
-"¿Desea <a href=\"%s\">configurarlo</a>?"
+"¿Te gustaría  %sconfigurarlo%s?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10692,16 +10670,13 @@ msgid "Skip next %s errors."
 msgstr "Omitir los siguientes %s errores."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Este servidor no está configurado como maestro en un proceso de replicación. "
-"¿Desea <a href=\"%s\">configurarlo</a>?"
+"¿Te gustaría %sconfigurarlo%s?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/database/search/selection_form.twig:35
@@ -13288,7 +13263,7 @@ msgstr "Obtener consulta almacenada automáticamente"
 
 #: libraries/classes/SqlQueryForm.php:260
 msgid "Bind parameters"
-msgstr "Enlazar parámetros"
+msgstr "Parámetros enlazados"
 
 #: libraries/classes/SqlQueryForm.php:308
 msgid "Bookmark this SQL query:"
@@ -14036,6 +14011,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"No se pudo establecer la cookie de sesión. Tal vez está usando HTTP en lugar "
+"de HTTPS para acceder a phpMyAdmin."
 
 #: libraries/common.inc.php:342
 msgid "Invalid authentication method set in configuration:"
@@ -14172,10 +14149,8 @@ msgid "Manage your settings"
 msgstr "Administrar tu configuración"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Autenticación por configuración"
+msgstr "Factor de doble autentificación"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
@@ -14263,10 +14238,8 @@ msgstr ""
 "ejemplo, utilizado %sscripts de configuración%s."
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Guardar como archivo"
+msgstr "Guardar como archivo JSON"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -14292,16 +14265,12 @@ msgstr ""
 "predeterminados."
 
 #: prefs_twofactor.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Se ha eliminado la relación interna."
+msgstr "El factor de doble autentificación ha sido eliminado."
 
 #: prefs_twofactor.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Método de autenticación no válido definido en la configuración:"
+msgstr "El factor de doble autentificación ha sido configurado."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14658,16 +14627,16 @@ msgstr "Eliminar de las columnas centrales"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Autentificación"
+msgstr "Código de autentificación:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Abra la aplicación de doble factor de autentificación en su dispositivo para "
+"ver su código de autentificación y verificar su identidad."
 
 #: templates/display/results/additional_fields.twig:6
 #: templates/start_and_number_of_rows_panel.twig:10
@@ -14773,8 +14742,6 @@ msgid "Hide/Show all"
 msgstr "Ocultar/mostrar todo"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Ocultar / Mostrar tablas sin relación"
 
@@ -14810,16 +14777,13 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "El archivo puede ser comprimido (%s) o descomprimido."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Un archivo comprimido tiene que terminar en <b>.[formato].[compresión]</b>. "
-"Por ejemplo: <b>.sql.zip</b>"
+"Un archivo comprimido tiene que terminar en "
+"<strong>.[formato].[compresión]</strong>. Por ejemplo: "
+"<strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -14849,20 +14813,15 @@ msgstr ""
 
 # not too fond of "script" and "break transactions"
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Permitir la interrupción de una importación en caso que el script detecte "
-"que se ha acercado al límite de tiempo PHP. <i>(Esto podría ser un buen "
+"que se ha acercado al límite de tiempo PHP. <em>(Esto podría ser un buen "
 "método para importar archivos grandes; sin embargo, puede dañar las "
-"transacciones.)</i>"
+"transacciones.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -14902,8 +14861,6 @@ msgstr "Nuevo"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -14941,32 +14898,24 @@ msgstr ""
 
 #: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
 #: templates/prefs_twofactor.twig:54
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Autenticación por configuración"
+msgstr "Configurar factor de doble autentificación"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Autenticación por configuración"
+msgstr "Activar factor de doble autentificación"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
 msgstr "Variables y parámetros del servidor"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Motores de almacenamiento"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Conjunto de caracteres y sus cotejamientos"
+msgstr "Conjunto de caracteres y cotejamientos"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -15261,6 +15210,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Conecte el dispositivo FIDO U2F al puerto USB de su ordenador. A "
+"continuación, confirme el registro en el dispositivo."
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -15324,12 +15275,16 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Conecte el dispositivo FIDO U2F al puerto USB de su ordenador. A "
+"continuación, confirme el inicio de sesión en el dispositivo."
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Usted no está usando https para acceder a phpMyAdmin, por lo tanto, es muy "
+"probable que el dispositivo FIDO U2F se niegue a autentificarlo."
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -15353,10 +15308,9 @@ msgstr "Agregar a Favoritos"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Guardar en el servidor en el directorio <b>%s</b>"
+msgstr "Guardar en el servidor en el directorio <strong>%s</strong>"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -15374,12 +15328,6 @@ msgid "Requery"
 msgstr "Reconsultar"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -15418,12 +15366,6 @@ msgstr "Opciones de transformación de visualización en el navegador"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -15432,8 +15374,8 @@ msgid ""
 msgstr ""
 "Introduzca los valores para las opciones de transformación usando este "
 "formato: 'a',100,b,'c'…<br />Si alguna vez requiere insertar una barra "
-"invertida (\"\\\") o comilla sencilla (\"'\") entre esos valores, añada una "
-"barra invertida (por ejemplo '\\\\xyz' o 'a\\'b')."
+"invertida (\"\\\") o una comilla sencilla (\"'\") entre esos valores, añada "
+"una barra invertida (por ejemplo '\\\\xyz' o 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15608,20 +15550,26 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Por favor, escanee el siguiente código QR en la aplicación de doble factor "
+"de autentificación de su dispositivo e introduzca el código de "
+"autentificación que genera."
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
+"Por favor, introduzca el siguiente llave/secreta en la aplicación de factor "
+"de doble autentificación de su dispositivo e introduzca el código de "
+"autentificación que genera."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "url OPT:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Llave/secreta:"
 
 #: templates/table/search/selection_form.twig:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
@@ -15764,10 +15712,9 @@ msgid "Effective"
 msgstr "Efectivo/a"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Saltar a la base de datos"
+msgstr "Saltar a la base de datos '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15796,13 +15743,10 @@ msgstr[0] "%1$s coincidencia en la tabla <strong>%2$s</strong>"
 msgstr[1] "%1$s coincidencias en la tabla <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
+msgstr[0] "<strong>Total:</strong> <em>%count%</em> resultado"
+msgstr[1] "<strong>Total:</strong> <em>%count%</em> resultados"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15822,22 +15766,20 @@ msgid "Databases:"
 msgstr "Bases de datos:"
 
 #: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Autenticación por configuración"
+msgstr "Confirmar la desactivación del factor de doble autentificación"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Al desactivar el doble factor de autentificación, podrá volver a iniciar "
+"sesión utilizando solo la contraseña."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Autenticación por configuración"
+msgstr "Desactivar el factor de doble autentificación"
 
 #: templates/server/binlog/log_selector.twig:5
 msgid "Select binary log to view"
@@ -16029,10 +15971,9 @@ msgid "Save output to a file"
 msgstr "Guardar salida a un archivo"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Omitir tablas mayores a"
+msgstr "Omitir tablas mayores a %s MiB"
 
 #: templates/privileges/column_privileges.twig:21
 #: templates/privileges/column_privileges.twig:22
@@ -16230,13 +16171,12 @@ msgid "Add/Delete columns"
 msgstr "Añadir/borrar columnas"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-"%sCree%s las tablas en las que se guarda la configuración de phpMyAdmin."
+"El factor de doble autentificación configurado no está disponible, por favor "
+"instale las dependencias que faltan."
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
@@ -16254,10 +16194,8 @@ msgid "Index choice:"
 msgstr "Opción de índice:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Opciones activas"
+msgstr "Opciones avanzadas"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -16353,14 +16291,12 @@ msgid "No preview available."
 msgstr "No existe una previsualización disponible."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "tómelo"
+msgstr "Tómelo"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Verificar"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -16401,75 +16337,54 @@ msgstr "Ventana de consulta"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Seleccionar tabla:"
+msgstr "Seleccionar tabla"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Seleccionar columna:"
+msgstr "Seleccionar columna"
 
 #: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tablas"
+msgstr "Alias de tabla"
 
 #: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Nombre de las columnas"
+msgstr "Alias de columna"
 
 #: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Utilice esta columna para etiquetar cada punto"
+msgstr "Utilice esta columna en las condiciones"
 
 #: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Criterio:"
+msgstr "condiciones"
 
 #: templates/database/multi_table_query/form.twig:67
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Añada %s"
+msgstr "Añadir como"
 
 #: templates/database/multi_table_query/form.twig:112
-#, fuzzy
-#| msgid "Move column"
 msgid "Another column"
-msgstr "Mover columna"
+msgstr "Otra columna"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Introduzca las condiciones como texto libre"
 
 #: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Eliminar columnas redundantes"
+msgstr "Eliminar esta columna"
 
 #: templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Modificar la consulta"
+msgstr "Actualizar consulta"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create"
+#, php-format
 msgid "Create %s"
-msgstr "Crear"
+msgstr "Crear %s"
 
 # Corresponds to NONE option for default value of a TIMESTAMP field
 #: templates/columns_definitions/column_default.twig:3
@@ -16491,42 +16406,45 @@ msgid "Use regular expression"
 msgstr "Utilizar expresión regular"
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Configuración de autentificación."
+msgstr "Estado del factor de doble autentificación"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"El factor de doble autentificación no está disponible, por favor instale "
+"dependencias opcionales para habilitar los backends de autentificación."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Faltan los siguientes paquetes de compositores:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"El doble factor de autentificación está disponible y configurada para esta "
+"cuenta."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"El doble factor de autentificación está disponible, pero no configurada para "
+"esta cuenta."
 
 #: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
-"%sCree%s las tablas en las que se guarda la configuración de phpMyAdmin."
+"El factor de doble autentificación no está disponible, habilite el "
+"almacenamiento de configuración phpMyAdmin para utilizarlo."
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Ha activado el doble factor de autentificación."
 
 #: templates/table/structure/optional_action_links.twig:6
 msgid "Propose table structure"
