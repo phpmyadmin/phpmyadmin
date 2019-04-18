@@ -32,7 +32,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export_output.js');
 
-$export = new Export();
+$export = new Export($GLOBALS['dbi']);
 
 //check if it's the GET request to check export time out
 if (isset($_GET['check_time_out'])) {
