@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Database\Qbe;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -21,13 +23,18 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * requirements
- */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
-$relation = new Relation($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$relation = new Relation($dbi);
 $template = new Template();
 
 // Gets the relation settings
@@ -144,7 +151,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new Qbe($GLOBALS['dbi'], $GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new Qbe($dbi, $GLOBALS['db'], $savedSearchList, $savedSearch);
 
 $secondaryTabs = [
     'multi' => [

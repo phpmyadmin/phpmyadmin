@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -21,15 +23,17 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * include common file
- */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
-$relation = new Relation($GLOBALS['dbi']);
+$relation = new Relation($dbi);
 $cfgRelation = $relation->getRelationsParam();
 
 /**
@@ -42,8 +46,8 @@ $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
 $template = new Template();
-$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
-$serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
+$relationCleanup = new RelationCleanup($dbi, $relation);
+$serverPrivileges = new Privileges($template, $dbi, $relation, $relationCleanup);
 
 if ((isset($_GET['viewing_mode'])
     && $_GET['viewing_mode'] == 'server')
@@ -139,7 +143,7 @@ list(
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (! $GLOBALS['dbi']->isSuperuser() && ! $GLOBALS['is_grantuser']
+if (! $dbi->isSuperuser() && ! $GLOBALS['is_grantuser']
     && ! $GLOBALS['is_createuser']
 ) {
     $response->addHTML(
@@ -258,7 +262,7 @@ if (! empty($_POST['update_privs'])) {
  * Assign users to user groups
  */
 if (! empty($_POST['changeUserGroup']) && $cfgRelation['menuswork']
-    && $GLOBALS['dbi']->isSuperuser() && $GLOBALS['is_createuser']
+    && $dbi->isSuperuser() && $GLOBALS['is_createuser']
 ) {
     $serverPrivileges->setUserGroup($username, $_POST['userGroup']);
     $message = Message::success();

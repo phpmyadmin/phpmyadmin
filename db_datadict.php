@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -21,13 +23,20 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 Util::checkParameters(['db']);
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 $controller = new DataDictionaryController(
     $response,
-    $GLOBALS['dbi'],
+    $dbi,
     $db,
-    new Relation($GLOBALS['dbi']),
+    new Relation($dbi),
     new Transformations()
 );
 

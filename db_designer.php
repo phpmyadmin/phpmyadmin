@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -17,10 +19,17 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
 
-$databaseDesigner = new Designer($GLOBALS['dbi']);
-$designerCommon = new Common($GLOBALS['dbi']);
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$databaseDesigner = new Designer($dbi);
+$designerCommon = new Common($dbi);
 
 if (isset($_REQUEST['dialog'])) {
     if ($_GET['dialog'] == 'edit') {

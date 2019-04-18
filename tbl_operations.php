@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partition;
@@ -23,17 +25,22 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
-/**
- * Load JavaScript files
- */
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('tbl_operations.js');
 
 /**
@@ -46,19 +53,19 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-$relation = new Relation($GLOBALS['dbi']);
-$operations = new Operations($GLOBALS['dbi'], $relation);
+$relation = new Relation($dbi);
+$operations = new Operations($dbi, $relation);
 
 $cfgRelation = $relation->getRelationsParam();
 
 // reselect current db (needed in some cases probably due to
 // the calling of PhpMyAdmin\Relation)
-$GLOBALS['dbi']->selectDb($GLOBALS['db']);
+$dbi->selectDb($GLOBALS['db']);
 
 /**
  * Gets tables information
  */
-$pma_table = $GLOBALS['dbi']->getTable(
+$pma_table = $dbi->getTable(
     $GLOBALS['db'],
     $GLOBALS['table']
 );
@@ -92,7 +99,7 @@ if ($pma_table->isEngine('ARIA')) {
     $create_options['page_checksum'] = isset($create_options['page_checksum']) ? $create_options['page_checksum'] : '';
 }
 
-$pma_table = $GLOBALS['dbi']->getTable(
+$pma_table = $dbi->getTable(
     $GLOBALS['db'],
     $GLOBALS['table']
 );
@@ -141,7 +148,7 @@ if (isset($_POST['submitoptions'])) {
 
             // Reselect the original DB
             $GLOBALS['db'] = $oldDb;
-            $GLOBALS['dbi']->selectDb($oldDb);
+            $dbi->selectDb($oldDb);
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
@@ -189,7 +196,7 @@ if (isset($_POST['submitoptions'])) {
             . Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
-        $result         = $GLOBALS['dbi']->query($sql_query) ? true : false;
+        $result         = $dbi->query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
         $warning_messages = $operations->getWarningMessagesArray();
@@ -226,8 +233,8 @@ if (isset($_POST['submit_partition'])
 if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
-    $GLOBALS['dbi']->clearTableCache();
-    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $dbi->clearTableCache();
+    $dbi->selectDb($GLOBALS['db']);
     $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
     if ($pma_table->isView()) {
         $tbl_is_view = true;
@@ -310,7 +317,7 @@ $url_params['goto']
 /**
  * Get columns names
  */
-$columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
+$columns = $dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
 /**
  * Displays the page
@@ -472,7 +479,7 @@ unset($partition_names);
 // this choice (InnoDB maintains integrity by itself)
 
 if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
-    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $dbi->selectDb($GLOBALS['db']);
     $foreign = $relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 
     if (! empty($foreign)) {

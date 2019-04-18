@@ -3166,7 +3166,7 @@ class DatabaseInterface
         $GLOBALS['dbi'] = new DatabaseInterface($extension);
 
         $container = Container::getDefaultContainer();
-        $container->set('PMA_DatabaseInterface', $GLOBALS['dbi']);
-        $container->alias('dbi', 'PMA_DatabaseInterface');
+        $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
+        $container->alias('dbi', DatabaseInterface::class);
     }
 }

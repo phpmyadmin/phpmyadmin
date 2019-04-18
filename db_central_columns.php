@@ -14,17 +14,27 @@ if (! defined('ROOT_PATH')) {
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
-$centralColumns = new CentralColumns($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$centralColumns = new CentralColumns($dbi);
 
 $controller = new CentralColumnsController(
     $response,
-    $GLOBALS['dbi'],
+    $dbi,
     $db,
     $centralColumns
 );

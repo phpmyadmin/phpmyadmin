@@ -10,6 +10,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -20,15 +22,19 @@ if (! defined('ROOT_PATH')) {
 }
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
-
-/**
- * Runs common work
- */
 require ROOT_PATH . 'libraries/db_common.inc.php';
+
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'view_create.php';
-
-$response = Response::getInstance();
 
 $template = new Template();
 
@@ -112,9 +118,9 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
         }
     }
 
-    if (! $GLOBALS['dbi']->tryQuery($sql_query)) {
+    if (! $dbi->tryQuery($sql_query)) {
         if (! isset($_POST['ajax_dialog'])) {
-            $message = Message::rawError($GLOBALS['dbi']->getError());
+            $message = Message::rawError($dbi->getError());
             return;
         }
 
@@ -122,7 +128,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
             'message',
             Message::error(
                 "<i>" . htmlspecialchars($sql_query) . "</i><br><br>"
-                . $GLOBALS['dbi']->getError()
+                . $dbi->getError()
             )
         );
         $response->setRequestStatus(false);
@@ -135,12 +141,12 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
         $view_columns = explode(',', $_POST['view']['column_names']);
     }
 
-    $column_map = $GLOBALS['dbi']->getColumnMapFromSql(
+    $column_map = $dbi->getColumnMapFromSql(
         $_POST['view']['as'],
         $view_columns
     );
 
-    $systemDb = $GLOBALS['dbi']->getSystemDatabase();
+    $systemDb = $dbi->getSystemDatabase();
     $pma_transformation_data = $systemDb->getExistingTransformationData(
         $GLOBALS['db']
     );
@@ -156,7 +162,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
 
         // Store new transformations
         if ($new_transformations_sql != '') {
-            $GLOBALS['dbi']->tryQuery($new_transformations_sql);
+            $dbi->tryQuery($new_transformations_sql);
         }
     }
     unset($pma_transformation_data);
@@ -195,18 +201,18 @@ $view = [
 
 // Used to prefill the fields when editing a view
 if (isset($_GET['db']) && isset($_GET['table'])) {
-    $item = $GLOBALS['dbi']->fetchSingleRow(
+    $item = $dbi->fetchSingleRow(
         sprintf(
             "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,
             `SECURITY_TYPE`
             FROM `INFORMATION_SCHEMA`.`VIEWS`
             WHERE TABLE_SCHEMA='%s'
             AND TABLE_NAME='%s';",
-            $GLOBALS['dbi']->escapeString($_GET['db']),
-            $GLOBALS['dbi']->escapeString($_GET['table'])
+            $dbi->escapeString($_GET['db']),
+            $dbi->escapeString($_GET['table'])
         )
     );
-    $createView = $GLOBALS['dbi']->getTable($_GET['db'], $_GET['table'])
+    $createView = $dbi->getTable($_GET['db'], $_GET['table'])
         ->showCreate();
 
     // CREATE ALGORITHM=<ALGORITHM> DE...

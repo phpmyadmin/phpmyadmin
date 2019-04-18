@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -18,8 +20,15 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-// Also initialises the collapsible tree class
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 $navigation = new Navigation();
 if (! $response->isAjax()) {
     $response->addHTML(
@@ -35,7 +44,7 @@ if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
     exit();
 }
 
-$relation = new Relation($GLOBALS['dbi']);
+$relation = new Relation($dbi);
 $cfgRelation = $relation->getRelationsParam();
 if ($cfgRelation['navwork']) {
     if (isset($_POST['hideNavItem'])) {

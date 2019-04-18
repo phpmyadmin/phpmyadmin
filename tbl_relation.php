@@ -16,6 +16,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\RelationController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -30,20 +31,23 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(RelationController::class);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');
 $table = $container->get('table');
-$dbi = $container->get('dbi');
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 $options_array = [
     'CASCADE' => 'CASCADE',
     'SET_NULL' => 'SET NULL',
     'NO_ACTION' => 'NO ACTION',
     'RESTRICT' => 'RESTRICT',
 ];
-$relation = new Relation($GLOBALS['dbi']);
+$relation = new Relation($dbi);
 $cfgRelation = $relation->getRelationsParam();
 $tbl_storage_engine = mb_strtoupper(
     $dbi->getTable($db, $table)->getStatusInfo('Engine')

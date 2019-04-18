@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\IndexesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Response;
@@ -20,13 +21,15 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory(IndexesController::class);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');
 $table = $container->get('table');
-$dbi = $container->get('dbi');
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 if (! isset($_POST['create_edit_table'])) {
     include_once ROOT_PATH . 'libraries/tbl_common.inc.php';

@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins;
@@ -22,17 +24,22 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Get the variables sent or posted to this script and a core script
- */
 include_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('export_output.js');
 
-$export = new Export($GLOBALS['dbi']);
+$export = new Export($dbi);
 
 //check if it's the GET request to check export time out
 if (isset($_GET['check_time_out'])) {
@@ -421,7 +428,7 @@ if ($save_on_server) {
     } // end download
 }
 
-$relation = new Relation($GLOBALS['dbi']);
+$relation = new Relation($dbi);
 
 // Fake loop just to allow skip of remain of this code by break, I'd really
 // need exceptions here :-)

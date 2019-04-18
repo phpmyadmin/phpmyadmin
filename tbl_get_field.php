@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\Response;
 
@@ -20,9 +22,15 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-// we don't want the usual PhpMyAdmin\Response-generated HTML above the column's
-// data
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 $response->disable();
 
 /* Check parameters */
@@ -34,7 +42,7 @@ PhpMyAdmin\Util::checkParameters(
 );
 
 /* Select database */
-if (! $GLOBALS['dbi']->selectDb($db)) {
+if (! $dbi->selectDb($db)) {
     PhpMyAdmin\Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
@@ -43,7 +51,7 @@ if (! $GLOBALS['dbi']->selectDb($db)) {
 }
 
 /* Check if table exists */
-if (! $GLOBALS['dbi']->getColumns($db, $table)) {
+if (! $dbi->getColumns($db, $table)) {
     PhpMyAdmin\Util::mysqlDie(__('Invalid table name'));
 }
 
@@ -51,7 +59,7 @@ if (! $GLOBALS['dbi']->getColumns($db, $table)) {
 $sql = 'SELECT ' . PhpMyAdmin\Util::backquote($_GET['transform_key'])
     . ' FROM ' . PhpMyAdmin\Util::backquote($table)
     . ' WHERE ' . $_GET['where_clause'] . ';';
-$result = $GLOBALS['dbi']->fetchValue($sql);
+$result = $dbi->fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {

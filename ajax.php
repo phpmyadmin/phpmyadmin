@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\AjaxController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
@@ -20,12 +22,20 @@ $_GET['ajax_request'] = 'true';
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 $response->setAjax(true);
 
 $controller = new AjaxController(
     $response,
-    $GLOBALS['dbi'],
+    $dbi,
     $GLOBALS['PMA_Config']
 );
 

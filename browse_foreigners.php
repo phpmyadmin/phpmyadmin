@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
@@ -21,11 +23,18 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 Util::checkParameters(['db', 'table', 'field'], true);
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 $controller = new BrowseForeignersController(
     $response,
-    $GLOBALS['dbi'],
+    $dbi,
     new BrowseForeigners(
         $GLOBALS['cfg']['LimitChars'],
         $GLOBALS['cfg']['MaxRows'],
@@ -33,7 +42,7 @@ $controller = new BrowseForeignersController(
         $GLOBALS['cfg']['ShowAll'],
         $GLOBALS['pmaThemeImage']
     ),
-    new Relation($GLOBALS['dbi'])
+    new Relation($dbi)
 );
 
 $response->getFooter()->setMinimal();

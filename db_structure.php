@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Replication;
@@ -25,10 +26,13 @@ $container->factory(StructureController::class);
 $container->set(Response::class, Response::getInstance());
 $container->alias('response', Response::class);
 
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
     'db' => $db,
-    'relation' => new Relation($GLOBALS['dbi']),
+    'relation' => new Relation($dbi),
     'replication' => new Replication(),
 ];
 

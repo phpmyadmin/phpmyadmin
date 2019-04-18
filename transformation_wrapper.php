@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -16,18 +18,21 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- *
- */
 define('IS_TRANSFORMATION_WRAPPER', true);
 
-/**
- * Gets a core script and starts output buffering work
- */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 $transformations = new Transformations();
-$relation = new Relation($GLOBALS['dbi']);
+$relation = new Relation($dbi);
 $cfgRelation = $relation->getRelationsParam();
 
 /**
@@ -67,22 +72,22 @@ foreach ($request_params as $one_request_param) {
 /**
  * Get the list of the fields of the current table
  */
-$GLOBALS['dbi']->selectDb($db);
+$dbi->selectDb($db);
 if (isset($where_clause)) {
-    $result = $GLOBALS['dbi']->query(
+    $result = $dbi->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table)
         . ' WHERE ' . $where_clause . ';',
         PhpMyAdmin\DatabaseInterface::CONNECT_USER,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
-    $row = $GLOBALS['dbi']->fetchAssoc($result);
+    $row = $dbi->fetchAssoc($result);
 } else {
-    $result = $GLOBALS['dbi']->query(
+    $result = $dbi->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table) . ' LIMIT 1;',
         PhpMyAdmin\DatabaseInterface::CONNECT_USER,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
-    $row = $GLOBALS['dbi']->fetchAssoc($result);
+    $row = $dbi->fetchAssoc($result);
 }
 
 // No row returned
@@ -106,8 +111,6 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     }
 }
 
-// Only output the http headers
-$response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 
 // [MIME]
