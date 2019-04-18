@@ -113,6 +113,10 @@ canvas.designer {
   display: none;
 }
 
+#designer_body #page_content {
+  margin: 0;
+}
+
 .scroll_tab {
   overflow: auto;
   width: 100%;
