@@ -401,7 +401,6 @@ class Header
      */
     public function getDisplay(): string
     {
-        $retval = '';
         if (! $this->_headerIsSent) {
             if (! $this->_isAjax && $this->_isEnabled) {
                 $this->sendHttpHeaders();
@@ -435,68 +434,59 @@ class Header
                     $this->_scripts->addFile('config.js');
                 }
 
-                $retval .= $this->template->render('header/header', [
-                    'lang' => $GLOBALS['lang'],
-                    'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
-                    'is_print_view' => $this->_isPrintView,
-                    'base_dir' => $baseDir,
-                    'unique_value' => $uniqueValue,
-                    'theme_path' => $themePath,
-                    'version' => $version,
-                    'text_dir' => $GLOBALS['text_dir'],
-                    'server' => $GLOBALS['server'] ?? null,
-                    'title' => $this->getTitleTag(),
-                    'scripts' => $this->_scripts->getDisplay(),
-                    'body_id' => $this->_bodyId,
-                ]);
-
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $nav = new Navigation();
-                    $retval .= $nav->getDisplay();
+                    $navigation = $nav->getDisplay();
                 }
-                // Include possible custom headers
-                $retval .= Config::renderHeader();
+
+                $customHeader = Config::renderHeader();
+
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {
-                    $retval .= $this->userPreferences->autoloadGetHeader();
+                    $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
                 }
-                // pass configuration for hint tooltip display
-                // (to be used by PMA_tooltip() in js/functions.js)
-                if (! $GLOBALS['cfg']['ShowHint']) {
-                    $retval .= '<span id="no_hint" class="hide"></span>';
-                }
-                $retval .= $this->_getWarnings();
+
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
-                    $retval .= $this->_menu->getDisplay();
-                    $retval .= '<span id="page_nav_icons">';
-                    $retval .= '<span id="lock_page_icon"></span>';
-                    $retval .= '<span id="page_settings_icon">'
-                        . Util::getImage(
-                            's_cog',
-                            __('Page-related settings')
-                        )
-                        . '</span>';
-                    $retval .= sprintf(
-                        '<a id="goto_pagetop" href="#">%s</a>',
-                        Util::getImage(
-                            's_top',
-                            __('Click on the bar to scroll to top of page')
-                        )
-                    );
-                    $retval .= '</span>';
+                    $menu = $this->_menu->getDisplay();
                 }
-                $retval .= $this->_console->getDisplay();
-                $retval .= '<div id="page_content">';
-                $retval .= $this->getMessage();
+                $console = $this->_console->getDisplay();
+                $messages = $this->getMessage();
             }
             if ($this->_isEnabled && empty($_REQUEST['recent_table'])) {
-                $retval .= $this->_addRecentTable(
+                $recentTable = $this->_addRecentTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']
                 );
             }
+            return $this->template->render('header', [
+                'is_ajax' => $this->_isAjax,
+                'is_enabled' => $this->_isEnabled,
+                'lang' => $GLOBALS['lang'],
+                'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
+                'is_print_view' => $this->_isPrintView,
+                'base_dir' => $baseDir ?? '',
+                'unique_value' => $uniqueValue ?? '',
+                'theme_path' => $themePath ?? '',
+                'version' => $version ?? '',
+                'text_dir' => $GLOBALS['text_dir'],
+                'server' => $GLOBALS['server'] ?? null,
+                'title' => $this->getPageTitle(),
+                'scripts' => $this->_scripts->getDisplay(),
+                'body_id' => $this->_bodyId,
+                'navigation' => $navigation ?? '',
+                'custom_header' => $customHeader ?? '',
+                'load_user_preferences' => $loadUserPreferences ?? '',
+                'show_hint' => $GLOBALS['cfg']['ShowHint'],
+                'is_warnings_enabled' => $this->_warningsEnabled,
+                'is_menu_enabled' => $this->_menuEnabled,
+                'menu' => $menu ?? '',
+                'console' => $console ?? '',
+                'messages' => $messages ?? '',
+                'has_recent_table' => empty($_REQUEST['recent_table']),
+                'recent_table' => $recentTable ?? '',
+            ]);
         }
-        return $retval;
+        return '';
     }
 
     /**
@@ -645,24 +635,12 @@ class Header
     }
 
     /**
-     * Returns the TITLE tag
-     *
-     * @return string the TITLE tag
-     */
-    public function getTitleTag(): string
-    {
-        return $this->template->render('header/title_tag', [
-            'title' => $this->getPageTitle(),
-        ]);
-    }
-
-    /**
      * If the page is missing the title, this function
      * will set it to something reasonable
      *
      * @return string
      */
-    private function getPageTitle(): string
+    public function getPageTitle(): string
     {
         if (strlen($this->_title) == 0) {
             if ($GLOBALS['server'] > 0) {
@@ -683,24 +661,6 @@ class Header
             }
         }
         return $this->_title;
-    }
-
-    /**
-     * Returns some warnings to be displayed at the top of the page
-     *
-     * @return string The warnings
-     */
-    private function _getWarnings(): string
-    {
-        $retval = '';
-        if ($this->_warningsEnabled) {
-            $retval .= "<noscript>";
-            $retval .= Message::error(
-                __("Javascript must be enabled past this point!")
-            )->getDisplay();
-            $retval .= "</noscript>";
-        }
-        return $retval;
     }
 
     /**
