@@ -264,7 +264,7 @@ class FooterTest extends PmaTestCase
         $footer = new Footer();
         $footer->setMinimal();
         $this->assertEquals(
-            '</div></body></html>',
+            "  </div>\n  </body>\n</html>\n",
             $footer->getDisplay()
         );
     }
