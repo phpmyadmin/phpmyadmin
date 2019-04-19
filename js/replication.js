@@ -5,7 +5,7 @@
  *
  * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js 
+ * @requires    js/functions.js
  */
 
 var random_server_id = Math.floor(Math.random() * 10000000);

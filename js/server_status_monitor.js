@@ -5,7 +5,7 @@
  *
  * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js 
+ * @requires    js/functions.js
  */
 var runtime = {};
 var server_time_diff;
