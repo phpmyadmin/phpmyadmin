@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\SqlController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -16,11 +18,18 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 $controller = new SqlController(
     $response,
-    $GLOBALS['dbi']
+    $dbi
 );
 
 $header = $response->getHeader();

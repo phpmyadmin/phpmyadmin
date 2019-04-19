@@ -266,7 +266,6 @@ configuration file:
 
     <?php
     $cfg['Export']['csv_columns'] = true;
-    ?>
 
 You can also use it to define server configuration instead of using the
 environment variables listed in :ref:`docker-vars`:
@@ -515,8 +514,7 @@ simple configuration may look like this:
     $i++;
     $cfg['Servers'][$i]['auth_type']     = 'cookie';
     // if you insist on "root" having no password:
-    // $cfg['Servers'][$i]['AllowNoPassword'] = true; `
-    ?>
+    // $cfg['Servers'][$i]['AllowNoPassword'] = true;
 
 Or, if you prefer to not be prompted every time you log in:
 
@@ -529,7 +527,6 @@ Or, if you prefer to not be prompted every time you log in:
     $cfg['Servers'][$i]['user']          = 'root';
     $cfg['Servers'][$i]['password']      = 'cbb74bc'; // use here your password
     $cfg['Servers'][$i]['auth_type']     = 'config';
-    ?>
 
 .. warning::
 

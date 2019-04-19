@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
@@ -22,6 +24,15 @@ if (! defined('ROOT_PATH')) {
  * Get some core libraries
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 // Check parameters
 Util::checkParameters(['db']);
@@ -41,7 +52,7 @@ if (strlen($db) === 0) {
 /**
  * Selects the database to work with
  */
-if (! $GLOBALS['dbi']->selectDb($db)) {
+if (! $dbi->selectDb($db)) {
     Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
@@ -50,7 +61,7 @@ if (! $GLOBALS['dbi']->selectDb($db)) {
     );
 }
 
-if ($GLOBALS['dbi']->getColumns($db, $table)) {
+if ($dbi->getColumns($db, $table)) {
     // table exists already
     Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
@@ -60,7 +71,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
     );
 }
 
-$createAddField = new CreateAddField($GLOBALS['dbi']);
+$createAddField = new CreateAddField($dbi);
 
 // for libraries/tbl_columns_definition_form.inc.php
 // check number of fields to be created
@@ -79,7 +90,7 @@ if (isset($_POST['do_save_data'])) {
         Core::previewSQL($sql_query);
     }
     // Executes the query
-    $result = $GLOBALS['dbi']->tryQuery($sql_query);
+    $result = $dbi->tryQuery($sql_query);
 
     if ($result) {
         // Update comment table for mime types [MIME]
@@ -105,9 +116,8 @@ if (isset($_POST['do_save_data'])) {
             }
         }
     } else {
-        $response = Response::getInstance();
         $response->setRequestStatus(false);
-        $response->addJSON('message', $GLOBALS['dbi']->getError());
+        $response->addJSON('message', $dbi->getError());
     }
     exit;
 } // end do create table

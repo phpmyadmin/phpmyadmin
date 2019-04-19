@@ -7,6 +7,8 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\UserGroups;
@@ -18,21 +20,29 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$relation = new Relation($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$relation = new Relation($dbi);
 $relation->getRelationsParam();
 if (! $GLOBALS['cfgRelation']['menuswork']) {
     exit;
 }
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('server_user_groups.js');
 
 /**
  * Only allowed to superuser
  */
-if (! $GLOBALS['dbi']->isSuperuser()) {
+if (! $dbi->isSuperuser()) {
     $response->addHTML(
         PhpMyAdmin\Message::error(__('No Privileges'))
             ->getDisplay()

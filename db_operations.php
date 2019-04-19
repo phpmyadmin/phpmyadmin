@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -29,25 +30,29 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * requirements
- */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
-// add a javascript file for jQuery functions to handle Ajax actions
-$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
 
 $sql_query = '';
 
-$relation = new Relation($GLOBALS['dbi']);
-$operations = new Operations($GLOBALS['dbi'], $relation);
-$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
+$relation = new Relation($dbi);
+$operations = new Operations($dbi, $relation);
+$relationCleanup = new RelationCleanup($dbi, $relation);
 
 /**
  * Rename/move or copy database
@@ -65,7 +70,7 @@ if (strlen($GLOBALS['db']) > 0
         $message = Message::error(__('The database name is empty!'));
     } else {
         // lower_case_table_names=1 `DB` becomes `db`
-        if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
+        if ($dbi->getLowerCaseNames() === '1') {
             $_POST['newname'] = mb_strtolower(
                 $_POST['newname']
             );
@@ -90,9 +95,9 @@ if (strlen($GLOBALS['db']) > 0
             $operations->runProcedureAndFunctionDefinitions($GLOBALS['db']);
 
             // go back to current db, just in case
-            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+            $dbi->selectDb($GLOBALS['db']);
 
-            $tables_full = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
+            $tables_full = $dbi->getTablesFull($GLOBALS['db']);
 
             // remove all foreign key constraints, otherwise we can get errors
             /* @var $export_sql_plugin ExportSql */
@@ -132,7 +137,7 @@ if (strlen($GLOBALS['db']) > 0
             }
             unset($sqlConstratints);
 
-            if ($GLOBALS['dbi']->getVersion() >= 50100) {
+            if ($dbi->getVersion() >= 50100) {
                 // here DELIMITER is not used because it's not part of the
                 // language; each statement is sent one by one
 
@@ -140,7 +145,7 @@ if (strlen($GLOBALS['db']) > 0
             }
 
             // go back to current db, just in case
-            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+            $dbi->selectDb($GLOBALS['db']);
 
             // Duplicate the bookmarks for this db (done once for each db)
             $operations->duplicateBookmarks($_error, $GLOBALS['db']);
@@ -161,7 +166,7 @@ if (strlen($GLOBALS['db']) > 0
                 $local_query = 'DROP DATABASE '
                     . Util::backquote($GLOBALS['db']) . ';';
                 $sql_query .= "\n" . $local_query;
-                $GLOBALS['dbi']->query($local_query);
+                $dbi->query($local_query);
 
                 $message = Message::success(
                     __('Database %1$s has been renamed to %2$s.')
@@ -256,8 +261,8 @@ if (isset($message)) {
     unset($message);
 }
 
-$db_collation = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
-$is_information_schema = $GLOBALS['dbi']->isSystemSchema($GLOBALS['db']);
+$db_collation = $dbi->getDbCollation($GLOBALS['db']);
+$is_information_schema = $dbi->isSystemSchema($GLOBALS['db']);
 
 if (! $is_information_schema) {
     if ($cfgRelation['commwork']) {
@@ -282,7 +287,7 @@ if (! $is_information_schema) {
     // Don't even try to drop information_schema.
     // You won't be able to. Believe me. You won't.
     // Don't allow to easily drop mysql database, RFE #1327514.
-    if (($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+    if (($dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
         && ! $db_is_system_schema
         && $GLOBALS['db'] != 'mysql'
     ) {

@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -23,9 +25,17 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('tbl_structure.js');
 
 // Check parameters
@@ -72,7 +82,7 @@ if (isset($_POST['do_save_data'])) {
     //tbl_structure.php below
     unset($_POST['do_save_data']);
 
-    $createAddField = new CreateAddField($GLOBALS['dbi']);
+    $createAddField = new CreateAddField($dbi);
 
     list($result, $sql_query) = $createAddField->tryColumnCreationQuery($db, $table, $err_url);
 

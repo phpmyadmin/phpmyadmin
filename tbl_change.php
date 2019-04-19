@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -23,6 +25,15 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 PageSettings::showGroup('Edit');
 
 /**
@@ -30,7 +41,7 @@ PageSettings::showGroup('Edit');
  */
 require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 
-$insertEdit = new InsertEdit($GLOBALS['dbi']);
+$insertEdit = new InsertEdit($dbi);
 
 /**
  * Determine whether Insert or Edit and set global variables
@@ -72,12 +83,8 @@ $comments_map = $insertEdit->getCommentsMap($db, $table);
  * START REGULAR OUTPUT
  */
 
-/**
- * Load JavaScript files
- */
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('sql.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('vendor/jquery/additional-methods.js');
@@ -95,7 +102,7 @@ if (! empty($disp_message)) {
 $table_columns = $insertEdit->getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
-$relation = new Relation($GLOBALS['dbi']);
+$relation = new Relation($dbi);
 $foreigners = $relation->getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form

@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:45-0300\n"
-"PO-Revision-Date: 2019-04-09 18:36+0000\n"
-"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
+"PO-Revision-Date: 2019-04-16 19:07+0000\n"
+"Last-Translator: Bauyrzhan <bauyrzhan.maksot@mail.ru>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kk/>\n"
 "Language: kk\n"
@@ -218,7 +218,7 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Múmkin tym úlken faıldy júktep berýge tyrysqan bolarsyz. Bul shekteý úshin "
+"Múmkin tym úlken faıldy júktep salýǵa tyrysqan bolarsyz. Bul shekteý úshin "
 "ýaqytsha sheshimdi %squjattamadan%s qarańyz."
 
 #: import.php:391 import.php:597
@@ -817,6 +817,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log қосулы, бірақ сервер тек %d секундтан ұзағырақ сұрауларды "
+"тіркейді. Жүйеңізге байланысты long_query_timeды 0-2 секунд аралығында "
+"орнату ұсынылады."
 
 #: js/messages.php:241
 #, php-format
@@ -860,6 +863,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Сіз бұл айнымалыларды өзгерте алмайсыз. Өтініш root ретінде кіріңіз немесе "
+"дерекқор әкімшісіне хабарласыңыз."
 
 #: js/messages.php:258
 msgid "Change settings"
@@ -917,6 +922,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Бұл баған топтастырылған бірдей сұраулардың санын көрсетеді. Алайда, тек SQL "
+"сұрауы топтық өлшем ретінде пайдаланылған, сондықтан басталу уақыты сияқты "
+"сұраулардың басқа атрибуттары әртүрлі болуы мүмкін."
 
 #: js/messages.php:282
 msgid ""
@@ -924,6 +932,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"INSERT сұрауларын топтастыру таңдалғаннан кейін, сол кестеге INSERT "
+"сұраулары кірістірілген деректерді елемей, бірге топтастырылады."
 
 #: js/messages.php:287
 msgid "Log data loaded. Queries executed in this time span:"
@@ -948,7 +958,7 @@ msgstr "Taldaýda…"
 
 #: js/messages.php:295
 msgid "Explain output"
-msgstr "Shyǵarýdy túsindirý"
+msgstr "Explain shyǵarýy"
 
 #: js/messages.php:296
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:132
@@ -1042,6 +1052,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Жаңа диаграмма деректерін сұрау кезінде сервер дұрыс емес жауапты қайтарды. "
+"Ол сеанстың мерзімі біткендіктен болуы мүмкін. Бетті қайта жүктеп және "
+"деректерді қайта енгізу көмектесуі керек."
 
 #: js/messages.php:324
 msgid "Reload page"
@@ -1961,13 +1974,15 @@ msgstr ""
 
 #: js/messages.php:618
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "Jaramdy onaltylyq joldy engizińiz. Jaramdy tańbalar - 0-9, A-F."
 
 #: js/messages.php:620
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Barlyq joldardy shynymen kórgińiz keledi me? Úlken keste úshin bul "
+"sholǵyshtyń buzylýyna akelýi múmkin."
 
 #: js/messages.php:623
 msgid "Original length"
@@ -2008,10 +2023,13 @@ msgstr "Basyp shyǵarý"
 #: js/messages.php:642
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
+"Sondaı-aq, kóptegen mánderdi<br>tikeleı olardy eki ret basý arqyly óńdeýge "
+"bolady."
 
 #: js/messages.php:647
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
+"Sondaı-aq, kóptegen mánderdi<br>tikeleı olardy basý arqyly óńdeýge bolady."
 
 #: js/messages.php:653
 msgid "Go to link:"
@@ -2024,6 +2042,8 @@ msgstr "Baǵan atyn kóshirý."
 #: js/messages.php:656
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Ony aralyq saqtaǵyshqa kóshirý úshin baǵan atyn tintýirdiń oń jaq "
+"túımeshigimen basyńyz."
 
 #: js/messages.php:659
 msgid "Generate password"
@@ -2068,7 +2088,7 @@ msgstr "Negizgi taqtadan ajyratý"
 
 #: js/messages.php:675
 msgid "The requested page was not found in the history, it may have expired."
-msgstr ""
+msgstr "Saýal jiberilgen bet tarıhta tabylmady, onyń merzimi bitken múmkin."
 
 #: js/messages.php:679 libraries/classes/Setup/Index.php:178
 #, php-format
@@ -2076,6 +2096,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"phpMyAdmin-diń jańa nusqasy qoljetimdi jáne jańartýdy qarastyrýyńyz qajet. "
+"Eń jańa nusqasy - %s, %s kezinde shyǵarylǵan."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:683
@@ -2104,6 +2126,8 @@ msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"Túzetilmeıtin JavaScript qatesi oryn aldy. Qate týraly esep jibergińiz kele "
+"me?"
 
 #: js/messages.php:694
 msgid "Change report settings"
@@ -2118,6 +2142,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"PHP deńgeıinde oryndalý merziminiń shekteýi tómen bolýyna baılanysty "
+"eksportyńyz tolyq aıaqtalmady!"
 
 #: js/messages.php:702
 #, php-format
@@ -2141,11 +2167,11 @@ msgstr "Barlyǵyn elemeý"
 #: js/messages.php:724
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "Parametrlerińizge sáıkes, olar aǵymda jiberilýde, shydamdy bolyńyz."
 
 #: js/messages.php:732
 msgid "Successfully copied!"
-msgstr ""
+msgstr "Sátti kóshirildi!"
 
 #: js/messages.php:733
 msgid "Copying failed!"
@@ -2161,7 +2187,7 @@ msgstr "Shynymen osy betbelgini joıǵyńyz kele me?"
 
 #: js/messages.php:740
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "SQL kúıin keltirý týraly aqparatty alý kezinde keıbir qate oryn aldy."
 
 #: js/messages.php:742
 #, php-format
@@ -2578,12 +2604,12 @@ msgstr "Baǵalaý kezinde qate: %s"
 #: libraries/classes/Advisor.php:288
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "«%s» erejesi úshin qajetti shartty baǵalaý sátsiz aıaqtaldy."
 
 #: libraries/classes/Advisor.php:305
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "«%s» erejesi úshin mánin esepteý sátsiz aıaqtaldy."
 
 #: libraries/classes/Advisor.php:324
 #, php-format
@@ -2675,6 +2701,8 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"Konfıgýrasıa saqtaýyshy baǵandardyń ortalyq tizim múmkindigi úshin daıyn "
+"emes."
 
 #: libraries/classes/CentralColumns.php:384
 #, php-format
@@ -3112,7 +3140,7 @@ msgstr "Qoldanysta bar konfıgýrasıa faıly (%s) oqylmaıdy."
 
 #: libraries/classes/Config.php:1172
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "Konfıgýrasıa faıly úshin qate ruqsattar, árkim arqyly jazylmaýy qajet!"
 
 #: libraries/classes/Config.php:1192
 #, php-format
@@ -3128,6 +3156,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Bul ádette munda sıntaksıstik qate bar ekenin bildiredi, tómende kórsetilgen "
+"qatelerdi tekserińiz."
 
 #: libraries/classes/Config.php:1729
 #, php-format
@@ -3143,10 +3173,12 @@ msgstr "Server %d"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
+"Eger qosylsa, paıdalanýshy cookie-faıl túpnusqalyq rastamsy úshin kirý "
+"pishinine kezkelgen MySQL serverdi engize alady."
 
 #: libraries/classes/Config/Descriptions.php:70
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "Kezkelgen MySQL-serverine kirýge ruqsat etý"
 
 #: libraries/classes/Config/Descriptions.php:72
 msgid ""
@@ -3157,7 +3189,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:76
 msgid "Restrict login to MySQL server"
-msgstr ""
+msgstr "MySQL serverine kirýdi shekteý"
 
 #: libraries/classes/Config/Descriptions.php:78
 msgid ""
@@ -3168,7 +3200,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:82
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Úshinshi jaqtan jaqtaýlarǵa kiristirýge ruqsat etý"
 
 #: libraries/classes/Config/Descriptions.php:83
 msgid "Show \"Drop database\" link to normal users"
@@ -3179,6 +3211,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
+"[kbd]Сookie-faıldar[/kbd] arqyly túpnusqalyq rastamasynda cookie-faıldaryn "
+"shıfrlaý úshin paıdalanylatyn qupıa sóılemi."
 
 #: libraries/classes/Config/Descriptions.php:88
 msgid "Blowfish secret"
@@ -3202,7 +3236,7 @@ msgstr "Meńzerdi bólekteý"
 
 #: libraries/classes/Config/Descriptions.php:94
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
+msgstr "Importtaý áreketteri úshin bzip2 qysylýyn qosý."
 
 #: libraries/classes/Config/Descriptions.php:97
 msgid "Bzip2"
@@ -3254,6 +3288,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
+"CHAR jáne VARCHAR baǵandary úshin jasalyp shyǵarylǵan óristerdiń eń úlken "
+"ólshemin anyqtaıdy."
 
 #: libraries/classes/Config/Descriptions.php:124
 msgid "Maximum size for input field"
@@ -3349,7 +3385,7 @@ msgstr "Keste qurylymynyń áreketteri jasyryn bolýy kerek pe."
 
 #: libraries/classes/Config/Descriptions.php:151
 msgid "Show column comments"
-msgstr "Baǵan ańǵartpalaryn kórsetý"
+msgstr "Baǵan túsiniktemelerin kórsetý"
 
 #: libraries/classes/Config/Descriptions.php:152
 msgid "Whether column comments should be shown in table structure view"
@@ -3576,7 +3612,7 @@ msgstr "Keste taqyrypshasyn qamtý"
 #: templates/database/data_dictionary/index.twig:23
 #: templates/table/structure/display_structure.twig:28
 msgid "Comments"
-msgstr "Ańǵartpalar"
+msgstr "Túsiniktemeler"
 
 #: libraries/classes/Config/Descriptions.php:214
 #: libraries/classes/Config/Descriptions.php:220
@@ -3639,7 +3675,7 @@ msgstr "AUTO_INCREMENT mánin ústeý"
 
 #: libraries/classes/Config/Descriptions.php:240
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Keste men baǵan ataýlaryn doǵal ekpin tańbalarmen (`) qorshaý"
 
 #: libraries/classes/Config/Descriptions.php:241
 #: libraries/classes/Config/Descriptions.php:425
@@ -3682,13 +3718,15 @@ msgstr "%s ústeý"
 
 #: libraries/classes/Config/Descriptions.php:256
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr ""
+msgstr "BINARY jáne BLOB úshin onaltylyqty paıdalaný"
 
 #: libraries/classes/Config/Descriptions.php:258
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"IF IF NOT EXISTS qosý (az tıimdi, sebebi ındekster keste jasaý kezinde "
+"jasalyp shyǵarylady )"
 
 #: libraries/classes/Config/Descriptions.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:316
@@ -3739,7 +3777,7 @@ msgstr "Syrtqy kilttiń ashylmaly tizimdegi reti"
 
 #: libraries/classes/Config/Descriptions.php:282
 msgid "A dropdown will be used if fewer items are present."
-msgstr ""
+msgstr "Eger azyraq elementter bolsa, ashylmaly tizim paıdalanylady."
 
 #: libraries/classes/Config/Descriptions.php:283
 msgid "Foreign key limit"
@@ -3747,7 +3785,7 @@ msgstr "Syrtqy kilt shegi"
 
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "Keıbir saýaldarǵasyrtqy kiltterdi tekserý qusbelgisi úshin ádepki máni."
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "Foreign key checks"
@@ -3806,7 +3844,7 @@ msgstr "Jalpy"
 
 #: libraries/classes/Config/Descriptions.php:299
 msgid "Set some commonly used options."
-msgstr ""
+msgstr "Keıbir jalpy paıdalanylatyn opsıalardy ornatý."
 
 #: libraries/classes/Config/Descriptions.php:300
 msgid "Import defaults"
@@ -3814,7 +3852,7 @@ msgstr "Ádepkilerdi ımporttaý"
 
 #: libraries/classes/Config/Descriptions.php:301
 msgid "Customize default common import options."
-msgstr ""
+msgstr "Ádepki jalpy ımport opsıalaryn retteý."
 
 #: libraries/classes/Config/Descriptions.php:302
 msgid "Import / export"
@@ -3822,7 +3860,7 @@ msgstr "Import / eksport"
 
 #: libraries/classes/Config/Descriptions.php:303
 msgid "Set import and export directories and compression options."
-msgstr ""
+msgstr "Import pen eksporttaý katalogtaryn jáne qysý opsıalaryn ornatý."
 
 #: libraries/classes/Config/Descriptions.php:304
 msgid "LaTeX"
@@ -3885,7 +3923,7 @@ msgstr "Basqa negizgi parametrler"
 
 #: libraries/classes/Config/Descriptions.php:322
 msgid "Settings that didn't fit anywhere else."
-msgstr ""
+msgstr "Eshteńege saı kelmeıtin parametrler."
 
 #: libraries/classes/Config/Descriptions.php:323
 msgid "Page titles"
@@ -3906,6 +3944,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
+"PhpMyAdmin - tek paıdalanýshy ınterfeısi jáne onyń múmkindikteri MySQL-dy "
+"shektemeıdi."
 
 #: libraries/classes/Config/Descriptions.php:334
 msgid "Basic settings"
@@ -3931,7 +3971,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:342
 msgid "Enter server connection parameters."
-msgstr ""
+msgstr "Server qosylymynyń parametrlerin engizý."
 
 #: libraries/classes/Config/Descriptions.php:343
 msgid "Configuration storage"
@@ -4015,7 +4055,7 @@ msgstr "Qoıyndylar"
 
 #: libraries/classes/Config/Descriptions.php:367
 msgid "Choose how you want tabs to work."
-msgstr ""
+msgstr "Qoıyndylar qalaı jumys isteıtinin tańdaý."
 
 #: libraries/classes/Config/Descriptions.php:368
 msgid "Display relational schema"
@@ -4093,7 +4133,7 @@ msgstr "Importty aparyp tastaýdy qosý"
 
 #: libraries/classes/Config/Descriptions.php:397
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "Aparyp tastaýmen ımporttaýdy óshirý úshin qusbelgini alastańyz"
 
 #: libraries/classes/Config/Descriptions.php:398
 msgid "Partial import: allow interrupt"
@@ -4263,6 +4303,8 @@ msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
+"Sharlaý tarmaǵynyń birinshi deńgeıindegi árbir bette beınelenetin element "
+"sany."
 
 #: libraries/classes/Config/Descriptions.php:464
 msgid "Maximum items on first level"
@@ -4272,7 +4314,7 @@ msgstr "Birinshi deńgeıdegi eń kóp elementter"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr ""
+msgstr "Sharlaý tarmaǵynyń árbir bette beınelenetin element sany."
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Maximum items in branch"
@@ -4301,6 +4343,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
+"Bólip berýge ruqsat etilgen skrıpt baıtynyń sany, mysal, [kbd]32M[/kbd] ("
+"shekteýsiz úshin [kbd]-1[/kbd] jáne ózgerissiz úshin [kbd]0[/kbd])."
 
 #: libraries/classes/Config/Descriptions.php:480
 msgid "Memory limit"
@@ -4347,6 +4391,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
+"Baılanysqan betti negizgi terezede ([kbd]main[/kbd]) nemese jańa terezede "
+"([kbd]new[/kbd]) ashý."
 
 #: libraries/classes/Config/Descriptions.php:495
 msgid "Logo link target"
@@ -4373,14 +4419,16 @@ msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
+"Súzgi uıasynda beınelenetin elementtiń (keste, kórinis, rásim jáne oqıǵa) eń "
+"az sanyn anyqtaıdy."
 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "Súzgi uıasynda beınelenetin elementtiń eń az sany"
 
 #: libraries/classes/Config/Descriptions.php:505
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
+msgstr "Derekqordyń súzgi uıasynda beınelenetin derekqordyń eń az sany"
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
@@ -4394,7 +4442,7 @@ msgstr "Tarmaqtaǵy elementterdi toptastyrý"
 
 #: libraries/classes/Config/Descriptions.php:511
 msgid "String that separates databases into different tree levels."
-msgstr ""
+msgstr "Derekqorlardy ártúrli tarmaq deńgeılerine bóletin jol."
 
 #: libraries/classes/Config/Descriptions.php:512
 msgid "Database tree separator"
@@ -4402,7 +4450,7 @@ msgstr "Derekqor tarmaǵynyń bólgishi"
 
 #: libraries/classes/Config/Descriptions.php:513
 msgid "String that separates tables into different tree levels."
-msgstr ""
+msgstr "Kestelerdi ártúrli tarmaq deńgeılerine bóletin jol."
 
 #: libraries/classes/Config/Descriptions.php:514
 msgid "Table tree separator"
@@ -4423,7 +4471,7 @@ msgstr "Bólekteýdi qosý"
 #: libraries/classes/Config/Descriptions.php:518
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "Sharlaý taqtasynda tarmaq keńeıtý yqtımaldyǵy usynylsyn ba."
 
 #: libraries/classes/Config/Descriptions.php:519
 msgid "Enable navigation tree expansion"
@@ -4549,6 +4597,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
+"[kbd]SMART[/kbd] - ıaǵnı TIME, DATE, DATETIME jáne TIMESTAMP túrleriniń "
+"baǵandary úshin kemý tártibi, basqasha ósý tártibi."
 
 #: libraries/classes/Config/Descriptions.php:552
 msgid "Default sorting order"
@@ -4750,7 +4800,7 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Baǵandaǵy ańǵartpalar/mime-túrlerin óshirý úshin bos qaldyryńyz, "
+"Baǵan túsiniktemelerin/mime-túrlerin óshirý úshin bos qaldyryńyz, "
 "usynylatyny: [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
@@ -4948,6 +4998,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
+"Seanstar boıynsha «turaqty» emeske jaqynda paıdalanylǵan kestelerdi óshirý "
+"úshin bos qaldyryńyz, usynylǵany: [kbd]pma__recent[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:696
 msgid "Recently used table"
@@ -4958,6 +5010,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
+"Seanstar boıynsha «turaqty» emeske tańdaýly kestelerin óshirý úshin bos "
+"qaldyryńyz, usynylǵany: [kbd]pma__favorite[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:701
 msgid "Favorites table"
@@ -4968,6 +5022,8 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
+"[doc@relations@]relation-links[/doc] emeske qoldaýyn óshirý úshin bos "
+"qaldyryńyz, usynylǵany: [kbd]pma__relation[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Relation table"
@@ -4977,6 +5033,8 @@ msgstr "Qatynas kestesi"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
+"Mysal úshin, [doc@authentication-modes]túpnusqalyq rastama túrlerin[/doc] "
+"qarańyz."
 
 #: libraries/classes/Config/Descriptions.php:712
 msgid "Signon session name"
@@ -4988,7 +5046,7 @@ msgstr "«Signon» URL-y"
 
 #: libraries/classes/Config/Descriptions.php:714
 msgid "Socket on which MySQL server is listening, leave empty for default."
-msgstr ""
+msgstr "MySQL serveri tyńdap otyrǵan soket, ádepkisi úshin bos qaldyrylsyn."
 
 #: libraries/classes/Config/Descriptions.php:715
 msgid "Server socket"
@@ -4996,7 +5054,7 @@ msgstr "Server soketi"
 
 #: libraries/classes/Config/Descriptions.php:716
 msgid "Enable SSL for connection to MySQL server."
-msgstr ""
+msgstr "MySQL serverine qosylý úshin SSL qosylsyn."
 
 #: libraries/classes/Config/Descriptions.php:717
 msgid "Use SSL"
@@ -5007,6 +5065,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
+"PDF sulbasynyń qoldaýyn óshirý úshin bos qaldyryńyz: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:719
 msgid "Designer and PDF schema: table coordinates"
@@ -5017,6 +5077,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
+"Beınelenetin baǵandardy sıpattaıtyn keste, qoldaý kórsetpeý úshin bos "
+"qaldyrylsyn; usynylǵany: [kbd]pma__table_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:724
 msgid "Display columns table"
@@ -5027,6 +5089,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
+"Seanstar boıynsha «turaqty» emes kestelerdiń ınterfeıs teńshelimderin óshirý "
+"úshin bos qaldyryńyz, ysynylǵany: [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:729
 msgid "UI preferences table"
@@ -5079,7 +5143,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:751
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "SQL-saýaldy qadaǵalaý kestesi"
 
 #: libraries/classes/Config/Descriptions.php:753
 msgid ""
@@ -5207,6 +5271,8 @@ msgstr "Sońǵy tekserýdiń ýaqyt belgisin kórsetý"
 #: libraries/classes/Config/Descriptions.php:803
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
+"Barlyq kesteler úshin tańbalar jıynyn beıneleıtin baǵandy kórsetý nemese "
+"jasyrý."
 
 #: libraries/classes/Config/Descriptions.php:804
 msgid "Show table charset"
@@ -5224,7 +5290,7 @@ msgstr "Óristiń tańbalar jıynyn kórsetý"
 
 #: libraries/classes/Config/Descriptions.php:810
 msgid "Display the function fields in edit/insert mode."
-msgstr ""
+msgstr "Fýnksıa óristerin óńdeý/kiristirý rejıminde beıneleý."
 
 #: libraries/classes/Config/Descriptions.php:811
 msgid "Show function fields"
@@ -5232,7 +5298,7 @@ msgstr "Funksıa óristerin kórsetý"
 
 #: libraries/classes/Config/Descriptions.php:812
 msgid "Whether to show hint or not."
-msgstr ""
+msgstr "Tuspaldy kórseteme, joq pa."
 
 #: libraries/classes/Config/Descriptions.php:813
 msgid "Show hint"
@@ -5250,7 +5316,7 @@ msgstr "«phpinfo()» siltemesin kórsetý"
 
 #: libraries/classes/Config/Descriptions.php:819
 msgid "Show detailed MySQL server information"
-msgstr ""
+msgstr "MySQL server týraly egjeıli aqparatty kórsetý"
 
 #: libraries/classes/Config/Descriptions.php:820
 msgid ""
@@ -5283,6 +5349,8 @@ msgstr "Statıstıkany kórsetý"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
+"Paıdalanylǵan kestelerdi belgilep, qultptalǵan kestelerimen derekqorlardy "
+"kórsetý múmkindigin jasaý."
 
 #: libraries/classes/Config/Descriptions.php:827
 msgid "Skip locked tables"
@@ -5291,7 +5359,7 @@ msgstr "Qulyptalǵan kestelerdi ótkizý"
 #: libraries/classes/Config/Descriptions.php:829
 #: libraries/classes/Util.php:1103
 msgid "Explain SQL"
-msgstr "SQL-di túsindirý"
+msgstr "Explain SQL qosý"
 
 #: libraries/classes/Config/Descriptions.php:830
 #: libraries/classes/Export.php:520 libraries/classes/Util.php:1183
@@ -5428,11 +5496,11 @@ msgstr "IP-mekenjaıyna ruqsat etý/etpeý úshin senimdi proksılar tizimi"
 
 #: libraries/classes/Config/Descriptions.php:868
 msgid "Directory on server where you can upload files for import."
-msgstr "Importtaý úshin faıldar júktep beriletin serverdegi katalog."
+msgstr "Importtaý úshin serveridiń faıldar júktep salynatyn katalogy."
 
 #: libraries/classes/Config/Descriptions.php:869
 msgid "Upload directory"
-msgstr "Júktep berý katalogi"
+msgstr "Júktep salý katalogi"
 
 #: libraries/classes/Config/Descriptions.php:870
 msgid "Allow for searching inside the entire database."
@@ -5621,7 +5689,7 @@ msgstr "Durys emes mán!"
 #: libraries/classes/Config/Validator.php:581
 #, php-format
 msgid "Value must be less than or equal to %s!"
-msgstr ""
+msgstr "Mán %s shamasynan az nemese teń bolýy mindetti!"
 
 #: libraries/classes/Config/FormDisplay.php:643
 #, php-format
@@ -5637,17 +5705,17 @@ msgstr "qoljetimdi emes"
 #: libraries/classes/Config/FormDisplay.php:847
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "«%s» úshin %s keńeıtimin qajet etedi"
 
 #: libraries/classes/Config/FormDisplay.php:879
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
-msgstr ""
+msgstr "Qysylǵan ımport %s jetispeıtin fýnksıasyna baılanysty jumys istemeıdi."
 
 #: libraries/classes/Config/FormDisplay.php:887
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr ""
+msgstr "Qysylǵan eksport %s jetispeıtin fýnksıasyna baılanysty jumys istemeıdi."
 
 #: libraries/classes/Config/FormDisplay.php:900
 #, php-format
@@ -5666,7 +5734,7 @@ msgstr "Qujattama"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:279
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr ""
+msgstr "Bul parametr óshirilgen, ol konfıgýrasıańyzǵa qoldanylmaıdy."
 
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Relation.php:128 libraries/classes/Relation.php:136
@@ -5760,7 +5828,7 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:178
 msgid "You should use SSL connections if your database server supports it."
-msgstr ""
+msgstr "Eger derekqor serveri qoldasa, SSL-qosylymdardy paıdalaný qajet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:185
 msgid ""
@@ -5782,7 +5850,7 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:239
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Serverge parólsiz qosylý úshin ruqsat berdińiz."
 
 #: libraries/classes/Config/ServerConfigChecks.php:324
 #, php-format
@@ -5790,6 +5858,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sZip qysýdan shyǵarý%s osy júıede qoljetimdi emes fýnksıalardy (%s) qajet "
+"etedi."
 
 #: libraries/classes/Config/ServerConfigChecks.php:345
 #, php-format
@@ -5797,6 +5867,7 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sZip qysylymy%s osy júıede qoljetimdi emes fýnksıalardy (%s) qajet etedi."
 
 #: libraries/classes/Config/ServerConfigChecks.php:382
 msgid ""
@@ -5807,11 +5878,11 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:394
 msgid "Key is too short, it should have at least 32 characters."
-msgstr ""
+msgstr "Kilt tym qysqa, keminde 32 tańba bolýy qajet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:404
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "Kiltte áripter, sıfrlar [em]jáne[/em] arnaıy tańbalar bolýy qajet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6070,6 +6141,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$Cfg['TempDir'](%s) қол жетімді емес. phpMyAdmin шаблондарды кэштай алмайды "
+"және сол үшін баяу болады."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:183
 #, php-format
@@ -6112,7 +6185,7 @@ msgstr "Qorytyndy"
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
-msgstr "Ústińgi"
+msgstr "Ústeme"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:71
 #, php-format
@@ -6176,10 +6249,11 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Klıent qosylymdy durys jabylmastan quraǵandyqtan úzilgen qosylymnyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:208
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr ""
+msgstr "MySQL serverine qosylý sátsiz áreketiniń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:211
 msgid ""
@@ -6187,15 +6261,18 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
+"Ýaqytsha ekilik jurnal keshin paıdalanatyn, biraq binlog_cache_size máninen "
+"asatyn tranzaksıanyń sany, jáne tranzaksıadan  nusqaýlardy saqtaý úshin "
+"ýaqytsha faıl paıdalanatyn."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:216
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr ""
+msgstr "Ýaqytsha ekilik jurnal keshin paıdalanatyn tranzaksıa sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:219
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "MySQL serverine qosylý áreketiniń (sátti nemese joq) sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:223
 msgid ""
@@ -6204,40 +6281,50 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
+"Nusqaýlardy oryndaý kezinde server arqyly avtomatty jasalatyn ýaqytsha "
+"kesteniń sany. Eger created_tmp_disk_tables úlken bolsa, ýaqytsha kesteler "
+"dıski-negizdi ornyna jad-negizdi týdyrý úshin tmp_table_size mánin "
+"arttyrǵyńyz múmkin."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:230
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "mysqld arqyly qansha ýaqytsha faıl jasaldy."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:233
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
+"Nusqaýlardy oryndaý kezinde server arqyly avtomatty jasalatyn jadtaǵy "
+"ýaqytsha kesteniń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:237
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
+"INSERT DELAYED nusqaýmen jazylǵan, olarda keıbir qateler (múmkin "
+"qaıtalanatyn kiltten) oryn alǵan úshin, joldyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:241
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
+"Qoldanylatyn INSERT DELAYED óńdeýish tizbeginiń sany. Onda bireýi INSERT "
+"DELAYED paıdalanatyn árbir ártúrli keste óz tizbegin alady."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:246
 msgid "The number of INSERT DELAYED rows written."
-msgstr "INSERT DELAYED jazylǵan joldarynyń sany."
+msgstr "INSERT DELAYED jazylǵan joldyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:249
 msgid "The number of executed FLUSH statements."
-msgstr "Oryndalǵan FLUSH nusqaýlarynyń sany."
+msgstr "Oryndalǵan FLUSH nusqaýnyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:252
 msgid "The number of internal COMMIT statements."
-msgstr "Ishki COMMIT nusqaýlarynyń sany."
+msgstr "Ishki COMMIT nusqaýnyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:255
 msgid "The number of times a row was deleted from a table."
@@ -6249,6 +6336,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
+"MySQL serveri, NDB Cluster saqtaýysh mehanızmynen, eger ol berilgen atymen "
+"keste týraly bilse, ony suraı alady. Bul ashyp kórsetý dep atalady. "
+"Handler_discover ashyp kórsetilgen ýaqytsha kesteniń sanyn anyqtaıdy."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:264
 msgid ""
@@ -6256,12 +6346,17 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
+"Birinshi jazba ındeksten oqylǵan ret sany. Eger bul joǵary bolsa, ol server "
+"tolyq ındekstik skanerleýdi kóp jasaıdy dep boljaıdy; mysaly, SELECT col1 "
+"FROM foo, sonda col1 ındekstelgen dep boljanǵan."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
+"Kiltke negizdelgen joldy oqýǵa arnalǵan saýal sany. Eger bul joǵary bolsa, "
+"bul saýaldar men kesteler durys ındekstelgenin jaqsy kórsetedi."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:275
 msgid ""
@@ -6269,12 +6364,17 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"Kilt retindegi kelesi joldy oqýǵa arnalǵan saýal sany. Eger aýqym "
+"shekteýleri bar ındekstik baǵanǵa saýal jasasańyz nemese eger ındekstik "
+"skanerleýdi isteseńiz, bul arttyrylady."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:280
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
+"Kilt retimen aldyńǵy joldy oqý úshin saýal sany. Bul oqý ádisi ORDER BY … "
+"DESC ońtaılandyrý úshin basymdy paıdalanylady."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:284
 msgid ""
@@ -6294,19 +6394,19 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of internal ROLLBACK statements."
-msgstr "Ishki ROLLBACK nusqaýlarynyń sany."
+msgstr "Ishki ROLLBACK nusqaýnyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:301
 msgid "The number of requests to update a row in a table."
-msgstr "Kestede joldy jańartý saýaldarynyń sany."
+msgstr "Kestede joldy jańartý saýaldyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:304
 msgid "The number of requests to insert a row in a table."
-msgstr "Kestege joldy kiristirý saýaldarynyń sany."
+msgstr "Kestege joldy kiristirý saýaldyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:307
 msgid "The number of pages containing data (dirty or clean)."
-msgstr "Derekter bar betterdiń sany (bos emes nemese taza)."
+msgstr "Derekter bar bettiń sany (bos emes nemese taza)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:310
 msgid "The number of pages currently dirty."
@@ -6318,7 +6418,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid "The number of free pages."
-msgstr ""
+msgstr "Bos bet sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:320
 msgid ""
@@ -6372,47 +6472,47 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:359
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr ""
+msgstr "InnoDB býferlik pýlyna jazý jasalǵan sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 msgid "The number of fsync() operations so far."
-msgstr ""
+msgstr "Osyi ýaqytqa deıin fsync() áreketiniń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:365
 msgid "The current number of pending fsync() operations."
-msgstr ""
+msgstr "Bógelis fsync() áreketiniń aǵymdaǵy sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:368
 msgid "The current number of pending reads."
-msgstr ""
+msgstr "Bógelis oqylymdardyń aǵymdyq sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:371
 msgid "The current number of pending writes."
-msgstr ""
+msgstr "Bógelis jazylymdardyń aǵymdyq sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:374
 msgid "The amount of data read so far, in bytes."
-msgstr ""
+msgstr "Ázirshe oqylǵan derekterdiń kólemi, baıttar."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid "The total number of data reads."
-msgstr ""
+msgstr "Derekter oqylymdarynyń qorytyndy sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:380
 msgid "The total number of data writes."
-msgstr ""
+msgstr "Derekter jazylymdarynyń qorytyndy sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:383
 msgid "The amount of data written so far, in bytes."
-msgstr ""
+msgstr "Ázirshe jazylǵan derekter kólemi, baıttar."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:386
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr ""
+msgstr "Qos jazý áreketteri úshin jazylǵan bet sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:390
 msgid "The number of doublewrite operations that have been performed."
-msgstr ""
+msgstr "Oryndalǵan qos jazý áreket sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:393
 msgid ""
@@ -6422,31 +6522,31 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:397
 msgid "The number of log write requests."
-msgstr ""
+msgstr "Jurnalǵa jazý saýal sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:400
 msgid "The number of physical writes to the log file."
-msgstr ""
+msgstr "Jýrnal faılyna fızıkalyq jazylym sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:403
 msgid "The number of fsync() writes done to the log file."
-msgstr ""
+msgstr "Jýrnal faılyna jasalǵan fsync () jazylymnyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:406
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "Jurnal faılynyń bógelis fsync() sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:409
 msgid "Pending log file writes."
-msgstr ""
+msgstr "Jurnal faılynyń bógelis jazylymdar."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:412
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "Jurnal faılyna jazylǵan baıt sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:415
 msgid "The number of pages created."
-msgstr ""
+msgstr "Jasalǵan bet sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:418
 msgid ""
@@ -6456,47 +6556,47 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of pages read."
-msgstr ""
+msgstr "Oqylǵan bet sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:426
 msgid "The number of pages written."
-msgstr ""
+msgstr "Jazylǵan bet sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:429
 msgid "The number of row locks currently being waited for."
-msgstr ""
+msgstr "Aǵymda kútip jatqan jol qulpynyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:432
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Joldy qulyptap alýdyń ortasha ýaqyty, mıllısekýntpen."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:435
 msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr ""
+msgstr "Joldy qulyptap alýdyń jumsalǵan qorytyndy ýaqyty, mıllısekýntpen."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:438
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Joldy qulyptap alýdyń eń uzaq ýaqyty, mıllısekýntpen."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:441
 msgid "The number of times a row lock had to be waited for."
-msgstr ""
+msgstr "Joldy qulyptaýdyń kútip jatqan retiniń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:444
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "InnoDB kestelerinen joıylǵan joldyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:447
 msgid "The number of rows inserted in InnoDB tables."
-msgstr ""
+msgstr "InnoDB kestelerine kiristirilgen joldyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:450
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "InnoDB kestelerinen oqylǵan joldyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:453
 msgid "The number of rows updated in InnoDB tables."
-msgstr ""
+msgstr "InnoDB kestelerinde jańartylǵan joldyń sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:456
 msgid ""
@@ -6519,11 +6619,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:470
 msgid "Percentage of used key cache (calculated value)"
-msgstr ""
+msgstr "Qoldanylǵan kilt keshiniń paıyzdyǵy (eseptelgen mán)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:473
 msgid "The number of requests to read a key block from the cache."
-msgstr ""
+msgstr "Keshten kilt blogyn oqý úshin saýal sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:476
 msgid ""
@@ -6576,15 +6676,15 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:513
 msgid "The number of files that are open."
-msgstr ""
+msgstr "Ashyq faıl sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:516
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
+msgstr "Ashyq aǵyn sany (jurnalǵa jazý úshin basymdy paıdalanylady)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:519
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "Ashyq keste sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:522
 msgid ""
@@ -6595,7 +6695,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:527
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "Saýal keshi úshin bos jad mólsheri."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:530
 msgid "The number of cache hits."
@@ -6603,7 +6703,7 @@ msgstr "Keshke ushyrasý sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:533
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "Keshke ústelgen saýal sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:536
 msgid ""
@@ -6621,15 +6721,15 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:547
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Keshte tirkelgen saýal sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:550
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "Saýal keshindegi bloktyń qorytyndy sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
+msgstr "Buzylýǵa turaqtylyq replıkalaý mártebesi (áli iske asyrylmaǵan)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:556
 msgid ""
@@ -6734,7 +6834,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:632
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Tizbek keshiniń ushyrasý araqatynasy (eseptelgen máni)"
+msgstr "Tizbek keshiniń sáıkestik jıiligi (eseptelgen máni)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:635
 msgid "The number of threads that are not sleeping."
@@ -7004,11 +7104,11 @@ msgstr "Qate: FOREIGN KEY qqatynastyǵyn ústeý múmkin bolmady!"
 
 #: libraries/classes/Database/Designer/Common.php:655
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Qate: Baǵan(dar)da ındeks jetispeıdi."
 
 #: libraries/classes/Database/Designer/Common.php:663
 msgid "Error: Relational features are disabled!"
-msgstr ""
+msgstr "Qate: Qatynas múmkindikter óshirilgen!"
 
 #: libraries/classes/Database/Designer/Common.php:688
 msgid "Internal relationship has been added."
@@ -7274,7 +7374,7 @@ msgstr "Eksporttalǵan derekqorlardy/kestelerdi/baǵandardy qaıta ataý"
 
 #: libraries/classes/Display/Export.php:698
 msgid "Could not load export plugins, please check your installation!"
-msgstr ""
+msgstr "Eksporttaý plagınderi júktelmedi, ornatylymdy tekserińiz!"
 
 #: libraries/classes/Display/GitRevision.php:96
 #, php-format
@@ -7429,7 +7529,7 @@ msgstr "Derekterdiń basqy katalogi"
 
 #: libraries/classes/Engines/Innodb.php:33
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "Barlyq InnoDB derekter faıldary úshin katalog jolynyń jalpy bóligi."
 
 #: libraries/classes/Engines/Innodb.php:38
 msgid "Data files"
@@ -7498,7 +7598,7 @@ msgstr "Bekitilgen better"
 
 #: libraries/classes/Engines/Innodb.php:251
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Bufer pýlynyń áreketteri"
 
 #: libraries/classes/Engines/Innodb.php:255
 msgid "Read requests"
@@ -7717,7 +7817,7 @@ msgstr ""
 
 #: libraries/classes/ErrorHandler.php:80
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Tym kóp qate týraly habarlar, keıbireýleri beınelenbeıdi."
 
 #: libraries/classes/ErrorHandler.php:372
 msgid "Report"
@@ -7725,7 +7825,7 @@ msgstr "Esep"
 
 #: libraries/classes/ErrorHandler.php:377 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
-msgstr ""
+msgstr "Esepti kelesi kezde avtomatty jiberedi"
 
 #: libraries/classes/Export.php:118 libraries/classes/Export.php:156
 #: libraries/classes/Export.php:403
@@ -7753,7 +7853,7 @@ msgstr "Damp %s faılyna saqtaldy."
 
 #: libraries/classes/File.php:258
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Faıl júktep salynǵan faıl emes."
 
 #: libraries/classes/File.php:300
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -7771,23 +7871,23 @@ msgstr ""
 
 #: libraries/classes/File.php:316
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Ýaqytsha qalta jetispeıdi."
 
 #: libraries/classes/File.php:319
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Faıldy dıskige jazý sátsiz aıaqtaldy."
 
 #: libraries/classes/File.php:322
 msgid "File upload stopped by extension."
-msgstr "Faıldy júktep berýi keńeıtim arqyly toqtatyldy."
+msgstr "Faıldy júktep salý keńeıtim arqyly toqtatyldy."
 
 #: libraries/classes/File.php:325
 msgid "Unknown error in file upload."
-msgstr "Faıldy júktep berý kezindegi belgisiz qate."
+msgstr "Faıldy júktep salý kezindegi belgisiz qate."
 
 #: libraries/classes/File.php:465
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Faıl - sımvoldyq silteme"
 
 #: libraries/classes/File.php:470 libraries/classes/File.php:562
 msgid "File could not be read!"
@@ -7796,14 +7896,16 @@ msgstr "Faıl oqylmady!"
 #: libraries/classes/File.php:510
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
+"Júktep salynǵan faıldy jyljytý kezindegi qate týraly [doc@faq1-11]FAQ "
+"1.11[/doc] qarańyz."
 
 #: libraries/classes/File.php:529
 msgid "Error while moving uploaded file."
-msgstr "Júktep berilgen faıldy jyljytqanda qate oryn aldy."
+msgstr "Júktep salynǵan faıldy jyljytqanda qate oryn aldy."
 
 #: libraries/classes/File.php:537
 msgid "Cannot read uploaded file."
-msgstr "Júktep berilgen faıldy oqý múmkin bolmady."
+msgstr "Júktep salynǵan faıldy oqý múmkin bolmady."
 
 #: libraries/classes/File.php:617
 #, php-format
@@ -7821,16 +7923,16 @@ msgstr "phpMyAdmin Demo-serveri"
 #: libraries/classes/Footer.php:78
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Aǵymda %2$s Git tarmaǵynan %1$s túzetýi iske qosylǵan."
 
 #: libraries/classes/Footer.php:85
 msgid "Git information missing!"
-msgstr ""
+msgstr "Git aqparaty jetispeıdi!"
 
 #: libraries/classes/Footer.php:200 libraries/classes/Footer.php:204
 #: libraries/classes/Footer.php:207
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Jańa phpMyAdmin terezesin ashý"
 
 #: libraries/classes/Header.php:393
 msgid "Print view"
@@ -7838,39 +7940,40 @@ msgstr "Basyp shyǵarý kórinisi"
 
 #: libraries/classes/Header.php:483
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Bettiń joǵarǵy jaǵyna jyljý úshin jolaqty basyńyz"
 
 #: libraries/classes/Header.php:699 templates/login/header.twig:11
 msgid "Javascript must be enabled past this point!"
-msgstr ""
+msgstr "Osy sátten bastap Javascript qosýly bolýy qajet!"
 
 #: libraries/classes/Import.php:137 libraries/classes/InsertEdit.php:193
 #: libraries/classes/Rte/Routines.php:1541 libraries/classes/Sql.php:1349
 #: tbl_get_field.php:59
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr ""
+msgstr "MySQL bos nátıje jıynyn qaıtardy (ıaǵnı nóldik joldar)."
 
 #: libraries/classes/Import.php:299 libraries/classes/Sql.php:1363
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[ROLLBACK oryn aldy.]"
 
 #: libraries/classes/Import.php:1246
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "Kelesi qurylymdar jasaldy nemese ózgertildi. Munda múmkinsiz:"
 
 #: libraries/classes/Import.php:1249
 msgid "View a structure's contents by clicking on its name."
-msgstr ""
+msgstr "Qurylymnyń mazmunyn onyń atyn basý arqyly qarańyz."
 
 #: libraries/classes/Import.php:1252
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
+"Sáıkes «Opsıalar» siltemesin basý arqyly onyń kez parametrlerin ózgertińiz."
 
 #: libraries/classes/Import.php:1254
 msgid "Edit structure by following the \"Structure\" link."
-msgstr ""
+msgstr "Qurylymdy kelesi «Qurylym» siltemesi boıynsha óńdeý."
 
 #: libraries/classes/Import.php:1258 libraries/classes/Import.php:1292
 #: libraries/classes/MultSubmits.php:416
@@ -7930,18 +8033,20 @@ msgstr "Kóriniske ótý: %s"
 
 #: libraries/classes/Import.php:1381
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
-msgstr ""
+msgstr "Tek jalǵyz kestelik UPDATE men DELETE saýaldaryn elikteýge bolady."
 
 #: libraries/classes/Import.php:1608
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Tek tranzaksıalyq mehanızmniń kesteleri bar INSERT, UPDATE, DELETE jáne "
+"REPLACE SQL-saýaldaryn qaıta oraltýǵa bolady."
 
 #: libraries/classes/Index.php:655
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "&nbsp;%s&nbsp;baǵandar boıynsha ındeks jasaý"
+msgstr "&nbsp;%s&nbsp;baǵanǵa ındeks jasaý"
 
 #: libraries/classes/Index.php:687
 msgid "No index defined!"
@@ -8003,7 +8108,7 @@ msgstr "Baǵan"
 #: libraries/classes/Index.php:721
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
-msgstr "Elementter sany"
+msgstr "Element sany"
 
 #: libraries/classes/Index.php:724 libraries/classes/Rte/Events.php:567
 #: libraries/classes/Rte/Routines.php:1129
@@ -8013,7 +8118,7 @@ msgstr "Elementter sany"
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/structure/display_partitions.twig:31
 msgid "Comment"
-msgstr "Ańǵartpa"
+msgstr "Túsinikteme"
 
 #: libraries/classes/Index.php:750
 msgid "The primary key has been dropped."
@@ -8030,6 +8135,8 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"%1$s men %2$s ındeksteri birdeı kórinedi jáne olardyń bireýi alastalýy "
+"múmkin."
 
 #: libraries/classes/InsertEdit.php:308
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
@@ -8058,7 +8165,7 @@ msgstr "Ekilik - óńdelmeıdi"
 
 #: libraries/classes/InsertEdit.php:1542 libraries/classes/Util.php:3416
 msgid "The directory you set for upload work cannot be reached."
-msgstr ""
+msgstr "Júktep salý jumysyna ornatylǵan katalogqa jetý múmkin emes."
 
 #: libraries/classes/InsertEdit.php:1545
 #: templates/table/search/selection_form.twig:125
@@ -8068,7 +8175,7 @@ msgstr "Nemese"
 
 #: libraries/classes/InsertEdit.php:1546
 msgid "web server upload directory:"
-msgstr "ýeb-serverdiń júktep berý katalogi:"
+msgstr "ýeb-serverdiń júktep salý katalogy:"
 
 #: libraries/classes/InsertEdit.php:1743
 #: templates/table/search/input_box.twig:38
@@ -8111,6 +8218,8 @@ msgstr "Kelesi joldy óńdeý"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
+"Mánnen mánge ótý úshin TAB pernesin, nemese kezkelgen jerge jyljý úshin CTRL+"
+"kórsetki pernelerin paıdalanyńyz."
 
 #: libraries/classes/InsertEdit.php:1963
 #: libraries/classes/Rte/Routines.php:1684
@@ -8149,6 +8258,7 @@ msgstr "Til"
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"«Linting» bul saýal úshin eń joǵary uzyndyǵynan asyp ketkendikten óshirilgen."
 
 #: libraries/classes/Linter.php:171
 #, php-format
@@ -8372,11 +8482,11 @@ msgstr "Prefiks ústeý"
 
 #: libraries/classes/MultSubmits.php:519
 msgid "Do you really want to execute the following query?"
-msgstr ""
+msgstr "Shynymen kelesi saýaldy oryndaǵyńyz kele me?"
 
 #: libraries/classes/Navigation/Navigation.php:71
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "Sharlaý taqtasyn júkteý kezinde qate oryn aldy"
 
 #: libraries/classes/Navigation/Navigation.php:217
 msgid "Groups:"
@@ -8417,7 +8527,7 @@ msgstr "Shyǵý"
 
 #: libraries/classes/Navigation/NavigationHeader.php:193
 msgid "Empty session data"
-msgstr ""
+msgstr "Seans derekterin bosatý"
 
 #: libraries/classes/Navigation/NavigationHeader.php:211
 msgid "phpMyAdmin documentation"
@@ -8425,7 +8535,7 @@ msgstr "phpMyAdmin qujattamasy"
 
 #: libraries/classes/Navigation/NavigationHeader.php:231
 msgid "Navigation panel settings"
-msgstr "Sharlaý taqtasyn parametrleri"
+msgstr "Sharlaý taqtasynyń parametrleri"
 
 #: libraries/classes/Navigation/NavigationHeader.php:242
 msgid "Reload navigation panel"
@@ -8610,26 +8720,30 @@ msgstr "mynaǵan bólý "
 
 #: libraries/classes/Normalization.php:242
 msgid "Have a primary key"
-msgstr ""
+msgstr "Alǵashqy kilt bar"
 
 #: libraries/classes/Normalization.php:248
 msgid "Primary key already exists."
-msgstr ""
+msgstr "Alǵashqy kilt áldeqashan bar."
 
 #: libraries/classes/Normalization.php:253
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Alǵashqy kilt joq; bireýin qosyńyz.<br>Tuspal: Alǵashqy kilt - barlyq "
+"joldardy biregeı túrde anyqtaıtyn baǵan (nemese baǵandar quramasy)."
 
 #: libraries/classes/Normalization.php:261
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Qoldanysta bar baǵan(dar) boıynsha alǵashqy kilt qosý"
 
 #: libraries/classes/Normalization.php:266
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"Eger qoldanysta bar baǵandar quramasyn alǵashqy kilt retinde jasaý múmkin "
+"bolmasa"
 
 #: libraries/classes/Normalization.php:270
 msgid "+ Add a new primary key column"
@@ -8715,11 +8829,12 @@ msgstr ""
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr ""
+msgstr "Durys qalypqa keltirý úshin kelesi suraq(tarǵa)qa muqıat jaýap berińiz."
 
 #: libraries/classes/Normalization.php:415
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"+ Kestedegi derekterge negizdelgen yqtımal ishinara táýeldilikter kórsetilsin"
 
 #: libraries/classes/Normalization.php:419
 msgid ""
@@ -8740,6 +8855,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Ishinara táýeldilikter yqtımal emes, sebebi alǵashqy kiltte (%1$s) bir ǵana "
+"baǵany bar."
 
 #: libraries/classes/Normalization.php:469
 #, php-format
@@ -8747,11 +8864,13 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"«%1$s» túpnusqa kestesin Ekinshi qalypty pishinge qoıý úshin, biz kelesi "
+"kestelerdi jasaýymyz kerek:"
 
 #: libraries/classes/Normalization.php:506
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "«%1$s» kestesi úshin biryńǵaılaýdyń ekinshi qadamy aıaqtaldy."
 
 #: libraries/classes/Normalization.php:547
 #: libraries/classes/Normalization.php:703
@@ -8765,15 +8884,17 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"«%1$s» túpnusqa kestesin Úshinshi qalypty pishinge qoıý úshin, biz kelesi "
+"kestelerdi jasaýymyz kerek:"
 
 #: libraries/classes/Normalization.php:646
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "Biryńǵaılaýdyń úshinshi qadamy aıaqtaldy."
 
 #: libraries/classes/Normalization.php:754
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
+msgstr "Bólektelgen qaıtalanatyn top «%s» kestesine jyljytyldy"
 
 #: libraries/classes/Normalization.php:805
 msgid "Step 3."
@@ -8799,7 +8920,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:865
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "Keste áldeqashan úshinshi qalypty pishinde!"
 
 #: libraries/classes/Normalization.php:890
 msgid "Improve table structure (Normalization):"
@@ -8835,7 +8956,7 @@ msgstr "Ishinara táýeldilikter tabylmady!"
 
 #: libraries/classes/Operations.php:61
 msgid "Database comment"
-msgstr "Derekqor ańǵartpasy"
+msgstr "Derekqor túsiniktemesi"
 
 #: libraries/classes/Operations.php:105
 msgid "Rename database to"
@@ -8849,6 +8970,8 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
 msgstr ""
+"Bul áreketti oryndaý úshin jetkilikti artyqshylyqtaryńyz joq. Kóbirek "
+"egjeıler úshin qujattamany qarańyz"
 
 #: libraries/classes/Operations.php:159
 #, php-format
@@ -8893,7 +9016,7 @@ msgstr "(jalǵyzdaı)"
 
 #: libraries/classes/Operations.php:876
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Kesteni mynaǵan (derekqor<b>.</b>keste) jyljytý"
+msgstr "Kesteni (derekqor<b>.</b>keste) úshin jyljytý"
 
 #: libraries/classes/Operations.php:996
 msgid "Rename table to"
@@ -8917,7 +9040,7 @@ msgstr "Barlyq baǵandardyń salǵastyrýlaryn ózgertý"
 
 #: libraries/classes/Operations.php:1326
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Kesteni (derekqor<b>.</b>keste) kestesine kóshirý"
+msgstr "Kesteni (derekqor<b>.</b>keste) úshin kóshirý"
 
 #: libraries/classes/Operations.php:1399
 msgid "Switch to copied table"
@@ -9184,6 +9307,7 @@ msgstr "MySQL-serverge kirý múmkin emes"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:356
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Qos-faktorly túpnusqalyq rastamasyn qosqansyz, kirý derekterinizdi rastańyz."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
 #: templates/display/export/format_dropdown.twig:2
@@ -9225,6 +9349,7 @@ msgstr "NULL mynaýmen aýystyrylady:"
 #: libraries/classes/Plugins/Export/ExportExcel.php:59
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
+"Baǵandardaǵy «jyljyma bólikti qaıtarý»/«kelesi jolǵa túsý» tańbalaryn alastaý"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:69
 msgid "Excel edition:"
@@ -9335,11 +9460,11 @@ msgstr "Kórinis úshin qosarlaýshy qurylym"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:92
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Ádemi basylǵan JSON shyǵarý (adam oqı alatyn pishimdeýdi paıdalanyńyz)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:98
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Unicode tańbalaryn ekrandamaı shyǵarý"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:53
 msgid "Content of table @TABLE@"
@@ -9383,7 +9508,7 @@ msgstr "Syrtqy kilt qatynastyqtaryn beıneleý"
 #: libraries/classes/Plugins/Export/ExportLatex.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
 msgid "Display comments"
-msgstr "Ańǵartpalardy beıneleý"
+msgstr "Túsiniktemelerdi beıneleý"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
@@ -9467,6 +9592,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Túsiniktemelerdi beıneleý <i>(eksport ýaqyt belgisi, PHP nusqasy jáne server "
+"nusqasy sıaqty aqpardy qamtıdy)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:111
 msgid "Additional custom header comment (\\n splits lines):"
@@ -9479,6 +9606,8 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Qashan derekqorlar jasalynǵany, sońǵy jańartylǵany jáne sońǵy tekserilgeni "
+"ýaqyt belgilerin qamtıdy"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:176
 msgid "Export metadata"
@@ -9488,6 +9617,8 @@ msgstr "Metaderekterdi eksporttaý"
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Shyǵarý úılesimdilikti barynsha úlkeıtý úshin derekqor júıesi nemese eski "
+"MySQL serveri:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:238
 msgid "Add statements:"
@@ -9518,6 +9649,9 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Keste men baǵan ataýlaryn doǵal ekpin tańbalarmen (`) qorshaý <i>(Arnaıy "
+"tańbalarmen nemese kilt sózdermen jasalǵan baǵandar men kesteler ataýlaryn "
+"qorǵaıdy)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:364
 msgid "Data creation options"
@@ -9555,6 +9689,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"árbir <code>INSERT</code> nusqaýyndaǵy baǵan ataýlaryn qosyńyz <br> &nbsp; "
+"&nbsp; &nbsp; Mysaly: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
 msgid ""
@@ -9674,16 +9811,16 @@ msgstr "KESTE ÚSHIN QATYNASTYQTAR"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2115
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Kesteńiz trıgerlerdi paıdalanatyny kórinedi;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2152
 #, php-format
 msgid "Structure for view %s exported as a table"
-msgstr ""
+msgstr "%s kórinisi úshin qurylym keste retinde eksporttaldy"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2176
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Naqty kórinis úshin tómende qarańyz)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2256
 #, php-format
@@ -9692,7 +9829,7 @@ msgstr "%s kestesiniń derekterin oqý qatesi:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Nysan jasaý opsıalary (barlyǵy usynylady)"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:149
 msgid "Export contents"
@@ -9765,12 +9902,12 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportCsv.php:763
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "%d jolynda CSV kirisiniń jaramsyz pishimi."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:586
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr ""
+msgstr "CSV kirisindegi %d jolynda baǵan sany jaramsyz."
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Column names: "
@@ -9778,7 +9915,7 @@ msgstr "Baǵan ataýlary: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Bul plagın qysylǵan ımporttardy qoldamaıdy!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:56
 msgid "MediaWiki Table"
@@ -9787,15 +9924,17 @@ msgstr "MediaWiki kestesi"
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr ""
+msgstr "Pishimi jaramsyz mediawiki kirisindegi jol: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
+"Paıyzdyqtardy durys ondyq sandar retinde ımporttaý <i>(mysaly, 12.00 %-dan "
+".12-ge)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:87
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Aqsha birlikterin ımporttaý <i>(mysaly, $5.00-dan  5.00-ke)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:153
 #: libraries/classes/Plugins/Import/ImportXml.php:112
@@ -9807,26 +9946,26 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportOds.php:164
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr ""
+msgstr "OpenDocument elektrondyq kestesin taldaý múmkin bolmady!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI pishin faıly"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:91
 #: libraries/classes/Plugins/Import/ImportShp.php:166
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "ESRI pishin faılyn ımporttaý kezinde qate oryn aldy: «%s»."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:196
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Spatial keńeıtimi «%s» ESRI-túrin qoldamaıdy."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:243
 msgid "The imported file does not contain any data!"
-msgstr ""
+msgstr "Importtalǵan faılda eshqandaı derekter joq!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:71
 msgid "SQL compatibility mode:"
@@ -9881,7 +10020,7 @@ msgstr "Mazmun kestesi"
 #: templates/table/structure/display_table_stats.twig:6
 #: templates/database/data_dictionary/index.twig:11
 msgid "Table comments:"
-msgstr "Keste ańǵartpalary:"
+msgstr "Keste túsiniktemeleri:"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:690
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
@@ -9948,6 +10087,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"«Boolean» logıkalyq mánderdi mátinge túrlendiredi (ádepki «T» jáne «F»). "
+"Birinshi opsıa - TRUE (shyn), ekinshi - FALSE (jalýan). Beınóldik = true."
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:33
 msgid ""
@@ -9965,7 +10106,7 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:66
 #: libraries/classes/Util.php:1594
 msgid "%B %d, %Y at %I:%M %p"
-msgstr ""
+msgstr "%B %d, %Y j. %I:%M %p"
 
 #: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:31
 msgid ""
@@ -10003,7 +10144,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:31
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "Bul keskindi júktep alý úshin siltemeni beıneleıdi."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:31
 msgid ""
@@ -10013,7 +10154,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:90
 msgid "Image preview here"
-msgstr ""
+msgstr "Keskindi qarap alý osynda"
 
 #: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:31
 msgid ""
@@ -10043,11 +10184,11 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:55
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "%s kiris joly úshin tekserim sátsiz aıaqtaldy."
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:32
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "Mátindi sıntaksıs bólekteýimen SQL-saýal retinde pishimdeıdi."
 
 #: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php:31
 msgid ""
@@ -10063,6 +10204,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"TEXT baǵandary úshin faıldardy júktep salý qyzmet etýi. Engizý úshin "
+"mátinaýmaq joq."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:32
 msgid ""
@@ -10080,33 +10223,35 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:33
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Internet jelilik mekenjaıyn (IPv4/IPv6) ekilik túrine túrlendiredi"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "JSON úshin sıntaksısi bólektelgen CodeMirror óńdegishi."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "SQL úshin sıntaksısi bólektelgen CodeMirror óńdegishi."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "XML (jáne HTML) úshin sıntaksısi bólektelgen CodeMirror óńdegishi."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:33
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
+"Ekilik jol retinde saqtalǵan Internet jelilik mekenjaıydy Internet standarty "
+"(IPv4/IPv6) pishimindegi jolǵa túrlendiredi."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:50
 msgid "Formats text as JSON with syntax highlighting."
-msgstr ""
+msgstr "Mátindi sıntaksısi bólektelgen JSON retinde pishimdeıdi."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:50
 msgid "Formats text as XML with syntax highlighting."
-msgstr ""
+msgstr "Mátindi sıntaksısi bólektelgen XML retinde pishimdeıdi."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:147
 msgid "Authentication Application (2FA)"
@@ -10117,6 +10262,8 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"FreeOTP, Google Authenticator nemese Authy sıaqty HOTP jáne TOTP "
+"qoldanbalary arqyly túpnusqalyq rastamasyn jetkizedi."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid "Hardware Security Key (FIDO U2F)"
@@ -10226,7 +10373,7 @@ msgstr "Sholǵysh túrlendirýi"
 
 #: libraries/classes/Relation.php:223
 msgid "Please see the documentation on how to update your column_info table."
-msgstr ""
+msgstr "column_info kesteńizdi qalaı jańartý týraly qujattamany qarańyz."
 
 #: libraries/classes/Relation.php:239 libraries/classes/SqlQueryForm.php:412
 msgid "Bookmarked SQL query"
@@ -10278,26 +10425,32 @@ msgstr "Eksporttaý úlgilerin saqtaý"
 
 #: libraries/classes/Relation.php:384
 msgid "Quick steps to set up advanced features:"
-msgstr ""
+msgstr "Qosymsha múmkindikterdi ornatýdyń jyldam qadamdary:"
 
 #: libraries/classes/Relation.php:390
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
+msgstr "Qajetti kestelerdi <code>%screate_tables.sql</code> arqyly jasańyz."
 
 #: libraries/classes/Relation.php:395
 msgid "Create a pma user and give access to these tables."
 msgstr ""
+"«pma» paıdalanýshysyn jasańyz jáne osy kestelerge oǵan qatynaýdy berińiz."
 
 #: libraries/classes/Relation.php:398
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Konfıgýrasıalyq (<code>config.inc.php</code>) faılynda keńeıtilgen "
+"múmkindikterdi qosyńyz, mysaly, <code>config.sample.inc.php</code> faılynan "
+"bastap."
 
 #: libraries/classes/Relation.php:403
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Jańartylǵan konfıgýrasıa faılyn júkteý úshin phpMyAdmin júıesine qaıta "
+"kirińiz."
 
 #: libraries/classes/Relation.php:1801
 msgid "no description"
@@ -10316,23 +10469,28 @@ msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
+"«phpmyadmin» dep atalǵan derekqordy %sjasaý%s jáne onda phpMyAdmin "
+"konfıgýrasıasynyń saqtaýyshyn ornatý."
 
 #: libraries/classes/Relation.php:2120
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr ""
+msgstr "Aǵymdyq derekqorda phpMyAdmin konfıgýrasıasy saqtaýyshyn %sjasaý%s ."
 
 #: libraries/classes/Relation.php:2128
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
+"Jetispeıtin phpMyAdmin konfıgýrasıasynyń saqtaýysh kestelerin %sjasaý%s."
 
 #: libraries/classes/ReplicationGui.php:418
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Serverge qosylý óshirilgen, phpMyAdmin konfıgýrasıasynda "
+"$cfg['AllowArbitraryServer'] parametrin qosyńyz."
 
 #: libraries/classes/ReplicationGui.php:427
 msgid "Replication started successfully."
@@ -10373,12 +10531,14 @@ msgstr "Belgisiz qate"
 #: libraries/classes/ReplicationGui.php:499
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "%s jetekshisine qosylý múmkin emes."
 
 #: libraries/classes/ReplicationGui.php:510
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"Jetekshi jurnal jaıǵasymyn oqý múmkin emes. Jetekshi boıynsha artyqshylyq "
+"máselesi yqtımal."
 
 #: libraries/classes/ReplicationGui.php:528
 msgid "Unable to change master!"
@@ -10447,7 +10607,7 @@ msgstr "Oqıǵa aty"
 
 #: libraries/classes/Rte/Events.php:480 templates/server/binlog/index.twig:86
 msgid "Event type"
-msgstr ""
+msgstr "Oqıǵa túri"
 
 #: libraries/classes/Rte/Events.php:501 libraries/classes/Rte/Routines.php:986
 #, php-format
@@ -10515,7 +10675,7 @@ msgstr "Saýaldy óńdep shyǵarý kezindegi qate:"
 
 #: libraries/classes/Rte/Footer.php:125
 msgid "OFF"
-msgstr "ÓSHIR"
+msgstr "ÓSH"
 
 #: libraries/classes/Rte/Footer.php:130
 msgid "ON"
@@ -10527,7 +10687,7 @@ msgstr "Oqıǵa josparlaýshy mártebesi"
 
 #: libraries/classes/Rte/General.php:61
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Saqtyq kóshirmesi jasalǵan saýal:"
 
 #: libraries/classes/Rte/Routines.php:140
 msgid ""
@@ -10607,6 +10767,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Bul áreketti oryndaý úshin jetkilikti artyqshylyqtaryńyz joq. Kóbirek "
+"egjeler úshin qujattamany qarańyz"
 
 #: libraries/classes/Rte/Routines.php:1108
 msgid "Security type"
@@ -10623,7 +10785,7 @@ msgstr "Rásim atyn jetkizýińiz qajet!"
 #: libraries/classes/Rte/Routines.php:1234
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Parametr úshin berilgen «%s» baǵyty jaramsyz."
 
 #: libraries/classes/Rte/Routines.php:1256
 #: libraries/classes/Rte/Routines.php:1322
@@ -10631,6 +10793,8 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"ENUM, SET, VARCHAR jáne VARBINARY túrleriniń rásim parametrleri úshin "
+"uzyndyqty/mánderdi jetkizýińiz qajet."
 
 #: libraries/classes/Rte/Routines.php:1284
 msgid "You must provide a name and a type for each routine parameter."
@@ -10653,8 +10817,8 @@ msgstr "%s rásimin oryndaý nátıjeleri"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Rásim ishindegi sońǵy nusqaý arqyly %d jolǵa áser etildi."
+msgstr[1] "Rásim ishindegi sońǵy nusqaý arqyly sany %d jolǵa áser etildi."
 
 #: libraries/classes/Rte/Routines.php:1586
 #: libraries/classes/Rte/Routines.php:1593
@@ -10672,17 +10836,17 @@ msgstr "Qaıtarady"
 
 #: libraries/classes/Rte/Triggers.php:165
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "Joıylǵan trıgerdi qalpyna keltire almadyq."
 
 #: libraries/classes/Rte/Triggers.php:172
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr ""
+msgstr "%1$s trıgeri ózgertildi."
 
 #: libraries/classes/Rte/Triggers.php:192
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr ""
+msgstr "%1$s trıgeri jasaldy."
 
 #: libraries/classes/Rte/Triggers.php:268
 msgid "Edit trigger"
@@ -10732,7 +10896,7 @@ msgstr "rásim"
 
 #: libraries/classes/Rte/Words.php:39
 msgid "You do not have the necessary privileges to create a routine."
-msgstr ""
+msgstr "Rásim jasaý úshin sizde qajetti artyqshylyqtar joq."
 
 #: libraries/classes/Rte/Words.php:42
 #, php-format
@@ -10747,6 +10911,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"%2$s derekqorynda %1$s atymen rásim tabylmady. Bul rásimdi qaraý/eksporttaý "
+"úshin qajetti artyqshylyqtar bolmaýy múmkin."
 
 #: libraries/classes/Rte/Words.php:49
 #, php-format
@@ -10755,7 +10921,7 @@ msgstr "%2$s derekqorynda %1$s ataýy bar rásim tabylmady."
 
 #: libraries/classes/Rte/Words.php:50
 msgid "There are no routines to display."
-msgstr ""
+msgstr "Munda beınelenetin rásimder joq."
 
 #: libraries/classes/Rte/Words.php:56
 msgid "Add trigger"
@@ -10772,7 +10938,7 @@ msgstr "trıger"
 
 #: libraries/classes/Rte/Words.php:61
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr ""
+msgstr "Trıger jasaý úshin qajetti artyqshylyqtaryńyz joq."
 
 #: libraries/classes/Rte/Words.php:63
 #, php-format
@@ -10781,7 +10947,7 @@ msgstr "%2$s derekqorynda %1$s ataýy bar trıger tabylmady."
 
 #: libraries/classes/Rte/Words.php:64
 msgid "There are no triggers to display."
-msgstr ""
+msgstr "Munda beınelenetin trıgerler joq."
 
 #: libraries/classes/Rte/Words.php:70
 msgid "Add event"
@@ -10798,7 +10964,7 @@ msgstr "oqıǵa"
 
 #: libraries/classes/Rte/Words.php:75
 msgid "You do not have the necessary privileges to create an event."
-msgstr ""
+msgstr "Oqıǵa jasaý úshin qajetti artyqshylyqtaryńyz joq."
 
 #: libraries/classes/Rte/Words.php:77
 #, php-format
@@ -10807,28 +10973,28 @@ msgstr "%2$s derekqorynda %1$s ataýy bar oqıǵa tabylmady."
 
 #: libraries/classes/Rte/Words.php:78
 msgid "There are no events to display."
-msgstr ""
+msgstr "Munda beınelenetin oqıǵalar joq."
 
 #: libraries/classes/SavedSearches.php:264
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Osy betbelgilengen izdestirýge ataý jetkizińiz."
 
 #: libraries/classes/SavedSearches.php:279
 msgid "Missing information to save the bookmarked search."
-msgstr ""
+msgstr "Betbelgilengen izdestirýdi saqtaý úshin aqparat jetispeıdi."
 
 #: libraries/classes/SavedSearches.php:301
 #: libraries/classes/SavedSearches.php:338
 msgid "An entry with this name already exists."
-msgstr ""
+msgstr "Bul ataýmen jazba áldeqashan bar."
 
 #: libraries/classes/SavedSearches.php:365
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Izdestirýdi joıý úshin aqparat jetispeıdi."
 
 #: libraries/classes/SavedSearches.php:393
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Izdestirýdi júkteý úshin aqparat jetispeıdi."
 
 #: libraries/classes/SavedSearches.php:412
 msgid "Error while loading the search."
@@ -11173,6 +11339,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
+"Tirkelgi sol paıdalanýshy atymen áldeqashan bar, biraq basqa túıin ataýynda "
+"yqtımal."
 
 #: libraries/classes/Server/Privileges.php:1680
 msgid "Host name:"
@@ -11216,6 +11384,8 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
+"Túıin kestesi paıdalanylǵanda, bul óris elenbeıdi jáne ornyna túıin "
+"kestesinde saqtalǵan mánder paıdalanylady."
 
 #: libraries/classes/Server/Privileges.php:1785
 #: libraries/classes/Server/Privileges.php:1802
@@ -11381,24 +11551,24 @@ msgstr "Paıdalanushy toby"
 #: libraries/classes/Server/Privileges.php:3826
 #: libraries/classes/Server/Privileges.php:5006
 msgid "The selected user was not found in the privilege table."
-msgstr ""
+msgstr "Bólektelgen paıdalanýshy artyqshylyqtar kestesinde tabylmady."
 
 #: libraries/classes/Server/Privileges.php:4002
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "Joıý úshin eshqandaı paıdalanýshy bólektelmegen!"
 
 #: libraries/classes/Server/Privileges.php:4005
 msgid "Reloading the privileges"
-msgstr ""
+msgstr "Artyqshylyqtardy qaıta júkteý"
 
 #: libraries/classes/Server/Privileges.php:4024
 msgid "The selected users have been deleted successfully."
-msgstr ""
+msgstr "Bólektelgen paıdalanýshylar sátti joıyldy."
 
 #: libraries/classes/Server/Privileges.php:4102
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr ""
+msgstr "%s úshin artyqshylyqtardy jańarttyńyz."
 
 #: libraries/classes/Server/Privileges.php:4212
 #, php-format
@@ -11407,7 +11577,7 @@ msgstr "%s joıylýda"
 
 #: libraries/classes/Server/Privileges.php:4242
 msgid "The privileges were reloaded successfully."
-msgstr ""
+msgstr "Artyqshylyqtar sátti qaıta júkteldi."
 
 #: libraries/classes/Server/Privileges.php:4340
 #, php-format
@@ -11623,6 +11793,8 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"Nusqany oqý sátsiz aıaqtaldy. Múmkin oflaındasyz nemese jańartýlar serveri "
+"jaýap qaıtarmaıdy."
 
 #: libraries/classes/Setup/Index.php:153
 msgid "Got invalid version string from server"
@@ -11638,6 +11810,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"Git nusqasyn paıdalanǵansyz, [kbd]git pull[/kbd] oryndańyz :-)[br]Sońǵy "
+"turaqty nusqasy - %s, %s kezinde shyǵarylǵan."
 
 #: libraries/classes/Setup/Index.php:193
 msgid "No newer stable version is available"
@@ -11744,17 +11918,17 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:48
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "Bul MySQL serverindegi %s ádepki saqtaýshy mehanızmy bolyp tabylady."
+msgstr "Bul MySQL serverindegi %s ádepki saqtaýysh mehanızmy bolyp tabylady."
 
 #: libraries/classes/StorageEngine.php:390
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%s bul MySQL serverinde qoljetimdi."
 
 #: libraries/classes/StorageEngine.php:393
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s bul MySQL serveri úshin óshirilgen."
 
 #: libraries/classes/StorageEngine.php:398
 #, php-format
@@ -11941,6 +12115,8 @@ msgstr ""
 #: libraries/classes/Tracking.php:840
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
+"Eger sizge osy eki jol qajet emes bolsa, olardy túsinikteme tańbalarymen "
+"qorshańyz."
 
 #: libraries/classes/Tracking.php:850
 msgid "SQL statements exported. Please copy the dump or execute it."
@@ -12045,6 +12221,8 @@ msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"DOUBLE sınonımy (erekshelik: REAL_AS_FLOAT SQL-rejıminde ol FLOAT úshin "
+"sınonım)"
 
 #: libraries/classes/Types.php:255
 msgid ""
@@ -12057,37 +12235,44 @@ msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"TINYINT(1) sınonımi, nól máni «false» bolyp esepteledi, beınóldik mánder "
+"«true» dep esepteledi"
 
 #: libraries/classes/Types.php:264
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE úshin búrkenshik aty"
 
 #: libraries/classes/Types.php:267
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Kún, qoldaý aýqymy - %1$s jáne %2$s arasy"
 
 #: libraries/classes/Types.php:273
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Kún men ýaqyt quramasy, qoldaý aýqymy - %1$s jáne %2$s arasy"
 
 #: libraries/classes/Types.php:279
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Ýaqyt belgisi, aýqymy 1970-01-01 00:00:01 UTC jáne 2038-01-09 03:14:07 UTC "
+"arasy, dáýirden (1970-01-01 00:00:00 UTC) beri sekýnt sany retinde saqtalady"
 
 #: libraries/classes/Types.php:285
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr ""
+msgstr "Ýaqyt, aýqymy - %1$s jáne %2$s arasy"
 
 #: libraries/classes/Types.php:291
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Jyl, tórt-sıfrly (4, ádepki) nemese eki-sıfrly (2) pishimdegi, ruqsat "
+"etilgen mánderi - 70 (1970) jáne 69 (2069) arasy nemese 1901 jáne 2155 "
+"arasy, jáne 0000"
 
 #: libraries/classes/Types.php:297
 msgid ""
@@ -12168,22 +12353,23 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Sanamalaý, 65535 mánine deıin tizimnen tańdalǵan nemese arnaıy '' qate máni"
 
 #: libraries/classes/Types.php:370
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Jalǵyz mán, 64 múshege deıin turatyn jıyntyqtan tańdalǵan"
 
 #: libraries/classes/Types.php:372
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Kezkelgen túrdegi geometrıany saqtaýǵa bolatyn túri"
 
 #: libraries/classes/Types.php:374
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "2-ólshemdik keńistiktegi núkte"
 
 #: libraries/classes/Types.php:376
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Núkteler arasyndaǵy syzyqtyq ınterpolásıaǵa ıe qısyq syzyq"
 
 #: libraries/classes/Types.php:378
 msgid "A polygon"
@@ -12196,6 +12382,7 @@ msgstr "Núkteler jıyntyǵy"
 #: libraries/classes/Types.php:383
 msgid "A collection of curves with linear interpolation between points"
 msgstr ""
+"Núkteler arasyndaǵy syzyqtyq ınterpolásıaǵa ıe qısyq syzyqtardyń jıyntyǵy"
 
 #: libraries/classes/Types.php:386
 msgid "A collection of polygons"
@@ -12250,16 +12437,16 @@ msgstr "Statıkalyq taldaý:"
 #: libraries/classes/Util.php:608
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "Taldaý kezinde %d qate tabyldy."
 
 #: libraries/classes/Util.php:1114
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "Explain SQL ótkizý"
 
 #: libraries/classes/Util.php:1122
 #, php-format
 msgid "Analyze Explain at %s"
-msgstr ""
+msgstr "%s janynda Explain taldaýy"
 
 #: libraries/classes/Util.php:1152
 msgid "Without PHP code"
@@ -12313,7 +12500,7 @@ msgstr "«%s» derekqoryna ótip ketý."
 #: libraries/classes/Util.php:2559
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "«%s» qyzmet etýi belgili qatege ushyrady, %s qarańyz"
 
 #: libraries/classes/Util.php:3360 templates/preferences/manage/main.twig:17
 msgid "Browse your computer:"
@@ -12322,11 +12509,11 @@ msgstr "Kompúterińizdi sharlaý:"
 #: libraries/classes/Util.php:3387
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr ""
+msgstr "Ýeb-serverdiń júktep salý katalogynan <b>%s</b> bólekteńiz:"
 
 #: libraries/classes/Util.php:3427
 msgid "There are no files to upload!"
-msgstr ""
+msgstr "Munda júktep salynatyn faıldar joq!"
 
 #: libraries/classes/Util.php:3451 libraries/classes/Util.php:3452
 #: templates/database/structure/check_all_tables.twig:15
@@ -12339,15 +12526,15 @@ msgstr "Oryndaý"
 
 #: libraries/classes/Util.php:4083
 msgid "SSL is not being used"
-msgstr "SSL paıdalanylmaıdy"
+msgstr "SSL paıdalanylmaı jatqan"
 
 #: libraries/classes/Util.php:4088
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "Rastaýy óshirilgen SSL paıdalanylady"
 
 #: libraries/classes/Util.php:4090
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "Kýálik beretin uıymsyz SSL paıdalanylady"
 
 #: libraries/classes/Util.php:4093
 msgid "SSL is used"
@@ -12364,30 +12551,32 @@ msgstr "Suryptaý"
 
 #: libraries/classes/ZipExtension.php:58
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "ZIP-muraǵat isinde faıldar tabylmady!"
 
 #: libraries/classes/ZipExtension.php:92 libraries/classes/ZipExtension.php:102
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "ZIP-muraǵatyndaǵy qate:"
 
 #: libraries/common.inc.php:193
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Seanstyń cookie-faılyn ornatý sátsiz aıaqtaldy. Múmkin phpMyAdmin-ge qatynaý "
+"úshin HTTPS ornyna HTTP paıdalanǵansyz."
 
 #: libraries/common.inc.php:338
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "Konfıgýrasıada ornatylǵan túpnusqalyq rastamasynyń jaramsyz ádisi:"
 
 #: libraries/common.inc.php:391
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "%s%s nusqasyna nemese odan keıingige jańartýyńyz qajet."
 
 #: libraries/common.inc.php:446
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Qate: Token sáıkessizdigi"
 
 #: libraries/config.values.php:90 libraries/config.values.php:128
 #: libraries/config.values.php:140
@@ -12447,15 +12636,15 @@ msgstr "Jabyq"
 
 #: libraries/config.values.php:193
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Qate týraly esepterdi jibermes buryn suraý"
 
 #: libraries/config.values.php:194
 msgid "Always send error reports"
-msgstr ""
+msgstr "Árqashan qate týraly esepter jiberý"
 
 #: libraries/config.values.php:195
 msgid "Never send error reports"
-msgstr ""
+msgstr "Qate týraly esepterdi eshqashan jibermeý"
 
 #: libraries/config.values.php:198
 msgid "Server default"
@@ -12471,15 +12660,15 @@ msgstr "Óshirý"
 
 #: libraries/config.values.php:252
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Jyldam - teńsheý úshin eń az opsıalardy ǵana beıneleý"
 
 #: libraries/config.values.php:253
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Teńsheletin - teńsheý úshin barlyq yqtımal opsıalardy beıneleý"
 
 #: libraries/config.values.php:255
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Teńsheletin - joǵarydaǵydaı, biraq jyldam/teńsheletin tańdaýysyz"
 
 #: libraries/config.values.php:323
 msgid "complete inserts"
@@ -12530,7 +12719,7 @@ msgstr ""
 
 #: navigation.php:27
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "Túzetilmeıtin qate: Sharlaýǵa tek AJAX arqyly qatynaý bolady"
 
 #: prefs_manage.php:58
 msgid "phpMyAdmin configuration snippet"
@@ -12538,7 +12727,7 @@ msgstr "phpMyAdmin konfıgýrasıasynan úzindi"
 
 #: prefs_manage.php:59
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Ony config.inc.php faılyńyzǵa qoıyńyz"
 
 #: prefs_manage.php:99
 msgid "Could not import configuration"
@@ -12550,7 +12739,7 @@ msgstr "Qos-faktorlyq túpnusqalyq rastamasy alastaldy."
 
 #: prefs_twofactor.php:46
 msgid "Two-factor authentication has been configured."
-msgstr ""
+msgstr "Qos-faktorly túpnusqalyq rastama teńsheldi."
 
 #: server_export.php:31
 msgid "View dump (schema) of databases"
@@ -12562,7 +12751,7 @@ msgstr "Artyqshylyqtar joq"
 
 #: server_privileges.php:159
 msgid "You do not have the privileges to administrate the users!"
-msgstr ""
+msgstr "Paıdalanýshylardy basqarý úshin artyqshylyqtaryńyz joq!"
 
 #: server_privileges.php:173
 msgid ""
@@ -12572,7 +12761,7 @@ msgstr ""
 
 #: setup/index.php:26
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Konfıgýrasıa áldeqashan bar, ornatý óshirilgen!"
 
 #: setup/validate.php:31
 msgid "Wrong data"
@@ -12581,7 +12770,7 @@ msgstr "Durys emes derekter"
 #: setup/validate.php:37
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Qate derekter nemese %s úshin jaramdylyq tekserýi joq"
 
 #: tbl_change.php:166 templates/table/tracking/main.twig:33
 #: templates/database/tracking/tables.twig:19
@@ -12592,12 +12781,12 @@ msgstr "Көрсету"
 #: tbl_create.php:46 tbl_get_field.php:39
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "«%s» derekqory joq."
 
 #: tbl_create.php:56
 #, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "%s kestesi áldeqashan bar!"
 
 #: tbl_export.php:51
 msgid "View dump (schema) of table"
@@ -12619,7 +12808,7 @@ msgstr "Jol bólektelmedi."
 #: tbl_tracking.php:42
 #, php-format
 msgid "Tracking of %s is activated."
-msgstr ""
+msgstr "%s qadaǵalaýy belsendirildi."
 
 #: tbl_tracking.php:118
 msgid "Tracking versions deleted successfully."
@@ -12691,17 +12880,17 @@ msgstr "Qos-faktorlyq túpnusqalyq rastamany teńsheý"
 
 #: templates/display/export/option_header.twig:5
 msgid "Exporting databases from the current server"
-msgstr ""
+msgstr "Derekqorlardy aǵymdyq serverden eksporttaý"
 
 #: templates/display/export/option_header.twig:7
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr ""
+msgstr "Kestelerdi«%s» derekqorynan eksporttaý"
 
 #: templates/display/export/option_header.twig:9
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr ""
+msgstr "Joldardy «%s» kestesinen eksporttaý"
 
 #: templates/transformation_overview.twig:1
 msgid "Available MIME types"
@@ -12758,7 +12947,7 @@ msgstr "Baǵandardy bólekteý (eń keminde bir):"
 
 #: templates/table/search/selection_form.twig:126
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr ""
+msgstr "Izdeý sharttaryn ústeý («where» sóıleminiń negizgi mátini):"
 
 #: templates/table/search/selection_form.twig:134
 msgid "Number of rows per page"
@@ -12775,7 +12964,7 @@ msgstr "Tabý:"
 
 #: templates/table/search/selection_form.twig:183
 msgid "Replace with:"
-msgstr "Mynaýmen aýystyrý:"
+msgstr "Aýystyratyn mán:"
 
 #: templates/table/search/selection_form.twig:199
 msgid "Use regular expression"
@@ -12784,17 +12973,17 @@ msgstr "Qalypty órnekti paıdalaný"
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Collapse"
-msgstr ""
+msgstr "Jıý"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Expand"
-msgstr ""
+msgstr "Jaıý"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 msgid "Requery"
-msgstr ""
+msgstr "Jańǵyrtý"
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
@@ -12859,7 +13048,7 @@ msgstr "Jańa baǵandy ústeý"
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
 msgid "Length/Value"
-msgstr ""
+msgstr "Uzyndyǵy/Máni"
 
 #: templates/database/central_columns/main.twig:37
 #: templates/database/central_columns/main.twig:254
@@ -12868,7 +13057,7 @@ msgstr "Tólsıpat"
 
 #: templates/database/central_columns/main.twig:141
 msgid "The central list of columns for the current database is empty"
-msgstr ""
+msgstr "Aǵymdaǵy derekqor baǵandarynyń ortalyq tizimi bos"
 
 #: templates/database/central_columns/main.twig:180
 #: templates/display/results/table_navigation.twig:73
@@ -12922,7 +13111,7 @@ msgstr "Saýaldy oryndaý úshin «Enter» basyńyz"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
-msgstr "Túsindirý"
+msgstr "Explain áreketi"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Bookmark"
@@ -13044,7 +13233,7 @@ msgstr "Eshbir"
 
 #: templates/preferences/forms/main.twig:4
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr ""
+msgstr "Parametrlerdi saqtaý múmkin emes, jiberilgen pishinde qateler bar!"
 
 #: templates/display/export/options_quick_export.twig:2
 #: templates/display/export/options_output.twig:2
@@ -13063,7 +13252,7 @@ msgstr "Kestege tán artyqshylyqtar"
 
 #: templates/server/privileges/privileges_summary.twig:54
 msgid "Add privileges on the following database(s):"
-msgstr ""
+msgstr "Kelesi derekqor(lar)da artyqshylyqtar qosý:"
 
 #: templates/server/privileges/privileges_summary.twig:67
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -13079,7 +13268,7 @@ msgstr "Artyqshylyqtardy kelesi rásimge ústeý:"
 
 #: templates/display/results/options_block.twig:34
 msgid "Relational key"
-msgstr ""
+msgstr "Qatynastyq kilt"
 
 #: templates/display/results/options_block.twig:34
 msgid "Display column for relationships"
@@ -13122,11 +13311,11 @@ msgstr "muny bolashaq eksporttaý úshin paıdalaný"
 #: templates/filter.twig:2 templates/server/status/variables/index.twig:7
 #: templates/server/status/processes/index.twig:6
 msgid "Filters"
-msgstr ""
+msgstr "Súzgiler"
 
 #: templates/filter.twig:4 templates/server/status/variables/index.twig:14
 msgid "Containing the word:"
-msgstr ""
+msgstr "Ishindegi bar sóz:"
 
 #: templates/server/replication/database_multibox.twig:8
 #: templates/display/export/select_options.twig:8
@@ -13136,19 +13325,19 @@ msgstr "Barlyq bólekteýdi alastaý"
 
 #: templates/server/status/variables/index.twig:21
 msgid "Show only alert values"
-msgstr ""
+msgstr "Eskertý mánderin ǵana kórsetý"
 
 #: templates/server/status/variables/index.twig:27
 msgid "Filter by category…"
-msgstr ""
+msgstr "Sanat boıynsha súzý…"
 
 #: templates/server/status/variables/index.twig:37
 msgid "Show unformatted values"
-msgstr ""
+msgstr "Pishimdelmegen mánderdi kórsetý"
 
 #: templates/server/status/variables/index.twig:45
 msgid "Related links:"
-msgstr ""
+msgstr "Qatynas siltemeler:"
 
 #: templates/server/status/variables/index.twig:70
 #: templates/server/replication/status_table.twig:16
@@ -13158,7 +13347,7 @@ msgstr "Aınymaly"
 
 #: templates/server/status/variables/index.twig:134
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "Mártebeniń aınymalylaryn kórý úshin jetkilikti artyqshylyq joq."
 
 #: templates/preferences/two_factor/confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
@@ -13178,7 +13367,7 @@ msgstr "Plagın"
 
 #: templates/server/plugins/index.twig:25 templates/table/tracking/main.twig:28
 msgid "Version"
-msgstr ""
+msgstr "Nusqa"
 
 #: templates/server/plugins/index.twig:26
 msgid "Author"
@@ -13244,23 +13433,23 @@ msgstr "Barlyq joldardy damptaý"
 
 #: templates/server/status/base.twig:15
 msgid "Query statistics"
-msgstr "Сұраныстардың статистикасы"
+msgstr "Saýal statıstıkasy"
 
 #: templates/server/status/base.twig:20
 msgid "All status variables"
-msgstr ""
+msgstr "Barlyq mártebe aınymalylary"
 
 #: templates/server/status/base.twig:25
 msgid "Monitor"
-msgstr ""
+msgstr "Monıtor"
 
 #: templates/server/status/base.twig:30
 msgid "Advisor"
-msgstr ""
+msgstr "Keńesshi"
 
 #: templates/toggle_button.twig:3
 msgid "Click to toggle"
-msgstr ""
+msgstr "Aýystyrý úshin basyńyz"
 
 #: templates/display/export/options_format.twig:2
 #: templates/display/import/import.twig:174
@@ -13281,7 +13470,7 @@ msgstr "Kodtaýdy túrlendirý:"
 
 #: templates/table/page_with_secondary_tabs.twig:9
 msgid "Relation view"
-msgstr "Qatysty kórinis"
+msgstr "Qatynas kórinisi"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 msgid ""
@@ -13347,7 +13536,7 @@ msgstr ""
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Qate týraly esepte derekterdi teksere alasyz:"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
@@ -13423,7 +13612,7 @@ msgstr "Baǵandardy ústeý/alastaý"
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
-msgstr "Úlgini bólekteý"
+msgstr "Úlgini bólekteńiz"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
@@ -13456,7 +13645,7 @@ msgstr "Taldaǵysh:"
 
 #: templates/table/index_form.twig:97
 msgid "Comment:"
-msgstr "Ańǵartpa:"
+msgstr "Túsinikteme:"
 
 #: templates/table/index_form.twig:122
 #: templates/database/structure/table_header.twig:36
@@ -13490,6 +13679,7 @@ msgstr ""
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
+"Tek ındeksi bar baǵandar beınelelenedi. Indeksti tómende anyqtaı alasyz."
 
 #: templates/table/relation/common_form.twig:27
 msgid "Foreign key constraint"
@@ -13585,11 +13775,13 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
+"Shamamen bolýy múmkin. Naqty sandy alý úshin nómirdi basyńyz. [doc@faq3-11]"
+"FAQ 3.11[/doc] qarańyz."
 
 #: templates/database/structure/table_header.twig:51
 #: templates/table/structure/display_table_stats.twig:147
 msgid "Creation"
-msgstr "Jasaý"
+msgstr "Jasalys"
 
 #: templates/database/structure/table_header.twig:56
 #: templates/table/structure/display_table_stats.twig:154
@@ -13622,6 +13814,7 @@ msgstr "Jetektegi kirgizý-shyǵarý tizbegi jumys istemeıdi!"
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Server replıkalaý prosesinde jetektegi retinde teńshelgen. Ne isteý kerek:"
 
 #: templates/server/replication/slave_configuration.twig:33
 msgid "See slave status table"
@@ -13658,6 +13851,8 @@ msgstr "Qatelerdi basqarý:"
 #: templates/server/replication/slave_configuration.twig:76
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"Qatelerdi ótkizip jiberý úndestirilmegen jetekshi men jetektegige ákelýi "
+"múmkin!"
 
 #: templates/server/replication/slave_configuration.twig:80
 msgid "Skip current error"
@@ -13679,6 +13874,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
+"Bul server replıkalaý prosesinde jetektegi retinde teńshelmegen. Ony "
+"%steńsheýdi%s qalaısyz ba?"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
@@ -13726,7 +13923,7 @@ msgstr "№"
 
 #: templates/server/status/queries/index.twig:53
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "Saýal statıstıkasyn kórý úshin artyqshylyqtar jetkiliksiz."
 
 #: templates/table/search/fields_table.twig:10
 #: templates/database/designer/main.twig:557
@@ -13740,11 +13937,11 @@ msgstr "Operator"
 
 #: templates/preferences/manage/error.twig:1
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Konfıgýrasıa keıbir órister úshin durys emes derekterdi qamtıdy."
 
 #: templates/preferences/manage/error.twig:16
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Qalǵan parametrlerdi ımporttaǵyńyz kele me?"
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -13777,13 +13974,15 @@ msgstr "Faıl óńdep shyǵarylýda, shydamdy bolyńyz."
 
 #: templates/display/import/javascript.twig:30
 msgid "Uploading your import file…"
-msgstr "Import faılyńyzdy júktep berý…"
+msgstr "Import faılyńyzdy júktep salýda…"
 
 #: templates/display/import/javascript.twig:155
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Shydamdy bolyńyz, faıl júktep salýda. Júktep salý týraly egjeıler qoljetimdi "
+"emes."
 
 #: templates/start_and_number_of_rows_panel.twig:3
 msgid "Start row:"
@@ -13875,11 +14074,11 @@ msgstr "Aqparat"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
-msgstr ""
+msgstr "Keńistik paıdalanýy"
 
 #: templates/table/structure/display_table_stats.twig:37
 msgid "Effective"
-msgstr ""
+msgstr "Tıimdi"
 
 #: templates/table/structure/display_table_stats.twig:73
 msgid "Row statistics"
@@ -13907,15 +14106,15 @@ msgstr "Jol ólshemi"
 
 #: templates/table/structure/display_table_stats.twig:140
 msgid "Next autoindex"
-msgstr ""
+msgstr "Kelesi avtoındeks"
 
 #: templates/server/engines/show.twig:3 templates/server/engines/index.twig:3
 msgid "Storage engines"
-msgstr "Saqtaýysh mehanizmdary"
+msgstr "Saqtaýysh mehanızmdary"
 
 #: templates/server/engines/show.twig:47
 msgid "Unknown storage engine."
-msgstr ""
+msgstr "Belgisiz saqtaýysh mehanızmy."
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
@@ -13925,7 +14124,7 @@ msgstr "birinshi"
 #: templates/table/structure/display_structure.twig:432
 #, php-format
 msgid "after %s"
-msgstr "%s keıin"
+msgstr "%s sońynda"
 
 #: templates/database/create_table.twig:7
 #: templates/database/designer/main.twig:86
@@ -13948,7 +14147,7 @@ msgstr "Kórinisti óńdeý"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
-msgstr ""
+msgstr "VIEW aty"
 
 #: templates/view_create.twig:79
 msgid "Column names"
@@ -13979,7 +14178,7 @@ msgstr "Eshbir"
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Bul server replıkalaý prosesinde jetekshi retinde teńshelgen."
 
 #: templates/server/replication/master_replication.twig:15
 msgid "Show connected slaves"
@@ -14014,7 +14213,7 @@ msgstr "Jasaý"
 
 #: templates/server/databases/index.twig:52
 msgid "No privileges to create databases"
-msgstr ""
+msgstr "Derekqorlardy jasaý úshin artyqshylyqtar joq"
 
 #: templates/server/databases/index.twig:163
 #, php-format
@@ -14024,7 +14223,7 @@ msgstr "«%s» derekqoryna ótip ketý"
 #: templates/server/databases/index.twig:225
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr ""
+msgstr "«%s» derekqory úshin artyqshylyqtar tekserilsin."
 
 #: templates/server/databases/index.twig:226
 msgid "Check privileges"
@@ -14047,7 +14246,7 @@ msgstr "Derqorlar joq"
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "ENUM/SET mánderin óńdeý"
 
 #: templates/server/collations/index.twig:3
 msgid "Character sets and collations"
@@ -14070,7 +14269,7 @@ msgstr "Faıldyń tańbalar jıyny:"
 
 #: templates/database/search/main.twig:5
 msgid "Search in database"
-msgstr "Дерекқорынан іздеу"
+msgstr "Derekqorda izdeý"
 
 #: templates/database/search/main.twig:8
 msgid "Words or values to search for (wildcard: \"%\"):"
@@ -14091,7 +14290,7 @@ msgstr "Jańa"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
-msgstr "Jetektegi konfıgýrasıa"
+msgstr "Jetekteginiń konfıgýrasıasy"
 
 #: templates/server/replication/change_master.twig:9
 msgid ""
@@ -14115,7 +14314,7 @@ msgstr "Qorkózi shekteri"
 
 #: templates/server/privileges/resource_limits.twig:5
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
+msgstr "Eskerim: Bul opsıalardy 0 (nól) mánine ornatqanda shekteýdi alastaıdy."
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
@@ -14198,7 +14397,7 @@ msgstr "Qazir ajyratý"
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Exporttyń qatynastyq túrin bólekteý"
 
 #: templates/display/results/table_navigation.twig:26
 msgid "Save edited data"
@@ -14223,7 +14422,7 @@ msgstr "Kóbirek taqyryptar alý!"
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
 msgid "Referenced by %s."
-msgstr ""
+msgstr "%s arqyly baılastyryldy."
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
@@ -14296,19 +14495,19 @@ msgstr "Typnusqalyq jaıǵasym"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
-msgstr ""
+msgstr "GIS kórnekileýin beıneleý"
 
 #: templates/table/gis_visualization/gis_visualization.twig:8
 msgid "Label column"
-msgstr ""
+msgstr "Baǵan belgisi"
 
 #: templates/table/gis_visualization/gis_visualization.twig:11
 msgid "-- None --"
-msgstr ""
+msgstr "-- Joq --"
 
 #: templates/table/gis_visualization/gis_visualization.twig:19
 msgid "Spatial column"
-msgstr ""
+msgstr "Keńistik baǵan"
 
 #: templates/table/gis_visualization/gis_visualization.twig:38
 #: templates/gis_data_editor_form.twig:22
@@ -14318,7 +14517,7 @@ msgstr "Negizgi Qabat retinde OpenStreetMaps paıdalaný"
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "%s jolymen kiristirýdi jalǵastyrý"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
@@ -14435,11 +14634,11 @@ msgstr "%1$s nusqasyn jasaý"
 
 #: templates/create_tracking_version.twig:20
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Osy derekter anyqtaýy nusqaýlaryn qadaǵalaý:"
 
 #: templates/create_tracking_version.twig:59
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Osy derekterdi basqarý nusqaýlaryn qadaǵalaý:"
 
 #: templates/create_tracking_version.twig:76
 msgid "Create version"
@@ -14471,17 +14670,17 @@ msgstr "Mynany alyńyz"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
-msgstr ""
+msgstr "Aǵymdyq serverge ımporttaý"
 
 #: templates/display/import/import.twig:42
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr ""
+msgstr "«%s» derekqoryna ımporttaý"
 
 #: templates/display/import/import.twig:44
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr ""
+msgstr "«%s» kestesine ımporttaý"
 
 #: templates/display/import/import.twig:50
 msgid "File to import:"
@@ -14490,26 +14689,28 @@ msgstr "Importtalatyn faıl:"
 #: templates/display/import/import.twig:56
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Faıl qysylǵan (%s) nemese qysylmaǵan bolýy múmkin."
 
 #: templates/display/import/import.twig:58
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
+"Qysylǵan faıl atynyń sońy <strong>.[format].[compression]</strong> bolý "
+"qajet. Mysaly: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "Sondaı-aq, faıldy kezkelgen betke súırep aparýǵa bolady."
 
 #: templates/display/import/import.twig:86
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "Bul serverde faıldardy júktep salýǵa ruqsat etilmeıdi."
 
 #: templates/display/import/import.twig:124
 msgid "Partial import:"
-msgstr ""
+msgstr "Ishinara Import:"
 
 #: templates/display/import/import.twig:129
 #, php-format
@@ -14601,7 +14802,7 @@ msgstr "Ýeb-server"
 
 #: templates/home/index.twig:125
 msgid "Database client version:"
-msgstr "Derekqor tutynýshy nusqasy:"
+msgstr "Derekqor klıentiniń nusqasy:"
 
 #: templates/home/index.twig:129
 msgid "PHP extension:"
@@ -14932,7 +15133,7 @@ msgstr "Bólgish qoldaný"
 
 #: templates/server/status/monitor/index.twig:186
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Derekter mánderine birlikti qosý"
 
 #: templates/server/status/monitor/index.twig:194
 msgid "Add this series"
@@ -14956,19 +15157,20 @@ msgstr "Bólektelgen ýaqyt aýqymy:"
 
 #: templates/server/status/monitor/index.twig:220
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Tek SELECT, INSERT, UPDATE jáne DELETE nusqaýlaryn shyǵaryp alý"
 
 #: templates/server/status/monitor/index.twig:226
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
+"Jaqsylaı toptastyrý úshin aınymaly derekterin INSERT nusqaýlarynda alastańyz"
 
 #: templates/server/status/monitor/index.twig:230
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
+msgstr "Qandaı jurnaldań statıstıkany jasap shyǵarýyńyz keletinin tańdańyz."
 
 #: templates/server/status/monitor/index.twig:233
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Nátıjeler saýal mátini boıynsha toptastyrylady."
 
 #: templates/server/status/monitor/index.twig:237
 msgid "Query analyzer"
@@ -15098,6 +15300,8 @@ msgstr "Qoldanysta bar parametrler qaıta jazylady!"
 #: templates/preferences/manage/main.twig:105
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Barlyq parametrlerińizdi ysyrýyńyz múmkin jáne olardy ádepki mánderge "
+"qalpyna keltire alasyz."
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -15116,12 +15320,12 @@ msgstr ""
 #: templates/server/status/status/index.twig:6
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Iske qosylǵannan beri jelilik trafık: %s"
 
 #: templates/server/status/status/index.twig:7
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr ""
+msgstr "Bul MySQL server %1$s jumys istep tur. Ol %2$s kezinde iske qosyldy."
 
 #: templates/server/status/status/index.twig:14
 msgid ""
@@ -15134,14 +15338,20 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Bul MySQL serveri <b>replıkalaý</b> prosesinde <b>jetekshi</b> jáne "
+"<b>jetektegi</b> retinde jumys isteıdi."
 
 #: templates/server/status/status/index.twig:59
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"Bul MySQL serveri <b>replıkalaý</b> prosesinde <b>jetekshi</b> retinde jumys "
+"isteıdi."
 
 #: templates/server/status/status/index.twig:61
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Bul MySQL serveri <b>replıkalaý</b> prosesinde <b>jetektegi</b> retinde "
+"jumys isteıdi."
 
 #: templates/server/status/status/index.twig:68
 msgid "Replication status"
@@ -15149,7 +15359,7 @@ msgstr "Replıkalaýdyń mártebesi"
 
 #: templates/server/status/status/index.twig:75
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "Server mártebesin kórý úshin artyqshylyqtar jetkiliksiz."
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
@@ -15169,16 +15379,18 @@ msgstr "Server aınymalylary men parametrleri"
 
 #: templates/server/variables/index.twig:40
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Bul tek oqýǵa arnalǵan aınymaly jáne óńdelmeıdi"
 
 #: templates/server/variables/index.twig:66
 msgid "Session value"
-msgstr ""
+msgstr "Seans máni"
 
 #: templates/server/variables/index.twig:75
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
+"Server aınymaly mánderin jáne parametrlerdi kórý úshin artyqshylyqtar "
+"jetkiliksiz. %s"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -15187,7 +15399,7 @@ msgstr "Eshbir"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr ""
+msgstr "Anyqtalǵandaı:"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
@@ -15235,7 +15447,7 @@ msgstr "Baǵandardy jyljytý"
 
 #: templates/table/structure/display_structure.twig:364
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Baǵandardy joǵaryǵa jáne tómenge súırep aparyńyz."
 
 #: templates/table/structure/display_structure.twig:386
 msgid "Propose table structure"
@@ -15256,7 +15468,7 @@ msgstr "%s baǵan ústeý"
 
 #: templates/table/structure/display_structure.twig:427
 msgid "at beginning of table"
-msgstr "kesteniń basynda"
+msgstr "keste basynda"
 
 #: templates/table/structure/display_structure.twig:474
 #: templates/table/structure/display_partitions.twig:4
@@ -15526,7 +15738,7 @@ msgstr "Sizdi maqsatty saıtqa aparady."
 
 #: user_password.php:50
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr ""
+msgstr "Munda bolý úshin jetkilikti artyqshylyqtaryńyz qazirgi ýaqytta joq!"
 
 #: view_create.php:55
 msgid "View name can not be empty!"
@@ -15542,7 +15754,7 @@ msgstr "Jumys ýaqyty bir kúnnen az"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Jumys ýaqyty 1 kúnnen az, ónimdilikti baptaý dál bolmaýy múmkin."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
@@ -15557,7 +15769,7 @@ msgstr "Jumys ýaqyty %s ǵana"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
-msgstr "1000-nan az suraqtar"
+msgstr "Suraqtar 1000-nan az"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
@@ -15584,6 +15796,7 @@ msgstr "Baıaý saýaldardyń paıyzdyǵyy"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Saýaldardyń jalpy sanyna salystyrǵanda, munda baıaý saýaldyń biqatary bar."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
@@ -15649,7 +15862,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries máni «OFF» úshin ornatylǵan"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -15704,7 +15917,7 @@ msgstr "Nusqasy 5.5.8-den az (alǵashqy GA shyǵarylymy - 5.5)."
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr ""
+msgstr "MySQL 5.5 turaqty nusqasyna jańartýyńyz qajet."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -15712,7 +15925,7 @@ msgstr "Taratý"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr "Nusqa, MySQL resmı ekiligi emes, derekkózden qurastyrylǵan."
+msgstr "Bul nusqa MySQL resmı ekiligi emes, ol derekkózden qurastyrylǵan."
 
 #: libraries/advisory_rules.txt:125
 msgid ""
@@ -15781,8 +15994,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
-"query_cache_size 0 mánine ornatylǵan nemese query_cache_type «OFF» mánine "
-"ornatylǵan"
+"query_cache_size máni 0 úshin ornatylǵan nemese query_cache_type máni «OFF» "
+"úshin ornatylǵan"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query caching method"
@@ -15814,16 +16027,16 @@ msgstr "Saýal keshiniń tıimdiligi (%%)"
 
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Saýal keshi tıimdi jumys istemeıdi, onyń sáıkestik jıiligi tómen."
 
 #: libraries/advisory_rules.txt:164
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "{query_cache_limit} ulǵaıtýdy qarastyryńyz."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "Saýal keshiniń sáıkestik jıiligi %s%% aǵymda 20%% tómen"
 
 #: libraries/advisory_rules.txt:167
 msgid "Query Cache usage"
@@ -15832,7 +16045,7 @@ msgstr "Saýal keshin paıdalanýy"
 #: libraries/advisory_rules.txt:170
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Saýal keshiniń 80%%-dan azy paıdalanylýda."
 
 #: libraries/advisory_rules.txt:171
 msgid ""
@@ -15853,7 +16066,7 @@ msgstr "Saýal keshinń shashyraýy"
 
 #: libraries/advisory_rules.txt:177
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Saýal keshi aıtarlyqtaı shashyralǵan."
 
 #: libraries/advisory_rules.txt:178
 msgid ""
@@ -15927,7 +16140,7 @@ msgstr "Saýal keshiniń eń az nátıjelik ólshemi"
 #: libraries/advisory_rules.txt:198
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
+msgstr "Saýal keshinde ornatylǵan nátıjeniń eń úlken ólshemi - ádepki 1 MiB."
 
 #: libraries/advisory_rules.txt:199
 msgid ""
@@ -15943,15 +16156,15 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:200
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit máni 1 MiB ornatylǵan"
 
 #: libraries/advisory_rules.txt:204
 msgid "Percentage of sorts that cause temporary tables"
-msgstr ""
+msgstr "Ýaqytsha kestelerdi týdyratyn suryptaý paıyzdyǵyy"
 
 #: libraries/advisory_rules.txt:207 libraries/advisory_rules.txt:214
 msgid "Too many sorts are causing temporary tables."
-msgstr ""
+msgstr "Tym kóp suryptaý ýaqytsha kestelerdi týdyrady."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
 msgid ""
@@ -15965,16 +16178,19 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"Barlyq suryptaýdan %s%% ýaqytsha kestelerdi týdyrady, bul mán 10 %% tómendeý "
+"bolýy qajet."
 
 #: libraries/advisory_rules.txt:211
 msgid "Rate of sorts that cause temporary tables"
-msgstr ""
+msgstr "Ýaqytsha kestelerdi týdyratyn suryptaý araqatynasy"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Ýaqytsha kestelerdiń ortashasy: %s, bul mán saǵatyna 1-den kem bolýy qajet."
 
 #: libraries/advisory_rules.txt:218
 msgid "Sort rows"
@@ -15982,7 +16198,7 @@ msgstr "Joldardy suryptaý"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Munda birqatar suryptalayp jatqan joldar bar."
 
 #: libraries/advisory_rules.txt:222
 msgid ""
@@ -16014,15 +16230,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:231
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Keste qosylý ortashasy: %s, bul mán saǵatyna 1-den kem bolýy qajet"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Birinshi ındeks jazbasyn oqu araqatynasy"
 
 #: libraries/advisory_rules.txt:236
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Birinshi ındeks jazbasyn oqu araqatynasy joǵary."
 
 #: libraries/advisory_rules.txt:237
 msgid ""
@@ -16037,15 +16253,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:238
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "Indeksti skanerleý ortashasy: %s, bul mán saǵatyna 1-den az bolýy qajet"
 
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Turaqty jaıǵasymdy oqý jaraqatynasy"
 
 #: libraries/advisory_rules.txt:243
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Turaqty jaıǵasymdy oqý jaraqatynasy joǵary."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -16060,6 +16276,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Turaqty jaıǵasymdy oqý ortashasynyń araqatynasy: %s, bul mán saǵatyna 1-den "
+"kem bolýy qajet"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading next table row"
@@ -16067,7 +16285,7 @@ msgstr "Kelesi keste jolyn oqý araqatynasy"
 
 #: libraries/advisory_rules.txt:250
 msgid "The rate of reading the next table row is high."
-msgstr ""
+msgstr "Kelesi keste jolyn oqý araqatynasy joǵary."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -16080,6 +16298,8 @@ msgstr ""
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Kelesi keste jolyn oqý araqatynasy: %s, bul mán saǵatyna 1-den kem bolýy "
+"qajet"
 
 #: libraries/advisory_rules.txt:255
 msgid "Different tmp_table_size and max_heap_table_size"
@@ -16111,6 +16331,7 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Kóptegen ýaqytsha kesteler jadta saqtalýdyń ornyna dıskige jazylyp jatqan."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -16129,10 +16350,12 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"Barlyq ýaqytsha kestelerdiń %s%% dıskige jazylady, bul mán 25 %% tómendeý "
+"bolýy qajet"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
-msgstr ""
+msgstr "Ýaqytsha dıskiniń araqatynasy"
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -16151,6 +16374,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Dıskige jazylǵan ýaqytsha kestelerdiń araqatynasy: %s, bul mán saǵatyna 1-"
+"den kem bolýy qajet"
 
 #: libraries/advisory_rules.txt:278
 msgid "MyISAM key buffer size"
@@ -16158,13 +16383,15 @@ msgstr "MyISAM kiltiniń býfer ólshemi"
 
 #: libraries/advisory_rules.txt:281
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
+msgstr "Kilt býferi baptandyrylmaǵan. MyISAM ındekster keshtelmeıdi."
 
 #: libraries/advisory_rules.txt:282
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"MyISAM ındeksterińizdiń ólshemine táýeldi {key_buffer_size} mánin ornatyńyz. "
+"64M - jaqsy bastama."
 
 #: libraries/advisory_rules.txt:283
 msgid "key_buffer_size is 0"
@@ -16173,12 +16400,12 @@ msgstr "key_buffer_size máni 0 teń"
 #: libraries/advisory_rules.txt:285
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr ""
+msgstr "Eń kóp %% MyISAM kilt býferi esqashan paıdalanylǵan"
 
 #: libraries/advisory_rules.txt:288 libraries/advisory_rules.txt:296
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
+msgstr "MyISAM kilt býferi (ındeks keshi) %% paıdalanylaǵany tómen."
 
 #: libraries/advisory_rules.txt:289 libraries/advisory_rules.txt:297
 msgid ""
@@ -16192,33 +16419,36 @@ msgstr ""
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
+"Eń kóp %% MyISAM kilt býferi esqashan paıdalanylǵan: %s%%, bul mán 95 %% "
+"joǵary bolýy qajet"
 
 #: libraries/advisory_rules.txt:293
 msgid "Percentage of MyISAM key buffer used"
-msgstr ""
+msgstr "MyISAM kilt býferiniń paıdalanylǵan paıyzdyǵy"
 
 #: libraries/advisory_rules.txt:298
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
+"%% MyISAM kilt býferin paıdalanylǵany: %s%%, bul mán 95 %% joǵary bolýy qajet"
 
 #: libraries/advisory_rules.txt:300
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Indekstiń jadtan oqılǵan paıyzdyǵy"
 
 #: libraries/advisory_rules.txt:303
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "MyISAM kilt býferin paıdalanatyn ındekster %% tómen."
 
 #: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "{key_buffer_size} arttyrý qajet bolýy múmkin."
 
 #: libraries/advisory_rules.txt:305
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Indeks jadtan oqylǵany: %s%%, bul mán 95 %% joǵary bolýy qajet"
 
 #: libraries/advisory_rules.txt:309
 msgid "Rate of table open"
@@ -16286,11 +16516,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:334 libraries/advisory_rules.txt:341
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Saýaldardy ońtaılandyryńyz jáne/nemese qulyptaý kútýin azaıtý úshin InnoDB "
+"paıdalanyńyz."
 
 #: libraries/advisory_rules.txt:335
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Dereý keste qulyptary: %s%%, bul mán 95 %% joǵary bolýy qajet"
 
 #: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
@@ -16315,6 +16547,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
+"Tizbek keshin {thread_cache_size}> 0 parametrin ornatý arqyly iske qosý."
 
 #: libraries/advisory_rules.txt:349
 msgid "The thread cache is set to 0"
@@ -16323,7 +16556,7 @@ msgstr "Tizbek keshi 0 mánine ornatylǵan"
 #: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "Tizbek keshiniń ushyrasý araqatynasy %%"
+msgstr "Tizbek keshiniń sáıkestik jıiligi %%"
 
 #: libraries/advisory_rules.txt:354
 msgid "Thread cache is not efficient."
@@ -16337,14 +16570,15 @@ msgstr "{thread_cache_size} mánin arttyrý."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Tizbek keshiniń sáıkestik jıiligi: %s%%, bul mán 80 %% joǵary bolýy qajet"
 
 #: libraries/advisory_rules.txt:358
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Iske qosý úshin tizbekter baıaý"
 
 #: libraries/advisory_rules.txt:361
 msgid "There are too many threads that are slow to launch."
-msgstr ""
+msgstr "Munda tym kóp tizbekter bar, olar iske qosý úshin baıaý."
 
 #: libraries/advisory_rules.txt:362
 msgid ""
@@ -16355,7 +16589,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:363
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s tizbek bastaý úshin %s sekýntten uzaǵyraq aldy, ol 0 bolýy qajet"
 
 #: libraries/advisory_rules.txt:365
 msgid "Slow launch time"
@@ -16432,11 +16666,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
-msgstr "Úzilgen tutynýshylar paızdyǵy"
+msgstr "Úzilgen klıentter paızdyǵy"
 
 #: libraries/advisory_rules.txt:398 libraries/advisory_rules.txt:405
 msgid "Too many clients are aborted."
-msgstr "Tym kóp tutynýshylar úzildi."
+msgstr "Tym kóp klıentter úzildi."
 
 #: libraries/advisory_rules.txt:399 libraries/advisory_rules.txt:406
 msgid ""
@@ -16448,11 +16682,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:400
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "Barlyq klıentterden %s%% úzildi. Bul mán 2 %% tómen bolýy qajet"
 
 #: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
-msgstr "Úzilgen tutynýshylar araqatynasy"
+msgstr "Úzilgen klıentter araqatynasy"
 
 #: libraries/advisory_rules.txt:407
 #, php-format
@@ -16469,11 +16703,11 @@ msgstr "InnoDB qosypaǵansyz."
 
 #: libraries/advisory_rules.txt:415
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB keste mehanızmdary úshin ádette jaqsy tańdaý bolyp tabylady."
 
 #: libraries/advisory_rules.txt:416
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb «value» mánine ornatylǵan"
 
 #: libraries/advisory_rules.txt:418
 msgid "InnoDB log size"

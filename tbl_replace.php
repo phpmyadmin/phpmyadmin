@@ -14,6 +14,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\File;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
@@ -28,24 +30,29 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Gets some core libraries
- */
+global $url_params;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-global $url_params;
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 // Check parameters
 Util::checkParameters(['db', 'table', 'goto']);
 
-$GLOBALS['dbi']->selectDb($GLOBALS['db']);
+$dbi->selectDb($GLOBALS['db']);
 
 /**
  * Initializes some variables
  */
 $goto_include = false;
 
-$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
@@ -54,9 +61,9 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-$relation = new Relation($GLOBALS['dbi']);
+$relation = new Relation($dbi);
 $transformations = new Transformations();
-$insertEdit = new InsertEdit($GLOBALS['dbi']);
+$insertEdit = new InsertEdit($dbi);
 
 // check whether insert row mode, if so include tbl_change.php
 $insertEdit->isInsertRow();

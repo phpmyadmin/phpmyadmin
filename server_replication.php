@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\ReplicationController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
 
@@ -19,11 +21,18 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 require_once ROOT_PATH . 'libraries/replication.inc.php';
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 $controller = new ReplicationController(
     $response,
-    $GLOBALS['dbi']
+    $dbi
 );
 
 $header = $response->getHeader();
@@ -36,7 +45,7 @@ if (isset($_POST['url_params']) && is_array($_POST['url_params'])) {
     $GLOBALS['url_params'] = $_POST['url_params'];
 }
 
-if ($GLOBALS['dbi']->isSuperuser()) {
+if ($dbi->isSuperuser()) {
     $replicationGui = new ReplicationGui();
     $replicationGui->handleControlRequest();
 }

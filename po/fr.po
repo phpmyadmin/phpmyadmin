@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:45-0300\n"
-"PO-Revision-Date: 2019-03-04 20:58+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2019-04-16 19:05+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ajax.php:33 ajax.php:71 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -13794,10 +13794,8 @@ msgid "Overview"
 msgstr "Survol"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "Afficher les éléments masqués"
+msgstr "Afficher les messages masqués"
 
 #: templates/setup/home/index.twig:72
 msgid "There are no configured servers"
@@ -14003,22 +14001,16 @@ msgid "Add slave replication user"
 msgstr "Ajouter un utilisateur pour la réplication vers l'esclave"
 
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Cet hôte"
 
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
-msgstr "Utiliser la table Host"
+msgstr "Utiliser la table d'hôte"
 
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
-msgstr "Aucun mot de passe"
+msgstr "Pas de mot de passe"
 
 #: templates/server/replication/master_add_slave_user.twig:70
 msgid "Generate password:"
@@ -14836,10 +14828,8 @@ msgid "Master replication"
 msgstr "Réplication maître"
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Pas de privilèges."
+msgstr "Pas de privilèges"
 
 #: templates/server/replication/index.twig:16
 #, php-format
@@ -15621,10 +15611,8 @@ msgid "General settings"
 msgstr "Paramètres généraux"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Interclassement pour la connexion au serveur"
+msgstr "Interclassement pour la connexion au serveur :"
 
 #: templates/home/index.twig:58
 msgid "Appearance settings"
@@ -15778,19 +15766,14 @@ msgstr ""
 "redémarrer le serveur MySQL."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Une fois que le serveur MySQL est redémarré, merci de cliquer sur Exécuter. "
-"Par la suite, un message devrait informer que ce serveur <b>est</b> "
-"configuré comme maître."
+"Par la suite, un message devrait informer que ce serveur <strong>est</strong>"
+" configuré comme maître."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -16190,10 +16173,8 @@ msgstr ""
 "ex. au moyen du %sscript d'installation%s."
 
 #: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Enregistrer en fichier"
+msgstr "Enregistrer en fichier JSON"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"

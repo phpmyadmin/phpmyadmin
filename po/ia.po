@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:45-0300\n"
-"PO-Revision-Date: 2019-03-03 22:12+0000\n"
+"PO-Revision-Date: 2019-04-16 19:05+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ajax.php:33 ajax.php:71 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -13455,10 +13455,8 @@ msgid "Overview"
 msgstr "Vision de juncto"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "Monstra elementos celate"
+msgstr "Monstra messages celate"
 
 #: templates/setup/home/index.twig:72
 msgid "There are no configured servers"
@@ -13663,20 +13661,14 @@ msgid "Add slave replication user"
 msgstr ""
 
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Iste hospite"
 
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Users table"
 msgid "Use host table"
-msgstr "Tabula de usatores"
+msgstr "Usa tabula de usatores"
 
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "Necun contrasigno"
 
@@ -14461,8 +14453,6 @@ msgid "Master replication"
 msgstr ""
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No Privileges"
 msgid "No privileges"
 msgstr "Necun privilegios"
 
@@ -15226,10 +15216,8 @@ msgid "General settings"
 msgstr "Preferentias general"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Colliger de connexion de servitor"
+msgstr "Colliger de connexion de servitor:"
 
 #: templates/home/index.twig:58
 msgid "Appearance settings"
@@ -15734,10 +15722,8 @@ msgid ""
 msgstr ""
 
 #: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Salveguarda como file"
+msgstr "Salveguarda como file JSON"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"
