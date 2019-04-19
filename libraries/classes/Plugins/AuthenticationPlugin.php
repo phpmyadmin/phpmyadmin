@@ -106,8 +106,10 @@ abstract class AuthenticationPlugin
 
         $this->setSessionAccessTime();
 
-        $cfg['Server']['user']     = $_SESSION['authUser'];
-        $cfg['Server']['password'] = $_SESSION['authPass'];
+        if ($cfg['Server']['auth_type'] == 'signon') {
+            $cfg['Server']['user']     = $_SESSION['authUser'];
+            $cfg['Server']['password'] = $_SESSION['authPass'];
+        }
     }
 
     /**
