@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:45-0300\n"
-"PO-Revision-Date: 2019-01-10 18:51+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"PO-Revision-Date: 2019-04-21 21:34+0000\n"
+"Last-Translator: AJ <necessarylion@gmail.com>\n"
 "Language-Team: Burmese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/my/>\n"
 "Language: my\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.6\n"
 
 #: ajax.php:33 ajax.php:71 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
-msgstr ""
+msgstr "မကောင်းတဲ့အမျိုးအစား!"
 
 #: changelog.php:44 license.php:40
 #, php-format
