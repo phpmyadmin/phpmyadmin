@@ -928,9 +928,7 @@ class Descriptions
         ];
 
         $key = $path . '_' . $type;
-        if (array_key_exists($key, $descriptions)) {
-            return $descriptions[$key];
-        }
-        return null;
+
+        return $descriptions[$key] ?? null;
     }
 }
