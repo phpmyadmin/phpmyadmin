@@ -235,9 +235,7 @@ class Results
      */
     public function __get($property)
     {
-        if (array_key_exists($property, $this->_property_array)) {
-            return $this->_property_array[$property];
-        }
+        return $this->_property_array[$property] ?? null;
     }
 
     /**
