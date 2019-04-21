@@ -9029,7 +9029,7 @@ msgstr "Slapukai turi būti priimami."
 #: libraries/classes/Rte/Routines.php:1541 libraries/classes/Sql.php:1349
 #: tbl_get_field.php:59
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL gražino tuščią rezultatų rinkinį (nėra eilučių)."
+msgstr "MySQL grąžino tuščią rezultatų rinkinį (nėra eilučių)."
 
 #: libraries/classes/Import.php:299 libraries/classes/Sql.php:1363
 msgid "[ROLLBACK occurred.]"
@@ -11538,7 +11538,7 @@ msgid ""
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Gražinamas paveikslėlis ir nuoroda į įvedimo lauke įrašytą failo pavadinimą; "
+"Grąžinamas paveikslėlis ir nuoroda į įvedimo lauke įrašytą failo pavadinimą; "
 "argumentai: prefiksas (pvz \"https://domain.com/\"), plotis (pikseliais), "
 "aukštis (pikseliais)."
 
@@ -11553,7 +11553,7 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Gražinama nuoroda į įvedimo lauke įrašytą failo pavadinimą; Pirmas "
+"Grąžinama nuoroda į įvedimo lauke įrašytą failo pavadinimą; Pirmas "
 "nustatymas nuorodos prefiksas (pvz \"https://domain.com/\"), o antras "
 "nuorodos pavadinimas."
 
@@ -12168,7 +12168,7 @@ msgstr "Pašalinti paskutinį parametrą"
 
 #: libraries/classes/Rte/Routines.php:1030
 msgid "Return type"
-msgstr "Gražinimo tipas"
+msgstr "Grąžinimo tipas"
 
 #: libraries/classes/Rte/Routines.php:1036
 msgid "Return length/values"
