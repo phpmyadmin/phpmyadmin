@@ -650,6 +650,23 @@ AJAX.registerOnload('config.js', function () {
     });
 });
 
+var Input_flag = 0;
+AJAX.registerOnload('config.js', function () {
+    Input_flag = 0;
+    $('.optbox input[type=submit][name=submit_save]').on('click', function () {
+        var fields = $(this).closest('fieldset').find('textarea');
+        for (var i = 0, imax = fields.length; i < imax; i++) {
+            if (fields[i].value==="" && !(fields[i].name ==="DefaultTransformations-PreApPend")){
+                Input_flag = 1;
+            }
+        }
+        if(Input_flag){
+            alert("Some of the input fields are empty");
+            // $('.optbox input[type=button][name=submit_save]').off('click');
+        }
+    });
+});
+
 //
 // END: Form reset buttons
 // ------------------------------------------------------------------
