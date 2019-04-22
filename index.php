@@ -112,7 +112,7 @@ if (isset($_POST['set_theme'])) {
 ) {
     $response->addHTML($controller->gitRevision());
 } else {
-    // Handles some variables that may have been sent by the calling script
+    // Handles some of the variables that may have been sent by the calling script
     $GLOBALS['db'] = '';
     $GLOBALS['table'] = '';
     $show_query = '1';
