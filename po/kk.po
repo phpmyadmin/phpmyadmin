@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:45-0300\n"
-"PO-Revision-Date: 2019-04-21 21:34+0000\n"
+"PO-Revision-Date: 2019-04-23 18:49+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kk/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ajax.php:33 ajax.php:71 export.php:205 libraries/classes/Export.php:1204
 msgid "Bad type!"
@@ -616,6 +616,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Sholǵyshtardyń jergilikti saqtaýyshyndaǵy dıagram retteýiniń konfıgýrasıasy "
+"monıtor tilqatysýynyń jańa nusqasyna saı kelmeıdi. Aǵymdyq konfıgýrasıańyz "
+"budan bylaı jumys istemeýi múmkin. <i>Parametrler</i> mázirinde "
+"konfıgýrasıańy ádepki qalpyna keltirińiz."
 
 #: js/messages.php:181
 msgid "Query cache efficiency"
@@ -825,14 +829,14 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log қосулы, бірақ сервер тек %d секундтан ұзағырақ сұрауларды "
-"тіркейді. Жүйеңізге байланысты long_query_timeды 0-2 секунд аралығында "
-"орнату ұсынылады."
+"slow_query_log qosýly, biraq server tek %d sekýntten uzaǵyraq saýaldardy "
+"jurnalǵa jazady. long_query_time mánin júıeńizge táýeldi 0-2 sekýnt "
+"aralyǵynda ornatý usynylady."
 
 #: js/messages.php:241
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time máni %d sekýntqa ornatylǵan."
+msgstr "long_query_time máni %d sekýntke ornatylǵan."
 
 #: js/messages.php:243
 msgid ""
@@ -864,15 +868,15 @@ msgstr "%s óshirý"
 #: js/messages.php:253
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "long_query_time mánin %d sekýntqa ornatý."
+msgstr "long_query_time mánin %d sekýntke ornatý."
 
 #: js/messages.php:255
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"Сіз бұл айнымалыларды өзгерте алмайсыз. Өтініш root ретінде кіріңіз немесе "
-"дерекқор әкімшісіне хабарласыңыз."
+"Bul aınymalylardy ózgerte almaısyz. «root» retinde kirińiz nemese derekqor "
+"ákimshisine habarlasyńyz."
 
 #: js/messages.php:258
 msgid "Change settings"
@@ -930,9 +934,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
-"Бұл баған топтастырылған бірдей сұраулардың санын көрсетеді. Алайда, тек SQL "
-"сұрауы топтық өлшем ретінде пайдаланылған, сондықтан басталу уақыты сияқты "
-"сұраулардың басқа атрибуттары әртүрлі болуы мүмкін."
+"Bul baǵanda birge toptastyrylǵan birdeı saýaldar mólsheri kórsetiledi. Biraq "
+"tek SQL-saýaldyń ózi toptastyrý sharty retinde paıdalanylady, sondyqtan "
+"bastalý ýaqyty sıaqty saýaldardyń basqa tólsıpattary ártúrli bolýy múmkin."
 
 #: js/messages.php:282
 msgid ""
@@ -940,8 +944,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"INSERT сұрауларын топтастыру таңдалғаннан кейін, сол кестеге INSERT "
-"сұраулары кірістірілген деректерді елемей, бірге топтастырылады."
+"INSERT saýaldaryn toptastyrýy bólektelgennen keıin, kiristirilgen derekterdi "
+"elemeı sol kestege INSERT saýaldary sondaı-aq birge toptastyrylady."
 
 #: js/messages.php:287
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1060,9 +1064,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
-"Жаңа диаграмма деректерін сұрау кезінде сервер дұрыс емес жауапты қайтарды. "
-"Ол сеанстың мерзімі біткендіктен болуы мүмкін. Бетті қайта жүктеп және "
-"деректерді қайта енгізу көмектесуі керек."
+"Jańa dıagram derekteri úshin saýal jiberý kezinde server jaramsyz jaýapty "
+"qaıtardy. Ol seanstyń merzimi bitkendikten bolýy múmkin. Betti qaıta júkteý "
+"jáne tirkelgi derekterin qaıta engizý kómektesýi jón."
 
 #: js/messages.php:324
 msgid "Reload page"
@@ -2193,6 +2197,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Eskertý: Osy bettegi pishinde %d astam óris bar. Jiberilý kezinde PHP "
+"max_input_vars konfıgýrasıasyna baılanysty keıbir órister elenbeýi múmkin."
 
 #: js/messages.php:708 js/messages.php:721
 msgid "Some errors have been detected on the server!"
@@ -2234,7 +2240,7 @@ msgstr "SQL kúıin keltirý týraly aqparatty alý kezinde keıbir qate oryn al
 #: js/messages.php:742
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "%s saýal %s ret %s sekýntta oryndaldy."
+msgstr "%s saýal %s ret %s sekýntte oryndaldy."
 
 #: js/messages.php:743
 #, php-format
@@ -3528,7 +3534,7 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
-"Skrıptke ruqsat etilgen sekýndpen alǵanaǵy iske qosylý uzaqtyǵyn ornatyńyz ("
+"Skrıptke ruqsat etilgen sekýntpen alǵanaǵy iske qosylý uzaqtyǵyn ornatyńyz ("
 "shekteý úshin [kbd]0[/kbd])."
 
 #: libraries/classes/Config/Descriptions.php:184
@@ -5071,6 +5077,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
+"Qatynastarǵa, betbelgilerge jáne PDF múmkindikterine arnalǵan derekqor. "
+"Tolyq aqparat alý úshin [doc@linked-tables]pmadb[/doc] qarańyz. Qoldamaý "
+"úshin bos qaldyryńyz. Usynylǵan: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:689
 #: templates/server/databases/index.twig:33
@@ -5276,6 +5285,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Bul keste men paıdalanýshy toptary kestesiniń ekeýi de teńsheletin mázirler "
+"múmkindigin qosý úshin qajet; olardyń bireýi bos qaldyrylsa da, bul "
+"múmkindik óshiriledi, ysynylǵany: [kbd]pma__users[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:767
 msgid "Users table"
@@ -5287,6 +5299,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Bul keste men paıdalanýshylar kestesiniń ekeýi de teńsheletin mázirler "
+"múmkindigin qosý úshin qajet; olardyń bireýi bos qaldyrylsa da, bul "
+"múmkindik óshiriledi, ysynylǵany: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:773
 msgid "User groups table"
@@ -6036,6 +6051,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%sKirý cookie-faılynyń jaramdylyǵy%s 1800 sekýntke (30 mınýt) deıin "
+"ornatylýy qajet. 1800 kóp mánder elikteý sıaqty qaýipsizdik qater tóndiretin "
+"múmkin."
 
 #: libraries/classes/Config/ServerConfigChecks.php:489
 #, php-format
@@ -6043,6 +6061,9 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Eger [kbd]cookie[/kbd] túpnusqalyq rastamasy paıdalanylsa, jáne %sLogin "
+"cookie store%s máni 0 emes bolsa, %sLogin cookie validity%s máni odan kem "
+"nemese oǵan teń bolyp ornatylýy qajet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:529
 #, php-format
@@ -6281,8 +6302,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
-"$Cfg['TempDir'](%s) қол жетімді емес. phpMyAdmin шаблондарды кэштай алмайды "
-"және сол үшін баяу болады."
+"$cfg['TempDir'] (%s) qoljetimdi emes. phpMyAdmin úlgilerdi keshke jibere "
+"almaıdy jáne sondyqtan baıaý bolady."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:183
 #, php-format
@@ -6525,6 +6546,10 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
+"Turaqty jaıǵasymǵa negizdelgen joldy oqýǵa arnalǵan saýal sany. Nátıjeni "
+"suryptaýdy qajet etetin kóptegen saýaldar isteseńiz, bul joǵary bolady. "
+"Múmkin búkil kestelerdi skanerleý úshin MySQL qajet etetin kóptegen "
+"saýaldaryńyz bar nemese kiltterdi durys paıdalanbaıtyn jalǵasýlaryńyz bar."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:291
 msgid ""
@@ -6533,6 +6558,10 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
+"Derekter faılyndaǵy kelesi joldy oqýǵa arnalǵan saýal sany. Kóptegen keste "
+"skanerleýlerin isteseńiz, bul joǵary bolady. Ádette bul kestelerińiz durys "
+"ındekstelmegenin nemese bar ındeksterden paıda alý úshin saýaldaryńyz "
+"jazylmaǵanyn kórsetedi."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of internal ROLLBACK statements."
@@ -6568,6 +6597,9 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
+"InnoDB býferlik pýlyndaǵy ilmektelgen bet sany. Bul better aǵymda oqylyp "
+"nemese jazylyp jatqan nemese olar basqa sebeppen tazartylmaıdy nemese "
+"alastalmaıdy."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:325
 msgid ""
@@ -6586,12 +6618,16 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
+"InnoDB iske qosqan «kezdeısoq» aldymen oqý sany. Bul saýal arqyly kezdeısoq "
+"retimen kesteniń úlken bóligin skanerleý kezinde oryn alady."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:340
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
+"InnoDB iske qosqan tizbektik aldymen oqý sany. Bul InnoDB kesteni tizbektik "
+"tolyq skanerleý istegen kezinde oryn alady."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:344
 msgid "The number of logical read requests InnoDB has done."
@@ -6602,6 +6638,8 @@ msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
+"InnoDB býferlik pýldan qanaǵattandyra almaǵan jáne jalǵyz bet oqý áreketin "
+"istegen logıkalyq oqý sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:351
 msgid ""
@@ -6661,6 +6699,8 @@ msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
+"Kútip jatqan sany, sebebi jurnaldyń býferi tym az boldy jáne jalǵastyrmas "
+"buryn ony tazalaýdy kútýge týra keldi."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:397
 msgid "The number of log write requests."
@@ -6695,6 +6735,8 @@ msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
+"Qurastyrylǵan InnoDB bet ólshemi (ádepki 16KB). Kóptegen mánder betterde "
+"esepteledi; bet ólshemi olardy baıtqa ońaı túrlendirýge ruqsat etedi."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of pages read."
@@ -6745,12 +6787,16 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
+"Ózgertilgen, biraq dıskige áli tazartylmaǵan kilt keshindegi kilt blogynyń "
+"sany. Ol ádette Not_flushed_key_blocks dep atalady."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:461
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
+"Kilt keshindegi paıdalanylmaǵan bloktyń sany. Bul mándi kilt keshiniń qansha "
+"paıdalanylýyn anyqtaý úshin paıdalana alasyz."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:465
 msgid ""
@@ -6758,6 +6804,8 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
+"Kilt keshindegi paıdalanylǵan bloktyń sany. Bul mán bir ýaqytta qoldanystaǵy "
+"bloktardy eń kóp sanyn kórsetetin joǵary deńgeı belgisi bolyp tabylady."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:470
 msgid "Percentage of used key cache (calculated value)"
@@ -6773,6 +6821,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"Dıskidegi kilttik bloktyń fızıkalyq oqylym sany. Eger Key_reads úlken bolsa, "
+"key_buffer_size máni tym kishkentaı bolýy yqtımal. Kesh nátıjesizdiginiń "
+"araqatynasy Key_reads/Key_read_requests retinde esepteledi."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:482
 msgid ""
@@ -6809,6 +6860,7 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Server iske qosylǵan keıin bir ýaqytta paıdalanylǵan qosylymnyń eń kóp sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:506
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -6840,6 +6892,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"Saýal keshindegi bos jad bloktyń sany. Úlken sandar FLUSH QUERY CACHE "
+"nusqaýynyń shyǵarylýy arqyly sheshilýi múmkin bólshekteý máselelerin kórsete "
+"alady."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:527
 msgid "The amount of free memory for query cache."
@@ -6898,6 +6953,8 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
+"Ár joldan keıin kilt paıdalanýdy tekseretin kilttersiz jalǵasý sany. (Eger "
+"bul 0 bolmasa, kestelerdiń ındeksterin muqıat tekserýińiz qajet.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:568
 msgid ""
@@ -6933,6 +6990,7 @@ msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
+"Jasaý úshin slow_launch_time sekýntten kóbirek ýaqytty alǵan tizbek sany."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:590
 msgid ""
@@ -7012,12 +7070,16 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"Qaýipsiz qosylymdy paıdalanbaısyz; barlyq derekter (parólder sıaqty qupıa "
+"yqtımal aqparatty qosa alǵanda) shıfrlanbaı tasymaldanady!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:56
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
+"Eger serverińiz sondaı-aq HTTPS saýaldaryn qabyldaý úshin teńshelgen bolsa, "
+"qaýipsiz qosylymdy paıdalaný úshin osy silteme arqyly ótińiz."
 
 #: libraries/classes/Controllers/Setup/HomeController.php:60
 msgid "Insecure connection"
@@ -7032,6 +7094,9 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"Konfıgýrasıa phpMyAdmin joǵarǵy deńgeıli katalogyndaǵy config/config.inc.php "
+"faılyna saqtalady, ony paıdalaný úshin eń joǵarǵy deńgeıge kóshirińiz jáne "
+"«config« katalogyn joıyńyz."
 
 #: libraries/classes/Controllers/Setup/HomeController.php:84
 msgid "Configuration not saved!"
@@ -7128,7 +7193,7 @@ msgstr "Bólektelgen baǵan joq."
 
 #: libraries/classes/Controllers/Table/StructureController.php:485
 msgid "The columns have been moved successfully."
-msgstr ""
+msgstr "Baǵandar sátti jyljytyldy."
 
 #: libraries/classes/Controllers/Table/StructureController.php:525
 #, php-format
@@ -7145,7 +7210,7 @@ msgstr "Saýal qatesi"
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr ""
+msgstr "%1$s kestesi sátti ózgertildi. Artyqshylyqtar naqtylandy."
 
 #: libraries/classes/Controllers/Table/StructureController.php:1230
 #: templates/table/structure/display_structure.twig:284
@@ -7217,7 +7282,7 @@ msgstr "Erekshe mánder"
 #: libraries/classes/Core.php:356
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "%s keńeıtimi jetispeıdi. PHP konfıgýrasıasyn tekserińiz."
 
 #: libraries/classes/Core.php:858 libraries/mult_submits.inc.php:353
 #: tbl_operations.php:252 tbl_replace.php:365 templates/preview_sql.twig:3
@@ -7657,7 +7722,7 @@ msgstr "%d qorytyndy"
 #: libraries/classes/Display/Results.php:4592 libraries/classes/Sql.php:1355
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "Saýal %01.4f sekýnt aldy."
+msgstr "Saýal %01.4f sekýnt jumsady."
 
 #: libraries/classes/Display/Results.php:4842
 msgid "Copy to clipboard"
@@ -7705,6 +7770,8 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
+"Avtomatty uzartylatyn kestelik keńistiginiń ólshemi tolyq bolǵanda ulǵaıtý "
+"úshin artýy mólsheri."
 
 #: libraries/classes/Engines/Innodb.php:49
 msgid "Buffer pool size"
@@ -7715,6 +7782,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"InnoDB kesteler derekterin jáne ındeksterin keshke qoıý úshin ony "
+"paıdalanatyn jad býferiniń ólshemi."
 
 #: libraries/classes/Engines/Innodb.php:141
 msgid "Buffer Pool"
@@ -14104,7 +14173,7 @@ msgstr "mınýtyna:"
 
 #: templates/server/status/queries/index.twig:20
 msgid "per second:"
-msgstr "sekýntyna:"
+msgstr "sekýntine:"
 
 #: templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -14562,12 +14631,12 @@ msgstr "%d mınýt"
 #: templates/table/tracking/main.twig:29
 #: templates/database/tracking/tables.twig:15
 msgid "Created"
-msgstr "Құрылған"
+msgstr "Jasaldy"
 
 #: templates/table/tracking/main.twig:30
 #: templates/database/tracking/tables.twig:16
 msgid "Updated"
-msgstr "Жаңартылған"
+msgstr "Jańartylǵan"
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
 msgid "Delete version"
@@ -14931,7 +15000,7 @@ msgstr "Basqa opsıalar:"
 
 #: templates/database/tracking/tables.twig:4
 msgid "Tracked tables"
-msgstr "Қадағаланатын кестелер"
+msgstr "Qadaǵalanǵan kesteler"
 
 #: templates/database/tracking/tables.twig:14
 msgid "Last version"
