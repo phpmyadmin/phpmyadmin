@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
@@ -33,12 +34,13 @@ class NavigationTest extends PmaTestCase
      */
     protected function setUp(): void
     {
-        $this->object = new Navigation();
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['pmaThemeImage'] = '';
+
+        $this->object = new Navigation(new Template(), new Relation($GLOBALS['dbi']));
     }
 
     /**
@@ -73,7 +75,7 @@ class NavigationTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->object->relation = new Relation($dbi);
+        $this->object = new Navigation(new Template(), new Relation($dbi));
         $this->object->hideNavigationItem('itemName', 'itemType', 'db');
     }
 
@@ -98,7 +100,7 @@ class NavigationTest extends PmaTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
-        $this->object->relation = new Relation($dbi);
+        $this->object = new Navigation(new Template(), new Relation($dbi));
         $this->object->unhideNavigationItem('itemName', 'itemType', 'db');
     }
 
@@ -149,7 +151,7 @@ class NavigationTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->object->relation = new Relation($dbi);
+        $this->object = new Navigation(new Template(), new Relation($dbi));
 
         $html = $this->object->getItemUnhideDialog('db');
         $this->assertStringContainsString(

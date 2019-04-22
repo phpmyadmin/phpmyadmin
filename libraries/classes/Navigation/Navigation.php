@@ -11,9 +11,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -25,16 +25,24 @@ use PhpMyAdmin\Util;
 class Navigation
 {
     /**
-     * @var Relation
+     * @var Template
      */
-    public $relation;
+    private $template;
 
     /**
-     * Constructor
+     * @var Relation
      */
-    public function __construct()
+    private $relation;
+
+    /**
+     * Navigation constructor.
+     * @param Template $template Template instance
+     * @param Relation $relation Relation instance
+     */
+    public function __construct($template, $relation)
     {
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->template = $template;
+        $this->relation = $relation;
     }
 
     /**
@@ -42,21 +50,25 @@ class Navigation
      *
      * @return string The navigation tree
      */
-    public function getDisplay()
+    public function getDisplay(): string
     {
-        /* Init */
-        $retval = '';
+        global $cfg;
+
         $response = Response::getInstance();
         if (! $response->isAjax()) {
-            $header = new NavigationHeader();
-            $retval = $header->getDisplay();
+            $navHeader = new NavigationHeader();
+            $header = $navHeader->getDisplay();
+
+            if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
+                $navigationSettings = PageSettings::getNaviSettings();
+            }
         }
         $tree = new NavigationTree();
         if (! $response->isAjax()
             || ! empty($_POST['full'])
             || ! empty($_POST['reload'])
         ) {
-            if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+            if ($cfg['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
                 $navRender = $tree->renderState();
             } else {
@@ -66,30 +78,14 @@ class Navigation
         } else {
             $navRender = $tree->renderPath();
         }
-        if (! $navRender) {
-            $retval .= Message::error(
-                __('An error has occurred while loading the navigation display')
-            )->getDisplay();
-        } else {
-            $retval .= $navRender;
-        }
 
-        if (! $response->isAjax()) {
-            // closes the tags that were opened by the navigation header
-            $retval .= '</div>'; // pma_navigation_tree
-            $retval .= '<div id="pma_navi_settings_container">';
-            if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $retval .= PageSettings::getNaviSettings();
-            }
-            $retval .= '</div>'; //pma_navi_settings_container
-            $retval .= '</div>'; // pma_navigation_content
-            if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
-                $retval .= $this->_getDropHandler();
-            }
-            $retval .= '</div>'; // pma_navigation
-        }
-
-        return $retval;
+        return $this->template->render('navigation/main', [
+            'is_ajax' => $response->isAjax(),
+            'header' => $header ?? '',
+            'navigation_tree' => $navRender,
+            'navigation_settings' => $navigationSettings ?? '',
+            'is_drag_drop_import_enabled' => $cfg['enable_drag_drop_import'] === true,
+        ]);
     }
 
     /**
@@ -120,27 +116,6 @@ class Navigation
             . "'" . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : "" )
             . "')";
         $this->relation->queryAsControlUser($sqlQuery, false);
-    }
-
-    /**
-     * Inserts Drag and Drop Import handler
-     *
-     * @return string html code for drop handler
-     */
-    private function _getDropHandler()
-    {
-        $retval = '';
-        $retval .= '<div class="pma_drop_handler">'
-            . __('Drop files here')
-            . '</div>';
-        $retval .= '<div class="pma_sql_import_status">';
-        $retval .= '<h2>SQL upload ( ';
-        $retval .= '<span class="pma_import_count">0</span> ';
-        $retval .= ') <span class="close">x</span>';
-        $retval .= '<span class="minimize">-</span></h2>';
-        $retval .= '<div></div>';
-        $retval .= '</div>';
-        return $retval;
     }
 
     /**

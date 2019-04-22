@@ -1,0 +1,32 @@
+{{ header|raw }}
+
+{% if not navigation_tree %}
+  {{ 'An error has occurred while loading the navigation display'|trans|error }}
+{% else %}
+  {{ navigation_tree|raw }}
+{% endif %}
+
+{% if not is_ajax %}
+      </div>{# #pma_navigation_tree #}
+
+      <div id="pma_navi_settings_container">
+        {{ navigation_settings|raw }}
+      </div>
+    </div>{# #pma_navigation_content #}
+
+    {% if is_drag_drop_import_enabled %}
+      <div class="pma_drop_handler">
+        {% trans 'Drop files here' %}
+      </div>
+      <div class="pma_sql_import_status">
+        <h2>
+          {% trans 'SQL upload' %}
+          ( <span class="pma_import_count">0</span> )
+          <span class="close">x</span>
+          <span class="minimize">-</span>
+        </h2>
+        <div></div>
+      </div>
+    {% endif %}
+  </div>{# #pma_navigation #}
+{% endif %}

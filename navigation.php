@@ -10,9 +10,11 @@ declare(strict_types=1);
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -29,10 +31,11 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$navigation = new Navigation();
+$relation = new Relation($dbi);
+$navigation = new Navigation(new Template(), $relation);
 if (! $response->isAjax()) {
     $response->addHTML(
-        PhpMyAdmin\Message::error(
+        Message::error(
             __('Fatal error: The navigation can only be accessed via AJAX')
         )
     );
@@ -44,7 +47,6 @@ if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
     exit();
 }
 
-$relation = new Relation($dbi);
 $cfgRelation = $relation->getRelationsParam();
 if ($cfgRelation['navwork']) {
     if (isset($_POST['hideNavItem'])) {
