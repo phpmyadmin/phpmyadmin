@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2018-07-23 11:06+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Lithuanian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-8/lt/>\n"
+"PO-Revision-Date: 2019-04-27 16:56+0000\n"
+"Last-Translator: pranza <pranza@gmail.com>\n"
+"Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-8/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 3.1-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -8701,7 +8701,7 @@ msgstr "Slapukai turi būti priimami."
 #: libraries/classes/Rte/Routines.php:1485 libraries/classes/Sql.php:1429
 #: tbl_get_field.php:50
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL gražino tuščią rezultatų rinkinį (nėra eilučių)."
+msgstr "MySQL grąžino tuščią rezultatų rinkinį (nėra eilučių)."
 
 #: libraries/classes/Import.php:290 libraries/classes/Sql.php:1443
 msgid "[ROLLBACK occurred.]"
@@ -11068,34 +11068,24 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:33
-#, fuzzy
-#| msgid ""
-#| "ys an image and a link; the field contains the filename. The first ion "
-#| "isURL prefix like \"https://www.example.com/\". The second and rd "
-#| "options  the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Gražinamas paveikslėlis ir nuoroda į įvedimo lauke įrašytą failo pavadinimą; "
+"Rodo paveikslėlį ir nuorodą į įvedimo lauke įrašytą failo pavadinimą; "
 "argumentai: prefiksas (pvz \"https://domain.com/\"), plotis (pikseliais), "
 "aukštis (pikseliais)."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:33
-#, fuzzy
-#| msgid ""
-#| "ys a link; the field contains the filename. The first option is a  "
-#| "prefixke \"https://www.example.com/\". The second option is a title  the "
-#| "link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Gražinama nuoroda į įvedimo lauke įrašytą failo pavadinimą; Pirmas "
-"nustatymas nuorodos prefiksas (pvz \"https://domain.com/\"), o antras "
-"nuorodos pavadinimas."
+"Rodoma nuoroda į įvesties lauke įrašytą failo pavadinimą; Pirmoji parinktis —"
+" nuorodos prefiksas (pvz \"https://domain.com/\"), antroji — nuorodos "
+"pavadinimas."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -12034,7 +12024,7 @@ msgstr "Pašalinti paskutinį parametrą"
 
 #: libraries/classes/Rte/Routines.php:972
 msgid "Return type"
-msgstr "Gražinimo tipas"
+msgstr "Grąžinimo tipas"
 
 #: libraries/classes/Rte/Routines.php:978
 msgid "Return length/values"
