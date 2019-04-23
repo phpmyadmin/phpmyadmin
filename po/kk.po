@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:45-0300\n"
-"PO-Revision-Date: 2019-04-23 18:49+0000\n"
+"PO-Revision-Date: 2019-04-23 21:35+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kk/>\n"
@@ -6286,6 +6286,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"Ornatý skrıpti paıdalanatyn [code]config[/code] katalogy áli de phpMyAdmin "
+"katalogynda bar. phpMyAdmin teńshelgennen keıin ony joıý qatań usynylady. "
+"Áıtpese, konfıgýrasıańyzdy júktep alǵan ókilettiligisiz adamdar arqyly "
+"serverińizdiń qaýipsizdigi buzylýy múmkin."
 
 #: libraries/classes/Controllers/HomeController.php:455
 #, php-format
@@ -7950,6 +7954,8 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"Tranzaksıa jurnaly derekterin keshke qoıý úshin bólingen jad mólsheri. "
+"Ádepki boıynsha - 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:60
 msgid "Log file threshold"
@@ -7960,6 +7966,8 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"Jańa jurnal jasalý jáne jalǵastyrý aldyndaǵy tranzaksıa jýrnalynyń ólshemi. "
+"Ádepki mán - 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:68
 msgid "Transaction buffer size"
@@ -7970,6 +7978,8 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"Ǵalamdyq tranzaksıa jurnaly býferiniń ólshemi (mehanızm arqyly osy "
+"ólshemimen 2 býfer bólinedi). Ádepki boıynsha - 1 MB."
 
 #: libraries/classes/Engines/Pbxt.php:77
 msgid "Checkpoint frequency"
@@ -7980,6 +7990,8 @@ msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"Baqylaý orny jasalý aldyndaǵy tranzaksıa jurnalyna jazylǵan derekter "
+"mólsheri. Ádepki mán - 24 MB."
 
 #: libraries/classes/Engines/Pbxt.php:86
 msgid "Data log threshold"
@@ -8002,6 +8014,8 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"Qysylý aldyndaǵy derekter jurnaly faılyndaǵy qoqystyń paıyzdyǵy. Bul 1 men "
+"99 aralyǵyndaǵy mán. Ádepki máni - 50."
 
 #: libraries/classes/Engines/Pbxt.php:106
 msgid "Log buffer size"
@@ -8153,6 +8167,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Qoldamaıtyn qysýy (%s) bar faıldy júkteýge áreket jasadyńyz. Ony qoldaý iske "
+"asyrylmaǵan nemese konfıgýrasıańyz arqyly óshirilgen."
 
 #: libraries/classes/Footer.php:74
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:149
@@ -9973,6 +9989,9 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"TIMESTAMP baǵandaryn UTC ýaqytynda damp qylý <i>(ár túrli ýaqyt "
+"beldeýlerindegi serverlerdiń arasynda TIMESTAMP baǵandarynyń damp qylynýyn "
+"jáne qaıta júktelýin qosasdy)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:543
 msgid "It appears your database uses routines;"
@@ -10097,6 +10116,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Qaıtalanatyn kiltter ımportta tabylǵan kezde derekterdi jańartyý (ON "
+"DUPLICATE KEY UPDATE qosý)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
@@ -10117,6 +10138,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"Faıldyń birinshi jolynda kesteniń baǵan ataýlary bar <i>(eger bul "
+"belgilenbese, birinshi jol derekterdiń bóligi bolady)</i>"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:110
 msgid ""
@@ -12026,11 +12049,11 @@ msgstr "Eskertý"
 
 #: libraries/classes/Setup/FormProcessing.php:66
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "Jiberilgen pishimde qateler bar"
 
 #: libraries/classes/Setup/FormProcessing.php:68
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "Qate óristerdi ádepki mánderine qaıtarýǵa tyrysý"
 
 #: libraries/classes/Setup/FormProcessing.php:73
 msgid "Ignore errors"
@@ -12143,7 +12166,7 @@ msgstr "Árbir paıdalanýshyga osy betbelgi qoljetimdi bolsyn"
 
 #: libraries/classes/SqlQueryForm.php:335
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "Qoldanysta bar betbelgini birdeı ataýmen aýystyrý"
 
 #: libraries/classes/SqlQueryForm.php:349
 msgid "Delimiter"
@@ -12151,7 +12174,7 @@ msgstr "Bólgish"
 
 #: libraries/classes/SqlQueryForm.php:359
 msgid "Show this query here again"
-msgstr ""
+msgstr "Bul saýaldy qaıtadan kórsetý"
 
 #: libraries/classes/SqlQueryForm.php:376
 msgid "Rollback when finished"
@@ -13746,6 +13769,8 @@ msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
+"Ádepki mánder úshin, keri qıǵash syzyq arqyly ekrandaýsyz nemese tik "
+"tyrnaqshalarsyz jalǵyz ǵana mándi engizińiz, osy pishim arqyly: a"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
