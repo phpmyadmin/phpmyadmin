@@ -130,7 +130,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         username = username.val();
         checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, username);
     });
-    
+
     /**
      * Automatically swithcing to 'Use Text field' from 'No password' once start writing in text area
      */
