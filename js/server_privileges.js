@@ -130,7 +130,16 @@ AJAX.registerOnload('server_privileges.js', function () {
         username = username.val();
         checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, username);
     });
-
+    
+    /**
+     * Automatically swithcing to 'Use Text field' from 'No password' once start writing in text area
+     */
+    $('#text_pma_pw').on('input', function() {
+        if($('#text_pma_pw').val() != '') {
+            $('#select_pred_password').val('userdefined');
+        }
+    });
+    
     $('#text_pma_change_pw').on('keyup', function () {
         meter_obj = $('#change_password_strength_meter');
         meter_obj_label = $('#change_password_strength');
