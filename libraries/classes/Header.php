@@ -155,7 +155,11 @@ class Header
         }
 
         $this->userPreferences = new UserPreferences();
-        $this->navigation = new Navigation($this->template, new Relation($GLOBALS['dbi']));
+        $this->navigation = new Navigation(
+            $this->template,
+            new Relation($GLOBALS['dbi']),
+            $GLOBALS['dbi']
+        );
     }
 
     /**

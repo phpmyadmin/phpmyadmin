@@ -40,7 +40,11 @@ class NavigationTest extends PmaTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['pmaThemeImage'] = '';
 
-        $this->object = new Navigation(new Template(), new Relation($GLOBALS['dbi']));
+        $this->object = new Navigation(
+            new Template(),
+            new Relation($GLOBALS['dbi']),
+            $GLOBALS['dbi']
+        );
     }
 
     /**
@@ -75,7 +79,7 @@ class NavigationTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->object = new Navigation(new Template(), new Relation($dbi));
+        $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
         $this->object->hideNavigationItem('itemName', 'itemType', 'db');
     }
 
@@ -100,7 +104,7 @@ class NavigationTest extends PmaTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
-        $this->object = new Navigation(new Template(), new Relation($dbi));
+        $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
         $this->object->unhideNavigationItem('itemName', 'itemType', 'db');
     }
 
@@ -151,7 +155,7 @@ class NavigationTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->object = new Navigation(new Template(), new Relation($dbi));
+        $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
 
         $html = $this->object->getItemUnhideDialog('db');
         $this->assertStringContainsString(

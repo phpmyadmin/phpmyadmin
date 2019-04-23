@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -34,14 +35,21 @@ class Navigation
     private $relation;
 
     /**
-     * Navigation constructor.
-     * @param Template $template Template instance
-     * @param Relation $relation Relation instance
+     * @var DatabaseInterface
      */
-    public function __construct($template, $relation)
+    private $dbi;
+
+    /**
+     * Navigation constructor.
+     * @param Template          $template Template instance
+     * @param Relation          $relation Relation instance
+     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     */
+    public function __construct($template, $relation, $dbi)
     {
         $this->template = $template;
         $this->relation = $relation;
+        $this->dbi = $dbi;
     }
 
     /**
@@ -108,11 +116,11 @@ class Navigation
         $sqlQuery = "INSERT INTO " . $navTable
             . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
             . " VALUES ("
-            . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
-            . "'" . $GLOBALS['dbi']->escapeString($itemName) . "',"
-            . "'" . $GLOBALS['dbi']->escapeString($itemType) . "',"
-            . "'" . $GLOBALS['dbi']->escapeString($dbName) . "',"
-            . "'" . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : "" )
+            . "'" . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
+            . "'" . $this->dbi->escapeString($itemName) . "',"
+            . "'" . $this->dbi->escapeString($itemType) . "',"
+            . "'" . $this->dbi->escapeString($dbName) . "',"
+            . "'" . (! empty($tableName) ? $this->dbi->escapeString($tableName) : "" )
             . "')";
         $this->relation->queryAsControlUser($sqlQuery, false);
     }
@@ -139,12 +147,12 @@ class Navigation
         $sqlQuery = "DELETE FROM " . $navTable
             . " WHERE"
             . " `username`='"
-            . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `item_name`='" . $GLOBALS['dbi']->escapeString($itemName) . "'"
-            . " AND `item_type`='" . $GLOBALS['dbi']->escapeString($itemType) . "'"
-            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
+            . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `item_name`='" . $this->dbi->escapeString($itemName) . "'"
+            . " AND `item_type`='" . $this->dbi->escapeString($itemType) . "'"
+            . " AND `db_name`='" . $this->dbi->escapeString($dbName) . "'"
             . (! empty($tableName)
-                ? " AND `table_name`='" . $GLOBALS['dbi']->escapeString($tableName) . "'"
+                ? " AND `table_name`='" . $this->dbi->escapeString($tableName) . "'"
                 : ""
             );
         $this->relation->queryAsControlUser($sqlQuery, false);
@@ -192,15 +200,15 @@ class Navigation
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
             . " WHERE `username`='"
-            . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($database) . "'"
+            . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `db_name`='" . $this->dbi->escapeString($database) . "'"
             . " AND `table_name`='"
-            . (! empty($table) ? $GLOBALS['dbi']->escapeString($table) : '') . "'";
+            . (! empty($table) ? $this->dbi->escapeString($table) : '') . "'";
         $result = $this->relation->queryAsControlUser($sqlQuery, false);
 
         $hidden = [];
         if ($result) {
-            while ($row = $GLOBALS['dbi']->fetchArray($result)) {
+            while ($row = $this->dbi->fetchArray($result)) {
                 $type = $row['item_type'];
                 if (! isset($hidden[$type])) {
                     $hidden[$type] = [];
@@ -208,7 +216,7 @@ class Navigation
                 $hidden[$type][] = $row['item_name'];
             }
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $this->dbi->freeResult($result);
         return $hidden;
     }
 }

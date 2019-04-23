@@ -32,7 +32,7 @@ $response = $container->get(Response::class);
 $dbi = $container->get(DatabaseInterface::class);
 
 $relation = new Relation($dbi);
-$navigation = new Navigation(new Template(), $relation);
+$navigation = new Navigation(new Template(), $relation, $dbi);
 if (! $response->isAjax()) {
     $response->addHTML(
         Message::error(
