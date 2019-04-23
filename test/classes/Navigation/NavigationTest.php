@@ -159,10 +159,9 @@ class NavigationTest extends PmaTestCase
             $html
         );
         $this->assertStringContainsString(
-            '<a href="navigation.php" data-post="'
+            '<a class="unhideNavItem ajax" href="navigation.php" data-post="'
             . 'unhideNavItem=1&amp;itemType=table&amp;'
-            . 'itemName=tableName&amp;dbName=db&amp;lang=en"'
-            . ' class="unhideNavItem ajax">',
+            . 'itemName=tableName&amp;dbName=db&amp;lang=en">',
             $html
         );
     }

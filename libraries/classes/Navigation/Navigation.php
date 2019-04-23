@@ -14,7 +14,6 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -154,26 +153,49 @@ class Navigation
     /**
      * Returns HTML for the dialog to show hidden navigation items.
      *
-     * @param string $dbName    database name
-     * @param string $itemType  type of the items to include
-     * @param string $tableName table name
+     * @param string $database database name
+     * @param string $itemType type of the items to include
+     * @param string $table    table name
      *
      * @return string HTML for the dialog to show hidden navigation items
      */
-    public function getItemUnhideDialog($dbName, $itemType = null, $tableName = null)
+    public function getItemUnhideDialog($database, $itemType = null, $table = null)
     {
-        $html  = '<form method="post" action="navigation.php" class="ajax">';
-        $html .= '<fieldset>';
-        $html .= Url::getHiddenInputs($dbName, $tableName);
+        $hidden = $this->getHiddenItems($database, $table);
 
+        $typeMap = [
+            'group' => __('Groups:'),
+            'event' => __('Events:'),
+            'function' => __('Functions:'),
+            'procedure' => __('Procedures:'),
+            'table' => __('Tables:'),
+            'view' => __('Views:'),
+        ];
+
+        return $this->template->render('navigation/item_unhide_dialog', [
+            'database' => $database,
+            'table' => $table,
+            'hidden' => $hidden,
+            'types' => $typeMap,
+            'item_type' => $itemType,
+        ]);
+    }
+
+    /**
+     * @param string      $database Database name
+     * @param string|null $table    Table name
+     * @return array
+     */
+    private function getHiddenItems(string $database, ?string $table): array
+    {
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
             . " WHERE `username`='"
             . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
+            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($database) . "'"
             . " AND `table_name`='"
-            . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : '') . "'";
+            . (! empty($table) ? $GLOBALS['dbi']->escapeString($table) : '') . "'";
         $result = $this->relation->queryAsControlUser($sqlQuery, false);
 
         $hidden = [];
@@ -187,48 +209,6 @@ class Navigation
             }
         }
         $GLOBALS['dbi']->freeResult($result);
-
-        $typeMap = [
-            'group' => __('Groups:'),
-            'event' => __('Events:'),
-            'function' => __('Functions:'),
-            'procedure' => __('Procedures:'),
-            'table' => __('Tables:'),
-            'view' => __('Views:'),
-        ];
-        if (empty($tableName)) {
-            $first = true;
-            foreach ($typeMap as $t => $lable) {
-                if ((empty($itemType) || $itemType == $t)
-                    && isset($hidden[$t])
-                ) {
-                    $html .= (! $first ? '<br>' : '')
-                        . '<strong>' . $lable . '</strong>';
-                    $html .= '<table width="100%"><tbody>';
-                    foreach ($hidden[$t] as $hiddenItem) {
-                        $params = [
-                            'unhideNavItem' => true,
-                            'itemType' => $t,
-                            'itemName' => $hiddenItem,
-                            'dbName' => $dbName
-                        ];
-
-                        $html .= '<tr>';
-                        $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
-                        $html .= '<td style="width:80px"><a href="navigation.php" data-post="'
-                            . Url::getCommon($params, '') . '"'
-                            . ' class="unhideNavItem ajax">'
-                            . Util::getIcon('show', __('Unhide'))
-                            . '</a></td>';
-                    }
-                    $html .= '</tbody></table>';
-                    $first = false;
-                }
-            }
-        }
-
-        $html .= '</fieldset>';
-        $html .= '</form>';
-        return $html;
+        return $hidden;
     }
 }
