@@ -14,7 +14,10 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -61,10 +64,32 @@ class Navigation
     {
         global $cfg;
 
+        $logo = [
+            'is_displayed' => $cfg['NavigationDisplayLogo'],
+            'has_link' => false,
+            'link' => '#',
+            'attributes' => ' target="_blank" rel="noopener noreferrer"',
+            'source' => '',
+        ];
+
         $response = Response::getInstance();
         if (! $response->isAjax()) {
-            $navHeader = new NavigationHeader();
-            $header = $navHeader->getDisplay();
+            $logo['source'] = $this->getLogoSource();
+            $logo['has_link'] = (string) $cfg['NavigationLogoLink'] !== '';
+            $logo['link'] = trim((string) $cfg['NavigationLogoLink']);
+            if (! Sanitize::checkLink($logo['link'], true)) {
+                $logo['link'] = 'index.php';
+            }
+            if ($cfg['NavigationLogoLinkWindow'] === 'main'
+                && empty(parse_url($logo['link'], PHP_URL_HOST))
+            ) {
+                $logo['link'] .= Url::getCommon();
+                $logo['attributes'] = '';
+            }
+
+            if ($cfg['NavigationDisplayServers'] && count($cfg['Servers']) > 1) {
+                $serverSelect = Select::render(true, true);
+            }
 
             if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
                 $navigationSettings = PageSettings::getNaviSettings();
@@ -88,8 +113,17 @@ class Navigation
 
         return $this->template->render('navigation/main', [
             'is_ajax' => $response->isAjax(),
-            'header' => $header ?? '',
+            'logo' => $logo,
+            'is_synced' => $cfg['NavigationLinkWithMainPanel'],
+            'is_highlighted' => $cfg['NavigationTreePointerEnable'],
+            'is_autoexpanded' => $cfg['NavigationTreeAutoexpandSingleDb'],
+            'server' => $GLOBALS['server'],
+            'auth_type' => $cfg['Server']['auth_type'],
+            'is_servers_displayed' => $cfg['NavigationDisplayServers'],
+            'servers' => $cfg['Servers'],
+            'server_select' => $serverSelect ?? '',
             'navigation_tree' => $navRender,
+            'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
             'navigation_settings' => $navigationSettings ?? '',
             'is_drag_drop_import_enabled' => $cfg['enable_drag_drop_import'] === true,
         ]);
@@ -218,5 +252,20 @@ class Navigation
         }
         $this->dbi->freeResult($result);
         return $hidden;
+    }
+
+    /**
+     * @return string Logo source
+     */
+    private function getLogoSource(): string
+    {
+        global $pmaThemeImage;
+
+        if (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'logo_left.png')) {
+            return $pmaThemeImage . 'logo_left.png';
+        } elseif (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'pma_logo2.png')) {
+            return $pmaThemeImage . 'pma_logo2.png';
+        }
+        return '';
     }
 }
