@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-03-04 20:58+0000\n"
+"PO-Revision-Date: 2019-04-24 05:54+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -13491,20 +13491,14 @@ msgid "Add slave replication user"
 msgstr "Gebruiker voor de slave-replicatie toevoegen"
 
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Deze host"
 
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Gebruik hosttabel"
 
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "Geen wachtwoord"
 
@@ -13691,10 +13685,8 @@ msgid "Master replication"
 msgstr "Masterreplicatie"
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Geen rechten."
+msgstr "Geen rechten"
 
 #: templates/server/replication/index.twig:16
 #, php-format
@@ -13791,18 +13783,14 @@ msgstr ""
 "herstart uw MySQL-server."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Nadat u de MySQL-server herstart heeft, klikt u op Start. Hierna zou u de "
-"melding moeten krijgen dat de server  ingesteld <b>is</b> als master."
+"melding moeten krijgen dat de server  geconfigureerd <strong>is</strong> als "
+"master."
 
 #: templates/database/designer/edit_delete_pages.twig:6
 msgid "Page to open"
@@ -14006,10 +13994,8 @@ msgid "General settings"
 msgstr "Algemene instellingen"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Collatie van de serververbinding"
+msgstr "Collatie van de serververbinding:"
 
 #: templates/home/index.twig:58
 msgid "Appearance settings"
@@ -14860,10 +14846,8 @@ msgstr ""
 "door het %ssetup-script%s te gebruiken."
 
 #: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Opslaan als bestand"
+msgstr "Opslaan als JSON bestand"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"
@@ -15882,10 +15866,8 @@ msgid "Show form"
 msgstr "Toon formulier"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "Toon verborgen onderdelen"
+msgstr "Toon verborgen berichten"
 
 #: templates/setup/home/index.twig:72
 msgid "There are no configured servers"
@@ -16059,10 +16041,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Er is een fout opgetreden bij het laden van de navigatieweergave"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "SQL-export"
+msgstr "SQL-upload"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
