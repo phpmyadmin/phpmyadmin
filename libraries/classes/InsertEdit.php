@@ -2752,8 +2752,8 @@ class InsertEdit
                 $current_value = "b'" . $this->dbi->escapeString($current_value)
                     . "'";
             } elseif (! ($type == 'datetime' || $type == 'timestamp')
-                || ($current_value != 'CURRENT_TIMESTAMP'
-                    && $current_value != 'current_timestamp()')
+                || ($current_value != 'CURRENT_TIMESTAMP' && $current_value != 'CURRENT_TIMESTAMP()' && $current_value != 'CURRENT_TIMESTAMP(1)' && $current_value != 'CURRENT_TIMESTAMP(2)' && $current_value != 'CURRENT_TIMESTAMP(3)' && $current_value != 'CURRENT_TIMESTAMP(4)' && $current_value != 'CURRENT_TIMESTAMP(5)' && $current_value != 'CURRENT_TIMESTAMP(6)'
+                && $current_value != 'current_timestamp()')
             ) {
                 $current_value = "'" . $this->dbi->escapeString($current_value)
                     . "'";

@@ -4048,10 +4048,9 @@ class Util
         }
 
         if (mb_strpos($value, '.') === false) {
-            return $value . '.000000';
+            return $value;
         }
 
-        $value .= '000000';
         return mb_substr(
             $value,
             0,
