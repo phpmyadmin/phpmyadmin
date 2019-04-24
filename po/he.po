@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-08 23:45-0300\n"
+"POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2018-10-30 23:50+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -15,34 +15,34 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 3.3-dev\n"
 
-#: ajax.php:33 ajax.php:71 export.php:205 libraries/classes/Export.php:1204
+#: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
 msgstr "הסוג שגוי!"
 
-#: changelog.php:44 license.php:40
+#: changelog.php:47 license.php:40
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr "הקובץ %s אינו זמין במערכת זו, נא לבקר בכתובת %s למידע נוסף."
 
-#: db_central_columns.php:132
+#: db_central_columns.php:142
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "מוצגות השורות %1$s-%2$s."
 
-#: db_export.php:56
+#: db_export.php:63
 msgid "View dump (schema) of database"
 msgstr "צפייה בשליפה (תבנית) של מסד נתונים"
 
-#: db_export.php:61 db_tracking.php:105 export.php:407
+#: db_export.php:68 db_tracking.php:105 export.php:414
 #: libraries/classes/Database/Qbe.php:358
-#: libraries/classes/Navigation/NavigationTree.php:935
+#: libraries/classes/Navigation/NavigationTree.php:954
 #: templates/database/structure/index.twig:19
 msgid "No tables found in database."
 msgstr "לא נמצאו טבלאות במסד הנתונים."
 
-#: db_export.php:76 libraries/classes/Config/Descriptions.php:314
+#: db_export.php:83 libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Controllers/Server/DatabasesController.php:366
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:28
@@ -52,7 +52,7 @@ msgstr "לא נמצאו טבלאות במסד הנתונים."
 msgid "Tables"
 msgstr "טבלאות"
 
-#: db_export.php:77 libraries/classes/Config/Forms/User/ExportForm.php:59
+#: db_export.php:84 libraries/classes/Config/Forms/User/ExportForm.php:59
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:134
 #: libraries/classes/Import.php:1291 libraries/classes/Menu.php:357
@@ -66,14 +66,14 @@ msgstr "טבלאות"
 #: libraries/classes/Util.php:4225 libraries/config.values.php:62
 #: libraries/config.values.php:76 libraries/config.values.php:167
 #: libraries/config.values.php:177
+#: templates/database/central_columns/edit_table_header.twig:2
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/database/central_columns/edit_table_header.twig:2
 #: templates/database/designer/main.twig:226
 msgid "Structure"
 msgstr "מבנה"
 
-#: db_export.php:78 libraries/classes/Config/Forms/User/ExportForm.php:75
+#: db_export.php:85 libraries/classes/Config/Forms/User/ExportForm.php:75
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Config/Forms/User/ExportForm.php:145
@@ -83,57 +83,57 @@ msgstr "מבנה"
 msgid "Data"
 msgstr "נתונים"
 
-#: db_export.php:81 templates/server/replication/database_multibox.twig:7
+#: db_export.php:88 templates/database/search/main.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/search/main.twig:32
+#: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
 msgstr "בחירת הכול"
 
-#: db_operations.php:65 tbl_create.php:34
+#: db_operations.php:70 tbl_create.php:45
 msgid "The database name is empty!"
 msgstr "שם מסד הנתונים ריק!"
 
-#: db_operations.php:76
+#: db_operations.php:81
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "לא ניתן להעתיק את מסד הנתונים לאותו השם. יש לשנות את השם ולנסות שוב."
 
-#: db_operations.php:167
+#: db_operations.php:172
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "שם מסד הנתונים %1$s הוחלף בשם %2$s."
 
-#: db_operations.php:179
+#: db_operations.php:184
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "מסד הנתונים %1$s הועתק אל %2$s."
 
-#: db_operations.php:306
+#: db_operations.php:311
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "אחסון התצורה של phpMyAdmin הושבת. %sזאת הסיבה%s."
 
-#: db_qbe.php:140
+#: db_qbe.php:147
 msgid "You have to choose at least one column to display!"
 msgstr "עליך לבחור לפחות עמודה אחת להצגה!"
 
-#: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
+#: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
 #, fuzzy
 #| msgid "Simulate query"
 msgid "Multi-table query"
 msgstr "הדמיית שאילתה"
 
-#: db_qbe.php:156 templates/database/multi_table_query/form.twig:3
+#: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
 #, fuzzy
 msgid "Query by example"
 msgstr "סוג שאילתה"
 
-#: db_qbe.php:175
+#: db_qbe.php:182
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "מעבר ל%sבונה החזותי%s"
 
-#: db_search.php:37 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
+#: db_search.php:44 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:192
@@ -182,23 +182,23 @@ msgstr "אם אתה נתקל בבעיות אנא שלח דוח באגים ידנ
 msgid "You may want to refresh the page."
 msgstr "כדאי שתרענן את הדף."
 
-#: export.php:303
+#: export.php:310
 msgid "Bad parameters!"
 msgstr "פרמטרים שגויים!"
 
-#: import.php:81
+#: import.php:87
 msgid "Succeeded"
 msgstr "הצליח"
 
-#: import.php:85 js/messages.php:628
+#: import.php:91 js/messages.php:628
 msgid "Failed"
 msgstr "נכשל"
 
-#: import.php:89
+#: import.php:95
 msgid "Incomplete params"
 msgstr "חסרים נתונים בפרמטרים"
 
-#: import.php:213
+#: import.php:219
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -207,15 +207,15 @@ msgstr ""
 "כפי הנראה ניסית להעלות קובץ גדול מדי. נא לפנות ל%s תיעוד %s למצוא דרך לעקיפת "
 "מגבלה זו."
 
-#: import.php:391 import.php:597
+#: import.php:397 import.php:603
 msgid "Showing bookmark"
 msgstr "הצגת סימנייה"
 
-#: import.php:412 import.php:593
+#: import.php:418 import.php:599
 msgid "The bookmark has been deleted."
 msgstr "הסימנייה נמחקה."
 
-#: import.php:505
+#: import.php:511
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -224,23 +224,23 @@ msgstr ""
 "לא התקבלו נתונים לייבוא. או שלא נשלח שום קובץ או שגודל הקובץ חרג מהגודל "
 "המרבי המותר בתצורת ה־PHP שלך. ניתן לעיין ב[doc@faq1-16]שו״ת 1.16[/doc]."
 
-#: import.php:560 libraries/classes/Display/Import.php:60
+#: import.php:566 libraries/classes/Display/Import.php:60
 msgid "Could not load import plugins, please check your installation!"
 msgstr "לא ניתן לטעון את תוספי הייבוא, נא לבדוק האם ההתקנה שלך תקינה!"
 
-#: import.php:600 libraries/classes/Sql.php:712 libraries/classes/Sql.php:1526
+#: import.php:606 libraries/classes/Sql.php:712 libraries/classes/Sql.php:1526
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "הסימנייה %s נוצרה."
 
-#: import.php:610
+#: import.php:616
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "הייבוא הושלם בהצלחה, הופעלה שאילתה אחת."
 msgstr[1] "הייבוא הושלם בהצלחה, הופעלו %d שאילתות."
 
-#: import.php:641
+#: import.php:647
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -249,7 +249,7 @@ msgstr ""
 "תום זמן ההמתנה של הסקריפט עבר, אם ברצונך לסיים את הייבוא נא %sלשלוח מחדש את "
 "אותו הקובץ%s והייבוא יימשך."
 
-#: import.php:651
+#: import.php:657
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -257,7 +257,7 @@ msgstr ""
 "עם זאת, בהרצה האחרונה לא נותחו נתונים כלל, לרוב משמעות הדבר היא ש־phpMyAdmin "
 "לא יוכל להשלים יבוא זה אלמלא גבול זמן ההמתנה של ה־php יוגדל."
 
-#: import.php:723 sql.php:173
+#: import.php:729 sql.php:183
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "הוראות \"DROP DATABASE\" מנוטרלות."
 
@@ -266,7 +266,7 @@ msgid "Could not load the progress of the import."
 msgstr "לא ניתן לטעון את תהליך הייבוא."
 
 #: import_status.php:120 js/messages.php:470 js/messages.php:636
-#: libraries/classes/Export.php:516
+#: libraries/classes/Export.php:530
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:727
 msgid "Back"
@@ -667,8 +667,8 @@ msgstr "בתים שהתקבלו"
 msgid "Connections"
 msgstr "חיבורים"
 
-#: js/messages.php:204 templates/server/status/base.twig:10
-#: templates/server/status/processes/list.twig:5
+#: js/messages.php:204 templates/server/status/processes/list.twig:5
+#: templates/server/status/base.twig:10
 msgid "Processes"
 msgstr "תהליכים"
 
@@ -737,17 +737,17 @@ msgstr "הוספת תרשים לרשת"
 msgid "Please add at least one variable to the series!"
 msgstr "נא להוסיף לסדרה משתנה אחד לפחות!"
 
-#: js/messages.php:224 libraries/classes/Display/Results.php:1355
+#: js/messages.php:224 libraries/classes/Display/Results.php:1353
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/config.values.php:113
 #: templates/table/search/selection_form.twig:35
+#: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
-#: templates/table/search/rows_zoom.twig:20
+#: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
 #: templates/columns_definitions/transformation.twig:4
-#: templates/server/status/monitor/index.twig:204
-#: templates/display/export/options_output_compression.twig:7
+#: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/main.twig:629
 msgid "None"
 msgstr "ללא"
@@ -1056,9 +1056,9 @@ msgstr ""
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:508
 #: libraries/classes/Menu.php:632 libraries/classes/Util.php:4198
 #: libraries/classes/Util.php:4213 libraries/classes/Util.php:4230
+#: templates/preferences/manage/main.twig:8
 #: templates/display/import/import.twig:38
 #: templates/server/status/monitor/index.twig:78
-#: templates/preferences/manage/main.twig:8
 msgid "Import"
 msgstr "ייבוא"
 
@@ -1151,29 +1151,28 @@ msgstr "לא נמצאו משתנים!"
 #: libraries/classes/Server/UserGroups.php:313
 #: libraries/classes/SqlQueryForm.php:387
 #: libraries/classes/SqlQueryForm.php:451 libraries/classes/Tracking.php:373
-#: libraries/classes/Tracking.php:524 server_privileges.php:334
-#: templates/table/search/selection_form.twig:223
+#: libraries/classes/Tracking.php:524 server_privileges.php:338
 #: templates/server/replication/master_add_slave_user.twig:81
+#: templates/server/replication/change_master.twig:33
+#: templates/table/search/selection_form.twig:223
+#: templates/server/replication/master_configuration.twig:30
+#: templates/database/search/main.twig:63
+#: templates/display/export/options_format.twig:18
+#: templates/server/privileges/delete_user_fieldset.twig:16
+#: templates/server/privileges/edit_routine_privileges.twig:23
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/view_create.twig:116 templates/preferences/manage/main.twig:41
+#: templates/preferences/manage/main.twig:97
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/display/results/options_block.twig:118
-#: templates/table/operations/view.twig:21
-#: templates/display/export/options_format.twig:18
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/index_form.twig:221
 #: templates/server/replication/slave_configuration.twig:15
 #: templates/server/replication/slave_configuration.twig:87
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/database/create_table.twig:21 templates/view_create.twig:116
-#: templates/database/search/main.twig:63
-#: templates/server/replication/change_master.twig:33
-#: templates/server/privileges/edit_routine_privileges.twig:23
+#: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/server/binlog/index.twig:34
-#: templates/gis_data_editor_form.twig:209 templates/header_location.twig:18
 #: templates/display/import/import.twig:191
-#: templates/server/replication/master_configuration.twig:30
-#: templates/server/privileges/delete_user_fieldset.twig:16
-#: templates/preferences/manage/main.twig:41
-#: templates/preferences/manage/main.twig:97
+#: templates/table/operations/view.twig:21 templates/table/index_form.twig:221
+#: templates/gis_data_editor_form.twig:209
+#: templates/database/create_table.twig:21 templates/header_location.twig:18
 #: templates/table/structure/display_structure.twig:436
 msgid "Go"
 msgstr "ביצוע"
@@ -1189,7 +1188,7 @@ msgstr "ביצוע"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: js/messages.php:366 libraries/classes/Header.php:476
+#: js/messages.php:366 templates/header.twig:52
 msgid "Page-related settings"
 msgstr "הגדרות תלויות עמוד"
 
@@ -1197,8 +1196,8 @@ msgstr "הגדרות תלויות עמוד"
 msgid "Apply"
 msgstr "החלה"
 
-#: js/messages.php:370 libraries/classes/Navigation/NavigationHeader.php:79
-#: templates/server/status/monitor/index.twig:95
+#: js/messages.php:370 templates/server/status/monitor/index.twig:95
+#: templates/navigation/main.twig:59
 msgid "Loading…"
 msgstr "בטעינה…"
 
@@ -1291,16 +1290,16 @@ msgstr "הקידוד משתנה"
 #: libraries/classes/Server/Privileges.php:3147
 #: libraries/classes/Server/Privileges.php:3815
 #: libraries/classes/Server/Privileges.php:3844
-#: templates/database/central_columns/main.twig:362
+#: templates/preferences/manage/error.twig:19
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/database/data_dictionary/index.twig:39
+#: templates/preferences/autoload.twig:12
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/preferences/manage/error.twig:19
-#: templates/database/data_dictionary/index.twig:39
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/preferences/autoload.twig:12
+#: templates/database/central_columns/main.twig:362
 #: templates/table/structure/display_structure.twig:80
 msgid "No"
 msgstr "לא"
@@ -1343,8 +1342,8 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "הגדרה של פונקציה מאוחסנת חייבת להכיל משפט RETURN!"
 
 #: js/messages.php:411 libraries/classes/Config/Forms/User/ExportForm.php:158
-#: libraries/classes/Display/Results.php:4724
-#: libraries/classes/Display/Results.php:4970 libraries/classes/Menu.php:391
+#: libraries/classes/Display/Results.php:4722
+#: libraries/classes/Display/Results.php:4968 libraries/classes/Menu.php:391
 #: libraries/classes/Menu.php:499 libraries/classes/Menu.php:628
 #: libraries/classes/Rte/RteList.php:195
 #: libraries/classes/Server/Privileges.php:2531
@@ -1353,10 +1352,10 @@ msgstr "הגדרה של פונקציה מאוחסנת חייבת להכיל מש
 #: libraries/classes/Server/Privileges.php:3725 libraries/classes/Util.php:3455
 #: libraries/classes/Util.php:3456 libraries/classes/Util.php:4197
 #: libraries/classes/Util.php:4212 libraries/classes/Util.php:4229
-#: templates/display/export/option_header.twig:3
-#: templates/database/structure/check_all_tables.twig:12
-#: templates/server/status/monitor/index.twig:81
 #: templates/preferences/manage/main.twig:59
+#: templates/display/export/option_header.twig:3
+#: templates/server/status/monitor/index.twig:81
+#: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "יצוא"
 
@@ -1401,31 +1400,31 @@ msgstr "הצגת תיבת שאילתות"
 
 #: js/messages.php:430 libraries/classes/CentralColumns.php:926
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/Display/Results.php:3254
-#: libraries/classes/Display/Results.php:4699 libraries/classes/Index.php:742
+#: libraries/classes/Display/Results.php:3252
+#: libraries/classes/Display/Results.php:4697 libraries/classes/Index.php:742
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:651
 #: libraries/classes/Util.php:1139 libraries/classes/Util.php:3453
 #: libraries/classes/Util.php:3454 templates/console/bookmark_content.twig:7
-#: templates/setup/home/index.twig:57
+#: templates/server/variables/index.twig:38
+#: templates/server/variables/index.twig:41 templates/console/display.twig:31
+#: templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:279
 #: templates/database/central_columns/main.twig:394
-#: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/server/variables/index.twig:38
-#: templates/server/variables/index.twig:41
+#: templates/setup/home/index.twig:57
 msgid "Edit"
 msgstr "עריכה"
 
 #: js/messages.php:431 libraries/classes/CentralColumns.php:933
-#: libraries/classes/Display/Results.php:3331
-#: libraries/classes/Display/Results.php:4688
+#: libraries/classes/Display/Results.php:3329
+#: libraries/classes/Display/Results.php:4686
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:299
-#: templates/console/bookmark_content.twig:7 templates/setup/home/index.twig:61
-#: templates/database/central_columns/main.twig:282
-#: templates/database/central_columns/main.twig:401
+#: templates/console/bookmark_content.twig:7
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
-#: templates/database/designer/main.twig:429
+#: templates/database/central_columns/main.twig:282
+#: templates/database/central_columns/main.twig:401
+#: templates/setup/home/index.twig:61 templates/database/designer/main.twig:429
 msgid "Delete"
 msgstr "מחיקה"
 
@@ -1438,7 +1437,7 @@ msgstr "%d הוא לא מספר שורה תקין."
 #: js/messages.php:433
 #: libraries/classes/Controllers/Table/SearchController.php:374
 #: libraries/classes/Controllers/Table/SearchController.php:928
-#: tbl_change.php:161 templates/sql/relational_column_dropdown.twig:3
+#: tbl_change.php:168 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "עיון בערכים זרים"
 
@@ -1605,11 +1604,11 @@ msgstr "לא נבחרו תלויות!"
 
 #: js/messages.php:491 libraries/classes/CentralColumns.php:950
 #: libraries/classes/InsertEdit.php:1845
-#: templates/table/structure/partition_definition_form.twig:12
-#: templates/columns_definitions/column_definitions_form.twig:148
-#: templates/table/relation/common_form.twig:216
-#: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/server/variables/index.twig:9
+#: templates/columns_definitions/column_definitions_form.twig:148
+#: templates/table/structure/partition_definition_form.twig:12
+#: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/relation/common_form.twig:216
 msgid "Save"
 msgstr "שמירה"
 
@@ -1691,8 +1690,8 @@ msgstr "תוכן נקודת נתונים"
 msgid "Ignore"
 msgstr "התעלמות"
 
-#: js/messages.php:529 libraries/classes/Display/Results.php:3258
-#: libraries/classes/Display/Results.php:4707 libraries/classes/Util.php:310
+#: js/messages.php:529 libraries/classes/Display/Results.php:3256
+#: libraries/classes/Display/Results.php:4705 libraries/classes/Util.php:310
 msgid "Copy"
 msgstr "העתקה"
 
@@ -1772,16 +1771,16 @@ msgstr "הוספת טבעת פנימית"
 #: libraries/classes/Server/Privileges.php:3812
 #: libraries/classes/Server/Privileges.php:3844
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:229
-#: templates/database/central_columns/main.twig:362
+#: templates/preferences/manage/error.twig:18
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/database/data_dictionary/index.twig:39
+#: templates/preferences/autoload.twig:11
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/preferences/manage/error.twig:18
-#: templates/database/data_dictionary/index.twig:39
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/preferences/autoload.twig:11
+#: templates/database/central_columns/main.twig:362
 #: templates/table/structure/display_structure.twig:80
 msgid "Yes"
 msgstr "כן"
@@ -1992,7 +1991,7 @@ msgstr "הצלחה"
 msgid "Import status"
 msgstr "מצב ייבוא"
 
-#: js/messages.php:631 libraries/classes/Navigation/Navigation.php:134
+#: js/messages.php:631 templates/navigation/main.twig:85
 msgid "Drop files here"
 msgstr "ניתן להשליך קבצים לכאן"
 
@@ -2000,9 +1999,9 @@ msgstr "ניתן להשליך קבצים לכאן"
 msgid "Select database first"
 msgstr "נא לבחור מסד נתונים קודם"
 
-#: js/messages.php:635 libraries/classes/Display/Results.php:4862
-#: templates/database/structure/index.twig:12
+#: js/messages.php:635 libraries/classes/Display/Results.php:4860
 #: templates/database/data_dictionary/index.twig:64
+#: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:381
 msgid "Print"
 msgstr "הדפסה"
@@ -2066,11 +2065,11 @@ msgid "Show hidden navigation tree items."
 msgstr "הצגת פריטי עץ ניווט נסתרים."
 
 #: js/messages.php:670 libraries/classes/Config/Descriptions.php:486
-#: libraries/classes/Navigation/NavigationTree.php:1448
+#: libraries/classes/Navigation/NavigationTree.php:1464
 msgid "Link with main panel"
 msgstr "קישור ללוח הראשי"
 
-#: js/messages.php:671 libraries/classes/Navigation/NavigationTree.php:1451
+#: js/messages.php:671 libraries/classes/Navigation/NavigationTree.php:1467
 msgid "Unlink from main panel"
 msgstr "ניתוק מהלוח הראשי"
 
@@ -2096,7 +2095,7 @@ msgstr ""
 msgid "up to date"
 msgstr "עדכני"
 
-#: js/messages.php:686 libraries/classes/Display/Results.php:4796
+#: js/messages.php:686 libraries/classes/Display/Results.php:4794
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "יצירת תצוגה"
@@ -2580,7 +2579,7 @@ msgstr "נא להקליד קלט הקסדצימלי (HEX) תקני"
 #: js/messages.php:995 libraries/classes/Core.php:292
 #: libraries/classes/Import.php:119 libraries/classes/InsertEdit.php:1541
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:598
-#: view_operations.php:82
+#: view_operations.php:85
 msgid "Error"
 msgstr "שגיאה"
 
@@ -2644,9 +2643,9 @@ msgid "per minute"
 msgstr "לדקה"
 
 #: libraries/classes/Advisor.php:634
-#: templates/server/status/queries/index.twig:34
 #: templates/server/status/status/index.twig:17
 #: templates/server/status/status/index.twig:37
+#: templates/server/status/queries/index.twig:34
 msgid "per hour"
 msgstr "לשעה"
 
@@ -2666,10 +2665,10 @@ msgstr "שם מפתח"
 
 #: libraries/classes/BrowseForeigners.php:225
 #: libraries/classes/BrowseForeigners.php:227
-#: templates/server/status/variables/index.twig:72
-#: templates/server/plugins/index.twig:24
 #: templates/server/collations/index.twig:11
 #: templates/server/engines/index.twig:10
+#: templates/server/plugins/index.twig:24
+#: templates/server/status/variables/index.twig:72
 msgid "Description"
 msgstr "תיאור"
 
@@ -2723,11 +2722,11 @@ msgstr "לא"
 #: libraries/classes/Rte/Routines.php:1001
 #: libraries/classes/Rte/Routines.php:1679
 #: libraries/classes/Rte/RteList.php:117 libraries/classes/Rte/RteList.php:129
-#: libraries/classes/Rte/RteList.php:144 templates/setup/home/index.twig:43
+#: libraries/classes/Rte/RteList.php:144
+#: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:234
-#: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/database/create_table.twig:11
+#: templates/setup/home/index.twig:43 templates/database/create_table.twig:11
 #: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "שם"
@@ -2749,15 +2748,15 @@ msgstr "שם"
 #: libraries/classes/Rte/Routines.php:1680
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:147
 #: libraries/classes/Server/Privileges.php:2699
-#: templates/database/central_columns/main.twig:21
-#: templates/database/central_columns/main.twig:238
 #: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/database/structure/table_header.twig:30
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/search/fields_table.twig:8
 #: templates/database/data_dictionary/index.twig:17
-#: templates/table/tracking/structure_snapshot_columns.twig:7
+#: templates/database/central_columns/main.twig:21
+#: templates/database/central_columns/main.twig:238
 #: templates/table/structure/display_structure.twig:22
+#: templates/database/structure/table_header.twig:30
 msgid "Type"
 msgstr "סוג"
 
@@ -2778,13 +2777,13 @@ msgstr "אורך/ערכים*"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:545
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
-#: templates/database/central_columns/main.twig:29
-#: templates/database/central_columns/main.twig:246
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/server/replication/slave_configuration.twig:8
-#: templates/database/data_dictionary/index.twig:19
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
+#: templates/database/data_dictionary/index.twig:19
+#: templates/server/replication/slave_configuration.twig:8
+#: templates/database/central_columns/main.twig:29
+#: templates/database/central_columns/main.twig:246
 #: templates/table/structure/display_structure.twig:26
 msgid "Default"
 msgstr "בררת מחדל"
@@ -2792,17 +2791,17 @@ msgstr "בררת מחדל"
 #: libraries/classes/CentralColumns.php:1003 libraries/classes/Charsets.php:275
 #: libraries/classes/Index.php:722 libraries/classes/Operations.php:309
 #: libraries/classes/Operations.php:1130
+#: templates/server/collations/index.twig:10
+#: templates/server/databases/index.twig:104
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/table/structure/display_table_stats.twig:101
+#: templates/table/search/fields_table.twig:9
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/database/structure/table_header.twig:31
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/table/search/fields_table.twig:9
-#: templates/table/structure/display_table_stats.twig:101
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/server/databases/index.twig:104
-#: templates/server/collations/index.twig:10
 #: templates/table/structure/display_structure.twig:23
+#: templates/database/structure/table_header.twig:31
 msgid "Collation"
 msgstr "איסוף"
 
@@ -2826,13 +2825,13 @@ msgstr "תכונות"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:543
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:258
+#: templates/table/search/zoom_result_form.twig:35
 #: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/database/data_dictionary/index.twig:18
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/search/zoom_result_form.twig:35
+#: templates/database/central_columns/main.twig:41
+#: templates/database/central_columns/main.twig:258
 #: templates/table/structure/display_structure.twig:25
 msgid "Null"
 msgstr "ריק"
@@ -3849,9 +3848,9 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:372 libraries/classes/Menu.php:591
-#: libraries/classes/Navigation/NavigationTree.php:1288
 #: libraries/classes/Server/Privileges.php:4734 libraries/classes/Util.php:4193
 #: libraries/config.values.php:157 templates/server/databases/index.twig:6
+#: templates/navigation/tree/database_select.twig:11
 msgid "Databases"
 msgstr "מסדי נתונים"
 
@@ -5292,10 +5291,10 @@ msgid "Explain SQL"
 msgstr "הסברת SQL"
 
 #: libraries/classes/Config/Descriptions.php:830
-#: libraries/classes/Export.php:520 libraries/classes/Util.php:1183
+#: libraries/classes/Export.php:534 libraries/classes/Util.php:1183
 #: templates/console/display.twig:99
-#: templates/server/status/variables/index.twig:11
 #: templates/server/status/processes/index.twig:9
+#: templates/server/status/variables/index.twig:11
 msgid "Refresh"
 msgstr "רענון"
 
@@ -5360,12 +5359,12 @@ msgstr "כותרת חלון הדפדפן כאשר נבחר מסד נתונים."
 #: libraries/classes/Server/Privileges.php:3499
 #: libraries/classes/Server/Privileges.php:3501
 #: libraries/classes/Server/Privileges.php:4734
+#: templates/server/databases/index.twig:87
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184
+#: templates/table/relation/foreign_key_row.twig:96
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:167
-#: templates/table/relation/foreign_key_row.twig:96
-#: templates/server/databases/index.twig:87
 msgid "Database"
 msgstr "מסד נתונים"
 
@@ -5399,12 +5398,12 @@ msgstr "כותרת חלון הדפדפן בעת בחירת טבלה."
 #: libraries/classes/Server/Privileges.php:3505
 #: libraries/classes/Server/Privileges.php:3507
 #: libraries/classes/Server/Privileges.php:4748
+#: templates/database/tracking/tables.twig:13
+#: templates/database/tracking/tables.twig:120
+#: templates/table/relation/foreign_key_row.twig:106
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:174
 #: templates/database/structure/table_header.twig:8
-#: templates/table/relation/foreign_key_row.twig:106
-#: templates/database/tracking/tables.twig:13
-#: templates/database/tracking/tables.twig:120
 msgid "Table"
 msgstr "טבלה"
 
@@ -5652,11 +5651,10 @@ msgstr ""
 
 #: libraries/classes/Config/FormDisplayTemplate.php:202
 #: libraries/classes/Display/Export.php:357
-#: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Navigation/NavigationHeader.php:221
-#: libraries/classes/Sanitize.php:193 libraries/classes/Util.php:332
-#: libraries/classes/Util.php:436 templates/home/index.twig:156
-#: templates/server/variables/index.twig:14
+#: libraries/classes/Engines/Pbxt.php:169 libraries/classes/Sanitize.php:193
+#: libraries/classes/Util.php:332 libraries/classes/Util.php:436
+#: templates/home/index.twig:156 templates/server/variables/index.twig:14
+#: templates/navigation/main.twig:40 templates/navigation/main.twig:41
 msgid "Documentation"
 msgstr "תיעוד"
 
@@ -5906,25 +5904,25 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:503
-#: tbl_operations.php:438 view_operations.php:111
+#: tbl_operations.php:445 view_operations.php:114
 #, php-format
 msgid "View %s has been dropped."
 msgstr "התצוגה %s נשמטה."
 
 #: libraries/classes/Controllers/Database/StructureController.php:504
-#: tbl_operations.php:439
+#: tbl_operations.php:446
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "הטבלה %s נשמטה."
 
 #: libraries/classes/Controllers/Database/StructureController.php:562
-#: tbl_operations.php:420
+#: tbl_operations.php:427
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "הטבלה %s רוקנה."
 
 #: libraries/classes/Controllers/Database/StructureController.php:717
-#: libraries/classes/Display/Results.php:4549
+#: libraries/classes/Display/Results.php:4547
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6059,10 +6057,10 @@ msgstr[1] "%1$d מסדי נתונים הושמטו בהצלחה."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:371
 #: libraries/classes/Import.php:129
-#: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_table_stats.twig:112
-#: templates/table/structure/display_structure.twig:234
 #: templates/table/structure/display_partitions.twig:28
+#: templates/table/structure/display_structure.twig:234
+#: templates/database/structure/table_header.twig:26
 msgid "Rows"
 msgstr "שורות"
 
@@ -6083,8 +6081,8 @@ msgid "Total"
 msgstr "סה״כ"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:391
-#: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
+#: templates/database/structure/table_header.twig:38
 msgid "Overhead"
 msgstr "תקורה"
 
@@ -6799,7 +6797,7 @@ msgstr "אין נתונים להצגה"
 #: libraries/classes/Controllers/Table/IndexesController.php:153
 #: libraries/classes/Controllers/Table/StructureController.php:747
 #: libraries/classes/Controllers/Table/StructureController.php:1005
-#: tbl_addfield.php:105
+#: tbl_addfield.php:115
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr ""
@@ -6810,10 +6808,10 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/RelationController.php:276
 #: libraries/classes/Controllers/Table/SearchController.php:626
-#: libraries/classes/Display/Results.php:4212 libraries/classes/Message.php:177
+#: libraries/classes/Display/Results.php:4210 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1520
 #: libraries/classes/SqlQueryForm.php:97 tbl_row_action.php:146
-#: view_operations.php:79
+#: view_operations.php:82
 msgid "Your SQL query has been executed successfully."
 msgstr "שאילתת ה־SQL שלך רצה בהצלחה."
 
@@ -6875,9 +6873,8 @@ msgstr "שינוי"
 #: libraries/classes/Controllers/Table/StructureController.php:1232
 #: libraries/classes/Index.php:768 libraries/classes/Operations.php:1670
 #: libraries/classes/Rte/RteList.php:202 libraries/classes/Util.php:3449
-#: libraries/classes/Util.php:3450
+#: libraries/classes/Util.php:3450 templates/server/databases/index.twig:284
 #: templates/table/relation/foreign_key_row.twig:26
-#: templates/server/databases/index.twig:284
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:470
@@ -6887,9 +6884,9 @@ msgstr "השמטה"
 #: libraries/classes/Controllers/Table/StructureController.php:1233
 #: libraries/classes/Controllers/Table/StructureController.php:1238
 #: libraries/classes/Controllers/Table/StructureController.php:1301
-#: templates/columns_definitions/column_indexes.twig:4
-#: templates/database/data_dictionary/index.twig:33
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/database/data_dictionary/index.twig:33
+#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/structure/display_structure.twig:300
 msgid "Primary"
 msgstr "ראשי"
@@ -6898,10 +6895,10 @@ msgstr "ראשי"
 #: libraries/classes/Controllers/Table/StructureController.php:1239
 #: libraries/classes/Controllers/Table/StructureController.php:1306
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:32
-#: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/display_table_stats.twig:24
+#: templates/columns_definitions/column_indexes.twig:12
 #: templates/table/structure/display_structure.twig:314
 msgid "Index"
 msgstr "אינדקס"
@@ -6909,8 +6906,8 @@ msgstr "אינדקס"
 #: libraries/classes/Controllers/Table/StructureController.php:1235
 #: libraries/classes/Controllers/Table/StructureController.php:1240
 #: libraries/classes/Index.php:718
-#: templates/columns_definitions/column_indexes.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
+#: templates/columns_definitions/column_indexes.twig:8
 #: templates/table/structure/display_structure.twig:307
 msgid "Unique"
 msgstr "ייחודי"
@@ -6939,7 +6936,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
 #: libraries/classes/Core.php:858 libraries/mult_submits.inc.php:353
-#: tbl_operations.php:252 tbl_replace.php:365 templates/preview_sql.twig:3
+#: tbl_operations.php:259 tbl_replace.php:372 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "ללא שינוי"
 
@@ -7132,7 +7129,7 @@ msgstr "כביטוי רגולרי"
 msgid "Words are separated by a space character (\" \")."
 msgstr "מילים מופרדות ברווח („ “)."
 
-#: libraries/classes/DatabaseInterface.php:1569
+#: libraries/classes/DatabaseInterface.php:1570
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -7140,43 +7137,43 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1618
+#: libraries/classes/DatabaseInterface.php:1619
 #, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Failed to set configured collation connection!"
 msgstr "תצורת מעקב מקומית אינה נתמכת"
 
-#: libraries/classes/DatabaseInterface.php:2257
+#: libraries/classes/DatabaseInterface.php:2258
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2262
+#: libraries/classes/DatabaseInterface.php:2263
 msgid "The server is not responding."
 msgstr "השרת אינו מגיב."
 
-#: libraries/classes/DatabaseInterface.php:2266
+#: libraries/classes/DatabaseInterface.php:2267
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2272
+#: libraries/classes/DatabaseInterface.php:2273
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2286
+#: libraries/classes/DatabaseInterface.php:2287
 msgid "Details…"
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2610
+#: libraries/classes/DatabaseInterface.php:2611
 msgid "Missing connection parameters!"
 msgstr "חסרים משתני חיבור!"
 
-#: libraries/classes/DatabaseInterface.php:2639
+#: libraries/classes/DatabaseInterface.php:2640
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:3154
+#: libraries/classes/DatabaseInterface.php:3157
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -7277,123 +7274,123 @@ msgstr "הוגשה ב־%1$s ע״י %2$s"
 msgid "authored on %1$s by %2$s"
 msgstr "נוצרה ב־%1$s ע״י %2$s"
 
-#: libraries/classes/Display/Results.php:940 libraries/classes/Util.php:2419
+#: libraries/classes/Display/Results.php:938 libraries/classes/Util.php:2419
 #: libraries/classes/Util.php:2422
 msgctxt "First page"
 msgid "Begin"
 msgstr "התחלה"
 
-#: libraries/classes/Display/Results.php:947 libraries/classes/Util.php:2420
+#: libraries/classes/Display/Results.php:945 libraries/classes/Util.php:2420
 #: libraries/classes/Util.php:2423 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "הקודם"
 
-#: libraries/classes/Display/Results.php:975 libraries/classes/Util.php:2452
+#: libraries/classes/Display/Results.php:973 libraries/classes/Util.php:2452
 #: libraries/classes/Util.php:2459 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "הבא"
 
-#: libraries/classes/Display/Results.php:1005 libraries/classes/Util.php:2453
+#: libraries/classes/Display/Results.php:1003 libraries/classes/Util.php:2453
 #: libraries/classes/Util.php:2460
 msgctxt "Last page"
 msgid "End"
 msgstr "סיום"
 
-#: libraries/classes/Display/Results.php:1596
+#: libraries/classes/Display/Results.php:1594
 #: templates/display/results/options_block.twig:18
 msgid "Partial texts"
 msgstr "טקסטים חלקיים"
 
-#: libraries/classes/Display/Results.php:1600
+#: libraries/classes/Display/Results.php:1598
 #: templates/display/results/options_block.twig:18
 msgid "Full texts"
 msgstr "טקסטים מלאים"
 
-#: libraries/classes/Display/Results.php:1998
-#: libraries/classes/Display/Results.php:2024
+#: libraries/classes/Display/Results.php:1996
+#: libraries/classes/Display/Results.php:2022
 #: libraries/classes/Operations.php:847 libraries/classes/Util.php:4904
 #: libraries/classes/Util.php:4927 libraries/config.values.php:115
 #: templates/table/search/selection_form.twig:154
 #: templates/server/databases/index.twig:92
 #: templates/server/databases/index.twig:109
 #: templates/server/databases/index.twig:128
-#: templates/server/status/processes/list.twig:12
 #: templates/database/qbe/sort_select_cell.twig:7
+#: templates/server/status/processes/list.twig:12
 #: templates/database/multi_table_query/form.twig:67
 msgid "Descending"
 msgstr "יורד"
 
-#: libraries/classes/Display/Results.php:2006
-#: libraries/classes/Display/Results.php:2016
+#: libraries/classes/Display/Results.php:2004
+#: libraries/classes/Display/Results.php:2014
 #: libraries/classes/Operations.php:844 libraries/classes/Util.php:4896
 #: libraries/classes/Util.php:4919 libraries/config.values.php:114
 #: templates/table/search/selection_form.twig:154
 #: templates/server/databases/index.twig:90
 #: templates/server/databases/index.twig:107
 #: templates/server/databases/index.twig:126
-#: templates/server/status/processes/list.twig:14
 #: templates/database/qbe/sort_select_cell.twig:5
+#: templates/server/status/processes/list.twig:14
 #: templates/database/multi_table_query/form.twig:66
 msgid "Ascending"
 msgstr "עולה"
 
-#: libraries/classes/Display/Results.php:3307
-#: libraries/classes/Display/Results.php:3322
+#: libraries/classes/Display/Results.php:3305
+#: libraries/classes/Display/Results.php:3320
 msgid "The row has been deleted."
 msgstr "השורה נמחקה."
 
-#: libraries/classes/Display/Results.php:3354
-#: libraries/classes/Display/Results.php:4688
+#: libraries/classes/Display/Results.php:3352
+#: libraries/classes/Display/Results.php:4686
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "חיסול"
 
-#: libraries/classes/Display/Results.php:4138
+#: libraries/classes/Display/Results.php:4136
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "כנראה הערכה. יש לעיין ב[doc@faq3-11]שו״ת 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4561
+#: libraries/classes/Display/Results.php:4559
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "מוצגות שורות %1s‏ - %2s"
 
-#: libraries/classes/Display/Results.php:4575
+#: libraries/classes/Display/Results.php:4573
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d סה״כ, %2$d בשאילתה"
 
-#: libraries/classes/Display/Results.php:4580
+#: libraries/classes/Display/Results.php:4578
 #, php-format
 msgid "%d total"
 msgstr "%d סה״כ"
 
-#: libraries/classes/Display/Results.php:4592 libraries/classes/Sql.php:1355
+#: libraries/classes/Display/Results.php:4590 libraries/classes/Sql.php:1355
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "השאילתה ארכה %01.4f שניות."
 
-#: libraries/classes/Display/Results.php:4842
+#: libraries/classes/Display/Results.php:4840
 msgid "Copy to clipboard"
 msgstr "העתקה ללוח הגזירים"
 
-#: libraries/classes/Display/Results.php:4894
+#: libraries/classes/Display/Results.php:4892
 msgid "Query results operations"
 msgstr "פעולות תוצאות שאילתה"
 
-#: libraries/classes/Display/Results.php:4981
+#: libraries/classes/Display/Results.php:4979
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "הצגת תרשים"
 
-#: libraries/classes/Display/Results.php:5004
+#: libraries/classes/Display/Results.php:5002
 msgid "Visualize GIS data"
 msgstr "הגשה חזותית של נתוני GIS"
 
-#: libraries/classes/Display/Results.php:5186
+#: libraries/classes/Display/Results.php:5184
 msgid "Link not found!"
 msgstr "קישור לא נמצא!"
 
@@ -7705,24 +7702,24 @@ msgstr "דיווח"
 msgid "Automatically send report next time"
 msgstr "בפעם הבאה יש לשלוח דיווח אוטומטית"
 
-#: libraries/classes/Export.php:118 libraries/classes/Export.php:156
-#: libraries/classes/Export.php:403
+#: libraries/classes/Export.php:132 libraries/classes/Export.php:170
+#: libraries/classes/Export.php:417
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "אין מספיק מקום לשמירת הקובץ %s."
 
-#: libraries/classes/Export.php:352
+#: libraries/classes/Export.php:366
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "הקובץ %s כבר קיים בשרת, נא לשנות את שם הקובץ או לסמן את אפשרות השכתוב."
 
-#: libraries/classes/Export.php:360 libraries/classes/Export.php:368
+#: libraries/classes/Export.php:374 libraries/classes/Export.php:382
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "לשרת אין הרשאה לשמור את קובץ %s."
 
-#: libraries/classes/Export.php:409
+#: libraries/classes/Export.php:423
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "השליפה נשמרה אל הקובץ %s."
@@ -7790,41 +7787,33 @@ msgstr ""
 "ניסית לטעון קובץ עם דחיסה שאינה נתמכת (%s). או שהתמיכה בדחיסה לא הוטמעה או "
 "שבוטלה בהגדרות שלך."
 
-#: libraries/classes/Footer.php:74
+#: libraries/classes/Footer.php:80
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:149
 #: templates/home/index.twig:16
 msgid "phpMyAdmin Demo Server"
 msgstr "שרת הדגמה של phpMyAdmin"
 
-#: libraries/classes/Footer.php:78
+#: libraries/classes/Footer.php:84
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
-#: libraries/classes/Footer.php:85
+#: libraries/classes/Footer.php:91
 msgid "Git information missing!"
 msgstr "פרטי ה־Git חסרים!"
 
-#: libraries/classes/Footer.php:200 libraries/classes/Footer.php:204
-#: libraries/classes/Footer.php:207
+#: libraries/classes/Footer.php:206 libraries/classes/Footer.php:210
+#: libraries/classes/Footer.php:213
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
-#: libraries/classes/Header.php:393
+#: libraries/classes/Header.php:403
 msgid "Print view"
 msgstr "תצוגת הדפסה"
 
-#: libraries/classes/Header.php:483
-msgid "Click on the bar to scroll to top of page"
-msgstr ""
-
-#: libraries/classes/Header.php:699 templates/login/header.twig:11
-msgid "Javascript must be enabled past this point!"
-msgstr "יש להפעיל Javascript מעבר לנקודה זו!"
-
 #: libraries/classes/Import.php:137 libraries/classes/InsertEdit.php:193
 #: libraries/classes/Rte/Routines.php:1541 libraries/classes/Sql.php:1349
-#: tbl_get_field.php:59
+#: tbl_get_field.php:67
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL החזיר חבילת תוצאות ריקה (לדוגמא, אפס שורות)."
 
@@ -7875,9 +7864,9 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportXml.php:51
 #: libraries/classes/Rte/Routines.php:1004
 #: templates/table/search/selection_form.twig:97
+#: templates/table/structure/display_table_stats.twig:90
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/table/structure/display_table_stats.twig:90
 msgid "Options"
 msgstr "אפשרויות"
 
@@ -7930,17 +7919,17 @@ msgstr "אין אינדקסים מוגדרים!"
 #: libraries/classes/Server/Privileges.php:2702
 #: libraries/classes/Server/Privileges.php:3707
 #: libraries/classes/Server/UserGroups.php:95
-#: templates/database/central_columns/main.twig:232
-#: templates/server/privileges/privileges_summary.twig:22
-#: templates/database/structure/table_header.twig:22
 #: templates/server/databases/index.twig:144
-#: templates/table/tracking/report_table.twig:8
 #: templates/table/tracking/main.twig:32
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:121
 #: templates/server/variables/index.twig:27
-#: templates/table/structure/display_structure.twig:34
 #: templates/table/structure/display_partitions.twig:33
+#: templates/server/privileges/privileges_summary.twig:22
+#: templates/table/tracking/report_table.twig:8
+#: templates/database/central_columns/main.twig:232
+#: templates/table/structure/display_structure.twig:34
+#: templates/database/structure/table_header.twig:22
 msgid "Action"
 msgstr "פעולה"
 
@@ -7961,20 +7950,20 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:539
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
+#: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/zoom_result_form.twig:34
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/search/fields_table.twig:7
+#: templates/database/data_dictionary/index.twig:16
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/index_form.twig:119
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:116
 #: templates/table/relation/common_form.twig:181
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/fields_table.twig:7
-#: templates/database/data_dictionary/index.twig:16
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "עמודה"
 
@@ -7986,10 +7975,10 @@ msgstr "מספור"
 #: libraries/classes/Index.php:724 libraries/classes/Rte/Events.php:567
 #: libraries/classes/Rte/Routines.php:1129
 #: templates/columns_definitions/partitions.twig:85
-#: templates/database/structure/table_header.twig:46
-#: templates/table/tracking/structure_snapshot_indexes.twig:13
 #: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:13
 #: templates/table/structure/display_partitions.twig:31
+#: templates/database/structure/table_header.twig:46
 msgid "Comment"
 msgstr "הערה"
 
@@ -8094,15 +8083,15 @@ msgstr ""
 
 #: libraries/classes/InsertEdit.php:1963
 #: libraries/classes/Rte/Routines.php:1684
-#: templates/server/status/variables/index.twig:71
-#: templates/table/search/fields_table.twig:11
-#: templates/server/replication/status_table.twig:17
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/table/search/fields_table.twig:11
 #: templates/server/variables/index.twig:29
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
 #: templates/database/designer/main.twig:1085
+#: templates/server/replication/status_table.twig:17
+#: templates/server/status/variables/index.twig:71
 msgid "Value"
 msgstr "ערך"
 
@@ -8136,8 +8125,8 @@ msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
 #: libraries/classes/Menu.php:277
-#: libraries/classes/Navigation/Nodes/NodeView.php:32 tbl_operations.php:69
-#: tbl_operations.php:234 tbl_structure.php:37
+#: libraries/classes/Navigation/Nodes/NodeView.php:32 tbl_operations.php:76
+#: tbl_operations.php:241 tbl_structure.php:42
 #: templates/database/structure/structure_table_row.twig:119
 #: templates/database/structure/structure_table_row.twig:184
 msgid "View"
@@ -8185,8 +8174,8 @@ msgstr "הכנסה"
 #: libraries/classes/Server/Privileges.php:2700
 #: libraries/classes/Server/Privileges.php:4614 libraries/classes/Util.php:4215
 #: libraries/classes/Util.php:4231 libraries/config.values.php:163
-#: templates/server/sub_page_header.twig:2
 #: templates/server/privileges/privileges_summary.twig:15
+#: templates/server/sub_page_header.twig:2
 msgid "Privileges"
 msgstr "הרשאות"
 
@@ -8258,10 +8247,9 @@ msgid "Binary log"
 msgstr "דו\"ח בינארי"
 
 #: libraries/classes/Menu.php:654 libraries/classes/Server/Status/Data.php:128
-#: libraries/classes/Util.php:4201
-#: templates/database/structure/table_header.twig:10
-#: templates/server/replication/index.twig:3
+#: libraries/classes/Util.php:4201 templates/server/replication/index.twig:3
 #: templates/database/structure/body_for_table_summary.twig:11
+#: templates/database/structure/table_header.twig:10
 msgid "Replication"
 msgstr "שכפול"
 
@@ -8358,87 +8346,55 @@ msgstr "הוספת קידומת"
 msgid "Do you really want to execute the following query?"
 msgstr "להריץ את השאילתה הבאה?"
 
-#: libraries/classes/Navigation/Navigation.php:71
-msgid "An error has occurred while loading the navigation display"
-msgstr ""
-
-#: libraries/classes/Navigation/Navigation.php:217
+#: libraries/classes/Navigation/Navigation.php:214
 msgid "Groups:"
 msgstr "קבוצות:"
 
-#: libraries/classes/Navigation/Navigation.php:218
+#: libraries/classes/Navigation/Navigation.php:215
 msgid "Events:"
 msgstr "אירועים:"
 
-#: libraries/classes/Navigation/Navigation.php:219
+#: libraries/classes/Navigation/Navigation.php:216
 msgid "Functions:"
 msgstr "פונקציות:"
 
-#: libraries/classes/Navigation/Navigation.php:220
+#: libraries/classes/Navigation/Navigation.php:217
 msgid "Procedures:"
 msgstr "נהלים:"
 
-#: libraries/classes/Navigation/Navigation.php:221
+#: libraries/classes/Navigation/Navigation.php:218
 #: templates/display/export/selection.twig:5
 msgid "Tables:"
 msgstr "טבלאות:"
 
-#: libraries/classes/Navigation/Navigation.php:222
+#: libraries/classes/Navigation/Navigation.php:219
 msgid "Views:"
 msgstr "תצוגות:"
 
-#: libraries/classes/Navigation/Navigation.php:246
-msgid "Unhide"
-msgstr ""
-
-#: libraries/classes/Navigation/NavigationHeader.php:183
-msgid "Home"
-msgstr "בית"
-
-#: libraries/classes/Navigation/NavigationHeader.php:191
-msgid "Log out"
-msgstr "יציאה"
-
-#: libraries/classes/Navigation/NavigationHeader.php:193
-msgid "Empty session data"
-msgstr "נתוני הפעלה ריקים"
-
-#: libraries/classes/Navigation/NavigationHeader.php:211
-msgid "phpMyAdmin documentation"
-msgstr "תיעוד phpMyAdmin"
-
-#: libraries/classes/Navigation/NavigationHeader.php:231
-msgid "Navigation panel settings"
-msgstr "הגדרות לוח ניווט"
-
-#: libraries/classes/Navigation/NavigationHeader.php:242
-msgid "Reload navigation panel"
-msgstr "טעינת לוח הניווט מחדש"
-
-#: libraries/classes/Navigation/NavigationTree.php:760
+#: libraries/classes/Navigation/NavigationTree.php:777
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:960
+#: libraries/classes/Navigation/NavigationTree.php:979
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1383
-#: libraries/classes/Navigation/NavigationTree.php:1415
+#: libraries/classes/Navigation/NavigationTree.php:1399
+#: libraries/classes/Navigation/NavigationTree.php:1431
 msgid "Type to filter these, Enter to search all"
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1385
-#: libraries/classes/Navigation/NavigationTree.php:1416
+#: libraries/classes/Navigation/NavigationTree.php:1401
+#: libraries/classes/Navigation/NavigationTree.php:1432
 msgid "Clear fast filter"
 msgstr "פינוי המסנן המהיר"
 
-#: libraries/classes/Navigation/NavigationTree.php:1442
+#: libraries/classes/Navigation/NavigationTree.php:1458
 msgid "Collapse all"
 msgstr ""
 
@@ -8577,16 +8533,16 @@ msgid ""
 "column', it'll move to next step)."
 msgstr ""
 
-#: libraries/classes/Normalization.php:213 normalization.php:24
+#: libraries/classes/Normalization.php:213 normalization.php:35
 msgid "Select one…"
 msgstr "נא לבחור אחד…"
 
-#: libraries/classes/Normalization.php:214 normalization.php:25
+#: libraries/classes/Normalization.php:214 normalization.php:36
 msgid "No such column"
 msgstr "אין כזו עמודה"
 
 #: libraries/classes/Normalization.php:218 libraries/classes/Types.php:728
-#: normalization.php:30
+#: normalization.php:41
 msgctxt "string types"
 msgid "String"
 msgstr "מחרוזת"
@@ -9948,9 +9904,9 @@ msgid "Table of contents"
 msgstr "תוכן עניניים"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:638
-#: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
 #: templates/database/data_dictionary/index.twig:11
+#: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
 msgstr "הערות לטבלה:"
 
@@ -11006,90 +10962,90 @@ msgstr ""
 msgid "Error while loading the search."
 msgstr "טעינת החיפוש נתקלה בשגיאה."
 
-#: libraries/classes/Server/Privileges.php:264 server_privileges.php:127
+#: libraries/classes/Server/Privileges.php:264 server_privileges.php:131
 msgid "No privileges."
 msgstr "ללא הרשאות."
 
-#: libraries/classes/Server/Privileges.php:273 server_privileges.php:72
+#: libraries/classes/Server/Privileges.php:273 server_privileges.php:76
 msgid "Includes all privileges except GRANT."
 msgstr "כלול כל ההרשאות חוץ מ- GRANT."
 
 #: libraries/classes/Server/Privileges.php:346
 #: libraries/classes/Server/Privileges.php:1103
-#: libraries/classes/Server/Privileges.php:1294 server_privileges.php:116
+#: libraries/classes/Server/Privileges.php:1294 server_privileges.php:120
 msgid "Allows reading data."
 msgstr "אפשרות לקריאת נתונים."
 
 #: libraries/classes/Server/Privileges.php:351
 #: libraries/classes/Server/Privileges.php:1113
-#: libraries/classes/Server/Privileges.php:1299 server_privileges.php:92
+#: libraries/classes/Server/Privileges.php:1299 server_privileges.php:96
 msgid "Allows inserting and replacing data."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:356
 #: libraries/classes/Server/Privileges.php:1123
-#: libraries/classes/Server/Privileges.php:1304 server_privileges.php:126
+#: libraries/classes/Server/Privileges.php:1304 server_privileges.php:130
 msgid "Allows changing data."
 msgstr "אפשרות לשינוי נתונים."
 
 #: libraries/classes/Server/Privileges.php:361
-#: libraries/classes/Server/Privileges.php:1309 server_privileges.php:81
+#: libraries/classes/Server/Privileges.php:1309 server_privileges.php:85
 msgid "Allows deleting data."
 msgstr "מאפשר מחיקת מידע."
 
 #: libraries/classes/Server/Privileges.php:366
-#: libraries/classes/Server/Privileges.php:1338 server_privileges.php:75
+#: libraries/classes/Server/Privileges.php:1338 server_privileges.php:79
 msgid "Allows creating new databases and tables."
 msgstr "אפשרות לייצר מסדי נתונים וטבלאות חדשים."
 
 #: libraries/classes/Server/Privileges.php:371
-#: libraries/classes/Server/Privileges.php:1355 server_privileges.php:82
+#: libraries/classes/Server/Privileges.php:1355 server_privileges.php:86
 msgid "Allows dropping databases and tables."
 msgstr "מאפשר מחיקת מאגרי נתונים וטבלאות."
 
 #: libraries/classes/Server/Privileges.php:376
-#: libraries/classes/Server/Privileges.php:1454 server_privileges.php:110
+#: libraries/classes/Server/Privileges.php:1454 server_privileges.php:114
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:381
-#: libraries/classes/Server/Privileges.php:1459 server_privileges.php:119
+#: libraries/classes/Server/Privileges.php:1459 server_privileges.php:123
 msgid "Allows shutting down the server."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:386
-#: libraries/classes/Server/Privileges.php:1449 server_privileges.php:107
+#: libraries/classes/Server/Privileges.php:1449 server_privileges.php:111
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:391
-#: libraries/classes/Server/Privileges.php:1317 server_privileges.php:86
+#: libraries/classes/Server/Privileges.php:1317 server_privileges.php:90
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:396
 #: libraries/classes/Server/Privileges.php:1133
-#: libraries/classes/Server/Privileges.php:1486 server_privileges.php:108
+#: libraries/classes/Server/Privileges.php:1486 server_privileges.php:112
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:401
-#: libraries/classes/Server/Privileges.php:1349 server_privileges.php:91
+#: libraries/classes/Server/Privileges.php:1349 server_privileges.php:95
 msgid "Allows creating and dropping indexes."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:406
-#: libraries/classes/Server/Privileges.php:1344 server_privileges.php:73
+#: libraries/classes/Server/Privileges.php:1344 server_privileges.php:77
 msgid "Allows altering the structure of existing tables."
 msgstr "מאפשר שינוי של מבני הטבלאות הקיימות."
 
 #: libraries/classes/Server/Privileges.php:411
-#: libraries/classes/Server/Privileges.php:1464 server_privileges.php:117
+#: libraries/classes/Server/Privileges.php:1464 server_privileges.php:121
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:417
-#: libraries/classes/Server/Privileges.php:1440 server_privileges.php:121
+#: libraries/classes/Server/Privileges.php:1440 server_privileges.php:125
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11097,66 +11053,66 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:425
-#: libraries/classes/Server/Privileges.php:1361 server_privileges.php:78
+#: libraries/classes/Server/Privileges.php:1361 server_privileges.php:82
 msgid "Allows creating temporary tables."
 msgstr "מאפשר יצירת טבלאות זמניות."
 
 #: libraries/classes/Server/Privileges.php:430
-#: libraries/classes/Server/Privileges.php:1481 server_privileges.php:93
+#: libraries/classes/Server/Privileges.php:1481 server_privileges.php:97
 msgid "Allows locking tables for the current thread."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:1497 server_privileges.php:115
+#: libraries/classes/Server/Privileges.php:1497 server_privileges.php:119
 msgid "Needed for the replication slaves."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:440
-#: libraries/classes/Server/Privileges.php:1492 server_privileges.php:113
+#: libraries/classes/Server/Privileges.php:1492 server_privileges.php:117
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:461
 #: libraries/classes/Server/Privileges.php:1389
-#: libraries/classes/Server/Privileges.php:1397 server_privileges.php:80
+#: libraries/classes/Server/Privileges.php:1397 server_privileges.php:84
 msgid "Allows creating new views."
 msgstr "אפשרות ליצירת תצוגות חדשות."
 
 #: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:1405 server_privileges.php:84
+#: libraries/classes/Server/Privileges.php:1405 server_privileges.php:88
 msgid "Allows to set up events for the event scheduler."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:455
-#: libraries/classes/Server/Privileges.php:1410 server_privileges.php:125
+#: libraries/classes/Server/Privileges.php:1410 server_privileges.php:129
 #, fuzzy
 msgid "Allows creating and dropping triggers."
 msgstr "מאפשר יצירת שגרות מאוחסנות."
 
 #: libraries/classes/Server/Privileges.php:466
 #: libraries/classes/Server/Privileges.php:472
-#: libraries/classes/Server/Privileges.php:1366 server_privileges.php:118
+#: libraries/classes/Server/Privileges.php:1366 server_privileges.php:122
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:477
-#: libraries/classes/Server/Privileges.php:1371 server_privileges.php:76
+#: libraries/classes/Server/Privileges.php:1371 server_privileges.php:80
 msgid "Allows creating stored routines."
 msgstr "מאפשר יצירת שגרות מאוחסנות."
 
 #: libraries/classes/Server/Privileges.php:482
-#: libraries/classes/Server/Privileges.php:1376 server_privileges.php:74
+#: libraries/classes/Server/Privileges.php:1376 server_privileges.php:78
 msgid "Allows altering and dropping stored routines."
 msgstr "אפשרות לשינוי ולהשמטה של שגרות מאוחסנות."
 
 #: libraries/classes/Server/Privileges.php:487
-#: libraries/classes/Server/Privileges.php:1502 server_privileges.php:79
+#: libraries/classes/Server/Privileges.php:1502 server_privileges.php:83
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:492
-#: libraries/classes/Server/Privileges.php:1381 server_privileges.php:85
+#: libraries/classes/Server/Privileges.php:1381 server_privileges.php:89
 msgid "Allows executing stored routines."
 msgstr "אפשרות להרצת שגרות מאוחסנות."
 
@@ -11184,21 +11140,21 @@ msgstr ""
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:886 server_privileges.php:98
+#: libraries/classes/Server/Privileges.php:886 server_privileges.php:102
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:894 server_privileges.php:101
+#: libraries/classes/Server/Privileges.php:894 server_privileges.php:105
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:903 server_privileges.php:95
+#: libraries/classes/Server/Privileges.php:903 server_privileges.php:99
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:912 server_privileges.php:105
+#: libraries/classes/Server/Privileges.php:912 server_privileges.php:109
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 
@@ -11268,11 +11224,11 @@ msgstr "הרשאות ספציפיות למאגר נתונים"
 msgid "Check all"
 msgstr "סימון הכול"
 
-#: libraries/classes/Server/Privileges.php:1339 server_privileges.php:77
+#: libraries/classes/Server/Privileges.php:1339 server_privileges.php:81
 msgid "Allows creating new tables."
 msgstr "מאפשר יצירת טבלאות חדשות."
 
-#: libraries/classes/Server/Privileges.php:1356 server_privileges.php:83
+#: libraries/classes/Server/Privileges.php:1356 server_privileges.php:87
 msgid "Allows dropping tables."
 msgstr "מאפשר מחיקת טבלאות."
 
@@ -11281,7 +11237,7 @@ msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1472 server_privileges.php:88
+#: libraries/classes/Server/Privileges.php:1472 server_privileges.php:92
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
@@ -11800,26 +11756,6 @@ msgstr "לשוניות ברמת מסד הנתונים"
 msgid "Table-level tabs"
 msgstr "טאבים ברמת הטבלה"
 
-#: libraries/classes/Setup/FormProcessing.php:65
-msgid "Warning"
-msgstr ""
-
-#: libraries/classes/Setup/FormProcessing.php:66
-msgid "Submitted form contains errors"
-msgstr ""
-
-#: libraries/classes/Setup/FormProcessing.php:68
-msgid "Try to revert erroneous fields to their default values"
-msgstr ""
-
-#: libraries/classes/Setup/FormProcessing.php:73
-msgid "Ignore errors"
-msgstr ""
-
-#: libraries/classes/Setup/FormProcessing.php:77
-msgid "Show form"
-msgstr "הצגת טופס"
-
 #: libraries/classes/Setup/Index.php:131
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
@@ -11892,8 +11828,8 @@ msgstr "הרצת את שאילתה/שאילתות על מסד הנתונים %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "הרצת את שאילתה/שאילתות על הטבלה „%s”"
 
-#: libraries/classes/SqlQueryForm.php:261 templates/setup/home/index.twig:105
-#: templates/console/display.twig:7
+#: libraries/classes/SqlQueryForm.php:261 templates/console/display.twig:7
+#: templates/setup/home/index.twig:105
 msgid "Clear"
 msgstr "פינוי"
 
@@ -12458,8 +12394,8 @@ msgstr "ללא קוד PHP"
 msgid "Submit query"
 msgstr "שליחת שאילתה"
 
-#: libraries/classes/Util.php:1204 templates/console/display.twig:31
-#: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
+#: libraries/classes/Util.php:1204 templates/sql/profiling_chart.twig:2
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Profiling"
 msgstr ""
 
@@ -12722,7 +12658,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 
-#: navigation.php:27
+#: navigation.php:39
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
@@ -12752,17 +12688,17 @@ msgstr ""
 msgid "View dump (schema) of databases"
 msgstr "ראיית הוצאה (תבנית) של מאגרי נתונים"
 
-#: server_privileges.php:152 server_user_groups.php:37
+#: server_privileges.php:156 server_user_groups.php:47
 msgid "No Privileges"
 msgstr "ללא הרשאות"
 
-#: server_privileges.php:159
+#: server_privileges.php:163
 #, fuzzy
 #| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "אין לך מספיק הרשאות לערוך שינויים במשתמשים!"
 
-#: server_privileges.php:173
+#: server_privileges.php:177
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -12781,31 +12717,31 @@ msgstr "נתונים שגויים"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: tbl_change.php:166 templates/table/tracking/main.twig:33
+#: tbl_change.php:173 templates/table/tracking/main.twig:33
 #: templates/database/tracking/tables.twig:19
 #: templates/database/multi_table_query/form.twig:48
 msgid "Show"
 msgstr "הצגה"
 
-#: tbl_create.php:46 tbl_get_field.php:39
+#: tbl_create.php:57 tbl_get_field.php:47
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
-#: tbl_create.php:56
+#: tbl_create.php:67
 #, php-format
 msgid "Table %s already exists!"
 msgstr "הטבלה %s כבר קיימת!"
 
-#: tbl_export.php:51
+#: tbl_export.php:58
 msgid "View dump (schema) of table"
 msgstr "ראיית הוצאה (תבנית) של טבלה"
 
-#: tbl_get_field.php:47
+#: tbl_get_field.php:55
 msgid "Invalid table name"
 msgstr ""
 
-#: tbl_replace.php:257
+#: tbl_replace.php:264
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -12835,110 +12771,247 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: templates/preferences/two_factor/main.twig:3
+#: templates/server/replication/master_add_slave_user.twig:6
+#: templates/server/replication/master_replication.twig:43
+msgid "Add slave replication user"
+msgstr ""
+
+#: templates/server/replication/master_add_slave_user.twig:37
 #, fuzzy
-#| msgid "Documentation"
-msgid "Two-factor authentication status"
-msgstr "תיעוד"
+#| msgid "This Host"
+msgid "This host"
+msgstr "מארח זה"
 
-#: templates/preferences/two_factor/main.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:33
-msgid "You have enabled two factor authentication."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:38
-#: templates/preferences/two_factor/confirm.twig:9
+#: templates/server/replication/master_add_slave_user.twig:39
 #, fuzzy
-#| msgid "Change password"
-msgid "Disable two-factor authentication"
-msgstr "שינוי סיסמא"
+#| msgid "Users table"
+msgid "Use host table"
+msgstr "טבלת משתמשים"
 
-#: templates/preferences/two_factor/main.twig:44
-#: templates/preferences/two_factor/main.twig:56
-#: templates/preferences/two_factor/configure.twig:2
-msgid "Configure two-factor authentication"
+#: templates/server/replication/master_add_slave_user.twig:53
+#, fuzzy
+#| msgid "No Password"
+msgid "No password"
+msgstr "ללא סיסמא"
+
+#: templates/server/replication/master_add_slave_user.twig:70
+#, fuzzy
+#| msgid "Generate Password"
+msgid "Generate password:"
+msgstr "ייצור סיסמא"
+
+#: templates/table/chart/tbl_chart.twig:15
+#, fuzzy
+#| msgid "Mar"
+msgctxt "Chart type"
+msgid "Bar"
+msgstr "מרץ"
+
+#: templates/table/chart/tbl_chart.twig:19
+#, fuzzy
+#| msgid "Column names"
+msgctxt "Chart type"
+msgid "Column"
+msgstr "שמות עמודה"
+
+#: templates/table/chart/tbl_chart.twig:23
+msgctxt "Chart type"
+msgid "Line"
 msgstr ""
 
-#: templates/display/export/option_header.twig:5
+#: templates/table/chart/tbl_chart.twig:27
 #, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "Exporting databases from the current server"
-msgstr "נכשל בכניסה לשרת MySQL"
+#| msgid "Engines"
+msgctxt "Chart type"
+msgid "Spline"
+msgstr "מנועים"
 
-#: templates/display/export/option_header.twig:7
+#: templates/table/chart/tbl_chart.twig:31
+msgctxt "Chart type"
+msgid "Area"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:35
+#, fuzzy
+#| msgid "PiB"
+msgctxt "Chart type"
+msgid "Pie"
+msgstr "PB"
+
+#: templates/table/chart/tbl_chart.twig:39
+#, fuzzy
+#| msgid "Time"
+msgctxt "Chart type"
+msgid "Timeline"
+msgstr "זמן"
+
+#: templates/table/chart/tbl_chart.twig:43
+msgctxt "Chart type"
+msgid "Scatter"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:48
+msgid "Stacked"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:51
+#, fuzzy
+#| msgid "Import files"
+msgid "Chart title:"
+msgstr "קבצי ייבוא"
+
+#: templates/table/chart/tbl_chart.twig:56
+msgid "X-Axis:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:71
+#, fuzzy
+msgid "Series:"
+msgstr "שאילתת SQL"
+
+#: templates/table/chart/tbl_chart.twig:100
+msgid "X-Axis label:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:102
+#, fuzzy
+#| msgid "Value"
+msgid "X Values"
+msgstr "ערך"
+
+#: templates/table/chart/tbl_chart.twig:105
+msgid "Y-Axis label:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:107
+msgid "Y Values"
+msgstr "ערך"
+
+#: templates/table/chart/tbl_chart.twig:113
+msgid "Series names are in a column"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:116
+#, fuzzy
+#| msgid "Inside column:"
+msgid "Series column:"
+msgstr "בתוך העמודה:"
+
+#: templates/table/chart/tbl_chart.twig:130
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Value Column:"
+msgstr "מספר שדות"
+
+#: templates/table/chart/tbl_chart.twig:151
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save chart as image"
+msgstr "שמירה כקובץ"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr ""
+
+#: templates/columns_definitions/move_column.twig:12
+#: templates/table/structure/display_structure.twig:432
 #, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting tables from \"%s\" database"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+#| msgid "After %s"
+msgid "after %s"
+msgstr "לאחר %s"
 
-#: templates/display/export/option_header.twig:9
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting rows from \"%s\" table"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+#: templates/server/replication/change_master.twig:5
+msgid "Slave configuration"
+msgstr ""
 
-#: templates/transformation_overview.twig:1
-msgid "Available MIME types"
-msgstr "סוגי MIME זמינים"
+#: templates/server/replication/change_master.twig:6
+#: templates/server/replication/slave_configuration.twig:96
+msgid "Change or reconfigure master server"
+msgstr ""
 
-#: templates/transformation_overview.twig:13
+#: templates/server/replication/change_master.twig:9
+msgid ""
+"Make sure you have a unique server-id in your configuration file (my.cnf). "
+"If not, please add the following line into [mysqld] section:"
+msgstr ""
+
+#: templates/server/replication/change_master.twig:26
 #, fuzzy
-#| msgid "Available transformations"
-msgid "Available browser display transformations"
-msgstr "שינויי צורה זמינים"
+msgid "Port:"
+msgstr "סידור"
 
-#: templates/transformation_overview.twig:18
-#: templates/columns_definitions/table_fields_definitions.twig:78
+#: templates/filter.twig:2 templates/server/status/processes/index.twig:6
+#: templates/server/status/variables/index.twig:7
+msgid "Filters"
+msgstr ""
+
+#: templates/filter.twig:4 templates/server/status/variables/index.twig:14
 #, fuzzy
-msgid "Browser display transformation"
-msgstr "שינויי צורה זמינים"
+#| msgid "Do not change the password"
+msgid "Containing the word:"
+msgstr "אל תשנה את הסיסמא"
 
-#: templates/transformation_overview.twig:19
-#: templates/transformation_overview.twig:38
-msgctxt "for MIME transformation"
-msgid "Description"
-msgstr "תיאור"
+#: templates/sql/profiling_chart.twig:4
+msgid "Detailed profile"
+msgstr "פרופיל מפורט"
 
-#: templates/transformation_overview.twig:32
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
+msgid "State"
+msgstr "מצב"
+
+#: templates/sql/profiling_chart.twig:30
+msgid "Summary by state"
+msgstr ""
+
+#: templates/sql/profiling_chart.twig:40
+msgid "Total Time"
+msgstr "סך כל הזמן"
+
+#: templates/sql/profiling_chart.twig:44
+msgid "% Time"
+msgstr "% זמן"
+
+#: templates/sql/profiling_chart.twig:48
+msgid "Calls"
+msgstr "קריאות"
+
+#: templates/sql/profiling_chart.twig:52
+msgid "ø Time"
+msgstr "ø זמן"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr ""
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr ""
+
+#: templates/columns_definitions/column_name.twig:39
 #, fuzzy
-#| msgid "Available transformations"
-msgid "Available input transformations"
-msgstr "שינויי צורה זמינים"
+#| msgid "Rename database to"
+msgid "Pick from Central Columns"
+msgstr "שינוי שם מאגר נתונים אל"
 
-#: templates/transformation_overview.twig:37
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-msgid "Input transformation"
-msgstr "שינויי צורה זמינים"
+#: templates/server/replication/index.twig:14
+#: templates/server/databases/index.twig:137
+#: templates/server/replication/master_replication.twig:3
+msgid "Master replication"
+msgstr ""
 
-#: templates/database/structure/show_create.twig:2
+#: templates/server/replication/index.twig:35
 #, fuzzy
-msgid "Showing create queries"
-msgstr "הראה שאילתות שלמות"
+#| msgid "No privileges."
+msgid "No privileges"
+msgstr "ללא הרשאות."
+
+#: templates/server/replication/index.twig:16
+#, php-format
+msgid ""
+"This server is not configured as master in a replication process. Would you "
+"like to %sconfigure%s it?"
+msgstr ""
 
 #: templates/table/search/selection_form.twig:12
 #, fuzzy
@@ -12989,6 +13062,911 @@ msgstr "החלפה ב־:"
 msgid "Use regular expression"
 msgstr "שימוש בביטוי רגולרי"
 
+#: templates/server/replication/master_configuration.twig:2
+msgid "Master configuration"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:4
+msgid ""
+"This server is not configured as a master server in a replication process. "
+"You can choose from either replicating all databases and ignoring some of "
+"them (useful if you want to replicate a majority of the databases) or you "
+"can choose to ignore all databases by default and allow only certain "
+"databases to be replicated. Please select the mode:"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:9
+msgid "Replicate all databases; Ignore:"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:10
+msgid "Ignore all databases; Replicate:"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:12
+#, fuzzy
+msgid "Please select databases:"
+msgstr "אנא בחר מאגר נתונים"
+
+#: templates/server/replication/master_configuration.twig:15
+msgid ""
+"Now, add the following lines at the end of [mysqld] section in your my.cnf "
+"and please restart the MySQL server afterwards."
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:21
+msgid ""
+"Once you restarted MySQL server, please click on Go button. Afterwards, you "
+"should see a message informing you, that this server <strong>is</strong> "
+"configured as master."
+msgstr ""
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page to open"
+msgstr "מספר דף:"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+msgid "Page to delete"
+msgstr "תצוגת יחסים"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.twig:9
+msgid "Select database:"
+msgstr "בחירת מסד נתונים:"
+
+#: templates/export/alias_add.twig:15
+msgid "New database name"
+msgstr "שם חדש למסד הנתונים"
+
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46 templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/database/central_columns/main.twig:210
+msgid "Add"
+msgstr "הוספה"
+
+#: templates/export/alias_add.twig:23
+msgid "Select table:"
+msgstr "בחירת טבלה:"
+
+#: templates/export/alias_add.twig:29
+msgid "New table name"
+msgstr "שם חדש לטבלה"
+
+#: templates/export/alias_add.twig:37
+msgid "Select column:"
+msgstr "בחירת עמודה:"
+
+#: templates/export/alias_add.twig:43
+msgid "New column name"
+msgstr "שם חדש לעמודה"
+
+#: templates/server/collations/index.twig:3
+msgid "Character sets and collations"
+msgstr "ערכות תווים ואוספים"
+
+#: templates/database/search/main.twig:5
+msgid "Search in database"
+msgstr "חיפוש במסד הנתונים"
+
+#: templates/database/search/main.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "מילים או ערכים לחיפוש אחריהם (תו כללי: „%“):"
+
+#: templates/database/search/main.twig:29
+msgid "Inside tables:"
+msgstr "בתוך הטבלאות:"
+
+#: templates/database/search/main.twig:35
+#: templates/display/export/select_options.twig:8
+#: templates/server/replication/database_multibox.twig:8
+#, fuzzy
+#| msgid "Unselect All"
+msgid "Unselect all"
+msgstr "ביטול הבחירה הכללית"
+
+#: templates/database/search/main.twig:56
+msgid "Inside column:"
+msgstr "בתוך העמודה:"
+
+#: templates/columns_definitions/partitions.twig:17
+#, fuzzy
+#| msgid "Position"
+msgid "Partition by:"
+msgstr "מיקום"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Expression or column list"
+msgstr "מספר שדות"
+
+#: templates/columns_definitions/partitions.twig:37
+#, fuzzy
+#| msgid "Position"
+msgid "Partitions:"
+msgstr "מיקום"
+
+#: templates/columns_definitions/partitions.twig:45
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartition by:"
+msgstr "מיקום"
+
+#: templates/columns_definitions/partitions.twig:65
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartitions:"
+msgstr "מיקום"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+#, fuzzy
+#| msgid "Position"
+msgid "Partition"
+msgstr "מיקום"
+
+#: templates/columns_definitions/partitions.twig:78
+#, fuzzy
+#| msgid "Value"
+msgid "Values"
+msgstr "ערך"
+
+#: templates/columns_definitions/partitions.twig:82
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartition"
+msgstr "מיקום"
+
+#: templates/columns_definitions/partitions.twig:84
+#, fuzzy
+#| msgid "Engines"
+msgid "Engine"
+msgstr "מנועים"
+
+#: templates/columns_definitions/partitions.twig:86
+#, fuzzy
+#| msgid "Data home directory"
+msgid "Data directory"
+msgstr "תיקיית בית של נתונים"
+
+#: templates/columns_definitions/partitions.twig:87
+#, fuzzy
+msgid "Index directory"
+msgstr "תיקיית בית של נתונים"
+
+#: templates/columns_definitions/partitions.twig:88
+#, fuzzy
+#| msgid "Start"
+msgid "Max rows"
+msgstr "שבת"
+
+#: templates/columns_definitions/partitions.twig:89
+#, fuzzy
+#| msgid "rows"
+msgid "Min rows"
+msgstr "עיון"
+
+#: templates/columns_definitions/partitions.twig:90
+#, fuzzy
+#| msgid "Search"
+msgid "Table space"
+msgstr "חיפוש"
+
+#: templates/columns_definitions/partitions.twig:91
+#, fuzzy
+#| msgid "User"
+msgid "Node group"
+msgstr "משתמש"
+
+#: templates/server/databases/index.twig:4
+msgid "Databases statistics"
+msgstr "סטטיסטיקת מסד הנתונים"
+
+#: templates/server/databases/index.twig:19
+#: templates/server/databases/index.twig:41
+msgid "Create database"
+msgstr "יצירת מסד נתונים"
+
+#: templates/server/databases/index.twig:35
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "יצירה"
+
+#: templates/server/databases/index.twig:52
+#, fuzzy
+#| msgid "Check privileges for database \"%s\"."
+msgid "No privileges to create databases"
+msgstr "בדיקת הראשות עבור מאגר נתונים \"%s\"."
+
+#: templates/server/databases/index.twig:141
+#: templates/server/replication/slave_configuration.twig:2
+msgid "Slave replication"
+msgstr ""
+
+#: templates/server/databases/index.twig:163
+#, php-format
+msgid "Jump to database '%s'"
+msgstr "קפיצה למסד הנתונים ‚%s’"
+
+#: templates/server/databases/index.twig:197
+#: templates/server/databases/index.twig:209
+#: templates/database/structure/structure_table_row.twig:18
+msgid "Replicated"
+msgstr "משוכפל"
+
+#: templates/server/databases/index.twig:201
+#: templates/server/databases/index.twig:213
+#: templates/database/structure/structure_table_row.twig:17
+msgid "Not replicated"
+msgstr ""
+
+#: templates/server/databases/index.twig:225
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "בדיקת הראשות עבור מאגר נתונים \"%s\"."
+
+#: templates/server/databases/index.twig:226
+msgid "Check privileges"
+msgstr "בדיקת הרשאות"
+
+#: templates/server/databases/index.twig:294
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"הערה: הפעלת סטטיסטיקות מאגר נתונים כאן יכולות לגרום לתעבורה כבדה בין השרת "
+"האינטרנט לשרת MySQL."
+
+#: templates/server/databases/index.twig:297
+#: templates/server/databases/index.twig:300
+#, fuzzy
+#| msgid "Enable Statistics"
+msgid "Enable statistics"
+msgstr "הפעלת סטטיסטיקה"
+
+#: templates/server/databases/index.twig:312
+msgid "No databases"
+msgstr "אין מאגרי נתונים"
+
+#: templates/home/index.twig:28
+msgid "General settings"
+msgstr "הגדרות כלליות"
+
+#: templates/home/index.twig:45
+#, fuzzy
+#| msgid "Server connection collation"
+msgid "Server connection collation:"
+msgstr "איסוף חיבור שרת"
+
+#: templates/home/index.twig:58
+msgid "Appearance settings"
+msgstr "הגדרות מראה"
+
+#: templates/home/index.twig:80
+msgid "Database server"
+msgstr "שרת מסד נתונים"
+
+#: templates/home/index.twig:87
+msgid "Server type:"
+msgstr "סוג שרת:"
+
+#: templates/home/index.twig:91
+msgid "Server connection:"
+msgstr "חיבור לשרת:"
+
+#: templates/home/index.twig:99
+msgid "Protocol version:"
+msgstr "גירסת פרוטוקול:"
+
+#: templates/home/index.twig:103
+msgid "User:"
+msgstr "משתמש:"
+
+#: templates/home/index.twig:107
+msgid "Server charset:"
+msgstr "קידוד לשרת:"
+
+#: templates/home/index.twig:118
+msgid "Web server"
+msgstr "שרת אינטרנט"
+
+#: templates/home/index.twig:125
+msgid "Database client version:"
+msgstr "גרסת לקוח מסד הנתונים:"
+
+#: templates/home/index.twig:129
+msgid "PHP extension:"
+msgstr "הרחבות PHP:"
+
+#: templates/home/index.twig:136
+msgid "PHP version:"
+msgstr "גרסת PHP:"
+
+#: templates/home/index.twig:151
+msgid "Version information:"
+msgstr "מידע גרסאות:"
+
+#: templates/home/index.twig:161
+msgid "Official Homepage"
+msgstr "דף הבית phpMyAdmin הרשמי"
+
+#: templates/home/index.twig:166
+msgid "Contribute"
+msgstr "תרומה"
+
+#: templates/home/index.twig:171
+msgid "Get support"
+msgstr "קבל תמיכה"
+
+#: templates/home/index.twig:176
+msgid "List of changes"
+msgstr "רשימת שינויים"
+
+#: templates/home/index.twig:181 templates/server/plugins/index.twig:27
+msgid "License"
+msgstr "רשיון"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr ""
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:23
+#, fuzzy
+#| msgid "Reset"
+msgid "Reset zoom"
+msgstr "איפוס"
+
+#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:25
+msgid "Version"
+msgstr "גרסה"
+
+#: templates/table/tracking/main.twig:29
+#: templates/database/tracking/tables.twig:15
+msgid "Created"
+msgstr "מועד היצירה"
+
+#: templates/table/tracking/main.twig:30
+#: templates/database/tracking/tables.twig:16
+msgid "Updated"
+msgstr "עודכנה"
+
+#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
+msgid "Delete version"
+msgstr "מחיקת גרסה"
+
+#: templates/table/tracking/main.twig:107
+#, php-format
+msgid "Activate tracking for %s"
+msgstr ""
+
+#: templates/table/tracking/main.twig:109
+msgid "Activate now"
+msgstr ""
+
+#: templates/table/tracking/main.twig:111
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr ""
+
+#: templates/table/tracking/main.twig:113
+msgid "Deactivate now"
+msgstr ""
+
+#: templates/preferences/manage/error.twig:1
+msgid "Configuration contains incorrect data for some fields."
+msgstr ""
+
+#: templates/preferences/manage/error.twig:16
+msgid "Do you want to import remaining settings?"
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:3
+#, fuzzy
+#| msgid "Documentation"
+msgid "Two-factor authentication status"
+msgstr "תיעוד"
+
+#: templates/preferences/two_factor/main.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:33
+msgid "You have enabled two factor authentication."
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:38
+#: templates/preferences/two_factor/confirm.twig:9
+#, fuzzy
+#| msgid "Change password"
+msgid "Disable two-factor authentication"
+msgstr "שינוי סיסמא"
+
+#: templates/preferences/two_factor/main.twig:44
+#: templates/preferences/two_factor/main.twig:56
+#: templates/preferences/two_factor/configure.twig:2
+msgid "Configure two-factor authentication"
+msgstr ""
+
+#: templates/server/privileges/column_privileges.twig:21
+#: templates/server/privileges/column_privileges.twig:22
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "ללא"
+
+#: templates/navigation/item_unhide_dialog.twig:19
+msgid "Unhide"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"אם סוג השדה הוא \"enum\" או \"set\", אנא השתמש בערכים בתבנית הבאה : "
+"'a','b','c'…<br /> אם אתה צריך להשתמש באלכסונים (\"\\\") או בציטוט יחיד "
+"(\"'\") ביחד עם הערכים האלה, הכנס לוכסן אחורי לפניהם  (לדוגמא '\\\\xyz' or 'a"
+"\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"לערכי ברירת מחדל, אנא הכנס רק ערך בודד, ללא סימני ציטוט או לוכסנים, השתמש "
+"בתבנית הזאת : a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Move column"
+msgstr "הוספת/מחיקת עמודות שדה"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+#, fuzzy
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "שינויי צורה זמינים"
+
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#: templates/transformation_overview.twig:18
+#, fuzzy
+msgid "Browser display transformation"
+msgstr "שינויי צורה זמינים"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+#, fuzzy
+msgid "Browser display transformation options"
+msgstr "שינויי צורה זמינים"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+#, fuzzy
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"אם סוג השדה הוא \"enum\" או \"set\", אנא השתמש בערכים בתבנית הבאה : "
+"'a','b','c'…<br /> אם אתה צריך להשתמש באלכסונים (\"\\\") או בציטוט יחיד "
+"(\"'\") ביחד עם הערכים האלה, הכנס לוכסן אחורי לפניהם  (לדוגמא '\\\\xyz' or 'a"
+"\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#: templates/transformation_overview.twig:37
+#, fuzzy
+msgid "Input transformation"
+msgstr "שינויי צורה זמינים"
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+#, fuzzy
+msgid "Input transformation options"
+msgstr "לתבנית זאת אין אפשרויות"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+
+#: templates/columns_definitions/column_default.twig:3
+#, fuzzy
+#| msgid "None"
+msgctxt "for default"
+msgid "None"
+msgstr "ללא"
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:4
+msgid "Tracked tables"
+msgstr "טבלאות במעקב"
+
+#: templates/database/tracking/tables.twig:14
+msgid "Last version"
+msgstr "הגרסה האחרונה"
+
+#: templates/database/tracking/tables.twig:56
+#: templates/database/tracking/tables.twig:101
+msgid "Delete tracking"
+msgstr "מחיקת מעקב"
+
+#: templates/database/tracking/tables.twig:67
+msgid "Versions"
+msgstr "גרסאות"
+
+#: templates/database/tracking/tables.twig:112
+msgid "Untracked tables"
+msgstr "טבלאות שאינן במעקב"
+
+#: templates/database/tracking/tables.twig:139
+#: templates/database/tracking/tables.twig:151
+#: templates/table/structure/display_structure.twig:395
+msgid "Track table"
+msgstr "מעקב אחר טבלה"
+
+#: templates/display/export/options_format.twig:2
+#: templates/display/import/import.twig:174
+#, fuzzy
+msgid "Format-specific options:"
+msgstr "לתבנית זאת אין אפשרויות"
+
+#: templates/display/export/options_format.twig:4
+#: templates/display/import/import.twig:176
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+
+#: templates/display/export/options_format.twig:12
+#: templates/display/import/import.twig:185
+msgid "Encoding Conversion:"
+msgstr ""
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+msgctxt "Number"
+msgid "#"
+msgstr ""
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/display_structure.twig:91
+#, fuzzy
+#| msgid "None"
+msgctxt "None for default"
+msgid "None"
+msgstr "ללא"
+
+#: templates/display/export/method.twig:3
+#, fuzzy
+#| msgid "Export type"
+msgid "Export method:"
+msgstr "סוג ייצוא"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr ""
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "טבלה אחת (%s)"
+msgstr[1] "%s טבלאות"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "סכום"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: templates/display/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: templates/display/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: templates/display/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: templates/display/import/javascript.twig:30
+msgid "Uploading your import file…"
+msgstr ""
+
+#: templates/display/import/javascript.twig:155
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: templates/server/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "הסרת חשבונות המשתמשים שנבחרו"
+
+#: templates/server/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "שלילת כל ההרשאות הפעילות מהמשתמשים ומחיקתם לאחר מכן."
+
+#: templates/server/privileges/delete_user_fieldset.twig:7
+#: templates/server/privileges/delete_user_fieldset.twig:10
+#: templates/server/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "הסרת מאגרי נתונים שיש להם שמות דומים כמו למשתמשים."
+
+#: templates/create_tracking_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "יצירת גרסה %1$s מתוך %2$s"
+
+#: templates/create_tracking_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "יצירת גרסה %1$s"
+
+#: templates/create_tracking_version.twig:20
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: templates/create_tracking_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: templates/create_tracking_version.twig:76
+msgid "Create version"
+msgstr "יצירת גרסה"
+
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "הצגה/הסתרה של עמודות"
+
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "הצגת מבנה הטבלה"
+
+#: templates/setup/base.twig:27 templates/setup/home/index.twig:20
+msgid "Overview"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:3
+#: templates/server/binlog/index.twig:89
+msgid "Information"
+msgstr "מידע"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "שימוש מקום"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "יעיל"
+
+#: templates/table/structure/display_table_stats.twig:73
+msgid "Row statistics"
+msgstr "סטטיסטיקת שורה"
+
+#: templates/table/structure/display_table_stats.twig:79
+msgid "static"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:81
+msgid "dynamic"
+msgstr "דינאמי"
+
+#: templates/table/structure/display_table_stats.twig:92
+msgid "partitioned"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:121
+msgid "Row length"
+msgstr "אורך שורה"
+
+#: templates/table/structure/display_table_stats.twig:133
+msgid "Row size"
+msgstr "גודל שורה"
+
+#: templates/table/structure/display_table_stats.twig:140
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:147
+#: templates/database/structure/table_header.twig:51
+msgid "Creation"
+msgstr "יצירה"
+
+#: templates/table/structure/display_table_stats.twig:154
+#: templates/database/structure/table_header.twig:56
+msgid "Last update"
+msgstr "עדכון אחרון"
+
+#: templates/table/structure/display_table_stats.twig:161
+#: templates/database/structure/table_header.twig:61
+msgid "Last check"
+msgstr "נבדק לאחרונה"
+
+#: templates/display/results/table_navigation.twig:26
+msgid "Save edited data"
+msgstr "שמירת נתונים שנערכו"
+
+#: templates/display/results/table_navigation.twig:32
+msgid "Restore column order"
+msgstr "שחזור סדר עמודות"
+
+#: templates/display/results/table_navigation.twig:53
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
+msgid "Number of rows:"
+msgstr "מספר שורות:"
+
+#: templates/display/results/table_navigation.twig:67
+msgid "All"
+msgstr "הכול"
+
+#: templates/display/results/table_navigation.twig:73
+#: templates/database/central_columns/main.twig:180
+msgid "Filter rows"
+msgstr "סינון שורות"
+
+#: templates/display/results/table_navigation.twig:75
+#: templates/database/central_columns/main.twig:181
+msgid "Search this table"
+msgstr "חיפוש בטבלה זו"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr ""
+
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "קח זאת"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "הוספת/הסרת שורות של קריטריונים"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "הוספת/מחיקת עמודות"
+
+#: templates/table/search/fields_table.twig:10
+#: templates/database/designer/main.twig:557
+#: templates/database/designer/main.twig:621
+#: templates/database/designer/main.twig:822
+#: templates/database/designer/main.twig:853
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1046
+#, fuzzy
+msgid "Operator"
+msgstr "פעולות"
+
+#: templates/database/data_dictionary/index.twig:3
+#, fuzzy
+#| msgid "Database comment"
+msgid "Database comment:"
+msgstr "הערה על מסד הנתונים"
+
+#: templates/server/replication/master_replication.twig:4
+msgid "This server is configured as master in a replication process."
+msgstr ""
+
+#: templates/server/replication/master_replication.twig:15
+msgid "Show connected slaves"
+msgstr ""
+
+#: templates/server/replication/master_replication.twig:23
+#: templates/server/binlog/index.twig:87
+msgid "Server ID"
+msgstr "קוד שרת (ID)"
+
+#: templates/server/replication/master_replication.twig:37
+msgid ""
+"Only slaves started with the --report-host=host_name option are visible in "
+"this list."
+msgstr ""
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/display/export/options_output_format.twig:3
+#, fuzzy
+#| msgid "File name template"
+msgid "File name template:"
+msgstr "תבנית שם קובץ"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr ""
+
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Collapse"
@@ -13006,117 +13984,306 @@ msgstr ""
 msgid "Requery"
 msgstr "בשאילתה"
 
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "המעקב פעיל."
+#: templates/server/variables/index.twig:3
+msgid "Server variables and settings"
+msgstr "משתני והגדרות שרת"
 
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "המעקב אינו פעיל."
+#: templates/server/variables/index.twig:28
+#: templates/server/replication/status_table.twig:16
+#: templates/server/status/variables/index.twig:70
+msgid "Variable"
+msgstr "משתנה"
 
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "הצגה/הסתרה של עמודות"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "הצגת מבנה הטבלה"
-
-#: templates/setup/home/index.twig:20 templates/setup/base.twig:27
-msgid "Overview"
+#: templates/server/variables/index.twig:40
+msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: templates/setup/home/index.twig:23
+#: templates/server/variables/index.twig:66
+msgid "Session value"
+msgstr "ערך זמן חיבור (Session)"
+
+#: templates/server/variables/index.twig:75
+#, php-format
+msgid "Not enough privilege to view server variables and settings. %s"
+msgstr "אין מספיק הרשאות כדי לצפות במשתני והגדרות השרת. %s"
+
+#: templates/database/structure/structure_table_row.twig:221
+msgid "in use"
+msgstr "בשימוש"
+
+#: templates/start_and_number_of_rows_panel.twig:3
 #, fuzzy
-#| msgid "Show hidden items"
-msgid "Show hidden messages"
-msgstr "הצגת פריטים מוסתרים"
+#| msgid "Start"
+msgid "Start row:"
+msgstr "שבת"
 
-#: templates/setup/home/index.twig:72
-msgid "There are no configured servers"
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
 msgstr ""
 
-#: templates/setup/home/index.twig:81
-msgid "New server"
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, php-format
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "שמירה בשרת בתיקיית <strong>%s</strong>"
+
+#: templates/preferences/autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 msgstr ""
 
-#: templates/setup/home/index.twig:92 templates/setup/config/index.twig:4
-msgid "Configuration file"
-msgstr ""
-
-#: templates/setup/home/index.twig:103
-msgid "Display"
-msgstr ""
-
-#: templates/setup/home/index.twig:104 templates/setup/config/index.twig:22
-msgid "Download"
-msgstr ""
-
-#: templates/setup/home/index.twig:115
-msgid "phpMyAdmin homepage"
-msgstr "דף הבית של phpMyAdmin"
-
-#: templates/setup/home/index.twig:116
-msgid "Donate"
-msgstr ""
-
-#: templates/setup/home/index.twig:117
-msgid "Check for latest version"
-msgstr ""
-
-#: templates/database/central_columns/main.twig:4
-msgid "Add new column"
-msgstr "הוספת עמודה חדשה"
-
-#: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:242
-msgid "Length/Value"
-msgstr "אורך/ערך"
-
-#: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:254
-msgid "Attribute"
-msgstr "תכונה"
-
-#: templates/database/central_columns/main.twig:141
+#: templates/preferences/autoload.twig:13
 #, fuzzy
-#| msgid "The central list of columns for the current database is empty."
-msgid "The central list of columns for the current database is empty"
-msgstr "רשימת העמודות המרכזית עבור מסד הנתונים הנוכחי ריקה."
+#| msgid "Deleting tracking data"
+msgid "Delete settings"
+msgstr "נתוני המעקב נמחקים"
 
-#: templates/database/central_columns/main.twig:180
-#: templates/display/results/table_navigation.twig:73
-msgid "Filter rows"
-msgstr "סינון שורות"
+#: templates/server/engines/index.twig:3 templates/server/engines/show.twig:3
+msgid "Storage engines"
+msgstr "מנועי אחסון"
 
-#: templates/database/central_columns/main.twig:181
-#: templates/display/results/table_navigation.twig:75
-msgid "Search this table"
-msgstr "חיפוש בטבלה זו"
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:16
+msgid "Authentication code:"
+msgstr "קוד אימות:"
 
-#: templates/database/central_columns/main.twig:192
-#: templates/table/structure/display_structure.twig:417
-msgid "Add column"
-msgstr "הוספת עמודה"
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
 
-#: templates/database/central_columns/main.twig:201
-msgid "Select a table"
-msgstr "נא לבחור טבלה"
+#: templates/database/structure/show_create.twig:2
+#, fuzzy
+msgid "Showing create queries"
+msgstr "הראה שאילתות שלמות"
 
-#: templates/database/central_columns/main.twig:208
-msgid "Select a column."
-msgstr "נא לבחור עמודה."
+#: templates/server/status/status/index.twig:6
+#, php-format
+msgid "Network traffic since startup: %s"
+msgstr ""
 
-#: templates/database/central_columns/main.twig:210
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-#: templates/columns_definitions/column_definitions_form.twig:32
-msgid "Add"
-msgstr "הוספה"
+#: templates/server/status/status/index.twig:7
+#, fuzzy, php-format
+#| msgid "This MySQL server has been running for %s. It started up on %s."
+msgid "This MySQL server has been running for %1$s. It started up on %2$s."
+msgstr "שרת MySQL פעיל במשך %s. הוא התחיל לפעול ב- %s."
 
-#: templates/database/central_columns/main.twig:227
-msgid "Click to sort."
-msgstr "יש ללחוץ כדי למיין."
+#: templates/server/status/status/index.twig:14
+msgid ""
+"On a busy server, the byte counters may overrun, so those statistics as "
+"reported by the MySQL server may be incorrect."
+msgstr ""
+
+#: templates/server/status/status/index.twig:57
+msgid ""
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
+msgstr ""
+
+#: templates/server/status/status/index.twig:59
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgstr ""
+
+#: templates/server/status/status/index.twig:61
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgstr ""
+
+#: templates/server/status/status/index.twig:68
+msgid "Replication status"
+msgstr ""
+
+#: templates/server/status/status/index.twig:75
+msgid "Not enough privilege to view server status."
+msgstr ""
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:4
+#: templates/table/structure/display_structure.twig:474
+#, fuzzy
+#| msgid "Position"
+msgid "Partitions"
+msgstr "מיקום"
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "אין אינדקסים מוגדרים!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:30
+msgid "Expression"
+msgstr "ביטוי"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "אורך שורה"
+
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "אורך אינדקס"
+
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "טבלת מחיצות"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+msgid "Edit partitioning"
+msgstr "עריכת הפרדת המחיצות"
+
+#: templates/server/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:377
+msgid "Edit view"
+msgstr "עריכת תצוגה"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr ""
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "שמות עמודה"
+
+#: templates/preferences/manage/main.twig:3
+#: templates/preferences/manage/main.twig:28
+msgid "Saved on: @DATE@"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:15
+msgid "Import from file"
+msgstr "ייבוא מקובץ"
+
+#: templates/preferences/manage/main.twig:22
+msgid "Import from browser's storage"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:25
+msgid "Settings will be imported from your browser's local storage."
+msgstr ""
+
+#: templates/preferences/manage/main.twig:31
+msgid "You have no saved settings!"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:35
+#: templates/preferences/manage/main.twig:93
+msgid "This feature is not supported by your web browser"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:39
+msgid "Merge with current configuration"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:51
+#, php-format
+msgid ""
+"You can set more settings by modifying config.inc.php, eg. by using %sSetup "
+"script%s."
+msgstr ""
+
+#: templates/preferences/manage/main.twig:70
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save as JSON file"
+msgstr "שמירה כקובץ"
+
+#: templates/preferences/manage/main.twig:74
+msgid "Save as PHP file"
+msgstr "שמירה כקובץ PHP"
+
+#: templates/preferences/manage/main.twig:79
+msgid "Save to browser's storage"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:85
+msgid "Settings will be saved in your browser's local storage."
+msgstr ""
+
+#: templates/preferences/manage/main.twig:88
+msgid "Existing settings will be overwritten!"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:105
+msgid "You can reset all your settings and restore them to default values."
+msgstr ""
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/preferences/forms/main.twig:4
+msgid "Cannot save settings, submitted form contains errors!"
+msgstr ""
+
+#: templates/display/export/options_output_compression.twig:4
+#, fuzzy
+#| msgid "Compression"
+msgid "Compression:"
+msgstr "דחיסה"
+
+#: templates/display/export/options_output_compression.twig:11
+#, fuzzy
+#| msgid "\"zipped\""
+msgid "zipped"
+msgstr "\"zipped\""
+
+#: templates/display/export/options_output_compression.twig:17
+#, fuzzy
+#| msgid "\"gzipped\""
+msgid "gzipped"
+msgstr "\"gzipped\""
+
+#: templates/server/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "הרשאות ספציפיות-לעמודה"
+
+#: templates/server/privileges/privileges_summary.twig:54
+#, fuzzy
+#| msgid "Add privileges on the following database"
+msgid "Add privileges on the following database(s):"
+msgstr "הוספת הרשאות למאגר הנתונים הבא"
+
+#: templates/server/privileges/privileges_summary.twig:67
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr "תווים כללים _ וגם % צריכים לבוא ביחד עם \\ על מנת להשתמש בהם באמת."
+
+#: templates/server/privileges/privileges_summary.twig:71
+msgid "Add privileges on the following table:"
+msgstr "הוספת הרשאות לטבלה הבאה:"
+
+#: templates/server/privileges/privileges_summary.twig:86
+msgid "Add privileges on the following routine:"
+msgstr "הוספת הרשאות לשגרה הבאה:"
+
+#: templates/header.twig:43 templates/login/header.twig:11
+msgid "Javascript must be enabled past this point!"
+msgstr "יש להפעיל Javascript מעבר לנקודה זו!"
+
+#: templates/header.twig:54
+msgid "Click on the bar to scroll to top of page"
+msgstr ""
 
 #: templates/console/display.twig:7
 #, fuzzy
@@ -13259,90 +14426,6 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
-msgid "Sort by key:"
-msgstr "סידור לפי מפתח"
-
-#: templates/server/replication/master_add_slave_user.twig:6
-#: templates/server/replication/master_replication.twig:43
-msgid "Add slave replication user"
-msgstr ""
-
-#: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
-msgid "This host"
-msgstr "מארח זה"
-
-#: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Users table"
-msgid "Use host table"
-msgstr "טבלת משתמשים"
-
-#: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
-msgid "No password"
-msgstr "ללא סיסמא"
-
-#: templates/server/replication/master_add_slave_user.twig:70
-#, fuzzy
-#| msgid "Generate Password"
-msgid "Generate password:"
-msgstr "ייצור סיסמא"
-
-#: templates/server/privileges/column_privileges.twig:21
-#: templates/server/privileges/column_privileges.twig:22
-#, fuzzy
-#| msgid "None"
-msgctxt "None privileges"
-msgid "None"
-msgstr "ללא"
-
-#: templates/preferences/forms/main.twig:4
-msgid "Cannot save settings, submitted form contains errors!"
-msgstr ""
-
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr ""
-
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "שמירה בשרת בתיקיית <strong>%s</strong>"
-
-#: templates/server/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "הרשאות ספציפיות-לעמודה"
-
-#: templates/server/privileges/privileges_summary.twig:54
-#, fuzzy
-#| msgid "Add privileges on the following database"
-msgid "Add privileges on the following database(s):"
-msgstr "הוספת הרשאות למאגר הנתונים הבא"
-
-#: templates/server/privileges/privileges_summary.twig:67
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr "תווים כללים _ וגם % צריכים לבוא ביחד עם \\ על מנת להשתמש בהם באמת."
-
-#: templates/server/privileges/privileges_summary.twig:71
-msgid "Add privileges on the following table:"
-msgstr "הוספת הרשאות לטבלה הבאה:"
-
-#: templates/server/privileges/privileges_summary.twig:86
-msgid "Add privileges on the following routine:"
-msgstr "הוספת הרשאות לשגרה הבאה:"
-
 #: templates/display/results/options_block.twig:34
 msgid "Relational key"
 msgstr "מפתח יחסי"
@@ -13374,598 +14457,53 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "הוספה למועדפים"
-
-#: templates/display/export/options_output_format.twig:3
+#: templates/server/status/advisor/index.twig:7
 #, fuzzy
-#| msgid "File name template"
-msgid "File name template:"
-msgstr "תבנית שם קובץ"
+msgid "Instructions"
+msgstr "פונקציה"
 
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr ""
-
-#: templates/filter.twig:2 templates/server/status/variables/index.twig:7
-#: templates/server/status/processes/index.twig:6
-msgid "Filters"
-msgstr ""
-
-#: templates/filter.twig:4 templates/server/status/variables/index.twig:14
-#, fuzzy
-#| msgid "Do not change the password"
-msgid "Containing the word:"
-msgstr "אל תשנה את הסיסמא"
-
-#: templates/server/replication/database_multibox.twig:8
-#: templates/display/export/select_options.twig:8
-#: templates/database/search/main.twig:35
-#, fuzzy
-#| msgid "Unselect All"
-msgid "Unselect all"
-msgstr "ביטול הבחירה הכללית"
-
-#: templates/server/status/variables/index.twig:21
-#, fuzzy
-msgid "Show only alert values"
-msgstr "ראיית טבלאות"
-
-#: templates/server/status/variables/index.twig:27
-msgid "Filter by category…"
-msgstr ""
-
-#: templates/server/status/variables/index.twig:37
-#, fuzzy
-msgid "Show unformatted values"
-msgstr "ראיית טבלאות"
-
-#: templates/server/status/variables/index.twig:45
-#, fuzzy
-#| msgid "Relations"
-msgid "Related links:"
-msgstr "יחסים"
-
-#: templates/server/status/variables/index.twig:70
-#: templates/server/replication/status_table.twig:16
-#: templates/server/variables/index.twig:28
-msgid "Variable"
-msgstr "משתנה"
-
-#: templates/server/status/variables/index.twig:134
-msgid "Not enough privilege to view status variables."
-msgstr ""
-
-#: templates/preferences/two_factor/confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr ""
-
-#: templates/preferences/two_factor/confirm.twig:5
+#: templates/server/status/advisor/index.twig:13
 msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
+"The Advisor system can provide recommendations on server variables by "
+"analyzing the server status variables."
 msgstr ""
 
-#: templates/server/plugins/index.twig:23
-msgid "Plugin"
-msgstr ""
-
-#: templates/server/plugins/index.twig:25 templates/table/tracking/main.twig:28
-msgid "Version"
-msgstr "גרסה"
-
-#: templates/server/plugins/index.twig:26
-msgid "Author"
-msgstr ""
-
-#: templates/server/plugins/index.twig:27 templates/home/index.twig:181
-msgid "License"
-msgstr "רשיון"
-
-#: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "Disabled"
-msgid "disabled"
-msgstr "מבוטל"
-
-#: templates/table/operations/view.twig:11
-msgid "Rename view to"
-msgstr "שינוי שם התצוגה אל"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "מיקום מקורי"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Relations"
-msgid "Replaced string"
-msgstr "יחסים"
-
-#: templates/table/search/replace_preview.twig:37
-#, fuzzy
-msgid "Replace"
-msgstr "יחסים"
-
-#: templates/login/twofactor/key.twig:3
+#: templates/server/status/advisor/index.twig:18
 msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
+"Do note however that this system provides recommendations based on simple "
+"calculations and by rule of thumb which may not necessarily apply to your "
+"system."
 msgstr ""
 
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "שורות:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:10
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/results/table_navigation.twig:53
-msgid "Number of rows:"
-msgstr "מספר שורות:"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr ""
-
-#: templates/server/status/base.twig:15
-msgid "Query statistics"
-msgstr "סטטיסטיקת תשאולים"
-
-#: templates/server/status/base.twig:20
-msgid "All status variables"
-msgstr ""
-
-#: templates/server/status/base.twig:25
-msgid "Monitor"
-msgstr ""
-
-#: templates/server/status/base.twig:30
-msgid "Advisor"
-msgstr ""
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr ""
-
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:174
-#, fuzzy
-msgid "Format-specific options:"
-msgstr "לתבנית זאת אין אפשרויות"
-
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:176
+#: templates/server/status/advisor/index.twig:23
 msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
+"Prior to changing any of the configuration, be sure to know what you are "
+"changing (by reading the documentation) and how to undo the change. Wrong "
+"tuning can have a very negative effect on performance."
 msgstr ""
 
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:185
-msgid "Encoding Conversion:"
-msgstr ""
-
-#: templates/table/page_with_secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
-msgid "Relation view"
-msgstr "תצוגת יחסים"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
+#: templates/server/status/advisor/index.twig:28
 msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"אם סוג השדה הוא \"enum\" או \"set\", אנא השתמש בערכים בתבנית הבאה : "
-"'a','b','c'…<br /> אם אתה צריך להשתמש באלכסונים (\"\\\") או בציטוט יחיד "
-"(\"'\") ביחד עם הערכים האלה, הכנס לוכסן אחורי לפניהם  (לדוגמא '\\\\xyz' or 'a"
-"\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"לערכי ברירת מחדל, אנא הכנס רק ערך בודד, ללא סימני ציטוט או לוכסנים, השתמש "
-"בתבנית הזאת : a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
+"The best way to tune your system would be to change only one setting at a "
+"time, observe or benchmark your database, and undo the change if there was "
+"no clearly measurable improvement."
 msgstr ""
 
-#: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Move column"
-msgstr "הוספת/מחיקת עמודות שדה"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-#, fuzzy
-#| msgid "Available transformations"
-msgid "List of available transformations and their options"
-msgstr "שינויי צורה זמינים"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
-msgid "Browser display transformation options"
-msgstr "שינויי צורה זמינים"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"אם סוג השדה הוא \"enum\" או \"set\", אנא השתמש בערכים בתבנית הבאה : "
-"'a','b','c'…<br /> אם אתה צריך להשתמש באלכסונים (\"\\\") או בציטוט יחיד "
-"(\"'\") ביחד עם הערכים האלה, הכנס לוכסן אחורי לפניהם  (לדוגמא '\\\\xyz' or 'a"
-"\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-msgid "Input transformation options"
-msgstr "לתבנית זאת אין אפשרויות"
-
-#: templates/table/structure/partition_definition_form.twig:6
-#: templates/table/structure/display_partitions.twig:141
-msgid "Edit partitioning"
-msgstr "עריכת הפרדת המחיצות"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+#: templates/server/status/advisor/index.twig:36
+msgid "Not enough privilege to view the advisor."
 msgstr ""
 
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "שמירה לעמוד הנבחר"
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "יצירת עמוד ושמירה אליו"
 
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "בחירת מסד נתונים:"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "שם חדש למסד הנתונים"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "בחירת טבלה:"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "שם חדש לטבלה"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "בחירת עמודה:"
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "שם חדש לעמודה"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Column names"
-msgid "column(s)"
-msgstr "שמות עמודה"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "איסוף"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-#, fuzzy
-#| msgid "Storage Engine"
-msgid "Storage Engine:"
-msgstr "מנוע אחסון"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
-msgid "Connection:"
-msgstr "חיבורים"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr ""
-
-#: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export type"
-msgid "Export method:"
-msgstr "סוג ייצוא"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr ""
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr ""
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "הוספת/הסרת שורות של קריטריונים"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "הוספת/מחיקת עמודות"
-
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "בחירת טבלה"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "שם אינדקס:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-
-#: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index name:"
-msgid "Index choice:"
-msgstr "שם אינדקס:"
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "אפשרויות מתקדמות"
-
-#: templates/table/index_form.twig:52
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:69
-msgid "Index type:"
-msgstr "סוג אינדקס:"
-
-#: templates/table/index_form.twig:81
-msgid "Parser:"
-msgstr "מפענח:"
-
-#: templates/table/index_form.twig:97
-msgid "Comment:"
-msgstr "הערה:"
-
-#: templates/table/index_form.twig:122
-#: templates/database/structure/table_header.twig:36
-msgid "Size"
-msgstr "גודל"
-
-#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
-msgid "Drag to reorder"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:9
-#, fuzzy
-#| msgid "Add constraints"
-msgid "Foreign key constraints"
-msgstr "הוספת הגבלות"
-
-#: templates/table/relation/common_form.twig:13
-msgid "Actions"
-msgstr "פעולה"
-
-#: templates/table/relation/common_form.twig:14
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint properties"
-msgstr "הגבלות לטבלה"
-
-#: templates/table/relation/common_form.twig:18
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:23
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:27
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:92
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "הוספת הגבלות"
-
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "יחסים פנימיים"
-
-#: templates/table/relation/common_form.twig:117
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relation"
-msgstr "יחסים פנימיים"
-
-#: templates/table/relation/common_form.twig:119
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:199
-#, fuzzy
-#| msgid "Choose field to display"
-msgid "Choose column to display:"
-msgstr "בחירת שדה להצגה"
-
-#: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Position"
-msgid "Partition by:"
-msgstr "מיקום"
-
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Number of fields"
-msgid "Expression or column list"
-msgstr "מספר שדות"
-
-#: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Position"
-msgid "Partitions:"
-msgstr "מיקום"
-
-#: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartition by:"
-msgstr "מיקום"
-
-#: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartitions:"
-msgstr "מיקום"
-
-#: templates/columns_definitions/partitions.twig:76
-#: templates/table/structure/display_partitions.twig:24
-#, fuzzy
-#| msgid "Position"
-msgid "Partition"
-msgstr "מיקום"
-
-#: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
-msgid "Values"
-msgstr "ערך"
-
-#: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartition"
-msgstr "מיקום"
-
-#: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
-msgid "Engine"
-msgstr "מנועים"
-
-#: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
-msgid "Data directory"
-msgstr "תיקיית בית של נתונים"
-
-#: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-msgid "Index directory"
-msgstr "תיקיית בית של נתונים"
-
-#: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Start"
-msgid "Max rows"
-msgstr "שבת"
-
-#: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
-msgid "Min rows"
-msgstr "עיון"
-
-#: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Search"
-msgid "Table space"
-msgstr "חיפוש"
-
-#: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "User"
-msgid "Node group"
-msgstr "משתמש"
-
-#: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "יכול להיות הערכה. ראה [doc@faq3-11]FAQ 3.11[/doc]"
-
-#: templates/database/structure/table_header.twig:51
-#: templates/table/structure/display_table_stats.twig:147
-msgid "Creation"
-msgstr "יצירה"
-
-#: templates/database/structure/table_header.twig:56
-#: templates/table/structure/display_table_stats.twig:154
-msgid "Last update"
-msgstr "עדכון אחרון"
-
-#: templates/database/structure/table_header.twig:61
-#: templates/table/structure/display_table_stats.twig:161
-msgid "Last check"
-msgstr "נבדק לאחרונה"
-
-#: templates/server/replication/slave_configuration.twig:2
-#: templates/server/databases/index.twig:141
-msgid "Slave replication"
-msgstr ""
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "שם עמוד חדש"
 
 #: templates/server/replication/slave_configuration.twig:4
 #, fuzzy
@@ -14035,11 +14573,6 @@ msgstr ""
 msgid "Skip next %s errors."
 msgstr ""
 
-#: templates/server/replication/slave_configuration.twig:96
-#: templates/server/replication/change_master.twig:6
-msgid "Change or reconfigure master server"
-msgstr ""
-
 #: templates/server/replication/slave_configuration.twig:106
 #, php-format
 msgid ""
@@ -14047,10 +14580,127 @@ msgid ""
 "like to %sconfigure%s it?"
 msgstr ""
 
-#: templates/table/search/rows_zoom.twig:12
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "בחירת טבלה"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "תאריך"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "שם משתמש"
+
+#: templates/server/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "גבולות משאבים"
+
+#: templates/server/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "הערה: הגדרת אפשרויות אלו אל 0 (אפס) יבטלו את ההגבלה."
+
+#: templates/display/export/option_header.twig:5
 #, fuzzy
-msgid "Additional search criteria"
-msgstr "שאילתת SQL"
+#| msgid "Cannot log in to the MySQL server"
+msgid "Exporting databases from the current server"
+msgstr "נכשל בכניסה לשרת MySQL"
+
+#: templates/display/export/option_header.twig:7
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+
+#: templates/display/export/option_header.twig:9
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Column names"
+msgid "column(s)"
+msgstr "שמות עמודה"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "איסוף"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+#, fuzzy
+#| msgid "Storage Engine"
+msgid "Storage Engine:"
+msgstr "מנוע אחסון"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "חיבורים"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
+
+#: templates/server/binlog/index.twig:10
+msgid "Select binary log to view"
+msgstr ""
+
+#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
+#: templates/server/status/processes/list.twig:20
+#, fuzzy
+#| msgid "Percentage of slow queries"
+msgid "Truncate shown queries"
+msgstr "אחוז שאילתות אטיות"
+
+#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
+#: templates/server/status/processes/list.twig:26
+#, fuzzy
+#| msgid "Show Full Queries"
+msgid "Show full queries"
+msgstr "הראה שאילתות שלמות"
+
+#: templates/server/binlog/index.twig:84
+msgid "Log name"
+msgstr "שם דו\"ח"
+
+#: templates/server/binlog/index.twig:85
+msgid "Position"
+msgstr "מיקום"
+
+#: templates/server/binlog/index.twig:88
+msgid "Original position"
+msgstr "מיקום מקורי"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr ""
+
+#: templates/login/header.twig:15
+msgid ""
+"There is a mismatch between HTTPS indicated on the server and client. This "
+"can lead to a non working phpMyAdmin or a security risk. Please fix your "
+"server configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/display/export/options_output_radio.twig:5
+#, fuzzy
+#| msgid "Save as file"
+msgid "View output as text"
+msgstr "שמירה כקובץ"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, fuzzy, php-format
@@ -14105,112 +14755,27 @@ msgstr ""
 msgid "Not enough privilege to view query statistics."
 msgstr ""
 
-#: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:557
-#: templates/database/designer/main.twig:621
-#: templates/database/designer/main.twig:822
-#: templates/database/designer/main.twig:853
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1046
+#: templates/transformation_overview.twig:1
+msgid "Available MIME types"
+msgstr "סוגי MIME זמינים"
+
+#: templates/transformation_overview.twig:13
 #, fuzzy
-msgid "Operator"
-msgstr "פעולות"
+#| msgid "Available transformations"
+msgid "Available browser display transformations"
+msgstr "שינויי צורה זמינים"
 
-#: templates/preferences/manage/error.twig:1
-msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+msgctxt "for MIME transformation"
+msgid "Description"
+msgstr "תיאור"
 
-#: templates/preferences/manage/error.twig:16
-msgid "Do you want to import remaining settings?"
-msgstr ""
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr ""
-
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr ""
-
-#: templates/display/import/javascript.twig:30
-msgid "Uploading your import file…"
-msgstr ""
-
-#: templates/display/import/javascript.twig:155
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-
-#: templates/start_and_number_of_rows_panel.twig:3
+#: templates/transformation_overview.twig:32
 #, fuzzy
-#| msgid "Start"
-msgid "Start row:"
-msgstr "שבת"
-
-#: templates/setup/servers/index.twig:6
-msgid "Edit server"
-msgstr ""
-
-#: templates/setup/servers/index.twig:11
-msgid "Add a new server"
-msgstr "הוספת שרת חדש"
-
-#: templates/server/replication/index.twig:14
-#: templates/server/replication/master_replication.twig:3
-#: templates/server/databases/index.twig:137
-msgid "Master replication"
-msgstr ""
-
-#: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
-msgid "No privileges"
-msgstr "ללא הרשאות."
-
-#: templates/server/replication/index.twig:16
-#, php-format
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to %sconfigure%s it?"
-msgstr ""
-
-#: templates/database/structure/structure_table_row.twig:17
-#: templates/server/databases/index.twig:201
-#: templates/server/databases/index.twig:213
-msgid "Not replicated"
-msgstr ""
-
-#: templates/database/structure/structure_table_row.twig:18
-#: templates/server/databases/index.twig:197
-#: templates/server/databases/index.twig:209
-msgid "Replicated"
-msgstr "משוכפל"
-
-#: templates/database/structure/structure_table_row.twig:221
-msgid "in use"
-msgstr "בשימוש"
+#| msgid "Available transformations"
+msgid "Available input transformations"
+msgstr "שינויי צורה זמינים"
 
 #: templates/database/search/results.twig:12
 #, fuzzy, php-format
@@ -14230,685 +14795,11 @@ msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<b>סה״כ:</b> פריט <i>אחד</i> (%s)"
 msgstr[1] "<b>סה״כ:</b> <i>%s</i> פריטים"
 
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "גרסת שרת"
-
-#: templates/columns_definitions/column_virtuality.twig:30
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "ביטוי"
-
-#: templates/display/export/options_output.twig:26
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save output to a file"
-msgstr "שמירה כקובץ"
-
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr ""
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "מסדי נתונים:"
-
-#: templates/table/structure/display_table_stats.twig:3
-#: templates/server/binlog/index.twig:89
-msgid "Information"
-msgstr "מידע"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "שימוש מקום"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "יעיל"
-
-#: templates/table/structure/display_table_stats.twig:73
-msgid "Row statistics"
-msgstr "סטטיסטיקת שורה"
-
-#: templates/table/structure/display_table_stats.twig:79
-msgid "static"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:81
-msgid "dynamic"
-msgstr "דינאמי"
-
-#: templates/table/structure/display_table_stats.twig:92
-msgid "partitioned"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:121
-msgid "Row length"
-msgstr "אורך שורה"
-
-#: templates/table/structure/display_table_stats.twig:133
-msgid "Row size"
-msgstr "גודל שורה"
-
-#: templates/table/structure/display_table_stats.twig:140
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/server/engines/show.twig:3 templates/server/engines/index.twig:3
-msgid "Storage engines"
-msgstr "מנועי אחסון"
-
-#: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage engines"
-msgid "Unknown storage engine."
-msgstr "מנועי אחסון"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/display_structure.twig:432
-#, fuzzy, php-format
-#| msgid "After %s"
-msgid "after %s"
-msgstr "לאחר %s"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:86
-#: templates/database/designer/main.twig:89
-#, fuzzy
-msgid "Create table"
-msgstr "יצירת עמוד חדש"
-
-#: templates/database/create_table.twig:15
-#, fuzzy
-#| msgid "Number of fields"
-msgid "Number of columns"
-msgstr "מספר שדות"
-
-#: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
-msgid "Database comment:"
-msgstr "הערה על מסד הנתונים"
-
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:377
-msgid "Edit view"
-msgstr "עריכת תצוגה"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr ""
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "שמות עמודה"
-
-#: templates/login/header.twig:15
-msgid ""
-"There is a mismatch between HTTPS indicated on the server and client. This "
-"can lead to a non working phpMyAdmin or a security risk. Please fix your "
-"server configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/display/export/options_output_radio.twig:5
-#, fuzzy
-#| msgid "Save as file"
-msgid "View output as text"
-msgstr "שמירה כקובץ"
-
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-msgctxt "Number"
-msgid "#"
-msgstr ""
-
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#: templates/table/structure/display_structure.twig:91
-#, fuzzy
-#| msgid "None"
-msgctxt "None for default"
-msgid "None"
-msgstr "ללא"
-
-#: templates/server/replication/master_replication.twig:4
-msgid "This server is configured as master in a replication process."
-msgstr ""
-
-#: templates/server/replication/master_replication.twig:15
-msgid "Show connected slaves"
-msgstr ""
-
-#: templates/server/replication/master_replication.twig:23
-#: templates/server/binlog/index.twig:87
-msgid "Server ID"
-msgstr "קוד שרת (ID)"
-
-#: templates/server/replication/master_replication.twig:37
-msgid ""
-"Only slaves started with the --report-host=host_name option are visible in "
-"this list."
-msgstr ""
-
-#: templates/server/databases/index.twig:4
-msgid "Databases statistics"
-msgstr "סטטיסטיקת מסד הנתונים"
-
-#: templates/server/databases/index.twig:19
-#: templates/server/databases/index.twig:41
-msgid "Create database"
-msgstr "יצירת מסד נתונים"
-
-#: templates/server/databases/index.twig:35
-#: templates/display/export/template_loading.twig:10
-msgid "Create"
-msgstr "יצירה"
-
-#: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
-msgid "No privileges to create databases"
-msgstr "בדיקת הראשות עבור מאגר נתונים \"%s\"."
-
-#: templates/server/databases/index.twig:163
-#, php-format
-msgid "Jump to database '%s'"
-msgstr "קפיצה למסד הנתונים ‚%s’"
-
-#: templates/server/databases/index.twig:225
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "בדיקת הראשות עבור מאגר נתונים \"%s\"."
-
-#: templates/server/databases/index.twig:226
-msgid "Check privileges"
-msgstr "בדיקת הרשאות"
-
-#: templates/server/databases/index.twig:294
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"הערה: הפעלת סטטיסטיקות מאגר נתונים כאן יכולות לגרום לתעבורה כבדה בין השרת "
-"האינטרנט לשרת MySQL."
-
-#: templates/server/databases/index.twig:297
-#: templates/server/databases/index.twig:300
-#, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "הפעלת סטטיסטיקה"
-
-#: templates/server/databases/index.twig:312
-msgid "No databases"
-msgstr "אין מאגרי נתונים"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/server/collations/index.twig:3
-msgid "Character sets and collations"
-msgstr "ערכות תווים ואוספים"
-
-#: templates/server/status/processes/list.twig:20
-#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
-#, fuzzy
-#| msgid "Percentage of slow queries"
-msgid "Truncate shown queries"
-msgstr "אחוז שאילתות אטיות"
-
-#: templates/server/status/processes/list.twig:26
-#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
-#, fuzzy
-#| msgid "Show Full Queries"
-msgid "Show full queries"
-msgstr "הראה שאילתות שלמות"
-
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "חבילת הקידוד של הקובץ:"
-
-#: templates/database/search/main.twig:5
-msgid "Search in database"
-msgstr "חיפוש במסד הנתונים"
-
-#: templates/database/search/main.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "מילים או ערכים לחיפוש אחריהם (תו כללי: „%“):"
-
-#: templates/database/search/main.twig:29
-msgid "Inside tables:"
-msgstr "בתוך הטבלאות:"
-
-#: templates/database/search/main.twig:56
-msgid "Inside column:"
-msgstr "בתוך העמודה:"
-
-#: templates/server/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr ""
-
-#: templates/server/replication/change_master.twig:5
-msgid "Slave configuration"
-msgstr ""
-
-#: templates/server/replication/change_master.twig:9
-msgid ""
-"Make sure you have a unique server-id in your configuration file (my.cnf). "
-"If not, please add the following line into [mysqld] section:"
-msgstr ""
-
-#: templates/server/replication/change_master.twig:26
-#, fuzzy
-msgid "Port:"
-msgstr "סידור"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "שימוש בערך זה"
-
-#: templates/server/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "גבולות משאבים"
-
-#: templates/server/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "הערה: הגדרת אפשרויות אלו אל 0 (אפס) יבטלו את ההגבלה."
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "תאריך"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "שם משתמש"
-
-#: templates/server/status/processes/index.twig:13
-#, fuzzy
-msgid "Show only active"
-msgstr "ראיית טבלאות"
-
-#: templates/server/status/processes/index.twig:21
-#, fuzzy
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
-msgid ""
-"Note: Enabling the auto refresh here might cause heavy traffic between the "
-"web server and the MySQL server."
-msgstr ""
-"הערה: הפעלת סטטיסטיקות מאגר נתונים כאן יכולות לגרום לתעבורה כבדה בין השרת "
-"האינטרנט לשרת MySQL."
-
-#: templates/server/status/processes/index.twig:25
-#: templates/server/status/monitor/index.twig:36
-#, fuzzy
-msgid "Refresh rate"
-msgstr "רענון"
-
-#: templates/server/status/processes/index.twig:32
-#: templates/server/status/monitor/index.twig:43
-#, fuzzy, php-format
-#| msgid "per second"
-msgid "%d second"
-msgstr "לשנייה"
-
-#: templates/server/status/processes/index.twig:34
-#: templates/server/status/monitor/index.twig:45
-#, fuzzy, php-format
-#| msgid "per second"
-msgid "%d seconds"
-msgstr "לשנייה"
-
-#: templates/server/status/processes/index.twig:38
-#: templates/server/status/monitor/index.twig:49
-#, fuzzy, php-format
-#| msgid "per minute"
-msgid "%d minute"
-msgstr "לדקה"
-
-#: templates/server/status/processes/index.twig:40
-#: templates/server/status/monitor/index.twig:51
-#, fuzzy, php-format
-#| msgid "per minute"
-msgid "%d minutes"
-msgstr "לדקה"
-
-#: templates/table/tracking/main.twig:29
-#: templates/database/tracking/tables.twig:15
-msgid "Created"
-msgstr "מועד היצירה"
-
-#: templates/table/tracking/main.twig:30
-#: templates/database/tracking/tables.twig:16
-msgid "Updated"
-msgstr "עודכנה"
-
-#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
-msgid "Delete version"
-msgstr "מחיקת גרסה"
-
-#: templates/table/tracking/main.twig:107
-#, php-format
-msgid "Activate tracking for %s"
-msgstr ""
-
-#: templates/table/tracking/main.twig:109
-msgid "Activate now"
-msgstr ""
-
-#: templates/table/tracking/main.twig:111
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr ""
-
-#: templates/table/tracking/main.twig:113
-msgid "Deactivate now"
-msgstr ""
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
-#: templates/display/results/table_navigation.twig:26
-msgid "Save edited data"
-msgstr "שמירת נתונים שנערכו"
-
-#: templates/display/results/table_navigation.twig:32
-msgid "Restore column order"
-msgstr "שחזור סדר עמודות"
-
-#: templates/display/results/table_navigation.twig:67
-msgid "All"
-msgstr "הכול"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/themes.twig:4
-msgid "Get more themes!"
-msgstr "השג סגנונות נוספים!"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:39
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Pick from Central Columns"
-msgstr "שינוי שם מאגר נתונים אל"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "בדיקת טבלאות בעלות תקורה"
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "No tables"
-msgid "Copy table"
-msgstr "אין טבלאות"
-
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "ראיית צבע"
-
-#: templates/database/structure/check_all_tables.twig:25
-#, fuzzy
-#| msgid "Add new field"
-msgid "Prefix"
-msgstr "הוספת שדה חדש"
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "הוספת קידומת לטבלה"
-
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "החלפת קידומת הטבלה"
-
-#: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Add columns to central list"
-msgstr "הוספת %s תאים"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Make consistent with central list"
-msgstr "הוספת %s תאים"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-#, fuzzy
-#| msgid "None"
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "ללא"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/server/binlog/index.twig:10
-msgid "Select binary log to view"
-msgstr ""
-
-#: templates/server/binlog/index.twig:84
-msgid "Log name"
-msgstr "שם דו\"ח"
-
-#: templates/server/binlog/index.twig:85
-msgid "Position"
-msgstr "מיקום"
-
-#: templates/server/binlog/index.twig:88
-msgid "Original position"
-msgstr "מיקום מקורי"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "תווית עמודה"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "עמודה מרחבית"
-
-#: templates/table/gis_visualization/gis_visualization.twig:38
-#: templates/gis_data_editor_form.twig:22
-msgid "Use OpenStreetMaps as Base Layer"
-msgstr "שימוש ב־OpenStreetMaps כשכבת הבסיס"
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr ""
-
-#: templates/server/replication/status_table.twig:6
-msgid "Master status"
-msgstr ""
-
-#: templates/server/replication/status_table.twig:8
-msgid "Slave status"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:23
-#, fuzzy
-#| msgid "Reset"
-msgid "Reset zoom"
-msgstr "איפוס"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/preferences/two_factor/configure.twig:8
-#, fuzzy
-#| msgid "Change password"
-msgid "Enable two-factor authentication"
-msgstr "שינוי סיסמא"
-
-#: templates/gis_data_editor_form.twig:4
-#, php-format
-msgid "Value for the column \"%s\""
-msgstr "ערך עבור העמודה „%s“"
-
-#: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
-msgctxt "Spatial Reference System Identifier"
-msgid "SRID:"
-msgstr "SRID:"
-
-#: templates/gis_data_editor_form.twig:52
-#, php-format
-msgid "Geometry %d:"
-msgstr "גאומטריה %d:"
-
-#: templates/gis_data_editor_form.twig:72
-msgid "Point:"
-msgstr "נקודה:"
-
-#: templates/gis_data_editor_form.twig:92
-#: templates/gis_data_editor_form.twig:133
-#: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
-msgid "Point %d:"
-msgstr "נקודה %d"
-
-#: templates/gis_data_editor_form.twig:112
-#, php-format
-msgid "Linestring %d:"
-msgstr "מחרוזת שורה %d:"
-
-#: templates/gis_data_editor_form.twig:114
-#: templates/gis_data_editor_form.twig:169
-msgid "Outer ring:"
-msgstr "טבעת חיצונית:"
-
-#: templates/gis_data_editor_form.twig:116
-#: templates/gis_data_editor_form.twig:171
-#, php-format
-msgid "Inner ring %d:"
-msgstr "טבעת פנימית %d:"
-
-#: templates/gis_data_editor_form.twig:143
-msgid "Add a linestring"
-msgstr "הוספת מחרוזת שורה"
-
-#: templates/gis_data_editor_form.twig:156
-#, php-format
-msgid "Polygon %d:"
-msgstr "מצולע %d:"
-
-#: templates/gis_data_editor_form.twig:198
-msgid "Add a polygon"
-msgstr "הוספת מצולע"
-
-#: templates/gis_data_editor_form.twig:203
-msgid "Add geometry"
-msgstr "הוספת פני שטח"
-
-#: templates/gis_data_editor_form.twig:212
-msgid "Output"
-msgstr "פלט"
-
-#: templates/gis_data_editor_form.twig:214
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr ""
-"בחר \"GeomFromText\" מהעמודה \"פונקציה\" והדבק את המחרוזת מלמטה לשדה \"ערך\"."
-
-#: templates/create_tracking_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "יצירת גרסה %1$s מתוך %2$s"
-
-#: templates/create_tracking_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "יצירת גרסה %1$s"
-
-#: templates/create_tracking_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: templates/create_tracking_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/create_tracking_version.twig:76
-msgid "Create version"
-msgstr "יצירת גרסה"
-
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-
-#: templates/preferences/autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/preferences/autoload.twig:13
-#, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete settings"
-msgstr "נתוני המעקב נמחקים"
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr ""
-
-#: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "קח זאת"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -14950,6 +14841,11 @@ msgstr ""
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
+#: templates/display/import/import.twig:97
+#: templates/display/export/options_output_charset.twig:3
+msgid "Character set of the file:"
+msgstr "חבילת הקידוד של הקובץ:"
+
 #: templates/display/import/import.twig:124
 #, fuzzy
 #| msgid "Partial Texts"
@@ -14978,208 +14874,13 @@ msgstr ""
 msgid "Other options:"
 msgstr "פעולות"
 
-#: templates/database/tracking/tables.twig:4
-msgid "Tracked tables"
-msgstr "טבלאות במעקב"
-
-#: templates/database/tracking/tables.twig:14
-msgid "Last version"
-msgstr "הגרסה האחרונה"
-
-#: templates/database/tracking/tables.twig:56
-#: templates/database/tracking/tables.twig:101
-msgid "Delete tracking"
-msgstr "מחיקת מעקב"
-
-#: templates/database/tracking/tables.twig:67
-msgid "Versions"
-msgstr "גרסאות"
-
-#: templates/database/tracking/tables.twig:112
-msgid "Untracked tables"
-msgstr "טבלאות שאינן במעקב"
-
-#: templates/database/tracking/tables.twig:139
-#: templates/database/tracking/tables.twig:151
-#: templates/table/structure/display_structure.twig:395
-msgid "Track table"
-msgstr "מעקב אחר טבלה"
-
-#: templates/home/index.twig:28
-msgid "General settings"
-msgstr "הגדרות כלליות"
-
-#: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
-msgid "Server connection collation:"
-msgstr "איסוף חיבור שרת"
-
-#: templates/home/index.twig:58
-msgid "Appearance settings"
-msgstr "הגדרות מראה"
-
-#: templates/home/index.twig:80
-msgid "Database server"
-msgstr "שרת מסד נתונים"
-
-#: templates/home/index.twig:87
-msgid "Server type:"
-msgstr "סוג שרת:"
-
-#: templates/home/index.twig:91
-msgid "Server connection:"
-msgstr "חיבור לשרת:"
-
-#: templates/home/index.twig:99
-msgid "Protocol version:"
-msgstr "גירסת פרוטוקול:"
-
-#: templates/home/index.twig:103
-msgid "User:"
-msgstr "משתמש:"
-
-#: templates/home/index.twig:107
-msgid "Server charset:"
-msgstr "קידוד לשרת:"
-
-#: templates/home/index.twig:118
-msgid "Web server"
-msgstr "שרת אינטרנט"
-
-#: templates/home/index.twig:125
-msgid "Database client version:"
-msgstr "גרסת לקוח מסד הנתונים:"
-
-#: templates/home/index.twig:129
-msgid "PHP extension:"
-msgstr "הרחבות PHP:"
-
-#: templates/home/index.twig:136
-msgid "PHP version:"
-msgstr "גרסת PHP:"
-
-#: templates/home/index.twig:151
-msgid "Version information:"
-msgstr "מידע גרסאות:"
-
-#: templates/home/index.twig:161
-msgid "Official Homepage"
-msgstr "דף הבית phpMyAdmin הרשמי"
-
-#: templates/home/index.twig:166
-msgid "Contribute"
-msgstr "תרומה"
-
-#: templates/home/index.twig:171
-msgid "Get support"
-msgstr "קבל תמיכה"
-
-#: templates/home/index.twig:176
-msgid "List of changes"
-msgstr "רשימת שינויים"
-
-#: templates/server/status/advisor/index.twig:7
-#, fuzzy
-msgid "Instructions"
-msgstr "פונקציה"
-
-#: templates/server/status/advisor/index.twig:13
-msgid ""
-"The Advisor system can provide recommendations on server variables by "
-"analyzing the server status variables."
+#: templates/setup/servers/index.twig:6
+msgid "Edit server"
 msgstr ""
 
-#: templates/server/status/advisor/index.twig:18
-msgid ""
-"Do note however that this system provides recommendations based on simple "
-"calculations and by rule of thumb which may not necessarily apply to your "
-"system."
-msgstr ""
-
-#: templates/server/status/advisor/index.twig:23
-msgid ""
-"Prior to changing any of the configuration, be sure to know what you are "
-"changing (by reading the documentation) and how to undo the change. Wrong "
-"tuning can have a very negative effect on performance."
-msgstr ""
-
-#: templates/server/status/advisor/index.twig:28
-msgid ""
-"The best way to tune your system would be to change only one setting at a "
-"time, observe or benchmark your database, and undo the change if there was "
-"no clearly measurable improvement."
-msgstr ""
-
-#: templates/server/status/advisor/index.twig:36
-msgid "Not enough privilege to view the advisor."
-msgstr ""
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "בחירת עמוד"
-
-#: templates/server/replication/master_configuration.twig:2
-msgid "Master configuration"
-msgstr ""
-
-#: templates/server/replication/master_configuration.twig:4
-msgid ""
-"This server is not configured as a master server in a replication process. "
-"You can choose from either replicating all databases and ignoring some of "
-"them (useful if you want to replicate a majority of the databases) or you "
-"can choose to ignore all databases by default and allow only certain "
-"databases to be replicated. Please select the mode:"
-msgstr ""
-
-#: templates/server/replication/master_configuration.twig:9
-msgid "Replicate all databases; Ignore:"
-msgstr ""
-
-#: templates/server/replication/master_configuration.twig:10
-msgid "Ignore all databases; Replicate:"
-msgstr ""
-
-#: templates/server/replication/master_configuration.twig:12
-#, fuzzy
-msgid "Please select databases:"
-msgstr "אנא בחר מאגר נתונים"
-
-#: templates/server/replication/master_configuration.twig:15
-msgid ""
-"Now, add the following lines at the end of [mysqld] section in your my.cnf "
-"and please restart the MySQL server afterwards."
-msgstr ""
-
-#: templates/server/replication/master_configuration.twig:21
-msgid ""
-"Once you restarted MySQL server, please click on Go button. Afterwards, you "
-"should see a message informing you, that this server <strong>is</strong> "
-"configured as master."
-msgstr ""
-
-#: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
-msgid "Bookmark this SQL query"
-msgstr "הכנס שאילתת SQL זאת למועדפים"
-
-#: templates/sql/bookmark.twig:15
-msgid "Label:"
-msgstr "תווית:"
-
-#: templates/login/twofactor/application_configure.twig:3
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:13
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:16
-#: templates/login/twofactor/application.twig:2
-msgid "Authentication code:"
-msgstr "קוד אימות:"
+#: templates/setup/servers/index.twig:11
+msgid "Add a new server"
+msgstr "הוספת שרת חדש"
 
 #: templates/display/export/template_loading.twig:2
 #, fuzzy
@@ -15206,64 +14907,73 @@ msgstr "תבנית:"
 msgid "Update"
 msgstr "עדכון"
 
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
+#: templates/display/export/options_output.twig:26
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save output to a file"
+msgstr "שמירה כקובץ"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
 msgstr ""
 
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page number:"
-msgid "Page to open"
-msgstr "מספר דף:"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "שורות:"
 
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-msgid "Page to delete"
-msgstr "תצוגת יחסים"
-
-#: templates/server/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "הסרת חשבונות המשתמשים שנבחרו"
-
-#: templates/server/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "שלילת כל ההרשאות הפעילות מהמשתמשים ומחיקתם לאחר מכן."
-
-#: templates/server/privileges/delete_user_fieldset.twig:7
-#: templates/server/privileges/delete_user_fieldset.twig:10
-#: templates/server/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "הסרת מאגרי נתונים שיש להם שמות דומים כמו למשתמשים."
-
-#: templates/sql/profiling_chart.twig:4
-msgid "Detailed profile"
-msgstr "פרופיל מפורט"
-
-#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
-msgid "State"
-msgstr "מצב"
-
-#: templates/sql/profiling_chart.twig:30
-msgid "Summary by state"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
 msgstr ""
 
-#: templates/sql/profiling_chart.twig:40
-msgid "Total Time"
-msgstr "סך כל הזמן"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
 
-#: templates/sql/profiling_chart.twig:44
-msgid "% Time"
-msgstr "% זמן"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
 
-#: templates/sql/profiling_chart.twig:48
-msgid "Calls"
-msgstr "קריאות"
+#: templates/table/operations/view.twig:11
+msgid "Rename view to"
+msgstr "שינוי שם התצוגה אל"
 
-#: templates/sql/profiling_chart.twig:52
-msgid "ø Time"
-msgstr "ø זמן"
+#: templates/database/central_columns/main.twig:4
+msgid "Add new column"
+msgstr "הוספת עמודה חדשה"
+
+#: templates/database/central_columns/main.twig:25
+#: templates/database/central_columns/main.twig:242
+msgid "Length/Value"
+msgstr "אורך/ערך"
+
+#: templates/database/central_columns/main.twig:37
+#: templates/database/central_columns/main.twig:254
+msgid "Attribute"
+msgstr "תכונה"
+
+#: templates/database/central_columns/main.twig:141
+#, fuzzy
+#| msgid "The central list of columns for the current database is empty."
+msgid "The central list of columns for the current database is empty"
+msgstr "רשימת העמודות המרכזית עבור מסד הנתונים הנוכחי ריקה."
+
+#: templates/database/central_columns/main.twig:192
+#: templates/table/structure/display_structure.twig:417
+msgid "Add column"
+msgstr "הוספת עמודה"
+
+#: templates/database/central_columns/main.twig:201
+msgid "Select a table"
+msgstr "נא לבחור טבלה"
+
+#: templates/database/central_columns/main.twig:208
+msgid "Select a column."
+msgstr "נא לבחור עמודה."
+
+#: templates/database/central_columns/main.twig:227
+msgid "Click to sort."
+msgstr "יש ללחוץ כדי למיין."
 
 #: templates/server/status/monitor/index.twig:8
 #, fuzzy
@@ -15289,6 +14999,40 @@ msgstr "הוספת שדה חדש"
 #: templates/server/status/monitor/index.twig:31
 msgid "Enable charts dragging"
 msgstr ""
+
+#: templates/server/status/monitor/index.twig:36
+#: templates/server/status/processes/index.twig:25
+#, fuzzy
+msgid "Refresh rate"
+msgstr "רענון"
+
+#: templates/server/status/monitor/index.twig:43
+#: templates/server/status/processes/index.twig:32
+#, fuzzy, php-format
+#| msgid "per second"
+msgid "%d second"
+msgstr "לשנייה"
+
+#: templates/server/status/monitor/index.twig:45
+#: templates/server/status/processes/index.twig:34
+#, fuzzy, php-format
+#| msgid "per second"
+msgid "%d seconds"
+msgstr "לשנייה"
+
+#: templates/server/status/monitor/index.twig:49
+#: templates/server/status/processes/index.twig:38
+#, fuzzy, php-format
+#| msgid "per minute"
+msgid "%d minute"
+msgstr "לדקה"
+
+#: templates/server/status/monitor/index.twig:51
+#: templates/server/status/processes/index.twig:40
+#, fuzzy, php-format
+#| msgid "per minute"
+msgid "%d minutes"
+msgstr "לדקה"
 
 #: templates/server/status/monitor/index.twig:61
 #, fuzzy
@@ -15443,23 +15187,480 @@ msgstr ""
 msgid "Query analyzer"
 msgstr "סוג שאילתה"
 
-#: templates/display/export/options_output_compression.twig:4
-#, fuzzy
-#| msgid "Compression"
-msgid "Compression:"
-msgstr "דחיסה"
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "שם אינדקס:"
 
-#: templates/display/export/options_output_compression.twig:11
-#, fuzzy
-#| msgid "\"zipped\""
-msgid "zipped"
-msgstr "\"zipped\""
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
 
-#: templates/display/export/options_output_compression.twig:17
+#: templates/table/index_form.twig:34
 #, fuzzy
-#| msgid "\"gzipped\""
-msgid "gzipped"
-msgstr "\"gzipped\""
+#| msgid "Index name:"
+msgid "Index choice:"
+msgstr "שם אינדקס:"
+
+#: templates/table/index_form.twig:42
+msgid "Advanced Options"
+msgstr "אפשרויות מתקדמות"
+
+#: templates/table/index_form.twig:52
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:69
+msgid "Index type:"
+msgstr "סוג אינדקס:"
+
+#: templates/table/index_form.twig:81
+msgid "Parser:"
+msgstr "מפענח:"
+
+#: templates/table/index_form.twig:97
+msgid "Comment:"
+msgstr "הערה:"
+
+#: templates/table/index_form.twig:122
+#: templates/database/structure/table_header.twig:36
+msgid "Size"
+msgstr "גודל"
+
+#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
+msgid "Drag to reorder"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "בדיקת טבלאות בעלות תקורה"
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "No tables"
+msgid "Copy table"
+msgstr "אין טבלאות"
+
+#: templates/database/structure/check_all_tables.twig:11
+#, fuzzy
+#| msgid "Show color"
+msgid "Show create"
+msgstr "ראיית צבע"
+
+#: templates/database/structure/check_all_tables.twig:25
+#, fuzzy
+#| msgid "Add new field"
+msgid "Prefix"
+msgstr "הוספת שדה חדש"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "הוספת קידומת לטבלה"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "החלפת קידומת הטבלה"
+
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Add columns to central list"
+msgstr "הוספת %s תאים"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Make consistent with central list"
+msgstr "הוספת %s תאים"
+
+#: templates/setup/error.twig:2
+msgid "Warning"
+msgstr ""
+
+#: templates/setup/error.twig:3
+msgid "Submitted form contains errors"
+msgstr ""
+
+#: templates/setup/error.twig:6
+msgid "Try to revert erroneous fields to their default values"
+msgstr ""
+
+#: templates/setup/error.twig:14
+msgid "Ignore errors"
+msgstr ""
+
+#: templates/setup/error.twig:18
+msgid "Show form"
+msgstr "הצגת טופס"
+
+#: templates/setup/home/index.twig:23
+#, fuzzy
+#| msgid "Show hidden items"
+msgid "Show hidden messages"
+msgstr "הצגת פריטים מוסתרים"
+
+#: templates/setup/home/index.twig:72
+msgid "There are no configured servers"
+msgstr ""
+
+#: templates/setup/home/index.twig:81
+msgid "New server"
+msgstr ""
+
+#: templates/setup/home/index.twig:92 templates/setup/config/index.twig:4
+msgid "Configuration file"
+msgstr ""
+
+#: templates/setup/home/index.twig:103
+msgid "Display"
+msgstr ""
+
+#: templates/setup/home/index.twig:104 templates/setup/config/index.twig:22
+msgid "Download"
+msgstr ""
+
+#: templates/setup/home/index.twig:115
+msgid "phpMyAdmin homepage"
+msgstr "דף הבית של phpMyAdmin"
+
+#: templates/setup/home/index.twig:116
+msgid "Donate"
+msgstr ""
+
+#: templates/setup/home/index.twig:117
+msgid "Check for latest version"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:4
+#, php-format
+msgid "Value for the column \"%s\""
+msgstr "ערך עבור העמודה „%s“"
+
+#: templates/gis_data_editor_form.twig:22
+#: templates/table/gis_visualization/gis_visualization.twig:38
+msgid "Use OpenStreetMaps as Base Layer"
+msgstr "שימוש ב־OpenStreetMaps כשכבת הבסיס"
+
+#: templates/gis_data_editor_form.twig:38
+#, fuzzy
+#| msgid "SRID:"
+msgctxt "Spatial Reference System Identifier"
+msgid "SRID:"
+msgstr "SRID:"
+
+#: templates/gis_data_editor_form.twig:52
+#, php-format
+msgid "Geometry %d:"
+msgstr "גאומטריה %d:"
+
+#: templates/gis_data_editor_form.twig:72
+msgid "Point:"
+msgstr "נקודה:"
+
+#: templates/gis_data_editor_form.twig:92
+#: templates/gis_data_editor_form.twig:133
+#: templates/gis_data_editor_form.twig:185
+#, fuzzy, php-format
+#| msgid "Point %d"
+msgid "Point %d:"
+msgstr "נקודה %d"
+
+#: templates/gis_data_editor_form.twig:112
+#, php-format
+msgid "Linestring %d:"
+msgstr "מחרוזת שורה %d:"
+
+#: templates/gis_data_editor_form.twig:114
+#: templates/gis_data_editor_form.twig:169
+msgid "Outer ring:"
+msgstr "טבעת חיצונית:"
+
+#: templates/gis_data_editor_form.twig:116
+#: templates/gis_data_editor_form.twig:171
+#, php-format
+msgid "Inner ring %d:"
+msgstr "טבעת פנימית %d:"
+
+#: templates/gis_data_editor_form.twig:143
+msgid "Add a linestring"
+msgstr "הוספת מחרוזת שורה"
+
+#: templates/gis_data_editor_form.twig:156
+#, php-format
+msgid "Polygon %d:"
+msgstr "מצולע %d:"
+
+#: templates/gis_data_editor_form.twig:198
+msgid "Add a polygon"
+msgstr "הוספת מצולע"
+
+#: templates/gis_data_editor_form.twig:203
+msgid "Add geometry"
+msgstr "הוספת פני שטח"
+
+#: templates/gis_data_editor_form.twig:212
+msgid "Output"
+msgstr "פלט"
+
+#: templates/gis_data_editor_form.twig:214
+msgid ""
+"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+"below into the \"Value\" field."
+msgstr ""
+"בחר \"GeomFromText\" מהעמודה \"פונקציה\" והדבק את המחרוזת מלמטה לשדה \"ערך\"."
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "תווית עמודה"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "עמודה מרחבית"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr ""
+
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Original position"
+msgid "Original string"
+msgstr "מיקום מקורי"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "יחסים"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+msgid "Replace"
+msgstr "יחסים"
+
+#: templates/navigation/main.twig:26 templates/navigation/main.twig:27
+msgid "Home"
+msgstr "בית"
+
+#: templates/navigation/main.twig:31 templates/navigation/main.twig:32
+msgid "Empty session data"
+msgstr "נתוני הפעלה ריקים"
+
+#: templates/navigation/main.twig:31 templates/navigation/main.twig:32
+msgid "Log out"
+msgstr "יציאה"
+
+#: templates/navigation/main.twig:36 templates/navigation/main.twig:37
+msgid "phpMyAdmin documentation"
+msgstr "תיעוד phpMyAdmin"
+
+#: templates/navigation/main.twig:44 templates/navigation/main.twig:45
+msgid "Navigation panel settings"
+msgstr "הגדרות לוח ניווט"
+
+#: templates/navigation/main.twig:48 templates/navigation/main.twig:49
+msgid "Reload navigation panel"
+msgstr "טעינת לוח הניווט מחדש"
+
+#: templates/navigation/main.twig:68
+msgid "An error has occurred while loading the navigation display"
+msgstr ""
+
+#: templates/navigation/main.twig:89
+#, fuzzy
+#| msgid "SQL result"
+msgid "SQL upload"
+msgstr "תוצאת SQL"
+
+#: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
+msgid "Bookmark this SQL query"
+msgstr "הכנס שאילתת SQL זאת למועדפים"
+
+#: templates/sql/bookmark.twig:15
+msgid "Label:"
+msgstr "תווית:"
+
+#: templates/table/page_with_secondary_tabs.twig:9
+#, fuzzy
+#| msgid "Relation view"
+msgid "Relation view"
+msgstr "תצוגת יחסים"
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/main.twig:86
+#: templates/database/designer/main.twig:89
+#, fuzzy
+msgid "Create table"
+msgstr "יצירת עמוד חדש"
+
+#: templates/database/create_table.twig:15
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Number of columns"
+msgstr "מספר שדות"
+
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "ייצוא מסדי נתונים כקבצים נפרדים"
+
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "ייצוא טבלאות כקבצים נפרדים"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "בחירת עמוד"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+#, fuzzy
+#| msgid "None"
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "ללא"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:9
+#, fuzzy
+#| msgid "Add constraints"
+msgid "Foreign key constraints"
+msgstr "הוספת הגבלות"
+
+#: templates/table/relation/common_form.twig:13
+msgid "Actions"
+msgstr "פעולה"
+
+#: templates/table/relation/common_form.twig:14
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint properties"
+msgstr "הגבלות לטבלה"
+
+#: templates/table/relation/common_form.twig:18
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:23
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:27
+msgid "Foreign key constraint"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:92
+#, fuzzy
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "הוספת הגבלות"
+
+#: templates/table/relation/common_form.twig:102
+#: templates/table/relation/common_form.twig:111
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "יחסים פנימיים"
+
+#: templates/table/relation/common_form.twig:117
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "יחסים פנימיים"
+
+#: templates/table/relation/common_form.twig:119
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:199
+#, fuzzy
+#| msgid "Choose field to display"
+msgid "Choose column to display:"
+msgstr "בחירת שדה להצגה"
+
+#: templates/display/results/sort_by_key.twig:3
+#, fuzzy
+#| msgid "Sort by key"
+msgid "Sort by key:"
+msgstr "סידור לפי מפתח"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "הוספה למועדפים"
+
+#: templates/themes.twig:4
+msgid "Get more themes!"
+msgstr "השג סגנונות נוספים!"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/server/engines/show.twig:47
+#, fuzzy
+#| msgid "Storage engines"
+msgid "Unknown storage engine."
+msgstr "מנועי אחסון"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "המעקב פעיל."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "המעקב אינו פעיל."
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "שימוש בערך זה"
+
+#: templates/server/status/base.twig:15
+msgid "Query statistics"
+msgstr "סטטיסטיקת תשאולים"
+
+#: templates/server/status/base.twig:20
+msgid "All status variables"
+msgstr ""
+
+#: templates/server/status/base.twig:25
+msgid "Monitor"
+msgstr ""
+
+#: templates/server/status/base.twig:30
+msgid "Advisor"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -15510,173 +15711,6 @@ msgstr "הסרת עמודה זו"
 #: templates/database/multi_table_query/form.twig:179
 msgid "Update query"
 msgstr "עדכון שאילתה"
-
-#: templates/preferences/manage/main.twig:3
-#: templates/preferences/manage/main.twig:28
-msgid "Saved on: @DATE@"
-msgstr ""
-
-#: templates/preferences/manage/main.twig:15
-msgid "Import from file"
-msgstr "ייבוא מקובץ"
-
-#: templates/preferences/manage/main.twig:22
-msgid "Import from browser's storage"
-msgstr ""
-
-#: templates/preferences/manage/main.twig:25
-msgid "Settings will be imported from your browser's local storage."
-msgstr ""
-
-#: templates/preferences/manage/main.twig:31
-msgid "You have no saved settings!"
-msgstr ""
-
-#: templates/preferences/manage/main.twig:35
-#: templates/preferences/manage/main.twig:93
-msgid "This feature is not supported by your web browser"
-msgstr ""
-
-#: templates/preferences/manage/main.twig:39
-msgid "Merge with current configuration"
-msgstr ""
-
-#: templates/preferences/manage/main.twig:51
-#, php-format
-msgid ""
-"You can set more settings by modifying config.inc.php, eg. by using %sSetup "
-"script%s."
-msgstr ""
-
-#: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save as JSON file"
-msgstr "שמירה כקובץ"
-
-#: templates/preferences/manage/main.twig:74
-msgid "Save as PHP file"
-msgstr "שמירה כקובץ PHP"
-
-#: templates/preferences/manage/main.twig:79
-msgid "Save to browser's storage"
-msgstr ""
-
-#: templates/preferences/manage/main.twig:85
-msgid "Settings will be saved in your browser's local storage."
-msgstr ""
-
-#: templates/preferences/manage/main.twig:88
-msgid "Existing settings will be overwritten!"
-msgstr ""
-
-#: templates/preferences/manage/main.twig:105
-msgid "You can reset all your settings and restore them to default values."
-msgstr ""
-
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "ייצוא מסדי נתונים כקבצים נפרדים"
-
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "ייצוא טבלאות כקבצים נפרדים"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/server/status/status/index.twig:6
-#, php-format
-msgid "Network traffic since startup: %s"
-msgstr ""
-
-#: templates/server/status/status/index.twig:7
-#, fuzzy, php-format
-#| msgid "This MySQL server has been running for %s. It started up on %s."
-msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "שרת MySQL פעיל במשך %s. הוא התחיל לפעול ב- %s."
-
-#: templates/server/status/status/index.twig:14
-msgid ""
-"On a busy server, the byte counters may overrun, so those statistics as "
-"reported by the MySQL server may be incorrect."
-msgstr ""
-
-#: templates/server/status/status/index.twig:57
-msgid ""
-"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
-"b> process."
-msgstr ""
-
-#: templates/server/status/status/index.twig:59
-msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
-
-#: templates/server/status/status/index.twig:61
-msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
-
-#: templates/server/status/status/index.twig:68
-msgid "Replication status"
-msgstr ""
-
-#: templates/server/status/status/index.twig:75
-msgid "Not enough privilege to view server status."
-msgstr ""
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "שמירה לעמוד הנבחר"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "יצירת עמוד ושמירה אליו"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "שם עמוד חדש"
-
-#: templates/server/variables/index.twig:3
-msgid "Server variables and settings"
-msgstr "משתני והגדרות שרת"
-
-#: templates/server/variables/index.twig:40
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/server/variables/index.twig:66
-msgid "Session value"
-msgstr "ערך זמן חיבור (Session)"
-
-#: templates/server/variables/index.twig:75
-#, php-format
-msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "אין מספיק הרשאות כדי לצפות במשתני והגדרות השרת. %s"
-
-#: templates/columns_definitions/column_default.twig:3
-#, fuzzy
-#| msgid "None"
-msgctxt "for default"
-msgid "None"
-msgstr "ללא"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr ""
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "טבלה אחת (%s)"
-msgstr[1] "%s טבלאות"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "סכום"
 
 #: templates/table/structure/display_structure.twig:112
 #, fuzzy, php-format
@@ -15742,121 +15776,30 @@ msgstr "הוספת %s תאים"
 msgid "at beginning of table"
 msgstr "בתחילת טבלה"
 
-#: templates/table/structure/display_structure.twig:474
-#: templates/table/structure/display_partitions.twig:4
-#, fuzzy
-#| msgid "Position"
-msgid "Partitions"
-msgstr "מיקום"
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "מסדי נתונים:"
 
-#: templates/table/chart/tbl_chart.twig:15
+#: templates/preferences/two_factor/configure.twig:8
 #, fuzzy
-#| msgid "Mar"
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "מרץ"
+#| msgid "Change password"
+msgid "Enable two-factor authentication"
+msgstr "שינוי סיסמא"
 
-#: templates/table/chart/tbl_chart.twig:19
-#, fuzzy
-#| msgid "Column names"
-msgctxt "Chart type"
-msgid "Column"
-msgstr "שמות עמודה"
-
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
+#: templates/login/twofactor/application_configure.twig:3
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:27
-#, fuzzy
-#| msgid "Engines"
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "מנועים"
-
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
+#: templates/login/twofactor/application_configure.twig:13
+msgid "Secret/key:"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:35
+#: templates/table/search/rows_zoom.twig:12
 #, fuzzy
-#| msgid "PiB"
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "PB"
-
-#: templates/table/chart/tbl_chart.twig:39
-#, fuzzy
-#| msgid "Time"
-msgctxt "Chart type"
-msgid "Timeline"
-msgstr "זמן"
-
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:48
-msgid "Stacked"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Import files"
-msgid "Chart title:"
-msgstr "קבצי ייבוא"
-
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:71
-#, fuzzy
-msgid "Series:"
+msgid "Additional search criteria"
 msgstr "שאילתת SQL"
-
-#: templates/table/chart/tbl_chart.twig:100
-msgid "X-Axis label:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:102
-#, fuzzy
-#| msgid "Value"
-msgid "X Values"
-msgstr "ערך"
-
-#: templates/table/chart/tbl_chart.twig:105
-msgid "Y-Axis label:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:107
-msgid "Y Values"
-msgstr "ערך"
-
-#: templates/table/chart/tbl_chart.twig:113
-msgid "Series names are in a column"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:116
-#, fuzzy
-#| msgid "Inside column:"
-msgid "Series column:"
-msgstr "בתוך העמודה:"
-
-#: templates/table/chart/tbl_chart.twig:130
-#, fuzzy
-#| msgid "Number of fields"
-msgid "Value Column:"
-msgstr "מספר שדות"
-
-#: templates/table/chart/tbl_chart.twig:151
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save chart as image"
-msgstr "שמירה כקובץ"
 
 #: templates/database/designer/main.twig:21
 #: templates/database/designer/main.twig:27
@@ -16025,47 +15968,106 @@ msgstr "צבירה"
 msgid "Active options"
 msgstr "אפשרויות טבלה"
 
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "אין אינדקסים מוגדרים!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
+#: templates/server/replication/status_table.twig:6
+msgid "Master status"
 msgstr ""
 
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
+#: templates/server/replication/status_table.twig:8
+msgid "Slave status"
 msgstr ""
 
-#: templates/table/structure/display_partitions.twig:29
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "גרסת שרת"
+
+#: templates/preferences/two_factor/confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr ""
+
+#: templates/preferences/two_factor/confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/server/plugins/index.twig:23
+msgid "Plugin"
+msgstr ""
+
+#: templates/server/plugins/index.twig:26
+msgid "Author"
+msgstr ""
+
+#: templates/server/plugins/index.twig:37
 #, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "אורך שורה"
+#| msgid "Disabled"
+msgid "disabled"
+msgstr "מבוטל"
 
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "אורך אינדקס"
+#: templates/server/status/processes/index.twig:13
+#, fuzzy
+msgid "Show only active"
+msgstr "ראיית טבלאות"
 
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "טבלת מחיצות"
+#: templates/server/status/processes/index.twig:21
+#, fuzzy
+#| msgid ""
+#| "Note: Enabling the database statistics here might cause heavy traffic "
+#| "between the web server and the MySQL server."
+msgid ""
+"Note: Enabling the auto refresh here might cause heavy traffic between the "
+"web server and the MySQL server."
+msgstr ""
+"הערה: הפעלת סטטיסטיקות מאגר נתונים כאן יכולות לגרום לתעבורה כבדה בין השרת "
+"האינטרנט לשרת MySQL."
+
+#: templates/server/status/variables/index.twig:21
+#, fuzzy
+msgid "Show only alert values"
+msgstr "ראיית טבלאות"
+
+#: templates/server/status/variables/index.twig:27
+msgid "Filter by category…"
+msgstr ""
+
+#: templates/server/status/variables/index.twig:37
+#, fuzzy
+msgid "Show unformatted values"
+msgstr "ראיית טבלאות"
+
+#: templates/server/status/variables/index.twig:45
+#, fuzzy
+#| msgid "Relations"
+msgid "Related links:"
+msgstr "יחסים"
+
+#: templates/server/status/variables/index.twig:134
+msgid "Not enough privilege to view status variables."
+msgstr ""
+
+#: templates/database/structure/table_header.twig:27
+#, fuzzy
+#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr "יכול להיות הערכה. ראה [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: url.php:46
 msgid "Taking you to the target site."
 msgstr "מתבצעת העברה לאתר היעד."
 
-#: user_password.php:50
+#: user_password.php:57
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "אין לך הרשאות מספיקות להיות כאן כרגע!"
 
-#: view_create.php:55
+#: view_create.php:61
 msgid "View name can not be empty!"
 msgstr ""
 
-#: view_operations.php:124
+#: view_operations.php:127
 msgid "Delete the view (DROP)"
 msgstr "מחיקת התצוגה (DROP)"
 
@@ -17561,9 +17563,6 @@ msgstr "concurrent_insert מוגדר ל־0"
 
 #~ msgid "Uncheck All"
 #~ msgstr "ביטול הסימון הכולל"
-
-#~ msgid "SQL result"
-#~ msgstr "תוצאת SQL"
 
 #, fuzzy
 #~| msgid "Generated by"
