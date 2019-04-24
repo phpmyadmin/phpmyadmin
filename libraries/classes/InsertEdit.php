@@ -2682,7 +2682,10 @@ class InsertEdit
         $where_clause,
         $table,
         $multi_edit_funcs
-    ) {
+    ) { 
+        // Timestamp Conditions to remove quotes in SQL Query
+        $curr_timestamp = array("CURRENT_TIMESTAMP()", "CURRENT_TIMESTAMP", "current_timestamp()", "CURRENT_TIMESTAMP(1)", "CURRENT_TIMESTAMP(2)", "CURRENT_TIMESTAMP(3)", "CURRENT_TIMESTAMP(4)", "CURRENT_TIMESTAMP(5)", "CURRENT_TIMESTAMP(6)");
+        
         // Fetch the current values of a row to use in case we have a protected field
         if ($is_insert
             && $using_key && isset($multi_edit_columns_type)
@@ -2752,9 +2755,8 @@ class InsertEdit
                 $current_value = "b'" . $this->dbi->escapeString($current_value)
                     . "'";
             } elseif (! ($type == 'datetime' || $type == 'timestamp')
-                || ($current_value != 'CURRENT_TIMESTAMP' && $current_value != 'CURRENT_TIMESTAMP()' && $current_value != 'CURRENT_TIMESTAMP(1)' && $current_value != 'CURRENT_TIMESTAMP(2)' && $current_value != 'CURRENT_TIMESTAMP(3)' && $current_value != 'CURRENT_TIMESTAMP(4)' && $current_value != 'CURRENT_TIMESTAMP(5)' && $current_value != 'CURRENT_TIMESTAMP(6)'
-                && $current_value != 'current_timestamp()')
-            ) {
+                || (! in_array($current_value, $curr_timestamp)
+            )) {
                 $current_value = "'" . $this->dbi->escapeString($current_value)
                     . "'";
             }
