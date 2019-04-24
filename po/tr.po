@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-04-16 19:07+0000\n"
+"PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -15913,10 +15913,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Gezinti görüntüsü yüklenirken bir hata meydana geldi"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "SQL dökümü"
+msgstr "SQL gönderme"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
