@@ -43,6 +43,11 @@ class Navigation
     private $dbi;
 
     /**
+     * @var NavigationTree
+     */
+    private $tree;
+
+    /**
      * Navigation constructor.
      * @param Template          $template Template instance
      * @param Relation          $relation Relation instance
@@ -53,6 +58,7 @@ class Navigation
         $this->template = $template;
         $this->relation = $relation;
         $this->dbi = $dbi;
+        $this->tree = new NavigationTree($this->template, $this->dbi);
     }
 
     /**
@@ -80,10 +86,10 @@ class Navigation
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }
-            if ($cfg['NavigationLogoLinkWindow'] === 'main'
-                && empty(parse_url($logo['link'], PHP_URL_HOST))
-            ) {
-                $logo['link'] .= Url::getCommon();
+            if ($cfg['NavigationLogoLinkWindow'] === 'main') {
+                if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
+                    $logo['link'] .= Url::getCommon();
+                }
                 $logo['attributes'] = '';
             }
 
@@ -95,20 +101,19 @@ class Navigation
                 $navigationSettings = PageSettings::getNaviSettings();
             }
         }
-        $tree = new NavigationTree();
         if (! $response->isAjax()
             || ! empty($_POST['full'])
             || ! empty($_POST['reload'])
         ) {
             if ($cfg['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
-                $navRender = $tree->renderState();
+                $navRender = $this->tree->renderState();
             } else {
                 // provide legacy pre-4.0 navigation
-                $navRender = $tree->renderDbSelect();
+                $navRender = $this->tree->renderDbSelect();
             }
         } else {
-            $navRender = $tree->renderPath();
+            $navRender = $this->tree->renderPath();
         }
 
         return $this->template->render('navigation/main', [

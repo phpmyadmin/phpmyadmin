@@ -1624,6 +1624,19 @@ class DbiDummy implements DbiExtension
                     ],
                 ],
             ],
+            [
+                'query' => "SELECT `item_name`, `item_type` FROM `pmadb`.`navigationhiding` WHERE `username`='user' AND `db_name`='db' AND `table_name`=''",
+                'result' => [
+                    [
+                        'item_name' => 'tableName',
+                        'item_type' => 'table',
+                    ],
+                    [
+                        'item_name' => 'viewName',
+                        'item_type' => 'view',
+                    ],
+                ],
+            ],
 
         ];
         /**

@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeTable;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Navigation\Nodes\NodeTableContainer;
 use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 
@@ -89,11 +91,26 @@ class NavigationTree
     private $_largeGroupWarning = false;
 
     /**
-     * Initialises the class
+     * @var Template
      */
-    public function __construct()
+    private $template;
+
+    /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * NavigationTree constructor.
+     * @param Template          $template Template instance
+     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     */
+    public function __construct($template, $dbi)
     {
-        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $this->template = $template;
+        $this->dbi = $dbi;
+
+        $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
         // Save the position at which we are in the database list
@@ -180,7 +197,7 @@ class NavigationTree
          * @todo describe a scenario where this code is executed
          */
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $dbSeparator = $GLOBALS['dbi']->escapeString(
+            $dbSeparator = $this->dbi->escapeString(
                 $GLOBALS['cfg']['NavigationTreeDbSeparator']
             );
             $query = "SELECT (COUNT(DB_first_level) DIV %d) * %d ";
@@ -192,13 +209,13 @@ class NavigationTree
             $query .= " WHERE `SCHEMA_NAME` < '%s' ";
             $query .= ") t ";
 
-            $retval = $GLOBALS['dbi']->fetchValue(
+            $retval = $this->dbi->fetchValue(
                 sprintf(
                     $query,
                     (int) $GLOBALS['cfg']['FirstLevelNavigationItems'],
                     (int) $GLOBALS['cfg']['FirstLevelNavigationItems'],
                     $dbSeparator,
-                    $GLOBALS['dbi']->escapeString($GLOBALS['db'])
+                    $this->dbi->escapeString($GLOBALS['db'])
                 )
             );
 
@@ -207,9 +224,9 @@ class NavigationTree
 
         $prefixMap = [];
         if ($GLOBALS['dbs_to_test'] === false) {
-            $handle = $GLOBALS['dbi']->tryQuery("SHOW DATABASES");
+            $handle = $this->dbi->tryQuery("SHOW DATABASES");
             if ($handle !== false) {
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                while ($arr = $this->dbi->fetchArray($handle)) {
                     if (strcasecmp($arr[0], $GLOBALS['db']) >= 0) {
                         break;
                     }
@@ -229,11 +246,11 @@ class NavigationTree
             $databases = [];
             foreach ($GLOBALS['dbs_to_test'] as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
-                $handle = $GLOBALS['dbi']->tryQuery($query);
+                $handle = $this->dbi->tryQuery($query);
                 if ($handle === false) {
                     continue;
                 }
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                while ($arr = $this->dbi->fetchArray($handle)) {
                     $databases[] = $arr[0];
                 }
             }
@@ -850,41 +867,43 @@ class NavigationTree
     public function renderState()
     {
         $this->_buildPath();
-        $retval = $this->_quickWarp();
-        $retval .= '<div class="clearfloat"></div>';
-        $retval .= '<ul>';
-        $retval .= $this->_fastFilterHtml($this->_tree);
-        if ($GLOBALS['cfg']['NavigationTreeEnableExpansion']
-        ) {
-            $retval .= $this->_controls();
+
+        $quickWarp = $this->_quickWarp();
+        $fastFilter = $this->_fastFilterHtml($this->_tree);
+        $controls = '';
+        if ($GLOBALS['cfg']['NavigationTreeEnableExpansion']) {
+            $controls = $this->_controls();
         }
-        $retval .= '</ul>';
-        $retval .= $this->_getPageSelector($this->_tree);
+        $pageSelector = $this->_getPageSelector($this->_tree);
+
         $this->groupTree();
-        $retval .= "<div id='pma_navigation_tree_content'><ul>";
         $children = $this->_tree->children;
-        usort(
-            $children,
-            [
-                'PhpMyAdmin\\Navigation\\NavigationTree',
-                'sortNode',
-            ]
-        );
+        usort($children, [
+            'PhpMyAdmin\\Navigation\\NavigationTree',
+            'sortNode',
+        ]);
         $this->_setVisibility();
+
+        $nodes = '';
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
             if ($i == 0) {
-                $retval .= $this->_renderNode($children[0], true, 'first');
+                $nodes .= $this->_renderNode($children[0], true, 'first');
             } else {
                 if ($i + 1 != $nbChildren) {
-                    $retval .= $this->_renderNode($children[$i], true);
+                    $nodes .= $this->_renderNode($children[$i], true);
                 } else {
-                    $retval .= $this->_renderNode($children[$i], true, 'last');
+                    $nodes .= $this->_renderNode($children[$i], true, 'last');
                 }
             }
         }
-        $retval .= "</ul></div>";
 
-        return $retval;
+        return $this->template->render('navigation/tree/state', [
+            'quick_warp' => $quickWarp,
+            'fast_filter' => $fastFilter,
+            'controls' => $controls,
+            'page_selector' => $pageSelector,
+            'nodes' => $nodes,
+        ]);
     }
 
     /**
@@ -1262,11 +1281,13 @@ class NavigationTree
     public function renderDbSelect()
     {
         $this->_buildPath();
-        $retval = $this->_quickWarp();
+
+        $quickWarp = $this->_quickWarp();
+
         $this->_tree->is_group = false;
-        $retval .= '<div id="pma_navigation_select_database">';
+
         // Provide for pagination in database select
-        $retval .= Util::getListNavigator(
+        $listNavigator = Util::getListNavigator(
             $this->_tree->getPresence('databases', ''),
             $this->_pos,
             ['server' => $GLOBALS['server']],
@@ -1276,17 +1297,10 @@ class NavigationTree
             'pos',
             ['dbselector']
         );
+
         $children = $this->_tree->children;
-        $url_params = [
-            'server' => $GLOBALS['server'],
-        ];
-        $retval .= '<div id="pma_navigation_db_select">';
-        $retval .= '<form action="index.php">';
-        $retval .= Url::getHiddenFields($url_params);
-        $retval .= '<select name="db" class="hide" id="navi_db_select">'
-            . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
-            . '(' . __('Databases') . ') ...</option>' . "\n";
         $selected = $GLOBALS['db'];
+        $options = '';
         foreach ($children as $node) {
             if ($node->isNew) {
                 continue;
@@ -1294,45 +1308,47 @@ class NavigationTree
             $paths = $node->getPaths();
             if (isset($node->links['text'])) {
                 $title = isset($node->links['title']) ? '' : $node->links['title'];
-                $retval .= '<option value="'
+                $options .= '<option value="'
                     . htmlspecialchars($node->real_name) . '"'
                     . ' title="' . htmlspecialchars($title) . '"'
                     . ' apath="' . $paths['aPath'] . '"'
                     . ' vpath="' . $paths['vPath'] . '"'
                     . ' pos="' . $this->_pos . '"';
                 if ($node->real_name == $selected) {
-                    $retval .= ' selected="selected"';
+                    $options .= ' selected';
                 }
-                $retval .= '>' . htmlspecialchars($node->real_name);
-                $retval .= '</option>';
+                $options .= '>' . htmlspecialchars($node->real_name);
+                $options .= '</option>';
             }
         }
-        $retval .= '</select></form>';
-        $retval .= '</div></div>';
-        $retval .= '<div id="pma_navigation_tree_content"><ul>';
+
         $children = $this->_tree->children;
-        usort(
-            $children,
-            [
-                'PhpMyAdmin\\Navigation\\NavigationTree',
-                'sortNode',
-            ]
-        );
+        usort($children, [
+            'PhpMyAdmin\\Navigation\\NavigationTree',
+            'sortNode',
+        ]);
         $this->_setVisibility();
+
+        $nodes = '';
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
             if ($i == 0) {
-                $retval .= $this->_renderNode($children[0], true, 'first');
+                $nodes .= $this->_renderNode($children[0], true, 'first');
             } else {
                 if ($i + 1 != $nbChildren) {
-                    $retval .= $this->_renderNode($children[$i], true);
+                    $nodes .= $this->_renderNode($children[$i], true);
                 } else {
-                    $retval .= $this->_renderNode($children[$i], true, 'last');
+                    $nodes .= $this->_renderNode($children[$i], true, 'last');
                 }
             }
         }
-        $retval .= '</ul></div>';
 
-        return $retval;
+        return $this->template->render('navigation/tree/database_select', [
+            'quick_warp' => $quickWarp,
+            'list_navigator' => $listNavigator,
+            'server' => $GLOBALS['server'],
+            'options' => $options,
+            'nodes' => $nodes,
+        ]);
     }
 
     /**

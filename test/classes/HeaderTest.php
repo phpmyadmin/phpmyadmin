@@ -38,8 +38,8 @@ class HeaderTest extends PmaTestCase
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
-        $GLOBALS['db'] = 'pma_test';
-        $GLOBALS['table'] = 'table1';
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = '';
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

@@ -11,8 +11,8 @@ namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\NavigationTree;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 
 /**
  * Tests for PhpMyAdmin\Navigation\NavigationTree class
@@ -38,16 +38,19 @@ class NavigationTreeTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['user'] = 'root';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfgRelation']['db'] = 'pmadb';
+        $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']  = true;
 
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = '';
 
-        $this->object = new NavigationTree();
+        $this->object = new NavigationTree(new Template(), $GLOBALS['dbi']);
     }
 
     /**

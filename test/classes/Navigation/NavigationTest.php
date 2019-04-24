@@ -34,9 +34,13 @@ class NavigationTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = '';
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['pmaThemeImage'] = '';
 
@@ -116,47 +120,6 @@ class NavigationTest extends PmaTestCase
      */
     public function testGetItemUnhideDialog()
     {
-        $expectedQuery = "SELECT `item_name`, `item_type`"
-            . " FROM `pmadb`.`navigationhiding`"
-            . " WHERE `username`='user' AND `db_name`='db' AND `table_name`=''";
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('tryQuery')
-            ->with($expectedQuery)
-            ->will($this->returnValue(true));
-        $dbi->expects($this->at(3))
-            ->method('fetchArray')
-            ->will(
-                $this->returnValue(
-                    [
-                        'item_name' => 'tableName',
-                        'item_type' => 'table',
-                    ]
-                )
-            );
-        $dbi->expects($this->at(4))
-            ->method('fetchArray')
-            ->will(
-                $this->returnValue(
-                    [
-                        'item_name' => 'viewName',
-                        'item_type' => 'view',
-                    ]
-                )
-            );
-        $dbi->expects($this->at(5))
-            ->method('fetchArray')
-            ->will($this->returnValue(false));
-        $dbi->expects($this->once())
-            ->method('freeResult');
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $GLOBALS['dbi'] = $dbi;
-        $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
-
         $html = $this->object->getItemUnhideDialog('db');
         $this->assertStringContainsString(
             '<td>tableName</td>',

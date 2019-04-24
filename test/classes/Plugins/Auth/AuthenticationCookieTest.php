@@ -47,6 +47,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $_REQUEST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**
