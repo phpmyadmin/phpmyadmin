@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-04-23 18:49+0000\n"
+"PO-Revision-Date: 2019-04-26 11:03+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 3.6.1-dev\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -16135,10 +16135,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Beim Laden des Navigationsansicht ist ein Fehler aufgetreten"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "SQL Dump"
+msgstr "SQL-Upload"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
