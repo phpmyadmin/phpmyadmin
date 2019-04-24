@@ -907,34 +907,24 @@ class NavigationTree
     }
 
     /**
-     * Renders a part of the tree, used for Ajax
-     * requests in light mode
+     * Renders a part of the tree, used for Ajax requests in light mode
      *
-     * @return string HTML code for the navigation tree
+     * @return string|false HTML code for the navigation tree
      */
     public function renderPath()
     {
         $node = $this->_buildPath();
-        if ($node === false) {
-            $retval = false;
-        } else {
+        if ($node !== false) {
             $this->groupTree();
-            $retval = "<div class='list_container hide'>";
-            if (! empty($this->_searchClause) || ! empty($this->_searchClause2)) {
-                $retval .= "<ul class='search_results'>";
-            } else {
-                $retval .= "<ul>";
-            }
+
             $listContent = $this->_fastFilterHtml($node);
             $listContent .= $this->_getPageSelector($node);
             $children = $node->children;
-            usort(
-                $children,
-                [
-                    'PhpMyAdmin\\Navigation\\NavigationTree',
-                    'sortNode',
-                ]
-            );
+            usort($children, [
+                'PhpMyAdmin\\Navigation\\NavigationTree',
+                'sortNode',
+            ]);
+
             for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
                 if ($i + 1 != $nbChildren) {
                     $listContent .= $this->_renderNode($children[$i], true);
@@ -942,20 +932,11 @@ class NavigationTree
                     $listContent .= $this->_renderNode($children[$i], true, 'last');
                 }
             }
-            $retval .= $listContent;
-            $retval .= "</ul>";
+
             if (! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
-                $retval .= "<span class='hide loaded_db'>";
                 $parents = $node->parents(true);
-                $retval .= urlencode($parents[0]->real_name);
-                $retval .= "</span>";
-                if (empty($listContent)) {
-                    $retval .= "<div style='margin:0.75em'>";
-                    $retval .= __('No tables found in database.');
-                    $retval .= "</div>";
-                }
+                $parentName = $parents[0]->real_name;
             }
-            $retval .= "</div>";
         }
 
         if (! empty($this->_searchClause) || ! empty($this->_searchClause2)) {
@@ -989,7 +970,15 @@ class NavigationTree
                 );
         }
 
-        return $retval;
+        if ($node !== false) {
+            return $this->template->render('navigation/tree/path', [
+                'has_search_results' => ! empty($this->_searchClause) || ! empty($this->_searchClause2),
+                'list_content' => $listContent ?? '',
+                'is_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
+                'parent_name' => $parentName ?? '',
+            ]);
+        }
+        return false;
     }
 
     /**
