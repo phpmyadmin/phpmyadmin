@@ -70,6 +70,7 @@ phpMyAdmin - ChangeLog
 - issue #14460 Fixed forms where submitted multiple times on CTRL + ENTER
 - issue #15038 Fixed console height was allowing a negative values
 - issue #15219 Fixed 'No Password' option does not switch automatically to 'Use Text Field' in add user account
+- issue        Fixed importing the exported config on Server status monitor page
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
