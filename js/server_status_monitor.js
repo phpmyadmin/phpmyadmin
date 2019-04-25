@@ -564,8 +564,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         $.each(runtime.charts, function (key, elem) {
             gridCopy[key] = {};
             gridCopy[key].nodes = elem.nodes;
+            gridCopy[key].series = elem.series;
             gridCopy[key].settings = elem.settings;
             gridCopy[key].title = elem.title;
+            gridCopy[key].maxYLabel = elem.maxYLabel;
         });
         var exportData = {
             monitorCharts: gridCopy,
@@ -608,7 +610,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             };
             reader.onload = function (e) {
                 var data = e.target.result;
-
+                var json = null;
                 // Try loading config
                 try {
                     json = JSON.parse(data);
@@ -627,11 +629,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                 // If json ok, try applying config
                 try {
-                    window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
-                    window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
+                    if (isStorageSupported('localStorage')) {
+                        window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
+                        window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
+                    }
                     rebuildGrid();
                 } catch (err) {
-                    console.log(err);
                     alert(PMA_messages.strFailedBuildingGrid);
                     // If an exception is thrown, load default again
                     if (isStorageSupported('localStorage')) {
