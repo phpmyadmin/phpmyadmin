@@ -2604,8 +2604,10 @@ class InsertEdit
         $key,
         $multi_edit_columns_null_prev
     ) {
+        $field = $multi_edit_columns_name[$key];
+        $isEqualToDefault = $this->checkIfFieldValueEqualToDefault($field, $current_value);
         //  i n s e r t
-        if ($is_insert) {
+        if ($is_insert && ! $isEqualToDefault) {
             // no need to add column into the valuelist
             if (strlen($current_value_as_an_array) > 0) {
                 $query_values[] = $current_value_as_an_array;
@@ -2632,7 +2634,7 @@ class InsertEdit
             || ('0x' . $multi_edit_columns_prev[$key] === $current_value))
         ) {
             // No change for this column and no MySQL function is used -> next column
-        } elseif (! empty($current_value)) {
+        } elseif (! empty($current_value) && ! $isEqualToDefault) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update
             //  field still has the null checkbox)
@@ -2645,6 +2647,25 @@ class InsertEdit
             }
         }
         return array($query_values, $query_fields);
+    }
+
+    /**
+     * The function will check for default value is equal to input by user
+     *
+     * @param   $field          string  field name
+     * @param   $current_value  string  current value of field
+     *
+     * @return  bool
+     */
+    public function checkIfFieldValueEqualToDefault($field, $current_value)
+    {
+        $data = $this->getTableColumns($GLOBALS['db'], $GLOBALS['table']);
+        foreach ($data as $datum) {
+            if($datum['Field'] == $field && $datum['Default'] == trim($current_value, "'")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
