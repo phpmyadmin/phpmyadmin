@@ -620,7 +620,7 @@ class Table
             $query .= ' AFTER ' . Util::backquote($move_to);
         }
         if (! $virtuality && ! empty($extra)) {
-            if (! $columns_with_index && ! in_array($name, $columns_with_index)) {
+            if (is_array($columns_with_index) && ! in_array($name, $columns_with_index)) {
                 $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
             }
         }
