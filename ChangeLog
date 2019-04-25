@@ -67,6 +67,7 @@ phpMyAdmin - ChangeLog
 - issue #15177 Fixed label alignment on login page
 - issue #15210 Fixed a typo in the english name of the Albanian language
 - issue        Fixed issue when resetting charset in import.php
+- issue #14460 Fixed forms where submitted multiple times on CTRL + ENTER
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
