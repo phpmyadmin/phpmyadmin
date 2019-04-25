@@ -2682,8 +2682,7 @@ class InsertEdit
         $where_clause,
         $table,
         $multi_edit_funcs
-    ) { 
-        // Timestamp Conditions to remove quotes in SQL Query
+    ) { // Timestamp Conditions to remove quotes in SQL Query
         $curr_timestamp = array("CURRENT_TIMESTAMP()", "CURRENT_TIMESTAMP", "current_timestamp()", "CURRENT_TIMESTAMP(1)", "CURRENT_TIMESTAMP(2)", "CURRENT_TIMESTAMP(3)", "CURRENT_TIMESTAMP(4)", "CURRENT_TIMESTAMP(5)", "CURRENT_TIMESTAMP(6)");
         
         // Fetch the current values of a row to use in case we have a protected field
