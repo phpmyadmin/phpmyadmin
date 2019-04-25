@@ -352,7 +352,6 @@ return [
             'show',
             'collapse',
         ],
-        'Height' => 'integer',
         'OrderBy' => [
             'exec',
             'time',
@@ -376,6 +375,7 @@ return [
      * Use only full paths and form ids
      */
     '_validators' => [
+        'Console/Height' => 'validateNonNegativeNumber',
         'CharTextareaCols' => 'validatePositiveNumber',
         'CharTextareaRows' => 'validatePositiveNumber',
         'ExecTimeLimit' => 'validateNonNegativeNumber',

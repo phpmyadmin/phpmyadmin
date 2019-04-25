@@ -4945,8 +4945,11 @@ AJAX.registerOnload('functions.js', function () {
     $('form input, form textarea, form select').on('keydown', function (e) {
         if ((e.ctrlKey && e.which === 13) || (e.altKey && e.which === 13)) {
             $form = $(this).closest('form');
-            if (! $form.find('input[type="submit"]') ||
-                ! $form.find('input[type="submit"]').trigger('click')
+
+            // There could be multiple submit buttons on the same form,
+            // we assume all of them behave identical and just click one.
+            if (! $form.find('input[type="submit"]:first') ||
+                ! $form.find('input[type="submit"]:first').trigger('click')
             ) {
                 $form.submit();
             }
