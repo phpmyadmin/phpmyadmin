@@ -2424,14 +2424,14 @@ function PMA_confirmPreviewSQL (sql_data, url, callback) {
     var button_options = [
         {
             text: PMA_messages.strOK,
-            'class': 'submitOK',
+            class: 'submitOK',
             click: function () {
                 callback(url);
             }
         },
         {
             text: PMA_messages.strCancel,
-            'class': 'submitCancel',
+            class: 'submitCancel',
             click: function () {
                 $(this).dialog('close');
             }
