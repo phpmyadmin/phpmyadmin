@@ -430,6 +430,16 @@ class Privileges
                 __('Allows performing SHOW CREATE VIEW queries.')
             ),
             array(
+                'Delete_history_priv',
+                'DELETE HISTORY',
+                $GLOBALS['strPrivDescDeleteHistoricalRows']
+            ),
+            array(
+                'Delete versioning rows_priv',
+                'DELETE HISTORY',
+                $GLOBALS['strPrivDescDeleteHistoricalRows']
+            ),
+            array(
                 'Create_routine_priv',
                 'CREATE ROUTINE',
                 __('Allows creating stored routines.')
@@ -1082,6 +1092,9 @@ class Privileges
             } elseif ($current_grant == 'Show view_priv') {
                 $tmp_current_grant = 'ShowView_priv';
                 $current_grant = 'Show_view_priv';
+            } elseif ($current_grant == 'Delete versioning rows_priv') {
+                $tmp_current_grant = 'DeleteHistoricalRows_priv';
+                $current_grant = 'Delete_history_priv';
             } else {
                 $tmp_current_grant = $current_grant;
             }
