@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-04-02 11:42+0000\n"
+"PO-Revision-Date: 2019-04-27 08:19+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -1525,15 +1525,11 @@ msgid "Are you sure?"
 msgstr "Вы уверены?"
 
 #: js/messages.php:449
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Это действие может изменить некоторые определения столбцов.<br/>Вы уверены, "
+"Это действие может изменить некоторые определения столбцов.<br>Вы уверены, "
 "что хотите продолжить?"
 
 #: js/messages.php:452
@@ -1981,19 +1977,14 @@ msgid "Click to sort results by this column."
 msgstr "Кликните для сортировки результатов по данному столбцу."
 
 #: js/messages.php:603
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Удерживая Shift, кликните для добавления столбца в класс ORDER BY или "
-"переключения ASC/DESC.<br />- Удерживая Ctrl или Alt (для Mac: удерживая "
-"Shift и Option), кликните для удаления столбца из класса ORDER BY"
+"переключения ASC/DESC.<br>- Удерживая Ctrl или Alt (для Mac: удерживая Shift "
+"и Option), кликните для удаления столбца из класса ORDER BY"
 
 #: js/messages.php:607
 msgid "Click to mark/unmark."
@@ -2004,10 +1995,8 @@ msgid "Double-click to copy column name."
 msgstr "Кликните дважды для копирования имени столбца."
 
 #: js/messages.php:610
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Кликните выпадающую стрелку<br />для переключения видимости столбца."
+msgstr "Кликните выпадающую стрелку<br>для переключения видимости столбца."
 
 #: js/messages.php:612 libraries/classes/BrowseForeigners.php:353
 #: templates/server/privileges/initials_row.twig:20
@@ -2076,18 +2065,13 @@ msgid "Print"
 msgstr "Печать"
 
 #: js/messages.php:642
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Большинство значений можно отредактировать<br />дважды кликнув прямо на них."
+"Большинство значений можно отредактировать<br>дважды кликнув прямо на них."
 
 #: js/messages.php:647
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "Возможно редактировать большинство значений<br />кликнув прямо на них."
+msgstr "Возможно редактировать большинство значений<br>кликнув прямо на них."
 
 #: js/messages.php:653
 msgid "Go to link:"
@@ -2569,9 +2553,8 @@ msgstr "Нед."
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:905
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "календарь-месяц-год"
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:908
@@ -5874,16 +5857,12 @@ msgid "Switch to dark theme"
 msgstr "Переключиться на темную тему"
 
 #: libraries/classes/Config/Descriptions.php:922
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Консоль"
+msgstr "Высота консоли"
 
 #: libraries/classes/Config/Descriptions.php:923
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Консоль"
+msgstr "Режим консоли"
 
 #: libraries/classes/Config/Descriptions.php:924
 #: templates/console/display.twig:64
@@ -8619,10 +8598,8 @@ msgid "Binary"
 msgstr "Двоичный"
 
 #: libraries/classes/InsertEdit.php:764
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Из-за большой длины<br /> изменение поля невозможно."
+msgstr "Из-за большой длины<br> изменение поля невозможно."
 
 #: libraries/classes/InsertEdit.php:1382
 msgid "Binary - do not edit"
@@ -9172,15 +9149,11 @@ msgid "Primary key already exists."
 msgstr "Ошибка: первичный индекс уже существует."
 
 #: libraries/classes/Normalization.php:253
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Не существует первичного индекса; пожалуйста, добавьте один.<br/>Подсказка: "
+"Не существует первичного индекса; пожалуйста, добавьте один.<br>Подсказка: "
 "Первичным ключом является столбец (или сочетание столбцов), однозначно "
 "определяющий все строки."
 
@@ -9375,12 +9348,6 @@ msgid "Find transitive dependencies"
 msgstr "Найти транзитивные зависимости"
 
 #: libraries/classes/Normalization.php:812
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9389,7 +9356,7 @@ msgid ""
 msgstr ""
 "Для каждого столбца ниже выберите <b> minimal set</b> столбцов среди "
 "заданного набора, значения которого объединены вместе, чтобы определить "
-"значение столбца. <br/> Примечание: столбец может не иметь транзитивной "
+"значение столбца. <br> Примечание: столбец может не иметь транзитивной "
 "зависимости , в этом случае вам не нужно выбирать."
 
 #: libraries/classes/Normalization.php:861
@@ -10178,59 +10145,41 @@ msgid "Syntax to use when inserting data:"
 msgstr "Использовать синтаксис при вставке данных:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"включение имен полей в каждом выражении <code>INSERT</code> <br /> &nbsp; "
+"включение имен полей в каждом выражении <code>INSERT</code> <br> &nbsp; "
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"включение нескольких строк в каждом выражении <code>INSERT</code><br /> "
-"&nbsp; &nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-"(4,5,6), (7,8,9)</code>"
+"включение нескольких строк в каждом выражении <code>INSERT</code><br> &nbsp; "
+"&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"комбинация обоих верхних вариантов<br /> &nbsp; &nbsp; &nbsp; Пример: "
-"<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
+"комбинация обоих верхних вариантов<br> &nbsp; &nbsp; &nbsp; Пример: <code>"
+"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"ни один из выше перечисленных<br /> &nbsp; &nbsp; &nbsp; Пример: "
-"<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
+"ни один из выше перечисленных<br> &nbsp; &nbsp; &nbsp; Пример: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
 msgid ""
@@ -10453,10 +10402,9 @@ msgid "MediaWiki Table"
 msgstr "Таблица MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Неверный формат ввода данных mediawiki на строке: <br />%s."
+msgstr "Неверный формат ввода данных mediawiki на строке: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10839,10 +10787,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Форматирует текст в виде XML с подсветкой синтаксиса."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:147
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Модуль аутентификации"
+msgstr "Приложение аутентификации (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:157
 msgid ""
@@ -13346,10 +13292,8 @@ msgid "Manage your settings"
 msgstr "Пользовательские настройки"
 
 #: libraries/user_preferences.inc.php:41
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Двухфакторная аутентификация"
 
 #: libraries/user_preferences.inc.php:63
 #: templates/preferences/manage/main.twig:61
@@ -13503,8 +13447,6 @@ msgid "Use host table"
 msgstr "Использовать таблицу хостов"
 
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "Без пароля"
 
@@ -13688,10 +13630,8 @@ msgid "Master replication"
 msgstr "Репликация головного сервера"
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Нет привилегий."
+msgstr "Нет привилегий"
 
 #: templates/server/replication/index.twig:16
 #, fuzzy, php-format
@@ -13849,8 +13789,6 @@ msgid "New column name"
 msgstr "Имя нового столбца"
 
 #: templates/server/collations/index.twig:3
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "Кодировки и сравнения"
 
@@ -14218,12 +14156,6 @@ msgid "Unhide"
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
@@ -14231,7 +14163,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "При создании полей типа \"enum\" или \"set\", данные значения должны иметь "
-"формат: 'a','b','c'…<br />Символы обратной косой черты (\"\\\") и одинарной "
+"формат: 'a','b','c'…<br>Символы обратной косой черты (\"\\\") и одинарной "
 "кавычки (\"'\") необходимо экранировать (предварять) символом обратной косой "
 "черты, например: '\\\\xyz' или 'a\\'b'."
 
@@ -14267,22 +14199,16 @@ msgstr "Параметры преобразования отображения �
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Значения параметров преобразований должны иметь формат: 'a', 100, b, 'c'…"
-"<br />Символы обратной косой черты (\"\\\") и одинарной кавычки (\"'\") "
-"необходимо экранировать (предварять) символом обратной косой черты, "
-"например: '\\\\xyz' или 'a\\'b'."
+"Значения параметров преобразований должны иметь формат: 'a', 100, b, 'c'…<br>"
+"Символы обратной косой черты (\"\\\") и одинарной кавычки (\"'\") необходимо "
+"экранировать (предварять) символом обратной косой черты, например: '\\\\xyz' "
+"или 'a\\'b'."
 
 #: templates/columns_definitions/table_fields_definitions.twig:89
 #: templates/transformation_overview.twig:37
@@ -14356,8 +14282,6 @@ msgstr "Изменение кодировки:"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
