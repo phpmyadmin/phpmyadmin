@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2019-04-01 13:22+0000\n"
+"PO-Revision-Date: 2019-04-27 08:36+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ru/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -341,10 +341,8 @@ msgid "Multi-table query"
 msgstr "Имитировать запрос"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Сбой выполнения запроса"
+msgstr "Пример запроса"
 
 #: db_qbe.php:168
 #, php-format
@@ -2955,9 +2953,8 @@ msgstr "Нед."
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:894
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "календарь-месяц-год"
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:897
@@ -5317,18 +5314,13 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Скрыть базы данных, подпадающие под регулярное выражение (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Подробнее смотрите на [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] и [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Подробнее смотрите на [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]PMA bug tracker[/a] и [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -6175,16 +6167,12 @@ msgid "Switch to dark theme"
 msgstr "Переключиться на темную тему"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Консоль"
+msgstr "Высота консоли"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Консоль"
+msgstr "Режим консоли"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
@@ -6196,10 +6184,8 @@ msgid "Order"
 msgstr "Порядок сортировки"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Сортировки по:"
+msgstr "Сортировки по"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:524
@@ -7047,21 +7033,16 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Слова разделяются пробелом (\" \")."
 
 #: libraries/classes/DatabaseInterface.php:1505
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Невозможно использовать тайм зону %1$s для сервера %2$d. Пожалуйста, "
+"Невозможно использовать часовой пояс %1$s для сервера %2$d. Пожалуйста, "
 "проверьте настройки для [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin в настоящий момент использует тайм зону, настроенную на сервере "
-"по-умолчанию."
+"phpMyAdmin в настоящий момент использует часовой пояс, установленный на "
+"сервере по-умолчанию."
 
 #: libraries/classes/DatabaseInterface.php:1552
 msgid "Failed to set configured collation connection!"
@@ -10173,10 +10154,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Модуль аутентификации"
+msgstr "Приложение аутентификации (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
 msgid ""
@@ -13882,6 +13861,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Не удалось установить сессионные куки. Возможно вы подключаетесь через HTTP "
+"вместо HTTPS."
 
 #: libraries/common.inc.php:342
 msgid "Invalid authentication method set in configuration:"
@@ -14014,10 +13995,8 @@ msgid "Manage your settings"
 msgstr "Пользовательские настройки"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Двухфакторная аутентификация"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
@@ -14511,8 +14490,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
-"Откройте приложение для двухфакторной авторизации и подтвердите свою "
-"личность."
+"Откройте приложение двухфакторной аутентификации, чтобы узнать код "
+"аутентификации и подтвердить свою личность."
 
 #: templates/display/results/additional_fields.twig:6
 #: templates/start_and_number_of_rows_panel.twig:10
@@ -14616,10 +14595,8 @@ msgid "Hide/Show all"
 msgstr "Скрыть/отобразить все таблицы"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
-msgstr "Скрыть/отобразить таблицы не имеющие ссылок"
+msgstr "Скрыть/отобразить таблицы, не имеющие ссылок"
 
 #: templates/database/designer/table_list.twig:55
 msgid "Number of tables:"
@@ -14743,8 +14720,6 @@ msgstr "Новый"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -14780,16 +14755,12 @@ msgstr ""
 
 #: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
 #: templates/prefs_twofactor.twig:54
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Настроить двухфакторную аутентификацию"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Включить двухфакторную аутентификацию"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
@@ -14802,8 +14773,6 @@ msgid "Storage engines"
 msgstr "Типы таблиц"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "Кодировки и сравнения"
 
@@ -15097,6 +15066,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Подключите своё устройство FIDO U2F к компьютеру через USB-порт. Затем "
+"подтвердите регистрацию на устройстве."
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -15160,16 +15131,16 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
-"Пожалуйста, подключите Ваше устройство FIDO U2F к порту USB. Затем "
-"подтвердите вход в систему на устройстве."
+"Подключите своё устройство FIDO U2F к компьютеру через USB-порт. Затем "
+"подтвердите авторизацию на устройстве."
 
 #: templates/login/twofactor/key-https-warning.twig:3
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
-"Вы не используете HTTPS для доступа к phpMyAdmin, поэтому устройство FIDO "
-"U2F, скорее всего, откажется Вас аутентифицировать."
+"Вы не используете https для подключения к phpMyAdmin, устройство FIDO U2F "
+"может отказать в авторизации."
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -15459,7 +15430,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Секрет/код:"
 
 #: templates/table/search/selection_form.twig:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
@@ -15659,17 +15630,15 @@ msgid "Databases:"
 msgstr "Базы данных:"
 
 #: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Подтвердите отключение двухфакторной аутентификации"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
-"Отключив двухфакторную авторизацию, вы снова сможете войти в систему, "
+"После отключения двухфакторной аутентификации Вы сможете выполнить вход, "
 "используя только пароль."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
@@ -16092,10 +16061,8 @@ msgid "Index choice:"
 msgstr "Выбор индекса:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Активные параметры"
+msgstr "Дополнительные параметры"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -16197,7 +16164,7 @@ msgstr "Применить"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr "Проверить"
+msgstr "Подтверждение"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -16238,17 +16205,13 @@ msgstr "Окно запроса"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Выберите таблицу:"
+msgstr "Выберите таблицу"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Выберите столбец:"
+msgstr "выберите столбец"
 
 #: templates/database/multi_table_query/form.twig:46
 #, fuzzy
@@ -16269,10 +16232,8 @@ msgid "Use this column in criteria"
 msgstr "Использовать данное поле для обозначения каждой точки"
 
 #: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Критерий:"
+msgstr "критерий"
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
@@ -16288,13 +16249,11 @@ msgstr "Изменить поле(я)"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Введите критерий в свободной форме"
 
 #: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Удалить избыточные столбцы"
+msgstr "Удалить этот столбец"
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
@@ -16326,10 +16285,8 @@ msgid "Use regular expression"
 msgstr "Использовать регулярное выражение"
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Настройки идентификации."
+msgstr "Статус двухфакторной аутентификации"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
@@ -16341,12 +16298,12 @@ msgstr ""
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr "Следующие пакеты менеджера \"Composer\" отсутствуют:"
+msgstr "Следующие Composer-пакеты отсутствуют:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
-"Для этой учетной записи доступна и настроена двухфакторная авторизация."
+"Двухфакторная авторизация доступна и активирована для этой учетной записи."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
@@ -16355,12 +16312,12 @@ msgstr ""
 "Двухфакторная авторизация доступна, но не настроена для этой учетной записи."
 
 #: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%sСоздать%s отсутствующие таблицы хранения конфигурации phpMyAdmin."
+msgstr ""
+"Двухфакторная аутентификация недоступна, для ее использования включите в "
+"конфигурации phpMyAdmin."
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
