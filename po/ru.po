@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2019-04-27 08:24+0000\n"
-"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
+"Last-Translator: subo <subo098@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -5868,10 +5868,8 @@ msgid "Order"
 msgstr "Порядок сортировки"
 
 #: libraries/classes/Config/Descriptions.php:926
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Сортировки по:"
+msgstr "Сортировки по"
 
 #: libraries/classes/Config/Descriptions.php:927
 msgid "Server connection collation"
@@ -7624,21 +7622,16 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Слова разделяются пробелом (\" \")."
 
 #: libraries/classes/DatabaseInterface.php:1570
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Невозможно использовать тайм зону %1$s для сервера %2$d. Пожалуйста, "
+"Невозможно использовать часовой пояс %1$s для сервера %2$d. Пожалуйста, "
 "проверьте настройки для [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin в настоящий момент использует тайм зону, настроенную на сервере "
-"по-умолчанию."
+"phpMyAdmin в настоящий момент использует часовой пояс, установленный на "
+"сервере по-умолчанию."
 
 #: libraries/classes/DatabaseInterface.php:1619
 msgid "Failed to set configured collation connection!"
@@ -14087,10 +14080,8 @@ msgid "Do you want to import remaining settings?"
 msgstr "Вы хотите импортировать оставшиеся настройки?"
 
 #: templates/preferences/two_factor/main.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Настройки идентификации."
+msgstr "Статус двухфакторной аутентификации"
 
 #: templates/preferences/two_factor/main.twig:9
 msgid ""
@@ -14133,10 +14124,8 @@ msgstr "Авторизация через конфигурационный фа�
 #: templates/preferences/two_factor/main.twig:44
 #: templates/preferences/two_factor/main.twig:56
 #: templates/preferences/two_factor/configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Настроить двухфакторную аутентификацию"
 
 #: templates/server/privileges/column_privileges.twig:21
 #: templates/server/privileges/column_privileges.twig:22
