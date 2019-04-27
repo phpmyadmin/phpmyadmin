@@ -102,6 +102,9 @@ phpMyAdmin - ChangeLog
 - issue #15038 Fixed console height was allowing a negative values
 - issue #15219 Fixed 'No Password' option does not switch automatically to 'Use Text Field' in add user account
 - issue        Fixed importing the exported config on Server status monitor page
+- issue #15228 Fixed php notice 'Undefined index: foreign_keys_data' on designer when the user has column access
+- issue #12900 Fixed designer page saving gives error when configuration storage is not set up
+- issue #15229 Fixed php notice, added support for 'DELETE HISTORY' table privilege (MariaDB >= 10.3.4)
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log

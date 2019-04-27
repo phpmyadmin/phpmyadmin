@@ -150,6 +150,7 @@ class PrivilegesTest extends TestCase
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;
+        $GLOBALS['strPrivDescDeleteHistoricalRows'] = "strPrivDescDeleteHistoricalRows";
     }
 
     /**
