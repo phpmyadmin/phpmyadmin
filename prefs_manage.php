@@ -124,7 +124,7 @@ if (isset($_POST['submit_export'])
             echo '<div class="config-form">';
             echo $form_display->displayErrors();
             echo '</div>';
-            echo '<form action="prefs_manage.php" method="post">';
+            echo '<form action="prefs_manage.php" method="post" class="disableAjax">';
             echo Url::getHiddenInputs() , "\n";
             echo '<input type="hidden" name="json" value="'
                 , htmlspecialchars($json) , '" />';
