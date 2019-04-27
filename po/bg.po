@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-24 02:31-0300\n"
+"POT-Creation-Date: 2019-04-27 19:16+0200\n"
 "PO-Revision-Date: 2017-08-07 11:20+0000\n"
 "Last-Translator: Filip Obretenov <filip.obretenovbg@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -37,8 +37,7 @@ msgid "View dump (schema) of database"
 msgstr "Преглед на схема (дъмп) на БД"
 
 #: db_export.php:68 db_tracking.php:105 export.php:414
-#: libraries/classes/Database/Qbe.php:358
-#: libraries/classes/Navigation/NavigationTree.php:954
+#: libraries/classes/Database/Qbe.php:358 templates/navigation/tree/path.twig:9
 #: templates/database/structure/index.twig:19
 msgid "No tables found in database."
 msgstr "В БД няма таблици."
@@ -61,7 +60,7 @@ msgstr "Таблици"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:40
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:290
-#: libraries/classes/Server/Privileges.php:1228 libraries/classes/Util.php:3148
+#: libraries/classes/Server/Privileges.php:1241 libraries/classes/Util.php:3148
 #: libraries/classes/Util.php:3158 libraries/classes/Util.php:3164
 #: libraries/classes/Util.php:3448 libraries/classes/Util.php:4208
 #: libraries/classes/Util.php:4225 libraries/config.values.php:62
@@ -79,7 +78,7 @@ msgstr "Структура"
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Config/Forms/User/ExportForm.php:145
 #: libraries/classes/Controllers/Server/DatabasesController.php:376
-#: libraries/classes/Server/Privileges.php:1227
+#: libraries/classes/Server/Privileges.php:1240
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "Данни"
@@ -545,12 +544,12 @@ msgstr "Името на хоста е празно!"
 msgid "The user name is empty!"
 msgstr "Потребителското име е празно!"
 
-#: js/messages.php:151 libraries/classes/Server/Privileges.php:2003
+#: js/messages.php:151 libraries/classes/Server/Privileges.php:2016
 #: libraries/classes/UserPassword.php:83
 msgid "The password is empty!"
 msgstr "Паролата е празна!"
 
-#: js/messages.php:152 libraries/classes/Server/Privileges.php:2001
+#: js/messages.php:152 libraries/classes/Server/Privileges.php:2014
 #: libraries/classes/UserPassword.php:87
 msgid "The passwords aren't the same!"
 msgstr "Паролата не е същата!"
@@ -1183,13 +1182,13 @@ msgstr "Не са намерени параметри!"
 #: libraries/classes/Rte/Events.php:580 libraries/classes/Rte/Routines.php:1142
 #: libraries/classes/Rte/Routines.php:1767
 #: libraries/classes/Rte/Triggers.php:461
-#: libraries/classes/Server/Privileges.php:761
-#: libraries/classes/Server/Privileges.php:2343
-#: libraries/classes/Server/Privileges.php:3280
+#: libraries/classes/Server/Privileges.php:771
+#: libraries/classes/Server/Privileges.php:2356
+#: libraries/classes/Server/Privileges.php:3293
 #: libraries/classes/Server/UserGroups.php:313
 #: libraries/classes/SqlQueryForm.php:387
 #: libraries/classes/SqlQueryForm.php:451 libraries/classes/Tracking.php:373
-#: libraries/classes/Tracking.php:524 server_privileges.php:338
+#: libraries/classes/Tracking.php:524 server_privileges.php:339
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/change_master.twig:33
 #: templates/table/search/selection_form.twig:223
@@ -1325,11 +1324,11 @@ msgstr "Промяна знаков набор"
 #: libraries/classes/Plugins/Export/ExportOdt.php:799
 #: libraries/classes/Plugins/Export/ExportTexytext.php:616
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:772
-#: libraries/classes/Server/Privileges.php:2879
-#: libraries/classes/Server/Privileges.php:3127
-#: libraries/classes/Server/Privileges.php:3147
-#: libraries/classes/Server/Privileges.php:3815
-#: libraries/classes/Server/Privileges.php:3844
+#: libraries/classes/Server/Privileges.php:2892
+#: libraries/classes/Server/Privileges.php:3140
+#: libraries/classes/Server/Privileges.php:3160
+#: libraries/classes/Server/Privileges.php:3828
+#: libraries/classes/Server/Privileges.php:3857
 #: templates/preferences/manage/error.twig:19
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
@@ -1386,10 +1385,10 @@ msgstr "Дефиницията на съхранена процедура тря
 #: libraries/classes/Display/Results.php:4968 libraries/classes/Menu.php:391
 #: libraries/classes/Menu.php:499 libraries/classes/Menu.php:628
 #: libraries/classes/Rte/RteList.php:195
-#: libraries/classes/Server/Privileges.php:2531
-#: libraries/classes/Server/Privileges.php:2618
-#: libraries/classes/Server/Privileges.php:2986
-#: libraries/classes/Server/Privileges.php:3725 libraries/classes/Util.php:3455
+#: libraries/classes/Server/Privileges.php:2544
+#: libraries/classes/Server/Privileges.php:2631
+#: libraries/classes/Server/Privileges.php:2999
+#: libraries/classes/Server/Privileges.php:3738 libraries/classes/Util.php:3455
 #: libraries/classes/Util.php:3456 libraries/classes/Util.php:4197
 #: libraries/classes/Util.php:4212 libraries/classes/Util.php:4229
 #: templates/preferences/manage/main.twig:59
@@ -1813,11 +1812,11 @@ msgstr "Добавяне на вътрешен пръстен"
 #: libraries/classes/Plugins/Export/ExportOdt.php:800
 #: libraries/classes/Plugins/Export/ExportTexytext.php:616
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:773
-#: libraries/classes/Server/Privileges.php:2879
-#: libraries/classes/Server/Privileges.php:3124
-#: libraries/classes/Server/Privileges.php:3145
-#: libraries/classes/Server/Privileges.php:3812
-#: libraries/classes/Server/Privileges.php:3844
+#: libraries/classes/Server/Privileges.php:2892
+#: libraries/classes/Server/Privileges.php:3137
+#: libraries/classes/Server/Privileges.php:3158
+#: libraries/classes/Server/Privileges.php:3825
+#: libraries/classes/Server/Privileges.php:3857
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:229
 #: templates/preferences/manage/error.twig:18
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -2143,11 +2142,11 @@ msgid "Show hidden navigation tree items."
 msgstr "Показване на скритото навигационно дърво."
 
 #: js/messages.php:670 libraries/classes/Config/Descriptions.php:486
-#: libraries/classes/Navigation/NavigationTree.php:1464
+#: libraries/classes/Navigation/NavigationTree.php:1453
 msgid "Link with main panel"
 msgstr "Свързване с главния панел"
 
-#: js/messages.php:671 libraries/classes/Navigation/NavigationTree.php:1467
+#: js/messages.php:671 libraries/classes/Navigation/NavigationTree.php:1456
 msgid "Unlink from main panel"
 msgstr "Премахване от главния панел"
 
@@ -2841,7 +2840,7 @@ msgstr "Име"
 #: libraries/classes/Rte/Routines.php:1002
 #: libraries/classes/Rte/Routines.php:1680
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:147
-#: libraries/classes/Server/Privileges.php:2699
+#: libraries/classes/Server/Privileges.php:2712
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
@@ -4105,7 +4104,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:372 libraries/classes/Menu.php:591
-#: libraries/classes/Server/Privileges.php:4734 libraries/classes/Util.php:4193
+#: libraries/classes/Server/Privileges.php:4747 libraries/classes/Util.php:4193
 #: libraries/config.values.php:157 templates/server/databases/index.twig:6
 #: templates/navigation/tree/database_select.twig:11
 msgid "Databases"
@@ -5937,11 +5936,11 @@ msgstr "Заглавие на прозореца на браузъра, кога
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:157
 #: libraries/classes/Plugins/Export/ExportOdt.php:204
 #: libraries/classes/Plugins/Export/ExportTexytext.php:141
-#: libraries/classes/Server/Privileges.php:1248
-#: libraries/classes/Server/Privileges.php:3298
-#: libraries/classes/Server/Privileges.php:3499
-#: libraries/classes/Server/Privileges.php:3501
-#: libraries/classes/Server/Privileges.php:4734
+#: libraries/classes/Server/Privileges.php:1261
+#: libraries/classes/Server/Privileges.php:3311
+#: libraries/classes/Server/Privileges.php:3512
+#: libraries/classes/Server/Privileges.php:3514
+#: libraries/classes/Server/Privileges.php:4747
 #: templates/server/databases/index.twig:87
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184
@@ -5981,12 +5980,12 @@ msgstr "Заглавие на прозореца на браузъра, кога
 #: libraries/classes/Config/Descriptions.php:860 libraries/classes/Menu.php:277
 #: libraries/classes/Plugins/Export/ExportXml.php:509
 #: libraries/classes/Rte/RteList.php:131 libraries/classes/Rte/Triggers.php:396
-#: libraries/classes/Server/Privileges.php:1064
-#: libraries/classes/Server/Privileges.php:1251
-#: libraries/classes/Server/Privileges.php:3317
-#: libraries/classes/Server/Privileges.php:3505
-#: libraries/classes/Server/Privileges.php:3507
-#: libraries/classes/Server/Privileges.php:4748
+#: libraries/classes/Server/Privileges.php:1074
+#: libraries/classes/Server/Privileges.php:1264
+#: libraries/classes/Server/Privileges.php:3330
+#: libraries/classes/Server/Privileges.php:3518
+#: libraries/classes/Server/Privileges.php:3520
+#: libraries/classes/Server/Privileges.php:4761
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
 #: templates/table/relation/foreign_key_row.twig:106
@@ -6753,7 +6752,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:112
-#: libraries/classes/Server/Privileges.php:4640
+#: libraries/classes/Server/Privileges.php:4653
 #: libraries/classes/Server/UserGroups.php:51
 msgid "User"
 msgstr "Потребител"
@@ -7646,63 +7645,63 @@ msgstr ""
 "Не могат да бъдат заредени разширенията за импорт, моля проверете "
 "инсталацията!"
 
-#: libraries/classes/Database/Designer/Common.php:592
+#: libraries/classes/Database/Designer/Common.php:593
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Грешка: Релацията вече съществува."
 
-#: libraries/classes/Database/Designer/Common.php:641
+#: libraries/classes/Database/Designer/Common.php:642
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY релация е добавена"
 
-#: libraries/classes/Database/Designer/Common.php:648
+#: libraries/classes/Database/Designer/Common.php:649
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Грешка: Релацията не е добавена."
 
-#: libraries/classes/Database/Designer/Common.php:655
+#: libraries/classes/Database/Designer/Common.php:656
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:663
+#: libraries/classes/Database/Designer/Common.php:664
 msgid "Error: Relational features are disabled!"
 msgstr "Грешка: Релацията е изключена!"
 
-#: libraries/classes/Database/Designer/Common.php:688
+#: libraries/classes/Database/Designer/Common.php:689
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Добавена е вътрешна релация"
 
-#: libraries/classes/Database/Designer/Common.php:695
+#: libraries/classes/Database/Designer/Common.php:696
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Грешка: Релацията не е добавена."
 
-#: libraries/classes/Database/Designer/Common.php:735
+#: libraries/classes/Database/Designer/Common.php:736
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY релация е добавена"
 
-#: libraries/classes/Database/Designer/Common.php:742
+#: libraries/classes/Database/Designer/Common.php:743
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Грешка: Релацията не е добавена."
 
-#: libraries/classes/Database/Designer/Common.php:769
+#: libraries/classes/Database/Designer/Common.php:770
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Грешка: Релацията не е добавена."
 
-#: libraries/classes/Database/Designer/Common.php:775
+#: libraries/classes/Database/Designer/Common.php:776
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -7891,13 +7890,13 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:81
-#: libraries/classes/Server/Privileges.php:1794
+#: libraries/classes/Server/Privileges.php:1807
 msgid "No Password"
 msgstr "Без парола"
 
 #: libraries/classes/Display/ChangePassword.php:89
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:222
-#: libraries/classes/Server/Privileges.php:1781
+#: libraries/classes/Server/Privileges.php:1794
 #: templates/server/replication/master_add_slave_user.twig:49
 #: templates/server/replication/change_master.twig:18
 msgid "Password:"
@@ -7908,7 +7907,7 @@ msgid "Enter:"
 msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:100
-#: libraries/classes/Server/Privileges.php:1813
+#: libraries/classes/Server/Privileges.php:1826
 #: templates/server/replication/master_add_slave_user.twig:62
 #, fuzzy
 #| msgid "Re-type"
@@ -7923,7 +7922,7 @@ msgid "Password Hashing:"
 msgstr "Хеширане на паролата"
 
 #: libraries/classes/Display/ChangePassword.php:146
-#: libraries/classes/Server/Privileges.php:1861
+#: libraries/classes/Server/Privileges.php:1874
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -8634,8 +8633,8 @@ msgstr "Не е избран индекс!"
 
 #: libraries/classes/Index.php:714 libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Rte/RteList.php:133 libraries/classes/Rte/RteList.php:146
-#: libraries/classes/Server/Privileges.php:2702
-#: libraries/classes/Server/Privileges.php:3707
+#: libraries/classes/Server/Privileges.php:2715
+#: libraries/classes/Server/Privileges.php:3720
 #: libraries/classes/Server/UserGroups.php:95
 #: templates/server/databases/index.twig:144
 #: templates/table/tracking/main.twig:32
@@ -8899,8 +8898,8 @@ msgid "Insert"
 msgstr "Вмъкване"
 
 #: libraries/classes/Menu.php:409 libraries/classes/Menu.php:520
-#: libraries/classes/Server/Privileges.php:2700
-#: libraries/classes/Server/Privileges.php:4614 libraries/classes/Util.php:4215
+#: libraries/classes/Server/Privileges.php:2713
+#: libraries/classes/Server/Privileges.php:4627 libraries/classes/Util.php:4215
 #: libraries/classes/Util.php:4231 libraries/config.values.php:163
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -9117,26 +9116,26 @@ msgid ""
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:979
+#: libraries/classes/Navigation/NavigationTree.php:960
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1399
-#: libraries/classes/Navigation/NavigationTree.php:1431
+#: libraries/classes/Navigation/NavigationTree.php:1388
+#: libraries/classes/Navigation/NavigationTree.php:1420
 msgid "Type to filter these, Enter to search all"
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1401
-#: libraries/classes/Navigation/NavigationTree.php:1432
+#: libraries/classes/Navigation/NavigationTree.php:1390
+#: libraries/classes/Navigation/NavigationTree.php:1421
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Изпращане"
 
-#: libraries/classes/Navigation/NavigationTree.php:1458
+#: libraries/classes/Navigation/NavigationTree.php:1447
 msgid "Collapse all"
 msgstr ""
 
@@ -11820,7 +11819,7 @@ msgstr "Липсва информация за зареждане на търс�
 msgid "Error while loading the search."
 msgstr "Грешка при зареждане на търсенето."
 
-#: libraries/classes/Server/Privileges.php:264 server_privileges.php:131
+#: libraries/classes/Server/Privileges.php:264 server_privileges.php:132
 msgid "No privileges."
 msgstr "Няма права."
 
@@ -11829,82 +11828,82 @@ msgid "Includes all privileges except GRANT."
 msgstr "Дава всички права освен GRANT."
 
 #: libraries/classes/Server/Privileges.php:346
-#: libraries/classes/Server/Privileges.php:1103
-#: libraries/classes/Server/Privileges.php:1294 server_privileges.php:120
+#: libraries/classes/Server/Privileges.php:1113
+#: libraries/classes/Server/Privileges.php:1307 server_privileges.php:121
 msgid "Allows reading data."
 msgstr "Позволява четене на данни."
 
 #: libraries/classes/Server/Privileges.php:351
-#: libraries/classes/Server/Privileges.php:1113
-#: libraries/classes/Server/Privileges.php:1299 server_privileges.php:96
+#: libraries/classes/Server/Privileges.php:1123
+#: libraries/classes/Server/Privileges.php:1312 server_privileges.php:97
 msgid "Allows inserting and replacing data."
 msgstr "Позволява вмъкване и заменяне на данни."
 
 #: libraries/classes/Server/Privileges.php:356
-#: libraries/classes/Server/Privileges.php:1123
-#: libraries/classes/Server/Privileges.php:1304 server_privileges.php:130
+#: libraries/classes/Server/Privileges.php:1133
+#: libraries/classes/Server/Privileges.php:1317 server_privileges.php:131
 msgid "Allows changing data."
 msgstr "Позволява промяна на данни."
 
 #: libraries/classes/Server/Privileges.php:361
-#: libraries/classes/Server/Privileges.php:1309 server_privileges.php:85
+#: libraries/classes/Server/Privileges.php:1322 server_privileges.php:85
 msgid "Allows deleting data."
 msgstr "Позволява изтриване на данни."
 
 #: libraries/classes/Server/Privileges.php:366
-#: libraries/classes/Server/Privileges.php:1338 server_privileges.php:79
+#: libraries/classes/Server/Privileges.php:1351 server_privileges.php:79
 msgid "Allows creating new databases and tables."
 msgstr "Позволява създаване на нови БД и таблици."
 
 #: libraries/classes/Server/Privileges.php:371
-#: libraries/classes/Server/Privileges.php:1355 server_privileges.php:86
+#: libraries/classes/Server/Privileges.php:1368 server_privileges.php:87
 msgid "Allows dropping databases and tables."
 msgstr "Позволява изтриване на БД и таблици."
 
 #: libraries/classes/Server/Privileges.php:376
-#: libraries/classes/Server/Privileges.php:1454 server_privileges.php:114
+#: libraries/classes/Server/Privileges.php:1467 server_privileges.php:115
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Позволява презареждане на настройките и изчистване на буфера на сървъра."
 
 #: libraries/classes/Server/Privileges.php:381
-#: libraries/classes/Server/Privileges.php:1459 server_privileges.php:123
+#: libraries/classes/Server/Privileges.php:1472 server_privileges.php:124
 msgid "Allows shutting down the server."
 msgstr "Позволява спиране на сървъра."
 
 #: libraries/classes/Server/Privileges.php:386
-#: libraries/classes/Server/Privileges.php:1449 server_privileges.php:111
+#: libraries/classes/Server/Privileges.php:1462 server_privileges.php:112
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:391
-#: libraries/classes/Server/Privileges.php:1317 server_privileges.php:90
+#: libraries/classes/Server/Privileges.php:1330 server_privileges.php:91
 msgid "Allows importing data from and exporting data into files."
 msgstr "Позволява импортиране на данни от и експортиране на данни във файлове."
 
 #: libraries/classes/Server/Privileges.php:396
-#: libraries/classes/Server/Privileges.php:1133
-#: libraries/classes/Server/Privileges.php:1486 server_privileges.php:112
+#: libraries/classes/Server/Privileges.php:1143
+#: libraries/classes/Server/Privileges.php:1499 server_privileges.php:113
 msgid "Has no effect in this MySQL version."
 msgstr "Няма ефект в тази версия на MySQL."
 
 #: libraries/classes/Server/Privileges.php:401
-#: libraries/classes/Server/Privileges.php:1349 server_privileges.php:95
+#: libraries/classes/Server/Privileges.php:1362 server_privileges.php:96
 msgid "Allows creating and dropping indexes."
 msgstr "Позволява създаване и изтриване на индекси."
 
 #: libraries/classes/Server/Privileges.php:406
-#: libraries/classes/Server/Privileges.php:1344 server_privileges.php:77
+#: libraries/classes/Server/Privileges.php:1357 server_privileges.php:77
 msgid "Allows altering the structure of existing tables."
 msgstr "Позволява промяна на структурата на съществуващи таблици."
 
 #: libraries/classes/Server/Privileges.php:411
-#: libraries/classes/Server/Privileges.php:1464 server_privileges.php:121
+#: libraries/classes/Server/Privileges.php:1477 server_privileges.php:122
 msgid "Gives access to the complete list of databases."
 msgstr "Дава достъп до пълния списък на базите данни."
 
 #: libraries/classes/Server/Privileges.php:417
-#: libraries/classes/Server/Privileges.php:1440 server_privileges.php:125
+#: libraries/classes/Server/Privileges.php:1453 server_privileges.php:126
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11915,41 +11914,41 @@ msgstr ""
 "променливи или спиране на нишка на други потребители."
 
 #: libraries/classes/Server/Privileges.php:425
-#: libraries/classes/Server/Privileges.php:1361 server_privileges.php:82
+#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:82
 msgid "Allows creating temporary tables."
 msgstr "Позволява създаването на временни таблици."
 
 #: libraries/classes/Server/Privileges.php:430
-#: libraries/classes/Server/Privileges.php:1481 server_privileges.php:97
+#: libraries/classes/Server/Privileges.php:1494 server_privileges.php:98
 msgid "Allows locking tables for the current thread."
 msgstr "Позволява заключване на таблици за текущата нишка."
 
 #: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:1497 server_privileges.php:119
+#: libraries/classes/Server/Privileges.php:1510 server_privileges.php:120
 msgid "Needed for the replication slaves."
 msgstr "Нужно за replication slaves."
 
 #: libraries/classes/Server/Privileges.php:440
-#: libraries/classes/Server/Privileges.php:1492 server_privileges.php:117
+#: libraries/classes/Server/Privileges.php:1505 server_privileges.php:118
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Дава правото на потребител да знае къде са slaves / masters."
 
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:461
-#: libraries/classes/Server/Privileges.php:1389
-#: libraries/classes/Server/Privileges.php:1397 server_privileges.php:84
+#: libraries/classes/Server/Privileges.php:1402
+#: libraries/classes/Server/Privileges.php:1410 server_privileges.php:84
 msgid "Allows creating new views."
 msgstr "Позволява създаване на изгледи."
 
 #: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:1405 server_privileges.php:88
+#: libraries/classes/Server/Privileges.php:1418 server_privileges.php:89
 #, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
 msgstr "Позволява създаване на събития за Диспечер на събитията"
 
 #: libraries/classes/Server/Privileges.php:455
-#: libraries/classes/Server/Privileges.php:1410 server_privileges.php:129
+#: libraries/classes/Server/Privileges.php:1423 server_privileges.php:130
 #, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
@@ -11957,65 +11956,65 @@ msgstr "Позволява създаване и изтриване на три�
 
 #: libraries/classes/Server/Privileges.php:466
 #: libraries/classes/Server/Privileges.php:472
-#: libraries/classes/Server/Privileges.php:1366 server_privileges.php:122
+#: libraries/classes/Server/Privileges.php:1379 server_privileges.php:123
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Позволява изпълнение на SHOW CREATE VIEW заявки."
 
-#: libraries/classes/Server/Privileges.php:477
-#: libraries/classes/Server/Privileges.php:1371 server_privileges.php:80
+#: libraries/classes/Server/Privileges.php:487
+#: libraries/classes/Server/Privileges.php:1384 server_privileges.php:80
 msgid "Allows creating stored routines."
 msgstr "Позволява създаване на съхранени процедури."
 
-#: libraries/classes/Server/Privileges.php:482
-#: libraries/classes/Server/Privileges.php:1376 server_privileges.php:78
+#: libraries/classes/Server/Privileges.php:492
+#: libraries/classes/Server/Privileges.php:1389 server_privileges.php:78
 msgid "Allows altering and dropping stored routines."
 msgstr "Позволява промяна и изтриване на съхранени процедури."
 
-#: libraries/classes/Server/Privileges.php:487
-#: libraries/classes/Server/Privileges.php:1502 server_privileges.php:83
+#: libraries/classes/Server/Privileges.php:497
+#: libraries/classes/Server/Privileges.php:1515 server_privileges.php:83
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Позволява създаване, изтриване и преименуване на потребителски сметки."
 
-#: libraries/classes/Server/Privileges.php:492
-#: libraries/classes/Server/Privileges.php:1381 server_privileges.php:89
+#: libraries/classes/Server/Privileges.php:502
+#: libraries/classes/Server/Privileges.php:1394 server_privileges.php:90
 msgid "Allows executing stored routines."
 msgstr "Позволява изпълнение на съхранени процедури."
 
-#: libraries/classes/Server/Privileges.php:782
+#: libraries/classes/Server/Privileges.php:792
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
 msgstr "Постоянни връзки"
 
-#: libraries/classes/Server/Privileges.php:797
+#: libraries/classes/Server/Privileges.php:807
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "Постоянни връзки"
 
-#: libraries/classes/Server/Privileges.php:810
+#: libraries/classes/Server/Privileges.php:820
 msgid "Requires a valid X509 certificate."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:833
+#: libraries/classes/Server/Privileges.php:843
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:845
+#: libraries/classes/Server/Privileges.php:855
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:857
+#: libraries/classes/Server/Privileges.php:867
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:886 server_privileges.php:102
+#: libraries/classes/Server/Privileges.php:896 server_privileges.php:103
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Ограничава броя на заявките, които потребителя може да изпрати към сървъра "
 "на час."
 
-#: libraries/classes/Server/Privileges.php:894 server_privileges.php:105
+#: libraries/classes/Server/Privileges.php:904 server_privileges.php:106
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -12023,83 +12022,83 @@ msgstr ""
 "Ограничава броя на командите, които променят някоя таблица или БД, които "
 "даден потребител може да инициира за час."
 
-#: libraries/classes/Server/Privileges.php:903 server_privileges.php:99
+#: libraries/classes/Server/Privileges.php:913 server_privileges.php:100
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Ограничава броя на новите връзки, които потребителя може да отвори за час."
 
-#: libraries/classes/Server/Privileges.php:912 server_privileges.php:109
+#: libraries/classes/Server/Privileges.php:922 server_privileges.php:110
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Ограничава броя на едновременните връзки, които потребителят може да държи "
 "отворени."
 
-#: libraries/classes/Server/Privileges.php:967
-#: libraries/classes/Server/Privileges.php:3511
-#: libraries/classes/Server/Privileges.php:3513
-#: libraries/classes/Server/Privileges.php:4763
+#: libraries/classes/Server/Privileges.php:977
+#: libraries/classes/Server/Privileges.php:3524
+#: libraries/classes/Server/Privileges.php:3526
+#: libraries/classes/Server/Privileges.php:4776
 #: templates/server/privileges/edit_routine_privileges.twig:11
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
 msgstr "Процедури"
 
-#: libraries/classes/Server/Privileges.php:997
+#: libraries/classes/Server/Privileges.php:1007
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1004
+#: libraries/classes/Server/Privileges.php:1014
 #, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
 msgstr "Позволява промяна и изтриване на съхранени процедури."
 
-#: libraries/classes/Server/Privileges.php:1009
+#: libraries/classes/Server/Privileges.php:1019
 #, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
 msgstr "Позволява изпълнение на съхранени процедури."
 
-#: libraries/classes/Server/Privileges.php:1064
-#: libraries/classes/Server/Privileges.php:1250
-#: libraries/classes/Server/Privileges.php:3506
+#: libraries/classes/Server/Privileges.php:1074
+#: libraries/classes/Server/Privileges.php:1263
+#: libraries/classes/Server/Privileges.php:3519
 #: templates/server/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
 msgstr "Специфични за таблицата права"
 
-#: libraries/classes/Server/Privileges.php:1067
-#: libraries/classes/Server/Privileges.php:1260
-#: libraries/classes/Server/Privileges.php:3699
+#: libraries/classes/Server/Privileges.php:1077
+#: libraries/classes/Server/Privileges.php:1273
+#: libraries/classes/Server/Privileges.php:3712
 #: templates/server/privileges/edit_routine_privileges.twig:16
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Забележка: Имената на правата на MySQL са показани на английски"
 
-#: libraries/classes/Server/Privileges.php:1229
+#: libraries/classes/Server/Privileges.php:1242
 msgid "Administration"
 msgstr "Администрация"
 
-#: libraries/classes/Server/Privileges.php:1244
-#: libraries/classes/Server/Privileges.php:3697
+#: libraries/classes/Server/Privileges.php:1257
+#: libraries/classes/Server/Privileges.php:3710
 msgid "Global privileges"
 msgstr "Глобални права"
 
-#: libraries/classes/Server/Privileges.php:1245
+#: libraries/classes/Server/Privileges.php:1258
 #, fuzzy
 #| msgid "global"
 msgid "Global"
 msgstr "глобален"
 
-#: libraries/classes/Server/Privileges.php:1247
-#: libraries/classes/Server/Privileges.php:3500
+#: libraries/classes/Server/Privileges.php:1260
+#: libraries/classes/Server/Privileges.php:3513
 msgid "Database-specific privileges"
 msgstr "Специфични за БД права"
 
-#: libraries/classes/Server/Privileges.php:1256
-#: libraries/classes/Server/Privileges.php:1257
+#: libraries/classes/Server/Privileges.php:1269
+#: libraries/classes/Server/Privileges.php:1270
 #: libraries/classes/Server/UserGroups.php:253 templates/select_all.twig:4
 #: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
@@ -12108,46 +12107,46 @@ msgstr "Специфични за БД права"
 msgid "Check all"
 msgstr "Маркиране всички"
 
-#: libraries/classes/Server/Privileges.php:1339 server_privileges.php:81
+#: libraries/classes/Server/Privileges.php:1352 server_privileges.php:81
 msgid "Allows creating new tables."
 msgstr "Позволява създаване на нови таблици."
 
-#: libraries/classes/Server/Privileges.php:1356 server_privileges.php:87
+#: libraries/classes/Server/Privileges.php:1369 server_privileges.php:88
 msgid "Allows dropping tables."
 msgstr "Позволява изтриване на таблици."
 
-#: libraries/classes/Server/Privileges.php:1431
+#: libraries/classes/Server/Privileges.php:1444
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Позволява добавяне на потребители и права без презареждане на таблицата с "
 "правата."
 
-#: libraries/classes/Server/Privileges.php:1472 server_privileges.php:92
+#: libraries/classes/Server/Privileges.php:1485 server_privileges.php:93
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1557
-#: libraries/classes/Server/Privileges.php:1588
+#: libraries/classes/Server/Privileges.php:1570
+#: libraries/classes/Server/Privileges.php:1601
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
 msgstr "Удостоверяване чрез бисквитка"
 
-#: libraries/classes/Server/Privileges.php:1590
+#: libraries/classes/Server/Privileges.php:1603
 #, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "Смяна на паролата"
 
-#: libraries/classes/Server/Privileges.php:1624
-#: libraries/classes/Server/Privileges.php:3259
+#: libraries/classes/Server/Privileges.php:1637
+#: libraries/classes/Server/Privileges.php:3272
 msgid "Login Information"
 msgstr "Информация за логване"
 
-#: libraries/classes/Server/Privileges.php:1627
+#: libraries/classes/Server/Privileges.php:1640
 #: templates/server/replication/master_add_slave_user.twig:16
 #: templates/server/replication/change_master.twig:14
 #, fuzzy
@@ -12155,68 +12154,68 @@ msgstr "Информация за логване"
 msgid "User name:"
 msgstr "Потребителско име"
 
-#: libraries/classes/Server/Privileges.php:1632
-#: libraries/classes/Server/Privileges.php:1653
-#: libraries/classes/Server/Privileges.php:2697
-#: libraries/classes/Server/Privileges.php:3694
+#: libraries/classes/Server/Privileges.php:1645
+#: libraries/classes/Server/Privileges.php:1666
+#: libraries/classes/Server/Privileges.php:2710
+#: libraries/classes/Server/Privileges.php:3707
 #: templates/server/replication/master_add_slave_user.twig:19
 #: templates/server/replication/master_add_slave_user.twig:24
 #: templates/server/replication/change_master.twig:15
 msgid "User name"
 msgstr "Потребителско име"
 
-#: libraries/classes/Server/Privileges.php:1638
+#: libraries/classes/Server/Privileges.php:1651
 #: templates/server/replication/master_add_slave_user.twig:20
 msgid "Any user"
 msgstr "Всеки потребител"
 
-#: libraries/classes/Server/Privileges.php:1646
-#: libraries/classes/Server/Privileges.php:1797
+#: libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Server/Privileges.php:1810
 #: templates/server/privileges/privileges_summary.twig:75
 #: templates/server/privileges/privileges_summary.twig:90
 msgid "Use text field"
 msgstr "От текстовото поле"
 
-#: libraries/classes/Server/Privileges.php:1671
+#: libraries/classes/Server/Privileges.php:1684
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1680
+#: libraries/classes/Server/Privileges.php:1693
 #, fuzzy
 #| msgid "User name"
 msgid "Host name:"
 msgstr "Потребителско име"
 
-#: libraries/classes/Server/Privileges.php:1685
-#: libraries/classes/Server/Privileges.php:1765
-#: libraries/classes/Server/Privileges.php:2698
-#: libraries/classes/Server/Privileges.php:3695
+#: libraries/classes/Server/Privileges.php:1698
+#: libraries/classes/Server/Privileges.php:1778
+#: libraries/classes/Server/Privileges.php:2711
+#: libraries/classes/Server/Privileges.php:3708
 #, fuzzy
 #| msgid "Log name"
 msgid "Host name"
 msgstr "Име на дневник"
 
-#: libraries/classes/Server/Privileges.php:1725
+#: libraries/classes/Server/Privileges.php:1738
 #: templates/server/replication/master_add_slave_user.twig:34
 msgid "Any host"
 msgstr "Всеки хост"
 
-#: libraries/classes/Server/Privileges.php:1732
+#: libraries/classes/Server/Privileges.php:1745
 #: templates/server/replication/master_add_slave_user.twig:35
 msgid "Local"
 msgstr "Локален"
 
-#: libraries/classes/Server/Privileges.php:1740
+#: libraries/classes/Server/Privileges.php:1753
 msgid "This Host"
 msgstr "Този Хост"
 
-#: libraries/classes/Server/Privileges.php:1749
+#: libraries/classes/Server/Privileges.php:1762
 msgid "Use Host Table"
 msgstr "От таблица Host"
 
-#: libraries/classes/Server/Privileges.php:1757
+#: libraries/classes/Server/Privileges.php:1770
 #: templates/server/replication/master_add_slave_user.twig:21
 #: templates/server/replication/master_add_slave_user.twig:40
 #: templates/server/replication/master_add_slave_user.twig:54
@@ -12225,159 +12224,159 @@ msgstr "От таблица Host"
 msgid "Use text field:"
 msgstr "От текстовото поле"
 
-#: libraries/classes/Server/Privileges.php:1773
+#: libraries/classes/Server/Privileges.php:1786
 #: templates/server/replication/master_add_slave_user.twig:44
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1785
-#: libraries/classes/Server/Privileges.php:1802
-#: libraries/classes/Server/Privileges.php:3696
+#: libraries/classes/Server/Privileges.php:1798
+#: libraries/classes/Server/Privileges.php:1815
+#: libraries/classes/Server/Privileges.php:3709
 #: templates/server/replication/master_add_slave_user.twig:52
 #: templates/server/replication/master_add_slave_user.twig:57
 #: templates/server/replication/change_master.twig:19
 msgid "Password"
 msgstr "Парола"
 
-#: libraries/classes/Server/Privileges.php:1787
+#: libraries/classes/Server/Privileges.php:1800
 msgid "Do not change the password"
 msgstr "Да не се сменя паролата"
 
-#: libraries/classes/Server/Privileges.php:1817
+#: libraries/classes/Server/Privileges.php:1830
 #: templates/server/replication/master_add_slave_user.twig:65
 msgid "Re-type"
 msgstr "Отново"
 
-#: libraries/classes/Server/Privileges.php:1837
+#: libraries/classes/Server/Privileges.php:1850
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "Удостоверяване"
 
-#: libraries/classes/Server/Privileges.php:1846
+#: libraries/classes/Server/Privileges.php:1859
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing Method"
 msgstr "Хеширане на паролата"
 
-#: libraries/classes/Server/Privileges.php:2144
+#: libraries/classes/Server/Privileges.php:2157
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Паролата на %s беше променена успешно."
 
-#: libraries/classes/Server/Privileges.php:2192
+#: libraries/classes/Server/Privileges.php:2205
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Вие отменихте правата на %s."
 
-#: libraries/classes/Server/Privileges.php:2295
+#: libraries/classes/Server/Privileges.php:2308
 #: templates/server/privileges/add_user_fieldset.twig:7
 #, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "Нов потребител"
 
-#: libraries/classes/Server/Privileges.php:2304
+#: libraries/classes/Server/Privileges.php:2317
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
 msgstr "БД за потребителя"
 
-#: libraries/classes/Server/Privileges.php:2308
+#: libraries/classes/Server/Privileges.php:2321
 msgid "Create database with same name and grant all privileges."
 msgstr "Създаване на БД със същото име и даване на пълни права."
 
-#: libraries/classes/Server/Privileges.php:2316
+#: libraries/classes/Server/Privileges.php:2329
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Даване на всички привилегии на име с маска (username\\_%)."
 
-#: libraries/classes/Server/Privileges.php:2326
+#: libraries/classes/Server/Privileges.php:2339
 #, fuzzy, php-format
 #| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
 msgstr "Даване на пълни права над БД \"%s\"."
 
-#: libraries/classes/Server/Privileges.php:2502
-#: libraries/classes/Server/Privileges.php:2577
+#: libraries/classes/Server/Privileges.php:2515
+#: libraries/classes/Server/Privileges.php:2590
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Потребители с достъп до \"%s\""
 
-#: libraries/classes/Server/Privileges.php:2547
+#: libraries/classes/Server/Privileges.php:2560
 msgid "User has been added."
 msgstr "Потребител беше добавен."
 
-#: libraries/classes/Server/Privileges.php:2701
-#: libraries/classes/Server/Privileges.php:3705
+#: libraries/classes/Server/Privileges.php:2714
+#: libraries/classes/Server/Privileges.php:3718
 #: templates/server/privileges/privileges_summary.twig:16
 msgid "Grant"
 msgstr "Дадени"
 
-#: libraries/classes/Server/Privileges.php:2716
+#: libraries/classes/Server/Privileges.php:2729
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2735
-#: libraries/classes/Server/Privileges.php:4132
+#: libraries/classes/Server/Privileges.php:2748
+#: libraries/classes/Server/Privileges.php:4145
 msgid "No user found."
 msgstr "Няма потребител."
 
-#: libraries/classes/Server/Privileges.php:2766
-#: libraries/classes/Server/Privileges.php:3117
-#: libraries/classes/Server/Privileges.php:3787
+#: libraries/classes/Server/Privileges.php:2779
+#: libraries/classes/Server/Privileges.php:3130
+#: libraries/classes/Server/Privileges.php:3800
 msgid "Any"
 msgstr "Всеки"
 
-#: libraries/classes/Server/Privileges.php:2821
+#: libraries/classes/Server/Privileges.php:2834
 msgid "global"
 msgstr "глобален"
 
-#: libraries/classes/Server/Privileges.php:2824
+#: libraries/classes/Server/Privileges.php:2837
 msgid "database-specific"
 msgstr "специфични за БД"
 
-#: libraries/classes/Server/Privileges.php:2826
+#: libraries/classes/Server/Privileges.php:2839
 msgid "wildcard"
 msgstr "знак за заместване"
 
-#: libraries/classes/Server/Privileges.php:2832
+#: libraries/classes/Server/Privileges.php:2845
 #, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
 msgstr "специфични за БД"
 
-#: libraries/classes/Server/Privileges.php:2980
+#: libraries/classes/Server/Privileges.php:2993
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "Редакция"
 
-#: libraries/classes/Server/Privileges.php:2983
+#: libraries/classes/Server/Privileges.php:2996
 msgid "Revoke"
 msgstr "Отменяне"
 
-#: libraries/classes/Server/Privileges.php:3007
+#: libraries/classes/Server/Privileges.php:3020
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
 msgstr "Редакция сървър"
 
-#: libraries/classes/Server/Privileges.php:3231
+#: libraries/classes/Server/Privileges.php:3244
 msgid "… keep the old one."
 msgstr "… запазване на стария."
 
-#: libraries/classes/Server/Privileges.php:3232
+#: libraries/classes/Server/Privileges.php:3245
 msgid "… delete the old one from the user tables."
 msgstr "… изтриване на стария от таблицата с потребители."
 
-#: libraries/classes/Server/Privileges.php:3234
+#: libraries/classes/Server/Privileges.php:3247
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… отмяна на всички права от стария и след това изтриване."
 
-#: libraries/classes/Server/Privileges.php:3238
+#: libraries/classes/Server/Privileges.php:3251
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -12385,106 +12384,106 @@ msgstr ""
 "… изтриване на стария от таблицата с потребители и след това презареждане на "
 "правата."
 
-#: libraries/classes/Server/Privileges.php:3260
+#: libraries/classes/Server/Privileges.php:3273
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "Промяна информацията за вход / Копиране потребител"
 
-#: libraries/classes/Server/Privileges.php:3266
+#: libraries/classes/Server/Privileges.php:3279
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Създаване нов потребител със същите права и …"
 
-#: libraries/classes/Server/Privileges.php:3512
+#: libraries/classes/Server/Privileges.php:3525
 #: templates/server/privileges/edit_routine_privileges.twig:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Специфични за колоната права"
 
-#: libraries/classes/Server/Privileges.php:3703
+#: libraries/classes/Server/Privileges.php:3716
 #: libraries/classes/Server/UserGroups.php:91
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3826
-#: libraries/classes/Server/Privileges.php:5006
+#: libraries/classes/Server/Privileges.php:3839
+#: libraries/classes/Server/Privileges.php:5019
 msgid "The selected user was not found in the privilege table."
 msgstr "Избраният потребител не беше открит в таблицата с права."
 
-#: libraries/classes/Server/Privileges.php:4002
+#: libraries/classes/Server/Privileges.php:4015
 msgid "No users selected for deleting!"
 msgstr "Не за избрани потребители за изтриване!"
 
-#: libraries/classes/Server/Privileges.php:4005
+#: libraries/classes/Server/Privileges.php:4018
 msgid "Reloading the privileges"
 msgstr "Презареждане на правата"
 
-#: libraries/classes/Server/Privileges.php:4024
+#: libraries/classes/Server/Privileges.php:4037
 msgid "The selected users have been deleted successfully."
 msgstr "Избраните потребители бяха изтрити успешно."
 
-#: libraries/classes/Server/Privileges.php:4102
+#: libraries/classes/Server/Privileges.php:4115
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Вие променихте правата на %s."
 
-#: libraries/classes/Server/Privileges.php:4212
+#: libraries/classes/Server/Privileges.php:4225
 #, php-format
 msgid "Deleting %s"
 msgstr "Изтриване на %s"
 
-#: libraries/classes/Server/Privileges.php:4242
+#: libraries/classes/Server/Privileges.php:4255
 msgid "The privileges were reloaded successfully."
 msgstr "Правата бяха презаредени успешно."
 
-#: libraries/classes/Server/Privileges.php:4340
+#: libraries/classes/Server/Privileges.php:4353
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Потребител %s вече съществува!"
 
-#: libraries/classes/Server/Privileges.php:4631
+#: libraries/classes/Server/Privileges.php:4644
 #, php-format
 msgid "Privileges for %s"
 msgstr "Права на %s"
 
-#: libraries/classes/Server/Privileges.php:4713
+#: libraries/classes/Server/Privileges.php:4726
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
 msgstr "Редакция"
 
-#: libraries/classes/Server/Privileges.php:4714
+#: libraries/classes/Server/Privileges.php:4727
 #, fuzzy
 #| msgid "Users"
 msgid "User account"
 msgstr "Потребители"
 
-#: libraries/classes/Server/Privileges.php:4786
+#: libraries/classes/Server/Privileges.php:4799
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:4806
+#: libraries/classes/Server/Privileges.php:4819
 #: libraries/classes/Server/Users.php:32
 #, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "Преглед потребители"
 
-#: libraries/classes/Server/Privileges.php:4881
+#: libraries/classes/Server/Privileges.php:4894
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:4926
+#: libraries/classes/Server/Privileges.php:4939
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12502,7 +12501,7 @@ msgstr ""
 "правата които използва сървъра ако към него са направени промени на ръка. В "
 "този случай, трябва да %sпрезаредите правата%s преди да продължите."
 
-#: libraries/classes/Server/Privileges.php:4943
+#: libraries/classes/Server/Privileges.php:4956
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12521,7 +12520,7 @@ msgstr ""
 "правата които използва сървъра ако към него са направени промени на ръка. В "
 "този случай, трябва да %sпрезаредите правата%s преди да продължите."
 
-#: libraries/classes/Server/Privileges.php:5254
+#: libraries/classes/Server/Privileges.php:5267
 msgid "You have added a new user."
 msgstr "Вие добавихте нов потребител."
 
@@ -13655,17 +13654,23 @@ msgstr "Невалиден метод за удостоверяване в ко�
 msgid "View dump (schema) of databases"
 msgstr "Преглед на схемата (дъмп) на БД"
 
-#: server_privileges.php:156 server_user_groups.php:47
+#: server_privileges.php:86
+#, fuzzy
+#| msgid "Allows deleting data."
+msgid "Allows deleting historical rows."
+msgstr "Позволява изтриване на данни."
+
+#: server_privileges.php:157 server_user_groups.php:47
 msgid "No Privileges"
 msgstr "Без права"
 
-#: server_privileges.php:163
+#: server_privileges.php:164
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Не разполагате с права, за да създадете тригер"
 
-#: server_privileges.php:177
+#: server_privileges.php:178
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
