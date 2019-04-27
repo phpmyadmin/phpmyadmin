@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-08 23:42-0300\n"
+"POT-Creation-Date: 2019-04-27 18:51+0200\n"
 "PO-Revision-Date: 2018-09-12 18:39+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-8/ar/"
@@ -46,8 +46,8 @@ msgstr "ملاحظة قاعدة البيانات"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
+#: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
 msgstr "تعليقات الجدول:"
 
@@ -64,19 +64,19 @@ msgstr "تعليقات الجدول:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
+#: templates/table/index_form.twig:115
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
+#: templates/table/search/zoom_result_form.twig:34
 #: templates/table/relation/internal_relational_row.twig:24
-#: templates/table/search/table_header.twig:6
 #: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/table_header.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/table/relation/foreign_key_row.twig:122
-#: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/index_form.twig:115
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "عمود"
 
@@ -97,13 +97,13 @@ msgstr "عمود"
 #: libraries/classes/Rte/Routines.php:944
 #: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
-#: libraries/classes/Server/Privileges.php:2568
-#: templates/table/search/table_header.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/table/structure/table_structure_header.twig:6
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: libraries/classes/Server/Privileges.php:2581
 #: templates/database/structure/table_header.twig:32
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:7
+#: templates/table/structure/table_structure_header.twig:6
+#: templates/table/search/table_header.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
 msgid "Type"
 msgstr "النوع"
 
@@ -121,10 +121,10 @@ msgstr "النوع"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/table_structure_header.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
 msgid "Null"
 msgstr "خالي"
 
@@ -143,8 +143,8 @@ msgstr "خالي"
 #: libraries/classes/ReplicationGui.php:165
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/table/structure/table_structure_header.twig:10
 msgid "Default"
 msgstr "إفتراضي"
 
@@ -176,10 +176,10 @@ msgstr "التعليقات"
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1210
 #: libraries/classes/Controllers/Table/TableStructureController.php:1215
-#: templates/table/structure/check_all_table_column.twig:33
 #: templates/table/structure/display_structure.twig:61
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/check_all_table_column.twig:33
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "أساسي"
 
@@ -193,17 +193,17 @@ msgstr "أساسي"
 #: libraries/classes/Plugins/Export/ExportOdt.php:795
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2981
-#: libraries/classes/Server/Privileges.php:3001
-#: libraries/classes/Server/Privileges.php:3665
-#: libraries/classes/Server/Privileges.php:3694 prefs_manage.php:145
-#: templates/prefs_autoload.twig:12
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2994
+#: libraries/classes/Server/Privileges.php:3014
+#: libraries/classes/Server/Privileges.php:3678
+#: libraries/classes/Server/Privileges.php:3707 prefs_manage.php:145
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:12
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "No"
@@ -227,18 +227,18 @@ msgstr "لا"
 #: libraries/classes/Plugins/Export/ExportOdt.php:796
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2978
-#: libraries/classes/Server/Privileges.php:2999
-#: libraries/classes/Server/Privileges.php:3662
-#: libraries/classes/Server/Privileges.php:3694
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2991
+#: libraries/classes/Server/Privileges.php:3012
+#: libraries/classes/Server/Privileges.php:3675
+#: libraries/classes/Server/Privileges.php:3707
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143 templates/prefs_autoload.twig:11
-#: templates/privileges/privileges_summary_row.twig:4
+#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:11
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "Yes"
@@ -273,16 +273,16 @@ msgstr "جداول"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:38
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:288
-#: libraries/classes/Server/Privileges.php:1146 libraries/classes/Util.php:3043
+#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3043
 #: libraries/classes/Util.php:3053 libraries/classes/Util.php:3059
 #: libraries/classes/Util.php:3339 libraries/classes/Util.php:3995
 #: libraries/classes/Util.php:4012 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/database/designer/table_list.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/database/designer/table_list.twig:24
 msgid "Structure"
 msgstr "بناء"
 
@@ -291,14 +291,14 @@ msgstr "بناء"
 #: libraries/classes/Config/Forms/User/ExportForm.php:125
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
-#: libraries/classes/Server/Privileges.php:1145
+#: libraries/classes/Server/Privileges.php:1158
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "بيانات"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
-#: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
+#: templates/database/search/selection_form.twig:32
 msgid "Select all"
 msgstr "تحديد الكل"
 
@@ -501,28 +501,28 @@ msgstr "أضف هندسة"
 #: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1084
 #: libraries/classes/Rte/Routines.php:1710
 #: libraries/classes/Rte/Triggers.php:412
-#: libraries/classes/Server/Privileges.php:707
-#: libraries/classes/Server/Privileges.php:2217
-#: libraries/classes/Server/Privileges.php:3131
+#: libraries/classes/Server/Privileges.php:717
+#: libraries/classes/Server/Privileges.php:2230
+#: libraries/classes/Server/Privileges.php:3144
 #: libraries/classes/Server/UserGroups.php:302
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:322 templates/database/search/selection_form.twig:58
+#: server_privileges.php:323 templates/table/structure/add_column.twig:23
+#: templates/table/index_form.twig:217
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/display/import/import.twig:191 templates/header_location.twig:18
-#: templates/display/export/options_format.twig:18
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/search/selection_form.twig:99
-#: templates/server/binlog/log_selector.twig:27
+#: templates/header_location.twig:18 templates/view_create.twig:116
 #: templates/database/create_table.twig:21
-#: templates/display/results/options_block.twig:114
-#: templates/table/structure/add_column.twig:23
-#: templates/table/index_form.twig:217
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/search/selection_form.twig:99
 #: templates/privileges/privileges_summary.twig:60
 #: templates/privileges/edit_routine_privileges.twig:23
-#: templates/view_create.twig:116 view_operations.php:115
+#: templates/display/import/import.twig:191
+#: templates/database/search/selection_form.twig:58
+#: templates/display/export/options_format.twig:18
+#: templates/display/results/options_block.twig:114 view_operations.php:115
 msgid "Go"
 msgstr "إنطلق"
 
@@ -1065,9 +1065,9 @@ msgid "Please select column(s) for the index."
 msgstr "أضف s% عمود/ اعمدة إلى الفهرس ."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1894
+#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
-#: templates/table/index_form.twig:216
 msgid "Preview SQL"
 msgstr "استعراض SQL"
 
@@ -1102,12 +1102,12 @@ msgstr "إسم المستضيف فارغ!"
 msgid "The user name is empty!"
 msgstr "إسم المستخدم فارغ!"
 
-#: js/messages.php:147 libraries/classes/Server/Privileges.php:1878
+#: js/messages.php:147 libraries/classes/Server/Privileges.php:1891
 #: libraries/classes/UserPassword.php:66
 msgid "The password is empty!"
 msgstr "كلمة المرور فارغة!"
 
-#: js/messages.php:148 libraries/classes/Server/Privileges.php:1876
+#: js/messages.php:148 libraries/classes/Server/Privileges.php:1889
 #: libraries/classes/UserPassword.php:70
 msgid "The passwords aren't the same!"
 msgstr "كلمتا المرور مختلفتان!"
@@ -1326,12 +1326,13 @@ msgstr "الرجاء إضافة متغير واحد على الأقل إلى ا�
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:282
-#: libraries/config.values.php:69 templates/table/search/options_zoom.twig:12
-#: templates/columns_definitions/transformation.twig:4
-#: templates/table/search/rows_zoom.twig:20
-#: templates/display/export/options_output_compression.twig:7
+#: libraries/config.values.php:69
 #: templates/database/designer/options_panel.twig:177
+#: templates/table/search/rows_zoom.twig:20
+#: templates/table/search/options_zoom.twig:12
+#: templates/display/export/options_output_compression.twig:7
 #: templates/privileges/privileges_summary.twig:30
+#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "لا شيء"
 
@@ -1705,13 +1706,13 @@ msgstr "لم يتم العثور على معلمات!"
 
 #: js/messages.php:355
 #: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/aggregate_query_panel.twig:64
+#: templates/database/designer/where_query_panel.twig:85
+#: templates/database/designer/new_relation_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/having_query_panel.twig:118
 #: templates/server/variables/link_template.twig:5
-#: templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/where_query_panel.twig:85
-#: templates/database/designer/rename_to_panel.twig:45
 msgid "Cancel"
 msgstr "ألغاء"
 
@@ -1781,13 +1782,13 @@ msgstr "إزالة العمود"
 msgid "Adding primary key"
 msgstr "إضافة المفتاح الأساسي"
 
-#: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/new_relation_panel.twig:88
+#: js/messages.php:377 templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
 #: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/database/designer/options_panel.twig:251
 #: templates/database/designer/where_query_panel.twig:83
+#: templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/having_query_panel.twig:114
 msgid "OK"
 msgstr "موافق"
 
@@ -1849,16 +1850,16 @@ msgstr "تعريف الدالة المخزنة يجب أن تحتوي جملة R
 #: libraries/classes/Display/Results.php:4990 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
-#: libraries/classes/Server/Privileges.php:2403
-#: libraries/classes/Server/Privileges.php:2489
-#: libraries/classes/Server/Privileges.php:2846
-#: libraries/classes/Server/Privileges.php:3577
+#: libraries/classes/Server/Privileges.php:2416
+#: libraries/classes/Server/Privileges.php:2502
+#: libraries/classes/Server/Privileges.php:2859
+#: libraries/classes/Server/Privileges.php:3590
 #: libraries/classes/Server/Status/Monitor.php:328
 #: libraries/classes/Util.php:3346 libraries/classes/Util.php:3347
 #: libraries/classes/Util.php:3984 libraries/classes/Util.php:3999
 #: libraries/classes/Util.php:4016 prefs_manage.php:294
-#: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
+#: templates/display/export/option_header.twig:3
 msgid "Export"
 msgstr "تصدير"
 
@@ -1910,8 +1911,8 @@ msgstr "إظهار صندوق الإستعلام"
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1079 libraries/classes/Util.php:3344
 #: libraries/classes/Util.php:3345 setup/frames/index.inc.php:157
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
 msgid "Edit"
@@ -1926,8 +1927,8 @@ msgstr "تعديل"
 #: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
 #: templates/console/bookmark_content.twig:7
-#: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
+#: templates/display/export/template_loading.twig:22
 msgid "Delete"
 msgstr "حذف"
 
@@ -2099,11 +2100,11 @@ msgstr "لم يتم تحديد أي تبعيات!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
-#: templates/server/variables/link_template.twig:2
-#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:189
+#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/structure/partition_definition_form.twig:12
+#: templates/server/variables/link_template.twig:2
+#: templates/table/relation/common_form.twig:189
 msgid "Save"
 msgstr "حفظ"
 
@@ -2391,9 +2392,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "انقر على السهم المنسدل <br /> 0 لتبديل مستوى رؤية العمود."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
+#: templates/table/browse_foreigners/show_all.twig:4
 #: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
-#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "عرض الكل"
 
@@ -2447,8 +2448,8 @@ msgstr "حدد قاعدة البيانات أولا"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4884
 #: libraries/classes/Util.php:3877
-#: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
+#: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
 msgstr "طباعة"
 
@@ -3097,9 +3098,9 @@ msgstr "اسم المفتاح"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/engines/engines.twig:5
 #: templates/server/plugins/section.twig:10
 #: templates/server/collations/charsets.twig:6
-#: templates/server/engines/engines.twig:5
 msgid "Description"
 msgstr "الوصف"
 
@@ -3147,18 +3148,18 @@ msgstr "لا"
 #: libraries/classes/CentralColumns.php:734 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
 #: libraries/classes/Rte/RteList.php:117
-#: libraries/classes/Server/Privileges.php:2571
-#: libraries/classes/Server/Privileges.php:3557
+#: libraries/classes/Server/Privileges.php:2584
+#: libraries/classes/Server/Privileges.php:3570
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/variables/variable_table_head.twig:3
 #: templates/server/databases/table_header.twig:37
-#: templates/table/tracking/report_table.twig:8
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/privileges/privileges_summary.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tracked_tables.twig:16
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/table/tracking/report_table.twig:8
+#: templates/privileges/privileges_summary.twig:22
+#: templates/server/variables/variable_table_head.twig:3
 #: templates/database/tracking/untracked_tables.twig:10
 msgid "Action"
 msgstr "العملية"
@@ -3191,14 +3192,14 @@ msgstr "الطول/القيمة"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
-#: templates/table/search/table_header.twig:8
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/row_stats_table.twig:30
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/table_structure_header.twig:7
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:33
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/server/collations/charsets.twig:5
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/search/table_header.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr ""
 
@@ -4066,8 +4067,8 @@ msgstr "حفظ في الخادم"
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "خزن على الملفات الموجودة"
 
@@ -4279,7 +4280,7 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1276
-#: libraries/classes/Server/Privileges.php:4552 libraries/classes/Util.php:3980
+#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3980
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "قاعدة بيانات"
@@ -5858,18 +5859,18 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:153
 #: libraries/classes/Plugins/Export/ExportOdt.php:200
 #: libraries/classes/Plugins/Export/ExportTexytext.php:137
-#: libraries/classes/Server/Privileges.php:1171
-#: libraries/classes/Server/Privileges.php:3149
-#: libraries/classes/Server/Privileges.php:3344
-#: libraries/classes/Server/Privileges.php:3346
-#: libraries/classes/Server/Privileges.php:4552
+#: libraries/classes/Server/Privileges.php:1184
+#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3359
+#: libraries/classes/Server/Privileges.php:4565
 #: libraries/classes/Server/Status/Processes.php:89
-#: templates/table/relation/internal_relational_row.twig:10
+#: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/server/databases/table_header.twig:8
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/table/relation/common_form.twig:32
+#: templates/console/bookmark_content.twig:7
 #: templates/table/relation/foreign_key_row.twig:100
+#: templates/table/relation/internal_relational_row.twig:10
+#: templates/table/relation/common_form.twig:32
 msgid "Database"
 msgstr "قاعدة البيانات"
 
@@ -5898,18 +5899,18 @@ msgstr ""
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Plugins/Export/ExportXml.php:500
 #: libraries/classes/Rte/RteList.php:102 libraries/classes/Rte/Triggers.php:347
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1174
-#: libraries/classes/Server/Privileges.php:3167
-#: libraries/classes/Server/Privileges.php:3350
-#: libraries/classes/Server/Privileges.php:3352
-#: libraries/classes/Server/Privileges.php:4566
-#: templates/table/relation/internal_relational_row.twig:17
-#: templates/table/relation/common_form.twig:33
-#: templates/table/relation/foreign_key_row.twig:110
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1187
+#: libraries/classes/Server/Privileges.php:3180
+#: libraries/classes/Server/Privileges.php:3363
+#: libraries/classes/Server/Privileges.php:3365
+#: libraries/classes/Server/Privileges.php:4579
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tracked_tables.twig:11
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/table/relation/internal_relational_row.twig:17
 #: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/common_form.twig:33
 msgid "Table"
 msgstr "الجدول"
 
@@ -6536,10 +6537,10 @@ msgstr[5] "تم حذف قواعد البيانات %s بنجاح."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
-#: templates/table/structure/display_partitions.twig:28
-#: templates/table/structure/row_stats_table.twig:41
 #: templates/database/structure/table_header.twig:26
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/actions_in_table_structure.twig:114
+#: templates/table/structure/row_stats_table.twig:41
 msgid "Rows"
 msgstr "صفوف"
 
@@ -6555,8 +6556,8 @@ msgstr "فهارس"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/server/databases/databases_footer.twig:7
 #: templates/table/structure/display_table_stats.twig:45
+#: templates/server/databases/databases_footer.twig:7
 msgid "Total"
 msgstr "مجموع كلي"
 
@@ -6691,23 +6692,23 @@ msgstr "تغيير"
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1610
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3340
 #: libraries/classes/Util.php:3341
-#: templates/server/databases/databases_footer.twig:55
-#: templates/table/structure/check_all_table_column.twig:24
-#: templates/table/structure/display_structure.twig:189
 #: templates/database/structure/check_all_tables.twig:16
+#: templates/table/structure/display_structure.twig:189
+#: templates/server/databases/databases_footer.twig:55
 #: templates/table/relation/foreign_key_row.twig:30
+#: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
 msgstr "سقّط"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1211
 #: libraries/classes/Controllers/Table/TableStructureController.php:1216
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/check_all_table_column.twig:47
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/check_all_table_column.twig:47
+#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "فهرست"
 
@@ -6777,63 +6778,63 @@ msgstr "إستغلال محتمل"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
-#: libraries/classes/Database/Designer/Common.php:572
+#: libraries/classes/Database/Designer/Common.php:573
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "Error: relationship already exists."
 msgstr "اسم المستخدم %s موجود مسبقاً!"
 
-#: libraries/classes/Database/Designer/Common.php:618
+#: libraries/classes/Database/Designer/Common.php:619
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "تمت التعديلات"
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:625
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "لا يمكن قراءة الملف"
 
-#: libraries/classes/Database/Designer/Common.php:629
+#: libraries/classes/Database/Designer/Common.php:630
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:634
+#: libraries/classes/Database/Designer/Common.php:635
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:656
+#: libraries/classes/Database/Designer/Common.php:657
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationship has been added."
 msgstr "العلاقات الداخلية"
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:663
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be added!"
 msgstr "لا يمكن قراءة الملف"
 
-#: libraries/classes/Database/Designer/Common.php:700
+#: libraries/classes/Database/Designer/Common.php:701
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "تمت التعديلات"
 
-#: libraries/classes/Database/Designer/Common.php:706
+#: libraries/classes/Database/Designer/Common.php:707
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "لا يمكن قراءة الملف"
 
-#: libraries/classes/Database/Designer/Common.php:733
+#: libraries/classes/Database/Designer/Common.php:734
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "لا يمكن قراءة الملف"
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationship has been removed."
@@ -7024,7 +7025,7 @@ msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:863
-#: libraries/classes/Server/Privileges.php:1676
+#: libraries/classes/Server/Privileges.php:1689
 msgid "No Password"
 msgstr "لا كلمة سر"
 
@@ -7032,7 +7033,7 @@ msgstr "لا كلمة سر"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:183
 #: libraries/classes/ReplicationGui.php:432
 #: libraries/classes/ReplicationGui.php:854
-#: libraries/classes/Server/Privileges.php:1663
+#: libraries/classes/Server/Privileges.php:1676
 msgid "Password:"
 msgstr "كلمة المرور:"
 
@@ -7042,7 +7043,7 @@ msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:87
 #: libraries/classes/ReplicationGui.php:874
-#: libraries/classes/Server/Privileges.php:1695
+#: libraries/classes/Server/Privileges.php:1708
 #, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
@@ -7056,7 +7057,7 @@ msgid "Password Hashing:"
 msgstr "كلمة المرور:"
 
 #: libraries/classes/Display/ChangePassword.php:131
-#: libraries/classes/Server/Privileges.php:1739
+#: libraries/classes/Server/Privileges.php:1752
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -7174,10 +7175,11 @@ msgstr "نصوص كاملة"
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4690 libraries/classes/Util.php:4707
-#: libraries/config.values.php:71 templates/table/search/options.twig:54
+#: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Descending"
 msgstr "تنازليا"
 
@@ -7186,10 +7188,11 @@ msgstr "تنازليا"
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4685 libraries/classes/Util.php:4702
-#: libraries/config.values.php:70 templates/table/search/options.twig:54
+#: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Ascending"
 msgstr "تصاعديا"
 
@@ -7231,21 +7234,21 @@ msgstr "استغرق الاستعلام %01.4f ثانية."
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
-#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
+#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "مع المحدد:"
 
 #: libraries/classes/Display/Results.php:4686
 #: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Server/Privileges.php:1179
-#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:1192
+#: libraries/classes/Server/Privileges.php:1193
 #: libraries/classes/Server/UserGroups.php:248
-#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
-#: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
+#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
+#: templates/select_all.twig:5
 msgid "Check all"
 msgstr "تحقق من الكل"
 
@@ -7742,11 +7745,11 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946
-#: templates/table/structure/row_stats_table.twig:19
-#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: libraries/classes/Rte/Routines.php:946 templates/console/display.twig:7
 #: templates/console/display.twig:140
+#: templates/table/structure/row_stats_table.twig:19
 #: templates/display/results/options_block.twig:10
+#: templates/table/search/options.twig:1
 msgid "Options"
 msgstr "خيارات"
 
@@ -7810,11 +7813,11 @@ msgstr ""
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/table/structure/display_partitions.twig:31
+#: templates/database/structure/table_header.twig:48
 #: templates/columns_definitions/partitions.twig:85
+#: templates/table/structure/display_partitions.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/database/structure/table_header.twig:48
 msgid "Comment"
 msgstr "تعليق"
 
@@ -7865,8 +7868,9 @@ msgstr "ثنائي - لاتحرره"
 msgid "The directory you set for upload work cannot be reached."
 msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل."
 
-#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1501
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "أو"
 
@@ -7922,13 +7926,13 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1627
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/server/variables/variable_table_head.twig:5
-#: templates/database/designer/having_query_panel.twig:100
-#: templates/table/search/table_header.twig:10
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/table_header.twig:10
+#: templates/server/variables/variable_table_head.twig:5
 msgid "Value"
 msgstr "القيمة"
 
@@ -7979,8 +7983,8 @@ msgstr "“%s”"
 #: libraries/classes/Util.php:3333 libraries/classes/Util.php:3334
 #: libraries/classes/Util.php:4011 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/table/structure/check_all_table_column.twig:8
 #: templates/database/search/results.twig:34
+#: templates/table/structure/check_all_table_column.twig:8
 msgid "Browse"
 msgstr "استعراض"
 
@@ -8007,8 +8011,8 @@ msgid "Insert"
 msgstr "إدخال"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
-#: libraries/classes/Server/Privileges.php:2569
-#: libraries/classes/Server/Privileges.php:4440 libraries/classes/Util.php:4002
+#: libraries/classes/Server/Privileges.php:2582
+#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4002
 #: libraries/classes/Util.php:4018 libraries/config.values.php:107
 #: templates/server/sub_page_header.twig:2
 #: templates/privileges/privileges_summary.twig:15
@@ -8085,8 +8089,8 @@ msgstr "سجل ثنائي"
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3988
 #: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
+#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "إستنساخ"
 
@@ -8234,8 +8238,8 @@ msgstr "عرض :"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tracked_tables.twig:17
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "عرض"
 
@@ -9060,8 +9064,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
 msgstr "الصيغة:"
 
@@ -9796,8 +9800,8 @@ msgstr "جدول المحتويات"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/structure/table_structure_header.twig:14
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/table_structure_header.twig:14
 msgid "Extra"
 msgstr "إضافي"
 
@@ -10489,8 +10493,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:389
-#: templates/database/search/selection_form.twig:35
 #: templates/display/export/select_options.twig:8
+#: templates/database/search/selection_form.twig:35
 msgid "Unselect all"
 msgstr "إلغاء تحديد الكل"
 
@@ -10506,7 +10510,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:791
-#: libraries/classes/Server/Privileges.php:1501
+#: libraries/classes/Server/Privileges.php:1514
 #, fuzzy
 #| msgid "User name"
 msgid "User name:"
@@ -10515,19 +10519,19 @@ msgstr "اسم المستخدم"
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:795
 #: libraries/classes/ReplicationGui.php:808
-#: libraries/classes/Server/Privileges.php:1506
-#: libraries/classes/Server/Privileges.php:1528
-#: libraries/classes/Server/Privileges.php:2566
-#: libraries/classes/Server/Privileges.php:3544
+#: libraries/classes/Server/Privileges.php:1519
+#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:2579
+#: libraries/classes/Server/Privileges.php:3557
 msgid "User name"
 msgstr "اسم المستخدم"
 
 #: libraries/classes/ReplicationGui.php:437
 #: libraries/classes/ReplicationGui.php:858
 #: libraries/classes/ReplicationGui.php:870
-#: libraries/classes/Server/Privileges.php:1667
-#: libraries/classes/Server/Privileges.php:1684
-#: libraries/classes/Server/Privileges.php:3546
+#: libraries/classes/Server/Privileges.php:1680
+#: libraries/classes/Server/Privileges.php:1697
+#: libraries/classes/Server/Privileges.php:3559
 msgid "Password"
 msgstr "كلمة السر"
 
@@ -10565,48 +10569,48 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:747
-#: libraries/classes/Server/Privileges.php:1602
+#: libraries/classes/Server/Privileges.php:1615
 msgid "Any host"
 msgstr "أي مزود"
 
 #: libraries/classes/ReplicationGui.php:752
-#: libraries/classes/Server/Privileges.php:1610
+#: libraries/classes/Server/Privileges.php:1623
 msgid "Local"
 msgstr "محلي"
 
 #: libraries/classes/ReplicationGui.php:759
-#: libraries/classes/Server/Privileges.php:1619
+#: libraries/classes/Server/Privileges.php:1632
 msgid "This Host"
 msgstr "هذا المضيف"
 
 #: libraries/classes/ReplicationGui.php:799
-#: libraries/classes/Server/Privileges.php:1512
+#: libraries/classes/Server/Privileges.php:1525
 msgid "Any user"
 msgstr "أي مستخدم"
 
 #: libraries/classes/ReplicationGui.php:804
 #: libraries/classes/ReplicationGui.php:837
 #: libraries/classes/ReplicationGui.php:866
-#: libraries/classes/Server/Privileges.php:1638
+#: libraries/classes/Server/Privileges.php:1651
 #, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
 msgstr "استخدم حقل نص"
 
 #: libraries/classes/ReplicationGui.php:831
-#: libraries/classes/Server/Privileges.php:1629
+#: libraries/classes/Server/Privileges.php:1642
 msgid "Use Host Table"
 msgstr "استخدم الجدول المضيف"
 
 #: libraries/classes/ReplicationGui.php:847
-#: libraries/classes/Server/Privileges.php:1655
+#: libraries/classes/Server/Privileges.php:1668
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:878
-#: libraries/classes/Server/Privileges.php:1699
+#: libraries/classes/Server/Privileges.php:1712
 msgid "Re-type"
 msgstr "أعد كتابة"
 
@@ -11224,7 +11228,7 @@ msgstr "معلومات مفقودة لحذف البحث."
 msgid "Error while loading the search."
 msgstr "حدث خطأ أثناء تحميل البحث."
 
-#: libraries/classes/Server/Privileges.php:222 server_privileges.php:119
+#: libraries/classes/Server/Privileges.php:222 server_privileges.php:120
 msgid "No privileges."
 msgstr "لا صلاحيات."
 
@@ -11233,81 +11237,81 @@ msgid "Includes all privileges except GRANT."
 msgstr "يتضمن كل الصلاحيات عدا GRANT."
 
 #: libraries/classes/Server/Privileges.php:304
-#: libraries/classes/Server/Privileges.php:1038
-#: libraries/classes/Server/Privileges.php:1212 server_privileges.php:108
+#: libraries/classes/Server/Privileges.php:1048
+#: libraries/classes/Server/Privileges.php:1225 server_privileges.php:109
 msgid "Allows reading data."
 msgstr "يسمح بقراءة البيانات."
 
 #: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:1043
-#: libraries/classes/Server/Privileges.php:1213 server_privileges.php:84
+#: libraries/classes/Server/Privileges.php:1053
+#: libraries/classes/Server/Privileges.php:1226 server_privileges.php:85
 msgid "Allows inserting and replacing data."
 msgstr "يسمح بإضافة واستبدال البيانات."
 
 #: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:1048
-#: libraries/classes/Server/Privileges.php:1214 server_privileges.php:118
+#: libraries/classes/Server/Privileges.php:1058
+#: libraries/classes/Server/Privileges.php:1227 server_privileges.php:119
 msgid "Allows changing data."
 msgstr "يسمح بتعديل البيانات."
 
 #: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:1215 server_privileges.php:73
+#: libraries/classes/Server/Privileges.php:1228 server_privileges.php:73
 msgid "Allows deleting data."
 msgstr "يسمح بحذف البيانات."
 
 #: libraries/classes/Server/Privileges.php:324
-#: libraries/classes/Server/Privileges.php:1241 server_privileges.php:67
+#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:67
 msgid "Allows creating new databases and tables."
 msgstr "يسمح بإنشاء قواعد بيانات وجداول جديدة."
 
 #: libraries/classes/Server/Privileges.php:329
-#: libraries/classes/Server/Privileges.php:1253 server_privileges.php:74
+#: libraries/classes/Server/Privileges.php:1266 server_privileges.php:75
 msgid "Allows dropping databases and tables."
 msgstr "يسمح بحذف قواعد البيانات."
 
 #: libraries/classes/Server/Privileges.php:334
-#: libraries/classes/Server/Privileges.php:1337 server_privileges.php:102
+#: libraries/classes/Server/Privileges.php:1350 server_privileges.php:103
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "يسمح بإعادة تحميل إعدادات الخادم وتفريغ كاش الخادم."
 
 #: libraries/classes/Server/Privileges.php:339
-#: libraries/classes/Server/Privileges.php:1341 server_privileges.php:111
+#: libraries/classes/Server/Privileges.php:1354 server_privileges.php:112
 msgid "Allows shutting down the server."
 msgstr "يسمح بإيقاف عمل الخادم."
 
 #: libraries/classes/Server/Privileges.php:344
-#: libraries/classes/Server/Privileges.php:1333 server_privileges.php:99
+#: libraries/classes/Server/Privileges.php:1346 server_privileges.php:100
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:349
-#: libraries/classes/Server/Privileges.php:1221 server_privileges.php:78
+#: libraries/classes/Server/Privileges.php:1234 server_privileges.php:79
 msgid "Allows importing data from and exporting data into files."
 msgstr "يسمح باستيراد وتصدير البيانات من وإلى الملفّات."
 
 #: libraries/classes/Server/Privileges.php:354
-#: libraries/classes/Server/Privileges.php:1053
-#: libraries/classes/Server/Privileges.php:1365 server_privileges.php:100
+#: libraries/classes/Server/Privileges.php:1063
+#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:101
 msgid "Has no effect in this MySQL version."
 msgstr "ليس له أي تأثير في نسخة MySQL الحالية."
 
 #: libraries/classes/Server/Privileges.php:359
-#: libraries/classes/Server/Privileges.php:1249 server_privileges.php:83
+#: libraries/classes/Server/Privileges.php:1262 server_privileges.php:84
 msgid "Allows creating and dropping indexes."
 msgstr "يسمح بإنشاء وحذف الفهارس."
 
 #: libraries/classes/Server/Privileges.php:364
-#: libraries/classes/Server/Privileges.php:1247 server_privileges.php:65
+#: libraries/classes/Server/Privileges.php:1260 server_privileges.php:65
 msgid "Allows altering the structure of existing tables."
 msgstr "يسمح بتعديل بناء الجداول الموجودة مسبقا."
 
 #: libraries/classes/Server/Privileges.php:369
-#: libraries/classes/Server/Privileges.php:1345 server_privileges.php:109
+#: libraries/classes/Server/Privileges.php:1358 server_privileges.php:110
 msgid "Gives access to the complete list of databases."
 msgstr "يسمح بالوصول لقائمة أسماء جميع قواعد البيانات."
 
 #: libraries/classes/Server/Privileges.php:375
-#: libraries/classes/Server/Privileges.php:1325 server_privileges.php:113
+#: libraries/classes/Server/Privileges.php:1338 server_privileges.php:114
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11317,41 +11321,41 @@ msgstr ""
 "كضبط الإعدادات العامة other users."
 
 #: libraries/classes/Server/Privileges.php:383
-#: libraries/classes/Server/Privileges.php:1259 server_privileges.php:70
+#: libraries/classes/Server/Privileges.php:1272 server_privileges.php:70
 msgid "Allows creating temporary tables."
 msgstr "يسمح بإنشاء جداول مؤقتة."
 
 #: libraries/classes/Server/Privileges.php:388
-#: libraries/classes/Server/Privileges.php:1361 server_privileges.php:85
+#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:86
 msgid "Allows locking tables for the current thread."
 msgstr "يسمح بقفل الجداول للعملية الحالية."
 
 #: libraries/classes/Server/Privileges.php:393
-#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
+#: libraries/classes/Server/Privileges.php:1387 server_privileges.php:108
 msgid "Needed for the replication slaves."
 msgstr "مطلوب لتوابع لاستنساخ."
 
 #: libraries/classes/Server/Privileges.php:398
-#: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
+#: libraries/classes/Server/Privileges.php:1383 server_privileges.php:106
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "يعطي الحق للمستخدم بالسؤال عن مكان وجود slaves/masters."
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
-#: libraries/classes/Server/Privileges.php:1279
-#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:72
+#: libraries/classes/Server/Privileges.php:1292
+#: libraries/classes/Server/Privileges.php:1299 server_privileges.php:72
 msgid "Allows creating new views."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:408
-#: libraries/classes/Server/Privileges.php:1293 server_privileges.php:76
+#: libraries/classes/Server/Privileges.php:1306 server_privileges.php:77
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Allows to set up events for the event scheduler."
 msgstr "يسمح بقفل الجداول للعملية الحالية."
 
 #: libraries/classes/Server/Privileges.php:413
-#: libraries/classes/Server/Privileges.php:1297 server_privileges.php:117
+#: libraries/classes/Server/Privileges.php:1310 server_privileges.php:118
 #, fuzzy
 #| msgid "Allows creating and dropping indexes."
 msgid "Allows creating and dropping triggers."
@@ -11359,63 +11363,63 @@ msgstr "يسمح بإنشاء وحذف الفهارس."
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
-#: libraries/classes/Server/Privileges.php:1263 server_privileges.php:110
+#: libraries/classes/Server/Privileges.php:1276 server_privileges.php:111
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:68
+#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:1280 server_privileges.php:68
 msgid "Allows creating stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:440
-#: libraries/classes/Server/Privileges.php:1271 server_privileges.php:66
+#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:1284 server_privileges.php:66
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:445
-#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:71
+#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:1391 server_privileges.php:71
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:1273 server_privileges.php:77
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:78
 msgid "Allows executing stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:728
+#: libraries/classes/Server/Privileges.php:738
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
 msgstr "الإتصالات الثابتة"
 
-#: libraries/classes/Server/Privileges.php:744
+#: libraries/classes/Server/Privileges.php:754
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "الإتصالات الثابتة"
 
-#: libraries/classes/Server/Privileges.php:758
+#: libraries/classes/Server/Privileges.php:768
 msgid "Requires a valid X509 certificate."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:783
+#: libraries/classes/Server/Privileges.php:793
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:796
+#: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:809
+#: libraries/classes/Server/Privileges.php:819
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
+#: libraries/classes/Server/Privileges.php:849 server_privileges.php:91
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "يحد عدد الاستعلامات التي يستطيع المستخدم إرسالها إلى الخادم بكل ساعة."
 
-#: libraries/classes/Server/Privileges.php:847 server_privileges.php:93
+#: libraries/classes/Server/Privileges.php:857 server_privileges.php:94
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -11423,391 +11427,391 @@ msgstr ""
 "يحد عدد الأوامر التي ينفذها المستخدم بكل ساعة، والتي تغير أي جدول أو قاعدة "
 "بيانات."
 
-#: libraries/classes/Server/Privileges.php:856 server_privileges.php:87
+#: libraries/classes/Server/Privileges.php:866 server_privileges.php:88
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "يحد من عدد الاتصالات الجديدة التي يمكن للمستخدم فتحها بكل ساعة."
 
-#: libraries/classes/Server/Privileges.php:865 server_privileges.php:97
+#: libraries/classes/Server/Privileges.php:875 server_privileges.php:98
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:910
-#: libraries/classes/Server/Privileges.php:3356
-#: libraries/classes/Server/Privileges.php:3358
-#: libraries/classes/Server/Privileges.php:4581
+#: libraries/classes/Server/Privileges.php:920
+#: libraries/classes/Server/Privileges.php:3369
+#: libraries/classes/Server/Privileges.php:3371
+#: libraries/classes/Server/Privileges.php:4594
 #: templates/privileges/edit_routine_privileges.twig:11
 #, fuzzy
 #| msgid "Add new field"
 msgid "Routine"
 msgstr "إضافة حقل جديد"
 
-#: libraries/classes/Server/Privileges.php:942
+#: libraries/classes/Server/Privileges.php:952
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:949
+#: libraries/classes/Server/Privileges.php:959
 #, fuzzy
 #| msgid "Allows creating and dropping indexes."
 msgid "Allows altering and dropping this routine."
 msgstr "يسمح بإنشاء وحذف الفهارس."
 
-#: libraries/classes/Server/Privileges.php:954
+#: libraries/classes/Server/Privileges.php:964
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows executing this routine."
 msgstr "يسمح بحذف البيانات."
 
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1173
-#: libraries/classes/Server/Privileges.php:3351
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1186
+#: libraries/classes/Server/Privileges.php:3364
 #: templates/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
 msgstr "صلاحيات خاصة بالجدول"
 
-#: libraries/classes/Server/Privileges.php:1007
-#: libraries/classes/Server/Privileges.php:1183
-#: libraries/classes/Server/Privileges.php:3549
+#: libraries/classes/Server/Privileges.php:1017
+#: libraries/classes/Server/Privileges.php:1196
+#: libraries/classes/Server/Privileges.php:3562
 #: templates/privileges/edit_routine_privileges.twig:16
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "ملاحظه: اسم الامتياز لـMySQL يظهر ويقرأ باللغة الإنجليزية فقط"
 
-#: libraries/classes/Server/Privileges.php:1147
+#: libraries/classes/Server/Privileges.php:1160
 msgid "Administration"
 msgstr "إدارة"
 
-#: libraries/classes/Server/Privileges.php:1167
-#: libraries/classes/Server/Privileges.php:3547
+#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:3560
 msgid "Global privileges"
 msgstr "صلاحيات عامة"
 
-#: libraries/classes/Server/Privileges.php:1168
+#: libraries/classes/Server/Privileges.php:1181
 #, fuzzy
 #| msgid "global"
 msgid "Global"
 msgstr "عام"
 
-#: libraries/classes/Server/Privileges.php:1170
-#: libraries/classes/Server/Privileges.php:3345
+#: libraries/classes/Server/Privileges.php:1183
+#: libraries/classes/Server/Privileges.php:3358
 msgid "Database-specific privileges"
 msgstr "صلاحيات خاصة بقاعدة البيانات"
 
-#: libraries/classes/Server/Privileges.php:1242 server_privileges.php:69
+#: libraries/classes/Server/Privileges.php:1255 server_privileges.php:69
 msgid "Allows creating new tables."
 msgstr "يسمح بإنشاء جداول جديدة."
 
-#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:75
+#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:76
 msgid "Allows dropping tables."
 msgstr "يسمح بحذف الجداول."
 
-#: libraries/classes/Server/Privileges.php:1317
+#: libraries/classes/Server/Privileges.php:1330
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "يسمح بإضافة المستخدمين والصلاحيات دون إعادة قراءة جداول الصلاحيات."
 
-#: libraries/classes/Server/Privileges.php:1353 server_privileges.php:80
+#: libraries/classes/Server/Privileges.php:1366 server_privileges.php:81
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1431
-#: libraries/classes/Server/Privileges.php:1462
+#: libraries/classes/Server/Privileges.php:1444
+#: libraries/classes/Server/Privileges.php:1475
 #, fuzzy
 #| msgid "Authentication"
 msgid "Native MySQL authentication"
 msgstr "المصادقة"
 
-#: libraries/classes/Server/Privileges.php:1464
+#: libraries/classes/Server/Privileges.php:1477
 #, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "تغيير كلمة السر"
 
-#: libraries/classes/Server/Privileges.php:1498
-#: libraries/classes/Server/Privileges.php:3113
+#: libraries/classes/Server/Privileges.php:1511
+#: libraries/classes/Server/Privileges.php:3126
 msgid "Login Information"
 msgstr "بيانات الدخول"
 
-#: libraries/classes/Server/Privileges.php:1521
-#: libraries/classes/Server/Privileges.php:1679
-#: templates/privileges/add_privileges_table.twig:7
+#: libraries/classes/Server/Privileges.php:1534
+#: libraries/classes/Server/Privileges.php:1692
 #: templates/privileges/add_privileges_routine.twig:7
+#: templates/privileges/add_privileges_table.twig:7
 msgid "Use text field"
 msgstr "استخدم حقل نص"
 
-#: libraries/classes/Server/Privileges.php:1547
+#: libraries/classes/Server/Privileges.php:1560
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1556
+#: libraries/classes/Server/Privileges.php:1569
 #, fuzzy
 #| msgid "User name"
 msgid "Host name:"
 msgstr "اسم المستخدم"
 
-#: libraries/classes/Server/Privileges.php:1561
-#: libraries/classes/Server/Privileges.php:1646
-#: libraries/classes/Server/Privileges.php:2567
-#: libraries/classes/Server/Privileges.php:3545
+#: libraries/classes/Server/Privileges.php:1574
+#: libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Server/Privileges.php:2580
+#: libraries/classes/Server/Privileges.php:3558
 #, fuzzy
 #| msgid "Log name"
 msgid "Host name"
 msgstr "اسم السجل"
 
-#: libraries/classes/Server/Privileges.php:1669
+#: libraries/classes/Server/Privileges.php:1682
 msgid "Do not change the password"
 msgstr "لا تغير كلمة السر"
 
-#: libraries/classes/Server/Privileges.php:1719
+#: libraries/classes/Server/Privileges.php:1732
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "المصادقة"
 
-#: libraries/classes/Server/Privileges.php:1726
+#: libraries/classes/Server/Privileges.php:1739
 #, fuzzy
 #| msgid "Password:"
 msgid "Password Hashing Method"
 msgstr "كلمة المرور:"
 
-#: libraries/classes/Server/Privileges.php:2016
+#: libraries/classes/Server/Privileges.php:2029
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "تم تغيير كلمة المرور لـ %s بنجاح."
 
-#: libraries/classes/Server/Privileges.php:2060
+#: libraries/classes/Server/Privileges.php:2073
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "لقد أبطلت الامتيازات لـ %s."
 
-#: libraries/classes/Server/Privileges.php:2160
+#: libraries/classes/Server/Privileges.php:2173
 #: templates/privileges/add_user_fieldset.twig:7
 #, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "إضافة مستخدم"
 
-#: libraries/classes/Server/Privileges.php:2169
+#: libraries/classes/Server/Privileges.php:2182
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database for user account"
 msgstr "خيارات تصدير قاعدة بيانات"
 
-#: libraries/classes/Server/Privileges.php:2175
+#: libraries/classes/Server/Privileges.php:2188
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2186
+#: libraries/classes/Server/Privileges.php:2199
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2199
+#: libraries/classes/Server/Privileges.php:2212
 #, fuzzy, php-format
 #| msgid "Check privileges for database \"%s\"."
 msgid "Grant all privileges on database %s."
 msgstr "تحقق من الصلاحيات لقاعدة بيانات \"%s\"."
 
-#: libraries/classes/Server/Privileges.php:2373
-#: libraries/classes/Server/Privileges.php:2447
+#: libraries/classes/Server/Privileges.php:2386
+#: libraries/classes/Server/Privileges.php:2460
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "المستخدمين ذوي صلاحية الوصول إلى \"%s\""
 
-#: libraries/classes/Server/Privileges.php:2417
+#: libraries/classes/Server/Privileges.php:2430
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "User has been added."
 msgstr "لقد تم حذف الصف"
 
-#: libraries/classes/Server/Privileges.php:2570
-#: libraries/classes/Server/Privileges.php:3555
+#: libraries/classes/Server/Privileges.php:2583
+#: libraries/classes/Server/Privileges.php:3568
 #: templates/privileges/privileges_summary.twig:16
 msgid "Grant"
 msgstr "منح"
 
-#: libraries/classes/Server/Privileges.php:2585
+#: libraries/classes/Server/Privileges.php:2598
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2604
-#: libraries/classes/Server/Privileges.php:3978
+#: libraries/classes/Server/Privileges.php:2617
+#: libraries/classes/Server/Privileges.php:3991
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "المستخدم(ون) لم يتم إيجادهم."
 
-#: libraries/classes/Server/Privileges.php:2635
-#: libraries/classes/Server/Privileges.php:2971
-#: libraries/classes/Server/Privileges.php:3637
+#: libraries/classes/Server/Privileges.php:2648
+#: libraries/classes/Server/Privileges.php:2984
+#: libraries/classes/Server/Privileges.php:3650
 msgid "Any"
 msgstr "أي"
 
-#: libraries/classes/Server/Privileges.php:2686
+#: libraries/classes/Server/Privileges.php:2699
 msgid "global"
 msgstr "عام"
 
-#: libraries/classes/Server/Privileges.php:2689
+#: libraries/classes/Server/Privileges.php:2702
 msgid "database-specific"
 msgstr "خاص بقاعدة بيانات"
 
-#: libraries/classes/Server/Privileges.php:2691
+#: libraries/classes/Server/Privileges.php:2704
 msgid "wildcard"
 msgstr "حرف شامل"
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2710
 #, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
 msgstr "خاص بقاعدة بيانات"
 
-#: libraries/classes/Server/Privileges.php:2840
+#: libraries/classes/Server/Privileges.php:2853
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "تحرير الامتيازات"
 
-#: libraries/classes/Server/Privileges.php:2843
+#: libraries/classes/Server/Privileges.php:2856
 msgid "Revoke"
 msgstr "إبطال"
 
-#: libraries/classes/Server/Privileges.php:2867
+#: libraries/classes/Server/Privileges.php:2880
 #, fuzzy
 #| msgid "Edit next row"
 msgid "Edit user group"
 msgstr "عدل الصف التالي"
 
-#: libraries/classes/Server/Privileges.php:3085
+#: libraries/classes/Server/Privileges.php:3098
 msgid "… keep the old one."
 msgstr "… أبق القديم."
 
-#: libraries/classes/Server/Privileges.php:3086
+#: libraries/classes/Server/Privileges.php:3099
 msgid "… delete the old one from the user tables."
 msgstr "… احذف القديم من جداول المستخدمين."
 
-#: libraries/classes/Server/Privileges.php:3088
+#: libraries/classes/Server/Privileges.php:3101
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… استعد كل الصلاحيات الفعالة من القديم واحذهم بعد ذلك."
 
-#: libraries/classes/Server/Privileges.php:3092
+#: libraries/classes/Server/Privileges.php:3105
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "… احذف القديم من جداول المستخدمين وأعد قراءة الصلاحيات بعد ذلك."
 
-#: libraries/classes/Server/Privileges.php:3114
+#: libraries/classes/Server/Privileges.php:3127
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "غير معلومات الدخول / انسخ اسم مستخدم"
 
-#: libraries/classes/Server/Privileges.php:3120
+#: libraries/classes/Server/Privileges.php:3133
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "أضف اسم مستخدم جديد بنفس الصلاحيات و…"
 
-#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3370
 #: templates/privileges/edit_routine_privileges.twig:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "صلاحيات خاصة بالحقل"
 
-#: libraries/classes/Server/Privileges.php:3553
+#: libraries/classes/Server/Privileges.php:3566
 #: libraries/classes/Server/UserGroups.php:89
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3676
-#: libraries/classes/Server/Privileges.php:4811
+#: libraries/classes/Server/Privileges.php:3689
+#: libraries/classes/Server/Privileges.php:4824
 msgid "The selected user was not found in the privilege table."
 msgstr "المستخدم المحدد غير موجود في جدول الصلاحيات."
 
-#: libraries/classes/Server/Privileges.php:3854
+#: libraries/classes/Server/Privileges.php:3867
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3857
+#: libraries/classes/Server/Privileges.php:3870
 msgid "Reloading the privileges"
 msgstr "إعادة تحميل الأمتيازات"
 
-#: libraries/classes/Server/Privileges.php:3876
+#: libraries/classes/Server/Privileges.php:3889
 msgid "The selected users have been deleted successfully."
 msgstr "تم حذف المستخدمين المحددين بنجاح."
 
-#: libraries/classes/Server/Privileges.php:3951
+#: libraries/classes/Server/Privileges.php:3964
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "لقد جددت وحدثت الإمتيازات لـ %s."
 
-#: libraries/classes/Server/Privileges.php:4056
+#: libraries/classes/Server/Privileges.php:4069
 #, php-format
 msgid "Deleting %s"
 msgstr "قيد حذف %s"
 
-#: libraries/classes/Server/Privileges.php:4086
+#: libraries/classes/Server/Privileges.php:4099
 msgid "The privileges were reloaded successfully."
 msgstr "تم إعادة قراءة الصلاحيات بنجاح."
 
-#: libraries/classes/Server/Privileges.php:4177
+#: libraries/classes/Server/Privileges.php:4190
 #, php-format
 msgid "The user %s already exists!"
 msgstr "اسم المستخدم %s موجود مسبقاً!"
 
-#: libraries/classes/Server/Privileges.php:4454
+#: libraries/classes/Server/Privileges.php:4467
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "الإمتيازات"
 
-#: libraries/classes/Server/Privileges.php:4463
+#: libraries/classes/Server/Privileges.php:4476
 #: libraries/classes/Server/Status/Processes.php:81
 #: libraries/classes/Server/UserGroups.php:49
 msgid "User"
 msgstr "المستخدم"
 
-#: libraries/classes/Server/Privileges.php:4531
+#: libraries/classes/Server/Privileges.php:4544
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
 msgstr "تحرير الامتيازات"
 
-#: libraries/classes/Server/Privileges.php:4532
+#: libraries/classes/Server/Privileges.php:4545
 #, fuzzy
 #| msgid "Users"
 msgid "User account"
 msgstr "المستخدمون"
 
-#: libraries/classes/Server/Privileges.php:4606
+#: libraries/classes/Server/Privileges.php:4619
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:4626
+#: libraries/classes/Server/Privileges.php:4639
 #: libraries/classes/Server/Users.php:30
 #, fuzzy
 #| msgid "User overview"
 msgid "User accounts overview"
 msgstr "معلومات المستخدم"
 
-#: libraries/classes/Server/Privileges.php:4701
+#: libraries/classes/Server/Privileges.php:4714
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:4743
+#: libraries/classes/Server/Privileges.php:4756
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -11825,7 +11829,7 @@ msgstr ""
 "ما تم التعديل عليها يدويا. في هذه الحالة، عليك %s بإعادة قراءة الصلاحيات %s "
 "قبل أن تكمل."
 
-#: libraries/classes/Server/Privileges.php:4760
+#: libraries/classes/Server/Privileges.php:4773
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -11844,7 +11848,7 @@ msgstr ""
 "ما تم التعديل عليها يدويا. في هذه الحالة، عليك %s بإعادة قراءة الصلاحيات %s "
 "قبل أن تكمل."
 
-#: libraries/classes/Server/Privileges.php:5045
+#: libraries/classes/Server/Privileges.php:5058
 msgid "You have added a new user."
 msgstr "لقد أضفت مستخدم جديد."
 
@@ -14053,18 +14057,24 @@ msgstr "اسلوب مصادقة غير صحيح في الإعدادات:"
 msgid "View dump (schema) of databases"
 msgstr ""
 
-#: server_privileges.php:144 server_replication.php:38
+#: server_privileges.php:74
+#, fuzzy
+#| msgid "Allows deleting data."
+msgid "Allows deleting historical rows."
+msgstr "يسمح بحذف البيانات."
+
+#: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
 msgid "No Privileges"
 msgstr "امتياز غير موجود"
 
-#: server_privileges.php:151
+#: server_privileges.php:152
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have privileges to manipulate with the users!"
 msgstr "ليس لديك الحقوق الكافية بأن تكون هنا الآن!"
 
-#: server_privileges.php:165
+#: server_privileges.php:166
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -14364,18 +14374,230 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "الوصف"
 
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"ملاحظة: تمكين إحصائيات قواعد البيانات هنا قد يسبب تدفق بيانات ثقيل بين خادم "
-"الويب وخادم MySQL."
+#: templates/table/structure/add_column.twig:9
+#, fuzzy, php-format
+#| msgid "Add into comments"
+msgid "Add %s column(s)"
+msgstr "أضف إلى الملاحظات"
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-msgid "Enable statistics"
-msgstr "مكن الإحصائيات"
+#: templates/table/structure/add_column.twig:14
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "في بداية الجدول"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, fuzzy, php-format
+#| msgid "After %s"
+msgid "after %s"
+msgstr "بعد %s"
+
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "الأسطر:"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "عدد الأسطر:"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
+
+#: templates/database/designer/delete_relation_panel.twig:21
+#, fuzzy
+#| msgid "Delete tracking"
+msgid "Delete relationship"
+msgstr "حذف بيانات تتبع التغيرات"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+#, fuzzy
+#| msgid "Relation view"
+msgid "Relationship operator"
+msgstr "عرض الروابط"
+
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/having_query_panel.twig:90
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "تصدير"
+
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/having_query_panel.twig:102
+#, fuzzy
+#| msgid "in query"
+msgid "subquery"
+msgstr "في الاستعلام"
+
+#: templates/database/designer/options_panel.twig:84
+#: templates/database/designer/rename_to_panel.twig:22
+#, fuzzy
+#| msgid "Rename table to"
+msgid "Rename to"
+msgstr "تغيير اسم جدول إلى"
+
+#: templates/database/designer/options_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:30
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "اسم المستخدم"
+
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/aggregate_query_panel.twig:22
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "تكوين"
+
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/where_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/table/search/table_header.twig:9
+msgid "Operator"
+msgstr "عامل التشغيل"
+
+#: templates/database/designer/database_tables.twig:31
+#, fuzzy
+#| msgid "Add columns"
+msgid "Show/hide columns"
+msgstr "إضافة أعمدة"
+
+#: templates/database/designer/database_tables.twig:39
+#, fuzzy
+#| msgid "Table structure"
+msgid "See table structure"
+msgstr "بنية الجدول"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s جدول (جداول)"
+msgstr[1] "%s جدول (جداول)"
+msgstr[2] "%s جدول (جداول)"
+msgstr[3] "%s جدول (جداول)"
+msgstr[4] "%s جدول (جداول)"
+msgstr[5] "%s جدول (جداول)"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "المجموع"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "اسم الفهرس&nbsp;:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+"\"الأساسي\" <b>يجب</b> يجب أن يكون الاسم <b>وأيضاً فقط</b> المفتاح الأساسي!"
+
+#: templates/table/index_form.twig:34
+#, fuzzy
+#| msgid "Index name:"
+msgid "Index choice:"
+msgstr "اسم الفهرس&nbsp;:"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Table options"
+msgid "Advanced Options"
+msgstr "خيارات الجدول"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "نوع الفهرس&nbsp;:"
+
+#: templates/table/index_form.twig:77
+#, fuzzy
+#| msgid "User"
+msgid "Parser:"
+msgstr "المستخدم"
+
+#: templates/table/index_form.twig:93
+#, fuzzy
+#| msgid "Comment"
+msgid "Comment:"
+msgstr "تعليق"
+
+#: templates/table/index_form.twig:118
+#: templates/database/structure/table_header.twig:38
+msgid "Size"
+msgstr "الحجم"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder"
+msgstr "إسحب لإعادة الترتيب"
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+#| msgid "Add a new User"
+msgid "Add to Favorites"
+msgstr "أضف مستخدم جديد"
+
+#: templates/database/designer/query_details.twig:6
+#, fuzzy
+#| msgid "Table options"
+msgid "Active options"
+msgstr "خيارات الجدول"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page titles"
+msgid "Page to open"
+msgstr "عناوين الصفحة"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page titles"
+msgid "Page to delete"
+msgstr "عناوين الصفحة"
+
+#: templates/database/structure/show_create.twig:2
+#, fuzzy
+#| msgid "Show Full Queries"
+msgid "Showing create queries"
+msgstr "اعرض الاستعلامات كاملة"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "المساحة المستخدمة"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "فعال"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, fuzzy, php-format
@@ -14396,1123 +14618,6 @@ msgstr "تعطيل التتبع لـ %s.%s"
 #: templates/table/tracking/activate_deactivate.twig:13
 msgid "Deactivate now"
 msgstr "تعطيل الآن"
-
-#: templates/table/structure/check_all_table_column.twig:76
-#: templates/table/structure/actions_in_table_structure.twig:131
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add to central columns"
-msgstr "أعمدة مربع النص لـ CHAR"
-
-#: templates/table/structure/check_all_table_column.twig:83
-#: templates/table/structure/actions_in_table_structure.twig:127
-#, fuzzy
-#| msgid "Remove chart"
-msgid "Remove from central columns"
-msgstr "حذف الرسم البياني"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
-msgid "Authentication code:"
-msgstr "المصادقة"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "عدد الأسطر:"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Import files"
-msgid "Save to selected page"
-msgstr "استورد الملفات"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a new index"
-msgid "Create a page and save to it"
-msgstr "تصميم فهرسه جديده"
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "User name"
-msgid "New page name"
-msgstr "اسم المستخدم"
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "بحث في قاعدة البيانات"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "الكلمات أو القيم المطلوب البحث عنها (wildcard: \"%\"):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "ابحث:"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "داخل الجداول:"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "داخل العمود:"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "عرض الخرج كنص"
-
-#: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
-msgid "Remove selected user accounts"
-msgstr "احذف المستخدمين المحددين"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "استرجع كل الصلاحيات الفعالة من المستخدمين ثم احذفهم بعد ذلك."
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "احذف قواعد البيانات التي لها نفس أسماء المستخدمين."
-
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete relationship"
-msgstr "حذف بيانات تتبع التغيرات"
-
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/where_query_panel.twig:30
-msgid "Operator"
-msgstr "عامل التشغيل"
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#: templates/database/designer/where_query_panel.twig:59
-#, fuzzy
-#| msgid "Export"
-msgid "Except"
-msgstr "تصدير"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#: templates/database/designer/where_query_panel.twig:71
-#, fuzzy
-#| msgid "in query"
-msgid "subquery"
-msgstr "في الاستعلام"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr ""
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "مؤلف"
-
-#: templates/server/plugins/section.twig:23
-#, fuzzy
-#| msgid "Disabled"
-msgid "disabled"
-msgstr "معطل"
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "إخفاء/عرض الكل"
-
-#: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
-msgid "Hide/Show tables with no relationship"
-msgstr "إخفاء / عرض الجداول الغير مرتبطة بعلاقة"
-
-#: templates/database/designer/table_list.twig:55
-msgid "Number of tables:"
-msgstr "عدد الجداول:"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "إضغط للإختيار"
-
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "يتم التحميل إلى الخادم الحالي"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "الاستيراد إلى قاعدة البيانات \"%s\""
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "الاستيراد إلى الجدول \"%s\""
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "ملف للاستيراد:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "يمكن للملف أن يكون مضغوط (%s) أو غير مضغوط."
-
-#: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"يجب على اسم الملف المضغوط أن ينتهي بـ <b>.[format].[compression]</b>. مثال: "
-"<b>.sql.zip</b>"
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "التحميلات إلى هذا المخدّم غير مرخّصة لها."
-
-#: templates/display/import/import.twig:97
-#: templates/display/export/options_output_charset.twig:3
-msgid "Character set of the file:"
-msgstr "ترميز الأحرف للملف:"
-
-#: templates/display/import/import.twig:124
-#, fuzzy
-#| msgid "Partial Import:"
-msgid "Partial import:"
-msgstr "مستوردةٌ جزئية :"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"انتهت مُهلة عمليّة الإستراد السابقة, بعد إعادة الإرسال سنستمرُّ من الموقف %d."
-
-#: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"تسمح بقطع عمليّة استراد معيّنة في حالة كَشفَ الرّمز أنّها قريبة من المهلة الزّمنيّة "
-"لـ PHP.\n"
-"<i>(يمكن أن تكون هذه هي طريقة جيّدة لإستراد ملفات كبيرة, في كلّ الأحوال يمكنها "
-"كسر العمليّات.)</i>"
-
-#: templates/display/import/import.twig:144
-#, fuzzy
-#| msgid "Number of rows to skip, starting from the first row:"
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "عدد الصّفوف الّتي يجب تجاوزها, ابتداءًا من الصّف الأوّل :"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "خيارات اخري :"
-
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr "إعدادات الصيغة المخصصة:"
-
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"اسحب للأسفل لتعيين خيارات الصيغة المختارة و لتجاهل إعدادات الصيغ الأخرى."
-
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr "تحويل ترميز النص:"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "قيمة الجلسة"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-msgctxt "Number"
-msgid "#"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "تاريخ"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "اسم المستخدم"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s جدول (جداول)"
-msgstr[1] "%s جدول (جداول)"
-msgstr[2] "%s جدول (جداول)"
-msgstr[3] "%s جدول (جداول)"
-msgstr[4] "%s جدول (جداول)"
-msgstr[5] "%s جدول (جداول)"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "المجموع"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "حدود المصادر"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "ملاحظة: تغيير هذه الخيارات للرقم 0 )صفر( يلغي الحد."
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr ""
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Change password"
-msgid "Enable two-factor authentication"
-msgstr "تغيير كلمة السر"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "متغيرات وإعدادات الخادم"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "محركات التخزين"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "مجموعات المحارف وCollations"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "إحصائيات قواعد البيانات"
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:192
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partitions"
-msgstr "تقسيم %s"
-
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "لم يتم تعريف الفهرس!"
-
-#: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partitioned by:"
-msgstr "مقسم"
-
-#: templates/table/structure/display_partitions.twig:16
-#, fuzzy
-#| msgid "partitioned"
-msgid "Sub partitioned by:"
-msgstr "مقسم"
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partition"
-msgstr "تقسيم %s"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "الضغط"
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "طول الصف"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "طول الصف"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partition table"
-msgstr "مقسم"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Remove partitioning"
-msgid "Edit partitioning"
-msgstr "إزالة التقسيم"
-
-#: templates/table/tracking/create_version.twig:11
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
-msgid "Create version %1$s of %2$s"
-msgstr "انشئ إصدار %s  لـ %s.s%s"
-
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s"
-msgstr "إنشاء إصدار"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "تتبع تقارير تعريف البيانات:"
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "تتبع تقارير التلاعب بالبيانات:"
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "إنشاء إصدار"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, fuzzy, php-format
-#| msgid "After %s"
-msgid "after %s"
-msgstr "بعد %s"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start row"
-msgid "Start row:"
-msgstr "صف البداية"
-
-#: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Add columns"
-msgid "Show/hide columns"
-msgstr "إضافة أعمدة"
-
-#: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Table structure"
-msgid "See table structure"
-msgstr "بنية الجدول"
-
-#: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
-msgid "Referenced by %s."
-msgstr "إختيار المفتاح المرجع"
-
-#: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
-msgid "Is a foreign key."
-msgstr "إختيار المفتاح الغريب"
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove chart"
-msgid "Pick from Central Columns"
-msgstr "حذف الرسم البياني"
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "لايوجد قواعد بيانات"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "عناوين الصفحة"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page titles"
-msgid "Page to delete"
-msgstr "عناوين الصفحة"
-
-#: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select page"
-msgstr "اختر الجداول"
-
-#: templates/table/structure/row_stats_table.twig:2
-#, fuzzy
-#| msgid "Row Statistics"
-msgid "Row statistics"
-msgstr "إحصائيات"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "ديناميكي"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "مقسم"
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "طول الصف"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "مقاس الصف"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:76
-#: templates/database/structure/table_header.twig:53
-msgid "Creation"
-msgstr "الإنشاء"
-
-#: templates/table/structure/row_stats_table.twig:83
-#: templates/database/structure/table_header.twig:58
-msgid "Last update"
-msgstr "آخر تحديث"
-
-#: templates/table/structure/row_stats_table.twig:90
-#: templates/database/structure/table_header.twig:63
-msgid "Last check"
-msgstr "آخر فحص"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "لا شيء"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "اسم الجدول"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-#, fuzzy
-#| msgid "And"
-msgid "Add"
-msgstr "و"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Column names"
-msgid "column(s)"
-msgstr "اسم العمود"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Creation"
-msgid "Collation:"
-msgstr "الإنشاء"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
-msgid "Connection:"
-msgstr "اتصالات"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr ""
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "إختر عمود ."
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "أقصى عدد الصفوف للرسم"
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"الملف الذي يتم تحميله على الأرجح ذو حجم أكبر من الحد الأقصى المسموح به أو "
-"هذا خطأ معروف في متصفحات (سفاري، جوجل كروم، أرورا. إلخ)."
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr ""
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "الملف قيد المعالجة, يرجى الانتظار."
-
-#: templates/display/import/javascript.twig:36
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Uploading your import file…"
-msgstr "هيئة الملفات المستوردة"
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr "يتم تحميل الملف. تفاصيل التحميل غير متوفرة. يرجى الانتظار.."
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "تصدير قواعد المعطيات من الخادم الحالي"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "تصدير الجداول من قاعدة المعطيات \"%s\""
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "تصدير الأسطر من الجدول \"%s\""
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partition by:"
-msgstr "مقسم"
-
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
-msgid "Expression or column list"
-msgstr "القيم للعمود %s"
-
-#: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partitions:"
-msgstr "تقسيم %s"
-
-#: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartition by:"
-msgstr "مقسم"
-
-#: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartitions:"
-msgstr "مقسم"
-
-#: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
-msgid "Values"
-msgstr "القيمة"
-
-#: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartition"
-msgstr "مقسم"
-
-#: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
-msgid "Engine"
-msgstr "محركات"
-
-#: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data Dictionary"
-msgid "Data directory"
-msgstr "قاموس البيانات"
-
-#: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Index type:"
-msgid "Index directory"
-msgstr "نوع الفهرس&nbsp;:"
-
-#: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Affected rows:"
-msgid "Max rows"
-msgstr "الصفوف المتأثرة:"
-
-#: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
-msgid "Min rows"
-msgstr "استعراض"
-
-#: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table Search"
-msgid "Table space"
-msgstr "بحث في الجدول"
-
-#: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "Users"
-msgid "Node group"
-msgstr "المستخدمون"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Label column"
-msgstr "إضافه/حذف عمود حقل"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-#, fuzzy
-#| msgid "- none -"
-msgid "-- None --"
-msgstr "- لا شيء -"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Total"
-msgid "Spatial column"
-msgstr "مجموع كلي"
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Add a new User"
-msgid "Add to Favorites"
-msgstr "أضف مستخدم جديد"
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "إحفظ على الخادم في الدليل <b>%s</b>"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-#, fuzzy
-#| msgid "in query"
-msgid "Requery"
-msgstr "في الاستعلام"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"إذا كان نوع الحقل هو \"enum\" أو \"set\", الرجاء إدخال القيم باستخدام هذا "
-"التنسيق: 'a','b','c'…<br />إذا كنت تحتاج بأن تضع علامة الشرطه المائلة لليسار "
-"(\"\\\") أو علامة الاقتباس الفردية (\"'\") فيما بين تلك القيم، اجعلها كشرطة "
-"مائلة لليسار (مثلا '\\\\xyz' أو 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"للقيم الافتراضية، الرجاء أدخل قيمة مفردة، دون علامات هروب أو تنصيص، باستخدام "
-"التنسيق: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Move column"
-msgstr "إضافه/حذف عمود حقل"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-#, fuzzy
-#| msgid "Available transformations"
-msgid "List of available transformations and their options"
-msgstr "التحويلات المتوفرة"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation options"
-msgstr "تحويل المتصفح"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"رجاء أدخل القيم لخيارات التحويل باستخدام هذا التنسيق: 'a', 100, b,'c'…<br /"
-">إذا احتجت أن تضع شرطة مائلة (\"\\\") أو علامة تنصيص (\"'\") بين هذه القيم، "
-"اسبقها بشرطة مائلة )على سبيل المثال '\\\\xyz' أو 'a\\'b'(."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Input transformation options"
-msgstr "خيارات التحويل"
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export type"
-msgid "Export templates:"
-msgstr "نوع التصدير"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "قالب جديد:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "اسم القالب"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "تكوين"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "قالب موجود مسبقا:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "قالب:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "تحديث / ترقيه"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings"
-msgstr "حذف بيانات تتبع التغيرات"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
-#, fuzzy
-#| msgid "Show tables"
-msgid "Show/Hide tables list"
-msgstr "عرض الجداول"
-
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
-#, fuzzy
-#| msgid "User name"
-msgid "New page"
-msgstr "اسم المستخدم"
-
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Delete pages"
-msgstr "اختر الجداول"
-
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-#: templates/database/create_table.twig:7
-msgid "Create table"
-msgstr "أنشئ الجدول"
-
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-#: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-#| msgid "Create version"
-msgid "Create relationship"
-msgstr "إنشاء إصدار"
-
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr "مساعدة"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-#, fuzzy
-#| msgid "Traditional Chinese"
-msgid "Toggle relationship lines"
-msgstr "الصينية التقليدية"
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
-#, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "تصدير"
-
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-#, fuzzy
-#| msgid "Submit Query"
-msgid "Build Query"
-msgstr "إرسال الاستعلام"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
-msgstr "نقل القائمة"
-
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
-#, fuzzy
-#| msgid "Partial texts"
-msgid "Pin text"
-msgstr "نصوص جزئيّة"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:12
-#, fuzzy
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "عمل \"استعلام بواسطة المثال\" (بدل: \"%\")"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "عمل \"استعلام بواسطة المثال\" (بدل: \"%\")"
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "اختيار الأعمدة (واحد على الأقل):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "أضف شروط البحث (الفقرة \"where\" ):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "رقم السجلات لكل صفحة"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "ترتيب العرض:"
 
 #: templates/console/display.twig:7
 #, fuzzy
@@ -15537,6 +14642,23 @@ msgstr "تنفيذ"
 #| msgid "Execute"
 msgid "Press Enter to execute query"
 msgstr "تنفيذ"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Collapse"
+msgstr ""
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Expand"
+msgstr ""
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
+#, fuzzy
+#| msgid "in query"
+msgid "Requery"
+msgstr "في الاستعلام"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #, fuzzy
@@ -15625,6 +14747,15 @@ msgstr "أظهر اللون"
 msgid "Hide trace"
 msgstr "إخفاء الفهارس"
 
+#: templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+#, fuzzy
+#| msgid "And"
+msgid "Add"
+msgstr "و"
+
 #: templates/console/display.twig:112
 #, fuzzy
 #| msgid "Table Search"
@@ -15661,238 +14792,67 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "المساحة المستخدمة"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "فعال"
-
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
-msgid "Jump to database '%s'"
-msgstr "قفز لقاعدة البيانات"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "تحقق من الصلاحيات لقاعدة بيانات \"%s\"."
-
-#: templates/server/databases/table_row.twig:62
-#, fuzzy
-#| msgid "Check Privileges"
-msgid "Check privileges"
-msgstr "تحقق من الصلاحيات"
-
-#: templates/database/structure/show_create.twig:2
-#, fuzzy
-#| msgid "Show Full Queries"
-msgid "Showing create queries"
-msgstr "اعرض الاستعلامات كاملة"
-
-#: templates/privileges/add_privileges_table.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following table:"
-msgstr "إضافة الصلاحيات على الجدول التالي"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s مطابق في <strong>%2$s</strong>"
-msgstr[1] "%1$s مطابق في <strong>%2$s</strong>"
-msgstr[2] "%1$sمطابق في <strong>%2$s</strong>"
-msgstr[3] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
-msgstr[4] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
-msgstr[5] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[1] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[2] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[3] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[4] "<b>المجموع:</b> <i>%s</i>تطابق"
-msgstr[5] "<b>المجموع:</b> <i>%s</i>تطابق"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:138
-#: templates/view_create.twig:13
-#, fuzzy
-#| msgid "Print view"
-msgid "Edit view"
-msgstr "عرض نسخة للطباعة"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "قواعد البيانات :"
-
-#: templates/prefs_twofactor_confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Change password"
-msgid "Disable two-factor authentication"
-msgstr "تغيير كلمة السر"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr ""
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "قيد الإستعمال"
-
-#: templates/privileges/add_privileges_database.twig:1
-#, fuzzy
-#| msgid "Add privileges on the following database"
-msgid "Add privileges on the following database(s):"
-msgstr "إضافة الصلاحيات على قاعدة البيانات التالية"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "التتبع نشط."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "التتبع غير نشط."
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "الأسطر:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr ""
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "عدد العواميد"
-
-#: templates/table/relation/common_form.twig:6
-#, fuzzy
-#| msgid "Foreign key constraint"
-msgid "Foreign key constraints"
-msgstr "قيود المفتاح الغريب"
-
-#: templates/table/relation/common_form.twig:10
-#, fuzzy
-#| msgid "Action"
-msgid "Actions"
-msgstr "العملية"
-
-#: templates/table/relation/common_form.twig:11
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint properties"
-msgstr "القيود للجدول"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr "قيود المفتاح الغريب"
-
-#: templates/table/relation/common_form.twig:89
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "أضف قيود"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "العلاقات الداخلية"
-
-#: templates/table/relation/common_form.twig:110
-msgid "Internal relation"
-msgstr "العلاقات الداخلية"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:172
-#, fuzzy
-#| msgid "Choose column to display"
-msgid "Choose column to display:"
-msgstr "اختر الحقل لإظهاره"
-
-#: templates/table/structure/table_structure_row.twig:34
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr "لا شيء"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "تم حذف العمود %s."
-
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
 msgstr "اختر قالب"
 
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "بحث واستبدال - المعاينة"
+
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Linestring"
+msgid "Original string"
+msgstr "منحنى"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Related Links"
+msgid "Replaced string"
+msgstr "روابط ذات صلة"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replicated"
+msgid "Replace"
+msgstr "مستنسخة"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "لا شيء"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
 msgstr ""
 
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "قالب اسم الملف:"
+#: templates/database/structure/table_header.twig:27
+#, fuzzy
+#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]"
 
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "استخدم هذه الإعدادات مجدداً عند تصدير قاعدة البيانات في المستقبل"
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "الإنشاء"
+
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "آخر تحديث"
+
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "آخر فحص"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "معايير بحث إضافية"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -15940,129 +14900,92 @@ msgstr ""
 msgid "Make consistent with central list"
 msgstr "أعمدة مربع النص لـ CHAR"
 
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Foreign key constraint"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "قيود المفتاح الغريب"
-
-#: templates/table/relation/foreign_key_row.twig:38
+#: templates/table/structure/display_structure.twig:138
+#: templates/view_create.twig:13
 #, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint name"
-msgstr "القيود للجدول"
+#| msgid "Print view"
+msgid "Edit view"
+msgstr "عرض نسخة للطباعة"
 
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
+#: templates/table/structure/display_structure.twig:192
+#: templates/table/structure/display_partitions.twig:4
 #, fuzzy
-#| msgid "Add column"
-msgid "+ Add column"
-msgstr "إضافة عمود"
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "تقسيم %s"
 
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"إذا كان نوع الحقل هو \"enum\" أو \"set\", الرجاء إدخال القيم باستخدام هذا "
+"التنسيق: 'a','b','c'…<br />إذا كنت تحتاج بأن تضع علامة الشرطه المائلة لليسار "
+"(\"\\\") أو علامة الاقتباس الفردية (\"'\") فيما بين تلك القيم، اجعلها كشرطة "
+"مائلة لليسار (مثلا '\\\\xyz' أو 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"للقيم الافتراضية، الرجاء أدخل قيمة مفردة، دون علامات هروب أو تنصيص، باستخدام "
+"التنسيق: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
 msgstr ""
 
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "إحفظ الخرج في ملف"
+#: templates/columns_definitions/table_fields_definitions.twig:65
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Move column"
+msgstr "إضافه/حذف عمود حقل"
 
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+#, fuzzy
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "التحويلات المتوفرة"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "تحويل المتصفح"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+#, fuzzy
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
 msgstr ""
+"رجاء أدخل القيم لخيارات التحويل باستخدام هذا التنسيق: 'a', 100, b,'c'…<br /"
+">إذا احتجت أن تضع شرطة مائلة (\"\\\") أو علامة تنصيص (\"'\") بين هذه القيم، "
+"اسبقها بشرطة مائلة )على سبيل المثال '\\\\xyz' أو 'a\\'b'(."
 
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
+#: templates/columns_definitions/table_fields_definitions.twig:93
 #, fuzzy
-#| msgid "None"
-msgctxt "None privileges"
-msgid "None"
-msgstr "لا شيء"
-
-#: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
-msgid "Relation view"
-msgstr "عرض العلاقات"
-
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "مفتاح العلائقيّة"
-
-#: templates/display/results/options_block.twig:30
-msgid "Display column for relationships"
-msgstr "عرض عمود للعلاقات"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "أظهر المحتويات الثنائية"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "عرض محتويات BLOB"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "أخفي محتويات المستعرض"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "نصّ معروف جيّداً"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "ثنائي معروف جيّداً"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "اختر الجداول"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "database name"
-msgid "New database name"
-msgstr "اسم قاعدة البيانات"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "اختر الجداول"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "User name"
-msgid "New table name"
-msgstr "اسم المستخدم"
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select two columns"
-msgid "Select column:"
-msgstr "إختر عمودين"
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Copy column name"
-msgid "New column name"
-msgstr "أنسخ اسم العمود"
-
-#: templates/database/designer/aggregate_query_panel.twig:22
-#: templates/database/designer/options_panel.twig:99
-#, fuzzy
-#| msgid "Create"
-msgid "Aggregate"
-msgstr "تكوين"
+#| msgid "Transformation options"
+msgid "Input transformation options"
+msgstr "خيارات التحويل"
 
 #: templates/table/chart/tbl_chart.twig:15
 #, fuzzy
@@ -16175,182 +15098,286 @@ msgstr "القيم للعمود %s"
 msgid "Save chart as image"
 msgstr "حفظ كملف"
 
-#: templates/table/structure/add_column.twig:9
-#, fuzzy, php-format
-#| msgid "Add into comments"
-msgid "Add %s column(s)"
-msgstr "أضف إلى الملاحظات"
-
-#: templates/table/structure/add_column.twig:14
+#: templates/columns_definitions/partitions.twig:17
 #, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "في بداية الجدول"
+#| msgid "partitioned"
+msgid "Partition by:"
+msgstr "مقسم"
 
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "صدر قواعد البيانات في ملفات منفصلة"
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+#, fuzzy
+#| msgid "Values for column %s"
+msgid "Expression or column list"
+msgstr "القيم للعمود %s"
 
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "صدر الجداول في ملفات منفصلة"
+#: templates/columns_definitions/partitions.twig:37
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions:"
+msgstr "تقسيم %s"
 
-#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/columns_definitions/partitions.twig:45
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartition by:"
+msgstr "مقسم"
+
+#: templates/columns_definitions/partitions.twig:65
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartitions:"
+msgstr "مقسم"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partition"
+msgstr "تقسيم %s"
+
+#: templates/columns_definitions/partitions.twig:78
+#, fuzzy
+#| msgid "Value"
+msgid "Values"
+msgstr "القيمة"
+
+#: templates/columns_definitions/partitions.twig:82
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartition"
+msgstr "مقسم"
+
+#: templates/columns_definitions/partitions.twig:84
+#, fuzzy
+#| msgid "Engines"
+msgid "Engine"
+msgstr "محركات"
+
+#: templates/columns_definitions/partitions.twig:86
+#, fuzzy
+#| msgid "Data Dictionary"
+msgid "Data directory"
+msgstr "قاموس البيانات"
+
+#: templates/columns_definitions/partitions.twig:87
+#, fuzzy
+#| msgid "Index type:"
+msgid "Index directory"
+msgstr "نوع الفهرس&nbsp;:"
+
+#: templates/columns_definitions/partitions.twig:88
+#, fuzzy
+#| msgid "Affected rows:"
+msgid "Max rows"
+msgstr "الصفوف المتأثرة:"
+
+#: templates/columns_definitions/partitions.twig:89
+#, fuzzy
+#| msgid "rows"
+msgid "Min rows"
+msgstr "استعراض"
+
+#: templates/columns_definitions/partitions.twig:90
+#, fuzzy
+#| msgid "Table Search"
+msgid "Table space"
+msgstr "بحث في الجدول"
+
+#: templates/columns_definitions/partitions.twig:91
+#, fuzzy
+#| msgid "Users"
+msgid "Node group"
+msgstr "المستخدمون"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"الملف الذي يتم تحميله على الأرجح ذو حجم أكبر من الحد الأقصى المسموح به أو "
+"هذا خطأ معروف في متصفحات (سفاري، جوجل كروم، أرورا. إلخ)."
+
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "الملف قيد المعالجة, يرجى الانتظار."
+
+#: templates/display/import/javascript.twig:36
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Uploading your import file…"
+msgstr "هيئة الملفات المستوردة"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr "يتم تحميل الملف. تفاصيل التحميل غير متوفرة. يرجى الانتظار.."
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr ""
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "أقصى عدد الصفوف للرسم"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "الجداول المتعقبة"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "آخر إصدار"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+msgid "Delete tracking"
+msgstr "حذف بيانات تتبع التغيرات"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "الإصدارات"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "عرض الخرج كنص"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s مطابق في <strong>%2$s</strong>"
+msgstr[1] "%1$s مطابق في <strong>%2$s</strong>"
+msgstr[2] "%1$sمطابق في <strong>%2$s</strong>"
+msgstr[3] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
+msgstr[4] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
+msgstr[5] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>المجموع:</b> <i>%s</i>تطابق"
+msgstr[1] "<b>المجموع:</b> <i>%s</i>تطابق"
+msgstr[2] "<b>المجموع:</b> <i>%s</i>تطابق"
+msgstr[3] "<b>المجموع:</b> <i>%s</i>تطابق"
+msgstr[4] "<b>المجموع:</b> <i>%s</i>تطابق"
+msgstr[5] "<b>المجموع:</b> <i>%s</i>تطابق"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "إضغط للإختيار"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+msgid "Configure two-factor authentication"
+msgstr ""
+
+#: templates/prefs_twofactor_configure.twig:8
+#, fuzzy
+#| msgid "Change password"
+msgid "Enable two-factor authentication"
+msgstr "تغيير كلمة السر"
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr ""
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "مؤلف"
+
+#: templates/server/plugins/section.twig:23
+#, fuzzy
+#| msgid "Disabled"
+msgid "disabled"
+msgstr "معطل"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"ملاحظة: تمكين إحصائيات قواعد البيانات هنا قد يسبب تدفق بيانات ثقيل بين خادم "
+"الويب وخادم MySQL."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+msgid "Enable statistics"
+msgstr "مكن الإحصائيات"
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "تكوين"
+
+#: templates/table/structure/optional_action_links.twig:6
+msgid "Propose table structure"
+msgstr "اقترح بناء الجدول"
+
+#: templates/table/structure/optional_action_links.twig:15
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "تتبع الجدول"
+
 #: templates/table/structure/optional_action_links.twig:19
+#: templates/table/structure/move_columns_dialog.twig:1
 #, fuzzy
 #| msgid "Add columns"
 msgid "Move columns"
 msgstr "إضافة أعمدة"
 
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:28
+msgid "Track view"
+msgstr "تتبع الجدول"
+
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "إضافه/حذف معايير الصفوف"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "إضافه/حذف عمود"
-
-#: templates/login/twofactor/invalid.twig:2
+#: templates/privileges/delete_user_fieldset.twig:3
 #, fuzzy
-#| msgid ""
-#| "Tracking of changes made in database. Requires the phpMyAdmin "
-#| "configuration storage."
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
+msgstr "احذف المستخدمين المحددين"
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "اسم الفهرس&nbsp;:"
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "استرجع كل الصلاحيات الفعالة من المستخدمين ثم احذفهم بعد ذلك."
 
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-"\"الأساسي\" <b>يجب</b> يجب أن يكون الاسم <b>وأيضاً فقط</b> المفتاح الأساسي!"
-
-#: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index name:"
-msgid "Index choice:"
-msgstr "اسم الفهرس&nbsp;:"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Table options"
-msgid "Advanced Options"
-msgstr "خيارات الجدول"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "نوع الفهرس&nbsp;:"
-
-#: templates/table/index_form.twig:77
-#, fuzzy
-#| msgid "User"
-msgid "Parser:"
-msgstr "المستخدم"
-
-#: templates/table/index_form.twig:93
-#, fuzzy
-#| msgid "Comment"
-msgid "Comment:"
-msgstr "تعليق"
-
-#: templates/table/index_form.twig:118
-#: templates/database/structure/table_header.twig:38
-msgid "Size"
-msgstr "الحجم"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-#, fuzzy
-#| msgid "Drag to reorder"
-msgid "Drag to reorder"
-msgstr "إسحب لإعادة الترتيب"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "معايير بحث إضافية"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "بحث واستبدال - المعاينة"
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Linestring"
-msgid "Original string"
-msgstr "منحنى"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Related Links"
-msgid "Replaced string"
-msgstr "روابط ذات صلة"
-
-#: templates/table/search/replace_preview.twig:37
-#, fuzzy
-#| msgid "Replicated"
-msgid "Replace"
-msgstr "مستنسخة"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "طريقة التصدير:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr ""
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr ""
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "الضغظ:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "مضغوط"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "مضغوط: gzipped"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relation view"
-msgid "Relationship operator"
-msgstr "عرض الروابط"
-
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-#, fuzzy
-#| msgid "Rename table to"
-msgid "Rename to"
-msgstr "تغيير اسم جدول إلى"
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-#, fuzzy
-#| msgid "User name"
-msgid "New name"
-msgstr "اسم المستخدم"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "صلاحيات خاصة بالحقل"
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "احذف قواعد البيانات التي لها نفس أسماء المستخدمين."
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
@@ -16362,17 +15389,125 @@ msgstr "لاتتوفر معاينة."
 msgid "Take it"
 msgstr "إعتبر"
 
-#: templates/login/twofactor.twig:5
-msgid "Verify"
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
 msgstr ""
 
-#: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, fuzzy, php-format
+#| msgid "Save on server in the directory <b>%s</b>"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "إحفظ على الخادم في الدليل <b>%s</b>"
+
+#: templates/login/twofactor/key.twig:3
 msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]"
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/start_and_number_of_rows_panel.twig:3
+#, fuzzy
+#| msgid "Start row"
+msgid "Start row:"
+msgstr "صف البداية"
+
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+#, fuzzy
+#| msgid "Create version"
+msgid "Create relationship"
+msgstr "إنشاء إصدار"
+
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "إختر عمود ."
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "لم يتم تعريف الفهرس!"
+
+#: templates/table/structure/display_partitions.twig:11
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "مقسم"
+
+#: templates/table/structure/display_partitions.twig:16
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "مقسم"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:29
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "الضغط"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "طول الصف"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "طول الصف"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partition table"
+msgstr "مقسم"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+#, fuzzy
+#| msgid "Remove partitioning"
+msgid "Edit partitioning"
+msgstr "إزالة التقسيم"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+msgctxt "Number"
+msgid "#"
+msgstr ""
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+msgctxt "None for default"
+msgid "None"
+msgstr "لا شيء"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Label column"
+msgstr "إضافه/حذف عمود حقل"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+#, fuzzy
+#| msgid "- none -"
+msgid "-- None --"
+msgstr "- لا شيء -"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+#, fuzzy
+#| msgid "Total"
+msgid "Spatial column"
+msgstr "مجموع كلي"
 
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
@@ -16387,14 +15522,48 @@ msgstr "تم إضافة المفتاح الأساسي في %s."
 msgid "An index has been added on %s."
 msgstr "تم إضافة الفهرس في %s."
 
-#: templates/database/designer/query_details.twig:6
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
 #, fuzzy
-#| msgid "Table options"
-msgid "Active options"
-msgstr "خيارات الجدول"
+#| msgid "Remove chart"
+msgid "Remove from central columns"
+msgstr "حذف الرسم البياني"
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add to central columns"
+msgstr "أعمدة مربع النص لـ CHAR"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Foreign key constraint"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "قيود المفتاح الغريب"
+
+#: templates/table/relation/foreign_key_row.twig:38
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint name"
+msgstr "القيود للجدول"
+
+#: templates/table/relation/foreign_key_row.twig:90
+#: templates/database/multi_table_query/form.twig:158
+#, fuzzy
+#| msgid "Add column"
+msgid "+ Add column"
+msgstr "إضافة عمود"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
 msgstr ""
 
 #: templates/privileges/add_privileges_routine.twig:3
@@ -16402,6 +15571,99 @@ msgstr ""
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following routine:"
 msgstr "إضافة الصلاحيات على الجدول التالي"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "اسم الجدول"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Column names"
+msgid "column(s)"
+msgstr "اسم العمود"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Creation"
+msgid "Collation:"
+msgstr "الإنشاء"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "اتصالات"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "قالب اسم الملف:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "استخدم هذه الإعدادات مجدداً عند تصدير قاعدة البيانات في المستقبل"
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "تصدير قواعد المعطيات من الخادم الحالي"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "تصدير الجداول من قاعدة المعطيات \"%s\""
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "تصدير الأسطر من الجدول \"%s\""
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Jump to database '%s'"
+msgstr "قفز لقاعدة البيانات"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "تحقق من الصلاحيات لقاعدة بيانات \"%s\"."
+
+#: templates/server/databases/table_row.twig:62
+#, fuzzy
+#| msgid "Check Privileges"
+msgid "Check privileges"
+msgstr "تحقق من الصلاحيات"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "قيد الإستعمال"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "تصفح/حرّر النقاط"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "كيفية الإستعمال"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "إعادة تعيين المقربة"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -16471,12 +15733,6 @@ msgstr "حذف الرسم البياني"
 msgid "Update query"
 msgstr "تجديد الإستعلام"
 
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "تكوين"
-
 #: templates/columns_definitions/column_default.twig:3
 #, fuzzy
 #| msgid "None"
@@ -16487,6 +15743,487 @@ msgstr "لا شيء"
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
 msgstr "كما هو معرف:"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "إستعمل هذه القيمة"
+
+#: templates/table/secondary_tabs.twig:9
+#, fuzzy
+#| msgid "Relation view"
+msgid "Relation view"
+msgstr "عرض العلاقات"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Delete tracking"
+msgid "Delete settings"
+msgstr "حذف بيانات تتبع التغيرات"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "طريقة التصدير:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr ""
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "متغيرات وإعدادات الخادم"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "محركات التخزين"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "مجموعات المحارف وCollations"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "إحصائيات قواعد البيانات"
+
+#: templates/database/designer/page_selector.twig:2
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select page"
+msgstr "اختر الجداول"
+
+#: templates/privileges/add_privileges_table.twig:3
+#, fuzzy
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following table:"
+msgstr "إضافة الصلاحيات على الجدول التالي"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.twig:9
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select database:"
+msgstr "اختر الجداول"
+
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "database name"
+msgid "New database name"
+msgstr "اسم قاعدة البيانات"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select table:"
+msgstr "اختر الجداول"
+
+#: templates/export/alias_add.twig:29
+#, fuzzy
+#| msgid "User name"
+msgid "New table name"
+msgstr "اسم المستخدم"
+
+#: templates/export/alias_add.twig:37
+#, fuzzy
+#| msgid "Select two columns"
+msgid "Select column:"
+msgstr "إختر عمودين"
+
+#: templates/export/alias_add.twig:43
+#, fuzzy
+#| msgid "Copy column name"
+msgid "New column name"
+msgstr "أنسخ اسم العمود"
+
+#: templates/columns_definitions/column_name.twig:4
+#, fuzzy, php-format
+#| msgid "Select referenced key"
+msgid "Referenced by %s."
+msgstr "إختيار المفتاح المرجع"
+
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Select Foreign Key"
+msgid "Is a foreign key."
+msgstr "إختيار المفتاح الغريب"
+
+#: templates/columns_definitions/column_name.twig:40
+#, fuzzy
+#| msgid "Remove chart"
+msgid "Pick from Central Columns"
+msgstr "حذف الرسم البياني"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "اسم VIEW"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "اسم العمود"
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "الضغظ:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "مضغوط"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "مضغوط: gzipped"
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+msgid "Create table"
+msgstr "أنشئ الجدول"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "عدد العواميد"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+#, fuzzy
+#| msgid "Show tables"
+msgid "Show/Hide tables list"
+msgstr "عرض الجداول"
+
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+#, fuzzy
+#| msgid "User name"
+msgid "New page"
+msgstr "اسم المستخدم"
+
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Delete pages"
+msgstr "اختر الجداول"
+
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr "مساعدة"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+#, fuzzy
+#| msgid "Traditional Chinese"
+msgid "Toggle relationship lines"
+msgstr "الصينية التقليدية"
+
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "تصدير"
+
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Build Query"
+msgstr "إرسال الاستعلام"
+
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr "نقل القائمة"
+
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+#, fuzzy
+#| msgid "Partial texts"
+msgid "Pin text"
+msgstr "نصوص جزئيّة"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "قيمة الجلسة"
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "تم حذف العمود %s."
+
+#: templates/login/twofactor/invalid.twig:2
+#, fuzzy
+#| msgid ""
+#| "Tracking of changes made in database. Requires the phpMyAdmin "
+#| "configuration storage."
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "إضافه/حذف معايير الصفوف"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "إضافه/حذف عمود"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "تاريخ"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: templates/prefs_twofactor_confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+#, fuzzy
+#| msgid "Change password"
+msgid "Disable two-factor authentication"
+msgstr "تغيير كلمة السر"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:12
+#, fuzzy
+#| msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "عمل \"استعلام بواسطة المثال\" (بدل: \"%\")"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "عمل \"استعلام بواسطة المثال\" (بدل: \"%\")"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+#, fuzzy
+#| msgid "Authentication"
+msgid "Authentication code:"
+msgstr "المصادقة"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/privileges/add_privileges_database.twig:1
+#, fuzzy
+#| msgid "Add privileges on the following database"
+msgid "Add privileges on the following database(s):"
+msgstr "إضافة الصلاحيات على قاعدة البيانات التالية"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+#| msgid "Export type"
+msgid "Export templates:"
+msgstr "نوع التصدير"
+
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "قالب جديد:"
+
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "اسم القالب"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "تكوين"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "قالب موجود مسبقا:"
+
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "قالب:"
+
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "تحديث / ترقيه"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "صلاحيات خاصة بالحقل"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:11
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "Create version %1$s of %2$s"
+msgstr "انشئ إصدار %s  لـ %s.s%s"
+
+#: templates/table/tracking/create_version.twig:16
+#, fuzzy, php-format
+#| msgid "Create version"
+msgid "Create version %1$s"
+msgstr "إنشاء إصدار"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "تتبع تقارير تعريف البيانات:"
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "تتبع تقارير التلاعب بالبيانات:"
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "إنشاء إصدار"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "إخفاء/عرض الكل"
+
+#: templates/database/designer/table_list.twig:14
+#, fuzzy
+#| msgid "Hide/Show Tables with no relation"
+msgid "Hide/Show tables with no relationship"
+msgstr "إخفاء / عرض الجداول الغير مرتبطة بعلاقة"
+
+#: templates/database/designer/table_list.twig:55
+msgid "Number of tables:"
+msgstr "عدد الجداول:"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "لا شيء"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "ترميز الأحرف للملف:"
+
+#: templates/table/search/search_and_replace.twig:1
+#: templates/database/search/selection_form.twig:15
+msgid "Find:"
+msgstr "ابحث:"
 
 #: templates/table/search/search_and_replace.twig:3
 #, fuzzy
@@ -16499,6 +16236,247 @@ msgstr "استبدل NULL بـ"
 #| msgid "as regular expression"
 msgid "Use regular expression"
 msgstr "كتعبير قياسي"
+
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "قواعد البيانات :"
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "إحفظ الخرج في ملف"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr ""
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "يتم التحميل إلى الخادم الحالي"
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "الاستيراد إلى قاعدة البيانات \"%s\""
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "الاستيراد إلى الجدول \"%s\""
+
+#: templates/display/import/import.twig:50
+msgid "File to import:"
+msgstr "ملف للاستيراد:"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "يمكن للملف أن يكون مضغوط (%s) أو غير مضغوط."
+
+#: templates/display/import/import.twig:58
+#, fuzzy
+#| msgid ""
+#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
+#| "Example: <b>.sql.zip</b>"
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"يجب على اسم الملف المضغوط أن ينتهي بـ <b>.[format].[compression]</b>. مثال: "
+"<b>.sql.zip</b>"
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr "التحميلات إلى هذا المخدّم غير مرخّصة لها."
+
+#: templates/display/import/import.twig:124
+#, fuzzy
+#| msgid "Partial Import:"
+msgid "Partial import:"
+msgstr "مستوردةٌ جزئية :"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+"انتهت مُهلة عمليّة الإستراد السابقة, بعد إعادة الإرسال سنستمرُّ من الموقف %d."
+
+#: templates/display/import/import.twig:137
+#, fuzzy
+#| msgid ""
+#| "Allow the interruption of an import in case the script detects it is "
+#| "close to the PHP timeout limit. <i>(This might be a good way to import "
+#| "large files, however it can break transactions.)</i>"
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"تسمح بقطع عمليّة استراد معيّنة في حالة كَشفَ الرّمز أنّها قريبة من المهلة الزّمنيّة "
+"لـ PHP.\n"
+"<i>(يمكن أن تكون هذه هي طريقة جيّدة لإستراد ملفات كبيرة, في كلّ الأحوال يمكنها "
+"كسر العمليّات.)</i>"
+
+#: templates/display/import/import.twig:144
+#, fuzzy
+#| msgid "Number of rows to skip, starting from the first row:"
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "عدد الصّفوف الّتي يجب تجاوزها, ابتداءًا من الصّف الأوّل :"
+
+#: templates/display/import/import.twig:161
+msgid "Other options:"
+msgstr "خيارات اخري :"
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr "إعدادات الصيغة المخصصة:"
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"اسحب للأسفل لتعيين خيارات الصيغة المختارة و لتجاهل إعدادات الصيغ الأخرى."
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr "تحويل ترميز النص:"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "بحث في قاعدة البيانات"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "الكلمات أو القيم المطلوب البحث عنها (wildcard: \"%\"):"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "داخل الجداول:"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "داخل العمود:"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "لايوجد قواعد بيانات"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr ""
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "التتبع نشط."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "التتبع غير نشط."
+
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "صدر قواعد البيانات في ملفات منفصلة"
+
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "صدر الجداول في ملفات منفصلة"
+
+#: templates/table/structure/row_stats_table.twig:2
+#, fuzzy
+#| msgid "Row Statistics"
+msgid "Row statistics"
+msgstr "إحصائيات"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "ديناميكي"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "مقسم"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "طول الصف"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "مقاس الصف"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "الجداول الغير متتبعة"
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "أنشئ قاعدة معطيات"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "حدود المصادر"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "ملاحظة: تغيير هذه الخيارات للرقم 0 )صفر( يلغي الحد."
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "مفتاح العلائقيّة"
+
+#: templates/display/results/options_block.twig:30
+msgid "Display column for relationships"
+msgstr "عرض عمود للعلاقات"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "أظهر المحتويات الثنائية"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "عرض محتويات BLOB"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "أخفي محتويات المستعرض"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "نصّ معروف جيّداً"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "ثنائي معروف جيّداً"
 
 #: templates/prefs_twofactor.twig:3
 #, fuzzy
@@ -16539,73 +16517,106 @@ msgstr "تعقب التغيرات الحاصلة على قاعدة البيان�
 msgid "You have enabled two factor authentication."
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "اقترح بناء الجدول"
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Import files"
+msgid "Save to selected page"
+msgstr "استورد الملفات"
 
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "تتبع الجدول"
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a new index"
+msgid "Create a page and save to it"
+msgstr "تصميم فهرسه جديده"
 
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "User name"
+msgid "New page name"
+msgstr "اسم المستخدم"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:28
-msgid "Track view"
-msgstr "تتبع الجدول"
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "اختيار الأعمدة (واحد على الأقل):"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "تصفح/حرّر النقاط"
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "أضف شروط البحث (الفقرة \"where\" ):"
 
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "كيفية الإستعمال"
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "رقم السجلات لكل صفحة"
 
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "إعادة تعيين المقربة"
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "ترتيب العرض:"
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "إستعمل هذه القيمة"
+#: templates/table/relation/common_form.twig:6
+#, fuzzy
+#| msgid "Foreign key constraint"
+msgid "Foreign key constraints"
+msgstr "قيود المفتاح الغريب"
 
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "الجداول المتعقبة"
+#: templates/table/relation/common_form.twig:10
+#, fuzzy
+#| msgid "Action"
+msgid "Actions"
+msgstr "العملية"
 
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "آخر إصدار"
+#: templates/table/relation/common_form.twig:11
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint properties"
+msgstr "القيود للجدول"
 
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
-msgid "Delete tracking"
-msgstr "حذف بيانات تتبع التغيرات"
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
 
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "الإصدارات"
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "الجداول الغير متتبعة"
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr "قيود المفتاح الغريب"
 
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "أنشئ قاعدة معطيات"
+#: templates/table/relation/common_form.twig:89
+#, fuzzy
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "أضف قيود"
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "اسم VIEW"
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "العلاقات الداخلية"
 
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "اسم العمود"
+#: templates/table/relation/common_form.twig:110
+msgid "Internal relation"
+msgstr "العلاقات الداخلية"
+
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:172
+#, fuzzy
+#| msgid "Choose column to display"
+msgid "Choose column to display:"
+msgstr "اختر الحقل لإظهاره"
 
 #: url.php:41
 #, fuzzy

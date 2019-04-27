@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-08 23:42-0300\n"
+"POT-Creation-Date: 2019-04-27 18:51+0200\n"
 "PO-Revision-Date: 2016-01-17 22:02+0000\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -50,8 +50,8 @@ msgstr "Comentario da base de datos"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
+#: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
 msgstr "Comentarios da táboa:"
 
@@ -68,19 +68,19 @@ msgstr "Comentarios da táboa:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
+#: templates/table/index_form.twig:115
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
+#: templates/table/search/zoom_result_form.twig:34
 #: templates/table/relation/internal_relational_row.twig:24
-#: templates/table/search/table_header.twig:6
 #: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/table_header.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/table/relation/foreign_key_row.twig:122
-#: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/index_form.twig:115
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "Columna"
 
@@ -101,13 +101,13 @@ msgstr "Columna"
 #: libraries/classes/Rte/Routines.php:944
 #: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
-#: libraries/classes/Server/Privileges.php:2568
-#: templates/table/search/table_header.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/table/structure/table_structure_header.twig:6
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: libraries/classes/Server/Privileges.php:2581
 #: templates/database/structure/table_header.twig:32
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:7
+#: templates/table/structure/table_structure_header.twig:6
+#: templates/table/search/table_header.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
 msgid "Type"
 msgstr "Tipo"
 
@@ -125,10 +125,10 @@ msgstr "Tipo"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/table_structure_header.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
 msgid "Null"
 msgstr "Nulo"
 
@@ -147,8 +147,8 @@ msgstr "Nulo"
 #: libraries/classes/ReplicationGui.php:165
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/table/structure/table_structure_header.twig:10
 msgid "Default"
 msgstr "Predeterminado"
 
@@ -180,10 +180,10 @@ msgstr "Comentarios"
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1210
 #: libraries/classes/Controllers/Table/TableStructureController.php:1215
-#: templates/table/structure/check_all_table_column.twig:33
 #: templates/table/structure/display_structure.twig:61
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/check_all_table_column.twig:33
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "Primaria"
 
@@ -197,17 +197,17 @@ msgstr "Primaria"
 #: libraries/classes/Plugins/Export/ExportOdt.php:795
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2981
-#: libraries/classes/Server/Privileges.php:3001
-#: libraries/classes/Server/Privileges.php:3665
-#: libraries/classes/Server/Privileges.php:3694 prefs_manage.php:145
-#: templates/prefs_autoload.twig:12
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2994
+#: libraries/classes/Server/Privileges.php:3014
+#: libraries/classes/Server/Privileges.php:3678
+#: libraries/classes/Server/Privileges.php:3707 prefs_manage.php:145
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:12
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "No"
@@ -231,18 +231,18 @@ msgstr "Non"
 #: libraries/classes/Plugins/Export/ExportOdt.php:796
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2978
-#: libraries/classes/Server/Privileges.php:2999
-#: libraries/classes/Server/Privileges.php:3662
-#: libraries/classes/Server/Privileges.php:3694
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2991
+#: libraries/classes/Server/Privileges.php:3012
+#: libraries/classes/Server/Privileges.php:3675
+#: libraries/classes/Server/Privileges.php:3707
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143 templates/prefs_autoload.twig:11
-#: templates/privileges/privileges_summary_row.twig:4
+#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:11
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "Yes"
@@ -277,16 +277,16 @@ msgstr "Táboas"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:38
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:288
-#: libraries/classes/Server/Privileges.php:1146 libraries/classes/Util.php:3043
+#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3043
 #: libraries/classes/Util.php:3053 libraries/classes/Util.php:3059
 #: libraries/classes/Util.php:3339 libraries/classes/Util.php:3995
 #: libraries/classes/Util.php:4012 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/database/designer/table_list.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/database/designer/table_list.twig:24
 msgid "Structure"
 msgstr "Estrutura"
 
@@ -295,14 +295,14 @@ msgstr "Estrutura"
 #: libraries/classes/Config/Forms/User/ExportForm.php:125
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
-#: libraries/classes/Server/Privileges.php:1145
+#: libraries/classes/Server/Privileges.php:1158
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "Datos"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
-#: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
+#: templates/database/search/selection_form.twig:32
 msgid "Select all"
 msgstr "Seleccionar todo"
 
@@ -511,28 +511,28 @@ msgstr "Engadir xeometría"
 #: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1084
 #: libraries/classes/Rte/Routines.php:1710
 #: libraries/classes/Rte/Triggers.php:412
-#: libraries/classes/Server/Privileges.php:707
-#: libraries/classes/Server/Privileges.php:2217
-#: libraries/classes/Server/Privileges.php:3131
+#: libraries/classes/Server/Privileges.php:717
+#: libraries/classes/Server/Privileges.php:2230
+#: libraries/classes/Server/Privileges.php:3144
 #: libraries/classes/Server/UserGroups.php:302
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:322 templates/database/search/selection_form.twig:58
+#: server_privileges.php:323 templates/table/structure/add_column.twig:23
+#: templates/table/index_form.twig:217
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/display/import/import.twig:191 templates/header_location.twig:18
-#: templates/display/export/options_format.twig:18
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/search/selection_form.twig:99
-#: templates/server/binlog/log_selector.twig:27
+#: templates/header_location.twig:18 templates/view_create.twig:116
 #: templates/database/create_table.twig:21
-#: templates/display/results/options_block.twig:114
-#: templates/table/structure/add_column.twig:23
-#: templates/table/index_form.twig:217
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/search/selection_form.twig:99
 #: templates/privileges/privileges_summary.twig:60
 #: templates/privileges/edit_routine_privileges.twig:23
-#: templates/view_create.twig:116 view_operations.php:115
+#: templates/display/import/import.twig:191
+#: templates/database/search/selection_form.twig:58
+#: templates/display/export/options_format.twig:18
+#: templates/display/results/options_block.twig:114 view_operations.php:115
 msgid "Go"
 msgstr "Ir"
 
@@ -1092,9 +1092,9 @@ msgid "Please select column(s) for the index."
 msgstr "Seleccione a(s) columna(s) do índice."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1894
+#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
-#: templates/table/index_form.twig:216
 msgid "Preview SQL"
 msgstr "Visualización do SQL"
 
@@ -1129,12 +1129,12 @@ msgstr "O nome do servidor está baleiro!"
 msgid "The user name is empty!"
 msgstr "O nome do usuario está baleiro!"
 
-#: js/messages.php:147 libraries/classes/Server/Privileges.php:1878
+#: js/messages.php:147 libraries/classes/Server/Privileges.php:1891
 #: libraries/classes/UserPassword.php:66
 msgid "The password is empty!"
 msgstr "O contrasinal está baleiro!"
 
-#: js/messages.php:148 libraries/classes/Server/Privileges.php:1876
+#: js/messages.php:148 libraries/classes/Server/Privileges.php:1889
 #: libraries/classes/UserPassword.php:70
 msgid "The passwords aren't the same!"
 msgstr "Os contrasinais non son iguais!"
@@ -1353,12 +1353,13 @@ msgstr "Engádalle ao menos unha variábel á serie!"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:282
-#: libraries/config.values.php:69 templates/table/search/options_zoom.twig:12
-#: templates/columns_definitions/transformation.twig:4
-#: templates/table/search/rows_zoom.twig:20
-#: templates/display/export/options_output_compression.twig:7
+#: libraries/config.values.php:69
 #: templates/database/designer/options_panel.twig:177
+#: templates/table/search/rows_zoom.twig:20
+#: templates/table/search/options_zoom.twig:12
+#: templates/display/export/options_output_compression.twig:7
 #: templates/privileges/privileges_summary.twig:30
+#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Ningunha"
 
@@ -1748,13 +1749,13 @@ msgstr "Non se atopou ningún parámetro!"
 
 #: js/messages.php:355
 #: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/aggregate_query_panel.twig:64
+#: templates/database/designer/where_query_panel.twig:85
+#: templates/database/designer/new_relation_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/having_query_panel.twig:118
 #: templates/server/variables/link_template.twig:5
-#: templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/where_query_panel.twig:85
-#: templates/database/designer/rename_to_panel.twig:45
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1823,13 +1824,13 @@ msgstr "A eliminar a columna"
 msgid "Adding primary key"
 msgstr "A engadir unha chave primaria"
 
-#: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/new_relation_panel.twig:88
+#: js/messages.php:377 templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
 #: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/database/designer/options_panel.twig:251
 #: templates/database/designer/where_query_panel.twig:83
+#: templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/having_query_panel.twig:114
 msgid "OK"
 msgstr "OK"
 
@@ -1891,16 +1892,16 @@ msgstr "A definición dunha función gardada debe conter unha instrución RETURN
 #: libraries/classes/Display/Results.php:4990 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
-#: libraries/classes/Server/Privileges.php:2403
-#: libraries/classes/Server/Privileges.php:2489
-#: libraries/classes/Server/Privileges.php:2846
-#: libraries/classes/Server/Privileges.php:3577
+#: libraries/classes/Server/Privileges.php:2416
+#: libraries/classes/Server/Privileges.php:2502
+#: libraries/classes/Server/Privileges.php:2859
+#: libraries/classes/Server/Privileges.php:3590
 #: libraries/classes/Server/Status/Monitor.php:328
 #: libraries/classes/Util.php:3346 libraries/classes/Util.php:3347
 #: libraries/classes/Util.php:3984 libraries/classes/Util.php:3999
 #: libraries/classes/Util.php:4016 prefs_manage.php:294
-#: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
+#: templates/display/export/option_header.twig:3
 msgid "Export"
 msgstr "Exportar"
 
@@ -1951,8 +1952,8 @@ msgstr "Mostrar a caixa de consultas"
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1079 libraries/classes/Util.php:3344
 #: libraries/classes/Util.php:3345 setup/frames/index.inc.php:157
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
 msgid "Edit"
@@ -1967,8 +1968,8 @@ msgstr "Editar"
 #: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
 #: templates/console/bookmark_content.twig:7
-#: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
+#: templates/display/export/template_loading.twig:22
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -2141,11 +2142,11 @@ msgstr "Non hai ningunha dependencia seleccionada!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
-#: templates/server/variables/link_template.twig:2
-#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:189
+#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/structure/partition_definition_form.twig:12
+#: templates/server/variables/link_template.twig:2
+#: templates/table/relation/common_form.twig:189
 msgid "Save"
 msgstr "Gardar"
 
@@ -2430,9 +2431,9 @@ msgstr ""
 "Prema a frecha para a baixo<br />para conmutar a visibilidade da columna."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
+#: templates/table/browse_foreigners/show_all.twig:4
 #: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
-#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Mostrar todo"
 
@@ -2489,8 +2490,8 @@ msgstr "Seleccione a base de datos antes"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4884
 #: libraries/classes/Util.php:3877
-#: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
+#: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
 msgstr "Imprimir"
 
@@ -3152,9 +3153,9 @@ msgstr "Nome da chave"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/engines/engines.twig:5
 #: templates/server/plugins/section.twig:10
 #: templates/server/collations/charsets.twig:6
-#: templates/server/engines/engines.twig:5
 msgid "Description"
 msgstr "Descrición"
 
@@ -3206,18 +3207,18 @@ msgstr "NON"
 #: libraries/classes/CentralColumns.php:734 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
 #: libraries/classes/Rte/RteList.php:117
-#: libraries/classes/Server/Privileges.php:2571
-#: libraries/classes/Server/Privileges.php:3557
+#: libraries/classes/Server/Privileges.php:2584
+#: libraries/classes/Server/Privileges.php:3570
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/variables/variable_table_head.twig:3
 #: templates/server/databases/table_header.twig:37
-#: templates/table/tracking/report_table.twig:8
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/privileges/privileges_summary.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tracked_tables.twig:16
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/table/tracking/report_table.twig:8
+#: templates/privileges/privileges_summary.twig:22
+#: templates/server/variables/variable_table_head.twig:3
 #: templates/database/tracking/untracked_tables.twig:10
 msgid "Action"
 msgstr "Acción"
@@ -3250,14 +3251,14 @@ msgstr "Tamaño/Valores"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
-#: templates/table/search/table_header.twig:8
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/row_stats_table.twig:30
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/table_structure_header.twig:7
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:33
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/server/collations/charsets.twig:5
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/search/table_header.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Orde alfabética"
 
@@ -4238,8 +4239,8 @@ msgstr "Gravar no servidor"
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "Eliminar o(s) ficheiro(s) xa existente(s)"
 
@@ -4451,7 +4452,7 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1276
-#: libraries/classes/Server/Privileges.php:4552 libraries/classes/Util.php:3980
+#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3980
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "Bases de datos"
@@ -6207,18 +6208,18 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:153
 #: libraries/classes/Plugins/Export/ExportOdt.php:200
 #: libraries/classes/Plugins/Export/ExportTexytext.php:137
-#: libraries/classes/Server/Privileges.php:1171
-#: libraries/classes/Server/Privileges.php:3149
-#: libraries/classes/Server/Privileges.php:3344
-#: libraries/classes/Server/Privileges.php:3346
-#: libraries/classes/Server/Privileges.php:4552
+#: libraries/classes/Server/Privileges.php:1184
+#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3359
+#: libraries/classes/Server/Privileges.php:4565
 #: libraries/classes/Server/Status/Processes.php:89
-#: templates/table/relation/internal_relational_row.twig:10
+#: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/server/databases/table_header.twig:8
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/table/relation/common_form.twig:32
+#: templates/console/bookmark_content.twig:7
 #: templates/table/relation/foreign_key_row.twig:100
+#: templates/table/relation/internal_relational_row.twig:10
+#: templates/table/relation/common_form.twig:32
 msgid "Database"
 msgstr "Base de datos"
 
@@ -6247,18 +6248,18 @@ msgstr "Título da xanela do navegador cando unha táboa estea seleccionada."
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Plugins/Export/ExportXml.php:500
 #: libraries/classes/Rte/RteList.php:102 libraries/classes/Rte/Triggers.php:347
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1174
-#: libraries/classes/Server/Privileges.php:3167
-#: libraries/classes/Server/Privileges.php:3350
-#: libraries/classes/Server/Privileges.php:3352
-#: libraries/classes/Server/Privileges.php:4566
-#: templates/table/relation/internal_relational_row.twig:17
-#: templates/table/relation/common_form.twig:33
-#: templates/table/relation/foreign_key_row.twig:110
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1187
+#: libraries/classes/Server/Privileges.php:3180
+#: libraries/classes/Server/Privileges.php:3363
+#: libraries/classes/Server/Privileges.php:3365
+#: libraries/classes/Server/Privileges.php:4579
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tracked_tables.twig:11
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/table/relation/internal_relational_row.twig:17
 #: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/common_form.twig:33
 msgid "Table"
 msgstr "Táboa"
 
@@ -6970,10 +6971,10 @@ msgstr[1] "Elimináronse %1$d bases de datos sen problemas."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
-#: templates/table/structure/display_partitions.twig:28
-#: templates/table/structure/row_stats_table.twig:41
 #: templates/database/structure/table_header.twig:26
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/actions_in_table_structure.twig:114
+#: templates/table/structure/row_stats_table.twig:41
 msgid "Rows"
 msgstr "Filas"
 
@@ -6989,8 +6990,8 @@ msgstr "Índices"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/server/databases/databases_footer.twig:7
 #: templates/table/structure/display_table_stats.twig:45
+#: templates/server/databases/databases_footer.twig:7
 msgid "Total"
 msgstr "Total"
 
@@ -7122,23 +7123,23 @@ msgstr "Mudar"
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1610
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3340
 #: libraries/classes/Util.php:3341
-#: templates/server/databases/databases_footer.twig:55
-#: templates/table/structure/check_all_table_column.twig:24
-#: templates/table/structure/display_structure.twig:189
 #: templates/database/structure/check_all_tables.twig:16
+#: templates/table/structure/display_structure.twig:189
+#: templates/server/databases/databases_footer.twig:55
 #: templates/table/relation/foreign_key_row.twig:30
+#: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
 msgstr "Eliminar"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1211
 #: libraries/classes/Controllers/Table/TableStructureController.php:1216
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/check_all_table_column.twig:47
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/check_all_table_column.twig:47
+#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "Índice"
 
@@ -7215,63 +7216,63 @@ msgstr "posíbel vulnerabilidade (exploit)"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
-#: libraries/classes/Database/Designer/Common.php:572
+#: libraries/classes/Database/Designer/Common.php:573
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Erro: xa existe unha relación."
 
-#: libraries/classes/Database/Designer/Common.php:618
+#: libraries/classes/Database/Designer/Common.php:619
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Engadiuse unha relación cunha CHAVE EXTERNA"
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:625
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Erro: non se engadiu a relación."
 
-#: libraries/classes/Database/Designer/Common.php:629
+#: libraries/classes/Database/Designer/Common.php:630
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:634
+#: libraries/classes/Database/Designer/Common.php:635
 msgid "Error: Relational features are disabled!"
 msgstr "Erro: As funcionalidades relacionais están desactivadas!"
 
-#: libraries/classes/Database/Designer/Common.php:656
+#: libraries/classes/Database/Designer/Common.php:657
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Engadiuse a relación interna"
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:663
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Erro: non se engadiu a relación."
 
-#: libraries/classes/Database/Designer/Common.php:700
+#: libraries/classes/Database/Designer/Common.php:701
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Engadiuse unha relación cunha CHAVE EXTERNA"
 
-#: libraries/classes/Database/Designer/Common.php:706
+#: libraries/classes/Database/Designer/Common.php:707
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Erro: non se engadiu a relación."
 
-#: libraries/classes/Database/Designer/Common.php:733
+#: libraries/classes/Database/Designer/Common.php:734
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Erro: non se engadiu a relación."
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -7474,7 +7475,7 @@ msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:863
-#: libraries/classes/Server/Privileges.php:1676
+#: libraries/classes/Server/Privileges.php:1689
 msgid "No Password"
 msgstr "Sen contrasinal"
 
@@ -7482,7 +7483,7 @@ msgstr "Sen contrasinal"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:183
 #: libraries/classes/ReplicationGui.php:432
 #: libraries/classes/ReplicationGui.php:854
-#: libraries/classes/Server/Privileges.php:1663
+#: libraries/classes/Server/Privileges.php:1676
 msgid "Password:"
 msgstr "Contrasinal:"
 
@@ -7492,7 +7493,7 @@ msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:87
 #: libraries/classes/ReplicationGui.php:874
-#: libraries/classes/Server/Privileges.php:1695
+#: libraries/classes/Server/Privileges.php:1708
 msgid "Re-type:"
 msgstr "Reescribir:"
 
@@ -7502,7 +7503,7 @@ msgid "Password Hashing:"
 msgstr "Hash do contrasinal:"
 
 #: libraries/classes/Display/ChangePassword.php:131
-#: libraries/classes/Server/Privileges.php:1739
+#: libraries/classes/Server/Privileges.php:1752
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -7623,10 +7624,11 @@ msgstr "Textos completos"
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4690 libraries/classes/Util.php:4707
-#: libraries/config.values.php:71 templates/table/search/options.twig:54
+#: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Descending"
 msgstr "Descendente"
 
@@ -7635,10 +7637,11 @@ msgstr "Descendente"
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4685 libraries/classes/Util.php:4702
-#: libraries/config.values.php:70 templates/table/search/options.twig:54
+#: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Ascending"
 msgstr "Ascendente"
 
@@ -7680,21 +7683,21 @@ msgstr "A consulta levou %01.4f segundos."
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
-#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
+#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Cos marcados:"
 
 #: libraries/classes/Display/Results.php:4686
 #: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Server/Privileges.php:1179
-#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:1192
+#: libraries/classes/Server/Privileges.php:1193
 #: libraries/classes/Server/UserGroups.php:248
-#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
-#: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
+#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
+#: templates/select_all.twig:5
 msgid "Check all"
 msgstr "Marcar todo"
 
@@ -8256,11 +8259,11 @@ msgstr "Editar a estrutura seguindo a ligazón «Estrutura»"
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946
-#: templates/table/structure/row_stats_table.twig:19
-#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: libraries/classes/Rte/Routines.php:946 templates/console/display.twig:7
 #: templates/console/display.twig:140
+#: templates/table/structure/row_stats_table.twig:19
 #: templates/display/results/options_block.twig:10
+#: templates/table/search/options.twig:1
 msgid "Options"
 msgstr "Opcións"
 
@@ -8320,11 +8323,11 @@ msgstr "Cardinalidade"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/table/structure/display_partitions.twig:31
+#: templates/database/structure/table_header.twig:48
 #: templates/columns_definitions/partitions.twig:85
+#: templates/table/structure/display_partitions.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/database/structure/table_header.twig:48
 msgid "Comment"
 msgstr "Comentario"
 
@@ -8377,8 +8380,9 @@ msgstr "Binario - non editar"
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Non é posíbel acceder ao directorio que designou para os envíos."
 
-#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1501
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "ou"
 
@@ -8437,13 +8441,13 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1627
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/server/variables/variable_table_head.twig:5
-#: templates/database/designer/having_query_panel.twig:100
-#: templates/table/search/table_header.twig:10
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/table_header.twig:10
+#: templates/server/variables/variable_table_head.twig:5
 msgid "Value"
 msgstr "Valor"
 
@@ -8494,8 +8498,8 @@ msgstr ""
 #: libraries/classes/Util.php:3333 libraries/classes/Util.php:3334
 #: libraries/classes/Util.php:4011 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/table/structure/check_all_table_column.twig:8
 #: templates/database/search/results.twig:34
+#: templates/table/structure/check_all_table_column.twig:8
 msgid "Browse"
 msgstr "Visualizar"
 
@@ -8522,8 +8526,8 @@ msgid "Insert"
 msgstr "Inserir"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
-#: libraries/classes/Server/Privileges.php:2569
-#: libraries/classes/Server/Privileges.php:4440 libraries/classes/Util.php:4002
+#: libraries/classes/Server/Privileges.php:2582
+#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4002
 #: libraries/classes/Util.php:4018 libraries/config.values.php:107
 #: templates/server/sub_page_header.twig:2
 #: templates/privileges/privileges_summary.twig:15
@@ -8600,8 +8604,8 @@ msgstr "Rexistro binario"
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3988
 #: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
+#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Replicación"
 
@@ -8741,8 +8745,8 @@ msgstr "Vistas"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tracked_tables.twig:17
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "Mostrar"
 
@@ -9573,8 +9577,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
 msgstr "Formato:"
 
@@ -10290,8 +10294,8 @@ msgstr "Índice"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/structure/table_structure_header.twig:14
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/table_structure_header.twig:14
 msgid "Extra"
 msgstr "Extra"
 
@@ -11045,8 +11049,8 @@ msgstr ""
 "replicación. Desexa <a href=\"%s\">configuralo</a>?"
 
 #: libraries/classes/ReplicationGui.php:389
-#: templates/database/search/selection_form.twig:35
 #: templates/display/export/select_options.twig:8
+#: templates/database/search/selection_form.twig:35
 msgid "Unselect all"
 msgstr "Anular toda a selección"
 
@@ -11065,26 +11069,26 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:791
-#: libraries/classes/Server/Privileges.php:1501
+#: libraries/classes/Server/Privileges.php:1514
 msgid "User name:"
 msgstr "Nome de usuario:"
 
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:795
 #: libraries/classes/ReplicationGui.php:808
-#: libraries/classes/Server/Privileges.php:1506
-#: libraries/classes/Server/Privileges.php:1528
-#: libraries/classes/Server/Privileges.php:2566
-#: libraries/classes/Server/Privileges.php:3544
+#: libraries/classes/Server/Privileges.php:1519
+#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:2579
+#: libraries/classes/Server/Privileges.php:3557
 msgid "User name"
 msgstr "Nome do usuario"
 
 #: libraries/classes/ReplicationGui.php:437
 #: libraries/classes/ReplicationGui.php:858
 #: libraries/classes/ReplicationGui.php:870
-#: libraries/classes/Server/Privileges.php:1667
-#: libraries/classes/Server/Privileges.php:1684
-#: libraries/classes/Server/Privileges.php:3546
+#: libraries/classes/Server/Privileges.php:1680
+#: libraries/classes/Server/Privileges.php:1697
+#: libraries/classes/Server/Privileges.php:3559
 msgid "Password"
 msgstr "Contrasinal"
 
@@ -11122,39 +11126,39 @@ msgstr ""
 "host=nome_da_máquina."
 
 #: libraries/classes/ReplicationGui.php:747
-#: libraries/classes/Server/Privileges.php:1602
+#: libraries/classes/Server/Privileges.php:1615
 msgid "Any host"
 msgstr "Calquera servidor"
 
 #: libraries/classes/ReplicationGui.php:752
-#: libraries/classes/Server/Privileges.php:1610
+#: libraries/classes/Server/Privileges.php:1623
 msgid "Local"
 msgstr "Local"
 
 #: libraries/classes/ReplicationGui.php:759
-#: libraries/classes/Server/Privileges.php:1619
+#: libraries/classes/Server/Privileges.php:1632
 msgid "This Host"
 msgstr "Este servidor"
 
 #: libraries/classes/ReplicationGui.php:799
-#: libraries/classes/Server/Privileges.php:1512
+#: libraries/classes/Server/Privileges.php:1525
 msgid "Any user"
 msgstr "Calquera usuario"
 
 #: libraries/classes/ReplicationGui.php:804
 #: libraries/classes/ReplicationGui.php:837
 #: libraries/classes/ReplicationGui.php:866
-#: libraries/classes/Server/Privileges.php:1638
+#: libraries/classes/Server/Privileges.php:1651
 msgid "Use text field:"
 msgstr "Empregar un campo de texto:"
 
 #: libraries/classes/ReplicationGui.php:831
-#: libraries/classes/Server/Privileges.php:1629
+#: libraries/classes/Server/Privileges.php:1642
 msgid "Use Host Table"
 msgstr "Empregar a táboa Host"
 
 #: libraries/classes/ReplicationGui.php:847
-#: libraries/classes/Server/Privileges.php:1655
+#: libraries/classes/Server/Privileges.php:1668
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -11163,7 +11167,7 @@ msgstr ""
 "os valores almacenados na táboa Host."
 
 #: libraries/classes/ReplicationGui.php:878
-#: libraries/classes/Server/Privileges.php:1699
+#: libraries/classes/Server/Privileges.php:1712
 msgid "Re-type"
 msgstr "Reescribir"
 
@@ -11730,7 +11734,7 @@ msgstr "Falta información para cargar a busca."
 msgid "Error while loading the search."
 msgstr "Produciuse un erro ao cargar a busca."
 
-#: libraries/classes/Server/Privileges.php:222 server_privileges.php:119
+#: libraries/classes/Server/Privileges.php:222 server_privileges.php:120
 msgid "No privileges."
 msgstr "Sen privilexios."
 
@@ -11739,83 +11743,83 @@ msgid "Includes all privileges except GRANT."
 msgstr "Inclúe todos os privilexios a excepción de GRANT (Conceder)."
 
 #: libraries/classes/Server/Privileges.php:304
-#: libraries/classes/Server/Privileges.php:1038
-#: libraries/classes/Server/Privileges.php:1212 server_privileges.php:108
+#: libraries/classes/Server/Privileges.php:1048
+#: libraries/classes/Server/Privileges.php:1225 server_privileges.php:109
 msgid "Allows reading data."
 msgstr "Permite gravar datos."
 
 #: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:1043
-#: libraries/classes/Server/Privileges.php:1213 server_privileges.php:84
+#: libraries/classes/Server/Privileges.php:1053
+#: libraries/classes/Server/Privileges.php:1226 server_privileges.php:85
 msgid "Allows inserting and replacing data."
 msgstr "Permite inserir e substituír datos."
 
 #: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:1048
-#: libraries/classes/Server/Privileges.php:1214 server_privileges.php:118
+#: libraries/classes/Server/Privileges.php:1058
+#: libraries/classes/Server/Privileges.php:1227 server_privileges.php:119
 msgid "Allows changing data."
 msgstr "Permite modificar datos."
 
 #: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:1215 server_privileges.php:73
+#: libraries/classes/Server/Privileges.php:1228 server_privileges.php:73
 msgid "Allows deleting data."
 msgstr "Permite eliminar datos."
 
 #: libraries/classes/Server/Privileges.php:324
-#: libraries/classes/Server/Privileges.php:1241 server_privileges.php:67
+#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:67
 msgid "Allows creating new databases and tables."
 msgstr "Permite crear bases de datos e táboas novas."
 
 #: libraries/classes/Server/Privileges.php:329
-#: libraries/classes/Server/Privileges.php:1253 server_privileges.php:74
+#: libraries/classes/Server/Privileges.php:1266 server_privileges.php:75
 msgid "Allows dropping databases and tables."
 msgstr "Permite eliminar bases de datos e táboas."
 
 #: libraries/classes/Server/Privileges.php:334
-#: libraries/classes/Server/Privileges.php:1337 server_privileges.php:102
+#: libraries/classes/Server/Privileges.php:1350 server_privileges.php:103
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Permite recargar a configuración do servidor e limpar a súa caché."
 
 #: libraries/classes/Server/Privileges.php:339
-#: libraries/classes/Server/Privileges.php:1341 server_privileges.php:111
+#: libraries/classes/Server/Privileges.php:1354 server_privileges.php:112
 msgid "Allows shutting down the server."
 msgstr "Permite apagar o servidor."
 
 #: libraries/classes/Server/Privileges.php:344
-#: libraries/classes/Server/Privileges.php:1333 server_privileges.php:99
+#: libraries/classes/Server/Privileges.php:1346 server_privileges.php:100
 #, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
 msgstr "Permite ver procesos de todos os usuarios"
 
 #: libraries/classes/Server/Privileges.php:349
-#: libraries/classes/Server/Privileges.php:1221 server_privileges.php:78
+#: libraries/classes/Server/Privileges.php:1234 server_privileges.php:79
 msgid "Allows importing data from and exporting data into files."
 msgstr "Permite importar e exportar datos desde e para ficheiros."
 
 #: libraries/classes/Server/Privileges.php:354
-#: libraries/classes/Server/Privileges.php:1053
-#: libraries/classes/Server/Privileges.php:1365 server_privileges.php:100
+#: libraries/classes/Server/Privileges.php:1063
+#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:101
 msgid "Has no effect in this MySQL version."
 msgstr "Non funciona nesta versión do MySQL."
 
 #: libraries/classes/Server/Privileges.php:359
-#: libraries/classes/Server/Privileges.php:1249 server_privileges.php:83
+#: libraries/classes/Server/Privileges.php:1262 server_privileges.php:84
 msgid "Allows creating and dropping indexes."
 msgstr "Permite crear e eliminar índices."
 
 #: libraries/classes/Server/Privileges.php:364
-#: libraries/classes/Server/Privileges.php:1247 server_privileges.php:65
+#: libraries/classes/Server/Privileges.php:1260 server_privileges.php:65
 msgid "Allows altering the structure of existing tables."
 msgstr "Permite alterar a estrutura das táboas xa existentes."
 
 #: libraries/classes/Server/Privileges.php:369
-#: libraries/classes/Server/Privileges.php:1345 server_privileges.php:109
+#: libraries/classes/Server/Privileges.php:1358 server_privileges.php:110
 msgid "Gives access to the complete list of databases."
 msgstr "Permite acceder á lista completa de bases de datos."
 
 #: libraries/classes/Server/Privileges.php:375
-#: libraries/classes/Server/Privileges.php:1325 server_privileges.php:113
+#: libraries/classes/Server/Privileges.php:1338 server_privileges.php:114
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11826,41 +11830,41 @@ msgstr ""
 "ou matar os fíos doutros usuarios."
 
 #: libraries/classes/Server/Privileges.php:383
-#: libraries/classes/Server/Privileges.php:1259 server_privileges.php:70
+#: libraries/classes/Server/Privileges.php:1272 server_privileges.php:70
 msgid "Allows creating temporary tables."
 msgstr "Permite crear táboas temporais."
 
 #: libraries/classes/Server/Privileges.php:388
-#: libraries/classes/Server/Privileges.php:1361 server_privileges.php:85
+#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:86
 msgid "Allows locking tables for the current thread."
 msgstr "Permite bloquear táboas do fío actual."
 
 #: libraries/classes/Server/Privileges.php:393
-#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
+#: libraries/classes/Server/Privileges.php:1387 server_privileges.php:108
 msgid "Needed for the replication slaves."
 msgstr "Necesario para os escravos de replicación."
 
 #: libraries/classes/Server/Privileges.php:398
-#: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
+#: libraries/classes/Server/Privileges.php:1383 server_privileges.php:106
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Permite que o usuario pregunte onde están os escravos e os mestres."
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
-#: libraries/classes/Server/Privileges.php:1279
-#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:72
+#: libraries/classes/Server/Privileges.php:1292
+#: libraries/classes/Server/Privileges.php:1299 server_privileges.php:72
 msgid "Allows creating new views."
 msgstr "Permite crear vistas novas."
 
 #: libraries/classes/Server/Privileges.php:408
-#: libraries/classes/Server/Privileges.php:1293 server_privileges.php:76
+#: libraries/classes/Server/Privileges.php:1306 server_privileges.php:77
 #, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
 msgstr "Permite configurar acontecementos para o programador de acontecementos"
 
 #: libraries/classes/Server/Privileges.php:413
-#: libraries/classes/Server/Privileges.php:1297 server_privileges.php:117
+#: libraries/classes/Server/Privileges.php:1310 server_privileges.php:118
 #, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
@@ -11868,63 +11872,63 @@ msgstr "Permite crear e eliminar os disparadores"
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
-#: libraries/classes/Server/Privileges.php:1263 server_privileges.php:110
+#: libraries/classes/Server/Privileges.php:1276 server_privileges.php:111
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Permite realizar consultas SHOW CREATE VIEW."
 
-#: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:68
+#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:1280 server_privileges.php:68
 msgid "Allows creating stored routines."
 msgstr "Permite crear rutinas almacenadas."
 
-#: libraries/classes/Server/Privileges.php:440
-#: libraries/classes/Server/Privileges.php:1271 server_privileges.php:66
+#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:1284 server_privileges.php:66
 msgid "Allows altering and dropping stored routines."
 msgstr "Permite alterar e eliminar rutinas almacenadas."
 
-#: libraries/classes/Server/Privileges.php:445
-#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:71
+#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:1391 server_privileges.php:71
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Permite crear, eliminar e mudar o nome das contas de usuario."
 
-#: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:1273 server_privileges.php:77
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:78
 msgid "Allows executing stored routines."
 msgstr "Permite executar rutinas almacenadas."
 
-#: libraries/classes/Server/Privileges.php:728
+#: libraries/classes/Server/Privileges.php:738
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
 msgstr "Conexións persistentes"
 
-#: libraries/classes/Server/Privileges.php:744
+#: libraries/classes/Server/Privileges.php:754
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "Conexións persistentes"
 
-#: libraries/classes/Server/Privileges.php:758
+#: libraries/classes/Server/Privileges.php:768
 msgid "Requires a valid X509 certificate."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:783
+#: libraries/classes/Server/Privileges.php:793
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:796
+#: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:809
+#: libraries/classes/Server/Privileges.php:819
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
+#: libraries/classes/Server/Privileges.php:849 server_privileges.php:91
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "Limita o número de consultas por hora que pode enviar un usuario."
 
-#: libraries/classes/Server/Privileges.php:847 server_privileges.php:93
+#: libraries/classes/Server/Privileges.php:857 server_privileges.php:94
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -11932,124 +11936,124 @@ msgstr ""
 "Limita o número de ordes que modifiquen unha táboa ou base de datos por hora "
 "que pode executar un usuario."
 
-#: libraries/classes/Server/Privileges.php:856 server_privileges.php:87
+#: libraries/classes/Server/Privileges.php:866 server_privileges.php:88
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "Limita o número de conexións novas por hora que pode abrir un usuario."
 
-#: libraries/classes/Server/Privileges.php:865 server_privileges.php:97
+#: libraries/classes/Server/Privileges.php:875 server_privileges.php:98
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Limita o número de conexións simultáneas que pode ter o usuario."
 
-#: libraries/classes/Server/Privileges.php:910
-#: libraries/classes/Server/Privileges.php:3356
-#: libraries/classes/Server/Privileges.php:3358
-#: libraries/classes/Server/Privileges.php:4581
+#: libraries/classes/Server/Privileges.php:920
+#: libraries/classes/Server/Privileges.php:3369
+#: libraries/classes/Server/Privileges.php:3371
+#: libraries/classes/Server/Privileges.php:4594
 #: templates/privileges/edit_routine_privileges.twig:11
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
 msgstr "Rutinas"
 
-#: libraries/classes/Server/Privileges.php:942
+#: libraries/classes/Server/Privileges.php:952
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:949
+#: libraries/classes/Server/Privileges.php:959
 #, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
 msgstr "Permite alterar e eliminar rutinas almacenadas."
 
-#: libraries/classes/Server/Privileges.php:954
+#: libraries/classes/Server/Privileges.php:964
 #, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
 msgstr "Permite executar rutinas almacenadas."
 
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1173
-#: libraries/classes/Server/Privileges.php:3351
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1186
+#: libraries/classes/Server/Privileges.php:3364
 #: templates/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
 msgstr "Privilexios propios das táboas"
 
-#: libraries/classes/Server/Privileges.php:1007
-#: libraries/classes/Server/Privileges.php:1183
-#: libraries/classes/Server/Privileges.php:3549
+#: libraries/classes/Server/Privileges.php:1017
+#: libraries/classes/Server/Privileges.php:1196
+#: libraries/classes/Server/Privileges.php:3562
 #: templates/privileges/edit_routine_privileges.twig:16
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Nota: os nomes dos privilexios do MySQL están en inglés"
 
-#: libraries/classes/Server/Privileges.php:1147
+#: libraries/classes/Server/Privileges.php:1160
 msgid "Administration"
 msgstr "Administración"
 
-#: libraries/classes/Server/Privileges.php:1167
-#: libraries/classes/Server/Privileges.php:3547
+#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:3560
 msgid "Global privileges"
 msgstr "Privilexios globais"
 
-#: libraries/classes/Server/Privileges.php:1168
+#: libraries/classes/Server/Privileges.php:1181
 #, fuzzy
 #| msgid "global"
 msgid "Global"
 msgstr "global"
 
-#: libraries/classes/Server/Privileges.php:1170
-#: libraries/classes/Server/Privileges.php:3345
+#: libraries/classes/Server/Privileges.php:1183
+#: libraries/classes/Server/Privileges.php:3358
 msgid "Database-specific privileges"
 msgstr "Privilexios propios das bases de datos"
 
-#: libraries/classes/Server/Privileges.php:1242 server_privileges.php:69
+#: libraries/classes/Server/Privileges.php:1255 server_privileges.php:69
 msgid "Allows creating new tables."
 msgstr "Permite crear táboas novas."
 
-#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:75
+#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:76
 msgid "Allows dropping tables."
 msgstr "Permite eliminar táboas."
 
-#: libraries/classes/Server/Privileges.php:1317
+#: libraries/classes/Server/Privileges.php:1330
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Permite engadir usuarios e privilexios sen recargar as táboas de privilexios."
 
-#: libraries/classes/Server/Privileges.php:1353 server_privileges.php:80
+#: libraries/classes/Server/Privileges.php:1366 server_privileges.php:81
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1431
-#: libraries/classes/Server/Privileges.php:1462
+#: libraries/classes/Server/Privileges.php:1444
+#: libraries/classes/Server/Privileges.php:1475
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
 msgstr "Autenticación mediante cookies"
 
-#: libraries/classes/Server/Privileges.php:1464
+#: libraries/classes/Server/Privileges.php:1477
 #, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
 msgstr "Autenticación mediante Signon"
 
-#: libraries/classes/Server/Privileges.php:1498
-#: libraries/classes/Server/Privileges.php:3113
+#: libraries/classes/Server/Privileges.php:1511
+#: libraries/classes/Server/Privileges.php:3126
 msgid "Login Information"
 msgstr "Información sobre o acceso (login)"
 
-#: libraries/classes/Server/Privileges.php:1521
-#: libraries/classes/Server/Privileges.php:1679
-#: templates/privileges/add_privileges_table.twig:7
+#: libraries/classes/Server/Privileges.php:1534
+#: libraries/classes/Server/Privileges.php:1692
 #: templates/privileges/add_privileges_routine.twig:7
+#: templates/privileges/add_privileges_table.twig:7
 msgid "Use text field"
 msgstr "Empregar un campo de texto"
 
-#: libraries/classes/Server/Privileges.php:1547
+#: libraries/classes/Server/Privileges.php:1560
 #, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
@@ -12061,155 +12065,155 @@ msgstr ""
 "Xa existe unha conta co mesmo nome de usuario mais con, posibelmente, un "
 "nome de servidor diferente. Ten a certeza de querer proseguir?"
 
-#: libraries/classes/Server/Privileges.php:1556
+#: libraries/classes/Server/Privileges.php:1569
 #, fuzzy
 #| msgid "User name:"
 msgid "Host name:"
 msgstr "Nome de usuario:"
 
-#: libraries/classes/Server/Privileges.php:1561
-#: libraries/classes/Server/Privileges.php:1646
-#: libraries/classes/Server/Privileges.php:2567
-#: libraries/classes/Server/Privileges.php:3545
+#: libraries/classes/Server/Privileges.php:1574
+#: libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Server/Privileges.php:2580
+#: libraries/classes/Server/Privileges.php:3558
 #, fuzzy
 #| msgid "Log name"
 msgid "Host name"
 msgstr "Nome do ficheiro de rexistro"
 
-#: libraries/classes/Server/Privileges.php:1669
+#: libraries/classes/Server/Privileges.php:1682
 msgid "Do not change the password"
 msgstr "Non mude o contrasinal"
 
-#: libraries/classes/Server/Privileges.php:1719
+#: libraries/classes/Server/Privileges.php:1732
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "Autenticación"
 
-#: libraries/classes/Server/Privileges.php:1726
+#: libraries/classes/Server/Privileges.php:1739
 #, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password Hashing Method"
 msgstr "Hash do contrasinal:"
 
-#: libraries/classes/Server/Privileges.php:2016
+#: libraries/classes/Server/Privileges.php:2029
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Modificouse sen problemas o contrasinal de %s."
 
-#: libraries/classes/Server/Privileges.php:2060
+#: libraries/classes/Server/Privileges.php:2073
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Revogou os privilexios de %s."
 
-#: libraries/classes/Server/Privileges.php:2160
+#: libraries/classes/Server/Privileges.php:2173
 #: templates/privileges/add_user_fieldset.twig:7
 #, fuzzy
 #| msgid "Add user"
 msgid "Add user account"
 msgstr "Engadir un usuario"
 
-#: libraries/classes/Server/Privileges.php:2169
+#: libraries/classes/Server/Privileges.php:2182
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database for user account"
 msgstr "Base de datos para o usuario"
 
-#: libraries/classes/Server/Privileges.php:2175
+#: libraries/classes/Server/Privileges.php:2188
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Crear unha base de datos co mesmo nome e conceder todos os privilexios."
 
-#: libraries/classes/Server/Privileges.php:2186
+#: libraries/classes/Server/Privileges.php:2199
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Conceder todos os privilexios para o nome con comodíns (username\\_%)."
 
-#: libraries/classes/Server/Privileges.php:2199
+#: libraries/classes/Server/Privileges.php:2212
 #, fuzzy, php-format
 #| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
 msgstr "Conceder todos os privilexios sobre a base de datos \"%s\"."
 
-#: libraries/classes/Server/Privileges.php:2373
-#: libraries/classes/Server/Privileges.php:2447
+#: libraries/classes/Server/Privileges.php:2386
+#: libraries/classes/Server/Privileges.php:2460
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Usuarios que teñen acceso a \"%s\""
 
-#: libraries/classes/Server/Privileges.php:2417
+#: libraries/classes/Server/Privileges.php:2430
 msgid "User has been added."
 msgstr "O usuario foi engadido."
 
-#: libraries/classes/Server/Privileges.php:2570
-#: libraries/classes/Server/Privileges.php:3555
+#: libraries/classes/Server/Privileges.php:2583
+#: libraries/classes/Server/Privileges.php:3568
 #: templates/privileges/privileges_summary.twig:16
 msgid "Grant"
 msgstr "Conceder"
 
-#: libraries/classes/Server/Privileges.php:2585
+#: libraries/classes/Server/Privileges.php:2598
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2604
-#: libraries/classes/Server/Privileges.php:3978
+#: libraries/classes/Server/Privileges.php:2617
+#: libraries/classes/Server/Privileges.php:3991
 msgid "No user found."
 msgstr "Non se achou ningún usuario."
 
-#: libraries/classes/Server/Privileges.php:2635
-#: libraries/classes/Server/Privileges.php:2971
-#: libraries/classes/Server/Privileges.php:3637
+#: libraries/classes/Server/Privileges.php:2648
+#: libraries/classes/Server/Privileges.php:2984
+#: libraries/classes/Server/Privileges.php:3650
 msgid "Any"
 msgstr "Calquera"
 
-#: libraries/classes/Server/Privileges.php:2686
+#: libraries/classes/Server/Privileges.php:2699
 msgid "global"
 msgstr "global"
 
-#: libraries/classes/Server/Privileges.php:2689
+#: libraries/classes/Server/Privileges.php:2702
 msgid "database-specific"
 msgstr "específico da base de datos"
 
-#: libraries/classes/Server/Privileges.php:2691
+#: libraries/classes/Server/Privileges.php:2704
 msgid "wildcard"
 msgstr "comodín"
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2710
 #, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
 msgstr "específico da base de datos"
 
-#: libraries/classes/Server/Privileges.php:2840
+#: libraries/classes/Server/Privileges.php:2853
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges"
 msgstr "Modificar os privilexios:"
 
-#: libraries/classes/Server/Privileges.php:2843
+#: libraries/classes/Server/Privileges.php:2856
 msgid "Revoke"
 msgstr "Revogar"
 
-#: libraries/classes/Server/Privileges.php:2867
+#: libraries/classes/Server/Privileges.php:2880
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
 msgstr "Modificar o servidor"
 
-#: libraries/classes/Server/Privileges.php:3085
+#: libraries/classes/Server/Privileges.php:3098
 msgid "… keep the old one."
 msgstr "… manter o anterior."
 
-#: libraries/classes/Server/Privileges.php:3086
+#: libraries/classes/Server/Privileges.php:3099
 msgid "… delete the old one from the user tables."
 msgstr "… eliminar o anterior das táboas de usuarios."
 
-#: libraries/classes/Server/Privileges.php:3088
+#: libraries/classes/Server/Privileges.php:3101
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 "… retirarlle todos os privilexios activos ao anterior e eliminalo despois."
 
-#: libraries/classes/Server/Privileges.php:3092
+#: libraries/classes/Server/Privileges.php:3105
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -12217,112 +12221,112 @@ msgstr ""
 "… eliminar o anterior das táboas de usuarios e recargar os privilexios "
 "despois."
 
-#: libraries/classes/Server/Privileges.php:3114
+#: libraries/classes/Server/Privileges.php:3127
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "Modificar a información de acceso (login) / Copiar o usuario"
 
-#: libraries/classes/Server/Privileges.php:3120
+#: libraries/classes/Server/Privileges.php:3133
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Crear un usuario novo cos mesmos privilexios e…"
 
-#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3370
 #: templates/privileges/edit_routine_privileges.twig:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Privilexios propios das columnas"
 
-#: libraries/classes/Server/Privileges.php:3553
+#: libraries/classes/Server/Privileges.php:3566
 #: libraries/classes/Server/UserGroups.php:89
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3676
-#: libraries/classes/Server/Privileges.php:4811
+#: libraries/classes/Server/Privileges.php:3689
+#: libraries/classes/Server/Privileges.php:4824
 msgid "The selected user was not found in the privilege table."
 msgstr "Non se atopou o usuario escollido na táboa de privilexios."
 
-#: libraries/classes/Server/Privileges.php:3854
+#: libraries/classes/Server/Privileges.php:3867
 msgid "No users selected for deleting!"
 msgstr "Non se escolleu que usuarios eliminar!"
 
-#: libraries/classes/Server/Privileges.php:3857
+#: libraries/classes/Server/Privileges.php:3870
 msgid "Reloading the privileges"
 msgstr "A recargar os privilexios"
 
-#: libraries/classes/Server/Privileges.php:3876
+#: libraries/classes/Server/Privileges.php:3889
 msgid "The selected users have been deleted successfully."
 msgstr "Elimináronse sen problemas os usuarios seleccionados."
 
-#: libraries/classes/Server/Privileges.php:3951
+#: libraries/classes/Server/Privileges.php:3964
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Acaba de actualizar os privilexios de %s."
 
-#: libraries/classes/Server/Privileges.php:4056
+#: libraries/classes/Server/Privileges.php:4069
 #, php-format
 msgid "Deleting %s"
 msgstr "A eliminar %s"
 
-#: libraries/classes/Server/Privileges.php:4086
+#: libraries/classes/Server/Privileges.php:4099
 msgid "The privileges were reloaded successfully."
 msgstr "Non houbo problemas ao recargar os privilexios."
 
-#: libraries/classes/Server/Privileges.php:4177
+#: libraries/classes/Server/Privileges.php:4190
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Xa existe o usuario %s!"
 
-#: libraries/classes/Server/Privileges.php:4454
+#: libraries/classes/Server/Privileges.php:4467
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilexios para %s"
 
-#: libraries/classes/Server/Privileges.php:4463
+#: libraries/classes/Server/Privileges.php:4476
 #: libraries/classes/Server/Status/Processes.php:81
 #: libraries/classes/Server/UserGroups.php:49
 msgid "User"
 msgstr "Usuario"
 
-#: libraries/classes/Server/Privileges.php:4531
+#: libraries/classes/Server/Privileges.php:4544
 #, fuzzy
 #| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "Modificar os privilexios:"
 
-#: libraries/classes/Server/Privileges.php:4532
+#: libraries/classes/Server/Privileges.php:4545
 #, fuzzy
 #| msgid "Users"
 msgid "User account"
 msgstr "Usuarios"
 
-#: libraries/classes/Server/Privileges.php:4606
+#: libraries/classes/Server/Privileges.php:4619
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:4626
+#: libraries/classes/Server/Privileges.php:4639
 #: libraries/classes/Server/Users.php:30
 #, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "Vista xeral dos usuarios"
 
-#: libraries/classes/Server/Privileges.php:4701
+#: libraries/classes/Server/Privileges.php:4714
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:4743
+#: libraries/classes/Server/Privileges.php:4756
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12340,7 +12344,7 @@ msgstr ""
 "privilexios que usa o servidor se se levaron a cabo alteracións manuais. "
 "Neste caso, debería %svolver a cargar os privilexios%s antes de proseguir."
 
-#: libraries/classes/Server/Privileges.php:4760
+#: libraries/classes/Server/Privileges.php:4773
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12359,7 +12363,7 @@ msgstr ""
 "privilexios que usa o servidor se se levaron a cabo alteracións manuais. "
 "Neste caso, debería %svolver a cargar os privilexios%s antes de proseguir."
 
-#: libraries/classes/Server/Privileges.php:5045
+#: libraries/classes/Server/Privileges.php:5058
 msgid "You have added a new user."
 msgstr "Engadiu un usuario novo."
 
@@ -14762,18 +14766,24 @@ msgstr ""
 msgid "View dump (schema) of databases"
 msgstr "Ver o  envorcado das bases de datos"
 
-#: server_privileges.php:144 server_replication.php:38
+#: server_privileges.php:74
+#, fuzzy
+#| msgid "Allows deleting data."
+msgid "Allows deleting historical rows."
+msgstr "Permite eliminar datos."
+
+#: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
 msgid "No Privileges"
 msgstr "Sen privilexios"
 
-#: server_privileges.php:151
+#: server_privileges.php:152
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have privileges to manipulate with the users!"
 msgstr "Non ten privilexios suficientes para crear un disparador"
 
-#: server_privileges.php:165
+#: server_privileges.php:166
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -15090,18 +15100,210 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descrición"
 
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Nota: De activar as estatísticas da base de datos, ocasionará que se produza "
-"un tráfico denso entre o servidor web e o de MySQL."
+#: templates/table/structure/add_column.twig:9
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Engadir %s columna(s)"
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-msgid "Enable statistics"
-msgstr "Activar as estatísticas"
+#: templates/table/structure/add_column.twig:14
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "No comezo da táboa"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr "despois de %s"
+
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Fila(s):"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Envorcar algunha(s) fila(s)"
+
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "Número de filas:"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Comezar na columna:"
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Envorcar todas as fileiras"
+
+#: templates/database/designer/delete_relation_panel.twig:21
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Delete relationship"
+msgstr "Eliminar a relación"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+#, fuzzy
+#| msgid "Relation operator"
+msgid "Relationship operator"
+msgstr "Operador de relación"
+
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/having_query_panel.twig:90
+msgid "Except"
+msgstr "Excepto"
+
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/having_query_panel.twig:102
+msgid "subquery"
+msgstr "subconsulta"
+
+#: templates/database/designer/options_panel.twig:84
+#: templates/database/designer/rename_to_panel.twig:22
+msgid "Rename to"
+msgstr "Renomear como"
+
+#: templates/database/designer/options_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:30
+msgid "New name"
+msgstr "Novo nome"
+
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/aggregate_query_panel.twig:22
+msgid "Aggregate"
+msgstr "Agregar"
+
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/where_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/table/search/table_header.twig:9
+msgid "Operator"
+msgstr "Operador"
+
+#: templates/database/designer/database_tables.twig:31
+#, fuzzy
+#| msgid "Move columns"
+msgid "Show/hide columns"
+msgstr "Mover columna(s)"
+
+#: templates/database/designer/database_tables.twig:39
+#, fuzzy
+#| msgid "Table structure"
+msgid "See table structure"
+msgstr "Estrutura da táboa"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s táboa"
+msgstr[1] "%s táboas"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Suma"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Nome do índice:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+"«PRIMARIA» <b>debe</b> ser o nome de e <b>só de</b> unha chave primaria!"
+
+#: templates/table/index_form.twig:34
+#, fuzzy
+#| msgid "Index cache size"
+msgid "Index choice:"
+msgstr "Tamaño da caché do índice"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Active options"
+msgid "Advanced Options"
+msgstr "Opcións activas"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Tipo de índice:"
+
+#: templates/table/index_form.twig:77
+#, fuzzy
+#| msgid "User:"
+msgid "Parser:"
+msgstr "Usuario:"
+
+#: templates/table/index_form.twig:93
+msgid "Comment:"
+msgstr "Comentario:"
+
+#: templates/table/index_form.twig:118
+#: templates/database/structure/table_header.twig:38
+msgid "Size"
+msgstr "Tamaño"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder"
+msgstr "Arrastre para reordenar"
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+#| msgid "Add this series"
+msgid "Add to Favorites"
+msgstr "Engadir esta serie"
+
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "Opcións activas"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page titles"
+msgid "Page to open"
+msgstr "Títulos de páxina"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Page to delete"
+msgstr "Eliminouse a relación"
+
+#: templates/database/structure/show_create.twig:2
+#, fuzzy
+#| msgid "Show SQL queries"
+msgid "Showing create queries"
+msgstr "Mostrar as consultas de SQL"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Uso do espazo"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Efectivo"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
@@ -15121,533 +15323,156 @@ msgstr "Desactivar o seguimento para %s"
 msgid "Deactivate now"
 msgstr "Desactivar agora"
 
-#: templates/table/structure/check_all_table_column.twig:76
-#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/console/display.twig:7
+msgid "History"
+msgstr "Historial"
+
+#: templates/console/display.twig:11 templates/console/display.twig:99
+msgid "Bookmarks"
+msgstr "Marcadores"
+
+#: templates/console/display.twig:20
+msgid "Press Ctrl+Enter to execute query"
+msgstr "Prema Ctrl+Intro para executar a consulta"
+
+#: templates/console/display.twig:23
+msgid "Press Enter to execute query"
+msgstr "Prema Intro para executar a consulta"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Collapse"
+msgstr "Contraer"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Expand"
+msgstr "Expandir"
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add to central columns"
-msgstr "Columnas de área de texto de CHAR"
-
-#: templates/table/structure/check_all_table_column.twig:83
-#: templates/table/structure/actions_in_table_structure.twig:127
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Remove from central columns"
-msgstr "Eliminar columna(s)"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
-msgid "Authentication code:"
-msgstr "Autenticación"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "Número de filas:"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Export to selected page"
-msgid "Save to selected page"
-msgstr "Exportar á páxina escollida"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a page and export to it"
-msgid "Create a page and save to it"
-msgstr "Crear unha páxina e exportar a ela"
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "New page name: "
-msgid "New page name"
-msgstr "Nome da nova páxina: "
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Buscar na base de datos"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Palabras ou valores que buscar (ou comodín é: «%»):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "Atopar:"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "Dentro das táboas:"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "Dentro da columna:"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Ver a saída como texto"
-
-#: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
-msgid "Remove selected user accounts"
-msgstr "Eliminar os usuarios seleccionados"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-"Retirarlles todos os privilexios activos aos usuarios e eliminalos a "
-"continuación."
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Eliminar as bases de datos que teñan os mesmos nomes que os usuarios."
-
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Delete relationship"
-msgstr "Eliminar a relación"
-
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/where_query_panel.twig:30
-msgid "Operator"
-msgstr "Operador"
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#: templates/database/designer/where_query_panel.twig:59
-msgid "Except"
-msgstr "Excepto"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#: templates/database/designer/where_query_panel.twig:71
-msgid "subquery"
+#| msgid "subquery"
+msgid "Requery"
 msgstr "subconsulta"
 
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Engadido"
+#: templates/console/display.twig:31 templates/console/display.twig:175
+msgid "Explain"
+msgstr "Explicar"
 
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Autor"
+#: templates/console/display.twig:40 templates/console/display.twig:184
+msgid "Bookmark"
+msgstr "Marcador"
 
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "desactivado"
+#: templates/console/display.twig:40 templates/console/display.twig:184
+msgid "Query failed"
+msgstr "Fallou a consulta"
 
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "Agochalo/Mostralo todo"
-
-#: templates/database/designer/table_list.twig:14
+#: templates/console/display.twig:42 templates/console/display.twig:184
 #, fuzzy
-#| msgid "Hide/Show Tables with no relation"
-msgid "Hide/Show tables with no relationship"
-msgstr "Agochar/Mostrar as táboas sen relación"
+#| msgid "Query execution time"
+msgid "Queried time"
+msgstr "Tempo de execución da consulta"
 
-#: templates/database/designer/table_list.twig:55
-msgid "Number of tables:"
-msgstr "Número de táboas:"
+#: templates/console/display.twig:47
+msgid "During current session"
+msgstr "Durante esta sesión"
 
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Prema para conmutar"
+#: templates/console/display.twig:64
+msgid "ascending"
+msgstr "ascendente"
 
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "A importar ao servidor actual"
+#: templates/console/display.twig:64
+msgid "descending"
+msgstr "descendente"
 
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "A importar na base de datos «%s»"
+#: templates/console/display.twig:64
+msgid "Order:"
+msgstr "Orde:"
 
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "A importar na táboa «%s»"
+#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/table/search/replace_preview.twig:17
+msgid "Count"
+msgstr "Cantidade"
 
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "Ficheiro que importar:"
+#: templates/console/display.twig:64
+msgid "Execution order"
+msgstr "Orde de execución"
 
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "O ficheiro pode estar comprimido (%s) ou descomprimido."
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Time taken"
+msgstr "Tempo que leva"
 
-#: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
+#: templates/console/display.twig:64
+msgid "Order by:"
+msgstr "Ordenar por:"
+
+#: templates/console/display.twig:64
+msgid "Ungroup queries"
+msgstr "Desagrupar as consultas"
+
+#: templates/console/display.twig:84
+msgid "Show trace"
+msgstr "Mostrar o trazado"
+
+#: templates/console/display.twig:84
+msgid "Hide trace"
+msgstr "Agochar o trazado"
+
+#: templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+msgid "Add"
+msgstr "Engadir"
+
+#: templates/console/display.twig:112
+msgid "Add bookmark"
+msgstr "Engadir un marcador"
+
+#: templates/console/display.twig:121
+msgid "Label"
+msgstr "Etiqueta"
+
+#: templates/console/display.twig:124
+msgid "Target database"
+msgstr "Base de datos de destino"
+
+#: templates/console/display.twig:127
+msgid "Share this bookmark"
+msgstr "Compartir este marcador"
+
+#: templates/console/display.twig:140
+msgid "Set default"
+msgstr "Estabelecer o predeterminado"
+
+#: templates/console/display.twig:162
 msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
 msgstr ""
-"O nome dun ficheiro comprimido debe rematar en <b>.[formato].[compresión]</"
-"b>. Exemplo: <b>.sql.zip</b>"
+"Executar consultas con Intro e inserir un salto de liña con Maiúsculas + "
+"Intro. Para que isto sexa permanente vexa a configuración."
 
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "Tamén pode arrastrar e soltar un ficheiro sobre calquera páxina."
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "Seleccionar un modelo"
 
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "Este servidor non admite a recepción de ficheiros."
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Buscar e substituír - vista previa"
 
-#: templates/display/import/import.twig:97
-#: templates/display/export/options_output_charset.twig:3
-msgid "Character set of the file:"
-msgstr "Conxunto de caracteres do ficheiro:"
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Cadea orixinal"
 
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "Importación parcial:"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Cadea substituída"
 
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"A importación anterior excedeu do tempo permitido; unha vez reiniciada "
-"continuará desde a posición %d."
-
-#: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"Permitir que se interrompa a importación no caso de que o script detecte que "
-"está preto do límite de tempo.<i>( Esta pode ser unha boa maneira para "
-"importar ficheiros longos, aínda que pode rachar transaccións.)</i>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Omitir este número de consultas (para SQL), comezando na primeira:"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "Outras opcións:"
-
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr "Opcións específicas do formato:"
-
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Baixe para encher as opcións do formato escollido e ignore as opcións do "
-"resto dos formatos."
-
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr "Conversión de codificación:"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Valor da sesión"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Novo"
-
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
-msgctxt "Number"
-msgid "#"
-msgstr "nº"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Data"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Nome de usuario"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s táboa"
-msgstr[1] "%s táboas"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Suma"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Limites dos recursos"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Nota: Se estas opcións se configuran como 0 (cero) elimínase o límite."
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Configure two-factor authentication"
-msgstr "Autenticación mediante configuración"
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Enable two-factor authentication"
-msgstr "Autenticación mediante configuración"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Variábeis e configuración do servidor"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "Motores de almacenamento"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Conxuntos de caracteres e Ordes alfabéticas"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Estatísticas das bases de datos"
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:192
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partitions"
-msgstr "Partición %s"
-
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "Non se definiu ningún índice!"
-
-#: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partitioned by:"
-msgstr "particionado"
-
-#: templates/table/structure/display_partitions.twig:16
-#, fuzzy
-#| msgid "partitioned"
-msgid "Sub partitioned by:"
-msgstr "particionado"
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partition"
-msgstr "Partición %s"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "Compresión"
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "Lonxitude das fileiras"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "Lonxitude das fileiras"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partition table"
-msgstr "particionado"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Remove partitioning"
-msgid "Edit partitioning"
-msgstr "Eliminar particións"
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Crear versión %1$s de %2$s"
-
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s"
-msgstr "Crear unha versión"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Seguir estas instrucións de definición de datos:"
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Seguir estas instrucións de manipulación de datos:"
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Crear unha versión"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "Primeiro"
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, php-format
-msgid "after %s"
-msgstr "despois de %s"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Fila inicial:"
-
-#: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Move columns"
-msgid "Show/hide columns"
-msgstr "Mover columna(s)"
-
-#: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Table structure"
-msgid "See table structure"
-msgstr "Estrutura da táboa"
-
-#: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
-msgid "Referenced by %s."
-msgstr "Escoller a chave referida"
-
-#: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
-msgid "Is a foreign key."
-msgstr "Escoller unha chave externa"
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Pick from Central Columns"
-msgstr "Eliminar columna(s)"
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Non hai ningunha base de datos"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "Títulos de páxina"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Page to delete"
-msgstr "Eliminouse a relación"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Escoller unha páxina"
-
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr "Estatísticas das fileiras"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "estáticas"
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "dinámicas"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "particionado"
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Lonxitude das fileiras"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Tamaño das fileiras"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr "Índice automático seguinte"
-
-#: templates/table/structure/row_stats_table.twig:76
-#: templates/database/structure/table_header.twig:53
-msgid "Creation"
-msgstr "Creación"
-
-#: templates/table/structure/row_stats_table.twig:83
-#: templates/database/structure/table_header.twig:58
-msgid "Last update"
-msgstr "Última actualización"
-
-#: templates/table/structure/row_stats_table.twig:90
-#: templates/database/structure/table_header.twig:63
-msgid "Last check"
-msgstr "Última revisión"
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Substituír"
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
@@ -15658,271 +15483,91 @@ msgstr "Ningunha"
 msgid "Convert to Kana"
 msgstr "Converter a Kana"
 
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Nome da táboa"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-msgid "Add"
-msgstr "Engadir"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
+#: templates/database/structure/table_header.twig:27
 #, fuzzy
-#| msgid "Add column(s)"
-msgid "column(s)"
-msgstr "Engadir columna(s)"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Orde alfabética:"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Motor de almacenamento:"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
-msgid "Connection:"
-msgstr "Conexións"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "Definición da PARTICIÓN:"
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "Seleccionar unha columna."
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Empregue esta columna para etiquetar cada punto"
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Máximo de filas que aparecen na gráfica"
-
-#: templates/login/header.twig:12
+#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
+"Pode non ser exacto. Consulte a [doc@faq3-11]pregunta frecuente 3.11[/doc]"
 
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"O ficheiro que se vai enviar é, posibelmente, maior do que o tamaño máximo "
-"permitido ou este é un erro coñecido dos navegadores baseados en webkit "
-"(Safari, Google Chrome, Arora etc.)."
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "Creación"
 
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr "%s de %s"
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "Última actualización"
 
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/seg."
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "Última revisión"
 
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Sobre %MIN min. %SEC seg. restantes."
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "Criterios adicionais de busca"
 
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "Sobre %SEC seg. restantes."
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Exceso na comprobación"
 
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "Estase a procesar o ficheiro; teña paciencia, por favor."
-
-#: templates/display/import/javascript.twig:36
+#: templates/database/structure/check_all_tables.twig:10
 #, fuzzy
-#| msgid "Uploading your import file…"
-msgid "Uploading your import file…"
-msgstr "Subindo o ficheiro de importación…"
+#| msgid "No tables"
+msgid "Copy table"
+msgstr "Sen táboas"
 
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Teña paciencia, estase a enviar o ficheiro. Os detalles sobre o envío non "
-"están dispoñíbeis."
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "A exportar bases de datos desde o servidor actual"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "A exportar táboas desde a base de datos «%s»"
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "A exportar filas desde a táboa «%s»"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/columns_definitions/partitions.twig:17
+#: templates/database/structure/check_all_tables.twig:11
 #, fuzzy
-#| msgid "partitioned"
-msgid "Partition by:"
-msgstr "particionado"
+#| msgid "Show color"
+msgid "Show create"
+msgstr "Mostrar a cor"
 
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
+#: templates/database/structure/check_all_tables.twig:25
 #, fuzzy
-#| msgid "Values for column %s"
-msgid "Expression or column list"
-msgstr "Valores para a columna %s"
+#| msgid "Add prefix"
+msgid "Prefix"
+msgstr "Engadir un prefixo"
 
-#: templates/columns_definitions/partitions.twig:37
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "Engadir un prefixo á táboa"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "Substituír o prefixo da táboa"
+
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add columns to central list"
+msgstr "Columnas de área de texto de CHAR"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Make consistent with central list"
+msgstr "Columnas de área de texto de CHAR"
+
+#: templates/table/structure/display_structure.twig:138
+#: templates/view_create.twig:13
+msgid "Edit view"
+msgstr "Editar a vista"
+
+#: templates/table/structure/display_structure.twig:192
+#: templates/table/structure/display_partitions.twig:4
 #, fuzzy
 #| msgid "Partition %s"
-msgid "Partitions:"
+msgid "Partitions"
 msgstr "Partición %s"
-
-#: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartition by:"
-msgstr "particionado"
-
-#: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartitions:"
-msgstr "particionado"
-
-#: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
-msgid "Values"
-msgstr "Valor"
-
-#: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartition"
-msgstr "particionado"
-
-#: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
-msgid "Engine"
-msgstr "Motores"
-
-#: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
-msgid "Data directory"
-msgstr "Directorio base dos datos"
-
-#: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Save directory"
-msgid "Index directory"
-msgstr "Directorio de gardado"
-
-#: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Matched rows:"
-msgid "Max rows"
-msgstr "Filas coincidentes:"
-
-#: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
-msgid "Min rows"
-msgstr "Visualizar"
-
-#: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table Search"
-msgid "Table space"
-msgstr "Busca na táboa"
-
-#: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "Users"
-msgid "Node group"
-msgstr "Usuarios"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "Mostrar a visualización GIS"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Etiqueta da columna"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "- Ningunha -"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Columna espacial"
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Add this series"
-msgid "Add to Favorites"
-msgstr "Engadir esta serie"
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Gardar no servidor no directorio  <b>%s</b>"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Contraer"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Expandir"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-#, fuzzy
-#| msgid "subquery"
-msgid "Requery"
-msgstr "subconsulta"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -15995,722 +15640,6 @@ msgstr ""
 #| msgid "Transformation options"
 msgid "Input transformation options"
 msgstr "Opcións de transformación"
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export type"
-msgid "Export templates:"
-msgstr "Tipo de exportación"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Modelo novo:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Nome do modelo"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "Crear"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Modelos existentes:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Modelo:"
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgid "Updated"
-msgid "Update"
-msgstr "Actualizada"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"O navegador ten configuración do phpMyAdmin para este dominio. Desexaría "
-"importala para esta sesión?"
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete settings"
-msgstr "Eliminar os datos de seguimento"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
-#, fuzzy
-#| msgid "Showing tables:"
-msgid "Show/Hide tables list"
-msgstr "A mostrar as táboas:"
-
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
-msgstr "Ver a pantalla completa"
-
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr "Saír da pantalla completa"
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
-#, fuzzy
-#| msgid "New name"
-msgid "New page"
-msgstr "Novo nome"
-
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
-#, fuzzy
-#| msgid "Select page"
-msgid "Delete pages"
-msgstr "Escoller unha páxina"
-
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-#: templates/database/create_table.twig:7
-msgid "Create table"
-msgstr "Crear unha táboa"
-
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-#: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-#| msgid "Create relation"
-msgid "Create relationship"
-msgstr "Crear unha relación"
-
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr "Recargar"
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr "Axuda"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr "Ligazóns angulares"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr "Ligazóns directas"
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr "Axustar á grella"
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr "Todo pequeno/grande"
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr "Alternar pequeno/grande"
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-#, fuzzy
-#| msgid "Toggle relation lines"
-msgid "Toggle relationship lines"
-msgstr "Conmutar as liñas de relación"
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
-#, fuzzy
-#| msgid "Export all"
-msgid "Export schema"
-msgstr "Exportar todo"
-
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-msgid "Build Query"
-msgstr "Construír unha consulta"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
-msgstr "Mover o menú"
-
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
-#, fuzzy
-#| msgid "Partial texts"
-msgid "Pin text"
-msgstr "Textos parciais"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Facer unha «consulta de exemplo» (o comodín é «%») para dúas columnas "
-"diferentes"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Faga unha «consulta por exemplo» (o comodín é «%»)"
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "Escolla os campos (mínimo un):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Engada condicións de busca (o corpo da cláusula «WHERE»):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Número de filas por páxina"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Mostrar en orde:"
-
-#: templates/console/display.twig:7
-msgid "History"
-msgstr "Historial"
-
-#: templates/console/display.twig:11 templates/console/display.twig:99
-msgid "Bookmarks"
-msgstr "Marcadores"
-
-#: templates/console/display.twig:20
-msgid "Press Ctrl+Enter to execute query"
-msgstr "Prema Ctrl+Intro para executar a consulta"
-
-#: templates/console/display.twig:23
-msgid "Press Enter to execute query"
-msgstr "Prema Intro para executar a consulta"
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-msgid "Explain"
-msgstr "Explicar"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Bookmark"
-msgstr "Marcador"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Query failed"
-msgstr "Fallou a consulta"
-
-#: templates/console/display.twig:42 templates/console/display.twig:184
-#, fuzzy
-#| msgid "Query execution time"
-msgid "Queried time"
-msgstr "Tempo de execución da consulta"
-
-#: templates/console/display.twig:47
-msgid "During current session"
-msgstr "Durante esta sesión"
-
-#: templates/console/display.twig:64
-msgid "ascending"
-msgstr "ascendente"
-
-#: templates/console/display.twig:64
-msgid "descending"
-msgstr "descendente"
-
-#: templates/console/display.twig:64
-msgid "Order:"
-msgstr "Orde:"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-msgid "Count"
-msgstr "Cantidade"
-
-#: templates/console/display.twig:64
-msgid "Execution order"
-msgstr "Orde de execución"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Time taken"
-msgstr "Tempo que leva"
-
-#: templates/console/display.twig:64
-msgid "Order by:"
-msgstr "Ordenar por:"
-
-#: templates/console/display.twig:64
-msgid "Ungroup queries"
-msgstr "Desagrupar as consultas"
-
-#: templates/console/display.twig:84
-msgid "Show trace"
-msgstr "Mostrar o trazado"
-
-#: templates/console/display.twig:84
-msgid "Hide trace"
-msgstr "Agochar o trazado"
-
-#: templates/console/display.twig:112
-msgid "Add bookmark"
-msgstr "Engadir un marcador"
-
-#: templates/console/display.twig:121
-msgid "Label"
-msgstr "Etiqueta"
-
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Base de datos de destino"
-
-#: templates/console/display.twig:127
-msgid "Share this bookmark"
-msgstr "Compartir este marcador"
-
-#: templates/console/display.twig:140
-msgid "Set default"
-msgstr "Estabelecer o predeterminado"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-"Executar consultas con Intro e inserir un salto de liña con Maiúsculas + "
-"Intro. Para que isto sexa permanente vexa a configuración."
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Uso do espazo"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Efectivo"
-
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
-msgid "Jump to database '%s'"
-msgstr "Ir á base de datos"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Comprobar os privilexios da base de datos \"%s\"."
-
-#: templates/server/databases/table_row.twig:62
-msgid "Check privileges"
-msgstr "Comprobar os privilexios"
-
-#: templates/database/structure/show_create.twig:2
-#, fuzzy
-#| msgid "Show SQL queries"
-msgid "Showing create queries"
-msgstr "Mostrar as consultas de SQL"
-
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Engadir privilexios para esta táboa:"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s coincidencia en <strong>%2$s</strong>"
-msgstr[1] "%1$s coincidencias en <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> ocorrencia"
-msgstr[1] "<b>Total:</b> <i>%s</i> ocorrencias"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-#, fuzzy
-#| msgid "Remote server"
-msgid "Remove"
-msgstr "Servidor remoto"
-
-#: templates/table/structure/display_structure.twig:138
-#: templates/view_create.twig:13
-msgid "Edit view"
-msgstr "Editar a vista"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Bases de datos:"
-
-#: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Confirm disabling two-factor authentication"
-msgstr "Autenticación mediante configuración"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Disable two-factor authentication"
-msgstr "Autenticación mediante configuración"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Escolla o ficheiro de rexistro binario que desexe ver"
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "en uso"
-
-#: templates/privileges/add_privileges_database.twig:1
-#, fuzzy
-#| msgid "Add privileges on the following database:"
-msgid "Add privileges on the following database(s):"
-msgstr "Engadir privilexios para esta base de datos:"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-"Os caracteres comodín _ e % deberíanse escapar con \\ para podelos usar "
-"literalmente."
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "O seguimento está activado."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "O seguimento non está activado."
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Fila(s):"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Envorcar algunha(s) fila(s)"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Comezar na columna:"
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Envorcar todas as fileiras"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Número de columnas"
-
-#: templates/table/relation/common_form.twig:6
-#, fuzzy
-#| msgid "Foreign key constraint"
-msgid "Foreign key constraints"
-msgstr "Límite das chaves externas"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "Accións"
-
-#: templates/table/relation/common_form.twig:11
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint properties"
-msgstr "Restricións para a táboa"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr "Límite das chaves externas"
-
-#: templates/table/relation/common_form.twig:89
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "Engadir limitacións"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "Relacións internas"
-
-#: templates/table/relation/common_form.twig:110
-msgid "Internal relation"
-msgstr "Relación interna"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-"Non se precisa unha relación interna cando existe unha CHAVE EXTERNA "
-"correspondente."
-
-#: templates/table/relation/common_form.twig:172
-msgid "Choose column to display:"
-msgstr "Escolla a columna que desexe mostrar:"
-
-#: templates/table/structure/table_structure_row.twig:34
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr "Nada"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Eliminouse a columna %s."
-
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Seleccionar un modelo"
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Continuar a inserción con %s fileiras"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Modelo do nome de ficheiro:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "usar isto en futuras exportacións"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Exceso na comprobación"
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "No tables"
-msgid "Copy table"
-msgstr "Sen táboas"
-
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "Mostrar a cor"
-
-#: templates/database/structure/check_all_tables.twig:25
-#, fuzzy
-#| msgid "Add prefix"
-msgid "Prefix"
-msgstr "Engadir un prefixo"
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "Engadir un prefixo á táboa"
-
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "Substituír o prefixo da táboa"
-
-#: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add columns to central list"
-msgstr "Columnas de área de texto de CHAR"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Make consistent with central list"
-msgstr "Columnas de área de texto de CHAR"
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Foreign key constraint"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Límite das chaves externas"
-
-#: templates/table/relation/foreign_key_row.twig:38
-msgid "Constraint name"
-msgstr "Límite do nome"
-
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
-#, fuzzy
-#| msgid "Add column"
-msgid "+ Add column"
-msgstr "Engadir unha columna"
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Saída:"
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Gardar a saída nun ficheiro"
-
-#: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
-msgid "Skip tables larger than %s MiB"
-msgstr "Omitir as táboas maiores de"
-
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Ningún"
-
-#: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
-msgid "Relation view"
-msgstr "Vista das relacións"
-
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "Chave relacional"
-
-#: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Display column for relations"
-msgid "Display column for relationships"
-msgstr "Mostrar as columnas para as relacións"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Mostrar os contidos binarios"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "Mostrar os contidos BLOB"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Ocultar a transformación do navegador"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Texto moi coñecido"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Binario moi coñecido"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select database"
-msgid "Select database:"
-msgstr "Seleccionar base de datos"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "database name"
-msgid "New database name"
-msgstr "nome da base de datos"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select table"
-msgid "Select table:"
-msgstr "Seleccionar táboa"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Nome novo da táboa"
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
-msgid "Select column:"
-msgstr "Seleccionar unha columna."
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Copy column name"
-msgid "New column name"
-msgstr "Copiar nome da columna"
-
-#: templates/database/designer/aggregate_query_panel.twig:22
-#: templates/database/designer/options_panel.twig:99
-msgid "Aggregate"
-msgstr "Agregar"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -16808,165 +15737,285 @@ msgstr "Valores para a columna %s"
 msgid "Save chart as image"
 msgstr "Enviar <i>(gravar nun ficheiro)</i><br />"
 
-#: templates/table/structure/add_column.twig:9
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Engadir %s columna(s)"
-
-#: templates/table/structure/add_column.twig:14
+#: templates/columns_definitions/partitions.twig:17
 #, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "No comezo da táboa"
+#| msgid "partitioned"
+msgid "Partition by:"
+msgstr "particionado"
 
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "Exportar as bases de datos como ficheiros separados"
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+#, fuzzy
+#| msgid "Values for column %s"
+msgid "Expression or column list"
+msgstr "Valores para a columna %s"
 
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "Exportar as táboas como ficheiros separados"
+#: templates/columns_definitions/partitions.twig:37
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions:"
+msgstr "Partición %s"
 
-#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/columns_definitions/partitions.twig:45
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartition by:"
+msgstr "particionado"
+
+#: templates/columns_definitions/partitions.twig:65
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartitions:"
+msgstr "particionado"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partition"
+msgstr "Partición %s"
+
+#: templates/columns_definitions/partitions.twig:78
+#, fuzzy
+#| msgid "Value"
+msgid "Values"
+msgstr "Valor"
+
+#: templates/columns_definitions/partitions.twig:82
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartition"
+msgstr "particionado"
+
+#: templates/columns_definitions/partitions.twig:84
+#, fuzzy
+#| msgid "Engines"
+msgid "Engine"
+msgstr "Motores"
+
+#: templates/columns_definitions/partitions.twig:86
+#, fuzzy
+#| msgid "Data home directory"
+msgid "Data directory"
+msgstr "Directorio base dos datos"
+
+#: templates/columns_definitions/partitions.twig:87
+#, fuzzy
+#| msgid "Save directory"
+msgid "Index directory"
+msgstr "Directorio de gardado"
+
+#: templates/columns_definitions/partitions.twig:88
+#, fuzzy
+#| msgid "Matched rows:"
+msgid "Max rows"
+msgstr "Filas coincidentes:"
+
+#: templates/columns_definitions/partitions.twig:89
+#, fuzzy
+#| msgid "rows"
+msgid "Min rows"
+msgstr "Visualizar"
+
+#: templates/columns_definitions/partitions.twig:90
+#, fuzzy
+#| msgid "Table Search"
+msgid "Table space"
+msgstr "Busca na táboa"
+
+#: templates/columns_definitions/partitions.twig:91
+#, fuzzy
+#| msgid "Users"
+msgid "Node group"
+msgstr "Usuarios"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"O ficheiro que se vai enviar é, posibelmente, maior do que o tamaño máximo "
+"permitido ou este é un erro coñecido dos navegadores baseados en webkit "
+"(Safari, Google Chrome, Arora etc.)."
+
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr "%s de %s"
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/seg."
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Sobre %MIN min. %SEC seg. restantes."
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "Sobre %SEC seg. restantes."
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "Estase a procesar o ficheiro; teña paciencia, por favor."
+
+#: templates/display/import/javascript.twig:36
+#, fuzzy
+#| msgid "Uploading your import file…"
+msgid "Uploading your import file…"
+msgstr "Subindo o ficheiro de importación…"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Teña paciencia, estase a enviar o ficheiro. Os detalles sobre o envío non "
+"están dispoñíbeis."
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "Empregue esta columna para etiquetar cada punto"
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "Máximo de filas que aparecen na gráfica"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "Táboas seguidas"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Última versión"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+#, fuzzy
+#| msgid "Deleting tracking data"
+msgid "Delete tracking"
+msgstr "Eliminar os datos de seguimento"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "Versións"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Ver a saída como texto"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s coincidencia en <strong>%2$s</strong>"
+msgstr[1] "%1$s coincidencias en <strong>%2$s</strong>"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Total:</b> <i>%s</i> ocorrencia"
+msgstr[1] "<b>Total:</b> <i>%s</i> ocorrencias"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Prema para conmutar"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Configure two-factor authentication"
+msgstr "Autenticación mediante configuración"
+
+#: templates/prefs_twofactor_configure.twig:8
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Enable two-factor authentication"
+msgstr "Autenticación mediante configuración"
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "Engadido"
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "Autor"
+
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "desactivado"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Nota: De activar as estatísticas da base de datos, ocasionará que se produza "
+"un tráfico denso entre o servidor web e o de MySQL."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+msgid "Enable statistics"
+msgstr "Activar as estatísticas"
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "Crear unha versión"
+
+#: templates/table/structure/optional_action_links.twig:6
+msgid "Propose table structure"
+msgstr "Propor unha estrutura para a táboa"
+
+#: templates/table/structure/optional_action_links.twig:15
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "Seguir a táboa"
+
 #: templates/table/structure/optional_action_links.twig:19
+#: templates/table/structure/move_columns_dialog.twig:1
 msgid "Move columns"
 msgstr "Mover columna(s)"
+
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:28
+#, fuzzy
+#| msgid "Track table"
+msgid "Track view"
+msgstr "Seguir a táboa"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
 msgstr "Mova as columnas arrastrándoas para riba e para baixo."
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Engadir/Eliminar filas de criterios"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Engadir/Eliminar columnas de campo"
-
-#: templates/login/twofactor/invalid.twig:2
+#: templates/privileges/delete_user_fieldset.twig:3
 #, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
+msgstr "Eliminar os usuarios seleccionados"
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Nome do índice:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
-"«PRIMARIA» <b>debe</b> ser o nome de e <b>só de</b> unha chave primaria!"
+"Retirarlles todos os privilexios activos aos usuarios e eliminalos a "
+"continuación."
 
-#: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index cache size"
-msgid "Index choice:"
-msgstr "Tamaño da caché do índice"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
-msgid "Advanced Options"
-msgstr "Opcións activas"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Tipo de índice:"
-
-#: templates/table/index_form.twig:77
-#, fuzzy
-#| msgid "User:"
-msgid "Parser:"
-msgstr "Usuario:"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Comentario:"
-
-#: templates/table/index_form.twig:118
-#: templates/database/structure/table_header.twig:38
-msgid "Size"
-msgstr "Tamaño"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-#, fuzzy
-#| msgid "Drag to reorder"
-msgid "Drag to reorder"
-msgstr "Arrastre para reordenar"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "Criterios adicionais de busca"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Buscar e substituír - vista previa"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Cadea orixinal"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Cadea substituída"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Substituír"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Método de exportación:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Rápido - mostrar só as opcións mínimas"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Personalizada - mostrar todas as opcións posíbeis"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Compresión:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "comprimido no formato «zip»"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "comprimido no formato «gzip»"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relation operator"
-msgid "Relationship operator"
-msgstr "Operador de relación"
-
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Renomear como"
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-msgid "New name"
-msgstr "Novo nome"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Privilexios propios das columnas"
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Eliminar as bases de datos que teñan os mesmos nomes que os usuarios."
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
@@ -16978,18 +16027,119 @@ msgstr "Non se dispón de previsualización."
 msgid "Take it"
 msgstr "cóllao"
 
-#: templates/login/twofactor.twig:5
-msgid "Verify"
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
+msgstr "Saída:"
+
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, fuzzy, php-format
+#| msgid "Save on server in the directory <b>%s</b>"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Gardar no servidor no directorio  <b>%s</b>"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
 msgstr ""
 
-#: templates/database/structure/table_header.twig:27
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Fila inicial:"
+
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
 #, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-"Pode non ser exacto. Consulte a [doc@faq3-11]pregunta frecuente 3.11[/doc]"
+#| msgid "Create relation"
+msgid "Create relationship"
+msgstr "Crear unha relación"
+
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "Seleccionar unha columna."
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Non se definiu ningún índice!"
+
+#: templates/table/structure/display_partitions.twig:11
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "particionado"
+
+#: templates/table/structure/display_partitions.twig:16
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "particionado"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:29
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "Compresión"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Lonxitude das fileiras"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Lonxitude das fileiras"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partition table"
+msgstr "particionado"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+#, fuzzy
+#| msgid "Remove partitioning"
+msgid "Edit partitioning"
+msgstr "Eliminar particións"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+#, fuzzy
+#| msgid "#"
+msgctxt "Number"
+msgid "#"
+msgstr "nº"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+msgctxt "None for default"
+msgid "None"
+msgstr "Nada"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "Mostrar a visualización GIS"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Etiqueta da columna"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "- Ningunha -"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Columna espacial"
 
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
@@ -17004,19 +16154,144 @@ msgstr "Engadiuse unha chave primaria a %s."
 msgid "An index has been added on %s."
 msgstr "Engadiuse un índice a %s."
 
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Opcións activas"
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Remove from central columns"
+msgstr "Eliminar columna(s)"
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "Escoller o tipo de exportación relacional"
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Add to central columns"
+msgstr "Columnas de área de texto de CHAR"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Foreign key constraint"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Límite das chaves externas"
+
+#: templates/table/relation/foreign_key_row.twig:38
+msgid "Constraint name"
+msgstr "Límite do nome"
+
+#: templates/table/relation/foreign_key_row.twig:90
+#: templates/database/multi_table_query/form.twig:158
+#, fuzzy
+#| msgid "Add column"
+msgid "+ Add column"
+msgstr "Engadir unha columna"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Novo"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
 
 #: templates/privileges/add_privileges_routine.twig:3
 #, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
 msgstr "Engadir privilexios para esta táboa:"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Nome da táboa"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Add column(s)"
+msgid "column(s)"
+msgstr "Engadir columna(s)"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Orde alfabética:"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Motor de almacenamento:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "Conexións"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "Definición da PARTICIÓN:"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Modelo do nome de ficheiro:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "usar isto en futuras exportacións"
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "A exportar bases de datos desde o servidor actual"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "A exportar táboas desde a base de datos «%s»"
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "A exportar filas desde a táboa «%s»"
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Jump to database '%s'"
+msgstr "Ir á base de datos"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Comprobar os privilexios da base de datos \"%s\"."
+
+#: templates/server/databases/table_row.twig:62
+msgid "Check privileges"
+msgstr "Comprobar os privilexios"
+
+#: templates/export/alias_item.twig:8
+#, fuzzy
+#| msgid "Remote server"
+msgid "Remove"
+msgstr "Servidor remoto"
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "en uso"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Examinar/Editar os puntos"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Como usar"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Restaurar a ampliación"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -17088,12 +16363,6 @@ msgstr "Eliminar columna(s)"
 msgid "Update query"
 msgstr "Actualizar a consulta"
 
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "Crear unha versión"
-
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
 msgid "None"
@@ -17102,6 +16371,482 @@ msgstr "Ningún"
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
 msgstr "Como se define:"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Usar este valor"
+
+#: templates/table/secondary_tabs.twig:9
+#, fuzzy
+#| msgid "Relation view"
+msgid "Relation view"
+msgstr "Vista das relacións"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"O navegador ten configuración do phpMyAdmin para este dominio. Desexaría "
+"importala para esta sesión?"
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Deleting tracking data"
+msgid "Delete settings"
+msgstr "Eliminar os datos de seguimento"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Método de exportación:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Rápido - mostrar só as opcións mínimas"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Personalizada - mostrar todas as opcións posíbeis"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Variábeis e configuración do servidor"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "Motores de almacenamento"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Conxuntos de caracteres e Ordes alfabéticas"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Estatísticas das bases de datos"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Escoller unha páxina"
+
+#: templates/privileges/add_privileges_table.twig:3
+msgid "Add privileges on the following table:"
+msgstr "Engadir privilexios para esta táboa:"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.twig:9
+#, fuzzy
+#| msgid "Select database"
+msgid "Select database:"
+msgstr "Seleccionar base de datos"
+
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "database name"
+msgid "New database name"
+msgstr "nome da base de datos"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select table"
+msgid "Select table:"
+msgstr "Seleccionar táboa"
+
+#: templates/export/alias_add.twig:29
+msgid "New table name"
+msgstr "Nome novo da táboa"
+
+#: templates/export/alias_add.twig:37
+#, fuzzy
+#| msgid "Select a column."
+msgid "Select column:"
+msgstr "Seleccionar unha columna."
+
+#: templates/export/alias_add.twig:43
+#, fuzzy
+#| msgid "Copy column name"
+msgid "New column name"
+msgstr "Copiar nome da columna"
+
+#: templates/columns_definitions/column_name.twig:4
+#, fuzzy, php-format
+#| msgid "Select referenced key"
+msgid "Referenced by %s."
+msgstr "Escoller a chave referida"
+
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Select Foreign Key"
+msgid "Is a foreign key."
+msgstr "Escoller unha chave externa"
+
+#: templates/columns_definitions/column_name.twig:40
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Pick from Central Columns"
+msgstr "Eliminar columna(s)"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "Nome da VISTA"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Nomes das columnas"
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Compresión:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "comprimido no formato «zip»"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "comprimido no formato «gzip»"
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+msgid "Create table"
+msgstr "Crear unha táboa"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Número de columnas"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+#, fuzzy
+#| msgid "Showing tables:"
+msgid "Show/Hide tables list"
+msgstr "A mostrar as táboas:"
+
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr "Ver a pantalla completa"
+
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr "Saír da pantalla completa"
+
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+#, fuzzy
+#| msgid "New name"
+msgid "New page"
+msgstr "Novo nome"
+
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+#, fuzzy
+#| msgid "Select page"
+msgid "Delete pages"
+msgstr "Escoller unha páxina"
+
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr "Recargar"
+
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr "Axuda"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr "Ligazóns angulares"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr "Ligazóns directas"
+
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr "Axustar á grella"
+
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr "Todo pequeno/grande"
+
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr "Alternar pequeno/grande"
+
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+#, fuzzy
+#| msgid "Toggle relation lines"
+msgid "Toggle relationship lines"
+msgstr "Conmutar as liñas de relación"
+
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+#, fuzzy
+#| msgid "Export all"
+msgid "Export schema"
+msgstr "Exportar todo"
+
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+msgid "Build Query"
+msgstr "Construír unha consulta"
+
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr "Mover o menú"
+
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+#, fuzzy
+#| msgid "Partial texts"
+msgid "Pin text"
+msgstr "Textos parciais"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Valor da sesión"
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "Eliminouse a columna %s."
+
+#: templates/login/twofactor/invalid.twig:2
+#, fuzzy
+#| msgid "Missing phpMyAdmin configuration storage tables"
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Engadir/Eliminar filas de criterios"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Engadir/Eliminar columnas de campo"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "Continuar a inserción con %s fileiras"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Data"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Nome de usuario"
+
+#: templates/prefs_twofactor_confirm.twig:2
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Confirm disabling two-factor authentication"
+msgstr "Autenticación mediante configuración"
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Disable two-factor authentication"
+msgstr "Autenticación mediante configuración"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Escolla o ficheiro de rexistro binario que desexe ver"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+"Facer unha «consulta de exemplo» (o comodín é «%») para dúas columnas "
+"diferentes"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Faga unha «consulta por exemplo» (o comodín é «%»)"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+#, fuzzy
+#| msgid "Authentication"
+msgid "Authentication code:"
+msgstr "Autenticación"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/privileges/add_privileges_database.twig:1
+#, fuzzy
+#| msgid "Add privileges on the following database:"
+msgid "Add privileges on the following database(s):"
+msgstr "Engadir privilexios para esta base de datos:"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"Os caracteres comodín _ e % deberíanse escapar con \\ para podelos usar "
+"literalmente."
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+#| msgid "Export type"
+msgid "Export templates:"
+msgstr "Tipo de exportación"
+
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Modelo novo:"
+
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Nome do modelo"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Crear"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Modelos existentes:"
+
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Modelo:"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgid "Updated"
+msgid "Update"
+msgstr "Actualizada"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Privilexios propios das columnas"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Crear versión %1$s de %2$s"
+
+#: templates/table/tracking/create_version.twig:16
+#, fuzzy, php-format
+#| msgid "Create version"
+msgid "Create version %1$s"
+msgstr "Crear unha versión"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Seguir estas instrucións de definición de datos:"
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Seguir estas instrucións de manipulación de datos:"
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "Crear unha versión"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "Agochalo/Mostralo todo"
+
+#: templates/database/designer/table_list.twig:14
+#, fuzzy
+#| msgid "Hide/Show Tables with no relation"
+msgid "Hide/Show tables with no relationship"
+msgstr "Agochar/Mostrar as táboas sen relación"
+
+#: templates/database/designer/table_list.twig:55
+msgid "Number of tables:"
+msgstr "Número de táboas:"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Ningún"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "Conxunto de caracteres do ficheiro:"
+
+#: templates/table/search/search_and_replace.twig:1
+#: templates/database/search/selection_form.twig:15
+msgid "Find:"
+msgstr "Atopar:"
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -17112,6 +16857,245 @@ msgstr "Substituír por:"
 #| msgid "as regular expression"
 msgid "Use regular expression"
 msgstr "como expresión regular"
+
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Bases de datos:"
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Gardar a saída nun ficheiro"
+
+#: templates/display/export/options_output.twig:51
+#, fuzzy, php-format
+#| msgid "Skip tables larger than"
+msgid "Skip tables larger than %s MiB"
+msgstr "Omitir as táboas maiores de"
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "A importar ao servidor actual"
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "A importar na base de datos «%s»"
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "A importar na táboa «%s»"
+
+#: templates/display/import/import.twig:50
+msgid "File to import:"
+msgstr "Ficheiro que importar:"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "O ficheiro pode estar comprimido (%s) ou descomprimido."
+
+#: templates/display/import/import.twig:58
+#, fuzzy
+#| msgid ""
+#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
+#| "Example: <b>.sql.zip</b>"
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"O nome dun ficheiro comprimido debe rematar en <b>.[formato].[compresión]</"
+"b>. Exemplo: <b>.sql.zip</b>"
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr "Tamén pode arrastrar e soltar un ficheiro sobre calquera páxina."
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr "Este servidor non admite a recepción de ficheiros."
+
+#: templates/display/import/import.twig:124
+msgid "Partial import:"
+msgstr "Importación parcial:"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+"A importación anterior excedeu do tempo permitido; unha vez reiniciada "
+"continuará desde a posición %d."
+
+#: templates/display/import/import.twig:137
+#, fuzzy
+#| msgid ""
+#| "Allow the interruption of an import in case the script detects it is "
+#| "close to the PHP timeout limit. <i>(This might be a good way to import "
+#| "large files, however it can break transactions.)</i>"
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"Permitir que se interrompa a importación no caso de que o script detecte que "
+"está preto do límite de tempo.<i>( Esta pode ser unha boa maneira para "
+"importar ficheiros longos, aínda que pode rachar transaccións.)</i>"
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "Omitir este número de consultas (para SQL), comezando na primeira:"
+
+#: templates/display/import/import.twig:161
+msgid "Other options:"
+msgstr "Outras opcións:"
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr "Opcións específicas do formato:"
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Baixe para encher as opcións do formato escollido e ignore as opcións do "
+"resto dos formatos."
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr "Conversión de codificación:"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Buscar na base de datos"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Palabras ou valores que buscar (ou comodín é: «%»):"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "Dentro das táboas:"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "Dentro da columna:"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Non hai ningunha base de datos"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "Primeiro"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "O seguimento está activado."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "O seguimento non está activado."
+
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "Exportar as bases de datos como ficheiros separados"
+
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "Exportar as táboas como ficheiros separados"
+
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr "Estatísticas das fileiras"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "estáticas"
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "dinámicas"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "particionado"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Lonxitude das fileiras"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Tamaño das fileiras"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr "Índice automático seguinte"
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "Táboas non seguidas"
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "Crear unha base de datos"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Limites dos recursos"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "Nota: Se estas opcións se configuran como 0 (cero) elimínase o límite."
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Chave relacional"
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Display column for relations"
+msgid "Display column for relationships"
+msgstr "Mostrar as columnas para as relacións"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "Mostrar os contidos binarios"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "Mostrar os contidos BLOB"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Ocultar a transformación do navegador"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "Texto moi coñecido"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "Binario moi coñecido"
 
 #: templates/prefs_twofactor.twig:3
 #, fuzzy
@@ -17150,77 +17134,104 @@ msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
 msgid "You have enabled two factor authentication."
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "Propor unha estrutura para a táboa"
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Save to selected page"
+msgstr "Exportar á páxina escollida"
 
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "Seguir a táboa"
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and save to it"
+msgstr "Crear unha páxina e exportar a ela"
 
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "New page name: "
+msgid "New page name"
+msgstr "Nome da nova páxina: "
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "Escoller o tipo de exportación relacional"
+
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "Escolla os campos (mínimo un):"
+
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Engada condicións de busca (o corpo da cláusula «WHERE»):"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Número de filas por páxina"
+
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Mostrar en orde:"
+
+#: templates/table/relation/common_form.twig:6
+#, fuzzy
+#| msgid "Foreign key constraint"
+msgid "Foreign key constraints"
+msgstr "Límite das chaves externas"
+
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "Accións"
+
+#: templates/table/relation/common_form.twig:11
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint properties"
+msgstr "Restricións para a táboa"
+
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:28
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr "Límite das chaves externas"
+
+#: templates/table/relation/common_form.twig:89
 #, fuzzy
-#| msgid "Track table"
-msgid "Track view"
-msgstr "Seguir a táboa"
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "Engadir limitacións"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Examinar/Editar os puntos"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Como usar"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Restaurar a ampliación"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Usar este valor"
-
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "Táboas seguidas"
-
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Última versión"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
 #, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete tracking"
-msgstr "Eliminar os datos de seguimento"
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "Relacións internas"
 
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "Versións"
+#: templates/table/relation/common_form.twig:110
+msgid "Internal relation"
+msgstr "Relación interna"
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Táboas non seguidas"
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"Non se precisa unha relación interna cando existe unha CHAVE EXTERNA "
+"correspondente."
 
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "Crear unha base de datos"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Nome da VISTA"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Nomes das columnas"
+#: templates/table/relation/common_form.twig:172
+msgid "Choose column to display:"
+msgstr "Escolla a columna que desexe mostrar:"
 
 #: url.php:41
 #, fuzzy

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-08 23:42-0300\n"
+"POT-Creation-Date: 2019-04-27 18:51+0200\n"
 "PO-Revision-Date: 2019-04-16 19:05+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
@@ -51,8 +51,8 @@ msgstr "Andmebaasi kommentaar"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
+#: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
 msgstr "Tabeli kommentaarid:"
 
@@ -69,19 +69,19 @@ msgstr "Tabeli kommentaarid:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
+#: templates/table/index_form.twig:115
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
+#: templates/table/search/zoom_result_form.twig:34
 #: templates/table/relation/internal_relational_row.twig:24
-#: templates/table/search/table_header.twig:6
 #: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/table_header.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/table/relation/foreign_key_row.twig:122
-#: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/index_form.twig:115
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "Veerg"
 
@@ -102,13 +102,13 @@ msgstr "Veerg"
 #: libraries/classes/Rte/Routines.php:944
 #: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
-#: libraries/classes/Server/Privileges.php:2568
-#: templates/table/search/table_header.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/table/structure/table_structure_header.twig:6
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: libraries/classes/Server/Privileges.php:2581
 #: templates/database/structure/table_header.twig:32
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:7
+#: templates/table/structure/table_structure_header.twig:6
+#: templates/table/search/table_header.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
 msgid "Type"
 msgstr "Tüüp"
 
@@ -126,10 +126,10 @@ msgstr "Tüüp"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/table_structure_header.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
 msgid "Null"
 msgstr "Tühi"
 
@@ -148,8 +148,8 @@ msgstr "Tühi"
 #: libraries/classes/ReplicationGui.php:165
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/table/structure/table_structure_header.twig:10
 msgid "Default"
 msgstr "Vaikimisi"
 
@@ -181,10 +181,10 @@ msgstr "Kommentaarid"
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1210
 #: libraries/classes/Controllers/Table/TableStructureController.php:1215
-#: templates/table/structure/check_all_table_column.twig:33
 #: templates/table/structure/display_structure.twig:61
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/check_all_table_column.twig:33
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "Primaarne"
 
@@ -198,17 +198,17 @@ msgstr "Primaarne"
 #: libraries/classes/Plugins/Export/ExportOdt.php:795
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2981
-#: libraries/classes/Server/Privileges.php:3001
-#: libraries/classes/Server/Privileges.php:3665
-#: libraries/classes/Server/Privileges.php:3694 prefs_manage.php:145
-#: templates/prefs_autoload.twig:12
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2994
+#: libraries/classes/Server/Privileges.php:3014
+#: libraries/classes/Server/Privileges.php:3678
+#: libraries/classes/Server/Privileges.php:3707 prefs_manage.php:145
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:12
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "No"
@@ -232,18 +232,18 @@ msgstr "Ei"
 #: libraries/classes/Plugins/Export/ExportOdt.php:796
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2978
-#: libraries/classes/Server/Privileges.php:2999
-#: libraries/classes/Server/Privileges.php:3662
-#: libraries/classes/Server/Privileges.php:3694
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2991
+#: libraries/classes/Server/Privileges.php:3012
+#: libraries/classes/Server/Privileges.php:3675
+#: libraries/classes/Server/Privileges.php:3707
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143 templates/prefs_autoload.twig:11
-#: templates/privileges/privileges_summary_row.twig:4
+#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:11
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "Yes"
@@ -278,16 +278,16 @@ msgstr "Tabelid"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:38
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:288
-#: libraries/classes/Server/Privileges.php:1146 libraries/classes/Util.php:3043
+#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3043
 #: libraries/classes/Util.php:3053 libraries/classes/Util.php:3059
 #: libraries/classes/Util.php:3339 libraries/classes/Util.php:3995
 #: libraries/classes/Util.php:4012 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/database/designer/table_list.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/database/designer/table_list.twig:24
 msgid "Structure"
 msgstr "Struktuur"
 
@@ -296,14 +296,14 @@ msgstr "Struktuur"
 #: libraries/classes/Config/Forms/User/ExportForm.php:125
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
-#: libraries/classes/Server/Privileges.php:1145
+#: libraries/classes/Server/Privileges.php:1158
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "Andmed"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
-#: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
+#: templates/database/search/selection_form.twig:32
 msgid "Select all"
 msgstr "Vali kõik"
 
@@ -507,28 +507,28 @@ msgstr "Lisa geomeetria"
 #: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1084
 #: libraries/classes/Rte/Routines.php:1710
 #: libraries/classes/Rte/Triggers.php:412
-#: libraries/classes/Server/Privileges.php:707
-#: libraries/classes/Server/Privileges.php:2217
-#: libraries/classes/Server/Privileges.php:3131
+#: libraries/classes/Server/Privileges.php:717
+#: libraries/classes/Server/Privileges.php:2230
+#: libraries/classes/Server/Privileges.php:3144
 #: libraries/classes/Server/UserGroups.php:302
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:322 templates/database/search/selection_form.twig:58
+#: server_privileges.php:323 templates/table/structure/add_column.twig:23
+#: templates/table/index_form.twig:217
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/display/import/import.twig:191 templates/header_location.twig:18
-#: templates/display/export/options_format.twig:18
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/search/selection_form.twig:99
-#: templates/server/binlog/log_selector.twig:27
+#: templates/header_location.twig:18 templates/view_create.twig:116
 #: templates/database/create_table.twig:21
-#: templates/display/results/options_block.twig:114
-#: templates/table/structure/add_column.twig:23
-#: templates/table/index_form.twig:217
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/search/selection_form.twig:99
 #: templates/privileges/privileges_summary.twig:60
 #: templates/privileges/edit_routine_privileges.twig:23
-#: templates/view_create.twig:116 view_operations.php:115
+#: templates/display/import/import.twig:191
+#: templates/database/search/selection_form.twig:58
+#: templates/display/export/options_format.twig:18
+#: templates/display/results/options_block.twig:114 view_operations.php:115
 msgid "Go"
 msgstr "Mine"
 
@@ -1085,9 +1085,9 @@ msgid "Please select column(s) for the index."
 msgstr "Palun vali indeksi veerg(u)."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1894
+#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
-#: templates/table/index_form.twig:216
 msgid "Preview SQL"
 msgstr "SQL eelvaade"
 
@@ -1120,12 +1120,12 @@ msgstr "Hostinimi on tühi!"
 msgid "The user name is empty!"
 msgstr "Kasutajanimi on tühi!"
 
-#: js/messages.php:147 libraries/classes/Server/Privileges.php:1878
+#: js/messages.php:147 libraries/classes/Server/Privileges.php:1891
 #: libraries/classes/UserPassword.php:66
 msgid "The password is empty!"
 msgstr "Parool on tühi!"
 
-#: js/messages.php:148 libraries/classes/Server/Privileges.php:1876
+#: js/messages.php:148 libraries/classes/Server/Privileges.php:1889
 #: libraries/classes/UserPassword.php:70
 msgid "The passwords aren't the same!"
 msgstr "Paroolid ei kattu!"
@@ -1344,12 +1344,13 @@ msgstr "Palun lisa seeriasse vähemalt üks muutuja!"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:282
-#: libraries/config.values.php:69 templates/table/search/options_zoom.twig:12
-#: templates/columns_definitions/transformation.twig:4
-#: templates/table/search/rows_zoom.twig:20
-#: templates/display/export/options_output_compression.twig:7
+#: libraries/config.values.php:69
 #: templates/database/designer/options_panel.twig:177
+#: templates/table/search/rows_zoom.twig:20
+#: templates/table/search/options_zoom.twig:12
+#: templates/display/export/options_output_compression.twig:7
 #: templates/privileges/privileges_summary.twig:30
+#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Puudub"
 
@@ -1726,13 +1727,13 @@ msgstr "Parameetrid puuduvad!"
 
 #: js/messages.php:355
 #: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/aggregate_query_panel.twig:64
+#: templates/database/designer/where_query_panel.twig:85
+#: templates/database/designer/new_relation_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/having_query_panel.twig:118
 #: templates/server/variables/link_template.twig:5
-#: templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/where_query_panel.twig:85
-#: templates/database/designer/rename_to_panel.twig:45
 msgid "Cancel"
 msgstr "Katkesta"
 
@@ -1801,13 +1802,13 @@ msgstr "Kustutatakse veergu"
 msgid "Adding primary key"
 msgstr "Lisatakse primaarvõtit"
 
-#: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/new_relation_panel.twig:88
+#: js/messages.php:377 templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
 #: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/database/designer/options_panel.twig:251
 #: templates/database/designer/where_query_panel.twig:83
+#: templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/having_query_panel.twig:114
 msgid "OK"
 msgstr "OK"
 
@@ -1869,16 +1870,16 @@ msgstr "Salvestatud funktsioon peab sisaldama RETURN käsku!"
 #: libraries/classes/Display/Results.php:4990 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
-#: libraries/classes/Server/Privileges.php:2403
-#: libraries/classes/Server/Privileges.php:2489
-#: libraries/classes/Server/Privileges.php:2846
-#: libraries/classes/Server/Privileges.php:3577
+#: libraries/classes/Server/Privileges.php:2416
+#: libraries/classes/Server/Privileges.php:2502
+#: libraries/classes/Server/Privileges.php:2859
+#: libraries/classes/Server/Privileges.php:3590
 #: libraries/classes/Server/Status/Monitor.php:328
 #: libraries/classes/Util.php:3346 libraries/classes/Util.php:3347
 #: libraries/classes/Util.php:3984 libraries/classes/Util.php:3999
 #: libraries/classes/Util.php:4016 prefs_manage.php:294
-#: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
+#: templates/display/export/option_header.twig:3
 msgid "Export"
 msgstr "Ekspordi"
 
@@ -1929,8 +1930,8 @@ msgstr "Näita päringu kasti"
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1079 libraries/classes/Util.php:3344
 #: libraries/classes/Util.php:3345 setup/frames/index.inc.php:157
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
 msgid "Edit"
@@ -1945,8 +1946,8 @@ msgstr "Muuda"
 #: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
 #: templates/console/bookmark_content.twig:7
-#: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
+#: templates/display/export/template_loading.twig:22
 msgid "Delete"
 msgstr "Kustuta"
 
@@ -2120,11 +2121,11 @@ msgstr "Ühtegi sõltuvust ei ole valitud!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
-#: templates/server/variables/link_template.twig:2
-#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:189
+#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/structure/partition_definition_form.twig:12
+#: templates/server/variables/link_template.twig:2
+#: templates/table/relation/common_form.twig:189
 msgid "Save"
 msgstr "Salvesta"
 
@@ -2410,9 +2411,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Veeru nähtavuse muutmiseks<br />vajuta alla suunatud noolele."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
+#: templates/table/browse_foreigners/show_all.twig:4
 #: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
-#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Näita kõiki"
 
@@ -2468,8 +2469,8 @@ msgstr "Vali esmalt andmebaas"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4884
 #: libraries/classes/Util.php:3877
-#: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
+#: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
 msgstr "Prindi"
 
@@ -3119,9 +3120,9 @@ msgstr "Võtme nimi"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/engines/engines.twig:5
 #: templates/server/plugins/section.twig:10
 #: templates/server/collations/charsets.twig:6
-#: templates/server/engines/engines.twig:5
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -3172,18 +3173,18 @@ msgstr "EI"
 #: libraries/classes/CentralColumns.php:734 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
 #: libraries/classes/Rte/RteList.php:117
-#: libraries/classes/Server/Privileges.php:2571
-#: libraries/classes/Server/Privileges.php:3557
+#: libraries/classes/Server/Privileges.php:2584
+#: libraries/classes/Server/Privileges.php:3570
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/variables/variable_table_head.twig:3
 #: templates/server/databases/table_header.twig:37
-#: templates/table/tracking/report_table.twig:8
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/privileges/privileges_summary.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tracked_tables.twig:16
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/table/tracking/report_table.twig:8
+#: templates/privileges/privileges_summary.twig:22
+#: templates/server/variables/variable_table_head.twig:3
 #: templates/database/tracking/untracked_tables.twig:10
 msgid "Action"
 msgstr "Tegevus"
@@ -3216,14 +3217,14 @@ msgstr "Pikkus/Väärtused"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
-#: templates/table/search/table_header.twig:8
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/row_stats_table.twig:30
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/table_structure_header.twig:7
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:33
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/server/collations/charsets.twig:5
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/search/table_header.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Kodeering"
 
@@ -4059,8 +4060,8 @@ msgstr "Salvesta serverisse"
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "Kirjuta olemasolev(ad) fail(id) üle"
 
@@ -4265,7 +4266,7 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1276
-#: libraries/classes/Server/Privileges.php:4552 libraries/classes/Util.php:3980
+#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3980
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "Andmebaasid"
@@ -5882,18 +5883,18 @@ msgstr "Veebilehitseja akna pealkiri, kui valitud on andmebaas."
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:153
 #: libraries/classes/Plugins/Export/ExportOdt.php:200
 #: libraries/classes/Plugins/Export/ExportTexytext.php:137
-#: libraries/classes/Server/Privileges.php:1171
-#: libraries/classes/Server/Privileges.php:3149
-#: libraries/classes/Server/Privileges.php:3344
-#: libraries/classes/Server/Privileges.php:3346
-#: libraries/classes/Server/Privileges.php:4552
+#: libraries/classes/Server/Privileges.php:1184
+#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3359
+#: libraries/classes/Server/Privileges.php:4565
 #: libraries/classes/Server/Status/Processes.php:89
-#: templates/table/relation/internal_relational_row.twig:10
+#: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/server/databases/table_header.twig:8
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/table/relation/common_form.twig:32
+#: templates/console/bookmark_content.twig:7
 #: templates/table/relation/foreign_key_row.twig:100
+#: templates/table/relation/internal_relational_row.twig:10
+#: templates/table/relation/common_form.twig:32
 msgid "Database"
 msgstr "Andmebaas"
 
@@ -5922,18 +5923,18 @@ msgstr "Veebilehitseja akna pealkiri, kuid valitud on tabel."
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Plugins/Export/ExportXml.php:500
 #: libraries/classes/Rte/RteList.php:102 libraries/classes/Rte/Triggers.php:347
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1174
-#: libraries/classes/Server/Privileges.php:3167
-#: libraries/classes/Server/Privileges.php:3350
-#: libraries/classes/Server/Privileges.php:3352
-#: libraries/classes/Server/Privileges.php:4566
-#: templates/table/relation/internal_relational_row.twig:17
-#: templates/table/relation/common_form.twig:33
-#: templates/table/relation/foreign_key_row.twig:110
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1187
+#: libraries/classes/Server/Privileges.php:3180
+#: libraries/classes/Server/Privileges.php:3363
+#: libraries/classes/Server/Privileges.php:3365
+#: libraries/classes/Server/Privileges.php:4579
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tracked_tables.twig:11
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/table/relation/internal_relational_row.twig:17
 #: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/common_form.twig:33
 msgid "Table"
 msgstr "Tabel"
 
@@ -6574,10 +6575,10 @@ msgstr[1] "%1$d andmebaasi kustutati edukalt."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
-#: templates/table/structure/display_partitions.twig:28
-#: templates/table/structure/row_stats_table.twig:41
 #: templates/database/structure/table_header.twig:26
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/actions_in_table_structure.twig:114
+#: templates/table/structure/row_stats_table.twig:41
 msgid "Rows"
 msgstr "Ridu"
 
@@ -6593,8 +6594,8 @@ msgstr "Indeksid"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/server/databases/databases_footer.twig:7
 #: templates/table/structure/display_table_stats.twig:45
+#: templates/server/databases/databases_footer.twig:7
 msgid "Total"
 msgstr "Kokku"
 
@@ -6716,23 +6717,23 @@ msgstr "Muuda"
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1610
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3340
 #: libraries/classes/Util.php:3341
-#: templates/server/databases/databases_footer.twig:55
-#: templates/table/structure/check_all_table_column.twig:24
-#: templates/table/structure/display_structure.twig:189
 #: templates/database/structure/check_all_tables.twig:16
+#: templates/table/structure/display_structure.twig:189
+#: templates/server/databases/databases_footer.twig:55
 #: templates/table/relation/foreign_key_row.twig:30
+#: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
 msgstr "Kustuta"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1211
 #: libraries/classes/Controllers/Table/TableStructureController.php:1216
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/check_all_table_column.twig:47
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/check_all_table_column.twig:47
+#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "Indeks"
 
@@ -6802,47 +6803,47 @@ msgstr "võimalik turvaauk"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Skeemi pluginaid ei suudetud laadida, palun kontrolli oma paigaldust!"
 
-#: libraries/classes/Database/Designer/Common.php:572
+#: libraries/classes/Database/Designer/Common.php:573
 msgid "Error: relationship already exists."
 msgstr "Viga: seos on juba olemas."
 
-#: libraries/classes/Database/Designer/Common.php:618
+#: libraries/classes/Database/Designer/Common.php:619
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Välisvõtme (FOREIGN KEY) seos on lisatud."
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:625
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Viga: nurjus välisvõtme (FOREIGN KEY) seose lisamine!"
 
-#: libraries/classes/Database/Designer/Common.php:629
+#: libraries/classes/Database/Designer/Common.php:630
 msgid "Error: Missing index on column(s)."
 msgstr "Viga: veeru(de)l puuduv(ad) indeks(id)."
 
-#: libraries/classes/Database/Designer/Common.php:634
+#: libraries/classes/Database/Designer/Common.php:635
 msgid "Error: Relational features are disabled!"
 msgstr "Viga: Seoste funksionaalsusega seonduv on keelatud!"
 
-#: libraries/classes/Database/Designer/Common.php:656
+#: libraries/classes/Database/Designer/Common.php:657
 msgid "Internal relationship has been added."
 msgstr "Siseseos on loodud."
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:663
 msgid "Error: Internal relationship could not be added!"
 msgstr "Viga: Nurjus siseseose lisamine!"
 
-#: libraries/classes/Database/Designer/Common.php:700
+#: libraries/classes/Database/Designer/Common.php:701
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Välisvõtme (FOREIGN KEY) seos on kustutatud."
 
-#: libraries/classes/Database/Designer/Common.php:706
+#: libraries/classes/Database/Designer/Common.php:707
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Viga: Nurjus välisvõtme (FOREIGN KEY) seose kustutamine!"
 
-#: libraries/classes/Database/Designer/Common.php:733
+#: libraries/classes/Database/Designer/Common.php:734
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Viga: Nurjus siseseose kustutamine!"
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 msgid "Internal relationship has been removed."
 msgstr "Siseseos on kustutatud."
 
@@ -7037,7 +7038,7 @@ msgstr "Server sunnib SSL ühendust, lubatud automaatselt."
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:863
-#: libraries/classes/Server/Privileges.php:1676
+#: libraries/classes/Server/Privileges.php:1689
 msgid "No Password"
 msgstr "Ilma paroolita"
 
@@ -7045,7 +7046,7 @@ msgstr "Ilma paroolita"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:183
 #: libraries/classes/ReplicationGui.php:432
 #: libraries/classes/ReplicationGui.php:854
-#: libraries/classes/Server/Privileges.php:1663
+#: libraries/classes/Server/Privileges.php:1676
 msgid "Password:"
 msgstr "Parool:"
 
@@ -7055,7 +7056,7 @@ msgstr "Sisesta:"
 
 #: libraries/classes/Display/ChangePassword.php:87
 #: libraries/classes/ReplicationGui.php:874
-#: libraries/classes/Server/Privileges.php:1695
+#: libraries/classes/Server/Privileges.php:1708
 msgid "Re-type:"
 msgstr "Tipi uuesti:"
 
@@ -7065,7 +7066,7 @@ msgid "Password Hashing:"
 msgstr "Parooli räsimine:"
 
 #: libraries/classes/Display/ChangePassword.php:131
-#: libraries/classes/Server/Privileges.php:1739
+#: libraries/classes/Server/Privileges.php:1752
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -7187,10 +7188,11 @@ msgstr "Täistekstid"
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4690 libraries/classes/Util.php:4707
-#: libraries/config.values.php:71 templates/table/search/options.twig:54
+#: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Descending"
 msgstr "Kahanev"
 
@@ -7199,10 +7201,11 @@ msgstr "Kahanev"
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4685 libraries/classes/Util.php:4702
-#: libraries/config.values.php:70 templates/table/search/options.twig:54
+#: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Ascending"
 msgstr "Kasvav"
 
@@ -7243,21 +7246,21 @@ msgstr "päring kestis %01.4f sekundit."
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
-#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
+#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Valitutega:"
 
 #: libraries/classes/Display/Results.php:4686
 #: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Server/Privileges.php:1179
-#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:1192
+#: libraries/classes/Server/Privileges.php:1193
 #: libraries/classes/Server/UserGroups.php:248
-#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
-#: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
+#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
+#: templates/select_all.twig:5
 msgid "Check all"
 msgstr "Vali kõik"
 
@@ -7798,11 +7801,11 @@ msgstr "Struktuuri muutmiseks klõpsa lingil \"Struktuur\"."
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946
-#: templates/table/structure/row_stats_table.twig:19
-#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: libraries/classes/Rte/Routines.php:946 templates/console/display.twig:7
 #: templates/console/display.twig:140
+#: templates/table/structure/row_stats_table.twig:19
 #: templates/display/results/options_block.twig:10
+#: templates/table/search/options.twig:1
 msgid "Options"
 msgstr "Valikud"
 
@@ -7866,11 +7869,11 @@ msgstr "Hulk"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/table/structure/display_partitions.twig:31
+#: templates/database/structure/table_header.twig:48
 #: templates/columns_definitions/partitions.twig:85
+#: templates/table/structure/display_partitions.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/database/structure/table_header.twig:48
 msgid "Comment"
 msgstr "Kommentaar"
 
@@ -7921,8 +7924,9 @@ msgstr "Binaarne - ära muuda"
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Valitud üleslaadimise kataloogile ei pääse ligi."
 
-#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1501
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "Või"
 
@@ -7978,13 +7982,13 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1627
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/server/variables/variable_table_head.twig:5
-#: templates/database/designer/having_query_panel.twig:100
-#: templates/table/search/table_header.twig:10
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/table_header.twig:10
+#: templates/server/variables/variable_table_head.twig:5
 msgid "Value"
 msgstr "Väärtus"
 
@@ -8036,8 +8040,8 @@ msgstr "\"%s\""
 #: libraries/classes/Util.php:3333 libraries/classes/Util.php:3334
 #: libraries/classes/Util.php:4011 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/table/structure/check_all_table_column.twig:8
 #: templates/database/search/results.twig:34
+#: templates/table/structure/check_all_table_column.twig:8
 msgid "Browse"
 msgstr "Vaata"
 
@@ -8064,8 +8068,8 @@ msgid "Insert"
 msgstr "Lisa"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
-#: libraries/classes/Server/Privileges.php:2569
-#: libraries/classes/Server/Privileges.php:4440 libraries/classes/Util.php:4002
+#: libraries/classes/Server/Privileges.php:2582
+#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4002
 #: libraries/classes/Util.php:4018 libraries/config.values.php:107
 #: templates/server/sub_page_header.twig:2
 #: templates/privileges/privileges_summary.twig:15
@@ -8142,8 +8146,8 @@ msgstr "Binaarne logi"
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3988
 #: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
+#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Paljundamine"
 
@@ -8267,8 +8271,8 @@ msgstr "Vaated:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tracked_tables.twig:17
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "Näita"
 
@@ -9087,8 +9091,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "Oled lubanud kaheastmelise autentimise, palun kinnita oma meldimine."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
 msgstr "Formaat:"
 
@@ -9767,8 +9771,8 @@ msgstr "Sisu tabel"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/structure/table_structure_header.twig:14
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/table_structure_header.twig:14
 msgid "Extra"
 msgstr "Lisaks"
 
@@ -10449,8 +10453,8 @@ msgstr ""
 "%s?"
 
 #: libraries/classes/ReplicationGui.php:389
-#: templates/database/search/selection_form.twig:35
 #: templates/display/export/select_options.twig:8
+#: templates/database/search/selection_form.twig:35
 msgid "Unselect all"
 msgstr "Ära vali ühtegi"
 
@@ -10468,26 +10472,26 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:791
-#: libraries/classes/Server/Privileges.php:1501
+#: libraries/classes/Server/Privileges.php:1514
 msgid "User name:"
 msgstr "Kasutajanimi:"
 
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:795
 #: libraries/classes/ReplicationGui.php:808
-#: libraries/classes/Server/Privileges.php:1506
-#: libraries/classes/Server/Privileges.php:1528
-#: libraries/classes/Server/Privileges.php:2566
-#: libraries/classes/Server/Privileges.php:3544
+#: libraries/classes/Server/Privileges.php:1519
+#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:2579
+#: libraries/classes/Server/Privileges.php:3557
 msgid "User name"
 msgstr "Kasutajanimi"
 
 #: libraries/classes/ReplicationGui.php:437
 #: libraries/classes/ReplicationGui.php:858
 #: libraries/classes/ReplicationGui.php:870
-#: libraries/classes/Server/Privileges.php:1667
-#: libraries/classes/Server/Privileges.php:1684
-#: libraries/classes/Server/Privileges.php:3546
+#: libraries/classes/Server/Privileges.php:1680
+#: libraries/classes/Server/Privileges.php:1697
+#: libraries/classes/Server/Privileges.php:3559
 msgid "Password"
 msgstr "Parool"
 
@@ -10525,39 +10529,39 @@ msgstr ""
 "host=host_name valikuga."
 
 #: libraries/classes/ReplicationGui.php:747
-#: libraries/classes/Server/Privileges.php:1602
+#: libraries/classes/Server/Privileges.php:1615
 msgid "Any host"
 msgstr "Kõik hostid"
 
 #: libraries/classes/ReplicationGui.php:752
-#: libraries/classes/Server/Privileges.php:1610
+#: libraries/classes/Server/Privileges.php:1623
 msgid "Local"
 msgstr "Kohalik"
 
 #: libraries/classes/ReplicationGui.php:759
-#: libraries/classes/Server/Privileges.php:1619
+#: libraries/classes/Server/Privileges.php:1632
 msgid "This Host"
 msgstr "See host"
 
 #: libraries/classes/ReplicationGui.php:799
-#: libraries/classes/Server/Privileges.php:1512
+#: libraries/classes/Server/Privileges.php:1525
 msgid "Any user"
 msgstr "Kõik kasutajad"
 
 #: libraries/classes/ReplicationGui.php:804
 #: libraries/classes/ReplicationGui.php:837
 #: libraries/classes/ReplicationGui.php:866
-#: libraries/classes/Server/Privileges.php:1638
+#: libraries/classes/Server/Privileges.php:1651
 msgid "Use text field:"
 msgstr "Kasuta tekstivälja:"
 
 #: libraries/classes/ReplicationGui.php:831
-#: libraries/classes/Server/Privileges.php:1629
+#: libraries/classes/Server/Privileges.php:1642
 msgid "Use Host Table"
 msgstr "Kasuta hosti tabelit"
 
 #: libraries/classes/ReplicationGui.php:847
-#: libraries/classes/Server/Privileges.php:1655
+#: libraries/classes/Server/Privileges.php:1668
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -10566,7 +10570,7 @@ msgstr ""
 "asemel kasutatakse hosti tabelis olevaid väärtusi."
 
 #: libraries/classes/ReplicationGui.php:878
-#: libraries/classes/Server/Privileges.php:1699
+#: libraries/classes/Server/Privileges.php:1712
 msgid "Re-type"
 msgstr "Tipi uuesti"
 
@@ -11090,7 +11094,7 @@ msgstr "Otsingu laadimiseks on vaja täiendavat informatsiooni."
 msgid "Error while loading the search."
 msgstr "Otsingu laadimisel esines viga."
 
-#: libraries/classes/Server/Privileges.php:222 server_privileges.php:119
+#: libraries/classes/Server/Privileges.php:222 server_privileges.php:120
 msgid "No privileges."
 msgstr "Õigused puuduvad."
 
@@ -11099,81 +11103,81 @@ msgid "Includes all privileges except GRANT."
 msgstr "Sisaldab kõiki õigusi, v.a GRANT."
 
 #: libraries/classes/Server/Privileges.php:304
-#: libraries/classes/Server/Privileges.php:1038
-#: libraries/classes/Server/Privileges.php:1212 server_privileges.php:108
+#: libraries/classes/Server/Privileges.php:1048
+#: libraries/classes/Server/Privileges.php:1225 server_privileges.php:109
 msgid "Allows reading data."
 msgstr "Lubab lugeda andmeid."
 
 #: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:1043
-#: libraries/classes/Server/Privileges.php:1213 server_privileges.php:84
+#: libraries/classes/Server/Privileges.php:1053
+#: libraries/classes/Server/Privileges.php:1226 server_privileges.php:85
 msgid "Allows inserting and replacing data."
 msgstr "Lubab lisada ja asendada andmeid."
 
 #: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:1048
-#: libraries/classes/Server/Privileges.php:1214 server_privileges.php:118
+#: libraries/classes/Server/Privileges.php:1058
+#: libraries/classes/Server/Privileges.php:1227 server_privileges.php:119
 msgid "Allows changing data."
 msgstr "Lubab muuta andmeid."
 
 #: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:1215 server_privileges.php:73
+#: libraries/classes/Server/Privileges.php:1228 server_privileges.php:73
 msgid "Allows deleting data."
 msgstr "Lubab kustutada andmeid."
 
 #: libraries/classes/Server/Privileges.php:324
-#: libraries/classes/Server/Privileges.php:1241 server_privileges.php:67
+#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:67
 msgid "Allows creating new databases and tables."
 msgstr "Lubab luua uusi andmebaase ja tabeleid."
 
 #: libraries/classes/Server/Privileges.php:329
-#: libraries/classes/Server/Privileges.php:1253 server_privileges.php:74
+#: libraries/classes/Server/Privileges.php:1266 server_privileges.php:75
 msgid "Allows dropping databases and tables."
 msgstr "Lubab kustutada andmebaase ja tabeleid."
 
 #: libraries/classes/Server/Privileges.php:334
-#: libraries/classes/Server/Privileges.php:1337 server_privileges.php:102
+#: libraries/classes/Server/Privileges.php:1350 server_privileges.php:103
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Lubab serveri sätteid uuesti laadida ja tühjendada serveri vahemälu."
 
 #: libraries/classes/Server/Privileges.php:339
-#: libraries/classes/Server/Privileges.php:1341 server_privileges.php:111
+#: libraries/classes/Server/Privileges.php:1354 server_privileges.php:112
 msgid "Allows shutting down the server."
 msgstr "Lubab serveri välja lülitada."
 
 #: libraries/classes/Server/Privileges.php:344
-#: libraries/classes/Server/Privileges.php:1333 server_privileges.php:99
+#: libraries/classes/Server/Privileges.php:1346 server_privileges.php:100
 msgid "Allows viewing processes of all users."
 msgstr "Lubab kõikide kasutajate protsesside vaatamist."
 
 #: libraries/classes/Server/Privileges.php:349
-#: libraries/classes/Server/Privileges.php:1221 server_privileges.php:78
+#: libraries/classes/Server/Privileges.php:1234 server_privileges.php:79
 msgid "Allows importing data from and exporting data into files."
 msgstr "Lubab andmeid failidest importida ja failideks eksportida."
 
 #: libraries/classes/Server/Privileges.php:354
-#: libraries/classes/Server/Privileges.php:1053
-#: libraries/classes/Server/Privileges.php:1365 server_privileges.php:100
+#: libraries/classes/Server/Privileges.php:1063
+#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:101
 msgid "Has no effect in this MySQL version."
 msgstr "Muudatusi selles MySQL versioonis ei toimunud."
 
 #: libraries/classes/Server/Privileges.php:359
-#: libraries/classes/Server/Privileges.php:1249 server_privileges.php:83
+#: libraries/classes/Server/Privileges.php:1262 server_privileges.php:84
 msgid "Allows creating and dropping indexes."
 msgstr "Lubab luua ja kustutada indekseid."
 
 #: libraries/classes/Server/Privileges.php:364
-#: libraries/classes/Server/Privileges.php:1247 server_privileges.php:65
+#: libraries/classes/Server/Privileges.php:1260 server_privileges.php:65
 msgid "Allows altering the structure of existing tables."
 msgstr "Lubab muuta olemasolevate tabelite struktuuri."
 
 #: libraries/classes/Server/Privileges.php:369
-#: libraries/classes/Server/Privileges.php:1345 server_privileges.php:109
+#: libraries/classes/Server/Privileges.php:1358 server_privileges.php:110
 msgid "Gives access to the complete list of databases."
 msgstr "Annab ligipääsu kogu andmebaaside nimekirjale."
 
 #: libraries/classes/Server/Privileges.php:375
-#: libraries/classes/Server/Privileges.php:1325 server_privileges.php:113
+#: libraries/classes/Server/Privileges.php:1338 server_privileges.php:114
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11184,101 +11188,101 @@ msgstr ""
 "globaalsete muutujate seadmiseks või teiste kasutajate lõimude sulgemiseks."
 
 #: libraries/classes/Server/Privileges.php:383
-#: libraries/classes/Server/Privileges.php:1259 server_privileges.php:70
+#: libraries/classes/Server/Privileges.php:1272 server_privileges.php:70
 msgid "Allows creating temporary tables."
 msgstr "Lubab luua ajutisi tabeleid."
 
 #: libraries/classes/Server/Privileges.php:388
-#: libraries/classes/Server/Privileges.php:1361 server_privileges.php:85
+#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:86
 msgid "Allows locking tables for the current thread."
 msgstr "Lubab käesoleva lõimu jaoks tabeleid lukustada."
 
 #: libraries/classes/Server/Privileges.php:393
-#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
+#: libraries/classes/Server/Privileges.php:1387 server_privileges.php:108
 msgid "Needed for the replication slaves."
 msgstr "Vajalik alluvate paljundamiseks."
 
 #: libraries/classes/Server/Privileges.php:398
-#: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
+#: libraries/classes/Server/Privileges.php:1383 server_privileges.php:106
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Lubab kasutajal küsida, kus alluvad / ülemad asuvad."
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
-#: libraries/classes/Server/Privileges.php:1279
-#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:72
+#: libraries/classes/Server/Privileges.php:1292
+#: libraries/classes/Server/Privileges.php:1299 server_privileges.php:72
 msgid "Allows creating new views."
 msgstr "Lubab luua uusi vaateid."
 
 #: libraries/classes/Server/Privileges.php:408
-#: libraries/classes/Server/Privileges.php:1293 server_privileges.php:76
+#: libraries/classes/Server/Privileges.php:1306 server_privileges.php:77
 msgid "Allows to set up events for the event scheduler."
 msgstr "Võimaldab luua sündmuste ajastajale sündmuseid."
 
 #: libraries/classes/Server/Privileges.php:413
-#: libraries/classes/Server/Privileges.php:1297 server_privileges.php:117
+#: libraries/classes/Server/Privileges.php:1310 server_privileges.php:118
 msgid "Allows creating and dropping triggers."
 msgstr "Lubab luua ja kustutada päästikuid."
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
-#: libraries/classes/Server/Privileges.php:1263 server_privileges.php:110
+#: libraries/classes/Server/Privileges.php:1276 server_privileges.php:111
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Lubab teostada SHOW CREATE VIEW päringuid."
 
-#: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:68
+#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:1280 server_privileges.php:68
 msgid "Allows creating stored routines."
 msgstr "Lubab luua salvestatud funktsioone."
 
-#: libraries/classes/Server/Privileges.php:440
-#: libraries/classes/Server/Privileges.php:1271 server_privileges.php:66
+#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:1284 server_privileges.php:66
 msgid "Allows altering and dropping stored routines."
 msgstr "Lubab muuta ja kustutada salvestatud funktsioone."
 
-#: libraries/classes/Server/Privileges.php:445
-#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:71
+#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:1391 server_privileges.php:71
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Lubab luua, kustutada ja ümber nimetada kasutajakontosid."
 
-#: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:1273 server_privileges.php:77
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:78
 msgid "Allows executing stored routines."
 msgstr "Lubab käivitada salvestatud funktsioone."
 
-#: libraries/classes/Server/Privileges.php:728
+#: libraries/classes/Server/Privileges.php:738
 msgid "Does not require SSL-encrypted connections."
 msgstr "Ei nõua SSL krüpteeringuga ühendusi."
 
-#: libraries/classes/Server/Privileges.php:744
+#: libraries/classes/Server/Privileges.php:754
 msgid "Requires SSL-encrypted connections."
 msgstr "Nõuab SSL krüpteeringuga ühendusi."
 
-#: libraries/classes/Server/Privileges.php:758
+#: libraries/classes/Server/Privileges.php:768
 msgid "Requires a valid X509 certificate."
 msgstr "Nõuab kehtivat X509 sertifikaati."
 
-#: libraries/classes/Server/Privileges.php:783
+#: libraries/classes/Server/Privileges.php:793
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr "Nõuab ühenduse krüpteerimist kindla meetodiga."
 
-#: libraries/classes/Server/Privileges.php:796
+#: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 "Nõuab, et esitataks kehtiv selle sertifitseerija väljastatud X509 "
 "sertifikaat."
 
-#: libraries/classes/Server/Privileges.php:809
+#: libraries/classes/Server/Privileges.php:819
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 "Nõuab, et esitataks kehtiv konkreetsele isikule väljastatud sertifikaat."
 
-#: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
+#: libraries/classes/Server/Privileges.php:849 server_privileges.php:91
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Piirab päringute hulka, mida kasutaja võib tunni aja jooksul serverile saata."
 
-#: libraries/classes/Server/Privileges.php:847 server_privileges.php:93
+#: libraries/classes/Server/Privileges.php:857 server_privileges.php:94
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -11286,24 +11290,24 @@ msgstr ""
 "Piirab tabelit või andmebaasi muutvate käskude hulka, mida kasutaja võib "
 "tunni aja jooksul käivitada."
 
-#: libraries/classes/Server/Privileges.php:856 server_privileges.php:87
+#: libraries/classes/Server/Privileges.php:866 server_privileges.php:88
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Piirab uute ühenduste hulka, mida kasutaja võib tunni aja jooksul avada."
 
-#: libraries/classes/Server/Privileges.php:865 server_privileges.php:97
+#: libraries/classes/Server/Privileges.php:875 server_privileges.php:98
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Piirab samaaegsete ühenduste hulka, mida kasutajal võib olla."
 
-#: libraries/classes/Server/Privileges.php:910
-#: libraries/classes/Server/Privileges.php:3356
-#: libraries/classes/Server/Privileges.php:3358
-#: libraries/classes/Server/Privileges.php:4581
+#: libraries/classes/Server/Privileges.php:920
+#: libraries/classes/Server/Privileges.php:3369
+#: libraries/classes/Server/Privileges.php:3371
+#: libraries/classes/Server/Privileges.php:4594
 #: templates/privileges/edit_routine_privileges.twig:11
 msgid "Routine"
 msgstr "Funktsioon"
 
-#: libraries/classes/Server/Privileges.php:942
+#: libraries/classes/Server/Privileges.php:952
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
@@ -11312,60 +11316,60 @@ msgstr ""
 "kasutajatelt õigused, mis on selle funktsiooni kasutamiseks kinnitatud antud "
 "kasutajale."
 
-#: libraries/classes/Server/Privileges.php:949
+#: libraries/classes/Server/Privileges.php:959
 msgid "Allows altering and dropping this routine."
 msgstr "Lubab muuta ja kustutada selle funktsiooni."
 
-#: libraries/classes/Server/Privileges.php:954
+#: libraries/classes/Server/Privileges.php:964
 msgid "Allows executing this routine."
 msgstr "Lubab käivitada selle funktsiooni."
 
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1173
-#: libraries/classes/Server/Privileges.php:3351
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1186
+#: libraries/classes/Server/Privileges.php:3364
 #: templates/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
 msgstr "Tabelipõhised õigused"
 
-#: libraries/classes/Server/Privileges.php:1007
-#: libraries/classes/Server/Privileges.php:1183
-#: libraries/classes/Server/Privileges.php:3549
+#: libraries/classes/Server/Privileges.php:1017
+#: libraries/classes/Server/Privileges.php:1196
+#: libraries/classes/Server/Privileges.php:3562
 #: templates/privileges/edit_routine_privileges.twig:16
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Märkus: MySQL õigused on inglise keeles."
 
-#: libraries/classes/Server/Privileges.php:1147
+#: libraries/classes/Server/Privileges.php:1160
 msgid "Administration"
 msgstr "Administreerimine"
 
-#: libraries/classes/Server/Privileges.php:1167
-#: libraries/classes/Server/Privileges.php:3547
+#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:3560
 msgid "Global privileges"
 msgstr "Globaalsed õigused"
 
-#: libraries/classes/Server/Privileges.php:1168
+#: libraries/classes/Server/Privileges.php:1181
 msgid "Global"
 msgstr "Globaalne"
 
-#: libraries/classes/Server/Privileges.php:1170
-#: libraries/classes/Server/Privileges.php:3345
+#: libraries/classes/Server/Privileges.php:1183
+#: libraries/classes/Server/Privileges.php:3358
 msgid "Database-specific privileges"
 msgstr "Andmebaasipõhised õigused"
 
-#: libraries/classes/Server/Privileges.php:1242 server_privileges.php:69
+#: libraries/classes/Server/Privileges.php:1255 server_privileges.php:69
 msgid "Allows creating new tables."
 msgstr "Lubab luua uusi tabeleid."
 
-#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:75
+#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:76
 msgid "Allows dropping tables."
 msgstr "Lubab kustutada tabeleid."
 
-#: libraries/classes/Server/Privileges.php:1317
+#: libraries/classes/Server/Privileges.php:1330
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "Lubab õiguste tabelit laadimata lisada kasutajaid ja õigusi."
 
-#: libraries/classes/Server/Privileges.php:1353 server_privileges.php:80
+#: libraries/classes/Server/Privileges.php:1366 server_privileges.php:81
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
@@ -11373,28 +11377,28 @@ msgstr ""
 "Võimaldab kasutajal endal anda teistele kasutajatele või eemalda teistelt "
 "kasutajatelt õigused, mida too kasutaja omab."
 
-#: libraries/classes/Server/Privileges.php:1431
-#: libraries/classes/Server/Privileges.php:1462
+#: libraries/classes/Server/Privileges.php:1444
+#: libraries/classes/Server/Privileges.php:1475
 msgid "Native MySQL authentication"
 msgstr "MySQLi omavahenditega autentimine"
 
-#: libraries/classes/Server/Privileges.php:1464
+#: libraries/classes/Server/Privileges.php:1477
 msgid "SHA256 password authentication"
 msgstr "SHA256 parooliga autentimine"
 
-#: libraries/classes/Server/Privileges.php:1498
-#: libraries/classes/Server/Privileges.php:3113
+#: libraries/classes/Server/Privileges.php:1511
+#: libraries/classes/Server/Privileges.php:3126
 msgid "Login Information"
 msgstr "Sisselogimise teave"
 
-#: libraries/classes/Server/Privileges.php:1521
-#: libraries/classes/Server/Privileges.php:1679
-#: templates/privileges/add_privileges_table.twig:7
+#: libraries/classes/Server/Privileges.php:1534
+#: libraries/classes/Server/Privileges.php:1692
 #: templates/privileges/add_privileges_routine.twig:7
+#: templates/privileges/add_privileges_table.twig:7
 msgid "Use text field"
 msgstr "Kasuta tekstivälja"
 
-#: libraries/classes/Server/Privileges.php:1547
+#: libraries/classes/Server/Privileges.php:1560
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
@@ -11402,227 +11406,227 @@ msgstr ""
 "Sama nimega kasutaja konto on on juba olemas, kuid ilmselt teise hosti "
 "nimega."
 
-#: libraries/classes/Server/Privileges.php:1556
+#: libraries/classes/Server/Privileges.php:1569
 msgid "Host name:"
 msgstr "Hosti nimi:"
 
-#: libraries/classes/Server/Privileges.php:1561
-#: libraries/classes/Server/Privileges.php:1646
-#: libraries/classes/Server/Privileges.php:2567
-#: libraries/classes/Server/Privileges.php:3545
+#: libraries/classes/Server/Privileges.php:1574
+#: libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Server/Privileges.php:2580
+#: libraries/classes/Server/Privileges.php:3558
 msgid "Host name"
 msgstr "Hosti nimi"
 
-#: libraries/classes/Server/Privileges.php:1669
+#: libraries/classes/Server/Privileges.php:1682
 msgid "Do not change the password"
 msgstr "Ära muuda parooli"
 
-#: libraries/classes/Server/Privileges.php:1719
+#: libraries/classes/Server/Privileges.php:1732
 msgid "Authentication Plugin"
 msgstr "Autentimise pistik"
 
-#: libraries/classes/Server/Privileges.php:1726
+#: libraries/classes/Server/Privileges.php:1739
 msgid "Password Hashing Method"
 msgstr "Parooli räsimise algoritm"
 
-#: libraries/classes/Server/Privileges.php:2016
+#: libraries/classes/Server/Privileges.php:2029
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s parool on edukalt vahetatud."
 
-#: libraries/classes/Server/Privileges.php:2060
+#: libraries/classes/Server/Privileges.php:2073
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Tühistasid %s õigused."
 
-#: libraries/classes/Server/Privileges.php:2160
+#: libraries/classes/Server/Privileges.php:2173
 #: templates/privileges/add_user_fieldset.twig:7
 msgid "Add user account"
 msgstr "Lisa kasutajate konto"
 
-#: libraries/classes/Server/Privileges.php:2169
+#: libraries/classes/Server/Privileges.php:2182
 msgid "Database for user account"
 msgstr "Andmebaas kasutaja kontole"
 
-#: libraries/classes/Server/Privileges.php:2175
+#: libraries/classes/Server/Privileges.php:2188
 msgid "Create database with same name and grant all privileges."
 msgstr "Loo samanimeline andmebaas ja anna kõik õigused."
 
-#: libraries/classes/Server/Privileges.php:2186
+#: libraries/classes/Server/Privileges.php:2199
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Anna kõik õigused metamärgiga nimele (kasutajanimi\\_%)."
 
-#: libraries/classes/Server/Privileges.php:2199
+#: libraries/classes/Server/Privileges.php:2212
 #, php-format
 msgid "Grant all privileges on database %s."
 msgstr "Anna kõik õigused andmebaasis %s."
 
-#: libraries/classes/Server/Privileges.php:2373
-#: libraries/classes/Server/Privileges.php:2447
+#: libraries/classes/Server/Privileges.php:2386
+#: libraries/classes/Server/Privileges.php:2460
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Kasutajad, kellel on ligipääs \"%s\" andmebaasile"
 
-#: libraries/classes/Server/Privileges.php:2417
+#: libraries/classes/Server/Privileges.php:2430
 msgid "User has been added."
 msgstr "Kasutaja on lisatud."
 
-#: libraries/classes/Server/Privileges.php:2570
-#: libraries/classes/Server/Privileges.php:3555
+#: libraries/classes/Server/Privileges.php:2583
+#: libraries/classes/Server/Privileges.php:3568
 #: templates/privileges/privileges_summary.twig:16
 msgid "Grant"
 msgstr "Õigused (GRANT)"
 
-#: libraries/classes/Server/Privileges.php:2585
+#: libraries/classes/Server/Privileges.php:2598
 msgid "Not enough privilege to view users."
 msgstr "Puuduvad õigused kasutajate kuvamiseks."
 
-#: libraries/classes/Server/Privileges.php:2604
-#: libraries/classes/Server/Privileges.php:3978
+#: libraries/classes/Server/Privileges.php:2617
+#: libraries/classes/Server/Privileges.php:3991
 msgid "No user found."
 msgstr "Kasutajat ei leitud."
 
-#: libraries/classes/Server/Privileges.php:2635
-#: libraries/classes/Server/Privileges.php:2971
-#: libraries/classes/Server/Privileges.php:3637
+#: libraries/classes/Server/Privileges.php:2648
+#: libraries/classes/Server/Privileges.php:2984
+#: libraries/classes/Server/Privileges.php:3650
 msgid "Any"
 msgstr "Kõik"
 
-#: libraries/classes/Server/Privileges.php:2686
+#: libraries/classes/Server/Privileges.php:2699
 msgid "global"
 msgstr "globaalne"
 
-#: libraries/classes/Server/Privileges.php:2689
+#: libraries/classes/Server/Privileges.php:2702
 msgid "database-specific"
 msgstr "andmebaasipõhine"
 
-#: libraries/classes/Server/Privileges.php:2691
+#: libraries/classes/Server/Privileges.php:2704
 msgid "wildcard"
 msgstr "metamärk"
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2710
 msgid "table-specific"
 msgstr "tabelipõhine"
 
-#: libraries/classes/Server/Privileges.php:2840
+#: libraries/classes/Server/Privileges.php:2853
 msgid "Edit privileges"
 msgstr "Muuda õiguseid"
 
-#: libraries/classes/Server/Privileges.php:2843
+#: libraries/classes/Server/Privileges.php:2856
 msgid "Revoke"
 msgstr "Tühista"
 
-#: libraries/classes/Server/Privileges.php:2867
+#: libraries/classes/Server/Privileges.php:2880
 msgid "Edit user group"
 msgstr "Muuda kasutaja grupp"
 
-#: libraries/classes/Server/Privileges.php:3085
+#: libraries/classes/Server/Privileges.php:3098
 msgid "… keep the old one."
 msgstr "… hoia eelmine alles."
 
-#: libraries/classes/Server/Privileges.php:3086
+#: libraries/classes/Server/Privileges.php:3099
 msgid "… delete the old one from the user tables."
 msgstr "… kustuta eelmine kasutajate tabelist."
 
-#: libraries/classes/Server/Privileges.php:3088
+#: libraries/classes/Server/Privileges.php:3101
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… tühista eelmise kõik aktiivsed õigused ja seejärel kustuta see."
 
-#: libraries/classes/Server/Privileges.php:3092
+#: libraries/classes/Server/Privileges.php:3105
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "… kustuta eelmine kasutajate tabelist ja seejärel lae õigused uuesti."
 
-#: libraries/classes/Server/Privileges.php:3114
+#: libraries/classes/Server/Privileges.php:3127
 msgid "Change login information / Copy user account"
 msgstr "Muuda sisselogimise teavet / Kopeeri kasutaja konto"
 
-#: libraries/classes/Server/Privileges.php:3120
+#: libraries/classes/Server/Privileges.php:3133
 msgid "Create a new user account with the same privileges and …"
 msgstr "Loo uus kasutaja konto samade õigustega ja …"
 
-#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3370
 #: templates/privileges/edit_routine_privileges.twig:12
 msgid "Routine-specific privileges"
 msgstr "Funktsioonipõhised õigused"
 
-#: libraries/classes/Server/Privileges.php:3553
+#: libraries/classes/Server/Privileges.php:3566
 #: libraries/classes/Server/UserGroups.php:89
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
 msgstr "Kasutaja grupp"
 
-#: libraries/classes/Server/Privileges.php:3676
-#: libraries/classes/Server/Privileges.php:4811
+#: libraries/classes/Server/Privileges.php:3689
+#: libraries/classes/Server/Privileges.php:4824
 msgid "The selected user was not found in the privilege table."
 msgstr "Valitud kasutajat õiguste tabelist ei leitud."
 
-#: libraries/classes/Server/Privileges.php:3854
+#: libraries/classes/Server/Privileges.php:3867
 msgid "No users selected for deleting!"
 msgstr "Kustutavaid kasutajaid pole valitud!"
 
-#: libraries/classes/Server/Privileges.php:3857
+#: libraries/classes/Server/Privileges.php:3870
 msgid "Reloading the privileges"
 msgstr "Õiguste uuesti laadimine"
 
-#: libraries/classes/Server/Privileges.php:3876
+#: libraries/classes/Server/Privileges.php:3889
 msgid "The selected users have been deleted successfully."
 msgstr "Valitud kasutajad on edukalt kustutatud."
 
-#: libraries/classes/Server/Privileges.php:3951
+#: libraries/classes/Server/Privileges.php:3964
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Uuendasid %s õigusi."
 
-#: libraries/classes/Server/Privileges.php:4056
+#: libraries/classes/Server/Privileges.php:4069
 #, php-format
 msgid "Deleting %s"
 msgstr "%s kustutamine"
 
-#: libraries/classes/Server/Privileges.php:4086
+#: libraries/classes/Server/Privileges.php:4099
 msgid "The privileges were reloaded successfully."
 msgstr "Õigused on edukalt uuesti laetud."
 
-#: libraries/classes/Server/Privileges.php:4177
+#: libraries/classes/Server/Privileges.php:4190
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Kasutaja %s on juba olemas!"
 
-#: libraries/classes/Server/Privileges.php:4454
+#: libraries/classes/Server/Privileges.php:4467
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s õigused"
 
-#: libraries/classes/Server/Privileges.php:4463
+#: libraries/classes/Server/Privileges.php:4476
 #: libraries/classes/Server/Status/Processes.php:81
 #: libraries/classes/Server/UserGroups.php:49
 msgid "User"
 msgstr "Kasutaja"
 
-#: libraries/classes/Server/Privileges.php:4531
+#: libraries/classes/Server/Privileges.php:4544
 msgid "Edit privileges:"
 msgstr "Muuda õiguseid:"
 
-#: libraries/classes/Server/Privileges.php:4532
+#: libraries/classes/Server/Privileges.php:4545
 msgid "User account"
 msgstr "Kasutaja konto"
 
-#: libraries/classes/Server/Privileges.php:4606
+#: libraries/classes/Server/Privileges.php:4619
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 "Märkus: sa proovid muuta õiguseid kontol, mida kasutasid sisse logimiseks."
 
-#: libraries/classes/Server/Privileges.php:4626
+#: libraries/classes/Server/Privileges.php:4639
 #: libraries/classes/Server/Users.php:30
 msgid "User accounts overview"
 msgstr "Kasutaja kontode ülevaade"
 
-#: libraries/classes/Server/Privileges.php:4701
+#: libraries/classes/Server/Privileges.php:4714
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -11632,7 +11636,7 @@ msgstr ""
 "olemas. See takistab teistel kasutajatel ühendumast, kui nende konto hosti "
 "pool lubab ühenduda suvalisest (%) masinast."
 
-#: libraries/classes/Server/Privileges.php:4743
+#: libraries/classes/Server/Privileges.php:4756
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -11644,7 +11648,7 @@ msgstr ""
 "Tabelite sisu võib erineda serveri kasutatavatest, kui neid on käsitsi "
 "muudetud. Sellisel juhul peaksid enne jätkamist %sõigused uuesti laadima%s."
 
-#: libraries/classes/Server/Privileges.php:4760
+#: libraries/classes/Server/Privileges.php:4773
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11657,7 +11661,7 @@ msgstr ""
 "muudetud. Sellisel juhul peab õigused uuesti laadima, kuid hetkel puudub sul "
 "uuesti laadimise (RELOAD) õigus."
 
-#: libraries/classes/Server/Privileges.php:5045
+#: libraries/classes/Server/Privileges.php:5058
 msgid "You have added a new user."
 msgstr "Lisasid uue kasutaja."
 
@@ -13948,16 +13952,22 @@ msgstr "Kaheastmeline autentimine seadistatud."
 msgid "View dump (schema) of databases"
 msgstr "Vaata andmebaaside tõmmist (skeemi)"
 
-#: server_privileges.php:144 server_replication.php:38
+#: server_privileges.php:74
+#, fuzzy
+#| msgid "Allows deleting data."
+msgid "Allows deleting historical rows."
+msgstr "Lubab kustutada andmeid."
+
+#: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
 msgid "No Privileges"
 msgstr "Õigused puuduvad"
 
-#: server_privileges.php:151
+#: server_privileges.php:152
 msgid "You do not have privileges to manipulate with the users!"
 msgstr "Sul puuduvad õigused kasutajate haldamiseks!"
 
-#: server_privileges.php:165
+#: server_privileges.php:166
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -14254,18 +14264,183 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Kirjeldus"
 
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Märkus: Statistika lubamine võib põhjustada koormava liikluse veebiserveri "
-"ja MySQL serveri vahel."
+#: templates/table/structure/add_column.twig:9
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Lisa %s veerg(u)"
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-msgid "Enable statistics"
-msgstr "Luba statistika"
+#: templates/table/structure/add_column.twig:14
+msgid "at beginning of table"
+msgstr "tabeli alguses"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr "peale %s"
+
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Read:"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Loo mõnest reast tõmmis"
+
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "Ridade hulk:"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Rida alustab kohast:"
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Loo tõmmis kõikidest ridadest"
+
+#: templates/database/designer/delete_relation_panel.twig:21
+msgid "Delete relationship"
+msgstr "Kustuta seos"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+msgid "Relationship operator"
+msgstr "Seose operaator"
+
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/having_query_panel.twig:90
+msgid "Except"
+msgstr "V.a"
+
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/having_query_panel.twig:102
+msgid "subquery"
+msgstr "alampäring"
+
+#: templates/database/designer/options_panel.twig:84
+#: templates/database/designer/rename_to_panel.twig:22
+msgid "Rename to"
+msgstr "Muuda nimeks"
+
+#: templates/database/designer/options_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:30
+msgid "New name"
+msgstr "Uus nimi"
+
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/aggregate_query_panel.twig:22
+msgid "Aggregate"
+msgstr "Agregaat"
+
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/where_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/table/search/table_header.twig:9
+msgid "Operator"
+msgstr "Operaator"
+
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "Kuva/peida veerud"
+
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "Vaata tabeli struktuuri"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabelit"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Summa"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Indeksi nimi:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "\"PRIMARY\" <b>peab</b> olema <b>ainult</b> primaarvõtme nimi!"
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr "Indeksi valik:"
+
+#: templates/table/index_form.twig:42
+msgid "Advanced Options"
+msgstr "Täiendavad sätted"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr "Võtme ploki suurus:"
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Indeksi tüüp:"
+
+#: templates/table/index_form.twig:77
+msgid "Parser:"
+msgstr "Parser:"
+
+#: templates/table/index_form.twig:93
+msgid "Comment:"
+msgstr "Kommentaar:"
+
+#: templates/table/index_form.twig:118
+#: templates/database/structure/table_header.twig:38
+msgid "Size"
+msgstr "Suurus"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr "Järjekorra muutmiseks lohista"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Lisa lemmikutesse"
+
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "Aktiivsed valikud"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr "Leht avamiseks"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "Leht kustutamiseks"
+
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "Kuvatakse loomise päringuid"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Ruumi kasutus"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Efektiivne"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr "Muuda loendi või hulga väärtuseid"
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
@@ -14285,971 +14460,6 @@ msgstr "Deaktiveeri %s jälgimine"
 msgid "Deactivate now"
 msgstr "Deaktiveeri kohe"
 
-#: templates/table/structure/check_all_table_column.twig:76
-#: templates/table/structure/actions_in_table_structure.twig:131
-msgid "Add to central columns"
-msgstr "Lisa kesksesse nimekirja"
-
-#: templates/table/structure/check_all_table_column.twig:83
-#: templates/table/structure/actions_in_table_structure.twig:127
-msgid "Remove from central columns"
-msgstr "Eemalda kesksest nimekirjast"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-msgid "Authentication code:"
-msgstr "Autentimiskood:"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-"Ava kaheastmelise autentimise rakendus oma seadmel, et vaadata oma "
-"autentimiskoodi ja kinnitada oma identiteet."
-
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "Ridade hulk:"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "Salvesta valitud lehele"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "Loo leht ja salvesta sellele"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "Uue lehe nimi"
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Otsi andmebaasist"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Sõnad või väärtused, mida otsida (metamärk: \"%\"):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "Leia:"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "Tabelitest:"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "Veerust:"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Vaata väljundit tekstina"
-
-#: templates/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "Kustuta valitud kasutajate kontod"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-"Tühista kasutajatelt kõik aktiivsed õigused ning seejärel kustuta need "
-"kasutajad."
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Kustuta kasutajatega samanimelised andmebaasid."
-
-#: templates/database/designer/delete_relation_panel.twig:21
-msgid "Delete relationship"
-msgstr "Kustuta seos"
-
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/where_query_panel.twig:30
-msgid "Operator"
-msgstr "Operaator"
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#: templates/database/designer/where_query_panel.twig:59
-msgid "Except"
-msgstr "V.a"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#: templates/database/designer/where_query_panel.twig:71
-msgid "subquery"
-msgstr "alampäring"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Plugin"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Autor"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "keelatud"
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "Peida/Näita kõiki"
-
-#: templates/database/designer/table_list.twig:14
-msgid "Hide/Show tables with no relationship"
-msgstr "Peida/kuva seosteta tabelid"
-
-#: templates/database/designer/table_list.twig:55
-msgid "Number of tables:"
-msgstr "Tabelite hulk:"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Muuda"
-
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "Importimine käesolevasse serverisse"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "Importimine \"%s\" andmebaasi"
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "Importimine \"%s\" tabelisse"
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "Imporditav fail:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "Fail võib olla tihendatud (%s) või tihendamata."
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"Tihendatud faili nimi peab lõppega laiendiga <strong>.[formaat].[tihendus]</"
-"strong>. Näide: <strong>.sql.zip</strong>"
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "Sa võid lohistada ja kukutada faili igale lehele."
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "Faili üleslaadimised on selles serveris keelatud."
-
-#: templates/display/import/import.twig:97
-#: templates/display/export/options_output_charset.twig:3
-msgid "Character set of the file:"
-msgstr "Faili märgitabel:"
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "Osaline import:"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr "Eelmine import aegus, uuesti saatmisel jätkub see kohast %d."
-
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"Luba katkestada import, kui skript tuvastab, et ooteaeg läheneb PHP ooteaja "
-"piirangule. <em>(See on hea moodus importida suuri faile, kuid siiski võib "
-"see katkestada ülekanded.)</em>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Jäta vahele nii palju SQL päringuid, alates esimesest:"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "Muud valikud:"
-
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr "Formaadipõhised valikud:"
-
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Keri alla, et näha valikuid valitud formaadi jaoks ja ignoreeri teiste "
-"formaatide valikuid."
-
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr "Kodeerimise teisendus:"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Seansi väärtus"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Uus"
-
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-msgctxt "Number"
-msgid "#"
-msgstr "#"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Kuupäev"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Kasutajanimi"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tabel"
-msgstr[1] "%s tabelit"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Summa"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Ressursi piirangud"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Märkus: Nende valikute muutmisel väärtuseks 0 (null) eemaldab piirangu."
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr "Seadista kaheastmeline autentimine"
-
-#: templates/prefs_twofactor_configure.twig:8
-msgid "Enable two-factor authentication"
-msgstr "Luba kaheastmeline autentimine"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Serveri muutujad ja sätted"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "Salvestusmootorid"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Märgitabelid ja kodeeringud"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Andmebaaside statistika"
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:192
-msgid "Partitions"
-msgstr "Jaotised"
-
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr "Partitsioneerimine ei ole määratud!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr "Partitsioneeris:"
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr "Alampartitsioneeris:"
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-msgid "Partition"
-msgstr "Partitsioon"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-msgid "Expression"
-msgstr "Väljend"
-
-#: templates/table/structure/display_partitions.twig:29
-msgid "Data length"
-msgstr "Andmete pikkus"
-
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "Indeksi pikkus"
-
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "Partitsioonide tabel"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-msgid "Edit partitioning"
-msgstr "Muuda partitsioneerimist"
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Loo versioon %1$s, %2$s"
-
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "Loo versioon %1$s"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Jälgi nende andmete definitsiooni käske:"
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Jälgi nende andmete töötluse käske:"
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Loo versioon"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "esimene"
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, php-format
-msgid "after %s"
-msgstr "peale %s"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Alusta reaga:"
-
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "Kuva/peida veerud"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "Vaata tabeli struktuuri"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "Osutab %s."
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "On välisvõti."
-
-#: templates/columns_definitions/column_name.twig:40
-msgid "Pick from Central Columns"
-msgstr "Vali veergude kesksest loendist"
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Andmebaasid puuduvad"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr "Leht avamiseks"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "Leht kustutamiseks"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Vali leht"
-
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr "Rea statistika"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "staatiline"
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "dünaamiline"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "partitsioneeritud"
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Rea pikkus"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Rea laius"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr "Järgmine automaatne indeks"
-
-#: templates/table/structure/row_stats_table.twig:76
-#: templates/database/structure/table_header.twig:53
-msgid "Creation"
-msgstr "Loodud"
-
-#: templates/table/structure/row_stats_table.twig:83
-#: templates/database/structure/table_header.twig:58
-msgid "Last update"
-msgstr "Viimati uuendatud"
-
-#: templates/table/structure/row_stats_table.twig:90
-#: templates/database/structure/table_header.twig:63
-msgid "Last check"
-msgstr "Viimane kontroll"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Puudub"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "Konverdi Kana'ks"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Tabeli nimi"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-msgid "Add"
-msgstr "Lisa"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-msgid "column(s)"
-msgstr "veerg(ud)"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Kodeering:"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Varundusmootor:"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Ühendus:"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "PARTITION definitsioon:"
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "Vali veerg."
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr "Muuda loendi või hulga väärtuseid"
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Kasuta seda veergu iga punkti nimetamiseks"
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Suurim ridade hulk diagrammis"
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-"Tuvastati serveri ja kliendi vahelise HTTPS ühenduse mittevastavus. See võib "
-"viia kasutuskõlbmatu phpMyAdminini või turvariskini. Palun paranda oma "
-"serveri häälestus, et HTTPS ühendus tuvastataks korrektselt."
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"Üleslaetud fail on tõenäoliselt maksimaalselt lubatust suurem või on see "
-"veebipõhiste veebilehitsejate (Safari, Google Chrome, Arora jne) teadatuntud "
-"viga."
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr "%s / %s"
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/sek."
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Aega jäänud umbes %MIN min %SEC sek."
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "Aega jäänud umbes %SEC sek."
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "Faili töödeldakse, palun oota."
-
-#: templates/display/import/javascript.twig:36
-msgid "Uploading your import file…"
-msgstr "Imporditava faili üleslaadimine…"
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Palun oota, faili laetakse üles. Üleslaadimise kohta detailsem info kahjuks "
-"puudub."
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Andmebaaside eksportimine käesolevast serverist"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Tabelite eksportimine \"%s\" andmebaasist"
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Ridade eksportimine \"%s\" tabelist"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita seadme "
-"registreerimine."
-
-#: templates/columns_definitions/partitions.twig:17
-msgid "Partition by:"
-msgstr "Partitsiooni tegi:"
-
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-msgid "Expression or column list"
-msgstr "Väärtus või veergude loend"
-
-#: templates/columns_definitions/partitions.twig:37
-msgid "Partitions:"
-msgstr "Partitsioonid:"
-
-#: templates/columns_definitions/partitions.twig:45
-msgid "Subpartition by:"
-msgstr "Alampartitsiooni tegi:"
-
-#: templates/columns_definitions/partitions.twig:65
-msgid "Subpartitions:"
-msgstr "Alampartitsioonid:"
-
-#: templates/columns_definitions/partitions.twig:78
-msgid "Values"
-msgstr "Väärtused"
-
-#: templates/columns_definitions/partitions.twig:82
-msgid "Subpartition"
-msgstr "Alampartitsioon"
-
-#: templates/columns_definitions/partitions.twig:84
-msgid "Engine"
-msgstr "Mootor"
-
-#: templates/columns_definitions/partitions.twig:86
-msgid "Data directory"
-msgstr "Andmete kataloog"
-
-#: templates/columns_definitions/partitions.twig:87
-msgid "Index directory"
-msgstr "Indeksite kataloog"
-
-#: templates/columns_definitions/partitions.twig:88
-msgid "Max rows"
-msgstr "Maks. ridu"
-
-#: templates/columns_definitions/partitions.twig:89
-msgid "Min rows"
-msgstr "Min. ridu"
-
-#: templates/columns_definitions/partitions.twig:90
-msgid "Table space"
-msgstr "Tabelite ruum"
-
-#: templates/columns_definitions/partitions.twig:91
-msgid "Node group"
-msgstr "Sõlmede grupp"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita meldimine "
-"seadmega."
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-"Sa ei pöördu phpMyAdmini poole HTTPS protokolliga. Seetõttu keeldub FIDO U2F "
-"seade üsna kindlasti sinu autentimisest."
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "Näita GIS visualiseerimist"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Nime veerg"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Puudub --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Ruumiline veerg"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Lisa lemmikutesse"
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Salvesta serveris kataloogi <strong>%s</strong>"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Ahenda"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Laienda"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Korduspäring"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Kui veeru tüüp on \"enum\" või \"set\", siis palun sisesta väärtused "
-"formaadis: 'a','b','c'…<br />Kui pead nende väärtuste vahele lisama "
-"kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
-"kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Vaikimisi väärtuste jaoks sisesta palun ilma kurakaldkriipsuta või "
-"jutumärkideta lihtsalt üksik väärtus, formaadis: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Virtuaalsus"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Liiguta veergu"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Loetelu kasutatavatest transformatsioonidest ja nende lisavalikutest"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Veebilehitseja kuva transformatsiooni sätted"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Palun sisesta teisenduse valikute jaoks vajalikud väärtused, kasutades "
-"formaati: 'a', 100, b,'c'…<br />Kui pead nende väärtuste vahele lisama "
-"kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
-"kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Sisendi transformatsiooni sätted"
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Ekspordi mallid:"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Uus mall:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Malli nimi"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "Loo"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Olemasolevad mallid:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Mall:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Uuenda"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"Sinu veebilehitsejal on selle domeeni jaoks phpMyAdmini seadistus. Kas "
-"soovid selle importida praeguse seansi jaoks?"
-
-#: templates/prefs_autoload.twig:13
-msgid "Delete settings"
-msgstr "Kustuta sätted"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-"See raport kaasab automaatselt andmed vea kohta ja veaga seonduvad "
-"häälestuse sätted. Raport saadetakse vea silumiseks phpMyAdmini arendajatele."
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-"Kas sa oskad meile kirjeldada sammud, mis viisid selle veani? See lihtsustab "
-"tunduvalt silumist:"
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr "Sa võid tutvuda vearaportis olevate andmetega:"
-
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
-msgid "Show/Hide tables list"
-msgstr "Näita/peida tabelite loend"
-
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
-msgstr "Kuva üle ekraani"
-
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr "Välju üleekraani vaatest"
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
-msgid "New page"
-msgstr "Uus leht"
-
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
-msgid "Delete pages"
-msgstr "Kustuta lehed"
-
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-#: templates/database/create_table.twig:7
-msgid "Create table"
-msgstr "Loo tabel"
-
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-#: templates/database/designer/new_relation_panel.twig:22
-msgid "Create relationship"
-msgstr "Loo seos"
-
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr "Lae uuesti"
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr "Abi"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr "Nurgelised lingid"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr "Otselingid"
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr "Kasuta ruudustikku"
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr "Kõik Väikeseks/Suureks"
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr "Lülitu väiksele/suurele"
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-msgid "Toggle relationship lines"
-msgstr "Lülita seose read"
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
-msgid "Export schema"
-msgstr "Ekspordi skeem"
-
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-msgid "Build Query"
-msgstr "Loo päring"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
-msgstr "Liiguta menüü"
-
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
-msgid "Pin text"
-msgstr "Jäta tekst nähtavaks"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-"Palun skanni järgmine QR kood kaheastmelise autentimise rakendusse oma "
-"seadmel ja sisesta genereeritud autentimise kood."
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-"Palun sisesta järgmine saladus/võti kaheastmelise autentimise rakendusse oma "
-"seadmel ja sisesta genereeritud autentimise kood."
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr "OTP URL:"
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr "Saladus/võti:"
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Teosta kahe erineva veergu jaoks \"päring näite alusel\" (metamärk: \"%\")"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Teosta \"päring näite alusel\" (metamärk: \"%\")"
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "Vali veerud (vähemalt üks):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Lisa otsingu tingimusi (\"WHERE\" klausel):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Ridade hulk lehe kohta"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Näitamise järjekord:"
-
 #: templates/console/display.twig:7
 msgid "History"
 msgstr "Ajalugu"
@@ -15265,6 +14475,21 @@ msgstr "Vajuta päringu käivitamiseks Ctrl+Enter"
 #: templates/console/display.twig:23
 msgid "Press Enter to execute query"
 msgstr "Vajuta päringu käivitamiseks Enter"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Collapse"
+msgstr "Ahenda"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Expand"
+msgstr "Laienda"
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
+msgid "Requery"
+msgstr "Korduspäring"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
@@ -15327,6 +14552,13 @@ msgstr "Kuva jälitusinfo"
 msgid "Hide trace"
 msgstr "Peida jälitusinfo"
 
+#: templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+msgid "Add"
+msgstr "Lisa"
+
 #: templates/console/display.twig:112
 msgid "Add bookmark"
 msgstr "Lisa järjehoidja"
@@ -15355,210 +14587,61 @@ msgstr ""
 "Käivita päringud klahviga Enter ja sisesta reavahetused Shift + Enter "
 "kombinatsiooniga. Selle püsivaks tegemiseks vaata sätteid."
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Ruumi kasutus"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Efektiivne"
-
-#: templates/server/databases/table_row.twig:13
-#, php-format
-msgid "Jump to database '%s'"
-msgstr "Mine andmebaasi '%s'"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Kontrolli \"%s\" andmebaasi õigusi."
-
-#: templates/server/databases/table_row.twig:62
-msgid "Check privileges"
-msgstr "Kontrolli õigusi"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "Kuvatakse loomise päringuid"
-
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Lisa õigusi järgnevas tabelis:"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s vaste <strong>%2$s</strong> tabelis"
-msgstr[1] "%1$s vastet <strong>%2$s</strong> tabelis"
-
-#: templates/database/search/results.twig:56
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Kokku:</strong> <em>%count%</em> vaste"
-msgstr[1] "<strong>Kokku:</strong> <em>%count%</em> vastet"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr "Selle muutuja väärtus on ainult lugemiseks"
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "Eemalda"
-
-#: templates/table/structure/display_structure.twig:138
-#: templates/view_create.twig:13
-msgid "Edit view"
-msgstr "Muuda vaadet"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Andmebaasid:"
-
-#: templates/prefs_twofactor_confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr "Kinnita kaheastmelise autentimise keelamine"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-"Keelates kaheastmelise autentimise saad jälle meldida ainult parooliga."
-
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-msgid "Disable two-factor authentication"
-msgstr "Keela kaheastmeline autentimine"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Vali binaarne logi, mida soovid vaadata"
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "kasutusel"
-
-#: templates/privileges/add_privileges_database.twig:1
-msgid "Add privileges on the following database(s):"
-msgstr "Lisa õiguseid järgneva(te)s andmebaasi(de)s:"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-"Metamärkide % ja _ täheliseks kasutamiseks peaksid nende ette asetama "
-"kurakaldkriipsu ehk \\."
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "Jälgimine on aktiveeritud."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "Jälgimist pole aktiveeritud."
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Read:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Loo mõnest reast tõmmis"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Rida alustab kohast:"
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Loo tõmmis kõikidest ridadest"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Veergude arv"
-
-#: templates/table/relation/common_form.twig:6
-msgid "Foreign key constraints"
-msgstr "Võõrvõtme piirangud"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "Tegevused"
-
-#: templates/table/relation/common_form.twig:11
-msgid "Constraint properties"
-msgstr "Piirangud omadustele"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-"Luues välisvõtme üle indekseerimata veeru põhjustab antud veeru automaatse "
-"indekseerimise. Alternatiivselt võid sa luua indeksi allpool enne välisvõtme "
-"loomist."
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-"Kuvatakse ainult indeksiga veerud. Sa võid defineerida indeksi allpool."
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr "Võõrvõtme piirang"
-
-#: templates/table/relation/common_form.twig:89
-msgid "+ Add constraint"
-msgstr "+ Lisa piirang"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-msgid "Internal relationships"
-msgstr "Siseseosed"
-
-#: templates/table/relation/common_form.twig:110
-msgid "Internal relation"
-msgstr "Sisemine seos"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-"Sisemine seos on mittevajalik, kui vastav FOREIGN KEY seos on juba olemas."
-
-#: templates/table/relation/common_form.twig:172
-msgid "Choose column to display:"
-msgstr "Vali veerg, mida näidata:"
-
-#: templates/table/structure/table_structure_row.twig:34
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr "Puudub"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Veerg %s on kustutatud."
-
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
 msgstr "Vali mall"
 
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Jätka %s rea lisamist"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Leia ja asenda eelvaade"
 
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Faili nime mall:"
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Algne tekst"
 
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "kasuta seda edasistel eksportimistel"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Asendatud tekst"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Asenda"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Puudub"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr "Konverdi Kana'ks"
+
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Võib olla umbkaudne. Täpse arvu saamiseks klõpsa numbril. Vaata "
+"[doc@faq3-11]KKK 3.11[/doc]."
+
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "Loodud"
+
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "Viimati uuendatud"
+
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "Viimane kontroll"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "Täiendav otsingu kriteerium"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -15596,106 +14679,69 @@ msgstr "Eemalda veerud kesksest nimekirjast"
 msgid "Make consistent with central list"
 msgstr "Vii keskse loendiga kooskõlla"
 
-#: templates/table/relation/foreign_key_row.twig:15
-#, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Välisvõtme piirang %s on kustutatud"
+#: templates/table/structure/display_structure.twig:138
+#: templates/view_create.twig:13
+msgid "Edit view"
+msgstr "Muuda vaadet"
 
-#: templates/table/relation/foreign_key_row.twig:38
-msgid "Constraint name"
-msgstr "Piirangu nimi"
+#: templates/table/structure/display_structure.twig:192
+#: templates/table/structure/display_partitions.twig:4
+msgid "Partitions"
+msgstr "Jaotised"
 
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
-msgid "+ Add column"
-msgstr "+ Lisa veerg"
+#: templates/columns_definitions/table_fields_definitions.twig:17
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Kui veeru tüüp on \"enum\" või \"set\", siis palun sisesta väärtused "
+"formaadis: 'a','b','c'…<br />Kui pead nende väärtuste vahele lisama "
+"kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
+"kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Väljund:"
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Vaikimisi väärtuste jaoks sisesta palun ilma kurakaldkriipsuta või "
+"jutumärkideta lihtsalt üksik väärtus, formaadis: a"
 
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Salvesta väljund failisse"
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr "Virtuaalsus"
 
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr "Jäta vahele tabelid, mis on suuremad kui %s MiB"
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "Liiguta veergu"
 
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Puudub"
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr "Loetelu kasutatavatest transformatsioonidest ja nende lisavalikutest"
 
-#: templates/table/secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "Seoste vaade"
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr "Veebilehitseja kuva transformatsiooni sätted"
 
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "Seose võti"
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Palun sisesta teisenduse valikute jaoks vajalikud väärtused, kasutades "
+"formaati: 'a', 100, b,'c'…<br />Kui pead nende väärtuste vahele lisama "
+"kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
+"kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
-#: templates/display/results/options_block.twig:30
-msgid "Display column for relationships"
-msgstr "Kuva seoste veerg"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Näita binaarsisu"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "Näita BLOB sisu"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Peida veebilehitseja transformatsioon"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Harilik tekst"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Harilik binaar"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr "Defineeri uued aliased"
-
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "Vali andmebaas:"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Uue andmebaasi nimi"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "Vali tabel:"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Uue tabeli nimi"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "Vali veerg:"
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "Uue veeru nimi"
-
-#: templates/database/designer/aggregate_query_panel.twig:22
-#: templates/database/designer/options_panel.twig:99
-msgid "Aggregate"
-msgstr "Agregaat"
+#: templates/columns_definitions/table_fields_definitions.twig:93
+msgid "Input transformation options"
+msgstr "Sisendi transformatsiooni sätted"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15785,152 +14831,239 @@ msgstr "Väärtuste veerg:"
 msgid "Save chart as image"
 msgstr "Salvesta graafik pildina"
 
-#: templates/table/structure/add_column.twig:9
+#: templates/columns_definitions/partitions.twig:17
+msgid "Partition by:"
+msgstr "Partitsiooni tegi:"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+msgid "Expression or column list"
+msgstr "Väärtus või veergude loend"
+
+#: templates/columns_definitions/partitions.twig:37
+msgid "Partitions:"
+msgstr "Partitsioonid:"
+
+#: templates/columns_definitions/partitions.twig:45
+msgid "Subpartition by:"
+msgstr "Alampartitsiooni tegi:"
+
+#: templates/columns_definitions/partitions.twig:65
+msgid "Subpartitions:"
+msgstr "Alampartitsioonid:"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "Partitsioon"
+
+#: templates/columns_definitions/partitions.twig:78
+msgid "Values"
+msgstr "Väärtused"
+
+#: templates/columns_definitions/partitions.twig:82
+msgid "Subpartition"
+msgstr "Alampartitsioon"
+
+#: templates/columns_definitions/partitions.twig:84
+msgid "Engine"
+msgstr "Mootor"
+
+#: templates/columns_definitions/partitions.twig:86
+msgid "Data directory"
+msgstr "Andmete kataloog"
+
+#: templates/columns_definitions/partitions.twig:87
+msgid "Index directory"
+msgstr "Indeksite kataloog"
+
+#: templates/columns_definitions/partitions.twig:88
+msgid "Max rows"
+msgstr "Maks. ridu"
+
+#: templates/columns_definitions/partitions.twig:89
+msgid "Min rows"
+msgstr "Min. ridu"
+
+#: templates/columns_definitions/partitions.twig:90
+msgid "Table space"
+msgstr "Tabelite ruum"
+
+#: templates/columns_definitions/partitions.twig:91
+msgid "Node group"
+msgstr "Sõlmede grupp"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"Üleslaetud fail on tõenäoliselt maksimaalselt lubatust suurem või on see "
+"veebipõhiste veebilehitsejate (Safari, Google Chrome, Arora jne) teadatuntud "
+"viga."
+
+#: templates/display/import/javascript.twig:16
 #, php-format
-msgid "Add %s column(s)"
-msgstr "Lisa %s veerg(u)"
+msgid "%s of %s"
+msgstr "%s / %s"
 
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "tabeli alguses"
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/sek."
 
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "Ekspordi andmebaasid eraldi failidena"
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Aega jäänud umbes %MIN min %SEC sek."
 
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "Ekspordi tabelid eraldi failidena"
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "Aega jäänud umbes %SEC sek."
 
-#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "Faili töödeldakse, palun oota."
+
+#: templates/display/import/javascript.twig:36
+msgid "Uploading your import file…"
+msgstr "Imporditava faili üleslaadimine…"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Palun oota, faili laetakse üles. Üleslaadimise kohta detailsem info kahjuks "
+"puudub."
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "Kasuta seda veergu iga punkti nimetamiseks"
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "Suurim ridade hulk diagrammis"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "Jälgitud tabelid"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Viimane versioon"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+msgid "Delete tracking"
+msgstr "Kustuta jälgimine"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "Versioonid"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Vaata väljundit tekstina"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s vaste <strong>%2$s</strong> tabelis"
+msgstr[1] "%1$s vastet <strong>%2$s</strong> tabelis"
+
+#: templates/database/search/results.twig:56
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<strong>Kokku:</strong> <em>%count%</em> vaste"
+msgstr[1] "<strong>Kokku:</strong> <em>%count%</em> vastet"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Muuda"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+msgid "Configure two-factor authentication"
+msgstr "Seadista kaheastmeline autentimine"
+
+#: templates/prefs_twofactor_configure.twig:8
+msgid "Enable two-factor authentication"
+msgstr "Luba kaheastmeline autentimine"
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "Plugin"
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "Autor"
+
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "keelatud"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Märkus: Statistika lubamine võib põhjustada koormava liikluse veebiserveri "
+"ja MySQL serveri vahel."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+msgid "Enable statistics"
+msgstr "Luba statistika"
+
+#: templates/database/structure/show_create_row.twig:7
+#, php-format
+msgid "Create %s"
+msgstr "Loo %s"
+
+#: templates/table/structure/optional_action_links.twig:6
+msgid "Propose table structure"
+msgstr "Soovita tabeli struktuuri"
+
+#: templates/table/structure/optional_action_links.twig:15
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "Jälgi tabelit"
+
 #: templates/table/structure/optional_action_links.twig:19
+#: templates/table/structure/move_columns_dialog.twig:1
 msgid "Move columns"
 msgstr "Liiguta veergusid"
+
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Normalize"
+msgstr "Normaliseeri"
+
+#: templates/table/structure/optional_action_links.twig:28
+msgid "Track view"
+msgstr "Jälgi vaadet"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
 msgstr "Veergusid saad liigutada nende lohistamisega üles ja alla."
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Lisa/Kustuta kriteeriumiridu"
+#: templates/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "Kustuta valitud kasutajate kontod"
 
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Lisa/Kustuta veergusid"
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
-"Seadistatud kaheastmeline autentimine pole saadaval; palun paigalda puuduvad "
-"sõltuvused."
+"Tühista kasutajatelt kõik aktiivsed õigused ning seejärel kustuta need "
+"kasutajad."
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Indeksi nimi:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" <b>peab</b> olema <b>ainult</b> primaarvõtme nimi!"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "Indeksi valik:"
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "Täiendavad sätted"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "Võtme ploki suurus:"
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Indeksi tüüp:"
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Parser:"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Kommentaar:"
-
-#: templates/table/index_form.twig:118
-#: templates/database/structure/table_header.twig:38
-msgid "Size"
-msgstr "Suurus"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Järjekorra muutmiseks lohista"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "Täiendav otsingu kriteerium"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Leia ja asenda eelvaade"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Algne tekst"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Asendatud tekst"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Asenda"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Ekspordi meetod:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Kiire - näita ainult peamisi valikuid"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Kohandatud - näita kõiki võimalikke valikuid"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Tihendamine:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zipitud"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzipitud"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-msgid "Relationship operator"
-msgstr "Seose operaator"
-
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Muuda nimeks"
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-msgid "New name"
-msgstr "Uus nimi"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Veerupõhised õigused"
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Kustuta kasutajatega samanimelised andmebaasid."
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
@@ -15940,17 +15073,100 @@ msgstr "Eelvaade pole saadaval."
 msgid "Take it"
 msgstr "Võta see"
 
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr "Kinnita"
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
+msgstr "Väljund:"
 
-#: templates/database/structure/table_header.twig:27
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, php-format
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Salvesta serveris kataloogi <strong>%s</strong>"
+
+#: templates/login/twofactor/key.twig:3
 msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
 msgstr ""
-"Võib olla umbkaudne. Täpse arvu saamiseks klõpsa numbril. Vaata "
-"[doc@faq3-11]KKK 3.11[/doc]."
+"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita meldimine "
+"seadmega."
+
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Alusta reaga:"
+
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+msgid "Create relationship"
+msgstr "Loo seos"
+
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "Vali veerg."
+
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "Partitsioneerimine ei ole määratud!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "Partitsioneeris:"
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "Alampartitsioneeris:"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:29
+msgid "Expression"
+msgstr "Väljend"
+
+#: templates/table/structure/display_partitions.twig:29
+msgid "Data length"
+msgstr "Andmete pikkus"
+
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "Indeksi pikkus"
+
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "Partitsioonide tabel"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+msgid "Edit partitioning"
+msgstr "Muuda partitsioneerimist"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+msgctxt "Number"
+msgid "#"
+msgstr "#"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+msgctxt "None for default"
+msgid "None"
+msgstr "Puudub"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "Näita GIS visualiseerimist"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Nime veerg"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- Puudub --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Ruumiline veerg"
 
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
@@ -15965,17 +15181,130 @@ msgstr "Tabelile %s lisati primaarvõti."
 msgid "An index has been added on %s."
 msgstr "Veerule %s lisati index."
 
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Aktiivsed valikud"
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
+msgid "Remove from central columns"
+msgstr "Eemalda kesksest nimekirjast"
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "Vali ekspordi seose tüüp"
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+msgid "Add to central columns"
+msgstr "Lisa kesksesse nimekirja"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, php-format
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Välisvõtme piirang %s on kustutatud"
+
+#: templates/table/relation/foreign_key_row.twig:38
+msgid "Constraint name"
+msgstr "Piirangu nimi"
+
+#: templates/table/relation/foreign_key_row.twig:90
+#: templates/database/multi_table_query/form.twig:158
+msgid "+ Add column"
+msgstr "+ Lisa veerg"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Uus"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+"Sa ei pöördu phpMyAdmini poole HTTPS protokolliga. Seetõttu keeldub FIDO U2F "
+"seade üsna kindlasti sinu autentimisest."
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
 msgstr "Lisa õiguseid järgnevale funktsioonile:"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Tabeli nimi"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "veerg(ud)"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Kodeering:"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Varundusmootor:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Ühendus:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION definitsioon:"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Faili nime mall:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "kasuta seda edasistel eksportimistel"
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Andmebaaside eksportimine käesolevast serverist"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Tabelite eksportimine \"%s\" andmebaasist"
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Ridade eksportimine \"%s\" tabelist"
+
+#: templates/server/databases/table_row.twig:13
+#, php-format
+msgid "Jump to database '%s'"
+msgstr "Mine andmebaasi '%s'"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Kontrolli \"%s\" andmebaasi õigusi."
+
+#: templates/server/databases/table_row.twig:62
+msgid "Check privileges"
+msgstr "Kontrolli õigusi"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr "Eemalda"
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "kasutusel"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Sirvi/Muuda punkte"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Kuidas kasutada"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Lähtesta suum"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr "Kinnita"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -16027,11 +15356,6 @@ msgstr "Eemalda see veerg"
 msgid "Update query"
 msgstr "Uuenda päringut"
 
-#: templates/database/structure/show_create_row.twig:7
-#, php-format
-msgid "Create %s"
-msgstr "Loo %s"
-
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
 msgid "None"
@@ -16041,6 +15365,445 @@ msgstr "Puudub"
 msgid "As defined:"
 msgstr "Nagu määratud:"
 
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Kasuta seda väärtust"
+
+#: templates/table/secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "Seoste vaade"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"Sinu veebilehitsejal on selle domeeni jaoks phpMyAdmini seadistus. Kas "
+"soovid selle importida praeguse seansi jaoks?"
+
+#: templates/prefs_autoload.twig:13
+msgid "Delete settings"
+msgstr "Kustuta sätted"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Ekspordi meetod:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Kiire - näita ainult peamisi valikuid"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Kohandatud - näita kõiki võimalikke valikuid"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Serveri muutujad ja sätted"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Storage engines"
+msgstr "Salvestusmootorid"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Character sets and collations"
+msgstr "Märgitabelid ja kodeeringud"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Andmebaaside statistika"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Vali leht"
+
+#: templates/privileges/add_privileges_table.twig:3
+msgid "Add privileges on the following table:"
+msgstr "Lisa õigusi järgnevas tabelis:"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr "Defineeri uued aliased"
+
+#: templates/export/alias_add.twig:9
+msgid "Select database:"
+msgstr "Vali andmebaas:"
+
+#: templates/export/alias_add.twig:15
+msgid "New database name"
+msgstr "Uue andmebaasi nimi"
+
+#: templates/export/alias_add.twig:23
+msgid "Select table:"
+msgstr "Vali tabel:"
+
+#: templates/export/alias_add.twig:29
+msgid "New table name"
+msgstr "Uue tabeli nimi"
+
+#: templates/export/alias_add.twig:37
+msgid "Select column:"
+msgstr "Vali veerg:"
+
+#: templates/export/alias_add.twig:43
+msgid "New column name"
+msgstr "Uue veeru nimi"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr "Osutab %s."
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "On välisvõti."
+
+#: templates/columns_definitions/column_name.twig:40
+msgid "Pick from Central Columns"
+msgstr "Vali veergude kesksest loendist"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "VIEW nimi"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Veergude nimed"
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Tihendamine:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "zipitud"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "gzipitud"
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+msgid "Create table"
+msgstr "Loo tabel"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Veergude arv"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+"Tuvastati serveri ja kliendi vahelise HTTPS ühenduse mittevastavus. See võib "
+"viia kasutuskõlbmatu phpMyAdminini või turvariskini. Palun paranda oma "
+"serveri häälestus, et HTTPS ühendus tuvastataks korrektselt."
+
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+msgid "Show/Hide tables list"
+msgstr "Näita/peida tabelite loend"
+
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr "Kuva üle ekraani"
+
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr "Välju üleekraani vaatest"
+
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+msgid "New page"
+msgstr "Uus leht"
+
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+msgid "Delete pages"
+msgstr "Kustuta lehed"
+
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr "Lae uuesti"
+
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr "Abi"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr "Nurgelised lingid"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr "Otselingid"
+
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr "Kasuta ruudustikku"
+
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr "Kõik Väikeseks/Suureks"
+
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr "Lülitu väiksele/suurele"
+
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+msgid "Toggle relationship lines"
+msgstr "Lülita seose read"
+
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+msgid "Export schema"
+msgstr "Ekspordi skeem"
+
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+msgid "Build Query"
+msgstr "Loo päring"
+
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr "Liiguta menüü"
+
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+msgid "Pin text"
+msgstr "Jäta tekst nähtavaks"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Seansi väärtus"
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "Veerg %s on kustutatud."
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+"Seadistatud kaheastmeline autentimine pole saadaval; palun paigalda puuduvad "
+"sõltuvused."
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Lisa/Kustuta kriteeriumiridu"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Lisa/Kustuta veergusid"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "Jätka %s rea lisamist"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Kuupäev"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Kasutajanimi"
+
+#: templates/prefs_twofactor_confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr "Kinnita kaheastmelise autentimise keelamine"
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+"Keelates kaheastmelise autentimise saad jälle meldida ainult parooliga."
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+msgid "Disable two-factor authentication"
+msgstr "Keela kaheastmeline autentimine"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Vali binaarne logi, mida soovid vaadata"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+"Teosta kahe erineva veergu jaoks \"päring näite alusel\" (metamärk: \"%\")"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Teosta \"päring näite alusel\" (metamärk: \"%\")"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+msgid "Authentication code:"
+msgstr "Autentimiskood:"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+"Ava kaheastmelise autentimise rakendus oma seadmel, et vaadata oma "
+"autentimiskoodi ja kinnitada oma identiteet."
+
+#: templates/privileges/add_privileges_database.twig:1
+msgid "Add privileges on the following database(s):"
+msgstr "Lisa õiguseid järgneva(te)s andmebaasi(de)s:"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"Metamärkide % ja _ täheliseks kasutamiseks peaksid nende ette asetama "
+"kurakaldkriipsu ehk \\."
+
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Ekspordi mallid:"
+
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Uus mall:"
+
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Malli nimi"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Loo"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Olemasolevad mallid:"
+
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Mall:"
+
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Uuenda"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Veerupõhised õigused"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+"Palun skanni järgmine QR kood kaheastmelise autentimise rakendusse oma "
+"seadmel ja sisesta genereeritud autentimise kood."
+
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+"Palun sisesta järgmine saladus/võti kaheastmelise autentimise rakendusse oma "
+"seadmel ja sisesta genereeritud autentimise kood."
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr "OTP URL:"
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr "Saladus/võti:"
+
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Loo versioon %1$s, %2$s"
+
+#: templates/table/tracking/create_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "Loo versioon %1$s"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Jälgi nende andmete definitsiooni käske:"
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Jälgi nende andmete töötluse käske:"
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "Loo versioon"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "Peida/Näita kõiki"
+
+#: templates/database/designer/table_list.twig:14
+msgid "Hide/Show tables with no relationship"
+msgstr "Peida/kuva seosteta tabelid"
+
+#: templates/database/designer/table_list.twig:55
+msgid "Number of tables:"
+msgstr "Tabelite hulk:"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Puudub"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+"See raport kaasab automaatselt andmed vea kohta ja veaga seonduvad "
+"häälestuse sätted. Raport saadetakse vea silumiseks phpMyAdmini arendajatele."
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+"Kas sa oskad meile kirjeldada sammud, mis viisid selle veani? See lihtsustab "
+"tunduvalt silumist:"
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr "Sa võid tutvuda vearaportis olevate andmetega:"
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "Faili märgitabel:"
+
+#: templates/table/search/search_and_replace.twig:1
+#: templates/database/search/selection_form.twig:15
+msgid "Find:"
+msgstr "Leia:"
+
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
 msgstr "Asenda:"
@@ -16048,6 +15811,234 @@ msgstr "Asenda:"
 #: templates/table/search/search_and_replace.twig:19
 msgid "Use regular expression"
 msgstr "Kasuta regulaaravaldist"
+
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Andmebaasid:"
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Salvesta väljund failisse"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr "Jäta vahele tabelid, mis on suuremad kui %s MiB"
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr "Selle muutuja väärtus on ainult lugemiseks"
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "Importimine käesolevasse serverisse"
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "Importimine \"%s\" andmebaasi"
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "Importimine \"%s\" tabelisse"
+
+#: templates/display/import/import.twig:50
+msgid "File to import:"
+msgstr "Imporditav fail:"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "Fail võib olla tihendatud (%s) või tihendamata."
+
+#: templates/display/import/import.twig:58
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"Tihendatud faili nimi peab lõppega laiendiga <strong>.[formaat].[tihendus]</"
+"strong>. Näide: <strong>.sql.zip</strong>"
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr "Sa võid lohistada ja kukutada faili igale lehele."
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr "Faili üleslaadimised on selles serveris keelatud."
+
+#: templates/display/import/import.twig:124
+msgid "Partial import:"
+msgstr "Osaline import:"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr "Eelmine import aegus, uuesti saatmisel jätkub see kohast %d."
+
+#: templates/display/import/import.twig:137
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"Luba katkestada import, kui skript tuvastab, et ooteaeg läheneb PHP ooteaja "
+"piirangule. <em>(See on hea moodus importida suuri faile, kuid siiski võib "
+"see katkestada ülekanded.)</em>"
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "Jäta vahele nii palju SQL päringuid, alates esimesest:"
+
+#: templates/display/import/import.twig:161
+msgid "Other options:"
+msgstr "Muud valikud:"
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr "Formaadipõhised valikud:"
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Keri alla, et näha valikuid valitud formaadi jaoks ja ignoreeri teiste "
+"formaatide valikuid."
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr "Kodeerimise teisendus:"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Otsi andmebaasist"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Sõnad või väärtused, mida otsida (metamärk: \"%\"):"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "Tabelitest:"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "Veerust:"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Andmebaasid puuduvad"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita seadme "
+"registreerimine."
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "esimene"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Jälgimine on aktiveeritud."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Jälgimist pole aktiveeritud."
+
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "Ekspordi andmebaasid eraldi failidena"
+
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "Ekspordi tabelid eraldi failidena"
+
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr "Rea statistika"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "staatiline"
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "dünaamiline"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "partitsioneeritud"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Rea pikkus"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Rea laius"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr "Järgmine automaatne indeks"
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "Jälgimata tabelid"
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "Loo andmebaas"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Ressursi piirangud"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+"Märkus: Nende valikute muutmisel väärtuseks 0 (null) eemaldab piirangu."
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Seose võti"
+
+#: templates/display/results/options_block.twig:30
+msgid "Display column for relationships"
+msgstr "Kuva seoste veerg"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "Näita binaarsisu"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "Näita BLOB sisu"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Peida veebilehitseja transformatsioon"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "Harilik tekst"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "Harilik binaar"
 
 #: templates/prefs_twofactor.twig:3
 msgid "Two-factor authentication status"
@@ -16089,73 +16080,93 @@ msgstr ""
 msgid "You have enabled two factor authentication."
 msgstr "Oled lubanud kaheastmelise autentimise."
 
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "Soovita tabeli struktuuri"
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "Salvesta valitud lehele"
 
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "Jälgi tabelit"
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "Loo leht ja salvesta sellele"
 
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
-msgstr "Normaliseeri"
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "Uue lehe nimi"
 
-#: templates/table/structure/optional_action_links.twig:28
-msgid "Track view"
-msgstr "Jälgi vaadet"
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "Vali ekspordi seose tüüp"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Sirvi/Muuda punkte"
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "Vali veerud (vähemalt üks):"
 
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Kuidas kasutada"
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Lisa otsingu tingimusi (\"WHERE\" klausel):"
 
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Lähtesta suum"
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Ridade hulk lehe kohta"
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Kasuta seda väärtust"
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Näitamise järjekord:"
 
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "Jälgitud tabelid"
+#: templates/table/relation/common_form.twig:6
+msgid "Foreign key constraints"
+msgstr "Võõrvõtme piirangud"
 
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Viimane versioon"
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "Tegevused"
 
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
-msgid "Delete tracking"
-msgstr "Kustuta jälgimine"
+#: templates/table/relation/common_form.twig:11
+msgid "Constraint properties"
+msgstr "Piirangud omadustele"
 
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "Versioonid"
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+"Luues välisvõtme üle indekseerimata veeru põhjustab antud veeru automaatse "
+"indekseerimise. Alternatiivselt võid sa luua indeksi allpool enne välisvõtme "
+"loomist."
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Jälgimata tabelid"
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+"Kuvatakse ainult indeksiga veerud. Sa võid defineerida indeksi allpool."
 
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "Loo andmebaas"
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr "Võõrvõtme piirang"
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "VIEW nimi"
+#: templates/table/relation/common_form.twig:89
+msgid "+ Add constraint"
+msgstr "+ Lisa piirang"
 
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Veergude nimed"
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+msgid "Internal relationships"
+msgstr "Siseseosed"
+
+#: templates/table/relation/common_form.twig:110
+msgid "Internal relation"
+msgstr "Sisemine seos"
+
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"Sisemine seos on mittevajalik, kui vastav FOREIGN KEY seos on juba olemas."
+
+#: templates/table/relation/common_form.twig:172
+msgid "Choose column to display:"
+msgstr "Vali veerg, mida näidata:"
 
 #: url.php:41
 msgid "Taking you to the target site."

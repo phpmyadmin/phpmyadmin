@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-08 23:42-0300\n"
+"POT-Creation-Date: 2019-04-27 18:51+0200\n"
 "PO-Revision-Date: 2016-11-17 19:24+0000\n"
 "Last-Translator: Nebojsa Tausanov <n.tausanov@gmail.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -47,8 +47,8 @@ msgstr "Коментар на базата на податоци"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
+#: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
 msgstr "Коментар на табелата:"
 
@@ -65,19 +65,19 @@ msgstr "Коментар на табелата:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
+#: templates/table/index_form.twig:115
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
+#: templates/table/search/zoom_result_form.twig:34
 #: templates/table/relation/internal_relational_row.twig:24
-#: templates/table/search/table_header.twig:6
 #: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/table_header.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/table/relation/foreign_key_row.twig:122
-#: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/index_form.twig:115
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "Колона"
 
@@ -98,13 +98,13 @@ msgstr "Колона"
 #: libraries/classes/Rte/Routines.php:944
 #: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
-#: libraries/classes/Server/Privileges.php:2568
-#: templates/table/search/table_header.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/table/structure/table_structure_header.twig:6
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: libraries/classes/Server/Privileges.php:2581
 #: templates/database/structure/table_header.twig:32
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:7
+#: templates/table/structure/table_structure_header.twig:6
+#: templates/table/search/table_header.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
 msgid "Type"
 msgstr "Вид"
 
@@ -122,10 +122,10 @@ msgstr "Вид"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/table_structure_header.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
 msgid "Null"
 msgstr "Null"
 
@@ -144,8 +144,8 @@ msgstr "Null"
 #: libraries/classes/ReplicationGui.php:165
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/table/structure/table_structure_header.twig:10
 msgid "Default"
 msgstr "Стандардно"
 
@@ -177,10 +177,10 @@ msgstr "Коментари"
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1210
 #: libraries/classes/Controllers/Table/TableStructureController.php:1215
-#: templates/table/structure/check_all_table_column.twig:33
 #: templates/table/structure/display_structure.twig:61
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/check_all_table_column.twig:33
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "Примарен"
 
@@ -194,17 +194,17 @@ msgstr "Примарен"
 #: libraries/classes/Plugins/Export/ExportOdt.php:795
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2981
-#: libraries/classes/Server/Privileges.php:3001
-#: libraries/classes/Server/Privileges.php:3665
-#: libraries/classes/Server/Privileges.php:3694 prefs_manage.php:145
-#: templates/prefs_autoload.twig:12
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2994
+#: libraries/classes/Server/Privileges.php:3014
+#: libraries/classes/Server/Privileges.php:3678
+#: libraries/classes/Server/Privileges.php:3707 prefs_manage.php:145
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:12
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "No"
@@ -228,18 +228,18 @@ msgstr "Не"
 #: libraries/classes/Plugins/Export/ExportOdt.php:796
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2978
-#: libraries/classes/Server/Privileges.php:2999
-#: libraries/classes/Server/Privileges.php:3662
-#: libraries/classes/Server/Privileges.php:3694
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2991
+#: libraries/classes/Server/Privileges.php:3012
+#: libraries/classes/Server/Privileges.php:3675
+#: libraries/classes/Server/Privileges.php:3707
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143 templates/prefs_autoload.twig:11
-#: templates/privileges/privileges_summary_row.twig:4
+#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:11
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "Yes"
@@ -274,16 +274,16 @@ msgstr "Табели"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:38
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:288
-#: libraries/classes/Server/Privileges.php:1146 libraries/classes/Util.php:3043
+#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3043
 #: libraries/classes/Util.php:3053 libraries/classes/Util.php:3059
 #: libraries/classes/Util.php:3339 libraries/classes/Util.php:3995
 #: libraries/classes/Util.php:4012 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/database/designer/table_list.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/database/designer/table_list.twig:24
 msgid "Structure"
 msgstr "Структура"
 
@@ -292,14 +292,14 @@ msgstr "Структура"
 #: libraries/classes/Config/Forms/User/ExportForm.php:125
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
-#: libraries/classes/Server/Privileges.php:1145
+#: libraries/classes/Server/Privileges.php:1158
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "Податоци"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
-#: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
+#: templates/database/search/selection_form.twig:32
 msgid "Select all"
 msgstr "Избери се"
 
@@ -520,28 +520,28 @@ msgstr "Додади нов корисник"
 #: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1084
 #: libraries/classes/Rte/Routines.php:1710
 #: libraries/classes/Rte/Triggers.php:412
-#: libraries/classes/Server/Privileges.php:707
-#: libraries/classes/Server/Privileges.php:2217
-#: libraries/classes/Server/Privileges.php:3131
+#: libraries/classes/Server/Privileges.php:717
+#: libraries/classes/Server/Privileges.php:2230
+#: libraries/classes/Server/Privileges.php:3144
 #: libraries/classes/Server/UserGroups.php:302
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:322 templates/database/search/selection_form.twig:58
+#: server_privileges.php:323 templates/table/structure/add_column.twig:23
+#: templates/table/index_form.twig:217
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/display/import/import.twig:191 templates/header_location.twig:18
-#: templates/display/export/options_format.twig:18
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/search/selection_form.twig:99
-#: templates/server/binlog/log_selector.twig:27
+#: templates/header_location.twig:18 templates/view_create.twig:116
 #: templates/database/create_table.twig:21
-#: templates/display/results/options_block.twig:114
-#: templates/table/structure/add_column.twig:23
-#: templates/table/index_form.twig:217
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/search/selection_form.twig:99
 #: templates/privileges/privileges_summary.twig:60
 #: templates/privileges/edit_routine_privileges.twig:23
-#: templates/view_create.twig:116 view_operations.php:115
+#: templates/display/import/import.twig:191
+#: templates/database/search/selection_form.twig:58
+#: templates/display/export/options_format.twig:18
+#: templates/display/results/options_block.twig:114 view_operations.php:115
 msgid "Go"
 msgstr "OK"
 
@@ -1109,9 +1109,9 @@ msgid "Please select column(s) for the index."
 msgstr "Додади %s полиња"
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1894
+#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
-#: templates/table/index_form.twig:216
 msgid "Preview SQL"
 msgstr ""
 
@@ -1152,12 +1152,12 @@ msgstr "Името на host-от е празно!"
 msgid "The user name is empty!"
 msgstr "Не е внесен назив на корисник!"
 
-#: js/messages.php:147 libraries/classes/Server/Privileges.php:1878
+#: js/messages.php:147 libraries/classes/Server/Privileges.php:1891
 #: libraries/classes/UserPassword.php:66
 msgid "The password is empty!"
 msgstr "Лозинка е празна!"
 
-#: js/messages.php:148 libraries/classes/Server/Privileges.php:1876
+#: js/messages.php:148 libraries/classes/Server/Privileges.php:1889
 #: libraries/classes/UserPassword.php:70
 msgid "The passwords aren't the same!"
 msgstr "Лозинките не се идентични!"
@@ -1403,12 +1403,13 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:282
-#: libraries/config.values.php:69 templates/table/search/options_zoom.twig:12
-#: templates/columns_definitions/transformation.twig:4
-#: templates/table/search/rows_zoom.twig:20
-#: templates/display/export/options_output_compression.twig:7
+#: libraries/config.values.php:69
 #: templates/database/designer/options_panel.twig:177
+#: templates/table/search/rows_zoom.twig:20
+#: templates/table/search/options_zoom.twig:12
+#: templates/display/export/options_output_compression.twig:7
 #: templates/privileges/privileges_summary.twig:30
+#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "нема"
 
@@ -1817,13 +1818,13 @@ msgstr "Додади ново поле"
 
 #: js/messages.php:355
 #: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/aggregate_query_panel.twig:64
+#: templates/database/designer/where_query_panel.twig:85
+#: templates/database/designer/new_relation_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/having_query_panel.twig:118
 #: templates/server/variables/link_template.twig:5
-#: templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/where_query_panel.twig:85
-#: templates/database/designer/rename_to_panel.twig:45
 msgid "Cancel"
 msgstr ""
 
@@ -1902,13 +1903,13 @@ msgstr "во табела(и):"
 msgid "Adding primary key"
 msgstr "Додади %s полиња"
 
-#: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/new_relation_panel.twig:88
+#: js/messages.php:377 templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
 #: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/database/designer/options_panel.twig:251
 #: templates/database/designer/where_query_panel.twig:83
+#: templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/having_query_panel.twig:114
 msgid "OK"
 msgstr "ОК"
 
@@ -1987,16 +1988,16 @@ msgstr ""
 #: libraries/classes/Display/Results.php:4990 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
-#: libraries/classes/Server/Privileges.php:2403
-#: libraries/classes/Server/Privileges.php:2489
-#: libraries/classes/Server/Privileges.php:2846
-#: libraries/classes/Server/Privileges.php:3577
+#: libraries/classes/Server/Privileges.php:2416
+#: libraries/classes/Server/Privileges.php:2502
+#: libraries/classes/Server/Privileges.php:2859
+#: libraries/classes/Server/Privileges.php:3590
 #: libraries/classes/Server/Status/Monitor.php:328
 #: libraries/classes/Util.php:3346 libraries/classes/Util.php:3347
 #: libraries/classes/Util.php:3984 libraries/classes/Util.php:3999
 #: libraries/classes/Util.php:4016 prefs_manage.php:294
-#: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
+#: templates/display/export/option_header.twig:3
 msgid "Export"
 msgstr "Извоз"
 
@@ -2050,8 +2051,8 @@ msgstr "SQL упит"
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1079 libraries/classes/Util.php:3344
 #: libraries/classes/Util.php:3345 setup/frames/index.inc.php:157
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
 msgid "Edit"
@@ -2066,8 +2067,8 @@ msgstr "Промени"
 #: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
 #: templates/console/bookmark_content.twig:7
-#: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
+#: templates/display/export/template_loading.twig:22
 msgid "Delete"
 msgstr "избриши"
 
@@ -2252,11 +2253,11 @@ msgstr "Не е избрана ни една база на податоци."
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
-#: templates/server/variables/link_template.twig:2
-#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:189
+#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/structure/partition_definition_form.twig:12
+#: templates/server/variables/link_template.twig:2
+#: templates/table/relation/common_form.twig:189
 msgid "Save"
 msgstr "Сочувај"
 
@@ -2569,9 +2570,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
+#: templates/table/browse_foreigners/show_all.twig:4
 #: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
-#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "прикажи ги сите"
 
@@ -2626,8 +2627,8 @@ msgstr "Избери табели"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4884
 #: libraries/classes/Util.php:3877
-#: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
+#: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
 msgstr "Печати"
 
@@ -3364,9 +3365,9 @@ msgstr "Име на клуч"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/engines/engines.twig:5
 #: templates/server/plugins/section.twig:10
 #: templates/server/collations/charsets.twig:6
-#: templates/server/engines/engines.twig:5
 msgid "Description"
 msgstr "Опис"
 
@@ -3416,18 +3417,18 @@ msgstr "НЕ"
 #: libraries/classes/CentralColumns.php:734 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
 #: libraries/classes/Rte/RteList.php:117
-#: libraries/classes/Server/Privileges.php:2571
-#: libraries/classes/Server/Privileges.php:3557
+#: libraries/classes/Server/Privileges.php:2584
+#: libraries/classes/Server/Privileges.php:3570
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/variables/variable_table_head.twig:3
 #: templates/server/databases/table_header.twig:37
-#: templates/table/tracking/report_table.twig:8
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/privileges/privileges_summary.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tracked_tables.twig:16
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/table/tracking/report_table.twig:8
+#: templates/privileges/privileges_summary.twig:22
+#: templates/server/variables/variable_table_head.twig:3
 #: templates/database/tracking/untracked_tables.twig:10
 msgid "Action"
 msgstr "Акција"
@@ -3460,14 +3461,14 @@ msgstr "Должина/Вредност*"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
-#: templates/table/search/table_header.twig:8
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/row_stats_table.twig:30
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/table_structure_header.twig:7
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:33
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/server/collations/charsets.twig:5
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/search/table_header.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Подредување"
 
@@ -4440,8 +4441,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "Препиши ги постоечките податотеки"
 
@@ -4662,7 +4663,7 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1276
-#: libraries/classes/Server/Privileges.php:4552 libraries/classes/Util.php:3980
+#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3980
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "База на податоци"
@@ -6284,18 +6285,18 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:153
 #: libraries/classes/Plugins/Export/ExportOdt.php:200
 #: libraries/classes/Plugins/Export/ExportTexytext.php:137
-#: libraries/classes/Server/Privileges.php:1171
-#: libraries/classes/Server/Privileges.php:3149
-#: libraries/classes/Server/Privileges.php:3344
-#: libraries/classes/Server/Privileges.php:3346
-#: libraries/classes/Server/Privileges.php:4552
+#: libraries/classes/Server/Privileges.php:1184
+#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3359
+#: libraries/classes/Server/Privileges.php:4565
 #: libraries/classes/Server/Status/Processes.php:89
-#: templates/table/relation/internal_relational_row.twig:10
+#: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/server/databases/table_header.twig:8
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/table/relation/common_form.twig:32
+#: templates/console/bookmark_content.twig:7
 #: templates/table/relation/foreign_key_row.twig:100
+#: templates/table/relation/internal_relational_row.twig:10
+#: templates/table/relation/common_form.twig:32
 msgid "Database"
 msgstr "База на податоци"
 
@@ -6326,18 +6327,18 @@ msgstr ""
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Plugins/Export/ExportXml.php:500
 #: libraries/classes/Rte/RteList.php:102 libraries/classes/Rte/Triggers.php:347
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1174
-#: libraries/classes/Server/Privileges.php:3167
-#: libraries/classes/Server/Privileges.php:3350
-#: libraries/classes/Server/Privileges.php:3352
-#: libraries/classes/Server/Privileges.php:4566
-#: templates/table/relation/internal_relational_row.twig:17
-#: templates/table/relation/common_form.twig:33
-#: templates/table/relation/foreign_key_row.twig:110
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1187
+#: libraries/classes/Server/Privileges.php:3180
+#: libraries/classes/Server/Privileges.php:3363
+#: libraries/classes/Server/Privileges.php:3365
+#: libraries/classes/Server/Privileges.php:4579
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tracked_tables.twig:11
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/table/relation/internal_relational_row.twig:17
 #: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/common_form.twig:33
 msgid "Table"
 msgstr "Табела"
 
@@ -6947,10 +6948,10 @@ msgstr[1] "%s базата на податоци успешно е избриш�
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
-#: templates/table/structure/display_partitions.twig:28
-#: templates/table/structure/row_stats_table.twig:41
 #: templates/database/structure/table_header.twig:26
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/actions_in_table_structure.twig:114
+#: templates/table/structure/row_stats_table.twig:41
 msgid "Rows"
 msgstr "Записи"
 
@@ -6966,8 +6967,8 @@ msgstr "Клучеви"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/server/databases/databases_footer.twig:7
 #: templates/table/structure/display_table_stats.twig:45
+#: templates/server/databases/databases_footer.twig:7
 msgid "Total"
 msgstr "Вкупно"
 
@@ -7109,23 +7110,23 @@ msgstr "Промени"
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1610
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3340
 #: libraries/classes/Util.php:3341
-#: templates/server/databases/databases_footer.twig:55
-#: templates/table/structure/check_all_table_column.twig:24
-#: templates/table/structure/display_structure.twig:189
 #: templates/database/structure/check_all_tables.twig:16
+#: templates/table/structure/display_structure.twig:189
+#: templates/server/databases/databases_footer.twig:55
 #: templates/table/relation/foreign_key_row.twig:30
+#: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
 msgstr "Бриши"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1211
 #: libraries/classes/Controllers/Table/TableStructureController.php:1216
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/check_all_table_column.twig:47
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/check_all_table_column.twig:47
+#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "Клуч"
 
@@ -7203,61 +7204,61 @@ msgstr ""
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:572
+#: libraries/classes/Database/Designer/Common.php:573
 #, fuzzy
 msgid "Error: relationship already exists."
 msgstr "Корисник %s веќе постои!"
 
-#: libraries/classes/Database/Designer/Common.php:618
+#: libraries/classes/Database/Designer/Common.php:619
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Измените се сочувани"
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:625
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Податотеката не е можно да се прочита"
 
-#: libraries/classes/Database/Designer/Common.php:629
+#: libraries/classes/Database/Designer/Common.php:630
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:634
+#: libraries/classes/Database/Designer/Common.php:635
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:656
+#: libraries/classes/Database/Designer/Common.php:657
 #, fuzzy
 msgid "Internal relationship has been added."
 msgstr "Внатрешни релации"
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:663
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Податотеката не е можно да се прочита"
 
-#: libraries/classes/Database/Designer/Common.php:700
+#: libraries/classes/Database/Designer/Common.php:701
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Измените се сочувани"
 
-#: libraries/classes/Database/Designer/Common.php:706
+#: libraries/classes/Database/Designer/Common.php:707
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Податотеката не е можно да се прочита"
 
-#: libraries/classes/Database/Designer/Common.php:733
+#: libraries/classes/Database/Designer/Common.php:734
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Податотеката не е можно да се прочита"
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 #, fuzzy
 msgid "Internal relationship has been removed."
 msgstr "Внатрешни релации"
@@ -7481,7 +7482,7 @@ msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:863
-#: libraries/classes/Server/Privileges.php:1676
+#: libraries/classes/Server/Privileges.php:1689
 msgid "No Password"
 msgstr "Нема лозинка"
 
@@ -7489,7 +7490,7 @@ msgstr "Нема лозинка"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:183
 #: libraries/classes/ReplicationGui.php:432
 #: libraries/classes/ReplicationGui.php:854
-#: libraries/classes/Server/Privileges.php:1663
+#: libraries/classes/Server/Privileges.php:1676
 msgid "Password:"
 msgstr "Лозинка:"
 
@@ -7499,7 +7500,7 @@ msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:87
 #: libraries/classes/ReplicationGui.php:874
-#: libraries/classes/Server/Privileges.php:1695
+#: libraries/classes/Server/Privileges.php:1708
 #, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
@@ -7513,7 +7514,7 @@ msgid "Password Hashing:"
 msgstr "Хеширање на лозинката"
 
 #: libraries/classes/Display/ChangePassword.php:131
-#: libraries/classes/Server/Privileges.php:1739
+#: libraries/classes/Server/Privileges.php:1752
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -7643,10 +7644,11 @@ msgstr "Полн текст"
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4690 libraries/classes/Util.php:4707
-#: libraries/config.values.php:71 templates/table/search/options.twig:54
+#: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Descending"
 msgstr "Опаѓачки редослед"
 
@@ -7655,10 +7657,11 @@ msgstr "Опаѓачки редослед"
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4685 libraries/classes/Util.php:4702
-#: libraries/config.values.php:70 templates/table/search/options.twig:54
+#: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Ascending"
 msgstr "Растечки редослед"
 
@@ -7708,21 +7711,21 @@ msgstr "време на извршување на упитот %01.4f секун
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
-#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
+#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Обележаното:"
 
 #: libraries/classes/Display/Results.php:4686
 #: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Server/Privileges.php:1179
-#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:1192
+#: libraries/classes/Server/Privileges.php:1193
 #: libraries/classes/Server/UserGroups.php:248
-#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
-#: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
+#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
+#: templates/select_all.twig:5
 #, fuzzy
 #| msgid "Check All"
 msgid "Check all"
@@ -8256,11 +8259,11 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946
-#: templates/table/structure/row_stats_table.twig:19
-#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: libraries/classes/Rte/Routines.php:946 templates/console/display.twig:7
 #: templates/console/display.twig:140
+#: templates/table/structure/row_stats_table.twig:19
 #: templates/display/results/options_block.twig:10
+#: templates/table/search/options.twig:1
 #, fuzzy
 msgid "Options"
 msgstr "Операции"
@@ -8323,11 +8326,11 @@ msgstr "Кардиналност"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/table/structure/display_partitions.twig:31
+#: templates/database/structure/table_header.twig:48
 #: templates/columns_definitions/partitions.twig:85
+#: templates/table/structure/display_partitions.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/database/structure/table_header.twig:48
 #, fuzzy
 msgid "Comment"
 msgstr "Коментари"
@@ -8381,8 +8384,9 @@ msgstr "Бинарен - не менувај"
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Директориумот кој го избравте за праќање не е достапен."
 
-#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1501
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "или"
 
@@ -8445,13 +8449,13 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1627
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/server/variables/variable_table_head.twig:5
-#: templates/database/designer/having_query_panel.twig:100
-#: templates/table/search/table_header.twig:10
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/table_header.twig:10
+#: templates/server/variables/variable_table_head.twig:5
 msgid "Value"
 msgstr "Вредност"
 
@@ -8504,8 +8508,8 @@ msgstr ""
 #: libraries/classes/Util.php:3333 libraries/classes/Util.php:3334
 #: libraries/classes/Util.php:4011 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/table/structure/check_all_table_column.twig:8
 #: templates/database/search/results.twig:34
+#: templates/table/structure/check_all_table_column.twig:8
 msgid "Browse"
 msgstr "Преглед"
 
@@ -8532,8 +8536,8 @@ msgid "Insert"
 msgstr "Нов запис"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
-#: libraries/classes/Server/Privileges.php:2569
-#: libraries/classes/Server/Privileges.php:4440 libraries/classes/Util.php:4002
+#: libraries/classes/Server/Privileges.php:2582
+#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4002
 #: libraries/classes/Util.php:4018 libraries/config.values.php:107
 #: templates/server/sub_page_header.twig:2
 #: templates/privileges/privileges_summary.twig:15
@@ -8614,8 +8618,8 @@ msgstr "Бинарен дневник"
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3988
 #: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
+#: templates/server/sub_page_header.twig:2
 #, fuzzy
 msgid "Replication"
 msgstr "Релации"
@@ -8761,8 +8765,8 @@ msgstr "Поглед"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tracked_tables.twig:17
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "Прикажи"
 
@@ -9597,8 +9601,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
@@ -10351,8 +10355,8 @@ msgstr "Содржина"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/structure/table_structure_header.twig:14
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/table_structure_header.twig:14
 msgid "Extra"
 msgstr "Дополнително"
 
@@ -11083,8 +11087,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:389
-#: templates/database/search/selection_form.twig:35
 #: templates/display/export/select_options.twig:8
+#: templates/database/search/selection_form.twig:35
 #, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
@@ -11102,7 +11106,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:791
-#: libraries/classes/Server/Privileges.php:1501
+#: libraries/classes/Server/Privileges.php:1514
 #, fuzzy
 #| msgid "User name"
 msgid "User name:"
@@ -11111,19 +11115,19 @@ msgstr "Назив на корисник"
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:795
 #: libraries/classes/ReplicationGui.php:808
-#: libraries/classes/Server/Privileges.php:1506
-#: libraries/classes/Server/Privileges.php:1528
-#: libraries/classes/Server/Privileges.php:2566
-#: libraries/classes/Server/Privileges.php:3544
+#: libraries/classes/Server/Privileges.php:1519
+#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:2579
+#: libraries/classes/Server/Privileges.php:3557
 msgid "User name"
 msgstr "Назив на корисник"
 
 #: libraries/classes/ReplicationGui.php:437
 #: libraries/classes/ReplicationGui.php:858
 #: libraries/classes/ReplicationGui.php:870
-#: libraries/classes/Server/Privileges.php:1667
-#: libraries/classes/Server/Privileges.php:1684
-#: libraries/classes/Server/Privileges.php:3546
+#: libraries/classes/Server/Privileges.php:1680
+#: libraries/classes/Server/Privileges.php:1697
+#: libraries/classes/Server/Privileges.php:3559
 msgid "Password"
 msgstr "Лозинка"
 
@@ -11160,48 +11164,48 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:747
-#: libraries/classes/Server/Privileges.php:1602
+#: libraries/classes/Server/Privileges.php:1615
 msgid "Any host"
 msgstr "Било кој host"
 
 #: libraries/classes/ReplicationGui.php:752
-#: libraries/classes/Server/Privileges.php:1610
+#: libraries/classes/Server/Privileges.php:1623
 msgid "Local"
 msgstr "Локален"
 
 #: libraries/classes/ReplicationGui.php:759
-#: libraries/classes/Server/Privileges.php:1619
+#: libraries/classes/Server/Privileges.php:1632
 msgid "This Host"
 msgstr "Овој host"
 
 #: libraries/classes/ReplicationGui.php:799
-#: libraries/classes/Server/Privileges.php:1512
+#: libraries/classes/Server/Privileges.php:1525
 msgid "Any user"
 msgstr "Било кој корисник"
 
 #: libraries/classes/ReplicationGui.php:804
 #: libraries/classes/ReplicationGui.php:837
 #: libraries/classes/ReplicationGui.php:866
-#: libraries/classes/Server/Privileges.php:1638
+#: libraries/classes/Server/Privileges.php:1651
 #, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
 msgstr "Користи текст поле"
 
 #: libraries/classes/ReplicationGui.php:831
-#: libraries/classes/Server/Privileges.php:1629
+#: libraries/classes/Server/Privileges.php:1642
 msgid "Use Host Table"
 msgstr "Користи ја табелата на host-от"
 
 #: libraries/classes/ReplicationGui.php:847
-#: libraries/classes/Server/Privileges.php:1655
+#: libraries/classes/Server/Privileges.php:1668
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:878
-#: libraries/classes/Server/Privileges.php:1699
+#: libraries/classes/Server/Privileges.php:1712
 msgid "Re-type"
 msgstr "Повтори внес"
 
@@ -11785,7 +11789,7 @@ msgstr ""
 msgid "Error while loading the search."
 msgstr "Дозволува читање на податоци."
 
-#: libraries/classes/Server/Privileges.php:222 server_privileges.php:119
+#: libraries/classes/Server/Privileges.php:222 server_privileges.php:120
 msgid "No privileges."
 msgstr "Нема привилегии."
 
@@ -11794,83 +11798,83 @@ msgid "Includes all privileges except GRANT."
 msgstr "Ги вклучува сите привилегии освен GRANT."
 
 #: libraries/classes/Server/Privileges.php:304
-#: libraries/classes/Server/Privileges.php:1038
-#: libraries/classes/Server/Privileges.php:1212 server_privileges.php:108
+#: libraries/classes/Server/Privileges.php:1048
+#: libraries/classes/Server/Privileges.php:1225 server_privileges.php:109
 msgid "Allows reading data."
 msgstr "Дозволува читање на податоци."
 
 #: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:1043
-#: libraries/classes/Server/Privileges.php:1213 server_privileges.php:84
+#: libraries/classes/Server/Privileges.php:1053
+#: libraries/classes/Server/Privileges.php:1226 server_privileges.php:85
 msgid "Allows inserting and replacing data."
 msgstr "Дозволува вметнување и замена на података."
 
 #: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:1048
-#: libraries/classes/Server/Privileges.php:1214 server_privileges.php:118
+#: libraries/classes/Server/Privileges.php:1058
+#: libraries/classes/Server/Privileges.php:1227 server_privileges.php:119
 msgid "Allows changing data."
 msgstr "Дозволува измена на податоци."
 
 #: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:1215 server_privileges.php:73
+#: libraries/classes/Server/Privileges.php:1228 server_privileges.php:73
 msgid "Allows deleting data."
 msgstr "Дозволува бришење на податоци."
 
 #: libraries/classes/Server/Privileges.php:324
-#: libraries/classes/Server/Privileges.php:1241 server_privileges.php:67
+#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:67
 msgid "Allows creating new databases and tables."
 msgstr "Дозволува креирање на нови бази на податоци и табели."
 
 #: libraries/classes/Server/Privileges.php:329
-#: libraries/classes/Server/Privileges.php:1253 server_privileges.php:74
+#: libraries/classes/Server/Privileges.php:1266 server_privileges.php:75
 msgid "Allows dropping databases and tables."
 msgstr "Дозволува бришење на бази на податоци и табели."
 
 #: libraries/classes/Server/Privileges.php:334
-#: libraries/classes/Server/Privileges.php:1337 server_privileges.php:102
+#: libraries/classes/Server/Privileges.php:1350 server_privileges.php:103
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Дозволува повтоно вчитување на подесувањата на серверот и празнење на кешот "
 "на серверот."
 
 #: libraries/classes/Server/Privileges.php:339
-#: libraries/classes/Server/Privileges.php:1341 server_privileges.php:111
+#: libraries/classes/Server/Privileges.php:1354 server_privileges.php:112
 msgid "Allows shutting down the server."
 msgstr "Дозволува гасење на серверот."
 
 #: libraries/classes/Server/Privileges.php:344
-#: libraries/classes/Server/Privileges.php:1333 server_privileges.php:99
+#: libraries/classes/Server/Privileges.php:1346 server_privileges.php:100
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:349
-#: libraries/classes/Server/Privileges.php:1221 server_privileges.php:78
+#: libraries/classes/Server/Privileges.php:1234 server_privileges.php:79
 msgid "Allows importing data from and exporting data into files."
 msgstr "Дозволува увоз на податоци и нивен извоз во податотеки."
 
 #: libraries/classes/Server/Privileges.php:354
-#: libraries/classes/Server/Privileges.php:1053
-#: libraries/classes/Server/Privileges.php:1365 server_privileges.php:100
+#: libraries/classes/Server/Privileges.php:1063
+#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:101
 msgid "Has no effect in this MySQL version."
 msgstr "Нема ефект во оваа верзији на MySQL."
 
 #: libraries/classes/Server/Privileges.php:359
-#: libraries/classes/Server/Privileges.php:1249 server_privileges.php:83
+#: libraries/classes/Server/Privileges.php:1262 server_privileges.php:84
 msgid "Allows creating and dropping indexes."
 msgstr "Дозволува креирање и бришење на клучева."
 
 #: libraries/classes/Server/Privileges.php:364
-#: libraries/classes/Server/Privileges.php:1247 server_privileges.php:65
+#: libraries/classes/Server/Privileges.php:1260 server_privileges.php:65
 msgid "Allows altering the structure of existing tables."
 msgstr "Дозволува промена на структурата на постоечките табели."
 
 #: libraries/classes/Server/Privileges.php:369
-#: libraries/classes/Server/Privileges.php:1345 server_privileges.php:109
+#: libraries/classes/Server/Privileges.php:1358 server_privileges.php:110
 msgid "Gives access to the complete list of databases."
 msgstr "Дава пристап на комплетната листа на базите на податоци."
 
 #: libraries/classes/Server/Privileges.php:375
-#: libraries/classes/Server/Privileges.php:1325 server_privileges.php:113
+#: libraries/classes/Server/Privileges.php:1338 server_privileges.php:114
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11881,106 +11885,106 @@ msgstr ""
 "променливи или прекин на процеси наостанатите корисници."
 
 #: libraries/classes/Server/Privileges.php:383
-#: libraries/classes/Server/Privileges.php:1259 server_privileges.php:70
+#: libraries/classes/Server/Privileges.php:1272 server_privileges.php:70
 msgid "Allows creating temporary tables."
 msgstr "Дозволува креирање на привремени табели."
 
 #: libraries/classes/Server/Privileges.php:388
-#: libraries/classes/Server/Privileges.php:1361 server_privileges.php:85
+#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:86
 msgid "Allows locking tables for the current thread."
 msgstr "Дозволува заклучување на табели на тековните процеси."
 
 #: libraries/classes/Server/Privileges.php:393
-#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
+#: libraries/classes/Server/Privileges.php:1387 server_privileges.php:108
 msgid "Needed for the replication slaves."
 msgstr "Потребно заради помошните сервери за репликација."
 
 #: libraries/classes/Server/Privileges.php:398
-#: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
+#: libraries/classes/Server/Privileges.php:1383 server_privileges.php:106
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Дава права на кориснику да праша каде се главните/помошни сервери."
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
-#: libraries/classes/Server/Privileges.php:1279
-#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:72
+#: libraries/classes/Server/Privileges.php:1292
+#: libraries/classes/Server/Privileges.php:1299 server_privileges.php:72
 msgid "Allows creating new views."
 msgstr "Дозволува креирање на нови погледи."
 
 #: libraries/classes/Server/Privileges.php:408
-#: libraries/classes/Server/Privileges.php:1293 server_privileges.php:76
+#: libraries/classes/Server/Privileges.php:1306 server_privileges.php:77
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Allows to set up events for the event scheduler."
 msgstr "Дозволува заклучување на табели на тековните процеси."
 
 #: libraries/classes/Server/Privileges.php:413
-#: libraries/classes/Server/Privileges.php:1297 server_privileges.php:117
+#: libraries/classes/Server/Privileges.php:1310 server_privileges.php:118
 #, fuzzy
 msgid "Allows creating and dropping triggers."
 msgstr "Дозволува креирање и бришење на клучева."
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
-#: libraries/classes/Server/Privileges.php:1263 server_privileges.php:110
+#: libraries/classes/Server/Privileges.php:1276 server_privileges.php:111
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Дозволува извршување на SHOW CREATE VIEW упити."
 
-#: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:68
+#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:1280 server_privileges.php:68
 msgid "Allows creating stored routines."
 msgstr "Дозволува креирање на stored рутини."
 
-#: libraries/classes/Server/Privileges.php:440
-#: libraries/classes/Server/Privileges.php:1271 server_privileges.php:66
+#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:1284 server_privileges.php:66
 msgid "Allows altering and dropping stored routines."
 msgstr "Дозволува промена и бришење на stored рутини."
 
-#: libraries/classes/Server/Privileges.php:445
-#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:71
+#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:1391 server_privileges.php:71
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Дозволува креирање, бришење и преименување на корсиничките имиња."
 
-#: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:1273 server_privileges.php:77
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:78
 msgid "Allows executing stored routines."
 msgstr "Дозволува извршување на stored рутини."
 
-#: libraries/classes/Server/Privileges.php:728
+#: libraries/classes/Server/Privileges.php:738
 #, fuzzy
 #| msgid "Connections"
 msgid "Does not require SSL-encrypted connections."
 msgstr "Конекции"
 
-#: libraries/classes/Server/Privileges.php:744
+#: libraries/classes/Server/Privileges.php:754
 #, fuzzy
 #| msgid "Connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "Конекции"
 
-#: libraries/classes/Server/Privileges.php:758
+#: libraries/classes/Server/Privileges.php:768
 msgid "Requires a valid X509 certificate."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:783
+#: libraries/classes/Server/Privileges.php:793
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:796
+#: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:809
+#: libraries/classes/Server/Privileges.php:819
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
+#: libraries/classes/Server/Privileges.php:849 server_privileges.php:91
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Го ограничува бројот на упити кои корисникот може да ги постави на серверот "
 "за еден час."
 
-#: libraries/classes/Server/Privileges.php:847 server_privileges.php:93
+#: libraries/classes/Server/Privileges.php:857 server_privileges.php:94
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -11988,57 +11992,57 @@ msgstr ""
 "Го ограничува бројот на команди кои ги менуваат табелите или базите на "
 "податоци кои корисникот може да ги изврши за еден час."
 
-#: libraries/classes/Server/Privileges.php:856 server_privileges.php:87
+#: libraries/classes/Server/Privileges.php:866 server_privileges.php:88
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Го ограничува бројот на нови конекции кои корисникот може да ги отвори за "
 "еден час."
 
-#: libraries/classes/Server/Privileges.php:865 server_privileges.php:97
+#: libraries/classes/Server/Privileges.php:875 server_privileges.php:98
 #, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Го ограничува бројот на нови конекции кои корисникот може да ги отвори за "
 "еден час."
 
-#: libraries/classes/Server/Privileges.php:910
-#: libraries/classes/Server/Privileges.php:3356
-#: libraries/classes/Server/Privileges.php:3358
-#: libraries/classes/Server/Privileges.php:4581
+#: libraries/classes/Server/Privileges.php:920
+#: libraries/classes/Server/Privileges.php:3369
+#: libraries/classes/Server/Privileges.php:3371
+#: libraries/classes/Server/Privileges.php:4594
 #: templates/privileges/edit_routine_privileges.twig:11
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
 msgstr "Рутини"
 
-#: libraries/classes/Server/Privileges.php:942
+#: libraries/classes/Server/Privileges.php:952
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:949
+#: libraries/classes/Server/Privileges.php:959
 #, fuzzy
 #| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
 msgstr "Дозволува промена и бришење на stored рутини."
 
-#: libraries/classes/Server/Privileges.php:954
+#: libraries/classes/Server/Privileges.php:964
 #, fuzzy
 #| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
 msgstr "Дозволува извршување на stored рутини."
 
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1173
-#: libraries/classes/Server/Privileges.php:3351
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1186
+#: libraries/classes/Server/Privileges.php:3364
 #: templates/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
 msgstr "Привилегии поврзани со табелата"
 
-#: libraries/classes/Server/Privileges.php:1007
-#: libraries/classes/Server/Privileges.php:1183
-#: libraries/classes/Server/Privileges.php:3549
+#: libraries/classes/Server/Privileges.php:1017
+#: libraries/classes/Server/Privileges.php:1196
+#: libraries/classes/Server/Privileges.php:3562
 #: templates/privileges/edit_routine_privileges.twig:16
 #, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
@@ -12046,228 +12050,228 @@ msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
 "Напомена: MySQL имињата на привилегите мора да бидат со латинични букви"
 
-#: libraries/classes/Server/Privileges.php:1147
+#: libraries/classes/Server/Privileges.php:1160
 msgid "Administration"
 msgstr "Администрација"
 
-#: libraries/classes/Server/Privileges.php:1167
-#: libraries/classes/Server/Privileges.php:3547
+#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:3560
 msgid "Global privileges"
 msgstr "Глобални привилегии"
 
-#: libraries/classes/Server/Privileges.php:1168
+#: libraries/classes/Server/Privileges.php:1181
 #, fuzzy
 #| msgid "global"
 msgid "Global"
 msgstr "глобално"
 
-#: libraries/classes/Server/Privileges.php:1170
-#: libraries/classes/Server/Privileges.php:3345
+#: libraries/classes/Server/Privileges.php:1183
+#: libraries/classes/Server/Privileges.php:3358
 msgid "Database-specific privileges"
 msgstr "Привилегии во врска со базата на податоци"
 
-#: libraries/classes/Server/Privileges.php:1242 server_privileges.php:69
+#: libraries/classes/Server/Privileges.php:1255 server_privileges.php:69
 msgid "Allows creating new tables."
 msgstr "Дозволува креирање на нови табела."
 
-#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:75
+#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:76
 msgid "Allows dropping tables."
 msgstr "Дозволува бришење на табели."
 
-#: libraries/classes/Server/Privileges.php:1317
+#: libraries/classes/Server/Privileges.php:1330
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Дозволува додавање на корисници и привилегии без повтроно вчитавање на "
 "табелата на привилегии."
 
-#: libraries/classes/Server/Privileges.php:1353 server_privileges.php:80
+#: libraries/classes/Server/Privileges.php:1366 server_privileges.php:81
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1431
-#: libraries/classes/Server/Privileges.php:1462
+#: libraries/classes/Server/Privileges.php:1444
+#: libraries/classes/Server/Privileges.php:1475
 #, fuzzy
 #| msgid "Documentation"
 msgid "Native MySQL authentication"
 msgstr "Документација"
 
-#: libraries/classes/Server/Privileges.php:1464
+#: libraries/classes/Server/Privileges.php:1477
 #, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "Промена на лозинка"
 
-#: libraries/classes/Server/Privileges.php:1498
-#: libraries/classes/Server/Privileges.php:3113
+#: libraries/classes/Server/Privileges.php:1511
+#: libraries/classes/Server/Privileges.php:3126
 msgid "Login Information"
 msgstr "Податоци за најавувањето"
 
-#: libraries/classes/Server/Privileges.php:1521
-#: libraries/classes/Server/Privileges.php:1679
-#: templates/privileges/add_privileges_table.twig:7
+#: libraries/classes/Server/Privileges.php:1534
+#: libraries/classes/Server/Privileges.php:1692
 #: templates/privileges/add_privileges_routine.twig:7
+#: templates/privileges/add_privileges_table.twig:7
 msgid "Use text field"
 msgstr "Користи текст поле"
 
-#: libraries/classes/Server/Privileges.php:1547
+#: libraries/classes/Server/Privileges.php:1560
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1556
+#: libraries/classes/Server/Privileges.php:1569
 #, fuzzy
 #| msgid "User name"
 msgid "Host name:"
 msgstr "Назив на корисник"
 
-#: libraries/classes/Server/Privileges.php:1561
-#: libraries/classes/Server/Privileges.php:1646
-#: libraries/classes/Server/Privileges.php:2567
-#: libraries/classes/Server/Privileges.php:3545
+#: libraries/classes/Server/Privileges.php:1574
+#: libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Server/Privileges.php:2580
+#: libraries/classes/Server/Privileges.php:3558
 #, fuzzy
 #| msgid "Log name"
 msgid "Host name"
 msgstr "Назив на дневникот"
 
-#: libraries/classes/Server/Privileges.php:1669
+#: libraries/classes/Server/Privileges.php:1682
 msgid "Do not change the password"
 msgstr "Немој да ја менуваш лозинката"
 
-#: libraries/classes/Server/Privileges.php:1719
+#: libraries/classes/Server/Privileges.php:1732
 #, fuzzy
 #| msgid "Documentation"
 msgid "Authentication Plugin"
 msgstr "Документација"
 
-#: libraries/classes/Server/Privileges.php:1726
+#: libraries/classes/Server/Privileges.php:1739
 #, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing Method"
 msgstr "Хеширање на лозинката"
 
-#: libraries/classes/Server/Privileges.php:2016
+#: libraries/classes/Server/Privileges.php:2029
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Лозинката за %s успешно е променета."
 
-#: libraries/classes/Server/Privileges.php:2060
+#: libraries/classes/Server/Privileges.php:2073
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Ги забранивте привилегиите за %s."
 
-#: libraries/classes/Server/Privileges.php:2160
+#: libraries/classes/Server/Privileges.php:2173
 #: templates/privileges/add_user_fieldset.twig:7
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user account"
 msgstr "Било кој корисник"
 
-#: libraries/classes/Server/Privileges.php:2169
+#: libraries/classes/Server/Privileges.php:2182
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database for user account"
 msgstr "Опции за извоз на бази на податоци"
 
-#: libraries/classes/Server/Privileges.php:2175
+#: libraries/classes/Server/Privileges.php:2188
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2186
+#: libraries/classes/Server/Privileges.php:2199
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2199
+#: libraries/classes/Server/Privileges.php:2212
 #, fuzzy, php-format
 msgid "Grant all privileges on database %s."
 msgstr "Провери привилегии за базата на податоци \"%s\"."
 
-#: libraries/classes/Server/Privileges.php:2373
-#: libraries/classes/Server/Privileges.php:2447
+#: libraries/classes/Server/Privileges.php:2386
+#: libraries/classes/Server/Privileges.php:2460
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Корисници кои имаат пристап \"%s\""
 
-#: libraries/classes/Server/Privileges.php:2417
+#: libraries/classes/Server/Privileges.php:2430
 #, fuzzy
 #| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "Прегледот %s е избришан"
 
-#: libraries/classes/Server/Privileges.php:2570
-#: libraries/classes/Server/Privileges.php:3555
+#: libraries/classes/Server/Privileges.php:2583
+#: libraries/classes/Server/Privileges.php:3568
 #: templates/privileges/privileges_summary.twig:16
 msgid "Grant"
 msgstr "Овозможи"
 
-#: libraries/classes/Server/Privileges.php:2585
+#: libraries/classes/Server/Privileges.php:2598
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2604
-#: libraries/classes/Server/Privileges.php:3978
+#: libraries/classes/Server/Privileges.php:2617
+#: libraries/classes/Server/Privileges.php:3991
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Корисникот не е пронајден."
 
-#: libraries/classes/Server/Privileges.php:2635
-#: libraries/classes/Server/Privileges.php:2971
-#: libraries/classes/Server/Privileges.php:3637
+#: libraries/classes/Server/Privileges.php:2648
+#: libraries/classes/Server/Privileges.php:2984
+#: libraries/classes/Server/Privileges.php:3650
 msgid "Any"
 msgstr "Било кој"
 
-#: libraries/classes/Server/Privileges.php:2686
+#: libraries/classes/Server/Privileges.php:2699
 msgid "global"
 msgstr "глобално"
 
-#: libraries/classes/Server/Privileges.php:2689
+#: libraries/classes/Server/Privileges.php:2702
 msgid "database-specific"
 msgstr "Специфично за базата на податоци"
 
-#: libraries/classes/Server/Privileges.php:2691
+#: libraries/classes/Server/Privileges.php:2704
 msgid "wildcard"
 msgstr "џокер"
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2710
 #, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
 msgstr "Специфично за базата на податоци"
 
-#: libraries/classes/Server/Privileges.php:2840
+#: libraries/classes/Server/Privileges.php:2853
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "Промена на привилегии"
 
-#: libraries/classes/Server/Privileges.php:2843
+#: libraries/classes/Server/Privileges.php:2856
 msgid "Revoke"
 msgstr "Забрани"
 
-#: libraries/classes/Server/Privileges.php:2867
+#: libraries/classes/Server/Privileges.php:2880
 #, fuzzy
 #| msgid "Edit next row"
 msgid "Edit user group"
 msgstr "Ажурирање на следниот запис"
 
-#: libraries/classes/Server/Privileges.php:3085
+#: libraries/classes/Server/Privileges.php:3098
 msgid "… keep the old one."
 msgstr "… сочувај го стариот."
 
-#: libraries/classes/Server/Privileges.php:3086
+#: libraries/classes/Server/Privileges.php:3099
 msgid "… delete the old one from the user tables."
 msgstr "… избриши ги старите од табелата на корисници."
 
-#: libraries/classes/Server/Privileges.php:3088
+#: libraries/classes/Server/Privileges.php:3101
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… прво одземи ги сите привилегии на корисниците а потоа избриши ги."
 
-#: libraries/classes/Server/Privileges.php:3092
+#: libraries/classes/Server/Privileges.php:3105
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -12275,113 +12279,113 @@ msgstr ""
 "… избриши го стариот корисник од табелата на корисници а потоа повторно "
 "вчитај ги привилегиите."
 
-#: libraries/classes/Server/Privileges.php:3114
+#: libraries/classes/Server/Privileges.php:3127
 #, fuzzy
 #| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
 msgstr "Промени ги информациите за најавувањето / Копирај го корисникот"
 
-#: libraries/classes/Server/Privileges.php:3120
+#: libraries/classes/Server/Privileges.php:3133
 #, fuzzy
 #| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
 msgstr "Направи нов корисник со исти привилегии и …"
 
-#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3370
 #: templates/privileges/edit_routine_privileges.twig:12
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Привилегии врзани за колоните"
 
-#: libraries/classes/Server/Privileges.php:3553
+#: libraries/classes/Server/Privileges.php:3566
 #: libraries/classes/Server/UserGroups.php:89
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3676
-#: libraries/classes/Server/Privileges.php:4811
+#: libraries/classes/Server/Privileges.php:3689
+#: libraries/classes/Server/Privileges.php:4824
 msgid "The selected user was not found in the privilege table."
 msgstr "Изабраниот корисник не е пронајден во табелата на привилегии."
 
-#: libraries/classes/Server/Privileges.php:3854
+#: libraries/classes/Server/Privileges.php:3867
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3857
+#: libraries/classes/Server/Privileges.php:3870
 msgid "Reloading the privileges"
 msgstr "Повторно ги вчитувам привилегиите"
 
-#: libraries/classes/Server/Privileges.php:3876
+#: libraries/classes/Server/Privileges.php:3889
 msgid "The selected users have been deleted successfully."
 msgstr "Изабраните корисници успешно се избришани."
 
-#: libraries/classes/Server/Privileges.php:3951
+#: libraries/classes/Server/Privileges.php:3964
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ги ажуриравте привилегиите за %s."
 
-#: libraries/classes/Server/Privileges.php:4056
+#: libraries/classes/Server/Privileges.php:4069
 #, php-format
 msgid "Deleting %s"
 msgstr "Бришам %s"
 
-#: libraries/classes/Server/Privileges.php:4086
+#: libraries/classes/Server/Privileges.php:4099
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегиите се успешно вчитани."
 
-#: libraries/classes/Server/Privileges.php:4177
+#: libraries/classes/Server/Privileges.php:4190
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Корисник %s веќе постои!"
 
-#: libraries/classes/Server/Privileges.php:4454
+#: libraries/classes/Server/Privileges.php:4467
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Привилегии"
 
-#: libraries/classes/Server/Privileges.php:4463
+#: libraries/classes/Server/Privileges.php:4476
 #: libraries/classes/Server/Status/Processes.php:81
 #: libraries/classes/Server/UserGroups.php:49
 msgid "User"
 msgstr "Корисник"
 
-#: libraries/classes/Server/Privileges.php:4531
+#: libraries/classes/Server/Privileges.php:4544
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
 msgstr "Промена на привилегии"
 
-#: libraries/classes/Server/Privileges.php:4532
+#: libraries/classes/Server/Privileges.php:4545
 #, fuzzy
 #| msgid "User"
 msgid "User account"
 msgstr "Корисник"
 
-#: libraries/classes/Server/Privileges.php:4606
+#: libraries/classes/Server/Privileges.php:4619
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:4626
+#: libraries/classes/Server/Privileges.php:4639
 #: libraries/classes/Server/Users.php:30
 #, fuzzy
 #| msgid "User overview"
 msgid "User accounts overview"
 msgstr "Преглед на корисници"
 
-#: libraries/classes/Server/Privileges.php:4701
+#: libraries/classes/Server/Privileges.php:4714
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:4743
+#: libraries/classes/Server/Privileges.php:4756
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12400,7 +12404,7 @@ msgstr ""
 "измени. Во тој случај %sповторно вчитајте ги привилегиите%s пред да "
 "продолжите со работа."
 
-#: libraries/classes/Server/Privileges.php:4760
+#: libraries/classes/Server/Privileges.php:4773
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12420,7 +12424,7 @@ msgstr ""
 "измени. Во тој случај %sповторно вчитајте ги привилегиите%s пред да "
 "продолжите со работа."
 
-#: libraries/classes/Server/Privileges.php:5045
+#: libraries/classes/Server/Privileges.php:5058
 msgid "You have added a new user."
 msgstr "Додадовте нов корисник."
 
@@ -14655,18 +14659,24 @@ msgstr ""
 msgid "View dump (schema) of databases"
 msgstr "Прикажи содржина (шема) на базите"
 
-#: server_privileges.php:144 server_replication.php:38
+#: server_privileges.php:74
+#, fuzzy
+#| msgid "Allows deleting data."
+msgid "Allows deleting historical rows."
+msgstr "Дозволува бришење на податоци."
+
+#: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
 msgid "No Privileges"
 msgstr "Нема привилегии"
 
-#: server_privileges.php:151
+#: server_privileges.php:152
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have privileges to manipulate with the users!"
 msgstr "Немате право на пристап овде!"
 
-#: server_privileges.php:165
+#: server_privileges.php:166
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -14971,20 +14981,222 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Опис"
 
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Напомена: вклучувањето на статистиките може да доведе до зголемување на "
-"сообраќајот помеѓу веб серверот и MySQL серверот."
+#: templates/table/structure/add_column.twig:9
+#, fuzzy, php-format
+#| msgid "Add %s field(s)"
+msgid "Add %s column(s)"
+msgstr "Додади %s полиња"
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
+#: templates/table/structure/add_column.twig:14
 #, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "Вклучи статистики"
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "на почетокот од табелата"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, fuzzy, php-format
+#| msgid "After %s"
+msgid "after %s"
+msgstr "после полето %s"
+
+#: templates/display/export/options_rows.twig:2
+#, fuzzy
+#| msgid "Rows"
+msgid "Rows:"
+msgstr "Записи"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of rows:"
+msgstr "Број на записи на страница"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
+
+#: templates/database/designer/delete_relation_panel.twig:21
+#, fuzzy
+#| msgid "Allows inserting and replacing data."
+msgid "Delete relationship"
+msgstr "Дозволува вметнување и замена на података."
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+#, fuzzy
+msgid "Relationship operator"
+msgstr "Релационен поглед"
+
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/having_query_panel.twig:90
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "Извоз"
+
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/having_query_panel.twig:102
+#, fuzzy
+#| msgid "in query"
+msgid "subquery"
+msgstr "во упитот"
+
+#: templates/database/designer/options_panel.twig:84
+#: templates/database/designer/rename_to_panel.twig:22
+#, fuzzy
+msgid "Rename to"
+msgstr "Промени го името на табелата во "
+
+#: templates/database/designer/options_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:30
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "Назив на корисник"
+
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/aggregate_query_panel.twig:22
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "Креирај"
+
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/where_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/table/search/table_header.twig:9
+msgid "Operator"
+msgstr "Оператор"
+
+#: templates/database/designer/database_tables.twig:31
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Show/hide columns"
+msgstr "Додади %s полиња"
+
+#: templates/database/designer/database_tables.twig:39
+#, fuzzy
+#| msgid "Databases"
+msgid "See table structure"
+msgstr "База на податоци"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, fuzzy, php-format
+#| msgid "%s table(s)"
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s табела"
+msgstr[1] "%s табела"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Вкупно"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Име на клуч :"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "\"PRIMARY\" <b>може</b> да биде име <b>само</b> на примарниот клуч!"
+
+#: templates/table/index_form.twig:34
+#, fuzzy
+#| msgid "Index name:"
+msgid "Index choice:"
+msgstr "Име на клуч :"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Table options"
+msgid "Advanced Options"
+msgstr "Опции на табелата"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Тип на клуч :"
+
+#: templates/table/index_form.twig:77
+#, fuzzy
+#| msgid "User"
+msgid "Parser:"
+msgstr "Корисник"
+
+#: templates/table/index_form.twig:93
+#, fuzzy
+msgid "Comment:"
+msgstr "Коментари"
+
+#: templates/table/index_form.twig:118
+#: templates/database/structure/table_header.twig:38
+msgid "Size"
+msgstr "Големина"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr ""
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+msgid "Add to Favorites"
+msgstr "Додади нов корисник"
+
+#: templates/database/designer/query_details.twig:6
+#, fuzzy
+#| msgid "Table options"
+msgid "Active options"
+msgstr "Опции на табелата"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page to open"
+msgstr "Број на страници:"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+msgid "Page to delete"
+msgstr "Релационен поглед"
+
+#: templates/database/structure/show_create.twig:2
+#, fuzzy
+msgid "Showing create queries"
+msgstr "Прикажи комплетни упити"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Големина"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Ефективни"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
@@ -15004,1133 +15216,6 @@ msgstr "Избришете го податоците за тракирање о�
 #: templates/table/tracking/activate_deactivate.twig:13
 msgid "Deactivate now"
 msgstr ""
-
-#: templates/table/structure/check_all_table_column.twig:76
-#: templates/table/structure/actions_in_table_structure.twig:131
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Add to central columns"
-msgstr "Додади %s полиња"
-
-#: templates/table/structure/check_all_table_column.twig:83
-#: templates/table/structure/actions_in_table_structure.twig:127
-#, fuzzy
-#| msgid "Remove database"
-msgid "Remove from central columns"
-msgstr "Избриши ја базата на податоци."
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Documentation"
-msgid "Authentication code:"
-msgstr "Документација"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-#, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of rows:"
-msgstr "Број на записи на страница"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "No rows selected"
-msgid "Save to selected page"
-msgstr "Нема селектирани записи"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a new index"
-msgid "Create a page and save to it"
-msgstr "Креирај нов клуч"
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "User name"
-msgid "New page name"
-msgstr "Назив на корисник"
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Пребарување низ базата на податоци"
-
-#: templates/database/search/selection_form.twig:8
-#, fuzzy
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Зборови или вредности кои се бараат (џокер знак \"%\"):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "Барај:"
-
-#: templates/database/search/selection_form.twig:29
-#, fuzzy
-#| msgid "Inside table(s):"
-msgid "Inside tables:"
-msgstr "во табела(и):"
-
-#: templates/database/search/selection_form.twig:51
-#, fuzzy
-#| msgid "Inside table(s):"
-msgid "Inside column:"
-msgstr "во табела(и):"
-
-#: templates/display/export/options_output_radio.twig:5
-#, fuzzy
-#| msgid "Save as file"
-msgid "View output as text"
-msgstr "Сочувај како податотека"
-
-#: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
-msgid "Remove selected user accounts"
-msgstr "Избриши ги селектираните корисници"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Одземи ги сите привилегии на активните корисници а потоа избриши ги."
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr ""
-"Избриши ги базите на податоци кои се именувани исто како и корисниците."
-
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
-msgid "Delete relationship"
-msgstr "Дозволува вметнување и замена на података."
-
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/where_query_panel.twig:30
-msgid "Operator"
-msgstr "Оператор"
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#: templates/database/designer/where_query_panel.twig:59
-#, fuzzy
-#| msgid "Export"
-msgid "Except"
-msgstr "Извоз"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#: templates/database/designer/where_query_panel.twig:71
-#, fuzzy
-#| msgid "in query"
-msgid "subquery"
-msgstr "во упитот"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr ""
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr ""
-
-#: templates/server/plugins/section.twig:23
-#, fuzzy
-#| msgid "Disabled"
-msgid "disabled"
-msgstr "Оневозможено"
-
-#: templates/database/designer/table_list.twig:4
-#, fuzzy
-msgid "Hide/Show all"
-msgstr "прикажи ги сите"
-
-#: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Propose table structure"
-msgid "Hide/Show tables with no relationship"
-msgstr "Предложи структура на табелата"
-
-#: templates/database/designer/table_list.twig:55
-#, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of tables:"
-msgstr "Број на записи на страница"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr ""
-
-#: templates/display/import/import.twig:40
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "Importing into the current server"
-msgstr "Не можам да се пријавам на MySQL серверот"
-
-#: templates/display/import/import.twig:42
-#, fuzzy, php-format
-msgid "Importing into the database \"%s\""
-msgstr "Базата на податоци не постои"
-
-#: templates/display/import/import.twig:44
-#, fuzzy, php-format
-msgid "Importing into the table \"%s\""
-msgstr "Базата на податоци не постои"
-
-#: templates/display/import/import.twig:50
-#, fuzzy
-#| msgid "Partial Texts"
-msgid "File to import:"
-msgstr "Дел на текстот"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr ""
-
-#: templates/display/import/import.twig:97
-#: templates/display/export/options_output_charset.twig:3
-msgid "Character set of the file:"
-msgstr "Кодна страна на податотеката:"
-
-#: templates/display/import/import.twig:124
-#, fuzzy
-#| msgid "Partial Texts"
-msgid "Partial import:"
-msgstr "Дел на текстот"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-
-#: templates/display/import/import.twig:161
-#, fuzzy
-msgid "Other options:"
-msgstr "Операции"
-
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Format-specific options:"
-msgstr "Опции на трансформацијата"
-
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr ""
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Вредност на сесијата"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-msgctxt "Number"
-msgid "#"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:5
-#, fuzzy
-msgid "Date"
-msgstr "Податоци"
-
-#: templates/table/tracking/report_table.twig:6
-#, fuzzy
-msgid "Username"
-msgstr "Корисничко име:"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, fuzzy, php-format
-#| msgid "%s table(s)"
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s табела"
-msgstr[1] "%s табела"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Вкупно"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Ограничување на ресурси"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Напомена: Поставувањето на овие опции на 0 (нула) ги отстранува "
-"ограничувањата."
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr ""
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Change password"
-msgid "Enable two-factor authentication"
-msgstr "Промена на лозинка"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Серверски променливи и подесувања"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "Видови на складишта"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Кодни страници и подредување"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Статистика на базата на податоци"
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:192
-#, fuzzy
-#| msgid "Position"
-msgid "Partitions"
-msgstr "Позиција"
-
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "Клучот не е дефиниран!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Position"
-msgid "Partition"
-msgstr "Позиција"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "Компресија"
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "Должина на запис"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "Должина на запис"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Position"
-msgid "Partition table"
-msgstr "Позиција"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Add new field"
-msgid "Edit partitioning"
-msgstr "Додади ново поле"
-
-#: templates/table/tracking/create_version.twig:11
-#, fuzzy, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Верзија на серверот"
-
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-msgid "Create version %1$s"
-msgstr "Верзија на серверот"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:76
-#, fuzzy
-msgid "Create version"
-msgstr "Верзија на серверот"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, fuzzy, php-format
-#| msgid "After %s"
-msgid "after %s"
-msgstr "после полето %s"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start"
-msgid "Start row:"
-msgstr "Саб"
-
-#: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Show/hide columns"
-msgstr "Додади %s полиња"
-
-#: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Databases"
-msgid "See table structure"
-msgstr "База на податоци"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Is a foreign key."
-msgstr "Исклучи проверка на надворешни клучеви"
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove database"
-msgid "Pick from Central Columns"
-msgstr "Избриши ја базата на податоци."
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Базата на податоци не постои"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page number:"
-msgid "Page to open"
-msgstr "Број на страници:"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-msgid "Page to delete"
-msgstr "Релационен поглед"
-
-#: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select All"
-msgid "Select page"
-msgstr "избери се"
-
-#: templates/table/structure/row_stats_table.twig:2
-#, fuzzy
-#| msgid "Row Statistics"
-msgid "Row statistics"
-msgstr "Статистики за записите"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "динамички"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Должина на запис"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Големина на запис"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:76
-#: templates/database/structure/table_header.twig:53
-msgid "Creation"
-msgstr "Направено"
-
-#: templates/table/structure/row_stats_table.twig:83
-#: templates/database/structure/table_header.twig:58
-msgid "Last update"
-msgstr "Последна измена"
-
-#: templates/table/structure/row_stats_table.twig:90
-#: templates/database/structure/table_header.twig:63
-msgid "Last check"
-msgstr "Последна проверка"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-#, fuzzy
-#| msgid "None"
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "нема"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-#, fuzzy
-#| msgid "And"
-msgid "Add"
-msgstr "и"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Column names"
-msgid "column(s)"
-msgstr "Имиња на колони"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "Подредување"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-#, fuzzy
-#| msgid "Storage Engine"
-msgid "Storage Engine:"
-msgstr "Вид на складиште"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
-msgid "Connection:"
-msgstr "Конекции"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr ""
-
-#: templates/database/central_columns/add_column.twig:13
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Select a column."
-msgstr "Додади/избриши колона"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr ""
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr ""
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr ""
-
-#: templates/display/import/javascript.twig:36
-msgid "Uploading your import file…"
-msgstr ""
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-
-#: templates/display/export/option_header.twig:5
-#, fuzzy
-#| msgid "Allows locking tables for the current thread."
-msgid "Exporting databases from the current server"
-msgstr "Дозволува заклучување на табели на тековните процеси."
-
-#: templates/display/export/option_header.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting tables from \"%s\" database"
-msgstr "Креирај нова табела во базата на податоци %s"
-
-#: templates/display/export/option_header.twig:9
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting rows from \"%s\" table"
-msgstr "Креирај нова табела во базата на податоци %s"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Position"
-msgid "Partition by:"
-msgstr "Позиција"
-
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Number of rows per page"
-msgid "Expression or column list"
-msgstr "Број на записи на страница"
-
-#: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Position"
-msgid "Partitions:"
-msgstr "Позиција"
-
-#: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartition by:"
-msgstr "Позиција"
-
-#: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartitions:"
-msgstr "Позиција"
-
-#: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
-msgid "Values"
-msgstr "Вредност"
-
-#: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartition"
-msgstr "Позиција"
-
-#: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
-msgid "Engine"
-msgstr "Складишта"
-
-#: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
-msgid "Data directory"
-msgstr "Основен директориум на податоците"
-
-#: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-msgid "Index directory"
-msgstr "Основен директориум на податоците"
-
-#: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Latched pages"
-msgid "Max rows"
-msgstr "Заглавени страници"
-
-#: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
-msgid "Min rows"
-msgstr "Преглед"
-
-#: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Search"
-msgid "Table space"
-msgstr "Пребарување"
-
-#: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "User"
-msgid "Node group"
-msgstr "Корисник"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Label column"
-msgstr "Додади/избриши колона"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Total"
-msgid "Spatial column"
-msgstr "Вкупно"
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-msgid "Add to Favorites"
-msgstr "Додади нов корисник"
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Сочувај на серверот во директориумот %s"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-#, fuzzy
-#| msgid "in query"
-msgid "Requery"
-msgstr "во упитот"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Ако типот на полето е \"enum\" или \"set\", внесувајте вредност во формат: "
-"'a','b','c'…<br />Ако ви треба обратна коса црта (\"\\\") или апостроф "
-"(\"'\") користите ги во escap форма (пример '\\\\xyz' или 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"За default вредност, внесете само една вредност, без коси црти или наводници "
-"во следниов облик: а"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Move column"
-msgstr "Додади/избриши колона"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-#, fuzzy
-#| msgid "Available transformations"
-msgid "List of available transformations and their options"
-msgstr "Достапни трансформации"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation options"
-msgstr "Транформации на веб прелистувачот"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Ве молиме внесете вредности за опциите на трансформацијата во следниов "
-"формат: 'a','b','c'…<br /> Ако треба да внесете обратна коса црта (\"\\\") "
-"или апостроф (\"'\") во тие вредности, ставете обратна коса црта пред нив "
-"(пример '\\\\xyz' или 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Input transformation options"
-msgstr "Опции на трансформацијата"
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-msgid "Export templates:"
-msgstr "Тип на извоз"
-
-#: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
-msgid "New template:"
-msgstr "Шаблон на име на податотека"
-
-#: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "User name"
-msgid "Template name"
-msgstr "Назив на корисник"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "Креирај"
-
-#: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template"
-msgid "Existing templates:"
-msgstr "Шаблон на име на податотека"
-
-#: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table(s)"
-msgid "Template:"
-msgstr "%s табела"
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgctxt "Create UPDATE query"
-#| msgid "Update"
-msgid "Update"
-msgstr "Ажурирај"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
-msgid "Delete settings"
-msgstr "Дозволува вметнување и замена на података."
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
-#, fuzzy
-#| msgid "Show tables"
-msgid "Show/Hide tables list"
-msgstr "Прикажи табели"
-
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
-#, fuzzy
-#| msgid "User name"
-msgid "New page"
-msgstr "Назив на корисник"
-
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
-#, fuzzy
-#| msgid "Select All"
-msgid "Delete pages"
-msgstr "избери се"
-
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-#: templates/database/create_table.twig:7
-#, fuzzy
-msgid "Create table"
-msgstr "Направи нова страница"
-
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-#: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-msgid "Create relationship"
-msgstr "Верзија на серверот"
-
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-#, fuzzy
-#| msgid "Traditional Chinese"
-msgid "Toggle relationship lines"
-msgstr "Традиционален кинески"
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
-#, fuzzy
-#| msgid "Export"
-msgid "Export schema"
-msgstr "Извоз"
-
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-#, fuzzy
-#| msgid "Submit Query"
-msgid "Build Query"
-msgstr "Изврши SQL"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
-#, fuzzy
-#| msgid "Partial Texts"
-msgid "Pin text"
-msgstr "Дел на текстот"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:12
-#, fuzzy
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Направи \"упит по пример\" (џокер знак: \"%\")"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Направи \"упит по пример\" (џокер знак: \"%\")"
-
-#: templates/table/search/options.twig:6
-#, fuzzy
-#| msgid "Select fields (at least one):"
-msgid "Select columns (at least one):"
-msgstr "Избери полиња (најмалку едно)"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Додади услови за пребарување (делот \"WHERE\" од упитот):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Број на записи на страница"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Редослед на приказ:"
 
 #: templates/console/display.twig:7
 #, fuzzy
@@ -16155,6 +15240,23 @@ msgstr "Изврши запамтен упит"
 #| msgid "Execute bookmarked query"
 msgid "Press Enter to execute query"
 msgstr "Изврши запамтен упит"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Collapse"
+msgstr ""
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Expand"
+msgstr ""
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
+#, fuzzy
+#| msgid "in query"
+msgid "Requery"
+msgstr "во упитот"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #, fuzzy
@@ -16235,6 +15337,15 @@ msgstr "Прикажи боја"
 msgid "Hide trace"
 msgstr "Додади ново поле"
 
+#: templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+#, fuzzy
+#| msgid "And"
+msgid "Add"
+msgstr "и"
+
 #: templates/console/display.twig:112
 #, fuzzy
 #| msgid "Search"
@@ -16269,242 +15380,73 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Големина"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Ефективни"
-
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-msgid "Jump to database '%s'"
-msgstr "Базата на податоци не постои"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Провери привилегии за базата на податоци \"%s\"."
-
-#: templates/server/databases/table_row.twig:62
-#, fuzzy
-#| msgid "Check Privileges"
-msgid "Check privileges"
-msgstr "Провери привилегии"
-
-#: templates/database/structure/show_create.twig:2
-#, fuzzy
-msgid "Showing create queries"
-msgstr "Прикажи комплетни упити"
-
-#: templates/privileges/add_privileges_table.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following table:"
-msgstr "Додади привилегии на следната табела"
-
-#: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s погодоци во табелата <i>%s</i>"
-msgstr[1] "%s погодоци во табелата <i>%s</i>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>вкупно:</b> <i>%s</i> погодоци"
-msgstr[1] "<b>вкупно:</b> <i>%s</i> погодоци"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:138
-#: templates/view_create.twig:13
-#, fuzzy
-#| msgid "Print view"
-msgid "Edit view"
-msgstr "Преглед за печатење"
-
-#: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "База на податоци"
-
-#: templates/prefs_twofactor_confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Change password"
-msgid "Disable two-factor authentication"
-msgstr "Промена на лозинка"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Изберете бинарен дневник за преглед"
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "се користи"
-
-#: templates/privileges/add_privileges_database.twig:1
-#, fuzzy
-#| msgid "Add privileges on the following database"
-msgid "Add privileges on the following database(s):"
-msgstr "Додади привилегии на следната база"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-"Пред џокер знаците _ и % треба да стои знакот \\ ако ги користите самостојно."
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr ""
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr ""
-
-#: templates/display/export/options_rows.twig:2
-#, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "Записи"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr ""
-
-#: templates/database/create_table.twig:15
-#, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of columns"
-msgstr "Број на записи на страница"
-
-#: templates/table/relation/common_form.twig:6
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Foreign key constraints"
-msgstr "Исклучи проверка на надворешни клучеви"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "Акција"
-
-#: templates/table/relation/common_form.twig:11
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint properties"
-msgstr "Ограничувања за табелите"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:89
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "Додади ограничувања"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "Внатрешни релации"
-
-#: templates/table/relation/common_form.twig:110
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relation"
-msgstr "Внатрешни релации"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:172
-#, fuzzy
-#| msgid "Choose field to display"
-msgid "Choose column to display:"
-msgstr "Избери полиња за прикажување"
-
-#: templates/table/structure/table_structure_row.twig:34
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#, fuzzy
-#| msgid "None"
-msgctxt "None for default"
-msgid "None"
-msgstr "нема"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
-msgid "Column %s has been dropped."
-msgstr "Табелата %s е избришана"
-
 #: templates/display/export/template_options.twig:1
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a template"
 msgstr "Избери табели"
 
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/display/export/options_output_format.twig:3
+#: templates/table/search/replace_preview.twig:18
 #, fuzzy
-#| msgid "File name template"
-msgid "File name template:"
-msgstr "Шаблон на име на податотека"
+#| msgid "Original position"
+msgid "Original string"
+msgstr "Оргинална позиција"
 
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "Релации"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+msgid "Replace"
+msgstr "Релации"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+#, fuzzy
+#| msgid "None"
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "нема"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
 msgstr ""
+
+#: templates/database/structure/table_header.twig:27
+#, fuzzy
+#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Бројот на записи може да биде приближен. За подетални информации види "
+"[doc@faq3-11]FAQ 3.11[/doc]"
+
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "Направено"
+
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "Последна измена"
+
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "Последна проверка"
+
+#: templates/table/search/rows_zoom.twig:12
+#, fuzzy
+msgid "Additional search criteria"
+msgstr "SQL упит"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -16552,136 +15494,92 @@ msgstr ""
 msgid "Make consistent with central list"
 msgstr "Додади %s полиња"
 
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Disable foreign key checks"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Исклучи проверка на надворешни клучеви"
-
-#: templates/table/relation/foreign_key_row.twig:38
+#: templates/table/structure/display_structure.twig:138
+#: templates/view_create.twig:13
 #, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint name"
-msgstr "Ограничувања за табелите"
+#| msgid "Print view"
+msgid "Edit view"
+msgstr "Преглед за печатење"
 
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
+#: templates/table/structure/display_structure.twig:192
+#: templates/table/structure/display_partitions.twig:4
 #, fuzzy
-#| msgid "Add %s field(s)"
-msgid "+ Add column"
-msgstr "Додади %s полиња"
+#| msgid "Position"
+msgid "Partitions"
+msgstr "Позиција"
 
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Ако типот на полето е \"enum\" или \"set\", внесувајте вредност во формат: "
+"'a','b','c'…<br />Ако ви треба обратна коса црта (\"\\\") или апостроф "
+"(\"'\") користите ги во escap форма (пример '\\\\xyz' или 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"За default вредност, внесете само една вредност, без коси црти или наводници "
+"во следниов облик: а"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
 msgstr ""
 
-#: templates/display/export/options_output.twig:26
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save output to a file"
-msgstr "Сочувај како податотека"
-
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr ""
-
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-#, fuzzy
-#| msgid "None"
-msgctxt "None privileges"
-msgid "None"
-msgstr "нема"
-
-#: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
-msgid "Relation view"
-msgstr "Релационен поглед"
-
-#: templates/display/results/options_block.twig:30
-#, fuzzy
-msgid "Relational key"
-msgstr "Релациона шема"
-
-#: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Display column for relationships"
-msgstr "Исклучи проверка на надворешни клучеви"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr ""
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr ""
-
-#: templates/display/results/options_block.twig:67
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Hide browser transformation"
-msgstr "Транформации на веб прелистувачот"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr ""
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr ""
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "Избери табели"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "Database"
-msgid "New database name"
-msgstr "База на податоци"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "Избери табели"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New table"
-msgid "New table name"
-msgstr "Нема табела"
-
-#: templates/export/alias_add.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:65
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
-msgid "Select column:"
+msgid "Move column"
 msgstr "Додади/избриши колона"
 
-#: templates/export/alias_add.twig:43
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
 #, fuzzy
-#| msgid "Column names"
-msgid "New column name"
-msgstr "Имиња на колони"
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "Достапни трансформации"
 
-#: templates/database/designer/aggregate_query_panel.twig:22
-#: templates/database/designer/options_panel.twig:99
+#: templates/columns_definitions/table_fields_definitions.twig:82
 #, fuzzy
-#| msgid "Create"
-msgid "Aggregate"
-msgstr "Креирај"
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "Транформации на веб прелистувачот"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+#, fuzzy
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Ве молиме внесете вредности за опциите на трансформацијата во следниов "
+"формат: 'a','b','c'…<br /> Ако треба да внесете обратна коса црта (\"\\\") "
+"или апостроф (\"'\") во тие вредности, ставете обратна коса црта пред нив "
+"(пример '\\\\xyz' или 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Input transformation options"
+msgstr "Опции на трансформацијата"
 
 #: templates/table/chart/tbl_chart.twig:15
 #, fuzzy
@@ -16794,188 +15692,283 @@ msgstr "Број на записи на страница"
 msgid "Save chart as image"
 msgstr "Сочувај како податотека"
 
-#: templates/table/structure/add_column.twig:9
+#: templates/columns_definitions/partitions.twig:17
+#, fuzzy
+#| msgid "Position"
+msgid "Partition by:"
+msgstr "Позиција"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Expression or column list"
+msgstr "Број на записи на страница"
+
+#: templates/columns_definitions/partitions.twig:37
+#, fuzzy
+#| msgid "Position"
+msgid "Partitions:"
+msgstr "Позиција"
+
+#: templates/columns_definitions/partitions.twig:45
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartition by:"
+msgstr "Позиција"
+
+#: templates/columns_definitions/partitions.twig:65
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartitions:"
+msgstr "Позиција"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+#, fuzzy
+#| msgid "Position"
+msgid "Partition"
+msgstr "Позиција"
+
+#: templates/columns_definitions/partitions.twig:78
+#, fuzzy
+#| msgid "Value"
+msgid "Values"
+msgstr "Вредност"
+
+#: templates/columns_definitions/partitions.twig:82
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartition"
+msgstr "Позиција"
+
+#: templates/columns_definitions/partitions.twig:84
+#, fuzzy
+#| msgid "Engines"
+msgid "Engine"
+msgstr "Складишта"
+
+#: templates/columns_definitions/partitions.twig:86
+#, fuzzy
+#| msgid "Data home directory"
+msgid "Data directory"
+msgstr "Основен директориум на податоците"
+
+#: templates/columns_definitions/partitions.twig:87
+#, fuzzy
+msgid "Index directory"
+msgstr "Основен директориум на податоците"
+
+#: templates/columns_definitions/partitions.twig:88
+#, fuzzy
+#| msgid "Latched pages"
+msgid "Max rows"
+msgstr "Заглавени страници"
+
+#: templates/columns_definitions/partitions.twig:89
+#, fuzzy
+#| msgid "rows"
+msgid "Min rows"
+msgstr "Преглед"
+
+#: templates/columns_definitions/partitions.twig:90
+#, fuzzy
+#| msgid "Search"
+msgid "Table space"
+msgstr "Пребарување"
+
+#: templates/columns_definitions/partitions.twig:91
+#, fuzzy
+#| msgid "User"
+msgid "Node group"
+msgstr "Корисник"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: templates/display/import/javascript.twig:36
+msgid "Uploading your import file…"
+msgstr ""
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr ""
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr ""
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr ""
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Последна Верзија"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+#, fuzzy
+#| msgid "Allows inserting and replacing data."
+msgid "Delete tracking"
+msgstr "Дозволува вметнување и замена на података."
+
+#: templates/database/tracking/tracked_tables.twig:65
+#, fuzzy
+msgid "Versions"
+msgstr "Персиски"
+
+#: templates/display/export/options_output_radio.twig:5
+#, fuzzy
+#| msgid "Save as file"
+msgid "View output as text"
+msgstr "Сочувај како податотека"
+
+#: templates/database/search/results.twig:12
 #, fuzzy, php-format
-#| msgid "Add %s field(s)"
-msgid "Add %s column(s)"
-msgstr "Додади %s полиња"
+#| msgid "%s match(es) inside table <i>%s</i>"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%s погодоци во табелата <i>%s</i>"
+msgstr[1] "%s погодоци во табелата <i>%s</i>"
 
-#: templates/table/structure/add_column.twig:14
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "на почетокот од табелата"
+#| msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>вкупно:</b> <i>%s</i> погодоци"
+msgstr[1] "<b>вкупно:</b> <i>%s</i> погодоци"
 
-#: templates/display/export/options_output_separate_files.twig:7
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr ""
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+msgid "Configure two-factor authentication"
+msgstr ""
+
+#: templates/prefs_twofactor_configure.twig:8
 #, fuzzy
-#| msgid "Create table on database %s"
-msgid "Export databases as separate files"
-msgstr "Креирај нова табела во базата на податоци %s"
+#| msgid "Change password"
+msgid "Enable two-factor authentication"
+msgstr "Промена на лозинка"
 
-#: templates/display/export/options_output_separate_files.twig:9
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr ""
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr ""
+
+#: templates/server/plugins/section.twig:23
 #, fuzzy
-#| msgid "horizontal (rotated headers)"
-msgid "Export tables as separate files"
-msgstr "хоризонтален (ротирани заглавија)"
+#| msgid "Disabled"
+msgid "disabled"
+msgstr "Оневозможено"
 
-#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Напомена: вклучувањето на статистиките може да доведе до зголемување на "
+"сообраќајот помеѓу веб серверот и MySQL серверот."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+#, fuzzy
+#| msgid "Enable Statistics"
+msgid "Enable statistics"
+msgstr "Вклучи статистики"
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "Верзија на серверот"
+
+#: templates/table/structure/optional_action_links.twig:6
+msgid "Propose table structure"
+msgstr "Предложи структура на табелата"
+
+#: templates/table/structure/optional_action_links.twig:15
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+#, fuzzy
+msgid "Track table"
+msgstr "Проверка на табелата"
+
 #: templates/table/structure/optional_action_links.twig:19
+#: templates/table/structure/move_columns_dialog.twig:1
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Move columns"
 msgstr "Додади %s полиња"
 
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:28
+#, fuzzy
+msgid "Track view"
+msgstr "Проверка на табелата"
+
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/database/qbe/footer_options.twig:3
+#: templates/privileges/delete_user_fieldset.twig:3
 #, fuzzy
-#| msgid "Add/Delete Criteria Row"
-msgid "Add/Delete criteria rows"
-msgstr "Додади/избриши поле за критериум"
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
+msgstr "Избриши ги селектираните корисници"
 
-#: templates/database/qbe/footer_options.twig:5
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Add/Delete columns"
-msgstr "Додади/избриши колона"
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Одземи ги сите привилегии на активните корисници а потоа избриши ги."
 
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
 msgstr ""
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Име на клуч :"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" <b>може</b> да биде име <b>само</b> на примарниот клуч!"
-
-#: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index name:"
-msgid "Index choice:"
-msgstr "Име на клуч :"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Table options"
-msgid "Advanced Options"
-msgstr "Опции на табелата"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Тип на клуч :"
-
-#: templates/table/index_form.twig:77
-#, fuzzy
-#| msgid "User"
-msgid "Parser:"
-msgstr "Корисник"
-
-#: templates/table/index_form.twig:93
-#, fuzzy
-msgid "Comment:"
-msgstr "Коментари"
-
-#: templates/table/index_form.twig:118
-#: templates/database/structure/table_header.twig:38
-msgid "Size"
-msgstr "Големина"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr ""
-
-#: templates/table/search/rows_zoom.twig:12
-#, fuzzy
-msgid "Additional search criteria"
-msgstr "SQL упит"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "Оргинална позиција"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Relations"
-msgid "Replaced string"
-msgstr "Релации"
-
-#: templates/table/search/replace_preview.twig:37
-#, fuzzy
-msgid "Replace"
-msgstr "Релации"
-
-#: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export type"
-msgid "Export method:"
-msgstr "Тип на извоз"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr ""
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr ""
-
-#: templates/display/export/options_output_compression.twig:4
-#, fuzzy
-#| msgid "Compression"
-msgid "Compression:"
-msgstr "Компресија"
-
-#: templates/display/export/options_output_compression.twig:11
-#, fuzzy
-#| msgid "\"zipped\""
-msgid "zipped"
-msgstr "\"zip\""
-
-#: templates/display/export/options_output_compression.twig:17
-#, fuzzy
-#| msgid "\"gzipped\""
-msgid "gzipped"
-msgstr "\"gzip\""
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-#, fuzzy
-msgid "Relationship operator"
-msgstr "Релационен поглед"
-
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-#, fuzzy
-msgid "Rename to"
-msgstr "Промени го името на табелата во "
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-#, fuzzy
-#| msgid "User name"
-msgid "New name"
-msgstr "Назив на корисник"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Привилегии врзани за колоните"
+"Избриши ги базите на податоци кои се именувани исто како и корисниците."
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
@@ -16987,19 +15980,122 @@ msgstr ""
 msgid "Take it"
 msgstr "превземи"
 
-#: templates/login/twofactor.twig:5
-msgid "Verify"
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
 msgstr ""
 
-#: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, fuzzy, php-format
+#| msgid "Save on server in %s directory"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Сочувај на серверот во директориумот %s"
+
+#: templates/login/twofactor/key.twig:3
 msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
 msgstr ""
-"Бројот на записи може да биде приближен. За подетални информации види "
-"[doc@faq3-11]FAQ 3.11[/doc]"
+
+#: templates/start_and_number_of_rows_panel.twig:3
+#, fuzzy
+#| msgid "Start"
+msgid "Start row:"
+msgstr "Саб"
+
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+#, fuzzy
+msgid "Create relationship"
+msgstr "Верзија на серверот"
+
+#: templates/database/central_columns/add_column.twig:13
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Select a column."
+msgstr "Додади/избриши колона"
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Клучот не е дефиниран!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:29
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "Компресија"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Должина на запис"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Должина на запис"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "Position"
+msgid "Partition table"
+msgstr "Позиција"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+#, fuzzy
+#| msgid "Add new field"
+msgid "Edit partitioning"
+msgstr "Додади ново поле"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+msgctxt "Number"
+msgid "#"
+msgstr ""
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+#, fuzzy
+#| msgid "None"
+msgctxt "None for default"
+msgid "None"
+msgstr "нема"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Label column"
+msgstr "Додади/избриши колона"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+#, fuzzy
+#| msgid "Total"
+msgid "Spatial column"
+msgstr "Вкупно"
 
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
@@ -17014,14 +16110,48 @@ msgstr "Примарниот клуч %s е додаден."
 msgid "An index has been added on %s."
 msgstr "Клучот е додаден %s."
 
-#: templates/database/designer/query_details.twig:6
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
 #, fuzzy
-#| msgid "Table options"
-msgid "Active options"
-msgstr "Опции на табелата"
+#| msgid "Remove database"
+msgid "Remove from central columns"
+msgstr "Избриши ја базата на податоци."
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Add to central columns"
+msgstr "Додади %s полиња"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Disable foreign key checks"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Исклучи проверка на надворешни клучеви"
+
+#: templates/table/relation/foreign_key_row.twig:38
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint name"
+msgstr "Ограничувања за табелите"
+
+#: templates/table/relation/foreign_key_row.twig:90
+#: templates/database/multi_table_query/form.twig:158
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "+ Add column"
+msgstr "Додади %s полиња"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
 msgstr ""
 
 #: templates/privileges/add_privileges_routine.twig:3
@@ -17029,6 +16159,108 @@ msgstr ""
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following routine:"
 msgstr "Додади привилегии на следната табела"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Column names"
+msgid "column(s)"
+msgstr "Имиња на колони"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "Подредување"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+#, fuzzy
+#| msgid "Storage Engine"
+msgid "Storage Engine:"
+msgstr "Вид на складиште"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "Конекции"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
+
+#: templates/display/export/options_output_format.twig:3
+#, fuzzy
+#| msgid "File name template"
+msgid "File name template:"
+msgstr "Шаблон на име на податотека"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr ""
+
+#: templates/display/export/option_header.twig:5
+#, fuzzy
+#| msgid "Allows locking tables for the current thread."
+msgid "Exporting databases from the current server"
+msgstr "Дозволува заклучување на табели на тековните процеси."
+
+#: templates/display/export/option_header.twig:7
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "Креирај нова табела во базата на податоци %s"
+
+#: templates/display/export/option_header.twig:9
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "Креирај нова табела во базата на податоци %s"
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+msgid "Jump to database '%s'"
+msgstr "Базата на податоци не постои"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Провери привилегии за базата на податоци \"%s\"."
+
+#: templates/server/databases/table_row.twig:62
+#, fuzzy
+#| msgid "Check Privileges"
+msgid "Check privileges"
+msgstr "Провери привилегии"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "се користи"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:23
+#, fuzzy
+#| msgid "Reset"
+msgid "Reset zoom"
+msgstr "Поништи"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -17098,12 +16330,6 @@ msgstr "Избриши ја базата на податоци."
 msgid "Update query"
 msgstr "Ажурирај"
 
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "Верзија на серверот"
-
 #: templates/columns_definitions/column_default.twig:3
 #, fuzzy
 #| msgid "None"
@@ -17114,6 +16340,513 @@ msgstr "нема"
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
 msgstr ""
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Користи ја оваа вредност"
+
+#: templates/table/secondary_tabs.twig:9
+#, fuzzy
+#| msgid "Relation view"
+msgid "Relation view"
+msgstr "Релационен поглед"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Allows inserting and replacing data."
+msgid "Delete settings"
+msgstr "Дозволува вметнување и замена на података."
+
+#: templates/display/export/method.twig:3
+#, fuzzy
+#| msgid "Export type"
+msgid "Export method:"
+msgstr "Тип на извоз"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr ""
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Серверски променливи и подесувања"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "Видови на складишта"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Кодни страници и подредување"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Статистика на базата на податоци"
+
+#: templates/database/designer/page_selector.twig:2
+#, fuzzy
+#| msgid "Select All"
+msgid "Select page"
+msgstr "избери се"
+
+#: templates/privileges/add_privileges_table.twig:3
+#, fuzzy
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following table:"
+msgstr "Додади привилегии на следната табела"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.twig:9
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select database:"
+msgstr "Избери табели"
+
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "Database"
+msgid "New database name"
+msgstr "База на податоци"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select table:"
+msgstr "Избери табели"
+
+#: templates/export/alias_add.twig:29
+#, fuzzy
+#| msgid "New table"
+msgid "New table name"
+msgstr "Нема табела"
+
+#: templates/export/alias_add.twig:37
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Select column:"
+msgstr "Додади/избриши колона"
+
+#: templates/export/alias_add.twig:43
+#, fuzzy
+#| msgid "Column names"
+msgid "New column name"
+msgstr "Имиња на колони"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr ""
+
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Is a foreign key."
+msgstr "Исклучи проверка на надворешни клучеви"
+
+#: templates/columns_definitions/column_name.twig:40
+#, fuzzy
+#| msgid "Remove database"
+msgid "Pick from Central Columns"
+msgstr "Избриши ја базата на податоци."
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr ""
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Имиња на колони"
+
+#: templates/display/export/options_output_compression.twig:4
+#, fuzzy
+#| msgid "Compression"
+msgid "Compression:"
+msgstr "Компресија"
+
+#: templates/display/export/options_output_compression.twig:11
+#, fuzzy
+#| msgid "\"zipped\""
+msgid "zipped"
+msgstr "\"zip\""
+
+#: templates/display/export/options_output_compression.twig:17
+#, fuzzy
+#| msgid "\"gzipped\""
+msgid "gzipped"
+msgstr "\"gzip\""
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+#, fuzzy
+msgid "Create table"
+msgstr "Направи нова страница"
+
+#: templates/database/create_table.twig:15
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of columns"
+msgstr "Број на записи на страница"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+#, fuzzy
+#| msgid "Show tables"
+msgid "Show/Hide tables list"
+msgstr "Прикажи табели"
+
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+#, fuzzy
+#| msgid "User name"
+msgid "New page"
+msgstr "Назив на корисник"
+
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+#, fuzzy
+#| msgid "Select All"
+msgid "Delete pages"
+msgstr "избери се"
+
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+#, fuzzy
+#| msgid "Traditional Chinese"
+msgid "Toggle relationship lines"
+msgstr "Традиционален кинески"
+
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+#, fuzzy
+#| msgid "Export"
+msgid "Export schema"
+msgstr "Извоз"
+
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+#, fuzzy
+#| msgid "Submit Query"
+msgid "Build Query"
+msgstr "Изврши SQL"
+
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+#, fuzzy
+#| msgid "Partial Texts"
+msgid "Pin text"
+msgstr "Дел на текстот"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Вредност на сесијата"
+
+#: templates/table/structure/table_structure_row.twig:55
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
+msgstr "Табелата %s е избришана"
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+
+#: templates/database/qbe/footer_options.twig:3
+#, fuzzy
+#| msgid "Add/Delete Criteria Row"
+msgid "Add/Delete criteria rows"
+msgstr "Додади/избриши поле за критериум"
+
+#: templates/database/qbe/footer_options.twig:5
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Add/Delete columns"
+msgstr "Додади/избриши колона"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:5
+#, fuzzy
+msgid "Date"
+msgstr "Податоци"
+
+#: templates/table/tracking/report_table.twig:6
+#, fuzzy
+msgid "Username"
+msgstr "Корисничко име:"
+
+#: templates/prefs_twofactor_confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+#, fuzzy
+#| msgid "Change password"
+msgid "Disable two-factor authentication"
+msgstr "Промена на лозинка"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Изберете бинарен дневник за преглед"
+
+#: templates/table/search/selection_form.twig:12
+#, fuzzy
+#| msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "Направи \"упит по пример\" (џокер знак: \"%\")"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Направи \"упит по пример\" (џокер знак: \"%\")"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+#, fuzzy
+#| msgid "Documentation"
+msgid "Authentication code:"
+msgstr "Документација"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/privileges/add_privileges_database.twig:1
+#, fuzzy
+#| msgid "Add privileges on the following database"
+msgid "Add privileges on the following database(s):"
+msgstr "Додади привилегии на следната база"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"Пред џокер знаците _ и % треба да стои знакот \\ ако ги користите самостојно."
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+msgid "Export templates:"
+msgstr "Тип на извоз"
+
+#: templates/display/export/template_loading.twig:6
+#, fuzzy
+#| msgid "File name template"
+msgid "New template:"
+msgstr "Шаблон на име на податотека"
+
+#: templates/display/export/template_loading.twig:8
+#, fuzzy
+#| msgid "User name"
+msgid "Template name"
+msgstr "Назив на корисник"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Креирај"
+
+#: templates/display/export/template_loading.twig:16
+#, fuzzy
+#| msgid "File name template"
+msgid "Existing templates:"
+msgstr "Шаблон на име на податотека"
+
+#: templates/display/export/template_loading.twig:17
+#, fuzzy
+#| msgid "%s table(s)"
+msgid "Template:"
+msgstr "%s табела"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgctxt "Create UPDATE query"
+#| msgid "Update"
+msgid "Update"
+msgstr "Ажурирај"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Привилегии врзани за колоните"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:11
+#, fuzzy, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Верзија на серверот"
+
+#: templates/table/tracking/create_version.twig:16
+#, fuzzy, php-format
+msgid "Create version %1$s"
+msgstr "Верзија на серверот"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:76
+#, fuzzy
+msgid "Create version"
+msgstr "Верзија на серверот"
+
+#: templates/database/designer/table_list.twig:4
+#, fuzzy
+msgid "Hide/Show all"
+msgstr "прикажи ги сите"
+
+#: templates/database/designer/table_list.twig:14
+#, fuzzy
+#| msgid "Propose table structure"
+msgid "Hide/Show tables with no relationship"
+msgstr "Предложи структура на табелата"
+
+#: templates/database/designer/table_list.twig:55
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of tables:"
+msgstr "Број на записи на страница"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "нема"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "Кодна страна на податотеката:"
+
+#: templates/table/search/search_and_replace.twig:1
+#: templates/database/search/selection_form.twig:15
+msgid "Find:"
+msgstr "Барај:"
 
 #: templates/table/search/search_and_replace.twig:3
 #, fuzzy
@@ -17126,6 +16859,258 @@ msgstr "Замени NULL со"
 #| msgid "as regular expression"
 msgid "Use regular expression"
 msgstr "како регуларен израз"
+
+#: templates/display/export/selection.twig:3
+#, fuzzy
+#| msgid "Databases"
+msgid "Databases:"
+msgstr "База на податоци"
+
+#: templates/display/export/options_output.twig:26
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save output to a file"
+msgstr "Сочувај како податотека"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr ""
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/display/import/import.twig:40
+#, fuzzy
+#| msgid "Cannot log in to the MySQL server"
+msgid "Importing into the current server"
+msgstr "Не можам да се пријавам на MySQL серверот"
+
+#: templates/display/import/import.twig:42
+#, fuzzy, php-format
+msgid "Importing into the database \"%s\""
+msgstr "Базата на податоци не постои"
+
+#: templates/display/import/import.twig:44
+#, fuzzy, php-format
+msgid "Importing into the table \"%s\""
+msgstr "Базата на податоци не постои"
+
+#: templates/display/import/import.twig:50
+#, fuzzy
+#| msgid "Partial Texts"
+msgid "File to import:"
+msgstr "Дел на текстот"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr ""
+
+#: templates/display/import/import.twig:58
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr ""
+
+#: templates/display/import/import.twig:124
+#, fuzzy
+#| msgid "Partial Texts"
+msgid "Partial import:"
+msgstr "Дел на текстот"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+
+#: templates/display/import/import.twig:137
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr ""
+
+#: templates/display/import/import.twig:161
+#, fuzzy
+msgid "Other options:"
+msgstr "Операции"
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Format-specific options:"
+msgstr "Опции на трансформацијата"
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr ""
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Пребарување низ базата на податоци"
+
+#: templates/database/search/selection_form.twig:8
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Зборови или вредности кои се бараат (џокер знак \"%\"):"
+
+#: templates/database/search/selection_form.twig:29
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
+msgstr "во табела(и):"
+
+#: templates/database/search/selection_form.twig:51
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside column:"
+msgstr "во табела(и):"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Базата на податоци не постои"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr ""
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr ""
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr ""
+
+#: templates/display/export/options_output_separate_files.twig:7
+#, fuzzy
+#| msgid "Create table on database %s"
+msgid "Export databases as separate files"
+msgstr "Креирај нова табела во базата на податоци %s"
+
+#: templates/display/export/options_output_separate_files.twig:9
+#, fuzzy
+#| msgid "horizontal (rotated headers)"
+msgid "Export tables as separate files"
+msgstr "хоризонтален (ротирани заглавија)"
+
+#: templates/table/structure/row_stats_table.twig:2
+#, fuzzy
+#| msgid "Row Statistics"
+msgid "Row statistics"
+msgstr "Статистики за записите"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "динамички"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Должина на запис"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Големина на запис"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr ""
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+#, fuzzy
+#| msgid "Create new database"
+msgid "Create database"
+msgstr "Креирај нова база на податоци"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Ограничување на ресурси"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+"Напомена: Поставувањето на овие опции на 0 (нула) ги отстранува "
+"ограничувањата."
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+msgid "Relational key"
+msgstr "Релациона шема"
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Display column for relationships"
+msgstr "Исклучи проверка на надворешни клучеви"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:67
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
+msgstr "Транформации на веб прелистувачот"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr ""
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr ""
 
 #: templates/prefs_twofactor.twig:3
 #, fuzzy
@@ -17162,82 +17147,108 @@ msgstr ""
 msgid "You have enabled two factor authentication."
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "Предложи структура на табелата"
-
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
+#: templates/database/designer/page_save_as.twig:17
 #, fuzzy
-msgid "Track table"
-msgstr "Проверка на табелата"
+#| msgid "No rows selected"
+msgid "Save to selected page"
+msgstr "Нема селектирани записи"
 
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a new index"
+msgid "Create a page and save to it"
+msgstr "Креирај нов клуч"
+
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "User name"
+msgid "New page name"
+msgstr "Назив на корисник"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:28
+#: templates/table/search/options.twig:6
 #, fuzzy
-msgid "Track view"
-msgstr "Проверка на табелата"
+#| msgid "Select fields (at least one):"
+msgid "Select columns (at least one):"
+msgstr "Избери полиња (најмалку едно)"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Додади услови за пребарување (делот \"WHERE\" од упитот):"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Број на записи на страница"
+
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Редослед на приказ:"
+
+#: templates/table/relation/common_form.twig:6
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Foreign key constraints"
+msgstr "Исклучи проверка на надворешни клучеви"
+
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "Акција"
+
+#: templates/table/relation/common_form.twig:11
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint properties"
+msgstr "Ограничувања за табелите"
+
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
 msgstr ""
 
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
 msgstr ""
 
-#: templates/table/search/zoom_result_form.twig:23
-#, fuzzy
-#| msgid "Reset"
-msgid "Reset zoom"
-msgstr "Поништи"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Користи ја оваа вредност"
-
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
 msgstr ""
 
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Последна Верзија"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
+#: templates/table/relation/common_form.twig:89
 #, fuzzy
-#| msgid "Allows inserting and replacing data."
-msgid "Delete tracking"
-msgstr "Дозволува вметнување и замена на података."
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "Додади ограничувања"
 
-#: templates/database/tracking/tracked_tables.twig:65
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
 #, fuzzy
-msgid "Versions"
-msgstr "Персиски"
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "Внатрешни релации"
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
+#: templates/table/relation/common_form.twig:110
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "Внатрешни релации"
+
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
 msgstr ""
 
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
+#: templates/table/relation/common_form.twig:172
 #, fuzzy
-#| msgid "Create new database"
-msgid "Create database"
-msgstr "Креирај нова база на податоци"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr ""
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Имиња на колони"
+#| msgid "Choose field to display"
+msgid "Choose column to display:"
+msgstr "Избери полиња за прикажување"
 
 #: url.php:41
 #, fuzzy

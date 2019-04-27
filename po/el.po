@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-08 23:42-0300\n"
+"POT-Creation-Date: 2019-04-27 18:51+0200\n"
 "PO-Revision-Date: 2018-01-25 13:37+0000\n"
 "Last-Translator: Vangelis Skarmoutsos <skarmoutsosv@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -47,8 +47,8 @@ msgstr "Σχόλιο βάσης δεδομένων"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
+#: templates/columns_definitions/column_definitions_form.twig:72
 msgid "Table comments:"
 msgstr "Σχόλια πίνακα:"
 
@@ -65,19 +65,19 @@ msgstr "Σχόλια πίνακα:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
+#: templates/table/index_form.twig:115
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
+#: templates/table/search/zoom_result_form.twig:34
 #: templates/table/relation/internal_relational_row.twig:24
-#: templates/table/search/table_header.twig:6
 #: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/table_header.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/table/relation/foreign_key_row.twig:122
-#: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/index_form.twig:115
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "Στήλη"
 
@@ -98,13 +98,13 @@ msgstr "Στήλη"
 #: libraries/classes/Rte/Routines.php:944
 #: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
-#: libraries/classes/Server/Privileges.php:2568
-#: templates/table/search/table_header.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/table/structure/table_structure_header.twig:6
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: libraries/classes/Server/Privileges.php:2581
 #: templates/database/structure/table_header.twig:32
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:7
+#: templates/table/structure/table_structure_header.twig:6
+#: templates/table/search/table_header.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
 msgid "Type"
 msgstr "Τύπος"
 
@@ -122,10 +122,10 @@ msgstr "Τύπος"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/table_structure_header.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
 msgid "Null"
 msgstr "Κενό"
 
@@ -144,8 +144,8 @@ msgstr "Κενό"
 #: libraries/classes/ReplicationGui.php:165
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/table/structure/table_structure_header.twig:10
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -177,10 +177,10 @@ msgstr "Σχόλια"
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1210
 #: libraries/classes/Controllers/Table/TableStructureController.php:1215
-#: templates/table/structure/check_all_table_column.twig:33
 #: templates/table/structure/display_structure.twig:61
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/check_all_table_column.twig:33
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "Πρωτεύον"
 
@@ -194,17 +194,17 @@ msgstr "Πρωτεύον"
 #: libraries/classes/Plugins/Export/ExportOdt.php:795
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2981
-#: libraries/classes/Server/Privileges.php:3001
-#: libraries/classes/Server/Privileges.php:3665
-#: libraries/classes/Server/Privileges.php:3694 prefs_manage.php:145
-#: templates/prefs_autoload.twig:12
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2994
+#: libraries/classes/Server/Privileges.php:3014
+#: libraries/classes/Server/Privileges.php:3678
+#: libraries/classes/Server/Privileges.php:3707 prefs_manage.php:145
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:12
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "No"
@@ -228,18 +228,18 @@ msgstr "Όχι"
 #: libraries/classes/Plugins/Export/ExportOdt.php:796
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
-#: libraries/classes/Server/Privileges.php:2744
-#: libraries/classes/Server/Privileges.php:2978
-#: libraries/classes/Server/Privileges.php:2999
-#: libraries/classes/Server/Privileges.php:3662
-#: libraries/classes/Server/Privileges.php:3694
+#: libraries/classes/Server/Privileges.php:2757
+#: libraries/classes/Server/Privileges.php:2991
+#: libraries/classes/Server/Privileges.php:3012
+#: libraries/classes/Server/Privileges.php:3675
+#: libraries/classes/Server/Privileges.php:3707
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143 templates/prefs_autoload.twig:11
-#: templates/privileges/privileges_summary_row.twig:4
+#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/prefs_autoload.twig:11
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "Yes"
@@ -274,16 +274,16 @@ msgstr "Πίνακες"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:38
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:288
-#: libraries/classes/Server/Privileges.php:1146 libraries/classes/Util.php:3043
+#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3043
 #: libraries/classes/Util.php:3053 libraries/classes/Util.php:3059
 #: libraries/classes/Util.php:3339 libraries/classes/Util.php:3995
 #: libraries/classes/Util.php:4012 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/database/designer/table_list.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/database/designer/table_list.twig:24
 msgid "Structure"
 msgstr "Δομή"
 
@@ -292,14 +292,14 @@ msgstr "Δομή"
 #: libraries/classes/Config/Forms/User/ExportForm.php:125
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
-#: libraries/classes/Server/Privileges.php:1145
+#: libraries/classes/Server/Privileges.php:1158
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "Δεδομένα"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
-#: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
+#: templates/database/search/selection_form.twig:32
 msgid "Select all"
 msgstr "Επιλογή όλων"
 
@@ -514,28 +514,28 @@ msgstr "Προσθήκη γεωμετρίας"
 #: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1084
 #: libraries/classes/Rte/Routines.php:1710
 #: libraries/classes/Rte/Triggers.php:412
-#: libraries/classes/Server/Privileges.php:707
-#: libraries/classes/Server/Privileges.php:2217
-#: libraries/classes/Server/Privileges.php:3131
+#: libraries/classes/Server/Privileges.php:717
+#: libraries/classes/Server/Privileges.php:2230
+#: libraries/classes/Server/Privileges.php:3144
 #: libraries/classes/Server/UserGroups.php:302
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:322 templates/database/search/selection_form.twig:58
+#: server_privileges.php:323 templates/table/structure/add_column.twig:23
+#: templates/table/index_form.twig:217
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/display/import/import.twig:191 templates/header_location.twig:18
-#: templates/display/export/options_format.twig:18
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/search/selection_form.twig:99
-#: templates/server/binlog/log_selector.twig:27
+#: templates/header_location.twig:18 templates/view_create.twig:116
 #: templates/database/create_table.twig:21
-#: templates/display/results/options_block.twig:114
-#: templates/table/structure/add_column.twig:23
-#: templates/table/index_form.twig:217
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/search/selection_form.twig:99
 #: templates/privileges/privileges_summary.twig:60
 #: templates/privileges/edit_routine_privileges.twig:23
-#: templates/view_create.twig:116 view_operations.php:115
+#: templates/display/import/import.twig:191
+#: templates/database/search/selection_form.twig:58
+#: templates/display/export/options_format.twig:18
+#: templates/display/results/options_block.twig:114 view_operations.php:115
 msgid "Go"
 msgstr "Εκτέλεση"
 
@@ -1099,9 +1099,9 @@ msgid "Please select column(s) for the index."
 msgstr "Επιλέξτε στήλη(ες) για το ευρετήριο."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1894
+#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
-#: templates/table/index_form.twig:216
 msgid "Preview SQL"
 msgstr "Προεπισκόπηση SQL"
 
@@ -1136,12 +1136,12 @@ msgstr "Το όνομα του συστήματος είναι κενό!"
 msgid "The user name is empty!"
 msgstr "Το όνομα του χρήστη είναι κενό!"
 
-#: js/messages.php:147 libraries/classes/Server/Privileges.php:1878
+#: js/messages.php:147 libraries/classes/Server/Privileges.php:1891
 #: libraries/classes/UserPassword.php:66
 msgid "The password is empty!"
 msgstr "Ο κωδικός πρόσβασης είναι κενός!"
 
-#: js/messages.php:148 libraries/classes/Server/Privileges.php:1876
+#: js/messages.php:148 libraries/classes/Server/Privileges.php:1889
 #: libraries/classes/UserPassword.php:70
 msgid "The passwords aren't the same!"
 msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι!"
@@ -1360,12 +1360,13 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:282
-#: libraries/config.values.php:69 templates/table/search/options_zoom.twig:12
-#: templates/columns_definitions/transformation.twig:4
-#: templates/table/search/rows_zoom.twig:20
-#: templates/display/export/options_output_compression.twig:7
+#: libraries/config.values.php:69
 #: templates/database/designer/options_panel.twig:177
+#: templates/table/search/rows_zoom.twig:20
+#: templates/table/search/options_zoom.twig:12
+#: templates/display/export/options_output_compression.twig:7
 #: templates/privileges/privileges_summary.twig:30
+#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Καμία"
 
@@ -1752,13 +1753,13 @@ msgstr "Δεν βρέθηκαν παράμετροι!"
 
 #: js/messages.php:355
 #: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/aggregate_query_panel.twig:64
+#: templates/database/designer/where_query_panel.twig:85
+#: templates/database/designer/new_relation_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/having_query_panel.twig:118
 #: templates/server/variables/link_template.twig:5
-#: templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/where_query_panel.twig:85
-#: templates/database/designer/rename_to_panel.twig:45
 msgid "Cancel"
 msgstr "Άκυρο"
 
@@ -1827,13 +1828,13 @@ msgstr "Διαγραφή στήλης"
 msgid "Adding primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
-#: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/new_relation_panel.twig:88
+#: js/messages.php:377 templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
 #: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/database/designer/options_panel.twig:251
 #: templates/database/designer/where_query_panel.twig:83
+#: templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/having_query_panel.twig:114
 msgid "OK"
 msgstr "Εντάξει"
 
@@ -1896,16 +1897,16 @@ msgstr ""
 #: libraries/classes/Display/Results.php:4990 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
-#: libraries/classes/Server/Privileges.php:2403
-#: libraries/classes/Server/Privileges.php:2489
-#: libraries/classes/Server/Privileges.php:2846
-#: libraries/classes/Server/Privileges.php:3577
+#: libraries/classes/Server/Privileges.php:2416
+#: libraries/classes/Server/Privileges.php:2502
+#: libraries/classes/Server/Privileges.php:2859
+#: libraries/classes/Server/Privileges.php:3590
 #: libraries/classes/Server/Status/Monitor.php:328
 #: libraries/classes/Util.php:3346 libraries/classes/Util.php:3347
 #: libraries/classes/Util.php:3984 libraries/classes/Util.php:3999
 #: libraries/classes/Util.php:4016 prefs_manage.php:294
-#: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
+#: templates/display/export/option_header.twig:3
 msgid "Export"
 msgstr "Εξαγωγή"
 
@@ -1958,8 +1959,8 @@ msgstr "Προβολή παραθύρου ερωτήματος"
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1079 libraries/classes/Util.php:3344
 #: libraries/classes/Util.php:3345 setup/frames/index.inc.php:157
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
 msgid "Edit"
@@ -1974,8 +1975,8 @@ msgstr "Επεξεργασία"
 #: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
 #: templates/console/bookmark_content.twig:7
-#: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
+#: templates/display/export/template_loading.twig:22
 msgid "Delete"
 msgstr "Διαγραφή"
 
@@ -2148,11 +2149,11 @@ msgstr "Δεν έχετε επιλέξει εξαρτήσεις!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
-#: templates/server/variables/link_template.twig:2
-#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:189
+#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/structure/partition_definition_form.twig:12
+#: templates/server/variables/link_template.twig:2
+#: templates/table/relation/common_form.twig:189
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -2442,9 +2443,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Πατήστε το προς τα κάτω βέλος<br />για εναλλαγή της εμφάνισης στηλών."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
+#: templates/table/browse_foreigners/show_all.twig:4
 #: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
-#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Εμφάνιση όλων"
 
@@ -2500,8 +2501,8 @@ msgstr "Επιλέξτε βάση δεδομένων πρώτα"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4884
 #: libraries/classes/Util.php:3877
-#: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
+#: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
 msgstr "Εκτύπωση"
 
@@ -3162,9 +3163,9 @@ msgstr "Όνομα κλειδιού"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/engines/engines.twig:5
 #: templates/server/plugins/section.twig:10
 #: templates/server/collations/charsets.twig:6
-#: templates/server/engines/engines.twig:5
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -3216,18 +3217,18 @@ msgstr "ΌΧΙ"
 #: libraries/classes/CentralColumns.php:734 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
 #: libraries/classes/Rte/RteList.php:117
-#: libraries/classes/Server/Privileges.php:2571
-#: libraries/classes/Server/Privileges.php:3557
+#: libraries/classes/Server/Privileges.php:2584
+#: libraries/classes/Server/Privileges.php:3570
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/variables/variable_table_head.twig:3
 #: templates/server/databases/table_header.twig:37
-#: templates/table/tracking/report_table.twig:8
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/privileges/privileges_summary.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tracked_tables.twig:16
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/table/tracking/report_table.twig:8
+#: templates/privileges/privileges_summary.twig:22
+#: templates/server/variables/variable_table_head.twig:3
 #: templates/database/tracking/untracked_tables.twig:10
 msgid "Action"
 msgstr "Ενέργεια"
@@ -3260,14 +3261,14 @@ msgstr "Μήκος/Τιμές*"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
-#: templates/table/search/table_header.twig:8
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/row_stats_table.twig:30
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/table_structure_header.twig:7
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/database/structure/table_header.twig:33
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/server/collations/charsets.twig:5
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/search/table_header.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Σύνθεση"
 
@@ -4109,8 +4110,8 @@ msgstr "Αποθήκευση στο διακομιστή"
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "Αντικατάσταση αρχείου(ων)"
 
@@ -4316,7 +4317,7 @@ msgstr "Έγγραφο LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1276
-#: libraries/classes/Server/Privileges.php:4552 libraries/classes/Util.php:3980
+#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3980
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "Βάσεις δεδομένων"
@@ -5999,18 +6000,18 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:153
 #: libraries/classes/Plugins/Export/ExportOdt.php:200
 #: libraries/classes/Plugins/Export/ExportTexytext.php:137
-#: libraries/classes/Server/Privileges.php:1171
-#: libraries/classes/Server/Privileges.php:3149
-#: libraries/classes/Server/Privileges.php:3344
-#: libraries/classes/Server/Privileges.php:3346
-#: libraries/classes/Server/Privileges.php:4552
+#: libraries/classes/Server/Privileges.php:1184
+#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3359
+#: libraries/classes/Server/Privileges.php:4565
 #: libraries/classes/Server/Status/Processes.php:89
-#: templates/table/relation/internal_relational_row.twig:10
+#: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/server/databases/table_header.twig:8
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/table/relation/common_form.twig:32
+#: templates/console/bookmark_content.twig:7
 #: templates/table/relation/foreign_key_row.twig:100
+#: templates/table/relation/internal_relational_row.twig:10
+#: templates/table/relation/common_form.twig:32
 msgid "Database"
 msgstr "Βάση"
 
@@ -6040,18 +6041,18 @@ msgstr "Τίτλος του παραθύρου του φυλλομετρητή �
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Plugins/Export/ExportXml.php:500
 #: libraries/classes/Rte/RteList.php:102 libraries/classes/Rte/Triggers.php:347
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1174
-#: libraries/classes/Server/Privileges.php:3167
-#: libraries/classes/Server/Privileges.php:3350
-#: libraries/classes/Server/Privileges.php:3352
-#: libraries/classes/Server/Privileges.php:4566
-#: templates/table/relation/internal_relational_row.twig:17
-#: templates/table/relation/common_form.twig:33
-#: templates/table/relation/foreign_key_row.twig:110
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1187
+#: libraries/classes/Server/Privileges.php:3180
+#: libraries/classes/Server/Privileges.php:3363
+#: libraries/classes/Server/Privileges.php:3365
+#: libraries/classes/Server/Privileges.php:4579
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tracked_tables.twig:11
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/table/relation/internal_relational_row.twig:17
 #: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/common_form.twig:33
 msgid "Table"
 msgstr "Πίνακας"
 
@@ -6718,10 +6719,10 @@ msgstr[1] "%1$d βάσεις δεδομένων διεγράφηκαν επιτ�
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
-#: templates/table/structure/display_partitions.twig:28
-#: templates/table/structure/row_stats_table.twig:41
 #: templates/database/structure/table_header.twig:26
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/actions_in_table_structure.twig:114
+#: templates/table/structure/row_stats_table.twig:41
 msgid "Rows"
 msgstr "Εγγραφές"
 
@@ -6737,8 +6738,8 @@ msgstr "Ευρετήρια"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/server/databases/databases_footer.twig:7
 #: templates/table/structure/display_table_stats.twig:45
+#: templates/server/databases/databases_footer.twig:7
 msgid "Total"
 msgstr "Σύνολο"
 
@@ -6862,23 +6863,23 @@ msgstr "Αλλαγή"
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1610
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3340
 #: libraries/classes/Util.php:3341
-#: templates/server/databases/databases_footer.twig:55
-#: templates/table/structure/check_all_table_column.twig:24
-#: templates/table/structure/display_structure.twig:189
 #: templates/database/structure/check_all_tables.twig:16
+#: templates/table/structure/display_structure.twig:189
+#: templates/server/databases/databases_footer.twig:55
 #: templates/table/relation/foreign_key_row.twig:30
+#: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
 msgstr "Διαγραφή"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1211
 #: libraries/classes/Controllers/Table/TableStructureController.php:1216
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/check_all_table_column.twig:47
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/check_all_table_column.twig:47
+#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "Ευρετήριο"
 
@@ -6950,47 +6951,47 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Αδύνατη η φόρτωση προσθέτων σχήματος, για αυτό ελέξτε την εγκατάστασή σας!"
 
-#: libraries/classes/Database/Designer/Common.php:572
+#: libraries/classes/Database/Designer/Common.php:573
 msgid "Error: relationship already exists."
 msgstr "Σφάλμα: η συσχέτιση υπαρχει ήδη."
 
-#: libraries/classes/Database/Designer/Common.php:618
+#: libraries/classes/Database/Designer/Common.php:619
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Έχει προστεθεί η συσχέτιση FOREIGN KEY."
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:625
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Σφάλμα: Δεν μπόρεσε να προστεθεί η συσχέτιση FOREIGN KEY!"
 
-#: libraries/classes/Database/Designer/Common.php:629
+#: libraries/classes/Database/Designer/Common.php:630
 msgid "Error: Missing index on column(s)."
 msgstr "Σφάλμα: Ανύπαρκτο ευρετήριο στη(ις) στήλη(ες)."
 
-#: libraries/classes/Database/Designer/Common.php:634
+#: libraries/classes/Database/Designer/Common.php:635
 msgid "Error: Relational features are disabled!"
 msgstr "Σφάλμα: Τα χαρακτηριστικά συσχέτισης είναι απεπεργοποιημένα!"
 
-#: libraries/classes/Database/Designer/Common.php:656
+#: libraries/classes/Database/Designer/Common.php:657
 msgid "Internal relationship has been added."
 msgstr "Η εσωτερική συσχέτιση έχει προστεθεί."
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:663
 msgid "Error: Internal relationship could not be added!"
 msgstr "Σφάλμα: Δεν μπόρεσε να προστεθεί η εσωτερική συσχέτιση!"
 
-#: libraries/classes/Database/Designer/Common.php:700
+#: libraries/classes/Database/Designer/Common.php:701
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Έχει απομακρυνθεί η συσχέτιση FOREIGN KEY."
 
-#: libraries/classes/Database/Designer/Common.php:706
+#: libraries/classes/Database/Designer/Common.php:707
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Σφάλμα: Δεν μπόρεσε να απομακρυνθεί η συσχέτιση FOREIGN KEY!"
 
-#: libraries/classes/Database/Designer/Common.php:733
+#: libraries/classes/Database/Designer/Common.php:734
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Σφάλμα: Δεν μπόρεσε να απομακρυνθεί η εσωτερική συσχέτιση!"
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 msgid "Internal relationship has been removed."
 msgstr "Η εσωτερική συσχέτιση έχει απομακρυνθεί."
 
@@ -7185,7 +7186,7 @@ msgstr "Ο διακομιστής δεσμεύει για σύνδεση SSL κ�
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:863
-#: libraries/classes/Server/Privileges.php:1676
+#: libraries/classes/Server/Privileges.php:1689
 msgid "No Password"
 msgstr "Χωρίς Κωδικό Πρόσβασης"
 
@@ -7193,7 +7194,7 @@ msgstr "Χωρίς Κωδικό Πρόσβασης"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:183
 #: libraries/classes/ReplicationGui.php:432
 #: libraries/classes/ReplicationGui.php:854
-#: libraries/classes/Server/Privileges.php:1663
+#: libraries/classes/Server/Privileges.php:1676
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
@@ -7203,7 +7204,7 @@ msgstr "Εισαγωγή:"
 
 #: libraries/classes/Display/ChangePassword.php:87
 #: libraries/classes/ReplicationGui.php:874
-#: libraries/classes/Server/Privileges.php:1695
+#: libraries/classes/Server/Privileges.php:1708
 msgid "Re-type:"
 msgstr "Επαναεισαγωγή:"
 
@@ -7213,7 +7214,7 @@ msgid "Password Hashing:"
 msgstr "Μείγμα κωδικού πρόσβασης:"
 
 #: libraries/classes/Display/ChangePassword.php:131
-#: libraries/classes/Server/Privileges.php:1739
+#: libraries/classes/Server/Privileges.php:1752
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -7337,10 +7338,11 @@ msgstr "Πλήρη κείμενα"
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4690 libraries/classes/Util.php:4707
-#: libraries/config.values.php:71 templates/table/search/options.twig:54
+#: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Descending"
 msgstr "Φθίνουσα"
 
@@ -7349,10 +7351,11 @@ msgstr "Φθίνουσα"
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4685 libraries/classes/Util.php:4702
-#: libraries/config.values.php:70 templates/table/search/options.twig:54
+#: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
+#: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Ascending"
 msgstr "Αύξουσα"
 
@@ -7393,21 +7396,21 @@ msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
-#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
+#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Με τους επιλεγμένους:"
 
 #: libraries/classes/Display/Results.php:4686
 #: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Server/Privileges.php:1179
-#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:1192
+#: libraries/classes/Server/Privileges.php:1193
 #: libraries/classes/Server/UserGroups.php:248
-#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
-#: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
+#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
+#: templates/select_all.twig:5
 msgid "Check all"
 msgstr "Επιλογή όλων"
 
@@ -7966,11 +7969,11 @@ msgstr "Επεξεργαστείτε τη δομή πατώντας τον σύ�
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946
-#: templates/table/structure/row_stats_table.twig:19
-#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: libraries/classes/Rte/Routines.php:946 templates/console/display.twig:7
 #: templates/console/display.twig:140
+#: templates/table/structure/row_stats_table.twig:19
 #: templates/display/results/options_block.twig:10
+#: templates/table/search/options.twig:1
 msgid "Options"
 msgstr "Επιλογές"
 
@@ -8032,11 +8035,11 @@ msgstr "Μοναδικότητα"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/table/structure/display_partitions.twig:31
+#: templates/database/structure/table_header.twig:48
 #: templates/columns_definitions/partitions.twig:85
+#: templates/table/structure/display_partitions.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/database/structure/table_header.twig:48
 msgid "Comment"
 msgstr "Σχόλιο"
 
@@ -8089,8 +8092,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Ο φάκελος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί."
 
-#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1501
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "Ενωση"
 
@@ -8146,13 +8150,13 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1627
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/server/variables/variable_table_head.twig:5
-#: templates/database/designer/having_query_panel.twig:100
-#: templates/table/search/table_header.twig:10
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/table_header.twig:10
+#: templates/server/variables/variable_table_head.twig:5
 msgid "Value"
 msgstr "Τιμή"
 
@@ -8205,8 +8209,8 @@ msgstr "«%s»"
 #: libraries/classes/Util.php:3333 libraries/classes/Util.php:3334
 #: libraries/classes/Util.php:4011 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/table/structure/check_all_table_column.twig:8
 #: templates/database/search/results.twig:34
+#: templates/table/structure/check_all_table_column.twig:8
 msgid "Browse"
 msgstr "Περιήγηση"
 
@@ -8233,8 +8237,8 @@ msgid "Insert"
 msgstr "Προσθήκη"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
-#: libraries/classes/Server/Privileges.php:2569
-#: libraries/classes/Server/Privileges.php:4440 libraries/classes/Util.php:4002
+#: libraries/classes/Server/Privileges.php:2582
+#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4002
 #: libraries/classes/Util.php:4018 libraries/config.values.php:107
 #: templates/server/sub_page_header.twig:2
 #: templates/privileges/privileges_summary.twig:15
@@ -8311,8 +8315,8 @@ msgstr "Δυαδικό αρχείο καταγραφής"
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3988
 #: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
+#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Αναπαραγωγή"
 
@@ -8436,8 +8440,8 @@ msgstr "Προβολές:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tracked_tables.twig:17
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "Εμφάνιση"
 
@@ -9273,8 +9277,8 @@ msgstr ""
 "σύνδεση σας."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
 msgstr "Μορφοποίηση:"
 
@@ -9957,8 +9961,8 @@ msgstr "Πίνακας περιεχομένων"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/structure/table_structure_header.twig:14
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/table_structure_header.twig:14
 msgid "Extra"
 msgstr "Πρόσθετα"
 
@@ -10671,8 +10675,8 @@ msgstr ""
 "αναπαραγωγής. Θέλετε να τον <a href=\"%s\">ρυθμίσετε</a>;"
 
 #: libraries/classes/ReplicationGui.php:389
-#: templates/database/search/selection_form.twig:35
 #: templates/display/export/select_options.twig:8
+#: templates/database/search/selection_form.twig:35
 msgid "Unselect all"
 msgstr "Αποεπιλογή όλων"
 
@@ -10690,26 +10694,26 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:791
-#: libraries/classes/Server/Privileges.php:1501
+#: libraries/classes/Server/Privileges.php:1514
 msgid "User name:"
 msgstr "Όνομα χρήστη:"
 
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:795
 #: libraries/classes/ReplicationGui.php:808
-#: libraries/classes/Server/Privileges.php:1506
-#: libraries/classes/Server/Privileges.php:1528
-#: libraries/classes/Server/Privileges.php:2566
-#: libraries/classes/Server/Privileges.php:3544
+#: libraries/classes/Server/Privileges.php:1519
+#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:2579
+#: libraries/classes/Server/Privileges.php:3557
 msgid "User name"
 msgstr "Όνομα χρήστη"
 
 #: libraries/classes/ReplicationGui.php:437
 #: libraries/classes/ReplicationGui.php:858
 #: libraries/classes/ReplicationGui.php:870
-#: libraries/classes/Server/Privileges.php:1667
-#: libraries/classes/Server/Privileges.php:1684
-#: libraries/classes/Server/Privileges.php:3546
+#: libraries/classes/Server/Privileges.php:1680
+#: libraries/classes/Server/Privileges.php:1697
+#: libraries/classes/Server/Privileges.php:3559
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
@@ -10747,39 +10751,39 @@ msgstr ""
 "είναι ορατές σε αυτή τη λίστα."
 
 #: libraries/classes/ReplicationGui.php:747
-#: libraries/classes/Server/Privileges.php:1602
+#: libraries/classes/Server/Privileges.php:1615
 msgid "Any host"
 msgstr "Οποιοδήποτε σύστημα"
 
 #: libraries/classes/ReplicationGui.php:752
-#: libraries/classes/Server/Privileges.php:1610
+#: libraries/classes/Server/Privileges.php:1623
 msgid "Local"
 msgstr "Τοπικό"
 
 #: libraries/classes/ReplicationGui.php:759
-#: libraries/classes/Server/Privileges.php:1619
+#: libraries/classes/Server/Privileges.php:1632
 msgid "This Host"
 msgstr "Αυτός ο διακομιστής"
 
 #: libraries/classes/ReplicationGui.php:799
-#: libraries/classes/Server/Privileges.php:1512
+#: libraries/classes/Server/Privileges.php:1525
 msgid "Any user"
 msgstr "Οποιοσδήποτε χρήστης"
 
 #: libraries/classes/ReplicationGui.php:804
 #: libraries/classes/ReplicationGui.php:837
 #: libraries/classes/ReplicationGui.php:866
-#: libraries/classes/Server/Privileges.php:1638
+#: libraries/classes/Server/Privileges.php:1651
 msgid "Use text field:"
 msgstr "Χρήση πεδίου κειμένου:"
 
 #: libraries/classes/ReplicationGui.php:831
-#: libraries/classes/Server/Privileges.php:1629
+#: libraries/classes/Server/Privileges.php:1642
 msgid "Use Host Table"
 msgstr "Χρήση Οικείου Πίνακα"
 
 #: libraries/classes/ReplicationGui.php:847
-#: libraries/classes/Server/Privileges.php:1655
+#: libraries/classes/Server/Privileges.php:1668
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -10788,7 +10792,7 @@ msgstr ""
 "χρησιμοποιούνται τιμές που είναι αποθηκευμένες στον Οικείο πίνακα."
 
 #: libraries/classes/ReplicationGui.php:878
-#: libraries/classes/Server/Privileges.php:1699
+#: libraries/classes/Server/Privileges.php:1712
 msgid "Re-type"
 msgstr "Επαναεισαγωγή"
 
@@ -11320,7 +11324,7 @@ msgstr "Λείπουν πληροφορίες για φόρτωση της αν�
 msgid "Error while loading the search."
 msgstr "Σφάλμα κατά τη φόρτωση της αναζήτησης."
 
-#: libraries/classes/Server/Privileges.php:222 server_privileges.php:119
+#: libraries/classes/Server/Privileges.php:222 server_privileges.php:120
 msgid "No privileges."
 msgstr "Χωρίς δικαιώματα."
 
@@ -11329,83 +11333,83 @@ msgid "Includes all privileges except GRANT."
 msgstr "Περιλαμβάνει όλα τα δικαιώματα εκτός από το GRANT."
 
 #: libraries/classes/Server/Privileges.php:304
-#: libraries/classes/Server/Privileges.php:1038
-#: libraries/classes/Server/Privileges.php:1212 server_privileges.php:108
+#: libraries/classes/Server/Privileges.php:1048
+#: libraries/classes/Server/Privileges.php:1225 server_privileges.php:109
 msgid "Allows reading data."
 msgstr "Επιτρέπει την ανάγνωση δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:1043
-#: libraries/classes/Server/Privileges.php:1213 server_privileges.php:84
+#: libraries/classes/Server/Privileges.php:1053
+#: libraries/classes/Server/Privileges.php:1226 server_privileges.php:85
 msgid "Allows inserting and replacing data."
 msgstr "Επιτρέπει την εισαγωγή και την αντικατάσταση δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:1048
-#: libraries/classes/Server/Privileges.php:1214 server_privileges.php:118
+#: libraries/classes/Server/Privileges.php:1058
+#: libraries/classes/Server/Privileges.php:1227 server_privileges.php:119
 msgid "Allows changing data."
 msgstr "Επιτρέπει την αλλαγή δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:1215 server_privileges.php:73
+#: libraries/classes/Server/Privileges.php:1228 server_privileges.php:73
 msgid "Allows deleting data."
 msgstr "Επιτρέπει τη διαγραφή δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:324
-#: libraries/classes/Server/Privileges.php:1241 server_privileges.php:67
+#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:67
 msgid "Allows creating new databases and tables."
 msgstr "Επιτρέπει τη δημιουργία νέων βάσεων και πινάκων."
 
 #: libraries/classes/Server/Privileges.php:329
-#: libraries/classes/Server/Privileges.php:1253 server_privileges.php:74
+#: libraries/classes/Server/Privileges.php:1266 server_privileges.php:75
 msgid "Allows dropping databases and tables."
 msgstr "Επιτρέπει τη διαγραφή βάσεων και πινάκων."
 
 #: libraries/classes/Server/Privileges.php:334
-#: libraries/classes/Server/Privileges.php:1337 server_privileges.php:102
+#: libraries/classes/Server/Privileges.php:1350 server_privileges.php:103
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Επιτρέπει την επανεκκίνηση του διακομιστή και τον καθαρισμό των προσωρινών "
 "αρχείων του."
 
 #: libraries/classes/Server/Privileges.php:339
-#: libraries/classes/Server/Privileges.php:1341 server_privileges.php:111
+#: libraries/classes/Server/Privileges.php:1354 server_privileges.php:112
 msgid "Allows shutting down the server."
 msgstr "Επιτρέπει την διακοπή λειτουργίας του διακομιστή."
 
 #: libraries/classes/Server/Privileges.php:344
-#: libraries/classes/Server/Privileges.php:1333 server_privileges.php:99
+#: libraries/classes/Server/Privileges.php:1346 server_privileges.php:100
 msgid "Allows viewing processes of all users."
 msgstr "Επιτρέπει την προβολή διεργασιών όλων των χρηστών."
 
 #: libraries/classes/Server/Privileges.php:349
-#: libraries/classes/Server/Privileges.php:1221 server_privileges.php:78
+#: libraries/classes/Server/Privileges.php:1234 server_privileges.php:79
 msgid "Allows importing data from and exporting data into files."
 msgstr "Επιτρέπει την εισαγωγή και εξαγωγή δεδομένων από και σε αρχεία."
 
 #: libraries/classes/Server/Privileges.php:354
-#: libraries/classes/Server/Privileges.php:1053
-#: libraries/classes/Server/Privileges.php:1365 server_privileges.php:100
+#: libraries/classes/Server/Privileges.php:1063
+#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:101
 msgid "Has no effect in this MySQL version."
 msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
 
 #: libraries/classes/Server/Privileges.php:359
-#: libraries/classes/Server/Privileges.php:1249 server_privileges.php:83
+#: libraries/classes/Server/Privileges.php:1262 server_privileges.php:84
 msgid "Allows creating and dropping indexes."
 msgstr "Επιτρέπει την δημιουργία και την διαγραφή ευρετηρίων."
 
 #: libraries/classes/Server/Privileges.php:364
-#: libraries/classes/Server/Privileges.php:1247 server_privileges.php:65
+#: libraries/classes/Server/Privileges.php:1260 server_privileges.php:65
 msgid "Allows altering the structure of existing tables."
 msgstr "Επιτρέπει την αλλαγή δομής των υπαρχόντων πινάκων."
 
 #: libraries/classes/Server/Privileges.php:369
-#: libraries/classes/Server/Privileges.php:1345 server_privileges.php:109
+#: libraries/classes/Server/Privileges.php:1358 server_privileges.php:110
 msgid "Gives access to the complete list of databases."
 msgstr "Δίνει πρόσβαση στην πλήρη λίστα των βάσεων δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:375
-#: libraries/classes/Server/Privileges.php:1325 server_privileges.php:113
+#: libraries/classes/Server/Privileges.php:1338 server_privileges.php:114
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11416,22 +11420,22 @@ msgstr ""
 "όπως ο ορισμός γενικών μεταβλητών ή τη διακοπή λειτουργιών άλλων χρηστών."
 
 #: libraries/classes/Server/Privileges.php:383
-#: libraries/classes/Server/Privileges.php:1259 server_privileges.php:70
+#: libraries/classes/Server/Privileges.php:1272 server_privileges.php:70
 msgid "Allows creating temporary tables."
 msgstr "Επιτρέπει τη δημιουργία προσωρινών πινάκων."
 
 #: libraries/classes/Server/Privileges.php:388
-#: libraries/classes/Server/Privileges.php:1361 server_privileges.php:85
+#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:86
 msgid "Allows locking tables for the current thread."
 msgstr "Επιτρέπει το κλείδωμα πινάκων για την τρέχουσα λειτουργία."
 
 #: libraries/classes/Server/Privileges.php:393
-#: libraries/classes/Server/Privileges.php:1374 server_privileges.php:107
+#: libraries/classes/Server/Privileges.php:1387 server_privileges.php:108
 msgid "Needed for the replication slaves."
 msgstr "Απαιτείται για τους δευτερευόντες διακομιστές αναπαραγωγής."
 
 #: libraries/classes/Server/Privileges.php:398
-#: libraries/classes/Server/Privileges.php:1370 server_privileges.php:105
+#: libraries/classes/Server/Privileges.php:1383 server_privileges.php:106
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Δίνει το δικαίωμα στον χρήστη να βρει που είναι οι κύριοι / δευτερεύοντες "
@@ -11439,83 +11443,83 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:403
 #: libraries/classes/Server/Privileges.php:419
-#: libraries/classes/Server/Privileges.php:1279
-#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:72
+#: libraries/classes/Server/Privileges.php:1292
+#: libraries/classes/Server/Privileges.php:1299 server_privileges.php:72
 msgid "Allows creating new views."
 msgstr "Επιτρέπει τη δημιουργία νέων προβολών."
 
 #: libraries/classes/Server/Privileges.php:408
-#: libraries/classes/Server/Privileges.php:1293 server_privileges.php:76
+#: libraries/classes/Server/Privileges.php:1306 server_privileges.php:77
 msgid "Allows to set up events for the event scheduler."
 msgstr "Επιτρέπει τον ορισμό συμβάντων για τον προγραμματιστή συμβάντων."
 
 #: libraries/classes/Server/Privileges.php:413
-#: libraries/classes/Server/Privileges.php:1297 server_privileges.php:117
+#: libraries/classes/Server/Privileges.php:1310 server_privileges.php:118
 msgid "Allows creating and dropping triggers."
 msgstr "Επιτρέπει τη δημιουργία και διαγραφή υποδείξεων."
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
-#: libraries/classes/Server/Privileges.php:1263 server_privileges.php:110
+#: libraries/classes/Server/Privileges.php:1276 server_privileges.php:111
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Επιτρέπει την εκτέλεση ερωτημάτων της μορφής SHOW CREATE VIEW."
 
-#: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:68
+#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:1280 server_privileges.php:68
 msgid "Allows creating stored routines."
 msgstr "Επιτρέπει τη δημιουργία αποθηκευμένων εργασιών."
 
-#: libraries/classes/Server/Privileges.php:440
-#: libraries/classes/Server/Privileges.php:1271 server_privileges.php:66
+#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:1284 server_privileges.php:66
 msgid "Allows altering and dropping stored routines."
 msgstr "Επιτρέπει την αλλαγή και διαγραφή αποθηκευμένων εργασιών."
 
-#: libraries/classes/Server/Privileges.php:445
-#: libraries/classes/Server/Privileges.php:1378 server_privileges.php:71
+#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:1391 server_privileges.php:71
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Επιτρέπει τη δημιουργία, διαγραφή και μετονομασία λογαριασμών χρηστών."
 
-#: libraries/classes/Server/Privileges.php:450
-#: libraries/classes/Server/Privileges.php:1273 server_privileges.php:77
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:1286 server_privileges.php:78
 msgid "Allows executing stored routines."
 msgstr "Επιτρέπει την εκτέλεση αποθηκευμένων εργασιών."
 
-#: libraries/classes/Server/Privileges.php:728
+#: libraries/classes/Server/Privileges.php:738
 msgid "Does not require SSL-encrypted connections."
 msgstr "Δεν απαιτούνται κρυπτογραφημένες συνδέσεις SSL."
 
-#: libraries/classes/Server/Privileges.php:744
+#: libraries/classes/Server/Privileges.php:754
 msgid "Requires SSL-encrypted connections."
 msgstr "Απαιτούνται κρυπτογραφημένες συνδέσεις SSL."
 
-#: libraries/classes/Server/Privileges.php:758
+#: libraries/classes/Server/Privileges.php:768
 msgid "Requires a valid X509 certificate."
 msgstr "Απαιτείται ένα έγκυρο πιστοποιητικό X509."
 
-#: libraries/classes/Server/Privileges.php:783
+#: libraries/classes/Server/Privileges.php:793
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 "Απαιτεί ότι συγκεκριμένη κρυπτογραφημένη μέθοδος θα χρησιμοποιείται για μια "
 "σύνδεση."
 
-#: libraries/classes/Server/Privileges.php:796
+#: libraries/classes/Server/Privileges.php:806
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 "Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509 που εκδόθηκε από αυτό το CA "
 "παρουσιάζεται."
 
-#: libraries/classes/Server/Privileges.php:809
+#: libraries/classes/Server/Privileges.php:819
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 "Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509 με αυτό το θέμα παρουσιάζεται."
 
-#: libraries/classes/Server/Privileges.php:839 server_privileges.php:90
+#: libraries/classes/Server/Privileges.php:849 server_privileges.php:91
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Περιορίζει τον αριθμό των ερωτημάτων που ο χρήστης μπορεί να στείλει στον "
 "διακομιστή ανά ώρα."
 
-#: libraries/classes/Server/Privileges.php:847 server_privileges.php:93
+#: libraries/classes/Server/Privileges.php:857 server_privileges.php:94
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -11523,26 +11527,26 @@ msgstr ""
 "Περιορίζει τον αριθμό των αλλαγής πινάκων ή βάσεων που ο χρήστης μπορεί να "
 "εκετελέσει ανά ώρα."
 
-#: libraries/classes/Server/Privileges.php:856 server_privileges.php:87
+#: libraries/classes/Server/Privileges.php:866 server_privileges.php:88
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Περιορίζει τον αριθμό των νέων συνδέσεων που ο χρήστης μπορεί να ξεκινήσει "
 "ανά ώρα."
 
-#: libraries/classes/Server/Privileges.php:865 server_privileges.php:97
+#: libraries/classes/Server/Privileges.php:875 server_privileges.php:98
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο χρήστης."
 
-#: libraries/classes/Server/Privileges.php:910
-#: libraries/classes/Server/Privileges.php:3356
-#: libraries/classes/Server/Privileges.php:3358
-#: libraries/classes/Server/Privileges.php:4581
+#: libraries/classes/Server/Privileges.php:920
+#: libraries/classes/Server/Privileges.php:3369
+#: libraries/classes/Server/Privileges.php:3371
+#: libraries/classes/Server/Privileges.php:4594
 #: templates/privileges/edit_routine_privileges.twig:11
 msgid "Routine"
 msgstr "Εργασία"
 
-#: libraries/classes/Server/Privileges.php:942
+#: libraries/classes/Server/Privileges.php:952
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
@@ -11550,62 +11554,62 @@ msgstr ""
 "Επιτρέπει στο χρήστη για δίνει σε άλλους χρήστες ή να απομακρύνει από άλλους "
 "χρήστες δικαιώματα που ο χρήστης κατέχει σε αυτή τη ρουτίνα."
 
-#: libraries/classes/Server/Privileges.php:949
+#: libraries/classes/Server/Privileges.php:959
 msgid "Allows altering and dropping this routine."
 msgstr "Επιτρέπει την αλλαγή και διαγραφή αυτής της εργασίας."
 
-#: libraries/classes/Server/Privileges.php:954
+#: libraries/classes/Server/Privileges.php:964
 msgid "Allows executing this routine."
 msgstr "Επιτρέπει την εκτέλεση αυτής της εργασίας."
 
-#: libraries/classes/Server/Privileges.php:1004
-#: libraries/classes/Server/Privileges.php:1173
-#: libraries/classes/Server/Privileges.php:3351
+#: libraries/classes/Server/Privileges.php:1014
+#: libraries/classes/Server/Privileges.php:1186
+#: libraries/classes/Server/Privileges.php:3364
 #: templates/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
 msgstr "Δικαιώματα πινάκων"
 
-#: libraries/classes/Server/Privileges.php:1007
-#: libraries/classes/Server/Privileges.php:1183
-#: libraries/classes/Server/Privileges.php:3549
+#: libraries/classes/Server/Privileges.php:1017
+#: libraries/classes/Server/Privileges.php:1196
+#: libraries/classes/Server/Privileges.php:3562
 #: templates/privileges/edit_routine_privileges.twig:16
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Σημείωση: Τα ονόματα δικαιωμάτων της MySQL εκφράζονται στα Αγγλικά."
 
-#: libraries/classes/Server/Privileges.php:1147
+#: libraries/classes/Server/Privileges.php:1160
 msgid "Administration"
 msgstr "Διαχείριση"
 
-#: libraries/classes/Server/Privileges.php:1167
-#: libraries/classes/Server/Privileges.php:3547
+#: libraries/classes/Server/Privileges.php:1180
+#: libraries/classes/Server/Privileges.php:3560
 msgid "Global privileges"
 msgstr "Γενικά δικαιώματα"
 
-#: libraries/classes/Server/Privileges.php:1168
+#: libraries/classes/Server/Privileges.php:1181
 msgid "Global"
 msgstr "Γενικά"
 
-#: libraries/classes/Server/Privileges.php:1170
-#: libraries/classes/Server/Privileges.php:3345
+#: libraries/classes/Server/Privileges.php:1183
+#: libraries/classes/Server/Privileges.php:3358
 msgid "Database-specific privileges"
 msgstr "Δικαιώματα βάσης δεδομένων"
 
-#: libraries/classes/Server/Privileges.php:1242 server_privileges.php:69
+#: libraries/classes/Server/Privileges.php:1255 server_privileges.php:69
 msgid "Allows creating new tables."
 msgstr "Επιτρέπει τη δημιουργία νέων πινάκων."
 
-#: libraries/classes/Server/Privileges.php:1254 server_privileges.php:75
+#: libraries/classes/Server/Privileges.php:1267 server_privileges.php:76
 msgid "Allows dropping tables."
 msgstr "Επιτρέπει τη διαγραφή πινάκων."
 
-#: libraries/classes/Server/Privileges.php:1317
+#: libraries/classes/Server/Privileges.php:1330
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Επιτρέπει την προσθήκη χρηστών και δικαιωμάτων χωρίς να επαναφορτώσετε τους "
 "πίνακες δικαιωμάτων."
 
-#: libraries/classes/Server/Privileges.php:1353 server_privileges.php:80
+#: libraries/classes/Server/Privileges.php:1366 server_privileges.php:81
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
@@ -11613,28 +11617,28 @@ msgstr ""
 "Επιτρέπει το χρήστη να δώσει σε άλλους χρήστες ή απομακρύνει από άλλους "
 "χρήστες τα δικαιώματα που ο χρήστης κατέχει από μόνος του."
 
-#: libraries/classes/Server/Privileges.php:1431
-#: libraries/classes/Server/Privileges.php:1462
+#: libraries/classes/Server/Privileges.php:1444
+#: libraries/classes/Server/Privileges.php:1475
 msgid "Native MySQL authentication"
 msgstr "Γηγενής πιστοποίηση MySQL"
 
-#: libraries/classes/Server/Privileges.php:1464
+#: libraries/classes/Server/Privileges.php:1477
 msgid "SHA256 password authentication"
 msgstr "Πιστοποίηση κωδικού πρόσβασης SHA256"
 
-#: libraries/classes/Server/Privileges.php:1498
-#: libraries/classes/Server/Privileges.php:3113
+#: libraries/classes/Server/Privileges.php:1511
+#: libraries/classes/Server/Privileges.php:3126
 msgid "Login Information"
 msgstr "Πληροφορίες Σύνδεσης"
 
-#: libraries/classes/Server/Privileges.php:1521
-#: libraries/classes/Server/Privileges.php:1679
-#: templates/privileges/add_privileges_table.twig:7
+#: libraries/classes/Server/Privileges.php:1534
+#: libraries/classes/Server/Privileges.php:1692
 #: templates/privileges/add_privileges_routine.twig:7
+#: templates/privileges/add_privileges_table.twig:7
 msgid "Use text field"
 msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
 
-#: libraries/classes/Server/Privileges.php:1547
+#: libraries/classes/Server/Privileges.php:1560
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
@@ -11642,135 +11646,135 @@ msgstr ""
 "Ένας λογαριασμός με το ίδιο όνομα χρήστη υπάρχει ήδη αλλά πιθανά διαφορετικό "
 "φιλοξενητή."
 
-#: libraries/classes/Server/Privileges.php:1556
+#: libraries/classes/Server/Privileges.php:1569
 msgid "Host name:"
 msgstr "Όνομα φιλοξενητή:"
 
-#: libraries/classes/Server/Privileges.php:1561
-#: libraries/classes/Server/Privileges.php:1646
-#: libraries/classes/Server/Privileges.php:2567
-#: libraries/classes/Server/Privileges.php:3545
+#: libraries/classes/Server/Privileges.php:1574
+#: libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Server/Privileges.php:2580
+#: libraries/classes/Server/Privileges.php:3558
 msgid "Host name"
 msgstr "Όνομασία φιλοξενητή"
 
-#: libraries/classes/Server/Privileges.php:1669
+#: libraries/classes/Server/Privileges.php:1682
 msgid "Do not change the password"
 msgstr "Διατήρηση κωδικού πρόσβασης"
 
-#: libraries/classes/Server/Privileges.php:1719
+#: libraries/classes/Server/Privileges.php:1732
 msgid "Authentication Plugin"
 msgstr "Πρόσθετο Πιστοποιίησης"
 
-#: libraries/classes/Server/Privileges.php:1726
+#: libraries/classes/Server/Privileges.php:1739
 msgid "Password Hashing Method"
 msgstr "Μέθοδος Μείγματος Κωδικού Πρόσβασης"
 
-#: libraries/classes/Server/Privileges.php:2016
+#: libraries/classes/Server/Privileges.php:2029
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Ο κωδικός πρόσβασης για τον χρήστη %s άλλαξε επιτυχώς."
 
-#: libraries/classes/Server/Privileges.php:2060
+#: libraries/classes/Server/Privileges.php:2073
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Ανακαλέσατε τα δικαιώματα για %s."
 
-#: libraries/classes/Server/Privileges.php:2160
+#: libraries/classes/Server/Privileges.php:2173
 #: templates/privileges/add_user_fieldset.twig:7
 msgid "Add user account"
 msgstr "Προσθήκη λογαριασμού χρήστη"
 
-#: libraries/classes/Server/Privileges.php:2169
+#: libraries/classes/Server/Privileges.php:2182
 msgid "Database for user account"
 msgstr "Βάση δεδομένων για λογαριασμό χρήστη"
 
-#: libraries/classes/Server/Privileges.php:2175
+#: libraries/classes/Server/Privileges.php:2188
 msgid "Create database with same name and grant all privileges."
 msgstr ""
 "Δημιουργία βάσης δεδομένων με το ίδιο όνομα και με πλήρη δικαιώματα χρήσης."
 
-#: libraries/classes/Server/Privileges.php:2186
+#: libraries/classes/Server/Privileges.php:2199
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Πλήρη δικαιώματα σε όνομα μπαλαντέρ (username\\_%)."
 
-#: libraries/classes/Server/Privileges.php:2199
+#: libraries/classes/Server/Privileges.php:2212
 #, php-format
 msgid "Grant all privileges on database %s."
 msgstr "Πλήρη δικαιώματα στη βάση δεδομένων %s."
 
-#: libraries/classes/Server/Privileges.php:2373
-#: libraries/classes/Server/Privileges.php:2447
+#: libraries/classes/Server/Privileges.php:2386
+#: libraries/classes/Server/Privileges.php:2460
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Χρήστες με πρόσβαση στη βάση «%s»"
 
-#: libraries/classes/Server/Privileges.php:2417
+#: libraries/classes/Server/Privileges.php:2430
 msgid "User has been added."
 msgstr "Ο χρήστης προστέθηκε."
 
-#: libraries/classes/Server/Privileges.php:2570
-#: libraries/classes/Server/Privileges.php:3555
+#: libraries/classes/Server/Privileges.php:2583
+#: libraries/classes/Server/Privileges.php:3568
 #: templates/privileges/privileges_summary.twig:16
 msgid "Grant"
 msgstr "Χορήγηση"
 
-#: libraries/classes/Server/Privileges.php:2585
+#: libraries/classes/Server/Privileges.php:2598
 msgid "Not enough privilege to view users."
 msgstr "Δεν υπάρχουν αρκετά δικαιώματα για προβολή χρηστών."
 
-#: libraries/classes/Server/Privileges.php:2604
-#: libraries/classes/Server/Privileges.php:3978
+#: libraries/classes/Server/Privileges.php:2617
+#: libraries/classes/Server/Privileges.php:3991
 msgid "No user found."
 msgstr "Δεν βρέθηκαν χρήστες."
 
-#: libraries/classes/Server/Privileges.php:2635
-#: libraries/classes/Server/Privileges.php:2971
-#: libraries/classes/Server/Privileges.php:3637
+#: libraries/classes/Server/Privileges.php:2648
+#: libraries/classes/Server/Privileges.php:2984
+#: libraries/classes/Server/Privileges.php:3650
 msgid "Any"
 msgstr "Οποιοδήποτε"
 
-#: libraries/classes/Server/Privileges.php:2686
+#: libraries/classes/Server/Privileges.php:2699
 msgid "global"
 msgstr "γενικός"
 
-#: libraries/classes/Server/Privileges.php:2689
+#: libraries/classes/Server/Privileges.php:2702
 msgid "database-specific"
 msgstr "σχετιζόμενος με βάση δεδομένων"
 
-#: libraries/classes/Server/Privileges.php:2691
+#: libraries/classes/Server/Privileges.php:2704
 msgid "wildcard"
 msgstr "μπαλαντέρ"
 
-#: libraries/classes/Server/Privileges.php:2697
+#: libraries/classes/Server/Privileges.php:2710
 msgid "table-specific"
 msgstr "σχετικός με πίνακα"
 
-#: libraries/classes/Server/Privileges.php:2840
+#: libraries/classes/Server/Privileges.php:2853
 msgid "Edit privileges"
 msgstr "Επεξεργασία δικαιωμάτων"
 
-#: libraries/classes/Server/Privileges.php:2843
+#: libraries/classes/Server/Privileges.php:2856
 msgid "Revoke"
 msgstr "Ανάκληση"
 
-#: libraries/classes/Server/Privileges.php:2867
+#: libraries/classes/Server/Privileges.php:2880
 msgid "Edit user group"
 msgstr "Επεξεργασία ομάδας χρηστών"
 
-#: libraries/classes/Server/Privileges.php:3085
+#: libraries/classes/Server/Privileges.php:3098
 msgid "… keep the old one."
 msgstr "… διατήρηση του παλιού χρήστη."
 
-#: libraries/classes/Server/Privileges.php:3086
+#: libraries/classes/Server/Privileges.php:3099
 msgid "… delete the old one from the user tables."
 msgstr "… διαγραφή του παλιού χρήστη από τους πίνακες χρηστών."
 
-#: libraries/classes/Server/Privileges.php:3088
+#: libraries/classes/Server/Privileges.php:3101
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… ανάκληση των δικαιωμάτων του παλιού χρήστη και διαγραφή του."
 
-#: libraries/classes/Server/Privileges.php:3092
+#: libraries/classes/Server/Privileges.php:3105
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -11778,82 +11782,82 @@ msgstr ""
 "… διαγραφή του παλιού χρήστη από τους πίνακες χρηστών και επαναφόρτωση των "
 "δικαιωμάτων."
 
-#: libraries/classes/Server/Privileges.php:3114
+#: libraries/classes/Server/Privileges.php:3127
 msgid "Change login information / Copy user account"
 msgstr "Αλλαγή στοιχείων πρόσβασης / Αντιγραφή λογαριασμού χρήστη"
 
-#: libraries/classes/Server/Privileges.php:3120
+#: libraries/classes/Server/Privileges.php:3133
 msgid "Create a new user account with the same privileges and …"
 msgstr "Δημιουργία νέου λογαριασμού χρήστη με τα ίδια δικαιώματα και …"
 
-#: libraries/classes/Server/Privileges.php:3357
+#: libraries/classes/Server/Privileges.php:3370
 #: templates/privileges/edit_routine_privileges.twig:12
 msgid "Routine-specific privileges"
 msgstr "Δικαιώματα για τη συγκεκριμένη εργασία"
 
-#: libraries/classes/Server/Privileges.php:3553
+#: libraries/classes/Server/Privileges.php:3566
 #: libraries/classes/Server/UserGroups.php:89
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
 msgstr "Ομάδας χρηστών"
 
-#: libraries/classes/Server/Privileges.php:3676
-#: libraries/classes/Server/Privileges.php:4811
+#: libraries/classes/Server/Privileges.php:3689
+#: libraries/classes/Server/Privileges.php:4824
 msgid "The selected user was not found in the privilege table."
 msgstr "Ο επιλεγμένος χρήστης δεν βρέθηκε στον πίνακα δικαιωμάτων."
 
-#: libraries/classes/Server/Privileges.php:3854
+#: libraries/classes/Server/Privileges.php:3867
 msgid "No users selected for deleting!"
 msgstr "Δεν επιλέχθηκαν χρήστες για διαγραφή!"
 
-#: libraries/classes/Server/Privileges.php:3857
+#: libraries/classes/Server/Privileges.php:3870
 msgid "Reloading the privileges"
 msgstr "Επαναφόρτωση δικαιωμάτων"
 
-#: libraries/classes/Server/Privileges.php:3876
+#: libraries/classes/Server/Privileges.php:3889
 msgid "The selected users have been deleted successfully."
 msgstr "Οι επιλεγμένοι χρήστες διεγράφησαν επιτυχώς."
 
-#: libraries/classes/Server/Privileges.php:3951
+#: libraries/classes/Server/Privileges.php:3964
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Τα δικαιώματα του χρήστη %s ενημερώθηκαν."
 
-#: libraries/classes/Server/Privileges.php:4056
+#: libraries/classes/Server/Privileges.php:4069
 #, php-format
 msgid "Deleting %s"
 msgstr "Διαγραφή %s"
 
-#: libraries/classes/Server/Privileges.php:4086
+#: libraries/classes/Server/Privileges.php:4099
 msgid "The privileges were reloaded successfully."
 msgstr "Τα δικαιώματα επαναφορτώθηκαν επιτυχώς."
 
-#: libraries/classes/Server/Privileges.php:4177
+#: libraries/classes/Server/Privileges.php:4190
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Ο χρήστης %s υπάρχει ήδη!"
 
-#: libraries/classes/Server/Privileges.php:4454
+#: libraries/classes/Server/Privileges.php:4467
 #, php-format
 msgid "Privileges for %s"
 msgstr "Δικαιώματα για %s"
 
-#: libraries/classes/Server/Privileges.php:4463
+#: libraries/classes/Server/Privileges.php:4476
 #: libraries/classes/Server/Status/Processes.php:81
 #: libraries/classes/Server/UserGroups.php:49
 msgid "User"
 msgstr "Χρήστης"
 
-#: libraries/classes/Server/Privileges.php:4531
+#: libraries/classes/Server/Privileges.php:4544
 msgid "Edit privileges:"
 msgstr "Επεξεργασία δικαιωμάτων:"
 
-#: libraries/classes/Server/Privileges.php:4532
+#: libraries/classes/Server/Privileges.php:4545
 msgid "User account"
 msgstr "Λογαριασμός χρήστη"
 
-#: libraries/classes/Server/Privileges.php:4606
+#: libraries/classes/Server/Privileges.php:4619
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
@@ -11861,12 +11865,12 @@ msgstr ""
 "Σημείωση: Προσπαθείτε να επεξεργαστείτε δικαιώματα του χρήστη με τον οποίο "
 "έχετε συνδεθεί."
 
-#: libraries/classes/Server/Privileges.php:4626
+#: libraries/classes/Server/Privileges.php:4639
 #: libraries/classes/Server/Users.php:30
 msgid "User accounts overview"
 msgstr "Επισκόπηση λογαριασμών χρηστών"
 
-#: libraries/classes/Server/Privileges.php:4701
+#: libraries/classes/Server/Privileges.php:4714
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -11877,7 +11881,7 @@ msgstr ""
 "φιλοξενίας του λογαριασμού τους επιτρέπει μια σύνδεση από οποιαδήποτε (%) "
 "φιλοξενία."
 
-#: libraries/classes/Server/Privileges.php:4743
+#: libraries/classes/Server/Privileges.php:4756
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -11891,7 +11895,7 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, θα πρέπει να %sεπαναφορτώσετε "
 "τα δικαιώματα%s πριν συνεχίσετε."
 
-#: libraries/classes/Server/Privileges.php:4760
+#: libraries/classes/Server/Privileges.php:4773
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11905,7 +11909,7 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, τα δικαιώματα πρέπει να "
 "επαναφορτωθούν αλλά προς το παρόν, δεν έχετε το δικαίωμα RELOAD."
 
-#: libraries/classes/Server/Privileges.php:5045
+#: libraries/classes/Server/Privileges.php:5058
 msgid "You have added a new user."
 msgstr "Προσθέσατε ένα νέο χρήστη."
 
@@ -14273,16 +14277,22 @@ msgstr "Η πιστοποίηση δύο-παραγόντων έχει ρυθμ�
 msgid "View dump (schema) of databases"
 msgstr "Εμφάνισης σκαριφήματος (σχήματος) βάσεων δεδομένων"
 
-#: server_privileges.php:144 server_replication.php:38
+#: server_privileges.php:74
+#, fuzzy
+#| msgid "Allows deleting data."
+msgid "Allows deleting historical rows."
+msgstr "Επιτρέπει τη διαγραφή δεδομένων."
+
+#: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
 msgid "No Privileges"
 msgstr "Χωρίς Δικαιώματα"
 
-#: server_privileges.php:151
+#: server_privileges.php:152
 msgid "You do not have privileges to manipulate with the users!"
 msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να χειριστείτε χρήστες!"
 
-#: server_privileges.php:165
+#: server_privileges.php:166
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -14582,18 +14592,185 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Σημείωση: Η ενεργοποίηση στατιστικών μπορεί να προκαλέσει μεγάλη μεταφορά "
-"δεδομένων μεταξύ του διακομιστή ιστού και του διακομιστή MySQL."
+#: templates/table/structure/add_column.twig:9
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Προσθήκη %s στήλης(ών)"
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-msgid "Enable statistics"
-msgstr "Ενεργοποίηση στατιστικών"
+#: templates/table/structure/add_column.twig:14
+msgid "at beginning of table"
+msgstr "στην αρχή του πίνακα"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr "μετά το %s"
+
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Εγγραφές:"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Μετατροπή εγγραφής(ών)"
+
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "Αριθμός εγγραφών:"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Η εγγραφή θα ξεκινάει στο:"
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Μετατροπή όλων των γραμμών"
+
+#: templates/database/designer/delete_relation_panel.twig:21
+msgid "Delete relationship"
+msgstr "Διαγραφή συσχέτισης"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+msgid "Relationship operator"
+msgstr "Λειτουργός συσχέτισης"
+
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/having_query_panel.twig:90
+msgid "Except"
+msgstr "Εξαίρεση"
+
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/having_query_panel.twig:102
+msgid "subquery"
+msgstr "υποερώτημα"
+
+#: templates/database/designer/options_panel.twig:84
+#: templates/database/designer/rename_to_panel.twig:22
+msgid "Rename to"
+msgstr "Μετονομασία σε"
+
+#: templates/database/designer/options_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:30
+msgid "New name"
+msgstr "Νέο όνομα"
+
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/aggregate_query_panel.twig:22
+msgid "Aggregate"
+msgstr "Άθροιση"
+
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/where_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/table/search/table_header.twig:9
+msgid "Operator"
+msgstr "Τελεστής"
+
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "Εμφάνιση/απόκρυψη στηλών"
+
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "Προβολή δομής πίνακα"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s πίνακας"
+msgstr[1] "%s πίνακες"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Σύνολο"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Όνομα ευρετηρίου:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+"«PRIMARY» <b>πρέπει</b> να είναι το όνομα του πρωτεύοντος κλειδιού και "
+"<b>μόνο αυτού</b>!"
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr "Επιλογή ευρετηρίου:"
+
+#: templates/table/index_form.twig:42
+msgid "Advanced Options"
+msgstr "Προχωρημένες επιλογές"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr "Μέγεθος μπλοκ κλειδιού:"
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Τύπος ευρετηρίου:"
+
+#: templates/table/index_form.twig:77
+msgid "Parser:"
+msgstr "Μεταφραστής:"
+
+#: templates/table/index_form.twig:93
+msgid "Comment:"
+msgstr "Σχόλιο:"
+
+#: templates/table/index_form.twig:118
+#: templates/database/structure/table_header.twig:38
+msgid "Size"
+msgstr "Μέγεθος"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr "Σύρτε για ανακατανομή"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Προσθήκη στα Αγαπημένα"
+
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "Ενεργές επιλογές"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr "Σελίδα για άνοιγμα"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "Σελίδα για διαγραφή"
+
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "Εμφάνιση ερωτημάτων δημιουργίας"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Χρήση χώρου"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Αποτελεσματικός"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr "Επεξεργασία τιμών ENUM/SET"
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
@@ -14613,986 +14790,6 @@ msgstr "Απενεργοποιήση παρακολούθησης για το %s
 msgid "Deactivate now"
 msgstr "Απενεργοποιήση τώρα"
 
-#: templates/table/structure/check_all_table_column.twig:76
-#: templates/table/structure/actions_in_table_structure.twig:131
-msgid "Add to central columns"
-msgstr "Προσθήκη στις κεντρικές στήλες"
-
-#: templates/table/structure/check_all_table_column.twig:83
-#: templates/table/structure/actions_in_table_structure.twig:127
-msgid "Remove from central columns"
-msgstr "Απομάκρυνση από κεντρικές στήλες"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-msgid "Authentication code:"
-msgstr "Κώδικας πιστοποίησης:"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-"Ανοίξτε την εφαρμογή πιστοποίησης δύο-παραγόντων στη συσκευή σας για να "
-"προβάλετε τον κώδικα πιστοποίησης και να επαληθεύσετε την ταυτότητα σας."
-
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "Αριθμός εγγραφών:"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "Αποθήκευση στην επιλεγμένη σελίδα"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "Δημιουργία μιας σελίδας και αποθήκευση σε αυτή"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "Νέο όνομα σελίδα"
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Αναζήτηση στη βάση δεδομένων"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Λέξεις ή τιμές για αναζήτηση (μπαλαντέρ: «%»):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "Έυρεση:"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "Μέσα στους πίνακες:"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "Εσωτερικό πεδίο:"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Προβολή εξαγόμενου ως κείμενο"
-
-#: templates/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "Διαγραφή των επιλεγμένων λογαριασμών χρηστών"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-"Ανάκληση όλων των ενεργών δικαιώματα από τους χρήστες και διαγραφή τους."
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδια ονόματα με χρήστες."
-
-#: templates/database/designer/delete_relation_panel.twig:21
-msgid "Delete relationship"
-msgstr "Διαγραφή συσχέτισης"
-
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/where_query_panel.twig:30
-msgid "Operator"
-msgstr "Τελεστής"
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#: templates/database/designer/where_query_panel.twig:59
-msgid "Except"
-msgstr "Εξαίρεση"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#: templates/database/designer/where_query_panel.twig:71
-msgid "subquery"
-msgstr "υποερώτημα"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Πρόσθετο"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Δημιουργός"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "Απενεργοποιημένο"
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "Απόκρυψη/Προβολή όλων"
-
-#: templates/database/designer/table_list.twig:14
-msgid "Hide/Show tables with no relationship"
-msgstr "Απόκρυψη/Εμφάνιση πινάκων χωρίς συσχέτιση"
-
-#: templates/database/designer/table_list.twig:55
-msgid "Number of tables:"
-msgstr "Αριθμός πινάκων:"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Πατήστε για εναλλαγή"
-
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "Εισαγωγή στον τρέχοντα διακομιστή"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "Εισαγωγή στη βάση δεδομένων «%s»"
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "Εισαγωγή στον πίνακα «%s»"
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "Αρχείο για εισαγωγή:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "Το αρχείο μπορεί να συμπιεστεί (%s) ή να αποσυμπιεστεί."
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"Το όνομα του συμπιεσμένου αρχείου πρέπει να λήγει σε <strong>.[format]."
-"[compression]</strong>. Παράδειγμα: <strong>.sql.zip</strong>"
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "Μπορείτε να σύρετε και να αφήσετε ένα αρχείο σε οποιαδήποτε σελίδα."
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "Οι αποστολές αρχείων δεν επιτρέπονται σε αυτό τον διακομιστή."
-
-#: templates/display/import/import.twig:97
-#: templates/display/export/options_output_charset.twig:3
-msgid "Character set of the file:"
-msgstr "Σύνολο χαρακτήρων του αρχείου:"
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "Μερική εισαγωγή:"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"Η προηγούμενη εισαγωγή εξάντλησε το χρονικό όριο, μετά την επανυποβολή θα "
-"συνεχίσει από τη θέση %d."
-
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"Επιτρέπει τη διακοπή της εισαγωγής σε περίπτωση που ανιχνευτεί ότι το "
-"σενάριο προσεγγίζει το χρονικό όριο  PHP. <em>(Αυτό μπορεί να είναι καλό για "
-"εισαγωγή μεγάλων αρχείων, ωστόσο, μπορεί να σπάσει τις συνδιαλλαγές.)</em>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Αγνόηση αυτού του αριθμού ερωτημάτων (για SQL) ξεκινόντας από το πρώτο:"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "Άλλες επιλογές:"
-
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr "Επιλογές ορισμένης μορφής:"
-
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Μεταβείτε πιο κάτω για να συμπληρώσετε τις επιλογές για την επιλεγμένη μορφή "
-"και αγνοήστε τις επιλογές για τις άλλες μορφές."
-
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr "Μετατροπή κωδικοποίησης:"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Τιμή συνεδρίας"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Νέος"
-
-#: templates/table/tracking/report_table.twig:4
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-msgctxt "Number"
-msgid "#"
-msgstr "#"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Ημερομηνία"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Όνομα χρήστη"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s πίνακας"
-msgstr[1] "%s πίνακες"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Σύνολο"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Όρια πόρων"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός."
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr "Ρύθμιση πιστοποίησης δύο-παραγόντων"
-
-#: templates/prefs_twofactor_configure.twig:8
-msgid "Enable two-factor authentication"
-msgstr "Ενεργοποίηση πιστοποίησης δύο-παραγόντων"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Ρυθμίσεις και μεταβλητές του διακομιστή"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "Μηχανές αποθήκευσης"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Σύνολα και συνθέσεις χαρακτήρων"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Στατιστικά βάσης"
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:192
-msgid "Partitions"
-msgstr "Κατατμήσεις"
-
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr "Δεν ορίστηκε κατάτμηση!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr "Κατατμήθηκε κατά:"
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr "Υπό κατατμήθηκε κατά:"
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-msgid "Partition"
-msgstr "Κατάτμηση"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-msgid "Expression"
-msgstr "Έκφραση"
-
-#: templates/table/structure/display_partitions.twig:29
-msgid "Data length"
-msgstr "Μέγεθος δεδομένων"
-
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "Μέγεθος ευρετηρίου"
-
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "Πίνακας κατάτμησης"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-msgid "Edit partitioning"
-msgstr "Επεξεργασία κατάτμησης"
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Δημιουργία έκδοσης %1$s του %2$s"
-
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "Δημιουργία έκδοσης %1$s"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Παρακολούθηση αυτών των δηλώσεων ορισμού δεδομένων:"
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Παρακολούθηση αυτών των δηλώσεων χειρισμού δεδομένων:"
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Δημιουργία έκδοσης"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "πρώτη"
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, php-format
-msgid "after %s"
-msgstr "μετά το %s"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Εγγραφή έναρξης:"
-
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "Εμφάνιση/απόκρυψη στηλών"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "Προβολή δομής πίνακα"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "Αναφέρεται από %s."
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Είναι ένα foreign key."
-
-#: templates/columns_definitions/column_name.twig:40
-msgid "Pick from Central Columns"
-msgstr "Επιλογή από τις Κεντρικές Στήλες"
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Δεν υπάρχουν βάσεις δεδομένων"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr "Σελίδα για άνοιγμα"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "Σελίδα για διαγραφή"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Επιλογή σελίδας"
-
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr "Στατιστικά εγγραφών"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "στατικό"
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "δυναμικά"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "κατατμήθηκε"
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Μέγεθος γραμμής"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Μέγεθος εγγραφής"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr "Επόμενη αυτόματη αρίθμηση"
-
-#: templates/table/structure/row_stats_table.twig:76
-#: templates/database/structure/table_header.twig:53
-msgid "Creation"
-msgstr "Δημιουργία"
-
-#: templates/table/structure/row_stats_table.twig:83
-#: templates/database/structure/table_header.twig:58
-msgid "Last update"
-msgstr "Τελευταία ενημέρωση"
-
-#: templates/table/structure/row_stats_table.twig:90
-#: templates/database/structure/table_header.twig:63
-msgid "Last check"
-msgstr "Tελευταίος έλεγχος"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Καμία"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "Μετατροπή σε Kana"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Ονομασία πίνακα"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-msgid "Add"
-msgstr "Προσθήκη"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-msgid "column(s)"
-msgstr "στήλη(ες)"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Σύνθεση:"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Μηχανή αποθήκευσης:"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Σύνδεση:"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "Ορισμός PARTITION:"
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "Επιλογή μιας στήλης."
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr "Επεξεργασία τιμών ENUM/SET"
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Χρησιμοποιήστε αυτή τη στήλη για την ετικέτα κάθε σημείου"
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Μέγιστος αριθμός γραμμών για εκτύπωση"
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-"Υπάρχει δυσαρμονία μεταξύ του HTTPS που φαίνεται στο διακομιστή και στον "
-"πελάτη. Αυτό μπορεί να οδηγήσει σε μη λειτουργικό phpMyAdmin ή σε κίνδυνο "
-"ασφάλειας. Διορθώστε τη ρύθμιση του διακομιστή σας ώστε να δείχνει το HTTPS "
-"σωστά."
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"Το αρχείο που είναι να ληφθεί είναι πιθανόν μεγαλύτερο από το επιτρεπτό ή "
-"αυτό είναι ένα γνωστό σφάλμα φυλλομετρητή (Safari, Google Chrome, Arora "
-"κλπ.)."
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr "%s από %s"
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/δευτ."
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Απομένουν περίπου %MIN λεπτά %SEC δευτερόλεπτα."
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "Απομένουν περίπου %SEC δευτερόλεπτα."
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "Η εισαγωγή του αρχείου είναι σε εξέλιξη, υπομονή."
-
-#: templates/display/import/javascript.twig:36
-msgid "Uploading your import file…"
-msgstr "Αποστολή του αρχείου εισαγωγής σας…"
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Υπομονή, το αρχείο αποστέλεται. Λεπτομέρειες για την αποστολή δεν είναι "
-"διαθέσιμες."
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Εξαγωγή βάσεων δεδομένων από τον τρέχοντα διακομιστή"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Εξαγωγή πινάκων από τη βάση δεδομένων «%s»"
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Εξαγωγή εγγραφών από τον πίνακα «%s»"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-"Παρακαλώ συνδέστε την FIDO U2F συσκευή σας, στην θύρα USB του υπολογιστή "
-"σας. Μετά επιβεβαιώστε την εγγραφή στην συσκευή."
-
-#: templates/columns_definitions/partitions.twig:17
-msgid "Partition by:"
-msgstr "Κατάτμηση κατά:"
-
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-msgid "Expression or column list"
-msgstr "Έκφραση ή λίστα στηλών"
-
-#: templates/columns_definitions/partitions.twig:37
-msgid "Partitions:"
-msgstr "Κατατμήσεις:"
-
-#: templates/columns_definitions/partitions.twig:45
-msgid "Subpartition by:"
-msgstr "Υπόκατάτμηση κατά:"
-
-#: templates/columns_definitions/partitions.twig:65
-msgid "Subpartitions:"
-msgstr "Υποκατατμήσεις:"
-
-#: templates/columns_definitions/partitions.twig:78
-msgid "Values"
-msgstr "Τιμές"
-
-#: templates/columns_definitions/partitions.twig:82
-msgid "Subpartition"
-msgstr "Υποκατάτμηση"
-
-#: templates/columns_definitions/partitions.twig:84
-msgid "Engine"
-msgstr "Μηχανή"
-
-#: templates/columns_definitions/partitions.twig:86
-msgid "Data directory"
-msgstr "Φάκελος δεδομένων"
-
-#: templates/columns_definitions/partitions.twig:87
-msgid "Index directory"
-msgstr "Φάκελος ευρετηρίου"
-
-#: templates/columns_definitions/partitions.twig:88
-msgid "Max rows"
-msgstr "Μέγιστες εγγραφές"
-
-#: templates/columns_definitions/partitions.twig:89
-msgid "Min rows"
-msgstr "Ελάχιστες εγγραφές"
-
-#: templates/columns_definitions/partitions.twig:90
-msgid "Table space"
-msgstr "Χώρος πίνακα"
-
-#: templates/columns_definitions/partitions.twig:91
-msgid "Node group"
-msgstr "Κόμβος ομάδας"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-"Παρακαλώ συνδέστε την FIDO U2F συσκευή σας στην θύρα USB του υπολογιστή σας. "
-"Μετά επιβεβαιώστε τη σύνδεση στη συσκευή."
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-"Δεν χρησιμοποιήτε https για πρόσβαση στο phpMyAdmin, επομένως η FIDO U2F "
-"συσκευή πιθανά θα αρνηθεί να σας πιστοποιήσει."
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "Εμφάνιση Οπτικοποίησης GIS"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Στήλη ετικέτας"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Τίποτα --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Χωρική στήλη"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Προσθήκη στα Αγαπημένα"
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Αποθήκευση στον διακομιστή στον κατάλογο <strong>%s</strong>"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Σύμπτηξη"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Ανάπτυξη"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Επανερώτημα"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Αν ο τύπος του πεδίου είναι «enum» ή «set», παρακαλώ εισάγετε τις τιμές "
-"χρησιμοποιώντας την εξής μορφή: 'α','β','γ'…<br />Αν χρειάζεται να εισάγετε "
-"την ανάποδη κάθετο («\\») ή απλά εισαγωγικά («'»), προθέστε τα με ανάποδη "
-"κάθετο στην αρχή (για παράδειγμα '\\\\χψω' ή 'α\\'β')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Για προκαθορισμένες τιμές, παρακαλώ εισάγετε μία τιμή, χωρίς χαρακτήρες "
-"διαφυγής ή εισαγωγικά, χρησιμοποιώντας τη μορφή: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Εικονικά"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Απομάκρυνση στήλης"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Κατάλογος διαθέσιμων μετατροπών και οι επιλογές τους"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Επιλογές μετατροπής προβολής περιηγητή"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Παρακαλώ εισάγετε τις τιμές για τη μετατροπή χρησιμοποιώντας τη μορφή: 'α', "
-"100, β,'γ'…<br />Εάν χρειαστεί να χρησιμοποιήσετε ανάποδη κάθετο («\\») ή "
-"μονά εισαγωγικά («'») στις τιμές, βάλτε ως πρόθεμα ανάποδη κάθετο "
-"(παράδειγμα '\\\\χψω' ή 'α\\'β')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Επιλογές μετατροπής εισαγωγής"
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Εξαγωγή προτύπων:"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Νέο πρότυπο:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Ονομασία προτύπου"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "Δημιουργία"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Υπάρχοντα πρότυπα:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Πρότυπο:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Ενημέρωση"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"Ο φυλλομετρητής σας έχει ρύθμιση phpMyAdmin για αυτό το domain. Θέλετε να το "
-"εισάγετε για την τρέχουσα συνεδρία;"
-
-#: templates/prefs_autoload.twig:13
-msgid "Delete settings"
-msgstr "Διαγραφή ρυθμίσεων"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-"Αυτή η αναφορά περιλαμβάνει αυτόματα δεδομένα σχετικά με το σφάλμα και "
-"πληροφορίες σχετικά με επιλογές ρυθμίσεων. Θα αποσταλεί στην ομάδα του "
-"phpMyAdmin για την αντιμετώπιση του σφάλματος."
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-"Μπορείτε να μας πείτε τα βήματα που οδηγούν σε αυτό το σφάλμα; Βοηθάει "
-"αποτελεσματικά στην αντιμετώπιση των σφαλμάτων:"
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr "Μπορείτε να εξετάστε τα δεδομένα στην αναφορά σφάλματος:"
-
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
-msgid "Show/Hide tables list"
-msgstr "Εμφάνιση/Απόκρυψη λίστας πινάκων"
-
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
-msgstr "Προβολή σε πλήρη οθόνη"
-
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr "Έξοδος από πλήρη οθόνη"
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
-msgid "New page"
-msgstr "Νέα σελίδα"
-
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
-msgid "Delete pages"
-msgstr "Διαγραφή σελίδων"
-
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-#: templates/database/create_table.twig:7
-msgid "Create table"
-msgstr "Δημιουργία πίνακα"
-
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-#: templates/database/designer/new_relation_panel.twig:22
-msgid "Create relationship"
-msgstr "Δημιουργία συσχέτισης"
-
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr "Επαναφόρτωση"
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr "Βοήθεια"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr "Γωνιακοί σύνδεσμοι"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr "Άμεσοι σύνδεσμοι"
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr "Συγκράτηση στο πλέγμα"
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr "Όλα Μικρά/Μεγάλα"
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr "Εναλλαγή μικρά/μεγάλα"
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-msgid "Toggle relationship lines"
-msgstr "Εναλλαγή γραμμών συσχέτισης"
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
-msgid "Export schema"
-msgstr "Εξαγωγή σχήματος"
-
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-msgid "Build Query"
-msgstr "Δημιουργία ερωτήματος"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
-msgstr "Μενου μετακίνησης"
-
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
-msgid "Pin text"
-msgstr "Καρφίτσωμα κειμένου"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-"Παρακαλώ σαρώστε τον ακόλουθο κώδικα QR μέσα στην εφαρμογή πιστοποίησης δύο-"
-"παραγόντων στη συσκευή σας και εισάγετε τον κώδικα πιστοποίησης που παράγει."
-
-#: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-"Παρακαλώ σαρώστε τον ακόλουθο κώδικα QR μέσα στην εφαρμογή πιστοποίησης δύο-"
-"παραγόντων στη συσκευή σας και εισάγετε τον κώδικα πιστοποίησης που παράγει."
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Εκτέλεσε ένα «επερώτημα ανά παράδειγμα» (χαρακτήρας μπαλαντέρ «%») για δύο "
-"διαφρετικές στήλες"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "Επιλογή πεδίων (τουλάχιστον ένα):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Προσθήκη νέου όρου (σώμα της πρότασης «where» πρότασης):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Εγγραφές ανά σελίδα"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Σειρά εμφάνισης:"
-
 #: templates/console/display.twig:7
 msgid "History"
 msgstr "Ιστορικό"
@@ -15608,6 +14805,21 @@ msgstr "Πατήστε Ctrl+Enter για εκτέλεση του ερωτήμα�
 #: templates/console/display.twig:23
 msgid "Press Enter to execute query"
 msgstr "Πατήστε Enter για εκτέλεση του ερωτήματος"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Collapse"
+msgstr "Σύμπτηξη"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Expand"
+msgstr "Ανάπτυξη"
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
+msgid "Requery"
+msgstr "Επανερώτημα"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
@@ -15670,6 +14882,13 @@ msgstr "Προβολή ίχνους"
 msgid "Hide trace"
 msgstr "Απόκρυψη ίχνους"
 
+#: templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+msgid "Add"
+msgstr "Προσθήκη"
+
 #: templates/console/display.twig:112
 msgid "Add bookmark"
 msgstr "Προσθήκη σελιδοδείκτη"
@@ -15698,214 +14917,61 @@ msgstr ""
 "Εκτέλεση ερωτημάτων με το πάτημα του Enter και εισαγωγή νέας γραμμής με "
 "SHIFT + Enter. Για να το κάνετε αυτό μόνιμο, δείτε τις ρυθμίσεις."
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Χρήση χώρου"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Αποτελεσματικός"
-
-#: templates/server/databases/table_row.twig:13
-#, php-format
-msgid "Jump to database '%s'"
-msgstr "Μετάβαση στη βάση δεδομένων '%s'"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Έλεγχος δικαιωμάτων για τη βάση «%s»."
-
-#: templates/server/databases/table_row.twig:62
-msgid "Check privileges"
-msgstr "Έλεγχος δικαιωμάτων"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "Εμφάνιση ερωτημάτων δημιουργίας"
-
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακα:"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s αποτέλεσμα στο <strong>%2$s</strong>"
-msgstr[1] "%1$s αποτελέσματα στο <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Σύνολο:</strong> <em>%count%</em> αποτέλεσμα"
-msgstr[1] "<strong>Σύνολο:</strong> <em>%count%</em> αποτελέσματα"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-"Αυτή είναι μια μεταβλητή μόνο για ανάγνωση και δεν μπορεί να επεξεργαστεί"
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "Απομάκρυνση"
-
-#: templates/table/structure/display_structure.twig:138
-#: templates/view_create.twig:13
-msgid "Edit view"
-msgstr "Επεξεργασία εμφάνισης"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Βάσεις δεδομένων:"
-
-#: templates/prefs_twofactor_confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr "Επιβεβαίωση απενεργοποίησης της πιστοποίησης δύο-παραγόντων"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-"Με την απενεργοποίηση της πιστοποίησης δύο-παραγόντων θα μπορείτε ξανά να "
-"συνδεθείτε με χρήση μόνο του συνθηματικού."
-
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-msgid "Disable two-factor authentication"
-msgstr "Απενεργοποίηση πιστοποίησης δύο-παραγόντων"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Επιλέξτε δυαδικό αρχείο καταγραφής για προβολή"
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "σε χρήση"
-
-#: templates/privileges/add_privileges_database.twig:1
-msgid "Add privileges on the following database(s):"
-msgstr "Προσθήκη δικαιωμάτων στην(ις) ακόλουθη(ες) βάση(εις) δεδομένων:"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-"Οι χαρακτήρες μπαλαντέρ _ και % πρέπει να γραφούν μπροστά με \\ για να "
-"χρησιμοποιηθούν."
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "Η παρακολούθηση είναι ενεργοποιημένη."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "Η παρακολούθηση δεν είναι ενεργοποιημένη."
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Εγγραφές:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Μετατροπή εγγραφής(ών)"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Η εγγραφή θα ξεκινάει στο:"
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Μετατροπή όλων των γραμμών"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Αριθμός στηλών"
-
-#: templates/table/relation/common_form.twig:6
-msgid "Foreign key constraints"
-msgstr "Περιορισμοί ξένου κλειδιού"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "Ενέργειες"
-
-#: templates/table/relation/common_form.twig:11
-msgid "Constraint properties"
-msgstr "Ιδιότητες περιορισμών"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-"Δημιουργώντας ένα ξένο κλειδί σε μια στήλη χωρίς ευρετήριο θα δημιουργήσει "
-"αυτόματα ένα ευρετήριο για αυτή. Εναλλακτικά, μπορείτε να ορίσετε ένα "
-"ευρετήριο παρακάτω, πριν δημιουρήσετε το ξένο κλειδί."
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-"Μόνο στήλες με ευρετήριο θα εμφανίζονται. Μπορείτε να ορίσετε ευρετήριο "
-"παρακάτω."
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr "Όριο μη διακριτού κλειδιού"
-
-#: templates/table/relation/common_form.twig:89
-msgid "+ Add constraint"
-msgstr "+Προσθήκη περιορισμού"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-msgid "Internal relationships"
-msgstr "Εσωτερικές συσχετίσεις"
-
-#: templates/table/relation/common_form.twig:110
-msgid "Internal relation"
-msgstr "Εσωτερική συσχέτιση"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-"Μια εσωτερική συσχέτιση δεν είναι απαραίτητη όταν υπάρχει μια αντίστοιχη "
-"συσχέτιση FOREIGN KEY."
-
-#: templates/table/relation/common_form.twig:172
-msgid "Choose column to display:"
-msgstr "Επιλέξτε στήλη για εμφάνιση:"
-
-#: templates/table/structure/table_structure_row.twig:34
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-msgctxt "None for default"
-msgid "None"
-msgstr "Καμία"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Η στήλη %s διεγράφη."
-
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
 msgstr "Επιλογή ενός προτύπου"
 
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Συνέχιση εισαγωγής με %s εγγραφές"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Εύρεση και αντικατάσταση - προεπισκόπηση"
 
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Πρότυπο ονόματος αρχείου:"
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Αρχικό κείμενο"
 
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "χρησιμοποιήστε το για μελλοντικές εξαγωγές"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Αντικατεστημένο κείμενο"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Αντικατάσταση"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Καμία"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr "Μετατροπή σε Kana"
+
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Ίσως είναι κατά προσέγγιση. Πατείστε στον αριθμό για να λάβετε το ακριβές "
+"ποσό. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]."
+
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "Δημιουργία"
+
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "Τελευταία ενημέρωση"
+
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "Tελευταίος έλεγχος"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "Πρόσθετα κριτήρια αναζήτησης"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -15943,106 +15009,75 @@ msgstr "Απομάκρυνση στηλών από την κεντρική λί�
 msgid "Make consistent with central list"
 msgstr "Συνέπεια με την κεντρική λίστα"
 
-#: templates/table/relation/foreign_key_row.twig:15
-#, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Ο περιορισμός ξένου κλειδιού %s έχει διαγραφεί"
+#: templates/table/structure/display_structure.twig:138
+#: templates/view_create.twig:13
+msgid "Edit view"
+msgstr "Επεξεργασία εμφάνισης"
 
-#: templates/table/relation/foreign_key_row.twig:38
-msgid "Constraint name"
-msgstr "Όνομα μεταβλητής"
+#: templates/table/structure/display_structure.twig:192
+#: templates/table/structure/display_partitions.twig:4
+msgid "Partitions"
+msgstr "Κατατμήσεις"
 
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
-msgid "+ Add column"
-msgstr "+ Προσθήκη στήλης"
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "If column type is \"enum\" or \"set\", please enter the values using this "
+#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
+#| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Αν ο τύπος του πεδίου είναι «enum» ή «set», παρακαλώ εισάγετε τις τιμές "
+"χρησιμοποιώντας την εξής μορφή: 'α','β','γ'…<br />Αν χρειάζεται να εισάγετε "
+"την ανάποδη κάθετο («\\») ή απλά εισαγωγικά («'»), προθέστε τα με ανάποδη "
+"κάθετο στην αρχή (για παράδειγμα '\\\\χψω' ή 'α\\'β')."
 
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Εξαγόμενο:"
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Για προκαθορισμένες τιμές, παρακαλώ εισάγετε μία τιμή, χωρίς χαρακτήρες "
+"διαφυγής ή εισαγωγικά, χρησιμοποιώντας τη μορφή: a"
 
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Αποθήκευση εξαγόμενου σε αρχείο"
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr "Εικονικά"
 
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr "Αγνόηση πινάκων μεγαλύτερων από %s MiB"
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "Απομάκρυνση στήλης"
 
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Κανένα"
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr "Κατάλογος διαθέσιμων μετατροπών και οι επιλογές τους"
 
-#: templates/table/secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "Εμφάνιση συσχετίσεων"
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr "Επιλογές μετατροπής προβολής περιηγητή"
 
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "Κλειδί συσχέτισης"
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Παρακαλώ εισάγετε τις τιμές για τη μετατροπή χρησιμοποιώντας τη μορφή: 'α', "
+"100, β,'γ'…<br />Εάν χρειαστεί να χρησιμοποιήσετε ανάποδη κάθετο («\\») ή "
+"μονά εισαγωγικά («'») στις τιμές, βάλτε ως πρόθεμα ανάποδη κάθετο "
+"(παράδειγμα '\\\\χψω' ή 'α\\'β')."
 
-#: templates/display/results/options_block.twig:30
-msgid "Display column for relationships"
-msgstr "Προβολή στήλης για σχέσεις"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Εμφάνιση δυαδικών περιεχομένων"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "Εμφάνιση περιεχομένων BLOB"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Απόκρυψη μετατροπής περιηγητή"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Καλά Γνωστό Κείμενο"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Καλά Γνωστό Δυαδικό"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr "Ορισμός νεών ετικετών"
-
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "Επιλογή βάσης δεδομένων:"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Νέο όνομα βάσης δεδομένων"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "Επιλογή πίνακα:"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Νέο όνομα πίνακα"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "Επιλογή στήλης:"
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "Νέο ονόμα στήλης"
-
-#: templates/database/designer/aggregate_query_panel.twig:22
-#: templates/database/designer/options_panel.twig:99
-msgid "Aggregate"
-msgstr "Άθροιση"
+#: templates/columns_definitions/table_fields_definitions.twig:93
+msgid "Input transformation options"
+msgstr "Επιλογές μετατροπής εισαγωγής"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -16132,154 +15167,238 @@ msgstr "Στήλη Τιμής:"
 msgid "Save chart as image"
 msgstr "Αποθήκευση διαγράμματος ως εικόνα"
 
-#: templates/table/structure/add_column.twig:9
+#: templates/columns_definitions/partitions.twig:17
+msgid "Partition by:"
+msgstr "Κατάτμηση κατά:"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+msgid "Expression or column list"
+msgstr "Έκφραση ή λίστα στηλών"
+
+#: templates/columns_definitions/partitions.twig:37
+msgid "Partitions:"
+msgstr "Κατατμήσεις:"
+
+#: templates/columns_definitions/partitions.twig:45
+msgid "Subpartition by:"
+msgstr "Υπόκατάτμηση κατά:"
+
+#: templates/columns_definitions/partitions.twig:65
+msgid "Subpartitions:"
+msgstr "Υποκατατμήσεις:"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "Κατάτμηση"
+
+#: templates/columns_definitions/partitions.twig:78
+msgid "Values"
+msgstr "Τιμές"
+
+#: templates/columns_definitions/partitions.twig:82
+msgid "Subpartition"
+msgstr "Υποκατάτμηση"
+
+#: templates/columns_definitions/partitions.twig:84
+msgid "Engine"
+msgstr "Μηχανή"
+
+#: templates/columns_definitions/partitions.twig:86
+msgid "Data directory"
+msgstr "Φάκελος δεδομένων"
+
+#: templates/columns_definitions/partitions.twig:87
+msgid "Index directory"
+msgstr "Φάκελος ευρετηρίου"
+
+#: templates/columns_definitions/partitions.twig:88
+msgid "Max rows"
+msgstr "Μέγιστες εγγραφές"
+
+#: templates/columns_definitions/partitions.twig:89
+msgid "Min rows"
+msgstr "Ελάχιστες εγγραφές"
+
+#: templates/columns_definitions/partitions.twig:90
+msgid "Table space"
+msgstr "Χώρος πίνακα"
+
+#: templates/columns_definitions/partitions.twig:91
+msgid "Node group"
+msgstr "Κόμβος ομάδας"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"Το αρχείο που είναι να ληφθεί είναι πιθανόν μεγαλύτερο από το επιτρεπτό ή "
+"αυτό είναι ένα γνωστό σφάλμα φυλλομετρητή (Safari, Google Chrome, Arora "
+"κλπ.)."
+
+#: templates/display/import/javascript.twig:16
 #, php-format
-msgid "Add %s column(s)"
-msgstr "Προσθήκη %s στήλης(ών)"
+msgid "%s of %s"
+msgstr "%s από %s"
 
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "στην αρχή του πίνακα"
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/δευτ."
 
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "Εξαγωγή βάσεων δεδομένων ως χωριστά αρχεία"
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Απομένουν περίπου %MIN λεπτά %SEC δευτερόλεπτα."
 
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "Εξαγωγή πινάκων ως χωριστά αρχεία"
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "Απομένουν περίπου %SEC δευτερόλεπτα."
 
-#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "Η εισαγωγή του αρχείου είναι σε εξέλιξη, υπομονή."
+
+#: templates/display/import/javascript.twig:36
+msgid "Uploading your import file…"
+msgstr "Αποστολή του αρχείου εισαγωγής σας…"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Υπομονή, το αρχείο αποστέλεται. Λεπτομέρειες για την αποστολή δεν είναι "
+"διαθέσιμες."
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "Χρησιμοποιήστε αυτή τη στήλη για την ετικέτα κάθε σημείου"
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "Μέγιστος αριθμός γραμμών για εκτύπωση"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "Παρακολουθούμενοι πίνακες"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Τελευταία έκδοση"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+msgid "Delete tracking"
+msgstr "Διαγραφή παρακολούθησης"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "Εκδόσεις"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Προβολή εξαγόμενου ως κείμενο"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s αποτέλεσμα στο <strong>%2$s</strong>"
+msgstr[1] "%1$s αποτελέσματα στο <strong>%2$s</strong>"
+
+#: templates/database/search/results.twig:56
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<strong>Σύνολο:</strong> <em>%count%</em> αποτέλεσμα"
+msgstr[1] "<strong>Σύνολο:</strong> <em>%count%</em> αποτελέσματα"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Πατήστε για εναλλαγή"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+msgid "Configure two-factor authentication"
+msgstr "Ρύθμιση πιστοποίησης δύο-παραγόντων"
+
+#: templates/prefs_twofactor_configure.twig:8
+msgid "Enable two-factor authentication"
+msgstr "Ενεργοποίηση πιστοποίησης δύο-παραγόντων"
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "Πρόσθετο"
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "Δημιουργός"
+
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "Απενεργοποιημένο"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Σημείωση: Η ενεργοποίηση στατιστικών μπορεί να προκαλέσει μεγάλη μεταφορά "
+"δεδομένων μεταξύ του διακομιστή ιστού και του διακομιστή MySQL."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+msgid "Enable statistics"
+msgstr "Ενεργοποίηση στατιστικών"
+
+#: templates/database/structure/show_create_row.twig:7
+#, php-format
+msgid "Create %s"
+msgstr "Δημιουργία %s"
+
+#: templates/table/structure/optional_action_links.twig:6
+msgid "Propose table structure"
+msgstr "Προτεινόμενη δομή πίνακα"
+
+#: templates/table/structure/optional_action_links.twig:15
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "Προβολή παρακολούθησης πίνακα"
+
 #: templates/table/structure/optional_action_links.twig:19
+#: templates/table/structure/move_columns_dialog.twig:1
 msgid "Move columns"
 msgstr "Απομάκρυνση στήλης"
+
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Normalize"
+msgstr "Κανονικοποίηση"
+
+#: templates/table/structure/optional_action_links.twig:28
+msgid "Track view"
+msgstr "Προβολή παρακολούθησης"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
 msgstr "Μετακινήστε τις στήλες, σύροντας τες επάνω και κάτω."
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Προσθήκη/Αφαίρεση Γραμμής Κριτηρίων"
+#: templates/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "Διαγραφή των επιλεγμένων λογαριασμών χρηστών"
 
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Προσθήκη/Αφαίρεση Στηλών"
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
-"Η ρυθμισμένη πιστοποίηση δύο-παραγόντων δεν είναι διαθέσιμη, παρακαλώ "
-"εγκαταστήστε τις εξαρτήσεις που λείπουν."
+"Ανάκληση όλων των ενεργών δικαιώματα από τους χρήστες και διαγραφή τους."
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Όνομα ευρετηρίου:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-"«PRIMARY» <b>πρέπει</b> να είναι το όνομα του πρωτεύοντος κλειδιού και "
-"<b>μόνο αυτού</b>!"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "Επιλογή ευρετηρίου:"
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "Προχωρημένες επιλογές"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "Μέγεθος μπλοκ κλειδιού:"
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Τύπος ευρετηρίου:"
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Μεταφραστής:"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Σχόλιο:"
-
-#: templates/table/index_form.twig:118
-#: templates/database/structure/table_header.twig:38
-msgid "Size"
-msgstr "Μέγεθος"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Σύρτε για ανακατανομή"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "Πρόσθετα κριτήρια αναζήτησης"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Εύρεση και αντικατάσταση - προεπισκόπηση"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Αρχικό κείμενο"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Αντικατεστημένο κείμενο"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Αντικατάσταση"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Μέθοδος εξαγωγής:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Γρήγορο - προβολή μονό των ελάχιστων επιλογών"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Προσαρμογή - προβολή όλων των πιθανών επιλογών"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Συμπίεση:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "συμπίεση «zip»"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "συμπίεση «gzip»"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-msgid "Relationship operator"
-msgstr "Λειτουργός συσχέτισης"
-
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Μετονομασία σε"
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-msgid "New name"
-msgstr "Νέο όνομα"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Δικαιώματα πεδίων"
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδια ονόματα με χρήστες."
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
@@ -16289,17 +15408,100 @@ msgstr "Προεπισκόπηση μη διαθέσιμη."
 msgid "Take it"
 msgstr "Πάρτε το"
 
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr "Επαλήθευση"
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
+msgstr "Εξαγόμενο:"
 
-#: templates/database/structure/table_header.twig:27
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, php-format
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Αποθήκευση στον διακομιστή στον κατάλογο <strong>%s</strong>"
+
+#: templates/login/twofactor/key.twig:3
 msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
 msgstr ""
-"Ίσως είναι κατά προσέγγιση. Πατείστε στον αριθμό για να λάβετε το ακριβές "
-"ποσό. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]."
+"Παρακαλώ συνδέστε την FIDO U2F συσκευή σας στην θύρα USB του υπολογιστή σας. "
+"Μετά επιβεβαιώστε τη σύνδεση στη συσκευή."
+
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Εγγραφή έναρξης:"
+
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+msgid "Create relationship"
+msgstr "Δημιουργία συσχέτισης"
+
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "Επιλογή μιας στήλης."
+
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "Δεν ορίστηκε κατάτμηση!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "Κατατμήθηκε κατά:"
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "Υπό κατατμήθηκε κατά:"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:29
+msgid "Expression"
+msgstr "Έκφραση"
+
+#: templates/table/structure/display_partitions.twig:29
+msgid "Data length"
+msgstr "Μέγεθος δεδομένων"
+
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "Μέγεθος ευρετηρίου"
+
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "Πίνακας κατάτμησης"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+msgid "Edit partitioning"
+msgstr "Επεξεργασία κατάτμησης"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+msgctxt "Number"
+msgid "#"
+msgstr "#"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+msgctxt "None for default"
+msgid "None"
+msgstr "Καμία"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "Εμφάνιση Οπτικοποίησης GIS"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Στήλη ετικέτας"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- Τίποτα --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Χωρική στήλη"
 
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
@@ -16314,17 +15516,130 @@ msgstr "Ένα πρωτεύον κλειδί προστέθηκε στο %s."
 msgid "An index has been added on %s."
 msgstr "Ένα ευρετήριο προστέθηκε στο %s."
 
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Ενεργές επιλογές"
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
+msgid "Remove from central columns"
+msgstr "Απομάκρυνση από κεντρικές στήλες"
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "Επιλογή Τύπου Συσχέτισης Εξαγωγής"
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+msgid "Add to central columns"
+msgstr "Προσθήκη στις κεντρικές στήλες"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, php-format
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Ο περιορισμός ξένου κλειδιού %s έχει διαγραφεί"
+
+#: templates/table/relation/foreign_key_row.twig:38
+msgid "Constraint name"
+msgstr "Όνομα μεταβλητής"
+
+#: templates/table/relation/foreign_key_row.twig:90
+#: templates/database/multi_table_query/form.twig:158
+msgid "+ Add column"
+msgstr "+ Προσθήκη στήλης"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Νέος"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+"Δεν χρησιμοποιήτε https για πρόσβαση στο phpMyAdmin, επομένως η FIDO U2F "
+"συσκευή πιθανά θα αρνηθεί να σας πιστοποιήσει."
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
 msgstr "Προσθήκη δικαιωμάτων στην ακόλουθη εργασία:"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Ονομασία πίνακα"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "στήλη(ες)"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Σύνθεση:"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Μηχανή αποθήκευσης:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Σύνδεση:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "Ορισμός PARTITION:"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Πρότυπο ονόματος αρχείου:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "χρησιμοποιήστε το για μελλοντικές εξαγωγές"
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Εξαγωγή βάσεων δεδομένων από τον τρέχοντα διακομιστή"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Εξαγωγή πινάκων από τη βάση δεδομένων «%s»"
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Εξαγωγή εγγραφών από τον πίνακα «%s»"
+
+#: templates/server/databases/table_row.twig:13
+#, php-format
+msgid "Jump to database '%s'"
+msgstr "Μετάβαση στη βάση δεδομένων '%s'"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Έλεγχος δικαιωμάτων για τη βάση «%s»."
+
+#: templates/server/databases/table_row.twig:62
+msgid "Check privileges"
+msgstr "Έλεγχος δικαιωμάτων"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr "Απομάκρυνση"
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "σε χρήση"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Αναζήτηση/Επεξεργασία των σημείων"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Πως να το χρησιμοποιήσετε"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Επανφορά εστίασης"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr "Επαλήθευση"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -16376,11 +15691,6 @@ msgstr "Απομάκρυνση αυτής της στήλης"
 msgid "Update query"
 msgstr "Ενημέρωση ερωτήματος"
 
-#: templates/database/structure/show_create_row.twig:7
-#, php-format
-msgid "Create %s"
-msgstr "Δημιουργία %s"
-
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
 msgid "None"
@@ -16390,6 +15700,453 @@ msgstr "Καμία"
 msgid "As defined:"
 msgstr "Όπως ορίστηκε:"
 
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Χρήση αυτής της τιμής"
+
+#: templates/table/secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "Εμφάνιση συσχετίσεων"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"Ο φυλλομετρητής σας έχει ρύθμιση phpMyAdmin για αυτό το domain. Θέλετε να το "
+"εισάγετε για την τρέχουσα συνεδρία;"
+
+#: templates/prefs_autoload.twig:13
+msgid "Delete settings"
+msgstr "Διαγραφή ρυθμίσεων"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Μέθοδος εξαγωγής:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Γρήγορο - προβολή μονό των ελάχιστων επιλογών"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Προσαρμογή - προβολή όλων των πιθανών επιλογών"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Ρυθμίσεις και μεταβλητές του διακομιστή"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Storage engines"
+msgstr "Μηχανές αποθήκευσης"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Character sets and collations"
+msgstr "Σύνολα και συνθέσεις χαρακτήρων"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Στατιστικά βάσης"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Επιλογή σελίδας"
+
+#: templates/privileges/add_privileges_table.twig:3
+msgid "Add privileges on the following table:"
+msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακα:"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr "Ορισμός νεών ετικετών"
+
+#: templates/export/alias_add.twig:9
+msgid "Select database:"
+msgstr "Επιλογή βάσης δεδομένων:"
+
+#: templates/export/alias_add.twig:15
+msgid "New database name"
+msgstr "Νέο όνομα βάσης δεδομένων"
+
+#: templates/export/alias_add.twig:23
+msgid "Select table:"
+msgstr "Επιλογή πίνακα:"
+
+#: templates/export/alias_add.twig:29
+msgid "New table name"
+msgstr "Νέο όνομα πίνακα"
+
+#: templates/export/alias_add.twig:37
+msgid "Select column:"
+msgstr "Επιλογή στήλης:"
+
+#: templates/export/alias_add.twig:43
+msgid "New column name"
+msgstr "Νέο ονόμα στήλης"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr "Αναφέρεται από %s."
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "Είναι ένα foreign key."
+
+#: templates/columns_definitions/column_name.twig:40
+msgid "Pick from Central Columns"
+msgstr "Επιλογή από τις Κεντρικές Στήλες"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "Όνομα VIEW"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Ονόματα στηλών"
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Συμπίεση:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "συμπίεση «zip»"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "συμπίεση «gzip»"
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+msgid "Create table"
+msgstr "Δημιουργία πίνακα"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Αριθμός στηλών"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+"Υπάρχει δυσαρμονία μεταξύ του HTTPS που φαίνεται στο διακομιστή και στον "
+"πελάτη. Αυτό μπορεί να οδηγήσει σε μη λειτουργικό phpMyAdmin ή σε κίνδυνο "
+"ασφάλειας. Διορθώστε τη ρύθμιση του διακομιστή σας ώστε να δείχνει το HTTPS "
+"σωστά."
+
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+msgid "Show/Hide tables list"
+msgstr "Εμφάνιση/Απόκρυψη λίστας πινάκων"
+
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr "Προβολή σε πλήρη οθόνη"
+
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr "Έξοδος από πλήρη οθόνη"
+
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+msgid "New page"
+msgstr "Νέα σελίδα"
+
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+msgid "Delete pages"
+msgstr "Διαγραφή σελίδων"
+
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr "Επαναφόρτωση"
+
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr "Βοήθεια"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr "Γωνιακοί σύνδεσμοι"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr "Άμεσοι σύνδεσμοι"
+
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr "Συγκράτηση στο πλέγμα"
+
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr "Όλα Μικρά/Μεγάλα"
+
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr "Εναλλαγή μικρά/μεγάλα"
+
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+msgid "Toggle relationship lines"
+msgstr "Εναλλαγή γραμμών συσχέτισης"
+
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+msgid "Export schema"
+msgstr "Εξαγωγή σχήματος"
+
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+msgid "Build Query"
+msgstr "Δημιουργία ερωτήματος"
+
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr "Μενου μετακίνησης"
+
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+msgid "Pin text"
+msgstr "Καρφίτσωμα κειμένου"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Τιμή συνεδρίας"
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "Η στήλη %s διεγράφη."
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+"Η ρυθμισμένη πιστοποίηση δύο-παραγόντων δεν είναι διαθέσιμη, παρακαλώ "
+"εγκαταστήστε τις εξαρτήσεις που λείπουν."
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Προσθήκη/Αφαίρεση Γραμμής Κριτηρίων"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Προσθήκη/Αφαίρεση Στηλών"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "Συνέχιση εισαγωγής με %s εγγραφές"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Ημερομηνία"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Όνομα χρήστη"
+
+#: templates/prefs_twofactor_confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr "Επιβεβαίωση απενεργοποίησης της πιστοποίησης δύο-παραγόντων"
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+"Με την απενεργοποίηση της πιστοποίησης δύο-παραγόντων θα μπορείτε ξανά να "
+"συνδεθείτε με χρήση μόνο του συνθηματικού."
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+msgid "Disable two-factor authentication"
+msgstr "Απενεργοποίηση πιστοποίησης δύο-παραγόντων"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Επιλέξτε δυαδικό αρχείο καταγραφής για προβολή"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+"Εκτέλεσε ένα «επερώτημα ανά παράδειγμα» (χαρακτήρας μπαλαντέρ «%») για δύο "
+"διαφρετικές στήλες"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+msgid "Authentication code:"
+msgstr "Κώδικας πιστοποίησης:"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+"Ανοίξτε την εφαρμογή πιστοποίησης δύο-παραγόντων στη συσκευή σας για να "
+"προβάλετε τον κώδικα πιστοποίησης και να επαληθεύσετε την ταυτότητα σας."
+
+#: templates/privileges/add_privileges_database.twig:1
+msgid "Add privileges on the following database(s):"
+msgstr "Προσθήκη δικαιωμάτων στην(ις) ακόλουθη(ες) βάση(εις) δεδομένων:"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"Οι χαρακτήρες μπαλαντέρ _ και % πρέπει να γραφούν μπροστά με \\ για να "
+"χρησιμοποιηθούν."
+
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Εξαγωγή προτύπων:"
+
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Νέο πρότυπο:"
+
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Ονομασία προτύπου"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Δημιουργία"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Υπάρχοντα πρότυπα:"
+
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Πρότυπο:"
+
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Ενημέρωση"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Δικαιώματα πεδίων"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+"Παρακαλώ σαρώστε τον ακόλουθο κώδικα QR μέσα στην εφαρμογή πιστοποίησης δύο-"
+"παραγόντων στη συσκευή σας και εισάγετε τον κώδικα πιστοποίησης που παράγει."
+
+#: templates/login/twofactor/application_configure.twig:11
+#, fuzzy
+#| msgid ""
+#| "Please scan following QR code into the two-factor authentication app on "
+#| "your device and enter authentication code it generates."
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+"Παρακαλώ σαρώστε τον ακόλουθο κώδικα QR μέσα στην εφαρμογή πιστοποίησης δύο-"
+"παραγόντων στη συσκευή σας και εισάγετε τον κώδικα πιστοποίησης που παράγει."
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Δημιουργία έκδοσης %1$s του %2$s"
+
+#: templates/table/tracking/create_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "Δημιουργία έκδοσης %1$s"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Παρακολούθηση αυτών των δηλώσεων ορισμού δεδομένων:"
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Παρακολούθηση αυτών των δηλώσεων χειρισμού δεδομένων:"
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "Δημιουργία έκδοσης"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "Απόκρυψη/Προβολή όλων"
+
+#: templates/database/designer/table_list.twig:14
+msgid "Hide/Show tables with no relationship"
+msgstr "Απόκρυψη/Εμφάνιση πινάκων χωρίς συσχέτιση"
+
+#: templates/database/designer/table_list.twig:55
+msgid "Number of tables:"
+msgstr "Αριθμός πινάκων:"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Κανένα"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+"Αυτή η αναφορά περιλαμβάνει αυτόματα δεδομένα σχετικά με το σφάλμα και "
+"πληροφορίες σχετικά με επιλογές ρυθμίσεων. Θα αποσταλεί στην ομάδα του "
+"phpMyAdmin για την αντιμετώπιση του σφάλματος."
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+"Μπορείτε να μας πείτε τα βήματα που οδηγούν σε αυτό το σφάλμα; Βοηθάει "
+"αποτελεσματικά στην αντιμετώπιση των σφαλμάτων:"
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr "Μπορείτε να εξετάστε τα δεδομένα στην αναφορά σφάλματος:"
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "Σύνολο χαρακτήρων του αρχείου:"
+
+#: templates/table/search/search_and_replace.twig:1
+#: templates/database/search/selection_form.twig:15
+msgid "Find:"
+msgstr "Έυρεση:"
+
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
 msgstr "Αντικατάσταση με:"
@@ -16397,6 +16154,238 @@ msgstr "Αντικατάσταση με:"
 #: templates/table/search/search_and_replace.twig:19
 msgid "Use regular expression"
 msgstr "Χρήση κανονικής έκφρασης"
+
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Βάσεις δεδομένων:"
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Αποθήκευση εξαγόμενου σε αρχείο"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr "Αγνόηση πινάκων μεγαλύτερων από %s MiB"
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+"Αυτή είναι μια μεταβλητή μόνο για ανάγνωση και δεν μπορεί να επεξεργαστεί"
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "Εισαγωγή στον τρέχοντα διακομιστή"
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "Εισαγωγή στη βάση δεδομένων «%s»"
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "Εισαγωγή στον πίνακα «%s»"
+
+#: templates/display/import/import.twig:50
+msgid "File to import:"
+msgstr "Αρχείο για εισαγωγή:"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "Το αρχείο μπορεί να συμπιεστεί (%s) ή να αποσυμπιεστεί."
+
+#: templates/display/import/import.twig:58
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"Το όνομα του συμπιεσμένου αρχείου πρέπει να λήγει σε <strong>.[format]."
+"[compression]</strong>. Παράδειγμα: <strong>.sql.zip</strong>"
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr "Μπορείτε να σύρετε και να αφήσετε ένα αρχείο σε οποιαδήποτε σελίδα."
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr "Οι αποστολές αρχείων δεν επιτρέπονται σε αυτό τον διακομιστή."
+
+#: templates/display/import/import.twig:124
+msgid "Partial import:"
+msgstr "Μερική εισαγωγή:"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+"Η προηγούμενη εισαγωγή εξάντλησε το χρονικό όριο, μετά την επανυποβολή θα "
+"συνεχίσει από τη θέση %d."
+
+#: templates/display/import/import.twig:137
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"Επιτρέπει τη διακοπή της εισαγωγής σε περίπτωση που ανιχνευτεί ότι το "
+"σενάριο προσεγγίζει το χρονικό όριο  PHP. <em>(Αυτό μπορεί να είναι καλό για "
+"εισαγωγή μεγάλων αρχείων, ωστόσο, μπορεί να σπάσει τις συνδιαλλαγές.)</em>"
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr ""
+"Αγνόηση αυτού του αριθμού ερωτημάτων (για SQL) ξεκινόντας από το πρώτο:"
+
+#: templates/display/import/import.twig:161
+msgid "Other options:"
+msgstr "Άλλες επιλογές:"
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr "Επιλογές ορισμένης μορφής:"
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Μεταβείτε πιο κάτω για να συμπληρώσετε τις επιλογές για την επιλεγμένη μορφή "
+"και αγνοήστε τις επιλογές για τις άλλες μορφές."
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr "Μετατροπή κωδικοποίησης:"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Αναζήτηση στη βάση δεδομένων"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Λέξεις ή τιμές για αναζήτηση (μπαλαντέρ: «%»):"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "Μέσα στους πίνακες:"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "Εσωτερικό πεδίο:"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Δεν υπάρχουν βάσεις δεδομένων"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+"Παρακαλώ συνδέστε την FIDO U2F συσκευή σας, στην θύρα USB του υπολογιστή "
+"σας. Μετά επιβεβαιώστε την εγγραφή στην συσκευή."
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "πρώτη"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Η παρακολούθηση είναι ενεργοποιημένη."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Η παρακολούθηση δεν είναι ενεργοποιημένη."
+
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "Εξαγωγή βάσεων δεδομένων ως χωριστά αρχεία"
+
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "Εξαγωγή πινάκων ως χωριστά αρχεία"
+
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr "Στατιστικά εγγραφών"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "στατικό"
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "δυναμικά"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "κατατμήθηκε"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Μέγεθος γραμμής"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Μέγεθος εγγραφής"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr "Επόμενη αυτόματη αρίθμηση"
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "Μη παρακολουθούμενοι πίνακες"
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "Δημιουργία βάσης δεδομένων"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Όρια πόρων"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+"Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός."
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Κλειδί συσχέτισης"
+
+#: templates/display/results/options_block.twig:30
+msgid "Display column for relationships"
+msgstr "Προβολή στήλης για σχέσεις"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "Εμφάνιση δυαδικών περιεχομένων"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "Εμφάνιση περιεχομένων BLOB"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Απόκρυψη μετατροπής περιηγητή"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "Καλά Γνωστό Κείμενο"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "Καλά Γνωστό Δυαδικό"
 
 #: templates/prefs_twofactor.twig:3
 msgid "Two-factor authentication status"
@@ -16439,73 +16428,95 @@ msgstr ""
 msgid "You have enabled two factor authentication."
 msgstr "Έχετε ενεργοποιήσει την πιστοποίηση δύο-παραγόντων."
 
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "Προτεινόμενη δομή πίνακα"
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "Αποθήκευση στην επιλεγμένη σελίδα"
 
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "Προβολή παρακολούθησης πίνακα"
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "Δημιουργία μιας σελίδας και αποθήκευση σε αυτή"
 
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
-msgstr "Κανονικοποίηση"
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "Νέο όνομα σελίδα"
 
-#: templates/table/structure/optional_action_links.twig:28
-msgid "Track view"
-msgstr "Προβολή παρακολούθησης"
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "Επιλογή Τύπου Συσχέτισης Εξαγωγής"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Αναζήτηση/Επεξεργασία των σημείων"
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "Επιλογή πεδίων (τουλάχιστον ένα):"
 
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Πως να το χρησιμοποιήσετε"
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Προσθήκη νέου όρου (σώμα της πρότασης «where» πρότασης):"
 
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Επανφορά εστίασης"
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Εγγραφές ανά σελίδα"
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Χρήση αυτής της τιμής"
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Σειρά εμφάνισης:"
 
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "Παρακολουθούμενοι πίνακες"
+#: templates/table/relation/common_form.twig:6
+msgid "Foreign key constraints"
+msgstr "Περιορισμοί ξένου κλειδιού"
 
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Τελευταία έκδοση"
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "Ενέργειες"
 
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
-msgid "Delete tracking"
-msgstr "Διαγραφή παρακολούθησης"
+#: templates/table/relation/common_form.twig:11
+msgid "Constraint properties"
+msgstr "Ιδιότητες περιορισμών"
 
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "Εκδόσεις"
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+"Δημιουργώντας ένα ξένο κλειδί σε μια στήλη χωρίς ευρετήριο θα δημιουργήσει "
+"αυτόματα ένα ευρετήριο για αυτή. Εναλλακτικά, μπορείτε να ορίσετε ένα "
+"ευρετήριο παρακάτω, πριν δημιουρήσετε το ξένο κλειδί."
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Μη παρακολουθούμενοι πίνακες"
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+"Μόνο στήλες με ευρετήριο θα εμφανίζονται. Μπορείτε να ορίσετε ευρετήριο "
+"παρακάτω."
 
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "Δημιουργία βάσης δεδομένων"
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr "Όριο μη διακριτού κλειδιού"
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Όνομα VIEW"
+#: templates/table/relation/common_form.twig:89
+msgid "+ Add constraint"
+msgstr "+Προσθήκη περιορισμού"
 
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Ονόματα στηλών"
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+msgid "Internal relationships"
+msgstr "Εσωτερικές συσχετίσεις"
+
+#: templates/table/relation/common_form.twig:110
+msgid "Internal relation"
+msgstr "Εσωτερική συσχέτιση"
+
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"Μια εσωτερική συσχέτιση δεν είναι απαραίτητη όταν υπάρχει μια αντίστοιχη "
+"συσχέτιση FOREIGN KEY."
+
+#: templates/table/relation/common_form.twig:172
+msgid "Choose column to display:"
+msgstr "Επιλέξτε στήλη για εμφάνιση:"
 
 #: url.php:41
 msgid "Taking you to the target site."
