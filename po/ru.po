@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2019-04-27 08:29+0000\n"
-"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
+"Last-Translator: subo <subo098@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -16244,13 +16244,11 @@ msgstr "Изменить поле(я)"
 
 #: templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Введите критерий в свободной форме"
 
 #: templates/database/multi_table_query/form.twig:152
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Удалить избыточные столбцы"
+msgstr "Удалить этот столбец"
 
 #: templates/database/multi_table_query/form.twig:179
 #, fuzzy
@@ -16321,10 +16319,8 @@ msgid "Databases:"
 msgstr "Базы данных:"
 
 #: templates/preferences/two_factor/configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Включить двухфакторную аутентификацию"
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
