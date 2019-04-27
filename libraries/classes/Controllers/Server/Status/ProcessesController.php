@@ -98,6 +98,8 @@ class ProcessesController extends AbstractController
 
         $showFullSql = ! empty($params['full']);
         if ($showFullSql) {
+            $urlParams['full'] = '';
+        } else {
             $urlParams['full'] = 1;
         }
 
@@ -150,6 +152,9 @@ class ProcessesController extends AbstractController
                 && ! empty($params['sort_order']))
             || ! empty($params['showExecuting'])
         ) {
+            $urlParams['order_by_field'] = $params['order_by_field'];
+            $urlParams['sort_order'] = $params['sort_order'];
+            $urlParams['showExecuting'] = $params['showExecuting'];
             $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
         }
         if (! empty($params['showExecuting'])) {
@@ -229,6 +234,7 @@ class ProcessesController extends AbstractController
         return $this->template->render('server/status/processes/list', [
             'columns' => $columns,
             'rows' => $rows,
+            'refresh_params' => $urlParams,
         ]);
     }
 }
