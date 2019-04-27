@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2019-04-27 10:26+0000\n"
-"Last-Translator: Joseph Lee <cn.airsoftware@gmail.com>\n"
+"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -503,10 +503,8 @@ msgid "Y values"
 msgstr "纵轴值"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "请重输一遍"
+msgstr "请先输入 SQL 查询语句。"
 
 #: js/messages.php:149
 msgid "The host name is empty!"
