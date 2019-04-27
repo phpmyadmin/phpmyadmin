@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2019-04-29 11:45+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13462,10 +13462,8 @@ msgid "View dump (schema) of databases"
 msgstr "Voir le déchargement (schéma) des bases de données"
 
 #: server_privileges.php:86
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Permission de supprimer des données."
+msgstr "Permission de supprimer des données historiques."
 
 #: server_privileges.php:157 server_user_groups.php:47
 msgid "No Privileges"
