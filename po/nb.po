@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 18:51+0200\n"
-"PO-Revision-Date: 2019-01-28 16:47+0000\n"
-"Last-Translator: jasasa <jarlesa@gmail.com>\n"
+"PO-Revision-Date: 2019-04-28 01:13+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb_NO/>\n"
 "Language: nb\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -13050,7 +13050,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Variables.php:356
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Antalle tilkoblingsforsøk (vellykkede eller ei) til MySQL-tjeneren."
 
 #: libraries/classes/Server/Status/Variables.php:360
 msgid ""
