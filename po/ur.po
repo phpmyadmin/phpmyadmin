@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2018-01-06 00:00+0000\n"
-"Last-Translator: Saqib Razzaq <saqi.cb@gmail.com>\n"
+"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Urdu <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ur/>\n"
 "Language: ur\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -24,16 +24,11 @@ msgstr "بری قسم!"
 
 # changelog.php:32 license.php:28
 #: changelog.php:47 license.php:40
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr ""
-"مسل%s نظام میں موجود نہیں ہے، مزید معلومات کے لیے www.phpmyadmin.net پر "
-"جائیں۔"
+msgstr "مسل%s نظام میں موجود نہیں ہے، مزید معلومات کے لیے %s پر جائیں۔"
 
 #: db_central_columns.php:142
 #, fuzzy, php-format
