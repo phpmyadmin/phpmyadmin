@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-01-29 14:50+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"PO-Revision-Date: 2019-04-27 10:26+0000\n"
+"Last-Translator: Joseph Lee <cn.airsoftware@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -12742,20 +12742,14 @@ msgid "Add slave replication user"
 msgstr "添加从复制用户"
 
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "此主机"
 
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "使用主机表"
 
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "无密码"
 
