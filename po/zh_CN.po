@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-27 19:16+0200\n"
-"PO-Revision-Date: 2019-04-27 10:26+0000\n"
-"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"POT-Creation-Date: 2019-04-24 02:31-0300\n"
+"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"Last-Translator: Joseph Lee <cn.airsoftware@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -12936,10 +12936,8 @@ msgid "Master replication"
 msgstr "主复制"
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "无权限。"
+msgstr "无权限"
 
 #: templates/server/replication/index.twig:16
 #, php-format
@@ -13028,18 +13026,11 @@ msgid ""
 msgstr "现在，将下列行添加到你的 my.cnf 文件最后，然后重新启动 MySQL 服务器。"
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
-msgstr ""
-"当 MySQL 服务器重新启动后，请点击执行按钮。你应该看见一条提示信息说此服务器"
-"<b>已经</b>被配置为主服务器。"
+msgstr "当 MySQL 服务器重新启动后，请点击执行按钮。你应该看见一条提示信息说此服务器<strong>已经</strong>被配置为主服务器。"
 
 #: templates/database/designer/edit_delete_pages.twig:6
 msgid "Page to open"
@@ -13242,10 +13233,8 @@ msgid "General settings"
 msgstr "常规设置"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "服务器连接排序规则"
+msgstr "服务器连接排序规则："
 
 #: templates/home/index.twig:58
 msgid "Appearance settings"
@@ -13791,10 +13780,8 @@ msgid "Operator"
 msgstr "运算符"
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "数据库备注"
+msgstr "数据库备注："
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
@@ -14056,10 +14043,8 @@ msgstr ""
 "你可以通过修改 config.inc.php 文件进行更多设置，如通过使用%s安装脚本%s。"
 
 #: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "保存为文件"
+msgstr "保存为JSON文件"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"
@@ -14452,15 +14437,11 @@ msgstr "选择要查看的二进制日志"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "截断显示的查询"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "显示完整查询"
 
@@ -14510,10 +14491,8 @@ msgstr "+ 添加字段"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:7
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "自启动以来的内部查询: %s"
+msgstr "自启动以来的内部查询："
 
 #: templates/server/status/queries/index.twig:17
 msgid "per hour:"
@@ -14771,33 +14750,27 @@ msgstr "刷新频率"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:32
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%d second"
 msgstr "%d 秒"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:34
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%d seconds"
 msgstr "%d 秒"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "每分钟"
+msgstr "%d 分钟"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "每分钟"
+msgstr "%d 分钟"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -15047,10 +15020,8 @@ msgid "Show form"
 msgstr "显示表单"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "显示隐藏项目"
+msgstr "显示隐藏消息"
 
 #: templates/setup/home/index.twig:72
 msgid "There are no configured servers"
@@ -15219,10 +15190,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "载入导航显示时出现错误"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "SQL 转储"
+msgstr "SQL 上传"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -15352,10 +15321,8 @@ msgid "You may examine the data in the error report:"
 msgstr "您可以检查错误报告中的数据："
 
 #: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Unknown storage engine."
-msgstr "存储引擎"
+msgstr "未知的存储引擎。"
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."

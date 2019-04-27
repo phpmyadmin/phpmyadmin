@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-27 19:16+0200\n"
-"PO-Revision-Date: 2016-01-17 22:02+0000\n"
-"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
+"POT-Creation-Date: 2019-04-24 02:31-0300\n"
+"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/gl/>\n"
 "Language: gl\n"
@@ -13,23 +13,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
 msgstr "Ese tipo é incorrecto!"
 
 #: changelog.php:47 license.php:40
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"O ficheiro %s non está dispoñíbel neste sistema; visite www.phpmyadmin.net "
-"para obter máis información."
+"O ficheiro %s non está dispoñíbel neste sistema; visite %s para obter máis "
+"información."
 
 #: db_central_columns.php:142
 #, php-format
