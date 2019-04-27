@@ -4,32 +4,29 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2015-10-15 11:30+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/af/>\n"
+"PO-Revision-Date: 2019-04-27 16:55+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"af/>\n"
 "Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
 msgstr "Nie goeie tipe nie!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Die %s leer is nie beskikbaar op hierdie stelsel nie, besoek asb www."
-"phpmyadmin.net vir meer inligting."
+"Die %s leer is nie beskikbaar op hierdie stelsel nie, besoek asb %s vir meer "
+"inligting."
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
