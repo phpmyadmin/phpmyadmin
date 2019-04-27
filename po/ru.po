@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-04-27 08:27+0000\n"
-"Last-Translator: subo <subo098@gmail.com>\n"
+"PO-Revision-Date: 2019-04-27 08:29+0000\n"
+"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -16206,7 +16206,7 @@ msgstr "Выберите таблицу"
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/multi_table_query/form.twig:133
 msgid "select column"
-msgstr "Выберите столбец"
+msgstr "выберите столбец"
 
 #: templates/database/multi_table_query/form.twig:50
 #, fuzzy
@@ -16227,10 +16227,8 @@ msgid "Use this column in criteria"
 msgstr "Использовать данное поле для обозначения каждой точки"
 
 #: templates/database/multi_table_query/form.twig:57
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Критерий:"
+msgstr "критерий"
 
 #: templates/database/multi_table_query/form.twig:71
 #, fuzzy
