@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2019-04-27 08:27+0000\n"
-"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
+"Last-Translator: subo <subo098@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -15754,10 +15754,8 @@ msgid "Index choice:"
 msgstr "Выбор индекса:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Активные параметры"
+msgstr "Дополнительные параметры"
 
 #: templates/table/index_form.twig:52
 msgid "Key block size:"
@@ -16202,17 +16200,13 @@ msgstr "Окно запроса"
 
 #: templates/database/multi_table_query/form.twig:37
 #: templates/database/multi_table_query/form.twig:125
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Выберите таблицу:"
+msgstr "Выберите таблицу"
 
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Выберите столбец:"
+msgstr "Выберите столбец"
 
 #: templates/database/multi_table_query/form.twig:50
 #, fuzzy
