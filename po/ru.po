@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2019-04-27 08:32+0000\n"
-"Last-Translator: subo <subo098@gmail.com>\n"
+"Last-Translator: Максим <genkaok@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -14095,7 +14095,7 @@ msgstr ""
 
 #: templates/preferences/two_factor/main.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Обязательные Composer-пакеты:"
 
 #: templates/preferences/two_factor/main.twig:18
 msgid "Two-factor authentication is available and configured for this account."
