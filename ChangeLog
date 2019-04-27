@@ -76,6 +76,8 @@ phpMyAdmin - ChangeLog
 - issue #15229 Fixed php notice, added support for 'DELETE HISTORY' table privilege (MariaDB >= 10.3.4)
 - issue #14527 Fixed import settings function not working
 - issue #14908 Fixed uninterpreted HTML on Settings->Import (missing data error descriptions)
+- issue #14800 Fixed status->Processes doesn't show full query process list page
+- issue #14833 Fixed sort by Time not working in process list page
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
