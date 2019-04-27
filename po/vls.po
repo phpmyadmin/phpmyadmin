@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2014-12-23 23:39+0200\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
+"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: West Flemish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vls/>\n"
 "Language: vls\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -33,7 +33,7 @@ msgid ""
 "information."
 msgstr ""
 "Et %s bestand es niej beschikbaor ip da systeem ier, aje meer informatie "
-"wilt zouje best naar www.phpmyadmin.net gaon."
+"wilt zouje best naar %s gaon."
 
 #: db_central_columns.php:142
 #, php-format
