@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2019-04-27 08:19+0000\n"
-"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
+"Last-Translator: Максим <genkaok@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -129,10 +129,8 @@ msgid "Multi-table query"
 msgstr "Имитировать запрос"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Сбой выполнения запроса"
+msgstr "Пример запроса"
 
 #: db_qbe.php:182
 #, php-format
