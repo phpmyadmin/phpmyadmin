@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2019-04-27 08:24+0000\n"
-"Last-Translator: subo <subo098@gmail.com>\n"
+"Last-Translator: Максим <genkaok@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -13139,6 +13139,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Не удалось установить сессионные куки. Возможно вы подключаетесь через HTTP "
+"вместо HTTPS"
 
 #: libraries/common.inc.php:338
 msgid "Invalid authentication method set in configuration:"
@@ -14022,6 +14024,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Вы не используете https для подключения к phpMyAdmin, устройство FIDO U2F "
+"может отказать в авторизации."
 
 #: templates/table/search/zoom_result_form.twig:7
 msgid "Browse/Edit the points"
@@ -14096,11 +14100,13 @@ msgstr ""
 #: templates/preferences/two_factor/main.twig:18
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"Двухфакторная авторизация доступна и активирована для этой учетной записи."
 
 #: templates/preferences/two_factor/main.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Двухфакторная авторизация доступна, но не настроена для этой учетной записи."
 
 #: templates/preferences/two_factor/main.twig:24
 msgid ""
@@ -14112,7 +14118,7 @@ msgstr ""
 
 #: templates/preferences/two_factor/main.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Вы включили двухфакторную авторизацию."
 
 #: templates/preferences/two_factor/main.twig:38
 #: templates/preferences/two_factor/confirm.twig:9
@@ -14206,6 +14212,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Пожалуйста, подключите своё FIDO U2F устройство к компьютеру через USB-порт. "
+"Затем подтвердите регистрацию на устройстве."
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
