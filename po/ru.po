@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
 "PO-Revision-Date: 2019-04-27 08:32+0000\n"
-"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
+"Last-Translator: subo <subo098@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -16432,10 +16432,8 @@ msgid "Hide/Show all"
 msgstr "Скрыть/отобразить все таблицы"
 
 #: templates/database/designer/main.twig:216
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
-msgstr "Скрыть/отобразить таблицы не имеющие ссылок"
+msgstr "Скрыть/отобразить таблицы, не имеющие ссылок"
 
 #: templates/database/designer/main.twig:257
 msgid "Number of tables:"
@@ -16498,16 +16496,16 @@ msgid "Create %s"
 msgstr "Создать пользователя"
 
 #: templates/preferences/two_factor/confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Подтвердите отключение двухфакторной аутентификации"
 
 #: templates/preferences/two_factor/confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"После отключения двухфакторной аутентификации Вы сможете выполнить вход, "
+"используя только пароль."
 
 #: templates/server/plugins/index.twig:23
 msgid "Plugin"
