@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2015-07-24 13:05+0200\n"
-"Last-Translator: Shameem Ahmed A Mulla <shameem.sam@gmail.com>\n"
+"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kannada <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/kn/>\n"
 "Language: kn\n"
@@ -17,22 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
 msgstr "ಕಳಪೆ ಪ್ರಕಾರದ!"
 
 #: changelog.php:47 license.php:40
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr ""
-"%s ಫೈಲ್ ಈ ಗಣಕದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ www.phpmyadmin.net ಭೇಟಿ ನೀಡಿ."
+msgstr "%s ಫೈಲ್ ಈ ಗಣಕದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ %s ಭೇಟಿ ನೀಡಿ."
 
 #: db_central_columns.php:142
 #, php-format
