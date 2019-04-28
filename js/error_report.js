@@ -208,6 +208,18 @@ var ErrorReport = {
      * @return object
      */
     _get_report_data: function (exception) {
+        if (exception && exception.stack && exception.stack.length) {
+            for (var i = 0; i < exception.stack.length; i++) {
+                var stack = exception.stack[i];
+                if (stack.context && stack.context.length) {
+                    for (var j = 0; j < stack.context.length; j++) {
+                        if (stack.context[j].length >  180) {
+                            stack.context[j] = stack.context[j].substring(-1, 180);
+                        }
+                    }
+                }
+            }
+        }
         var report_data = {
             'server': PMA_commonParams.get('server'),
             'ajax_request': true,
@@ -218,7 +230,7 @@ var ErrorReport = {
         if (AJAX.scriptHandler._scripts.length > 0) {
             report_data.scripts = AJAX.scriptHandler._scripts.map(
                 function (script) {
-                    return script.name;
+                    return script;
                 }
             );
         }
