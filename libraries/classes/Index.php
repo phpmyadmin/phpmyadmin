@@ -759,7 +759,7 @@ class Index
                     $this_params['message_to_show'] = sprintf(
                         __('Index %s has been dropped.'), htmlspecialchars($index->getName())
                     );
-                    $js_msg = Sanitize::jsFormat($this_params['sql_query']);
+                    $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
                 }
 
                 $r .= '<td ' . $row_span . ' class="print_ignore">';
