@@ -78,6 +78,8 @@ phpMyAdmin - ChangeLog
 - issue #14908 Fixed uninterpreted HTML on Settings->Import (missing data error descriptions)
 - issue #14800 Fixed status->Processes doesn't show full query process list page
 - issue #14833 Fixed sort by Time not working in process list page
+- issue #14982 Fixed setting "null" keep an "enum" value
+- issue #14401 Fixed insert rows keypress Enter behavior
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
