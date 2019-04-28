@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"PO-Revision-Date: 2019-04-29 11:48+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
@@ -122,10 +122,8 @@ msgid "You have to choose at least one column to display!"
 msgstr "Необходимо выбрать хотя бы один столбец для отображения!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Имитировать запрос"
+msgstr "Многотабличный запрос"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
@@ -529,10 +527,8 @@ msgid "Y values"
 msgstr "Значения Y"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Введите то же значение еще раз"
+msgstr "Введите сначала SQL-запрос."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
@@ -1104,16 +1100,12 @@ msgid "Please select the file you want to import."
 msgstr "Пожалуйста, выберите файл, который хотите импортировать."
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Введите правильное имя страницы"
+msgstr "Введите правильное имя таблицы."
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Введите правильное имя страницы"
+msgstr "Введите правильное имя базы данных."
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
@@ -1481,12 +1473,16 @@ msgstr "Обзор внешних значений"
 #: js/messages.php:434
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Предыдущий автосохраненный запрос недоступен. Загружается запрос по "
+"умолчанию."
 
 #: js/messages.php:435
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"У вас есть предыдущий сохраненный запрос. Нажмите Получить автосохраненный "
+"запрос, чтобы его загрузить."
 
 #: js/messages.php:436
 #, php-format
@@ -2216,16 +2212,12 @@ msgstr ""
 "пожалуйста."
 
 #: js/messages.php:732
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Страница успешно удалена"
+msgstr "Успешно скопировано!"
 
 #: js/messages.php:733
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Копирование базы данных"
+msgstr "Копирование не удалось!"
 
 #: js/messages.php:736
 msgid "Execute this query again?"
@@ -3818,14 +3810,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Исключить определение текущего пользователя"
 
 #: libraries/classes/Config/Descriptions.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:322
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "%s значение"
+msgstr "%s вид"
 
 #: libraries/classes/Config/Descriptions.php:263
 msgid "Use ignore inserts"
@@ -4233,11 +4224,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:396
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Включить импорт перетаскиванием"
 
 #: libraries/classes/Config/Descriptions.php:397
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "Снимите флажок, чтобы отключить импорт перетаскиванием"
 
 #: libraries/classes/Config/Descriptions.php:398
 msgid "Partial import: allow interrupt"
@@ -4485,10 +4476,8 @@ msgid "Navigation panel width"
 msgstr "Ширина панели навигации"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Отображать логотип в панели навигации."
+msgstr "Установите 0, чтобы свернуть панель навигации."
 
 #: libraries/classes/Config/Descriptions.php:485
 msgid "Link with main panel by highlighting the current database or table."
@@ -4644,16 +4633,14 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "Стоит ли отображать события под базой данных в дереве навигации"
 
 #: libraries/classes/Config/Descriptions.php:530
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Копирование базы данных"
+msgstr "Развернуть одиночную базу данных"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Стоит ли отображать события под базой данных в дереве навигации"
+msgstr ""
+"Стоит ли разворачивать автоматически одиночную базу данных в дереве "
+"навигации."
 
 #: libraries/classes/Config/Descriptions.php:532
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -5003,8 +4990,8 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Подробнее смотрите на [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]PMA bug tracker[/a] и [a@https://bugs.mysql.com/19588]MySQL "
+"Подробнее смотрите на [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] и [a@https://bugs.mysql.com/19588]MySQL "
 "Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:644
@@ -6348,6 +6335,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Ваш сервер работает со значениями по умолчанию для управляющего пользователя "
+"и пароля (controlpass) и открыт для вторжения; вы действительно должны "
+"исправить эту уязвимость безопасности, изменив пароль для управляющего "
+"пользователя 'pma'."
 
 #: libraries/classes/Controllers/HomeController.php:414
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -7446,6 +7437,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Функции ini_get и/или ini_set отключены в php.ini. В phpMyAdmin требуются "
+"эти функции!"
 
 #: libraries/classes/Core.php:1263
 msgid "GLOBALS overwrite attempt"
@@ -9440,16 +9433,12 @@ msgid "Switch to copied database"
 msgstr "Переключиться на скопированную базу данных"
 
 #: libraries/classes/Operations.php:324
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Изменить все сортировки столбцов"
+msgstr "Изменить сортировки всех таблиц"
 
 #: libraries/classes/Operations.php:330
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Изменить все сортировки столбцов"
+msgstr "Изменить сортировки столбцов всех таблиц"
 
 #: libraries/classes/Operations.php:832
 msgid "Alter table order by"
@@ -10313,16 +10302,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "Имя новой таблицы (необязательно):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "Имя новой базы данных (необязательно):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "Импортировать это множество строк (необязательно):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -10344,10 +10333,8 @@ msgstr ""
 "Имена полей разделяются запятыми и не должны быть заключены в кавычки."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Названия столбцов: "
+msgstr "Названия столбцов:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:162
 #: libraries/classes/Plugins/Import/ImportCsv.php:177
@@ -10815,10 +10802,8 @@ msgid "Two-factor authentication failed."
 msgstr "Ошибка двухфакторной аутентификации."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
-#, fuzzy
-#| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Нет двухфакторной аутентификации"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
@@ -13318,37 +13303,28 @@ msgid "Could not import configuration"
 msgstr "Не получилось импортировать настройки"
 
 #: prefs_twofactor.php:36
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Внутренняя ссылка удалена."
+msgstr "Двухфакторная аутентификация была удалена."
 
 #: prefs_twofactor.php:46
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr ""
-"В конфигурационном файле phpMyAdmin установлен неверный метод аутентификации:"
+msgstr "Двухфакторная аутентификация сконфигурирована."
 
 #: server_export.php:31
 msgid "View dump (schema) of databases"
 msgstr "Отобразить дамп (схему) баз данных"
 
 #: server_privileges.php:86
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Разрешает удаление данных."
+msgstr "Разрешает удаление исторических строк."
 
 #: server_privileges.php:157 server_user_groups.php:47
 msgid "No Privileges"
 msgstr "Нет привилегий"
 
 #: server_privileges.php:164
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "У вас нет прав манипулировать пользователями!"
+msgstr "У вас нет прав администрировать пользователей!"
 
 #: server_privileges.php:178
 msgid ""
@@ -13431,14 +13407,10 @@ msgid "Add slave replication user"
 msgstr "Добавьте подчиненного пользователя репликации"
 
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Этот хост"
 
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Использовать таблицу хостов"
 
@@ -13630,16 +13602,13 @@ msgid "No privileges"
 msgstr "Нет привилегий"
 
 #: templates/server/replication/index.twig:16
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Данный сервер не настроен в качестве головного для процесса репликации. "
-"Хотите произвести <a href=\"%s\">настройку</a>?"
+"Данный сервер не настроен в качестве ведущего для процесса репликации. "
+"Хотите %sнастроить%s это?"
 
 #: templates/table/search/selection_form.twig:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
@@ -13727,19 +13696,14 @@ msgstr ""
 "файла my.cnf, после чего перезапустите сервер MySQL."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Сразу после перезапуска MySQL сервера, пожалуйста, нажмите кнопку OK, после "
-"чего вы должны увидеть сообщение указывающее, что данный сервер <b>настроен</"
-"b> как головной."
+"чего вы должны увидеть сообщение указывающее, что данный сервер "
+"<strong>настроен</strong> как ведущий."
 
 #: templates/database/designer/edit_delete_pages.twig:6
 msgid "Page to open"
@@ -13887,10 +13851,8 @@ msgid "Create"
 msgstr "Создать"
 
 #: templates/server/databases/index.twig:52
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Проверить привилегии для базы данных \"%s\"."
+msgstr "Нет привилегий для создания баз данных"
 
 #: templates/server/databases/index.twig:141
 #: templates/server/replication/slave_configuration.twig:2
@@ -13898,10 +13860,9 @@ msgid "Slave replication"
 msgstr "Репликация подчинённого сервера"
 
 #: templates/server/databases/index.twig:163
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Перейти к базе данных"
+msgstr "Перейти к базе данных '%s'"
 
 #: templates/server/databases/index.twig:197
 #: templates/server/databases/index.twig:209
@@ -13946,10 +13907,8 @@ msgid "General settings"
 msgstr "Основные настройки"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Сопоставление кодировки соединения"
+msgstr "Сопоставление кодировки соединения:"
 
 #: templates/home/index.twig:58
 msgid "Appearance settings"
@@ -14100,6 +14059,8 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Двухфакторная аутентификация недоступна, установите дополнительные "
+"зависимости, чтобы включить внутренние компоненты аутентификации."
 
 #: templates/preferences/two_factor/main.twig:10
 msgid "Following composer packages are missing:"
@@ -14130,10 +14091,8 @@ msgstr "Вы включили двухфакторную авторизацию.
 
 #: templates/preferences/two_factor/main.twig:38
 #: templates/preferences/two_factor/confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Авторизация через конфигурационный файл"
+msgstr "Отключить двухфакторную аутентификацию"
 
 #: templates/preferences/two_factor/main.twig:44
 #: templates/preferences/two_factor/main.twig:56
@@ -14149,7 +14108,7 @@ msgstr "Нет"
 
 #: templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
-msgstr ""
+msgstr "Отобразить"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 msgid ""
@@ -14493,8 +14452,6 @@ msgid "No preview available."
 msgstr "Предпросмотр не доступен."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
 msgstr "Применить"
 
@@ -14517,10 +14474,8 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Комментарий к базе данных"
+msgstr "Комментарий к базе данных:"
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
@@ -14612,10 +14567,9 @@ msgstr "Вывод:"
 
 #: templates/display/export/options_quick_export.twig:8
 #: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Сохранить на сервере в каталоге <b>%s</b>"
+msgstr "Сохранить на сервере в каталоге <strong>%s</strong>"
 
 #: templates/preferences/autoload.twig:7
 msgid ""
@@ -14630,17 +14584,13 @@ msgid "Delete settings"
 msgstr "Удалить настройки"
 
 #: templates/server/engines/index.twig:3 templates/server/engines/show.twig:3
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
-msgstr "Типы таблиц"
+msgstr "Механизмы хранилища"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:16
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Идентификация"
+msgstr "Код аутентификации:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -14800,10 +14750,8 @@ msgstr ""
 "к примеру, используя %sСкрипт настройки%s."
 
 #: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Сохранить как файл"
+msgstr "Сохранить как JSON файл"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"
@@ -15136,16 +15084,13 @@ msgid "Skip next %s errors."
 msgstr "Игнорировать следующие %s ошибки."
 
 #: templates/server/replication/slave_configuration.twig:106
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Данный сервер не настроен в качестве подчинённого для процесса репликации. "
-"Хотите произвести <a href=\"%s\">настройку</a>?"
+"Данный сервер не настроен в качестве ведомого для процесса репликации. "
+"Хотите %sнастроить%s это?"
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
@@ -15216,17 +15161,13 @@ msgstr "Выберите бинарный журнал для просмотра
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
-msgstr "Сокращенное отображение запросов"
+msgstr "Сократить отображение запросов"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
-msgstr "Развернутое отображение запросов"
+msgstr "Развернуть отображение запросов"
 
 #: templates/server/binlog/index.twig:84
 msgid "Log name"
@@ -15246,11 +15187,6 @@ msgid "Continue insertion with %s rows"
 msgstr "Продолжить вставку с %s строки"
 
 #: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
@@ -15280,10 +15216,8 @@ msgstr "+ Добавить столбец"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:7
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "Вопросов с момента запуска: %s"
+msgstr "Вопросов с момента запуска:"
 
 #: templates/server/status/queries/index.twig:17
 msgid "per hour:"
@@ -15337,22 +15271,19 @@ msgstr[1] "%1$s соответствия в таблице <strong>%2$s</strong>
 msgstr[2] "%1$s соответствий в таблице <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Итого:</b> <i>%s</i> соответствие"
-msgstr[1] "<b>Итого:</b> <i>%s</i> соответствия"
-msgstr[2] "<b>Итого:</b> <i>%s</i> соответствий"
+msgstr[0] "<strong>Итого:</strong> <em>%s</em> соответствие"
+msgstr[1] "<strong>Итого:</strong> <em>%s</em> соответствия"
+msgstr[2] "<strong>Итого:</strong> <em>%s</em> соответствий"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
-msgstr "%sСоздать%s отсутствующие таблицы хранения конфигурации phpMyAdmin."
+msgstr ""
+"Сконфигурированная двухфакторная аутентификация недоступна, установите "
+"недостающие зависимости."
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -15378,16 +15309,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Файл может быть сжат в архив (%s) или находиться без сжатия."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Имя сжатого файла должно заканчиваться в виде <b>.[формат].[сжатие]</b>. "
-"Пример: <b>.sql.zip</b>"
+"Имя сжатого файла должно заканчиваться в виде "
+"<strong>.[формат].[сжатие]</strong>. Пример: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -15416,19 +15343,14 @@ msgstr ""
 "перезапуска импорт будет продолжен с позиции %d."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Разрешить скрипту разбивать процесс импорта при приближении временного "
-"лимита. <i>(Может быть использовано при импорте файлов большого размера, "
-"однако при этом вероятны проблемы с транзакциями.)</i>"
+"лимита. <em>(Может быть использовано при импорте файлов большого размера, "
+"однако при этом вероятны проблемы с транзакциями.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15475,10 +15397,9 @@ msgid "Save output to a file"
 msgstr "Сохранить вывод в файл"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Пропускать таблицы большие, чем"
+msgstr "Пропускать таблицы большие, чем %s MiB"
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
@@ -15506,10 +15427,8 @@ msgstr "Добавить столбец"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Length/Value"
-msgstr "Длина/Значения"
+msgstr "Длина/Значение"
 
 #: templates/database/central_columns/main.twig:37
 #: templates/database/central_columns/main.twig:254
@@ -15517,10 +15436,8 @@ msgid "Attribute"
 msgstr "Атрибут"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Центральный список столбцов для текущей базы данных пуст."
+msgstr "Центральный список столбцов для текущей базы данных пуст"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:417
@@ -15567,29 +15484,27 @@ msgstr "Интервал обновления"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:32
-#, fuzzy, php-format
+#, php-format
 msgid "%d second"
 msgstr "%d секунда"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:34
-#, fuzzy, php-format
+#, php-format
 msgid "%d seconds"
-msgstr "%d секунда"
+msgstr "%d секунд"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "в минуту"
+msgstr "%d минута"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "в минуту"
+msgstr "%d минут"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -15849,10 +15764,8 @@ msgid "Show form"
 msgstr "Показать форму"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "Показать скрытые пункты"
+msgstr "Показать скрытые сообщения"
 
 #: templates/setup/home/index.twig:72
 msgid "There are no configured servers"
@@ -15897,8 +15810,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Используйте в качестве основного слоя OpenStreetMaps"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -15915,10 +15826,9 @@ msgstr "Точка:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Точка %d"
+msgstr "Точка %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -16026,8 +15936,6 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "При загрузке панели навигации произошла ошибка"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
 msgstr "Выгрузка SQL"
 
@@ -16133,10 +16041,8 @@ msgid "Choose column to display:"
 msgstr "Выбор отображаемого столбца:"
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Сортировать по индексу"
+msgstr "Сортировать по ключу:"
 
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
@@ -16169,10 +16075,8 @@ msgid "You may examine the data in the error report:"
 msgstr "Вы можете изучить данные в отчёте об ошибке:"
 
 #: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Unknown storage engine."
-msgstr "Типы таблиц"
+msgstr "Неизвестный механизм хранилища."
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
@@ -16217,38 +16121,28 @@ msgid "select column"
 msgstr "выберите столбец"
 
 #: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Таблицы"
+msgstr "Псевдоним таблицы"
 
 #: templates/database/multi_table_query/form.twig:51
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Названия столбцов"
+msgstr "Псевдоним столбца"
 
 #: templates/database/multi_table_query/form.twig:54
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Использовать данное поле для обозначения каждой точки"
+msgstr "Использовать этот столбец в критериях"
 
 #: templates/database/multi_table_query/form.twig:57
 msgid "criteria"
 msgstr "критерий"
 
 #: templates/database/multi_table_query/form.twig:71
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Добавить %s"
+msgstr "Добавить как"
 
 #: templates/database/multi_table_query/form.twig:116
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Изменить поле(я)"
+msgstr "Еще один столбец"
 
 #: templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
@@ -16259,10 +16153,8 @@ msgid "Remove this column"
 msgstr "Удалить этот столбец"
 
 #: templates/database/multi_table_query/form.twig:179
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Дополнить запрос"
+msgstr "Обновить запрос"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -16335,6 +16227,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Просканируйте следующий QR-код в приложении двухфакторной аутентификации на "
+"своем устройстве и введите генерируемый им код аутентификации."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
@@ -16498,10 +16392,9 @@ msgid "Slave status"
 msgstr "Статус Slave"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Создать пользователя"
+msgstr "Создать %s"
 
 #: templates/preferences/two_factor/confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
@@ -17301,12 +17194,12 @@ msgid ""
 msgstr ""
 "Может помочь увеличение значений переменных {max_heap_table_size} и "
 "{tmp_table_size}. Однако некоторые временные таблицы всегда будут "
-"записываться на диск, в независимости от значений данных переменных. Для "
+"записываться на диск, вне зависимости от значений данных переменных. Для "
 "исправления данной проблемы, в должны переписать запросы таким образом, "
 "чтобы исключить условия (Внутри временной таблицы: Наличие столбца BLOB или "
-"TEXT, или наличие столбца более чем 512 байт) упомянутые в начале <a href="
-"\"https://www.facebook.com/note.php?note_id=10150111255065841&comments"
-"\">Статьи группы Pythian</a>"
+"TEXT, или наличие столбца более чем 512 байт) упомянутые в начале <a href=\""
+"https://www.facebook.com/note.php?note_id=10150111255065841&comments\">"
+"Статьи группы Pythian</a>"
 
 #: libraries/advisory_rules.txt:267
 #, php-format
