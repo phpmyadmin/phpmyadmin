@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2019-04-27 19:39+0000\n"
+"PO-Revision-Date: 2019-04-28 17:19+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/4-8/kk/"
 ">\n"
@@ -7623,6 +7623,10 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"Derekter jurnaly faılynyń eń úlken ólshemi. Ádepki mán - 64 MB. PBXT barlyq "
+"kesteler boıynsha paıdalanylatyn eń kóp 32000 derekter jýrnalyn jasaı alady. "
+"Sondyqtan, derekqorda saqtalýy múmkin derekterdiń qorytyndy mólsherin "
+"ulǵaıtý úshin osy aınymalynyń mánin arttyrýǵa bolady."
 
 #: libraries/classes/Engines/Pbxt.php:95
 msgid "Garbage threshold"
@@ -7677,6 +7681,9 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"Júıe súıemeldeıtin tranzaksıalyq jurnal faılynyń sany (pbxt/system/xlog*.xt)"
+". Eger jurnal sany osy mánnen asyp ketse, eski jurnaldar joıylady, áıtpese "
+"olar qaıta atalady jáne kelesi eń úlken nómir beriledi."
 
 #: libraries/classes/Engines/Pbxt.php:182
 #, php-format
@@ -7789,8 +7796,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Qoldamaıtyn qysýy (%s) bar faıldy júkteýge áreket jasadyńyz. Ony qoldaý iske "
-"asyrylmaǵan nemese konfıgýrasıańyz arqyly óshirilgen."
+"Qoldamaıtyn qysýy (%s) bar faıldy júkteýge áreket jasadyńyz. Ony qoldaý "
+"endirilmegen nemese konfıgýrasıańyz arqyly óshirilgen."
 
 #: libraries/classes/Footer.php:85
 #, php-format
@@ -8623,6 +8630,11 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Eki nemese odan da kóp baǵandar toby bar bolyp, olar tyǵyz baılanysqan jáne "
+"birdeı tólsıpatty qaıtalaı ma? Mysaly, kitaptar týraly derekterdi saqtaıtyn "
+"kestede book_id, author1, author2, author3 jáne t.b. sıaqty qaıtalanatyn "
+"topty quraıtyn baǵandar bolýy múmkin. Bul jaǵdaıda jańa keste (book_id, "
+"author) jasalýy kerek."
 
 #: libraries/classes/Normalization.php:335
 msgid ""
@@ -9918,6 +9930,14 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
+"Pishimdelgen kún retinde TIME, TIMESTAMP, DATETIME nemese sıfrlyq UNIX ýaqyt "
+"belgisi baǵanyn beıneleıdi. Birinshi opsıa - ýaqyt belgisine (ádepki: 0) "
+"ústeletin aýytqý (saǵatpen). Ekinshi opsıa - kún/ýaqyt pishimi jolyn kórsetý "
+"úshin paıdalanylady. Úshinshi opsıa -  oǵan jergilikti kúndi nemese UTC "
+"bireýin («local» nemese «utc» joldaryn paıdanańyz) kórý qalaıtynyńyzdy "
+"anyqtaıdy. Oǵan sáıkes, kún pishimi ár túrli mánge ıe - «local» úshin "
+"strftime() PHP-fýnksıasynyń qujattamasyn qarańyz jáne «utc» úshin bul "
+"gmdate() fýnksıasy arqyly isteledi."
 
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:62
@@ -9932,6 +9952,10 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
+"Baǵannyń ekilik derekterin júktep alý úshin siltemeni beıneleıdi. Birinshi "
+"opsıany faıl atyn kórsetý úshin paıdalanýǵa bolady, nemese ekinshi opsıany "
+"faıl atyn qamtıtyn baǵannyń ataýy retinde paıdalanýǵa bolady. Eger ekinshi "
+"opsıany paıdalansańyz, birinshi opsıany bos jolǵa ornatý kerek."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
 msgid ""
@@ -10372,6 +10396,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
+"Bul server replıkalaý prosesinde jetekshi server retinde teńshelmegen. "
+"Barlyq derekqorlardy replıkalaýdan jáne keıbireýlerin elemeýden (eger "
+"derekqordyń kópshiligin replıkalaýdy qalasańyz paıdaly) tańdaı alasyz nemese "
+"ádepki boıynsha barlyq derekqorlardy elemeýdi tańdap, tek belgili "
+"derekqorlardy replıkalaýyna ruqsat ete alasyz. Rejimdi bólekteńiz:"
 
 #: libraries/classes/ReplicationGui.php:111
 msgid "Replicate all databases; Ignore:"
@@ -11706,6 +11735,10 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
+"Eskerim: phpMyAdmin paıdalanushylar artyqshylyqtaryn tikeleı MySQL "
+"artyqshylyqtar kestelerinen alady. Osy kestelerdiń mazmuny, eger olar qolmen "
+"ózgertilse, server paıdalanatyn artyqshylyqtardan ózgeshe bolýy múmkin. Bul "
+"jaǵdaıda, jalǵastyrar aldynda %sartyqshylyqtaryn qaıta júkteýińiz%s kerek."
 
 #: libraries/classes/Server/Privileges.php:4773
 msgid ""
@@ -11715,6 +11748,11 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
+"Eskerim: phpMyAdmin paıdalanushylar artyqshylyqtaryn tikeleı MySQL "
+"artyqshylyqtar kestelerinen alady. Osy kestelerdiń mazmuny, eger olar qolmen "
+"ózgertilse, server paıdalanatyn artyqshylyqtardan ózgeshe bolýy múmkin. Bul "
+"jaǵdaıda artyqshylyqtar qaıta júktelýi kerek, biraq aǵymda RELOAD "
+"artyqshylyǵyńyz joq."
 
 #: libraries/classes/Server/Privileges.php:5058
 msgid "You have added a new user."
@@ -11962,6 +12000,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
+"phpMyAdmin Monitor server konfıgýrasıasyn ońtaılandyrýǵa jáne ýaqytty kerek "
+"qylatyn saýaldardy tabýǵa kómektesedi. Sońǵy úshin log_output parametrin "
+"«TABLE» mánine ornatyp, ne slow_query_log ne general_log qosýyńyz qajet. "
+"Sonymen birge eskerińiz, general_log kóp derekterdi jasaıdy jáne server "
+"júktemesin 15 % deıin arttyrady."
 
 #: libraries/classes/Server/Status/Monitor.php:135
 msgid "Using the monitor:"
@@ -11985,6 +12028,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
+"Jurnaldardan suraýlardy beıneleý úshin, tintýirdiń sol jaǵyn basyp turyp, "
+"dıagram ústinen ótkizip, kezkelgen dıagramdaǵy qatysty ýaqyt aralyǵyn "
+"bólekteńiz. Rastalǵannan birden, bul toptastyrylǵan saýaldar kestesin "
+"júkteıdi, olardy qosymsha taldaý úshin kezkelgen oryn alǵan SELECT "
+"nusqaýlaryn basýǵa bolady."
 
 #: libraries/classes/Server/Status/Monitor.php:154
 msgid "Please note:"
@@ -11997,6 +12045,10 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"general_log qosqanda server júktemesin 5-15 % arttyrýy múmkin. Sondaı-aq, "
+"jurnaldardan statıstıkany jasap shyǵarý júktemeni kerek qylatyn tapsyrma "
+"ekenin eskerińiz, sondyqtan shaǵyn ýaqyt aralyǵyn bólekteý, jáne general_log "
+"óshirý, jáne qadaǵalaýdy endi qajet etpegen soń kesteni bosatý usynylady."
 
 #: libraries/classes/Server/Status/Monitor.php:178
 #: libraries/classes/Server/Status/Monitor.php:286
@@ -12709,7 +12761,7 @@ msgstr "Saýal keshindegi bloktyń qorytyndy sany."
 
 #: libraries/classes/Server/Status/Variables.php:690
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Buzylýǵa turaqtylyq replıkalaý mártebesi (áli iske asyrylmaǵan)."
+msgstr "Buzylýǵa turaqtylyq replıkalaý mártebesi (áli endirilmegen)."
 
 #: libraries/classes/Server/Status/Variables.php:693
 msgid ""
@@ -12833,6 +12885,10 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
+"Qosylymdardy óńdeý úshin jasalǵan tizbektyń sany. Eger ttizbekhreads_created "
+"úlken bolsa, thread_cache_size mánin ulǵaıtqyńyz kelýi múmkin. (Ádette, eger "
+"tizbek endirýi jaqsy bolsa, bul ónimdiliktiń aıtarlyqtaı jaqsarýyna "
+"ákelmeıdi.)"
 
 #: libraries/classes/Server/Status/Variables.php:769
 msgid "Thread cache hit rate (calculated value)"
@@ -14004,10 +14060,8 @@ msgid "View dump (schema) of databases"
 msgstr "Derekqorlardyń dampyn (sulbasyn) qaraý"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Derekterdi joıýǵa ruqsat etedi."
+msgstr "Tarıhı joldardy joıýǵa ruqsat etedi."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
@@ -16447,6 +16501,10 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Eger derekkózden qurýdy jasamaǵan bolsańyz, taratymdaǵy ózgertilgen býmany "
+"paıdalanýyńyz múmkin. MySQL nusqaýlyǵy tek MySQL resmı ekilik faıldar úshin "
+"muqıat, esqandaı taratym (RedHat, Debian/Ubuntu jáne t.b. sıaqty) býmalary "
+"úshin emes."
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
@@ -16802,6 +16860,13 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Bul, ádette, jıi ındekstik tolyq skanerleýdi kórsetedi. Indekstik tolyq "
+"skanerleý kestelik skanerleýden tezirek bolady, biraq úlken kestelerde kóp "
+"prosesorlyq sıkldaryn qajet etedi, eger sol kestelerde UPDATE jáne DELETE "
+"nusqaýlary úlken kólemderine bul bar nemese bolǵan kezde «OPTIMIZE TABLE» "
+"nusqaýy oryndalsa, ındekstik tolyq skanerleýleriniń kólemin azaıtýǵa jáne/"
+"nemese jyldamdatýǵa bolady. Osy ındekstik tolyq skanerleýinen bólek, "
+"saýaldardy qaıta jazý arqyly ǵana azaıtýǵa bolady."
 
 #: libraries/advisory_rules.txt:238
 #, php-format
@@ -17267,6 +17332,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Klıentter, ádette, MySQL úshin ózderiniń qosylymyn durys jappaǵan kezde "
+"úziledi. Bul jelilik aqaýlaryna nemese derekqor óńdeýishine arnalǵan kod ony "
+"durys jappaǵanyna baılanysty bolýy múmkin. Jelińizdi jáne kodty tekserińiz."
 
 #: libraries/advisory_rules.txt:400
 #, php-format
@@ -17391,6 +17459,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"Aǵymda InnoDB býferiniń pýly úshin %s %% jadty paıdalanasyz. Eger 60 %% "
+"azdaý taǵaıyndasańyz, bul ereje oryndalady, degenmen, eger sol kompúterde "
+"kóp InnoDB kesteleri nemese basqa oryndalatyn qyzmetter bolmasa, bul júıeńiz "
+"úshin tolyq sáıkes bolýy múmkin."
 
 #: libraries/advisory_rules.txt:441
 msgid "MyISAM concurrent inserts"
