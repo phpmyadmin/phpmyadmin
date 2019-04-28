@@ -82,6 +82,7 @@ phpMyAdmin - ChangeLog
 - issue #14401 Fixed insert rows keypress Enter behavior
 - issue #15146 Fixed error reports can not be sent because they are too large
 - issue #15205 Fixed useless backquotes on sql preview modal when deleting an index
+- issue #13178 Fixed issues with uppercase table and database names (lower_case_table_names=1)
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
