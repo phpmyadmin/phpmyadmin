@@ -2408,10 +2408,17 @@ function PMA_previewSQL ($form) {
 }
 
 /**
+ * Callback called when submit/"OK" is clicked on sql preview/confirm modal
  *
- * @param sql_data  Sql query to preview
- * @param url       url to be sent to callback
- * @param callback  callback function
+ * @callback onSubmitCallback
+ * @param {string} url The url
+ */
+
+/**
+ *
+ * @param {string}           sql_data  Sql query to preview
+ * @param {string}           url       Url to be sent to callback
+ * @param {onSubmitCallback} callback  On submit callback function
  *
  * @return void
  */
