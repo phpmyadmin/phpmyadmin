@@ -2420,7 +2420,6 @@ function PMA_confirmPreviewSQL (sql_data, url, callback) {
         + sql_data
         + '</pre></code></div>'
     );
-    var button_options = {};
     var button_options = [
         {
             text: PMA_messages.strOK,
