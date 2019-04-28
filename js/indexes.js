@@ -636,7 +636,7 @@ AJAX.registerOnload('indexes.js', function () {
                 .val()
         );
 
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+        PMA_confirmPreviewSQL(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
             var params = getJSConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
