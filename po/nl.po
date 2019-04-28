@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 19:16+0200\n"
-"PO-Revision-Date: 2019-04-24 05:54+0000\n"
+"PO-Revision-Date: 2019-04-29 11:45+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -13402,10 +13402,8 @@ msgid "View dump (schema) of databases"
 msgstr "Export (schema) van de databases bekijken"
 
 #: server_privileges.php:86
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Maakt het mogelijk om gegevens te verwijderen."
+msgstr "Staat verwijderen van historische rijen toe."
 
 #: server_privileges.php:157 server_user_groups.php:47
 msgid "No Privileges"
