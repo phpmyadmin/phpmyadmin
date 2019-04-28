@@ -125,6 +125,12 @@ class ServerDatabasesController extends Controller
      */
     public function createDatabaseAction()
     {
+        // lower_case_table_names=1 `DB` becomes `db`
+        if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
+            $_POST['new_db'] = mb_strtolower(
+                $_POST['new_db']
+            );
+        }
         /**
          * Builds and executes the db creation sql query
          */

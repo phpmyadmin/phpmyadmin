@@ -24,6 +24,15 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/check_user_privileges.inc.php';
 
+// lower_case_table_names=1 `DB` becomes `db`
+$lowerCaseNames = $GLOBALS['dbi']->getLowerCaseNames() === '1';
+
+if ($lowerCaseNames) {
+    $GLOBALS['table'] = mb_strtolower(
+        $GLOBALS['table']
+    );
+}
+
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
 /**
@@ -121,6 +130,12 @@ if (isset($_POST['submitoptions'])) {
     $warning_messages = array();
 
     if (isset($_POST['new_name'])) {
+        // lower_case_table_names=1 `DB` becomes `db`
+        if ($lowerCaseNames) {
+            $_POST['new_name'] = mb_strtolower(
+                $_POST['new_name']
+            );
+        }
         // Get original names before rename operation
         $oldTable = $pma_table->getName();
         $oldDb = $pma_table->getDbName();
