@@ -1112,11 +1112,11 @@ class Util
                         . self::linkOrButton(
                             'import.php' . Url::getCommon($explain_params),
                             __('Skip Explain SQL')
-                        ) . ']';
+                        ) . '&nbsp;]';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
                         . '?client=phpMyAdmin&raw_explain='
                         . urlencode(self::_generateRowQueryOutput($sql_query));
-                    $explain_link .= ' ['
+                    $explain_link .= ' [&nbsp;'
                         . self::linkOrButton(
                             htmlspecialchars('url.php?url=' . urlencode($url)),
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
@@ -1180,7 +1180,7 @@ class Util
             ) {
                 $refresh_link = 'import.php' . Url::getCommon($url_params);
                 $refresh_link = ' [&nbsp;'
-                    . self::linkOrButton($refresh_link, __('Refresh')) . ']';
+                    . self::linkOrButton($refresh_link, __('Refresh')) . '&nbsp;]';
             } else {
                 $refresh_link = '';
             } //refresh
@@ -1216,13 +1216,13 @@ class Util
                 && ! $query_too_big
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $inline_edit_link = ' ['
+                $inline_edit_link = ' [&nbsp;'
                     . self::linkOrButton(
                         '#',
                         _pgettext('Inline edit query', 'Edit inline'),
                         ['class' => 'inline_edit_sql']
                     )
-                    . ']';
+                    . '&nbsp;]';
             } else {
                 $inline_edit_link = '';
             }
