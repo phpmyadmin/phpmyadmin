@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-08 23:42-0300\n"
-"PO-Revision-Date: 2019-04-29 17:51+0000\n"
+"PO-Revision-Date: 2019-04-30 14:36+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/4-8/kk/"
 ">\n"
@@ -3640,7 +3640,7 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Сookie-faıldar ([kbd]cookie[/kbd]) arqyly túpnusqalyq rastamasynda cookie-"
+"Cookie-faıldar ([kbd]cookie[/kbd]) arqyly túpnusqalyq rastamasynda cookie-"
 "faıldaryn shıfrlaý úshin paıdalanylatyn qupıa sóılemi."
 
 #: libraries/classes/Config/Descriptions.php:89
@@ -8348,7 +8348,7 @@ msgstr "Kórinister:"
 #: templates/database/tracking/tracked_tables.twig:17
 #: templates/database/multi_table_query/form.twig:44
 msgid "Show"
-msgstr "Көрсету"
+msgstr "Kórsetý"
 
 #: libraries/classes/Navigation/NavigationHeader.php:165
 msgid "Home"
@@ -10007,7 +10007,7 @@ msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
-"Sondaı-aq, nobaıdy beıneleıtin keskindi júktep salý múmkindigi. Opsıalar "
+"Sonymen qatar nobaıdy beıneleıtin, keskindi júktep salý múmkindigi. Opsıalar "
 "nobaıdyń pıksel boıynsha eni men bıiktigi bolyp tabylady. Ádepkileri - 100 X "
 "100."
 
@@ -14359,7 +14359,7 @@ msgstr "Qoljetiimdi MIME túrleri"
 
 #: transformation_overview.php:39
 msgid "Available browser display transformations"
-msgstr "Qoljetimdi sholǵysh beıneleýdiń túrlendirýleri"
+msgstr "Qoljetimdi sholǵysh beıneleýin túrlendirýleri"
 
 #: transformation_overview.php:40
 msgid "Available input transformations"
@@ -14368,7 +14368,7 @@ msgstr "Qoljetimdi kiris túrlendirýleri"
 #: transformation_overview.php:43
 #: templates/columns_definitions/table_fields_definitions.twig:78
 msgid "Browser display transformation"
-msgstr "Sholǵysh beıneleýdiń túrlendirýi"
+msgstr "Sholǵysh beıneleýiń túrlendirý"
 
 #: transformation_overview.php:44
 #: templates/columns_definitions/table_fields_definitions.twig:89
@@ -15862,7 +15862,7 @@ msgstr "%1$s nusqasyn jasaý"
 
 #: templates/table/tracking/create_version.twig:20
 msgid "Track these data definition statements:"
-msgstr "Osy derekter anyqtaýy nusqaýlaryn qadaǵalaý:"
+msgstr "Osy derekterdi anyqtaý nusqaýlaryn qadaǵalaý:"
 
 #: templates/table/tracking/create_version.twig:59
 msgid "Track these data manipulation statements:"
@@ -15975,8 +15975,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Qysylǵan faıl atynyń sońy <strong>.[format].[compression]</strong> bolý "
-"qajet. Mysaly: <strong>.sql.zip</strong>"
+"Qysylǵan faıl atynyń sońy <strong>.[pishim].[qysý]</strong> bolý qajet. "
+"Mysaly: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
