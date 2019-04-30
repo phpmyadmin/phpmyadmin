@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 18:51+0200\n"
-"PO-Revision-Date: 2019-04-30 14:36+0000\n"
+"PO-Revision-Date: 2019-04-30 22:58+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb_NO/>\n"
@@ -600,17 +600,18 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Skripttids-avbrudd. Hvis du ønsker å fortsette vil importen %sgjennopptas "
-"når du laster opp filen%s en gang til."
+"Skript-tidsavbrudd. Hvis du ønsker å fortsette vil importen, %ssend inn "
+"samme fil igjen%s og importen vil tilta igjen."
 
 #: import.php:638
+#, fuzzy
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "Under den siste kjøringen så ble ingen data lest, dette betyr vanligvis at "
 "phpMyAdmin ikke vil være istand til å fullføre importeringen uten at du øker "
-"php-tidsgrensen."
+"PHP-tidsgrensen."
 
 #: import.php:706 sql.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1838,7 +1839,7 @@ msgstr "Slå på kontroll av fremmednøkler"
 
 #: js/messages.php:390
 msgid "Failed to get real row count."
-msgstr "Klarte ikke hente ekte antall rader."
+msgstr "Klarte ikke hente faktisk antall rader."
 
 #: js/messages.php:393
 msgid "Searching"
@@ -1997,8 +1998,8 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"Ingen kolonner i sentral listen. Sørg for at sentral kolonne liste for "
-"databasen %s ikke har kolonner som er til stede i den aktuelle tabellen."
+"Ingen kolonner i sentrallisten. Sørg for at hovedkolonnelisten for databasen "
+"%s ikke har kolonner som er til stede i den aktuelle tabellen."
 
 #: js/messages.php:437
 msgid "See more"
@@ -2338,11 +2339,11 @@ msgstr "Ikke navngitt"
 
 #: js/messages.php:572
 msgid "Please select a page to continue"
-msgstr "Vennligst velg en side for å fortsette"
+msgstr "Velg en side for å fortsette"
 
 #: js/messages.php:573
 msgid "Please enter a valid page name"
-msgstr "Vennligst tast inn et gyldig side navn"
+msgstr "Tast inn et gyldig sidenavn"
 
 #: js/messages.php:575
 msgid "Do you want to save the changes to the current page?"
@@ -4997,13 +4998,13 @@ msgstr "Aktiver utheving"
 #: libraries/classes/Config/Descriptions.php:833
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "Enten å tilby muligheten for tre ekspansjon i navigasjonspanelet ."
+msgstr "Hvorvidt muligheten for treekspansjon i navigasjonspanelet skal tilbys."
 
 #: libraries/classes/Config/Descriptions.php:835
 #, fuzzy
 #| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Tabellbasert navigasjonsområde"
+msgstr "Skru på navigasjonstreutvidelse"
 
 #: libraries/classes/Config/Descriptions.php:837
 #, fuzzy
@@ -6916,7 +6917,7 @@ msgstr "Ingen bokmerker"
 
 #: libraries/classes/Console.php:137
 msgid "SQL Query Console"
-msgstr "SQL spørrings konsoll"
+msgstr "SQL-spørringskonsoll"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:284
 msgid "Favorite List is full!"
@@ -8666,13 +8667,11 @@ msgstr "Designer"
 #: libraries/classes/Menu.php:549 libraries/classes/Util.php:4008
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
-msgstr "Senter kolonner"
+msgstr "Hovedkolonner"
 
 #: libraries/classes/Menu.php:607
-#, fuzzy
-#| msgid "Users"
 msgid "User accounts"
-msgstr "Brukere"
+msgstr "Brukerkontoer"
 
 #: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
 #: libraries/classes/Util.php:3987 templates/server/sub_page_header.twig:2
@@ -15586,7 +15585,7 @@ msgstr "Bokmerke"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
-msgstr "Spørringen feilet"
+msgstr "Spørringen mislyktes"
 
 #: templates/console/display.twig:42 templates/console/display.twig:184
 msgid "Queried time"
@@ -15678,7 +15677,7 @@ msgstr "Del dette bokmerke"
 
 #: templates/console/display.twig:140
 msgid "Set default"
-msgstr "Angi standard"
+msgstr "Angi forvalg"
 
 #: templates/console/display.twig:162
 msgid ""
@@ -16246,7 +16245,7 @@ msgstr ""
 
 #: templates/table/structure/optional_action_links.twig:28
 msgid "Track view"
-msgstr "Spor visning"
+msgstr "Sporvisning"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
