@@ -83,6 +83,8 @@ phpMyAdmin - ChangeLog
 - issue #15146 Fixed error reports can not be sent because they are too large
 - issue #15205 Fixed useless backquotes on sql preview modal when deleting an index
 - issue #13178 Fixed issues with uppercase table and database names (lower_case_table_names=1)
+- issue #14383 Fixed warning when browsing certain tables (GIS data)
+- issue #12865 Fixed MySQL 8.0.0 issues with GIS display
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
