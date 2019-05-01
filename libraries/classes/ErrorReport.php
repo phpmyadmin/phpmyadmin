@@ -99,6 +99,11 @@ class ErrorReport
                 $exception["uri"] = $uri;
                 $report["script_name"] = $scriptName;
                 unset($exception["url"]);
+            } else if (isset($_POST["url"])) {
+                list($uri, $scriptName) = $this->sanitizeUrl($_POST["url"]);
+                $exception["uri"] = $uri;
+                $report["script_name"] = $scriptName;
+                unset($_POST["url"]);
             } else {
                 $report["script_name"] = null;
             }
@@ -175,7 +180,7 @@ class ErrorReport
         }
 
         // get script name
-        preg_match("<([a-zA-Z\-_\d]*\.php)$>", $components["path"], $matches);
+        preg_match("<([a-zA-Z\-_\d\.]*\.php|js\/[a-zA-Z\-_\d\/\.]*\.js)$>", $components["path"], $matches);
         if (count($matches) < 2) {
             $scriptName = 'index.php';
         } else {

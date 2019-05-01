@@ -224,7 +224,7 @@ var ErrorReport = {
             'server': PMA_commonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
-            'current_url': window.location.href,
+            'url': window.location.href,
             'exception_type': 'js'
         };
         if (AJAX.scriptHandler._scripts.length > 0) {
