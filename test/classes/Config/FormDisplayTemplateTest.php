@@ -532,20 +532,4 @@ class FormDisplayTemplateTest extends TestCase
             $result
         );
     }
-
-    /**
-     * Test for FormDisplayTemplate::displayErrors()
-     *
-     * @return void
-     */
-    public function testDisplayErrors()
-    {
-        $errors = array('<err1>', '&err2');
-
-        $result = FormDisplayTemplate::displayErrors('err"Name1"', $errors);
-
-        $this->assertContains('<dt>err&quot;Name1&quot;</dt>', $result);
-        $this->assertContains('<dd>&lt;err1&gt;</dd>', $result);
-        $this->assertContains('<dd>&amp;err2</dd>', $result);
-    }
 }
