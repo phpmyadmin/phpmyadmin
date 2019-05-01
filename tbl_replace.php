@@ -121,6 +121,19 @@ $gis_from_text_functions = array(
     'MPolyFromText',
 );
 
+if ($GLOBALS['dbi']->getVersion() >= 50600) {
+    $gis_from_text_functions = array(
+        'ST_GeomFromText',
+        'ST_GeomCollFromText',
+        'ST_LineFromText',
+        'ST_MLineFromText',
+        'ST_PointFromText',
+        'ST_MPointFromText',
+        'ST_PolyFromText',
+        'ST_MPolyFromText',
+    );
+}
+
 $gis_from_wkb_functions = array(
     'GeomFromWKB',
     'GeomCollFromWKB',

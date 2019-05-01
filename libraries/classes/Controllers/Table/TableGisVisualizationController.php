@@ -124,6 +124,9 @@ class TableGisVisualizationController extends TableController
             $this->visualizationSettings = $_REQUEST['visualizationSettings'];
         }
 
+        // Check mysql version
+        $this->visualizationSettings['mysqlVersion'] = $this->dbi->getVersion();
+
         if (!isset($this->visualizationSettings['labelColumn'])
             && isset($labelCandidates[0])
         ) {

@@ -88,7 +88,8 @@ $result = "'" . $wkt . "'," . $srid;
 $visualizationSettings = array(
     'width' => 450,
     'height' => 300,
-    'spatialColumn' => 'wkt'
+    'spatialColumn' => 'wkt',
+    'mysqlVersion' => $GLOBALS['dbi']->getVersion()
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
 $visualization = GisVisualization::getByData($data, $visualizationSettings)
@@ -419,7 +420,7 @@ echo '<div id="gis_data_output">';
 echo '<h3>' , __('Output') , '</h3>';
 echo '<p>';
 echo __(
-    'Choose "GeomFromText" from the "Function" column and paste the'
+    'Choose "ST_GeomFromText" from the "Function" column and paste the'
     . ' string below into the "Value" field.'
 );
 echo '</p>';
