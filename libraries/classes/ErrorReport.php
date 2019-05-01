@@ -93,14 +93,21 @@ class ErrorReport
             }
             $exception = $_POST['exception'];
             $exception["stack"] = $this->translateStacktrace($exception["stack"]);
-            list($uri, $scriptName) = $this->sanitizeUrl($exception["url"]);
-            $exception["uri"] = $uri;
-            unset($exception["url"]);
+
+            if (isset($exception["url"])) {
+                list($uri, $scriptName) = $this->sanitizeUrl($exception["url"]);
+                $exception["uri"] = $uri;
+                $report["script_name"] = $scriptName;
+                unset($exception["url"]);
+            } else {
+                $report["script_name"] = null;
+            }
 
             $report["exception_type"] = 'js';
             $report["exception"] = $exception;
-            $report["script_name"] = $scriptName;
-            $report["microhistory"] = $_POST['microhistory'];
+            if (isset($_POST['microhistory'])) {
+                $report["microhistory"] = $_POST['microhistory'];
+            }
 
             if (! empty($_POST['description'])) {
                 $report['steps'] = $_POST['description'];
@@ -226,7 +233,6 @@ class ErrorReport
                     $line = mb_substr($line, 0, 75) . "//...";
                 }
             }
-            unset($level["context"]);
             list($uri, $scriptName) = $this->sanitizeUrl($level["url"]);
             $level["uri"] = $uri;
             $level["scriptname"] = $scriptName;
