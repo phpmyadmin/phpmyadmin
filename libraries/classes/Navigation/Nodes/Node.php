@@ -110,6 +110,11 @@ class Node
     protected $relation;
 
     /**
+     * @var string $disp_name  display name for the navigation tree
+     */
+    public $disp_name;
+
+    /**
      * Initialises the class by setting the mandatory variables
      *
      * @param string $name     An identifier for the new node

@@ -19,17 +19,12 @@ use PhpMyAdmin\Util;
 class NodeColumn extends Node
 {
     /**
-     * @var string $disp_name  display name for the navigation tree
-     */
-    public $disp_name;
-
-    /**
      * Initialises the class
      *
-     * @param array  $item     array to identify the column node
-     * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
-     * @param bool   $is_group Whether this object has been created
-     *                         while grouping nodes
+     * @param array $item     array to identify the column node
+     * @param int   $type     Type of node, may be one of CONTAINER or OBJECT
+     * @param bool  $is_group Whether this object has been created
+     *                        while grouping nodes
      */
     public function __construct($item, $type = Node::OBJECT, $is_group = false)
     {
@@ -51,7 +46,7 @@ class NodeColumn extends Node
     /**
      * Get customized Icon for columns in navigation tree
      *
-     * @param string $key       The key type - (primary, foreign etc.)
+     * @param string $key The key type - (primary, foreign etc.)
      *
      * @return string Icon name for required key.
      */
@@ -74,7 +69,7 @@ class NodeColumn extends Node
     /**
      * Get displayable name for navigation tree (key_type, data_type, default)
      *
-     * @param array  $item    Item is array containing required info
+     * @param array $item Item is array containing required info
      *
      * @return string Display name for navigation tree
      */
@@ -96,10 +91,10 @@ class NodeColumn extends Node
     /**
      * Get truncated value for display in node column view
      *
-     * @param $key string   key to identify default,datatype etc
-     * @param $value string value corresponding to key
+     * @param string $key   key to identify default,datatype etc
+     * @param string $value value corresponding to key
      *
-     * @return $retval string truncated value
+     * @return string truncated value
      */
     public function getTruncateValue($key, $value)
     {
