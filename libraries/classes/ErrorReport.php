@@ -114,7 +114,7 @@ class ErrorReport
                 $exception["uri"] = $uri;
                 $report["script_name"] = $scriptName;
                 unset($exception["url"]);
-            } else if (isset($_POST["url"])) {
+            } elseif (isset($_POST["url"])) {
                 list($uri, $scriptName) = $this->sanitizeUrl($_POST["url"]);
                 $exception["uri"] = $uri;
                 $report["script_name"] = $scriptName;
@@ -226,9 +226,9 @@ class ErrorReport
      *
      * @param array $report the report info to be sent
      *
-     * @return string the reply of the server
+     * @return string|bool the reply of the server
      */
-    public function send(array $report): string
+    public function send(array $report)
     {
         return $this->httpRequest->create(
             $this->submissionUrl,
