@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 18:51+0200\n"
-"PO-Revision-Date: 2019-04-30 22:58+0000\n"
+"PO-Revision-Date: 2019-05-02 18:49+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb_NO/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -3620,11 +3620,12 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
-msgstr "Tillat tredjeparts innramming"
+msgstr "Tillat tredjepartsinnramming"
 
 #: libraries/classes/Config/Descriptions.php:82
+#, fuzzy
 msgid "Show \"Drop database\" link to normal users"
-msgstr "Vis \"Drop database\" link for normale brukere"
+msgstr "Vis \"Fjern database\"-lenke til normale brukere"
 
 #: libraries/classes/Config/Descriptions.php:85
 msgid ""
@@ -3632,7 +3633,7 @@ msgid ""
 "authentication."
 msgstr ""
 "Hemmelig passordfrase brukt for kryptering av informasjonskapsler i "
-"[kbd]cookie[/kbd] autentisering."
+"[kbd]kake[/kbd]-identitetsbekreftelse."
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid "Blowfish secret"
