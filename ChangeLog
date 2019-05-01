@@ -85,6 +85,8 @@ phpMyAdmin - ChangeLog
 - issue #13178 Fixed issues with uppercase table and database names (lower_case_table_names=1)
 - issue #14383 Fixed warning when browsing certain tables (GIS data)
 - issue #12865 Fixed MySQL 8.0.0 issues with GIS display
+- issue #15059 Fixed "Server charset" in "Database server" tab showing wrong information
+- issue #14614 Fixed mysql error "#2014 - Commands out of sync; you can't run this command now" on sql query
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
