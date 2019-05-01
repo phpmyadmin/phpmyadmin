@@ -51,6 +51,13 @@ class Charsets
     ];
 
     private static $_charsets = [];
+
+    /**
+     * The charset for the server
+     *
+     * @var string
+     */
+    private static $_charset_server = null;
     private static $_charsets_descriptions = [];
     private static $_collations = [];
     private static $_default_collations = [];
@@ -126,6 +133,23 @@ class Charsets
 
         foreach (self::$_collations as $key => $value) {
             sort(self::$_collations[$key], SORT_STRING);
+        }
+    }
+
+     /**
+     * Get current MySQL server charset.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface instance
+     *
+     * @return string
+     */
+    public static function getServerCharset(DatabaseInterface $dbi): string
+    {
+        if (self::$_charset_server !== null) {
+            return self::$_charset_server;
+        } else {
+            self::$_charset_server = $dbi->getVariable('character_set_server');
+            return self::$_charset_server;
         }
     }
 

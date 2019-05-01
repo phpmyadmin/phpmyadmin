@@ -29,15 +29,32 @@ class UtilTest extends PmaTestCase
      *
      * @return void
      */
-    public function testCreateGISData()
+    public function testCreateGISDataOldMysql(): void
     {
         $this->assertEquals(
             "abc",
-            Util::createGISData("abc")
+            Util::createGISData("abc", 50500)
         );
         $this->assertEquals(
             "GeomFromText('POINT()',10)",
-            Util::createGISData("'POINT()',10")
+            Util::createGISData("'POINT()',10", 50500)
+        );
+    }
+
+    /**
+     * Test for createGISData
+     *
+     * @return void
+     */
+    public function testCreateGISDataNewMysql(): void
+    {
+        $this->assertEquals(
+            "abc",
+            Util::createGISData("abc", 50600)
+        );
+        $this->assertEquals(
+            "ST_GeomFromText('POINT()',10)",
+            Util::createGISData("'POINT()',10", 50600)
         );
     }
 
@@ -46,7 +63,7 @@ class UtilTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetGISFunctions()
+    public function testGetGISFunctions(): void
     {
         $funcs = Util::getGISFunctions();
         $this->assertArrayHasKey(

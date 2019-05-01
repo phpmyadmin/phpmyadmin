@@ -84,6 +84,7 @@ $visualizationSettings = [
     'width' => 450,
     'height' => 300,
     'spatialColumn' => 'wkt',
+    'mysqlVersion' => $GLOBALS['dbi']->getVersion(),
 ];
 $data = [
     [

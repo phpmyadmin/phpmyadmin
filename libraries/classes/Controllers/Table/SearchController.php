@@ -1094,7 +1094,7 @@ class SearchController extends AbstractController
             return Util::backquote($names) . " " . $func_type;
         } elseif ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
             return $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
         }
@@ -1113,7 +1113,7 @@ class SearchController extends AbstractController
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
         } elseif (strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . " "

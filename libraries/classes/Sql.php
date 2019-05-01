@@ -2217,6 +2217,10 @@ class Sql
             isset($extra_data) ? $extra_data : null
         );
 
+        if ($GLOBALS['dbi']->moreResults()) {
+            $GLOBALS['dbi']->nextResult();
+        }
+
         $warning_messages = $this->operations->getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page

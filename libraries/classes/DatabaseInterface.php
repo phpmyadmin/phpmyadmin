@@ -325,11 +325,17 @@ class DatabaseInterface
             $this->_dbgQuery($query, $link, $result, $time);
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
                 if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
-                    $tmp = $this->_extension->realQuery('
-                        SHOW COUNT(*) WARNINGS', $this->_links[$link], DatabaseInterface::QUERY_STORE);
+                    $tmp = $this->_extension->realQuery(
+                        'SHOW COUNT(*) WARNINGS', $this->_links[$link], DatabaseInterface::QUERY_STORE
+                    );
                     $warnings = $this->fetchRow($tmp);
+
+                    if ($this->_extension->moreResults($this->_links[$link])) {
+                        $this->_extension->nextResult($this->_links[$link]);
+                    }
+
                 } else {
-                    $warnings = 0;
+                    $warnings = [ '' ];
                 }
 
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
