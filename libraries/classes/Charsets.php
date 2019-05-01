@@ -137,12 +137,12 @@ class Charsets
     }
 
      /**
-     * Get current MySQL server charset.
-     *
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     *
-     * @return string
-     */
+      * Get current MySQL server charset.
+      *
+      * @param DatabaseInterface $dbi DatabaseInterface instance
+      *
+      * @return string
+      */
     public static function getServerCharset(DatabaseInterface $dbi): string
     {
         if (self::$_charset_server !== null) {

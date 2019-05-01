@@ -139,6 +139,7 @@ $gis_from_text_functions = [
     'MPolyFromText',
 ];
 
+$gis_from_wkb_functions = [];
 if ($dbi->getVersion() >= 50600) {
     $gis_from_wkb_functions = [
         'ST_GeomFromText',

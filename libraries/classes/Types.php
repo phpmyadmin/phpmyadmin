@@ -603,49 +603,49 @@ class Types
                 return $ret;
 
             case 'SPATIAL':
-            if ($serverVersion >= 50600) {
-                return [
-                    'ST_GeomFromText',
-                    'ST_GeomFromWKB',
+                if ($serverVersion >= 50600) {
+                    return [
+                        'ST_GeomFromText',
+                        'ST_GeomFromWKB',
 
-                    'ST_GeomCollFromText',
-                    'ST_LineFromText',
-                    'ST_MLineFromText',
-                    'ST_PointFromText',
-                    'ST_MPointFromText',
-                    'ST_PolyFromText',
-                    'ST_MPolyFromText',
+                        'ST_GeomCollFromText',
+                        'ST_LineFromText',
+                        'ST_MLineFromText',
+                        'ST_PointFromText',
+                        'ST_MPointFromText',
+                        'ST_PolyFromText',
+                        'ST_MPolyFromText',
 
-                    'ST_GeomCollFromWKB',
-                    'ST_LineFromWKB',
-                    'ST_MLineFromWKB',
-                    'ST_PointFromWKB',
-                    'ST_MPointFromWKB',
-                    'ST_PolyFromWKB',
-                    'ST_MPolyFromWKB',
-                ];
-            } else {
-                return [
-                    'GeomFromText',
-                    'GeomFromWKB',
+                        'ST_GeomCollFromWKB',
+                        'ST_LineFromWKB',
+                        'ST_MLineFromWKB',
+                        'ST_PointFromWKB',
+                        'ST_MPointFromWKB',
+                        'ST_PolyFromWKB',
+                        'ST_MPolyFromWKB',
+                    ];
+                } else {
+                    return [
+                        'GeomFromText',
+                        'GeomFromWKB',
 
-                    'GeomCollFromText',
-                    'LineFromText',
-                    'MLineFromText',
-                    'PointFromText',
-                    'MPointFromText',
-                    'PolyFromText',
-                    'MPolyFromText',
+                        'GeomCollFromText',
+                        'LineFromText',
+                        'MLineFromText',
+                        'PointFromText',
+                        'MPointFromText',
+                        'PolyFromText',
+                        'MPolyFromText',
 
-                    'GeomCollFromWKB',
-                    'LineFromWKB',
-                    'MLineFromWKB',
-                    'PointFromWKB',
-                    'MPointFromWKB',
-                    'PolyFromWKB',
-                    'MPolyFromWKB',
-                ];
-            }
+                        'GeomCollFromWKB',
+                        'LineFromWKB',
+                        'MLineFromWKB',
+                        'PointFromWKB',
+                        'MPointFromWKB',
+                        'PolyFromWKB',
+                        'MPolyFromWKB',
+                    ];
+                }
         }
         return [];
     }

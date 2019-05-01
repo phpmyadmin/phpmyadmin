@@ -168,12 +168,12 @@ class ErrorReportTest extends TestCase
             'locale' => $_COOKIE['pma_lang'],
             'configuration_storage' => 'disabled',
             'php_version' => phpversion(),
+            'script_name' => 'index.php',
             'exception_type' => 'js',
             'exception' => [
                 'stack' => [],
                 'uri' => 'index.php?'
             ],
-            'script_name' => 'index.php',
             'microhistory' => $_POST['microhistory'],
             'steps' => $_POST['description'],
         ];
