@@ -144,6 +144,13 @@ class DatabasesController extends AbstractController
     {
         global $cfg, $db;
 
+        // lower_case_table_names=1 `DB` becomes `db`
+        if ($this->dbi->getLowerCaseNames() === '1') {
+            $params['new_db'] = mb_strtolower(
+                $params['new_db']
+            );
+        }
+
         /**
          * Builds and executes the db creation sql query
          */

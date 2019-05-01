@@ -37,6 +37,15 @@ $dbi = $container->get(DatabaseInterface::class);
 $checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
+// lower_case_table_names=1 `DB` becomes `db`
+$lowerCaseNames = $dbi->getLowerCaseNames() === '1';
+
+if ($lowerCaseNames) {
+    $GLOBALS['table'] = mb_strtolower(
+        $GLOBALS['table']
+    );
+}
+
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
 $header = $response->getHeader();
@@ -130,6 +139,12 @@ if (isset($_POST['submitoptions'])) {
     $warning_messages = [];
 
     if (isset($_POST['new_name'])) {
+        // lower_case_table_names=1 `DB` becomes `db`
+        if ($lowerCaseNames) {
+            $_POST['new_name'] = mb_strtolower(
+                $_POST['new_name']
+            );
+        }
         // Get original names before rename operation
         $oldTable = $pma_table->getName();
         $oldDb = $pma_table->getDbName();

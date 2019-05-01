@@ -162,7 +162,7 @@ class Validator
         $newResult = [];
         foreach ($result as $k => $v) {
             $k2 = isset($keyMap[$k]) ? $keyMap[$k] : $k;
-            $newResult[$k2] = $v;
+            $newResult[$k2] = htmlspecialchars($v);
         }
         return empty($newResult) ? true : $newResult;
     }
