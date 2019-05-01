@@ -2229,6 +2229,10 @@ EOT;
                 isset($extra_data) ? $extra_data : null
             );
 
+        if ($GLOBALS['dbi']->moreResults()) {
+            $GLOBALS['dbi']->nextResult();
+        }
+
         $operations = new Operations();
         $warning_messages = $operations->getWarningMessagesArray();
 
