@@ -51,7 +51,7 @@ class Template
      */
     public function __construct()
     {
-        /* @var \PhpMyAdmin\Config $config */
+        /** @var \PhpMyAdmin\Config $config */
         $config = $GLOBALS['PMA_Config'];
         if (is_null($this::$twig)) {
             $loader = new FilesystemLoader(static::BASE_PATH);

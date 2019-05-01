@@ -365,7 +365,7 @@ class NavigationTree
         }
 
         array_shift($path); // remove 'root'
-        /* @var $db NodeDatabase */
+        /** @var NodeDatabase $db */
         $db = $this->_tree->getChild($path[0]);
         $retval = $db;
 
@@ -453,7 +453,7 @@ class NavigationTree
             return $retval;
         }
 
-        /* @var $table NodeTable */
+        /** @var NodeTable $table */
         $table = $container->getChild($path[0], true);
         if ($table === false) {
             if (! $db->getPresence('tables', $path[0])) {

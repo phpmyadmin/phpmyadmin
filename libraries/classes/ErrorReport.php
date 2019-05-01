@@ -130,7 +130,7 @@ class ErrorReport
                 return [];
             }
             foreach ($_SESSION['prev_errors'] as $errorObj) {
-                /* @var $errorObj \PhpMyAdmin\Error */
+                /** @var \PhpMyAdmin\Error  $errorObj */
                 if ($errorObj->getLine()
                     && $errorObj->getType()
                     && $errorObj->getNumber() != E_USER_WARNING

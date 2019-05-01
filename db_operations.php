@@ -100,7 +100,7 @@ if (strlen($GLOBALS['db']) > 0
             $tables_full = $dbi->getTablesFull($GLOBALS['db']);
 
             // remove all foreign key constraints, otherwise we can get errors
-            /* @var $export_sql_plugin ExportSql */
+            /** @var ExportSql $export_sql_plugin */
             $export_sql_plugin = Plugins::getPlugin(
                 "export",
                 "sql",

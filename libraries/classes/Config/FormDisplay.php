@@ -183,7 +183,7 @@ class FormDisplay
         $paths = [];
         $values = [];
         foreach ($this->_forms as $form) {
-            /* @var $form Form */
+            /** @var Form $form */
             $paths[] = $form->name;
             // collect values and paths
             foreach ($form->fields as $path) {
@@ -239,7 +239,7 @@ class FormDisplay
         $validators = Validator::getValidators($this->_configFile);
 
         foreach ($this->_forms as $form) {
-            /* @var $form Form */
+            /** @var Form $form */
             $formErrors = isset($this->_errors[$form->name])
                 ? $this->_errors[$form->name] : null;
             $htmlOutput .= $this->formDisplayTemplate->displayFieldsetTop(
@@ -318,7 +318,7 @@ class FormDisplay
         // validate only when we aren't displaying a "new server" form
         $isNewServer = false;
         foreach ($this->_forms as $form) {
-            /* @var $form Form */
+            /** @var Form $form */
             if ($form->index === 0) {
                 $isNewServer = true;
                 break;
@@ -612,7 +612,7 @@ class FormDisplay
 
         $this->_errors = [];
         foreach ($forms as $formName) {
-            /* @var $form Form */
+            /** @var Form $form */
             if (isset($this->_forms[$formName])) {
                 $form = $this->_forms[$formName];
             } else {

@@ -126,7 +126,7 @@ class Designer
     public function getHtmlForSchemaExport($db, $page)
     {
         /* Scan for schema plugins */
-        /* @var $export_list SchemaPlugin[] */
+        /** @var SchemaPlugin[] $export_list */
         $export_list = Plugins::getPlugins(
             "schema",
             'libraries/classes/Plugins/Schema/',
