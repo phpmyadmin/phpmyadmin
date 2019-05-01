@@ -169,6 +169,10 @@ class NodeTable extends NodeDatabaseChild
                     $db = $GLOBALS['dbi']->escapeString($db);
                     $table = $GLOBALS['dbi']->escapeString($table);
                     $query = "SELECT `COLUMN_NAME` AS `name` ";
+                    $query .= ",`COLUMN_KEY` AS `key` ";
+                    $query .= ",`DATA_TYPE` AS `type` ";
+                    $query .= ",`COLUMN_DEFAULT` AS `default` ";
+                    $query .= ",IF (`IS_NULLABLE` = 'NO', '', 'nullable') AS `nullable` ";
                     $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                     $query .= "WHERE `TABLE_NAME`='$table' ";
                     $query .= "AND `TABLE_SCHEMA`='$db' ";
