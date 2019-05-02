@@ -904,6 +904,7 @@ body#loginform div.container {
 form.login label {
     width: 10em;
     font-weight: bolder;
+    display: inline-block;
     margin-<?php echo $left; ?>: 2em;
 }
 
