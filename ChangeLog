@@ -87,6 +87,7 @@ phpMyAdmin - ChangeLog
 - issue #12865 Fixed MySQL 8.0.0 issues with GIS display
 - issue #15059 Fixed "Server charset" in "Database server" tab showing wrong information
 - issue #14614 Fixed mysql error "#2014 - Commands out of sync; you can't run this command now" on sql query
+- issue #15238 Fixed phpMyAdmin 4.8.5 doesn't show privileges of procedures (raw html displayed instead)
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
