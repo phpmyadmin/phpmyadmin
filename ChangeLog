@@ -90,6 +90,7 @@ phpMyAdmin - ChangeLog
 - issue #15238 Fixed phpMyAdmin 4.8.5 doesn't show privileges of procedures (raw html displayed instead)
 - issue #13726 Fixed can not copy user on Percona Server 5.7
 - issue #15239 Fixed javascript error while fetching latest version info and switching pages
+- issue #14301 Fixed javascript error when editing a JSON data type column
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
