@@ -257,6 +257,7 @@ $cfg_db['_validators'] = array(
     'MinSizeForInputField' => 'validateNonNegativeNumber',
     'MaxTableList' => 'validatePositiveNumber',
     'MemoryLimit' => array(array('validateByRegex', '/^(-1|(\d+(?:[kmg])?))$/i')),
+    'NavigationTreeDisplayItemFilterMinimum' => 'validatePositiveNumber',
     'NavigationTreeTableLevel' => 'validatePositiveNumber',
     'NavigationWidth' => 'validateNonNegativeNumber',
     'QueryHistoryMax' => 'validatePositiveNumber',
