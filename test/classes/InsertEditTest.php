@@ -3192,8 +3192,7 @@ class InsertEditTest extends TestCase
             $actual
         );
         $this->assertContains(
-            '<textarea name="fields[37b51d194a7513e45b56f6524f2d51f2]" '
-            .'class="" readonly="readonly"',
+            '<textarea name="fields[37b51d194a7513e45b56f6524f2d51f2]"',
             $actual
         );
     }
