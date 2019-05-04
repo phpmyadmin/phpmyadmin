@@ -654,7 +654,7 @@ class Message
             $params = $params[1];
         }
 
-        return call_user_func_array('sprintf', $params);
+        return sprintf(...$params);
     }
 
     /**
@@ -760,7 +760,6 @@ class Message
     public function display(): void
     {
         echo $this->getDisplay();
-        $this->isDisplayed(true);
     }
 
     /**
@@ -800,9 +799,9 @@ class Message
      */
     public function getMessageWithIcon(string $message): string
     {
-        if ('error' == $this->getLevel()) {
+        if ('error' === $this->getLevel()) {
             $image = 's_error';
-        } elseif ('success' == $this->getLevel()) {
+        } elseif ('success' === $this->getLevel()) {
             $image = 's_success';
         } else {
             $image = 's_notice';
