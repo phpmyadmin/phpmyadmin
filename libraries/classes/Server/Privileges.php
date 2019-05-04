@@ -4025,7 +4025,7 @@ class Privileges
                 // Always use 'authentication_string' column
                 // for MySQL 5.7.6+ since it does not have
                 // the 'password' column at all
-                if (Util::getServerType() == 'MySQL'
+                if (in_array(Util::getServerType(), array('MySQL', 'Percona Server'))
                     && $serverVersion >= 50706
                     && isset($authentication_string)
                 ) {
@@ -5178,7 +5178,7 @@ class Privileges
      * @param string $hostname host name
      * @param string $password password
      *
-     * @return array ($create_user_real, $create_user_show,$real_sql_query, $sql_query
+     * @return array ($create_user_real, $create_user_show, $real_sql_query, $sql_query
      *                $password_set_real, $password_set_show, $alter_real_sql_query, $alter_sql_query)
      */
     public static function getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
