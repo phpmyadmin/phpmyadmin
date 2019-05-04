@@ -4305,11 +4305,11 @@ class Privileges
         // Set the hashing method used by PASSWORD()
         // to be of type depending upon $authentication_plugin
         if ($auth_plugin == 'sha256_password') {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2');
+            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
         } elseif ($auth_plugin == 'mysql_old_password') {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 1');
+            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 1;');
         } else {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 0');
+            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 0;');
         }
     }
 
