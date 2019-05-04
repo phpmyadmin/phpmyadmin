@@ -4178,7 +4178,7 @@ class Privileges
                 // Always use 'authentication_string' column
                 // for MySQL 5.7.6+ since it does not have
                 // the 'password' column at all
-                if (in_array(Util::getServerType(), array('MySQL', 'Percona Server'))
+                if (in_array(Util::getServerType(), ['MySQL', 'Percona Server'])
                     && $serverVersion >= 50706
                     && isset($row['authentication_string'])
                 ) {
