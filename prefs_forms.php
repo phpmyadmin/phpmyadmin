@@ -90,7 +90,9 @@ echo $template->render('preferences/forms/main', [
     'error' => $error ? $error->getDisplay() : '',
     'has_errors' => $form_display->hasErrors(),
     'errors' => $formErrors ?? null,
-    'form' => $form_display->getDisplay(true, true),
+    'form' => $form_display->getDisplay(true, true, true, 'prefs_forms.php?form=' . $form_param, [
+        'server' => $GLOBALS['server'],
+    ]),
 ]);
 
 if ($response->isAjax()) {

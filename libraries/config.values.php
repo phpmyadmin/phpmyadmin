@@ -438,6 +438,7 @@ return [
                 '/^(-1|(\d+(?:[kmg])?))$/i',
             ],
         ],
+        'NavigationTreeDisplayItemFilterMinimum' => 'validatePositiveNumber',
         'NavigationTreeTableLevel' => 'validatePositiveNumber',
         'NavigationWidth' => 'validateNonNegativeNumber',
         'QueryHistoryMax' => 'validatePositiveNumber',
