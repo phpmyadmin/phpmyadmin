@@ -600,8 +600,12 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         });
                     // fill the cell edit with text from <td>
                     var value = PMA_getCellValue(cell);
-                    if ($cell.attr('data-type') === 'json') {
-                        value = JSON.stringify(JSON.parse(value), null, 4);
+                    if ($cell.attr('data-type') === 'json' && $cell.is('.truncated') === false) {
+                        try {
+                            value = JSON.stringify(JSON.parse(value), null, 4);
+                        } catch (e) {
+                            // Show as is
+                        }
                     }
                     $(g.cEdit).find('.edit_box').val(value);
 
@@ -1003,6 +1007,13 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                             g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             if (typeof data !== 'undefined' && data.success === true) {
+                                if ($td.attr('data-type') === 'json') {
+                                    try {
+                                        data.value = JSON.stringify(JSON.parse(data.value), null, 4);
+                                    } catch (e) {
+                                        // Show as is
+                                    }
+                                }
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
                             } else {
