@@ -16,6 +16,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -122,7 +123,7 @@ if (isset($_POST['submit_export'])
         }
         if (! $all_ok) {
             // mimic original form and post json in a hidden field
-            include ROOT_PATH . 'libraries/user_preferences.inc.php';
+            echo UserPreferencesHeader::getContent($template);
 
             echo $template->render('preferences/manage/error', [
                 'form_errors' => $form_display->displayErrors(),
@@ -194,7 +195,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('config.js');
 
-require ROOT_PATH . 'libraries/user_preferences.inc.php';
+echo UserPreferencesHeader::getContent($template);
 if ($error) {
     if (! $error instanceof Message) {
         $error = Message::error($error);
