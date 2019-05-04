@@ -625,7 +625,7 @@ class Menu
         $tabs['settings']['text']   = __('Settings');
         $tabs['settings']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            array('prefs_forms.php', 'prefs_manage.php')
+            array('prefs_forms.php', 'prefs_manage.php', 'prefs_twofactor.php')
         );
 
         if (! empty($binary_logs)) {
