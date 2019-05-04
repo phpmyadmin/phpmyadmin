@@ -128,6 +128,7 @@ phpMyAdmin - ChangeLog
 - issue #15240 Fixed apply a Settings form with errors shows a JSON response after using return back
 - issue #15043 Fixed multiple errors printing on Settings page
 - issue #15037 Fixed unexpected behavior of reset button on Settings
+- issue #15157 Fixed 'Settings' tab not marked as active when browsing 2FA settings
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
