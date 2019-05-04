@@ -14,6 +14,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
@@ -23,6 +24,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
@@ -1396,10 +1398,7 @@ class StructureController extends AbstractController
                 $decimals
             );
         }
-        // InnoDB returns a huge value in Data_free, do not use it
-        if (! $is_innodb && isset($this->_showtable['Data_free'])
-            && $this->_showtable['Data_free'] > 0
-        ) {
+        if (isset($this->_showtable['Data_free'])) {
             list($free_size, $free_unit) = Util::formatByteDown(
                 $this->_showtable['Data_free'],
                 $max_digits,
@@ -1436,6 +1435,9 @@ class StructureController extends AbstractController
         } else {
             $avg_size = $avg_unit = '';
         }
+        /** @var Innodb $innodbEnginePlugin */
+        $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
+        $innodb_file_per_table = $innodbEnginePlugin->supportsFilePerTable();
 
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         return $this->template->render('table/structure/display_table_stats', [
@@ -1460,6 +1462,7 @@ class StructureController extends AbstractController
             'data_unit' => $data_unit,
             'index_size' => isset($index_size) ? $index_size : null,
             'index_unit' => isset($index_unit) ? $index_unit : null,
+            'innodb_file_per_table' => $innodb_file_per_table,
             'free_size' => isset($free_size) ? $free_size : null,
             'free_unit' => isset($free_unit) ? $free_unit : null,
             'effect_size' => $effect_size,
