@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue #13424 Importing CSV now uses file name as the table name instead of 'TABLE #'
 - issue #14926 Add an Edit link for each view in tables list
 - issue #14890 Display column details in navigation bar
+- issue #14977 Add title for group in navigation bar
 
 4.8.6 (not yet released)
 - issue #14478 phpMyAdmin no longer streams the export data
