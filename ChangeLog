@@ -91,6 +91,9 @@ phpMyAdmin - ChangeLog
 - issue #13726 Fixed can not copy user on Percona Server 5.7
 - issue #15239 Fixed javascript error while fetching latest version info and switching pages
 - issue #14301 Fixed javascript error when editing a JSON data type column
+- issue #15240 Fixed apply a Settings form with errors shows a JSON response after using return back
+- issue #15043 Fixed multiple errors printing on Settings page
+- issue #15037 Fixed unexpected behavior of reset button on Settings
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
