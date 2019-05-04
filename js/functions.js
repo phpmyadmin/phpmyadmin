@@ -577,7 +577,9 @@ function PMA_current_version (data) {
         }
         /* Remove extra whitespace */
         var version_info = $('#li_pma_version').contents().get(2);
-        version_info.textContent = $.trim(version_info.textContent);
+        if (typeof version_info !== 'undefined') {
+            version_info.textContent = $.trim(version_info.textContent);
+        }
         var $liPmaVersion = $('#li_pma_version');
         $liPmaVersion.find('span.latest').remove();
         $liPmaVersion.append($(version_information_message));
