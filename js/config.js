@@ -424,7 +424,7 @@ function displayErrors (error_list) {
 /**
  * Validates fields and fieldsets and call displayError function as required
  */
-function setDisplayError() {
+function setDisplayError () {
     var elements = $('.optbox input[id], .optbox select[id], .optbox textarea[id]');
     // run all field validators
     var errors = {};
