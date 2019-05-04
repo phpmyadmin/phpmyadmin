@@ -5401,7 +5401,9 @@ class Privileges
             $password_set_real = null;
             $password_set_show = null;
         } else {
-            $password_set_real .= ";";
+            if ($password_set_real !== null) {
+                $password_set_real .= ";";
+            }
             $password_set_show .= ";";
         }
 
