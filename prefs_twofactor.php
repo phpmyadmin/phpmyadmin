@@ -10,6 +10,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Message;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -20,9 +21,9 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-require ROOT_PATH . 'libraries/user_preferences.inc.php';
-
 $template = new Template();
+echo UserPreferencesHeader::getContent($template);
+
 $two_factor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
 
 if (isset($_POST['2fa_remove'])) {
