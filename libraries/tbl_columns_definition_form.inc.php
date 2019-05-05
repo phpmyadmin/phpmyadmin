@@ -13,6 +13,7 @@ use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
@@ -476,7 +477,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     ];
 } // end for
 
-include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
+$partitionDetails = TablePartitionDefinition::getDetails();
 $html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,
