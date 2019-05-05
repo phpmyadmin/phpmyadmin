@@ -1063,7 +1063,7 @@ class Import
 
             /* TODO: Do more checking here to make sure they really are matched */
             if (count($tables) != count($analyses)) {
-                exit();
+                exit;
             }
 
             /* Create SQL code to create the tables */

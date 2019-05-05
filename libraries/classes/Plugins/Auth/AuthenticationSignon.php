@@ -36,7 +36,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
 
         if (! defined('TESTSUITE')) {
-            exit();
+            exit;
         } else {
             return false;
         }

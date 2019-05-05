@@ -44,7 +44,7 @@ if (! $response->isAjax()) {
 
 if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
     $response->addJSON('message', PageSettings::getNaviSettings());
-    exit();
+    exit;
 }
 
 $cfgRelation = $relation->getRelationsParam();

@@ -911,7 +911,7 @@ class Tracking
         );
         echo $dump;
 
-        exit();
+        exit;
     }
 
     /**

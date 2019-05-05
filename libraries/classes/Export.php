@@ -1059,7 +1059,7 @@ class Export
             $active_page = 'tbl_export.php';
             include_once ROOT_PATH . 'tbl_export.php';
         }
-        exit();
+        exit;
     }
 
     /**

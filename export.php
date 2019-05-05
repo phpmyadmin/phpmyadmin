@@ -415,7 +415,7 @@ if ($save_on_server) {
                 );
                 $active_page = 'db_export.php';
                 include ROOT_PATH . 'db_export.php';
-                exit();
+                exit;
             }
         }
         list($html, $back_button, $refreshButton) = $export->getHtmlForDisplayedExportHeader(

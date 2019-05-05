@@ -776,7 +776,7 @@ if ($go_sql) {
 
     $response->addJSON('ajax_reload', $ajax_reload);
     $response->addHTML($html_output);
-    exit();
+    exit;
 } elseif ($result) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {

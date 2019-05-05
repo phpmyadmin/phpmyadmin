@@ -1947,7 +1947,7 @@ class Sql
             );
             if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
                 $response->addHTML($tableMaintenanceHtml);
-                exit();
+                exit;
             }
         }
 
