@@ -420,4 +420,37 @@ class AuthenticationSignonTest extends PmaTestCase
             $_SESSION['PMA_single_signon_error_message']
         );
     }
+
+    /**
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::setCookieParams
+     *
+     * @return void
+     */
+    public function testSetCookieParamsDefaults()
+    {
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        ->disableOriginalConstructor()
+        ->setMethods(array('setCookieParams'))
+        ->getMock();
+
+        $this->object->setCookieParams(array());
+
+        $defaultOptions = array(
+            'lifetime' => 0,
+            'path' => '/',
+            'domain' => '',
+            'secure' => false,
+            'httponly' => false,
+            'samesite' => ''
+        );
+        // php did not set 'samesite' attribute in session_get_cookie_params since not yet implemented
+        if (version_compare(phpversion(), '7.3.0', '<')) {
+            unset($defaultOptions['samesite']);
+        }
+
+        $this->assertSame(
+            $defaultOptions,
+            session_get_cookie_params()
+        );
+    }
 }
