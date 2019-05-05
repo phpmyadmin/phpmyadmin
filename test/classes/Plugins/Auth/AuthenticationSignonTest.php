@@ -278,7 +278,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(array('showLoginForm'))
             ->getMock();
@@ -305,7 +305,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(array('showLoginForm'))
             ->getMock();
@@ -331,7 +331,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(array('showLoginForm'))
             ->getMock();
@@ -359,7 +359,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(array('showLoginForm'))
             ->getMock();
@@ -395,7 +395,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(array('showLoginForm'))
             ->getMock();
@@ -428,7 +428,7 @@ class AuthenticationSignonTest extends PmaTestCase
      */
     public function testSetCookieParamsDefaults()
     {
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
         ->disableOriginalConstructor()
         ->setMethods(array('setCookieParams'))
         ->getMock();
