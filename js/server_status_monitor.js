@@ -690,10 +690,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         event.preventDefault();
 
         var $dialog = $('#monitorInstructionsDialog');
-
+        var dlgBtns = {};
+        dlgBtns[PMA_messages.strClose] = function () {
+            $(this).dialog('close');
+        };
         $dialog.dialog({
             width: 595,
-            height: 'auto'
+            height: 'auto',
+            buttons: dlgBtns
         }).find('img.ajaxIcon').show();
 
         var loadLogVars = function (getvars) {
