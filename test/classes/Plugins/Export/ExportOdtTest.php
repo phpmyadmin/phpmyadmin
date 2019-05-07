@@ -417,9 +417,11 @@ class ExportOdtTest extends PmaTestCase
 
         $flags = [];
         $a = new stdClass();
+        $a->type = '';
         $flags[] = $a;
 
         $a = new stdClass();
+        $a->type = '';
         $a->blob = true;
         $flags[] = $a;
 
