@@ -3518,19 +3518,4 @@ class InsertEdit
 
         return $html_output;
     }
-
-    /**
-     * Returns whether the user has necessary insert/update privileges for the column
-     *
-     * @param array $table_column array of column details
-     * @param bool  $insert_mode  whether on insert mode
-     *
-     * @return boolean whether user has necessary privileges
-     */
-    private function userHasColumnPrivileges(array $table_column, $insert_mode)
-    {
-        $privileges = $table_column['Privileges'];
-        return ($insert_mode && false !== strpos($privileges, 'insert'))
-            || (! $insert_mode && false !== strpos($privileges, 'update'));
-    }
 }
