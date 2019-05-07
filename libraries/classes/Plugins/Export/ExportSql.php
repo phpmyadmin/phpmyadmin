@@ -2436,7 +2436,7 @@ class ExportSql extends ExportPlugin
                     // timestamp is numeric on some MySQL 4.1, BLOBs are
                     // sometimes numeric
                     $values[] = $row[$j];
-                } elseif (stristr($field_flags[$j], 'BINARY') !== false
+                } elseif (false !== stripos($field_flags[$j], 'BINARY')
                     && isset($GLOBALS['sql_hex_for_binary'])
                 ) {
                     // a true BLOB

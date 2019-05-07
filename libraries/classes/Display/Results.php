@@ -3799,12 +3799,12 @@ class Results
         // if binary fields are protected
         // or transformation plugin is of non text type
         // such as image
-        if ((stristr($field_flags, self::BINARY_FIELD)
+        if ((false !== stripos($field_flags, self::BINARY_FIELD)
             && ($GLOBALS['cfg']['ProtectBinary'] === 'all'
             || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
-            && ! stristr($meta->type, self::BLOB_FIELD))
+            && false === stripos($meta->type, self::BLOB_FIELD))
             || ($GLOBALS['cfg']['ProtectBinary'] === 'blob'
-            && stristr($meta->type, self::BLOB_FIELD))))
+            && false !== stripos($meta->type, self::BLOB_FIELD))))
             || $bIsText
         ) {
             $class = str_replace('grid_edit', '', $class);
@@ -3824,7 +3824,7 @@ class Results
         // (unless it's a link-type transformation or binary)
         if (! (gettype($transformation_plugin) === "object"
             && strpos($transformation_plugin->getName(), 'Link') !== false)
-            && ! stristr($field_flags, self::BINARY_FIELD)
+            && false === stripos($field_flags, self::BINARY_FIELD)
         ) {
             list(
                 $is_field_truncated,
@@ -3843,7 +3843,7 @@ class Results
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
-        } elseif (stristr($field_flags, self::BINARY_FIELD)
+        } elseif (false !== stripos($field_flags, self::BINARY_FIELD)
             && ! (isset($is_analyse) && $is_analyse)
         ) {
             // we show the BINARY or BLOB message and field's size
@@ -3874,7 +3874,7 @@ class Results
             $result = strip_tags($column);
             // disable inline grid editing
             // if binary or blob data is not shown
-            if (stristr($result, $binary_or_blob)) {
+            if (false !== stripos($result, $binary_or_blob)) {
                 $class = str_replace('grid_edit', '', $class);
             }
             $formatted = true;
@@ -4429,7 +4429,7 @@ class Results
         // check for non printable sorted row data
         $meta = $fields_meta[$sorted_column_index];
 
-        if (stristr($meta->type, self::BLOB_FIELD)
+        if (false !== stripos($meta->type, self::BLOB_FIELD)
             || ($meta->type == self::GEOMETRY_FIELD)
         ) {
             $column_for_first_row = $this->_handleNonPrintableContents(
@@ -4458,7 +4458,7 @@ class Results
 
         // check for non printable sorted row data
         $meta = $fields_meta[$sorted_column_index];
-        if (stristr($meta->type, self::BLOB_FIELD)
+        if (false !== stripos($meta->type, self::BLOB_FIELD)
             || ($meta->type == self::GEOMETRY_FIELD)
         ) {
             $column_for_last_row = $this->_handleNonPrintableContents(
@@ -5114,7 +5114,7 @@ class Results
         if (($_SESSION['tmpval']['display_binary']
             && $meta->type === self::STRING_FIELD)
             || ($_SESSION['tmpval']['display_blob']
-            && stristr($meta->type, self::BLOB_FIELD))
+            && false !== stripos($meta->type, self::BLOB_FIELD))
         ) {
             // in this case, restart from the original $content
             if (mb_check_encoding($content, 'utf-8')

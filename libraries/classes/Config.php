@@ -324,8 +324,8 @@ class Config
         // some versions return Microsoft-IIS, some Microsoft/IIS
         // we could use a preg_match() but it's slower
         if (Core::getenv('SERVER_SOFTWARE')
-            && stristr(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
-            && stristr(Core::getenv('SERVER_SOFTWARE'), 'IIS')
+            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
+            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS')
         ) {
             $this->set('PMA_IS_IIS', 1);
         } else {
@@ -344,10 +344,10 @@ class Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win') && ! stristr(PHP_OS, 'darwin')) {
+            if (false !== stripos(PHP_OS, 'win') && false === stripos(PHP_OS, 'darwin')) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
-            } elseif (stristr(PHP_OS, 'OS/2')) {
+            } elseif (false !== stripos(PHP_OS, 'OS/2')) {
                 // Is it OS/2 (No file permissions like Windows)
                 $this->set('PMA_IS_WINDOWS', 1);
             }
@@ -442,7 +442,7 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (strstr($ref_head, '/')) {
+        if (false !== strpos($ref_head, '/')) {
             // remove ref: prefix
             $ref_head = substr(trim($ref_head), 5);
             if (substr($ref_head, 0, 11) === 'refs/heads/') {
