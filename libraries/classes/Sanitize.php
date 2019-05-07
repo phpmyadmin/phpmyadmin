@@ -418,7 +418,7 @@ class Sanitize
     /**
      * Removes all variables from request except whitelisted ones.
      *
-     * @param string $whitelist list of variables to allow
+     * @param string[] $whitelist list of variables to allow
      *
      * @return void
      * @access public
