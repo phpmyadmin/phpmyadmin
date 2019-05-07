@@ -264,6 +264,10 @@ class ExportOds extends ExportPlugin
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
+                if ($fields_meta[$j]->type === 'geometry') {
+                    // export GIS types as hex
+                    $row[$j] = '0x' . bin2hex($row[$j]);
+                }
                 if (! isset($row[$j]) || is_null($row[$j])) {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="string">'
