@@ -16,15 +16,15 @@ $response = Response::getInstance();
 $databaseDesigner = new Designer();
 $designerCommon = new Common();
 
-if (isset($_REQUEST['dialog'])) {
+if (isset($_POST['dialog'])) {
 
-    if ($_GET['dialog'] == 'edit') {
+    if ($_POST['dialog'] == 'edit') {
         $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
-    } elseif ($_GET['dialog'] == 'delete') {
+    } elseif ($_POST['dialog'] == 'delete') {
         $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
-    } elseif ($_GET['dialog'] == 'save_as') {
+    } elseif ($_POST['dialog'] == 'save_as') {
         $html = $databaseDesigner->getHtmlForPageSaveAs($GLOBALS['db']);
-    } elseif ($_GET['dialog'] == 'export') {
+    } elseif ($_POST['dialog'] == 'export') {
         $html = $databaseDesigner->getHtmlForSchemaExport(
             $GLOBALS['db'], $_GET['selected_page']
         );
