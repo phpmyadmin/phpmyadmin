@@ -40,10 +40,6 @@ class Url
     ) {
         if (is_array($db)) {
             $params  =& $db;
-            $_indent = empty($table) ? $indent : $table;
-            $_skip   = empty($indent) ? $skip : $indent;
-            $indent  =& $_indent;
-            $skip    =& $_skip;
         } else {
             $params = [];
             if (strlen((string) $db) > 0) {

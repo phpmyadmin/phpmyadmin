@@ -477,8 +477,6 @@ class SearchController extends AbstractController
         /**
          * Add this to ensure following procedures included running correctly.
          */
-        $db = $this->db;
-
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results

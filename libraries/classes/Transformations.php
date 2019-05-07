@@ -300,8 +300,6 @@ class Transformations
 
         foreach ($result as $column => $values) {
             // convert mimetype to new format (f.e. Text_Plain, etc)
-            $delimiter_space = '- ';
-            $delimiter = "_";
             $values['mimetype'] = $this->fixUpMime($values['mimetype']);
 
             // For transformation of form

@@ -351,13 +351,8 @@ class Pdf extends PdfLib
      */
     public function getTriggers($db, $table)
     {
-        $i = 0;
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
-        foreach ($triggers as $trigger) {
-            $i++;
-            break;
-        }
-        if ($i == 0) {
+        if ([] === $triggers) {
             return; //prevents printing blank trigger list for any table
         }
 
@@ -406,8 +401,6 @@ class Pdf extends PdfLib
         $tmpheight = [];
         $maxpage = $this->page;
         $data = [];
-
-        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $data[] = $trigger['name'];

@@ -121,13 +121,6 @@ class Util
     {
         $alternate = htmlspecialchars($alternate);
 
-        // Set $url accordingly
-        if (isset($GLOBALS['pmaThemeImage'])) {
-            $url = $GLOBALS['pmaThemeImage'] . $image;
-        } else {
-            $url = './themes/pmahomme/' . $image;
-        }
-
         if (isset($attributes['class'])) {
             $attributes['class'] = "icon ic_$image " . $attributes['class'];
         } else {
