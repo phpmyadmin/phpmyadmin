@@ -327,9 +327,6 @@ class RecentFavoriteTable
      */
     public function remove($db, $table)
     {
-        $table_arr = [];
-        $table_arr['db'] = $db;
-        $table_arr['table'] = $table;
         foreach ($this->_tables as $key => $value) {
             if ($value['db'] == $db && $value['table'] == $table) {
                 unset($this->_tables[$key]);

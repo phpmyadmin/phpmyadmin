@@ -164,10 +164,6 @@ class Pdf extends PdfLib
         $this->SetAutoPageBreak(false);
         // Check if header for this page already exists
         if (! isset($this->headerset[$this->page])) {
-            $fullwidth = 0;
-            foreach ($this->tablewidths as $width) {
-                $fullwidth += $width;
-            }
             $this->SetY($this->tMargin - ($this->FontSizePt / $this->k) * 5);
             $this->cellFontSize = $this->FontSizePt;
             $this->SetFont(
@@ -593,13 +589,13 @@ class Pdf extends PdfLib
          * Presently, this information is not used. We will have to find out
          * way of displaying it.
          */
-        $unique_keys = [];
+        /*$unique_keys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
             }
-        }
+        }*/
 
         // some things to set and 'remember'
         $l = $this->lMargin;
