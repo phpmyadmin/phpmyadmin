@@ -1618,7 +1618,6 @@ class Sql
                 }
 
                 $GLOBALS['dbi']->freeResult($result);
-                unset($result);
             } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
         } else {
             $fields_meta = [];

@@ -2310,7 +2310,6 @@ class InsertEdit
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
             . implode('), (', $value_sets) . ')'
         ];
-        unset($insert_command, $query_fields);
         return $query;
     }
 

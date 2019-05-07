@@ -1877,8 +1877,6 @@ class Results
             }
             // Separate columns by a comma
             $sort_order .= ", ";
-
-            unset($name_to_use_in_sort);
         }
         // remove the comma from the last column name in the newly
         // constructed clause

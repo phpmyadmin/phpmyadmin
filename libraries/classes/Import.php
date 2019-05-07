@@ -1330,8 +1330,6 @@ class Import
 
         global $import_notice;
         $import_notice = $message;
-
-        unset($tables);
     }
 
 
