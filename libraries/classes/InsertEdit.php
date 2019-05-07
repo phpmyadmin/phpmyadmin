@@ -2570,7 +2570,7 @@ class InsertEdit
      * @param array  $func_no_param           array of set of string
      * @param string $key                     an md5 of the column name
      *
-     * @return array
+     * @return string
      */
     public function getCurrentValueAsAnArrayForMultipleEdit(
         $multi_edit_funcs,

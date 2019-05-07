@@ -258,7 +258,7 @@ class Transformations
      *
      * @access public
      *
-     * @return array [field_name][field_key] = field_value
+     * @return array|bool [field_name][field_key] = field_value
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {

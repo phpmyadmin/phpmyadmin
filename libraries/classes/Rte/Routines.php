@@ -642,7 +642,7 @@ class Routines
      * @param string $type Type of routine (ROUTINE|PROCEDURE)
      * @param bool   $all  Whether to return all data or just the info about parameters.
      *
-     * @return array    Data necessary to create the routine editor.
+     * @return array|bool    Data necessary to create the routine editor.
      */
     public function getDataFromName($name, $type, $all = true)
     {

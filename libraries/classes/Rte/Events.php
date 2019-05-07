@@ -344,7 +344,7 @@ class Events
      *
      * @param string $name The name of the event.
      *
-     * @return array Data necessary to create the editor.
+     * @return array|bool Data necessary to create the editor.
      */
     public function getDataFromName($name)
     {

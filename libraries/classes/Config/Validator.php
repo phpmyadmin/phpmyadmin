@@ -557,7 +557,7 @@ class Validator
      * @param array  $values config values
      * @param string $regex  regular expression to match
      *
-     * @return array
+     * @return array|string
      */
     public static function validateByRegex($path, array $values, $regex)
     {
