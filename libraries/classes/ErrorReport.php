@@ -99,7 +99,7 @@ class ErrorReport
             "locale" => $_COOKIE['pma_lang'],
             "configuration_storage" =>
                 is_null($relParams['db']) ? "disabled" : "enabled",
-            "php_version" => phpversion()
+            "php_version" => PHP_VERSION
         ];
 
         if ($exceptionType == 'js') {

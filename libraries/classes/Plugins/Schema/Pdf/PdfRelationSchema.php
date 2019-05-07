@@ -26,7 +26,7 @@ if (! class_exists('TCPDF')) {
 /**
  * block attempts to directly run this script
  */
-if (getcwd() == dirname(__FILE__)) {
+if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
 
