@@ -134,7 +134,6 @@ class Header
         $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $this->_menu = new Menu(
-            $GLOBALS['server'],
             $db,
             $table
         );

@@ -47,7 +47,7 @@ class MenuTest extends PmaTestCase
      */
     public function testServer()
     {
-        $menu = new Menu('server', '', '');
+        $menu = new Menu('', '');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay()
@@ -61,7 +61,7 @@ class MenuTest extends PmaTestCase
      */
     public function testDatabase()
     {
-        $menu = new Menu('server', 'pma_test', '');
+        $menu = new Menu('pma_test', '');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay()
@@ -75,7 +75,7 @@ class MenuTest extends PmaTestCase
      */
     public function testTable()
     {
-        $menu = new Menu('server', 'pma_test', 'table1');
+        $menu = new Menu('pma_test', 'table1');
         $this->assertStringContainsString(
             'floating_menubar',
             $menu->getDisplay()
@@ -89,7 +89,7 @@ class MenuTest extends PmaTestCase
      */
     public function testTableDisplay()
     {
-        $menu = new Menu('server', 'pma_test', '');
+        $menu = new Menu('pma_test', '');
         $this->expectOutputString(
             $menu->getDisplay()
         );
@@ -104,7 +104,7 @@ class MenuTest extends PmaTestCase
      */
     public function testSetTable()
     {
-        $menu = new Menu('server', 'pma_test', '');
+        $menu = new Menu('pma_test', '');
         $menu->setTable('table1');
         $this->assertStringContainsString(
             'table1',
