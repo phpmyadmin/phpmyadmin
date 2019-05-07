@@ -326,18 +326,11 @@ class DatabaseInterface
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
+                $warningsCount = '';
                 if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
-                    $tmp = $this->_extension->realQuery(
-                        'SHOW COUNT(*) WARNINGS', $this->_links[$link], DatabaseInterface::QUERY_STORE
-                    );
-                    $warnings = $this->fetchRow($tmp);
-
-                    if ($this->_extension->moreResults($this->_links[$link])) {
-                        $this->_extension->nextResult($this->_links[$link]);
+                    if (isset($this->_links[$link]->warning_count)) {
+                        $warningsCount = $this->_links[$link]->warning_count;
                     }
-
-                } else {
-                    $warnings = array('');
                 }
 
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
@@ -345,7 +338,7 @@ class DatabaseInterface
                 syslog(
                     LOG_INFO,
                     'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
-                    . sprintf('%0.3f', $time) . '(W:' . $warnings[0] . ') > ' . $query
+                    . sprintf('%0.3f', $time) . '(W:' . $warningsCount . ') > ' . $query
                 );
                 closelog();
             }
