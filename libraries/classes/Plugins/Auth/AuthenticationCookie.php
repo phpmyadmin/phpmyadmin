@@ -23,6 +23,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 use phpseclib\Crypt;
 use ReCaptcha;
+use phpseclib\Crypt\Random;
 
 /**
  * Remember where to redirect the user
@@ -57,7 +58,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function __construct()
     {
         parent::__construct();
-        $this->_use_openssl = ! class_exists('phpseclib\Crypt\Random');
+        $this->_use_openssl = ! class_exists(Random::class);
     }
 
     /**

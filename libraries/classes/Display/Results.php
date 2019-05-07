@@ -27,6 +27,9 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use \stdClass;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 
 /**
  * Handle all the functionalities related to displaying results
@@ -262,22 +265,22 @@ class Results
     {
         $json_highlighting_data = [
             'libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php',
-            'PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json',
+            Text_Plain_Json::class,
             'Text_Plain',
         ];
         $sql_highlighting_data = [
             'libraries/classes/Plugins/Transformations/Output/Text_Plain_Sql.php',
-            'PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql',
+            Text_Plain_Sql::class,
             'Text_Plain',
         ];
         $blob_sql_highlighting_data = [
             'libraries/classes/Plugins/Transformations/Output/Text_Octetstream_Sql.php',
-            'PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql',
+            Text_Octetstream_Sql::class,
             'Text_Octetstream',
         ];
         $link_data = [
             'libraries/classes/Plugins/Transformations/Text_Plain_Link.php',
-            'PhpMyAdmin\Plugins\Transformations\Text_Plain_Link',
+            Text_Plain_Link::class,
             'Text_Plain',
         ];
         $this->transformation_info = [

@@ -18,6 +18,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
+use PhpMyAdmin\Config;
 
 /**
  * Indication for error handler (see end of this file).
@@ -1750,5 +1751,5 @@ class Config
 }
 
 if (! defined('TESTSUITE')) {
-    register_shutdown_function(['PhpMyAdmin\Config', 'fatalErrorHandler']);
+    register_shutdown_function([Config::class, 'fatalErrorHandler']);
 }
