@@ -2921,7 +2921,7 @@ class Util
             if (false !== strpos($printtype, "binary")
                 && ! preg_match('@binary[\(]@', $printtype)
             ) {
-                $printtype = preg_replace('@binary@', '', $printtype);
+                $printtype = str_replace("binary", '', $printtype);
                 $binary = true;
             } else {
                 $binary = false;
