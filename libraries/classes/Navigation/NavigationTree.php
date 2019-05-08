@@ -21,6 +21,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Navigation\NavigationTree;
 
 /**
  * Displays a collapsible of database objects in the navigation frame
@@ -880,7 +881,7 @@ class NavigationTree
         $this->groupTree();
         $children = $this->_tree->children;
         usort($children, [
-            'PhpMyAdmin\\Navigation\\NavigationTree',
+            NavigationTree::class,
             'sortNode',
         ]);
         $this->_setVisibility();
@@ -922,7 +923,7 @@ class NavigationTree
             $listContent .= $this->_getPageSelector($node);
             $children = $node->children;
             usort($children, [
-                'PhpMyAdmin\\Navigation\\NavigationTree',
+                NavigationTree::class,
                 'sortNode',
             ]);
 
@@ -1228,7 +1229,7 @@ class NavigationTree
             usort(
                 $children,
                 [
-                    'PhpMyAdmin\\Navigation\\NavigationTree',
+                    NavigationTree::class,
                     'sortNode',
                 ]
             );
@@ -1314,7 +1315,7 @@ class NavigationTree
 
         $children = $this->_tree->children;
         usort($children, [
-            'PhpMyAdmin\\Navigation\\NavigationTree',
+            NavigationTree::class,
             'sortNode',
         ]);
         $this->_setVisibility();

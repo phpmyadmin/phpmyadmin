@@ -25,6 +25,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\KBException;
+use phpseclib\Crypt\Random;
 
 /**
  * Misc functions used all over the scripts.
@@ -4797,9 +4798,9 @@ class Util
     public static function generateRandom($length)
     {
         $result = '';
-        if (class_exists('phpseclib\\Crypt\\Random')) {
+        if (class_exists(Random::class)) {
             $random_func = [
-                'phpseclib\\Crypt\\Random',
+                Random::class,
                 'string',
             ];
         } else {
