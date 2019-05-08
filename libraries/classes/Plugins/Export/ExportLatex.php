@@ -226,7 +226,7 @@ class ExportLatex extends ExportPlugin
             . '% ' . __('Generation Time:') . ' '
             . Util::localisedDate() . $crlf
             . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . $crlf
-            . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
+            . '% ' . __('PHP Version:') . ' ' . PHP_VERSION . $crlf;
 
         return $this->export->outputHandler($head);
     }

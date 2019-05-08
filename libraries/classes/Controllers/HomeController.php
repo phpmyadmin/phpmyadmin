@@ -191,7 +191,7 @@ class HomeController extends AbstractController
 
                 $webServer['database'] = $clientVersion;
                 $webServer['php_extensions'] = Util::listPHPExtensions();
-                $webServer['php_version'] = phpversion();
+                $webServer['php_version'] = PHP_VERSION;
             }
         }
         if ($cfg['ShowPhpInfo']) {

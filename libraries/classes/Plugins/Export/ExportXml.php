@@ -249,7 +249,7 @@ class ExportXml extends ExportPlugin
             . '- ' . __('Generation Time:') . ' '
             . Util::localisedDate() . $crlf
             . '- ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . $crlf
-            . '- ' . __('PHP Version:') . ' ' . phpversion() . $crlf
+            . '- ' . __('PHP Version:') . ' ' . PHP_VERSION . $crlf
             . '-->' . $crlf . $crlf;
 
         $head .= '<pma_xml_export version="1.0"'

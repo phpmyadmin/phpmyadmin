@@ -727,7 +727,7 @@ class ExportSql extends ExportPlugin
         . $this->_exportComment(
             __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString()
         )
-        . $this->_exportComment(__('PHP Version:') . ' ' . phpversion())
+        . $this->_exportComment(__('PHP Version:') . ' ' . PHP_VERSION)
         . $this->_possibleCRLF();
 
         if (isset($GLOBALS['sql_header_comment'])
