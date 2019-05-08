@@ -786,7 +786,7 @@ class Pdf extends PdfLib
                  * @todo do not deactivate completely the display
                  * but show the field's name and [BLOB]
                  */
-                    if (stristr($this->fields[$i]->flags, 'BINARY')) {
+                    if (false !== stripos($this->fields[$i]->flags, 'BINARY')) {
                         $this->display_column[$i] = false;
                         unset($this->colTitles[$i]);
                     }

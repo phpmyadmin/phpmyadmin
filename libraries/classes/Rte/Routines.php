@@ -1696,8 +1696,8 @@ class Routines
             $retval .= "<td>{$routine['item_param_type'][$i]}</td>\n";
             if ($cfg['ShowFunctionFields']) {
                 $retval .= "<td>\n";
-                if (stristr($routine['item_param_type'][$i], 'enum')
-                    || stristr($routine['item_param_type'][$i], 'set')
+                if (false !== stripos($routine['item_param_type'][$i], 'enum')
+                    || false !== stripos($routine['item_param_type'][$i], 'set')
                     || in_array(
                         mb_strtolower($routine['item_param_type'][$i]),
                         $no_support_types

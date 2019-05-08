@@ -2070,7 +2070,7 @@ class Util
                 ) {
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
-                    && stristr($field_flags, 'BINARY')
+                    && false !== stripos($field_flags, 'BINARY')
                     && ! empty($row[$i])
                 ) {
                     // hexify only if this is a true not empty BLOB or a BINARY

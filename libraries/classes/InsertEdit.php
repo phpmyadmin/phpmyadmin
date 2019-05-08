@@ -3531,7 +3531,7 @@ class InsertEdit
     private function userHasColumnPrivileges(array $table_column, $insert_mode)
     {
         $privileges = $table_column['Privileges'];
-        return ($insert_mode && strstr($privileges, 'insert') !== false)
-            || (! $insert_mode && strstr($privileges, 'update') !== false);
+        return ($insert_mode && false !== strpos($privileges, 'insert'))
+            || (! $insert_mode && false !== strpos($privileges, 'update'));
     }
 }

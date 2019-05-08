@@ -306,7 +306,7 @@ abstract class ExportPlugin
         // search each database
         foreach ($aliases as $db_key => $db) {
             // check if id is database and has alias
-            if (stristr($type, 'db') !== false
+            if (false !== stripos($type, 'db')
                 && $db_key === $id
                 && ! empty($db['alias'])
             ) {
@@ -323,7 +323,7 @@ abstract class ExportPlugin
             // search each of its tables
             foreach ($db['tables'] as $table_key => $table) {
                 // check if id is table and has alias
-                if (stristr($type, 'tbl') !== false
+                if (false !== stripos($type, 'tbl')
                     && $table_key === $id
                     && ! empty($table['alias'])
                 ) {
@@ -335,7 +335,7 @@ abstract class ExportPlugin
                 // search each of its columns
                 foreach ($table['columns'] as $col_key => $col) {
                     // check if id is column
-                    if (stristr($type, 'col') !== false
+                    if (false !== stripos($type, 'col')
                         && $col_key === $id
                         && ! empty($col)
                     ) {
