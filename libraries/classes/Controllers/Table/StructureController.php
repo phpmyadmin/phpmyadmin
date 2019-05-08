@@ -26,6 +26,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
@@ -561,7 +562,7 @@ class StructureController extends AbstractController
             $partitionDetails = $this->_extractPartitionDetails();
         }
 
-        include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
+        $partitionDetails = TablePartitionDefinition::getDetails($partitionDetails);
         $this->response->addHTML(
             $this->template->render('table/structure/partition_definition_form', [
                 'db' => $this->db,
