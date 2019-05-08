@@ -3097,7 +3097,7 @@ class Privileges
     ) {
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (preg_match('/(?<!\\\\)(?:_|%)/i', $GLOBALS['dbname'])) {
+            if (preg_match('/(?<!\\\\)(?:_|%)/', $GLOBALS['dbname'])) {
                 $dbname_is_wildcard = true;
             } else {
                 $dbname_is_wildcard = false;
@@ -4592,7 +4592,7 @@ class Privileges
         // check if given $dbname is a wildcard or not
         if (isset($dbname)) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
+            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname)) {
                 $dbname_is_wildcard = true;
             } else {
                 $dbname_is_wildcard = false;
