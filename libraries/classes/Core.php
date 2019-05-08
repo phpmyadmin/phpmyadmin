@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Display\Error as DisplayError;
+
 /**
  * Core class
  *
@@ -293,8 +295,7 @@ class Core
             $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
             $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
 
-            // Displays the error message
-            include ROOT_PATH . 'libraries/error.inc.php';
+            echo DisplayError::display(new Template(), $lang, $dir, $error_header, $error_message);
         }
         if (! defined('TESTSUITE')) {
             exit;
