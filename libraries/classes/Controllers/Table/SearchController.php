@@ -159,8 +159,8 @@ class SearchController extends AbstractController
                 if (! preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace("BINARY", '', $type);
                 }
-                $type = preg_replace('@ZEROFILL@i', '', $type);
-                $type = preg_replace('@UNSIGNED@i', '', $type);
+                $type = str_ireplace("ZEROFILL", '', $type);
+                $type = str_ireplace("UNSIGNED", '', $type);
                 $type = mb_strtolower($type);
             }
             if (empty($type)) {
