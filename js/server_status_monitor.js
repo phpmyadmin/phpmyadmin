@@ -1,4 +1,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @fileoverview    Javascript functions used in server status monitor page
+ * @name            Server Status Monitor
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    js/functions.js
+ */
 var runtime = {};
 var server_time_diff;
 var server_os;
