@@ -818,9 +818,12 @@ function Edit_pages () {
         };
 
         var $msgbox = PMA_ajaxShowMessage();
-        var argsep = PMA_commonParams.get('arg_separator');
-        var params = 'ajax_request=true' + argsep + 'dialog=edit' + argsep + 'server=' + server + argsep + 'db=' + db;
-        $.get('db_designer.php', params, function (data) {
+        $.post('db_designer.php', {
+            'ajax_request': true,
+            'server': server,
+            'db': db,
+            'dialog': 'edit'
+        }, function (data) {
             if (data.success === false) {
                 PMA_ajaxShowMessage(data.error, false);
             } else {
@@ -898,9 +901,12 @@ function Delete_pages () {
     };
 
     var $msgbox = PMA_ajaxShowMessage();
-    var argsep = PMA_commonParams.get('arg_separator');
-    var params = 'ajax_request=true' + argsep + 'dialog=delete' + argsep + 'server=' + server + argsep + 'db=' + db;
-    $.get('db_designer.php', params, function (data) {
+    $.post('db_designer.php', {
+        'ajax_request': true,
+        'server': server,
+        'db': db,
+        'dialog': 'delete'
+    }, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -997,9 +1003,12 @@ function Save_as () {
     };
 
     var $msgbox = PMA_ajaxShowMessage();
-    var argsep = PMA_commonParams.get('arg_separator');
-    var params = 'ajax_request=true' + argsep + 'dialog=save_as' + argsep + 'server=' + server + argsep + 'token=' + argsep + 'db=' + db;
-    $.get('db_designer.php', params, function (data) {
+    $.post('db_designer.php', {
+        'ajax_request': true,
+        'server': server,
+        'db': db,
+        'dialog': 'save_as'
+    }, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -1074,8 +1083,14 @@ function Export_pages () {
     };
     var $msgbox = PMA_ajaxShowMessage();
     var argsep = PMA_commonParams.get('arg_separator');
-    var params = 'ajax_request=true' + argsep + 'dialog=export' + argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'selected_page=' + selected_page;
-    $.get('db_designer.php', params, function (data) {
+
+    $.post('db_designer.php', {
+        'ajax_request': true,
+        'server': server,
+        'db': db,
+        'dialog': 'export',
+        'selected_page': selected_page
+    }, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
