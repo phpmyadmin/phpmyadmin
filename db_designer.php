@@ -41,7 +41,7 @@ if (isset($_POST['dialog'])) {
     } elseif ($_POST['dialog'] == 'export') {
         $html = $databaseDesigner->getHtmlForSchemaExport(
             $GLOBALS['db'],
-            $_GET['selected_page']
+            $_POST['selected_page']
         );
     } elseif ($_POST['dialog'] == 'add_table') {
         $script_display_field = $designerCommon->getTablesInfo();
