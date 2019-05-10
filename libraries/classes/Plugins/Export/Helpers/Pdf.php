@@ -584,18 +584,6 @@ class Pdf extends PdfLib
         }
 
         $columns = $GLOBALS['dbi']->getColumns($db, $table);
-        /**
-         * Get the unique keys in the table.
-         * Presently, this information is not used. We will have to find out
-         * way of displaying it.
-         */
-        /*$unique_keys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
-        foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
-            }
-        }*/
 
         // some things to set and 'remember'
         $l = $this->lMargin;
