@@ -432,19 +432,19 @@ class AuthenticationSignonTest extends PmaTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
         ->disableOriginalConstructor()
-        ->setMethods(array('setCookieParams'))
+        ->setMethods(['setCookieParams'])
         ->getMock();
 
-        $this->object->setCookieParams(array());
+        $this->object->setCookieParams([]);
 
-        $defaultOptions = array(
+        $defaultOptions = [
             'lifetime' => 0,
             'path' => '/',
             'domain' => '',
             'secure' => false,
             'httponly' => false,
-            'samesite' => ''
-        );
+            'samesite' => '',
+        ];
         // php did not set 'samesite' attribute in session_get_cookie_params since not yet implemented
         if (version_compare(phpversion(), '7.3.0', '<')) {
             unset($defaultOptions['samesite']);
