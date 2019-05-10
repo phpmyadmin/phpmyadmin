@@ -4256,15 +4256,6 @@ class Results
         // initialize map
         $map = [];
 
-        $target = [];
-        if (! is_null($statement) && ! empty($statement->from)) {
-            foreach ($statement->from as $field) {
-                if (! empty($field->table)) {
-                    $target[] = $field->table;
-                }
-            }
-        }
-
         if (strlen($this->__get('table')) > 0) {
             // This method set the values for $map array
             $this->_setParamForLinkForeignKeyRelatedTables($map);

@@ -356,12 +356,6 @@ class FormDisplayTemplate
                 . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
                 break;
         }
-        if (isset($opts['comment']) && $opts['comment']) {
-            $class = 'field-comment-mark';
-            if (isset($opts['comment_warning']) && $opts['comment_warning']) {
-                $class .= ' field-comment-warning';
-            }
-        }
         if ($isSetupScript
             && isset($opts['userprefs_comment'])
             && $opts['userprefs_comment']

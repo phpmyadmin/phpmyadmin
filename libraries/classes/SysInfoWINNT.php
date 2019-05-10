@@ -43,13 +43,11 @@ class SysInfoWINNT extends SysInfoBase
      */
     public function loadavg()
     {
-        $loadavg = "";
         $sum = 0;
         $buffer = $this->_getWMI('Win32_Processor', ['LoadPercentage']);
 
         foreach ($buffer as $load) {
             $value = $load['LoadPercentage'];
-            $loadavg .= $value . ' ';
             $sum += $value;
         }
 

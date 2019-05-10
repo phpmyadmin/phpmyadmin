@@ -463,10 +463,7 @@ class StructureController extends AbstractController
                 }
             }
 
-            $truename = ! empty($tooltip_truename)
-                    && isset($tooltip_truename[$current_table['TABLE_NAME']])
-                ? $tooltip_truename[$current_table['TABLE_NAME']]
-                : $current_table['TABLE_NAME'];
+            $truename = $current_table['TABLE_NAME'];
 
             $i++;
 
