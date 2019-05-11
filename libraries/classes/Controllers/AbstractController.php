@@ -40,11 +40,12 @@ abstract class AbstractController
      *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Template|null     $template Template that should be used (if provided, default one otherwise)
      */
-    public function __construct($response, $dbi)
+    public function __construct($response, $dbi, Template $template = null)
     {
         $this->response = $response;
         $this->dbi = $dbi;
-        $this->template = new Template();
+        $this->template = $template ?? new Template();
     }
 }
