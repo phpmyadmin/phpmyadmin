@@ -45,7 +45,7 @@
         "ext-json": "*",
         "ext-hash": "*",
         "ext-iconv": "*",
-        "phpmyadmin/sql-parser": "^4.2.5",
+        "phpmyadmin/sql-parser": "^5.0",
         "phpmyadmin/motranslator": "^4.0",
         "phpmyadmin/shapefile": "^2.0",
         "phpseclib/phpseclib": "^2.0",
