@@ -18,15 +18,11 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(PluginsController::class);
 $container->set(Response::class, Response::getInstance());
 $container->alias('response', Response::class);
 
 /** @var PluginsController $controller */
-$controller = $container->get(
-    PluginsController::class,
-    []
-);
+$controller = $containerBuilder->get(PluginsController::class);
 
 /** @var Response $response */
 $response = $container->get(Response::class);

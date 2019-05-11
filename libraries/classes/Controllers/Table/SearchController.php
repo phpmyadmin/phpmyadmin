@@ -11,7 +11,9 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -88,22 +90,24 @@ class SearchController extends AbstractController
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\Response $response   Response object
-     * @param DatabaseInterface    $dbi        DatabaseInterface object
-     * @param string               $db         Database name
-     * @param string               $table      Table name
-     * @param string               $searchType Search type
-     * @param string               $url_query  URL query
+     * @param Response          $response   Response object
+     * @param DatabaseInterface $dbi        DatabaseInterface object
+     * @param Template          $template   Template object
+     * @param string            $db         Database name
+     * @param string            $table      Table name
+     * @param string            $searchType Search type
+     * @param string            $url_query  URL query
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $searchType,
         $url_query
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         $this->url_query = $url_query;
         $this->_searchType = $searchType;

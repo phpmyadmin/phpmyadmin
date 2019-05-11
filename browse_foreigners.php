@@ -32,18 +32,21 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new BrowseForeignersController(
-    $response,
-    $dbi,
+/* Register BrowseForeignersController dependencies */
+$containerBuilder->set(
+    'browse_foreigners',
     new BrowseForeigners(
         $GLOBALS['cfg']['LimitChars'],
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['RepeatCells'],
         $GLOBALS['cfg']['ShowAll'],
         $GLOBALS['pmaThemeImage']
-    ),
-    new Relation($dbi)
+    )
 );
+$containerBuilder->set('relations', new Relation($dbi));
+
+/** @var BrowseForeignersController $controller */
+$controller = $containerBuilder->get(BrowseForeignersController::class);
 
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();

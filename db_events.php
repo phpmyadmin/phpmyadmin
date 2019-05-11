@@ -13,6 +13,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -33,11 +34,12 @@ $dbi = $container->get(DatabaseInterface::class);
 
 $_PMA_RTE = 'EVN';
 
-$controller = new EventsController(
-    $response,
-    $dbi,
-    $db
-);
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition(EventsController::class);
+$definition->replaceArgument('db', $container->get('db'));
+
+/** @var EventsController $controller */
+$controller = $containerBuilder->get(EventsController::class);
 
 if (! $response->isAjax()) {
     /**

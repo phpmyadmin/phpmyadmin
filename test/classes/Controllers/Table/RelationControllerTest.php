@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 
@@ -82,6 +83,7 @@ class RelationControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'db');
         $container->set('table', 'table');
+        $container->set('template', new Template());
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $this->_response);

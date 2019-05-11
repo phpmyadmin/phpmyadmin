@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\TestCase;
 
@@ -46,6 +47,7 @@ class TransformationOverviewControllerTest extends TestCase
         $controller = new TransformationOverviewController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             new Transformations()
         );
 

@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -29,11 +30,12 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new MultiTableQueryController(
-    $response,
-    $dbi,
-    $db
-);
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition(MultiTableQueryController::class);
+$definition->replaceArgument('db', $container->get('db'));
+
+/** @var MultiTableQueryController $controller */
+$controller = $containerBuilder->get(MultiTableQueryController::class);
 
 if (isset($_POST['sql_query'])) {
     $controller->displayResults([

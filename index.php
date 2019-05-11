@@ -69,11 +69,8 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new HomeController(
-    $response,
-    $dbi,
-    $GLOBALS['PMA_Config']
-);
+/** @var HomeController $controller */
+$controller = $containerBuilder->get(HomeController::class);
 
 if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
     exit;
