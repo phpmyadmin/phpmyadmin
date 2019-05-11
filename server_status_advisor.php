@@ -32,10 +32,8 @@ $dbi = $container->get(DatabaseInterface::class);
 $scripts = $response->getHeader()->getScripts();
 $scripts->addFile('server_status_advisor.js');
 
-$controller = new AdvisorController(
-    $response,
-    $dbi,
-    new Data()
-);
+$containerBuilder->set('status_data', new Data());
+/** @var AdvisorController $controller */
+$controller = $containerBuilder->get('server_status_advisor_controller');
 
 $response->addHTML($controller->index());

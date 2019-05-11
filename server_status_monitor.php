@@ -31,12 +31,10 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new MonitorController(
-    $response,
-    $dbi,
-    new Data,
-    new Monitor($dbi)
-);
+$containerBuilder->set('status_data', new Data());
+$containerBuilder->set('status_monitor', new Monitor($dbi));
+/** @var MonitorController $controller */
+$controller = $containerBuilder->get('server_status_monitor_controller');
 
 /**
  * Ajax request

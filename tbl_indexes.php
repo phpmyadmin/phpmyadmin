@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -20,7 +21,6 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(IndexesController::class);
 $container->set(Response::class, Response::getInstance());
 $container->alias('response', Response::class);
 
@@ -45,10 +45,17 @@ if (isset($_POST['index'])) {
     $index = new Index();
 }
 
+/* Define dependencies for the concerned controller */
 $dependency_definitions = [
-    "index" => $index,
+    'db' => $container->get('db'),
+    'table' => $container->get('table'),
+    'index' => $index,
 ];
 
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition('table_indexes_controller');
+$definition->setArguments(array_merge($definition->getArguments(), $dependency_definitions));
+
 /** @var IndexesController $controller */
-$controller = $container->get(IndexesController::class, $dependency_definitions);
+$controller = $containerBuilder->get('table_indexes_controller');
 $controller->indexAction();

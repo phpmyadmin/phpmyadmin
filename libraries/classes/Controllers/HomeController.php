@@ -12,12 +12,15 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\GitRevision;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
@@ -42,13 +45,14 @@ class HomeController extends AbstractController
     /**
      * HomeController constructor.
      *
-     * @param \PhpMyAdmin\Response          $response Response instance
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface instance
-     * @param Config                        $config   Config instance
+     * @param Response          $response Response instance
+     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     * @param Template          $template
+     * @param Config            $config   Config instance
      */
-    public function __construct($response, $dbi, $config)
+    public function __construct($response, $dbi, Template $template, $config)
     {
-        parent::__construct($response, $dbi);
+        parent::__construct($response, $dbi, $template);
         $this->config = $config;
         $this->themeManager = ThemeManager::getInstance();
     }

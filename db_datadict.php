@@ -14,6 +14,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -32,13 +33,19 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new DataDictionaryController(
-    $response,
-    $dbi,
-    $db,
-    new Relation($dbi),
-    new Transformations()
-);
+/* Define dependencies for the concerned controller */
+$dependency_definitions = [
+    'db' => $container->get('db'),
+    'relation' => new Relation($dbi),
+    'transformations' => new Transformations(),
+];
+
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition('database_data_dictionary_controller');
+$definition->setArguments(array_merge($definition->getArguments(), $dependency_definitions));
+
+/** @var DataDictionaryController $controller */
+$controller = $containerBuilder->get('database_data_dictionary_controller');
 
 $header = $response->getHeader();
 $header->enablePrintView();

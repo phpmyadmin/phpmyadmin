@@ -30,10 +30,8 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new ReplicationController(
-    $response,
-    $dbi
-);
+/** @var ReplicationController $controller */
+$controller = $containerBuilder->get('replication_controller');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();

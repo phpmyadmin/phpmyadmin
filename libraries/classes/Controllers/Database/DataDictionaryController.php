@@ -9,8 +9,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -33,15 +36,16 @@ class DataDictionaryController extends AbstractController
     /**
      * DataDictionaryController constructor.
      *
-     * @param \PhpMyAdmin\Response          $response        Response instance
-     * @param \PhpMyAdmin\DatabaseInterface $dbi             DatabaseInterface instance
-     * @param string                        $db              Database name
-     * @param Relation                      $relation        Relation instance
-     * @param Transformations               $transformations Transformations instance
+     * @param Response          $response        Response instance
+     * @param DatabaseInterface $dbi             DatabaseInterface instance
+     * @param Template          $template        Template object
+     * @param string            $db              Database name
+     * @param Relation          $relation        Relation instance
+     * @param Transformations   $transformations Transformations instance
      */
-    public function __construct($response, $dbi, $db, $relation, $transformations)
+    public function __construct($response, $dbi, Template $template, $db, $relation, $transformations)
     {
-        parent::__construct($response, $dbi, $db);
+        parent::__construct($response, $dbi, $template, $db);
         $this->relation = $relation;
         $this->transformations = $transformations;
     }

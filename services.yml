@@ -1,10 +1,3 @@
 services:
   template:
     class: '\PhpMyAdmin\Template'
-
-  databases_controller:
-    class: '\PhpMyAdmin\Controllers\Server\DatabasesController'
-    arguments:
-      $response: '@response'
-      $dbi: '@dbi'
-      $template: '@template'

@@ -30,11 +30,9 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new ProcessesController(
-    $response,
-    $dbi,
-    new Data()
-);
+$containerBuilder->set('status_data', new Data());
+/** @var ProcessesController $controller */
+$controller = $containerBuilder->get('server_status_processes_controller');
 
 if ($response->isAjax() && ! empty($_POST['kill'])) {
     $response->addJSON($controller->kill([

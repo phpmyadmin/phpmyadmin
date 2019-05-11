@@ -18,21 +18,11 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\CollationsController'
-);
-$container->alias(
-    'CollationsController',
-    'PhpMyAdmin\Controllers\Server\CollationsController'
-);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var CollationsController $controller */
-$controller = $container->get(
-    'CollationsController',
-    []
-);
+$controller = $containerBuilder->get('collations_controller');
 $response = $container->get('response');
 
 $response->addHTML($controller->indexAction());

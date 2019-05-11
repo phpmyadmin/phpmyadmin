@@ -7,6 +7,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
@@ -17,21 +18,11 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\BinlogController'
-);
-$container->alias(
-    'BinlogController',
-    'PhpMyAdmin\Controllers\Server\BinlogController'
-);
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
-/** @var \PhpMyAdmin\Controllers\Server\BinlogController $controller */
-$controller = $container->get(
-    'BinlogController',
-    []
-);
+/** @var BinlogController $controller */
+$controller = $containerBuilder->get('binlog_controller');
 
 /** @var Response $response */
 $response = $container->get('response');

@@ -33,11 +33,8 @@ $dbi = $container->get(DatabaseInterface::class);
 
 $response->setAjax(true);
 
-$controller = new AjaxController(
-    $response,
-    $dbi,
-    $GLOBALS['PMA_Config']
-);
+/** @var AjaxController $controller */
+$controller = $containerBuilder->get('ajax_controller');
 
 if (empty($_POST['type'])) {
     Core::fatalError(__('Bad type!'));

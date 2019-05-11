@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -23,7 +24,6 @@ global $table_info_num_rows, $tbl_collation, $showtable;
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(StructureController::class);
 $container->set(Response::class, Response::getInstance());
 $container->alias('response', Response::class);
 
@@ -58,6 +58,10 @@ $dependency_definitions = [
     'showtable' => $GLOBALS['showtable']
 ];
 
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition('table_structure_controller');
+$definition->setArguments(array_merge($definition->getArguments(), $dependency_definitions));
+
 /** @var StructureController $controller */
-$controller = $container->get(StructureController::class, $dependency_definitions);
+$controller = $containerBuilder->get('table_structure_controller');
 $controller->indexAction();

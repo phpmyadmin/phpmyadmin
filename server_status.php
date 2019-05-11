@@ -30,10 +30,8 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new StatusController(
-    $response,
-    $dbi,
-    new Data()
-);
+$containerBuilder->set('status_data', new Data());
+/** @var StatusController $controller */
+$controller = $containerBuilder->get('server_status_status_controller');
 
 $response->addHTML($controller->index());

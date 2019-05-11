@@ -20,6 +20,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -71,13 +72,14 @@ class StructureController extends AbstractController
      *
      * @param Response          $response    Response instance
      * @param DatabaseInterface $dbi         DatabaseInterface instance
+     * @param Template          $template    Template object
      * @param string            $db          Database name
      * @param Relation          $relation    Relation instance
      * @param Replication       $replication Replication instance
      */
-    public function __construct($response, $dbi, $db, $relation, $replication)
+    public function __construct($response, $dbi, Template $template, $db, $relation, $replication)
     {
-        parent::__construct($response, $dbi, $db);
+        parent::__construct($response, $dbi, $template, $db);
         $this->relation = $relation;
         $this->replication = $replication;
     }

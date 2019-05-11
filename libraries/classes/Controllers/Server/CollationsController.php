@@ -13,6 +13,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 /**
  * Handles viewing character sets and collations
@@ -46,6 +47,7 @@ class CollationsController extends AbstractController
      *
      * @param Response          $response             Response object
      * @param DatabaseInterface $dbi                  DatabaseInterface object
+     * @param Template          $template             Template object
      * @param array|null        $charsets             Array of charsets
      * @param array|null        $charsetsDescriptions Array of charsets descriptions
      * @param array|null        $collations           Array of collations
@@ -54,6 +56,7 @@ class CollationsController extends AbstractController
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         ?array $charsets = null,
         ?array $charsetsDescriptions = null,
         ?array $collations = null,
@@ -61,7 +64,7 @@ class CollationsController extends AbstractController
     ) {
         global $cfg;
 
-        parent::__construct($response, $dbi);
+        parent::__construct($response, $dbi, $template);
 
         $this->charsets = $charsets ?? Charsets::getMySQLCharsets(
             $this->dbi,

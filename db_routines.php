@@ -35,11 +35,17 @@ $checkUserPrivileges->getPrivileges();
 
 $_PMA_RTE = 'RTN';
 
-$controller = new RoutinesController(
-    $response,
-    $dbi,
-    $db
-);
+/* Define dependencies for the concerned controller */
+$dependency_definitions = [
+    'db' => $container->get('db'),
+];
+
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition('database_routines_controller');
+$definition->setArguments(array_merge($definition->getArguments(), $dependency_definitions));
+
+/** @var RoutinesController $controller */
+$controller = $containerBuilder->get('database_routines_controller');
 
 if (! $response->isAjax()) {
     /**

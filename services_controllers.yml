@@ -1,0 +1,243 @@
+services:
+  ajax_controller:
+    class: '\PhpMyAdmin\Controllers\AjaxController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $config: '@config'
+
+  binlog_controller:
+    class: '\PhpMyAdmin\Controllers\Server\BinlogController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  browse_foreigners_controller:
+    class: '\PhpMyAdmin\Controllers\BrowseForeignersController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $browseForeigners: '@browse_foreigners'
+      $relations: '@relations'
+
+  collations_controller:
+    class: '\PhpMyAdmin\Controllers\Server\CollationsController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  database_central_columns_controller:
+    class: '\PhpMyAdmin\Controllers\Database\CentralColumnsController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  database_data_dictionary_controller:
+    class: '\PhpMyAdmin\Controllers\Database\DataDictionaryController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  database_events_controller:
+    class: '\PhpMyAdmin\Controllers\Database\EventsController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  database_multi_table_query_controller:
+    class: '\PhpMyAdmin\Controllers\Database\MultiTableQueryController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  database_routines_controller:
+    class: '\PhpMyAdmin\Controllers\Database\RoutinesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  database_sql_controller:
+    class: '\PhpMyAdmin\Controllers\Database\SqlController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  database_structure_controller:
+    class: '\PhpMyAdmin\Controllers\Database\StructureController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  database_triggers_controller:
+    class: '\PhpMyAdmin\Controllers\Database\TriggersController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  databases_controller:
+    class: '\PhpMyAdmin\Controllers\Server\DatabasesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  engines_controller:
+    class: '\PhpMyAdmin\Controllers\Server\EnginesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  home_controller:
+    class: '\PhpMyAdmin\Controllers\HomeController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $config: '@config'
+
+  plugins_controller:
+    class: '\PhpMyAdmin\Controllers\Server\PluginsController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  replication_controller:
+    class: '\PhpMyAdmin\Controllers\Server\ReplicationController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  server_status_advisor_controller:
+    class: '\PhpMyAdmin\Controllers\Server\Status\AdvisorController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $data: '@status_data'
+
+  server_status_monitor_controller:
+    class: '\PhpMyAdmin\Controllers\Server\Status\MonitorController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $data: '@status_data'
+      $monitor: '@status_monitor'
+
+  server_status_processes_controller:
+    class: '\PhpMyAdmin\Controllers\Server\Status\ProcessesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $data: '@status_data'
+
+  server_status_queries_controller:
+    class: '\PhpMyAdmin\Controllers\Server\Status\QueriesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $data: '@status_data'
+
+  server_status_status_controller:
+    class: '\PhpMyAdmin\Controllers\Server\Status\StatusController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $data: '@status_data'
+
+  server_status_variables_controller:
+    class: '\PhpMyAdmin\Controllers\Server\Status\VariablesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $data: '@status_data'
+
+  sql_controller:
+    class: '\PhpMyAdmin\Controllers\Server\SqlController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  table_chart_controller:
+    class: '\PhpMyAdmin\Controllers\Table\ChartController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  table_gis_visualization_controller:
+    class: '\PhpMyAdmin\Controllers\Table\GisVisualizationController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  table_indexes_controller:
+    class: '\PhpMyAdmin\Controllers\Table\IndexesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  table_relation_controller:
+    class: '\PhpMyAdmin\Controllers\Table\RelationController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  table_search_controller:
+    class: '\PhpMyAdmin\Controllers\Table\SearchController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  table_sql_controller:
+    class: '\PhpMyAdmin\Controllers\Table\SqlController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  table_structure_controller:
+    class: '\PhpMyAdmin\Controllers\Table\StructureController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  transformation_overview_controller:
+    class: '\PhpMyAdmin\Controllers\TransformationOverviewController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+      $transformations: '@transformations'
+
+  variables_controller:
+    class: '\PhpMyAdmin\Controllers\Server\VariablesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'

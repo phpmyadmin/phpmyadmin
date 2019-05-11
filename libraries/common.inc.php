@@ -91,6 +91,7 @@ require_once AUTOLOAD_FILE;
 $containerBuilder = new ContainerBuilder();
 $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__));
 $loader->load('../services.yml');
+$loader->load('../services_controllers.yml');
 
 /**
  * Load gettext functions.
@@ -126,6 +127,7 @@ Core::cleanupPathInfo();
  * in the previous iteration
  */
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
+$containerBuilder->set('config', $GLOBALS['PMA_Config']);
 
 /**
  * include session handling after the globals, to prevent overwriting
@@ -455,9 +457,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         );
         exit;
     }
-}
 
-$containerBuilder->set('response', Response::getInstance());
+    $containerBuilder->set('response', Response::getInstance());
+}
 
 // load user preferences
 $GLOBALS['PMA_Config']->loadUserPreferences();

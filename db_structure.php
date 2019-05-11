@@ -13,6 +13,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -22,7 +23,6 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/db_common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(StructureController::class);
 $container->set(Response::class, Response::getInstance());
 $container->alias('response', Response::class);
 
@@ -36,8 +36,12 @@ $dependency_definitions = [
     'replication' => new Replication(),
 ];
 
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition('database_structure_controller');
+$definition->setArguments(array_merge($definition->getArguments(), $dependency_definitions));
+
 /** @var StructureController $controller */
-$controller = $container->get(StructureController::class, $dependency_definitions);
+$controller = $containerBuilder->get('database_structure_controller');
 
 /** @var Response $response */
 $response = $container->get(Response::class);
