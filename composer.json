@@ -39,23 +39,23 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "ext-mysqli": "*",
-        "ext-xml": "*",
-        "ext-pcre": "*",
-        "ext-json": "*",
         "ext-hash": "*",
         "ext-iconv": "*",
-        "phpmyadmin/sql-parser": "^5.0",
+        "ext-json": "*",
+        "ext-mysqli": "*",
+        "ext-pcre": "*",
+        "ext-xml": "*",
+        "google/recaptcha": "^1.1",
         "phpmyadmin/motranslator": "^4.0",
         "phpmyadmin/shapefile": "^2.0",
+        "phpmyadmin/sql-parser": "^5.0",
         "phpseclib/phpseclib": "^2.0",
-        "google/recaptcha": "^1.1",
         "psr/container": "^1.0",
-        "twig/twig": "^2.4",
-        "twig/extensions": "~1.5.1",
         "symfony/expression-language": "^4.2",
-        "symfony/polyfill-mbstring": "^1.3",
         "symfony/polyfill-ctype": "^1.8",
+        "symfony/polyfill-mbstring": "^1.3",
+        "twig/extensions": "~1.5.1",
+        "twig/twig": "^2.4",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
     "conflict": {
@@ -103,5 +103,8 @@
             "@phpstan",
             "@phpunit"
         ]
+    },
+    "config":{
+        "sort-packages": true
     }
 }
