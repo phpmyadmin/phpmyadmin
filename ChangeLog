@@ -98,6 +98,7 @@ phpMyAdmin - ChangeLog
 - issue #14934 Fixed all fields readonly on Edit/Insert screens
 - issue #14588 Fixed export of geometry objects, GIS objects are now exported as hex
 - issue #14412 Better handling of errors with Signon authentication type
+- issue        Added support for AUTO_INCREMENT when using ROCKSDB, on Operations page
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
