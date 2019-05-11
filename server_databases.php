@@ -20,18 +20,14 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(DatabasesController::class);
-$container->set(Response::class, Response::getInstance());
+$container->set(Response::class, $containerBuilder->get('response'));
 $container->alias('response', Response::class);
 
 /** @var DatabasesController $controller */
-$controller = $container->get(DatabasesController::class);
-
-/** @var Response $response */
-$response = $container->get(Response::class);
+$controller = $containerBuilder->get('databases_controller');
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();

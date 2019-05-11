@@ -44,6 +44,9 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
  * block attempts to directly run this script
@@ -84,6 +87,10 @@ if (! @is_readable(AUTOLOAD_FILE)) {
     );
 }
 require_once AUTOLOAD_FILE;
+
+$containerBuilder = new ContainerBuilder();
+$loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__));
+$loader->load('../services.yml');
 
 /**
  * Load gettext functions.
@@ -309,7 +316,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Loads the proper database interface for this server
          */
-        DatabaseInterface::load();
+        $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
+        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
@@ -448,6 +456,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         exit;
     }
 }
+
+$containerBuilder->set('response', Response::getInstance());
 
 // load user preferences
 $GLOBALS['PMA_Config']->loadUserPreferences();
