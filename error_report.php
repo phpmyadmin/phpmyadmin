@@ -27,7 +27,8 @@ if (! isset($_POST['exception_type'])
 
 $response = Response::getInstance();
 
-$errorReport = new ErrorReport(new HttpRequest());
+/** @var ErrorReport $errorReport */
+$errorReport = $containerBuilder->get('error_report');
 
 if (isset($_POST['send_error_report'])
     && ($_POST['send_error_report'] == true

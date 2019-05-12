@@ -1,3 +1,10 @@
 services:
+  error_report:
+    class: '\PhpMyAdmin\ErrorReport'
+    arguments: ['@http_request', '@template']
+
+  http_request:
+    class: '\PhpMyAdmin\Utils\HttpRequest'
+
   template:
     class: '\PhpMyAdmin\Template'
