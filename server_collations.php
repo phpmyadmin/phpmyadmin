@@ -22,7 +22,7 @@ $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var CollationsController $controller */
-$controller = $containerBuilder->get('collations_controller');
+$controller = $containerBuilder->get('server_collations_controller');
 $response = $container->get('response');
 
 $response->addHTML($controller->indexAction());

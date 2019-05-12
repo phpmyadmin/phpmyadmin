@@ -7,13 +7,6 @@ services:
       $template: '@template'
       $config: '@config'
 
-  binlog_controller:
-    class: '\PhpMyAdmin\Controllers\Server\BinlogController'
-    arguments:
-      $response: '@response'
-      $dbi: '@dbi'
-      $template: '@template'
-
   browse_foreigners_controller:
     class: '\PhpMyAdmin\Controllers\BrowseForeignersController'
     arguments:
@@ -22,13 +15,6 @@ services:
       $template: '@template'
       $browseForeigners: '@browse_foreigners'
       $relations: '@relations'
-
-  collations_controller:
-    class: '\PhpMyAdmin\Controllers\Server\CollationsController'
-    arguments:
-      $response: '@response'
-      $dbi: '@dbi'
-      $template: '@template'
 
   database_central_columns_controller:
     class: '\PhpMyAdmin\Controllers\Database\CentralColumnsController'
@@ -93,13 +79,6 @@ services:
       $dbi: '@dbi'
       $template: '@template'
 
-  engines_controller:
-    class: '\PhpMyAdmin\Controllers\Server\EnginesController'
-    arguments:
-      $response: '@response'
-      $dbi: '@dbi'
-      $template: '@template'
-
   home_controller:
     class: '\PhpMyAdmin\Controllers\HomeController'
     arguments:
@@ -107,16 +86,45 @@ services:
       $dbi: '@dbi'
       $template: '@template'
       $config: '@config'
+      $themeManager: '@theme_manager'
 
-  plugins_controller:
+  server_binlog_controller:
+    class: '\PhpMyAdmin\Controllers\Server\BinlogController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  server_collations_controller:
+    class: '\PhpMyAdmin\Controllers\Server\CollationsController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  server_engines_controller:
+    class: '\PhpMyAdmin\Controllers\Server\EnginesController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  server_plugins_controller:
     class: '\PhpMyAdmin\Controllers\Server\PluginsController'
     arguments:
       $response: '@response'
       $dbi: '@dbi'
       $template: '@template'
 
-  replication_controller:
+  server_replication_controller:
     class: '\PhpMyAdmin\Controllers\Server\ReplicationController'
+    arguments:
+      $response: '@response'
+      $dbi: '@dbi'
+      $template: '@template'
+
+  server_sql_controller:
+    class: '\PhpMyAdmin\Controllers\Server\SqlController'
     arguments:
       $response: '@response'
       $dbi: '@dbi'
@@ -171,8 +179,8 @@ services:
       $template: '@template'
       $data: '@status_data'
 
-  sql_controller:
-    class: '\PhpMyAdmin\Controllers\Server\SqlController'
+  server_variables_controller:
+    class: '\PhpMyAdmin\Controllers\Server\VariablesController'
     arguments:
       $response: '@response'
       $dbi: '@dbi'
@@ -234,10 +242,3 @@ services:
       $dbi: '@dbi'
       $template: '@template'
       $transformations: '@transformations'
-
-  variables_controller:
-    class: '\PhpMyAdmin\Controllers\Server\VariablesController'
-    arguments:
-      $response: '@response'
-      $dbi: '@dbi'
-      $template: '@template'

@@ -45,16 +45,17 @@ class HomeController extends AbstractController
     /**
      * HomeController constructor.
      *
-     * @param Response          $response Response instance
-     * @param DatabaseInterface $dbi      DatabaseInterface instance
-     * @param Template          $template
-     * @param Config            $config   Config instance
+     * @param Response          $response     Response instance
+     * @param DatabaseInterface $dbi          DatabaseInterface instance
+     * @param Template          $template     Template object
+     * @param Config            $config       Config instance
+     * @param ThemeManager      $themeManager ThemeManager instance
      */
-    public function __construct($response, $dbi, Template $template, $config)
+    public function __construct($response, $dbi, Template $template, $config, ThemeManager $themeManager)
     {
         parent::__construct($response, $dbi, $template);
         $this->config = $config;
-        $this->themeManager = ThemeManager::getInstance();
+        $this->themeManager = $themeManager;
     }
 
 

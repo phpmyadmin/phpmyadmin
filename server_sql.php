@@ -28,7 +28,7 @@ $response = $container->get(Response::class);
 $dbi = $container->get(DatabaseInterface::class);
 
 /** @var SqlController $controller */
-$controller = $containerBuilder->get('sql_controller');
+$controller = $containerBuilder->get('server_sql_controller');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();

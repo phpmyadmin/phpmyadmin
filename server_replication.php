@@ -31,7 +31,7 @@ $response = $container->get(Response::class);
 $dbi = $container->get(DatabaseInterface::class);
 
 /** @var ReplicationController $controller */
-$controller = $containerBuilder->get('replication_controller');
+$controller = $containerBuilder->get('server_replication_controller');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();

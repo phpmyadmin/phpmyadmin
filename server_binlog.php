@@ -22,7 +22,7 @@ $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var BinlogController $controller */
-$controller = $containerBuilder->get('binlog_controller');
+$controller = $containerBuilder->get('server_binlog_controller');
 
 /** @var Response $response */
 $response = $container->get('response');

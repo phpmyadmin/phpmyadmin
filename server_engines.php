@@ -22,7 +22,7 @@ $container->set(Response::class, Response::getInstance());
 $container->alias('response', Response::class);
 
 /** @var EnginesController $controller */
-$controller = $containerBuilder->get('engines_controller');
+$controller = $containerBuilder->get('server_engines_controller');
 
 /** @var Response $response */
 $response = $container->get(Response::class);

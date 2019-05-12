@@ -464,5 +464,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 // load user preferences
 $GLOBALS['PMA_Config']->loadUserPreferences();
 
+$containerBuilder->set('theme_manager', ThemeManager::getInstance());
+
 /* Tell tracker that it can actually work */
 Tracker::enable();

@@ -22,7 +22,7 @@ $container->set(Response::class, Response::getInstance());
 $container->alias('response', Response::class);
 
 /** @var PluginsController $controller */
-$controller = $containerBuilder->get('plugins_controller');
+$controller = $containerBuilder->get('server_plugins_controller');
 
 /** @var Response $response */
 $response = $container->get(Response::class);
