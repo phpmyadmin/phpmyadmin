@@ -13,7 +13,7 @@ services:
 
   error_report:
     class: 'PhpMyAdmin\ErrorReport'
-    #arguments: ['@http_request', '@relation', '@template']
+    arguments: ['@http_request', '@relation', '@template']
 
   export:
     class: 'PhpMyAdmin\Export'
@@ -46,6 +46,20 @@ services:
   status_monitor:
     class: 'PhpMyAdmin\Server\Status\Monitor'
     arguments: ['@dbi']
+
+  import:
+    class: '\PhpMyAdmin\Import'
+
+  navigation:
+    class: '\PhpMyAdmin\Navigation\Navigation'
+    arguments: ['@template', '@relation', '@dbi']
+
+  relation:
+    class: '\PhpMyAdmin\Relation'
+    arguments: ['@dbi', '@template']
+
+  status_data:
+    class: '\PhpMyAdmin\Server\Status\Data'
 
   template:
     class: 'PhpMyAdmin\Template'
