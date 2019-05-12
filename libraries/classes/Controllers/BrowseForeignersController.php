@@ -37,9 +37,9 @@ class BrowseForeignersController extends AbstractController
      *
      * @param Response          $response         Response instance
      * @param DatabaseInterface $dbi              DatabaseInterface instance
-     * @param Template                      $template         Template object
-     * @param BrowseForeigners              $browseForeigners BrowseForeigners instance
-     * @param Relation                      $relation         Relation instance
+     * @param Template          $template         Template object
+     * @param BrowseForeigners  $browseForeigners BrowseForeigners instance
+     * @param Relation          $relation         Relation instance
      */
     public function __construct($response, $dbi, Template $template, $browseForeigners, $relation)
     {

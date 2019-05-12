@@ -32,7 +32,7 @@ class PluginsController extends AbstractController
      *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template                      $template Template object
+     * @param Template          $template Template object
      */
     public function __construct($response, $dbi, Template $template)
     {

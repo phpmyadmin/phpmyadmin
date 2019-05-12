@@ -31,9 +31,9 @@ class BinlogController extends AbstractController
     /**
      * Constructs BinlogController
      *
-     * @param Response $response Response object
-     * @param DatabaseInterface    $dbi      DatabaseInterface object
-     * @param Template             $template
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Template          $template Template object
      */
     public function __construct($response, $dbi, Template $template)
     {

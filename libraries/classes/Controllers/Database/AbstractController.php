@@ -31,8 +31,8 @@ abstract class AbstractController extends Controller
      *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template                      $template Template object
-     * @param string                        $db       Database name
+     * @param Template          $template Template object
+     * @param string            $db       Database name
      */
     public function __construct($response, $dbi, Template $template, $db)
     {
