@@ -15,6 +15,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
@@ -112,6 +113,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data,
             new Monitor($GLOBALS['dbi'])
         );
@@ -232,6 +234,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data,
             new Monitor($GLOBALS['dbi'])
         );
@@ -303,6 +306,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data,
             new Monitor($GLOBALS['dbi'])
         );
@@ -359,6 +363,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $dbi,
+            new Template(),
             $this->data,
             new Monitor($dbi)
         );
@@ -400,6 +405,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $dbi,
+            new Template(),
             $this->data,
             new Monitor($dbi)
         );

@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -144,6 +145,7 @@ class StatusControllerTest extends TestCase
         $controller = new StatusController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $data
         );
 

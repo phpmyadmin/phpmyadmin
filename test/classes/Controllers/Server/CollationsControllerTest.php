@@ -13,6 +13,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -72,6 +73,7 @@ class CollationsControllerTest extends TestCase
         $controller = new CollationsController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $charsets,
             $charsetsDescriptions,
             $collations,

@@ -13,6 +13,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
@@ -104,7 +105,8 @@ class BinlogControllerTest extends TestCase
 
         $controller = new BinlogController(
             Response::getInstance(),
-            $dbi
+            $dbi,
+            new Template()
         );
         $actual = $controller->indexAction([
             'log' => 'index1',

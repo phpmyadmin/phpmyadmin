@@ -19,6 +19,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use ReflectionClass;
@@ -85,6 +86,7 @@ class StructureControllerTest extends PmaTestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
+        $container->set('template', new Template());
         $this->response = new ResponseStub();
         $container->set(Response::class, $this->response);
         $container->alias('response', Response::class);
@@ -115,6 +117,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication
@@ -175,6 +178,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication
@@ -221,6 +225,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication
@@ -282,6 +287,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication
@@ -303,6 +309,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication
@@ -338,6 +345,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication
@@ -384,6 +392,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication
@@ -436,6 +445,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication
@@ -471,6 +481,7 @@ class StructureControllerTest extends PmaTestCase
         $controller = new StructureController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $this->relation,
             $this->replication

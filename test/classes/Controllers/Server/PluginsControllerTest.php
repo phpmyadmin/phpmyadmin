@@ -13,6 +13,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -77,7 +78,8 @@ class PluginsControllerTest extends TestCase
 
         $controller = new PluginsController(
             Response::getInstance(),
-            $dbi
+            $dbi,
+            new Template()
         );
         $actual = $controller->index();
 

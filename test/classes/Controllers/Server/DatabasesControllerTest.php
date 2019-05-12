@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -81,7 +82,8 @@ class DatabasesControllerTest extends TestCase
 
         $controller = new DatabasesController(
             Response::getInstance(),
-            $dbi
+            $dbi,
+            new Template()
         );
 
         $actual = $controller->indexAction([
@@ -143,7 +145,8 @@ class DatabasesControllerTest extends TestCase
 
         $controller = new DatabasesController(
             Response::getInstance(),
-            $dbi
+            $dbi,
+            new Template()
         );
 
         $actual = $controller->createDatabaseAction([
@@ -184,7 +187,8 @@ class DatabasesControllerTest extends TestCase
 
         $controller = new DatabasesController(
             Response::getInstance(),
-            $dbi
+            $dbi,
+            new Template()
         );
 
         $actual = $controller->dropDatabasesAction([

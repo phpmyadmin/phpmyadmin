@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\Status\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -135,6 +136,7 @@ class VariablesControllerTest extends TestCase
         $controller = new VariablesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data
         );
 
