@@ -31,7 +31,6 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$containerBuilder->set('status_data', new Data());
 $containerBuilder->set('status_monitor', new Monitor($dbi));
 /** @var MonitorController $controller */
 $controller = $containerBuilder->get(MonitorController::class);

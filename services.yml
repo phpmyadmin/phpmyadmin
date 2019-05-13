@@ -17,9 +17,19 @@ services:
     class: '\PhpMyAdmin\Navigation\Navigation'
     arguments: ['@template', '@relation', '@dbi']
 
+  normalization:
+    class: '\PhpMyAdmin\Normalization'
+    arguments: ['@dbi']
+
   relation:
     class: '\PhpMyAdmin\Relation'
     arguments: ['@dbi', '@template']
 
+  status_data:
+    class: '\PhpMyAdmin\Server\Status\Data'
+
   template:
     class: 'PhpMyAdmin\Template'
+
+  transformations:
+    class: 'PhpMyAdmin\Transformations'

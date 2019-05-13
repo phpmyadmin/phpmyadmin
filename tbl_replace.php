@@ -63,7 +63,8 @@ $scripts->addFile('gis_data_editor.js');
 
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');
-$transformations = new Transformations();
+/** @var Transformations $transformations */
+$transformations = $containerBuilder->get('transformations');
 $insertEdit = new InsertEdit($dbi);
 
 // check whether insert row mode, if so include tbl_change.php
