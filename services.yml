@@ -10,5 +10,8 @@ services:
   http_request:
     class: '\PhpMyAdmin\Utils\HttpRequest'
 
+  import:
+    class: '\PhpMyAdmin\Import'
+
   template:
     class: '\PhpMyAdmin\Template'

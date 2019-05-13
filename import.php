@@ -42,7 +42,8 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$import = new Import();
+/** @var import $import */
+$import = $containerBuilder->get('import');
 
 if (isset($_POST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_POST['show_as_php'];
