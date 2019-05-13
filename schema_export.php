@@ -28,7 +28,8 @@ $dbi = $container->get(DatabaseInterface::class);
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 
 if (! isset($_REQUEST['export_type'])) {

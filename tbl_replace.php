@@ -61,7 +61,8 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $transformations = new Transformations();
 $insertEdit = new InsertEdit($dbi);
 

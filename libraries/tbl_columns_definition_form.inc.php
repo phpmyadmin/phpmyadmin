@@ -37,7 +37,8 @@ Util::checkParameters(
 
 global $db, $table;
 
-$relation = new Relation($GLOBALS['dbi']);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $transformations = new Transformations();
 $template = new Template();
 

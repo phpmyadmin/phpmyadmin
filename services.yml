@@ -1,7 +1,7 @@
 services:
   error_report:
     class: '\PhpMyAdmin\ErrorReport'
-    arguments: ['@http_request', '@template']
+    arguments: ['@http_request', '@relation', '@template']
 
   export:
     class: '\PhpMyAdmin\Export'

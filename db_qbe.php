@@ -36,8 +36,10 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$relation = new Relation($dbi);
-$template = new Template();
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 // Gets the relation settings
 $cfgRelation = $relation->getRelationsParam();

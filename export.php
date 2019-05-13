@@ -431,7 +431,8 @@ if ($save_on_server) {
     } // end download
 }
 
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 
 // Fake loop just to allow skip of remain of this code by break, I'd really
 // need exceptions here :-)
