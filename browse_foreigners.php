@@ -43,7 +43,6 @@ $containerBuilder->set(
         $GLOBALS['pmaThemeImage']
     )
 );
-$containerBuilder->set('relations', new Relation($dbi));
 
 /** @var BrowseForeignersController $controller */
 $controller = $containerBuilder->get('browse_foreigners_controller');

@@ -14,7 +14,7 @@ services:
       $dbi: '@dbi'
       $template: '@template'
       $browseForeigners: '@browse_foreigners'
-      $relations: '@relations'
+      $relations: '@relation'
 
   database_central_columns_controller:
     class: '\PhpMyAdmin\Controllers\Database\CentralColumnsController'
