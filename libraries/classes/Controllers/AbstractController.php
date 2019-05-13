@@ -33,7 +33,7 @@ abstract class AbstractController
     /**
      * @var Template
      */
-    public $template;
+    protected $template;
 
     /**
      * AbstractController constructor.
