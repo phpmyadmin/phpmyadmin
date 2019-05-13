@@ -58,6 +58,9 @@ services:
     class: '\PhpMyAdmin\Relation'
     arguments: ['@dbi', '@template']
 
+  replication:
+    class: '\PhpMyAdmin\Replication'
+
   status_data:
     class: '\PhpMyAdmin\Server\Status\Data'
 
