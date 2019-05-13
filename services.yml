@@ -13,5 +13,13 @@ services:
   import:
     class: '\PhpMyAdmin\Import'
 
+  navigation:
+    class: '\PhpMyAdmin\Navigation\Navigation'
+    arguments: ['@template', '@relation', '@dbi']
+
+  relation:
+    class: '\PhpMyAdmin\Relation'
+    arguments: ['@dbi', '@template']
+
   template:
     class: '\PhpMyAdmin\Template'

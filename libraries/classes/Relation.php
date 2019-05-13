@@ -32,12 +32,13 @@ class Relation
     /**
      * Relation constructor.
      *
-     * @param DatabaseInterface|null $dbi Database interface
+     * @param DatabaseInterface|null $dbi      Database interface
+     * @param Template|null          $template Template instance
      */
-    public function __construct(?DatabaseInterface $dbi)
+    public function __construct(?DatabaseInterface $dbi, Template $template = null)
     {
         $this->dbi = $dbi;
-        $this->template = new Template();
+        $this->template = $template ?? new Template();
     }
 
     /**
