@@ -32,7 +32,8 @@ if ($db_is_system_schema) {
     $is_show_stats = false;
 }
 
-$relation = new Relation($GLOBALS['dbi']);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $operations = new Operations($GLOBALS['dbi'], $relation);
 
 /**

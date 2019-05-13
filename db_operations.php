@@ -50,7 +50,8 @@ $scripts->addFile('db_operations.js');
 
 $sql_query = '';
 
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $operations = new Operations($dbi, $relation);
 $relationCleanup = new RelationCleanup($dbi, $relation);
 

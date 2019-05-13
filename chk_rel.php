@@ -27,7 +27,8 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 
 // If request for creating the pmadb
 if (isset($_POST['create_pmadb']) && $relation->createPmaDatabase()) {
