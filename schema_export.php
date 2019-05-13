@@ -39,5 +39,6 @@ if (! isset($_REQUEST['export_type'])) {
  * Include the appropriate Schema Class depending on $export_type
  * default is PDF
  */
-$export = new Export($dbi);
+/** @var Export $export */
+$export = $containerBuilder->get('export');
 $export->processExportSchema($_REQUEST['export_type']);

@@ -3,6 +3,10 @@ services:
     class: '\PhpMyAdmin\ErrorReport'
     arguments: ['@http_request', '@template']
 
+  export:
+    class: '\PhpMyAdmin\Export'
+    arguments: ['@dbi']
+
   http_request:
     class: '\PhpMyAdmin\Utils\HttpRequest'
 
