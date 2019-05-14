@@ -126,8 +126,8 @@ Core::cleanupPathInfo();
  * force reading of config file, because we removed sensitive values
  * in the previous iteration
  */
-$GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
-$containerBuilder->set('config', $GLOBALS['PMA_Config']);
+$GLOBALS['PMA_Config'] = $containerBuilder->get('config');
+//$containerBuilder->set('config', $GLOBALS['PMA_Config']);
 
 /**
  * include session handling after the globals, to prevent overwriting
