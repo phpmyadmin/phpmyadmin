@@ -31,7 +31,7 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
     define('PMA_ENABLE_LDI', 1);
 }
 
-global $db;
+global $db, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 

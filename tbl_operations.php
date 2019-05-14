@@ -23,7 +23,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db;
+global $db, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
@@ -43,12 +43,10 @@ $checkUserPrivileges->getPrivileges();
 $lowerCaseNames = $dbi->getLowerCaseNames() === '1';
 
 if ($lowerCaseNames) {
-    $GLOBALS['table'] = mb_strtolower(
-        $GLOBALS['table']
-    );
+    $table = mb_strtolower($table);
 }
 
-$pma_table = new Table($GLOBALS['table'], $db);
+$pma_table = new Table($table, $db);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
@@ -78,7 +76,7 @@ $dbi->selectDb($db);
  */
 $pma_table = $dbi->getTable(
     $db,
-    $GLOBALS['table']
+    $table
 );
 $reread_info = $pma_table->getStatusInfo(null, false);
 $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
@@ -112,7 +110,7 @@ if ($pma_table->isEngine('ARIA')) {
 
 $pma_table = $dbi->getTable(
     $db,
-    $GLOBALS['table']
+    $table
 );
 $reread_info = false;
 $table_alters = [];
@@ -168,7 +166,7 @@ if (isset($_POST['submitoptions'])) {
             $dbi->selectDb($oldDb);
             $_message .= $pma_table->getLastMessage();
             $result = true;
-            $GLOBALS['table'] = $pma_table->getName();
+            $table = $pma_table->getName();
             $reread_info = true;
             $reload = true;
         } else {
@@ -210,7 +208,7 @@ if (isset($_POST['submitoptions'])) {
 
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE '
-            . Util::backquote($GLOBALS['table']);
+            . Util::backquote($table);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
         $result         = $dbi->query($sql_query) ? true : false;
@@ -226,7 +224,7 @@ if (isset($_POST['submitoptions'])) {
     ) {
         $operations->changeAllColumnsCollation(
             $db,
-            $GLOBALS['table'],
+            $table,
             $_POST['tbl_collation']
         );
     }
@@ -334,7 +332,7 @@ $url_params['goto']
 /**
  * Get columns names
  */
-$columns = $dbi->getColumns($db, $GLOBALS['table']);
+$columns = $dbi->getColumns($db, $table);
 
 /**
  * Displays the page
@@ -348,7 +346,7 @@ $hideOrderTable = false;
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
 if ($tbl_storage_engine == 'INNODB') {
-    $indexes = Index::getFromTable($GLOBALS['table'], $db);
+    $indexes = Index::getFromTable($table, $db);
     foreach ($indexes as $name => $idx) {
         if ($name == 'PRIMARY') {
             $hideOrderTable = true;
@@ -433,7 +431,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         && ! (isset($db_is_system_schema) && $db_is_system_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
-            . Util::backquote($GLOBALS['table']);
+            . Util::backquote($table);
         $truncate_table_url_params = array_merge(
             $url_params,
             [
@@ -449,7 +447,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     }
     if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         $this_sql_query = 'DROP TABLE '
-            . Util::backquote($GLOBALS['table']);
+            . Util::backquote($table);
         $drop_table_url_params = array_merge(
             $url_params,
             [
@@ -466,7 +464,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                 ),
                 // table name is needed to avoid running
                 // PhpMyAdmin\RelationCleanup::database() on the whole db later
-                'table' => $GLOBALS['table'],
+                'table' => $table,
             ]
         );
     }
@@ -497,7 +495,7 @@ unset($partition_names);
 
 if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
     $dbi->selectDb($db);
-    $foreign = $relation->getForeigners($db, $GLOBALS['table'], '', 'internal');
+    $foreign = $relation->getForeigners($db, $table, '', 'internal');
 
     if (! empty($foreign)) {
         $response->addHTML(

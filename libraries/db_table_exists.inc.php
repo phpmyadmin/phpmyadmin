@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $db;
+global $db, $table;
 
 if (empty($is_db)) {
     if (strlen($db) > 0) {

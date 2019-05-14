@@ -20,7 +20,7 @@ if (! defined('ROOT_PATH')) {
 
 define('IS_TRANSFORMATION_WRAPPER', true);
 
-global $db;
+global $db, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
