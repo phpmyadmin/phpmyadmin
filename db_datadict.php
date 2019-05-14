@@ -32,17 +32,9 @@ $container->set(Response::class, Response::getInstance());
 /** @var Response $response */
 $response = $container->get(Response::class);
 
-/** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
-
-/** @var Relation $relation */
-$relation = $containerBuilder->get('relation');
-
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
     'db' => $container->get('db'),
-    'relation' => $relation,
-    'transformations' => new Transformations(),
 ];
 
 /** @var Definition $definition */
