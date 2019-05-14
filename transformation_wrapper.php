@@ -20,6 +20,8 @@ if (! defined('ROOT_PATH')) {
 
 define('IS_TRANSFORMATION_WRAPPER', true);
 
+global $db;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();

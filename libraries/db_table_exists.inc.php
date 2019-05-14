@@ -17,6 +17,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+global $db;
+
 if (empty($is_db)) {
     if (strlen($db) > 0) {
         $is_db = @$GLOBALS['dbi']->selectDb($db);

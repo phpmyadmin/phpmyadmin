@@ -17,6 +17,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $db;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
@@ -33,19 +35,19 @@ $designerCommon = new Common($dbi);
 
 if (isset($_POST['dialog'])) {
     if ($_POST['dialog'] == 'edit') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage');
     } elseif ($_POST['dialog'] == 'delete') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'deletePage');
     } elseif ($_POST['dialog'] == 'save_as') {
-        $html = $databaseDesigner->getHtmlForPageSaveAs($GLOBALS['db']);
+        $html = $databaseDesigner->getHtmlForPageSaveAs($db);
     } elseif ($_POST['dialog'] == 'export') {
         $html = $databaseDesigner->getHtmlForSchemaExport(
-            $GLOBALS['db'],
+            $db,
             $_POST['selected_page']
         );
     } elseif ($_POST['dialog'] == 'add_table') {
         $script_display_field = $designerCommon->getTablesInfo();
-        $required = $GLOBALS['db'] . '.' . $GLOBALS['table'];
+        $required = $db . '.' . $GLOBALS['table'];
         $tab_column = $designerCommon->getColumnsInfo();
         $tables_all_keys = $designerCommon->getAllKeys();
         $tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys();
@@ -82,7 +84,7 @@ if (isset($_POST['operation'])) {
         if ($_POST['save_page'] == 'same') {
             $page = $_POST['selected_page'];
         } else { // new
-            $page = $designerCommon->createNewPage($_POST['selected_value'], $GLOBALS['db']);
+            $page = $designerCommon->createNewPage($_POST['selected_value'], $db);
             $response->addJSON('id', $page);
         }
         $success = $designerCommon->saveTablePositions($page);

@@ -23,6 +23,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $db;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
@@ -46,7 +48,7 @@ if ($lowerCaseNames) {
     );
 }
 
-$pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
+$pma_table = new Table($GLOBALS['table'], $db);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
@@ -69,13 +71,13 @@ $cfgRelation = $relation->getRelationsParam();
 
 // reselect current db (needed in some cases probably due to
 // the calling of PhpMyAdmin\Relation)
-$dbi->selectDb($GLOBALS['db']);
+$dbi->selectDb($db);
 
 /**
  * Gets tables information
  */
 $pma_table = $dbi->getTable(
-    $GLOBALS['db'],
+    $db,
     $GLOBALS['table']
 );
 $reread_info = $pma_table->getStatusInfo(null, false);
@@ -109,7 +111,7 @@ if ($pma_table->isEngine('ARIA')) {
 }
 
 $pma_table = $dbi->getTable(
-    $GLOBALS['db'],
+    $db,
     $GLOBALS['table']
 );
 $reread_info = false;
@@ -162,7 +164,7 @@ if (isset($_POST['submitoptions'])) {
             }
 
             // Reselect the original DB
-            $GLOBALS['db'] = $oldDb;
+            $db = $oldDb;
             $dbi->selectDb($oldDb);
             $_message .= $pma_table->getLastMessage();
             $result = true;
@@ -223,7 +225,7 @@ if (isset($_POST['submitoptions'])) {
         && ! empty($_POST['change_all_collations'])
     ) {
         $operations->changeAllColumnsCollation(
-            $GLOBALS['db'],
+            $db,
             $GLOBALS['table'],
             $_POST['tbl_collation']
         );
@@ -249,7 +251,7 @@ if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
     $dbi->clearTableCache();
-    $dbi->selectDb($GLOBALS['db']);
+    $dbi->selectDb($db);
     $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
     if ($pma_table->isView()) {
         $tbl_is_view = true;
@@ -332,7 +334,7 @@ $url_params['goto']
 /**
  * Get columns names
  */
-$columns = $dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
+$columns = $dbi->getColumns($db, $GLOBALS['table']);
 
 /**
  * Displays the page
@@ -346,7 +348,7 @@ $hideOrderTable = false;
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
 if ($tbl_storage_engine == 'INNODB') {
-    $indexes = Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    $indexes = Index::getFromTable($GLOBALS['table'], $db);
     foreach ($indexes as $name => $idx) {
         if ($name == 'PRIMARY') {
             $hideOrderTable = true;
@@ -494,8 +496,8 @@ unset($partition_names);
 // this choice (InnoDB maintains integrity by itself)
 
 if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
-    $dbi->selectDb($GLOBALS['db']);
-    $foreign = $relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
+    $dbi->selectDb($db);
+    $foreign = $relation->getForeigners($db, $GLOBALS['table'], '', 'internal');
 
     if (! empty($foreign)) {
         $response->addHTML(

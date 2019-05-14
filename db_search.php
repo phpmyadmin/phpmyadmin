@@ -19,6 +19,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $db;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
@@ -51,7 +53,7 @@ $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
 
 // Create a database search instance
-$db_search = new Search($dbi, $GLOBALS['db']);
+$db_search = new Search($dbi, $db);
 
 // Display top links if we are not in an Ajax request
 if (! $response->isAjax()) {

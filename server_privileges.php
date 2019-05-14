@@ -23,6 +23,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $db;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
@@ -359,7 +361,7 @@ if ($response->isAjax()
  * Displays the links
  */
 if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
-    $GLOBALS['db'] = $_REQUEST['db'] = $_GET['checkprivsdb'];
+    $db = $_REQUEST['db'] = $_GET['checkprivsdb'];
 
     $url_query .= '&amp;goto=db_operations.php';
 
