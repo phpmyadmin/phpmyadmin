@@ -20,7 +20,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $cfg, $db, $table;
+global $cfg, $db, $table, $text_dir;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
