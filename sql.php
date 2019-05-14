@@ -23,9 +23,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Gets some core libraries
- */
+global $cfg;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
@@ -66,12 +65,12 @@ $is_gotofile  = true;
 if (empty($goto)) {
     if (empty($table)) {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'],
+            $cfg['DefaultTabDatabase'],
             'database'
         );
     } else {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'],
+            $cfg['DefaultTabTable'],
             'table'
         );
     }

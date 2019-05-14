@@ -30,6 +30,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $cfg;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
@@ -287,7 +289,7 @@ if (! $is_information_schema) {
     // Don't even try to drop information_schema.
     // You won't be able to. Believe me. You won't.
     // Don't allow to easily drop mysql database, RFE #1327514.
-    if (($dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+    if (($dbi->isSuperuser() || $cfg['AllowUserDropDatabase'])
         && ! $db_is_system_schema
         && $GLOBALS['db'] != 'mysql'
     ) {
