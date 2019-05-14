@@ -16,6 +16,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $pmaThemeImage;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 //Get some js files needed for Ajax requests
