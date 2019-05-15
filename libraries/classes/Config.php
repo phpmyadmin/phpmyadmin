@@ -1622,7 +1622,7 @@ class Config
      *
      * @return mixed result of getCookie()
      */
-    public function getCookie(string $cookieName) {
+    public function getCookie($cookieName) {
         return @$_COOKIE[$this->getCookieName($cookieName)];
     }
 
@@ -1632,7 +1632,7 @@ class Config
      * @param string $cookieName The name of the cookie
      * @return string
      */
-    public function getCookieName(string $cookieName) {
+    public function getCookieName($cookieName) {
         return $cookieName. ( ($this->isHttps()) ? '_https' : '' );
     }
 
@@ -1643,7 +1643,7 @@ class Config
      *
      * @return bool result of issetCookie()
      */
-    public function issetCookie(string $cookieName) {
+    public function issetCookie($cookieName) {
         return isset($_COOKIE[$this->getCookieName($cookieName)]);
     }
 
