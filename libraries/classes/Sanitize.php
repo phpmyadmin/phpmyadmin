@@ -418,12 +418,12 @@ class Sanitize
     /**
      * Removes all variables from request except whitelisted ones.
      *
-     * @param string $whitelist list of variables to allow
+     * @param string[] $whitelist list of variables to allow
      *
      * @return void
      * @access public
      */
-    public static function removeRequestVars(&$whitelist)
+    public static function removeRequestVars(&$whitelist): void
     {
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become

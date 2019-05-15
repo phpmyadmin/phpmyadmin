@@ -931,7 +931,7 @@ class Operations
      *
      * @param Table  $pma_table          Table object
      * @param string $comment            Comment
-     * @param array  $tbl_collation      table collation
+     * @param string $tbl_collation      table collation
      * @param string $tbl_storage_engine table storage engine
      * @param string $pack_keys          pack keys
      * @param string $auto_increment     value of auto increment
@@ -1083,7 +1083,7 @@ class Operations
      *
      * @param Table  $pma_table          Table object
      * @param string $comment            Comment
-     * @param array  $tbl_collation      table collation
+     * @param string $tbl_collation      table collation
      * @param string $tbl_storage_engine table storage engine
      * @param string $pack_keys          pack keys
      * @param string $delay_key_write    delay key write

@@ -477,8 +477,6 @@ class SearchController extends AbstractController
         /**
          * Add this to ensure following procedures included running correctly.
          */
-        $db = $this->db;
-
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
@@ -696,7 +694,7 @@ class SearchController extends AbstractController
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return array Array containing original values, replaced values and count
+     * @return array|bool Array containing original values, replaced values and count
      */
     private function _getRegexReplaceRows(
         $columnIndex,

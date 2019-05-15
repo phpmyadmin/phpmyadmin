@@ -2162,7 +2162,7 @@ class DatabaseInterface
      * @param string $table     table name
      * @param string $delimiter the delimiter to use (may be empty)
      *
-     * @return mixed information about triggers (may be empty)
+     * @return array information about triggers (may be empty)
      */
     public function getTriggers(string $db, string $table = '', $delimiter = '//')
     {

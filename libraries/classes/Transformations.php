@@ -258,7 +258,7 @@ class Transformations
      *
      * @access public
      *
-     * @return array [field_name][field_key] = field_value
+     * @return array|bool [field_name][field_key] = field_value
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {
@@ -300,8 +300,6 @@ class Transformations
 
         foreach ($result as $column => $values) {
             // convert mimetype to new format (f.e. Text_Plain, etc)
-            $delimiter_space = '- ';
-            $delimiter = "_";
             $values['mimetype'] = $this->fixUpMime($values['mimetype']);
 
             // For transformation of form

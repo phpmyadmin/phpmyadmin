@@ -135,7 +135,7 @@ class DbiDummy implements DbiExtension
      *
      * @param object $result MySQL result
      *
-     * @return array
+     * @return array|bool
      */
     public function fetchAny($result)
     {

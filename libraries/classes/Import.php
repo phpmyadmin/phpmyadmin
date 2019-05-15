@@ -95,8 +95,7 @@ class Import
      */
     public function executeQuery(string $sql, string $full, array &$sql_data): void
     {
-        global $go_sql,
-            $sql_query, $my_die, $error, $reload,
+        global $sql_query, $my_die, $error, $reload,
             $result, $msg,
             $cfg, $sql_query_disabled, $db;
 
@@ -365,7 +364,7 @@ class Import
      */
     public function getNextChunk(int $size = 32768)
     {
-        global $compression, $import_handle, $charset_conversion, $charset_of_file,
+        global $import_handle, $charset_conversion, $charset_of_file,
             $read_multiply;
 
         // Add some progression while reading large amount of data
@@ -1330,8 +1329,6 @@ class Import
 
         global $import_notice;
         $import_notice = $message;
-
-        unset($tables);
     }
 
 

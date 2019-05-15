@@ -114,7 +114,6 @@ class MultiTableQuery
         list(
             $analyzedSqlResults,
             $db,
-            $tableFromSql
         ) = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         extract($analyzedSqlResults);

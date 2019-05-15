@@ -1141,7 +1141,7 @@ class Relation
      *
      * @param string $username the username
      *
-     * @return array    list of history items
+     * @return array|bool list of history items
      *
      * @access  public
      */

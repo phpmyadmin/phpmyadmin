@@ -1691,8 +1691,7 @@ class Results
                 $sort_tbl,
                 $name_to_use_in_sort,
                 $sort_direction,
-                $fields_meta,
-                $column_index
+                $fields_meta
             );
 
         if (preg_match(
@@ -1760,7 +1759,6 @@ class Results
      *                                              consideration
      * @param array    $sort_direction              sort direction
      * @param stdClass $fields_meta                 set of field properties
-     * @param integer  $column_index                The index number to current column
      *
      * @return  array   3 element array - $single_sort_order, $sort_order, $order_img
      *
@@ -1774,8 +1772,7 @@ class Results
         $sort_tbl,
         $name_to_use_in_sort,
         array $sort_direction,
-        $fields_meta,
-        $column_index
+        $fields_meta
     ) {
         $sort_order = "";
         // Check if the current column is in the order by clause
@@ -1877,8 +1874,6 @@ class Results
             }
             // Separate columns by a comma
             $sort_order .= ", ";
-
-            unset($name_to_use_in_sort);
         }
         // remove the comma from the last column name in the newly
         // constructed clause
