@@ -24,7 +24,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db;
+global $db, $sql_query;
 
 include_once ROOT_PATH . 'libraries/common.inc.php';
 

@@ -136,6 +136,8 @@ class StructureController extends AbstractController
      */
     public function indexAction()
     {
+        global $sql_query;
+
         PageSettings::showGroup('TableStructure');
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
