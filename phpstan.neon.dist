@@ -15,7 +15,7 @@ parameters:
         - '#Access to an undefined property PhpMyAdmin\\TwoFactor\:\:\$(backend|showSubmit|available|writable)#'
         - '#Call to an undefined method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:getHiddenCount#'
         - '#Undefined variable: \$array#'
-        - '#Undefined variable: \$(action|sql_query|export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|token_mismatch|auth_plugin|username|hostname|display_query)#'#Others
+        - '#Undefined variable: \$(sql_query|export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|token_mismatch|auth_plugin|username|hostname|display_query)#'#Others
         - '#Undefined variable: \$(unsaved_values|is_upload)#'#tbl_change.php
         - '#Undefined variable: \$max_upload_size#'#tbl_import.php
         - '#Undefined variable: \$(repobase|fullrevision|revision|repobranchbase|branch)#'#Footer.php
@@ -32,6 +32,12 @@ parameters:
         - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
         - '#Variable \$(escape_class|escape_method|iconLinks|icons|where_clause|where_clause_html|condition_array|pos_next|pos_prev) might not be defined#'
         - '#Variable \$(in_table_header|cur_temp_table_headers|cur_temp_table) might not be defined#'#Plugins/Import/ImportMediawiki.php
+        -
+            message: '#Undefined variable: \$action#'
+            path: %currentWorkingDirectory%/libraries/mult_submits.inc.php
+        -
+            message: '#Undefined variable: \$action#'
+            path: %currentWorkingDirectory%/libraries/tbl_columns_definition_form.inc.php
         -
             message: '#Undefined variable: \$cfg#'
             path: %currentWorkingDirectory%/test/classes/ConfigTest.php
