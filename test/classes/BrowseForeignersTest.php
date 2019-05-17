@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -29,7 +30,7 @@ class BrowseForeignersTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->browseForeigners = new BrowseForeigners(50, 25, 100, false, '');
+        $this->browseForeigners = new BrowseForeigners(50, 25, 100, false, '', new Template());
     }
 
     /**
@@ -80,7 +81,8 @@ class BrowseForeignersTest extends TestCase
             50,
             100,
             false,
-            ''
+            '',
+            new Template()
         );
 
         $this->assertEquals(
@@ -175,7 +177,7 @@ class BrowseForeignersTest extends TestCase
             )
         );
 
-        $browseForeigners = new BrowseForeigners(5, 25, 100, false, '');
+        $browseForeigners = new BrowseForeigners(5, 25, 100, false, '', new Template());
 
         $this->assertEquals(
             [
