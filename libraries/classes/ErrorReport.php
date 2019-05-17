@@ -47,7 +47,7 @@ class ErrorReport
      * @param Relation    $relation    Relation instance
      * @param Template    $template    Template instance
      */
-    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template)
+    public function __construct(HttpRequestInterface $httpRequest, Relation $relation, Template $template)
     {
         $this->httpRequest = $httpRequest;
         $this->relation = $relation;
