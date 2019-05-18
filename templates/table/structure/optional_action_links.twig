@@ -1,7 +1,7 @@
 <a href="#" id="printView">{{ Util_getIcon('b_print', 'Print'|trans, true) }}</a>
 {% if not tbl_is_view and not db_is_system_schema %}
     {# Only display propose table structure for MySQL < 8.0 #}
-    {% if mysql_int_version < 80000 %}
+    {% if mysql_int_version < 80000 or is_mariadb %}
         <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
             {{- ('SELECT * FROM ' ~ Util_backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
             " style="margin-right: 0;">
