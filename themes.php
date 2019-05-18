@@ -17,7 +17,8 @@ if (! defined('ROOT_PATH')) {
 
 include ROOT_PATH . 'libraries/common.inc.php';
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();
