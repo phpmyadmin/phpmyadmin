@@ -34,6 +34,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Handles table structure logic
@@ -137,10 +138,18 @@ class StructureController extends AbstractController
     /**
      * Index action
      *
+     * @param ContainerBuilder $containerBuilder
+     *
      * @return void
      */
-    public function indexAction()
+    public function indexAction(ContainerBuilder $containerBuilder): void
     {
+        /*
+         * $containerBuilder is given in parameter just because libraries/tbl_common.inc.php will call db_sql.php that
+         * needs $containerBuilder.
+         * This should be temporary until we achieve to use a "business" class instead of loading the controller (or
+         * forward the call to db_sql.php.)
+         */
         global $sql_query;
 
         PageSettings::showGroup('TableStructure');
