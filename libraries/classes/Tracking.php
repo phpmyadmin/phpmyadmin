@@ -53,7 +53,7 @@ class Tracking
         $filter_ts_from,
         $filter_ts_to,
         array $filter_users
-    ) {
+    ): array {
         $tmp_entries = [];
         $id = 0;
         foreach ($data as $entry) {
