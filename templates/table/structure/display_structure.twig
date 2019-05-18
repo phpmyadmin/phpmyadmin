@@ -380,16 +380,19 @@
     {% endif %}
     <a href="#" id="printView">{{ get_icon('b_print', 'Print'|trans, true) }}</a>
     {% if not tbl_is_view and not db_is_system_schema %}
-        <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
-            {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
-            " style="margin-right: 0;">
-            {{ get_icon(
-                'b_tblanalyse',
-                'Propose table structure'|trans,
-                true
-            ) }}
-        </a>
-        {{ show_mysql_docu('procedure_analyse') }}
+        {# Only display propose table structure for MySQL < 8.0 #}
+        {% if mysql_int_version < 80000 or is_mariadb %}
+          <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
+              {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
+              " style="margin-right: 0;">
+              {{ get_icon(
+                  'b_tblanalyse',
+                  'Propose table structure'|trans,
+                  true
+              ) }}
+          </a>
+          {{ show_mysql_docu('procedure_analyse') }}
+        {% endif %}
         {% if is_active %}
             <a href="tbl_tracking.php{{ url_query|raw }}">
                 {{ get_icon('eye', 'Track table'|trans, true) }}

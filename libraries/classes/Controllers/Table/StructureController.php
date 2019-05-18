@@ -1347,6 +1347,7 @@ class StructureController extends AbstractController
             'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
             'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
             'mysql_int_version' => $this->dbi->getVersion(),
+            'is_mariadb' => $GLOBALS['dbi']->isMariaDB(),
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
