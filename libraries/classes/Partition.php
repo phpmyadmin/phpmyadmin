@@ -249,6 +249,8 @@ class Partition extends SubPartition
                 )) {
                     $have_partitioning = true;
                 }
+            } else if ($GLOBALS['dbi']->getVersion() >= 80000) {
+                $have_partitioning = true;
             } else {
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
                 $plugins = $GLOBALS['dbi']->fetchResult("SHOW PLUGINS");
