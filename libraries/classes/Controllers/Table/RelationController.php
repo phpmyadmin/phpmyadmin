@@ -74,6 +74,7 @@ class RelationController extends AbstractController
      * @param array|null        $existrel           Relations
      * @param array|null        $existrel_foreign   External relations
      * @param string            $upd_query          Update query
+     * @param Relation          $relation
      */
     public function __construct(
         $response,
@@ -86,7 +87,8 @@ class RelationController extends AbstractController
         $tbl_storage_engine,
         $existrel,
         $existrel_foreign,
-        $upd_query
+        $upd_query,
+        Relation $relation
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
 
@@ -96,7 +98,7 @@ class RelationController extends AbstractController
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
         $this->upd_query = $upd_query;
-        $this->relation = new Relation($dbi);
+        $this->relation = $relation;
     }
 
     /**

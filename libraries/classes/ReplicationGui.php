@@ -28,11 +28,14 @@ class ReplicationGui
 
     /**
      * ReplicationGui constructor.
+     *
+     * @param Replication $replication
+     * @param Template    $template
      */
-    public function __construct()
+    public function __construct(Replication $replication, Template $template)
     {
-        $this->replication = new Replication();
-        $this->template = new Template();
+        $this->replication = $replication;
+        $this->template = $template;
     }
 
     /**

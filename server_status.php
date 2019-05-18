@@ -10,6 +10,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -32,4 +33,7 @@ $dbi = $container->get(DatabaseInterface::class);
 /** @var StatusController $controller */
 $controller = $containerBuilder->get(StatusController::class);
 
-$response->addHTML($controller->index());
+/** @var ReplicationGui $replicationGui */
+$replicationGui = $containerBuilder->get('replication_gui');
+
+$response->addHTML($controller->index($replicationGui));

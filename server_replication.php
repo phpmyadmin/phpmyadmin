@@ -33,6 +33,9 @@ $dbi = $container->get(DatabaseInterface::class);
 /** @var ReplicationController $controller */
 $controller = $containerBuilder->get(ReplicationController::class);
 
+/** @var ReplicationGui $replicationGui */
+$replicationGui = $containerBuilder->get('replication_gui');
+
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('server_privileges.js');
@@ -44,12 +47,16 @@ if (isset($_POST['url_params']) && is_array($_POST['url_params'])) {
 }
 
 if ($dbi->isSuperuser()) {
-    $replicationGui = new ReplicationGui();
     $replicationGui->handleControlRequest();
 }
 
-$response->addHTML($controller->index([
-    'mr_configure' => $_POST['mr_configure'] ?? null,
-    'sl_configure' => $_POST['sl_configure'] ?? null,
-    'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
-]));
+$response->addHTML(
+    $controller->index(
+        [
+            'mr_configure' => $_POST['mr_configure'] ?? null,
+            'sl_configure' => $_POST['sl_configure'] ?? null,
+            'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
+        ],
+        $replicationGui
+    )
+);

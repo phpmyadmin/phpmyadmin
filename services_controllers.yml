@@ -249,6 +249,7 @@ services:
       existrel: null
       existrel_foreign: null
       upd_query: null
+      relation: '@relation'
 
   PhpMyAdmin\Controllers\Table\SearchController:
     class: 'PhpMyAdmin\Controllers\Table\SearchController'

@@ -12,6 +12,8 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Replication;
+use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
@@ -149,7 +151,7 @@ class StatusControllerTest extends TestCase
             $data
         );
 
-        $html = $controller->index();
+        $html = $controller->index(new ReplicationGui(new Replication(), new Template()));
 
         $traffic = $bytesReceived + $bytesSent;
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';

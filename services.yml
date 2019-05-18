@@ -40,6 +40,12 @@ services:
   replication:
     class: 'PhpMyAdmin\Replication'
 
+  replication_gui:
+    class: 'PhpMyAdmin\ReplicationGui'
+    arguments:
+      replication: '@replication'
+      template: '@template'
+
   sql_query_form:
     class: 'PhpMyAdmin\SqlQueryForm'
 
