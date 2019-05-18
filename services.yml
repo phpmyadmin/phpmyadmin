@@ -40,6 +40,9 @@ services:
   replication:
     class: 'PhpMyAdmin\Replication'
 
+  sql_query_form:
+    class: 'PhpMyAdmin\SqlQueryForm'
+
   status_data:
     class: 'PhpMyAdmin\Server\Status\Data'
 
@@ -49,6 +52,12 @@ services:
 
   template:
     class: 'PhpMyAdmin\Template'
+
+  tracking:
+    class: 'PhpMyAdmin\Tracking'
+    arguments:
+      sql_query_form: '@sql_query_form'
+      template: '@template'
 
   transformations:
     class: 'PhpMyAdmin\Transformations'

@@ -9,17 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\Tracking class
  *
@@ -39,11 +28,14 @@ class Tracking
 
     /**
      * Tracking constructor.
+     *
+     * @param SqlQueryForm $sqlQueryForm
+     * @param Template     $template
      */
-    public function __construct()
+    public function __construct(SqlQueryForm $sqlQueryForm, Template $template)
     {
-        $this->sqlQueryForm = new SqlQueryForm();
-        $this->template = new Template();
+        $this->sqlQueryForm = $sqlQueryForm;
+        $this->template = $template;
     }
 
     /**
