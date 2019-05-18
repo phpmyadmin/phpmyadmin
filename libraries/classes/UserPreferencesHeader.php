@@ -119,7 +119,7 @@ class UserPreferencesHeader
     }
 
     /**
-     * @param Relation $relation
+     * @param Relation $relation Relation instance
      *
      * @return string|null
      */

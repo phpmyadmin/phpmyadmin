@@ -1,15 +1,30 @@
 services:
+  advisor:
+    class: 'PhpMyAdmin\Advisor'
+    arguments:
+      dbi: '@dbi'
+      expression_language: '@expression_language'
+
   config:
     class: 'PhpMyAdmin\Config'
     arguments: [!php/const CONFIG_FILE]
 
+  create_add_field:
+    class: 'PhpMyAdmin\CreateAddField'
+    arguments: ['@dbi']
+
   designer:
     class: 'PhpMyAdmin\Database\Designer'
-    arguments: ['@dbi']
+    arguments:
+      dbi: '@dbi'
+      relation: '@relation'
+      template: '@template'
 
   designer_common:
     class: 'PhpMyAdmin\Database\Designer\Common'
-    arguments: ['@dbi']
+    arguments:
+      dbi: '@dbi'
+      relation: '@relation'
 
   error_handler:
     class: 'PhpMyAdmin\ErrorHandler'
@@ -21,6 +36,9 @@ services:
   export:
     class: 'PhpMyAdmin\Export'
     arguments: ['@dbi']
+
+  expression_language:
+    class: 'Symfony\Component\ExpressionLanguage\ExpressionLanguage'
 
   http_request:
     class: 'PhpMyAdmin\Utils\HttpRequest'
@@ -34,7 +52,11 @@ services:
 
   normalization:
     class: 'PhpMyAdmin\Normalization'
-    arguments: ['@dbi']
+    arguments:
+      dbi: '@dbi'
+      relation: '@relation'
+      transformations: '@transformations'
+      template: '@template'
 
   relation:
     class: 'PhpMyAdmin\Relation'

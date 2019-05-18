@@ -29,8 +29,8 @@ class ReplicationGui
     /**
      * ReplicationGui constructor.
      *
-     * @param Replication $replication
-     * @param Template    $template
+     * @param Replication $replication Replication instance
+     * @param Template    $template    Template instance
      */
     public function __construct(Replication $replication, Template $template)
     {

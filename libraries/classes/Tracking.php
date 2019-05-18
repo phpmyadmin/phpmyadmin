@@ -27,15 +27,22 @@ class Tracking
     public $template;
 
     /**
+     * @var Relation
+     */
+    protected $relation;
+
+    /**
      * Tracking constructor.
      *
-     * @param SqlQueryForm $sqlQueryForm
-     * @param Template     $template
+     * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
+     * @param Template     $template     Template instance
+     * @param Relation     $relation     Relation instance
      */
-    public function __construct(SqlQueryForm $sqlQueryForm, Template $template)
+    public function __construct(SqlQueryForm $sqlQueryForm, Template $template, Relation $relation)
     {
         $this->sqlQueryForm = $sqlQueryForm;
         $this->template = $template;
+        $this->relation = $relation;
     }
 
     /**
@@ -133,7 +140,7 @@ class Tracking
      */
     public function getListOfVersionsOfTable()
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
         $sql_query = " SELECT * FROM " .
             Util::backquote($cfgRelation['db']) . "." .
@@ -226,7 +233,7 @@ class Tracking
      */
     public function getSqlResultForSelectableTables()
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
 
         $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
@@ -1178,7 +1185,7 @@ class Tracking
         string $pmaThemeImage,
         string $textDir
     ) {
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
 
         // Prepare statement to get HEAD version

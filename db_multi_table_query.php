@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
@@ -37,6 +38,9 @@ $definition->replaceArgument('db', $container->get('db'));
 /** @var MultiTableQueryController $controller */
 $controller = $containerBuilder->get(MultiTableQueryController::class);
 
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+
 if (isset($_POST['sql_query'])) {
     $controller->displayResults([
         'sql_query' => $_POST['sql_query'],
@@ -54,5 +58,5 @@ if (isset($_POST['sql_query'])) {
     $scripts->addFile('db_multi_table_query.js');
     $scripts->addFile('db_query_generator.js');
 
-    $response->addHTML($controller->index());
+    $response->addHTML($controller->index($template));
 }

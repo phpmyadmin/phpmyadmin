@@ -60,7 +60,7 @@ class SavedSearches
     /**
      * Public constructor
      *
-     * @param array    $config Global configuration
+     * @param array    $config   Global configuration
      * @param Relation $relation Relation instance
      */
     public function __construct(array $config, Relation $relation)

@@ -105,6 +105,9 @@ class StructureController extends AbstractController
      * @param int               $table_info_num_rows Number of rows
      * @param string            $tbl_collation       Table collation
      * @param array             $showtable           Show table info
+     * @param Relation          $relation            Relation instance
+     * @param Transformations   $transformations     Transformations instance
+     * @param CreateAddField    $createAddField      CreateAddField instance
      */
     public function __construct(
         $response,
@@ -117,7 +120,10 @@ class StructureController extends AbstractController
         $tbl_storage_engine,
         $table_info_num_rows,
         $tbl_collation,
-        $showtable
+        $showtable,
+        Relation $relation,
+        Transformations $transformations,
+        CreateAddField $createAddField
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
 
@@ -130,15 +136,15 @@ class StructureController extends AbstractController
         $this->_showtable = $showtable;
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
-        $this->createAddField = new CreateAddField($dbi);
-        $this->relation = new Relation($dbi);
-        $this->transformations = new Transformations();
+        $this->createAddField = $createAddField;
+        $this->relation = $relation;
+        $this->transformations = $transformations;
     }
 
     /**
      * Index action
      *
-     * @param ContainerBuilder $containerBuilder
+     * @param ContainerBuilder $containerBuilder ContainerBuilder instance
      *
      * @return void
      */

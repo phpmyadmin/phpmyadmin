@@ -18,18 +18,18 @@ use PhpMyAdmin\SqlQueryForm;
 class SqlController extends AbstractController
 {
     /**
-     * @param array $params Request parameters
+     * @param array        $params       Request parameters
+     * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
+     *
      * @return string HTML
      */
-    public function index(array $params): string
+    public function index(array $params, SqlQueryForm $sqlQueryForm): string
     {
         global $goto, $back;
 
         PageSettings::showGroup('Sql');
 
         require ROOT_PATH . 'libraries/db_common.inc.php';
-
-        $sqlQueryForm = new SqlQueryForm();
 
         /**
          * After a syntax error, we return to this script

@@ -19,7 +19,7 @@ use PhpMyAdmin\Util;
 class StatusController extends AbstractController
 {
     /**
-     * @param ReplicationGui $replicationGui
+     * @param ReplicationGui $replicationGui ReplicationGui instance
      *
      * @return string
      * @throws \Throwable
@@ -234,7 +234,7 @@ class StatusController extends AbstractController
     }
 
     /**
-     * @param ReplicationGui $replicationGui
+     * @param ReplicationGui $replicationGui ReplicationGui instance
      *
      * @return string
      */

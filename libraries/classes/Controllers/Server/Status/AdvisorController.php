@@ -35,11 +35,12 @@ class AdvisorController extends AbstractController
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param Data              $data     Data object
+     * @param Advisor           $advisor  Advisor instance
      */
-    public function __construct($response, $dbi, Template $template, $data)
+    public function __construct($response, $dbi, Template $template, $data, Advisor $advisor)
     {
         parent::__construct($response, $dbi, $template, $data);
-        $this->advisor = new Advisor($this->dbi, new ExpressionLanguage());
+        $this->advisor = $advisor;
     }
 
     /**

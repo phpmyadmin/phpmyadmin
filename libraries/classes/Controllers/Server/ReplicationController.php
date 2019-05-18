@@ -18,8 +18,8 @@ use PhpMyAdmin\ReplicationGui;
 class ReplicationController extends AbstractController
 {
     /**
-     * @param array          $params Request parameters
-     * @param ReplicationGui $replicationGui
+     * @param array          $params         Request parameters
+     * @param ReplicationGui $replicationGui ReplicationGui instance
      *
      * @return string HTML
      * @throws \Throwable

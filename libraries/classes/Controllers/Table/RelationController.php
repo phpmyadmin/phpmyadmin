@@ -74,7 +74,7 @@ class RelationController extends AbstractController
      * @param array|null        $existrel           Relations
      * @param array|null        $existrel_foreign   External relations
      * @param string            $upd_query          Update query
-     * @param Relation          $relation
+     * @param Relation          $relation           Relation instance
      */
     public function __construct(
         $response,

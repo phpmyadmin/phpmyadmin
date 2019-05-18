@@ -150,6 +150,7 @@ services:
       dbi: '@dbi'
       template: '@template'
       data: '@status_data'
+      advisor: '@advisor'
 
   PhpMyAdmin\Controllers\Server\Status\MonitorController:
     class: 'PhpMyAdmin\Controllers\Server\Status\MonitorController'
@@ -261,6 +262,7 @@ services:
       table: null
       searchType: null
       url_query: null
+      relation: '@relation'
 
   PhpMyAdmin\Controllers\Table\SqlController:
     class: 'PhpMyAdmin\Controllers\Table\SqlController'
@@ -285,6 +287,9 @@ services:
       table_info_num_rows: null
       tbl_collation: null
       showtable: null
+      relation: '@relation'
+      transformations: '@transformations'
+      create_add_field: '@create_add_field'
 
   PhpMyAdmin\Controllers\TransformationOverviewController:
     class: 'PhpMyAdmin\Controllers\TransformationOverviewController'
