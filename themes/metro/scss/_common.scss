@@ -71,11 +71,6 @@
   display: none;
 }
 
-/* general tags */
-html {
-  font-size: 100%;
-}
-
 input,
 select,
 textarea {
@@ -89,7 +84,6 @@ body {
   color: $main-color;
   background: $main-background;
   line-height: 1;
-  font-size: 11px;
 }
 
 /* Override style formats by html tags */
