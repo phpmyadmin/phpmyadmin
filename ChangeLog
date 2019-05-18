@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 - issue #14977 Add title for group in navigation bar
 - issue #14927 Show InnoDB table overhead (free space)
 - issue #15072 Add 'Close' button to the Monitor Instructions modal
+- issue #15174 Improved filter method in server variables page
 
 4.8.6 (not yet released)
 - issue #14478 phpMyAdmin no longer streams the export data
