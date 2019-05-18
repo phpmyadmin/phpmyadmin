@@ -4811,7 +4811,7 @@ $(document).on('change', 'input.sub_checkall_box', function () {
  *   id filter-rows-count
  */
 $(document).on('keyup', '#filterText', function () {
-    var filterInput = $(this).val().toUpperCase();
+    var filterInput = $(this).val().toUpperCase().replace(/ /g, '_');
     var count = 0;
     $('[data-filter-row]').each(function () {
         var $row = $(this);
