@@ -11,6 +11,9 @@ services:
     class: 'PhpMyAdmin\Database\Designer\Common'
     arguments: ['@dbi']
 
+  error_handler:
+    class: 'PhpMyAdmin\ErrorHandler'
+
   error_report:
     class: 'PhpMyAdmin\ErrorReport'
     arguments: ['@http_request', '@relation', '@template']

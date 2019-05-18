@@ -98,10 +98,8 @@ $loader->load('../services_controllers.yml');
  */
 PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 
-/**
- * initialize the error handler
- */
-$GLOBALS['error_handler'] = new ErrorHandler();
+/** @var ErrorHandler $GLOBALS['error_handler'] */
+$GLOBALS['error_handler'] = $containerBuilder->get('error_handler');
 
 /**
  * Warning about missing PHP extensions.
