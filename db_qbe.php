@@ -53,7 +53,7 @@ if ($cfgRelation['savedsearcheswork']) {
     $scripts->addFile('db_qbe.js');
 
     //Get saved search list.
-    $savedSearch = new SavedSearches($GLOBALS);
+    $savedSearch = new SavedSearches($GLOBALS, $relation);
     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
         ->setDbname($db);
 
@@ -74,14 +74,14 @@ if ($cfgRelation['savedsearcheswork']) {
         } elseif ('delete' === $_POST['action']) {
             $deleteResult = $savedSearch->delete();
             //After deletion, reset search.
-            $savedSearch = new SavedSearches($GLOBALS);
+            $savedSearch = new SavedSearches($GLOBALS, $relation);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($db);
             $_POST = [];
         } elseif ('load' === $_POST['action']) {
             if (empty($_POST['searchId'])) {
                 //when not loading a search, reset the object.
-                $savedSearch = new SavedSearches($GLOBALS);
+                $savedSearch = new SavedSearches($GLOBALS, $relation);
                 $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                     ->setDbname($db);
                 $_POST = [];
@@ -155,7 +155,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new Qbe($dbi, $db, $savedSearchList, $savedSearch);
+$db_qbe = new Qbe($relation, $template, $dbi, $db, $savedSearchList, $savedSearch);
 
 $secondaryTabs = [
     'multi' => [
