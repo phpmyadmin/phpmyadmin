@@ -35,7 +35,7 @@ class Relation
      * @param DatabaseInterface|null $dbi      Database interface
      * @param Template|null          $template Template instance
      */
-    public function __construct(?DatabaseInterface $dbi, Template $template = null)
+    public function __construct(?DatabaseInterface $dbi, ?Template $template = null)
     {
         $this->dbi = $dbi;
         $this->template = $template ?? new Template();
