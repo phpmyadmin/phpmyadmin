@@ -17,15 +17,11 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
-
 /** @var BinlogController $controller */
 $controller = $containerBuilder->get(BinlogController::class);
 
 /** @var Response $response */
-$response = $container->get('response');
+$response = $containerBuilder->get(Response::class);
 
 $response->addHTML($controller->indexAction([
     'log' => $_POST['log'] ?? null,

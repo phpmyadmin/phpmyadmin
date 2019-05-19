@@ -60,14 +60,11 @@ if (! empty($_REQUEST['target'])
     exit;
 }
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var HomeController $controller */
 $controller = $containerBuilder->get(HomeController::class);

@@ -30,7 +30,7 @@ $container = Container::getDefaultContainer();
 $container->set(Response::class, Response::getInstance());
 
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [

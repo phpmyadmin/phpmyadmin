@@ -20,14 +20,11 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = $containerBuilder->get('response', ContainerInterface::NULL_ON_INVALID_REFERENCE) ?? Response::getInstance();
-
-$container = Container::getDefaultContainer();
-$container->set(Response::class, $response);
-$container->alias('response', Response::class);
-
 /** @var DatabasesController $controller */
 $controller = $containerBuilder->get(DatabasesController::class);
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get(DatabaseInterface::class);

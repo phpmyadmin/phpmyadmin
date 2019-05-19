@@ -17,15 +17,11 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
-
 /** @var EnginesController $controller */
 $controller = $containerBuilder->get(EnginesController::class);
 
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 if (isset($_GET['engine']) && $_GET['engine'] !== '') {
     $response->addHTML($controller->show([

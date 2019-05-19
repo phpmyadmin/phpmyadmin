@@ -8,6 +8,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
@@ -106,8 +107,8 @@ $comments_map = $relation->getComments($db, $table);
 
 $move_columns = [];
 if (isset($fields_meta)) {
-    /** @var PhpMyAdmin\DatabaseInterface $dbi */
-    $dbi = Container::getDefaultContainer()->get('dbi');
+    /** @var DatabaseInterface $dbi */
+    $dbi = $containerBuilder->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 

@@ -19,11 +19,6 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-
-/** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
-
 /**
  * get all variables needed for exporting relational schema
  * in $cfgRelation

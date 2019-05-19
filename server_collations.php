@@ -17,12 +17,9 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
-
 /** @var CollationsController $controller */
 $controller = $containerBuilder->get(CollationsController::class);
-$response = $container->get('response');
 
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 $response->addHTML($controller->indexAction());

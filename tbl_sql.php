@@ -26,10 +26,10 @@ $container = Container::getDefaultContainer();
 $container->set(Response::class, Response::getInstance());
 
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [

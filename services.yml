@@ -71,6 +71,9 @@ services:
       replication: '@replication'
       template: '@template'
 
+  response:
+    factory: 'PhpMyAdmin\Response::getInstance'
+
   sql_query_form:
     class: 'PhpMyAdmin\SqlQueryForm'
 
@@ -93,3 +96,9 @@ services:
 
   transformations:
     class: 'PhpMyAdmin\Transformations'
+
+  #Aliases
+
+  PhpMyAdmin\Response: '@response'
+
+  PhpMyAdmin\DatabaseInterface: '@dbi'

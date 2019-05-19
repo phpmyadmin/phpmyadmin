@@ -24,12 +24,11 @@ global $db;
 require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/db_common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
@@ -48,9 +47,6 @@ array_map(
 
 /** @var StructureController $controller */
 $controller = $containerBuilder->get(StructureController::class);
-
-/** @var Response $response */
-$response = $container->get(Response::class);
 
 if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
     $json = $controller->addRemoveFavoriteTablesAction([
