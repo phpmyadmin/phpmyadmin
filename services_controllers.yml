@@ -41,6 +41,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+      db: null
 
   PhpMyAdmin\Controllers\Database\MultiTableQueryController:
     class: 'PhpMyAdmin\Controllers\Database\MultiTableQueryController'
@@ -48,6 +49,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+      db: null
 
   PhpMyAdmin\Controllers\Database\RoutinesController:
     class: 'PhpMyAdmin\Controllers\Database\RoutinesController'
@@ -55,6 +57,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+      db: null
 
   PhpMyAdmin\Controllers\Database\SqlController:
     class: 'PhpMyAdmin\Controllers\Database\SqlController'
@@ -80,6 +83,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+      db: null
 
   PhpMyAdmin\Controllers\HomeController:
     class: 'PhpMyAdmin\Controllers\HomeController'
