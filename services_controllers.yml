@@ -41,7 +41,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\Database\MultiTableQueryController:
     class: 'PhpMyAdmin\Controllers\Database\MultiTableQueryController'

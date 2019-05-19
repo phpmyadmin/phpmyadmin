@@ -34,10 +34,6 @@ $dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $_PMA_RTE = 'EVN';
 
-/** @var Definition $definition */
-$definition = $containerBuilder->getDefinition(EventsController::class);
-$definition->replaceArgument('db', $container->get('db'));
-
 /** @var EventsController $controller */
 $controller = $containerBuilder->get(EventsController::class);
 

@@ -46,6 +46,10 @@ services:
   import:
     class: 'PhpMyAdmin\Import'
 
+  di_migration:
+    factory: 'PhpMyAdmin\Di\Migration::getInstance'
+    arguments: ['@service_container']
+
   navigation:
     class: 'PhpMyAdmin\Navigation\Navigation'
     arguments: ['@template', '@relation', '@dbi']
