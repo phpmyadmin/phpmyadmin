@@ -510,18 +510,29 @@ class Table
             }
         }
 
+        // if column is virtual, check if server type is Mysql as only Mysql server
+        // supports extra column properties
+        $isVirtualColMysql = $virtuality && in_array(Util::getServerType(), array('MySQL', 'Percona Server'));
+        // if column is virtual, check if server type is MariaDB as MariaDB server
+        // supports no extra virtual column properties except CHARACTER SET for text column types
+        $isVirtualColMariaDB = $virtuality && Util::getServerType() === 'MariaDB';
+
+        $matches = preg_match(
+            '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
+            $type
+        );
+        if (! empty($collation) && $collation != 'NULL' && $matches) {
+            $query .= Util::getCharsetQueryPart(
+                $isVirtualColMariaDB ? preg_replace('~_.+~s', '', $collation) : $collation,
+                true
+            );
+        }
+
         if ($virtuality) {
             $query .= ' AS (' . $expression . ') ' . $virtuality;
-        } else {
+        }
 
-            $matches = preg_match(
-                '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
-                $type
-            );
-            if (! empty($collation) && $collation != 'NULL' && $matches) {
-                $query .= Util::getCharsetQueryPart($collation, true);
-            }
-
+        if (! $virtuality || $isVirtualColMysql) {
             if ($null !== false) {
                 if ($null == 'NULL') {
                     $query .= ' NULL';
@@ -530,62 +541,69 @@ class Table
                 }
             }
 
-            switch ($default_type) {
-            case 'USER_DEFINED' :
-                if ($is_timestamp && $default_value === '0') {
-                    // a TIMESTAMP does not accept DEFAULT '0'
-                    // but DEFAULT 0 works
-                    $query .= ' DEFAULT 0';
-                } elseif ($type == 'BIT') {
-                    $query .= ' DEFAULT b\''
-                        . preg_replace('/[^01]/', '0', $default_value)
-                        . '\'';
-                } elseif ($type == 'BOOLEAN') {
-                    if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
-                        $query .= ' DEFAULT TRUE';
-                    } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
-                        $query .= ' DEFAULT FALSE';
+            if (! $virtuality) {
+                switch ($default_type) {
+                case 'USER_DEFINED' :
+                    if ($is_timestamp && $default_value === '0') {
+                        // a TIMESTAMP does not accept DEFAULT '0'
+                        // but DEFAULT 0 works
+                        $query .= ' DEFAULT 0';
+                    } elseif ($type == 'BIT') {
+                        $query .= ' DEFAULT b\''
+                            . preg_replace('/[^01]/', '0', $default_value)
+                            . '\'';
+                    } elseif ($type == 'BOOLEAN') {
+                        if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
+                            $query .= ' DEFAULT TRUE';
+                        } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
+                            $query .= ' DEFAULT FALSE';
+                        } else {
+                            // Invalid BOOLEAN value
+                            $query .= ' DEFAULT \''
+                                . $GLOBALS['dbi']->escapeString($default_value) . '\'';
+                        }
+                    } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                        $query .= ' DEFAULT 0x' . $default_value;
                     } else {
-                        // Invalid BOOLEAN value
                         $query .= ' DEFAULT \''
                             . $GLOBALS['dbi']->escapeString($default_value) . '\'';
                     }
-                } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
-                    $query .= ' DEFAULT 0x' . $default_value;
-                } else {
-                    $query .= ' DEFAULT \''
-                        . $GLOBALS['dbi']->escapeString($default_value) . '\'';
-                }
-                break;
-            /** @noinspection PhpMissingBreakStatementInspection */
-            case 'NULL' :
-                // If user uncheck null checkbox and not change default value null,
-                // default value will be ignored.
-                if ($null !== false && $null !== 'NULL') {
+                    break;
+                /** @noinspection PhpMissingBreakStatementInspection */
+                case 'NULL' :
+                    // If user uncheck null checkbox and not change default value null,
+                    // default value will be ignored.
+                    if ($null !== false && $null !== 'NULL') {
+                        break;
+                    }
+                    // else fall-through intended, no break here
+                case 'CURRENT_TIMESTAMP' :
+                case 'current_timestamp()':
+                    $query .= ' DEFAULT ' . $default_type;
+
+                    if (strlen($length) !== 0
+                        && $length !== 0
+                        && $is_timestamp
+                        && $default_type !== 'NULL' // Not to be added in case of NULL
+                    ) {
+                        $query .= '(' . $length . ')';
+                    }
+                    break;
+                case 'NONE' :
+                default :
                     break;
                 }
-                // else fall-through intended, no break here
-            case 'CURRENT_TIMESTAMP' :
-            case 'current_timestamp()':
-                $query .= ' DEFAULT ' . $default_type;
-
-                if (strlen($length) !== 0
-                    && $length !== 0
-                    && $is_timestamp
-                    && $default_type !== 'NULL' // Not to be added in case of NULL
-                ) {
-                    $query .= '(' . $length . ')';
-                }
-                break;
-            case 'NONE' :
-            default :
-                break;
             }
 
             if (!empty($extra)) {
+                if ($virtuality) {
+                    $extra = trim(preg_replace('~^\s*AUTO_INCREMENT\s*~is', ' ', $extra));
+                }
+
                 $query .= ' ' . $extra;
             }
         }
+
         if (!empty($comment)) {
             $query .= " COMMENT '" . $GLOBALS['dbi']->escapeString($comment) . "'";
         }
