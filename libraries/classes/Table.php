@@ -2121,7 +2121,7 @@ class Table
         $keyBlockSizes = $index->getKeyBlockSize();
         if (! empty($keyBlockSizes)) {
             $sql_query .= sprintf(
-                ' KEY_BLOCK_SIZE = ',
+                ' KEY_BLOCK_SIZE = %s',
                 $GLOBALS['dbi']->escapeString($keyBlockSizes)
             );
         }
