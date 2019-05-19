@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
@@ -92,7 +93,8 @@ class VariablesControllerTest extends TestCase
     {
         $controller = new VariablesController(
             Response::getInstance(),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new Template()
         );
 
         $html = $controller->index([]);

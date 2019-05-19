@@ -11,6 +11,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 /**
  * Handles viewing server plugin details
@@ -27,12 +30,13 @@ class PluginsController extends AbstractController
     /**
      * Constructs PluginsController
      *
-     * @param \PhpMyAdmin\Response          $response Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Template          $template Template object
      */
-    public function __construct($response, $dbi)
+    public function __construct($response, $dbi, Template $template)
     {
-        parent::__construct($response, $dbi);
+        parent::__construct($response, $dbi, $template);
         $this->setPlugins();
     }
 

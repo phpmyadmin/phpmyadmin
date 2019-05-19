@@ -30,11 +30,9 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new VariablesController(
-    $response,
-    $dbi,
-    new Data()
-);
+$containerBuilder->set('status_data', new Data());
+/** @var VariablesController $controller */
+$controller = $containerBuilder->get(VariablesController::class);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();

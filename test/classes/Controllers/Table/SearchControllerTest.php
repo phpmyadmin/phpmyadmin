@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Types;
@@ -97,6 +98,7 @@ class SearchControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'PMA');
         $container->set('table', 'PMA_BookMark');
+        $container->set('template', new Template());
         $container->set('dbi', $GLOBALS['dbi']);
         $container->set('response', $this->_response);
         $container->set('searchType', 'replace');
@@ -124,6 +126,7 @@ class SearchControllerTest extends PmaTestCase
         $tableSearch = new SearchController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $container->get('table'),
             "zoom",
@@ -174,6 +177,7 @@ class SearchControllerTest extends PmaTestCase
         $tableSearch = new SearchController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $container->get('table'),
             "zoom",

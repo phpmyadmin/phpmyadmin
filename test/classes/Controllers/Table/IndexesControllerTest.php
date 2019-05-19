@@ -13,6 +13,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
@@ -98,6 +99,7 @@ class IndexesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'db');
         $container->set('table', 'table');
+        $container->set('template', new Template());
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $response);
@@ -106,6 +108,7 @@ class IndexesControllerTest extends PmaTestCase
         $ctrl = new IndexesController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $container->get('table'),
             null
@@ -156,6 +159,7 @@ class IndexesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'db');
         $container->set('table', 'table');
+        $container->set('template', new Template());
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $response);
@@ -165,6 +169,7 @@ class IndexesControllerTest extends PmaTestCase
         $ctrl = new IndexesController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $container->get('table'),
             $index

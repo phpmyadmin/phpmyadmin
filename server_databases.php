@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -19,19 +20,17 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
+$response = $containerBuilder->get('response', ContainerInterface::NULL_ON_INVALID_REFERENCE) ?? Response::getInstance();
+
 $container = Container::getDefaultContainer();
-$container->factory(DatabasesController::class);
-$container->set(Response::class, Response::getInstance());
+$container->set(Response::class, $response);
 $container->alias('response', Response::class);
 
 /** @var DatabasesController $controller */
-$controller = $container->get(DatabasesController::class);
-
-/** @var Response $response */
-$response = $container->get(Response::class);
+$controller = $containerBuilder->get(DatabasesController::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();

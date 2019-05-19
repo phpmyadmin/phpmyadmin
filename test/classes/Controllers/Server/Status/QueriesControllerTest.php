@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
@@ -119,6 +120,7 @@ class QueriesControllerTest extends TestCase
         $controller = new QueriesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data
         );
 

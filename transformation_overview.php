@@ -31,10 +31,8 @@ $dbi = $container->get(DatabaseInterface::class);
 $header = $response->getHeader();
 $header->disableMenuAndConsole();
 
-$controller = new TransformationOverviewController(
-    $response,
-    $dbi,
-    new Transformations()
-);
+$containerBuilder->set('transformations', new Transformations());
+/** @var TransformationOverviewController $controller */
+$controller = $containerBuilder->get(TransformationOverviewController::class);
 
 $response->addHTML($controller->indexAction());

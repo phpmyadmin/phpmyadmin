@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Table\SqlController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -29,12 +30,24 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$controller = new SqlController(
-    $response,
-    $dbi,
-    $db,
-    $table
+/* Define dependencies for the concerned controller */
+$dependency_definitions = [
+    'db' => $container->get('db'),
+    'table' => $container->get('table'),
+];
+
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition(SqlController::class);
+array_map(
+    static function (string $parameterName, $value) use ($definition) {
+        $definition->replaceArgument($parameterName, $value);
+    },
+    array_keys($dependency_definitions),
+    $dependency_definitions
 );
+
+/** @var SqlController $controller */
+$controller = $containerBuilder->get(SqlController::class);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();

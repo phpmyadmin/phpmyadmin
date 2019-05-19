@@ -14,6 +14,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -37,11 +38,12 @@ $checkUserPrivileges->getPrivileges();
 
 $_PMA_RTE = 'RTN';
 
-$controller = new RoutinesController(
-    $response,
-    $dbi,
-    $db
-);
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition(RoutinesController::class);
+$definition->replaceArgument('db', $container->get('db'));
+
+/** @var RoutinesController $controller */
+$controller = $containerBuilder->get(RoutinesController::class);
 
 if (! $response->isAjax()) {
     /**

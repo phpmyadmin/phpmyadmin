@@ -18,6 +18,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\Definition;
 
 global $db;
 
@@ -33,13 +34,24 @@ $response = $container->get(Response::class);
 $dbi = $container->get(DatabaseInterface::class);
 
 $centralColumns = new CentralColumns($dbi);
+/* Define dependencies for the concerned controller */
+$dependency_definitions = [
+    'db' => $container->get('db'),
+    'centralColumns' => $centralColumns,
+];
 
-$controller = new CentralColumnsController(
-    $response,
-    $dbi,
-    $db,
-    $centralColumns
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition(CentralColumnsController::class);
+array_map(
+    static function (string $parameterName, $value) use ($definition) {
+        $definition->replaceArgument($parameterName, $value);
+    },
+    array_keys($dependency_definitions),
+    $dependency_definitions
 );
+
+/** @var CentralColumnsController $controller */
+$controller = $containerBuilder->get(CentralColumnsController::class);
 
 if (isset($_POST['edit_save'])) {
     echo $controller->editSave([

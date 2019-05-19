@@ -10,6 +10,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisor;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
@@ -27,13 +31,14 @@ class AdvisorController extends AbstractController
     /**
      * AdvisorController constructor.
      *
-     * @param \PhpMyAdmin\Response           $response Response object
-     * @param \PhpMyAdmin\DatabaseInterface  $dbi      DatabaseInterface object
-     * @param \PhpMyAdmin\Server\Status\Data $data     Data object
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Template          $template Template object
+     * @param Data              $data     Data object
      */
-    public function __construct($response, $dbi, $data)
+    public function __construct($response, $dbi, Template $template, $data)
     {
-        parent::__construct($response, $dbi, $data);
+        parent::__construct($response, $dbi, $template, $data);
         $this->advisor = new Advisor($this->dbi, new ExpressionLanguage());
     }
 

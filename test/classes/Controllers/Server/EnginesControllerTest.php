@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPStan\Testing\TestCase;
@@ -49,7 +50,8 @@ class EnginesControllerTest extends TestCase
     {
         $controller = new EnginesController(
             Response::getInstance(),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new Template()
         );
 
         $actual = $controller->index();
@@ -102,7 +104,8 @@ class EnginesControllerTest extends TestCase
 
         $controller = new EnginesController(
             Response::getInstance(),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new Template()
         );
 
         $actual = $controller->show([

@@ -1,0 +1,3 @@
+services:
+  template:
+    class: 'PhpMyAdmin\Template'

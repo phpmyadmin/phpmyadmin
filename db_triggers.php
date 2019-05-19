@@ -13,6 +13,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -33,11 +34,12 @@ $dbi = $container->get(DatabaseInterface::class);
 
 $_PMA_RTE = 'TRI';
 
-$controller = new TriggersController(
-    $response,
-    $dbi,
-    $db
-);
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition(TriggersController::class);
+$definition->replaceArgument('db', $container->get('db'));
+
+/** @var TriggersController $controller */
+$controller = $containerBuilder->get(TriggersController::class);
 
 if (! $response->isAjax()) {
     /**
