@@ -139,7 +139,8 @@ phpMyAdmin - ChangeLog
 - issue #14252 Fixed DisableIS and database tree list (new database missing when refreshing the list)
 - issue #14621 Removed "Propose table structure" on MySQL 8.0
 - issue        Fixed editing of virtual columns on PerconaDB
-- issue #13854 Fixed column options are ignored for GENERATED/VIRTUAL/STORED columns 
+- issue #13854 Fixed column options are ignored for GENERATED/VIRTUAL/STORED columns
+- issue #15262 Fixed incorrect display of charset column (raw html)
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
