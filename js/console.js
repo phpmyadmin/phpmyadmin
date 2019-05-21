@@ -81,7 +81,7 @@ var PMA_console = {
             '<input name="token" value="">' +
             '</form>'
         );
-        PMA_console.$requestForm.children('[name=token]').val(PMA_commonParams.get('token'));
+        PMA_console.$requestForm.children('[name=token]').val(CommonParams.get('token'));
         PMA_console.$requestForm.on('submit', AJAX.requestHandler);
 
         // Event binds shouldn't run again
@@ -216,7 +216,7 @@ var PMA_console = {
             return;
         }
         PMA_console.$requestForm.children('textarea').val(queryString);
-        PMA_console.$requestForm.children('[name=server]').attr('value', PMA_commonParams.get('server'));
+        PMA_console.$requestForm.children('[name=server]').attr('value', CommonParams.get('server'));
         if (options && options.db) {
             PMA_console.$requestForm.children('[name=db]').val(options.db);
             if (options.table) {
@@ -226,7 +226,7 @@ var PMA_console = {
             }
         } else {
             PMA_console.$requestForm.children('[name=db]').val(
-                (PMA_commonParams.get('db').length > 0 ? PMA_commonParams.get('db') : ''));
+                (CommonParams.get('db').length > 0 ? CommonParams.get('db') : ''));
         }
         PMA_console.$requestForm.find('[name=profiling]').remove();
         if (options && options.profiling === true) {
@@ -912,7 +912,7 @@ var PMA_consoleMessages = {
             if (confirm(Messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('import.php',
                     {
-                        server: PMA_commonParams.get('server'),
+                        server: CommonParams.get('server'),
                         action_bookmark: 2,
                         ajax_request: true,
                         id_bookmark: $message.attr('bookmarkid') },
@@ -1047,7 +1047,7 @@ var PMA_consoleBookmarks = {
     refresh: function () {
         $.get('import.php',
             { ajax_request: true,
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
                 console_bookmark_refresh: 'refresh' },
             function (data) {
                 if (data.console_message_bookmark) {
@@ -1084,7 +1084,7 @@ var PMA_consoleBookmarks = {
                     ajax_request: true,
                     console_bookmark_add: 'true',
                     label: $('#pma_bookmarks').find('.card.add [name=label]').val(),
-                    server: PMA_commonParams.get('server'),
+                    server: CommonParams.get('server'),
                     db: $('#pma_bookmarks').find('.card.add [name=targetdb]').val(),
                     bookmark_query: PMA_consoleInput.getText('bookmark'),
                     shared: $('#pma_bookmarks').find('.card.add [name=shared]').prop('checked') },

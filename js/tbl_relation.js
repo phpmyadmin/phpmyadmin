@@ -71,7 +71,7 @@ function getDropdownValues ($dropdown) {
     }
     var $msgbox = PMA_ajaxShowMessage();
     var $form = $dropdown.parents('form');
-    var argsep = PMA_commonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
     var params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
         argsep + 'db=' + $form.find('input[name="db"]').val() +
         argsep + 'table=' + $form.find('input[name="table"]').val() +
@@ -228,7 +228,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
-                    PMA_commonActions.refreshMain(false, function () {
+                    CommonActions.refreshMain(false, function () {
                         // Do nothing
                     });
                 } else {

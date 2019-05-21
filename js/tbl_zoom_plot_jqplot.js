@@ -152,9 +152,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
-            'table' : PMA_commonParams.get('table'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
+            'table' : CommonParams.get('table'),
             'field' : $('#tableid_0').val(),
             'it' : 0
         }, function (data) {
@@ -176,9 +176,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
-            'table' : PMA_commonParams.get('table'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
+            'table' : CommonParams.get('table'),
             'field' : $('#tableid_1').val(),
             'it' : 1
         }, function (data) {
@@ -199,9 +199,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
-            'table' : PMA_commonParams.get('table'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
+            'table' : CommonParams.get('table'),
             'field' : $('#tableid_2').val(),
             'it' : 2
         }, function (data) {
@@ -220,9 +220,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
-            'table' : PMA_commonParams.get('table'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
+            'table' : CommonParams.get('table'),
             'field' : $('#tableid_3').val(),
             'it' : 3
         }, function (data) {
@@ -354,7 +354,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
         // Generate SQL query for update
         if (!isEmpty(newValues)) {
-            var sql_query = 'UPDATE `' + PMA_commonParams.get('table') + '` SET ';
+            var sql_query = 'UPDATE `' + CommonParams.get('table') + '` SET ';
             for (key in newValues) {
                 sql_query += '`' + key + '`=';
                 var value = newValues[key];
@@ -390,8 +390,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
             // Post SQL query to sql.php
             $.post('sql.php', {
-                'server' : PMA_commonParams.get('server'),
-                'db' : PMA_commonParams.get('db'),
+                'server' : CommonParams.get('server'),
+                'db' : CommonParams.get('db'),
                 'ajax_request' : true,
                 'sql_query' : sql_query,
                 'inline_edit' : false
@@ -588,9 +588,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 var post_params = {
                     'ajax_request' : true,
                     'get_data_row' : true,
-                    'server' : PMA_commonParams.get('server'),
-                    'db' : PMA_commonParams.get('db'),
-                    'table' : PMA_commonParams.get('table'),
+                    'server' : CommonParams.get('server'),
+                    'db' : CommonParams.get('db'),
+                    'table' : CommonParams.get('table'),
                     'where_clause' : data[3]
                 };
 

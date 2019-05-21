@@ -22,7 +22,7 @@
  * Reload fields table
  */
 function reloadFieldForm () {
-    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true', function (form_data) {
+    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true', function (form_data) {
         var $temp_div = $('<div id=\'temp_div\'><div>').append(form_data.message);
         $('#fieldsForm').replaceWith($temp_div.find('#fieldsForm'));
         $('#addColumns').replaceWith($temp_div.find('#addColumns'));
@@ -75,7 +75,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         function submitForm () {
             $msg = PMA_ajaxShowMessage(Messages.strProcessingRequest);
-            $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+            $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
                 } else if ($('.error:not(.tab)').length !== 0) {
@@ -184,7 +184,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(Messages.strDroppingColumn, false);
             var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
-            params += PMA_commonParams.get('arg_separator') + 'ajax_page_request=1';
+            params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
@@ -270,7 +270,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             AJAX.source = $this;
 
             var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
-            params += PMA_commonParams.get('arg_separator') + 'ajax_page_request=1';
+            params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         }); // end $.PMA_confirm()
     }); // end Add key
@@ -303,7 +303,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 $this.dialog('close');
                 return;
             }
-            $.post($form.prop('action'), serialized + PMA_commonParams.get('arg_separator') + 'ajax_request=true', function (data) {
+            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
                     PMA_ajaxRemoveMessage($msgbox);
                     $this
@@ -409,7 +409,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parents('form');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;

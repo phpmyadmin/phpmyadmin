@@ -10,7 +10,7 @@ $(function () {
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
  */
-var PMA_commonParams = (function () {
+var CommonParams = (function () {
     /**
      * @var hash params An associative array of key value pairs
      * @access private
@@ -86,7 +86,7 @@ var PMA_commonParams = (function () {
         getUrlQuery: function () {
             var common = this.get('common_query');
             var separator = '?';
-            var argsep = PMA_commonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             if (common.length > 0) {
                 separator = argsep;
             }
@@ -108,7 +108,7 @@ var PMA_commonParams = (function () {
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
  */
-var PMA_commonActions = {
+var CommonActions = {
     /**
      * Saves the database name when it's changed
      * and reloads the query window, if necessary
@@ -118,8 +118,8 @@ var PMA_commonActions = {
      * @return void
      */
     setDb: function (new_db) {
-        if (new_db !== PMA_commonParams.get('db')) {
-            PMA_commonParams.setAll({ 'db': new_db, 'table': '' });
+        if (new_db !== CommonParams.get('db')) {
+            CommonParams.setAll({ 'db': new_db, 'table': '' });
         }
     },
     /**
@@ -130,11 +130,11 @@ var PMA_commonActions = {
      * @return void
      */
     openDb: function (new_db) {
-        PMA_commonParams
+        CommonParams
             .set('db', new_db)
             .set('table', '');
         this.refreshMain(
-            PMA_commonParams.get('opendb_url')
+            CommonParams.get('opendb_url')
         );
     },
     /**
@@ -150,7 +150,7 @@ var PMA_commonActions = {
             url = $('#selflink').find('a').attr('href');
             url = url.substring(0, url.indexOf('?'));
         }
-        url += PMA_commonParams.getUrlQuery();
+        url += CommonParams.getUrlQuery();
         $('<a></a>', { href: url })
             .appendTo('body')
             .trigger('click')

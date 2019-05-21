@@ -104,7 +104,7 @@ AJAX.registerOnload('server_privileges.js', function () {
             var href = $('form[name=\'usersForm\']').attr('action');
             var params = {
                 'ajax_request' : true,
-                'server' : PMA_commonParams.get('server'),
+                'server' : CommonParams.get('server'),
                 'validate_username' : true,
                 'username' : username
             };
@@ -143,7 +143,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     $('#text_pma_change_pw').on('keyup', function () {
         meter_obj = $('#change_password_strength_meter');
         meter_obj_label = $('#change_password_strength');
-        checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, PMA_commonParams.get('user'));
+        checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, CommonParams.get('user'));
     });
 
     /**
@@ -183,7 +183,7 @@ AJAX.registerOnload('server_privileges.js', function () {
 
             PMA_ajaxShowMessage(Messages.strRemovingSelectedUsers);
 
-            var argsep = PMA_commonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
@@ -239,7 +239,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                             .find('select[name="userGroup"]')
                             .val();
                         var $message = PMA_ajaxShowMessage();
-                        var argsep = PMA_commonParams.get('arg_separator');
+                        var argsep = CommonParams.get('arg_separator');
                         $.post(
                             'server_privileges.php',
                             $('#changeUserGroupDialog').find('form').serialize() + argsep + 'ajax_request=1',
@@ -307,7 +307,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         button_options[Messages.strClose] = function () {
             $(this).dialog('close');
         };
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post(
             $(this.form).prop('action'),
             $(this.form).serialize() + argsep + 'submit_mult=export' + argsep + 'ajax_request=true',

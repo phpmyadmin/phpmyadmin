@@ -25,7 +25,7 @@ var ErrorReport = {
         ErrorReport._last_exception = exception;
         $.post('error_report.php', {
             ajax_request: true,
-            server: PMA_commonParams.get('server'),
+            server: CommonParams.get('server'),
             get_settings: true,
             exception_type: 'js'
         }, function (data) {
@@ -221,7 +221,7 @@ var ErrorReport = {
             }
         }
         var report_data = {
-            'server': PMA_commonParams.get('server'),
+            'server': CommonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
             'url': window.location.href,

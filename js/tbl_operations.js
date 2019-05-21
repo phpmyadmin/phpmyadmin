@@ -24,19 +24,19 @@ AJAX.registerOnload('tbl_operations.js', function () {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($form.find('input[name=\'switch_to_new\']').prop('checked')) {
-                    PMA_commonParams.set(
+                    CommonParams.set(
                         'db',
                         $form.find('select[name=\'target_db\']').val()
                     );
-                    PMA_commonParams.set(
+                    CommonParams.set(
                         'table',
                         $form.find('input[name=\'new_name\']').val()
                     );
-                    PMA_commonActions.refreshMain(false, function () {
+                    CommonActions.refreshMain(false, function () {
                         PMA_ajaxShowMessage(data.message);
                     });
                 } else {
@@ -57,12 +57,12 @@ AJAX.registerOnload('tbl_operations.js', function () {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                PMA_commonParams.set('db', data._params.db);
-                PMA_commonParams.set('table', data._params.table);
-                PMA_commonActions.refreshMain('tbl_sql.php', function () {
+                CommonParams.set('db', data._params.db);
+                CommonParams.set('table', data._params.table);
+                CommonActions.refreshMain('tbl_sql.php', function () {
                     PMA_ajaxShowMessage(data.message);
                 });
                 // Refresh navigation when the table is copied
@@ -110,8 +110,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
         function submitOptionsForm () {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_commonParams.set('table', data._params.table);
-                    PMA_commonActions.refreshMain(false, function () {
+                    CommonParams.set('table', data._params.table);
+                    CommonActions.refreshMain(false, function () {
                         $('#page_content').html(data.message);
                         PMA_highlightSQL($('#page_content'));
                     });
@@ -140,11 +140,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
         // variables which stores the common attributes
         var params = $.param({
             ajax_request: 1,
-            server: PMA_commonParams.get('server')
+            server: CommonParams.get('server')
         });
         var postData = $link.getPostData();
         if (postData) {
-            params += PMA_commonParams.get('arg_separator') + postData;
+            params += CommonParams.get('arg_separator') + postData;
         }
 
         $.post($link.attr('href'), params, function (data) {
@@ -194,7 +194,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var $form = $(this);
 
         function submitPartitionMaintenance () {
-            var argsep = PMA_commonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             PMA_ajaxShowMessage(Messages.strProcessingRequest);
             AJAX.source = $form;
@@ -225,7 +225,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = Messages.strDropTableStrongWarning + ' ';
         question += PMA_sprintf(
             Messages.strDoYouReally,
-            'DROP TABLE `'  + escapeHtml(PMA_commonParams.get('db')) + '`.`' + escapeHtml(PMA_commonParams.get('table') + '`')
+            'DROP TABLE `'  + escapeHtml(CommonParams.get('db')) + '`.`' + escapeHtml(CommonParams.get('table') + '`')
         ) + getForeignKeyCheckboxLoader();
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
@@ -238,9 +238,9 @@ AJAX.registerOnload('tbl_operations.js', function () {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
-                    PMA_commonParams.set('table', '');
-                    PMA_commonActions.refreshMain(
-                        PMA_commonParams.get('opendb_url'),
+                    CommonParams.set('table', '');
+                    CommonActions.refreshMain(
+                        CommonParams.get('opendb_url'),
                         function () {
                             PMA_ajaxShowMessage(data.message);
                         }
@@ -261,7 +261,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = Messages.strDropTableStrongWarning + ' ';
         question += PMA_sprintf(
             Messages.strDoYouReally,
-            'DROP VIEW `' + escapeHtml(PMA_commonParams.get('table') + '`')
+            'DROP VIEW `' + escapeHtml(CommonParams.get('table') + '`')
         );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
@@ -272,9 +272,9 @@ AJAX.registerOnload('tbl_operations.js', function () {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
-                    PMA_commonParams.set('table', '');
-                    PMA_commonActions.refreshMain(
-                        PMA_commonParams.get('opendb_url'),
+                    CommonParams.set('table', '');
+                    CommonActions.refreshMain(
+                        CommonParams.get('opendb_url'),
                         function () {
                             PMA_ajaxShowMessage(data.message);
                         }
@@ -295,7 +295,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var question = Messages.strTruncateTableStrongWarning + ' ';
         question += PMA_sprintf(
             Messages.strDoYouReally,
-            'TRUNCATE `' + escapeHtml(PMA_commonParams.get('db')) + '`.`' + escapeHtml(PMA_commonParams.get('table') + '`')
+            'TRUNCATE `' + escapeHtml(CommonParams.get('db')) + '`.`' + escapeHtml(CommonParams.get('table') + '`')
         ) + getForeignKeyCheckboxLoader();
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(Messages.strProcessingRequest);

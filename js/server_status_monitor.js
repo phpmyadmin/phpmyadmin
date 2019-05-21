@@ -714,7 +714,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $.extend(vars, getvars);
             }
 
-            $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), vars,
+            $.post('server_status_monitor.php' + CommonParams.get('common_query'), vars,
                 function (data) {
                     var logVars;
                     if (typeof data !== 'undefined' && data.success === true) {
@@ -1379,12 +1379,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Called in regular intervals, this function updates the values of each chart in the grid */
     function refreshChartGrid () {
         /* Send to server */
-        runtime.refreshRequest = $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), {
+        runtime.refreshRequest = $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
             ajax_request: true,
             chart_data: 1,
             type: 'chartgrid',
             requiredData: JSON.stringify(runtime.dataList),
-            server: PMA_commonParams.get('server')
+            server: CommonParams.get('server')
         }, function (data) {
             var chartData;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -1619,7 +1619,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         logRequest = $.post(
-            'server_status_monitor.php' + PMA_commonParams.get('common_query'),
+            'server_status_monitor.php' + CommonParams.get('common_query'),
             {
                 ajax_request: true,
                 log_data: 1,
@@ -2020,12 +2020,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
-        $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), {
+        $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
             ajax_request: true,
             query_analyzer: true,
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db,
-            server: PMA_commonParams.get('server')
+            server: CommonParams.get('server')
         }, function (data) {
             var i;
             var l;

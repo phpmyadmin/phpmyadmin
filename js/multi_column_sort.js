@@ -28,7 +28,7 @@ function captureURL (url) {
 function removeColumnFromMultiSort (target, parent) {
     var URL = captureURL(target);
     var begin = target.indexOf('ORDER+BY') + 8;
-    var end = target.indexOf(PMA_commonParams.get('arg_separator') + 'session_max_rows');
+    var end = target.indexOf(CommonParams.get('arg_separator') + 'session_max_rows');
     // get the names of the columns involved
     var between_part = target.substr(begin, end - begin);
     var columns = between_part.split('%2C+');
@@ -47,7 +47,7 @@ function removeColumnFromMultiSort (target, parent) {
         URL.head = head;
         // removing the last sort order should have priority over what
         // is remembered via the RememberSorting directive
-        URL.tail += PMA_commonParams.get('arg_separator') + 'discard_remembered_sort=1';
+        URL.tail += CommonParams.get('arg_separator') + 'discard_remembered_sort=1';
     }
     URL.head = URL.head.substring(URL.head.indexOf('?') + 1);
     var middle_part = columns.join('%2C+');
@@ -58,7 +58,7 @@ function removeColumnFromMultiSort (target, parent) {
 AJAX.registerOnload('keyhandler.js', function () {
     $('th.draggable.column_heading.pointer.marker a').on('click', function (event) {
         var url = $(this).parent().find('input').val();
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         if (event.ctrlKey || event.altKey) {
             event.preventDefault();
             var params = removeColumnFromMultiSort(url, $(this).parent());

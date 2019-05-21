@@ -564,7 +564,7 @@ function Add_Other_db_tables () {
             'dialog' : 'add_table',
             'db' : db,
             'table' : table,
-            'server': PMA_commonParams.get('server')
+            'server': CommonParams.get('server')
         }, function (data) {
             $new_table_dom = $(data.message);
             $new_table_dom.find('a').first().remove();
@@ -597,7 +597,7 @@ function Add_Other_db_tables () {
     $.post('sql.php', {
         'ajax_request' : true,
         'sql_query' : 'SHOW databases;',
-        'server': PMA_commonParams.get('server')
+        'server': CommonParams.get('server')
     }, function (data) {
         $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
             var val = $(this)[0].innerHTML;
@@ -628,7 +628,7 @@ function Add_Other_db_tables () {
                 'ajax_request' : true,
                 'sql_query': sql_query,
                 'db' : db_name,
-                'server': PMA_commonParams.get('server')
+                'server': CommonParams.get('server')
             }, function (data) {
                 $select_table.html('');
                 $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
@@ -665,7 +665,7 @@ function Save (url) {
 function Get_url_pos (forceString) {
     if (designer_tables_enabled || forceString) {
         var poststr = '';
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         for (var key in j_tabs) {
             poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
@@ -689,7 +689,7 @@ function Get_url_pos (forceString) {
 
 function Save2 (callback) {
     if (designer_tables_enabled) {
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var poststr = argsep + 'operation=savePage' + argsep + 'save_page=same' + argsep + 'ajax_request=true';
         poststr += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'selected_page=' + selected_page;
         poststr += Get_url_pos();
@@ -1082,7 +1082,7 @@ function Export_pages () {
         $(this).dialog('close');
     };
     var $msgbox = PMA_ajaxShowMessage();
-    var argsep = PMA_commonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
 
     $.post('db_designer.php', {
         'ajax_request': true,
@@ -1133,7 +1133,7 @@ function Export_pages () {
 function Load_page (page) {
     if (designer_tables_enabled) {
         var param_page = '';
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         if (page !== null) {
             param_page = argsep + 'page=' + page;
         }
@@ -1215,7 +1215,7 @@ function Start_relation () {
 // table field
 function Click_field (db, T, f, PK) {
     PK = parseInt(PK);
-    var argsep = PMA_commonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
     if (ON_relation) {
         if (!click_field) {
             // .style.display=='none'        .style.display = 'none'
@@ -1277,7 +1277,7 @@ function Click_field (db, T, f, PK) {
 
 function New_relation () {
     document.getElementById('layer_new_relation').style.display = 'none';
-    var argsep = PMA_commonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
     link_relation += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'db2=p';
     link_relation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
     link_relation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
@@ -1296,13 +1296,13 @@ function New_relation () {
 // -------------------------- create tables -------------------------------------
 
 function Start_table_new () {
-    PMA_commonParams.set('table', '');
-    PMA_commonActions.refreshMain('tbl_create.php');
+    CommonParams.set('table', '');
+    CommonActions.refreshMain('tbl_create.php');
 }
 
 function Start_tab_upd (table) {
-    PMA_commonParams.set('table', table);
-    PMA_commonActions.refreshMain('tbl_structure.php');
+    CommonParams.set('table', table);
+    CommonActions.refreshMain('tbl_structure.php');
 }
 // --------------------------- hide tables --------------------------------------
 
@@ -1504,14 +1504,14 @@ function Canvas_click (id, event) {
         var top = Glob_Y - document.getElementById('layer_upd_relation').offsetHeight - 10;
         document.getElementById('layer_upd_relation').style.top = top + 'px';
         document.getElementById('layer_upd_relation').style.display = 'block';
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         link_relation = 'T1=' + Key0 + argsep + 'F1=' + Key1 + argsep + 'T2=' + Key2 + argsep + 'F2=' + Key3 + argsep + 'K=' + Key;
     }
 }
 
 function Upd_relation () {
     document.getElementById('layer_upd_relation').style.display = 'none';
-    var argsep = PMA_commonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
     link_relation += argsep + 'server=' + server + argsep + 'db=' + db;
     link_relation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 

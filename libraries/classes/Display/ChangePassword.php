@@ -92,7 +92,7 @@ class ChangePassword
             . __('Enter:') . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'
             . '<input type="password" name="pma_pw" id="text_pma_change_pw" size="10" '
             . 'class="textfield"'
-            . 'onkeyup="checkPasswordStrength($(this).val(), $(\'#change_password_strength_meter\'), meter_obj_label = $(\'#change_password_strength\'), PMA_commonParams.get(\'user\'));" '
+            . 'onkeyup="checkPasswordStrength($(this).val(), $(\'#change_password_strength_meter\'), meter_obj_label = $(\'#change_password_strength\'), CommonParams.get(\'user\'));" '
             . $chg_evt_handler . '="nopass[1].checked = true">'
             . '<span>Strength:</span> '
             . '<meter max="4" id="change_password_strength_meter" name="pw_meter"></meter> '

@@ -73,9 +73,9 @@ function createTemplate (name) {
 
     var params = {
         ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
+        server : CommonParams.get('server'),
+        db : CommonParams.get('db'),
+        table : CommonParams.get('table'),
         exportType : $('input[name="export_type"]').val(),
         templateAction : 'create',
         templateName : name,
@@ -107,9 +107,9 @@ function createTemplate (name) {
 function loadTemplate (id) {
     var params = {
         ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
+        server : CommonParams.get('server'),
+        db : CommonParams.get('db'),
+        table : CommonParams.get('table'),
         exportType : $('input[name="export_type"]').val(),
         templateAction : 'load',
         templateId : id,
@@ -156,9 +156,9 @@ function updateTemplate (id) {
 
     var params = {
         ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
+        server : CommonParams.get('server'),
+        db : CommonParams.get('db'),
+        table : CommonParams.get('table'),
         exportType : $('input[name="export_type"]').val(),
         templateAction : 'update',
         templateId : id,
@@ -183,9 +183,9 @@ function updateTemplate (id) {
 function deleteTemplate (id) {
     var params = {
         ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
+        server : CommonParams.get('server'),
+        db : CommonParams.get('db'),
+        table : CommonParams.get('table'),
         exportType : $('input[name="export_type"]').val(),
         templateAction : 'delete',
         templateId : id,
@@ -801,7 +801,7 @@ function createAliasModal (event) {
         create: function () {
             $(this).closest('.ui-dialog').find('.ui-button').addClass('btn btn-secondary');
             $(this).css('maxHeight', $(window).height() - 150);
-            var db = PMA_commonParams.get('db');
+            var db = CommonParams.get('db');
             if (db) {
                 var option = $('<option></option>');
                 option.text(db);
@@ -810,7 +810,7 @@ function createAliasModal (event) {
             } else {
                 var params = {
                     ajax_request : true,
-                    server : PMA_commonParams.get('server'),
+                    server : CommonParams.get('server'),
                     type: 'list-databases'
                 };
                 $.post('ajax.php', params, function (response) {
@@ -918,7 +918,7 @@ AJAX.registerOnload('export.js', function () {
     $('#db_alias_select').on('change', function () {
         aliasToggleRow($(this));
         var db = $(this).val();
-        var table = PMA_commonParams.get('table');
+        var table = CommonParams.get('table');
         if (table) {
             var option = $('<option></option>');
             option.text(table);
@@ -927,7 +927,7 @@ AJAX.registerOnload('export.js', function () {
         } else {
             var params = {
                 ajax_request : true,
-                server : PMA_commonParams.get('server'),
+                server : CommonParams.get('server'),
                 db : $(this).val(),
                 type: 'list-tables'
             };
@@ -949,7 +949,7 @@ AJAX.registerOnload('export.js', function () {
         aliasToggleRow($(this));
         var params = {
             ajax_request : true,
-            server : PMA_commonParams.get('server'),
+            server : CommonParams.get('server'),
             db : $('#db_alias_select').val(),
             table: $(this).val(),
             type: 'list-columns'

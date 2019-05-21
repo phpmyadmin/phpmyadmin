@@ -159,7 +159,7 @@ PMA_DROP_IMPORT = {
         if (!PMA_DROP_IMPORT._hasFiles(event)) {
             return;
         }
-        if (PMA_commonParams.get('db') === '') {
+        if (CommonParams.get('db') === '') {
             $('.pma_drop_handler').html(Messages.dropImportSelectDB);
         } else {
             $('.pma_drop_handler').html(Messages.dropImportDropFiles);
@@ -281,8 +281,8 @@ PMA_DROP_IMPORT = {
             return;
         }
 
-        var dbname = PMA_commonParams.get('db');
-        var server = PMA_commonParams.get('server');
+        var dbname = CommonParams.get('db');
+        var server = CommonParams.get('server');
 
         // if no database is selected -- no
         if (dbname !== '') {
@@ -325,7 +325,7 @@ PMA_DROP_IMPORT = {
                     fd.append('noplugin', Math.random().toString(36).substring(2, 12));
                     fd.append('db', dbname);
                     fd.append('server', server);
-                    fd.append('token', PMA_commonParams.get('token'));
+                    fd.append('token', CommonParams.get('token'));
                     fd.append('import_type', 'database');
                     // todo: method to find the value below
                     fd.append('MAX_FILE_SIZE', '4194304');

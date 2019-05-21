@@ -31,7 +31,7 @@ PMA_MicroHistory = {
      * @param array  scripts A list of scripts that is required for the page
      * @param string menu    A hash that links to a menu stored
      *                       in a dedicated menu cache
-     * @param array  params  A list of parameters used by PMA_commonParams()
+     * @param array  params  A list of parameters used by CommonParams()
      * @param string rel     A relationship to the current page:
      *                       'samepage': Forces the response to be treated as
      *                                   the same page as the current one
@@ -101,7 +101,7 @@ PMA_MicroHistory = {
                 $('#page_content').html(record.content);
                 $('#selflink').html(record.selflink);
                 PMA_MicroHistory.menus.replace(PMA_MicroHistory.menus.get(record.menu));
-                PMA_commonParams.setAll(record.params);
+                CommonParams.setAll(record.params);
                 AJAX.scriptHandler.load(record.scripts);
                 PMA_MicroHistory.current = ++index;
             });
@@ -202,7 +202,7 @@ PMA_MicroHistory = {
             }
             var menuHashesParam = menuHashes.join('-');
             if (menuHashesParam) {
-                param = PMA_commonParams.get('arg_separator') + 'menuHashes=' + menuHashesParam;
+                param = CommonParams.get('arg_separator') + 'menuHashes=' + menuHashesParam;
             }
             return param;
         },

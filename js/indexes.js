@@ -313,7 +313,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
     var $table = $('input[name="table"]');
     var table = $table.length > 0 ? $table.val() : '';
     var post_data = {
-        server: PMA_commonParams.get('server'),
+        server: CommonParams.get('server'),
         db: $('input[name="db"]').val(),
         table: table,
         ajax_request: 1,
@@ -594,7 +594,7 @@ AJAX.registerOnload('indexes.js', function () {
     $(document).on('click', '#save_index_frm', function (event) {
         event.preventDefault();
         var $form = $('#index_frm');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
         var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
         AJAX.source = $form;
@@ -665,7 +665,7 @@ AJAX.registerOnload('indexes.js', function () {
                             .prependTo('#structure_content');
                         PMA_highlightSQL($('#page_content'));
                     }
-                    PMA_commonActions.refreshMain(false, function () {
+                    CommonActions.refreshMain(false, function () {
                         $('a.ajax[href^=#indexes]').trigger('click');
                     });
                     PMA_reloadNavigation();
@@ -700,10 +700,10 @@ AJAX.registerOnload('indexes.js', function () {
             url = $(this).find('a').getPostData();
             title = Messages.strEditIndex;
         }
-        url += PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        url += CommonParams.get('arg_separator') + 'ajax_request=true';
         indexEditorDialog(url, title, function () {
             // refresh the page using ajax
-            PMA_commonActions.refreshMain(false, function () {
+            CommonActions.refreshMain(false, function () {
                 $('a.ajax[href^=#indexes]').trigger('click');
             });
         });

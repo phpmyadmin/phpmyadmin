@@ -64,14 +64,14 @@ $(document).ready(function () {
             PMA_console.toggle();
         } else if (e.keyCode === keyS) {
             if (databaseOp === true) {
-                isTable = PMA_commonParams.get('table');
-                isDb = PMA_commonParams.get('db');
+                isTable = CommonParams.get('table');
+                isDb = CommonParams.get('db');
                 if (isDb && ! isTable) {
                     $('.tab .ic_b_props').first().trigger('click');
                 }
             } else if (tableOp === true) {
-                isTable = PMA_commonParams.get('table');
-                isDb = PMA_commonParams.get('db');
+                isTable = CommonParams.get('table');
+                isDb = CommonParams.get('db');
                 if (isDb && isTable) {
                     $('.tab .ic_b_props').first().trigger('click');
                 }
@@ -80,14 +80,14 @@ $(document).ready(function () {
             }
         } else if (e.keyCode === keyF) {
             if (databaseOp === true) {
-                isTable = PMA_commonParams.get('table');
-                isDb = PMA_commonParams.get('db');
+                isTable = CommonParams.get('table');
+                isDb = CommonParams.get('db');
                 if (isDb && ! isTable) {
                     $('.tab .ic_b_search').first().trigger('click');
                 }
             } else if (tableOp === true) {
-                isTable = PMA_commonParams.get('table');
-                isDb = PMA_commonParams.get('db');
+                isTable = CommonParams.get('table');
+                isDb = CommonParams.get('db');
                 if (isDb && isTable) {
                     $('.tab .ic_b_search').first().trigger('click');
                 }

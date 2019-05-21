@@ -669,7 +669,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
                         // Truncates the text.
                         $this_field.removeClass('truncated');
-                        if (PMA_commonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
+                        if (CommonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
                             $this_field.addClass('truncated');
                             value = value.substring(0, g.maxTruncatedLen) + '...';
                         }
@@ -1993,7 +1993,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
             // initialize cell editing configuration
             g.saveCellsAtOnce = $(g.o).find('.save_cells_at_once').val();
-            g.maxTruncatedLen = PMA_commonParams.get('LimitChars');
+            g.maxTruncatedLen = CommonParams.get('LimitChars');
 
             // register events
             $(g.t).find('td.data.click1')

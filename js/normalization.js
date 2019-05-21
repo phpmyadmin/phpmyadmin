@@ -19,9 +19,9 @@ function appendHtmlColumnsList () {
         'normalization.php',
         {
             'ajax_request': true,
-            'db': PMA_commonParams.get('db'),
-            'table': PMA_commonParams.get('table'),
-            'server': PMA_commonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
             'getColumns': true
         },
         function (data) {
@@ -33,14 +33,14 @@ function appendHtmlColumnsList () {
 }
 function goTo3NFStep1 (newTables) {
     if (Object.keys(newTables).length === 1) {
-        newTables = [PMA_commonParams.get('table')];
+        newTables = [CommonParams.get('table')];
     }
     $.post(
         'normalization.php',
         {
             'ajax_request': true,
-            'db': PMA_commonParams.get('db'),
-            'server': PMA_commonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'server': CommonParams.get('server'),
             'tables': newTables,
             'step': '3.1'
         }, function (data) {
@@ -74,9 +74,9 @@ function goTo2NFStep1 () {
         'normalization.php',
         {
             'ajax_request': true,
-            'db': PMA_commonParams.get('db'),
-            'table': PMA_commonParams.get('table'),
-            'server': PMA_commonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
             'step': '2.1'
         }, function (data) {
             $('#page_content h3').html(Messages.str2NFNormalization);
@@ -96,7 +96,7 @@ function goTo2NFStep1 () {
                 if (normalizeto === '3nf') {
                     $('#mainContent #newCols').html(Messages.strToNextStep);
                     setTimeout(function () {
-                        goTo3NFStep1([PMA_commonParams.get('table')]);
+                        goTo3NFStep1([CommonParams.get('table')]);
                     }, 3000);
                 }
             }
@@ -110,7 +110,7 @@ function goToFinish1NF () {
     }
     $('#mainContent legend').html(Messages.strEndStep);
     $('#mainContent h4').html(
-        '<h3>' + PMA_sprintf(Messages.strFinishMsg, escapeHtml(PMA_commonParams.get('table'))) + '</h3>'
+        '<h3>' + PMA_sprintf(Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
     );
     $('#mainContent p').html('');
     $('#mainContent #extra').html('');
@@ -123,9 +123,9 @@ function goToStep4 () {
         'normalization.php',
         {
             'ajax_request': true,
-            'db': PMA_commonParams.get('db'),
-            'table': PMA_commonParams.get('table'),
-            'server': PMA_commonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
             'step4': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
@@ -146,9 +146,9 @@ function goToStep3 () {
         'normalization.php',
         {
             'ajax_request': true,
-            'db': PMA_commonParams.get('db'),
-            'table': PMA_commonParams.get('table'),
-            'server': PMA_commonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
             'step3': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
@@ -170,9 +170,9 @@ function goToStep2 (extra) {
         'normalization.php',
         {
             'ajax_request': true,
-            'db': PMA_commonParams.get('db'),
-            'table': PMA_commonParams.get('table'),
-            'server': PMA_commonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
             'step2': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
@@ -207,9 +207,9 @@ function goTo2NFFinish (pd) {
     }
     datastring = {
         'ajax_request': true,
-        'db': PMA_commonParams.get('db'),
-        'table': PMA_commonParams.get('table'),
-        'server': PMA_commonParams.get('server'),
+        'db': CommonParams.get('db'),
+        'table': CommonParams.get('table'),
+        'server': CommonParams.get('server'),
         'pd': JSON.stringify(pd),
         'newTablesName':JSON.stringify(tables),
         'createNewTables2NF':1 };
@@ -254,8 +254,8 @@ function goTo3NFFinish (newTables) {
     }
     datastring = {
         'ajax_request': true,
-        'db': PMA_commonParams.get('db'),
-        'server': PMA_commonParams.get('server'),
+        'db': CommonParams.get('db'),
+        'server': CommonParams.get('server'),
         'newTables':JSON.stringify(newTables),
         'createNewTables3NF':1 };
     $.ajax({
@@ -302,9 +302,9 @@ function goTo2NFStep2 (pd, primary_key) {
         extra += '</div>';
         datastring = {
             'ajax_request': true,
-            'db': PMA_commonParams.get('db'),
-            'table': PMA_commonParams.get('table'),
-            'server': PMA_commonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
             'pd': JSON.stringify(pd),
             'getNewTables2NF':1 };
         $.ajax({
@@ -351,9 +351,9 @@ function goTo3NFStep2 (pd, tablesTds) {
         extra += '</div>';
         datastring = {
             'ajax_request': true,
-            'db': PMA_commonParams.get('db'),
+            'db': CommonParams.get('db'),
             'tables': JSON.stringify(tablesTds),
-            'server': PMA_commonParams.get('server'),
+            'server': CommonParams.get('server'),
             'pd': JSON.stringify(pd),
             'getNewTables3NF':1 };
         $.ajax({
@@ -443,9 +443,9 @@ function moveRepeatingGroup (repeatingCols) {
     }
     datastring = {
         'ajax_request': true,
-        'db': PMA_commonParams.get('db'),
-        'table': PMA_commonParams.get('table'),
-        'server': PMA_commonParams.get('server'),
+        'db': CommonParams.get('db'),
+        'table': CommonParams.get('table'),
+        'server': CommonParams.get('server'),
         'repeatingColumns': repeatingCols,
         'newTable':newTable,
         'newColumn':newColumn,
@@ -502,9 +502,9 @@ AJAX.registerOnload('normalization.js', function () {
             'normalization.php',
             {
                 'ajax_request': true,
-                'db': PMA_commonParams.get('db'),
-                'table': PMA_commonParams.get('table'),
-                'server': PMA_commonParams.get('server'),
+                'db': CommonParams.get('db'),
+                'table': CommonParams.get('table'),
+                'server': CommonParams.get('server'),
                 'splitColumn': true,
                 'numFields': numField
             },
@@ -536,7 +536,7 @@ AJAX.registerOnload('normalization.js', function () {
             $('#newCols #field_0_1').focus();
             return false;
         }
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         datastring = $('#newCols :input').serialize();
         datastring += argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('tbl_addfield.php', datastring, function (data) {
@@ -545,12 +545,12 @@ AJAX.registerOnload('normalization.js', function () {
                     'sql.php',
                     {
                         'ajax_request': true,
-                        'db': PMA_commonParams.get('db'),
-                        'table': PMA_commonParams.get('table'),
-                        'server': PMA_commonParams.get('server'),
+                        'db': CommonParams.get('db'),
+                        'table': CommonParams.get('table'),
+                        'server': CommonParams.get('server'),
                         'dropped_column': selectedCol,
                         'purge' : 1,
-                        'sql_query': 'ALTER TABLE `' + PMA_commonParams.get('table') + '` DROP `' + selectedCol + '`;',
+                        'sql_query': 'ALTER TABLE `' + CommonParams.get('table') + '` DROP `' + selectedCol + '`;',
                         'is_js_confirmed': 1
                     },
                     function (data) {
@@ -575,9 +575,9 @@ AJAX.registerOnload('normalization.js', function () {
             'normalization.php',
             {
                 'ajax_request': true,
-                'db': PMA_commonParams.get('db'),
-                'table': PMA_commonParams.get('table'),
-                'server': PMA_commonParams.get('server'),
+                'db': CommonParams.get('db'),
+                'table': CommonParams.get('table'),
+                'server': CommonParams.get('server'),
                 'addNewPrimary': true
             },
             function (data) {
@@ -605,7 +605,7 @@ AJAX.registerOnload('normalization.js', function () {
     });
     $('.tblFooters').on('click', '#saveNewPrimary', function () {
         var datastring = $('#newCols :input').serialize();
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         datastring += argsep + 'field_key[0]=primary_0' + argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('tbl_addfield.php', datastring, function (data) {
             if (data.success === true) {
@@ -623,7 +623,7 @@ AJAX.registerOnload('normalization.js', function () {
         });
     });
     $('#extra').on('click', '#removeRedundant', function () {
-        var dropQuery = 'ALTER TABLE `' + PMA_commonParams.get('table') + '` ';
+        var dropQuery = 'ALTER TABLE `' + CommonParams.get('table') + '` ';
         $('#extra input[type=checkbox]:checked').each(function () {
             dropQuery += 'DROP `' + $(this).val() + '`, ';
         });
@@ -632,9 +632,9 @@ AJAX.registerOnload('normalization.js', function () {
             'sql.php',
             {
                 'ajax_request': true,
-                'db': PMA_commonParams.get('db'),
-                'table': PMA_commonParams.get('table'),
-                'server': PMA_commonParams.get('server'),
+                'db': CommonParams.get('db'),
+                'table': CommonParams.get('table'),
+                'server': CommonParams.get('server'),
                 'sql_query': dropQuery,
                 'is_js_confirmed': 1
             },
@@ -656,7 +656,7 @@ AJAX.registerOnload('normalization.js', function () {
         if (repeatingCols !== '') {
             var newColName = $('#extra input[type=checkbox]:checked:first').val();
             repeatingCols = repeatingCols.slice(0, -2);
-            var confirmStr = PMA_sprintf(Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(PMA_commonParams.get('table')));
+            var confirmStr = PMA_sprintf(Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + Messages.strNewTablePlaceholder + '">' +
                 '( ' + escapeHtml(primary_key.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + Messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
                 '</ol>';
@@ -680,9 +680,9 @@ AJAX.registerOnload('normalization.js', function () {
     $('#mainContent p').on('click', '#createPrimaryKey', function (event) {
         event.preventDefault();
         var url = { create_index: 1,
-            server:  PMA_commonParams.get('server'),
-            db: PMA_commonParams.get('db'),
-            table: PMA_commonParams.get('table'),
+            server:  CommonParams.get('server'),
+            db: CommonParams.get('db'),
+            table: CommonParams.get('table'),
             added_fields: 1,
             add_fields:1,
             index: { Key_name:'PRIMARY' },
@@ -720,9 +720,9 @@ AJAX.registerOnload('normalization.js', function () {
             'normalization.php',
             {
                 'ajax_request': true,
-                'db': PMA_commonParams.get('db'),
-                'table': PMA_commonParams.get('table'),
-                'server': PMA_commonParams.get('server'),
+                'db': CommonParams.get('db'),
+                'table': CommonParams.get('table'),
+                'server': CommonParams.get('server'),
                 'findPdl': true
             }, function (data) {
                 $('#showPossiblePd').html('- ' + Messages.strHidePd);

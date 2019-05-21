@@ -291,7 +291,7 @@ class Header
                 $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
             }
         }
-        return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
+        return 'CommonParams.setAll({' . implode(',', $params) . '});';
     }
 
     /**

@@ -75,7 +75,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
                 'db': $('#db_name').val(),
                 'tables': Object.keys(tableAliases),
                 'ajax_request': '1',
-                'token': PMA_commonParams.get('token')
+                'token': CommonParams.get('token')
             },
             success: function (response) {
                 foreignKeys = response.foreignKeyConstrains;
@@ -127,7 +127,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
             'db': $('#db_name').val(),
             'sql_query': query,
             'ajax_request': '1',
-            'token': PMA_commonParams.get('token')
+            'token': CommonParams.get('token')
         };
         $.ajax({
             type: 'POST',

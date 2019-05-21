@@ -56,7 +56,7 @@ AJAX.registerOnload('server_databases.js', function () {
         var question = Messages.strDropDatabaseStrongWarning + ' ' +
             PMA_sprintf(Messages.strDoYouReally, selected_dbs.join('<br>'));
 
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $(this).PMA_confirm(
             question,
             $form.prop('action') + '?' + $(this).serialize() +
@@ -80,7 +80,7 @@ AJAX.registerOnload('server_databases.js', function () {
                         $form.find('tbody').PMA_sort_table('.name');
                         if ($form.find('tbody').find('tr').length === 0) {
                             // user just dropped the last db on this page
-                            PMA_commonActions.refreshMain();
+                            CommonActions.refreshMain();
                         }
                         PMA_reloadNavigation();
                     } else {
@@ -124,7 +124,7 @@ AJAX.registerOnload('server_databases.js', function () {
                 // make ajax request to load db structure page - taken from ajax.js
                 var dbStruct_url = data.url_query;
                 dbStruct_url = dbStruct_url.replace(/amp;/ig, '');
-                var params = 'ajax_request=true' + PMA_commonParams.get('arg_separator') + 'ajax_page_request=true';
+                var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                 if (! (history && history.pushState)) {
                     params += PMA_MicroHistory.menus.getRequestParam();
                 }
@@ -144,7 +144,7 @@ AJAX.registerOnload('server_databases.js', function () {
     var tableRows = $('.server_databases');
     $.each(tableRows, function (index, item) {
         $(this).on('click', function () {
-            PMA_commonActions.setDb($(this).attr('data'));
+            CommonActions.setDb($(this).attr('data'));
         });
     });
 }); // end $()

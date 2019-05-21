@@ -289,7 +289,7 @@ var AJAX = {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
 
         var url = isLink ? href : $(this).attr('action');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var params = 'ajax_request=true' + argsep + 'ajax_page_request=true';
         var dataPost = AJAX.source.getPostData();
         if (! isLink) {
@@ -360,7 +360,7 @@ var AJAX = {
         }
         PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
-        PMA_commonParams.set('token', data.new_token);
+        CommonParams.set('token', data.new_token);
 
         AJAX.scriptHandler.load([]);
 
@@ -415,7 +415,7 @@ var AJAX = {
 
         if (typeof data.success !== 'undefined' && data.success) {
             // reload page if user trying to login has changed
-            if (PMA_commonParams.get('user') !== data._params.user) {
+            if (CommonParams.get('user') !== data._params.user) {
                 window.location = 'index.php';
                 PMA_ajaxShowMessage(Messages.strLoading, false);
                 AJAX.active = false;
@@ -543,7 +543,7 @@ var AJAX = {
                     $('#selflink').find('> a').attr('href', data._selflink);
                 }
                 if (data._params) {
-                    PMA_commonParams.setAll(data._params);
+                    CommonParams.setAll(data._params);
                 }
                 if (data._scripts) {
                     AJAX.scriptHandler.load(data._scripts);
@@ -686,10 +686,10 @@ var AJAX = {
             // Clear loaded scripts if they are from another version of phpMyAdmin.
             // Depends on common params being set before loading scripts in responseHandler
             if (self._scriptsVersion === null) {
-                self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
-            } else if (self._scriptsVersion !== PMA_commonParams.get('PMA_VERSION')) {
+                self._scriptsVersion = CommonParams.get('PMA_VERSION');
+            } else if (self._scriptsVersion !== CommonParams.get('PMA_VERSION')) {
                 self._scripts = [];
-                self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
+                self._scriptsVersion = CommonParams.get('PMA_VERSION');
             }
             self._scriptsCompleted = false;
             self._scriptsToBeFired = [];
@@ -752,7 +752,7 @@ var AJAX = {
             var self = this;
 
             script.type = 'text/javascript';
-            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
             script.async = false;
             script.onload = function () {
                 self.done(name, callback);
@@ -878,7 +878,7 @@ $(function () {
             var state = event.originalEvent.state;
             if (state && state.menu) {
                 AJAX.$msgbox = PMA_ajaxShowMessage();
-                var params = 'ajax_request=true' + PMA_commonParams.get('arg_separator') + 'ajax_page_request=true';
+                var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                 var url = state.url || location.href;
                 $.get(url, params, AJAX.responseHandler);
                 // TODO: Check if sometimes menu is not retrieved from server,

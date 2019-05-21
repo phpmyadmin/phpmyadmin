@@ -248,7 +248,7 @@ AJAX.registerOnload('sql.js', function () {
         var $link = $(this);
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             $msgbox = PMA_ajaxShowMessage();
-            var argsep = PMA_commonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             var params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
             var postData = $link.getPostData();
             if (postData) {
@@ -269,7 +269,7 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('submit', '.bookmarkQueryForm', function (e) {
         e.preventDefault();
         PMA_ajaxShowMessage();
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post($(this).attr('action'), 'ajax_request=1' + argsep + $(this).serialize(), function (data) {
             if (data.success) {
                 PMA_ajaxShowMessage(data.message);
@@ -557,7 +557,7 @@ AJAX.registerOnload('sql.js', function () {
 
         PMA_prepareForAjaxRequest($form);
 
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_page_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // success happens if the query returns rows or not
@@ -605,21 +605,21 @@ AJAX.registerOnload('sql.js', function () {
                 }
 
                 if (data._params) {
-                    PMA_commonParams.setAll(data._params);
+                    CommonParams.setAll(data._params);
                 }
 
                 if (typeof data.ajax_reload !== 'undefined') {
                     if (data.ajax_reload.reload) {
                         if (data.ajax_reload.table_name) {
-                            PMA_commonParams.set('table', data.ajax_reload.table_name);
-                            PMA_commonActions.refreshMain();
+                            CommonParams.set('table', data.ajax_reload.table_name);
+                            CommonActions.refreshMain();
                         } else {
                             PMA_reloadNavigation();
                         }
                     }
                 } else if (typeof data.reload !== 'undefined') {
                     // this happens if a USE or DROP command was typed
-                    PMA_commonActions.setDb(data.db);
+                    CommonActions.setDb(data.db);
                     var url;
                     if (data.db) {
                         if (data.table) {
@@ -630,7 +630,7 @@ AJAX.registerOnload('sql.js', function () {
                     } else {
                         url = 'server_sql.php';
                     }
-                    PMA_commonActions.refreshMain(url, function () {
+                    CommonActions.refreshMain(url, function () {
                         $('#sqlqueryresultsouter')
                             .show()
                             .html(data.message);
@@ -671,7 +671,7 @@ AJAX.registerOnload('sql.js', function () {
         $form = $(this);
 
         var $msgbox = PMA_ajaxShowMessage();
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_request=true', function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             var $sqlqueryresults = $form.parents('.sqlqueryresults');
@@ -723,7 +723,7 @@ AJAX.registerOnload('sql.js', function () {
         }
 
         function submitShowAllForm () {
-            var argsep = PMA_commonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             PMA_ajaxShowMessage();
             AJAX.source = $form;
@@ -761,7 +761,7 @@ AJAX.registerOnload('sql.js', function () {
             type: 'POST',
             url: $form.attr('action'),
             data: {
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
                 db: db_name,
                 ajax_request: '1',
                 simulate_dml: '1',
@@ -823,7 +823,7 @@ AJAX.registerOnload('sql.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.closest('form');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;
@@ -866,7 +866,7 @@ function browseForeignDialog ($this_a) {
     var tableId = '#browse_foreign_table';
     var filterId = '#input_foreign_filter';
     var $dialog = null;
-    var argSep = PMA_commonParams.get('arg_separator');
+    var argSep = CommonParams.get('arg_separator');
     var params = $this_a.getPostData();
     params += argSep + 'ajax_request=true';
     $.post($this_a.attr('href'), params, function (data) {

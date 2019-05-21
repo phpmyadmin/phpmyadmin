@@ -116,7 +116,7 @@ class HeaderTest extends PmaTestCase
     {
         $header = new Header();
         $this->assertStringContainsString(
-            'PMA_commonParams.setAll',
+            'CommonParams.setAll',
             $header->getJsParamsCode()
         );
     }

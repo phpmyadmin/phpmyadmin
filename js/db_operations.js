@@ -36,7 +36,7 @@ AJAX.registerOnload('db_operations.js', function () {
     $(document).on('submit', '#rename_db_form.ajax', function (event) {
         event.preventDefault();
 
-        var old_db_name = PMA_commonParams.get('db');
+        var old_db_name = CommonParams.get('db');
         var new_db_name = $('#new_db_name').val();
 
         if (new_db_name === old_db_name) {
@@ -52,10 +52,10 @@ AJAX.registerOnload('db_operations.js', function () {
 
         $form.PMA_confirm(question, $form.attr('action'), function (url) {
             PMA_ajaxShowMessage(Messages.strRenamingDatabases, false);
-            $.post(url, $('#rename_db_form').serialize() + PMA_commonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
+            $.post(url, $('#rename_db_form').serialize() + CommonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
-                    PMA_commonParams.set('db', data.newname);
+                    CommonParams.set('db', data.newname);
 
                     PMA_reloadNavigation(function () {
                         $('#pma_navigation_tree')
@@ -89,12 +89,12 @@ AJAX.registerOnload('db_operations.js', function () {
             $('div.success, div.error').fadeOut();
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($('#checkbox_switch').is(':checked')) {
-                    PMA_commonParams.set('db', data.newname);
-                    PMA_commonActions.refreshMain(false, function () {
+                    CommonParams.set('db', data.newname);
+                    CommonActions.refreshMain(false, function () {
                         PMA_ajaxShowMessage(data.message);
                     });
                 } else {
-                    PMA_commonParams.set('db', data.db);
+                    CommonParams.set('db', data.db);
                     PMA_ajaxShowMessage(data.message);
                 }
                 PMA_reloadNavigation();
@@ -120,7 +120,7 @@ AJAX.registerOnload('db_operations.js', function () {
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
         PMA_ajaxShowMessage(Messages.strChangingCharset);
-        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'submitcollation=1', function (data) {
+        $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'submitcollation=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
             } else {
@@ -141,7 +141,7 @@ AJAX.registerOnload('db_operations.js', function () {
         var question = Messages.strDropDatabaseStrongWarning + ' ';
         question += PMA_sprintf(
             Messages.strDoYouReally,
-            'DROP DATABASE `' + escapeHtml(PMA_commonParams.get('db') + '`')
+            'DROP DATABASE `' + escapeHtml(CommonParams.get('db') + '`')
         );
         var params = getJSConfirmCommonParam(this, $link.getPostData());
 
@@ -151,8 +151,8 @@ AJAX.registerOnload('db_operations.js', function () {
                 if (typeof data !== 'undefined' && data.success) {
                     // Database deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
-                    PMA_commonParams.set('db', '');
-                    PMA_commonActions.refreshMain(
+                    CommonParams.set('db', '');
+                    CommonActions.refreshMain(
                         'server_databases.php',
                         function () {
                             PMA_ajaxShowMessage(data.message);

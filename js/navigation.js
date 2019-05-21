@@ -18,8 +18,8 @@ function navTreeStateUpdate () {
         // content to be stored exceeds storage capacity
         try {
             storage.setItem('navTreePaths', JSON.stringify(traverseNavigationForPaths()));
-            storage.setItem('server', PMA_commonParams.get('server'));
-            storage.setItem('token', PMA_commonParams.get('token'));
+            storage.setItem('server', CommonParams.get('server'));
+            storage.setItem('token', CommonParams.get('token'));
         } catch (error) {
             // storage capacity exceeded & old navigation tree
             // state is no more valid, so remove it
@@ -188,7 +188,7 @@ function loadChildNodes (isNode, $expandElem, callback) {
             if (window.location.href.indexOf('?') === -1) {
                 window.location.href += '?session_expired=1';
             } else {
-                window.location.href += PMA_commonParams.get('arg_separator') + 'session_expired=1';
+                window.location.href += CommonParams.get('arg_separator') + 'session_expired=1';
             }
             window.location.reload();
         } else {
@@ -327,7 +327,7 @@ $(function () {
 
     $(document).on('change', '#navi_db_select',  function (event) {
         if (! $(this).val()) {
-            PMA_commonParams.set('db', '');
+            CommonParams.set('db', '');
             PMA_reloadNavigation();
         }
         $(this).closest('form').trigger('submit');
@@ -496,7 +496,7 @@ $(function () {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
-        ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = Messages.strAddIndex;
         indexEditorDialog(url, title);
     });
@@ -506,7 +506,7 @@ $(function () {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
-        ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = Messages.strEditIndex;
         indexEditorDialog(url, title);
     });
@@ -520,9 +520,9 @@ $(function () {
     /** Hide navigation tree item */
     $(document).on('click', 'a.hideNavItem.ajax', function (event) {
         event.preventDefault();
-        var argSep = PMA_commonParams.get('arg_separator');
+        var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
-        params += argSep + 'ajax_request=true' + argSep + 'server=' + PMA_commonParams.get('server');
+        params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
         $.ajax({
             type: 'POST',
             data: params,
@@ -541,7 +541,7 @@ $(function () {
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
-        var argSep = PMA_commonParams.get('arg_separator');
+        var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
         params += argSep + 'ajax_request=true';
         $.post($(this).attr('href'), params, function (data) {
@@ -577,9 +577,9 @@ $(function () {
         var $hidden_table_count = $tr.parents('tbody').children().length;
         var $hide_dialog_box = $tr.closest('div.ui-dialog');
         var $msg = PMA_ajaxShowMessage();
-        var argSep = PMA_commonParams.get('arg_separator');
+        var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
-        params += argSep + 'ajax_request=true' + argSep + 'server=' + PMA_commonParams.get('server');
+        params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
         $.ajax({
             type: 'POST',
             data: params,
@@ -619,7 +619,7 @@ $(function () {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
                     : '',
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
             },
             success: function (data) {
                 if (data.changes) {
@@ -652,8 +652,8 @@ $(function () {
             typeof storage.navTreePaths === 'undefined'
         ) {
             PMA_reloadNavigation();
-        } else if (PMA_commonParams.get('server') === storage.server &&
-            PMA_commonParams.get('token') === storage.token
+        } else if (CommonParams.get('server') === storage.server &&
+            CommonParams.get('token') === storage.token
         ) {
             // Reload the tree to the state before page refresh
             PMA_reloadNavigation(navFilterStateRestore, JSON.parse(storage.navTreePaths));
@@ -750,8 +750,8 @@ function scrollToView ($element, $forceToTop) {
  * @returns void
  */
 function PMA_showCurrentNavigation () {
-    var db = PMA_commonParams.get('db');
-    var table = PMA_commonParams.get('table');
+    var db = CommonParams.get('db');
+    var table = CommonParams.get('table');
 
     var autoexpand = $('#pma_navigation_tree').hasClass('autoexpand');
 
@@ -976,7 +976,7 @@ function PMA_ensureNaviSettings (selflink) {
     if (!$('#pma_navigation_settings').length) {
         var params = {
             getNaviSettings: true,
-            server: PMA_commonParams.get('server'),
+            server: CommonParams.get('server'),
         };
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         $.post(url, params, function (data) {
@@ -1007,12 +1007,12 @@ function PMA_reloadNavigation (callback, paths) {
     var params = {
         reload: true,
         no_debug: true,
-        server: PMA_commonParams.get('server'),
+        server: CommonParams.get('server'),
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);
     if ($('#navi_db_select').length) {
-        params.db = PMA_commonParams.get('db');
+        params.db = CommonParams.get('db');
         requestNaviReload(params);
         return;
     }
@@ -1046,12 +1046,12 @@ function PMA_selectCurrentDb () {
         return false;
     }
 
-    if (PMA_commonParams.get('db')) { // db selected
+    if (CommonParams.get('db')) { // db selected
         $naviDbSelect.show();
     }
 
-    $naviDbSelect.val(PMA_commonParams.get('db'));
-    return $naviDbSelect.val() === PMA_commonParams.get('db');
+    $naviDbSelect.val(CommonParams.get('db'));
+    return $naviDbSelect.val() === CommonParams.get('db');
 }
 
 /**
@@ -1074,18 +1074,18 @@ function PMA_navigationTreePagination ($this) {
         params = 'ajax_request=true';
     } else { // tagName === 'SELECT'
         url = 'navigation.php';
-        params = $this.closest('form').serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        params = $this.closest('form').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true';
     }
     var searchClause = PMA_fastFilter.getSearchClause();
     if (searchClause) {
-        params += PMA_commonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
+        params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
     }
     if (isDbSelector) {
-        params += PMA_commonParams.get('arg_separator') + 'full=true';
+        params += CommonParams.get('arg_separator') + 'full=true';
     } else {
         var searchClause2 = PMA_fastFilter.getSearchClause2($this);
         if (searchClause2) {
-            params += PMA_commonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
+            params += CommonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
         }
     }
     $.post(url, params, function (data) {
@@ -1594,7 +1594,7 @@ PMA_fastFilter.filter.prototype.request = function () {
     if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
         if ($input.length && $input.val() !== $input[0].defaultValue) {
-            params += PMA_commonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
+            params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
         }
     }
     self.xhr = $.ajax({

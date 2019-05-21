@@ -146,7 +146,7 @@ function loadGISEditor (value, field, type, input_name) {
         'input_name' : input_name,
         'get_gis_editor' : true,
         'ajax_request': true,
-        'server': PMA_commonParams.get('server')
+        'server': CommonParams.get('server')
     }, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $gis_editor.html(data.gis_editor);
@@ -196,7 +196,7 @@ function insertDataAndClose () {
     var $form = $('form#gis_data_editor_form');
     var input_name = $form.find('input[name=\'input_name\']').val();
 
-    var argsep = PMA_commonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
     $.post('gis_data_editor.php', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $('input[name=\'' + input_name + '\']').val(data.result);
@@ -244,7 +244,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
      */
     $(document).on('change', '#gis_editor input[type=\'text\']', function () {
         var $form = $('form#gis_data_editor_form');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post('gis_data_editor.php', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 $('#gis_data_textarea').val(data.result);
@@ -266,7 +266,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var $gis_editor = $('#gis_editor');
         var $form = $('form#gis_data_editor_form');
 
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post('gis_data_editor.php', $form.serialize() + argsep + 'get_gis_editor=true' + argsep + 'ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 $gis_editor.html(data.gis_editor);
