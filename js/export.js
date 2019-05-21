@@ -799,6 +799,7 @@ function createAliasModal (event) {
         dialogClass: 'alias-dialog',
         buttons: dlgButtons,
         create: function () {
+            $(this).closest('.ui-dialog').find('.ui-button').addClass('btn btn-secondary');
             $(this).css('maxHeight', $(window).height() - 150);
             var db = PMA_commonParams.get('db');
             if (db) {
