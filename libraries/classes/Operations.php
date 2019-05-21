@@ -87,7 +87,7 @@ class Operations
             . '<form id="rename_db_form" '
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
         if (! is_null($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
                 . 'value="' . $db_collation
@@ -206,7 +206,7 @@ class Operations
         $html_output .= '<form id="copy_db_form" '
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
 
         if (! is_null($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
@@ -866,7 +866,7 @@ class Operations
         $html_output = '<div>';
         $html_output .= '<form method="post" action="tbl_operations.php"'
             . ' id="moveTableForm" class="ajax"'
-            . ' onsubmit="return emptyCheckTheField(this, \'new_name\')">'
+            . ' onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
         $html_output .= '<input type="hidden" name="reload" value="1">'
@@ -1317,7 +1317,7 @@ class Operations
             . 'name="copyTable" '
             . 'id="copyTable" '
             . ' class="ajax" '
-            . 'onsubmit="return emptyCheckTheField(this, \'new_name\')">'
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
             . '<input type="hidden" name="reload" value="1">';
 

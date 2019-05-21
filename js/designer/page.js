@@ -61,7 +61,7 @@ function Create_page_list (db, callback) {
             var page = pages[p];
             if (page.db_name === db) {
                 html += '<option value="' + page.pg_nr + '">';
-                html += escapeHtml(page.page_descr) + '</option>';
+                html += Functions.escapeHtml(page.page_descr) + '</option>';
             }
         }
         if (typeof callback !== 'undefined') {

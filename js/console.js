@@ -60,7 +60,7 @@ var PMA_console = {
             return;
         }
 
-        PMA_console.config = configGet('Console', false);
+        PMA_console.config = Functions.configGet('Console', false);
 
         PMA_console.isEnabled = true;
 
@@ -232,7 +232,7 @@ var PMA_console = {
         if (options && options.profiling === true) {
             PMA_console.$requestForm.append('<input name="profiling" value="on">');
         }
-        if (! confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0].value)) {
+        if (! Functions.confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0].value)) {
             return;
         }
         PMA_console.$requestForm.children('[name=console_message_id]')
@@ -399,7 +399,7 @@ var PMA_console = {
     },
     setConfig: function (key, value) {
         PMA_console.config[key] = value;
-        configSet('Console/' + key, value);
+        Functions.configSet('Console/' + key, value);
     },
     isSelect: function (queryString) {
         var reg_exp = /^SELECT\s+/i;
@@ -534,7 +534,7 @@ var PMA_consoleInput = {
                     'async': true,
                 }
             });
-            PMA_consoleInput._inputs.console.on('inputRead', codemirrorAutocompleteOnInputRead);
+            PMA_consoleInput._inputs.console.on('inputRead', Functions.codeMirrorAutoCompleteOnInputRead);
             PMA_consoleInput._inputs.console.on('keydown', function (instance, event) {
                 PMA_consoleInput._historyNavigate(event);
             });
@@ -551,7 +551,7 @@ var PMA_consoleInput = {
                         'async': true,
                     }
                 });
-                PMA_consoleInput._inputs.bookmark.on('inputRead', codemirrorAutocompleteOnInputRead);
+                PMA_consoleInput._inputs.bookmark.on('inputRead', Functions.codeMirrorAutoCompleteOnInputRead);
             }
         } else {
             PMA_consoleInput._inputs.console =
@@ -1205,7 +1205,7 @@ PMA_consoleDebug = {
                 .append(
                     $('<div class="message welcome">')
                         .text(
-                            PMA_sprintf(
+                            Functions.sprintf(
                                 Messages.strConsoleDebugArgsSummary,
                                 dbgStep.args.length
                             )
@@ -1216,7 +1216,7 @@ PMA_consoleDebug = {
                     $('<div class="message">')
                         .html(
                             '<pre>' +
-                        escapeHtml(JSON.stringify(dbgStep.args[i], null, '  ')) +
+                        Functions.escapeHtml(JSON.stringify(dbgStep.args[i], null, '  ')) +
                         '</pre>'
                         )
                 );
@@ -1418,7 +1418,7 @@ PMA_consoleDebug = {
         // Show summary
         $('#debug_console').find('.debug>.welcome').append(
             $('<span class="debug_summary">').text(
-                PMA_sprintf(
+                Functions.sprintf(
                     Messages.strConsoleDebugSummary,
                     totalUnique,
                     totalExec,

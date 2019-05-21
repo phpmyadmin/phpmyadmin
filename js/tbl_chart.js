@@ -54,7 +54,7 @@ function PMA_queryChart (data, columnNames, settings) {
         },
         axes : {
             xaxis : {
-                label : escapeHtml(settings.xaxisLabel)
+                label : Functions.escapeHtml(settings.xaxisLabel)
             },
             yaxis : {
                 label : settings.yaxisLabel
@@ -166,7 +166,7 @@ function drawChart () {
 
     var columnNames = [];
     $('select[name="chartXAxis"] option').each(function () {
-        columnNames.push(escapeHtml($(this).text()));
+        columnNames.push(Functions.escapeHtml($(this).text()));
     });
     try {
         currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
@@ -174,7 +174,7 @@ function drawChart () {
             $('#saveChart').attr('href', currentChart.toImageString());
         }
     } catch (err) {
-        PMA_ajaxShowMessage(err.message, false);
+        Functions.ajaxShowMessage(err.message, false);
     }
 }
 
@@ -364,21 +364,21 @@ AJAX.registerOnload('tbl_chart.js', function () {
         if (codemirror_editor) {
             $form[0].elements.sql_query.value = codemirror_editor.getValue();
         }
-        if (!checkSqlQuery($form[0])) {
+        if (!Functions.checkSqlQuery($form[0])) {
             return false;
         }
 
-        var $msgbox = PMA_ajaxShowMessage();
-        PMA_prepareForAjaxRequest($form);
+        var $msgbox = Functions.ajaxShowMessage();
+        Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' &&
                     data.success === true &&
                     typeof data.chartData !== 'undefined') {
                 chart_data = JSON.parse(data.chartData);
                 drawChart();
-                PMA_ajaxRemoveMessage($msgbox);
+                Functions.ajaxRemoveMessage($msgbox);
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }, 'json'); // end $.post()
 

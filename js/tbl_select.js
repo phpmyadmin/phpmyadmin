@@ -111,9 +111,9 @@ AJAX.registerOnload('tbl_select.js', function () {
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
-        var $msgbox = PMA_ajaxShowMessage(Messages.strSearching, false);
+        var $msgbox = Functions.ajaxShowMessage(Messages.strSearching, false);
 
-        PMA_prepareForAjaxRequest($search_form);
+        Functions.prepareForAjaxRequest($search_form);
 
         var values = {};
         $search_form.find(':input').each(function () {
@@ -157,7 +157,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         }
 
         $.post($search_form.attr('action'), values, function (data) {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success === true) {
                 if (typeof data.sql_query !== 'undefined') { // zero rows
                     $('#sqlqueryresultsouter').html(data.sql_query);
@@ -176,12 +176,12 @@ AJAX.registerOnload('tbl_select.js', function () {
                     // now it's time to show the div containing the link
                     .show();
                 // needed for the display options slider in the results
-                PMA_init_slider();
+                Functions.initSlider();
                 $('html, body').animate({ scrollTop: 0 }, 'fast');
             } else {
                 $('#sqlqueryresultsouter').html(data.error);
             }
-            PMA_highlightSQL($('#sqlqueryresultsouter'));
+            Functions.highlightSql($('#sqlqueryresultsouter'));
         }); // end $.post()
     });
 
@@ -299,7 +299,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN')
             && data_type
         ) {
-            var $msgbox = PMA_ajaxShowMessage();
+            var $msgbox = Functions.ajaxShowMessage();
             $.ajax({
                 url: 'tbl_select.php',
                 type: 'POST',
@@ -312,7 +312,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                     range_search: 1
                 },
                 success: function (response) {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     if (response.success) {
                         // Get the column min value.
                         var min = response.column_data.min
@@ -391,19 +391,19 @@ AJAX.registerOnload('tbl_select.js', function () {
                             title: Messages.strRangeSearch,
                             open: function () {
                                 // Add datepicker wherever required.
-                                PMA_addDatepicker($('#min_value'), data_type);
-                                PMA_addDatepicker($('#max_value'), data_type);
+                                Functions.addDatepicker($('#min_value'), data_type);
+                                Functions.addDatepicker($('#max_value'), data_type);
                             },
                             close: function () {
                                 $(this).remove();
                             }
                         });
                     } else {
-                        PMA_ajaxShowMessage(response.error);
+                        Functions.ajaxShowMessage(response.error);
                     }
                 },
                 error: function (response) {
-                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest);
+                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest);
                 }
             });
         }

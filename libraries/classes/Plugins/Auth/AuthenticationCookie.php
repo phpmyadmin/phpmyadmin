@@ -252,7 +252,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             , $GLOBALS['lang'] , '" async defer></script>';
             echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
             , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                . ' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
+                . ' data-callback="Functions.recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
         }
         $_form_params = [];
         if (! empty($GLOBALS['target'])) {

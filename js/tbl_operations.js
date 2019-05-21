@@ -23,7 +23,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
     $(document).on('submit', '#copyTable.ajax', function (event) {
         event.preventDefault();
         var $form = $(this);
-        PMA_prepareForAjaxRequest($form);
+        Functions.prepareForAjaxRequest($form);
         var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
@@ -37,15 +37,15 @@ AJAX.registerOnload('tbl_operations.js', function () {
                         $form.find('input[name=\'new_name\']').val()
                     );
                     CommonActions.refreshMain(false, function () {
-                        PMA_ajaxShowMessage(data.message);
+                        Functions.ajaxShowMessage(data.message);
                     });
                 } else {
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                 }
                 // Refresh navigation when the table is copied
                 PMA_reloadNavigation();
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     });// end of copyTable ajax submit
@@ -56,19 +56,19 @@ AJAX.registerOnload('tbl_operations.js', function () {
     $(document).on('submit', '#moveTableForm', function (event) {
         event.preventDefault();
         var $form = $(this);
-        PMA_prepareForAjaxRequest($form);
+        Functions.prepareForAjaxRequest($form);
         var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 CommonParams.set('db', data._params.db);
                 CommonParams.set('table', data._params.table);
                 CommonActions.refreshMain('tbl_sql.php', function () {
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                 });
                 // Refresh navigation when the table is copied
                 PMA_reloadNavigation();
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     });
@@ -88,7 +88,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
 
         if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
             // reload page and navigation if the table has been renamed
-            PMA_prepareForAjaxRequest($form);
+            Functions.prepareForAjaxRequest($form);
 
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
                 $form.PMA_confirm(question, $form.attr('action'), function (url) {
@@ -113,12 +113,12 @@ AJAX.registerOnload('tbl_operations.js', function () {
                     CommonParams.set('table', data._params.table);
                     CommonActions.refreshMain(false, function () {
                         $('#page_content').html(data.message);
-                        PMA_highlightSQL($('#page_content'));
+                        Functions.highlightSql($('#page_content'));
                     });
                     // Refresh navigation when the table is renamed
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         }
@@ -153,20 +153,20 @@ AJAX.registerOnload('tbl_operations.js', function () {
             }
             var $temp_div;
             if (typeof data !== 'undefined' && data.success === true && data.sql_query !== undefined) {
-                PMA_ajaxShowMessage(data.message);
+                Functions.ajaxShowMessage(data.message);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.sql_query);
-                PMA_highlightSQL($('#page_content'));
+                Functions.highlightSql($('#page_content'));
                 scrollToTop();
             } else if (typeof data !== 'undefined' && data.success === true) {
                 $temp_div = $('<div id=\'temp_div\'></div>');
                 $temp_div.html(data.message);
                 var $success = $temp_div.find('.result_query .success');
-                PMA_ajaxShowMessage($success);
+                Functions.ajaxShowMessage($success);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.message);
-                PMA_highlightSQL($('#page_content'));
-                PMA_init_slider();
+                Functions.highlightSql($('#page_content'));
+                Functions.initSlider();
                 $('.sqlqueryresults').children('fieldset,br').remove();
                 scrollToTop();
             } else {
@@ -180,7 +180,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                     $error = $temp_div;
                 }
 
-                PMA_ajaxShowMessage($error, false);
+                Functions.ajaxShowMessage($error, false);
             }
         }); // end $.post()
     });// end of table maintenance ajax click
@@ -196,7 +196,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         function submitPartitionMaintenance () {
             var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-            PMA_ajaxShowMessage(Messages.strProcessingRequest);
+            Functions.ajaxShowMessage(Messages.strProcessingRequest);
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
@@ -223,33 +223,33 @@ AJAX.registerOnload('tbl_operations.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = Messages.strDropTableStrongWarning + ' ';
-        question += PMA_sprintf(
+        question += Functions.sprintf(
             Messages.strDoYouReally,
-            'DROP TABLE `'  + escapeHtml(CommonParams.get('db')) + '`.`' + escapeHtml(CommonParams.get('table') + '`')
-        ) + getForeignKeyCheckboxLoader();
+            'DROP TABLE `'  + Functions.escapeHtml(CommonParams.get('db')) + '`.`' + Functions.escapeHtml(CommonParams.get('table') + '`')
+        ) + Functions.getForeignKeyCheckboxLoader();
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+            var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
-            var params = getJSConfirmCommonParam(this, $link.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
                     CommonParams.set('table', '');
                     CommonActions.refreshMain(
                         CommonParams.get('opendb_url'),
                         function () {
-                            PMA_ajaxShowMessage(data.message);
+                            Functions.ajaxShowMessage(data.message);
                         }
                     );
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
-        }, loadForeignKeyCheckbox); // end $.PMA_confirm()
+        }, Functions.loadForeignKeyCheckbox); // end $.PMA_confirm()
     }); // end of Drop Table Ajax action
 
     $(document).on('click', '#drop_view_anchor.ajax', function (event) {
@@ -259,28 +259,28 @@ AJAX.registerOnload('tbl_operations.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = Messages.strDropTableStrongWarning + ' ';
-        question += PMA_sprintf(
+        question += Functions.sprintf(
             Messages.strDoYouReally,
-            'DROP VIEW `' + escapeHtml(CommonParams.get('table') + '`')
+            'DROP VIEW `' + Functions.escapeHtml(CommonParams.get('table') + '`')
         );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
-            var params = getJSConfirmCommonParam(this, $link.getPostData());
+            var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
                     CommonParams.set('table', '');
                     CommonActions.refreshMain(
                         CommonParams.get('opendb_url'),
                         function () {
-                            PMA_ajaxShowMessage(data.message);
+                            Functions.ajaxShowMessage(data.message);
                         }
                     );
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()
@@ -293,14 +293,14 @@ AJAX.registerOnload('tbl_operations.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = Messages.strTruncateTableStrongWarning + ' ';
-        question += PMA_sprintf(
+        question += Functions.sprintf(
             Messages.strDoYouReally,
-            'TRUNCATE `' + escapeHtml(CommonParams.get('db')) + '`.`' + escapeHtml(CommonParams.get('table') + '`')
-        ) + getForeignKeyCheckboxLoader();
+            'TRUNCATE `' + Functions.escapeHtml(CommonParams.get('db')) + '`.`' + Functions.escapeHtml(CommonParams.get('table') + '`')
+        ) + Functions.getForeignKeyCheckboxLoader();
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            PMA_ajaxShowMessage(Messages.strProcessingRequest);
+            Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
-            var params = getJSConfirmCommonParam(this, $link.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
 
             $.post(url, params, function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
@@ -310,14 +310,14 @@ AJAX.registerOnload('tbl_operations.js', function () {
                     $('.result_query').remove();
                 }
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                     $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                     $('.sqlqueryresults').html(data.sql_query);
-                    PMA_highlightSQL($('#page_content'));
+                    Functions.highlightSql($('#page_content'));
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
-        }, loadForeignKeyCheckbox); // end $.PMA_confirm()
+        }, Functions.loadForeignKeyCheckbox); // end $.PMA_confirm()
     }); // end of Truncate Table Ajax action
 }); // end $(document).ready for 'Table operations'

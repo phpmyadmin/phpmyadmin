@@ -215,7 +215,7 @@ class SqlQueryForm
     ) {
         // enable auto select text in textarea
         if ($GLOBALS['cfg']['TextareaAutoSelect']) {
-            $auto_sel = ' onclick="selectContent(this, sql_box_locked, true);"';
+            $auto_sel = ' onclick="Functions.selectContent(this, sql_box_locked, true);"';
         } else {
             $auto_sel = '';
         }
@@ -282,7 +282,7 @@ class SqlQueryForm
                 . '<label>' . __('Columns') . '</label>'
                 . '<select id="tablefields" name="dummy" '
                 . 'size="' . ($GLOBALS['cfg']['TextareaRows'] - 2) . '" '
-                . 'multiple="multiple" ondblclick="insertValueQuery()">';
+                . 'multiple="multiple" ondblclick="Functions.insertValueQuery()">';
             foreach ($columns_list as $field) {
                 $html .= '<option value="'
                     . Util::backquote(htmlspecialchars($field['Field']))
@@ -299,12 +299,12 @@ class SqlQueryForm
                 . '<div id="tablefieldinsertbuttoncontainer">';
             if (Util::showIcons('ActionLinksMode')) {
                 $html .= '<input type="button" class="btn btn-secondary button" name="insert"'
-                    . ' value="&lt;&lt;" onclick="insertValueQuery()"'
+                    . ' value="&lt;&lt;" onclick="Functions.insertValueQuery()"'
                     . ' title="' . __('Insert') . '">';
             } else {
                 $html .= '<input type="button" class="btn btn-secondary button" name="insert"'
                     . ' value="' . __('Insert') . '"'
-                    . ' onclick="insertValueQuery()">';
+                    . ' onclick="Functions.insertValueQuery()">';
             }
             $html .= '</div>' . "\n"
                 . '</div>' . "\n";

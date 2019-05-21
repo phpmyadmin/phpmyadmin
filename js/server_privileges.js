@@ -27,7 +27,7 @@ function checkAddUser (the_form) {
         return false;
     }
 
-    return PMA_checkPassword($(the_form));
+    return Functions.checkPassword($(the_form));
 } // end of the 'checkAddUser()' function
 
 function checkPasswordStrength (value, meter_obj, meter_object_label, username) {
@@ -161,7 +161,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     /**
      * AJAX handler for 'Revoke User'
      *
-     * @see         PMA_ajaxShowMessage()
+     * @see         Functions.ajaxShowMessage()
      * @memberOf    jQuery
      * @name        revoke_user_click
      */
@@ -174,19 +174,19 @@ AJAX.registerOnload('server_privileges.js', function () {
         $thisButton.PMA_confirm(Messages.strDropUserWarning, $form.attr('action'), function (url) {
             var $drop_users_db_checkbox = $('#checkbox_drop_users_db');
             if ($drop_users_db_checkbox.is(':checked')) {
-                var is_confirmed = confirm(Messages.strDropDatabaseStrongWarning + '\n' + PMA_sprintf(Messages.strDoYouReally, 'DROP DATABASE'));
+                var is_confirmed = confirm(Messages.strDropDatabaseStrongWarning + '\n' + Functions.sprintf(Messages.strDoYouReally, 'DROP DATABASE'));
                 if (! is_confirmed) {
                     // Uncheck the drop users database checkbox
                     $drop_users_db_checkbox.prop('checked', false);
                 }
             }
 
-            PMA_ajaxShowMessage(Messages.strRemovingSelectedUsers);
+            Functions.ajaxShowMessage(Messages.strRemovingSelectedUsers);
 
             var argsep = CommonParams.get('arg_separator');
             $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                     // Refresh navigation, if we droppped some databases with the name
                     // that is the same as the username of the deleted user
                     if ($('#checkbox_drop_users_db:checked').length) {
@@ -214,7 +214,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                         $(checkboxes_sel).trigger('change');
                     });
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         });
@@ -223,7 +223,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     $(document).on('click', 'a.edit_user_group_anchor.ajax', function (event) {
         event.preventDefault();
         $(this).parents('tr').addClass('current_row');
-        var $msg = PMA_ajaxShowMessage();
+        var $msg = Functions.ajaxShowMessage();
         $.get(
             $(this).attr('href'),
             {
@@ -232,19 +232,19 @@ AJAX.registerOnload('server_privileges.js', function () {
             },
             function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msg);
+                    Functions.ajaxRemoveMessage($msg);
                     var buttonOptions = {};
                     buttonOptions[Messages.strGo] = function () {
                         var usrGroup = $('#changeUserGroupDialog')
                             .find('select[name="userGroup"]')
                             .val();
-                        var $message = PMA_ajaxShowMessage();
+                        var $message = Functions.ajaxShowMessage();
                         var argsep = CommonParams.get('arg_separator');
                         $.post(
                             'server_privileges.php',
                             $('#changeUserGroupDialog').find('form').serialize() + argsep + 'ajax_request=1',
                             function (data) {
-                                PMA_ajaxRemoveMessage($message);
+                                Functions.ajaxRemoveMessage($message);
                                 if (typeof data !== 'undefined' && data.success === true) {
                                     $('#usersForm')
                                         .find('.current_row')
@@ -252,7 +252,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                                         .find('.usrGroup')
                                         .text(usrGroup);
                                 } else {
-                                    PMA_ajaxShowMessage(data.error, false);
+                                    Functions.ajaxShowMessage(data.error, false);
                                     $('#usersForm')
                                         .find('.current_row')
                                         .removeClass('current_row');
@@ -279,7 +279,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                         });
                     $dialog.find('legend').remove();
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                     $('#usersForm')
                         .find('.current_row')
                         .removeClass('current_row');
@@ -291,7 +291,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     /**
      * AJAX handler for 'Export Privileges'
      *
-     * @see         PMA_ajaxShowMessage()
+     * @see         Functions.ajaxShowMessage()
      * @memberOf    jQuery
      * @name        export_user_click
      */
@@ -299,10 +299,10 @@ AJAX.registerOnload('server_privileges.js', function () {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find('input:checked').length === 0) {
-            PMA_ajaxShowMessage(Messages.strNoAccountSelected, 2000, 'success');
+            Functions.ajaxShowMessage(Messages.strNoAccountSelected, 2000, 'success');
             return;
         }
-        var $msgbox = PMA_ajaxShowMessage();
+        var $msgbox = Functions.ajaxShowMessage();
         var button_options = {};
         button_options[Messages.strClose] = function () {
             $(this).dialog('close');
@@ -323,21 +323,21 @@ AJAX.registerOnload('server_privileges.js', function () {
                                 $(this).remove();
                             }
                         });
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     // Attach syntax highlighted editor to export dialog
-                    PMA_getSQLEditor($ajaxDialog.find('textarea'));
+                    Functions.getSqlEditor($ajaxDialog.find('textarea'));
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }
         ); // end $.post
     });
     // if exporting non-ajax, highlight anyways
-    PMA_getSQLEditor($('textarea.export'));
+    Functions.getSqlEditor($('textarea.export'));
 
     $(document).on('click', 'a.export_user_anchor.ajax', function (event) {
         event.preventDefault();
-        var $msgbox = PMA_ajaxShowMessage();
+        var $msgbox = Functions.ajaxShowMessage();
         /**
          * @var button_options  Object containing options for jQueryUI dialog buttons
          */
@@ -357,11 +357,11 @@ AJAX.registerOnload('server_privileges.js', function () {
                             $(this).remove();
                         }
                     });
-                PMA_ajaxRemoveMessage($msgbox);
+                Functions.ajaxRemoveMessage($msgbox);
                 // Attach syntax highlighted editor to export dialog
-                PMA_getSQLEditor($ajaxDialog.find('textarea'));
+                Functions.getSqlEditor($ajaxDialog.find('textarea'));
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }); // end $.get
     }); // end export privileges
@@ -369,16 +369,16 @@ AJAX.registerOnload('server_privileges.js', function () {
     /**
      * AJAX handler to Paginate the Users Table
      *
-     * @see         PMA_ajaxShowMessage()
+     * @see         Functions.ajaxShowMessage()
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */
     $(document).on('click', '#initials_table a.ajax', function (event) {
         event.preventDefault();
-        var $msgbox = PMA_ajaxShowMessage();
+        var $msgbox = Functions.ajaxShowMessage();
         $.get($(this).attr('href'), { 'ajax_request' : true }, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                PMA_ajaxRemoveMessage($msgbox);
+                Functions.ajaxRemoveMessage($msgbox);
                 // This form is not on screen when first entering Privileges
                 // if there are more than 50 users
                 $('div.notice').remove();
@@ -391,7 +391,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 // prevent double initials table
                 $('#initials_table_old').remove();
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }); // end $.get
     }); // end of the paginate users table
@@ -477,7 +477,7 @@ AJAX.registerOnload('server_privileges.js', function () {
 
     $('input.autofocus').focus();
     $(checkboxes_sel).trigger('change');
-    displayPasswordGenerateButton();
+    Functions.displayPasswordGenerateButton();
     if ($('#edit_user_dialog').length > 0) {
         addOrUpdateSubmenu();
     }

@@ -59,12 +59,12 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         if ($button.val() === 'delete_version') {
             var question = Messages.strDeleteTrackingVersionMultiple;
             $button.PMA_confirm(question, $form.attr('action'), function (url) {
-                PMA_ajaxShowMessage();
+                Functions.ajaxShowMessage();
                 AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
@@ -78,10 +78,10 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         var $anchor = $(this);
         var question = Messages.strDeleteTrackingVersion;
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');
-            var params = getJSConfirmCommonParam(this, $anchor.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });
@@ -95,10 +95,10 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         var $anchor = $(this);
         var question = Messages.strDeletingTrackingEntry;
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');
-            var params = getJSConfirmCommonParam(this, $anchor.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });

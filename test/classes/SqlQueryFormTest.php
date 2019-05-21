@@ -126,7 +126,7 @@ class SqlQueryFormTest extends TestCase
         );
 
         //validate 2: enable auto select text in textarea
-        $auto_sel = ' onclick="selectContent(this, sql_box_locked, true);"';
+        $auto_sel = ' onclick="Functions.selectContent(this, sql_box_locked, true);"';
         $this->assertStringContainsString(
             $auto_sel,
             $html

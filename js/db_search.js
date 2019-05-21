@@ -30,7 +30,7 @@ AJAX.registerTeardown('db_search.js', function () {
 
 AJAX.registerOnload('db_search.js', function () {
     /** Hide the table link in the initial search result */
-    var icon = PMA_getImage('s_tbl', '', { 'id': 'table-image' }).toString();
+    var icon = Functions.getImage('s_tbl', '', { 'id': 'table-image' }).toString();
     $('#table-info').prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */
@@ -116,7 +116,7 @@ AJAX.registerOnload('db_search.js', function () {
     $(document).on('click', 'a.browse_results', function (e) {
         e.preventDefault();
         /**   Hides the results shown by the delete criteria */
-        var $msg = PMA_ajaxShowMessage(Messages.strBrowsing, false);
+        var $msg = Functions.ajaxShowMessage(Messages.strBrowsing, false);
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
@@ -134,18 +134,18 @@ AJAX.registerOnload('db_search.js', function () {
         $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#browse-results').html(data.message);
-                PMA_ajaxRemoveMessage($msg);
+                Functions.ajaxRemoveMessage($msg);
                 $('.table_results').each(function () {
                     PMA_makegrid(this, true, true, true, true);
                 });
                 $('#browse-results').show();
-                PMA_highlightSQL($('#browse-results'));
+                Functions.highlightSql($('#browse-results'));
                 $('html, body')
                     .animate({
                         scrollTop: $('#browse-results').offset().top
                     }, 1000);
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         });
     });
@@ -160,12 +160,12 @@ AJAX.registerOnload('db_search.js', function () {
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
-        var msg = PMA_sprintf(
+        var msg = Functions.sprintf(
             Messages.strConfirmDeleteResults,
             $(this).data('table-name')
         );
         if (confirm(msg)) {
-            var $msg = PMA_ajaxShowMessage(Messages.strDeleting, false);
+            var $msg = Functions.ajaxShowMessage(Messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
             var params = {
@@ -177,7 +177,7 @@ AJAX.registerOnload('db_search.js', function () {
 
             $.post(url, params, function (data) {
                 if (typeof data === 'undefined' || !data.success) {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                     return;
                 }
 
@@ -193,7 +193,7 @@ AJAX.registerOnload('db_search.js', function () {
                     .animate({
                         scrollTop: $('#browse-results').offset().top
                     }, 1000);
-                PMA_ajaxRemoveMessage($msg);
+                Functions.ajaxRemoveMessage($msg);
             });
         }
     });
@@ -204,11 +204,11 @@ AJAX.registerOnload('db_search.js', function () {
     $(document).on('submit', '#db_search_form.ajax', function (event) {
         event.preventDefault();
 
-        var $msgbox = PMA_ajaxShowMessage(Messages.strSearching, false);
+        var $msgbox = Functions.ajaxShowMessage(Messages.strSearching, false);
         // jQuery object to reuse
         var $form = $(this);
 
-        PMA_prepareForAjaxRequest($form);
+        Functions.prepareForAjaxRequest($form);
 
         var url = $form.serialize() + CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
         $.post($form.attr('action'), url, function (data) {
@@ -240,7 +240,7 @@ AJAX.registerOnload('db_search.js', function () {
                 $('#searchresults').html(data.error).show();
             }
 
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
         });
     });
 }); // end $()

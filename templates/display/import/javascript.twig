@@ -65,12 +65,12 @@ $( function() {
                             now.getMinutes(),
                             now.getSeconds())
                             + now.getMilliseconds() - 1000;
-                        var statustext = PMA_sprintf(
+                        var statustext = Functions.sprintf(
                             "{{ statustext_str|raw }}",
-                            formatBytes(
+                            Functions.formatBytes(
                                 complete, 1, Messages.strDecimalSeparator
                             ),
-                            formatBytes(
+                            Functions.formatBytes(
                                 total, 1, Messages.strDecimalSeparator
                             )
                         );
@@ -87,9 +87,9 @@ $( function() {
                             {# Calculate estimated time #}
                             var used_time = now - import_start;
                             var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
-                            var speed = PMA_sprintf(
+                            var speed = Functions.sprintf(
                                 "{{ second_str|raw }}",
-                                formatBytes(complete / used_time * 1000, 1, Messages.strDecimalSeparator)
+                                Functions.formatBytes(complete / used_time * 1000, 1, Messages.strDecimalSeparator)
                             );
 
                             var minutes = parseInt(seconds / 60);

@@ -390,7 +390,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         var $temp_div = $(document.createElement('div'));
                         $temp_div.html(data.error);
                         $temp_div.addClass('error');
-                        PMA_ajaxShowMessage($temp_div, false);
+                        Functions.ajaxShowMessage($temp_div, false);
                     }
                 });
             }
@@ -599,7 +599,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                             height: $cell.outerHeight()
                         });
                     // fill the cell edit with text from <td>
-                    var value = PMA_getCellValue(cell);
+                    var value = Functions.getCellValue(cell);
                     if ($cell.attr('data-type') === 'json' && $cell.is('.truncated') === false) {
                         try {
                             value = JSON.stringify(JSON.parse(value), null, 4);
@@ -675,7 +675,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         }
 
                         // Add <br> before carriage return.
-                        new_html = escapeHtml(value);
+                        new_html = Functions.escapeHtml(value);
                         new_html = new_html.replace(/\n/g, '<br>\n');
 
                         // remove decimal places if column type not supported
@@ -695,7 +695,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
                         // Updates the code keeping highlighting (if any).
                         var $target = $this_field.find(selector);
-                        if (!PMA_updateCode($target, new_html, value)) {
+                        if (!Functions.updateCode($target, new_html, value)) {
                             $target.html(new_html);
                         }
                     }
@@ -1017,7 +1017,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
                             } else {
-                                PMA_ajaxShowMessage(data.error, false);
+                                Functions.ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()
                     }
@@ -1059,7 +1059,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     }
 
                     // add datetime picker
-                    PMA_addDatepicker($input_field, $td.attr('data-type'), {
+                    Functions.addDatepicker($input_field, $td.attr('data-type'), {
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
                         timeFormat: timeFormat
@@ -1073,12 +1073,12 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                             g.saveOrPostEditedCell();
                         } else if (e.which === 27) {
                         } else {
-                            toggleDatepickerIfInvalid($td, $input_field);
+                            Functions.toggleDatepickerIfInvalid($td, $input_field);
                         }
                     });
 
                     $input_field.datepicker('show');
-                    toggleDatepickerIfInvalid($td, $input_field);
+                    Functions.toggleDatepickerIfInvalid($td, $input_field);
 
                     // unbind the mousedown event to prevent the problem of
                     // datepicker getting closed, needs to be checked for any
@@ -1323,7 +1323,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         }
                         if (typeof data !== 'undefined' && data.success === true) {
                             if (typeof options === 'undefined' || ! options.move) {
-                                PMA_ajaxShowMessage(data.message);
+                                Functions.ajaxShowMessage(data.message);
                             }
 
                             // update where_clause related data in each edited row
@@ -1343,7 +1343,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                                         $(this).removeAttr('onclick')
                                             .off('click')
                                             .on('click', function () {
-                                                return confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
+                                                return Functions.confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
                                                        decoded_new_clause + (is_unique ? '' : ' LIMIT 1'));
                                             });
                                     }
@@ -1376,7 +1376,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                                     } else {
                                         $existing_query.append(sqlOuter + tools);
                                     }
-                                    PMA_highlightSQL($existing_query);
+                                    Functions.highlightSql($existing_query);
                                 }
                             }
                             // hide and/or update the successfully saved cells
@@ -1392,7 +1392,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
                             g.isCellEdited = false;
                         } else {
-                            PMA_ajaxShowMessage(data.error, false);
+                            Functions.ajaxShowMessage(data.error, false);
                             if (!g.saveCellsAtOnce) {
                                 $(g.t).find('.to_be_saved')
                                     .removeClass('to_be_saved');
@@ -1460,13 +1460,13 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                     } else {
                         var hexError = '<div class="error">' + Messages.strEnterValidHex + '</div>';
-                        PMA_ajaxShowMessage(hexError, false);
-                        this_field_params[field_name] = PMA_getCellValue(g.currentEditCell);
+                        Functions.ajaxShowMessage(hexError, false);
+                        this_field_params[field_name] = Functions.getCellValue(g.currentEditCell);
                     }
                 } else {
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 }
-                if (g.wasEditedCellNull || this_field_params[field_name] !== PMA_getCellValue(g.currentEditCell)) {
+                if (g.wasEditedCellNull || this_field_params[field_name] !== Functions.getCellValue(g.currentEditCell)) {
                     need_to_post = true;
                 }
             }
@@ -1696,7 +1696,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             // make sure we have more than one column
             if ($firstRowCols.length > 1) {
                 var $colVisibTh = $(g.t).find('th:not(.draggable)');
-                PMA_tooltip(
+                Functions.tooltip(
                     $colVisibTh,
                     'th',
                     Messages.strColVisibHint
@@ -2116,7 +2116,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
             if (Messages.strGridEditFeatureHint !== undefined) {
-                PMA_tooltip(
+                Functions.tooltip(
                     $(g.t).find('.edit_row_anchor a'),
                     'a',
                     Messages.strGridEditFeatureHint
@@ -2212,7 +2212,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
     }
 
     // create tooltip for each <th> with draggable class
-    PMA_tooltip(
+    Functions.tooltip(
         $(t).find('th.draggable'),
         'th',
         g.updateHint()

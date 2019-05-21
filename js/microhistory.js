@@ -90,7 +90,7 @@ PMA_MicroHistory = {
             typeof this.pages[index].menu === 'undefined' ||
             ! PMA_MicroHistory.menus.get(this.pages[index].menu)
         ) {
-            PMA_ajaxShowMessage(
+            Functions.ajaxShowMessage(
                 '<div class="error">' + Messages.strInvalidPage + '</div>',
                 false
             );
@@ -216,7 +216,7 @@ PMA_MicroHistory = {
                 // Remove duplicate wrapper
                 // TODO: don't send it in the response
                 .children().first().remove();
-            $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
+            $('#topmenu').menuResizer(Functions.mainMenuResizerCallback);
         }
     }
 };

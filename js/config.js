@@ -22,7 +22,7 @@ function isStorageSupported (type, warn) {
     } catch (error) {
         // Not supported
         if (warn) {
-            PMA_ajaxShowMessage(Messages.strNoLocalStorage, false);
+            Functions.ajaxShowMessage(Messages.strNoLocalStorage, false);
         }
     }
     return false;
@@ -303,7 +303,7 @@ var validators = {
         if (isNaN(val)) {
             return true;
         }
-        return val <= max_value ? true : PMA_sprintf(Messages.error_value_lte, max_value);
+        return val <= max_value ? true : Functions.sprintf(Messages.error_value_lte, max_value);
     },
     // field validators
     _field: {
@@ -825,7 +825,7 @@ function savePrefsToLocalStorage (form) {
                 $form.hide('fast');
                 $form.prev('.click-hide-message').show('fast');
             } else {
-                PMA_ajaxShowMessage(data.error);
+                Functions.ajaxShowMessage(data.error);
             }
         },
         complete: function () {
@@ -841,7 +841,7 @@ function updatePrefsDate () {
     var d = new Date(window.localStorage.config_mtime_local);
     var msg = Messages.strSavedOn.replace(
         '@DATE@',
-        PMA_formatDateTime(d)
+        Functions.formatDateTime(d)
     );
     $('#opts_import_local_storage').find('div.localStorage-exists').html(msg);
 }

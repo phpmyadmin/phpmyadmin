@@ -50,10 +50,10 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.preventDefault();
         var multi_delete_columns = $('.checkall:checkbox:checked').serialize();
         if (multi_delete_columns === '') {
-            PMA_ajaxShowMessage(Messages.strRadioUnchecked);
+            Functions.ajaxShowMessage(Messages.strRadioUnchecked);
             return false;
         }
-        PMA_ajaxShowMessage();
+        Functions.ajaxShowMessage();
         $('#del_col_name').val(multi_delete_columns);
         $('#del_form').submit();
     });
@@ -61,12 +61,12 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.preventDefault();
         var editColumnList = $('.checkall:checkbox:checked').serialize();
         if (editColumnList === '') {
-            PMA_ajaxShowMessage(Messages.strRadioUnchecked);
+            Functions.ajaxShowMessage(Messages.strRadioUnchecked);
             return false;
         }
         var argsep = CommonParams.get('arg_separator');
         var editColumnData = editColumnList + '' + argsep + 'edit_central_columns_page=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db'));
-        PMA_ajaxShowMessage();
+        Functions.ajaxShowMessage();
         AJAX.source = $(this);
         $.post('db_central_columns.php', editColumnData, AJAX.responseHandler);
     });
@@ -75,7 +75,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.stopPropagation();
         var argsep = CommonParams.get('arg_separator');
         var multi_column_edit_data = $('#multi_edit_central_columns').serialize() + argsep + 'multi_edit_central_column_save=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db'));
-        PMA_ajaxShowMessage();
+        Functions.ajaxShowMessage();
         AJAX.source = $(this);
         $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
     });
@@ -158,7 +158,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             dataType: 'json',
             success: function (data) {
                 if (data.message !== '1') {
-                    PMA_ajaxShowMessage(
+                    Functions.ajaxShowMessage(
                         '<div class="error">' +
                         data.message +
                         '</div>',
@@ -182,7 +182,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
                 $('#tableslistcontainer').find('.checkall').show();
             },
             error: function () {
-                PMA_ajaxShowMessage(
+                Functions.ajaxShowMessage(
                     '<div class="error">' +
                         Messages.strErrorProcessingRequest +
                         '</div>',

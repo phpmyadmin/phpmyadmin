@@ -346,7 +346,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                 col_index
             );
         } else {
-            PMA_ajaxShowMessage(
+            Functions.ajaxShowMessage(
                 '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
                 ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
                 ' </div>', false
@@ -371,13 +371,13 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
         }
         $(this).dialog('close');
     };
-    var $msgbox = PMA_ajaxShowMessage();
+    var $msgbox = Functions.ajaxShowMessage();
     $.post('tbl_indexes.php', post_data, function (data) {
         if (data.success === false) {
             // in the case of an error, show the error message returned.
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         } else {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
             if (showDialog) {
                 // Show dialog if the request was successful
                 if ($('#addIndex').length > 0) {
@@ -391,9 +391,9 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                         width: 450,
                         minHeight: 250,
                         open: function () {
-                            checkIndexName('index_frm');
-                            PMA_showHints($div);
-                            PMA_init_slider();
+                            Functions.checkIndexName('index_frm');
+                            Functions.showHints($div);
+                            Functions.initSlider();
                             $('#index_columns').find('td').each(function () {
                                 $(this).css('width', $(this).width() + 'px');
                             });
@@ -433,7 +433,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                         col_index
                     );
                 } else {
-                    PMA_ajaxShowMessage(
+                    Functions.ajaxShowMessage(
                         '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
                         ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
                         ' </div>', false
@@ -484,7 +484,7 @@ function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
         if ($('#composite_index').is(':checked')) {
             if ($('input[name="composite_with"]').length !== 0 && $('input[name="composite_with"]:checked').length === 0
             ) {
-                PMA_ajaxShowMessage(
+                Functions.ajaxShowMessage(
                     '<div class="error"><img src="themes/dot.gif" title=""' +
                     ' alt="" class="icon ic_s_error"> ' +
                     Messages.strFormEmpty +
@@ -583,12 +583,12 @@ AJAX.registerOnload('indexes.js', function () {
     // for table creation form
     var $engine_selector = $('.create_table_form select[name=tbl_storage_engine]');
     if ($engine_selector.length) {
-        PMA_hideShowConnection($engine_selector);
+        Functions.hideShowConnection($engine_selector);
     }
 
     var $form = $('#index_frm');
     if ($form.length > 0) {
-        showIndexEditDialog($form);
+        Functions.showIndexEditDialog($form);
     }
 
     $(document).on('click', '#save_index_frm', function (event) {
@@ -596,20 +596,20 @@ AJAX.registerOnload('indexes.js', function () {
         var $form = $('#index_frm');
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-        var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
 
     $(document).on('click', '#preview_index_frm', function (event) {
         event.preventDefault();
-        PMA_previewSQL($('#index_frm'));
+        Functions.previewSql($('#index_frm'));
     });
 
     $(document).on('change', '#select_index_choice', function (event) {
         event.preventDefault();
         checkIndexType();
-        checkIndexName('index_frm');
+        Functions.checkIndexName('index_frm');
     });
 
     /**
@@ -630,18 +630,18 @@ AJAX.registerOnload('indexes.js', function () {
             $rows_to_hide = $rows_to_hide.add($last_row);
         }
 
-        var question = escapeHtml(
+        var question = Functions.escapeHtml(
             $curr_row.children('td')
                 .children('.drop_primary_key_index_msg')
                 .val()
         );
 
-        PMA_confirmPreviewSQL(question, $anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(Messages.strDroppingPrimaryKeyIndex, false);
-            var params = getJSConfirmCommonParam(this, $anchor.getPostData());
+        Functions.confirmPreviewSql(question, $anchor.attr('href'), function (url) {
+            var $msg = Functions.ajaxShowMessage(Messages.strDroppingPrimaryKeyIndex, false);
+            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msg);
+                    Functions.ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
                     if ($rows_to_hide.length === $table_ref.find('tbody > tr').length) {
                         // We are about to remove all rows from the table
@@ -663,14 +663,14 @@ AJAX.registerOnload('indexes.js', function () {
                         $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#structure_content');
-                        PMA_highlightSQL($('#page_content'));
+                        Functions.highlightSql($('#page_content'));
                     }
                     CommonActions.refreshMain(false, function () {
                         $('a.ajax[href^=#indexes]').trigger('click');
                     });
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()
@@ -685,7 +685,7 @@ AJAX.registerOnload('indexes.js', function () {
         var title;
         if ($(this).find('a').length === 0) {
             // Add index
-            var valid = checkFormElementInRange(
+            var valid = Functions.checkFormElementInRange(
                 $(this).closest('form')[0],
                 'added_fields',
                 'Column count has to be larger than zero.'
@@ -701,7 +701,7 @@ AJAX.registerOnload('indexes.js', function () {
             title = Messages.strEditIndex;
         }
         url += CommonParams.get('arg_separator') + 'ajax_request=true';
-        indexEditorDialog(url, title, function () {
+        Functions.indexEditorDialog(url, title, function () {
             // refresh the page using ajax
             CommonActions.refreshMain(false, function () {
                 $('a.ajax[href^=#indexes]').trigger('click');

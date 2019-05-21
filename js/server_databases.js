@@ -39,10 +39,10 @@ AJAX.registerOnload('server_databases.js', function () {
         // loop over all checked checkboxes, except the .checkall_box checkbox
         $form.find('input:checkbox:checked:not(.checkall_box)').each(function () {
             $(this).closest('tr').addClass('removeMe');
-            selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
+            selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + Functions.escapeHtml($(this).val()) + '`;';
         });
         if (! selected_dbs.length) {
-            PMA_ajaxShowMessage(
+            Functions.ajaxShowMessage(
                 $('<div class="notice"></div>').text(
                     Messages.strNoDatabasesSelected
                 ),
@@ -54,7 +54,7 @@ AJAX.registerOnload('server_databases.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = Messages.strDropDatabaseStrongWarning + ' ' +
-            PMA_sprintf(Messages.strDoYouReally, selected_dbs.join('<br>'));
+            Functions.sprintf(Messages.strDoYouReally, selected_dbs.join('<br>'));
 
         var argsep = CommonParams.get('arg_separator');
         $(this).PMA_confirm(
@@ -62,14 +62,14 @@ AJAX.registerOnload('server_databases.js', function () {
             $form.prop('action') + '?' + $(this).serialize() +
                 argsep + 'drop_selected_dbs=1',
             function (url) {
-                PMA_ajaxShowMessage(Messages.strProcessingRequest, false);
+                Functions.ajaxShowMessage(Messages.strProcessingRequest, false);
 
                 var parts = url.split('?');
-                var params = getJSConfirmCommonParam(this, parts[1]);
+                var params = Functions.getJsConfirmCommonParam(this, parts[1]);
 
                 $.post(parts[0], params, function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
-                        PMA_ajaxShowMessage(data.message);
+                        Functions.ajaxShowMessage(data.message);
 
                         var $rowsToRemove = $form.find('tr.removeMe');
                         var $databasesCount = $('#filter-rows-count');
@@ -85,7 +85,7 @@ AJAX.registerOnload('server_databases.js', function () {
                         PMA_reloadNavigation();
                     } else {
                         $form.find('tr.removeMe').removeClass('removeMe');
-                        PMA_ajaxShowMessage(data.error, false);
+                        Functions.ajaxShowMessage(data.error, false);
                     }
                 }); // end $.post()
             }
@@ -109,12 +109,12 @@ AJAX.registerOnload('server_databases.js', function () {
         }
         // end remove
 
-        PMA_ajaxShowMessage(Messages.strProcessingRequest);
-        PMA_prepareForAjaxRequest($form);
+        Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        Functions.prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                PMA_ajaxShowMessage(data.message);
+                Functions.ajaxShowMessage(data.message);
 
                 var $databases_count_object = $('#filter-rows-count');
                 var databases_count = parseInt($databases_count_object.text(), 10) + 1;
@@ -130,7 +130,7 @@ AJAX.registerOnload('server_databases.js', function () {
                 }
                 $.get(dbStruct_url, params, AJAX.responseHandler);
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     }); // end $(document).on()

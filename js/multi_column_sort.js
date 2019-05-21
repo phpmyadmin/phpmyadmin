@@ -64,14 +64,14 @@ AJAX.registerOnload('keyhandler.js', function () {
             var params = removeColumnFromMultiSort(url, $(this).parent());
             if (params) {
                 AJAX.source = $(this);
-                PMA_ajaxShowMessage();
+                Functions.ajaxShowMessage();
                 params += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
                 $.post('sql.php', params, AJAX.responseHandler);
             }
         } else if (event.shiftKey) {
             event.preventDefault();
             AJAX.source = $(this);
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             var params = url.substring(url.indexOf('?') + 1);
             params += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             $.post('sql.php', params, AJAX.responseHandler);

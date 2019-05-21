@@ -694,13 +694,13 @@ function Save2 (callback) {
         poststr += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'selected_page=' + selected_page;
         poststr += Get_url_pos();
 
-        var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
         $.post('db_designer.php', poststr, function (data) {
             if (data.success === false) {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             } else {
-                PMA_ajaxRemoveMessage($msgbox);
-                PMA_ajaxShowMessage(Messages.strModificationSaved);
+                Functions.ajaxRemoveMessage($msgbox);
+                Functions.ajaxShowMessage(Messages.strModificationSaved);
                 MarkSaved();
                 if (typeof callback !== 'undefined') {
                     callback();
@@ -723,19 +723,19 @@ function submitSaveDialogAndClose (callback) {
     var $form = $('#save_page');
     var name = $form.find('input[name="selected_value"]').val().trim();
     if (name === '') {
-        PMA_ajaxShowMessage(Messages.strEnterValidPageName, false);
+        Functions.ajaxShowMessage(Messages.strEnterValidPageName, false);
         return;
     }
     $('#page_save_dialog').dialog('close');
 
     if (designer_tables_enabled) {
-        var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
-        PMA_prepareForAjaxRequest($form);
+        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
             if (data.success === false) {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             } else {
-                PMA_ajaxRemoveMessage($msgbox);
+                Functions.ajaxRemoveMessage($msgbox);
                 MarkSaved();
                 if (data.id) {
                     selected_page = data.id;
@@ -807,7 +807,7 @@ function Edit_pages () {
             var $form = $('#edit_delete_pages');
             var selected = $form.find('select[name="selected_page"]').val();
             if (selected === '0') {
-                PMA_ajaxShowMessage(Messages.strSelectPage, 2000);
+                Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
                 return;
             }
             $(this).dialog('close');
@@ -817,7 +817,7 @@ function Edit_pages () {
             $(this).dialog('close');
         };
 
-        var $msgbox = PMA_ajaxShowMessage();
+        var $msgbox = Functions.ajaxShowMessage();
         $.post('db_designer.php', {
             'ajax_request': true,
             'server': server,
@@ -825,9 +825,9 @@ function Edit_pages () {
             'dialog': 'edit'
         }, function (data) {
             if (data.success === false) {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             } else {
-                PMA_ajaxRemoveMessage($msgbox);
+                Functions.ajaxRemoveMessage($msgbox);
 
                 if (! designer_tables_enabled) {
                     Create_page_list(db, function (options) {
@@ -858,37 +858,37 @@ function Delete_pages () {
         var $form = $('#edit_delete_pages');
         var selected = $form.find('select[name="selected_page"]').val();
         if (selected === '0') {
-            PMA_ajaxShowMessage(Messages.strSelectPage, 2000);
+            Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
             return;
         }
 
-        var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
         var deleting_current_page = selected === selected_page;
-        PMA_prepareForAjaxRequest($form);
+        Functions.prepareForAjaxRequest($form);
 
         if (designer_tables_enabled) {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (data.success === false) {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 } else {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     if (deleting_current_page) {
                         Load_page(null);
                     } else {
-                        PMA_ajaxShowMessage(Messages.strSuccessfulPageDelete);
+                        Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
                     }
                 }
             }); // end $.post()
         } else {
             Delete_page(selected, function (success) {
                 if (! success) {
-                    PMA_ajaxShowMessage('Error', false);
+                    Functions.ajaxShowMessage('Error', false);
                 } else {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     if (deleting_current_page) {
                         Load_page(null);
                     } else {
-                        PMA_ajaxShowMessage(Messages.strSuccessfulPageDelete);
+                        Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
                     }
                 }
             });
@@ -900,7 +900,7 @@ function Delete_pages () {
         $(this).dialog('close');
     };
 
-    var $msgbox = PMA_ajaxShowMessage();
+    var $msgbox = Functions.ajaxShowMessage();
     $.post('db_designer.php', {
         'ajax_request': true,
         'server': server,
@@ -908,9 +908,9 @@ function Delete_pages () {
         'dialog': 'delete'
     }, function (data) {
         if (data.success === false) {
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         } else {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
 
             if (! designer_tables_enabled) {
                 Create_page_list(db, function (options) {
@@ -946,26 +946,26 @@ function Save_as () {
 
         if (choice === 'same') {
             if ($selected_page.val() === '0') {
-                PMA_ajaxShowMessage(Messages.strSelectPage, 2000);
+                Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
                 return;
             }
             name = $selected_page.find('option:selected').text();
         } else if (choice === 'new') {
             if (selected_value === '') {
-                PMA_ajaxShowMessage(Messages.strEnterValidPageName, 2000);
+                Functions.ajaxShowMessage(Messages.strEnterValidPageName, 2000);
                 return;
             }
             name = selected_value;
         }
 
-        var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
         if (designer_tables_enabled) {
-            PMA_prepareForAjaxRequest($form);
+            Functions.prepareForAjaxRequest($form);
             $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
                 if (data.success === false) {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 } else {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     MarkSaved();
                     if (data.id) {
                         selected_page = data.id;
@@ -977,7 +977,7 @@ function Save_as () {
             if (choice === 'same') {
                 var selected_page_id = $selected_page.find('option:selected').val();
                 Save_to_selected_page(db, selected_page_id, name, Get_url_pos(), function (page) {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     MarkSaved();
                     if (page.pg_nr) {
                         selected_page = page.pg_nr;
@@ -986,7 +986,7 @@ function Save_as () {
                 });
             } else if (choice === 'new') {
                 Save_to_new_page(db, name, Get_url_pos(), function (page) {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     MarkSaved();
                     if (page.pg_nr) {
                         selected_page = page.pg_nr;
@@ -1002,7 +1002,7 @@ function Save_as () {
         $(this).dialog('close');
     };
 
-    var $msgbox = PMA_ajaxShowMessage();
+    var $msgbox = Functions.ajaxShowMessage();
     $.post('db_designer.php', {
         'ajax_request': true,
         'server': server,
@@ -1010,9 +1010,9 @@ function Save_as () {
         'dialog': 'save_as'
     }, function (data) {
         if (data.success === false) {
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         } else {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
 
             if (! designer_tables_enabled) {
                 Create_page_list(db, function (options) {
@@ -1081,7 +1081,7 @@ function Export_pages () {
     button_options[Messages.strCancel] = function () {
         $(this).dialog('close');
     };
-    var $msgbox = PMA_ajaxShowMessage();
+    var $msgbox = Functions.ajaxShowMessage();
     var argsep = CommonParams.get('arg_separator');
 
     $.post('db_designer.php', {
@@ -1092,9 +1092,9 @@ function Export_pages () {
         'selected_page': selected_page
     }, function (data) {
         if (data.success === false) {
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         } else {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
 
             var $form = $(data.message);
             if (!designer_tables_enabled) {
@@ -1186,7 +1186,7 @@ function saveValueInConfig (index_sent, value_sent) {
         { operation: 'save_setting_value', index: index_sent, ajax_request: true, server: server, value: value_sent },
         function (data) {
             if (data.success === false) {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         });
 }
@@ -1261,15 +1261,15 @@ function Click_field (db, T, f, PK) {
         document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
 
-        var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
         $.post('db_designer.php',
             { operation: 'setDisplayField', ajax_request: true, server: server, db: db, table: T, field: f },
             function (data) {
                 if (data.success === false) {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 } else {
-                    PMA_ajaxRemoveMessage($msgbox);
-                    PMA_ajaxShowMessage(Messages.strModificationSaved);
+                    Functions.ajaxRemoveMessage($msgbox);
+                    Functions.ajaxShowMessage(Messages.strModificationSaved);
                 }
             });
     }
@@ -1282,12 +1282,12 @@ function New_relation () {
     link_relation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
     link_relation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
-    var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+    var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
     $.post('db_designer.php', link_relation, function (data) {
         if (data.success === false) {
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         } else {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
             Load_page(selected_page);
         }
     }); // end $.post()
@@ -1515,12 +1515,12 @@ function Upd_relation () {
     link_relation += argsep + 'server=' + server + argsep + 'db=' + db;
     link_relation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 
-    var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+    var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
     $.post('db_designer.php', link_relation, function (data) {
         if (data.success === false) {
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         } else {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
             Load_page(selected_page);
         }
     }); // end $.post()
@@ -1754,7 +1754,7 @@ function Click_option (id_this, column_name, table_name) {
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
     document.getElementById(id_this).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_sprintf(Messages.strAddOption, decodeURI(column_name)) + '</strong>';
+    document.getElementById('option_col_name').innerHTML = '<strong>' + Functions.sprintf(Messages.strAddOption, decodeURI(column_name)) + '</strong>';
     col_name = column_name;
     tab_name = table_name;
 }
@@ -1866,7 +1866,7 @@ function add_object () {
     var init = history_array.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
-            PMA_ajaxShowMessage(PMA_sprintf(Messages.strQueryEmpty));
+            Functions.ajaxShowMessage(Functions.sprintf(Messages.strQueryEmpty));
             return;
         }
         p = document.getElementById('Query');
@@ -1909,7 +1909,7 @@ function add_object () {
         sum = sum + 1;
         // make orderby
     }
-    PMA_ajaxShowMessage(PMA_sprintf(Messages.strObjectsCreated, sum));
+    Functions.ajaxShowMessage(Functions.sprintf(Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init, history_array.length);

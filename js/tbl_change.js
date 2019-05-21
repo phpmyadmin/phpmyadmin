@@ -698,7 +698,7 @@ function addNewContinueInsertionFiels (event) {
         }
     }
     // Add all the required datepickers back
-    addDateTimePicker();
+    Functions.addDateTimePicker();
 }
 
 function changeValueFieldType (elem, searchIndex) {
