@@ -114,7 +114,7 @@ function Show_new_page_tables (check) {
         }
     }
     selected_page = -1;
-    $('#page_name').text(PMA_messages.strUntitled);
+    $('#page_name').text(Messages.strUntitled);
     MarkUnsaved();
 }
 

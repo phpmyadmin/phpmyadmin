@@ -84,7 +84,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var $tblCollationField = $form.find('select[name=tbl_collation]');
         var collationOrigValue = $('select[name="tbl_collation"] option[selected]').val();
         var $changeAllColumnCollationsCheckBox = $('#checkbox_change_all_collations');
-        var question = PMA_messages.strChangeAllColumnCollationsWarning;
+        var question = Messages.strChangeAllColumnCollationsWarning;
 
         if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
             // reload page and navigation if the table has been renamed
@@ -196,18 +196,18 @@ AJAX.registerOnload('tbl_operations.js', function () {
         function submitPartitionMaintenance () {
             var argsep = PMA_commonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            PMA_ajaxShowMessage(Messages.strProcessingRequest);
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
 
         if ($('#partition_operation_DROP').is(':checked')) {
-            var question = PMA_messages.strDropPartitionWarning;
+            var question = Messages.strDropPartitionWarning;
             $form.PMA_confirm(question, $form.attr('action'), function (url) {
                 submitPartitionMaintenance();
             });
         } else if ($('#partition_operation_TRUNCATE').is(':checked')) {
-            var question = PMA_messages.strTruncatePartitionWarning;
+            var question = Messages.strTruncatePartitionWarning;
             $form.PMA_confirm(question, $form.attr('action'), function (url) {
                 submitPartitionMaintenance();
             });
@@ -222,14 +222,14 @@ AJAX.registerOnload('tbl_operations.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strDropTableStrongWarning + ' ';
+        var question = Messages.strDropTableStrongWarning + ' ';
         question += PMA_sprintf(
-            PMA_messages.strDoYouReally,
+            Messages.strDoYouReally,
             'DROP TABLE `'  + escapeHtml(PMA_commonParams.get('db')) + '`.`' + escapeHtml(PMA_commonParams.get('table') + '`')
         ) + getForeignKeyCheckboxLoader();
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this, $link.getPostData());
 
@@ -258,14 +258,14 @@ AJAX.registerOnload('tbl_operations.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strDropTableStrongWarning + ' ';
+        var question = Messages.strDropTableStrongWarning + ' ';
         question += PMA_sprintf(
-            PMA_messages.strDoYouReally,
+            Messages.strDoYouReally,
             'DROP VIEW `' + escapeHtml(PMA_commonParams.get('table') + '`')
         );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
             var params = getJSConfirmCommonParam(this, $link.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -292,13 +292,13 @@ AJAX.registerOnload('tbl_operations.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strTruncateTableStrongWarning + ' ';
+        var question = Messages.strTruncateTableStrongWarning + ' ';
         question += PMA_sprintf(
-            PMA_messages.strDoYouReally,
+            Messages.strDoYouReally,
             'TRUNCATE `' + escapeHtml(PMA_commonParams.get('db')) + '`.`' + escapeHtml(PMA_commonParams.get('table') + '`')
         ) + getForeignKeyCheckboxLoader();
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            PMA_ajaxShowMessage(Messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this, $link.getPostData());
 

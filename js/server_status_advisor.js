@@ -29,11 +29,11 @@ AJAX.registerOnload('server_status_advisor.js', function () {
 
     $('a[href="#openAdvisorInstructions"]').on('click', function () {
         var dlgBtns = {};
-        dlgBtns[PMA_messages.strClose] = function () {
+        dlgBtns[Messages.strClose] = function () {
             $(this).dialog('close');
         };
         $instructionsDialog.dialog({
-            title: PMA_messages.strAdvisorSystem,
+            title: Messages.strAdvisorSystem,
             width: 700,
             buttons: dlgBtns
         });
@@ -61,9 +61,9 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     }
 
     if (data.run.fired.length > 0) {
-        $cnt.append('<p><b>' + PMA_messages.strPerformanceIssues + '</b></p>');
+        $cnt.append('<p><b>' + Messages.strPerformanceIssues + '</b></p>');
         $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr>' +
-                    '<th>' + PMA_messages.strIssuse + '</th><th>' + PMA_messages.strRecommendation +
+                    '<th>' + Messages.strIssuse + '</th><th>' + Messages.strRecommendation +
                     '</th></tr></thead><tbody></tbody></table>');
         $tbody = $cnt.find('table#rulesFired');
 
@@ -80,17 +80,17 @@ AJAX.registerOnload('server_status_advisor.js', function () {
             $tr.on('click', function () {
                 var rule = $(this).data('rule');
                 $dialog
-                    .dialog({ title: PMA_messages.strRuleDetails })
+                    .dialog({ title: Messages.strRuleDetails })
                     .html(
-                        '<p><b>' + PMA_messages.strIssuse + ':</b><br>' + rule.issue + '</p>' +
-                    '<p><b>' + PMA_messages.strRecommendation + ':</b><br>' + rule.recommendation + '</p>' +
-                    '<p><b>' + PMA_messages.strJustification + ':</b><br>' + rule.justification + '</p>' +
-                    '<p><b>' + PMA_messages.strFormula + ':</b><br>' + rule.formula + '</p>' +
-                    '<p><b>' + PMA_messages.strTest + ':</b><br>' + rule.test + '</p>'
+                        '<p><b>' + Messages.strIssuse + ':</b><br>' + rule.issue + '</p>' +
+                    '<p><b>' + Messages.strRecommendation + ':</b><br>' + rule.recommendation + '</p>' +
+                    '<p><b>' + Messages.strJustification + ':</b><br>' + rule.justification + '</p>' +
+                    '<p><b>' + Messages.strFormula + ':</b><br>' + rule.formula + '</p>' +
+                    '<p><b>' + Messages.strTest + ':</b><br>' + rule.test + '</p>'
                     );
 
                 var dlgBtns = {};
-                dlgBtns[PMA_messages.strClose] = function () {
+                dlgBtns[Messages.strClose] = function () {
                     $(this).dialog('close');
                 };
 

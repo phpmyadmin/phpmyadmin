@@ -8,13 +8,13 @@
     'use strict';
     var formatByte = function (val, index) {
         var units = [
-            PMA_messages.strB,
-            PMA_messages.strKiB,
-            PMA_messages.strMiB,
-            PMA_messages.strGiB,
-            PMA_messages.strTiB,
-            PMA_messages.strPiB,
-            PMA_messages.strEiB
+            Messages.strB,
+            Messages.strKiB,
+            Messages.strMiB,
+            Messages.strGiB,
+            Messages.strTiB,
+            Messages.strPiB,
+            Messages.strEiB
         ];
         while (val >= 1024 && index <= 6) {
             val /= 1024;

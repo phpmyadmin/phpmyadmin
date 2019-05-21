@@ -181,7 +181,7 @@ var AJAX = {
         // Show lock icon if locked targets is not empty.
         // otherwise remove lock icon
         if (!jQuery.isEmptyObject(AJAX.lockedTargets)) {
-            $('#lock_page_icon').html(PMA_getImage('s_lock', PMA_messages.strLockToolTip).toString());
+            $('#lock_page_icon').html(PMA_getImage('s_lock', Messages.strLockToolTip).toString());
         } else {
             $('#lock_page_icon').html('');
         }
@@ -247,7 +247,7 @@ var AJAX = {
             event.isTrigger !== true &&
             !jQuery.isEmptyObject(AJAX.lockedTargets)
         ) {
-            if (confirm(PMA_messages.strConfirmNavigation) === false) {
+            if (confirm(Messages.strConfirmNavigation) === false) {
                 return false;
             } else {
                 if (isStorageSupported('localStorage')) {
@@ -270,7 +270,7 @@ var AJAX = {
                 AJAX.xhr.abort();
                 if (AJAX.xhr.status === 0 && AJAX.xhr.statusText === 'abort') {
                     // If aborted
-                    AJAX.$msgbox = PMA_ajaxShowMessage(PMA_messages.strAbortedRequest);
+                    AJAX.$msgbox = PMA_ajaxShowMessage(Messages.strAbortedRequest);
                     AJAX.active = false;
                     AJAX.xhr = null;
                     previousLinkAborted = true;
@@ -394,11 +394,11 @@ var AJAX = {
                 data._stopErrorReportLoop !== '1'
             ) {
                 $('#pma_report_errors_form').submit();
-                PMA_ajaxShowMessage(PMA_messages.phpErrorsBeingSubmitted, false);
+                PMA_ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
                 $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
             } else if (data._promptPhpErrors) {
                 // otherwise just prompt user if it is set so.
-                msg = msg + PMA_messages.phpErrorsFound;
+                msg = msg + Messages.phpErrorsFound;
                 // scroll to bottom where all the errors are displayed.
                 $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
             }
@@ -417,7 +417,7 @@ var AJAX = {
             // reload page if user trying to login has changed
             if (PMA_commonParams.get('user') !== data._params.user) {
                 window.location = 'index.php';
-                PMA_ajaxShowMessage(PMA_messages.strLoading, false);
+                PMA_ajaxShowMessage(Messages.strLoading, false);
                 AJAX.active = false;
                 AJAX.xhr = null;
                 return;
@@ -589,11 +589,11 @@ var AJAX = {
                         data._stopErrorReportLoop !== '1'
                     ) {
                         $('#pma_report_errors_form').submit();
-                        PMA_ajaxShowMessage(PMA_messages.phpErrorsBeingSubmitted, false);
+                        PMA_ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     } else if (data._promptPhpErrors) {
                         // otherwise just prompt user if it is set so.
-                        msg = msg + PMA_messages.phpErrorsFound;
+                        msg = msg + Messages.phpErrorsFound;
                         // scroll to bottom where all the errors are displayed.
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     }
@@ -935,15 +935,15 @@ $(document).ajaxError(function (event, request, settings) {
         var state = request.state();
 
         if (request.status !== 0) {
-            details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorCode, request.status)) + '</div>';
+            details += '<div>' + escapeHtml(PMA_sprintf(Messages.strErrorCode, request.status)) + '</div>';
         }
-        details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+        details += '<div>' + escapeHtml(PMA_sprintf(Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
         if (state === 'rejected' || state === 'timeout') {
-            details += '<div>' + escapeHtml(PMA_messages.strErrorConnection) + '</div>';
+            details += '<div>' + escapeHtml(Messages.strErrorConnection) + '</div>';
         }
         PMA_ajaxShowMessage(
             '<div class="error">' +
-            PMA_messages.strErrorProcessingRequest +
+            Messages.strErrorProcessingRequest +
             details +
             '</div>',
             false

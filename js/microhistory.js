@@ -91,7 +91,7 @@ PMA_MicroHistory = {
             ! PMA_MicroHistory.menus.get(this.pages[index].menu)
         ) {
             PMA_ajaxShowMessage(
-                '<div class="error">' + PMA_messages.strInvalidPage + '</div>',
+                '<div class="error">' + Messages.strInvalidPage + '</div>',
                 false
             );
         } else {

@@ -261,7 +261,7 @@ function PMA_getCompositeIndexList (source_array, col_index) {
     // Html list.
     var $composite_index_list = $(
         '<ul id="composite_index_list">' +
-        '<div>' + PMA_messages.strCompositeWith + '</div>' +
+        '<div>' + Messages.strCompositeWith + '</div>' +
         '</ul>'
     );
 
@@ -330,7 +330,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
     post_data.columns = JSON.stringify(columns);
 
     var button_options = {};
-    button_options[PMA_messages.strGo] = function () {
+    button_options[Messages.strGo] = function () {
         var is_missing_value = false;
         $('select[name="index[columns][names][]"]').each(function () {
             if ($(this).val() === '') {
@@ -348,7 +348,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
         } else {
             PMA_ajaxShowMessage(
                 '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
-                ' class="icon ic_s_error"> ' + PMA_messages.strMissingColumn +
+                ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
                 ' </div>', false
             );
 
@@ -357,7 +357,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
 
         $(this).dialog('close');
     };
-    button_options[PMA_messages.strCancel] = function () {
+    button_options[Messages.strCancel] = function () {
         if (col_index >= 0) {
             // Handle state on 'Cancel'.
             var $select_list = $('select[name="field_key[' + col_index + ']"]');
@@ -387,7 +387,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                 $div
                     .append(data.message)
                     .dialog({
-                        title: PMA_messages.strAddIndex,
+                        title: Messages.strAddIndex,
                         width: 450,
                         minHeight: 250,
                         open: function () {
@@ -435,7 +435,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                 } else {
                     PMA_ajaxShowMessage(
                         '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
-                        ' class="icon ic_s_error"> ' + PMA_messages.strMissingColumn +
+                        ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
                         ' </div>', false
                     );
 
@@ -458,10 +458,10 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
 function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
     var $single_column_radio = $('<input type="radio" id="single_column" name="index_choice"' +
         ' checked="checked">' +
-        '<label for="single_column">' + PMA_messages.strCreateSingleColumnIndex + '</label>');
+        '<label for="single_column">' + Messages.strCreateSingleColumnIndex + '</label>');
     var $composite_index_radio = $('<input type="radio" id="composite_index"' +
         ' name="index_choice">' +
-        '<label for="composite_index">' + PMA_messages.strCreateCompositeIndex + '</label>');
+        '<label for="composite_index">' + Messages.strCreateCompositeIndex + '</label>');
     var $dialog_content = $('<fieldset id="advance_index_creator"></fieldset>');
     $dialog_content.append('<legend>' + index_choice.toUpperCase() + '</legend>');
 
@@ -472,7 +472,7 @@ function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
 
     var button_options = {};
     // 'OK' operation.
-    button_options[PMA_messages.strGo] = function () {
+    button_options[Messages.strGo] = function () {
         if ($('#single_column').is(':checked')) {
             var index = {
                 'Key_name': (index_choice === 'primary' ? 'PRIMARY' : ''),
@@ -487,7 +487,7 @@ function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
                 PMA_ajaxShowMessage(
                     '<div class="error"><img src="themes/dot.gif" title=""' +
                     ' alt="" class="icon ic_s_error"> ' +
-                    PMA_messages.strFormEmpty +
+                    Messages.strFormEmpty +
                     ' </div>',
                     false
                 );
@@ -508,7 +508,7 @@ function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
 
         $(this).remove();
     };
-    button_options[PMA_messages.strCancel] = function () {
+    button_options[Messages.strCancel] = function () {
         // Handle state on 'Cancel'.
         var $select_list = $('select[name="field_key[' + col_index + ']"]');
         if (! $select_list.attr('data-index').length) {
@@ -524,7 +524,7 @@ function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
         minWidth: 525,
         minHeight: 200,
         modal: true,
-        title: PMA_messages.strAddIndex,
+        title: Messages.strAddIndex,
         resizable: false,
         buttons: button_options,
         open: function () {
@@ -596,7 +596,7 @@ AJAX.registerOnload('indexes.js', function () {
         var $form = $('#index_frm');
         var argsep = PMA_commonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
@@ -637,7 +637,7 @@ AJAX.registerOnload('indexes.js', function () {
         );
 
         PMA_confirmPreviewSQL(question, $anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
+            var $msg = PMA_ajaxShowMessage(Messages.strDroppingPrimaryKeyIndex, false);
             var params = getJSConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -670,7 +670,7 @@ AJAX.registerOnload('indexes.js', function () {
                     });
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()
@@ -694,11 +694,11 @@ AJAX.registerOnload('indexes.js', function () {
                 return;
             }
             url = $(this).closest('form').serialize();
-            title = PMA_messages.strAddIndex;
+            title = Messages.strAddIndex;
         } else {
             // Edit index
             url = $(this).find('a').getPostData();
-            title = PMA_messages.strEditIndex;
+            title = Messages.strEditIndex;
         }
         url += PMA_commonParams.get('arg_separator') + 'ajax_request=true';
         indexEditorDialog(url, title, function () {

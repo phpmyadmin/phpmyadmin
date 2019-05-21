@@ -47,9 +47,9 @@ AJAX.registerOnload('db_tracking.js', function () {
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() === 'delete_tracking') {
-            var question = PMA_messages.strDeleteTrackingDataMultiple;
+            var question = Messages.strDeleteTrackingDataMultiple;
             $button.PMA_confirm(question, $form.attr('action'), function (url) {
-                PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
+                PMA_ajaxShowMessage(Messages.strDeletingTrackingData);
                 AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
@@ -80,9 +80,9 @@ AJAX.registerOnload('db_tracking.js', function () {
     $body.on('click', 'a.delete_tracking_anchor.ajax', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = PMA_messages.strDeleteTrackingData;
+        var question = Messages.strDeleteTrackingData;
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
+            PMA_ajaxShowMessage(Messages.strDeletingTrackingData);
             AJAX.source = $anchor;
             var argSep = PMA_commonParams.get('arg_separator');
             var params = getJSConfirmCommonParam(this, $anchor.getPostData());

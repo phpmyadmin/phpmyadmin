@@ -389,8 +389,8 @@ $(function () {
             $img
                 .removeClass('ic_s_unlink')
                 .addClass('ic_s_link')
-                .attr('alt', PMA_messages.linkWithMain)
-                .attr('title', PMA_messages.linkWithMain);
+                .attr('alt', Messages.linkWithMain)
+                .attr('title', Messages.linkWithMain);
             $('#pma_navigation_tree')
                 .removeClass('synced')
                 .find('li.selected')
@@ -399,8 +399,8 @@ $(function () {
             $img
                 .removeClass('ic_s_link')
                 .addClass('ic_s_unlink')
-                .attr('alt', PMA_messages.unlinkWithMain)
-                .attr('title', PMA_messages.unlinkWithMain);
+                .attr('alt', Messages.unlinkWithMain)
+                .attr('title', Messages.unlinkWithMain);
             $('#pma_navigation_tree').addClass('synced');
             PMA_showCurrentNavigation();
         }
@@ -497,7 +497,7 @@ $(function () {
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
         ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
-        var title = PMA_messages.strAddIndex;
+        var title = Messages.strAddIndex;
         indexEditorDialog(url, title);
     });
 
@@ -507,7 +507,7 @@ $(function () {
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
         ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
-        var title = PMA_messages.strEditIndex;
+        var title = Messages.strEditIndex;
         indexEditorDialog(url, title);
     });
 
@@ -548,7 +548,7 @@ $(function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 var buttonOptions = {};
-                buttonOptions[PMA_messages.strClose] = function () {
+                buttonOptions[Messages.strClose] = function () {
                     $(this).dialog('close');
                 };
                 $('<div></div>')
@@ -559,7 +559,7 @@ $(function () {
                         minWidth: 200,
                         modal: true,
                         buttons: buttonOptions,
-                        title: PMA_messages.strUnhideNavItem,
+                        title: Messages.strUnhideNavItem,
                         close: function () {
                             $(this).remove();
                         }
@@ -1166,18 +1166,18 @@ var ResizeHandler = function () {
             $collapser
                 .css(this.left, pos + resizer_width)
                 .html(this.getSymbol(pos))
-                .prop('title', PMA_messages.strShowPanel);
+                .prop('title', Messages.strShowPanel);
         } else if (windowWidth > 768) {
             $collapser
                 .css(this.left, pos)
                 .html(this.getSymbol(pos))
-                .prop('title', PMA_messages.strHidePanel);
+                .prop('title', Messages.strHidePanel);
             $('#pma_navigation_resizer').css({ 'width': '3px' });
         } else {
             $collapser
                 .css(this.left, windowWidth - 22)
                 .html(this.getSymbol(100))
-                .prop('title', PMA_messages.strHidePanel);
+                .prop('title', Messages.strHidePanel);
             $('#pma_navigation').width(windowWidth);
             $('body').css('margin-' + this.left, '0px');
             $('#pma_navigation_resizer').css({ 'width': '0px' });

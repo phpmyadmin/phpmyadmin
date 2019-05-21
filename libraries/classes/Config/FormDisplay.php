@@ -61,7 +61,7 @@ class FormDisplay
     private $_systemPaths = [];
 
     /**
-     * Language strings which will be sent to PMA_messages JS variable
+     * Language strings which will be sent to Messages JS variable
      * Will be looked up in $GLOBALS: str{value} or strSetup{value}
      * @var array
      */
@@ -351,7 +351,7 @@ class FormDisplay
             foreach ($this->_jsLangStrings as $strName => $strValue) {
                 $jsLang[] = "'$strName': '" . Sanitize::jsFormat($strValue, false) . '\'';
             }
-            $js[] = "$.extend(PMA_messages, {\n\t"
+            $js[] = "$.extend(Messages, {\n\t"
                 . implode(",\n\t", $jsLang) . '})';
         }
 

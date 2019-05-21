@@ -120,7 +120,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
         var query = editor.getDoc().getValue();
         // Verifying that the query is not empty
         if (query === '') {
-            PMA_ajaxShowMessage(PMA_messages.strEmptyQuery, false, 'error');
+            PMA_ajaxShowMessage(Messages.strEmptyQuery, false, 'error');
             return;
         }
         var data = {

@@ -46,7 +46,7 @@
 
         // create submenu container
         var link = $('<a></a>', { href: '#', 'class': 'tab nowrap' })
-            .text(PMA_messages.strMore)
+            .text(Messages.strMore)
             .on('click', false); // same as event.preventDefault()
         var img = $container.find('li img');
         if (img.length) {

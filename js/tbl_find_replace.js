@@ -15,14 +15,14 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
         .hide();
 
     $('#toggle_find')
-        .html(PMA_messages.strHideFindNReplaceCriteria)
+        .html(Messages.strHideFindNReplaceCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#find_replace_form').slideToggle();
-            if ($link.text() === PMA_messages.strHideFindNReplaceCriteria) {
-                $link.text(PMA_messages.strShowFindNReplaceCriteria);
+            if ($link.text() === Messages.strHideFindNReplaceCriteria) {
+                $link.text(Messages.strShowFindNReplaceCriteria);
             } else {
-                $link.text(PMA_messages.strHideFindNReplaceCriteria);
+                $link.text(Messages.strHideFindNReplaceCriteria);
             }
             return false;
         });

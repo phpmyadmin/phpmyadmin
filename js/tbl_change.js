@@ -164,7 +164,7 @@ function verificationsAfterFieldChange (urlField, multi_edit, theType) {
 
     // To generate the textbox that can take the salt
     var new_salt_box = '<br><input type=text name=salt[multi_edit][' + multi_edit + '][' + urlField + ']' +
-        ' id=salt_' + target.id + ' placeholder=\'' + PMA_messages.strEncryptionKey + '\'>';
+        ' id=salt_' + target.id + ' placeholder=\'' + Messages.strEncryptionKey + '\'>';
 
     // If encrypting or decrypting functions that take salt as input is selected append the new textbox for salt
     if (target.value === 'AES_ENCRYPT' ||
@@ -621,7 +621,7 @@ function addNewContinueInsertionFiels (event) {
             if (curr_rows === 1) {
                 $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked">')
                     .insertBefore('table.insertRowTable:last')
-                    .after('<label for="insert_ignore_1">' + PMA_messages.strIgnore + '</label>');
+                    .after('<label for="insert_ignore_1">' + Messages.strIgnore + '</label>');
             } else {
                 /**
                  * @var $last_checkbox   Object reference to the last checkbox in #insertForm
@@ -685,7 +685,7 @@ function addNewContinueInsertionFiels (event) {
          * of rows.
          */
         var checkLock = jQuery.isEmptyObject(AJAX.lockedTargets);
-        if (checkLock || confirm(PMA_messages.strConfirmRowChange) === true) {
+        if (checkLock || confirm(Messages.strConfirmRowChange) === true) {
             while (curr_rows > target_rows) {
                 $('input[id^=insert_ignore]:last')
                     .nextUntil('fieldset')

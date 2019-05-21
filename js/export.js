@@ -92,7 +92,7 @@ function createTemplate (name) {
                     $(this).prop('selected', true);
                 }
             });
-            PMA_ajaxShowMessage(PMA_messages.strTemplateCreated);
+            PMA_ajaxShowMessage(Messages.strTemplateCreated);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -139,7 +139,7 @@ function loadTemplate (id) {
                 }
             });
             $('input[name="template_id"]').val(id);
-            PMA_ajaxShowMessage(PMA_messages.strTemplateLoaded);
+            PMA_ajaxShowMessage(Messages.strTemplateLoaded);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -168,7 +168,7 @@ function updateTemplate (id) {
     PMA_ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
-            PMA_ajaxShowMessage(PMA_messages.strTemplateUpdated);
+            PMA_ajaxShowMessage(Messages.strTemplateUpdated);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -195,7 +195,7 @@ function deleteTemplate (id) {
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             $('#template').find('option[value="' + id + '"]').remove();
-            PMA_ajaxShowMessage(PMA_messages.strTemplateDeleted);
+            PMA_ajaxShowMessage(Messages.strTemplateDeleted);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -733,7 +733,7 @@ function check_time_out (time_limit) {
             if (data.message === 'timeout') {
                 PMA_ajaxShowMessage(
                     '<div class="error">' +
-                    PMA_messages.strTimeOutError +
+                    Messages.strTimeOutError +
                     '</div>',
                     false
                 );
@@ -788,7 +788,7 @@ function aliasSelectHandler (event) {
 function createAliasModal (event) {
     event.preventDefault();
     var dlgButtons = {};
-    dlgButtons[PMA_messages.strSaveAndClose] = function () {
+    dlgButtons[Messages.strSaveAndClose] = function () {
         $(this).dialog('close');
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     };
@@ -974,7 +974,7 @@ AJAX.registerOnload('export.js', function () {
         e.preventDefault();
         var db = $('#db_alias_select').val();
         addAlias(
-            PMA_messages.strAliasDatabase,
+            Messages.strAliasDatabase,
             db,
             'aliases[' + db + '][alias]',
             $('#db_alias_name').val()
@@ -986,7 +986,7 @@ AJAX.registerOnload('export.js', function () {
         var db = $('#db_alias_select').val();
         var table = $('#table_alias_select').val();
         addAlias(
-            PMA_messages.strAliasTable,
+            Messages.strAliasTable,
             db + '.' + table,
             'aliases[' + db + '][tables][' + table + '][alias]',
             $('#table_alias_name').val()
@@ -999,7 +999,7 @@ AJAX.registerOnload('export.js', function () {
         var table = $('#table_alias_select').val();
         var column = $('#column_alias_select').val();
         addAlias(
-            PMA_messages.strAliasColumn,
+            Messages.strAliasColumn,
             db + '.' + table + '.' + column,
             'aliases[' + db + '][tables][' + table + '][colums][' + column + ']',
             $('#column_alias_name').val()

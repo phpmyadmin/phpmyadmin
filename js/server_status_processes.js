@@ -125,10 +125,10 @@ var processList = {
      */
     setRefreshLabel: function () {
         var img = 'play';
-        var label = PMA_messages.strStartRefresh;
+        var label = Messages.strStartRefresh;
         if (processList.autoRefresh) {
             img = 'pause';
-            label = PMA_messages.strStopRefresh;
+            label = Messages.strStopRefresh;
             processList.refresh();
         }
         $('a#toggleRefresh').html(PMA_getImage(img) + escapeHtml(label));

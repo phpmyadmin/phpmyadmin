@@ -67,14 +67,14 @@ AJAX.registerOnload('tbl_select.js', function () {
         .hide();
 
     $('#togglesearchformlink')
-        .html(PMA_messages.strShowSearchCriteria)
+        .html(Messages.strShowSearchCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
-            if ($link.text() === PMA_messages.strHideSearchCriteria) {
-                $link.text(PMA_messages.strShowSearchCriteria);
+            if ($link.text() === Messages.strHideSearchCriteria) {
+                $link.text(Messages.strShowSearchCriteria);
             } else {
-                $link.text(PMA_messages.strHideSearchCriteria);
+                $link.text(Messages.strHideSearchCriteria);
             }
             // avoid default click action
             return false;
@@ -111,7 +111,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);
+        var $msgbox = PMA_ajaxShowMessage(Messages.strSearching, false);
 
         PMA_prepareForAjaxRequest($search_form);
 
@@ -171,7 +171,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                     .hide();
                 $('#togglesearchformlink')
                     // always start with the Show message
-                    .text(PMA_messages.strShowSearchCriteria);
+                    .text(Messages.strShowSearchCriteria);
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();
@@ -316,16 +316,16 @@ AJAX.registerOnload('tbl_select.js', function () {
                     if (response.success) {
                         // Get the column min value.
                         var min = response.column_data.min
-                            ? '(' + PMA_messages.strColumnMin +
+                            ? '(' + Messages.strColumnMin +
                                 ' ' + response.column_data.min + ')'
                             : '';
                         // Get the column max value.
                         var max = response.column_data.max
-                            ? '(' + PMA_messages.strColumnMax +
+                            ? '(' + Messages.strColumnMax +
                                 ' ' + response.column_data.max + ')'
                             : '';
                         var button_options = {};
-                        button_options[PMA_messages.strGo] = function () {
+                        button_options[Messages.strGo] = function () {
                             var min_value = $('#min_value').val();
                             var max_value = $('#max_value').val();
                             var final_value = '';
@@ -366,7 +366,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                             }
                             $(this).dialog('close');
                         };
-                        button_options[PMA_messages.strCancel] = function () {
+                        button_options[Messages.strCancel] = function () {
                             $(this).dialog('close');
                         };
 
@@ -374,11 +374,11 @@ AJAX.registerOnload('tbl_select.js', function () {
                         $('<div></div>').append(
                             '<fieldset>' +
                             '<legend>' + operator + '</legend>' +
-                            '<label for="min_value">' + PMA_messages.strMinValue +
+                            '<label for="min_value">' + Messages.strMinValue +
                             '</label>' +
                             '<input type="text" id="min_value">' + '<br>' +
                             '<span class="small_font">' + min + '</span>' + '<br>' +
-                            '<label for="max_value">' + PMA_messages.strMaxValue +
+                            '<label for="max_value">' + Messages.strMaxValue +
                             '</label>' +
                             '<input type="text" id="max_value">' + '<br>' +
                             '<span class="small_font">' + max + '</span>' +
@@ -388,7 +388,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                             maxHeight: 400,
                             modal: true,
                             buttons: button_options,
-                            title: PMA_messages.strRangeSearch,
+                            title: Messages.strRangeSearch,
                             open: function () {
                                 // Add datepicker wherever required.
                                 PMA_addDatepicker($('#min_value'), data_type);
@@ -403,7 +403,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                     }
                 },
                 error: function (response) {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest);
+                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest);
                 }
             });
         }

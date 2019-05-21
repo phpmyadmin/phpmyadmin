@@ -78,7 +78,7 @@ RTE.COMMON = {
         $elm = $('table.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
             $elm.focus();
-            alert(PMA_messages.strFormEmpty);
+            alert(Messages.strFormEmpty);
             return false;
         }
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
@@ -88,7 +88,7 @@ RTE.COMMON = {
             } else {
                 $('textarea[name=item_definition]').last().focus();
             }
-            alert(PMA_messages.strFormEmpty);
+            alert(Messages.strFormEmpty);
             return false;
         }
         // The validation has so far passed, so now
@@ -118,7 +118,7 @@ RTE.COMMON = {
         if ($this.hasClass('mult_submit')) {
             var combined = {
                 success: true,
-                title: PMA_messages.strExport,
+                title: Messages.strExport,
                 message: '',
                 error: ''
             };
@@ -129,7 +129,7 @@ RTE.COMMON = {
 
             // No routine is exportable (due to privilege issues)
             if (count === 0) {
-                PMA_ajaxShowMessage(PMA_messages.NoExportable);
+                PMA_ajaxShowMessage(Messages.NoExportable);
             }
 
             export_anchors.each(function () {
@@ -163,7 +163,7 @@ RTE.COMMON = {
                  *                     for jQueryUI dialog buttons
                  */
                 var button_options = {};
-                button_options[PMA_messages.strClose] = function () {
+                button_options[Messages.strClose] = function () {
                     $(this).dialog('close').remove();
                 };
                 /**
@@ -212,7 +212,7 @@ RTE.COMMON = {
                 PMA_ajaxRemoveMessage($msg);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[PMA_messages.strGo] = function () {
+                that.buttonOptions[Messages.strGo] = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
                     if (typeof CodeMirror !== 'undefined') {
@@ -225,7 +225,7 @@ RTE.COMMON = {
                          */
                         var data = $('form.rte_form').last().serialize();
                         $msg = PMA_ajaxShowMessage(
-                            PMA_messages.strProcessingRequest
+                            Messages.strProcessingRequest
                         );
                         var url = $('form.rte_form').last().attr('action');
                         $.post(url, data, function (data) {
@@ -327,7 +327,7 @@ RTE.COMMON = {
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[PMA_messages.strClose] = function () {
+                that.buttonOptions[Messages.strClose] = function () {
                     $(this).dialog('close');
                 };
                 /**
@@ -400,7 +400,7 @@ RTE.COMMON = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            var $msg = PMA_ajaxShowMessage(Messages.strProcessingRequest);
             var params = getJSConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
@@ -457,12 +457,12 @@ RTE.COMMON = {
 
     dropMultipleDialog: function ($this) {
         // We ask for confirmation here
-        $this.PMA_confirm(PMA_messages.strDropRTEitems, '', function (url) {
+        $this.PMA_confirm(Messages.strDropRTEitems, '', function (url) {
             /**
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            var $msg = PMA_ajaxShowMessage(Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
             var drop_anchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
@@ -555,7 +555,7 @@ RTE.EVENT = {
             $elm = this.$ajaxDialog.find('input[name=item_interval_value]');
             if ($elm.val() === '') {
                 $elm.focus();
-                alert(PMA_messages.strFormEmpty);
+                alert(Messages.strFormEmpty);
                 return false;
             }
         } else {
@@ -563,7 +563,7 @@ RTE.EVENT = {
             $elm = this.$ajaxDialog.find('input[name=item_execute_at]');
             if ($elm.val() === '') {
                 $elm.focus();
-                alert(PMA_messages.strFormEmpty);
+                alert(Messages.strFormEmpty);
                 return false;
             }
         }
@@ -683,7 +683,7 @@ RTE.ROUTINE = {
             }
         });
         if (! isSuccess) {
-            alert(PMA_messages.strFormEmpty);
+            alert(Messages.strFormEmpty);
             return false;
         }
         this.$ajaxDialog.find('table.routine_params_table').last().find('tr').each(function () {
@@ -701,7 +701,7 @@ RTE.ROUTINE = {
             }
         });
         if (! isSuccess) {
-            alert(PMA_messages.strFormEmpty);
+            alert(Messages.strFormEmpty);
             return false;
         }
         if (this.$ajaxDialog.find('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
@@ -713,7 +713,7 @@ RTE.ROUTINE = {
                 $returnlen.val() === ''
             ) {
                 $returnlen.focus();
-                alert(PMA_messages.strFormEmpty);
+                alert(Messages.strFormEmpty);
                 return false;
             }
         }
@@ -721,7 +721,7 @@ RTE.ROUTINE = {
             // A function must contain a RETURN statement in its definition
             if (this.$ajaxDialog.find('table.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
                 this.syntaxHiglighter.focus();
-                alert(PMA_messages.MissingReturn);
+                alert(Messages.MissingReturn);
                 return false;
             }
         }
@@ -833,13 +833,13 @@ RTE.ROUTINE = {
                 if (data.dialog) {
                     // Define the function that is called when
                     // the user presses the "Go" button
-                    that.buttonOptions[PMA_messages.strGo] = function () {
+                    that.buttonOptions[Messages.strGo] = function () {
                         /**
                          * @var data Form data to be sent in the AJAX request
                          */
                         var data = $('form.rte_form').last().serialize();
                         $msg = PMA_ajaxShowMessage(
-                            PMA_messages.strProcessingRequest
+                            Messages.strProcessingRequest
                         );
                         $.post('db_routines.php', data, function (data) {
                             if (data.success === true) {
@@ -852,7 +852,7 @@ RTE.ROUTINE = {
                             }
                         });
                     };
-                    that.buttonOptions[PMA_messages.strClose] = function () {
+                    that.buttonOptions[Messages.strClose] = function () {
                         $(this).dialog('close');
                     };
                     /**
@@ -885,7 +885,7 @@ RTE.ROUTINE = {
                             */
                             var data = $(this).serialize();
                             $msg = PMA_ajaxShowMessage(
-                                PMA_messages.strProcessingRequest
+                                Messages.strProcessingRequest
                             );
                             var url = $(this).attr('action');
                             $.post(url, data, function (data) {

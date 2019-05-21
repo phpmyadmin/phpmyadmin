@@ -71,7 +71,7 @@ var ErrorReport = {
 
         var button_options = {};
 
-        button_options[PMA_messages.strSendErrorReport] = function () {
+        button_options[Messages.strSendErrorReport] = function () {
             var $dialog = $(this);
             var post_data = $.extend(report_data, {
                 send_error_report: true,
@@ -89,7 +89,7 @@ var ErrorReport = {
             });
         };
 
-        button_options[PMA_messages.strCancel] = function () {
+        button_options[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
@@ -102,7 +102,7 @@ var ErrorReport = {
                 $div
                     .append(data.message)
                     .dialog({
-                        title: PMA_messages.strSubmitErrorReport,
+                        title: Messages.strSubmitErrorReport,
                         width: 650,
                         modal: true,
                         buttons: button_options,
@@ -125,21 +125,21 @@ var ErrorReport = {
             '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
             'z-index:1000" class="error" id="error_notification"></div>'
         ).append(
-            PMA_getImage('s_error') + PMA_messages.strErrorOccurred
+            PMA_getImage('s_error') + Messages.strErrorOccurred
         );
 
         var $buttons = $('<div class="floatright"></div>');
 
         var button_html  = '<button id="show_error_report">';
-        button_html += PMA_messages.strShowReportDetails;
+        button_html += Messages.strShowReportDetails;
         button_html += '</button>';
 
         button_html += '<a id="change_error_settings">';
-        button_html += PMA_getImage('s_cog', PMA_messages.strChangeReportSettings);
+        button_html += PMA_getImage('s_cog', Messages.strChangeReportSettings);
         button_html += '</a>';
 
         button_html += '<a href="#" id="ignore_error">';
-        button_html += PMA_getImage('b_close', PMA_messages.strIgnore);
+        button_html += PMA_getImage('b_close', Messages.strIgnore);
         button_html += '</a>';
 
         $buttons.html(button_html);

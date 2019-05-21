@@ -100,12 +100,12 @@ function display (init, finit) {
             if (history_array[i].get_type() === 'GroupBy' || history_array[i].get_type() === 'OrderBy') {
                 str += '<td class="center">' + PMA_getImage('s_info', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
-                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop', PMA_messages.strDelete) + '</td>';
+                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop', Messages.strDelete) + '</td>';
             } else {
                 str += '<td class="center">' + PMA_getImage('s_info', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
-                    '<td onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit', PMA_messages.strEdit) + '</td>' +
-                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop', PMA_messages.strDelete) + '</td>';
+                    '<td onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit', Messages.strEdit) + '</td>' +
+                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop', Messages.strDelete) + '</td>';
             }
             str += '</tr></thead>';
             i++;
@@ -791,10 +791,10 @@ function build_query (formtitle, fadin) {
      *                     for jQueryUI dialog buttons
      */
     var button_options = {};
-    button_options[PMA_messages.strClose] = function () {
+    button_options[Messages.strClose] = function () {
         $(this).dialog('close');
     };
-    button_options[PMA_messages.strSubmit] = function () {
+    button_options[Messages.strSubmit] = function () {
         if (vqb_editor) {
             var $elm = $ajaxDialog.find('textarea');
             vqb_editor.save();

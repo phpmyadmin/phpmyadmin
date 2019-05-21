@@ -44,7 +44,7 @@ AJAX.registerOnload('server_variables.js', function () {
         $myEditLink.remove(); // remove edit link
 
         $mySaveLink.on('click', function () {
-            var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
             $.post($(this).attr('href'), {
                 ajax_request: true,
                 type: 'setval',
@@ -58,7 +58,7 @@ AJAX.registerOnload('server_variables.js', function () {
                     PMA_ajaxRemoveMessage($msgbox);
                 } else {
                     if (data.error === '') {
-                        PMA_ajaxShowMessage(PMA_messages.strRequestFailed, false);
+                        PMA_ajaxShowMessage(Messages.strRequestFailed, false);
                     } else {
                         PMA_ajaxShowMessage(data.error, false);
                     }

@@ -52,14 +52,14 @@ AJAX.registerOnload('db_search.js', function () {
      * the hide/show criteria in search result forms
      */
     $('#togglesearchresultlink')
-        .html(PMA_messages.strHideSearchResults)
+        .html(Messages.strHideSearchResults)
         .on('click', function () {
             var $link = $(this);
             $('#searchresults').slideToggle();
-            if ($link.text() === PMA_messages.strHideSearchResults) {
-                $link.text(PMA_messages.strShowSearchResults);
+            if ($link.text() === Messages.strHideSearchResults) {
+                $link.text(Messages.strShowSearchResults);
             } else {
-                $link.text(PMA_messages.strHideSearchResults);
+                $link.text(Messages.strHideSearchResults);
             }
             /** avoid default click action */
             return false;
@@ -81,10 +81,10 @@ AJAX.registerOnload('db_search.js', function () {
         .on('click', function () {
             var $link = $(this);
             $('#sqlqueryform').slideToggle('medium');
-            if ($link.text() === PMA_messages.strHideQueryBox) {
-                $link.text(PMA_messages.strShowQueryBox);
+            if ($link.text() === Messages.strHideQueryBox) {
+                $link.text(Messages.strShowQueryBox);
             } else {
-                $link.text(PMA_messages.strHideQueryBox);
+                $link.text(Messages.strHideQueryBox);
             }
             /** avoid default click action */
             return false;
@@ -97,14 +97,14 @@ AJAX.registerOnload('db_search.js', function () {
      * the hide/show criteria in search criteria form
      */
     $('#togglesearchformlink')
-        .html(PMA_messages.strShowSearchCriteria)
+        .html(Messages.strShowSearchCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#db_search_form').slideToggle();
-            if ($link.text() === PMA_messages.strHideSearchCriteria) {
-                $link.text(PMA_messages.strShowSearchCriteria);
+            if ($link.text() === Messages.strHideSearchCriteria) {
+                $link.text(Messages.strShowSearchCriteria);
             } else {
-                $link.text(PMA_messages.strHideSearchCriteria);
+                $link.text(Messages.strHideSearchCriteria);
             }
             /** avoid default click action */
             return false;
@@ -116,7 +116,7 @@ AJAX.registerOnload('db_search.js', function () {
     $(document).on('click', 'a.browse_results', function (e) {
         e.preventDefault();
         /**   Hides the results shown by the delete criteria */
-        var $msg = PMA_ajaxShowMessage(PMA_messages.strBrowsing, false);
+        var $msg = PMA_ajaxShowMessage(Messages.strBrowsing, false);
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
@@ -161,11 +161,11 @@ AJAX.registerOnload('db_search.js', function () {
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
         var msg = PMA_sprintf(
-            PMA_messages.strConfirmDeleteResults,
+            Messages.strConfirmDeleteResults,
             $(this).data('table-name')
         );
         if (confirm(msg)) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
+            var $msg = PMA_ajaxShowMessage(Messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
             var params = {
@@ -184,7 +184,7 @@ AJAX.registerOnload('db_search.js', function () {
                 $('#sqlqueryform').html(data.sql_query);
                 /** Refresh the search results after the deletion */
                 document.getElementById('buttonGo').trigger('click');
-                $('#togglequerybox').html(PMA_messages.strHideQueryBox);
+                $('#togglequerybox').html(Messages.strHideQueryBox);
                 /** Show the results of the deletion option */
                 $('#browse-results').hide();
                 $('#sqlqueryform').show();
@@ -204,7 +204,7 @@ AJAX.registerOnload('db_search.js', function () {
     $(document).on('submit', '#db_search_form.ajax', function (event) {
         event.preventDefault();
 
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);
+        var $msgbox = PMA_ajaxShowMessage(Messages.strSearching, false);
         // jQuery object to reuse
         var $form = $(this);
 
@@ -218,7 +218,7 @@ AJAX.registerOnload('db_search.js', function () {
 
                 $('#togglesearchresultlink')
                 // always start with the Show message
-                    .text(PMA_messages.strHideSearchResults);
+                    .text(Messages.strHideSearchResults);
                 $('#togglesearchresultsdiv')
                 // now it's time to show the div containing the link
                     .show();
@@ -231,7 +231,7 @@ AJAX.registerOnload('db_search.js', function () {
                     .hide();
                 $('#togglesearchformlink')
                     // always start with the Show message
-                    .text(PMA_messages.strShowSearchCriteria);
+                    .text(Messages.strShowSearchCriteria);
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();

@@ -220,10 +220,10 @@ AJAX.registerOnload('tbl_relation.js', function () {
                 .val()
         );
 
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, drop_query);
+        var question = PMA_sprintf(Messages.strDoYouReally, drop_query);
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);
+            var $msg = PMA_ajaxShowMessage(Messages.strDroppingForeignKey, false);
             var params = getJSConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
@@ -232,7 +232,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
                         // Do nothing
                     });
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()

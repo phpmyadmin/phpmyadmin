@@ -1459,7 +1459,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     if ($(g.cEdit).find('.edit_box').val().match(/^(0x)?[a-f0-9]*$/i) !== null) {
                         this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                     } else {
-                        var hexError = '<div class="error">' + PMA_messages.strEnterValidHex + '</div>';
+                        var hexError = '<div class="error">' + Messages.strEnterValidHex + '</div>';
                         PMA_ajaxShowMessage(hexError, false);
                         this_field_params[field_name] = PMA_getCellValue(g.currentEditCell);
                     }
@@ -1579,7 +1579,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             $(g.cPointer).css('visibility', 'hidden');  // set visibility to hidden instead of calling hide() to force browsers to cache the image in cPointer class
 
             // assign column reordering hint
-            g.reorderHint = PMA_messages.strColOrderHint;
+            g.reorderHint = Messages.strColOrderHint;
 
             // get data columns in the first row of the table
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
@@ -1622,9 +1622,9 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 .dblclick(function (e) {
                     e.preventDefault();
                     $('<div></div>')
-                        .prop('title', PMA_messages.strColNameCopyTitle)
+                        .prop('title', Messages.strColNameCopyTitle)
                         .addClass('modal-copy')
-                        .text(PMA_messages.strColNameCopyText)
+                        .text(Messages.strColNameCopyText)
                         .append(
                             $('<input>')
                                 .prop('readonly', true)
@@ -1673,7 +1673,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             $(g.cList).hide();
 
             // assign column visibility related hints
-            g.showAllColText = PMA_messages.strShowAllCol;
+            g.showAllColText = Messages.strShowAllCol;
 
             // get data columns in the first row of the table
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
@@ -1699,7 +1699,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 PMA_tooltip(
                     $colVisibTh,
                     'th',
-                    PMA_messages.strColVisibHint
+                    Messages.strColVisibHint
                 );
 
                 // create column visibility drop-down arrow(s)
@@ -1986,10 +1986,10 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             $(g.cEditTextarea).hide();
 
             // assign cell editing hint
-            g.cellEditHint = PMA_messages.strCellEditHint;
-            g.saveCellWarning = PMA_messages.strSaveCellWarning;
-            g.alertNonUnique = PMA_messages.strAlertNonUnique;
-            g.gotoLinkText = PMA_messages.strGoToLink;
+            g.cellEditHint = Messages.strCellEditHint;
+            g.saveCellWarning = Messages.strSaveCellWarning;
+            g.alertNonUnique = Messages.strAlertNonUnique;
+            g.gotoLinkText = Messages.strGoToLink;
 
             // initialize cell editing configuration
             g.saveCellsAtOnce = $(g.o).find('.save_cells_at_once').val();
@@ -2115,11 +2115,11 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             $(g.gDiv).append(g.cEditTextarea);
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
-            if (PMA_messages.strGridEditFeatureHint !== undefined) {
+            if (Messages.strGridEditFeatureHint !== undefined) {
                 PMA_tooltip(
                     $(g.t).find('.edit_row_anchor a'),
                     'a',
-                    PMA_messages.strGridEditFeatureHint
+                    Messages.strGridEditFeatureHint
                 );
             }
         }
@@ -2133,7 +2133,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
     // todo update the original length after a grid edit
     $(t).find('td.data.truncated:not(:has(span))')
         .wrapInner(function () {
-            return '<span title="' + PMA_messages.strOriginalLength + ' ' +
+            return '<span title="' + Messages.strOriginalLength + ' ' +
                 $(this).data('originallength') + '"></span>';
         });
 
@@ -2168,10 +2168,10 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
     g.tableCreateTime = $(g.o).find('.table_create_time').val();
 
     // assign the hints
-    g.sortHint = PMA_messages.strSortHint;
-    g.strMultiSortHint = PMA_messages.strMultiSortHint;
-    g.markHint = PMA_messages.strColMarkHint;
-    g.copyHint = PMA_messages.strColNameCopyHint;
+    g.sortHint = Messages.strSortHint;
+    g.strMultiSortHint = Messages.strMultiSortHint;
+    g.markHint = Messages.strColMarkHint;
+    g.copyHint = Messages.strColNameCopyHint;
 
     // assign common hidden inputs
     var $common_hidden_inputs = $(g.o).find('div.common_hidden_inputs');

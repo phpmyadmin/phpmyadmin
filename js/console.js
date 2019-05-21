@@ -887,7 +887,7 @@ var PMA_consoleMessages = {
         $targetMessage.find('.action.requery').on('click', function () {
             var query = $(this).parent().siblings('.query').text();
             var $message = $(this).closest('.message');
-            if (confirm(PMA_messages.strConsoleRequeryConfirm + '\n' +
+            if (confirm(Messages.strConsoleRequeryConfirm + '\n' +
                 (query.length < 100 ? query : query.slice(0, 100) + '...'))
             ) {
                 PMA_console.execute(query, { db: $message.attr('targetdb'), table: $message.attr('targettable') });
@@ -909,7 +909,7 @@ var PMA_consoleMessages = {
         });
         $targetMessage.find('.action.delete_bookmark').on('click', function () {
             var $message = $(this).closest('.message');
-            if (confirm(PMA_messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
+            if (confirm(Messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('import.php',
                     {
                         server: PMA_commonParams.get('server'),
@@ -1075,7 +1075,7 @@ var PMA_consoleBookmarks = {
         $('#pma_bookmarks').find('.card.add [name=submit]').on('click', function () {
             if ($('#pma_bookmarks').find('.card.add [name=label]').val().length === 0
                 || PMA_consoleInput.getText('bookmark').length === 0) {
-                alert(PMA_messages.strFormEmpty);
+                alert(Messages.strFormEmpty);
                 return;
             }
             $(this).prop('disabled', true);
@@ -1206,7 +1206,7 @@ PMA_consoleDebug = {
                     $('<div class="message welcome">')
                         .text(
                             PMA_sprintf(
-                                PMA_messages.strConsoleDebugArgsSummary,
+                                Messages.strConsoleDebugArgsSummary,
                                 dbgStep.args.length
                             )
                         )
@@ -1269,12 +1269,12 @@ PMA_consoleDebug = {
                                 $('<div class="action_content">')
                                     .append(
                                         '<span class="action dbg_show_args">' +
-                                PMA_messages.strConsoleDebugShowArgs +
+                                Messages.strConsoleDebugShowArgs +
                                 '</span> '
                                     )
                                     .append(
                                         '<span class="action dbg_hide_args">' +
-                                PMA_messages.strConsoleDebugHideArgs +
+                                Messages.strConsoleDebugHideArgs +
                                 '</span> '
                                     )
                             );
@@ -1342,7 +1342,7 @@ PMA_consoleDebug = {
                     .text((parseInt(i) + 1) + '.')
                     .append(
                         $('<span class="time">').text(
-                            PMA_messages.strConsoleDebugTimeTaken +
+                            Messages.strConsoleDebugTimeTaken +
                         ' ' + queryInfo[i].time + 's' +
                         ' (' + ((queryInfo[i].time * 100) / totalTime).toFixed(3) + '%)'
                         )
@@ -1387,7 +1387,7 @@ PMA_consoleDebug = {
         }
         if (debugJson === false) {
             $('#debug_console').find('.debug>.welcome').text(
-                PMA_messages.strConsoleDebugError
+                Messages.strConsoleDebugError
             );
             return;
         }
@@ -1419,7 +1419,7 @@ PMA_consoleDebug = {
         $('#debug_console').find('.debug>.welcome').append(
             $('<span class="debug_summary">').text(
                 PMA_sprintf(
-                    PMA_messages.strConsoleDebugSummary,
+                    Messages.strConsoleDebugSummary,
                     totalUnique,
                     totalExec,
                     totalTime

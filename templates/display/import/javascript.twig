@@ -68,10 +68,10 @@ $( function() {
                         var statustext = PMA_sprintf(
                             "{{ statustext_str|raw }}",
                             formatBytes(
-                                complete, 1, PMA_messages.strDecimalSeparator
+                                complete, 1, Messages.strDecimalSeparator
                             ),
                             formatBytes(
-                                total, 1, PMA_messages.strDecimalSeparator
+                                total, 1, Messages.strDecimalSeparator
                             )
                         );
 
@@ -89,7 +89,7 @@ $( function() {
                             var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
                             var speed = PMA_sprintf(
                                 "{{ second_str|raw }}",
-                                formatBytes(complete / used_time * 1000, 1, PMA_messages.strDecimalSeparator)
+                                formatBytes(complete / used_time * 1000, 1, Messages.strDecimalSeparator)
                             );
 
                             var minutes = parseInt(seconds / 60);

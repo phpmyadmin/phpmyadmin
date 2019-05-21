@@ -60,7 +60,7 @@ class FilesTest extends TestCase
             ],
             [
                 'js/messages.php',
-                'var PMA_messages = new Array();',
+                'var Messages = [];',
             ],
         ];
     }

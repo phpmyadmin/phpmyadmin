@@ -1,5 +1,5 @@
 /** global: AJAX */
-/** global: PMA_messages */
+/** global: Messages */
 /** global: u2f */
 AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');
@@ -13,10 +13,10 @@ AJAX.registerOnload('u2f.js', function () {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {
                     if (data.errorCode === 5) {
-                        PMA_ajaxShowMessage(PMA_messages.strU2FTimeout, false);
+                        PMA_ajaxShowMessage(Messages.strU2FTimeout, false);
                     } else {
                         PMA_ajaxShowMessage(
-                            PMA_sprintf(PMA_messages.strU2FError, data.errorCode), false
+                            PMA_sprintf(Messages.strU2FError, data.errorCode), false
                         );
                     }
                     return;
@@ -41,10 +41,10 @@ AJAX.registerOnload('u2f.js', function () {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {
                     if (data.errorCode === 5) {
-                        PMA_ajaxShowMessage(PMA_messages.strU2FTimeout, false);
+                        PMA_ajaxShowMessage(Messages.strU2FTimeout, false);
                     } else {
                         PMA_ajaxShowMessage(
-                            PMA_sprintf(PMA_messages.strU2FError, data.errorCode), false
+                            PMA_sprintf(Messages.strU2FError, data.errorCode), false
                         );
                     }
                     return;

@@ -16,13 +16,13 @@
  */
 function checkAddUser (the_form) {
     if (the_form.elements.pred_hostname.value === 'userdefined' && the_form.elements.hostname.value === '') {
-        alert(PMA_messages.strHostEmpty);
+        alert(Messages.strHostEmpty);
         the_form.elements.hostname.focus();
         return false;
     }
 
     if (the_form.elements.pred_username.value === 'userdefined' && the_form.elements.username.value === '') {
-        alert(PMA_messages.strUserEmpty);
+        alert(Messages.strUserEmpty);
         the_form.elements.username.focus();
         return false;
     }
@@ -48,15 +48,15 @@ function checkPasswordStrength (value, meter_obj, meter_object_label, username) 
     strength = parseInt(strength);
     meter_obj.val(strength);
     switch (strength) {
-    case 0: meter_obj_label.html(PMA_messages.strExtrWeak);
+    case 0: meter_obj_label.html(Messages.strExtrWeak);
         break;
-    case 1: meter_obj_label.html(PMA_messages.strVeryWeak);
+    case 1: meter_obj_label.html(Messages.strVeryWeak);
         break;
-    case 2: meter_obj_label.html(PMA_messages.strWeak);
+    case 2: meter_obj_label.html(Messages.strWeak);
         break;
-    case 3: meter_obj_label.html(PMA_messages.strGood);
+    case 3: meter_obj_label.html(Messages.strGood);
         break;
-    case 4: meter_obj_label.html(PMA_messages.strStrong);
+    case 4: meter_obj_label.html(Messages.strStrong);
     }
 }
 
@@ -171,17 +171,17 @@ AJAX.registerOnload('server_privileges.js', function () {
         var $thisButton = $(this);
         var $form = $('#usersForm');
 
-        $thisButton.PMA_confirm(PMA_messages.strDropUserWarning, $form.attr('action'), function (url) {
+        $thisButton.PMA_confirm(Messages.strDropUserWarning, $form.attr('action'), function (url) {
             var $drop_users_db_checkbox = $('#checkbox_drop_users_db');
             if ($drop_users_db_checkbox.is(':checked')) {
-                var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + PMA_sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE'));
+                var is_confirmed = confirm(Messages.strDropDatabaseStrongWarning + '\n' + PMA_sprintf(Messages.strDoYouReally, 'DROP DATABASE'));
                 if (! is_confirmed) {
                     // Uncheck the drop users database checkbox
                     $drop_users_db_checkbox.prop('checked', false);
                 }
             }
 
-            PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
+            PMA_ajaxShowMessage(Messages.strRemovingSelectedUsers);
 
             var argsep = PMA_commonParams.get('arg_separator');
             $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
@@ -234,7 +234,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var buttonOptions = {};
-                    buttonOptions[PMA_messages.strGo] = function () {
+                    buttonOptions[Messages.strGo] = function () {
                         var usrGroup = $('#changeUserGroupDialog')
                             .find('select[name="userGroup"]')
                             .val();
@@ -261,7 +261,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                         );
                         $(this).dialog('close');
                     };
-                    buttonOptions[PMA_messages.strClose] = function () {
+                    buttonOptions[Messages.strClose] = function () {
                         $(this).dialog('close');
                     };
                     var $dialog = $('<div></div>')
@@ -299,12 +299,12 @@ AJAX.registerOnload('server_privileges.js', function () {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find('input:checked').length === 0) {
-            PMA_ajaxShowMessage(PMA_messages.strNoAccountSelected, 2000, 'success');
+            PMA_ajaxShowMessage(Messages.strNoAccountSelected, 2000, 'success');
             return;
         }
         var $msgbox = PMA_ajaxShowMessage();
         var button_options = {};
-        button_options[PMA_messages.strClose] = function () {
+        button_options[Messages.strClose] = function () {
             $(this).dialog('close');
         };
         var argsep = PMA_commonParams.get('arg_separator');
@@ -342,7 +342,7 @@ AJAX.registerOnload('server_privileges.js', function () {
          * @var button_options  Object containing options for jQueryUI dialog buttons
          */
         var button_options = {};
-        button_options[PMA_messages.strClose] = function () {
+        button_options[Messages.strClose] = function () {
             $(this).dialog('close');
         };
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {

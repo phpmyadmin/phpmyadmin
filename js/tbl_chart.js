@@ -226,7 +226,7 @@ function onDataSeriesChange () {
             $('input#radio_line').prop('checked', true);
             currentSettings.type = 'line';
         }
-        yaxis_title = PMA_messages.strYValues;
+        yaxis_title = Messages.strYValues;
     }
     $('input[name="yaxis_label"]').val(yaxis_title);
     currentSettings.yaxisLabel = yaxis_title;

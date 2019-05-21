@@ -74,7 +74,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
 
         function submitForm () {
-            $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            $msg = PMA_ajaxShowMessage(Messages.strProcessingRequest);
             $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
@@ -142,7 +142,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 // If Collation is changed, Warn and Confirm
                 if (checkIfConfirmRequired($form, field_cnt)) {
                     var question = sprintf(
-                        PMA_messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
+                        Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
                     $form.PMA_confirm(question, $form.attr('action'), function (url) {
                         submitForm();
@@ -179,10 +179,10 @@ AJAX.registerOnload('tbl_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
+        var question = PMA_sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
         var $this_anchor = $(this);
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
+            var $msg = PMA_ajaxShowMessage(Messages.strDroppingColumn, false);
             var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
             params += PMA_commonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
@@ -222,7 +222,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     $('.index_info').replaceWith(data.indexes_list);
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()
@@ -260,7 +260,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         } else if ($this.is('.add_fulltext_anchor')) {
             add_clause = 'ADD FULLTEXT';
         }
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' +
+        var question = PMA_sprintf(Messages.strDoYouReally, 'ALTER TABLE `' +
                 escapeHtml(curr_table_name) + '` ' + add_clause + '(`' + escapeHtml(curr_column_name) + '`);');
 
         var $this_anchor = $(this);
@@ -291,7 +291,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
          */
         var button_options = {};
 
-        button_options[PMA_messages.strGo] = function (event) {
+        button_options[Messages.strGo] = function (event) {
             event.preventDefault();
             var $msgbox = PMA_ajaxShowMessage();
             var $this = $(this);
@@ -345,17 +345,17 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 }
             });
         };
-        button_options[PMA_messages.strPreviewSQL] = function () {
+        button_options[Messages.strPreviewSQL] = function () {
             // Function for Previewing SQL
             var $form = $('#move_column_form');
             PMA_previewSQL($form);
         };
-        button_options[PMA_messages.strCancel] = function () {
+        button_options[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
         var button_options_error = {};
-        button_options_error[PMA_messages.strOK] = function () {
+        button_options_error[Messages.strOK] = function () {
             $(this).dialog('close').remove();
         };
 
@@ -431,12 +431,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
         }
 
         if ($link.is('#partition_action_DROP')) {
-            var question = PMA_messages.strDropPartitionWarning;
+            var question = Messages.strDropPartitionWarning;
             $link.PMA_confirm(question, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else if ($link.is('#partition_action_TRUNCATE')) {
-            var question = PMA_messages.strTruncatePartitionWarning;
+            var question = Messages.strTruncatePartitionWarning;
             $link.PMA_confirm(question, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
@@ -451,7 +451,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     $(document).on('click', '#remove_partitioning.ajax', function (e) {
         e.preventDefault();
         var $link = $(this);
-        var question = PMA_messages.strRemovePartitioningWarning;
+        var question = Messages.strRemovePartitioningWarning;
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             var params = getJSConfirmCommonParam({
                 'ajax_request' : true,

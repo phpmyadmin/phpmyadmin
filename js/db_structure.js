@@ -38,13 +38,13 @@ AJAX.registerTeardown('db_structure.js', function () {
  */
 function PMA_adjustTotals () {
     var byteUnits = [
-        PMA_messages.strB,
-        PMA_messages.strKiB,
-        PMA_messages.strMiB,
-        PMA_messages.strGiB,
-        PMA_messages.strTiB,
-        PMA_messages.strPiB,
-        PMA_messages.strEiB
+        Messages.strB,
+        Messages.strKiB,
+        Messages.strMiB,
+        Messages.strGiB,
+        Messages.strTiB,
+        Messages.strPiB,
+        Messages.strEiB
     ];
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
@@ -128,7 +128,7 @@ function PMA_adjustTotals () {
 
     // Update summary with new data
     var $summary = $('#tbl_summary_row');
-    $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strNTables, tableSum));
+    $summary.find('.tbl_num').text(PMA_sprintf(Messages.strNTables, tableSum));
     if (rowSumApproximated) {
         $summary.find('.row_count_sum').text(strRowSum);
     } else {
@@ -174,11 +174,11 @@ function PMA_fetchRealRowCount ($target) {
                 // Adjust the 'Sum' displayed at the bottom.
                 PMA_adjustTotals();
             } else {
-                PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+                PMA_ajaxShowMessage(Messages.strErrorRealRowCount);
             }
         },
         error: function () {
-            PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+            PMA_ajaxShowMessage(Messages.strErrorRealRowCount);
         }
     });
 }
@@ -195,18 +195,18 @@ AJAX.registerOnload('db_structure.js', function () {
         var dialogObj = $('<div class=\'hide\'>' + msg + '</div>');
         $('body').append(dialogObj);
         var buttonOptions = {};
-        buttonOptions[PMA_messages.strContinue] = function () {
+        buttonOptions[Messages.strContinue] = function () {
             success();
             $(this).dialog('close');
         };
-        buttonOptions[PMA_messages.strCancel] = function () {
+        buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
             $('#tablesForm')[0].reset();
         };
         $(dialogObj).dialog({
             resizable: false,
             modal: true,
-            title: PMA_messages.confirmTitle,
+            title: Messages.confirmTitle,
             buttons: buttonOptions
         });
     };
@@ -219,7 +219,7 @@ AJAX.registerOnload('db_structure.js', function () {
             event.preventDefault();
             event.stopPropagation();
             jqConfirm(
-                PMA_messages.makeConsistentMessage, function () {
+                Messages.makeConsistentMessage, function () {
                     $('#tablesForm').submit();
                 }
             );
@@ -233,13 +233,13 @@ AJAX.registerOnload('db_structure.js', function () {
             var formData = $('#tablesForm').serialize();
             var modalTitle = '';
             if ($(this).val() === 'copy_tbl') {
-                modalTitle = PMA_messages.strCopyTablesTo;
+                modalTitle = Messages.strCopyTablesTo;
             } else if ($(this).val() === 'add_prefix_tbl') {
-                modalTitle = PMA_messages.strAddPrefix;
+                modalTitle = Messages.strAddPrefix;
             } else if ($(this).val() === 'replace_prefix_tbl') {
-                modalTitle = PMA_messages.strReplacePrefix;
+                modalTitle = Messages.strReplacePrefix;
             } else if ($(this).val() === 'copy_tbl_change_prefix') {
-                modalTitle = PMA_messages.strCopyPrefix;
+                modalTitle = Messages.strCopyPrefix;
             }
             $.ajax({
                 type: 'POST',
@@ -251,11 +251,11 @@ AJAX.registerOnload('db_structure.js', function () {
                 var dialogObj = $('<div class=\'hide\'>' + data + '</div>');
                 $('body').append(dialogObj);
                 var buttonOptions = {};
-                buttonOptions[PMA_messages.strContinue] = function () {
+                buttonOptions[Messages.strContinue] = function () {
                     $('#ajax_form').submit();
                     $(this).dialog('close');
                 };
-                buttonOptions[PMA_messages.strCancel] = function () {
+                buttonOptions[Messages.strCancel] = function () {
                     $(this).dialog('close');
                     $('#tablesForm')[0].reset();
                 };
@@ -291,12 +291,12 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
-            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(curr_table_name) + '`') +
+        var question = Messages.strTruncateTableStrongWarning + ' ' +
+            PMA_sprintf(Messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(curr_table_name) + '`') +
             getForeignKeyCheckboxLoader();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            PMA_ajaxShowMessage(Messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
 
@@ -317,7 +317,7 @@ AJAX.registerOnload('db_structure.js', function () {
                         .removeClass('truncate_table_anchor');
                     PMA_adjustTotals();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }, loadForeignKeyCheckbox); // end $.PMA_confirm()
@@ -349,16 +349,16 @@ AJAX.registerOnload('db_structure.js', function () {
          */
         var question;
         if (! is_view) {
-            question = PMA_messages.strDropTableStrongWarning + ' ' +
-                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP TABLE `' + escapeHtml(curr_table_name) + '`');
+            question = Messages.strDropTableStrongWarning + ' ' +
+                PMA_sprintf(Messages.strDoYouReally, 'DROP TABLE `' + escapeHtml(curr_table_name) + '`');
         } else {
             question =
-                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(curr_table_name) + '`');
+                PMA_sprintf(Messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(curr_table_name) + '`');
         }
         question += getForeignKeyCheckboxLoader();
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+            var $msg = PMA_ajaxShowMessage(Messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
 
@@ -370,7 +370,7 @@ AJAX.registerOnload('db_structure.js', function () {
                     PMA_reloadNavigation();
                     PMA_ajaxRemoveMessage($msg);
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }, loadForeignKeyCheckbox); // end $.PMA_confirm()
@@ -397,7 +397,7 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strOperationTakesLongTime;
+        var question = Messages.strOperationTakesLongTime;
 
         $(this).PMA_confirm(question, '', function () {
             return true;

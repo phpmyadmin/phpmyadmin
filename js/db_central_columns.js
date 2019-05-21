@@ -50,7 +50,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.preventDefault();
         var multi_delete_columns = $('.checkall:checkbox:checked').serialize();
         if (multi_delete_columns === '') {
-            PMA_ajaxShowMessage(PMA_messages.strRadioUnchecked);
+            PMA_ajaxShowMessage(Messages.strRadioUnchecked);
             return false;
         }
         PMA_ajaxShowMessage();
@@ -61,7 +61,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.preventDefault();
         var editColumnList = $('.checkall:checkbox:checked').serialize();
         if (editColumnList === '') {
-            PMA_ajaxShowMessage(PMA_messages.strRadioUnchecked);
+            PMA_ajaxShowMessage(Messages.strRadioUnchecked);
             return false;
         }
         var argsep = PMA_commonParams.get('arg_separator');
@@ -116,7 +116,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.preventDefault();
         event.stopPropagation();
         var $td = $(this);
-        var question = PMA_messages.strDeleteCentralColumnWarning;
+        var question = Messages.strDeleteCentralColumnWarning;
         $td.PMA_confirm(question, null, function (url) {
             var rownum = $td.data('rownum');
             $('#del_col_name').val('selected_fld%5B%5D=' + $('#checkbox_row_' + rownum).val());
@@ -184,7 +184,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             error: function () {
                 PMA_ajaxShowMessage(
                     '<div class="error">' +
-                        PMA_messages.strErrorProcessingRequest +
+                        Messages.strErrorProcessingRequest +
                         '</div>',
                     false
                 );
@@ -202,7 +202,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             'selectedTable' : selectvalue,
             'populateColumns' : true
         };
-        $('#column-select').html('<option value="">' + PMA_messages.strLoading + '</option>');
+        $('#column-select').html('<option value="">' + Messages.strLoading + '</option>');
         if (selectvalue !== '') {
             $.post(href, params, function (data) {
                 $('#column-select').empty().append(default_column_select);
