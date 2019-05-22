@@ -554,7 +554,7 @@ class ErrorHandler
             } else {
                 // send the error reports asynchronously & without asking user
                 $jsCode .= '$("#pma_report_errors_form").submit();'
-                        . 'PMA_ajaxShowMessage(
+                        . 'Functions.ajaxShowMessage(
                             Messages.phpErrorsBeingSubmitted, false
                         );';
                 // js code to appropriate focusing,
@@ -566,22 +566,22 @@ class ErrorHandler
             //ask user whether to submit errors or not.
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
-                $jsCode = 'PMA_ajaxShowMessage(Messages.phpErrorsFound);'
+                $jsCode = 'Functions.ajaxShowMessage(Messages.phpErrorsFound);'
                         . '$("#pma_ignore_errors_popup").bind("click", function() {
-                            PMA_ignorePhpErrors()
+                            Functions.ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_popup").bind("click",
                             function() {
-                                PMA_ignorePhpErrors(false)
+                                Functions.ignorePhpErrors(false)
                             });'
                         . '$("#pma_ignore_errors_bottom").bind("click", function(e) {
                             e.preventDefault();
-                            PMA_ignorePhpErrors()
+                            Functions.ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_bottom").bind("click",
                             function(e) {
                                 e.preventDefault();
-                                PMA_ignorePhpErrors(false)
+                                Functions.ignorePhpErrors(false)
                             });'
                         . '$("html, body").animate({
                             scrollTop:$(document).height()

@@ -1792,7 +1792,7 @@ class Util
             $tmp = $tag_params;
             $tag_params = [];
             if (! empty($tmp)) {
-                $tag_params['onclick'] = 'return confirmLink(this, \''
+                $tag_params['onclick'] = 'return Functions.confirmLink(this, \''
                     . Sanitize::escapeJsString($tmp) . '\')';
             }
             unset($tmp);

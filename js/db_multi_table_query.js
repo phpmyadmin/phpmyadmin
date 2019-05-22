@@ -26,12 +26,12 @@ AJAX.registerTeardown('db_multi_table_query.js', function () {
 });
 
 AJAX.registerOnload('db_multi_table_query.js', function () {
-    var editor = PMA_getSQLEditor($('#MultiSqlquery'), {}, 'both');
+    var editor = Functions.getSqlEditor($('#MultiSqlquery'), {}, 'both');
     $('.CodeMirror-line').css('text-align', 'left');
     editor.setSize(-1, 50);
 
     var column_count = 3;
-    PMA_init_slider();
+    Functions.initSlider();
     addNewColumnCallbacks();
 
     $('#update_query_button').on('click', function () {
@@ -61,7 +61,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
             }
         });
         if (Object.keys(tableAliases).length === 0) {
-            PMA_ajaxShowMessage('Nothing selected', false, 'error');
+            Functions.ajaxShowMessage('Nothing selected', false, 'error');
             return;
         }
 
@@ -82,24 +82,24 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
             }
         });
 
-        query = 'SELECT ' + '`' + escapeBacktick(columns[0][0]) + '`.';
+        query = 'SELECT ' + '`' + Functions.escapeBacktick(columns[0][0]) + '`.';
         if (columns[0][1] === '*') {
             query += '*';
         } else {
-            query += '`' + escapeBacktick(columns[0][1]) + '`';
+            query += '`' + Functions.escapeBacktick(columns[0][1]) + '`';
         }
         if (columns[0][2] !== '') {
             query += ' AS ' + columns[0][2];
         }
         for (var i = 1; i < columns.length; i++) {
-            query += ', `' + escapeBacktick(columns[i][0]) + '`.';
+            query += ', `' + Functions.escapeBacktick(columns[i][0]) + '`.';
             if (columns[i][1] === '*') {
                 query += '*';
             } else {
-                query += '`' + escapeBacktick(columns[i][1]) + '`';
+                query += '`' + Functions.escapeBacktick(columns[i][1]) + '`';
             }
             if (columns[i][2] !== '') {
-                query += ' AS `' + escapeBacktick(columns[0][2]) + '`';
+                query += ' AS `' + Functions.escapeBacktick(columns[0][2]) + '`';
             }
         }
         query += '\nFROM ';
@@ -120,7 +120,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
         var query = editor.getDoc().getValue();
         // Verifying that the query is not empty
         if (query === '') {
-            PMA_ajaxShowMessage(Messages.strEmptyQuery, false, 'error');
+            Functions.ajaxShowMessage(Messages.strEmptyQuery, false, 'error');
             return;
         }
         var data = {
@@ -159,7 +159,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
         $new_column_dom.find('.pma_auto_slider').first().unwrap();
         $new_column_dom.find('.pma_auto_slider').first().attr('title', 'criteria');
         $('#add_column_button').parent().before($new_column_dom);
-        PMA_init_slider();
+        Functions.initSlider();
         addNewColumnCallbacks();
     });
 

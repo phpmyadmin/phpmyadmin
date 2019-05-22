@@ -30,7 +30,7 @@ var ErrorReport = {
             exception_type: 'js'
         }, function (data) {
             if (data.success !== true) {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
                 return;
             }
             if (data.report_setting === 'ask') {
@@ -44,9 +44,9 @@ var ErrorReport = {
                 $.post('error_report.php', post_data, function (data) {
                     if (data.success === false) {
                         // in the case of an error, show the error message returned.
-                        PMA_ajaxShowMessage(data.error, false);
+                        Functions.ajaxShowMessage(data.error, false);
                     } else {
-                        PMA_ajaxShowMessage(data.message, false);
+                        Functions.ajaxShowMessage(data.message, false);
                     }
                 });
             }
@@ -82,9 +82,9 @@ var ErrorReport = {
                 $dialog.dialog('close');
                 if (data.success === false) {
                     // in the case of an error, show the error message returned.
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 } else {
-                    PMA_ajaxShowMessage(data.message, 3000);
+                    Functions.ajaxShowMessage(data.message, 3000);
                 }
             });
         };
@@ -96,7 +96,7 @@ var ErrorReport = {
         $.post('error_report.php', report_data, function (data) {
             if (data.success === false) {
                 // in the case of an error, show the error message returned.
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             } else {
                 // Show dialog if the request was successful
                 $div
@@ -125,7 +125,7 @@ var ErrorReport = {
             '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
             'z-index:1000" class="error" id="error_notification"></div>'
         ).append(
-            PMA_getImage('s_error') + Messages.strErrorOccurred
+            Functions.getImage('s_error') + Messages.strErrorOccurred
         );
 
         var $buttons = $('<div class="floatright"></div>');
@@ -135,11 +135,11 @@ var ErrorReport = {
         button_html += '</button>';
 
         button_html += '<a id="change_error_settings">';
-        button_html += PMA_getImage('s_cog', Messages.strChangeReportSettings);
+        button_html += Functions.getImage('s_cog', Messages.strChangeReportSettings);
         button_html += '</a>';
 
         button_html += '<a href="#" id="ignore_error">';
-        button_html += PMA_getImage('b_close', Messages.strIgnore);
+        button_html += Functions.getImage('b_close', Messages.strIgnore);
         button_html += '</a>';
 
         $buttons.html(button_html);

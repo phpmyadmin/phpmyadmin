@@ -110,7 +110,7 @@ if (isset($_POST['send_error_report'])
                 $response->addJSON('_errSubmitMsg', $msg);
             }
         } elseif ($_POST['exception_type'] == 'php') {
-            $jsCode = 'PMA_ajaxShowMessage("<div class=\"error\">'
+            $jsCode = 'Functions.ajaxShowMessage("<div class=\"error\">'
                     . $msg
                     . '</div>", false);';
             $response->getFooter()->getScripts()->addCode($jsCode);

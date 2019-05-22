@@ -82,7 +82,7 @@ function createTemplate (name) {
         templateData : JSON.stringify(templateData)
     };
 
-    PMA_ajaxShowMessage();
+    Functions.ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             $('#templateName').val('');
@@ -92,9 +92,9 @@ function createTemplate (name) {
                     $(this).prop('selected', true);
                 }
             });
-            PMA_ajaxShowMessage(Messages.strTemplateCreated);
+            Functions.ajaxShowMessage(Messages.strTemplateCreated);
         } else {
-            PMA_ajaxShowMessage(response.error, false);
+            Functions.ajaxShowMessage(response.error, false);
         }
     });
 }
@@ -115,7 +115,7 @@ function loadTemplate (id) {
         templateId : id,
     };
 
-    PMA_ajaxShowMessage();
+    Functions.ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
@@ -139,9 +139,9 @@ function loadTemplate (id) {
                 }
             });
             $('input[name="template_id"]').val(id);
-            PMA_ajaxShowMessage(Messages.strTemplateLoaded);
+            Functions.ajaxShowMessage(Messages.strTemplateLoaded);
         } else {
-            PMA_ajaxShowMessage(response.error, false);
+            Functions.ajaxShowMessage(response.error, false);
         }
     });
 }
@@ -165,12 +165,12 @@ function updateTemplate (id) {
         templateData : JSON.stringify(templateData)
     };
 
-    PMA_ajaxShowMessage();
+    Functions.ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
-            PMA_ajaxShowMessage(Messages.strTemplateUpdated);
+            Functions.ajaxShowMessage(Messages.strTemplateUpdated);
         } else {
-            PMA_ajaxShowMessage(response.error, false);
+            Functions.ajaxShowMessage(response.error, false);
         }
     });
 }
@@ -191,13 +191,13 @@ function deleteTemplate (id) {
         templateId : id,
     };
 
-    PMA_ajaxShowMessage();
+    Functions.ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             $('#template').find('option[value="' + id + '"]').remove();
-            PMA_ajaxShowMessage(Messages.strTemplateDeleted);
+            Functions.ajaxShowMessage(Messages.strTemplateDeleted);
         } else {
-            PMA_ajaxShowMessage(response.error, false);
+            Functions.ajaxShowMessage(response.error, false);
         }
     });
 }
@@ -731,7 +731,7 @@ function check_time_out (time_limit) {
     time_out = setTimeout(function () {
         $.get(href, params, function (data) {
             if (data.message === 'timeout') {
-                PMA_ajaxShowMessage(
+                Functions.ajaxShowMessage(
                     '<div class="error">' +
                     Messages.strTimeOutError +
                     '</div>',
@@ -822,7 +822,7 @@ function createAliasModal (event) {
                             $('#db_alias_select').append(option);
                         });
                     } else {
-                        PMA_ajaxShowMessage(response.error, false);
+                        Functions.ajaxShowMessage(response.error, false);
                     }
                 });
             }
@@ -940,7 +940,7 @@ AJAX.registerOnload('export.js', function () {
                         $('#table_alias_select').append(option);
                     });
                 } else {
-                    PMA_ajaxShowMessage(response.error, false);
+                    Functions.ajaxShowMessage(response.error, false);
                 }
             });
         }
@@ -963,7 +963,7 @@ AJAX.registerOnload('export.js', function () {
                     $('#column_alias_select').append(option);
                 });
             } else {
-                PMA_ajaxShowMessage(response.error, false);
+                Functions.ajaxShowMessage(response.error, false);
             }
         });
     });

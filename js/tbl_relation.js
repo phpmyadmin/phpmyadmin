@@ -22,7 +22,7 @@ function setDropdownValues ($dropdown, values, selectedValue) {
     // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function () {
-        optionsAsString += '<option value=\'' + escapeHtml(this) + '\'' + (selectedValue === escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + escapeHtml(this) + '</option>';
+        optionsAsString += '<option value=\'' + Functions.escapeHtml(this) + '\'' + (selectedValue === Functions.escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + Functions.escapeHtml(this) + '</option>';
     });
     $dropdown.append($(optionsAsString));
 }
@@ -69,7 +69,7 @@ function getDropdownValues ($dropdown) {
             return;
         }
     }
-    var $msgbox = PMA_ajaxShowMessage();
+    var $msgbox = Functions.ajaxShowMessage();
     var $form = $dropdown.parents('form');
     var argsep = CommonParams.get('arg_separator');
     var params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
@@ -90,7 +90,7 @@ function getDropdownValues ($dropdown) {
         data: params,
         dataType: 'json',
         success: function (data) {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success) {
                 // if the changed dropdown is a database selector
                 if (foreignTable === null) {
@@ -109,7 +109,7 @@ function getDropdownValues ($dropdown) {
                     setDropdownValues($columnDd.slice(1), data.columns);
                 }
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -214,25 +214,25 @@ AJAX.registerOnload('tbl_relation.js', function () {
         // Object containing reference to the current field's row
         var $curr_row = $anchor.parents('tr');
 
-        var drop_query = escapeHtml(
+        var drop_query = Functions.escapeHtml(
             $curr_row.children('td')
                 .children('.drop_foreign_key_msg')
                 .val()
         );
 
-        var question = PMA_sprintf(Messages.strDoYouReally, drop_query);
+        var question = Functions.sprintf(Messages.strDoYouReally, drop_query);
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(Messages.strDroppingForeignKey, false);
-            var params = getJSConfirmCommonParam(this, $anchor.getPostData());
+            var $msg = Functions.ajaxShowMessage(Messages.strDroppingForeignKey, false);
+            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
-                    PMA_ajaxRemoveMessage($msg);
+                    Functions.ajaxRemoveMessage($msg);
                     CommonActions.refreshMain(false, function () {
                         // Do nothing
                     });
                 } else {
-                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()

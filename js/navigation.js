@@ -196,7 +196,7 @@ function loadChildNodes (isNode, $expandElem, callback) {
             $throbber.hide();
             var $icon = $expandElem.find('img.ic_b_plus');
             $icon.show();
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         }
     });
 }
@@ -498,7 +498,7 @@ $(function () {
             $(this).attr('href').indexOf('?') + 1
         ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = Messages.strAddIndex;
-        indexEditorDialog(url, title);
+        Functions.indexEditorDialog(url, title);
     });
 
     /** Edit index */
@@ -508,13 +508,13 @@ $(function () {
             $(this).attr('href').indexOf('?') + 1
         ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = Messages.strEditIndex;
-        indexEditorDialog(url, title);
+        Functions.indexEditorDialog(url, title);
     });
 
     /** New view */
     $(document).on('click', 'li.new_view a.ajax', function (event) {
         event.preventDefault();
-        PMA_createViewDialog($(this));
+        Functions.createViewDialog($(this));
     });
 
     /** Hide navigation tree item */
@@ -531,7 +531,7 @@ $(function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(data.error);
+                    Functions.ajaxShowMessage(data.error);
                 }
             }
         });
@@ -540,13 +540,13 @@ $(function () {
     /** Display a dialog to choose hidden navigation items to show */
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
-        var $msg = PMA_ajaxShowMessage();
+        var $msg = Functions.ajaxShowMessage();
         var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
         params += argSep + 'ajax_request=true';
         $.post($(this).attr('href'), params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                PMA_ajaxRemoveMessage($msg);
+                Functions.ajaxRemoveMessage($msg);
                 var buttonOptions = {};
                 buttonOptions[Messages.strClose] = function () {
                     $(this).dialog('close');
@@ -565,7 +565,7 @@ $(function () {
                         }
                     });
             } else {
-                PMA_ajaxShowMessage(data.error);
+                Functions.ajaxShowMessage(data.error);
             }
         });
     });
@@ -576,7 +576,7 @@ $(function () {
         var $tr = $(this).parents('tr');
         var $hidden_table_count = $tr.parents('tbody').children().length;
         var $hide_dialog_box = $tr.closest('div.ui-dialog');
-        var $msg = PMA_ajaxShowMessage();
+        var $msg = Functions.ajaxShowMessage();
         var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
         params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
@@ -585,7 +585,7 @@ $(function () {
             data: params,
             url: $(this).attr('href'),
             success: function (data) {
-                PMA_ajaxRemoveMessage($msg);
+                Functions.ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
                     $tr.remove();
                     if ($hidden_table_count === 1) {
@@ -593,7 +593,7 @@ $(function () {
                     }
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(data.error);
+                    Functions.ajaxShowMessage(data.error);
                 }
             }
         });
@@ -625,7 +625,7 @@ $(function () {
                 if (data.changes) {
                     $('#pma_favorite_list').html(data.list);
                     $('#' + anchor_id).parent().html(data.anchor);
-                    PMA_tooltip(
+                    Functions.tooltip(
                         $('#' + anchor_id),
                         'a',
                         $('#' + anchor_id).attr('title')
@@ -635,7 +635,7 @@ $(function () {
                         window.localStorage.favorite_tables = data.favorite_tables;
                     }
                 } else {
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                 }
             }
         });
@@ -710,7 +710,7 @@ function expandTreeNode ($expandElem, callback) {
                 }
                 PMA_showFullName($destination);
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
             $icon.show();
             $throbber.remove();
@@ -987,7 +987,7 @@ function PMA_ensureNaviSettings (selflink) {
                 setupConfigTabs();
                 $('#pma_navigation_settings').find('form').attr('action', selflink);
             } else {
-                PMA_ajaxShowMessage(data.error);
+                Functions.ajaxShowMessage(data.error);
             }
         });
     } else {
@@ -1033,7 +1033,7 @@ function PMA_reloadNavigation (callback, paths) {
                 }
                 navTreeStateUpdate();
             } else {
-                PMA_ajaxShowMessage(data.error);
+                Functions.ajaxShowMessage(data.error);
             }
         });
     }
@@ -1065,7 +1065,7 @@ function PMA_selectCurrentDb () {
  * @return void
  */
 function PMA_navigationTreePagination ($this) {
-    var $msgbox = PMA_ajaxShowMessage();
+    var $msgbox = Functions.ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url;
     var params;
@@ -1090,7 +1090,7 @@ function PMA_navigationTreePagination ($this) {
     }
     $.post(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success) {
-            PMA_ajaxRemoveMessage($msgbox);
+            Functions.ajaxRemoveMessage($msgbox);
             if (isDbSelector) {
                 var val = PMA_fastFilter.getSearchClause();
                 $('#pma_navigation_tree')
@@ -1119,8 +1119,8 @@ function PMA_navigationTreePagination ($this) {
                 );
             }
         } else {
-            PMA_ajaxShowMessage(data.error);
-            PMA_handleRedirectAndReload(data);
+            Functions.ajaxShowMessage(data.error);
+            Functions.handleRedirectAndReload(data);
         }
         navTreeStateUpdate();
     });
@@ -1258,7 +1258,7 @@ var ResizeHandler = function () {
      */
     this.mouseup = function (event) {
         $('body').css('cursor', '');
-        configSet('NavigationWidth', event.data.resize_handler.getPos(event));
+        Functions.configSet('NavigationWidth', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
             .off('mousemove')
@@ -1293,7 +1293,7 @@ var ResizeHandler = function () {
         if (width === 0 && panel_width === 0) {
             panel_width = 240;
         }
-        configSet('NavigationWidth', panel_width);
+        Functions.configSet('NavigationWidth', panel_width);
         event.data.resize_handler.setWidth(panel_width);
         event.data.resize_handler.panel_width = width;
     };
@@ -1326,7 +1326,7 @@ var ResizeHandler = function () {
     if ($(window).width() < 768) {
         this.setWidth(0);
     } else {
-        this.setWidth(configGet('NavigationWidth', false));
+        this.setWidth(Functions.configGet('NavigationWidth', false));
         $('#topmenu').menuResizer('resize');
     }
     // Register the events for the resizer and the collapser

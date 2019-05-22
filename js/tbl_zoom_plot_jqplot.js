@@ -166,7 +166,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             $('#types_0').val(data.field_type);
             xType = data.field_type;
             $('#collations_0').val(data.field_collations);
-            addDateTimePicker();
+            Functions.addDateTimePicker();
         });
     });
 
@@ -190,7 +190,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             $('#types_1').val(data.field_type);
             yType = data.field_type;
             $('#collations_1').val(data.field_collations);
-            addDateTimePicker();
+            Functions.addDateTimePicker();
         });
     });
 
@@ -211,7 +211,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             $('#tableFieldsId').find('tr:eq(4) td:eq(3)').html(data.field_value);
             $('#types_2').val(data.field_type);
             $('#collations_2').val(data.field_collations);
-            addDateTimePicker();
+            Functions.addDateTimePicker();
         });
     });
 
@@ -232,7 +232,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             $('#tableFieldsId').find('tr:eq(5) td:eq(3)').html(data.field_value);
             $('#types_3').val(data.field_type);
             $('#collations_3').val(data.field_collations);
-            addDateTimePicker();
+            Functions.addDateTimePicker();
         });
     });
 
@@ -241,9 +241,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
      **/
     $('#inputFormSubmitId').on('click', function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
-            PMA_ajaxShowMessage(Messages.strInputNull);
+            Functions.ajaxShowMessage(Messages.strInputNull);
         } else if (xLabel === yLabel) {
-            PMA_ajaxShowMessage(Messages.strSameInputs);
+            Functions.ajaxShowMessage(Messages.strSameInputs);
         }
     });
 
@@ -398,9 +398,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             }, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     $('#sqlqueryresultsouter').html(data.sql_query);
-                    PMA_highlightSQL($('#sqlqueryresultsouter'));
+                    Functions.highlightSql($('#sqlqueryresultsouter'));
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // End $.post
         }// End database update

@@ -38,13 +38,13 @@ AJAX.registerOnload('server_variables.js', function () {
 
         var $mySaveLink = $saveLink.clone().css('display', 'inline-block');
         var $myCancelLink = $cancelLink.clone().css('display', 'inline-block');
-        var $msgbox = PMA_ajaxShowMessage();
+        var $msgbox = Functions.ajaxShowMessage();
         var $myEditLink = $cell.find('a.editLink');
         $cell.addClass('edit'); // variable is being edited
         $myEditLink.remove(); // remove edit link
 
         $mySaveLink.on('click', function () {
-            var $msgbox = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+            var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
             $.post($(this).attr('href'), {
                 ajax_request: true,
                 type: 'setval',
@@ -55,12 +55,12 @@ AJAX.registerOnload('server_variables.js', function () {
                     $valueCell
                         .html(data.variable)
                         .data('content', data.variable);
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                 } else {
                     if (data.error === '') {
-                        PMA_ajaxShowMessage(Messages.strRequestFailed, false);
+                        Functions.ajaxShowMessage(Messages.strRequestFailed, false);
                     } else {
-                        PMA_ajaxShowMessage(data.error, false);
+                        Functions.ajaxShowMessage(data.error, false);
                     }
                     $valueCell.html($valueCell.data('content'));
                 }
@@ -108,10 +108,10 @@ AJAX.registerOnload('server_variables.js', function () {
                             $myCancelLink.trigger('click');
                         }
                     });
-                PMA_ajaxRemoveMessage($msgbox);
+                Functions.ajaxRemoveMessage($msgbox);
             } else {
                 $cell.removeClass('edit').html($myEditLink);
-                PMA_ajaxShowMessage(data.error);
+                Functions.ajaxShowMessage(data.error);
             }
         });
     }

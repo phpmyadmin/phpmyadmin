@@ -63,10 +63,10 @@ var processList = {
                 $tableProcessListTr.filter(':even').removeClass('odd').addClass('even');
                 $tableProcessListTr.filter(':odd').removeClass('even').addClass('odd');
                 // Show process killed message
-                PMA_ajaxShowMessage(data.message, false);
+                Functions.ajaxShowMessage(data.message, false);
             } else {
                 // Show process error message
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }, 'json');
     },
@@ -94,7 +94,7 @@ var processList = {
                     if (data.hasOwnProperty('success') && data.success) {
                         $newTable = $(data.message);
                         $('#tableprocesslist').html($newTable.html());
-                        PMA_highlightSQL($('#tableprocesslist'));
+                        Functions.highlightSql($('#tableprocesslist'));
                     }
                     processList.refreshTimeout = setTimeout(
                         processList.refresh,
@@ -131,7 +131,7 @@ var processList = {
             label = Messages.strStopRefresh;
             processList.refresh();
         }
-        $('a#toggleRefresh').html(PMA_getImage(img) + escapeHtml(label));
+        $('a#toggleRefresh').html(Functions.getImage(img) + Functions.escapeHtml(label));
     },
 
     /**

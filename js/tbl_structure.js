@@ -74,7 +74,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
 
         function submitForm () {
-            $msg = PMA_ajaxShowMessage(Messages.strProcessingRequest);
+            $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
             $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
@@ -86,15 +86,15 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         .empty()
                         .append(data.message)
                         .show();
-                    PMA_highlightSQL($('#page_content'));
+                    Functions.highlightSql($('#page_content'));
                     $('.result_query .notice').remove();
                     reloadFieldForm();
                     $form.remove();
-                    PMA_ajaxRemoveMessage($msg);
-                    PMA_init_slider();
+                    Functions.ajaxRemoveMessage($msg);
+                    Functions.initSlider();
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         }
@@ -128,15 +128,15 @@ AJAX.registerOnload('tbl_structure.js', function () {
         /*
          * First validate the form; if there is a problem, avoid submitting it
          *
-         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * Functions.checkTableEditForm() needs a pure element and not a jQuery object,
          * this is why we pass $form[0] as a parameter (the jQuery object
          * is actually an array of DOM elements)
          */
-        if (checkTableEditForm($form[0], field_cnt)) {
+        if (Functions.checkTableEditForm($form[0], field_cnt)) {
             // OK, form passed validation step
 
-            PMA_prepareForAjaxRequest($form);
-            if (PMA_checkReservedWordColumns($form)) {
+            Functions.prepareForAjaxRequest($form);
+            if (Functions.checkReservedWordColumns($form)) {
                 // User wants to submit the form
 
                 // If Collation is changed, Warn and Confirm
@@ -171,7 +171,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
          */
         var curr_column_name = $curr_row.children('th').children('label').text().trim();
-        curr_column_name = escapeHtml(curr_column_name);
+        curr_column_name = Functions.escapeHtml(curr_column_name);
         /**
          * @var $after_field_item    Corresponding entry in the 'After' field.
          */
@@ -179,15 +179,15 @@ AJAX.registerOnload('tbl_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
+        var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + Functions.escapeHtml(curr_table_name) + '` DROP `' + Functions.escapeHtml(curr_column_name) + '`;');
         var $this_anchor = $(this);
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(Messages.strDroppingColumn, false);
-            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
+            var $msg = Functions.ajaxShowMessage(Messages.strDroppingColumn, false);
+            var params = Functions.getJsConfirmCommonParam(this, $this_anchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msg);
+                    Functions.ajaxRemoveMessage($msg);
                     if ($('.result_query').length) {
                         $('.result_query').remove();
                     }
@@ -195,7 +195,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#structure_content');
-                        PMA_highlightSQL($('#page_content'));
+                        Functions.highlightSql($('#page_content'));
                     }
                     // Adjust the row numbers
                     for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
@@ -222,7 +222,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     $('.index_info').replaceWith(data.indexes_list);
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()
@@ -235,7 +235,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         event.preventDefault();
 
         // Take to preview mode
-        printPreview();
+        Functions.printPreview();
     }); // end of Print View action
 
     /**
@@ -260,16 +260,16 @@ AJAX.registerOnload('tbl_structure.js', function () {
         } else if ($this.is('.add_fulltext_anchor')) {
             add_clause = 'ADD FULLTEXT';
         }
-        var question = PMA_sprintf(Messages.strDoYouReally, 'ALTER TABLE `' +
-                escapeHtml(curr_table_name) + '` ' + add_clause + '(`' + escapeHtml(curr_column_name) + '`);');
+        var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' +
+                Functions.escapeHtml(curr_table_name) + '` ' + add_clause + '(`' + Functions.escapeHtml(curr_column_name) + '`);');
 
         var $this_anchor = $(this);
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             AJAX.source = $this;
 
-            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $this_anchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         }); // end $.PMA_confirm()
@@ -293,19 +293,19 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         button_options[Messages.strGo] = function (event) {
             event.preventDefault();
-            var $msgbox = PMA_ajaxShowMessage();
+            var $msgbox = Functions.ajaxShowMessage();
             var $this = $(this);
             var $form = $this.find('form');
             var serialized = $form.serialize();
             // check if any columns were moved at all
             if (serialized === $form.data('serialized-unmoved')) {
-                PMA_ajaxRemoveMessage($msgbox);
+                Functions.ajaxRemoveMessage($msgbox);
                 $this.dialog('close');
                 return;
             }
             $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     $this
                         .clone()
                         .html(data.error)
@@ -340,7 +340,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                             .removeClass('odd even')
                             .addClass($row.index() % 2 === 0 ? 'odd' : 'even');
                     }
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                     $this.dialog('close');
                 }
             });
@@ -348,7 +348,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         button_options[Messages.strPreviewSQL] = function () {
             // Function for Previewing SQL
             var $form = $('#move_column_form');
-            PMA_previewSQL($form);
+            Functions.previewSql($form);
         };
         button_options[Messages.strCancel] = function () {
             $(this).dialog('close');
@@ -411,7 +411,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $form = $button.parents('form');
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
-        PMA_ajaxShowMessage();
+        Functions.ajaxShowMessage();
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
@@ -425,7 +425,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         function submitPartitionAction (url) {
             var params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
         }
@@ -453,11 +453,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $link = $(this);
         var question = Messages.strRemovePartitioningWarning;
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
-            var params = getJSConfirmCommonParam({
+            var params = Functions.getJsConfirmCommonParam({
                 'ajax_request' : true,
                 'ajax_page_request' : true
             }, $link.getPostData());
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
         });

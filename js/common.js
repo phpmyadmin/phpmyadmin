@@ -1,7 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 $(function () {
-    checkNumberOfFields();
+    Functions.checkNumberOfFields();
 });
 
 /**
@@ -90,7 +90,7 @@ var CommonParams = (function () {
             if (common.length > 0) {
                 separator = argsep;
             }
-            return PMA_sprintf(
+            return Functions.sprintf(
                 '%s%sserver=%s' + argsep + 'db=%s' + argsep + 'table=%s',
                 this.get('common_query'),
                 separator,

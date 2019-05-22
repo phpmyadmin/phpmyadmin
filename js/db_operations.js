@@ -40,21 +40,21 @@ AJAX.registerOnload('db_operations.js', function () {
         var new_db_name = $('#new_db_name').val();
 
         if (new_db_name === old_db_name) {
-            PMA_ajaxShowMessage(Messages.strDatabaseRenameToSameName, false, 'error');
+            Functions.ajaxShowMessage(Messages.strDatabaseRenameToSameName, false, 'error');
             return false;
         }
 
         var $form = $(this);
 
-        var question = escapeHtml('CREATE DATABASE ' + new_db_name + ' / DROP DATABASE ' + old_db_name);
+        var question = Functions.escapeHtml('CREATE DATABASE ' + new_db_name + ' / DROP DATABASE ' + old_db_name);
 
-        PMA_prepareForAjaxRequest($form);
+        Functions.prepareForAjaxRequest($form);
 
         $form.PMA_confirm(question, $form.attr('action'), function (url) {
-            PMA_ajaxShowMessage(Messages.strRenamingDatabases, false);
+            Functions.ajaxShowMessage(Messages.strRenamingDatabases, false);
             $.post(url, $('#rename_db_form').serialize() + CommonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                     CommonParams.set('db', data.newname);
 
                     PMA_reloadNavigation(function () {
@@ -70,7 +70,7 @@ AJAX.registerOnload('db_operations.js', function () {
                             });
                     });
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         });
@@ -81,9 +81,9 @@ AJAX.registerOnload('db_operations.js', function () {
      */
     $(document).on('submit', '#copy_db_form.ajax', function (event) {
         event.preventDefault();
-        PMA_ajaxShowMessage(Messages.strCopyingDatabase, false);
+        Functions.ajaxShowMessage(Messages.strCopyingDatabase, false);
         var $form = $(this);
-        PMA_prepareForAjaxRequest($form);
+        Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             // use messages that stay on screen
             $('div.success, div.error').fadeOut();
@@ -91,15 +91,15 @@ AJAX.registerOnload('db_operations.js', function () {
                 if ($('#checkbox_switch').is(':checked')) {
                     CommonParams.set('db', data.newname);
                     CommonActions.refreshMain(false, function () {
-                        PMA_ajaxShowMessage(data.message);
+                        Functions.ajaxShowMessage(data.message);
                     });
                 } else {
                     CommonParams.set('db', data.db);
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                 }
                 PMA_reloadNavigation();
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     }); // end copy database
@@ -118,13 +118,13 @@ AJAX.registerOnload('db_operations.js', function () {
     $(document).on('submit', '#change_db_charset_form.ajax', function (event) {
         event.preventDefault();
         var $form = $(this);
-        PMA_prepareForAjaxRequest($form);
-        PMA_ajaxShowMessage(Messages.strChangingCharset);
+        Functions.prepareForAjaxRequest($form);
+        Functions.ajaxShowMessage(Messages.strChangingCharset);
         $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'submitcollation=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                PMA_ajaxShowMessage(data.message);
+                Functions.ajaxShowMessage(data.message);
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     }); // end change charset
@@ -139,14 +139,14 @@ AJAX.registerOnload('db_operations.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = Messages.strDropDatabaseStrongWarning + ' ';
-        question += PMA_sprintf(
+        question += Functions.sprintf(
             Messages.strDoYouReally,
-            'DROP DATABASE `' + escapeHtml(CommonParams.get('db') + '`')
+            'DROP DATABASE `' + Functions.escapeHtml(CommonParams.get('db') + '`')
         );
-        var params = getJSConfirmCommonParam(this, $link.getPostData());
+        var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            PMA_ajaxShowMessage(Messages.strProcessingRequest);
+            Functions.ajaxShowMessage(Messages.strProcessingRequest);
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success) {
                     // Database deleted successfully, refresh both the frames
@@ -155,11 +155,11 @@ AJAX.registerOnload('db_operations.js', function () {
                     CommonActions.refreshMain(
                         'server_databases.php',
                         function () {
-                            PMA_ajaxShowMessage(data.message);
+                            Functions.ajaxShowMessage(data.message);
                         }
                     );
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             });
         });

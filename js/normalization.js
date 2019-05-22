@@ -110,7 +110,7 @@ function goToFinish1NF () {
     }
     $('#mainContent legend').html(Messages.strEndStep);
     $('#mainContent h4').html(
-        '<h3>' + PMA_sprintf(Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
+        '<h3>' + Functions.sprintf(Messages.strFinishMsg, Functions.escapeHtml(CommonParams.get('table'))) + '</h3>'
     );
     $('#mainContent p').html('');
     $('#mainContent #extra').html('');
@@ -135,7 +135,7 @@ function goToStep4 () {
             $('#mainContent #newCols').html('');
             $('.tblFooters').html('');
             for (var pk in primary_key) {
-                $('#extra input[value=\'' + escapeJsString(primary_key[pk]) + '\']').attr('disabled','disabled');
+                $('#extra input[value=\'' + Functions.escapeJsString(primary_key[pk]) + '\']').attr('disabled','disabled');
             }
         }
     );
@@ -159,7 +159,7 @@ function goToStep3 () {
             $('.tblFooters').html('');
             primary_key = JSON.parse(data.primary_key);
             for (var pk in primary_key) {
-                $('#extra input[value=\'' + escapeJsString(primary_key[pk]) + '\']').attr('disabled','disabled');
+                $('#extra input[value=\'' + Functions.escapeJsString(primary_key[pk]) + '\']').attr('disabled','disabled');
             }
         }
     );
@@ -232,11 +232,11 @@ function goTo2NFFinish (pd) {
                     $('#mainContent #extra').html('');
                     $('.tblFooters').html('');
                 } else {
-                    PMA_ajaxShowMessage(data.extra, false);
+                    Functions.ajaxShowMessage(data.extra, false);
                 }
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -272,11 +272,11 @@ function goTo3NFFinish (newTables) {
                     $('#mainContent #extra').html('');
                     $('.tblFooters').html('');
                 } else {
-                    PMA_ajaxShowMessage(data.extra, false);
+                    Functions.ajaxShowMessage(data.extra, false);
                 }
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -292,7 +292,7 @@ function goTo2NFStep2 (pd, primary_key) {
     for (var dependson in pd) {
         if (dependson !== primary_key) {
             pdFound = true;
-            extra += '<p class="displayblock desc">' + escapeHtml(dependson) + ' -> ' + escapeHtml(pd[dependson].toString()) + '</p>';
+            extra += '<p class="displayblock desc">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
         }
     }
     if (!pdFound) {
@@ -316,7 +316,7 @@ function goTo2NFStep2 (pd, primary_key) {
                 if (data.success === true) {
                     extra += data.message;
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }
         });
@@ -340,7 +340,7 @@ function goTo3NFStep2 (pd, tablesTds) {
             dependson = tablesTds[table][i];
             if (dependson !== '' && dependson !== table) {
                 pdFound = true;
-                extra += '<p class="displayblock desc">' + escapeHtml(dependson) + ' -> ' + escapeHtml(pd[dependson].toString()) + '</p>';
+                extra += '<p class="displayblock desc">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
             }
         }
     }
@@ -366,7 +366,7 @@ function goTo3NFStep2 (pd, tablesTds) {
                 if (data.success === true) {
                     extra += data_parsed.html;
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }
         });
@@ -461,10 +461,10 @@ function moveRepeatingGroup (repeatingCols) {
                 if (data.queryError === false) {
                     goToStep3();
                 }
-                PMA_ajaxShowMessage(data.message, false);
+                Functions.ajaxShowMessage(data.message, false);
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -559,13 +559,13 @@ AJAX.registerOnload('normalization.js', function () {
                             $('#newCols').html('');
                             $('.tblFooters').html('');
                         } else {
-                            PMA_ajaxShowMessage(data.error, false);
+                            Functions.ajaxShowMessage(data.error, false);
                         }
                         selectedCol = '';
                     }
                 );
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         });
     });
@@ -597,7 +597,7 @@ AJAX.registerOnload('normalization.js', function () {
                         })
                         .appendTo('.tblFooters');
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }
         );
@@ -618,7 +618,7 @@ AJAX.registerOnload('normalization.js', function () {
                     goToStep3();
                 }, 2000);
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         });
     });
@@ -642,7 +642,7 @@ AJAX.registerOnload('normalization.js', function () {
                 if (data.success === true) {
                     goToStep2('goToFinish1NF');
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }
         );
@@ -656,9 +656,9 @@ AJAX.registerOnload('normalization.js', function () {
         if (repeatingCols !== '') {
             var newColName = $('#extra input[type=checkbox]:checked:first').val();
             repeatingCols = repeatingCols.slice(0, -2);
-            var confirmStr = PMA_sprintf(Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table')));
+            var confirmStr = Functions.sprintf(Messages.strMoveRepeatingGroup, Functions.escapeHtml(repeatingCols), Functions.escapeHtml(CommonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + Messages.strNewTablePlaceholder + '">' +
-                '( ' + escapeHtml(primary_key.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + Messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
+                '( ' + Functions.escapeHtml(primary_key.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + Messages.strNewColumnPlaceholder + '" value="' + Functions.escapeHtml(newColName) + '">)' +
                 '</ol>';
             $('#newCols').html(confirmStr);
 
@@ -689,7 +689,7 @@ AJAX.registerOnload('normalization.js', function () {
             ajax_request: true
         };
         var title = Messages.strAddPrimaryKey;
-        indexEditorDialog(url, title, function () {
+        Functions.indexEditorDialog(url, title, function () {
             // on success
             $('.sqlqueryresults').remove();
             $('.result_query').remove();

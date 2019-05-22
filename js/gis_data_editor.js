@@ -58,7 +58,7 @@ function prepareJSVersion () {
  */
 function addDataPoint (pointNumber, prefix) {
     return '<br>' +
-        PMA_sprintf(Messages.strPointN, (pointNumber + 1)) + ': ' +
+        Functions.sprintf(Messages.strPointN, (pointNumber + 1)) + ': ' +
         '<label for="x">' + Messages.strX + '</label>' +
         '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">' +
         '<label for="y">' + Messages.strY + '</label>' +
@@ -153,7 +153,7 @@ function loadGISEditor (value, field, type, input_name) {
             initGISEditorVisualization();
             prepareJSVersion();
         } else {
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         }
     }, 'json');
 }
@@ -201,7 +201,7 @@ function insertDataAndClose () {
         if (typeof data !== 'undefined' && data.success === true) {
             $('input[name=\'' + input_name + '\']').val(data.result);
         } else {
-            PMA_ajaxShowMessage(data.error, false);
+            Functions.ajaxShowMessage(data.error, false);
         }
     }, 'json');
     closeGISEditor();
@@ -254,7 +254,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
                 eval(data.openLayers);
                 initGISEditorVisualization();
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }, 'json');
     });
@@ -273,7 +273,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
                 initGISEditorVisualization();
                 prepareJSVersion();
             } else {
-                PMA_ajaxShowMessage(data.error, false);
+                Functions.ajaxShowMessage(data.error, false);
             }
         }, 'json');
     });

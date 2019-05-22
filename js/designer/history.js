@@ -95,17 +95,17 @@ function display (init, finit) {
             } else {
                 str += '<img src="' + pmaThemeImage + 'designer/and_icon.png" onclick="and_or(' + i + ')" title="AND"></td>';
             }
-            str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse', 'column name') + '</td>' +
+            str += '<td style="padding-left: 5px;" class="right">' + Functions.getImage('b_sbrowse', 'column name') + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + history_array[i].get_column_name() + '<td>';
             if (history_array[i].get_type() === 'GroupBy' || history_array[i].get_type() === 'OrderBy') {
-                str += '<td class="center">' + PMA_getImage('s_info', detail(i)) + '</td>' +
+                str += '<td class="center">' + Functions.getImage('s_info', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
-                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop', Messages.strDelete) + '</td>';
+                    '<td onclick=history_delete(' + i + ')>' + Functions.getImage('b_drop', Messages.strDelete) + '</td>';
             } else {
-                str += '<td class="center">' + PMA_getImage('s_info', detail(i)) + '</td>' +
+                str += '<td class="center">' + Functions.getImage('s_info', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
-                    '<td onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit', Messages.strEdit) + '</td>' +
-                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop', Messages.strDelete) + '</td>';
+                    '<td onclick=history_edit(' + i + ')>' + Functions.getImage('b_edit', Messages.strEdit) + '</td>' +
+                    '<td onclick=history_delete(' + i + ')>' + Functions.getImage('b_drop', Messages.strDelete) + '</td>';
             }
             str += '</tr></thead>';
             i++;
@@ -817,7 +817,7 @@ function build_query (formtitle, fadin) {
      */
     var $elm = $ajaxDialog.find('textarea');
     if (! vqb_editor) {
-        vqb_editor = PMA_getSQLEditor($elm);
+        vqb_editor = Functions.getSqlEditor($elm);
     }
     if (vqb_editor) {
         vqb_editor.setValue(q_select);
