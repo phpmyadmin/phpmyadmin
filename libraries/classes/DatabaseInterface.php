@@ -610,9 +610,9 @@ class DatabaseInterface
                         function ($a, $b) {
                             $aLength = $a['Data_length'] + $a['Index_length'];
                             $bLength = $b['Data_length'] + $b['Index_length'];
-                            return ($aLength == $bLength)
+                            return $aLength == $bLength
                                 ? 0
-                                : ($aLength < $bLength) ? -1 : 1;
+                                : ($aLength < $bLength ? -1 : 1);
                         }
                     );
 
