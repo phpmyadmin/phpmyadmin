@@ -43,12 +43,12 @@ $(document).ready(function () {
             return;
         }
         if (e.ctrlKey && e.altKey && e.keyCode === keyC) {
-            PMA_console.toggle();
+            Console.toggle();
         }
 
         if (e.ctrlKey && e.keyCode === keyK) {
             e.preventDefault();
-            PMA_console.toggle();
+            Console.toggle();
         }
 
         if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
@@ -61,7 +61,7 @@ $(document).ready(function () {
             databaseOp = true;
         } else if (e.keyCode === keyK) {
             e.preventDefault();
-            PMA_console.toggle();
+            Console.toggle();
         } else if (e.keyCode === keyS) {
             if (databaseOp === true) {
                 isTable = CommonParams.get('table');
