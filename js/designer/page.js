@@ -110,19 +110,19 @@ function Show_new_page_tables (check) {
             var element = document.getElementById(input.value);
             element.style.top = Get_random(550, 20) + 'px';
             element.style.left = Get_random(700, 20) + 'px';
-            VisibleTab(input, input.value);
+            DesignerMove.visibleTab(input, input.value);
         }
     }
     selected_page = -1;
     $('#page_name').text(Messages.strUntitled);
-    MarkUnsaved();
+    DesignerMove.markUnsaved();
 }
 
 function Load_HTML_for_page (page_id) {
     Show_new_page_tables(false);
     Load_page_objects(page_id, function (page, tbl_cords) {
         $('#name-panel').find('#page_name').text(page.page_descr);
-        MarkSaved();
+        DesignerMove.markSaved();
         for (var t = 0; t < tbl_cords.length; t++) {
             var tb_id = db + '.' + tbl_cords[t].table_name;
             var table = document.getElementById(tb_id);
@@ -131,7 +131,7 @@ function Load_HTML_for_page (page_id) {
 
             var checkbox = document.getElementById('check_vis_' + tb_id);
             checkbox.checked = true;
-            VisibleTab(checkbox, checkbox.value);
+            DesignerMove.visibleTab(checkbox, checkbox.value);
         }
         selected_page = page.pg_nr;
     });

@@ -34,7 +34,7 @@ AJAX.registerOnload('designer/init.js', function () {
     selected_page      = designer_config.displayPage;
     designer_tables_enabled = designer_config.tablesEnabled;
 
-    Main();
+    DesignerMove.main();
 
     if (! designer_tables_enabled) {
         DesignerOfflineDB.open(function (success) {
