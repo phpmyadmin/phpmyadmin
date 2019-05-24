@@ -9,22 +9,15 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table;
-
 require_once ROOT_PATH . 'libraries/common.inc.php';
-
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -33,10 +26,6 @@ $response = $containerBuilder->get(Response::class);
 $dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $_PMA_RTE = 'TRI';
-
-/** @var Definition $definition */
-$definition = $containerBuilder->getDefinition(TriggersController::class);
-$definition->replaceArgument('db', $container->get('db'));
 
 /** @var TriggersController $controller */
 $controller = $containerBuilder->get(TriggersController::class);

@@ -49,7 +49,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\Database\RoutinesController:
     class: 'PhpMyAdmin\Controllers\Database\RoutinesController'
@@ -57,7 +57,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\Database\SqlController:
     class: 'PhpMyAdmin\Controllers\Database\SqlController'
@@ -83,7 +83,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\HomeController:
     class: 'PhpMyAdmin\Controllers\HomeController'
