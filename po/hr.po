@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 19:16+0200\n"
-"PO-Revision-Date: 2018-12-31 07:44+0000\n"
+"PO-Revision-Date: 2019-05-24 14:03+0000\n"
 "Last-Translator: Marino <mrabach@gmail.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/hr/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -35,13 +35,13 @@ msgstr "Prikazivanje redaka  %1$s - %2$s."
 
 #: db_export.php:63
 msgid "View dump (schema) of database"
-msgstr "Prikaži shemu (shemu) baze podataka"
+msgstr "Prikaži sadržaj (shemu) baze podataka"
 
 #: db_export.php:68 db_tracking.php:105 export.php:414
 #: libraries/classes/Database/Qbe.php:358 templates/navigation/tree/path.twig:9
 #: templates/database/structure/index.twig:19
 msgid "No tables found in database."
-msgstr "Tablice nisu pronađene u bazi podataka."
+msgstr "Nije pronađena nijedna tablica u bazi podataka."
 
 #: db_export.php:83 libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Controllers/Server/DatabasesController.php:366
@@ -133,7 +133,7 @@ msgstr "Upit po primjeru"
 #: db_qbe.php:182
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Prebaci se na %svizuelnu izradu%s"
+msgstr "Prebaci se na %svizuelna izrada%s"
 
 #: db_search.php:44 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
@@ -151,11 +151,11 @@ msgstr "Podaci o praćenju su uspješno izbrisani."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Verzija %1$s je stvorena za odabrane tabele, praćenje je aktivirano za njih."
+"Verzija %1$s je stvorena za odabrane tablice, praćenje je aktivirano za njih."
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr "Nije odabrana nijedna tabela."
+msgstr "Nije odabrana nijedna tablica."
 
 #: db_tracking.php:128
 msgid "Database Log"
@@ -166,7 +166,7 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Greška je detektirana i izvješće o grešci je automatski poslano prema vašim "
+"Otkrivena je greška i izvješće o grešci je automatski poslano prema vašim "
 "postavkama."
 
 #: error_report.php:83
@@ -194,26 +194,19 @@ msgid "Bad parameters!"
 msgstr "Pogrešni parametri!"
 
 #: import.php:87
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Pristup odbijen!"
+msgstr "Uspješno dovršeno"
 
 #: import.php:91 js/messages.php:628
 msgid "Failed"
-msgstr ""
+msgstr "Nije uspjelo"
 
 #: import.php:95
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "Dovrši umetanja"
+msgstr "Nepotpuni parametri"
 
 #: import.php:219
-#, fuzzy, php-format
-#| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
@@ -244,31 +237,26 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Nije moguće učitati dodatke za uvoz. Provjerite svoju instalaciju!"
 
 #: import.php:606 libraries/classes/Sql.php:712 libraries/classes/Sql.php:1526
-#, fuzzy, php-format
-#| msgid "Bookmark %s created"
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "Izrađen je favorit %s"
+msgstr "Knjižna oznaka %s je stvorena."
 
 #: import.php:616
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Uvoz je uspješno dovršen. Izvršeno upita: %d ."
-msgstr[1] "Uvoz je uspješno dovršen. Izvršeno upita: %d ."
-msgstr[2] "Uvoz je uspješno dovršen. Izvršeno upita: %d ."
+msgstr[0] "Uvoz je uspješno dovršen. Izvršen je  %d upit ."
+msgstr[1] "Uvoz je uspješno dovršen. Izvršeno je  %d upita ."
+msgstr[2] "Uvoz je uspješno dovršen. Izvršeno je   %d upita ."
 
 #: import.php:647
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Vrijeme za skriptu je isteklo. Ako želite završiti uvoz, ponovo podnesite "
-"istu datoteku i uvoz će nastaviti."
+"Vrijeme za skriptu je isteklo. Ako želite završiti uvoz,  %sponovo pošaljite "
+"istu datoteku%s i uvoz će nastaviti."
 
 #: import.php:657
 msgid ""
@@ -380,22 +368,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:78
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Želite li zaista  "
+msgstr "Jeste li sigurni da želite odbaciti izbrane korisninike?"
 
 #: js/messages.php:80
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete this central column?"
-msgstr "Želite li zaista  "
+msgstr "Jeste li sigurni da želite izbrisati taj srednji stupac?"
 
 #: js/messages.php:82
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete the selected items?"
-msgstr "Želite li zaista  "
+msgstr "Jeste li sigurni da želite izbrisati odabrane stavke?"
 
 #: js/messages.php:84
 msgid ""
@@ -407,13 +389,11 @@ msgstr ""
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Želite li zaista  "
+msgstr "Jeste li sigurni da želite TRUNCATE adabrane particije?"
 
 #: js/messages.php:90
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to remove partitioning?"
-msgstr "Želite li zaista  "
+msgstr "Jeste li sigurni da želite ukloniti particioniranje?"
 
 #: js/messages.php:91
 #, fuzzy
@@ -19047,10 +19027,8 @@ msgid "MyISAM concurrent inserts"
 msgstr "najv. uzastopnih veza"
 
 #: libraries/advisory_rules.txt:444
-#, fuzzy
-#| msgid "MyISAM concurrent inserts"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "najv. uzastopnih veza"
+msgstr "Omogući {concurrent_insert} postavljanjem postavki na 1"
 
 #: libraries/advisory_rules.txt:445
 msgid ""
@@ -19058,12 +19036,13 @@ msgid ""
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"Postavljanje {concurrent_insert} na 1 smanjuje sukob između čitatelja i "
+"pisaca za danu tablicu. Vidi također <a href=\"https://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Dokumentacija</a>"
 
 #: libraries/advisory_rules.txt:446
-#, fuzzy
-#| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
-msgstr "najv. uzastopnih veza"
+msgstr "concurrent_insert je postavljen na 0"
 
 #, fuzzy
 #~ msgid "Full start"
