@@ -10,7 +10,6 @@ declare(strict_types=1);
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;

@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
 

@@ -9,12 +9,10 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {

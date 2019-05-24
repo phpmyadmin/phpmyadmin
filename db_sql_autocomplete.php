@@ -8,7 +8,6 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {

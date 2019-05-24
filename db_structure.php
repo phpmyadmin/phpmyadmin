@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Replication;
 use PhpMyAdmin\Response;
 use Symfony\Component\DependencyInjection\Definition;
 

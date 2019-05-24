@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;

@@ -10,7 +10,6 @@ declare(strict_types=1);
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;

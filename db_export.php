@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Display\Export as DisplayExport;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Message;

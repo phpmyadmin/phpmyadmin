@@ -10,7 +10,6 @@ declare(strict_types=1);
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;

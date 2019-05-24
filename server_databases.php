@@ -10,9 +10,7 @@ declare(strict_types=1);
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);

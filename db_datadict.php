@@ -8,11 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 use Symfony\Component\DependencyInjection\Definition;
 

@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;

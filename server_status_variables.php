@@ -9,9 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\Status\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Status\Data;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
