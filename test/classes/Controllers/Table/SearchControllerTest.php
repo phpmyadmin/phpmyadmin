@@ -130,7 +130,8 @@ class SearchControllerTest extends PmaTestCase
             $container->get('db'),
             $container->get('table'),
             "zoom",
-            null
+            null,
+            new Relation($container->get('dbi'), $container->get('template'))
         );
         $columnIndex = 0;
         $find = "Field";
@@ -171,7 +172,7 @@ class SearchControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
 
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\SearchController');
+        $class = new ReflectionClass(SearchController::class);
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
         $tableSearch = new SearchController(
@@ -181,7 +182,8 @@ class SearchControllerTest extends PmaTestCase
             $container->get('db'),
             $container->get('table'),
             "zoom",
-            null
+            null,
+            new Relation($container->get('dbi'), $container->get('template'))
         );
 
         $sql = $method->invoke($tableSearch);

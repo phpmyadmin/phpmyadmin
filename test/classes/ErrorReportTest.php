@@ -11,6 +11,8 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorReport;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 
@@ -52,7 +54,8 @@ class ErrorReportTest extends TestCase
             define('PMA_USR_OS', 'os');
         }
 
-        $this->errorReport = new ErrorReport(new HttpRequest());
+        $template = new Template();
+        $this->errorReport = new ErrorReport(new HttpRequest(), new Relation(null, $template), $template);
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
 
@@ -135,7 +138,8 @@ class ErrorReportTest extends TestCase
             )
             ->willReturn($return);
 
-        $this->errorReport = new ErrorReport($httpRequest);
+        $template = new Template();
+        $this->errorReport = new ErrorReport($httpRequest, new Relation(null, $template), $template);
         $this->errorReport->setSubmissionUrl($submissionUrl);
 
         $this->assertEquals($return, $this->errorReport->send($report));
