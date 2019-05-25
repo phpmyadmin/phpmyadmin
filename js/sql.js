@@ -30,7 +30,7 @@ function PMA_urldecode (str) {
  */
 function PMA_urlencode (str) {
     if (typeof str !== 'undefined') {
-        return encodeURIComponent(str).replace(/\%20/g, '+');
+        return encodeURIComponent(str).replace(/%20/g, '+');
     }
 }
 

@@ -523,7 +523,7 @@ function addNewContinueInsertionFiels (event) {
             /** If element is select[name*='funcs'], update id */
             if ($this_element.is('select[name*=\'funcs\']')) {
                 var this_id = $this_element.attr('id');
-                var id_parts = this_id.split(/\_/);
+                var id_parts = this_id.split(/_/);
                 var old_id_index = id_parts[1];
                 var prevSelectedValue = $('#field_' + old_id_index + '_1').val();
                 var new_id_index = parseInt(old_id_index) + columnCount;

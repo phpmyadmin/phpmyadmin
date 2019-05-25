@@ -26,7 +26,7 @@
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "warn",
         "no-unneeded-ternary": "error",
-        "no-useless-escape": "warn",
+        "no-useless-escape": "error",
         "object-curly-spacing": ["error", "always"],
         "one-var": ["error", "never"],
         "padded-blocks": ["error", "never"],

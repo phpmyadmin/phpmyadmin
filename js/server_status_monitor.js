@@ -1731,7 +1731,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             var i = 0;
             var q;
             var noVars = $('#noWHEREData').prop('checked');
-            var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
+            var equalsFilter = /([^=]+)=(\d+|(('|"|).*?[^\\])\4((\s+)|$))/gi;
             var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
             var filteredQueries = {};
             var filteredQueriesLines = {};

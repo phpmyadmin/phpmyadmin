@@ -23,7 +23,7 @@ $(function () {
     $.tablesorter.addParser({
         id: 'fancyNumber',
         is: function (s) {
-            return (/^[0-9]?[0-9,\.]*\s?(k|M|G|T|%)?$/).test(s);
+            return (/^[0-9]?[0-9,\\.]*\s?(k|M|G|T|%)?$/).test(s);
         },
         format: function (s) {
             var num = jQuery.tablesorter.formatFloat(

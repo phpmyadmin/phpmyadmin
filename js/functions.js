@@ -372,9 +372,9 @@ Functions.escapeJsString = function (unsafe) {
             .replace('\x00', '')
             .replace('\\', '\\\\')
             .replace('\'', '\\\'')
-            .replace('&#039;', '\\\&#039;')
-            .replace('"', '\"')
-            .replace('&quot;', '\&quot;')
+            .replace('&#039;', '\\&#039;')
+            .replace('"', '\\"')
+            .replace('&quot;', '\\&quot;')
             .replace('\n', '\n')
             .replace('\r', '\r')
             .replace(/<\/script/gi, '</\' + \'script');
@@ -4944,7 +4944,7 @@ Functions.toggleDatepickerIfInvalid = function ($td, $input_field) {
         '-((0[1-9])|([1-2][0-9])|30)))$'].join(''));
     var dtexpTime = new RegExp(['^(([0-1][0-9])|(2[0-3]))',
         ':((0[0-9])|([1-5][0-9]))',
-        ':((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$'].join(''));
+        ':((0[0-9])|([1-5][0-9]))(.[0-9]{1,6}){0,1}$'].join(''));
 
     // If key-ed in Time or Date values are unsupported by the UI, close it
     if ($td.attr('data-type') === 'date' && ! dtexpDate.test($input_field.val())) {

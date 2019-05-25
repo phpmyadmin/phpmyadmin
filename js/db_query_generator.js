@@ -18,7 +18,7 @@ function getFormatsText () {
         '<=': ' <= \'%s\'',
         '!=': ' != \'%s\'',
         'LIKE': ' LIKE \'%s\'',
-        'LIKE \%...\%': ' LIKE \'%%%s%%\'',
+        'LIKE %...%': ' LIKE \'%%%s%%\'',
         'NOT LIKE': ' NOT LIKE \'%s\'',
         'BETWEEN': ' BETWEEN \'%s\'',
         'NOT BETWEEN': ' NOT BETWEEN \'%s\'',

@@ -708,7 +708,7 @@ function setupRestoreField () {
                 restoreField(field_sel.substr(1));
             } else {
                 field_sel = href.match(/^[^=]+/)[0];
-                var value = href.match(/\=(.+)$/)[1];
+                var value = href.match(/=(.+)$/)[1];
                 setFieldValue($(field_sel), 'text', value);
             }
             $(field_sel).trigger('change');
