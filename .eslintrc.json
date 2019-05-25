@@ -15,7 +15,7 @@
         "indent": ["error", 4],
         "keyword-spacing": "error",
         "new-cap": "warn",
-        "no-array-constructor": "warn",
+        "no-array-constructor": "error",
         "no-eval": "warn",
         "no-loop-func": "warn",
         "no-mixed-spaces-and-tabs": "error",

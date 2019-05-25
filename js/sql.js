@@ -689,7 +689,7 @@ AJAX.registerOnload('sql.js', function () {
         var unique_id = $(this).data('for');
         var $target_table = $('.table_results[data-uniqueId=\'' + unique_id + '\']');
         var $header_cells = $target_table.find('th[data-column]');
-        var target_columns = Array();
+        var target_columns = [];
         // To handle colspan=4, in case of edit,copy etc options.
         var dummy_th = ($('.edit_row_anchor').length !== 0 ?
             '<th class="hide dummy_th"></th><th class="hide dummy_th"></th><th class="hide dummy_th"></th>'
