@@ -4141,6 +4141,7 @@ Functions.toggleButton = function ($obj) {
                     .animate({ 'left': operator + move + 'px' }, function () {
                         $container.removeClass('isActive');
                     });
+                /* eslint no-eval: "warn" */
                 eval(callback);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
