@@ -17,7 +17,7 @@
         "new-cap": "warn",
         "no-array-constructor": "error",
         "no-eval": "error",
-        "no-loop-func": "warn",
+        "no-loop-func": "error",
         "no-mixed-spaces-and-tabs": "error",
         "no-multiple-empty-lines": "error",
         "no-new-func": "error",

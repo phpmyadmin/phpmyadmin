@@ -13,15 +13,16 @@ function Save_to_new_page (db, page_name, table_positions, callback) {
     Create_new_page(db, page_name, function (page) {
         if (page) {
             var tbl_cords = [];
+            var saveCallback = function (id) {
+                tbl_cords.push(id);
+                if (table_positions.length === tbl_cords.length) {
+                    page.tbl_cords = tbl_cords;
+                    DesignerOfflineDB.addObject('pdf_pages', page);
+                }
+            };
             for (var pos = 0; pos < table_positions.length; pos++) {
                 table_positions[pos].pdf_pg_nr = page.pg_nr;
-                Save_table_positions(table_positions[pos], function (id) {
-                    tbl_cords.push(id);
-                    if (table_positions.length === tbl_cords.length) {
-                        page.tbl_cords = tbl_cords;
-                        DesignerOfflineDB.addObject('pdf_pages', page);
-                    }
-                });
+                Save_table_positions(table_positions[pos], saveCallback);
             }
             if (typeof callback !== 'undefined') {
                 callback(page);
