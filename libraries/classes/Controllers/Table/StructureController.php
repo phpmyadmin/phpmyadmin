@@ -150,12 +150,6 @@ class StructureController extends AbstractController
      */
     public function indexAction(ContainerBuilder $containerBuilder): void
     {
-        /*
-         * $containerBuilder is given in parameter just because libraries/tbl_common.inc.php will call db_sql.php that
-         * needs $containerBuilder.
-         * This should be temporary until we achieve to use a "business" class instead of loading the controller (or
-         * forward the call to db_sql.php.)
-         */
         global $sql_query;
 
         PageSettings::showGroup('TableStructure');
@@ -219,7 +213,7 @@ class StructureController extends AbstractController
          * A click on Change has been made for one column
          */
         if (isset($_GET['change_column'])) {
-            $this->displayHtmlForColumnChange(null, 'tbl_structure.php');
+            $this->displayHtmlForColumnChange(null, 'tbl_structure.php', $containerBuilder);
             return;
         }
 
@@ -260,7 +254,8 @@ class StructureController extends AbstractController
                             = $this->getDataForSubmitMult(
                                 $submit_mult,
                                 $_POST['selected_fld'],
-                                $action
+                                $action,
+                                $containerBuilder
                             );
                     //update the existing variables
                     // todo: refactor mult_submits.inc.php such as
@@ -518,13 +513,13 @@ class StructureController extends AbstractController
     /**
      * Displays HTML for changing one or more columns
      *
-     * @param array  $selected the selected columns
-     * @param string $action   target script to call
+     * @param array            $selected         the selected columns
+     * @param string           $action           target script to call
+     * @param ContainerBuilder $containerBuilder Container builder instance (Used in tbl_columns_definition_form.inc.php)
      *
      * @return void
-     *
      */
-    protected function displayHtmlForColumnChange($selected, $action)
+    protected function displayHtmlForColumnChange($selected, $action, ContainerBuilder $containerBuilder)
     {
         // $selected comes from mult_submits.inc.php
         if (empty($selected)) {
@@ -1534,13 +1529,14 @@ class StructureController extends AbstractController
     /**
      * Get List of information for Submit Mult
      *
-     * @param string $submit_mult mult_submit type
-     * @param array  $selected    the selected columns
-     * @param string $action      action type
+     * @param string           $submit_mult      mult_submit type
+     * @param array            $selected         the selected columns
+     * @param string           $action           action type
+     * @param ContainerBuilder $containerBuilder Container builder instance
      *
      * @return array
      */
-    protected function getDataForSubmitMult($submit_mult, $selected, $action)
+    protected function getDataForSubmitMult($submit_mult, $selected, $action, ContainerBuilder $containerBuilder)
     {
         $centralColumns = new CentralColumns($this->dbi);
         $what = null;
@@ -1599,7 +1595,7 @@ class StructureController extends AbstractController
                 );
                 break;
             case 'change':
-                $this->displayHtmlForColumnChange($selected, $action);
+                $this->displayHtmlForColumnChange($selected, $action, $containerBuilder);
                 // execution stops here but PhpMyAdmin\Response correctly finishes
                 // the rendering
                 exit;

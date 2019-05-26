@@ -89,6 +89,7 @@ services:
     arguments:
       sql_query_form: '@sql_query_form'
       template: '@template'
+      relation: '@relation'
 
   transformations:
     class: 'PhpMyAdmin\Transformations'
