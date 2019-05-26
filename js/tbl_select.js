@@ -6,44 +6,39 @@
  * @requires    js/functions.js
  */
 
-/**
- * Ajax event handlers for this page
- *
- * Actions ajaxified here:
- * Table search
- */
+var TableSelect = {};
 
 /**
  * Checks if given data-type is numeric or date.
  *
- * @param string data_type Column data-type
+ * @param {string} dataType Column data-type
  *
- * @return bool|string
+ * @return {(boolean|string)}
  */
-function PMA_checkIfDataTypeNumericOrDate (data_type) {
+TableSelect.checkIfDataTypeNumericOrDate = function (dataType) {
     // To test for numeric data-types.
-    var numeric_re = new RegExp(
+    var numericRegExp = new RegExp(
         'TINYINT|SMALLINT|MEDIUMINT|INT|BIGINT|DECIMAL|FLOAT|DOUBLE|REAL',
         'i'
     );
 
     // To test for date data-types.
-    var date_re = new RegExp(
+    var dateRegExp = new RegExp(
         'DATETIME|DATE|TIMESTAMP|TIME|YEAR',
         'i'
     );
 
     // Return matched data-type
-    if (numeric_re.test(data_type)) {
-        return numeric_re.exec(data_type)[0];
+    if (numericRegExp.test(dataType)) {
+        return numericRegExp.exec(dataType)[0];
     }
 
-    if (date_re.test(data_type)) {
-        return date_re.exec(data_type)[0];
+    if (dateRegExp.test(dataType)) {
+        return dateRegExp.exec(dataType)[0];
     }
 
     return false;
-}
+};
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -106,17 +101,17 @@ AJAX.registerOnload('tbl_select.js', function () {
         ];
 
         // jQuery object to reuse
-        var $search_form = $(this);
+        var $searchForm = $(this);
         event.preventDefault();
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
         var $msgbox = Functions.ajaxShowMessage(Messages.strSearching, false);
 
-        Functions.prepareForAjaxRequest($search_form);
+        Functions.prepareForAjaxRequest($searchForm);
 
         var values = {};
-        $search_form.find(':input').each(function () {
+        $searchForm.find(':input').each(function () {
             var $input = $(this);
             if ($input.attr('type') === 'checkbox' || $input.attr('type') === 'radio') {
                 if ($input.is(':checked')) {
@@ -156,7 +151,7 @@ AJAX.registerOnload('tbl_select.js', function () {
             values.displayAllColumns = true;
         }
 
-        $.post($search_form.attr('action'), values, function (data) {
+        $.post($searchForm.attr('action'), values, function (data) {
             Functions.ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success === true) {
                 if (typeof data.sql_query !== 'undefined') { // zero rows
@@ -254,24 +249,24 @@ AJAX.registerOnload('tbl_select.js', function () {
         // Field name
         var field = 'Parameter';
         // Column type
-        var geom_func = $span.parents('tr').find('.geom_func').val();
+        var geomFunc = $span.parents('tr').find('.geom_func').val();
         var type;
-        if (geom_func === 'Envelope') {
+        if (geomFunc === 'Envelope') {
             type = 'polygon';
-        } else if (geom_func === 'ExteriorRing') {
+        } else if (geomFunc === 'ExteriorRing') {
             type = 'linestring';
         } else {
             type = 'point';
         }
         // Names of input field and null checkbox
-        var input_name = $span.parent('td').children('input[type=\'text\']').attr('name');
+        var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
         // Token
 
         openGISEditor();
         if (!gisEditorLoaded) {
-            loadJSAndGISEditor(value, field, type, input_name);
+            loadJSAndGISEditor(value, field, type, inputName);
         } else {
-            loadGISEditor(value, field, type, input_name);
+            loadGISEditor(value, field, type, inputName);
         }
     });
 
@@ -281,24 +276,22 @@ AJAX.registerOnload('tbl_select.js', function () {
     $('body').on('change', 'select[name*="criteriaColumnOperators"]', function () { // Fix for bug #13778, changed 'click' to 'change'
         $source_select = $(this);
         // Get the column name.
-        var column_name = $(this)
+        var columnName = $(this)
             .closest('tr')
             .find('th:first')
             .text();
 
         // Get the data-type of column excluding size.
-        var data_type = $(this)
+        var dataType = $(this)
             .closest('tr')
             .find('td[data-type]')
             .attr('data-type');
-        data_type = PMA_checkIfDataTypeNumericOrDate(data_type);
+        dataType = TableSelect.checkIfDataTypeNumericOrDate(dataType);
 
         // Get the operator.
         var operator = $(this).val();
 
-        if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN')
-            && data_type
-        ) {
+        if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN') && dataType) {
             var $msgbox = Functions.ajaxShowMessage();
             $.ajax({
                 url: 'tbl_select.php',
@@ -308,7 +301,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                     ajax_request: 1,
                     db: $('input[name="db"]').val(),
                     table: $('input[name="table"]').val(),
-                    column: column_name,
+                    column: columnName,
                     range_search: 1
                 },
                 success: function (response) {
@@ -324,49 +317,49 @@ AJAX.registerOnload('tbl_select.js', function () {
                             ? '(' + Messages.strColumnMax +
                                 ' ' + response.column_data.max + ')'
                             : '';
-                        var button_options = {};
-                        button_options[Messages.strGo] = function () {
-                            var min_value = $('#min_value').val();
-                            var max_value = $('#max_value').val();
-                            var final_value = '';
-                            if (min_value.length && max_value.length) {
-                                final_value = min_value + ', ' +
-                                    max_value;
+                        var buttonOptions = {};
+                        buttonOptions[Messages.strGo] = function () {
+                            var minValue = $('#min_value').val();
+                            var maxValue = $('#max_value').val();
+                            var finalValue = '';
+                            if (minValue.length && maxValue.length) {
+                                finalValue = minValue + ', ' +
+                                    maxValue;
                             }
-                            var $target_field = $source_select.closest('tr')
+                            var $targetField = $source_select.closest('tr')
                                 .find('[name*="criteriaValues"]');
 
                             // If target field is a select list.
-                            if ($target_field.is('select')) {
-                                $target_field.val(final_value);
-                                var $options = $target_field.find('option');
-                                var $closest_min = null;
-                                var $closest_max = null;
+                            if ($targetField.is('select')) {
+                                $targetField.val(finalValue);
+                                var $options = $targetField.find('option');
+                                var $closestMin = null;
+                                var $closestMax = null;
                                 // Find closest min and max value.
                                 $options.each(function () {
                                     if (
-                                        $closest_min === null
-                                        || Math.abs($(this).val() - min_value) < Math.abs($closest_min.val() - min_value)
+                                        $closestMin === null
+                                        || Math.abs($(this).val() - minValue) < Math.abs($closestMin.val() - minValue)
                                     ) {
-                                        $closest_min = $(this);
+                                        $closestMin = $(this);
                                     }
 
                                     if (
-                                        $closest_max === null
-                                        || Math.abs($(this).val() - max_value) < Math.abs($closest_max.val() - max_value)
+                                        $closestMax === null
+                                        || Math.abs($(this).val() - maxValue) < Math.abs($closestMax.val() - maxValue)
                                     ) {
-                                        $closest_max = $(this);
+                                        $closestMax = $(this);
                                     }
                                 });
 
-                                $closest_min.attr('selected', 'selected');
-                                $closest_max.attr('selected', 'selected');
+                                $closestMin.attr('selected', 'selected');
+                                $closestMax.attr('selected', 'selected');
                             } else {
-                                $target_field.val(final_value);
+                                $targetField.val(finalValue);
                             }
                             $(this).dialog('close');
                         };
-                        button_options[Messages.strCancel] = function () {
+                        buttonOptions[Messages.strCancel] = function () {
                             $(this).dialog('close');
                         };
 
@@ -387,12 +380,12 @@ AJAX.registerOnload('tbl_select.js', function () {
                             minWidth: 500,
                             maxHeight: 400,
                             modal: true,
-                            buttons: button_options,
+                            buttons: buttonOptions,
                             title: Messages.strRangeSearch,
                             open: function () {
                                 // Add datepicker wherever required.
-                                Functions.addDatepicker($('#min_value'), data_type);
-                                Functions.addDatepicker($('#max_value'), data_type);
+                                Functions.addDatepicker($('#min_value'), dataType);
+                                Functions.addDatepicker($('#max_value'), dataType);
                             },
                             close: function () {
                                 $(this).remove();
@@ -408,6 +401,6 @@ AJAX.registerOnload('tbl_select.js', function () {
             });
         }
     });
-    var windowwidth = $(window).width();
-    $('.jsresponsive').css('max-width', (windowwidth - 69) + 'px');
+    var windowWidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowWidth - 69) + 'px');
 });
