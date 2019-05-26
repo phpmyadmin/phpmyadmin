@@ -395,7 +395,7 @@ RTE.COMMON = {
             $curr_row.children('td').children('.drop_sql').html()
         );
         // We ask for confirmation first here, before submitting the ajax request
-        $this.PMA_confirm(question, $this.attr('href'), function (url) {
+        $this.confirm(question, $this.attr('href'), function (url) {
             /**
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
@@ -452,12 +452,12 @@ RTE.COMMON = {
                     Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
-        }); // end $.PMA_confirm()
+        });
     },
 
     dropMultipleDialog: function ($this) {
         // We ask for confirmation here
-        $this.PMA_confirm(Messages.strDropRTEitems, '', function (url) {
+        $this.confirm(Messages.strDropRTEitems, '', function (url) {
             /**
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
@@ -536,7 +536,7 @@ RTE.COMMON = {
                     }
                 }); // end $.post()
             }); // end drop_anchors.each()
-        }); // end $.PMA_confirm()
+        });
     }
 }; // end RTE namespace
 

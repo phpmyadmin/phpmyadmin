@@ -58,7 +58,7 @@ AJAX.registerOnload('tbl_tracking.js', function () {
 
         if ($button.val() === 'delete_version') {
             var question = Messages.strDeleteTrackingVersionMultiple;
-            $button.PMA_confirm(question, $form.attr('action'), function (url) {
+            $button.confirm(question, $form.attr('action'), function (url) {
                 Functions.ajaxShowMessage();
                 AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
@@ -77,7 +77,7 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         e.preventDefault();
         var $anchor = $(this);
         var question = Messages.strDeleteTrackingVersion;
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+        $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');
@@ -94,7 +94,7 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         e.preventDefault();
         var $anchor = $(this);
         var question = Messages.strDeletingTrackingEntry;
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+        $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');

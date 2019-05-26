@@ -673,7 +673,7 @@ AJAX.registerOnload('indexes.js', function () {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }); // end $.PMA_confirm()
+        });
     }); // end Drop Primary Key/Index
 
     /**

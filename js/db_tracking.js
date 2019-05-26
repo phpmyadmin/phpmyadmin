@@ -48,7 +48,7 @@ AJAX.registerOnload('db_tracking.js', function () {
 
         if ($button.val() === 'delete_tracking') {
             var question = Messages.strDeleteTrackingDataMultiple;
-            $button.PMA_confirm(question, $form.attr('action'), function (url) {
+            $button.confirm(question, $form.attr('action'), function (url) {
                 Functions.ajaxShowMessage(Messages.strDeletingTrackingData);
                 AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
@@ -81,7 +81,7 @@ AJAX.registerOnload('db_tracking.js', function () {
         e.preventDefault();
         var $anchor = $(this);
         var question = Messages.strDeleteTrackingData;
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+        $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage(Messages.strDeletingTrackingData);
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');

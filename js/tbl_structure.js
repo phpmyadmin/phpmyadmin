@@ -144,7 +144,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     var question = sprintf(
                         Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
-                    $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                    $form.confirm(question, $form.attr('action'), function (url) {
                         submitForm();
                     });
                 } else {
@@ -181,7 +181,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
          */
         var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + Functions.escapeHtml(currTableName) + '` DROP `' + Functions.escapeHtml(currColumnName) + '`;');
         var $thisAnchor = $(this);
-        $thisAnchor.PMA_confirm(question, $thisAnchor.attr('href'), function (url) {
+        $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             var $msg = Functions.ajaxShowMessage(Messages.strDroppingColumn, false);
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
@@ -225,7 +225,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }); // end $.PMA_confirm()
+        });
     }); // end of Drop Column Anchor action
 
     /**
@@ -265,14 +265,14 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         var $thisAnchor = $(this);
 
-        $thisAnchor.PMA_confirm(question, $thisAnchor.attr('href'), function (url) {
+        $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
             AJAX.source = $this;
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
-        }); // end $.PMA_confirm()
+        });
     }); // end Add key
 
     /**
@@ -432,12 +432,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         if ($link.is('#partition_action_DROP')) {
             var question = Messages.strDropPartitionWarning;
-            $link.PMA_confirm(question, $link.attr('href'), function (url) {
+            $link.confirm(question, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else if ($link.is('#partition_action_TRUNCATE')) {
             var question = Messages.strTruncatePartitionWarning;
-            $link.PMA_confirm(question, $link.attr('href'), function (url) {
+            $link.confirm(question, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else {
@@ -452,7 +452,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         e.preventDefault();
         var $link = $(this);
         var question = Messages.strRemovePartitioningWarning;
-        $link.PMA_confirm(question, $link.attr('href'), function (url) {
+        $link.confirm(question, $link.attr('href'), function (url) {
             var params = Functions.getJsConfirmCommonParam({
                 'ajax_request' : true,
                 'ajax_page_request' : true

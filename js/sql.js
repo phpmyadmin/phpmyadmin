@@ -246,7 +246,7 @@ AJAX.registerOnload('sql.js', function () {
         e.preventDefault();
         var question =  Functions.sprintf(Messages.strDoYouReally, Functions.escapeHtml($(this).closest('td').find('div').text()));
         var $link = $(this);
-        $link.PMA_confirm(question, $link.attr('href'), function (url) {
+        $link.confirm(question, $link.attr('href'), function (url) {
             $msgbox = Functions.ajaxShowMessage();
             var argsep = CommonParams.get('arg_separator');
             var params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
@@ -717,7 +717,7 @@ AJAX.registerOnload('sql.js', function () {
         if (! $(this).is(':checked')) { // already showing all rows
             submitShowAllForm();
         } else {
-            $form.PMA_confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function (url) {
+            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function (url) {
                 submitShowAllForm();
             });
         }

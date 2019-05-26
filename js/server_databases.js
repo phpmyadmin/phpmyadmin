@@ -57,7 +57,7 @@ AJAX.registerOnload('server_databases.js', function () {
             Functions.sprintf(Messages.strDoYouReally, selected_dbs.join('<br>'));
 
         var argsep = CommonParams.get('arg_separator');
-        $(this).PMA_confirm(
+        $(this).confirm(
             question,
             $form.prop('action') + '?' + $(this).serialize() +
                 argsep + 'drop_selected_dbs=1',
@@ -77,7 +77,7 @@ AJAX.registerOnload('server_databases.js', function () {
                         $databasesCount.text(newCount);
 
                         $rowsToRemove.remove();
-                        $form.find('tbody').PMA_sort_table('.name');
+                        $form.find('tbody').sortTable('.name');
                         if ($form.find('tbody').find('tr').length === 0) {
                             // user just dropped the last db on this page
                             CommonActions.refreshMain();
@@ -89,7 +89,7 @@ AJAX.registerOnload('server_databases.js', function () {
                     }
                 }); // end $.post()
             }
-        ); // end $.PMA_confirm()
+        );
     }); // end of Drop Database action
 
     /**

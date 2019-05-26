@@ -117,7 +117,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.stopPropagation();
         var $td = $(this);
         var question = Messages.strDeleteCentralColumnWarning;
-        $td.PMA_confirm(question, null, function (url) {
+        $td.confirm(question, null, function (url) {
             var rownum = $td.data('rownum');
             $('#del_col_name').val('selected_fld%5B%5D=' + $('#checkbox_row_' + rownum).val());
             $('#del_form').submit();

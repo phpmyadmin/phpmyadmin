@@ -50,7 +50,7 @@ AJAX.registerOnload('db_operations.js', function () {
 
         Functions.prepareForAjaxRequest($form);
 
-        $form.PMA_confirm(question, $form.attr('action'), function (url) {
+        $form.confirm(question, $form.attr('action'), function (url) {
             Functions.ajaxShowMessage(Messages.strRenamingDatabases, false);
             $.post(url, $('#rename_db_form').serialize() + CommonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -145,7 +145,7 @@ AJAX.registerOnload('db_operations.js', function () {
         );
         var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
 
-        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
+        $(this).confirm(question, $(this).attr('href'), function (url) {
             Functions.ajaxShowMessage(Messages.strProcessingRequest);
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success) {

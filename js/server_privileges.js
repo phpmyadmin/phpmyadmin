@@ -171,7 +171,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         var $thisButton = $(this);
         var $form = $('#usersForm');
 
-        $thisButton.PMA_confirm(Messages.strDropUserWarning, $form.attr('action'), function (url) {
+        $thisButton.confirm(Messages.strDropUserWarning, $form.attr('action'), function (url) {
             var $drop_users_db_checkbox = $('#checkbox_drop_users_db');
             if ($drop_users_db_checkbox.is(':checked')) {
                 var is_confirmed = confirm(Messages.strDropDatabaseStrongWarning + '\n' + Functions.sprintf(Messages.strDoYouReally, 'DROP DATABASE'));

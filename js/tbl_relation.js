@@ -222,7 +222,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
 
         var question = Functions.sprintf(Messages.strDoYouReally, drop_query);
 
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+        $anchor.confirm(question, $anchor.attr('href'), function (url) {
             var $msg = Functions.ajaxShowMessage(Messages.strDroppingForeignKey, false);
             var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
@@ -235,7 +235,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }); // end $.PMA_confirm()
+        });
     }); // end Drop Foreign key
 
     var windowwidth = $(window).width();

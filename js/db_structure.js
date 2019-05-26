@@ -297,7 +297,7 @@ AJAX.registerOnload('db_structure.js', function () {
             Functions.sprintf(Messages.strDoYouReally, 'TRUNCATE `' + Functions.escapeHtml(currTableName) + '`') +
             Functions.getForeignKeyCheckboxLoader();
 
-        $thisAnchor.PMA_confirm(question, $thisAnchor.attr('href'), function (url) {
+        $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
@@ -322,7 +322,7 @@ AJAX.registerOnload('db_structure.js', function () {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }, Functions.loadForeignKeyCheckbox); // end $.PMA_confirm()
+        }, Functions.loadForeignKeyCheckbox);
     }); // end of Truncate Table Ajax action
 
     /**
@@ -359,7 +359,7 @@ AJAX.registerOnload('db_structure.js', function () {
         }
         question += Functions.getForeignKeyCheckboxLoader();
 
-        $thisAnchor.PMA_confirm(question, $thisAnchor.attr('href'), function (url) {
+        $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
@@ -375,7 +375,7 @@ AJAX.registerOnload('db_structure.js', function () {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }, Functions.loadForeignKeyCheckbox); // end $.PMA_confirm()
+        }, Functions.loadForeignKeyCheckbox);
     }); // end of Drop Table Ajax action
 
     /**
@@ -401,7 +401,7 @@ AJAX.registerOnload('db_structure.js', function () {
          */
         var question = Messages.strOperationTakesLongTime;
 
-        $(this).PMA_confirm(question, '', function () {
+        $(this).confirm(question, '', function () {
             return true;
         });
         return false;

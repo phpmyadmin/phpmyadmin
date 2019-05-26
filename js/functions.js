@@ -2866,7 +2866,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
             modal: true
         });
 };
-jQuery.fn.PMA_confirm = Functions.confirm;
+jQuery.fn.confirm = Functions.confirm;
 
 /**
  * jQuery function to sort a table's body after a new row has been appended to it.
@@ -2909,7 +2909,7 @@ Functions.sortTable = function (text_selector) {
         });
     });
 };
-jQuery.fn.PMA_sort_table = Functions.sortTable;
+jQuery.fn.sortTable = Functions.sortTable;
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -3004,7 +3004,7 @@ AJAX.registerOnload('functions.js', function () {
                                 .appendTo(tables_table);
 
                             // Sort the table
-                            $(tables_table).PMA_sort_table('th');
+                            $(tables_table).sortTable('th');
 
                             // Adjust summary row
                             DatabaseStructure.adjustTotals();

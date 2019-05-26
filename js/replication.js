@@ -83,7 +83,7 @@ AJAX.registerOnload('replication.js', function () {
         e.preventDefault();
         var $anchor = $(this);
         var question = Messages.strResetSlaveWarning;
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+        $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
             AJAX.source = $anchor;
             var params = Functions.getJsConfirmCommonParam({
