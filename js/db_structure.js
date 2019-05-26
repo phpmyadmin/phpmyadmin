@@ -8,6 +8,8 @@
  * @required    js/functions.js
  */
 
+var DatabaseStructure = {};
+
 /**
  * AJAX scripts for db_structure.php
  *
@@ -36,7 +38,7 @@ AJAX.registerTeardown('db_structure.js', function () {
  * Adjust number of rows and total size in the summary
  * when truncating, creating, dropping or inserting into a table
  */
-function PMA_adjustTotals () {
+DatabaseStructure.adjustTotals = function () {
     var byteUnits = [
         Messages.strB,
         Messages.strKiB,
@@ -112,15 +114,15 @@ function PMA_adjustTotals () {
         strRowSum = '~' + strRowSum;
     }
     // Calculate the magnitude for the size and overhead values
-    var size_magnitude = 0;
-    var overhead_magnitude = 0;
+    var sizeMagnitude = 0;
+    var overheadMagnitude = 0;
     while (sizeSum >= 1024) {
         sizeSum /= 1024;
-        size_magnitude++;
+        sizeMagnitude++;
     }
     while (overheadSum >= 1024) {
         overheadSum /= 1024;
-        overhead_magnitude++;
+        overheadMagnitude++;
     }
 
     sizeSum = Math.round(sizeSum * 10) / 10;
@@ -134,15 +136,15 @@ function PMA_adjustTotals () {
     } else {
         $summary.find('.tbl_rows').text(strRowSum);
     }
-    $summary.find('.tbl_size').text(sizeSum + ' ' + byteUnits[size_magnitude]);
-    $summary.find('.tbl_overhead').text(overheadSum + ' ' + byteUnits[overhead_magnitude]);
-}
+    $summary.find('.tbl_size').text(sizeSum + ' ' + byteUnits[sizeMagnitude]);
+    $summary.find('.tbl_overhead').text(overheadSum + ' ' + byteUnits[overheadMagnitude]);
+};
 
 /**
  * Gets the real row count for a table or DB.
  * @param object $target Target for appending the real count value.
  */
-function PMA_fetchRealRowCount ($target) {
+DatabaseStructure.fetchRealRowCount = function ($target) {
     var $throbber = $('#pma_navigation').find('.throbber')
         .first()
         .clone()
@@ -172,7 +174,7 @@ function PMA_fetchRealRowCount ($target) {
                     $target.parent().text(response.real_row_count);
                 }
                 // Adjust the 'Sum' displayed at the bottom.
-                PMA_adjustTotals();
+                DatabaseStructure.adjustTotals();
             } else {
                 Functions.ajaxShowMessage(Messages.strErrorRealRowCount);
             }
@@ -181,7 +183,7 @@ function PMA_fetchRealRowCount ($target) {
             Functions.ajaxShowMessage(Messages.strErrorRealRowCount);
         }
     });
-}
+};
 
 AJAX.registerOnload('db_structure.js', function () {
 /**
@@ -281,41 +283,41 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var $this_anchor Object  referring to the anchor clicked
          */
-        var $this_anchor = $(this);
+        var $thisAnchor = $(this);
 
         // extract current table name and build the question string
         /**
          * @var curr_table_name String containing the name of the table to be truncated
          */
-        var curr_table_name = $this_anchor.parents('tr').children('th').children('a').text();
+        var currTableName = $thisAnchor.parents('tr').children('th').children('a').text();
         /**
          * @var question    String containing the question to be asked for confirmation
          */
         var question = Messages.strTruncateTableStrongWarning + ' ' +
-            Functions.sprintf(Messages.strDoYouReally, 'TRUNCATE `' + Functions.escapeHtml(curr_table_name) + '`') +
+            Functions.sprintf(Messages.strDoYouReally, 'TRUNCATE `' + Functions.escapeHtml(currTableName) + '`') +
             Functions.getForeignKeyCheckboxLoader();
 
-        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
+        $thisAnchor.PMA_confirm(question, $thisAnchor.attr('href'), function (url) {
             Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
-            var params = Functions.getJsConfirmCommonParam(this, $this_anchor.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Functions.ajaxShowMessage(data.message);
                     // Adjust table statistics
-                    var $tr = $this_anchor.closest('tr');
+                    var $tr = $thisAnchor.closest('tr');
                     $tr.find('.tbl_rows').text('0');
                     $tr.find('.tbl_size, .tbl_overhead').text('-');
                     // Fetch inner span of this anchor
                     // and replace the icon with its disabled version
-                    var span = $this_anchor.html().replace(/b_empty/, 'bd_empty');
+                    var span = $thisAnchor.html().replace(/b_empty/, 'bd_empty');
                     // To disable further attempts to truncate the table,
                     // replace the a element with its inner span (modified)
-                    $this_anchor
+                    $thisAnchor
                         .replaceWith(span)
                         .removeClass('truncate_table_anchor');
-                    PMA_adjustTotals();
+                    DatabaseStructure.adjustTotals();
                 } else {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
@@ -329,44 +331,44 @@ AJAX.registerOnload('db_structure.js', function () {
     $(document).on('click', 'a.drop_table_anchor.ajax', function (event) {
         event.preventDefault();
 
-        var $this_anchor = $(this);
+        var $thisAnchor = $(this);
 
         // extract current table name and build the question string
         /**
          * @var $curr_row    Object containing reference to the current row
          */
-        var $curr_row = $this_anchor.parents('tr');
+        var $currRow = $thisAnchor.parents('tr');
         /**
          * @var curr_table_name String containing the name of the table to be truncated
          */
-        var curr_table_name = $curr_row.children('th').children('a').text();
+        var currTableName = $currRow.children('th').children('a').text();
         /**
          * @var is_view Boolean telling if we have a view
          */
-        var is_view = $curr_row.hasClass('is_view') || $this_anchor.hasClass('view');
+        var isView = $currRow.hasClass('is_view') || $thisAnchor.hasClass('view');
         /**
          * @var question    String containing the question to be asked for confirmation
          */
         var question;
-        if (! is_view) {
+        if (! isView) {
             question = Messages.strDropTableStrongWarning + ' ' +
-                Functions.sprintf(Messages.strDoYouReally, 'DROP TABLE `' + Functions.escapeHtml(curr_table_name) + '`');
+                Functions.sprintf(Messages.strDoYouReally, 'DROP TABLE `' + Functions.escapeHtml(currTableName) + '`');
         } else {
             question =
-                Functions.sprintf(Messages.strDoYouReally, 'DROP VIEW `' + Functions.escapeHtml(curr_table_name) + '`');
+                Functions.sprintf(Messages.strDoYouReally, 'DROP VIEW `' + Functions.escapeHtml(currTableName) + '`');
         }
         question += Functions.getForeignKeyCheckboxLoader();
 
-        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
+        $thisAnchor.PMA_confirm(question, $thisAnchor.attr('href'), function (url) {
             var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
-            var params = Functions.getJsConfirmCommonParam(this, $this_anchor.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Functions.ajaxShowMessage(data.message);
-                    $curr_row.hide('medium').remove();
-                    PMA_adjustTotals();
+                    $currRow.hide('medium').remove();
+                    DatabaseStructure.adjustTotals();
                     PMA_reloadNavigation();
                     Functions.ajaxRemoveMessage($msg);
                 } else {
@@ -417,11 +419,11 @@ AJAX.registerOnload('db_structure.js', function () {
     // Get real row count via Ajax.
     $('a.real_row_count').on('click', function (event) {
         event.preventDefault();
-        PMA_fetchRealRowCount($(this));
+        DatabaseStructure.fetchRealRowCount($(this));
     });
     // Get all real row count.
     $('a.row_count_sum').on('click', function (event) {
         event.preventDefault();
-        PMA_fetchRealRowCount($(this));
+        DatabaseStructure.fetchRealRowCount($(this));
     });
-}); // end $()
+});

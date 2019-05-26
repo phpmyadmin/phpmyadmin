@@ -3007,7 +3007,7 @@ AJAX.registerOnload('functions.js', function () {
                             $(tables_table).PMA_sort_table('th');
 
                             // Adjust summary row
-                            PMA_adjustTotals();
+                            DatabaseStructure.adjustTotals();
                         }
 
                         // Refresh navigation as a new table has been added
