@@ -354,46 +354,46 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
         // Generate SQL query for update
         if (!isEmpty(newValues)) {
-            var sql_query = 'UPDATE `' + CommonParams.get('table') + '` SET ';
+            var sqlQuery = 'UPDATE `' + CommonParams.get('table') + '` SET ';
             for (key in newValues) {
-                sql_query += '`' + key + '`=';
+                sqlQuery += '`' + key + '`=';
                 var value = newValues[key];
 
                 // null
                 if (value === null) {
-                    sql_query += 'NULL, ';
+                    sqlQuery += 'NULL, ';
 
                 // empty
                 } else if ($.trim(value) === '') {
-                    sql_query += '\'\', ';
+                    sqlQuery += '\'\', ';
 
                 // other
                 } else {
                     // type explicitly identified
                     if (sqlTypes[key] !== null) {
                         if (sqlTypes[key] === 'bit') {
-                            sql_query += 'b\'' + value + '\', ';
+                            sqlQuery += 'b\'' + value + '\', ';
                         }
                     // type not explicitly identified
                     } else {
                         if (!isNumeric(value)) {
-                            sql_query += '\'' + value + '\', ';
+                            sqlQuery += '\'' + value + '\', ';
                         } else {
-                            sql_query += value + ', ';
+                            sqlQuery += value + ', ';
                         }
                     }
                 }
             }
             // remove two extraneous characters ', '
-            sql_query = sql_query.substring(0, sql_query.length - 2);
-            sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
+            sqlQuery = sqlQuery.substring(0, sqlQuery.length - 2);
+            sqlQuery += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
 
             // Post SQL query to sql.php
             $.post('sql.php', {
                 'server' : CommonParams.get('server'),
                 'db' : CommonParams.get('db'),
                 'ajax_request' : true,
-                'sql_query' : sql_query,
+                'sql_query' : sqlQuery,
                 'inline_edit' : false
             }, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -584,8 +584,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $('div#querychart').bind('jqplotDataClick',
             function (event, seriesIndex, pointIndex, data) {
                 searchedDataKey = data[4]; // key from searchedData (global)
-                var field_id = 0;
-                var post_params = {
+                var fieldId = 0;
+                var postParams = {
                     'ajax_request' : true,
                     'get_data_row' : true,
                     'server' : CommonParams.get('server'),
@@ -594,25 +594,25 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     'where_clause' : data[3]
                 };
 
-                $.post('tbl_zoom_select.php', post_params, function (data) {
+                $.post('tbl_zoom_select.php', postParams, function (data) {
                     // Row is contained in data.row_info,
                     // now fill the displayResultForm with row values
                     var key;
                     for (key in data.row_info) {
-                        var $field = $('#edit_fieldID_' + field_id);
-                        var $field_null = $('#edit_fields_null_id_' + field_id);
+                        var $field = $('#edit_fieldID_' + fieldId);
+                        var $fieldNull = $('#edit_fields_null_id_' + fieldId);
                         if (data.row_info[key] === null) {
-                            $field_null.prop('checked', true);
+                            $fieldNull.prop('checked', true);
                             $field.val('');
                         } else {
-                            $field_null.prop('checked', false);
+                            $fieldNull.prop('checked', false);
                             if ($field.attr('multiple')) { // when the column is of type SET
                                 $field.val(data.row_info[key].split(','));
                             } else {
                                 $field.val(data.row_info[key]);
                             }
                         }
-                        field_id++;
+                        fieldId++;
                     }
                     selectedRow = data.row_info;
                 });
