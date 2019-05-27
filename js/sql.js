@@ -614,7 +614,7 @@ AJAX.registerOnload('sql.js', function () {
                             CommonParams.set('table', data.ajax_reload.table_name);
                             CommonActions.refreshMain();
                         } else {
-                            PMA_reloadNavigation();
+                            Navigation.reload();
                         }
                     }
                 } else if (typeof data.reload !== 'undefined') {

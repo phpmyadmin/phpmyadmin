@@ -3009,7 +3009,7 @@ AJAX.registerOnload('functions.js', function () {
                         }
 
                         // Refresh navigation as a new table has been added
-                        PMA_reloadNavigation();
+                        Navigation.reload();
                         // Redirect to table structure page on creation of new table
                         var argsep = CommonParams.get('arg_separator');
                         var params12 = 'ajax_request=true' + argsep + 'ajax_page_request=true';
@@ -3877,7 +3877,7 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
                 if (callbackSuccess) {
                     callbackSuccess();
                 }
-                PMA_reloadNavigation();
+                Navigation.reload();
             } else {
                 var $tempDiv = $('<div id=\'temp_div\'><div>').append(data.error);
                 var $error;
@@ -4196,7 +4196,7 @@ AJAX.registerOnload('functions.js', function () {
             $(this).closest('form').submit();
         } else {
             // but for the navigation we need to manually replace the content
-            PMA_navigationTreePagination($(this));
+            Navigation.treePagination($(this));
         }
     });
 
@@ -4648,7 +4648,7 @@ Functions.createViewDialog = function ($this) {
                     if (typeof data !== 'undefined' && data.success === true) {
                         $('#createViewDialog').dialog('close');
                         $('.result_query').html(data.message);
-                        PMA_reloadNavigation();
+                        Navigation.reload();
                     } else {
                         Functions.ajaxShowMessage(data.error);
                     }

@@ -190,7 +190,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     // Refresh navigation, if we droppped some databases with the name
                     // that is the same as the username of the deleted user
                     if ($('#checkbox_drop_users_db:checked').length) {
-                        PMA_reloadNavigation();
+                        Navigation.reload();
                     }
                     // Remove the revoked user from the users list
                     $form.find('input:checkbox:checked').parents('tr').slideUp('medium', function () {

@@ -369,7 +369,7 @@ AJAX.registerOnload('db_structure.js', function () {
                     Functions.ajaxShowMessage(data.message);
                     $currRow.hide('medium').remove();
                     DatabaseStructure.adjustTotals();
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                     Functions.ajaxRemoveMessage($msg);
                 } else {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);

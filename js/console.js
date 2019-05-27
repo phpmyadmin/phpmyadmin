@@ -239,7 +239,7 @@ var Console = {
             .val(ConsoleMessages.appendQuery({ sql_query: queryString }).message_id);
         Console.$requestForm.trigger('submit');
         ConsoleInput.clear();
-        PMA_reloadNavigation();
+        Navigation.reload();
     },
     ajaxCallback: function (data) {
         if (data && data.console_message_id) {

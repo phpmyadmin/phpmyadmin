@@ -670,7 +670,7 @@ AJAX.registerOnload('indexes.js', function () {
                     CommonActions.refreshMain(false, function () {
                         $('a.ajax[href^=#indexes]').trigger('click');
                     });
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 } else {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }

@@ -82,7 +82,7 @@ AJAX.registerOnload('server_databases.js', function () {
                             // user just dropped the last db on this page
                             CommonActions.refreshMain();
                         }
-                        PMA_reloadNavigation();
+                        Navigation.reload();
                     } else {
                         $form.find('tr.removeMe').removeClass('removeMe');
                         Functions.ajaxShowMessage(data.error, false);
@@ -119,7 +119,7 @@ AJAX.registerOnload('server_databases.js', function () {
                 var $databases_count_object = $('#filter-rows-count');
                 var databases_count = parseInt($databases_count_object.text(), 10) + 1;
                 $databases_count_object.text(databases_count);
-                PMA_reloadNavigation();
+                Navigation.reload();
 
                 // make ajax request to load db structure page - taken from ajax.js
                 var dbStruct_url = data.url_query;

@@ -477,7 +477,7 @@ var AJAX = {
 
             AJAX.scriptHandler.reset(function () {
                 if (data._reloadNavigation) {
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 }
                 if (data._title) {
                     $('title').replaceWith(data._title);
@@ -500,9 +500,9 @@ var AJAX = {
                     }
                 }
                 if (data._disableNaviSettings) {
-                    PMA_disableNaviSettings();
+                    Navigation.disableSettings();
                 } else {
-                    PMA_ensureNaviSettings(data._selflink);
+                    Navigation.ensureSettings(data._selflink);
                 }
 
                 // Remove all containers that may have

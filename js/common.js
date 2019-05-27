@@ -41,7 +41,7 @@ var CommonParams = (function () {
             if (updateNavigation &&
                     $('#pma_navigation_tree').hasClass('synced')
             ) {
-                PMA_showCurrentNavigation();
+                Navigation.showCurrent();
             }
         },
         /**
@@ -74,7 +74,7 @@ var CommonParams = (function () {
             if (updateNavigation &&
                     $('#pma_navigation_tree').hasClass('synced')
             ) {
-                PMA_showCurrentNavigation();
+                Navigation.showCurrent();
             }
             return this;
         },

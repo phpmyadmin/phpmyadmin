@@ -320,7 +320,7 @@ RTE.COMMON = {
                                         $('table.data').show('slow');
                                     });
                                 }
-                                PMA_reloadNavigation();
+                                Navigation.reload();
                             } else {
                                 Functions.ajaxShowMessage(data.error, false);
                             }
@@ -447,7 +447,7 @@ RTE.COMMON = {
                     Functions.ajaxRemoveMessage($msg);
                     // Show the query that we just executed
                     Functions.slidingMessage(data.sql_query);
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
@@ -525,13 +525,13 @@ RTE.COMMON = {
                                 Functions.ajaxRemoveMessage($msg);
                                 $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
                             }
-                            PMA_reloadNavigation();
+                            Navigation.reload();
                         }
                     } else {
                         Functions.ajaxShowMessage(data.error, false);
                         success = false;
                         if (returnCount === count) {
-                            PMA_reloadNavigation();
+                            Navigation.reload();
                         }
                     }
                 }); // end $.post()

@@ -43,7 +43,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                     Functions.ajaxShowMessage(data.message);
                 }
                 // Refresh navigation when the table is copied
-                PMA_reloadNavigation();
+                Navigation.reload();
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
@@ -66,7 +66,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                     Functions.ajaxShowMessage(data.message);
                 });
                 // Refresh navigation when the table is copied
-                PMA_reloadNavigation();
+                Navigation.reload();
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
@@ -116,7 +116,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                         Functions.highlightSql($('#page_content'));
                     });
                     // Refresh navigation when the table is renamed
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
@@ -237,7 +237,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Functions.ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                     CommonParams.set('table', '');
                     CommonActions.refreshMain(
                         CommonParams.get('opendb_url'),
@@ -271,7 +271,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Functions.ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                     CommonParams.set('table', '');
                     CommonActions.refreshMain(
                         CommonParams.get('opendb_url'),

@@ -5,19 +5,21 @@
  * @package phpMyAdmin-Navigation
  */
 
+var Navigation = {};
+
 /**
  * updates the tree state in sessionStorage
  *
  * @returns void
  */
-function navTreeStateUpdate () {
+Navigation.treeStateUpdate = function () {
     // update if session storage is supported
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // try catch necessary here to detect whether
         // content to be stored exceeds storage capacity
         try {
-            storage.setItem('navTreePaths', JSON.stringify(traverseNavigationForPaths()));
+            storage.setItem('navTreePaths', JSON.stringify(Navigation.traverseForPaths()));
             storage.setItem('server', CommonParams.get('server'));
             storage.setItem('token', CommonParams.get('token'));
         } catch (error) {
@@ -28,15 +30,14 @@ function navTreeStateUpdate () {
             storage.removeItem('token');
         }
     }
-}
-
+};
 
 /**
  * updates the filter state in sessionStorage
  *
  * @returns void
  */
-function navFilterStateUpdate (filterName, filterValue) {
+Navigation.filterStateUpdate = function (filterName, filterValue) {
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         try {
@@ -49,15 +50,14 @@ function navFilterStateUpdate (filterName, filterValue) {
             storage.removeItem('navTreeSearchFilters');
         }
     }
-}
-
+};
 
 /**
  * restores the filter state on navigation reload
  *
  * @returns void
  */
-function navFilterStateRestore () {
+Navigation.filterStateRestore = function () {
     if (isStorageSupported('sessionStorage')
         && typeof window.sessionStorage.navTreeSearchFilters !== 'undefined'
     ) {
@@ -73,7 +73,7 @@ function navFilterStateRestore () {
             if (! $obj.data('fastFilter')) {
                 $obj.data(
                     'fastFilter',
-                    new PMA_fastFilter.filter($obj, '')
+                    new Navigation.FastFilter.Filter($obj, '')
                 );
             }
             $obj.find('li.fast_filter.db_fast_filter input.searchClause')
@@ -97,13 +97,13 @@ function navFilterStateRestore () {
                 // happens when table filter becomes invisible
                 // as db filter has already been applied
                 if (! $obj.is(':visible')) {
-                    navFilterStateUpdate(filterName, '');
+                    Navigation.filterStateUpdate(filterName, '');
                     return true;
                 }
                 if (! $obj.data('fastFilter')) {
                     $obj.data(
                         'fastFilter',
-                        new PMA_fastFilter.filter($obj, '')
+                        new Navigation.FastFilter.Filter($obj, '')
                     );
                 }
                 $(this).val(searchClauses[filterName])
@@ -111,7 +111,7 @@ function navFilterStateRestore () {
             }
         });
     }
-}
+};
 
 /**
  * Loads child items of a node and executes a given callback
@@ -122,7 +122,7 @@ function navFilterStateRestore () {
  *
  * @returns void
  */
-function loadChildNodes (isNode, $expandElem, callback) {
+Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     var $destination = null;
     var params = null;
 
@@ -141,8 +141,8 @@ function loadChildNodes (isNode, $expandElem, callback) {
             searchClause2: ''
         };
         if ($expandElem.closest('ul').hasClass('search_results')) {
-            params.searchClause = PMA_fastFilter.getSearchClause();
-            params.searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
+            params.searchClause = Navigation.FastFilter.getSearchClause();
+            params.searchClause2 = Navigation.FastFilter.getSearchClause2($expandElem);
         }
     } else {
         $destination = $('#pma_navigation_tree_content');
@@ -199,7 +199,7 @@ function loadChildNodes (isNode, $expandElem, callback) {
             Functions.ajaxShowMessage(data.error, false);
         }
     });
-}
+};
 
 /**
  * Collapses a node in navigation tree.
@@ -208,7 +208,7 @@ function loadChildNodes (isNode, $expandElem, callback) {
  *
  * @returns void
  */
-function collapseTreeNode ($expandElem) {
+Navigation.collapseTreeNode = function ($expandElem) {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
@@ -218,8 +218,8 @@ function collapseTreeNode ($expandElem) {
         }
     }
     $expandElem.blur();
-    $children.promise().done(navTreeStateUpdate);
-}
+    $children.promise().done(Navigation.treeStateUpdate);
+};
 
 /**
  * Traverse the navigation tree backwards to generate all the actual
@@ -228,7 +228,7 @@ function collapseTreeNode ($expandElem) {
  *
  * @return Object
  */
-function traverseNavigationForPaths () {
+Navigation.traverseForPaths = function () {
     var params = {
         pos: $('#pma_navigation_tree').find('div.dbselector select').val()
     };
@@ -269,7 +269,7 @@ function traverseNavigationForPaths () {
         }
     });
     return params;
-}
+};
 
 /**
  * Executed on page load
@@ -286,7 +286,7 @@ $(function () {
     });
 
     // Fire up the resize handlers
-    new ResizeHandler();
+    new Navigation.ResizeHandler();
 
     /**
      * opens/closes (hides/shows) tree elements
@@ -297,9 +297,9 @@ $(function () {
         event.stopImmediatePropagation();
         var $icon = $(this).find('img');
         if ($icon.is('.ic_b_plus')) {
-            expandTreeNode($(this));
+            Navigation.expandTreeNode($(this));
         } else {
-            collapseTreeNode($(this));
+            Navigation.collapseTreeNode($(this));
         }
     });
 
@@ -322,13 +322,13 @@ $(function () {
         }
 
         // Reload the navigation
-        PMA_reloadNavigation(hideNav);
+        Navigation.reload(hideNav);
     });
 
     $(document).on('change', '#navi_db_select',  function (event) {
         if (! $(this).val()) {
             CommonParams.set('db', '');
-            PMA_reloadNavigation();
+            Navigation.reload();
         }
         $(this).closest('form').trigger('submit');
     });
@@ -402,24 +402,24 @@ $(function () {
                 .attr('alt', Messages.unlinkWithMain)
                 .attr('title', Messages.unlinkWithMain);
             $('#pma_navigation_tree').addClass('synced');
-            PMA_showCurrentNavigation();
+            Navigation.showCurrent();
         }
     });
 
     /**
      * Bind all "fast filter" events
      */
-    $(document).on('click', '#pma_navigation_tree li.fast_filter span', PMA_fastFilter.events.clear);
-    $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.focus);
-    $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.blur);
-    $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.keyup);
+    $(document).on('click', '#pma_navigation_tree li.fast_filter span', Navigation.FastFilter.events.clear);
+    $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.focus);
+    $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.blur);
+    $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.keyup);
 
     /**
      * Ajax handler for pagination
      */
     $(document).on('click', '#pma_navigation_tree div.pageselector a.ajax', function (event) {
         event.preventDefault();
-        PMA_navigationTreePagination($(this));
+        Navigation.treePagination($(this));
     });
 
     /**
@@ -529,7 +529,7 @@ $(function () {
             url: $(this).attr('href'),
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 } else {
                     Functions.ajaxShowMessage(data.error);
                 }
@@ -591,7 +591,7 @@ $(function () {
                     if ($hidden_table_count === 1) {
                         $hide_dialog_box.remove();
                     }
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 } else {
                     Functions.ajaxShowMessage(data.error);
                 }
@@ -651,16 +651,16 @@ $(function () {
         if ($('#pma_navigation_tree_content').length &&
             typeof storage.navTreePaths === 'undefined'
         ) {
-            PMA_reloadNavigation();
+            Navigation.reload();
         } else if (CommonParams.get('server') === storage.server &&
             CommonParams.get('token') === storage.token
         ) {
             // Reload the tree to the state before page refresh
-            PMA_reloadNavigation(navFilterStateRestore, JSON.parse(storage.navTreePaths));
+            Navigation.reload(Navigation.filterStateRestore, JSON.parse(storage.navTreePaths));
         } else {
             // If the user is different
-            navTreeStateUpdate();
-            PMA_reloadNavigation();
+            Navigation.treeStateUpdate();
+            Navigation.reload();
         }
     }
 });
@@ -673,7 +673,7 @@ $(function () {
  *
  * @returns void
  */
-function expandTreeNode ($expandElem, callback) {
+Navigation.expandTreeNode = function ($expandElem, callback) {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
@@ -684,7 +684,7 @@ function expandTreeNode ($expandElem, callback) {
         if (callback && typeof callback === 'function') {
             callback.call();
         }
-        $children.promise().done(navTreeStateUpdate);
+        $children.promise().done(Navigation.treeStateUpdate);
     } else {
         var $throbber = $('#pma_navigation').find('.throbber')
             .first()
@@ -694,7 +694,7 @@ function expandTreeNode ($expandElem, callback) {
         $icon.hide();
         $throbber.insertBefore($icon);
 
-        loadChildNodes(true, $expandElem, function (data) {
+        Navigation.loadChildNodes(true, $expandElem, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 var $destination = $expandElem.closest('li');
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
@@ -708,17 +708,17 @@ function expandTreeNode ($expandElem, callback) {
                 if (callback && typeof callback === 'function') {
                     callback.call();
                 }
-                PMA_showFullName($destination);
+                Navigation.showFullName($destination);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
             $icon.show();
             $throbber.remove();
-            $children.promise().done(navTreeStateUpdate);
+            $children.promise().done(Navigation.treeStateUpdate);
         });
     }
     $expandElem.blur();
-}
+};
 
 /**
  * Auto-scrolls the newly chosen database
@@ -727,8 +727,8 @@ function expandTreeNode ($expandElem, callback) {
  * @param  boolean  $forceToTop Whether to force scroll to top
  *
  */
-function scrollToView ($element, $forceToTop) {
-    navFilterStateRestore();
+Navigation.scrollToView = function ($element, $forceToTop) {
+    Navigation.filterStateRestore();
     var $container = $('#pma_navigation_tree_content');
     var elemTop = $element.offset().top - $container.offset().top;
     var textHeight = 20;
@@ -742,14 +742,14 @@ function scrollToView ($element, $forceToTop) {
             scrollTop: elemTop + textHeight - $container.height() + $container.scrollTop() + scrollPadding
         });
     }
-}
+};
 
 /**
  * Expand the navigation and highlight the current database or table/view
  *
  * @returns void
  */
-function PMA_showCurrentNavigation () {
+Navigation.showCurrent = function () {
     var db = CommonParams.get('db');
     var table = CommonParams.get('table');
 
@@ -765,17 +765,17 @@ function PMA_showCurrentNavigation () {
         if ($('#navi_db_select').length &&
             $('option:selected', $('#navi_db_select')).length
         ) {
-            if (! PMA_selectCurrentDb()) {
+            if (! Navigation.selectCurrentDatabase()) {
                 return;
             }
             // If loaded database in navigation is not same as current one
             if ($('#pma_navigation_tree_content').find('span.loaded_db:first').text()
                 !== $('#navi_db_select').val()
             ) {
-                loadChildNodes(false, $('option:selected', $('#navi_db_select')), function (data) {
+                Navigation.loadChildNodes(false, $('option:selected', $('#navi_db_select')), function (data) {
                     handleTableOrDb(table, $('#pma_navigation_tree_content'));
                     var $children = $('#pma_navigation_tree_content').children('div.list_container');
-                    $children.promise().done(navTreeStateUpdate);
+                    $children.promise().done(Navigation.treeStateUpdate);
                 });
             } else {
                 handleTableOrDb(table, $('#pma_navigation_tree_content'));
@@ -804,7 +804,7 @@ function PMA_showCurrentNavigation () {
 
         fullExpand(table, $dbItem);
     }
-    PMA_showFullName($('#pma_navigation_tree'));
+    Navigation.showFullName($('#pma_navigation_tree'));
 
     function fullExpand (table, $dbItem) {
         var $expander = $dbItem.children('div:first').children('a.expander');
@@ -812,7 +812,7 @@ function PMA_showCurrentNavigation () {
         if (! $expander.hasClass('loaded') ||
             $expander.find('img').is('.ic_b_plus')
         ) {
-            expandTreeNode($expander, function () {
+            Navigation.expandTreeNode($expander, function () {
                 handleTableOrDb(table, $dbItem);
             });
         } else {
@@ -829,11 +829,11 @@ function PMA_showCurrentNavigation () {
             if ($tableContainer.length > 0) {
                 var $expander = $tableContainer.children('div:first').children('a.expander');
                 $tableContainer.addClass('selected');
-                expandTreeNode($expander, function () {
-                    scrollToView($dbItem, true);
+                Navigation.expandTreeNode($expander, function () {
+                    Navigation.scrollToView($dbItem, true);
                 });
             } else {
-                scrollToView($dbItem, true);
+                Navigation.scrollToView($dbItem, true);
             }
         }
     }
@@ -921,7 +921,7 @@ function PMA_showCurrentNavigation () {
     }
 
     function loadAndShowTableOrView ($expander, $relatedContainer, itemName) {
-        loadChildNodes(true, $expander, function (data) {
+        Navigation.loadChildNodes(true, $expander, function (data) {
             var $whichItem = findLoadedItem(
                 $relatedContainer.children('div.list_container'),
                 itemName, null, true
@@ -933,9 +933,9 @@ function PMA_showCurrentNavigation () {
     }
 
     function showTableOrView ($whichItem, $expander) {
-        expandTreeNode($expander, function (data) {
+        Navigation.expandTreeNode($expander, function (data) {
             if ($whichItem) {
-                scrollToView($whichItem, false);
+                Navigation.scrollToView($whichItem, false);
             }
         });
     }
@@ -952,17 +952,17 @@ function PMA_showCurrentNavigation () {
         });
         return $whichItem;
     }
-}
+};
 
 /**
  * Disable navigation panel settings
  *
  * @return void
  */
-function PMA_disableNaviSettings () {
+Navigation.disableSettings = function () {
     $('#pma_navigation_settings_icon').addClass('hide');
     $('#pma_navigation_settings').remove();
-}
+};
 
 /**
  * Ensure that navigation panel settings is properly setup.
@@ -970,7 +970,7 @@ function PMA_disableNaviSettings () {
  *
  * @return void
  */
-function PMA_ensureNaviSettings (selflink) {
+Navigation.ensureSettings = function (selflink) {
     $('#pma_navigation_settings_icon').removeClass('hide');
 
     if (!$('#pma_navigation_settings').length) {
@@ -993,7 +993,7 @@ function PMA_ensureNaviSettings (selflink) {
     } else {
         $('#pma_navigation_settings').find('form').attr('action', selflink);
     }
-}
+};
 
 /**
  * Reloads the whole navigation tree while preserving its state
@@ -1003,13 +1003,13 @@ function PMA_ensureNaviSettings (selflink) {
  *
  * @return void
  */
-function PMA_reloadNavigation (callback, paths) {
+Navigation.reload = function (callback, paths) {
     var params = {
         reload: true,
         no_debug: true,
         server: CommonParams.get('server'),
     };
-    paths = paths || traverseNavigationForPaths();
+    paths = paths || Navigation.traverseForPaths();
     $.extend(params, paths);
     if ($('#navi_db_select').length) {
         params.db = CommonParams.get('db');
@@ -1024,22 +1024,22 @@ function PMA_reloadNavigation (callback, paths) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#pma_navigation_tree').html(data.message).children('div').show();
                 if ($('#pma_navigation_tree').hasClass('synced')) {
-                    PMA_selectCurrentDb();
-                    PMA_showCurrentNavigation();
+                    Navigation.selectCurrentDatabase();
+                    Navigation.showCurrent();
                 }
                 // Fire the callback, if any
                 if (typeof callback === 'function') {
                     callback.call();
                 }
-                navTreeStateUpdate();
+                Navigation.treeStateUpdate();
             } else {
                 Functions.ajaxShowMessage(data.error);
             }
         });
     }
-}
+};
 
-function PMA_selectCurrentDb () {
+Navigation.selectCurrentDatabase = function () {
     var $naviDbSelect = $('#navi_db_select');
 
     if (!$naviDbSelect.length) {
@@ -1052,7 +1052,7 @@ function PMA_selectCurrentDb () {
 
     $naviDbSelect.val(CommonParams.get('db'));
     return $naviDbSelect.val() === CommonParams.get('db');
-}
+};
 
 /**
  * Handles any requests to change the page in a branch of a tree
@@ -1064,7 +1064,7 @@ function PMA_selectCurrentDb () {
  *
  * @return void
  */
-function PMA_navigationTreePagination ($this) {
+Navigation.treePagination = function ($this) {
     var $msgbox = Functions.ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url;
@@ -1076,14 +1076,14 @@ function PMA_navigationTreePagination ($this) {
         url = 'navigation.php';
         params = $this.closest('form').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true';
     }
-    var searchClause = PMA_fastFilter.getSearchClause();
+    var searchClause = Navigation.FastFilter.getSearchClause();
     if (searchClause) {
         params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
     }
     if (isDbSelector) {
         params += CommonParams.get('arg_separator') + 'full=true';
     } else {
-        var searchClause2 = PMA_fastFilter.getSearchClause2($this);
+        var searchClause2 = Navigation.FastFilter.getSearchClause2($this);
         if (searchClause2) {
             params += CommonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
         }
@@ -1092,7 +1092,7 @@ function PMA_navigationTreePagination ($this) {
         if (typeof data !== 'undefined' && data.success) {
             Functions.ajaxRemoveMessage($msgbox);
             if (isDbSelector) {
-                var val = PMA_fastFilter.getSearchClause();
+                var val = Navigation.FastFilter.getSearchClause();
                 $('#pma_navigation_tree')
                     .html(data.message)
                     .children('div')
@@ -1104,7 +1104,7 @@ function PMA_navigationTreePagination ($this) {
                 }
             } else {
                 var $parent = $this.closest('div.list_container').parent();
-                var val = PMA_fastFilter.getSearchClause2($this);
+                var val = Navigation.FastFilter.getSearchClause2($this);
                 $this.closest('div.list_container').html(
                     $(data.message).children().show()
                 );
@@ -1122,9 +1122,9 @@ function PMA_navigationTreePagination ($this) {
             Functions.ajaxShowMessage(data.error);
             Functions.handleRedirectAndReload(data);
         }
-        navTreeStateUpdate();
+        Navigation.treeStateUpdate();
     });
-}
+};
 
 /**
  * @var ResizeHandler Custom object that manages the resizing of the navigation
@@ -1132,7 +1132,7 @@ function PMA_navigationTreePagination ($this) {
  * XXX: Must only be ever instanciated once
  * XXX: Inside event handlers the 'this' object is accessed as 'event.data.resize_handler'
  */
-var ResizeHandler = function () {
+Navigation.ResizeHandler = function () {
     /**
      * @var int panel_width Used by the collapser to know where to go
      *                      back to when uncollapsing the panel
@@ -1236,7 +1236,7 @@ var ResizeHandler = function () {
     /**
      * Event handler for initiating a resize of the panel
      *
-     * @param object e Event data (contains a reference to resizeHandler)
+     * @param object e Event data (contains a reference to Navigation.ResizeHandler)
      *
      * @return void
      */
@@ -1252,7 +1252,7 @@ var ResizeHandler = function () {
     /**
      * Event handler for terminating a resize of the panel
      *
-     * @param object e Event data (contains a reference to resizeHandler)
+     * @param object e Event data (contains a reference to Navigation.ResizeHandler)
      *
      * @return void
      */
@@ -1267,7 +1267,7 @@ var ResizeHandler = function () {
     /**
      * Event handler for updating the panel during a resize operation
      *
-     * @param object e Event data (contains a reference to resizeHandler)
+     * @param object e Event data (contains a reference to Navigation.ResizeHandler)
      *
      * @return void
      */
@@ -1282,7 +1282,7 @@ var ResizeHandler = function () {
     /**
      * Event handler for collapsing the panel
      *
-     * @param object e Event data (contains a reference to resizeHandler)
+     * @param object e Event data (contains a reference to Navigation.ResizeHandler)
      *
      * @return void
      */
@@ -1341,13 +1341,13 @@ var ResizeHandler = function () {
     // to show/hide horizontal scrollbars depending on page content width
     setInterval(this.treeResize, 2000);
     this.treeResize();
-}; // End of ResizeHandler
+};
 
 /**
- * @var object PMA_fastFilter Handles the functionality that allows filtering
+ * @var object FastFilter Handles the functionality that allows filtering
  *                            of the items in a branch of the navigation tree
  */
-var PMA_fastFilter = {
+Navigation.FastFilter = {
     /**
      * Construct for the asynchronous fast filter functionality
      *
@@ -1355,9 +1355,9 @@ var PMA_fastFilter = {
      *                            which is the nearest parent of the fast filter
      * @param string searchClause The query string for the filter
      *
-     * @return new PMA_fastFilter.filter object
+     * @return new Navigation.FastFilter.Filter object
      */
-    filter: function ($this, searchClause) {
+    Filter: function ($this, searchClause) {
         /**
          * @var object $this A jQuery object pointing to the list container
          *                   which is the nearest parent of the fast filter
@@ -1437,7 +1437,7 @@ var PMA_fastFilter = {
             if (! $obj.data('fastFilter')) {
                 $obj.data(
                     'fastFilter',
-                    new PMA_fastFilter.filter($obj, $(this).val())
+                    new Navigation.FastFilter.Filter($obj, $(this).val())
                 );
             }
             if ($(this).val() === this.defaultValue) {
@@ -1523,7 +1523,7 @@ var PMA_fastFilter = {
                 if (! $obj.data('fastFilter')) {
                     $obj.data(
                         'fastFilter',
-                        new PMA_fastFilter.filter($obj, $(this).val())
+                        new Navigation.FastFilter.Filter($obj, $(this).val())
                     );
                 } else {
                     if (event.keyCode === 13) {
@@ -1540,7 +1540,7 @@ var PMA_fastFilter = {
             } else {
                 filterName = 'dbFilter';
             }
-            navFilterStateUpdate(filterName, $(this).val());
+            Navigation.filterStateUpdate(filterName, $(this).val());
         },
         clear: function (event) {
             event.stopPropagation();
@@ -1561,7 +1561,7 @@ var PMA_fastFilter = {
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.update = function (searchClause) {
+Navigation.FastFilter.Filter.prototype.update = function (searchClause) {
     if (this.searchClause !== searchClause) {
         this.searchClause = searchClause;
         this.request();
@@ -1573,7 +1573,7 @@ PMA_fastFilter.filter.prototype.update = function (searchClause) {
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.request = function () {
+Navigation.FastFilter.Filter.prototype.request = function () {
     var self = this;
     if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
         self.$this.find('li.fast_filter').append(
@@ -1620,7 +1620,7 @@ PMA_fastFilter.filter.prototype.request = function () {
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.swap = function (list) {
+Navigation.FastFilter.Filter.prototype.swap = function (list) {
     this.$this
         .html($(list).html())
         .children()
@@ -1637,7 +1637,7 @@ PMA_fastFilter.filter.prototype.swap = function (list) {
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.restore = function (focus) {
+Navigation.FastFilter.Filter.prototype.restore = function (focus) {
     if (this.$this.children('ul').first().hasClass('search_results')) {
         this.$this.html(this.$clone.html()).children().show();
         this.$this.data('fastFilter', this);
@@ -1657,7 +1657,7 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
  *
  * @return void
  */
-function PMA_showFullName ($containerELem) {
+Navigation.showFullName = function ($containerELem) {
     $containerELem.find('.hover_show_full').on('mouseenter', function () {
         /** mouseenter */
         var $this = $(this);
@@ -1691,4 +1691,4 @@ function PMA_showFullName ($containerELem) {
             }, 200);
         }
     });
-}
+};

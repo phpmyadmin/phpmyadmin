@@ -137,7 +137,7 @@ $( function() {
                         .html('<img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock"> {{ processed_str|raw }}')
                         .show();
                         $("#import_form_status").load("import_status.php?message=true&{{ import_url|raw }}");
-                        PMA_reloadNavigation();
+                        Navigation.reload();
 
                         {# If finished #}
                     }

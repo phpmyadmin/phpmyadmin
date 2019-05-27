@@ -57,7 +57,7 @@ AJAX.registerOnload('db_operations.js', function () {
                     Functions.ajaxShowMessage(data.message);
                     CommonParams.set('db', data.newname);
 
-                    PMA_reloadNavigation(function () {
+                    Navigation.reload(function () {
                         $('#pma_navigation_tree')
                             .find('a:not(\'.expander\')')
                             .each(function (index) {
@@ -97,7 +97,7 @@ AJAX.registerOnload('db_operations.js', function () {
                     CommonParams.set('db', data.db);
                     Functions.ajaxShowMessage(data.message);
                 }
-                PMA_reloadNavigation();
+                Navigation.reload();
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
@@ -150,7 +150,7 @@ AJAX.registerOnload('db_operations.js', function () {
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success) {
                     // Database deleted successfully, refresh both the frames
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                     CommonParams.set('db', '');
                     CommonActions.refreshMain(
                         'server_databases.php',

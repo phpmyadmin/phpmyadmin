@@ -92,7 +92,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     $form.remove();
                     Functions.ajaxRemoveMessage($msg);
                     Functions.initSlider();
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
@@ -220,7 +220,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     // refresh the list of indexes (comes from sql.php)
                     $('.index_info').replaceWith(data.indexes_list);
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 } else {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
