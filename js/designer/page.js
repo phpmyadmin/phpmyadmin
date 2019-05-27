@@ -1,16 +1,18 @@
-function Show_tables_in_landing_page (db) {
-    Load_first_page(db, function (page) {
+var DesignerPage = {};
+
+DesignerPage.showTablesInLandingPage = function (db) {
+    DesignerPage.loadFirstPage(db, function (page) {
         if (page) {
-            Load_HTML_for_page(page.pg_nr);
+            DesignerPage.loadHtmlForPage(page.pg_nr);
             selected_page = page.pg_nr;
         } else {
-            Show_new_page_tables(true);
+            DesignerPage.showNewPageTables(true);
         }
     });
-}
+};
 
-function Save_to_new_page (db, page_name, table_positions, callback) {
-    Create_new_page(db, page_name, function (page) {
+DesignerPage.saveToNewPage = function (db, page_name, table_positions, callback) {
+    DesignerPage.createNewPage(db, page_name, function (page) {
         if (page) {
             var tbl_cords = [];
             var saveCallback = function (id) {
@@ -22,26 +24,26 @@ function Save_to_new_page (db, page_name, table_positions, callback) {
             };
             for (var pos = 0; pos < table_positions.length; pos++) {
                 table_positions[pos].pdf_pg_nr = page.pg_nr;
-                Save_table_positions(table_positions[pos], saveCallback);
+                DesignerPage.saveTablePositions(table_positions[pos], saveCallback);
             }
             if (typeof callback !== 'undefined') {
                 callback(page);
             }
         }
     });
-}
+};
 
-function Save_to_selected_page (db, page_id, page_name, table_positions, callback) {
-    Delete_page(page_id);
-    Save_to_new_page(db, page_name, table_positions, function (page) {
+DesignerPage.saveToSelectedPage = function (db, page_id, page_name, table_positions, callback) {
+    DesignerPage.deletePage(page_id);
+    DesignerPage.saveToNewPage(db, page_name, table_positions, function (page) {
         if (typeof callback !== 'undefined') {
             callback(page);
         }
         selected_page = page.pg_nr;
     });
-}
+};
 
-function Create_new_page (db, page_name, callback) {
+DesignerPage.createNewPage = function (db, page_name, callback) {
     var newPage = new PDFPage(db, page_name);
     DesignerOfflineDB.addObject('pdf_pages', newPage, function (pg_nr) {
         newPage.pg_nr = pg_nr;
@@ -49,13 +51,13 @@ function Create_new_page (db, page_name, callback) {
             callback(newPage);
         }
     });
-}
+};
 
-function Save_table_positions (positions, callback) {
+DesignerPage.saveTablePositions = function (positions, callback) {
     DesignerOfflineDB.addObject('table_coords', positions, callback);
-}
+};
 
-function Create_page_list (db, callback) {
+DesignerPage.createPageList = function (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var html = '';
         for (var p = 0; p < pages.length; p++) {
@@ -69,9 +71,9 @@ function Create_page_list (db, callback) {
             callback(html);
         }
     });
-}
+};
 
-function Delete_page (page_id, callback) {
+DesignerPage.deletePage = function (page_id, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         if (page) {
             for (var i = 0; i < page.tbl_cords.length; i++) {
@@ -80,9 +82,9 @@ function Delete_page (page_id, callback) {
             DesignerOfflineDB.deleteObject('pdf_pages', page_id, callback);
         }
     });
-}
+};
 
-function Load_first_page (db, callback) {
+DesignerPage.loadFirstPage = function (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var firstPage = null;
         for (var i = 0; i < pages.length; i++) {
@@ -100,28 +102,28 @@ function Load_first_page (db, callback) {
         }
         callback(firstPage);
     });
-}
+};
 
-function Show_new_page_tables (check) {
+DesignerPage.showNewPageTables = function (check) {
     var all_tables = $('#id_scroll_tab').find('td input:checkbox');
     all_tables.prop('checked', check);
     for (var tab = 0; tab < all_tables.length; tab++) {
         var input = all_tables[tab];
         if (input.value) {
             var element = document.getElementById(input.value);
-            element.style.top = Get_random(550, 20) + 'px';
-            element.style.left = Get_random(700, 20) + 'px';
+            element.style.top = DesignerPage.getRandom(550, 20) + 'px';
+            element.style.left = DesignerPage.getRandom(700, 20) + 'px';
             DesignerMove.visibleTab(input, input.value);
         }
     }
     selected_page = -1;
     $('#page_name').text(Messages.strUntitled);
     DesignerMove.markUnsaved();
-}
+};
 
-function Load_HTML_for_page (page_id) {
-    Show_new_page_tables(false);
-    Load_page_objects(page_id, function (page, tbl_cords) {
+DesignerPage.loadHtmlForPage = function (page_id) {
+    DesignerPage.showNewPageTables(false);
+    DesignerPage.loadPageObjects(page_id, function (page, tbl_cords) {
         $('#name-panel').find('#page_name').text(page.page_descr);
         DesignerMove.markSaved();
         for (var t = 0; t < tbl_cords.length; t++) {
@@ -136,9 +138,9 @@ function Load_HTML_for_page (page_id) {
         }
         selected_page = page.pg_nr;
     });
-}
+};
 
-function Load_page_objects (page_id, callback) {
+DesignerPage.loadPageObjects = function (page_id, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         var tbl_cords = [];
         var count = page.tbl_cords.length;
@@ -153,9 +155,9 @@ function Load_page_objects (page_id, callback) {
             });
         }
     });
-}
+};
 
-function Get_random (max, min) {
+DesignerPage.getRandom = function (max, min) {
     var val = Math.random() * (max - min) + min;
     return Math.floor(val);
-}
+};

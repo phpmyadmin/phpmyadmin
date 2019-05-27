@@ -692,7 +692,7 @@ DesignerMove.save2 = function (callback) {
         });
     } else {
         var name = $('#page_name').html().trim();
-        Save_to_selected_page(db, selected_page, name, DesignerMove.getUrlPos(), function (page) {
+        DesignerPage.saveToSelectedPage(db, selected_page, name, DesignerMove.getUrlPos(), function (page) {
             DesignerMove.markSaved();
             if (typeof callback !== 'undefined') {
                 callback();
@@ -729,7 +729,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback) {
             }
         });
     } else {
-        Save_to_new_page(db, name, DesignerMove.getUrlPos(), function (page) {
+        DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
             DesignerMove.markSaved();
             if (page.pg_nr) {
                 selected_page = page.pg_nr;
@@ -812,7 +812,7 @@ DesignerMove.editPages = function () {
                 Functions.ajaxRemoveMessage($msgbox);
 
                 if (! designer_tables_enabled) {
-                    Create_page_list(db, function (options) {
+                    DesignerPage.createPageList(db, function (options) {
                         $('#selected_page').append(options);
                     });
                 }
@@ -862,7 +862,7 @@ DesignerMove.deletePages = function () {
                 }
             }); // end $.post()
         } else {
-            Delete_page(selected, function (success) {
+            DesignerPage.deletePage(selected, function (success) {
                 if (! success) {
                     Functions.ajaxShowMessage('Error', false);
                 } else {
@@ -895,7 +895,7 @@ DesignerMove.deletePages = function () {
             Functions.ajaxRemoveMessage($msgbox);
 
             if (! designer_tables_enabled) {
-                Create_page_list(db, function (options) {
+                DesignerPage.createPageList(db, function (options) {
                     $('#selected_page').append(options);
                 });
             }
@@ -958,7 +958,7 @@ DesignerMove.saveAs = function () {
         } else {
             if (choice === 'same') {
                 var selectedPageId = $selectedPage.find('option:selected').val();
-                Save_to_selected_page(db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
+                DesignerPage.saveToSelectedPage(db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
                     Functions.ajaxRemoveMessage($msgbox);
                     DesignerMove.markSaved();
                     if (page.pg_nr) {
@@ -967,7 +967,7 @@ DesignerMove.saveAs = function () {
                     $('#page_name').text(page.page_descr);
                 });
             } else if (choice === 'new') {
-                Save_to_new_page(db, name, DesignerMove.getUrlPos(), function (page) {
+                DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
                     Functions.ajaxRemoveMessage($msgbox);
                     DesignerMove.markSaved();
                     if (page.pg_nr) {
@@ -997,7 +997,7 @@ DesignerMove.saveAs = function () {
             Functions.ajaxRemoveMessage($msgbox);
 
             if (! designer_tables_enabled) {
-                Create_page_list(db, function (options) {
+                DesignerPage.createPageList(db, function (options) {
                     $('#selected_page').append(options);
                 });
             }
@@ -1124,11 +1124,11 @@ DesignerMove.loadPage = function (page) {
             .trigger('click');
     } else {
         if (page === null) {
-            Show_tables_in_landing_page(db);
+            DesignerPage.showTablesInLandingPage(db);
         } else if (page > -1) {
-            Load_HTML_for_page(page);
+            DesignerPage.loadHtmlForPage(page);
         } else if (page === -1) {
-            Show_new_page_tables(true);
+            DesignerPage.showNewPageTables(true);
         }
     }
     DesignerMove.markSaved();
