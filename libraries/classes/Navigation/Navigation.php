@@ -88,7 +88,11 @@ class Navigation
             }
             if ($cfg['NavigationLogoLinkWindow'] === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
-                    $logo['link'] .= Url::getCommon();
+                    $hasStartChar = strpos($logo['link'], '?');
+                    $logo['link'] .= Url::getCommon(
+                        [],
+                        is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
+                    );
                 }
                 $logo['attributes'] = '';
             }

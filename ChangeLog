@@ -143,6 +143,7 @@ phpMyAdmin - ChangeLog
 - issue #15262 Fixed incorrect display of charset column (raw html)
 - issue        Added explicit parentheses in nested ternary operators
 - issue #15287 Fix auto_increment field is too small
+- issue #15283 Fix tries to change collation on views when changing collation on all tables/fields
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
