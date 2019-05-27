@@ -34,7 +34,7 @@ By making a contribution to this project, I certify that:
 And please confirm your certification to the above by adding the following
 line to your patch:
 
-	Signed-off-by: Jane Developer <jane@example.org>
+    Signed-off-by: Jane Smith <jane.smith@example.org>
 
 using your real name (sorry, no pseudonyms or anonymous contributions).
 

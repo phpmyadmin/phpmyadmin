@@ -2943,6 +2943,10 @@ form {
   margin-#{$left}: 0.5em;
 }
 
+input#auto_increment_opt {
+  width: min-content;
+}
+
 #placeholder {
   .button {
     position: absolute;

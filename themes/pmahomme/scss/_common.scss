@@ -2787,6 +2787,10 @@ fieldset {
   margin-#{$left}: 0.5em;
 }
 
+input#auto_increment_opt {
+  width: min-content;
+}
+
 #placeholder {
   position: relative;
   border: 1px solid #aaa;
