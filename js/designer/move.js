@@ -662,7 +662,7 @@ DesignerMove.getUrlPos = function (forceString) {
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
-                var tbCoords = new TableCoordinate(db, key.split('.')[1], -1, x, y);
+                var tbCoords = new DesignerObjects.TableCoordinate(db, key.split('.')[1], -1, x, y);
                 coords.push(tbCoords);
             }
         }
@@ -731,10 +731,10 @@ DesignerMove.submitSaveDialogAndClose = function (callback) {
     } else {
         DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
             DesignerMove.markSaved();
-            if (page.pg_nr) {
-                selectedPage = page.pg_nr;
+            if (page.pgNr) {
+                selectedPage = page.pgNr;
             }
-            $('#page_name').text(page.page_descr);
+            $('#page_name').text(page.pageDescr);
             if (typeof callback !== 'undefined') {
                 callback();
             }
@@ -961,19 +961,19 @@ DesignerMove.saveAs = function () {
                 DesignerPage.saveToSelectedPage(db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
                     Functions.ajaxRemoveMessage($msgbox);
                     DesignerMove.markSaved();
-                    if (page.pg_nr) {
-                        selectedPage = page.pg_nr;
+                    if (page.pgNr) {
+                        selectedPage = page.pgNr;
                     }
-                    $('#page_name').text(page.page_descr);
+                    $('#page_name').text(page.pageDescr);
                 });
             } else if (choice === 'new') {
                 DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
                     Functions.ajaxRemoveMessage($msgbox);
                     DesignerMove.markSaved();
-                    if (page.pg_nr) {
-                        selectedPage = page.pg_nr;
+                    if (page.pgNr) {
+                        selectedPage = page.pgNr;
                     }
-                    $('#page_name').text(page.page_descr);
+                    $('#page_name').text(page.pageDescr);
                 });
             }
         }

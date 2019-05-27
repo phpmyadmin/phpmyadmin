@@ -1,7 +1,7 @@
 var designerTables = [
     {
         name: 'pdf_pages',
-        key: 'pg_nr',
+        key: 'pgNr',
         autoIncrement: true
     },
     {
