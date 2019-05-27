@@ -133,7 +133,7 @@ class NavigationHeader
                 $hasStartChar = strpos($logoLink, '?');
                 $logoLink .= Url::getCommon(
                     array(),
-                    is_bool($hasStartChar) ? '?' : URL::getArgSeparator()
+                    is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
                 );
             } else {
                 $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
