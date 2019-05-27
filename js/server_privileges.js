@@ -211,7 +211,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                             .removeClass('odd').addClass('even');
 
                         // update the checkall checkbox
-                        $(checkboxes_sel).trigger('change');
+                        $(checkboxesSel).trigger('change');
                     });
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
@@ -476,7 +476,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     };
 
     $('input.autofocus').focus();
-    $(checkboxes_sel).trigger('change');
+    $(checkboxesSel).trigger('change');
     Functions.displayPasswordGenerateButton();
     if ($('#edit_user_dialog').length > 0) {
         addOrUpdateSubmenu();

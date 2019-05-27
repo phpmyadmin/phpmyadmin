@@ -18,19 +18,19 @@ function PMA_getIndexArray (index_choice) {
 
     switch (index_choice.toLowerCase()) {
     case 'primary':
-        source_array = primary_indexes;
+        source_array = primaryIndexes;
         break;
     case 'unique':
-        source_array = unique_indexes;
+        source_array = uniqueIndexes;
         break;
     case 'index':
         source_array = indexes;
         break;
     case 'fulltext':
-        source_array = fulltext_indexes;
+        source_array = fulltextIndexes;
         break;
     case 'spatial':
-        source_array = spatial_indexes;
+        source_array = spatialIndexes;
         break;
     default:
         return null;
@@ -574,11 +574,11 @@ AJAX.registerTeardown('indexes.js', function () {
  */
 AJAX.registerOnload('indexes.js', function () {
     // Re-initialize variables.
-    primary_indexes = [];
-    unique_indexes = [];
+    primaryIndexes = [];
+    uniqueIndexes = [];
     indexes = [];
-    fulltext_indexes = [];
-    spatial_indexes = [];
+    fulltextIndexes = [];
+    spatialIndexes = [];
 
     // for table creation form
     var $engine_selector = $('.create_table_form select[name=tbl_storage_engine]');

@@ -215,7 +215,7 @@ class SqlQueryForm
     ) {
         // enable auto select text in textarea
         if ($GLOBALS['cfg']['TextareaAutoSelect']) {
-            $auto_sel = ' onclick="Functions.selectContent(this, sql_box_locked, true);"';
+            $auto_sel = ' onclick="Functions.selectContent(this, sqlBoxLocked, true);"';
         } else {
             $auto_sel = '';
         }

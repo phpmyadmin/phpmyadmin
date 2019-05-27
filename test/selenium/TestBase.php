@@ -1006,7 +1006,7 @@ abstract class TestBase extends TestCase
     {
         /* Get current message count */
         $ajax_message_count = $this->webDriver->executeScript(
-            'return ajax_message_count;'
+            'return ajaxMessageCount;'
         );
         /* Ensure the popup is gone */
         $this->waitForElementNotPresent(

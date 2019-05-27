@@ -361,8 +361,8 @@ AJAX.registerOnload('tbl_chart.js', function () {
     // handler for ajax form submission
     $('#tblchartform').submit(function (event) {
         var $form = $(this);
-        if (codemirror_editor) {
-            $form[0].elements.sql_query.value = codemirror_editor.getValue();
+        if (codeMirrorEditor) {
+            $form[0].elements.sql_query.value = codeMirrorEditor.getValue();
         }
         if (!Functions.checkSqlQuery($form[0])) {
             return false;

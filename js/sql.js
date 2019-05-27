@@ -88,8 +88,8 @@ function setShowThisQuery () {
             && window.localStorage.show_this_query === '1') {
             $('input[name="show_query"]').prop('checked', true);
             if (db === stored_db && table === stored_table) {
-                if (codemirror_editor) {
-                    codemirror_editor.setValue(stored_query);
+                if (codeMirrorEditor) {
+                    codeMirrorEditor.setValue(stored_query);
                 } else if (document.sqlform) {
                     document.sqlform.sql_query.value = stored_query;
                 }
@@ -180,8 +180,8 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('scroll', window);
     $(document).off('keyup', '.filter_rows');
     $(document).off('click', '#printView');
-    if (codemirror_editor) {
-        codemirror_editor.off('change');
+    if (codeMirrorEditor) {
+        codeMirrorEditor.off('change');
     } else {
         $('#sqlquery').off('input propertychange');
     }
@@ -209,13 +209,13 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
-    if (codemirror_editor || document.sqlform) {
+    if (codeMirrorEditor || document.sqlform) {
         setShowThisQuery();
     }
     $(function () {
-        if (codemirror_editor) {
-            codemirror_editor.on('change', function () {
-                PMA_autosaveSQL(codemirror_editor.getValue());
+        if (codeMirrorEditor) {
+            codeMirrorEditor.on('change', function () {
+                PMA_autosaveSQL(codeMirrorEditor.getValue());
             });
         } else {
             $('#sqlquery').on('input propertychange', function () {
@@ -471,8 +471,8 @@ AJAX.registerOnload('sql.js', function () {
             var db = $('input[name="db"]').val();
             var table = $('input[name="table"]').val();
             var query;
-            if (codemirror_editor) {
-                query = codemirror_editor.getValue();
+            if (codeMirrorEditor) {
+                query = codeMirrorEditor.getValue();
             } else {
                 query = $('#sqlquery').val();
             }
@@ -542,8 +542,8 @@ AJAX.registerOnload('sql.js', function () {
         event.preventDefault();
 
         var $form = $(this);
-        if (codemirror_editor) {
-            $form[0].elements.sql_query.value = codemirror_editor.getValue();
+        if (codeMirrorEditor) {
+            $form[0].elements.sql_query.value = codeMirrorEditor.getValue();
         }
         if (! Functions.checkSqlQuery($form[0])) {
             return false;
@@ -744,8 +744,8 @@ AJAX.registerOnload('sql.js', function () {
         var delimiter = $('#id_sql_delimiter').val();
         var db_name = $form.find('input[name="db"]').val();
 
-        if (codemirror_editor) {
-            query = codemirror_editor.getValue();
+        if (codeMirrorEditor) {
+            query = codeMirrorEditor.getValue();
         } else {
             query = $('#sqlquery').val();
         }
@@ -966,7 +966,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * Check if there is any saved query
      */
-    if (codemirror_editor || document.sqlform) {
+    if (codeMirrorEditor || document.sqlform) {
         checkSavedQuery();
     }
 });

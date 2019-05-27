@@ -531,7 +531,7 @@ AJAX.registerOnload('normalization.js', function () {
         return false;
     });
     $('.tblFooters').on('click','#saveSplit', function () {
-        central_column_list = [];
+        centralColumnList = [];
         if ($('#newCols #field_0_1').val() === '') {
             $('#newCols #field_0_1').focus();
             return false;

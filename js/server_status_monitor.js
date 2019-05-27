@@ -94,10 +94,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('div.tabLinks').show();
     $('#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
-    if (! codemirror_editor) {
+    if (! codeMirrorEditor) {
         var $elm = $('#sqlquery');
         if ($elm.length > 0 && typeof CodeMirror !== 'undefined') {
-            codemirror_editor = CodeMirror.fromTextArea(
+            codeMirrorEditor = CodeMirror.fromTextArea(
                 $elm[0],
                 {
                     lineNumbers: true,
@@ -1970,14 +1970,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var rowData = $(this).parent().data('query');
         var query = rowData.argument || rowData.sql_text;
 
-        if (codemirror_editor) {
+        if (codeMirrorEditor) {
             // TODO: somehow Functions.sqlPrettyPrint messes up the query, needs be fixed
             // query = Functions.sqlPrettyPrint(query);
-            codemirror_editor.setValue(query);
+            codeMirrorEditor.setValue(query);
             // Codemirror is bugged, it doesn't refresh properly sometimes.
             // Following lines seem to fix that
             setTimeout(function () {
-                codemirror_editor.refresh();
+                codeMirrorEditor.refresh();
             }, 50);
         } else {
             $('#sqlquery').val(query);
@@ -2003,8 +2003,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     profilingChart.destroy();
                 }
                 $('#queryAnalyzerDialog').find('div.placeHolder').html('');
-                if (codemirror_editor) {
-                    codemirror_editor.setValue('');
+                if (codeMirrorEditor) {
+                    codeMirrorEditor.setValue('');
                 } else {
                     $('#sqlquery').val('');
                 }
@@ -2023,7 +2023,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
             ajax_request: true,
             query_analyzer: true,
-            query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
+            query: codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val(),
             database: db,
             server: CommonParams.get('server')
         }, function (data) {
