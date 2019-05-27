@@ -1202,12 +1202,12 @@ DesignerMove.startRelation = function () {
 
 // table field
 DesignerMove.clickField = function (db, T, f, pk) {
-    pk = parseInt(pk);
+    var pkLocal = parseInt(pk);
     var argsep = CommonParams.get('arg_separator');
     if (onRelation) {
         if (!clickField) {
             // .style.display=='none'        .style.display = 'none'
-            if (!pk) {
+            if (!pkLocal) {
                 alert(Messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }// PK
@@ -1219,7 +1219,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
             document.getElementById('designer_hint').innerHTML = Messages.strSelectForeignKey;
         } else {
             DesignerMove.startRelation(); // hidden hint...
-            if (jTabs[db + '.' + T] !== 1 || !pk) {
+            if (jTabs[db + '.' + T] !== 1 || !pkLocal) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             var left = globX - (document.getElementById('layer_new_relation').offsetWidth >> 1);
@@ -1801,15 +1801,15 @@ DesignerMove.selectAll = function (idThis, owner) {
 };
 
 DesignerMove.tableOnOver = function (idThis, val, buil) {
-    buil = parseInt(buil);
+    var builLocal = parseInt(buil);
     if (!val) {
         document.getElementById('id_zag_' + idThis).className = 'tab_zag_2';
-        if (buil) {
+        if (builLocal) {
             document.getElementById('id_zag_' + idThis + '_2').className = 'tab_zag_2';
         }
     } else {
         document.getElementById('id_zag_' + idThis).className = 'tab_zag';
-        if (buil) {
+        if (builLocal) {
             document.getElementById('id_zag_' + idThis + '_2').className = 'tab_zag';
         }
     }
@@ -1858,23 +1858,23 @@ DesignerMove.addObject = function () {
             return;
         }
         p = document.getElementById('Query');
-        whereObj = new DesignerHistory.where(rel.value, p.value);// make where object
-        historyArray.push(new DesignerHistory.historyObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Where'));
+        whereObj = new DesignerHistory.Where(rel.value, p.value);// make where object
+        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Where'));
         sum = sum + 1;
     }
     if (document.getElementById('new_name').value !== '') {
-        var renameObj = new DesignerHistory.rename(document.getElementById('new_name').value);// make Rename object
-        historyArray.push(new DesignerHistory.historyObj(colName, renameObj, tabName, hTabs[downer + '.' + tabName], 'Rename'));
+        var renameObj = new DesignerHistory.Rename(document.getElementById('new_name').value);// make Rename object
+        historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tabName, hTabs[downer + '.' + tabName], 'Rename'));
         sum = sum + 1;
     }
     if (document.getElementById('operator').value !== '---') {
-        var aggregateObj = new DesignerHistory.aggregate(document.getElementById('operator').value);
-        historyArray.push(new DesignerHistory.historyObj(colName, aggregateObj, tabName, hTabs[downer + '.' + tabName], 'Aggregate'));
+        var aggregateObj = new DesignerHistory.Aggregate(document.getElementById('operator').value);
+        historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tabName, hTabs[downer + '.' + tabName], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        historyArray.push(new DesignerHistory.historyObj(colName, 'GroupBy', tabName, hTabs[downer + '.' + tabName], 'GroupBy'));
+        historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tabName, hTabs[downer + '.' + tabName], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
@@ -1882,18 +1882,18 @@ DesignerMove.addObject = function () {
         if (document.getElementById('having').value === '') {
             return;
         }
-        whereObj = new DesignerHistory.having(
+        whereObj = new DesignerHistory.Having(
             document.getElementById('h_rel_opt').value,
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
-        historyArray.push(new DesignerHistory.historyObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Having'));
+        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Having'));
         sum = sum + 1;
         // make having
     }
     if (document.getElementById('orderby').value !== '---') {
-        var orderByObj = new DesignerHistory.orderBy(document.getElementById('orderby').value);
-        historyArray.push(new DesignerHistory.historyObj(colName, orderByObj, tabName, hTabs[downer + '.' + tabName], 'OrderBy'));
+        var orderByObj = new DesignerHistory.OrderBy(document.getElementById('orderby').value);
+        historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tabName, hTabs[downer + '.' + tabName], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }

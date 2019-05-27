@@ -265,7 +265,7 @@ DesignerHistory.edit = function (type) {
  *
 **/
 
-DesignerHistory.historyObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
+DesignerHistory.HistoryObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
     var andOr;
     var obj;
     var tab;
@@ -328,7 +328,7 @@ DesignerHistory.historyObj = function (nColumnName, nObj, nTab, nObjNo, nType) {
 **/
 
 
-DesignerHistory.where = function (nRelationOperator, nQuery) {
+DesignerHistory.Where = function (nRelationOperator, nQuery) {
     var relationOperator;
     var query;
     this.setRelationOperator = function (nRelationOperator) {
@@ -352,7 +352,7 @@ DesignerHistory.where = function (nRelationOperator, nQuery) {
  *
  * @param nOrder order, ASC or DESC
  */
-DesignerHistory.orderBy = function (nOrder) {
+DesignerHistory.OrderBy = function (nOrder) {
     var order;
     this.setOrder = function (nOrder) {
         order = nOrder;
@@ -371,7 +371,7 @@ DesignerHistory.orderBy = function (nOrder) {
  * @param nOperator          operator
 **/
 
-DesignerHistory.having = function (nRelationOperator, nQuery, nOperator) {
+DesignerHistory.Having = function (nRelationOperator, nQuery, nOperator) {
     var relationOperator;
     var query;
     var operator;
@@ -405,7 +405,7 @@ DesignerHistory.having = function (nRelationOperator, nQuery, nOperator) {
  *
 **/
 
-DesignerHistory.rename = function (nRenameTo) {
+DesignerHistory.Rename = function (nRenameTo) {
     var renameTo;
     this.setRenameTo = function (nRenameTo) {
         renameTo = nRenameTo;
@@ -423,7 +423,7 @@ DesignerHistory.rename = function (nRenameTo) {
  *
 **/
 
-DesignerHistory.aggregate = function (nOperator) {
+DesignerHistory.Aggregate = function (nOperator) {
     var operator;
     this.setOperator = function (nOperator) {
         operator = nOperator;
