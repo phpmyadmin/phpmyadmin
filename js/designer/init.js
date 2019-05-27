@@ -57,7 +57,7 @@ AJAX.registerOnload('designer/init.js', function () {
     });
 
     $('#build_query_button').on('click', function () {
-        build_query('SQL Query on Database', 0);
+        DesignerHistory.buildQuery('SQL Query on Database', 0);
     });
 
     $('#query_where_button').on('click', function () {

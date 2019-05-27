@@ -1858,23 +1858,23 @@ DesignerMove.addObject = function () {
             return;
         }
         p = document.getElementById('Query');
-        whereObj = new where(rel.value, p.value);// make where object
-        historyArray.push(new history_obj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Where'));
+        whereObj = new DesignerHistory.where(rel.value, p.value);// make where object
+        historyArray.push(new DesignerHistory.historyObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Where'));
         sum = sum + 1;
     }
     if (document.getElementById('new_name').value !== '') {
-        var renameObj = new rename(document.getElementById('new_name').value);// make Rename object
-        historyArray.push(new history_obj(colName, renameObj, tabName, hTabs[downer + '.' + tabName], 'Rename'));
+        var renameObj = new DesignerHistory.rename(document.getElementById('new_name').value);// make Rename object
+        historyArray.push(new DesignerHistory.historyObj(colName, renameObj, tabName, hTabs[downer + '.' + tabName], 'Rename'));
         sum = sum + 1;
     }
     if (document.getElementById('operator').value !== '---') {
-        var aggregateObj = new aggregate(document.getElementById('operator').value);
-        historyArray.push(new history_obj(colName, aggregateObj, tabName, hTabs[downer + '.' + tabName], 'Aggregate'));
+        var aggregateObj = new DesignerHistory.aggregate(document.getElementById('operator').value);
+        historyArray.push(new DesignerHistory.historyObj(colName, aggregateObj, tabName, hTabs[downer + '.' + tabName], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        historyArray.push(new history_obj(colName, 'GroupBy', tabName, hTabs[downer + '.' + tabName], 'GroupBy'));
+        historyArray.push(new DesignerHistory.historyObj(colName, 'GroupBy', tabName, hTabs[downer + '.' + tabName], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
@@ -1882,25 +1882,25 @@ DesignerMove.addObject = function () {
         if (document.getElementById('having').value === '') {
             return;
         }
-        whereObj = new having(
+        whereObj = new DesignerHistory.having(
             document.getElementById('h_rel_opt').value,
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
-        historyArray.push(new history_obj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Having'));
+        historyArray.push(new DesignerHistory.historyObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Having'));
         sum = sum + 1;
         // make having
     }
     if (document.getElementById('orderby').value !== '---') {
-        var orderByObj = new orderby(document.getElementById('orderby').value);
-        historyArray.push(new history_obj(colName, orderByObj, tabName, hTabs[downer + '.' + tabName], 'OrderBy'));
+        var orderByObj = new DesignerHistory.orderBy(document.getElementById('orderby').value);
+        historyArray.push(new DesignerHistory.historyObj(colName, orderByObj, tabName, hTabs[downer + '.' + tabName], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }
     Functions.ajaxShowMessage(Functions.sprintf(Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
-    existingDiv.innerHTML = display(init, historyArray.length);
+    existingDiv.innerHTML = DesignerHistory.display(init, historyArray.length);
     DesignerMove.closeOption();
     $('#ab').accordion('refresh');
 };
@@ -2028,7 +2028,7 @@ AJAX.registerOnload('designer/move.js', function () {
         return false;
     });
     $('#query_builder').on('click', function () {
-        build_query('SQL Query on Database', 0);
+        DesignerHistory.buildQuery('SQL Query on Database', 0);
     });
     $('#key_Left_Right').on('click', function () {
         DesignerMove.sideMenuRight(this);
