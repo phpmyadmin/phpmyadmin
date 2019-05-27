@@ -101,6 +101,11 @@ if (isset($_REQUEST['submitcollation'])
     ) {
         list($tables, , , , , , , ,) = PhpMyAdmin\Util::getDbInfo($db, null);
         foreach($tables as $tableName => $data) {
+            if ($GLOBALS['dbi']->getTable($db, $tableName)->isView()) {
+                // Skip views, we can not change the collation of a view.
+                // issue #15283
+                continue;
+            }
             $sql_query      = 'ALTER TABLE '
             . PhpMyAdmin\Util::backquote($db)
             . '.'
