@@ -5,10 +5,10 @@
 
 var DesignerMove = {};
 
-var _change = 0; // variable to track any change in designer layout.
-var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
-var show_relation_lines = true;
-var always_show_text = false;
+var change = 0; // variable to track any change in designer layout.
+var staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
+var showRelationLines = true;
+var alwaysShowText = false;
 
 AJAX.registerTeardown('designer/move.js', function () {
     $(document).off('fullscreenchange');
@@ -33,59 +33,58 @@ AJAX.registerOnload('designer/move.js', function () {
 });
 
 DesignerMove.makeZero = function () {   // Function called if the user stays after seeing the confirmation prompt.
-    _staying = 0;
+    staying = 0;
 };
 
 DesignerMove.markSaved = function () {
-    _change = 0;
+    change = 0;
     $('#saved_state').text('');
 };
 
 DesignerMove.markUnsaved = function () {
-    _change = 1;
+    change = 1;
     $('#saved_state').text('*');
 };
 
 var dx;
 var dy;
-var dy2;
-var cur_click = null;
+var curClick = null;
 // update in DesignerMove.main()
-var sm_x = 2;
-var sm_y = 2;
-var sm_s           = 0;
-var sm_add         = 10;
-var s_left         = 0;
-var s_right        = 0;
-var ON_relation    = 0;
-var ON_grid        = 0;
-var ON_display_field = 0;
+var smX = 2;
+var smY = 2;
+var smS           = 0;
+var smAdd         = 10;
+var sLeft         = 0;
+var sRight        = 0;
+var onRelation    = 0;
+var onGrid        = 0;
+var onDisplayField = 0;
 // relation_style: 0 - angular 1 - direct
-var ON_angular_direct = 1;
-var click_field    = 0;
-var link_relation  = '';
-var id_hint;
-var canvas_width   = 0;
-var canvas_height  = 0;
-var osn_tab_width  = 0;
-var osn_tab_height = 0;
-var height_field   = 7;
-var Glob_X;
-var Glob_Y;
-var timeoutID;
-var layer_menu_cur_click = 0;
+var onAngularDirect = 1;
+var clickField    = 0;
+var linkRelation  = '';
+var idHint;
+var canvasWidth   = 0;
+var canvasHeight  = 0;
+var osnTabWidth  = 0;
+var osnTabHeight = 0;
+var heightField   = 7;
+var globX;
+var globY;
+var timeoutId;
+var layerMenuCurClick = 0;
 var step = 10;
-var old_class;
-var from_array = [];
+var oldClass;
+var fromArray = [];
 var downer;
-var menu_moved = false;
-var grid_size = 10;
+var menuMoved = false;
+var gridSize = 10;
 
 // ------------------------------------------------------------------------------
 
-var isIE = document.all && !window.opera;
+var isIe = document.all && !window.opera;
 
-if (isIE) {
+if (isIe) {
     window.onscroll = DesignerMove.generalScroll;
     document.onselectstart = function () {
         return false;
@@ -93,22 +92,22 @@ if (isIE) {
 }
 
 DesignerMove.mouseDown = function (e) {
-    Glob_X = dx = isIE ? e.clientX + document.body.scrollLeft : e.pageX;
-    Glob_Y = dy = isIE ? e.clientY + document.body.scrollTop : e.pageY;
+    globX = dx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
+    globY = dy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
 
     if (e.target.tagName === 'SPAN') {
-        cur_click = e.target.parentNode.parentNode.parentNode.parentNode;
+        curClick = e.target.parentNode.parentNode.parentNode.parentNode;
     } else if (e.target.className === 'tab_zag_2') {
-        cur_click = e.target.parentNode.parentNode.parentNode;
+        curClick = e.target.parentNode.parentNode.parentNode;
     } else if (e.target.className === 'icon') {
-        layer_menu_cur_click = 1;
+        layerMenuCurClick = 1;
     } else if (e.target.className === 'M_butt') {
         return false;
     }
 
-    if (cur_click !== null) {
+    if (curClick !== null) {
         document.getElementById('canvas').style.display = 'none';
-        cur_click.style.zIndex = 2;
+        curClick.style.zIndex = 2;
     }
 };
 
@@ -117,136 +116,135 @@ DesignerMove.mouseMove = function (e) {
         e.preventDefault();
     }
 
-    var new_dx = isIE ? e.clientX + document.body.scrollLeft : e.pageX;
-    var new_dy = isIE ? e.clientY + document.body.scrollTop : e.pageY;
+    var newDx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
+    var newDy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
 
-    var delta_x = Glob_X - new_dx;
-    var delta_y = Glob_Y - new_dy;
+    var deltaX = globX - newDx;
+    var deltaY = globY - newDy;
 
-    Glob_X = new_dx;
-    Glob_Y = new_dy;
+    globX = newDx;
+    globY = newDy;
 
-    if (cur_click !== null) {
+    if (curClick !== null) {
         DesignerMove.markUnsaved();
 
-        var $cur_click = $(cur_click);
+        var $curClick = $(curClick);
 
-        var cur_x = parseFloat($cur_click.attr('data-left') || $cur_click.css('left'));
-        var cur_y = parseFloat($cur_click.attr('data-top') || $cur_click.css('top'));
+        var curX = parseFloat($curClick.attr('data-left') || $curClick.css('left'));
+        var curY = parseFloat($curClick.attr('data-top') || $curClick.css('top'));
 
-        var new_x = cur_x - delta_x;
-        var new_y = cur_y - delta_y;
+        var newX = curX - deltaX;
+        var newY = curY - deltaY;
 
-        dx = new_dx;
-        dy = new_dy;
+        dx = newDx;
+        dy = newDy;
 
-        $cur_click.attr('data-left', new_x);
-        $cur_click.attr('data-top', new_y);
+        $curClick.attr('data-left', newX);
+        $curClick.attr('data-top', newY);
 
-        if (ON_grid) {
-            new_x = parseInt(new_x / grid_size) * grid_size;
-            new_y = parseInt(new_y / grid_size) * grid_size;
+        if (onGrid) {
+            newX = parseInt(newX / gridSize) * gridSize;
+            newY = parseInt(newY / gridSize) * gridSize;
         }
 
-        if (new_x < 0) {
-            new_x = 0;
-        } else if (new_y < 0) {
-            new_y = 0;
+        if (newX < 0) {
+            newX = 0;
+        } else if (newY < 0) {
+            newY = 0;
         }
-        $cur_click.css('left', new_x + 'px');
-        $cur_click.css('top', new_y + 'px');
-    } else if (layer_menu_cur_click) {
-        dx = new_dx;
-        dy = new_dy;
-        if (menu_moved) {
-            delta_x = -delta_x;
+        $curClick.css('left', newX + 'px');
+        $curClick.css('top', newY + 'px');
+    } else if (layerMenuCurClick) {
+        dx = newDx;
+        dy = newDy;
+        if (menuMoved) {
+            deltaX = -deltaX;
         }
-        var $layer_menu = $('#layer_menu');
-        var new_width = $layer_menu.width() + delta_x;
-        if (new_width < 150) {
-            new_width = 150;
+        var $layerMenu = $('#layer_menu');
+        var newWidth = $layerMenu.width() + deltaX;
+        if (newWidth < 150) {
+            newWidth = 150;
         } else {
             dx = e.pageX;
         }
-        $layer_menu.width(new_width);
+        $layerMenu.width(newWidth);
     }
 
-    if (ON_relation || ON_display_field) {
-        document.getElementById('designer_hint').style.left = (Glob_X + 20) + 'px';
-        document.getElementById('designer_hint').style.top  = (Glob_Y + 20) + 'px';
+    if (onRelation || onDisplayField) {
+        document.getElementById('designer_hint').style.left = (globX + 20) + 'px';
+        document.getElementById('designer_hint').style.top  = (globY + 20) + 'px';
     }
 };
 
 DesignerMove.mouseUp = function (e) {
-    if (cur_click !== null) {
+    if (curClick !== null) {
         document.getElementById('canvas').style.display = 'inline-block';
         DesignerMove.reload();
-        cur_click.style.zIndex = 1;
-        cur_click = null;
+        curClick.style.zIndex = 1;
+        curClick = null;
     }
-    layer_menu_cur_click = 0;
-    // window.releaseEvents(Event.MOUSEMOVE);
+    layerMenuCurClick = 0;
 };
 
 // ------------------------------------------------------------------------------
 
 DesignerMove.canvasPos = function () {
-    canvas_width  = document.getElementById('canvas').width  = osn_tab_width  - 3;
-    canvas_height = document.getElementById('canvas').height = osn_tab_height - 3;
+    canvasWidth  = document.getElementById('canvas').width  = osnTabWidth  - 3;
+    canvasHeight = document.getElementById('canvas').height = osnTabHeight - 3;
 
-    if (isIE) {
-        document.getElementById('canvas').style.width  = ((osn_tab_width  - 3) ? (osn_tab_width  - 3) : 0) + 'px';
-        document.getElementById('canvas').style.height = ((osn_tab_height - 3) ? (osn_tab_height - 3) : 0) + 'px';
+    if (isIe) {
+        document.getElementById('canvas').style.width  = ((osnTabWidth  - 3) ? (osnTabWidth  - 3) : 0) + 'px';
+        document.getElementById('canvas').style.height = ((osnTabHeight - 3) ? (osnTabHeight - 3) : 0) + 'px';
     }
 };
 
 DesignerMove.osnTabPos = function () {
-    osn_tab_width  = parseInt(document.getElementById('osn_tab').style.width, 10);
-    osn_tab_height = parseInt(document.getElementById('osn_tab').style.height, 10);
+    osnTabWidth  = parseInt(document.getElementById('osn_tab').style.width, 10);
+    osnTabHeight = parseInt(document.getElementById('osn_tab').style.height, 10);
 };
 
 DesignerMove.setDefaultValuesFromSavedState = function () {
     if ($('#angular_direct_button').attr('class') === 'M_butt') {
-        ON_angular_direct = 0;
+        onAngularDirect = 0;
     } else {
-        ON_angular_direct = 1;
+        onAngularDirect = 1;
     }
     DesignerMove.angularDirect();
 
     if ($('#grid_button').attr('class') === 'M_butt') {
-        ON_grid = 1;
+        onGrid = 1;
     } else {
-        ON_grid = 0;
+        onGrid = 0;
     }
     DesignerMove.grid();
 
     var $relLineInvert = $('#relLineInvert');
     if ($relLineInvert.attr('class') === 'M_butt') {
-        show_relation_lines = false;
+        showRelationLines = false;
         $relLineInvert.attr('class', 'M_butt');
     } else {
-        show_relation_lines = true;
+        showRelationLines = true;
         $relLineInvert.attr('class', 'M_butt_Selected_down');
     }
     DesignerMove.relationLinesInvert();
 
     if ($('#pin_Text').attr('class') === 'M_butt_Selected_down') {
-        always_show_text = true;
+        alwaysShowText = true;
         DesignerMove.showText();
     } else {
-        always_show_text = false;
+        alwaysShowText = false;
     }
 
-    var $key_SB_all = $('#key_SB_all');
-    if ($key_SB_all.attr('class') === 'M_butt_Selected_down') {
-        $key_SB_all.trigger('click');
-        $key_SB_all.toggleClass('M_butt_Selected_down');
-        $key_SB_all.toggleClass('M_butt');
+    var $keySbAll = $('#key_SB_all');
+    if ($keySbAll.attr('class') === 'M_butt_Selected_down') {
+        $keySbAll.trigger('click');
+        $keySbAll.toggleClass('M_butt_Selected_down');
+        $keySbAll.toggleClass('M_butt');
     }
 
-    var $key_Left_Right = $('#key_Left_Right');
-    if ($key_Left_Right.attr('class') === 'M_butt_Selected_down') {
-        $key_Left_Right.trigger('click');
+    var $keyLeftRight = $('#key_Left_Right');
+    if ($keyLeftRight.attr('class') === 'M_butt_Selected_down') {
+        $keyLeftRight.trigger('click');
     }
 };
 
@@ -254,34 +252,34 @@ DesignerMove.main = function () {
     // ---CROSS
 
     document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
-    // sm_x += document.getElementById('osn_tab').offsetLeft;
-    // sm_y += document.getElementById('osn_tab').offsetTop;
+    // smX += document.getElementById('osn_tab').offsetLeft;
+    // smY += document.getElementById('osn_tab').offsetTop;
     DesignerMove.osnTabPos();
     DesignerMove.canvasPos();
     DesignerMove.smallTabRefresh();
     DesignerMove.reload();
     DesignerMove.setDefaultValuesFromSavedState();
-    id_hint = document.getElementById('designer_hint');
-    if (isIE) {
+    idHint = document.getElementById('designer_hint');
+    if (isIe) {
         DesignerMove.generalScroll();
     }
 };
 
 DesignerMove.resizeOsnTab = function () {
-    var max_X = 0;
-    var max_Y = 0;
+    var maxX = 0;
+    var maxY = 0;
     for (var key in j_tabs) {
-        var k_x = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
-        var k_y = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
-        max_X = max_X < k_x ? k_x : max_X;
-        max_Y = max_Y < k_y ? k_y : max_Y;
+        var kX = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
+        var kY = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
+        maxX = maxX < kX ? kX : maxX;
+        maxY = maxY < kY ? kY : maxY;
     }
 
-    osn_tab_width  = max_X + 50;
-    osn_tab_height = max_Y + 50;
+    osnTabWidth  = maxX + 50;
+    osnTabHeight = maxY + 50;
     DesignerMove.canvasPos();
-    document.getElementById('osn_tab').style.width = osn_tab_width + 'px';
-    document.getElementById('osn_tab').style.height = osn_tab_height + 'px';
+    document.getElementById('osn_tab').style.width = osnTabWidth + 'px';
+    document.getElementById('osn_tab').style.height = osnTabHeight + 'px';
 };
 
 /**
@@ -310,69 +308,69 @@ DesignerMove.reload = function () {
                         // if hide
                         continue;
                     }
-                    var x1_left  = document.getElementById(key2).offsetLeft + 1;
-                    var x1_right = x1_left + document.getElementById(key2).offsetWidth;
-                    var x2_left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;
-                    var x2_right = x2_left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
-                    a[0] = Math.abs(x1_left - x2_left);
-                    a[1] = Math.abs(x1_left - x2_right);
-                    a[2] = Math.abs(x1_right - x2_left);
-                    a[3] = Math.abs(x1_right - x2_right);
-                    n = s_left = s_right = 0;
+                    var x1Left  = document.getElementById(key2).offsetLeft + 1;
+                    var x1Right = x1Left + document.getElementById(key2).offsetWidth;
+                    var x2Left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;
+                    var x2Right = x2Left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
+                    a[0] = Math.abs(x1Left - x2Left);
+                    a[1] = Math.abs(x1Left - x2Right);
+                    a[2] = Math.abs(x1Right - x2Left);
+                    a[3] = Math.abs(x1Right - x2Right);
+                    n = sLeft = sRight = 0;
                     for (var i = 1; i < 4; i++) {
                         if (a[n] > a[i]) {
                             n = i;
                         }
                     }
                     if (n === 1) {
-                        x1 = x1_left - sm_s;
-                        x2 = x2_right + sm_s;
+                        x1 = x1Left - smS;
+                        x2 = x2Right + smS;
                         if (x1 < x2) {
                             n = 0;
                         }
                     }
                     if (n === 2) {
-                        x1 = x1_right + sm_s;
-                        x2 = x2_left - sm_s;
+                        x1 = x1Right + smS;
+                        x2 = x2Left - smS;
                         if (x1 > x2) {
                             n = 0;
                         }
                     }
                     if (n === 3) {
-                        x1 = x1_right + sm_s;
-                        x2 = x2_right + sm_s;
-                        s_right = 1;
+                        x1 = x1Right + smS;
+                        x2 = x2Right + smS;
+                        sRight = 1;
                     }
                     if (n === 0) {
-                        x1 = x1_left - sm_s;
-                        x2 = x2_left - sm_s;
-                        s_left = 1;
+                        x1 = x1Left - smS;
+                        x2 = x2Left - smS;
+                        sLeft = 1;
                     }
 
-                    var row_offset_top = 0;
-                    var tab_hide_button = document.getElementById('id_hide_tbody_' + key2);
+                    var rowOffsetTop = 0;
+                    var tabHideButton = document.getElementById('id_hide_tbody_' + key2);
 
-                    if (tab_hide_button.innerHTML === 'v') {
+                    if (tabHideButton.innerHTML === 'v') {
                         var fromColumn = document.getElementById(key2 + '.' + key3);
                         if (fromColumn) {
-                            row_offset_top = fromColumn.offsetTop;
+                            rowOffsetTop = fromColumn.offsetTop;
                         } else {
                             continue;
                         }
                     }
 
                     var y1 = document.getElementById(key2).offsetTop +
-                        row_offset_top +
-                        height_field;
+                        rowOffsetTop +
+                        heightField;
 
 
-                    row_offset_top = 0;
-                    tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
-                    if (tab_hide_button.innerHTML === 'v') {
+                    rowOffsetTop = 0;
+                    tabHideButton = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
+                    if (tabHideButton.innerHTML === 'v') {
                         var toColumn = document.getElementById(contr[K][key][key2][key3][0] +
                             '.' + contr[K][key][key2][key3][1]);
                         if (toColumn) {
-                            row_offset_top = toColumn.offsetTop;
+                            rowOffsetTop = toColumn.offsetTop;
                         } else {
                             continue;
                         }
@@ -380,16 +378,16 @@ DesignerMove.reload = function () {
 
                     var y2 =
                         document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
-                        row_offset_top +
-                        height_field;
+                        rowOffsetTop +
+                        heightField;
 
-                    var osn_tab = document.getElementById('osn_tab');
+                    var osnTab = document.getElementById('osn_tab');
 
                     DesignerMove.line0(
-                        x1 + osn_tab.offsetLeft,
-                        y1 - osn_tab.offsetTop,
-                        x2 + osn_tab.offsetLeft,
-                        y2 - osn_tab.offsetTop,
+                        x1 + osnTab.offsetLeft,
+                        y1 - osnTab.offsetTop,
+                        x2 + osnTab.offsetLeft,
+                        y2 - osnTab.offsetTop,
                         DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
                     );
                 }
@@ -401,10 +399,10 @@ DesignerMove.reload = function () {
 /**
  * draws a line from x1:y1 to x2:y2 with color
  */
-DesignerMove.line = function (x1, y1, x2, y2, color_line) {
+DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
     var canvas = document.getElementById('canvas');
     var ctx    = canvas.getContext('2d');
-    ctx.strokeStyle = color_line;
+    ctx.strokeStyle = colorLine;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(x1, y1);
@@ -415,86 +413,86 @@ DesignerMove.line = function (x1, y1, x2, y2, color_line) {
 /**
  * draws a relation/constraint line, whether angular or not
  */
-DesignerMove.line0 = function (x1, y1, x2, y2, color_line) {
-    if (! show_relation_lines) {
+DesignerMove.line0 = function (x1, y1, x2, y2, colorLine) {
+    if (! showRelationLines) {
         return;
     }
-    DesignerMove.circle(x1, y1, 3, 3, color_line);
-    DesignerMove.rect(x2 - 1, y2 - 2, 4, 4, color_line);
+    DesignerMove.circle(x1, y1, 3, 3, colorLine);
+    DesignerMove.rect(x2 - 1, y2 - 2, 4, 4, colorLine);
 
-    if (ON_angular_direct) {
-        DesignerMove.line2(x1, y1, x2, y2, color_line);
+    if (onAngularDirect) {
+        DesignerMove.line2(x1, y1, x2, y2, colorLine);
     } else {
-        DesignerMove.line3(x1, y1, x2, y2, color_line);
+        DesignerMove.line3(x1, y1, x2, y2, colorLine);
     }
 };
 
 /**
  * draws a angular relation/constraint line
  */
-DesignerMove.line2 = function (x1, y1, x2, y2, color_line) {
-    var x1_ = x1;
-    var x2_ = x2;
+DesignerMove.line2 = function (x1, y1, x2, y2, colorLine) {
+    var x1Local = x1;
+    var x2Local = x2;
 
-    if (s_right) {
-        x1_ += sm_add;
-        x2_ += sm_add;
-    } else if (s_left) {
-        x1_ -= sm_add;
-        x2_ -= sm_add;
+    if (sRight) {
+        x1Local += smAdd;
+        x2Local += smAdd;
+    } else if (sLeft) {
+        x1Local -= smAdd;
+        x2Local -= smAdd;
     } else if (x1 < x2) {
-        x1_ += sm_add;
-        x2_ -= sm_add;
+        x1Local += smAdd;
+        x2Local -= smAdd;
     } else {
-        x1_ -= sm_add;
-        x2_ += sm_add;
+        x1Local -= smAdd;
+        x2Local += smAdd;
     }
 
-    DesignerMove.line(x1, y1, x1_, y1, color_line);
-    DesignerMove.line(x2, y2, x2_, y2, color_line);
-    DesignerMove.line(x1_, y1, x2_, y2, color_line);
+    DesignerMove.line(x1, y1, x1Local, y1, colorLine);
+    DesignerMove.line(x2, y2, x2Local, y2, colorLine);
+    DesignerMove.line(x1Local, y1, x2Local, y2, colorLine);
 };
 
 /**
  * draws a relation/constraint line
  */
-DesignerMove.line3 = function (x1, y1, x2, y2, color_line) {
-    var x1_ = x1;
-    var x2_ = x2;
+DesignerMove.line3 = function (x1, y1, x2, y2, colorLine) {
+    var x1Local = x1;
+    var x2Local = x2;
 
-    if (s_right) {
+    if (sRight) {
         if (x1 < x2) {
-            x1_ += x2 - x1 + sm_add;
-            x2_ += sm_add;
+            x1Local += x2 - x1 + smAdd;
+            x2Local += smAdd;
         } else {
-            x2_ += x1 - x2 + sm_add;
-            x1_ += sm_add;
+            x2Local += x1 - x2 + smAdd;
+            x1Local += smAdd;
         }
 
-        DesignerMove.line(x1, y1, x1_, y1, color_line);
-        DesignerMove.line(x2, y2, x2_, y2, color_line);
-        DesignerMove.line(x1_, y1, x2_, y2, color_line);
+        DesignerMove.line(x1, y1, x1Local, y1, colorLine);
+        DesignerMove.line(x2, y2, x2Local, y2, colorLine);
+        DesignerMove.line(x1Local, y1, x2Local, y2, colorLine);
         return;
     }
-    if (s_left) {
+    if (sLeft) {
         if (x1 < x2) {
-            x2_ -= x2 - x1 + sm_add;
-            x1_ -= sm_add;
+            x2Local -= x2 - x1 + smAdd;
+            x1Local -= smAdd;
         } else {
-            x1_ -= x1 - x2 + sm_add;
-            x2_ -= sm_add;
+            x1Local -= x1 - x2 + smAdd;
+            x2Local -= smAdd;
         }
 
-        DesignerMove.line(x1, y1, x1_, y1, color_line);
-        DesignerMove.line(x2, y2, x2_, y2, color_line);
-        DesignerMove.line(x1_, y1, x2_, y2, color_line);
+        DesignerMove.line(x1, y1, x1Local, y1, colorLine);
+        DesignerMove.line(x2, y2, x2Local, y2, colorLine);
+        DesignerMove.line(x1Local, y1, x2Local, y2, colorLine);
         return;
     }
 
-    var x_s = (x1 + x2) / 2;
-    DesignerMove.line(x1, y1, x_s, y1, color_line);
-    DesignerMove.line(x_s, y2, x2, y2, color_line);
-    DesignerMove.line(x_s, y1, x_s, y2, color_line);
+    var xS = (x1 + x2) / 2;
+    DesignerMove.line(x1, y1, xS, y1, colorLine);
+    DesignerMove.line(xS, y2, x2, y2, colorLine);
+    DesignerMove.line(xS, y1, xS, y2, colorLine);
 };
 
 DesignerMove.circle = function (x, y, r, w, color) {
@@ -510,7 +508,7 @@ DesignerMove.circle = function (x, y, r, w, color) {
 DesignerMove.clear = function () {
     var canvas = document.getElementById('canvas');
     var ctx    = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas_width, canvas_height);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 };
 
 DesignerMove.rect = function (x1, y1, w, h, color) {
@@ -521,7 +519,7 @@ DesignerMove.rect = function (x1, y1, w, h, color) {
 
 // --------------------------- FULLSCREEN -------------------------------------
 DesignerMove.toggleFullscreen = function () {
-    var value_sent = '';
+    var valueSent = '';
     var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
     var $content = $('#page_content');
@@ -532,18 +530,18 @@ DesignerMove.toggleFullscreen = function () {
         $content
             .addClass('content_fullscreen')
             .css({ 'width': screen.width - 5, 'height': screen.height - 5 });
-        value_sent = 'on';
+        valueSent = 'on';
         $content.fullScreen(true);
     } else {
         $content.fullScreen(false);
-        value_sent = 'off';
+        valueSent = 'off';
     }
-    DesignerMove.saveValueInConfig('full_screen', value_sent);
+    DesignerMove.saveValueInConfig('full_screen', valueSent);
 };
 
 DesignerMove.addOtherDbTables = function () {
-    var button_options = {};
-    button_options[Messages.strGo] = function () {
+    var buttonOptions = {};
+    buttonOptions[Messages.strGo] = function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
         $.post('db_designer.php', {
@@ -553,9 +551,9 @@ DesignerMove.addOtherDbTables = function () {
             'table' : table,
             'server': CommonParams.get('server')
         }, function (data) {
-            $new_table_dom = $(data.message);
-            $new_table_dom.find('a').first().remove();
-            $('#container-form').append($new_table_dom);
+            var $newTableDom = $(data.message);
+            $newTableDom.find('a').first().remove();
+            $('#container-form').append($newTableDom);
             $('.designer_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function () {
                 var params = ($(this).attr('click_field_param')).split(',');
                 DesignerMove.clickField(params[3], params[0], params[1], params[2]);
@@ -571,15 +569,15 @@ DesignerMove.addOtherDbTables = function () {
         });
         $(this).dialog('close');
     };
-    button_options[Messages.strCancel] = function () {
+    buttonOptions[Messages.strCancel] = function () {
         $(this).dialog('close');
     };
 
-    var $select_db = $('<select id="add_table_from"></select>');
-    $select_db.append('<option value="">None</option>');
+    var $selectDb = $('<select id="add_table_from"></select>');
+    $selectDb.append('<option value="">None</option>');
 
-    var $select_table = $('<select id="add_table"></select>');
-    $select_table.append('<option value="">None</option>');
+    var $selectTable = $('<select id="add_table"></select>');
+    $selectTable.append('<option value="">None</option>');
 
     $.post('sql.php', {
         'ajax_request' : true,
@@ -588,12 +586,12 @@ DesignerMove.addOtherDbTables = function () {
     }, function (data) {
         $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
             var val = $(this)[0].innerHTML;
-            $select_db.append('<option value="' + val + '">' + val + '</option>');
+            $selectDb.append('<option value="' + val + '">' + val + '</option>');
         });
     });
 
     var $form = $('<form action="" class="ajax"></form>')
-        .append($select_db).append($select_table);
+        .append($selectDb).append($selectTable);
     $('<div id="page_add_tables_dialog"></div>')
         .append($form)
         .dialog({
@@ -601,7 +599,7 @@ DesignerMove.addOtherDbTables = function () {
             title: Messages.strAddTables,
             width: 500,
             modal: true,
-            buttons: button_options,
+            buttons: buttonOptions,
             close: function () {
                 $(this).remove();
             }
@@ -609,18 +607,18 @@ DesignerMove.addOtherDbTables = function () {
 
     $('#add_table_from').on('change', function () {
         if ($(this).val()) {
-            var db_name = $(this).val();
-            var sql_query = 'SHOW tables;';
+            var dbName = $(this).val();
+            var sqlQuery = 'SHOW tables;';
             $.post('sql.php', {
                 'ajax_request' : true,
-                'sql_query': sql_query,
-                'db' : db_name,
+                'sql_query': sqlQuery,
+                'db' : dbName,
                 'server': CommonParams.get('server')
             }, function (data) {
-                $select_table.html('');
+                $selectTable.html('');
                 $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
                     var val = $(this)[0].innerHTML;
-                    $select_table.append('<option value="' + val + '">' + val + '</option>');
+                    $selectTable.append('<option value="' + val + '">' + val + '</option>');
                 });
             });
         }
@@ -748,12 +746,12 @@ DesignerMove.save3 = function (callback) {
     if (parseInt(selected_page) !== -1) {
         DesignerMove.save2(callback);
     } else {
-        var button_options = {};
-        button_options[Messages.strGo] = function () {
+        var buttonOptions = {};
+        buttonOptions[Messages.strGo] = function () {
             var $form = $('#save_page');
             $form.submit();
         };
-        button_options[Messages.strCancel] = function () {
+        buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
@@ -775,7 +773,7 @@ DesignerMove.save3 = function (callback) {
                 title: Messages.strSavePage,
                 width: 300,
                 modal: true,
-                buttons: button_options,
+                buttons: buttonOptions,
                 close: function () {
                     $(this).remove();
                 }
@@ -786,8 +784,8 @@ DesignerMove.save3 = function (callback) {
 // ------------------------------ EDIT PAGES ------------------------------------------
 DesignerMove.editPages = function () {
     DesignerMove.promptToSaveCurrentPage(function () {
-        var button_options = {};
-        button_options[Messages.strGo] = function () {
+        var buttonOptions = {};
+        buttonOptions[Messages.strGo] = function () {
             var $form = $('#edit_delete_pages');
             var selected = $form.find('select[name="selected_page"]').val();
             if (selected === '0') {
@@ -797,7 +795,7 @@ DesignerMove.editPages = function () {
             $(this).dialog('close');
             DesignerMove.loadPage(selected);
         };
-        button_options[Messages.strCancel] = function () {
+        buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
@@ -825,7 +823,7 @@ DesignerMove.editPages = function () {
                         title: Messages.strOpenPage,
                         width: 350,
                         modal: true,
-                        buttons: button_options,
+                        buttons: buttonOptions,
                         close: function () {
                             $(this).remove();
                         }
@@ -837,8 +835,8 @@ DesignerMove.editPages = function () {
 
 // -----------------------------  DELETE PAGES ---------------------------------------
 DesignerMove.deletePages = function () {
-    var button_options = {};
-    button_options[Messages.strGo] = function () {
+    var buttonOptions = {};
+    buttonOptions[Messages.strGo] = function () {
         var $form = $('#edit_delete_pages');
         var selected = $form.find('select[name="selected_page"]').val();
         if (selected === '0') {
@@ -846,8 +844,8 @@ DesignerMove.deletePages = function () {
             return;
         }
 
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        var deleting_current_page = selected === selected_page;
+        var $messageBox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        var deletingCurrentPage = selected === selected_page;
         Functions.prepareForAjaxRequest($form);
 
         if (designer_tables_enabled) {
@@ -855,8 +853,8 @@ DesignerMove.deletePages = function () {
                 if (data.success === false) {
                     Functions.ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    if (deleting_current_page) {
+                    Functions.ajaxRemoveMessage($messageBox);
+                    if (deletingCurrentPage) {
                         DesignerMove.loadPage(null);
                     } else {
                         Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
@@ -868,8 +866,8 @@ DesignerMove.deletePages = function () {
                 if (! success) {
                     Functions.ajaxShowMessage('Error', false);
                 } else {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    if (deleting_current_page) {
+                    Functions.ajaxRemoveMessage($messageBox);
+                    if (deletingCurrentPage) {
                         DesignerMove.loadPage(null);
                     } else {
                         Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
@@ -880,7 +878,7 @@ DesignerMove.deletePages = function () {
 
         $(this).dialog('close');
     };
-    button_options[Messages.strCancel] = function () {
+    buttonOptions[Messages.strCancel] = function () {
         $(this).dialog('close');
     };
 
@@ -909,7 +907,7 @@ DesignerMove.deletePages = function () {
                     title: Messages.strDeletePage,
                     width: 350,
                     modal: true,
-                    buttons: button_options,
+                    buttons: buttonOptions,
                     close: function () {
                         $(this).remove();
                     }
@@ -920,26 +918,26 @@ DesignerMove.deletePages = function () {
 
 // ------------------------------ SAVE AS PAGES ---------------------------------------
 DesignerMove.saveAs = function () {
-    var button_options = {};
-    button_options[Messages.strGo] = function () {
+    var buttonOptions = {};
+    buttonOptions[Messages.strGo] = function () {
         var $form           = $('#save_as_pages');
-        var selected_value  = $form.find('input[name="selected_value"]').val().trim();
-        var $selected_page  = $form.find('select[name="selected_page"]');
+        var selectedValue  = $form.find('input[name="selected_value"]').val().trim();
+        var $selectedPage  = $form.find('select[name="selected_page"]');
         var choice          = $form.find('input[name="save_page"]:checked').val();
         var name            = '';
 
         if (choice === 'same') {
-            if ($selected_page.val() === '0') {
+            if ($selectedPage.val() === '0') {
                 Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
                 return;
             }
-            name = $selected_page.find('option:selected').text();
+            name = $selectedPage.find('option:selected').text();
         } else if (choice === 'new') {
-            if (selected_value === '') {
+            if (selectedValue === '') {
                 Functions.ajaxShowMessage(Messages.strEnterValidPageName, 2000);
                 return;
             }
-            name = selected_value;
+            name = selectedValue;
         }
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
@@ -959,8 +957,8 @@ DesignerMove.saveAs = function () {
             }); // end $.post()
         } else {
             if (choice === 'same') {
-                var selected_page_id = $selected_page.find('option:selected').val();
-                Save_to_selected_page(db, selected_page_id, name, DesignerMove.getUrlPos(), function (page) {
+                var selectedPageId = $selectedPage.find('option:selected').val();
+                Save_to_selected_page(db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
                     Functions.ajaxRemoveMessage($msgbox);
                     DesignerMove.markSaved();
                     if (page.pg_nr) {
@@ -982,7 +980,7 @@ DesignerMove.saveAs = function () {
 
         $(this).dialog('close');
     };
-    button_options[Messages.strCancel] = function () {
+    buttonOptions[Messages.strCancel] = function () {
         $(this).dialog('close');
     };
 
@@ -1011,7 +1009,7 @@ DesignerMove.saveAs = function () {
                     title: Messages.strSavePageAs,
                     width: 450,
                     modal: true,
-                    buttons: button_options,
+                    buttons: buttonOptions,
                     close: function () {
                         $(this).remove();
                     }
@@ -1025,17 +1023,17 @@ DesignerMove.saveAs = function () {
 };
 
 DesignerMove.promptToSaveCurrentPage = function (callback) {
-    if (_change === 1 || selected_page === '-1') {
-        var button_options = {};
-        button_options[Messages.strYes] = function () {
+    if (change === 1 || selected_page === '-1') {
+        var buttonOptions = {};
+        buttonOptions[Messages.strYes] = function () {
             $(this).dialog('close');
             DesignerMove.save3(callback);
         };
-        button_options[Messages.strNo] = function () {
+        buttonOptions[Messages.strNo] = function () {
             $(this).dialog('close');
             callback();
         };
-        button_options[Messages.strCancel] = function () {
+        buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
         $('<div id="prompt_save_dialog"></div>')
@@ -1045,7 +1043,7 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
                 title: Messages.strSavePage,
                 width: 300,
                 modal: true,
-                buttons: button_options,
+                buttons: buttonOptions,
                 close: function () {
                     $(this).remove();
                 }
@@ -1057,12 +1055,12 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
 
 // ------------------------------ EXPORT PAGES ---------------------------------------
 DesignerMove.exportPages = function () {
-    var button_options = {};
-    button_options[Messages.strGo] = function () {
+    var buttonOptions = {};
+    buttonOptions[Messages.strGo] = function () {
         $('#id_export_pages').submit();
         $(this).dialog('close');
     };
-    button_options[Messages.strCancel] = function () {
+    buttonOptions[Messages.strCancel] = function () {
         $(this).dialog('close');
     };
     var $msgbox = Functions.ajaxShowMessage();
@@ -1105,7 +1103,7 @@ DesignerMove.exportPages = function () {
                     title: Messages.strExportRelationalSchema,
                     width: 550,
                     modal: true,
-                    buttons: button_options,
+                    buttons: buttonOptions,
                     close: function () {
                         $(this).remove();
                     }
@@ -1116,12 +1114,12 @@ DesignerMove.exportPages = function () {
 
 DesignerMove.loadPage = function (page) {
     if (designer_tables_enabled) {
-        var param_page = '';
+        var paramPage = '';
         var argsep = CommonParams.get('arg_separator');
         if (page !== null) {
-            param_page = argsep + 'page=' + page;
+            paramPage = argsep + 'page=' + page;
         }
-        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + encodeURI(db) + param_page + '"></a>')
+        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + encodeURI(db) + paramPage + '"></a>')
             .appendTo($('#page_content'))
             .trigger('click');
     } else {
@@ -1137,37 +1135,43 @@ DesignerMove.loadPage = function (page) {
 };
 
 DesignerMove.grid = function () {
-    var value_sent = '';
-    if (!ON_grid) {
-        ON_grid = 1;
-        value_sent = 'on';
+    var valueSent = '';
+    if (!onGrid) {
+        onGrid = 1;
+        valueSent = 'on';
         document.getElementById('grid_button').className = 'M_butt_Selected_down';
     } else {
         document.getElementById('grid_button').className = 'M_butt';
-        ON_grid = 0;
-        value_sent = 'off';
+        onGrid = 0;
+        valueSent = 'off';
     }
-    DesignerMove.saveValueInConfig('snap_to_grid', value_sent);
+    DesignerMove.saveValueInConfig('snap_to_grid', valueSent);
 };
 
 DesignerMove.angularDirect = function () {
-    var value_sent = '';
-    if (ON_angular_direct) {
-        ON_angular_direct = 0;
-        value_sent = 'angular';
+    var valueSent = '';
+    if (onAngularDirect) {
+        onAngularDirect = 0;
+        valueSent = 'angular';
         document.getElementById('angular_direct_button').className = 'M_butt_Selected_down';
     } else {
-        ON_angular_direct = 1;
-        value_sent = 'direct';
+        onAngularDirect = 1;
+        valueSent = 'direct';
         document.getElementById('angular_direct_button').className = 'M_butt';
     }
-    DesignerMove.saveValueInConfig('angular_direct', value_sent);
+    DesignerMove.saveValueInConfig('angular_direct', valueSent);
     DesignerMove.reload();
 };
 
-DesignerMove.saveValueInConfig = function (index_sent, value_sent) {
+DesignerMove.saveValueInConfig = function (indexSent, valueSent) {
     $.post('db_designer.php',
-        { operation: 'save_setting_value', index: index_sent, ajax_request: true, server: server, value: value_sent },
+        {
+            'operation': 'save_setting_value',
+            'index': indexSent,
+            'ajax_request': true,
+            'server': server,
+            'value': valueSent
+        },
         function (data) {
             if (data.success === false) {
                 Functions.ajaxShowMessage(data.error, false);
@@ -1177,13 +1181,13 @@ DesignerMove.saveValueInConfig = function (index_sent, value_sent) {
 
 // ++++++++++++++++++++++++++++++ RELATION ++++++++++++++++++++++++++++++++++++++
 DesignerMove.startRelation = function () {
-    if (ON_display_field) {
+    if (onDisplayField) {
         return;
     }
 
-    if (!ON_relation) {
+    if (!onRelation) {
         document.getElementById('foreign_relation').style.display = '';
-        ON_relation = 1;
+        onRelation = 1;
         document.getElementById('designer_hint').innerHTML = Messages.strSelectReferencedKey;
         document.getElementById('designer_hint').style.display = 'block';
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
@@ -1191,63 +1195,70 @@ DesignerMove.startRelation = function () {
         document.getElementById('designer_hint').innerHTML = '';
         document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('rel_button').className = 'M_butt';
-        click_field = 0;
-        ON_relation = 0;
+        clickField = 0;
+        onRelation = 0;
     }
 };
 
 // table field
-DesignerMove.clickField = function (db, T, f, PK) {
-    PK = parseInt(PK);
+DesignerMove.clickField = function (db, T, f, pk) {
+    pk = parseInt(pk);
     var argsep = CommonParams.get('arg_separator');
-    if (ON_relation) {
-        if (!click_field) {
+    if (onRelation) {
+        if (!clickField) {
             // .style.display=='none'        .style.display = 'none'
-            if (!PK) {
+            if (!pk) {
                 alert(Messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }// PK
             if (j_tabs[db + '.' + T] !== 1) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
-            click_field = 1;
-            link_relation = 'DB1=' + db + argsep + 'T1=' + T + argsep + 'F1=' + f;
+            clickField = 1;
+            linkRelation = 'DB1=' + db + argsep + 'T1=' + T + argsep + 'F1=' + f;
             document.getElementById('designer_hint').innerHTML = Messages.strSelectForeignKey;
         } else {
             DesignerMove.startRelation(); // hidden hint...
-            if (j_tabs[db + '.' + T] !== 1 || !PK) {
+            if (j_tabs[db + '.' + T] !== 1 || !pk) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
-            var left = Glob_X - (document.getElementById('layer_new_relation').offsetWidth >> 1);
+            var left = globX - (document.getElementById('layer_new_relation').offsetWidth >> 1);
             document.getElementById('layer_new_relation').style.left = left + 'px';
-            var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight;
+            var top = globY - document.getElementById('layer_new_relation').offsetHeight;
             document.getElementById('layer_new_relation').style.top  = top + 'px';
             document.getElementById('layer_new_relation').style.display = 'block';
-            link_relation += argsep + 'DB2=' + db + argsep + 'T2=' + T + argsep + 'F2=' + f;
+            linkRelation += argsep + 'DB2=' + db + argsep + 'T2=' + T + argsep + 'F2=' + f;
         }
     }
 
-    if (ON_display_field) {
+    if (onDisplayField) {
         // if is display field
         if (display_field[T] === f) {
-            old_class = 'tab_field';
+            oldClass = 'tab_field';
             delete display_field[T];
         } else {
-            old_class = 'tab_field_3';
+            oldClass = 'tab_field_3';
             if (display_field[T]) {
                 document.getElementById('id_tr_' + T + '.' + display_field[T]).className = 'tab_field';
                 delete display_field[T];
             }
             display_field[T] = f;
         }
-        ON_display_field = 0;
+        onDisplayField = 0;
         document.getElementById('designer_hint').innerHTML = '';
         document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
         $.post('db_designer.php',
-            { operation: 'setDisplayField', ajax_request: true, server: server, db: db, table: T, field: f },
+            {
+                'operation': 'setDisplayField',
+                'ajax_request': true,
+                'server': server,
+                'db': db,
+                'table': T,
+                'field': f
+            },
             function (data) {
                 if (data.success === false) {
                     Functions.ajaxShowMessage(data.error, false);
@@ -1262,12 +1273,12 @@ DesignerMove.clickField = function (db, T, f, PK) {
 DesignerMove.newRelation = function () {
     document.getElementById('layer_new_relation').style.display = 'none';
     var argsep = CommonParams.get('arg_separator');
-    link_relation += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'db2=p';
-    link_relation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
-    link_relation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
+    linkRelation += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'db2=p';
+    linkRelation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
+    linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-    $.post('db_designer.php', link_relation, function (data) {
+    $.post('db_designer.php', linkRelation, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
         } else {
@@ -1290,10 +1301,10 @@ DesignerMove.startTabUpd = function (table) {
 
 // --------------------------- hide tables --------------------------------------
 // max/min all tables
-DesignerMove.smallTabAll = function (id_this) {
-    var icon = id_this.children[0];
+DesignerMove.smallTabAll = function (idThis) {
+    var icon = idThis.children[0];
     var key;
-    var value_sent = '';
+    var valueSent = '';
 
     if (icon.alt === 'v') {
         for (key in j_tabs) {
@@ -1303,7 +1314,7 @@ DesignerMove.smallTabAll = function (id_this) {
         }
         icon.alt = '>';
         icon.src = icon.dataset.right;
-        value_sent = 'v';
+        valueSent = 'v';
     } else {
         for (key in j_tabs) {
             if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
@@ -1312,9 +1323,9 @@ DesignerMove.smallTabAll = function (id_this) {
         }
         icon.alt = 'v';
         icon.src = icon.dataset.down;
-        value_sent = '>';
+        valueSent = '>';
     }
-    DesignerMove.saveValueInConfig('small_big_all', value_sent);
+    DesignerMove.saveValueInConfig('small_big_all', valueSent);
     $('#key_SB_all').toggleClass('M_butt_Selected_down');
     $('#key_SB_all').toggleClass('M_butt');
     DesignerMove.reload();
@@ -1329,8 +1340,8 @@ DesignerMove.smallTabInvert = function () {
 };
 
 DesignerMove.relationLinesInvert = function () {
-    show_relation_lines = ! show_relation_lines;
-    DesignerMove.saveValueInConfig('relation_lines', show_relation_lines);
+    showRelationLines = ! showRelationLines;
+    DesignerMove.saveValueInConfig('relation_lines', showRelationLines);
     $('#relLineInvert').toggleClass('M_butt_Selected_down');
     $('#relLineInvert').toggleClass('M_butt');
     DesignerMove.reload();
@@ -1344,33 +1355,33 @@ DesignerMove.smallTabRefresh = function () {
     }
 };
 
-DesignerMove.smallTab = function (t, re_load) {
+DesignerMove.smallTab = function (t, reload) {
     var id      = document.getElementById('id_tbody_' + t);
-    var id_this = document.getElementById('id_hide_tbody_' + t);
-    var id_t    = document.getElementById(t);
-    if (id_this.innerHTML === 'v') {
+    var idThis = document.getElementById('id_hide_tbody_' + t);
+    var idT = document.getElementById(t);
+    if (idThis.innerHTML === 'v') {
         // ---CROSS
         id.style.display = 'none';
-        id_this.innerHTML = '>';
+        idThis.innerHTML = '>';
     } else {
         id.style.display = '';
-        id_this.innerHTML = 'v';
+        idThis.innerHTML = 'v';
     }
-    if (re_load) {
+    if (reload) {
         DesignerMove.reload();
     }
 };
 
 DesignerMove.selectTab = function (t) {
-    var id_zag = document.getElementById('id_zag_' + t);
-    if (id_zag.className !== 'tab_zag_3') {
+    var idZag = document.getElementById('id_zag_' + t);
+    if (idZag.className !== 'tab_zag_3') {
         document.getElementById('id_zag_' + t).className = 'tab_zag_2';
     } else {
         document.getElementById('id_zag_' + t).className = 'tab_zag';
     }
     // ----------
-    var id_t = document.getElementById(t);
-    window.scrollTo(parseInt(id_t.style.left, 10) - 300, parseInt(id_t.style.top, 10) - 300);
+    var idT = document.getElementById(t);
+    window.scrollTo(parseInt(idT.style.left, 10) - 300, parseInt(idT.style.top, 10) - 300);
     setTimeout(
         function () {
             document.getElementById('id_zag_' + t).className = 'tab_zag';
@@ -1381,7 +1392,7 @@ DesignerMove.selectTab = function (t) {
 
 DesignerMove.canvasClick = function (id, event) {
     var n = 0;
-    var relation_name = 0;
+    var relationName = 0;
     var selected = 0;
     var a = [];
     var Key0;
@@ -1395,10 +1406,10 @@ DesignerMove.canvasClick = function (id, event) {
     var key;
     var key2;
     var key3;
-    var Local_X = isIE ? event.clientX + document.body.scrollLeft : event.pageX;
-    var Local_Y = isIE ? event.clientY + document.body.scrollTop : event.pageY;
-    Local_X -= $('#osn_tab').offset().left;
-    Local_Y -= $('#osn_tab').offset().top;
+    var localX = isIe ? event.clientX + document.body.scrollLeft : event.pageX;
+    var localY = isIe ? event.clientY + document.body.scrollTop : event.pageY;
+    localX -= $('#osn_tab').offset().left;
+    localY -= $('#osn_tab').offset().top;
     DesignerMove.clear();
     for (K in contr) {
         for (key in contr[K]) {
@@ -1408,59 +1419,60 @@ DesignerMove.canvasClick = function (id, event) {
                         ! document.getElementById('check_vis_' + contr[K][key][key2][key3][0]).checked) {
                         continue; // if hide
                     }
-                    var x1_left  = document.getElementById(key2).offsetLeft + 1;// document.getElementById(key2+"."+key3).offsetLeft;
-                    var x1_right = x1_left + document.getElementById(key2).offsetWidth;
-                    var x2_left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;// +document.getElementById(contr[K][key2][key3][0]+"."+contr[K][key2][key3][1]).offsetLeft
-                    var x2_right = x2_left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
-                    a[0] = Math.abs(x1_left - x2_left);
-                    a[1] = Math.abs(x1_left - x2_right);
-                    a[2] = Math.abs(x1_right - x2_left);
-                    a[3] = Math.abs(x1_right - x2_right);
-                    n = s_left = s_right = 0;
+                    var x1Left  = document.getElementById(key2).offsetLeft + 1;// document.getElementById(key2+"."+key3).offsetLeft;
+                    var x1Right = x1Left + document.getElementById(key2).offsetWidth;
+                    var x2Left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;// +document.getElementById(contr[K][key2][key3][0]+"."+contr[K][key2][key3][1]).offsetLeft
+                    var x2Right = x2Left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
+                    a[0] = Math.abs(x1Left - x2Left);
+                    a[1] = Math.abs(x1Left - x2Right);
+                    a[2] = Math.abs(x1Right - x2Left);
+                    a[3] = Math.abs(x1Right - x2Right);
+                    n = sLeft = sRight = 0;
                     for (var i = 1; i < 4; i++) {
                         if (a[n] > a[i]) {
                             n = i;
                         }
                     }
                     if (n === 1) {
-                        x1 = x1_left - sm_s;
-                        x2 = x2_right + sm_s;
+                        x1 = x1Left - smS;
+                        x2 = x2Right + smS;
                         if (x1 < x2) {
                             n = 0;
                         }
                     }
                     if (n === 2) {
-                        x1 = x1_right + sm_s;
-                        x2 = x2_left - sm_s;
+                        x1 = x1Right + smS;
+                        x2 = x2Left - smS;
                         if (x1 > x2) {
                             n = 0;
                         }
                     }
                     if (n === 3) {
-                        x1 = x1_right + sm_s;
-                        x2 = x2_right + sm_s;
-                        s_right = 1;
+                        x1 = x1Right + smS;
+                        x2 = x2Right + smS;
+                        sRight = 1;
                     }
                     if (n === 0) {
-                        x1 = x1_left - sm_s;
-                        x2 = x2_left - sm_s;
-                        s_left    = 1;
+                        x1 = x1Left - smS;
+                        x2 = x2Left - smS;
+                        sLeft    = 1;
                     }
 
-                    var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2 + '.' + key3).offsetTop + height_field;
+                    var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2 + '.' + key3).offsetTop + heightField;
                     var y2 = document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
-                                     document.getElementById(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).offsetTop + height_field;
+                                     document.getElementById(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).offsetTop + heightField;
 
-                    if (!selected && Local_X > x1 - 10 && Local_X < x1 + 10 && Local_Y > y1 - 7 && Local_Y < y1 + 7) {
+                    var osnTab = document.getElementById('osn_tab');
+                    if (!selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
                         DesignerMove.line0(
-                            x1 + osn_tab.offsetLeft,
-                            y1 - osn_tab.offsetTop,
-                            x2 + osn_tab.offsetLeft,
-                            y2 - osn_tab.offsetTop,
+                            x1 + osnTab.offsetLeft,
+                            y1 - osnTab.offsetTop,
+                            x2 + osnTab.offsetLeft,
+                            y2 - osnTab.offsetTop,
                             'rgba(255,0,0,1)');
 
                         selected = 1;
-                        relation_name = key;
+                        relationName = key;
                         Key0 = contr[K][key][key2][key3][0];
                         Key1 = contr[K][key][key2][key3][1];
                         Key2 = key2;
@@ -1468,10 +1480,10 @@ DesignerMove.canvasClick = function (id, event) {
                         Key = K;
                     } else {
                         DesignerMove.line0(
-                            x1 + osn_tab.offsetLeft,
-                            y1 - osn_tab.offsetTop,
-                            x2 + osn_tab.offsetLeft,
-                            y2 - osn_tab.offsetTop,
+                            x1 + osnTab.offsetLeft,
+                            y1 - osnTab.offsetTop,
+                            x2 + osnTab.offsetLeft,
+                            y2 - osnTab.offsetTop,
                             DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
                         );
                     }
@@ -1481,24 +1493,24 @@ DesignerMove.canvasClick = function (id, event) {
     }
     if (selected) {
         // select relations
-        var left = Glob_X - (document.getElementById('layer_upd_relation').offsetWidth >> 1);
+        var left = globX - (document.getElementById('layer_upd_relation').offsetWidth >> 1);
         document.getElementById('layer_upd_relation').style.left = left + 'px';
-        var top = Glob_Y - document.getElementById('layer_upd_relation').offsetHeight - 10;
+        var top = globY - document.getElementById('layer_upd_relation').offsetHeight - 10;
         document.getElementById('layer_upd_relation').style.top = top + 'px';
         document.getElementById('layer_upd_relation').style.display = 'block';
         var argsep = CommonParams.get('arg_separator');
-        link_relation = 'T1=' + Key0 + argsep + 'F1=' + Key1 + argsep + 'T2=' + Key2 + argsep + 'F2=' + Key3 + argsep + 'K=' + Key;
+        linkRelation = 'T1=' + Key0 + argsep + 'F1=' + Key1 + argsep + 'T2=' + Key2 + argsep + 'F2=' + Key3 + argsep + 'K=' + Key;
     }
 };
 
 DesignerMove.updRelation = function () {
     document.getElementById('layer_upd_relation').style.display = 'none';
     var argsep = CommonParams.get('arg_separator');
-    link_relation += argsep + 'server=' + server + argsep + 'db=' + db;
-    link_relation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
+    linkRelation += argsep + 'server=' + server + argsep + 'db=' + db;
+    linkRelation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-    $.post('db_designer.php', link_relation, function (data) {
+    $.post('db_designer.php', linkRelation, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
         } else {
@@ -1508,28 +1520,28 @@ DesignerMove.updRelation = function () {
     }); // end $.post()
 };
 
-DesignerMove.visibleTab = function (id, t_n) {
+DesignerMove.visibleTab = function (id, tN) {
     if (id.checked) {
-        document.getElementById(t_n).style.display = 'block';
+        document.getElementById(tN).style.display = 'block';
     } else {
-        document.getElementById(t_n).style.display = 'none';
+        document.getElementById(tN).style.display = 'none';
     }
     DesignerMove.reload();
 };
 
 // max/min all tables
-DesignerMove.hideTabAll = function (id_this) {
-    if (id_this.alt === 'v') {
-        id_this.alt = '>';
-        id_this.src = id_this.dataset.right;
+DesignerMove.hideTabAll = function (idThis) {
+    if (idThis.alt === 'v') {
+        idThis.alt = '>';
+        idThis.src = idThis.dataset.right;
     } else {
-        id_this.alt = 'v';
-        id_this.src = id_this.dataset.down;
+        idThis.alt = 'v';
+        idThis.src = idThis.dataset.down;
     }
     var E = document.form1;
     for (var i = 0; i < E.elements.length; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
-            if (id_this.alt === 'v') {
+            if (idThis.alt === 'v') {
                 E.elements[i].checked = true;
                 document.getElementById(E.elements[i].value).style.display = '';
             } else {
@@ -1552,7 +1564,7 @@ DesignerMove.inArrayK = function (x, m) {
     return b;
 };
 
-DesignerMove.noHaveConstr = function (id_this) {
+DesignerMove.noHaveConstr = function (idThis) {
     var a = [];
     var K;
     var key;
@@ -1571,18 +1583,18 @@ DesignerMove.noHaveConstr = function (id_this) {
         }
     }
 
-    if (id_this.alt === 'v') {
-        id_this.alt = '>';
-        id_this.src = id_this.dataset.right;
+    if (idThis.alt === 'v') {
+        idThis.alt = '>';
+        idThis.src = idThis.dataset.right;
     } else {
-        id_this.alt = 'v';
-        id_this.src = id_this.dataset.down;
+        idThis.alt = 'v';
+        idThis.src = idThis.dataset.down;
     }
     var E = document.form1;
     for (var i = 0; i < E.elements.length; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (!DesignerMove.inArrayK(E.elements[i].value, a)) {
-                if (id_this.alt === 'v') {
+                if (idThis.alt === 'v') {
                     E.elements[i].checked = true;
                     document.getElementById(E.elements[i].value).style.display = '';
                 } else {
@@ -1595,9 +1607,9 @@ DesignerMove.noHaveConstr = function (id_this) {
 };
 
 DesignerMove.generalScroll = function () {
-    // if (timeoutID)
-    clearTimeout(timeoutID);
-    timeoutID = setTimeout(
+    // if (timeoutId)
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(
         function () {
             document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
             document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';
@@ -1607,15 +1619,15 @@ DesignerMove.generalScroll = function () {
 };
 
 // max/min all tables
-DesignerMove.showLeftMenu = function (id_this) {
-    var icon = id_this.children[0];
+DesignerMove.showLeftMenu = function (idThis) {
+    var icon = idThis.children[0];
     $('#key_Show_left_menu').toggleClass('M_butt_Selected_down');
     if (icon.alt === 'v') {
         document.getElementById('layer_menu').style.top = '0px';
         document.getElementById('layer_menu').style.display = 'block';
         icon.alt = '>';
         icon.src = icon.dataset.up;
-        if (isIE) {
+        if (isIe) {
             DesignerMove.generalScroll();
         }
     } else {
@@ -1626,10 +1638,10 @@ DesignerMove.showLeftMenu = function (id_this) {
     }
 };
 
-DesignerMove.sideMenuRight = function (id_this) {
+DesignerMove.sideMenuRight = function (idThis) {
     $('#side_menu').toggleClass('right');
     $('#layer_menu').toggleClass('left');
-    var icon = $(id_this.childNodes[0]);
+    var icon = $(idThis.childNodes[0]);
     var current = icon.attr('src');
     icon.attr('src', icon.attr('data-right')).attr('data-right', current);
 
@@ -1640,7 +1652,7 @@ DesignerMove.sideMenuRight = function (id_this) {
     current = icon.attr('src');
     icon.attr('src', icon.attr('data-right'));
     icon.attr('data-right', current);
-    menu_moved = !menu_moved;
+    menuMoved = !menuMoved;
     DesignerMove.saveValueInConfig('side_menu', $('#side_menu').hasClass('right'));
     $('#key_Left_Right').toggleClass('M_butt_Selected_down');
     $('#key_Left_Right').toggleClass('M_butt');
@@ -1651,36 +1663,36 @@ DesignerMove.showText = function () {
 };
 
 DesignerMove.hideText = function () {
-    if (!always_show_text) {
+    if (!alwaysShowText) {
         $('#side_menu').find('.hidable').hide();
     }
 };
 
 DesignerMove.pinText = function () {
-    always_show_text = !always_show_text;
+    alwaysShowText = !alwaysShowText;
     $('#pin_Text').toggleClass('M_butt_Selected_down');
     $('#pin_Text').toggleClass('M_butt');
-    DesignerMove.saveValueInConfig('pin_text', always_show_text);
+    DesignerMove.saveValueInConfig('pin_text', alwaysShowText);
 };
 
 DesignerMove.startDisplayField = function () {
-    if (ON_relation) {
+    if (onRelation) {
         return;
     }
-    if (!ON_display_field) {
-        ON_display_field = 1;
+    if (!onDisplayField) {
+        onDisplayField = 1;
         document.getElementById('designer_hint').innerHTML = Messages.strChangeDisplay;
         document.getElementById('designer_hint').style.display = 'block';
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';// '#FFEE99';gray #AAAAAA
 
-        if (isIE) { // correct for IE
+        if (isIe) { // correct for IE
             document.getElementById('display_field_button').className = 'M_butt_Selected_down_IE';
         }
     } else {
         document.getElementById('designer_hint').innerHTML = '';
         document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
-        ON_display_field = 0;
+        onDisplayField = 0;
     }
 };
 
@@ -1702,7 +1714,7 @@ DesignerMove.getColorByTarget = function (target) {
         var j = (i - d) / 6;
         j = j % 4;
         j++;
-        var color_case = [
+        var colorCase = [
             [1, 0, 0],
             [0, 1, 0],
             [0, 0, 1],
@@ -1710,9 +1722,9 @@ DesignerMove.getColorByTarget = function (target) {
             [1, 0, 1],
             [0, 1, 1]
         ];
-        var a = color_case[d][0];
-        var b = color_case[d][1];
-        var c = color_case[d][2];
+        var a = colorCase[d][0];
+        var b = colorCase[d][1];
+        var c = colorCase[d][2];
         var e = (1 - (j - 1) / 6);
 
         var r = Math.round(a * 200 * e);
@@ -1726,15 +1738,15 @@ DesignerMove.getColorByTarget = function (target) {
     return color;
 };
 
-DesignerMove.clickOption = function (id_this, column_name, table_name) {
-    var left = Glob_X - (document.getElementById(id_this).offsetWidth >> 1);
-    document.getElementById(id_this).style.left = left + 'px';
-    // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
-    document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
-    document.getElementById(id_this).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + Functions.sprintf(Messages.strAddOption, decodeURI(column_name)) + '</strong>';
-    col_name = column_name;
-    tab_name = table_name;
+DesignerMove.clickOption = function (idThis, columnName, tableName) {
+    var left = globX - (document.getElementById(idThis).offsetWidth >> 1);
+    document.getElementById(idThis).style.left = left + 'px';
+    // var top = globY - document.getElementById(id_this).offsetHeight - 10;
+    document.getElementById(idThis).style.top  = (screen.height / 4) + 'px';
+    document.getElementById(idThis).style.display = 'block';
+    document.getElementById('option_col_name').innerHTML = '<strong>' + Functions.sprintf(Messages.strAddOption, decodeURI(columnName)) + '</strong>';
+    colName = columnName;
+    tabName = tableName;
 };
 
 DesignerMove.closeOption = function () {
@@ -1750,37 +1762,37 @@ DesignerMove.closeOption = function () {
     document.getElementById('orderby').value = '---';
 };
 
-DesignerMove.selectAll = function (id_this, owner) {
+DesignerMove.selectAll = function (idThis, owner) {
     var parent = document.form1;
     downer = owner;
     var i;
     var k;
     var tab = [];
     for (i = 0; i < parent.elements.length; i++) {
-        if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + id_this.length)) === 'select_' + id_this + '._') {
-            if (document.getElementById('select_all_' + id_this).checked === true) {
+        if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + idThis.length)) === 'select_' + idThis + '._') {
+            if (document.getElementById('select_all_' + idThis).checked === true) {
                 parent.elements[i].checked = true;
                 parent.elements[i].disabled = true;
-                var temp = '`' + id_this.substring(owner.length + 1) + '`.*';
+                var temp = '`' + idThis.substring(owner.length + 1) + '`.*';
             } else {
                 parent.elements[i].checked = false;
                 parent.elements[i].disabled = false;
             }
         }
     }
-    if (document.getElementById('select_all_' + id_this).checked === true) {
-        select_field.push('`' + id_this.substring(owner.length + 1) + '`.*');
-        tab = id_this.split('.');
-        from_array.push(tab[1]);
+    if (document.getElementById('select_all_' + idThis).checked === true) {
+        select_field.push('`' + idThis.substring(owner.length + 1) + '`.*');
+        tab = idThis.split('.');
+        fromArray.push(tab[1]);
     } else {
         for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] === ('`' + id_this.substring(owner.length + 1) + '`.*')) {
+            if (select_field[i] === ('`' + idThis.substring(owner.length + 1) + '`.*')) {
                 select_field.splice(i, 1);
             }
         }
-        for (k = 0; k < from_array.length; k++) {
-            if (from_array[k] === id_this) {
-                from_array.splice(k, 1);
+        for (k = 0; k < fromArray.length; k++) {
+            if (fromArray[k] === idThis) {
+                fromArray.splice(k, 1);
                 break;
             }
         }
@@ -1788,17 +1800,17 @@ DesignerMove.selectAll = function (id_this, owner) {
     DesignerMove.reload();
 };
 
-DesignerMove.tableOnOver = function (id_this, val, buil) {
+DesignerMove.tableOnOver = function (idThis, val, buil) {
     buil = parseInt(buil);
     if (!val) {
-        document.getElementById('id_zag_' + id_this).className = 'tab_zag_2';
+        document.getElementById('id_zag_' + idThis).className = 'tab_zag_2';
         if (buil) {
-            document.getElementById('id_zag_' + id_this + '_2').className = 'tab_zag_2';
+            document.getElementById('id_zag_' + idThis + '_2').className = 'tab_zag_2';
         }
     } else {
-        document.getElementById('id_zag_' + id_this).className = 'tab_zag';
+        document.getElementById('id_zag_' + idThis).className = 'tab_zag';
         if (buil) {
-            document.getElementById('id_zag_' + id_this + '_2').className = 'tab_zag';
+            document.getElementById('id_zag_' + idThis + '_2').className = 'tab_zag';
         }
     }
 };
@@ -1807,22 +1819,22 @@ DesignerMove.tableOnOver = function (id_this, val, buil) {
  * This function stores selected column information in select_field[]
  * In case column is checked it add else it deletes
  */
-DesignerMove.storeColumn = function (id_this, owner, col) {
+DesignerMove.storeColumn = function (idThis, owner, col) {
     var i;
     var k;
-    if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked === true) {
-        select_field.push('`' + id_this + '`.`' + col + '`');
-        from_array.push(id_this);
+    if (document.getElementById('select_' + owner + '.' + idThis + '._' + col).checked === true) {
+        select_field.push('`' + idThis + '`.`' + col + '`');
+        fromArray.push(idThis);
     } else {
         for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] === ('`' + id_this + '`.`' + col + '`')) {
+            if (select_field[i] === ('`' + idThis + '`.`' + col + '`')) {
                 select_field.splice(i, 1);
                 break;
             }
         }
-        for (k = 0; k < from_array.length; k++) {
-            if (from_array[k] === id_this) {
-                from_array.splice(k, 1);
+        for (k = 0; k < fromArray.length; k++) {
+            if (fromArray[k] === idThis) {
+                fromArray.splice(k, 1);
                 break;
             }
         }
@@ -1836,7 +1848,7 @@ DesignerMove.storeColumn = function (id_this, owner, col) {
  */
 DesignerMove.addObject = function () {
     var p;
-    var where_obj;
+    var whereObj;
     var rel = document.getElementById('rel_opt');
     var sum = 0;
     var init = history_array.length;
@@ -1846,23 +1858,23 @@ DesignerMove.addObject = function () {
             return;
         }
         p = document.getElementById('Query');
-        where_obj = new where(rel.value, p.value);// make where object
-        history_array.push(new history_obj(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Where'));
+        whereObj = new where(rel.value, p.value);// make where object
+        history_array.push(new history_obj(colName, whereObj, tabName, h_tabs[downer + '.' + tabName], 'Where'));
         sum = sum + 1;
     }
     if (document.getElementById('new_name').value !== '') {
-        var rename_obj = new rename(document.getElementById('new_name').value);// make Rename object
-        history_array.push(new history_obj(col_name, rename_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Rename'));
+        var renameObj = new rename(document.getElementById('new_name').value);// make Rename object
+        history_array.push(new history_obj(colName, renameObj, tabName, h_tabs[downer + '.' + tabName], 'Rename'));
         sum = sum + 1;
     }
     if (document.getElementById('operator').value !== '---') {
-        var aggregate_obj = new aggregate(document.getElementById('operator').value);
-        history_array.push(new history_obj(col_name, aggregate_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Aggregate'));
+        var aggregateObj = new aggregate(document.getElementById('operator').value);
+        history_array.push(new history_obj(colName, aggregateObj, tabName, h_tabs[downer + '.' + tabName], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        history_array.push(new history_obj(col_name, 'GroupBy', tab_name, h_tabs[downer + '.' + tab_name], 'GroupBy'));
+        history_array.push(new history_obj(colName, 'GroupBy', tabName, h_tabs[downer + '.' + tabName], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
@@ -1870,18 +1882,18 @@ DesignerMove.addObject = function () {
         if (document.getElementById('having').value === '') {
             return;
         }
-        where_obj = new having(
+        whereObj = new having(
             document.getElementById('h_rel_opt').value,
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
-        history_array.push(new history_obj(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Having'));
+        history_array.push(new history_obj(colName, whereObj, tabName, h_tabs[downer + '.' + tabName], 'Having'));
         sum = sum + 1;
         // make having
     }
     if (document.getElementById('orderby').value !== '---') {
-        var oderby_obj = new orderby(document.getElementById('orderby').value);
-        history_array.push(new history_obj(col_name, oderby_obj, tab_name, h_tabs[downer + '.' + tab_name], 'OrderBy'));
+        var orderByObj = new orderby(document.getElementById('orderby').value);
+        history_array.push(new history_obj(colName, orderByObj, tabName, h_tabs[downer + '.' + tabName], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }

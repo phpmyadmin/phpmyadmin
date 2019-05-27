@@ -147,9 +147,9 @@ function and_or (index) {
 **/
 
 function history_delete (index) {
-    for (var k = 0; k < from_array.length; k++) {
-        if (from_array[k] === history_array[index].get_tab()) {
-            from_array.splice(k, 1);
+    for (var k = 0; k < fromArray.length; k++) {
+        if (fromArray[k] === history_array[index].get_tab()) {
+            fromArray.splice(k, 1);
             break;
         }
     }
@@ -638,7 +638,7 @@ function query_from () {
     var quer = '';
     var parts = [];
     var t_array = [];
-    t_array = from_array;
+    t_array = fromArray;
     var K = 0;
     var k;
     var key;
@@ -650,10 +650,10 @@ function query_from () {
     var constraints_added = [];
 
     for (i = 0; i < history_array.length; i++) {
-        from_array.push(history_array[i].get_tab());
+        fromArray.push(history_array[i].get_tab());
     }
-    from_array = unique(from_array);
-    tab_left = from_array;
+    fromArray = unique(fromArray);
+    tab_left = fromArray;
     temp = tab_left.shift();
     quer = '`' + temp + '`';
     tab_used.push(temp);
@@ -727,7 +727,7 @@ function query_from () {
         quer += ' , `' + tab_left[k] + '`';
     }
     query = quer + query;
-    from_array = t_array;
+    fromArray = t_array;
     return query;
 }
 
