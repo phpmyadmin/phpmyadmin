@@ -4,27 +4,27 @@ DesignerPage.showTablesInLandingPage = function (db) {
     DesignerPage.loadFirstPage(db, function (page) {
         if (page) {
             DesignerPage.loadHtmlForPage(page.pg_nr);
-            selected_page = page.pg_nr;
+            selectedPage = page.pg_nr;
         } else {
             DesignerPage.showNewPageTables(true);
         }
     });
 };
 
-DesignerPage.saveToNewPage = function (db, page_name, table_positions, callback) {
-    DesignerPage.createNewPage(db, page_name, function (page) {
+DesignerPage.saveToNewPage = function (db, pageName, tablePositions, callback) {
+    DesignerPage.createNewPage(db, pageName, function (page) {
         if (page) {
-            var tbl_cords = [];
+            var tblCords = [];
             var saveCallback = function (id) {
-                tbl_cords.push(id);
-                if (table_positions.length === tbl_cords.length) {
-                    page.tbl_cords = tbl_cords;
+                tblCords.push(id);
+                if (tablePositions.length === tblCords.length) {
+                    page.tbl_cords = tblCords;
                     DesignerOfflineDB.addObject('pdf_pages', page);
                 }
             };
-            for (var pos = 0; pos < table_positions.length; pos++) {
-                table_positions[pos].pdf_pg_nr = page.pg_nr;
-                DesignerPage.saveTablePositions(table_positions[pos], saveCallback);
+            for (var pos = 0; pos < tablePositions.length; pos++) {
+                tablePositions[pos].pdf_pg_nr = page.pg_nr;
+                DesignerPage.saveTablePositions(tablePositions[pos], saveCallback);
             }
             if (typeof callback !== 'undefined') {
                 callback(page);
@@ -33,20 +33,20 @@ DesignerPage.saveToNewPage = function (db, page_name, table_positions, callback)
     });
 };
 
-DesignerPage.saveToSelectedPage = function (db, page_id, page_name, table_positions, callback) {
-    DesignerPage.deletePage(page_id);
-    DesignerPage.saveToNewPage(db, page_name, table_positions, function (page) {
+DesignerPage.saveToSelectedPage = function (db, pageId, pageName, tablePositions, callback) {
+    DesignerPage.deletePage(pageId);
+    DesignerPage.saveToNewPage(db, pageName, tablePositions, function (page) {
         if (typeof callback !== 'undefined') {
             callback(page);
         }
-        selected_page = page.pg_nr;
+        selectedPage = page.pg_nr;
     });
 };
 
-DesignerPage.createNewPage = function (db, page_name, callback) {
-    var newPage = new PDFPage(db, page_name);
-    DesignerOfflineDB.addObject('pdf_pages', newPage, function (pg_nr) {
-        newPage.pg_nr = pg_nr;
+DesignerPage.createNewPage = function (db, pageName, callback) {
+    var newPage = new PDFPage(db, pageName);
+    DesignerOfflineDB.addObject('pdf_pages', newPage, function (pgNr) {
+        newPage.pg_nr = pgNr;
         if (typeof callback !== 'undefined') {
             callback(newPage);
         }
@@ -73,13 +73,13 @@ DesignerPage.createPageList = function (db, callback) {
     });
 };
 
-DesignerPage.deletePage = function (page_id, callback) {
-    DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
+DesignerPage.deletePage = function (pageId, callback) {
+    DesignerOfflineDB.loadObject('pdf_pages', pageId, function (page) {
         if (page) {
             for (var i = 0; i < page.tbl_cords.length; i++) {
                 DesignerOfflineDB.deleteObject('table_coords', page.tbl_cords[i]);
             }
-            DesignerOfflineDB.deleteObject('pdf_pages', page_id, callback);
+            DesignerOfflineDB.deleteObject('pdf_pages', pageId, callback);
         }
     });
 };
@@ -105,10 +105,10 @@ DesignerPage.loadFirstPage = function (db, callback) {
 };
 
 DesignerPage.showNewPageTables = function (check) {
-    var all_tables = $('#id_scroll_tab').find('td input:checkbox');
-    all_tables.prop('checked', check);
-    for (var tab = 0; tab < all_tables.length; tab++) {
-        var input = all_tables[tab];
+    var allTables = $('#id_scroll_tab').find('td input:checkbox');
+    allTables.prop('checked', check);
+    for (var tab = 0; tab < allTables.length; tab++) {
+        var input = allTables[tab];
         if (input.value) {
             var element = document.getElementById(input.value);
             element.style.top = DesignerPage.getRandom(550, 20) + 'px';
@@ -116,40 +116,40 @@ DesignerPage.showNewPageTables = function (check) {
             DesignerMove.visibleTab(input, input.value);
         }
     }
-    selected_page = -1;
+    selectedPage = -1;
     $('#page_name').text(Messages.strUntitled);
     DesignerMove.markUnsaved();
 };
 
-DesignerPage.loadHtmlForPage = function (page_id) {
+DesignerPage.loadHtmlForPage = function (pageId) {
     DesignerPage.showNewPageTables(false);
-    DesignerPage.loadPageObjects(page_id, function (page, tbl_cords) {
+    DesignerPage.loadPageObjects(pageId, function (page, tblCords) {
         $('#name-panel').find('#page_name').text(page.page_descr);
         DesignerMove.markSaved();
-        for (var t = 0; t < tbl_cords.length; t++) {
-            var tb_id = db + '.' + tbl_cords[t].table_name;
-            var table = document.getElementById(tb_id);
-            table.style.top = tbl_cords[t].y + 'px';
-            table.style.left = tbl_cords[t].x + 'px';
+        for (var t = 0; t < tblCords.length; t++) {
+            var tbId = db + '.' + tblCords[t].table_name;
+            var table = document.getElementById(tbId);
+            table.style.top = tblCords[t].y + 'px';
+            table.style.left = tblCords[t].x + 'px';
 
-            var checkbox = document.getElementById('check_vis_' + tb_id);
+            var checkbox = document.getElementById('check_vis_' + tbId);
             checkbox.checked = true;
             DesignerMove.visibleTab(checkbox, checkbox.value);
         }
-        selected_page = page.pg_nr;
+        selectedPage = page.pg_nr;
     });
 };
 
-DesignerPage.loadPageObjects = function (page_id, callback) {
-    DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
-        var tbl_cords = [];
+DesignerPage.loadPageObjects = function (pageId, callback) {
+    DesignerOfflineDB.loadObject('pdf_pages', pageId, function (page) {
+        var tblCords = [];
         var count = page.tbl_cords.length;
         for (var i = 0; i < count; i++) {
-            DesignerOfflineDB.loadObject('table_coords', page.tbl_cords[i], function (tbl_cord) {
-                tbl_cords.push(tbl_cord);
-                if (tbl_cords.length === count) {
+            DesignerOfflineDB.loadObject('table_coords', page.tbl_cords[i], function (tblCord) {
+                tblCords.push(tblCord);
+                if (tblCords.length === count) {
                     if (typeof callback !== 'undefined') {
-                        callback(page, tbl_cords);
+                        callback(page, tblCords);
                     }
                 }
             });

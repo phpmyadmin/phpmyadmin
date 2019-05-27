@@ -268,7 +268,7 @@ DesignerMove.main = function () {
 DesignerMove.resizeOsnTab = function () {
     var maxX = 0;
     var maxY = 0;
-    for (var key in j_tabs) {
+    for (var key in jTabs) {
         var kX = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
         var kY = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
         maxX = maxX < kX ? kX : maxX;
@@ -635,7 +635,7 @@ DesignerMove.new = function () {
 // ------------------------------ SAVE ------------------------------------------
 // (del?) no for pdf
 DesignerMove.save = function (url) {
-    for (var key in j_tabs) {
+    for (var key in jTabs) {
         document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
         document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
         document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
@@ -646,10 +646,10 @@ DesignerMove.save = function (url) {
 };
 
 DesignerMove.getUrlPos = function (forceString) {
-    if (designer_tables_enabled || forceString) {
+    if (designerTablesEnabled || forceString) {
         var poststr = '';
         var argsep = CommonParams.get('arg_separator');
-        for (var key in j_tabs) {
+        for (var key in jTabs) {
             poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
             poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
@@ -658,7 +658,7 @@ DesignerMove.getUrlPos = function (forceString) {
         return poststr;
     } else {
         var coords = [];
-        for (var key in j_tabs) {
+        for (var key in jTabs) {
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
@@ -671,10 +671,10 @@ DesignerMove.getUrlPos = function (forceString) {
 };
 
 DesignerMove.save2 = function (callback) {
-    if (designer_tables_enabled) {
+    if (designerTablesEnabled) {
         var argsep = CommonParams.get('arg_separator');
         var poststr = argsep + 'operation=savePage' + argsep + 'save_page=same' + argsep + 'ajax_request=true';
-        poststr += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'selected_page=' + selected_page;
+        poststr += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'selected_page=' + selectedPage;
         poststr += DesignerMove.getUrlPos();
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
@@ -692,7 +692,7 @@ DesignerMove.save2 = function (callback) {
         });
     } else {
         var name = $('#page_name').html().trim();
-        DesignerPage.saveToSelectedPage(db, selected_page, name, DesignerMove.getUrlPos(), function (page) {
+        DesignerPage.saveToSelectedPage(db, selectedPage, name, DesignerMove.getUrlPos(), function (page) {
             DesignerMove.markSaved();
             if (typeof callback !== 'undefined') {
                 callback();
@@ -710,7 +710,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback) {
     }
     $('#page_save_dialog').dialog('close');
 
-    if (designer_tables_enabled) {
+    if (designerTablesEnabled) {
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
@@ -720,7 +720,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback) {
                 Functions.ajaxRemoveMessage($msgbox);
                 DesignerMove.markSaved();
                 if (data.id) {
-                    selected_page = data.id;
+                    selectedPage = data.id;
                 }
                 $('#page_name').text(name);
                 if (typeof callback !== 'undefined') {
@@ -732,7 +732,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback) {
         DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
             DesignerMove.markSaved();
             if (page.pg_nr) {
-                selected_page = page.pg_nr;
+                selectedPage = page.pg_nr;
             }
             $('#page_name').text(page.page_descr);
             if (typeof callback !== 'undefined') {
@@ -743,7 +743,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback) {
 };
 
 DesignerMove.save3 = function (callback) {
-    if (parseInt(selected_page) !== -1) {
+    if (parseInt(selectedPage) !== -1) {
         DesignerMove.save2(callback);
     } else {
         var buttonOptions = {};
@@ -811,7 +811,7 @@ DesignerMove.editPages = function () {
             } else {
                 Functions.ajaxRemoveMessage($msgbox);
 
-                if (! designer_tables_enabled) {
+                if (! designerTablesEnabled) {
                     DesignerPage.createPageList(db, function (options) {
                         $('#selected_page').append(options);
                     });
@@ -845,10 +845,10 @@ DesignerMove.deletePages = function () {
         }
 
         var $messageBox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        var deletingCurrentPage = selected === selected_page;
+        var deletingCurrentPage = selected === selectedPage;
         Functions.prepareForAjaxRequest($form);
 
-        if (designer_tables_enabled) {
+        if (designerTablesEnabled) {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (data.success === false) {
                     Functions.ajaxShowMessage(data.error, false);
@@ -894,7 +894,7 @@ DesignerMove.deletePages = function () {
         } else {
             Functions.ajaxRemoveMessage($msgbox);
 
-            if (! designer_tables_enabled) {
+            if (! designerTablesEnabled) {
                 DesignerPage.createPageList(db, function (options) {
                     $('#selected_page').append(options);
                 });
@@ -941,7 +941,7 @@ DesignerMove.saveAs = function () {
         }
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        if (designer_tables_enabled) {
+        if (designerTablesEnabled) {
             Functions.prepareForAjaxRequest($form);
             $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
                 if (data.success === false) {
@@ -950,7 +950,7 @@ DesignerMove.saveAs = function () {
                     Functions.ajaxRemoveMessage($msgbox);
                     DesignerMove.markSaved();
                     if (data.id) {
-                        selected_page = data.id;
+                        selectedPage = data.id;
                     }
                     $('#page_name').text(name);
                 }
@@ -962,7 +962,7 @@ DesignerMove.saveAs = function () {
                     Functions.ajaxRemoveMessage($msgbox);
                     DesignerMove.markSaved();
                     if (page.pg_nr) {
-                        selected_page = page.pg_nr;
+                        selectedPage = page.pg_nr;
                     }
                     $('#page_name').text(page.page_descr);
                 });
@@ -971,7 +971,7 @@ DesignerMove.saveAs = function () {
                     Functions.ajaxRemoveMessage($msgbox);
                     DesignerMove.markSaved();
                     if (page.pg_nr) {
-                        selected_page = page.pg_nr;
+                        selectedPage = page.pg_nr;
                     }
                     $('#page_name').text(page.page_descr);
                 });
@@ -996,7 +996,7 @@ DesignerMove.saveAs = function () {
         } else {
             Functions.ajaxRemoveMessage($msgbox);
 
-            if (! designer_tables_enabled) {
+            if (! designerTablesEnabled) {
                 DesignerPage.createPageList(db, function (options) {
                     $('#selected_page').append(options);
                 });
@@ -1015,15 +1015,15 @@ DesignerMove.saveAs = function () {
                     }
                 });
             // select current page by default
-            if (selected_page !== '-1') {
-                $('select[name="selected_page"]').val(selected_page);
+            if (selectedPage !== '-1') {
+                $('select[name="selected_page"]').val(selectedPage);
             }
         }
     }); // end $.get()
 };
 
 DesignerMove.promptToSaveCurrentPage = function (callback) {
-    if (change === 1 || selected_page === '-1') {
+    if (change === 1 || selectedPage === '-1') {
         var buttonOptions = {};
         buttonOptions[Messages.strYes] = function () {
             $(this).dialog('close');
@@ -1071,7 +1071,7 @@ DesignerMove.exportPages = function () {
         'server': server,
         'db': db,
         'dialog': 'export',
-        'selected_page': selected_page
+        'selected_page': selectedPage
     }, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
@@ -1079,7 +1079,7 @@ DesignerMove.exportPages = function () {
             Functions.ajaxRemoveMessage($msgbox);
 
             var $form = $(data.message);
-            if (!designer_tables_enabled) {
+            if (!designerTablesEnabled) {
                 $form.append('<input type="hidden" name="offline_export" value="true">');
             }
             $.each(DesignerMove.getUrlPos(true).substring(1).split(argsep), function () {
@@ -1113,7 +1113,7 @@ DesignerMove.exportPages = function () {
 };
 
 DesignerMove.loadPage = function (page) {
-    if (designer_tables_enabled) {
+    if (designerTablesEnabled) {
         var paramPage = '';
         var argsep = CommonParams.get('arg_separator');
         if (page !== null) {
@@ -1211,7 +1211,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
                 alert(Messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }// PK
-            if (j_tabs[db + '.' + T] !== 1) {
+            if (jTabs[db + '.' + T] !== 1) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             clickField = 1;
@@ -1219,7 +1219,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
             document.getElementById('designer_hint').innerHTML = Messages.strSelectForeignKey;
         } else {
             DesignerMove.startRelation(); // hidden hint...
-            if (j_tabs[db + '.' + T] !== 1 || !pk) {
+            if (jTabs[db + '.' + T] !== 1 || !pk) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             var left = globX - (document.getElementById('layer_new_relation').offsetWidth >> 1);
@@ -1233,16 +1233,16 @@ DesignerMove.clickField = function (db, T, f, pk) {
 
     if (onDisplayField) {
         // if is display field
-        if (display_field[T] === f) {
+        if (displayField[T] === f) {
             oldClass = 'tab_field';
-            delete display_field[T];
+            delete displayField[T];
         } else {
             oldClass = 'tab_field_3';
-            if (display_field[T]) {
-                document.getElementById('id_tr_' + T + '.' + display_field[T]).className = 'tab_field';
-                delete display_field[T];
+            if (displayField[T]) {
+                document.getElementById('id_tr_' + T + '.' + displayField[T]).className = 'tab_field';
+                delete displayField[T];
             }
-            display_field[T] = f;
+            displayField[T] = f;
         }
         onDisplayField = 0;
         document.getElementById('designer_hint').innerHTML = '';
@@ -1283,7 +1283,7 @@ DesignerMove.newRelation = function () {
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
-            DesignerMove.loadPage(selected_page);
+            DesignerMove.loadPage(selectedPage);
         }
     }); // end $.post()
 };
@@ -1307,7 +1307,7 @@ DesignerMove.smallTabAll = function (idThis) {
     var valueSent = '';
 
     if (icon.alt === 'v') {
-        for (key in j_tabs) {
+        for (key in jTabs) {
             if (document.getElementById('id_hide_tbody_' + key).innerHTML === 'v') {
                 DesignerMove.smallTab(key, 0);
             }
@@ -1316,7 +1316,7 @@ DesignerMove.smallTabAll = function (idThis) {
         icon.src = icon.dataset.right;
         valueSent = 'v';
     } else {
-        for (key in j_tabs) {
+        for (key in jTabs) {
             if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
                 DesignerMove.smallTab(key, 0);
             }
@@ -1333,7 +1333,7 @@ DesignerMove.smallTabAll = function (idThis) {
 
 // invert max/min all tables
 DesignerMove.smallTabInvert = function () {
-    for (var key in j_tabs) {
+    for (var key in jTabs) {
         DesignerMove.smallTab(key, 0);
     }
     DesignerMove.reload();
@@ -1348,7 +1348,7 @@ DesignerMove.relationLinesInvert = function () {
 };
 
 DesignerMove.smallTabRefresh = function () {
-    for (var key in j_tabs) {
+    for (var key in jTabs) {
         if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
             DesignerMove.smallTab(key, 0);
         }
@@ -1515,7 +1515,7 @@ DesignerMove.updRelation = function () {
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
-            DesignerMove.loadPage(selected_page);
+            DesignerMove.loadPage(selectedPage);
         }
     }); // end $.post()
 };
@@ -1781,13 +1781,13 @@ DesignerMove.selectAll = function (idThis, owner) {
         }
     }
     if (document.getElementById('select_all_' + idThis).checked === true) {
-        select_field.push('`' + idThis.substring(owner.length + 1) + '`.*');
+        selectField.push('`' + idThis.substring(owner.length + 1) + '`.*');
         tab = idThis.split('.');
         fromArray.push(tab[1]);
     } else {
-        for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] === ('`' + idThis.substring(owner.length + 1) + '`.*')) {
-                select_field.splice(i, 1);
+        for (i = 0; i < selectField.length; i++) {
+            if (selectField[i] === ('`' + idThis.substring(owner.length + 1) + '`.*')) {
+                selectField.splice(i, 1);
             }
         }
         for (k = 0; k < fromArray.length; k++) {
@@ -1816,19 +1816,19 @@ DesignerMove.tableOnOver = function (idThis, val, buil) {
 };
 
 /**
- * This function stores selected column information in select_field[]
+ * This function stores selected column information in selectField[]
  * In case column is checked it add else it deletes
  */
 DesignerMove.storeColumn = function (idThis, owner, col) {
     var i;
     var k;
     if (document.getElementById('select_' + owner + '.' + idThis + '._' + col).checked === true) {
-        select_field.push('`' + idThis + '`.`' + col + '`');
+        selectField.push('`' + idThis + '`.`' + col + '`');
         fromArray.push(idThis);
     } else {
-        for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] === ('`' + idThis + '`.`' + col + '`')) {
-                select_field.splice(i, 1);
+        for (i = 0; i < selectField.length; i++) {
+            if (selectField[i] === ('`' + idThis + '`.`' + col + '`')) {
+                selectField.splice(i, 1);
                 break;
             }
         }
@@ -1842,16 +1842,16 @@ DesignerMove.storeColumn = function (idThis, owner, col) {
 };
 
 /**
- * This function builds object and adds them to history_array
+ * This function builds object and adds them to historyArray
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
- * then a new history object is made and finally all these history objects are added to history_array[]
+ * then a new history object is made and finally all these history objects are added to historyArray[]
  */
 DesignerMove.addObject = function () {
     var p;
     var whereObj;
     var rel = document.getElementById('rel_opt');
     var sum = 0;
-    var init = history_array.length;
+    var init = historyArray.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
             Functions.ajaxShowMessage(Functions.sprintf(Messages.strQueryEmpty));
@@ -1859,22 +1859,22 @@ DesignerMove.addObject = function () {
         }
         p = document.getElementById('Query');
         whereObj = new where(rel.value, p.value);// make where object
-        history_array.push(new history_obj(colName, whereObj, tabName, h_tabs[downer + '.' + tabName], 'Where'));
+        historyArray.push(new history_obj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Where'));
         sum = sum + 1;
     }
     if (document.getElementById('new_name').value !== '') {
         var renameObj = new rename(document.getElementById('new_name').value);// make Rename object
-        history_array.push(new history_obj(colName, renameObj, tabName, h_tabs[downer + '.' + tabName], 'Rename'));
+        historyArray.push(new history_obj(colName, renameObj, tabName, hTabs[downer + '.' + tabName], 'Rename'));
         sum = sum + 1;
     }
     if (document.getElementById('operator').value !== '---') {
         var aggregateObj = new aggregate(document.getElementById('operator').value);
-        history_array.push(new history_obj(colName, aggregateObj, tabName, h_tabs[downer + '.' + tabName], 'Aggregate'));
+        historyArray.push(new history_obj(colName, aggregateObj, tabName, hTabs[downer + '.' + tabName], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        history_array.push(new history_obj(colName, 'GroupBy', tabName, h_tabs[downer + '.' + tabName], 'GroupBy'));
+        historyArray.push(new history_obj(colName, 'GroupBy', tabName, hTabs[downer + '.' + tabName], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
@@ -1887,20 +1887,20 @@ DesignerMove.addObject = function () {
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
-        history_array.push(new history_obj(colName, whereObj, tabName, h_tabs[downer + '.' + tabName], 'Having'));
+        historyArray.push(new history_obj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Having'));
         sum = sum + 1;
         // make having
     }
     if (document.getElementById('orderby').value !== '---') {
         var orderByObj = new orderby(document.getElementById('orderby').value);
-        history_array.push(new history_obj(colName, orderByObj, tabName, h_tabs[downer + '.' + tabName], 'OrderBy'));
+        historyArray.push(new history_obj(colName, orderByObj, tabName, hTabs[downer + '.' + tabName], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }
     Functions.ajaxShowMessage(Functions.sprintf(Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
-    existingDiv.innerHTML = display(init, history_array.length);
+    existingDiv.innerHTML = display(init, historyArray.length);
     DesignerMove.closeOption();
     $('#ab').accordion('refresh');
 };

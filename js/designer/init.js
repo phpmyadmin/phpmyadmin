@@ -3,14 +3,14 @@
  * Initialises the data required to run Designer, then fires it up.
  */
 
-var j_tabs;
-var h_tabs;
+var jTabs;
+var hTabs;
 var contr;
-var display_field;
+var displayField;
 var server;
 var db;
-var selected_page;
-var designer_tables_enabled;
+var selectedPage;
+var designerTablesEnabled;
 
 AJAX.registerTeardown('designer/init.js', function () {
     $('.trigger').off('click');
@@ -24,19 +24,19 @@ AJAX.registerOnload('designer/init.js', function () {
         return false;
     });
 
-    j_tabs             = designer_config.scriptTables.j_tabs;
-    h_tabs             = designer_config.scriptTables.h_tabs;
-    contr              = designer_config.scriptContr;
-    display_field      = designer_config.scriptDisplayField;
+    jTabs = designerConfig.scriptTables.j_tabs;
+    hTabs = designerConfig.scriptTables.h_tabs;
+    contr = designerConfig.scriptContr;
+    displayField = designerConfig.scriptDisplayField;
 
-    server             = designer_config.server;
-    db                 = designer_config.db;
-    selected_page      = designer_config.displayPage;
-    designer_tables_enabled = designer_config.tablesEnabled;
+    server = designerConfig.server;
+    db = designerConfig.db;
+    selectedPage = designerConfig.displayPage;
+    designerTablesEnabled = designerConfig.tablesEnabled;
 
     DesignerMove.main();
 
-    if (! designer_tables_enabled) {
+    if (! designerTablesEnabled) {
         DesignerOfflineDB.open(function (success) {
             if (success) {
                 DesignerPage.showTablesInLandingPage(db);
