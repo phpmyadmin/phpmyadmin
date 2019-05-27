@@ -3928,7 +3928,7 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
 };
 
 Functions.showIndexEditDialog = function ($outer) {
-    checkIndexType();
+    Indexes.checkIndexType();
     Functions.checkIndexName('index_frm');
     var $indexColumns = $('#index_columns');
     $indexColumns.find('td').each(function () {
