@@ -13,31 +13,31 @@ var Indexes = {};
 /**
  * Returns the array of indexes based on the index choice
  *
- * @param index_choice index choice
+ * @param indexChoice index choice
  */
-Indexes.getIndexArray = function (index_choice) {
-    var source_array = null;
+Indexes.getIndexArray = function (indexChoice) {
+    var sourceArray = null;
 
-    switch (index_choice.toLowerCase()) {
+    switch (indexChoice.toLowerCase()) {
     case 'primary':
-        source_array = primaryIndexes;
+        sourceArray = primaryIndexes;
         break;
     case 'unique':
-        source_array = uniqueIndexes;
+        sourceArray = uniqueIndexes;
         break;
     case 'index':
-        source_array = indexes;
+        sourceArray = indexes;
         break;
     case 'fulltext':
-        source_array = fulltextIndexes;
+        sourceArray = fulltextIndexes;
         break;
     case 'spatial':
-        source_array = spatialIndexes;
+        sourceArray = spatialIndexes;
         break;
     default:
         return null;
     }
-    return source_array;
+    return sourceArray;
 };
 
 /**
@@ -48,32 +48,32 @@ Indexes.checkIndexType = function () {
     /**
      * @var Object Dropdown to select the index choice.
      */
-    var $select_index_choice = $('#select_index_choice');
+    var $selectIndexChoice = $('#select_index_choice');
     /**
      * @var Object Dropdown to select the index type.
      */
-    var $select_index_type = $('#select_index_type');
+    var $selectIndexType = $('#select_index_type');
     /**
      * @var Object Table header for the size column.
      */
-    var $size_header = $('#index_columns').find('thead tr th:nth-child(2)');
+    var $sizeHeader = $('#index_columns').find('thead tr th:nth-child(2)');
     /**
      * @var Object Inputs to specify the columns for the index.
      */
-    var $column_inputs = $('select[name="index[columns][names][]"]');
+    var $columnInputs = $('select[name="index[columns][names][]"]');
     /**
      * @var Object Inputs to specify sizes for columns of the index.
      */
-    var $size_inputs = $('input[name="index[columns][sub_parts][]"]');
+    var $sizeInputs = $('input[name="index[columns][sub_parts][]"]');
     /**
      * @var Object Footer containg the controllers to add more columns
      */
-    var $add_more = $('#index_frm').find('.add_more');
+    var $addMore = $('#index_frm').find('.add_more');
 
-    if ($select_index_choice.val() === 'SPATIAL') {
+    if ($selectIndexChoice.val() === 'SPATIAL') {
         // Disable and hide the size column
-        $size_header.hide();
-        $size_inputs.each(function () {
+        $sizeHeader.hide();
+        $sizeInputs.each(function () {
             $(this)
                 .prop('disabled', true)
                 .parent('td').hide();
@@ -81,10 +81,10 @@ Indexes.checkIndexType = function () {
 
         // Disable and hide the columns of the index other than the first one
         var initial = true;
-        $column_inputs.each(function () {
-            $column_input = $(this);
+        $columnInputs.each(function () {
+            var $columnInput = $(this);
             if (! initial) {
-                $column_input
+                $columnInput
                     .prop('disabled', true)
                     .parent('td').hide();
             } else {
@@ -93,32 +93,32 @@ Indexes.checkIndexType = function () {
         });
 
         // Hide controllers to add more columns
-        $add_more.hide();
+        $addMore.hide();
     } else {
         // Enable and show the size column
-        $size_header.show();
-        $size_inputs.each(function () {
+        $sizeHeader.show();
+        $sizeInputs.each(function () {
             $(this)
                 .prop('disabled', false)
                 .parent('td').show();
         });
 
         // Enable and show the columns of the index
-        $column_inputs.each(function () {
+        $columnInputs.each(function () {
             $(this)
                 .prop('disabled', false)
                 .parent('td').show();
         });
 
         // Show controllers to add more columns
-        $add_more.show();
+        $addMore.show();
     }
 
-    if ($select_index_choice.val() === 'SPATIAL' ||
-            $select_index_choice.val() === 'FULLTEXT') {
-        $select_index_type.val('').prop('disabled', true);
+    if ($selectIndexChoice.val() === 'SPATIAL' ||
+            $selectIndexChoice.val() === 'FULLTEXT') {
+        $selectIndexType.val('').prop('disabled', true);
     } else {
-        $select_index_type.prop('disabled', false);
+        $selectIndexType.prop('disabled', false);
     }
 };
 
@@ -130,11 +130,11 @@ Indexes.checkIndexType = function () {
  *
  * @return void
  */
-Indexes.setIndexFormParameters = function (source_array, index_choice) {
-    if (index_choice === 'index') {
-        $('input[name="indexes"]').val(JSON.stringify(source_array));
+Indexes.setIndexFormParameters = function (sourceArray, indexChoice) {
+    if (indexChoice === 'index') {
+        $('input[name="indexes"]').val(JSON.stringify(sourceArray));
     } else {
-        $('input[name="' + index_choice + '_indexes"]').val(JSON.stringify(source_array));
+        $('input[name="' + indexChoice + '_indexes"]').val(JSON.stringify(sourceArray));
     }
 };
 
@@ -145,34 +145,34 @@ Indexes.setIndexFormParameters = function (source_array, index_choice) {
  *
  * @return void
  */
-Indexes.removeColumnFromIndex = function (col_index) {
+Indexes.removeColumnFromIndex = function (colIndex) {
     // Get previous index details.
-    var previous_index = $('select[name="field_key[' + col_index + ']"]')
+    var previousIndex = $('select[name="field_key[' + colIndex + ']"]')
         .attr('data-index');
-    if (previous_index.length) {
-        previous_index = previous_index.split(',');
-        var source_array = Indexes.getIndexArray(previous_index[0]);
-        if (source_array === null) {
+    if (previousIndex.length) {
+        previousIndex = previousIndex.split(',');
+        var sourceArray = Indexes.getIndexArray(previousIndex[0]);
+        if (sourceArray === null) {
             return;
         }
 
         // Remove column from index array.
-        var source_length = source_array[previous_index[1]].columns.length;
-        for (var i = 0; i < source_length; i++) {
-            if (source_array[previous_index[1]].columns[i].col_index === col_index) {
-                source_array[previous_index[1]].columns.splice(i, 1);
+        var sourceLength = sourceArray[previousIndex[1]].columns.length;
+        for (var i = 0; i < sourceLength; i++) {
+            if (sourceArray[previousIndex[1]].columns[i].col_index === colIndex) {
+                sourceArray[previousIndex[1]].columns.splice(i, 1);
             }
         }
 
         // Remove index completely if no columns left.
-        if (source_array[previous_index[1]].columns.length === 0) {
-            source_array.splice(previous_index[1], 1);
+        if (sourceArray[previousIndex[1]].columns.length === 0) {
+            sourceArray.splice(previousIndex[1], 1);
         }
 
         // Update current index details.
-        $('select[name="field_key[' + col_index + ']"]').attr('data-index', '');
+        $('select[name="field_key[' + colIndex + ']"]').attr('data-index', '');
         // Update form index parameters.
-        Indexes.setIndexFormParameters(source_array, previous_index[0].toLowerCase());
+        Indexes.setIndexFormParameters(sourceArray, previousIndex[0].toLowerCase());
     }
 };
 
@@ -186,40 +186,40 @@ Indexes.removeColumnFromIndex = function (col_index) {
  *
  * @return void
  */
-Indexes.addColumnToIndex = function (source_array, array_index, index_choice, col_index) {
-    if (col_index >= 0) {
+Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIndex) {
+    if (colIndex >= 0) {
         // Remove column from other indexes (if any).
-        Indexes.removeColumnFromIndex(col_index);
+        Indexes.removeColumnFromIndex(colIndex);
     }
-    var index_name = $('input[name="index[Key_name]"]').val();
-    var index_comment = $('input[name="index[Index_comment]"]').val();
-    var key_block_size = $('input[name="index[Key_block_size]"]').val();
+    var indexName = $('input[name="index[Key_name]"]').val();
+    var indexComment = $('input[name="index[Index_comment]"]').val();
+    var keyBlockSize = $('input[name="index[Key_block_size]"]').val();
     var parser = $('input[name="index[Parser]"]').val();
-    var index_type = $('select[name="index[Index_type]"]').val();
+    var indexType = $('select[name="index[Index_type]"]').val();
     var columns = [];
     $('#index_columns').find('tbody').find('tr').each(function () {
         // Get columns in particular order.
-        var col_index = $(this).find('select[name="index[columns][names][]"]').val();
+        var colIndex = $(this).find('select[name="index[columns][names][]"]').val();
         var size = $(this).find('input[name="index[columns][sub_parts][]"]').val();
         columns.push({
-            'col_index': col_index,
+            'col_index': colIndex,
             'size': size
         });
     });
 
     // Update or create an index.
-    source_array[array_index] = {
-        'Key_name': index_name,
-        'Index_comment': index_comment,
-        'Index_choice': index_choice.toUpperCase(),
-        'Key_block_size': key_block_size,
+    sourceArray[arrayIndex] = {
+        'Key_name': indexName,
+        'Index_comment': indexComment,
+        'Index_choice': indexChoice.toUpperCase(),
+        'Key_block_size': keyBlockSize,
         'Parser': parser,
-        'Index_type': index_type,
+        'Index_type': indexType,
         'columns': columns
     };
 
     // Display index name (or column list)
-    var displayName = index_name;
+    var displayName = indexName;
     if (displayName === '') {
         var columnNames = [];
         $.each(columns, function () {
@@ -238,12 +238,12 @@ Indexes.addColumnToIndex = function (source_array, array_index, index_choice, co
         $name.html($text);
     });
 
-    if (col_index >= 0) {
+    if (colIndex >= 0) {
         // Update index details on form.
-        $('select[name="field_key[' + col_index + ']"]')
-            .attr('data-index', index_choice + ',' + array_index);
+        $('select[name="field_key[' + colIndex + ']"]')
+            .attr('data-index', indexChoice + ',' + arrayIndex);
     }
-    Indexes.setIndexFormParameters(source_array, index_choice.toLowerCase());
+    Indexes.setIndexFormParameters(sourceArray, indexChoice.toLowerCase());
 };
 
 /**
@@ -254,47 +254,47 @@ Indexes.addColumnToIndex = function (source_array, array_index, index_choice, co
  *
  * @return jQuery Object
  */
-Indexes.getCompositeIndexList = function (source_array, col_index) {
+Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
     // Remove any previous list.
     if ($('#composite_index_list').length) {
         $('#composite_index_list').remove();
     }
 
     // Html list.
-    var $composite_index_list = $(
+    var $compositeIndexList = $(
         '<ul id="composite_index_list">' +
         '<div>' + Messages.strCompositeWith + '</div>' +
         '</ul>'
     );
 
     // Add each column to list available for composite index.
-    var source_length = source_array.length;
-    var already_present = false;
-    for (var i = 0; i < source_length; i++) {
-        var sub_array_len = source_array[i].columns.length;
-        var column_names = [];
-        for (var j = 0; j < sub_array_len; j++) {
-            column_names.push(
-                $('input[name="field_name[' + source_array[i].columns[j].col_index + ']"]').val()
+    var sourceLength = sourceArray.length;
+    var alreadyPresent = false;
+    for (var i = 0; i < sourceLength; i++) {
+        var subArrayLen = sourceArray[i].columns.length;
+        var columnNames = [];
+        for (var j = 0; j < subArrayLen; j++) {
+            columnNames.push(
+                $('input[name="field_name[' + sourceArray[i].columns[j].col_index + ']"]').val()
             );
 
-            if (col_index === source_array[i].columns[j].col_index) {
-                already_present = true;
+            if (colIndex === sourceArray[i].columns[j].col_index) {
+                alreadyPresent = true;
             }
         }
 
-        $composite_index_list.append(
+        $compositeIndexList.append(
             '<li>' +
             '<input type="radio" name="composite_with" ' +
-            (already_present ? 'checked="checked"' : '') +
+            (alreadyPresent ? 'checked="checked"' : '') +
             ' id="composite_index_' + i + '" value="' + i + '">' +
-            '<label for="composite_index_' + i + '">' + column_names.join(', ') +
+            '<label for="composite_index_' + i + '">' + columnNames.join(', ') +
             '</lablel>' +
             '</li>'
         );
     }
 
-    return $composite_index_list;
+    return $compositeIndexList;
 };
 
 /**
@@ -309,43 +309,43 @@ Indexes.getCompositeIndexList = function (source_array, col_index) {
  *
  * @return void
  */
-Indexes.showAddIndexDialog = function (source_array, array_index, target_columns, col_index, index, showDialog) {
-    showDialog = typeof showDialog !== 'undefined' ? showDialog : true;
+Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, colIndex, index, showDialog) {
+    var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
     // Prepare post-data.
     var $table = $('input[name="table"]');
     var table = $table.length > 0 ? $table.val() : '';
-    var post_data = {
-        server: CommonParams.get('server'),
-        db: $('input[name="db"]').val(),
-        table: table,
-        ajax_request: 1,
-        create_edit_table: 1,
-        index: index
+    var postData = {
+        'server': CommonParams.get('server'),
+        'db': $('input[name="db"]').val(),
+        'table': table,
+        'ajax_request': 1,
+        'create_edit_table': 1,
+        'index': index
     };
 
     var columns = {};
-    for (var i = 0; i < target_columns.length; i++) {
-        var column_name = $('input[name="field_name[' + target_columns[i] + ']"]').val();
-        var column_type = $('select[name="field_type[' + target_columns[i] + ']"]').val().toLowerCase();
-        columns[column_name] = [column_type, target_columns[i]];
+    for (var i = 0; i < targetColumns.length; i++) {
+        var columnName = $('input[name="field_name[' + targetColumns[i] + ']"]').val();
+        var columnType = $('select[name="field_type[' + targetColumns[i] + ']"]').val().toLowerCase();
+        columns[columnName] = [columnType, targetColumns[i]];
     }
-    post_data.columns = JSON.stringify(columns);
+    postData.columns = JSON.stringify(columns);
 
-    var button_options = {};
-    button_options[Messages.strGo] = function () {
-        var is_missing_value = false;
+    var buttonOptions = {};
+    buttonOptions[Messages.strGo] = function () {
+        var isMissingValue = false;
         $('select[name="index[columns][names][]"]').each(function () {
             if ($(this).val() === '') {
-                is_missing_value = true;
+                isMissingValue = true;
             }
         });
 
-        if (! is_missing_value) {
+        if (! isMissingValue) {
             Indexes.addColumnToIndex(
-                source_array,
-                array_index,
+                sourceArray,
+                arrayIndex,
                 index.Index_choice,
-                col_index
+                colIndex
             );
         } else {
             Functions.ajaxShowMessage(
@@ -359,28 +359,28 @@ Indexes.showAddIndexDialog = function (source_array, array_index, target_columns
 
         $(this).dialog('close');
     };
-    button_options[Messages.strCancel] = function () {
-        if (col_index >= 0) {
+    buttonOptions[Messages.strCancel] = function () {
+        if (colIndex >= 0) {
             // Handle state on 'Cancel'.
-            var $select_list = $('select[name="field_key[' + col_index + ']"]');
-            if (! $select_list.attr('data-index').length) {
-                $select_list.find('option[value*="none"]').attr('selected', 'selected');
+            var $selectList = $('select[name="field_key[' + colIndex + ']"]');
+            if (! $selectList.attr('data-index').length) {
+                $selectList.find('option[value*="none"]').attr('selected', 'selected');
             } else {
-                var previous_index = $select_list.attr('data-index').split(',');
-                $select_list.find('option[value*="' + previous_index[0].toLowerCase() + '"]')
+                var previousIndex = $selectList.attr('data-index').split(',');
+                $selectList.find('option[value*="' + previousIndex[0].toLowerCase() + '"]')
                     .attr('selected', 'selected');
             }
         }
         $(this).dialog('close');
     };
     var $msgbox = Functions.ajaxShowMessage();
-    $.post('tbl_indexes.php', post_data, function (data) {
+    $.post('tbl_indexes.php', postData, function (data) {
         if (data.success === false) {
             // in the case of an error, show the error message returned.
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
-            if (showDialog) {
+            if (showDialogLocal) {
                 // Show dialog if the request was successful
                 if ($('#addIndex').length > 0) {
                     $('#addIndex').remove();
@@ -408,7 +408,7 @@ Indexes.showAddIndexDialog = function (source_array, array_index, target_columns
                             $(this).find('fieldset.tblFooters').remove();
                         },
                         modal: true,
-                        buttons: button_options,
+                        buttons: buttonOptions,
                         close: function () {
                             $(this).remove();
                         }
@@ -420,19 +420,19 @@ Indexes.showAddIndexDialog = function (source_array, array_index, target_columns
                 $div.css({ 'display' : 'none' });
                 $div.appendTo($('body'));
                 $div.attr({ 'id' : 'addIndex' });
-                var is_missing_value = false;
+                var isMissingValue = false;
                 $('select[name="index[columns][names][]"]').each(function () {
                     if ($(this).val() === '') {
-                        is_missing_value = true;
+                        isMissingValue = true;
                     }
                 });
 
-                if (! is_missing_value) {
+                if (! isMissingValue) {
                     Indexes.addColumnToIndex(
-                        source_array,
-                        array_index,
+                        sourceArray,
+                        arrayIndex,
                         index.Index_choice,
-                        col_index
+                        colIndex
                     );
                 } else {
                     Functions.ajaxShowMessage(
@@ -457,30 +457,30 @@ Indexes.showAddIndexDialog = function (source_array, array_index, target_columns
  *
  * @return void
  */
-Indexes.indexTypeSelectionDialog = function (source_array, index_choice, col_index) {
-    var $single_column_radio = $('<input type="radio" id="single_column" name="index_choice"' +
+Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex) {
+    var $singleColumnRadio = $('<input type="radio" id="single_column" name="index_choice"' +
         ' checked="checked">' +
         '<label for="single_column">' + Messages.strCreateSingleColumnIndex + '</label>');
-    var $composite_index_radio = $('<input type="radio" id="composite_index"' +
+    var $compositeIndexRadio = $('<input type="radio" id="composite_index"' +
         ' name="index_choice">' +
         '<label for="composite_index">' + Messages.strCreateCompositeIndex + '</label>');
-    var $dialog_content = $('<fieldset id="advance_index_creator"></fieldset>');
-    $dialog_content.append('<legend>' + index_choice.toUpperCase() + '</legend>');
+    var $dialogContent = $('<fieldset id="advance_index_creator"></fieldset>');
+    $dialogContent.append('<legend>' + indexChoice.toUpperCase() + '</legend>');
 
 
     // For UNIQUE/INDEX type, show choice for single-column and composite index.
-    $dialog_content.append($single_column_radio);
-    $dialog_content.append($composite_index_radio);
+    $dialogContent.append($singleColumnRadio);
+    $dialogContent.append($compositeIndexRadio);
 
-    var button_options = {};
+    var buttonOptions = {};
     // 'OK' operation.
-    button_options[Messages.strGo] = function () {
+    buttonOptions[Messages.strGo] = function () {
         if ($('#single_column').is(':checked')) {
             var index = {
-                'Key_name': (index_choice === 'primary' ? 'PRIMARY' : ''),
-                'Index_choice': index_choice.toUpperCase()
+                'Key_name': (indexChoice === 'primary' ? 'PRIMARY' : ''),
+                'Index_choice': indexChoice.toUpperCase()
             };
-            Indexes.showAddIndexDialog(source_array, (source_array.length), [col_index], col_index, index);
+            Indexes.showAddIndexDialog(sourceArray, (sourceArray.length), [colIndex], colIndex, index);
         }
 
         if ($('#composite_index').is(':checked')) {
@@ -496,43 +496,43 @@ Indexes.indexTypeSelectionDialog = function (source_array, index_choice, col_ind
                 return false;
             }
 
-            var array_index = $('input[name="composite_with"]:checked').val();
-            var source_length = source_array[array_index].columns.length;
-            var target_columns = [];
-            for (var i = 0; i < source_length; i++) {
-                target_columns.push(source_array[array_index].columns[i].col_index);
+            var arrayIndex = $('input[name="composite_with"]:checked').val();
+            var sourceLength = sourceArray[arrayIndex].columns.length;
+            var targetColumns = [];
+            for (var i = 0; i < sourceLength; i++) {
+                targetColumns.push(sourceArray[arrayIndex].columns[i].col_index);
             }
-            target_columns.push(col_index);
+            targetColumns.push(colIndex);
 
-            Indexes.showAddIndexDialog(source_array, array_index, target_columns, col_index,
-                source_array[array_index]);
+            Indexes.showAddIndexDialog(sourceArray, arrayIndex, targetColumns, colIndex,
+                sourceArray[arrayIndex]);
         }
 
         $(this).remove();
     };
-    button_options[Messages.strCancel] = function () {
+    buttonOptions[Messages.strCancel] = function () {
         // Handle state on 'Cancel'.
-        var $select_list = $('select[name="field_key[' + col_index + ']"]');
-        if (! $select_list.attr('data-index').length) {
-            $select_list.find('option[value*="none"]').attr('selected', 'selected');
+        var $selectList = $('select[name="field_key[' + colIndex + ']"]');
+        if (! $selectList.attr('data-index').length) {
+            $selectList.find('option[value*="none"]').attr('selected', 'selected');
         } else {
-            var previous_index = $select_list.attr('data-index').split(',');
-            $select_list.find('option[value*="' + previous_index[0].toLowerCase() + '"]')
+            var previousIndex = $selectList.attr('data-index').split(',');
+            $selectList.find('option[value*="' + previousIndex[0].toLowerCase() + '"]')
                 .attr('selected', 'selected');
         }
         $(this).remove();
     };
-    var $dialog = $('<div></div>').append($dialog_content).dialog({
+    var $dialog = $('<div></div>').append($dialogContent).dialog({
         minWidth: 525,
         minHeight: 200,
         modal: true,
         title: Messages.strAddIndex,
         resizable: false,
-        buttons: button_options,
+        buttons: buttonOptions,
         open: function () {
             $('#composite_index').on('change', function () {
                 if ($(this).is(':checked')) {
-                    $dialog_content.append(Indexes.getCompositeIndexList(source_array, col_index));
+                    $dialogContent.append(Indexes.getCompositeIndexList(sourceArray, colIndex));
                 }
             });
             $('#single_column').on('change', function () {
@@ -583,9 +583,9 @@ AJAX.registerOnload('indexes.js', function () {
     spatialIndexes = [];
 
     // for table creation form
-    var $engine_selector = $('.create_table_form select[name=tbl_storage_engine]');
-    if ($engine_selector.length) {
-        Functions.hideShowConnection($engine_selector);
+    var $engineSelector = $('.create_table_form select[name=tbl_storage_engine]');
+    if ($engineSelector.length) {
+        Functions.hideShowConnection($engineSelector);
     }
 
     var $form = $('#index_frm');
@@ -621,19 +621,19 @@ AJAX.registerOnload('indexes.js', function () {
         event.preventDefault();
         var $anchor = $(this);
         /**
-         * @var $curr_row    Object containing reference to the current field's row
+         * @var $currRow Object containing reference to the current field's row
          */
-        var $curr_row = $anchor.parents('tr');
+        var $currRow = $anchor.parents('tr');
         /** @var    Number of columns in the key */
         var rows = $anchor.parents('td').attr('rowspan') || 1;
         /** @var    Rows that should be hidden */
-        var $rows_to_hide = $curr_row;
-        for (var i = 1, $last_row = $curr_row.next(); i < rows; i++, $last_row = $last_row.next()) {
-            $rows_to_hide = $rows_to_hide.add($last_row);
+        var $rowsToHide = $currRow;
+        for (var i = 1, $lastRow = $currRow.next(); i < rows; i++, $lastRow = $lastRow.next()) {
+            $rowsToHide = $rowsToHide.add($lastRow);
         }
 
         var question = Functions.escapeHtml(
-            $curr_row.children('td')
+            $currRow.children('td')
                 .children('.drop_primary_key_index_msg')
                 .val()
         );
@@ -644,17 +644,17 @@ AJAX.registerOnload('indexes.js', function () {
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Functions.ajaxRemoveMessage($msg);
-                    var $table_ref = $rows_to_hide.closest('table');
-                    if ($rows_to_hide.length === $table_ref.find('tbody > tr').length) {
+                    var $tableRef = $rowsToHide.closest('table');
+                    if ($rowsToHide.length === $tableRef.find('tbody > tr').length) {
                         // We are about to remove all rows from the table
-                        $table_ref.hide('medium', function () {
+                        $tableRef.hide('medium', function () {
                             $('div.no_indexes_defined').show('medium');
-                            $rows_to_hide.remove();
+                            $rowsToHide.remove();
                         });
-                        $table_ref.siblings('div.notice').hide('medium');
+                        $tableRef.siblings('div.notice').hide('medium');
                     } else {
                         // We are removing some of the rows only
-                        $rows_to_hide.hide('medium', function () {
+                        $rowsToHide.hide('medium', function () {
                             $(this).remove();
                         });
                     }
@@ -716,18 +716,18 @@ AJAX.registerOnload('indexes.js', function () {
      * and column addition.
      */
     $('body').on('change', 'select[name*="field_key"]', function (e, showDialog) {
-        showDialog = typeof showDialog !== 'undefined' ? showDialog : true;
+        var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
         // Index of column on Table edit and create page.
-        var col_index = /\d+/.exec($(this).attr('name'));
-        col_index = col_index[0];
+        var colIndex = /\d+/.exec($(this).attr('name'));
+        colIndex = colIndex[0];
         // Choice of selected index.
-        var index_choice = /[a-z]+/.exec($(this).val());
-        index_choice = index_choice[0];
+        var indexChoice = /[a-z]+/.exec($(this).val());
+        indexChoice = indexChoice[0];
         // Array containing corresponding indexes.
-        var source_array = null;
+        var sourceArray = null;
 
-        if (index_choice === 'none') {
-            Indexes.removeColumnFromIndex(col_index);
+        if (indexChoice === 'none') {
+            Indexes.removeColumnFromIndex(colIndex);
             var id = 'index_name_' + '0' + '_8';
             var $name = $('#' + id);
             if ($name.length === 0) {
@@ -739,31 +739,31 @@ AJAX.registerOnload('indexes.js', function () {
         }
 
         // Select a source array.
-        source_array = Indexes.getIndexArray(index_choice);
-        if (source_array === null) {
+        sourceArray = Indexes.getIndexArray(indexChoice);
+        if (sourceArray === null) {
             return;
         }
 
-        if (source_array.length === 0) {
+        if (sourceArray.length === 0) {
             var index = {
-                'Key_name': (index_choice === 'primary' ? 'PRIMARY' : ''),
-                'Index_choice': index_choice.toUpperCase()
+                'Key_name': (indexChoice === 'primary' ? 'PRIMARY' : ''),
+                'Index_choice': indexChoice.toUpperCase()
             };
-            Indexes.showAddIndexDialog(source_array, 0, [col_index], col_index, index, showDialog);
+            Indexes.showAddIndexDialog(sourceArray, 0, [colIndex], colIndex, index, showDialogLocal);
         } else {
-            if (index_choice === 'primary') {
-                var array_index = 0;
-                var source_length = source_array[array_index].columns.length;
-                var target_columns = [];
-                for (var i = 0; i < source_length; i++) {
-                    target_columns.push(source_array[array_index].columns[i].col_index);
+            if (indexChoice === 'primary') {
+                var arrayIndex = 0;
+                var sourceLength = sourceArray[arrayIndex].columns.length;
+                var targetColumns = [];
+                for (var i = 0; i < sourceLength; i++) {
+                    targetColumns.push(sourceArray[arrayIndex].columns[i].col_index);
                 }
-                target_columns.push(col_index);
-                Indexes.showAddIndexDialog(source_array, array_index, target_columns, col_index,
-                    source_array[array_index], showDialog);
+                targetColumns.push(colIndex);
+                Indexes.showAddIndexDialog(sourceArray, arrayIndex, targetColumns, colIndex,
+                    sourceArray[arrayIndex], showDialogLocal);
             } else {
                 // If there are multiple columns selected for an index, show advanced dialog.
-                Indexes.indexTypeSelectionDialog(source_array, index_choice, col_index);
+                Indexes.indexTypeSelectionDialog(sourceArray, indexChoice, colIndex);
             }
         }
     });
@@ -772,23 +772,23 @@ AJAX.registerOnload('indexes.js', function () {
         e.preventDefault();
 
         // Get index details.
-        var previous_index = $(this).prev('select')
+        var previousIndex = $(this).prev('select')
             .attr('data-index')
             .split(',');
 
-        var index_choice = previous_index[0];
-        var array_index  = previous_index[1];
+        var indexChoice = previousIndex[0];
+        var arrayIndex  = previousIndex[1];
 
-        var source_array = Indexes.getIndexArray(index_choice);
-        if (source_array !== null) {
-            var source_length = source_array[array_index].columns.length;
+        var sourceArray = Indexes.getIndexArray(indexChoice);
+        if (sourceArray !== null) {
+            var sourceLength = sourceArray[arrayIndex].columns.length;
 
-            var target_columns = [];
-            for (var i = 0; i < source_length; i++) {
-                target_columns.push(source_array[array_index].columns[i].col_index);
+            var targetColumns = [];
+            for (var i = 0; i < sourceLength; i++) {
+                targetColumns.push(sourceArray[arrayIndex].columns[i].col_index);
             }
 
-            Indexes.showAddIndexDialog(source_array, array_index, target_columns, -1, source_array[array_index]);
+            Indexes.showAddIndexDialog(sourceArray, arrayIndex, targetColumns, -1, sourceArray[arrayIndex]);
         }
     });
 
