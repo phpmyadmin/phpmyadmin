@@ -2114,6 +2114,10 @@ fieldset .disabled-field td {
     -webkit-box-sizing: border-box;
 }
 
+input#auto_increment_opt {
+    width: min-content;
+}
+
 #placeholder {
     position: relative;
     border: 1px solid #aaa;
