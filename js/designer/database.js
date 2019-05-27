@@ -1,5 +1,15 @@
-var designer_tables = [{ name: 'pdf_pages', key: 'pg_nr', auto_inc: true },
-    { name: 'table_coords', key: 'id', auto_inc: true }];
+var designerTables = [
+    {
+        name: 'pdf_pages',
+        key: 'pg_nr',
+        autoIncrement: true
+    },
+    {
+        name: 'table_coords',
+        key: 'id',
+        autoIncrement: true
+    }
+];
 
 var DesignerOfflineDB = (function () {
     var designerDB = {};
@@ -13,16 +23,16 @@ var DesignerOfflineDB = (function () {
             var db = e.target.result;
             e.target.transaction.onerror = designerDB.onerror;
 
-            for (var t in designer_tables) {
-                if (db.objectStoreNames.contains(designer_tables[t].name)) {
-                    db.deleteObjectStore(designer_tables[t].name);
+            for (var t in designerTables) {
+                if (db.objectStoreNames.contains(designerTables[t].name)) {
+                    db.deleteObjectStore(designerTables[t].name);
                 }
             }
 
-            for (var t in designer_tables) {
-                db.createObjectStore(designer_tables[t].name, {
-                    keyPath: designer_tables[t].key,
-                    autoIncrement: designer_tables[t].auto_inc
+            for (var t in designerTables) {
+                db.createObjectStore(designerTables[t].name, {
+                    keyPath: designerTables[t].key,
+                    autoIncrement: designerTables[t].autoIncrement
                 });
             }
         };
