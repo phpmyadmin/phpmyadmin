@@ -224,6 +224,10 @@ input[type=number] {
     width: 50px;
 }
 
+input#auto_increment_opt {
+    width: min-content;
+}
+
 input[type=text],
 input[type=password],
 input[type=number],
