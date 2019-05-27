@@ -388,7 +388,7 @@ AJAX.registerOnload('sql.js', function () {
      */
     $(document).on('makegrid', '.sqlqueryresults', function () {
         $('.table_results').each(function () {
-            PMA_makegrid(this);
+            makeGrid(this);
         });
     });
 

@@ -136,7 +136,7 @@ AJAX.registerOnload('db_search.js', function () {
                 $('#browse-results').html(data.message);
                 Functions.ajaxRemoveMessage($msg);
                 $('.table_results').each(function () {
-                    PMA_makegrid(this, true, true, true, true);
+                    makeGrid(this, true, true, true, true);
                 });
                 $('#browse-results').show();
                 Functions.highlightSql($('#browse-results'));
