@@ -106,6 +106,7 @@ phpMyAdmin - ChangeLog
 - issue #13854 Fixed column options are ignored for GENERATED/VIRTUAL/STORED columns
 - issue #15262 Fixed incorrect display of charset column (raw html)
 - issue        Added explicit parentheses in nested ternary operators
+- issue #15287 Fix auto_increment field is too small
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
