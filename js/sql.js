@@ -7,7 +7,8 @@
  *
  */
 
-var $data_a;
+var Sql = {};
+
 var prevScrollX = 0;
 
 /**
@@ -16,11 +17,11 @@ var prevScrollX = 0;
  * @param string str
  * @return string the URL-decoded string
  */
-function PMA_urldecode (str) {
+Sql.urlDecode = function (str) {
     if (typeof str !== 'undefined') {
         return decodeURIComponent(str.replace(/\+/g, '%20'));
     }
-}
+};
 
 /**
  * endecode a string URL_decoded
@@ -28,11 +29,11 @@ function PMA_urldecode (str) {
  * @param string str
  * @return string the URL-encoded string
  */
-function PMA_urlencode (str) {
+Sql.urlEncode = function (str) {
     if (typeof str !== 'undefined') {
         return encodeURIComponent(str).replace(/%20/g, '+');
     }
-}
+};
 
 /**
  * Saves SQL query in local storage or cookie
@@ -40,13 +41,13 @@ function PMA_urlencode (str) {
  * @param string SQL query
  * @return void
  */
-function PMA_autosaveSQL (query) {
+Sql.autoSave = function (query) {
     if (isStorageSupported('localStorage')) {
         window.localStorage.auto_saved_sql = query;
     } else {
         Cookies.set('auto_saved_sql', query);
     }
-}
+};
 
 /**
  * Saves SQL query in local storage or cookie
@@ -56,7 +57,7 @@ function PMA_autosaveSQL (query) {
  * @param string SQL query
  * @return void
  */
-function PMA_showThisQuery (db, table, query) {
+Sql.showThisQuery = function (db, table, query) {
     var show_this_query_object = {
         'db': db,
         'table': table,
@@ -69,13 +70,13 @@ function PMA_showThisQuery (db, table, query) {
         Cookies.set('show_this_quey', 1);
         Cookies.set('show_this_query_object', JSON.stringify(show_this_query_object));
     }
-}
+};
 
 /**
  * Set query to codemirror if show this query is
  * checked and query for the db and table pair exists
  */
-function setShowThisQuery () {
+Sql.setShowThisQuery = function () {
     var db = $('input[name="db"]').val();
     var table = $('input[name="table"]').val();
     if (isStorageSupported('localStorage')) {
@@ -98,7 +99,7 @@ function setShowThisQuery () {
             $('input[name="show_query"]').prop('checked', false);
         }
     }
-}
+};
 
 /**
  * Saves SQL query with sort in local storage or cookie
@@ -106,7 +107,7 @@ function setShowThisQuery () {
  * @param string SQL query
  * @return void
  */
-function PMA_autosaveSQLSort (query) {
+Sql.autoSaveWithSort = function (query) {
     if (query) {
         if (isStorageSupported('localStorage')) {
             window.localStorage.auto_saved_sql_sort = query;
@@ -114,7 +115,7 @@ function PMA_autosaveSQLSort (query) {
             Cookies.set('auto_saved_sql_sort', query);
         }
     }
-}
+};
 
 /**
  * Get the field name for the current field.  Required to construct the query
@@ -123,7 +124,7 @@ function PMA_autosaveSQLSort (query) {
  * @param $table_results enclosing results table
  * @param $this_field    jQuery object that points to the current field's tr
  */
-function getFieldName ($table_results, $this_field) {
+Sql.getFieldName = function ($table_results, $this_field) {
     var this_field_index = $this_field.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
@@ -156,7 +157,7 @@ function getFieldName ($table_results, $this_field) {
     field_name = $.trim(field_name);
 
     return field_name;
-}
+};
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -210,21 +211,21 @@ AJAX.registerTeardown('sql.js', function () {
  */
 AJAX.registerOnload('sql.js', function () {
     if (codeMirrorEditor || document.sqlform) {
-        setShowThisQuery();
+        Sql.setShowThisQuery();
     }
     $(function () {
         if (codeMirrorEditor) {
             codeMirrorEditor.on('change', function () {
-                PMA_autosaveSQL(codeMirrorEditor.getValue());
+                Sql.autoSave(codeMirrorEditor.getValue());
             });
         } else {
             $('#sqlquery').on('input propertychange', function () {
-                PMA_autosaveSQL($('#sqlquery').val());
+                Sql.autoSave($('#sqlquery').val());
             });
             // Save sql query with sort
             if ($('#RememberSorting') !== undefined && $('#RememberSorting').is(':checked')) {
                 $('select[name="sql_query"]').on('change', function () {
-                    PMA_autosaveSQLSort($('select[name="sql_query"]').val());
+                    Sql.autoSaveWithSort($('select[name="sql_query"]').val());
                 });
             } else {
                 if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql_sort !== undefined) {
@@ -402,11 +403,11 @@ AJAX.registerOnload('sql.js', function () {
         $('.table_results').each(function () {
             var $table_results = $(this);
             // add sticky columns div
-            var $stick_columns = initStickyColumns($table_results);
-            rearrangeStickyColumns($stick_columns, $table_results);
+            var $stick_columns = Sql.initStickyColumns($table_results);
+            Sql.rearrangeStickyColumns($stick_columns, $table_results);
             // adjust sticky columns on scroll
             $(document).on('scroll', window, function () {
-                handleStickyColumns($stick_columns, $table_results);
+                Sql.handleStickyColumns($stick_columns, $table_results);
             });
         });
     });
@@ -476,7 +477,7 @@ AJAX.registerOnload('sql.js', function () {
             } else {
                 query = $('#sqlquery').val();
             }
-            PMA_showThisQuery(db, table, query);
+            Sql.showThisQuery(db, table, query);
         } else {
             window.localStorage.show_this_query = '0';
         }
@@ -722,13 +723,13 @@ AJAX.registerOnload('sql.js', function () {
             });
         }
 
-        function submitShowAllForm () {
+        Sql.submitShowAllForm = function () {
             var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             Functions.ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
-        }
+        };
     });
 
     $('body').on('keyup', '#sqlqueryform', function () {
@@ -835,7 +836,7 @@ AJAX.registerOnload('sql.js', function () {
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
  */
-function PMA_changeClassForColumn ($this_th, newclass, isAddClass) {
+Sql.changeClassForColumn = function ($this_th, newclass, isAddClass) {
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
     var has_big_t = $this_th.closest('tr').children(':first').hasClass('column_action');
@@ -853,14 +854,14 @@ function PMA_changeClassForColumn ($this_th, newclass, isAddClass) {
     } else {
         $tds.toggleClass(newclass, isAddClass);
     }
-}
+};
 
 /**
  * Handles browse foreign values modal dialog
  *
  * @param object $this_a reference to the browse foreign value link
  */
-function browseForeignDialog ($this_a) {
+Sql.browseForeignDialog = function ($this_a) {
     var formId = '#browse_foreign_form';
     var showAllId = '#foreign_showAll';
     var tableId = '#browse_foreign_table';
@@ -927,35 +928,35 @@ function browseForeignDialog ($this_a) {
             showAll = false;
         });
     });
-}
+};
 
-function checkSavedQuery () {
+Sql.checkSavedQuery = function () {
     if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql !== undefined) {
         Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
     }
-}
+};
 
 AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'a.browse_foreign', function (e) {
         e.preventDefault();
-        browseForeignDialog($(this));
+        Sql.browseForeignDialog($(this));
     });
 
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
     $(document).on('mouseenter', 'th.column_heading.pointer', function (e) {
-        PMA_changeClassForColumn($(this), 'hover', true);
+        Sql.changeClassForColumn($(this), 'hover', true);
     });
     $(document).on('mouseleave', 'th.column_heading.pointer', function (e) {
-        PMA_changeClassForColumn($(this), 'hover', false);
+        Sql.changeClassForColumn($(this), 'hover', false);
     });
 
     /**
      * vertical column marking in horizontal mode when clicking the column header
      */
     $(document).on('click', 'th.column_heading.marker', function () {
-        PMA_changeClassForColumn($(this), 'marked');
+        Sql.changeClassForColumn($(this), 'marked');
     });
 
     /**
@@ -967,14 +968,14 @@ AJAX.registerOnload('sql.js', function () {
      * Check if there is any saved query
      */
     if (codeMirrorEditor || document.sqlform) {
-        checkSavedQuery();
+        Sql.checkSavedQuery();
     }
 });
 
-/*
+/**
  * Profiling Chart
  */
-function makeProfilingChart () {
+Sql.makeProfilingChart = function () {
     if ($('#profilingchart').length === 0 ||
         $('#profilingchart').html().length !== 0 ||
         !$.jqplot || !$.jqplot.Highlighter || !$.jqplot.PieRenderer
@@ -992,12 +993,12 @@ function makeProfilingChart () {
     $('#profilingChartData').html('');
 
     Functions.createProfilingChart('profilingchart', data);
-}
+};
 
-/*
+/**
  * initialize profiling data tables
  */
-function initProfilingTables () {
+Sql.initProfilingTables = function () {
     if (!$.tablesorter) {
         return;
     }
@@ -1025,24 +1026,24 @@ function initProfilingTables () {
             }
         }
     });
-}
+};
 
-/*
+/**
  * Set position, left, top, width of sticky_columns div
  */
-function setStickyColumnsPosition ($sticky_columns, $table_results, position, top, left, margin_left) {
+Sql.setStickyColumnsPosition = function ($sticky_columns, $table_results, position, top, left, margin_left) {
     $sticky_columns
         .css('position', position)
         .css('top', top)
         .css('left', left ? left : 'auto')
         .css('margin-left', margin_left ? margin_left : '0px')
         .css('width', $table_results.width());
-}
+};
 
-/*
+/**
  * Initialize sticky columns
  */
-function initStickyColumns ($table_results) {
+Sql.initStickyColumns = function ($table_results) {
     return $('<table class="sticky_columns"></table>')
         .insertBefore($table_results)
         .css('position', 'fixed')
@@ -1051,12 +1052,12 @@ function initStickyColumns ($table_results) {
         .css('margin-left', $('#page_content').css('margin-left'))
         .css('top', $('#floating_menubar').height())
         .css('display', 'none');
-}
+};
 
-/*
+/**
  * Arrange/Rearrange columns in sticky header
  */
-function rearrangeStickyColumns ($sticky_columns, $table_results) {
+Sql.rearrangeStickyColumns = function ($sticky_columns, $table_results) {
     var $originalHeader = $table_results.find('thead');
     var $originalColumns = $originalHeader.find('tr:first').children();
     var $clonedHeader = $originalHeader.clone();
@@ -1074,21 +1075,21 @@ function rearrangeStickyColumns ($sticky_columns, $table_results) {
         }
     });
     $sticky_columns.empty().append($clonedHeader);
-}
+};
 
-/*
+/**
  * Adjust sticky columns on horizontal/vertical scroll for all tables
  */
-function handleAllStickyColumns () {
+Sql.handleAllStickyColumns = function () {
     $('.sticky_columns').each(function () {
-        handleStickyColumns($(this), $(this).next('.table_results'));
+        Sql.handleStickyColumns($(this), $(this).next('.table_results'));
     });
-}
+};
 
-/*
+/**
  * Adjust sticky columns on horizontal/vertical scroll
  */
-function handleStickyColumns ($sticky_columns, $table_results) {
+Sql.handleStickyColumns = function ($sticky_columns, $table_results) {
     var currentScrollX = $(window).scrollLeft();
     var windowOffset = $(window).scrollTop();
     var tableStartOffset = $table_results.offset().top;
@@ -1097,18 +1098,18 @@ function handleStickyColumns ($sticky_columns, $table_results) {
         // for horizontal scrolling
         if (prevScrollX !== currentScrollX) {
             prevScrollX = currentScrollX;
-            setStickyColumnsPosition($sticky_columns, $table_results, 'absolute', $('#floating_menubar').height() + windowOffset - tableStartOffset);
+            Sql.setStickyColumnsPosition($sticky_columns, $table_results, 'absolute', $('#floating_menubar').height() + windowOffset - tableStartOffset);
         // for vertical scrolling
         } else {
-            setStickyColumnsPosition($sticky_columns, $table_results, 'fixed', $('#floating_menubar').height(), $('#pma_navigation').width() - currentScrollX, $('#page_content').css('margin-left'));
+            Sql.setStickyColumnsPosition($sticky_columns, $table_results, 'fixed', $('#floating_menubar').height(), $('#pma_navigation').width() - currentScrollX, $('#page_content').css('margin-left'));
         }
         $sticky_columns.show();
     } else {
         $sticky_columns.hide();
     }
-}
+};
 
 AJAX.registerOnload('sql.js', function () {
-    makeProfilingChart();
-    initProfilingTables();
+    Sql.makeProfilingChart();
+    Sql.initProfilingTables();
 });

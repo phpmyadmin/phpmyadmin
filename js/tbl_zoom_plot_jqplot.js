@@ -386,7 +386,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             }
             // remove two extraneous characters ', '
             sqlQuery = sqlQuery.substring(0, sqlQuery.length - 2);
-            sqlQuery += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
+            sqlQuery += ' WHERE ' + Sql.urlDecode(searchedData[searchedDataKey].where_clause);
 
             // Post SQL query to sql.php
             $.post('sql.php', {

@@ -194,7 +194,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 g.reposDrop();
                 g.colRsz = false;
                 $(g.cRsz).find('div').removeClass('colborder_active');
-                rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
+                Sql.rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
             } else if (g.colReorder) {
                 // shift columns
                 if (g.colReorder.newn !== g.colReorder.n) {
@@ -221,7 +221,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 $(g.cPointer).css('visibility', 'hidden');
 
                 g.colReorder = false;
-                rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
+                Sql.rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
             }
             $(document.body).css('cursor', 'inherit').noSelect(false);
         },
@@ -758,9 +758,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 var whereClause = $td.parent('tr').find('.where_clause').val();
                 /**
                  * @var field_name  String containing the name of this field.
-                 * @see getFieldName()
+                 * @see Sql.getFieldName()
                  */
-                var fieldName = getFieldName($(t), $td);
+                var fieldName = Sql.getFieldName($(t), $td);
                 /**
                  * @var relation_curr_value String current value of the field (for fields that are foreign keyed).
                  */
@@ -1197,9 +1197,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                     /**
                      * @var field_name  String containing the name of this field.
-                     * @see getFieldName()
+                     * @see Sql.getFieldName()
                      */
-                    var fieldName = getFieldName($(g.t), $thisField);
+                    var fieldName = Sql.getFieldName($(g.t), $thisField);
 
                     /**
                      * @var this_field_params   Array temporary storage for the name/value of current field
@@ -1246,7 +1246,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         }
                     }
                     // check if edited field appears in WHERE clause
-                    if (whereClause.indexOf(PMA_urlencode(fieldName)) > -1) {
+                    if (whereClause.indexOf(Sql.urlEncode(fieldName)) > -1) {
                         var fieldStr = '`' + g.table + '`.' + '`' + fieldName + '`';
                         for (var field in conditionArray) {
                             if (field.indexOf(fieldStr) > -1) {
@@ -1420,9 +1420,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             /**
              * @var field_name  String containing the name of this field.
-             * @see getFieldName()
+             * @see Sql.getFieldName()
              */
-            var fieldName = getFieldName($(g.t), $thisField);
+            var fieldName = Sql.getFieldName($(g.t), $thisField);
 
             /**
              * @var this_field_params   Array temporary storage for the name/value of current field
@@ -1774,7 +1774,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         moveUp: function (e) {
             e.preventDefault();
             var $thisField = $(g.currentEditCell);
-            var fieldName = getFieldName($(g.t), $thisField);
+            var fieldName = Sql.getFieldName($(g.t), $thisField);
 
             var whereClause = $thisField.parents('tr').first().find('.where_clause').val();
             if (typeof whereClause === 'undefined') {
@@ -1799,7 +1799,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             if (found && $prevRow) {
                 $prevRow.children('td').each(function () {
-                    if (getFieldName($(g.t), $(this)) === fieldName) {
+                    if (Sql.getFieldName($(g.t), $(this)) === fieldName) {
                         newCell = this;
                     }
                 });
@@ -1817,7 +1817,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             e.preventDefault();
 
             var $thisField = $(g.currentEditCell);
-            var fieldName = getFieldName($(g.t), $thisField);
+            var fieldName = Sql.getFieldName($(g.t), $thisField);
 
             var whereClause = $thisField.parents('tr').first().find('.where_clause').val();
             if (typeof whereClause === 'undefined') {
@@ -1846,7 +1846,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             var newCell;
             if (found && $nextRow) {
                 $nextRow.children('td').each(function () {
-                    if (getFieldName($(g.t), $(this)) === fieldName) {
+                    if (Sql.getFieldName($(g.t), $(this)) === fieldName) {
                         newCell = this;
                     }
                 });
@@ -1864,7 +1864,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             e.preventDefault();
 
             var $thisField = $(g.currentEditCell);
-            var fieldName = getFieldName($(g.t), $thisField);
+            var fieldName = Sql.getFieldName($(g.t), $thisField);
 
             var whereClause = $thisField.parents('tr').first().find('.where_clause').val();
             if (typeof whereClause === 'undefined') {
@@ -1884,7 +1884,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             var cellFound = false;
             if (found) {
                 $foundRow.children('td.grid_edit').each(function () {
-                    if (getFieldName($(g.t), $(this)) === fieldName) {
+                    if (Sql.getFieldName($(g.t), $(this)) === fieldName) {
                         cellFound = true;
                     }
                     if (!cellFound) {
@@ -1905,7 +1905,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             e.preventDefault();
 
             var $thisField = $(g.currentEditCell);
-            var fieldName = getFieldName($(g.t), $thisField);
+            var fieldName = Sql.getFieldName($(g.t), $thisField);
 
             var whereClause = $thisField.parents('tr').first().find('.where_clause').val();
             if (typeof whereClause === 'undefined') {
@@ -1926,7 +1926,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             var nextCellFound = false;
             if (found) {
                 $foundRow.children('td.grid_edit').each(function () {
-                    if (getFieldName($(g.t), $(this)) === fieldName) {
+                    if (Sql.getFieldName($(g.t), $(this)) === fieldName) {
                         cellFound = true;
                     }
                     if (cellFound) {
