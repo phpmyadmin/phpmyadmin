@@ -214,6 +214,18 @@ if (isset($_POST['submitoptions'])) {
             $GLOBALS['db'], $GLOBALS['table'], $_POST['tbl_collation']
         );
     }
+
+    if (isset($_POST['tbl_collation']) && empty($_POST['tbl_collation'])) {
+        $response = Response::getInstance();
+        if ($response->isAjax()) {
+            $response->setRequestStatus(false);
+            $response->addJSON(
+                'message',
+                Message::error(__('No collation provided.'))
+            );
+            exit;
+        }
+    }
 }
 /**
  * Reordering the table has been requested by the user
