@@ -19,6 +19,6 @@
         {#- If the time limit set is zero, then time out won't occur so no need
             to check for time out. -#}
         {%- if exec_time_limit > 0 %}
-            onclick="check_time_out({{ exec_time_limit }})"
+            onclick="Export.checkTimeOut({{ exec_time_limit }})"
         {%- endif %}>
 </div>
