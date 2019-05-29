@@ -7,18 +7,20 @@
  * @requires    jQueryUI
  * @requires    js/functions.js
  */
+
 var runtime = {};
-var server_time_diff;
-var server_os;
-var is_superuser;
-var server_db_isLocal;
+var serverTimeDiff;
+var serverOs;
+var isSuperUser;
+var serverDbIsLocal;
 var chartSize;
+
 AJAX.registerOnload('server_status_monitor.js', function () {
-    var $js_data_form = $('#js_data');
-    server_time_diff  = new Date().getTime() - $js_data_form.find('input[name=server_time]').val();
-    server_os =         $js_data_form.find('input[name=server_os]').val();
-    is_superuser =      $js_data_form.find('input[name=is_superuser]').val();
-    server_db_isLocal = $js_data_form.find('input[name=server_db_isLocal]').val();
+    var $jsDataForm = $('#js_data');
+    serverTimeDiff = new Date().getTime() - $jsDataForm.find('input[name=server_time]').val();
+    serverOs = $jsDataForm.find('input[name=server_os]').val();
+    isSuperUser = $jsDataForm.find('input[name=is_superuser]').val();
+    serverDbIsLocal = $jsDataForm.find('input[name=server_db_isLocal]').val();
 });
 
 /**
@@ -204,7 +206,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     var tooltipBox;
 
     /* Add OS specific system info charts to the preset chart list */
-    switch (server_os) {
+    switch (serverOs) {
     case 'WINNT':
         $.extend(presetCharts, {
             'cpu': {
@@ -373,7 +375,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     };
 
     // Server is localhost => We can add cpu/memory/swap to the default chart
-    if (server_db_isLocal && typeof presetCharts.cpu !== 'undefined') {
+    if (serverDbIsLocal && typeof presetCharts.cpu !== 'undefined') {
         defaultChartGrid.c3 = presetCharts.cpu;
         defaultChartGrid.c4 = presetCharts.memory;
         defaultChartGrid.c5 = presetCharts.swap;
@@ -463,8 +465,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             runtime.gridMaxPoints = Math.round((chartSize.width - 40) / 12);
         }
 
-        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
-        runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        runtime.xmin = new Date().getTime() - serverTimeDiff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmax = new Date().getTime() - serverTimeDiff + monitorSettings.gridRefresh;
 
         if (editMode) {
             $('#chartGrid').sortableTable('refresh');
@@ -482,9 +484,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             runtime.refreshRequest.abort();
         }
 
-        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmin = new Date().getTime() - serverTimeDiff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         // fixing chart shift towards left on refresh rate change
-        // runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        // runtime.xmax = new Date().getTime() - serverTimeDiff + monitorSettings.gridRefresh;
         runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
 
         saveMonitor(); // Save settings
@@ -709,7 +711,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }).find('img.ajaxIcon').show();
 
         var loadLogVars = function (getvars) {
-            var vars = { ajax_request: true, logging_vars: true };
+            var vars = {
+                'ajax_request': true,
+                'logging_vars': true
+            };
             if (getvars) {
                 $.extend(vars, getvars);
             }
@@ -768,7 +773,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                     str += '</div>';
 
-                    if (is_superuser) {
+                    if (isSuperUser) {
                         str += '<p></p><b>' + Messages.strChangeSettings + '</b>';
                         str += '<div class="smallIndent">';
                         str += Messages.strSettingsAppliedGlobal + '<br>';
@@ -999,8 +1004,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             runtime.gridMaxPoints = monitorSettings.gridMaxPoints;
         }
 
-        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
-        runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        runtime.xmin = new Date().getTime() - serverTimeDiff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmax = new Date().getTime() - serverTimeDiff + monitorSettings.gridRefresh;
 
         /* Calculate how much spacing there is between each chart */
         $('#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
@@ -1290,7 +1295,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             // get date from timestamp
             var min = new Date(Math.ceil(selectionTimeDiff[0]));
             var max = new Date(Math.ceil(selectionTimeDiff[1]));
-            PMA_getLogAnalyseDialog(min, max);
+            getLogAnalyseDialog(min, max);
             selectionTimeDiff = [];
             drawTimeSpan = false;
         });
@@ -1324,7 +1329,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         runtime.chartAI++;
     }
 
-    function PMA_getLogAnalyseDialog (min, max) {
+    function getLogAnalyseDialog (min, max) {
         var $logAnalyseDialog = $('#logAnalyseDialog');
         var $dateStart = $logAnalyseDialog.find('input[name="dateStart"]');
         var $dateEnd = $logAnalyseDialog.find('input[name="dateEnd"]');
@@ -1380,11 +1385,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     function refreshChartGrid () {
         /* Send to server */
         runtime.refreshRequest = $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
-            ajax_request: true,
-            chart_data: 1,
-            type: 'chartgrid',
-            requiredData: JSON.stringify(runtime.dataList),
-            server: CommonParams.get('server')
+            'ajax_request': true,
+            'chart_data': 1,
+            'type': 'chartgrid',
+            'requiredData': JSON.stringify(runtime.dataList),
+            'server': CommonParams.get('server')
         }, function (data) {
             var chartData;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -1536,12 +1541,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
             // cur and prev are datapoint arrays, but containing
             // only 1 element for cpu-linux
-            cur = cur[0];
-            prev = prev[0];
+            var newCur = cur[0];
+            var newPrev = prev[0];
 
-            var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
-            var diff_idle = cur.idle - prev.idle;
-            return 100 * (diff_total - diff_idle) / diff_total;
+            var diffTotal = newCur.busy + newCur.idle - (newPrev.busy + newPrev.idle);
+            var diffIdle = newCur.idle - newPrev.idle;
+            return 100 * (diffTotal - diffIdle) / diffTotal;
 
         // Query cache efficiency (%)
         case 'qce':
@@ -1621,13 +1626,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         logRequest = $.post(
             'server_status_monitor.php' + CommonParams.get('common_query'),
             {
-                ajax_request: true,
-                log_data: 1,
-                type: opts.src,
-                time_start: Math.round(opts.start / 1000),
-                time_end: Math.round(opts.end / 1000),
-                removeVariables: opts.removeVariables,
-                limitTypes: opts.limitTypes
+                'ajax_request': true,
+                'log_data': 1,
+                'type': opts.src,
+                'time_start': Math.round(opts.start / 1000),
+                'time_end': Math.round(opts.end / 1000),
+                'removeVariables': opts.removeVariables,
+                'limitTypes': opts.limitTypes
             },
             function (data) {
                 var logData;
@@ -1656,11 +1661,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $('#emptyDialog').dialog({ title: Messages.strLoadingLogs });
                 $('#emptyDialog').html('<p>' + Messages.strLogDataLoaded + '</p>');
                 $.each(logData.sum, function (key, value) {
-                    key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
-                    if (key === 'Total') {
-                        key = '<b>' + key + '</b>';
+                    var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
+                    if (newKey === 'Total') {
+                        newKey = '<b>' + newKey + '</b>';
                     }
-                    $('#emptyDialog').append(key + ': ' + value + '<br>');
+                    $('#emptyDialog').append(newKey + ': ' + value + '<br>');
                 });
 
                 /* Add filter options if more than a bunch of rows there to filter */
@@ -1867,10 +1872,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     /* Turns a number into a timespan (100 into 00:01:40) */
     function secToTime (timeInt) {
-        var hours = Math.floor(timeInt / 3600);
-        timeInt -= hours * 3600;
-        var minutes = Math.floor(timeInt / 60);
-        timeInt -= minutes * 60;
+        var time = timeInt;
+        var hours = Math.floor(time / 3600);
+        time -= hours * 3600;
+        var minutes = Math.floor(time / 60);
+        time -= minutes * 60;
 
         if (hours < 10) {
             hours = '0' + hours;
@@ -1878,11 +1884,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         if (minutes < 10) {
             minutes = '0' + minutes;
         }
-        if (timeInt < 10) {
-            timeInt = '0' + timeInt;
+        if (time < 10) {
+            time = '0' + time;
         }
 
-        return hours + ':' + minutes + ':' + timeInt;
+        return hours + ':' + minutes + ':' + time;
     }
 
     /* Constructs the log table out of the retrieved server data */
@@ -2021,12 +2027,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
         $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
-            ajax_request: true,
-            query_analyzer: true,
-            query: codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val(),
-            database: db,
-            server: CommonParams.get('server')
-        }, function (data) {
+            'ajax_request': true,
+            'query_analyzer': true,
+            'query': codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val(),
+            'database': db,
+            'server': CommonParams.get('server')
+        }, function (responseData) {
+            var data = responseData;
             var i;
             var l;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -2058,15 +2065,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             explain += '<p></p>';
 
             var tempExplain = function (key, value) {
-                value = (value === null) ? 'null' : Functions.escapeHtml(value);
+                var newValue = (value === null) ? 'null' : Functions.escapeHtml(value);
 
-                if (key === 'type' && value.toLowerCase() === 'all') {
-                    value = '<span class="attention">' + value + '</span>';
+                if (key === 'type' && newValue.toLowerCase() === 'all') {
+                    newValue = '<span class="attention">' + newValue + '</span>';
                 }
                 if (key === 'Extra') {
-                    value = value.replace(/(using (temporary|filesort))/gi, '<span class="attention">$1</span>');
+                    newValue = newValue.replace(/(using (temporary|filesort))/gi, '<span class="attention">$1</span>');
                 }
-                explain += key + ': ' + value + '<br>';
+                explain += key + ': ' + newValue + '<br>';
             };
 
             for (i = 0, l = data.explain.length; i < l; i++) {
