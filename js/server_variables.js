@@ -46,10 +46,10 @@ AJAX.registerOnload('server_variables.js', function () {
         $mySaveLink.on('click', function () {
             var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
             $.post($(this).attr('href'), {
-                ajax_request: true,
-                type: 'setval',
-                varName: varName,
-                varValue: $valueCell.find('input').val()
+                'ajax_request': true,
+                'type': 'setval',
+                'varName': varName,
+                'varValue': $valueCell.find('input').val()
             }, function (data) {
                 if (data.success) {
                     $valueCell
@@ -76,9 +76,9 @@ AJAX.registerOnload('server_variables.js', function () {
         });
 
         $.get($mySaveLink.attr('href'), {
-            ajax_request: true,
-            type: 'getval',
-            varName: varName
+            'ajax_request': true,
+            'type': 'getval',
+            'varName': varName
         }, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 var $links = $('<div></div>')
