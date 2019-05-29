@@ -15,6 +15,11 @@
  * @param enableGridEdit Optional, if false, grid editing feature will be disabled
  */
 var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGridEdit) {
+    var isResizeEnabled = enableResize === undefined ? true : enableResize;
+    var isReorderEnabled = enableReorder === undefined ? true : enableReorder;
+    var isVisibEnabled = enableVisib === undefined ? true : enableVisib;
+    var isGridEditEnabled = enableGridEdit === undefined ? true : enableGridEdit;
+
     var g = {
         /** *********
          * Constant
@@ -729,6 +734,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             // destroy datepicker in edit area, if exist
             var $dp = $(g.cEdit).find('.hasDatepicker');
             if ($dp.length > 0) {
+                // eslint-disable-next-line no-underscore-dangle
                 $(document).bind('mousedown', $.datepicker._checkExternalClick);
                 $dp.datepicker('destroy');
                 // change the cursor in edit box back to normal
@@ -939,23 +945,29 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     // handle set fields
                     $editArea.addClass('edit_area_loading');
 
-                    /**
-                     * @var post_params Object containing parameters for the POST request
-                     */
-                    var postParams = {
-                        'ajax_request' : true,
-                        'get_set_values' : true,
-                        'server' : g.server,
-                        'db' : g.db,
-                        'table' : g.table,
-                        'column' : fieldName,
-                        'curr_value' : currValue
-                    };
-
                     // if the data is truncated, get the full data
                     if ($td.is('.truncated')) {
-                        postParams.get_full_values = true;
-                        postParams.where_clause = whereClause;
+                        postParams = {
+                            'ajax_request': true,
+                            'get_set_values': true,
+                            'server': g.server,
+                            'db': g.db,
+                            'table': g.table,
+                            'column': fieldName,
+                            'curr_value': currValue,
+                            'get_full_values': true,
+                            'where_clause': whereClause
+                        };
+                    } else {
+                        postParams = {
+                            'ajax_request': true,
+                            'get_set_values': true,
+                            'server': g.server,
+                            'db': g.db,
+                            'table': g.table,
+                            'column': fieldName,
+                            'curr_value': currValue
+                        };
                     }
 
                     g.lastXHR = $.post('sql.php', postParams, function (data) {
@@ -1083,6 +1095,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     // unbind the mousedown event to prevent the problem of
                     // datepicker getting closed, needs to be checked for any
                     // change in names when updating
+                    // eslint-disable-next-line no-underscore-dangle
                     $(document).off('mousedown', $.datepicker._checkExternalClick);
 
                     // move ui-datepicker-div inside cEdit div
@@ -2190,23 +2203,19 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     $(g.gDiv).append(t);
 
     // FEATURES
-    enableResize    = enableResize === undefined ? true : enableResize;
-    enableReorder   = enableReorder === undefined ? true : enableReorder;
-    enableVisib     = enableVisib === undefined ? true : enableVisib;
-    enableGridEdit  = enableGridEdit === undefined ? true : enableGridEdit;
-    if (enableResize) {
+    if (isResizeEnabled) {
         g.initColResize();
     }
     // disable reordering for result from EXPLAIN or SHOW syntax, which do not have a table navigation panel
-    if (enableReorder &&
+    if (isReorderEnabled &&
         $(g.o).find('table.navigation').length > 0) {
         g.initColReorder();
     }
-    if (enableVisib) {
+    if (isVisibEnabled) {
         g.initColVisib();
     }
     // make sure we have the ajax class
-    if (enableGridEdit &&
+    if (isGridEditEnabled &&
         $(t).is('.ajax')) {
         g.initGridEdit();
     }
@@ -2236,7 +2245,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         });
 
     // register events for dragging-related feature
-    if (enableResize || enableReorder) {
+    if (isResizeEnabled || isReorderEnabled) {
         $(document).mousemove(function (e) {
             g.dragMove(e);
         });
