@@ -1205,10 +1205,10 @@ Functions.insertQuery = function (queryType) {
         }
         return;
     } else if (queryType === 'saved') {
-        if (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql !== 'undefined') {
-            Functions.setQuery(window.localStorage.auto_saved_sql);
-        } else if (Cookies.get('auto_saved_sql')) {
-            Functions.setQuery(Cookies.get('auto_saved_sql'));
+        if (isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSql !== 'undefined') {
+            Functions.setQuery(window.localStorage.autoSavedSql);
+        } else if (Cookies.get('autoSavedSql')) {
+            Functions.setQuery(Cookies.get('autoSavedSql'));
         } else {
             Functions.ajaxShowMessage(Messages.strNoAutoSavedQuery);
         }

@@ -43,9 +43,9 @@ Sql.urlEncode = function (str) {
  */
 Sql.autoSave = function (query) {
     if (isStorageSupported('localStorage')) {
-        window.localStorage.auto_saved_sql = query;
+        window.localStorage.autoSavedSql = query;
     } else {
-        Cookies.set('auto_saved_sql', query);
+        Cookies.set('autoSavedSql', query);
     }
 };
 
@@ -58,17 +58,17 @@ Sql.autoSave = function (query) {
  * @return void
  */
 Sql.showThisQuery = function (db, table, query) {
-    var show_this_query_object = {
+    var showThisQueryObject = {
         'db': db,
         'table': table,
         'query': query
     };
     if (isStorageSupported('localStorage')) {
-        window.localStorage.show_this_query = 1;
-        window.localStorage.show_this_query_object = JSON.stringify(show_this_query_object);
+        window.localStorage.showThisQuery = 1;
+        window.localStorage.showThisQueryObject = JSON.stringify(showThisQueryObject);
     } else {
-        Cookies.set('show_this_quey', 1);
-        Cookies.set('show_this_query_object', JSON.stringify(show_this_query_object));
+        Cookies.set('showThisQuery', 1);
+        Cookies.set('showThisQueryObject', JSON.stringify(showThisQueryObject));
     }
 };
 
@@ -80,19 +80,19 @@ Sql.setShowThisQuery = function () {
     var db = $('input[name="db"]').val();
     var table = $('input[name="table"]').val();
     if (isStorageSupported('localStorage')) {
-        if (window.localStorage.show_this_query_object !== undefined) {
-            var stored_db = JSON.parse(window.localStorage.show_this_query_object).db;
-            var stored_table = JSON.parse(window.localStorage.show_this_query_object).table;
-            var stored_query = JSON.parse(window.localStorage.show_this_query_object).query;
+        if (window.localStorage.showThisQueryObject !== undefined) {
+            var storedDb = JSON.parse(window.localStorage.showThisQueryObject).db;
+            var storedTable = JSON.parse(window.localStorage.showThisQueryObject).table;
+            var storedQuery = JSON.parse(window.localStorage.showThisQueryObject).query;
         }
-        if (window.localStorage.show_this_query !== undefined
-            && window.localStorage.show_this_query === '1') {
+        if (window.localStorage.showThisQuery !== undefined
+            && window.localStorage.showThisQuery === '1') {
             $('input[name="show_query"]').prop('checked', true);
-            if (db === stored_db && table === stored_table) {
+            if (db === storedDb && table === storedTable) {
                 if (codeMirrorEditor) {
-                    codeMirrorEditor.setValue(stored_query);
+                    codeMirrorEditor.setValue(storedQuery);
                 } else if (document.sqlform) {
-                    document.sqlform.sql_query.value = stored_query;
+                    document.sqlform.sql_query.value = storedQuery;
                 }
             }
         } else {
@@ -110,9 +110,9 @@ Sql.setShowThisQuery = function () {
 Sql.autoSaveWithSort = function (query) {
     if (query) {
         if (isStorageSupported('localStorage')) {
-            window.localStorage.auto_saved_sql_sort = query;
+            window.localStorage.autoSavedSqlSort = query;
         } else {
-            Cookies.set('auto_saved_sql_sort', query);
+            Cookies.set('autoSavedSqlSort', query);
         }
     }
 };
@@ -121,42 +121,42 @@ Sql.autoSaveWithSort = function (query) {
  * Get the field name for the current field.  Required to construct the query
  * for grid editing
  *
- * @param $table_results enclosing results table
- * @param $this_field    jQuery object that points to the current field's tr
+ * @param $tableResults enclosing results table
+ * @param $thisField    jQuery object that points to the current field's tr
  */
-Sql.getFieldName = function ($table_results, $this_field) {
-    var this_field_index = $this_field.index();
+Sql.getFieldName = function ($tableResults, $thisField) {
+    var thisFieldIndex = $thisField.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
-    var left_action_exist = !$table_results.find('th:first').hasClass('draggable');
+    var leftActionExist = !$tableResults.find('th:first').hasClass('draggable');
     // number of column span for checkbox and Actions
-    var left_action_skip = left_action_exist ? $table_results.find('th:first').attr('colspan') - 1 : 0;
+    var leftActionSkip = leftActionExist ? $tableResults.find('th:first').attr('colspan') - 1 : 0;
 
     // If this column was sorted, the text of the a element contains something
     // like <small>1</small> that is useful to indicate the order in case
     // of a sort on multiple columns; however, we dont want this as part
     // of the column name so we strip it ( .clone() to .end() )
-    var field_name = $table_results
+    var fieldName = $tableResults
         .find('thead')
-        .find('th:eq(' + (this_field_index - left_action_skip) + ') a')
+        .find('th:eq(' + (thisFieldIndex - leftActionSkip) + ') a')
         .clone()    // clone the element
         .children() // select all the children
         .remove()   // remove all of them
         .end()      // go back to the selected element
         .text();    // grab the text
     // happens when just one row (headings contain no a)
-    if (field_name === '') {
-        var $heading = $table_results.find('thead').find('th:eq(' + (this_field_index - left_action_skip) + ')').children('span');
+    if (fieldName === '') {
+        var $heading = $tableResults.find('thead').find('th:eq(' + (thisFieldIndex - leftActionSkip) + ')').children('span');
         // may contain column comment enclosed in a span - detach it temporarily to read the column name
         var $tempColComment = $heading.children().detach();
-        field_name = $heading.text();
+        fieldName = $heading.text();
         // re-attach the column comment
         $heading.append($tempColComment);
     }
 
-    field_name = $.trim(field_name);
+    fieldName = $.trim(fieldName);
 
-    return field_name;
+    return fieldName;
 };
 
 /**
@@ -228,14 +228,14 @@ AJAX.registerOnload('sql.js', function () {
                     Sql.autoSaveWithSort($('select[name="sql_query"]').val());
                 });
             } else {
-                if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql_sort !== undefined) {
-                    window.localStorage.removeItem('auto_saved_sql_sort');
+                if (isStorageSupported('localStorage') && window.localStorage.autoSavedSqlSort !== undefined) {
+                    window.localStorage.removeItem('autoSavedSqlSort');
                 } else {
-                    Cookies.set('auto_saved_sql_sort', '');
+                    Cookies.set('autoSavedSqlSort', '');
                 }
             }
             // If sql query with sort for current table is stored, change sort by key select value
-            var sortStoredQuery = (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined') ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
+            var sortStoredQuery = (isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined') ? window.localStorage.autoSavedSqlSort : Cookies.get('autoSavedSqlSort');
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
                 $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
@@ -401,13 +401,13 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('stickycolumns', '.sqlqueryresults', function () {
         $('.sticky_columns').remove();
         $('.table_results').each(function () {
-            var $table_results = $(this);
+            var $tableResults = $(this);
             // add sticky columns div
-            var $stick_columns = Sql.initStickyColumns($table_results);
-            Sql.rearrangeStickyColumns($stick_columns, $table_results);
+            var $stickColumns = Sql.initStickyColumns($tableResults);
+            Sql.rearrangeStickyColumns($stickColumns, $tableResults);
             // adjust sticky columns on scroll
             $(document).on('scroll', window, function () {
-                Sql.handleStickyColumns($stick_columns, $table_results);
+                Sql.handleStickyColumns($stickColumns, $tableResults);
             });
         });
     });
@@ -462,13 +462,13 @@ AJAX.registerOnload('sql.js', function () {
         $form.find('select[name=id_bookmark]').val('');
         // let normal event propagation happen
         if (isStorageSupported('localStorage')) {
-            window.localStorage.removeItem('auto_saved_sql');
+            window.localStorage.removeItem('autoSavedSql');
         } else {
-            Cookies.set('auto_saved_sql', '');
+            Cookies.set('autoSavedSql', '');
         }
         var isShowQuery =  $('input[name="show_query"]').is(':checked');
         if (isShowQuery) {
-            window.localStorage.show_this_query = '1';
+            window.localStorage.showThisQuery = '1';
             var db = $('input[name="db"]').val();
             var table = $('input[name="table"]').val();
             var query;
@@ -479,7 +479,7 @@ AJAX.registerOnload('sql.js', function () {
             }
             Sql.showThisQuery(db, table, query);
         } else {
-            window.localStorage.show_this_query = '0';
+            window.localStorage.showThisQuery = '0';
         }
     });
 
@@ -687,26 +687,26 @@ AJAX.registerOnload('sql.js', function () {
 
     // Filter row handling. --STARTS--
     $(document).on('keyup', '.filter_rows', function () {
-        var unique_id = $(this).data('for');
-        var $target_table = $('.table_results[data-uniqueId=\'' + unique_id + '\']');
-        var $header_cells = $target_table.find('th[data-column]');
-        var target_columns = [];
+        var uniqueId = $(this).data('for');
+        var $targetTable = $('.table_results[data-uniqueId=\'' + uniqueId + '\']');
+        var $headerCells = $targetTable.find('th[data-column]');
+        var targetColumns = [];
         // To handle colspan=4, in case of edit,copy etc options.
-        var dummy_th = ($('.edit_row_anchor').length !== 0 ?
+        var dummyTh = ($('.edit_row_anchor').length !== 0 ?
             '<th class="hide dummy_th"></th><th class="hide dummy_th"></th><th class="hide dummy_th"></th>'
             : '');
         // Selecting columns that will be considered for filtering and searching.
-        $header_cells.each(function () {
-            target_columns.push($.trim($(this).text()));
+        $headerCells.each(function () {
+            targetColumns.push($.trim($(this).text()));
         });
 
         var phrase = $(this).val();
         // Set same value to both Filter rows fields.
-        $('.filter_rows[data-for=\'' + unique_id + '\']').not(this).val(phrase);
+        $('.filter_rows[data-for=\'' + uniqueId + '\']').not(this).val(phrase);
         // Handle colspan.
-        $target_table.find('thead > tr').prepend(dummy_th);
-        $.uiTableFilter($target_table, phrase, target_columns);
-        $target_table.find('th.dummy_th').remove();
+        $targetTable.find('thead > tr').prepend(dummyTh);
+        $.uiTableFilter($targetTable, phrase, targetColumns);
+        $targetTable.find('th.dummy_th').remove();
     });
     // Filter row handling. --ENDS--
 
@@ -743,7 +743,7 @@ AJAX.registerOnload('sql.js', function () {
         var $form = $('#sqlqueryform');
         var query = '';
         var delimiter = $('#id_sql_delimiter').val();
-        var db_name = $form.find('input[name="db"]').val();
+        var dbName = $form.find('input[name="db"]').val();
 
         if (codeMirrorEditor) {
             query = codeMirrorEditor.getValue();
@@ -762,43 +762,43 @@ AJAX.registerOnload('sql.js', function () {
             type: 'POST',
             url: $form.attr('action'),
             data: {
-                server: CommonParams.get('server'),
-                db: db_name,
-                ajax_request: '1',
-                simulate_dml: '1',
-                sql_query: query,
-                sql_delimiter: delimiter
+                'server': CommonParams.get('server'),
+                'db': dbName,
+                'ajax_request': '1',
+                'simulate_dml': '1',
+                'sql_query': query,
+                'sql_delimiter': delimiter
             },
             success: function (response) {
                 Functions.ajaxRemoveMessage($msgbox);
                 if (response.success) {
-                    var dialog_content = '<div class="preview_sql">';
+                    var dialogContent = '<div class="preview_sql">';
                     if (response.sql_data) {
                         var len = response.sql_data.length;
                         for (var i = 0; i < len; i++) {
-                            dialog_content += '<strong>' + Messages.strSQLQuery +
+                            dialogContent += '<strong>' + Messages.strSQLQuery +
                                 '</strong>' + response.sql_data[i].sql_query +
                                 Messages.strMatchedRows +
                                 ' <a href="' + response.sql_data[i].matched_rows_url +
                                 '">' + response.sql_data[i].matched_rows + '</a><br>';
                             if (i < len - 1) {
-                                dialog_content += '<hr>';
+                                dialogContent += '<hr>';
                             }
                         }
                     } else {
-                        dialog_content += response.message;
+                        dialogContent += response.message;
                     }
-                    dialog_content += '</div>';
-                    var $dialog_content = $(dialog_content);
-                    var button_options = {};
-                    button_options[Messages.strClose] = function () {
+                    dialogContent += '</div>';
+                    var $dialogContent = $(dialogContent);
+                    var buttonOptions = {};
+                    buttonOptions[Messages.strClose] = function () {
                         $(this).dialog('close');
                     };
-                    var $response_dialog = $('<div></div>').append($dialog_content).dialog({
+                    var $responseDialog = $('<div></div>').append($dialogContent).dialog({
                         minWidth: 540,
                         maxHeight: 400,
                         modal: true,
-                        buttons: button_options,
+                        buttons: buttonOptions,
                         title: Messages.strSimulateDML,
                         open: function () {
                             Functions.highlightSql($(this));
@@ -836,23 +836,23 @@ AJAX.registerOnload('sql.js', function () {
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
  */
-Sql.changeClassForColumn = function ($this_th, newclass, isAddClass) {
+Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T
-    var th_index = $this_th.index();
-    var has_big_t = $this_th.closest('tr').children(':first').hasClass('column_action');
+    var thIndex = $thisTh.index();
+    var hasBigT = $thisTh.closest('tr').children(':first').hasClass('column_action');
     // .eq() is zero-based
-    if (has_big_t) {
-        th_index--;
+    if (hasBigT) {
+        thIndex--;
     }
-    var $table = $this_th.parents('.table_results');
+    var $table = $thisTh.parents('.table_results');
     if (! $table.length) {
-        $table = $this_th.parents('table').siblings('.table_results');
+        $table = $thisTh.parents('table').siblings('.table_results');
     }
-    var $tds = $table.find('tbody tr').find('td.data:eq(' + th_index + ')');
+    var $tds = $table.find('tbody tr').find('td.data:eq(' + thIndex + ')');
     if (isAddClass === undefined) {
-        $tds.toggleClass(newclass);
+        $tds.toggleClass(newClass);
     } else {
-        $tds.toggleClass(newclass, isAddClass);
+        $tds.toggleClass(newClass, isAddClass);
     }
 };
 
@@ -861,16 +861,16 @@ Sql.changeClassForColumn = function ($this_th, newclass, isAddClass) {
  *
  * @param object $this_a reference to the browse foreign value link
  */
-Sql.browseForeignDialog = function ($this_a) {
+Sql.browseForeignDialog = function ($thisA) {
     var formId = '#browse_foreign_form';
     var showAllId = '#foreign_showAll';
     var tableId = '#browse_foreign_table';
     var filterId = '#input_foreign_filter';
     var $dialog = null;
     var argSep = CommonParams.get('arg_separator');
-    var params = $this_a.getPostData();
+    var params = $thisA.getPostData();
     params += argSep + 'ajax_request=true';
-    $.post($this_a.attr('href'), params, function (data) {
+    $.post($thisA.attr('href'), params, function (data) {
         // Creates browse foreign value dialog
         $dialog = $('<div>').append(data.message).dialog({
             title: Messages.strBrowseForeignValues,
@@ -891,10 +891,10 @@ Sql.browseForeignDialog = function ($this_a) {
         var showAll = false;
         $(tableId).on('click', 'td a.foreign_value', function (e) {
             e.preventDefault();
-            var $input = $this_a.prev('input[type=text]');
+            var $input = $thisA.prev('input[type=text]');
             // Check if input exists or get CEdit edit_box
             if ($input.length === 0) {
-                $input = $this_a.closest('.edit_area').prev('.edit_box');
+                $input = $thisA.closest('.edit_area').prev('.edit_box');
             }
             // Set selected value as input value
             $input.val($(this).data('key'));
@@ -931,7 +931,7 @@ Sql.browseForeignDialog = function ($this_a) {
 };
 
 Sql.checkSavedQuery = function () {
-    if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql !== undefined) {
+    if (isStorageSupported('localStorage') && window.localStorage.autoSavedSql !== undefined) {
         Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
     }
 };
@@ -1031,24 +1031,24 @@ Sql.initProfilingTables = function () {
 /**
  * Set position, left, top, width of sticky_columns div
  */
-Sql.setStickyColumnsPosition = function ($sticky_columns, $table_results, position, top, left, margin_left) {
-    $sticky_columns
+Sql.setStickyColumnsPosition = function ($stickyColumns, $tableResults, position, top, left, marginLeft) {
+    $stickyColumns
         .css('position', position)
         .css('top', top)
         .css('left', left ? left : 'auto')
-        .css('margin-left', margin_left ? margin_left : '0px')
-        .css('width', $table_results.width());
+        .css('margin-left', marginLeft ? marginLeft : '0px')
+        .css('width', $tableResults.width());
 };
 
 /**
  * Initialize sticky columns
  */
-Sql.initStickyColumns = function ($table_results) {
+Sql.initStickyColumns = function ($tableResults) {
     return $('<table class="sticky_columns"></table>')
-        .insertBefore($table_results)
+        .insertBefore($tableResults)
         .css('position', 'fixed')
         .css('z-index', '98')
-        .css('width', $table_results.width())
+        .css('width', $tableResults.width())
         .css('margin-left', $('#page_content').css('margin-left'))
         .css('top', $('#floating_menubar').height())
         .css('display', 'none');
@@ -1057,24 +1057,24 @@ Sql.initStickyColumns = function ($table_results) {
 /**
  * Arrange/Rearrange columns in sticky header
  */
-Sql.rearrangeStickyColumns = function ($sticky_columns, $table_results) {
-    var $originalHeader = $table_results.find('thead');
+Sql.rearrangeStickyColumns = function ($stickyColumns, $tableResults) {
+    var $originalHeader = $tableResults.find('thead');
     var $originalColumns = $originalHeader.find('tr:first').children();
     var $clonedHeader = $originalHeader.clone();
-    var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
-    var is_safari = navigator.userAgent.indexOf('Safari') > -1;
+    var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
+    var isSafari = navigator.userAgent.indexOf('Safari') > -1;
     // clone width per cell
     $clonedHeader.find('tr:first').children().each(function (i) {
         var width = $originalColumns.eq(i).width();
-        if (! is_firefox && ! is_safari) {
+        if (! isFirefox && ! isSafari) {
             width += 1;
         }
         $(this).width(width);
-        if (is_safari) {
+        if (isSafari) {
             $(this).css('min-width', width).css('max-width', width);
         }
     });
-    $sticky_columns.empty().append($clonedHeader);
+    $stickyColumns.empty().append($clonedHeader);
 };
 
 /**
@@ -1089,23 +1089,23 @@ Sql.handleAllStickyColumns = function () {
 /**
  * Adjust sticky columns on horizontal/vertical scroll
  */
-Sql.handleStickyColumns = function ($sticky_columns, $table_results) {
+Sql.handleStickyColumns = function ($stickyColumns, $tableResults) {
     var currentScrollX = $(window).scrollLeft();
     var windowOffset = $(window).scrollTop();
-    var tableStartOffset = $table_results.offset().top;
-    var tableEndOffset = tableStartOffset + $table_results.height();
+    var tableStartOffset = $tableResults.offset().top;
+    var tableEndOffset = tableStartOffset + $tableResults.height();
     if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
         // for horizontal scrolling
         if (prevScrollX !== currentScrollX) {
             prevScrollX = currentScrollX;
-            Sql.setStickyColumnsPosition($sticky_columns, $table_results, 'absolute', $('#floating_menubar').height() + windowOffset - tableStartOffset);
+            Sql.setStickyColumnsPosition($stickyColumns, $tableResults, 'absolute', $('#floating_menubar').height() + windowOffset - tableStartOffset);
         // for vertical scrolling
         } else {
-            Sql.setStickyColumnsPosition($sticky_columns, $table_results, 'fixed', $('#floating_menubar').height(), $('#pma_navigation').width() - currentScrollX, $('#page_content').css('margin-left'));
+            Sql.setStickyColumnsPosition($stickyColumns, $tableResults, 'fixed', $('#floating_menubar').height(), $('#pma_navigation').width() - currentScrollX, $('#page_content').css('margin-left'));
         }
-        $sticky_columns.show();
+        $stickyColumns.show();
     } else {
-        $sticky_columns.hide();
+        $stickyColumns.hide();
     }
 };
 

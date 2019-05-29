@@ -251,9 +251,9 @@ var AJAX = {
                 return false;
             } else {
                 if (isStorageSupported('localStorage')) {
-                    window.localStorage.removeItem('auto_saved_sql');
+                    window.localStorage.removeItem('autoSavedSql');
                 } else {
-                    Cookies.set('auto_saved_sql', '');
+                    Cookies.set('autoSavedSql', '');
                 }
             }
         }
