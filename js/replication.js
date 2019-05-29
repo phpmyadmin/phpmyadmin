@@ -8,26 +8,26 @@
  * @requires    js/functions.js
  */
 
-var random_server_id = Math.floor(Math.random() * 10000000);
-var conf_prefix = 'server-id=' + random_server_id + '\nlog_bin=mysql-bin\nlog_error=mysql-bin.err\n';
+var randomServerId = Math.floor(Math.random() * 10000000);
+var confPrefix = 'server-id=' + randomServerId + '\nlog_bin=mysql-bin\nlog_error=mysql-bin.err\n';
 
-function update_config () {
-    var conf_ignore = 'binlog_ignore_db=';
-    var conf_do = 'binlog_do_db=';
-    var database_list = '';
+function updateConfig () {
+    var confIgnore = 'binlog_ignore_db=';
+    var confDo = 'binlog_do_db=';
+    var databaseList = '';
 
     if ($('#db_select option:selected').size() === 0) {
-        $('#rep').text(conf_prefix);
+        $('#rep').text(confPrefix);
     } else if ($('#db_type option:selected').val() === 'all') {
         $('#db_select option:selected').each(function () {
-            database_list += conf_ignore + $(this).val() + '\n';
+            databaseList += confIgnore + $(this).val() + '\n';
         });
-        $('#rep').text(conf_prefix + database_list);
+        $('#rep').text(confPrefix + databaseList);
     } else {
         $('#db_select option:selected').each(function () {
-            database_list += conf_do + $(this).val() + '\n';
+            databaseList += confDo + $(this).val() + '\n';
         });
-        $('#rep').text(conf_prefix + database_list);
+        $('#rep').text(confPrefix + databaseList);
     }
 }
 
@@ -49,9 +49,9 @@ AJAX.registerTeardown('replication.js', function () {
 });
 
 AJAX.registerOnload('replication.js', function () {
-    $('#rep').text(conf_prefix);
-    $('#db_type').on('change', update_config);
-    $('#db_select').on('change', update_config);
+    $('#rep').text(confPrefix);
+    $('#db_type').on('change', updateConfig);
+    $('#db_select').on('change', updateConfig);
 
     $('#master_status_href').on('click', function () {
         $('#replication_master_section').toggle();
