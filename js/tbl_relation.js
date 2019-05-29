@@ -3,7 +3,10 @@
  * for tbl_relation.php
  *
  */
-function show_hide_clauses ($thisDropdown) {
+
+var TableRelation = {};
+
+TableRelation.showHideClauses = function ($thisDropdown) {
     if ($thisDropdown.val() === '') {
         $thisDropdown.parent().nextAll('span').hide();
     } else {
@@ -11,12 +14,12 @@ function show_hide_clauses ($thisDropdown) {
             $thisDropdown.parent().nextAll('span').show();
         }
     }
-}
+};
 
 /**
  * Sets dropdown options to values
  */
-function setDropdownValues ($dropdown, values, selectedValue) {
+TableRelation.setDropdownValues = function ($dropdown, values, selectedValue) {
     $dropdown.empty();
     var optionsAsString = '';
     // add an empty string to the beginning for empty selection
@@ -25,14 +28,14 @@ function setDropdownValues ($dropdown, values, selectedValue) {
         optionsAsString += '<option value=\'' + Functions.escapeHtml(this) + '\'' + (selectedValue === Functions.escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + Functions.escapeHtml(this) + '</option>';
     });
     $dropdown.append($(optionsAsString));
-}
+};
 
 /**
  * Retrieves and populates dropdowns to the left based on the selected value
  *
  * @param $dropdown the dropdown whose value got changed
  */
-function getDropdownValues ($dropdown) {
+TableRelation.getDropdownValues = function ($dropdown) {
     var foreignDb = null;
     var foreignTable = null;
     var $databaseDd;
@@ -56,8 +59,8 @@ function getDropdownValues ($dropdown) {
         foreignDb = $dropdown.val();
         // if no database is selected empty table and column dropdowns
         if (foreignDb === '') {
-            setDropdownValues($tableDd, []);
-            setDropdownValues($columnDd, []);
+            TableRelation.setDropdownValues($tableDd, []);
+            TableRelation.setDropdownValues($columnDd, []);
             return;
         }
     } else { // if a table selector
@@ -65,7 +68,7 @@ function getDropdownValues ($dropdown) {
         foreignTable = $dropdown.val();
         // if no table is selected empty the column dropdown
         if (foreignTable === '') {
-            setDropdownValues($columnDd, []);
+            TableRelation.setDropdownValues($columnDd, []);
             return;
         }
     }
@@ -95,8 +98,8 @@ function getDropdownValues ($dropdown) {
                 // if the changed dropdown is a database selector
                 if (foreignTable === null) {
                     // set values for table and column dropdowns
-                    setDropdownValues($tableDd, data.tables);
-                    setDropdownValues($columnDd, []);
+                    TableRelation.setDropdownValues($tableDd, data.tables);
+                    TableRelation.setDropdownValues($columnDd, []);
                 } else { // if a table selector
                     // set values for the column dropdown
                     var primary = null;
@@ -105,15 +108,15 @@ function getDropdownValues ($dropdown) {
                     ) {
                         primary = data.primary[0];
                     }
-                    setDropdownValues($columnDd.first(), data.columns, primary);
-                    setDropdownValues($columnDd.slice(1), data.columns);
+                    TableRelation.setDropdownValues($columnDd.first(), data.columns, primary);
+                    TableRelation.setDropdownValues($columnDd.slice(1), data.columns);
                 }
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
         }
     });
-}
+};
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -140,7 +143,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
         'select[name^="destination_foreign_db"], ' +
         'select[name^="destination_foreign_table"]',
         function () {
-            getDropdownValues($(this));
+            TableRelation.getDropdownValues($(this));
         }
     );
 
