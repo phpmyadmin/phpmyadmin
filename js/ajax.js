@@ -300,7 +300,7 @@ var AJAX = {
         }
         if (! (history && history.pushState)) {
             // Add a list of menu hashes that we have in the cache to the request
-            params += PMA_MicroHistory.menus.getRequestParam();
+            params += MicroHistory.menus.getRequestParam();
         }
 
         if (AJAX._debug) {
@@ -491,12 +491,12 @@ var AJAX = {
                         history.replaceState(state, null);
                         AJAX.handleMenu.replace(data._menu);
                     } else {
-                        PMA_MicroHistory.menus.replace(data._menu);
-                        PMA_MicroHistory.menus.add(data._menuHash, data._menu);
+                        MicroHistory.menus.replace(data._menu);
+                        MicroHistory.menus.add(data._menuHash, data._menu);
                     }
                 } else if (data._menuHash) {
                     if (! (history && history.pushState)) {
-                        PMA_MicroHistory.menus.replace(PMA_MicroHistory.menus.get(data._menuHash));
+                        MicroHistory.menus.replace(MicroHistory.menus.get(data._menuHash));
                     }
                 }
                 if (data._disableNaviSettings) {
@@ -550,7 +550,7 @@ var AJAX = {
                 }
                 if (data._selflink && data._scripts && data._menuHash && data._params) {
                     if (! (history && history.pushState)) {
-                        PMA_MicroHistory.add(
+                        MicroHistory.add(
                             data._selflink,
                             data._scripts,
                             data._menuHash,
@@ -779,7 +779,7 @@ var AJAX = {
             $(document).off('click', 'a').on('click', 'a', AJAX.requestHandler);
             $(document).off('submit', 'form').on('submit', 'form', AJAX.requestHandler);
             if (! (history && history.pushState)) {
-                PMA_MicroHistory.update();
+                MicroHistory.update();
             }
             callback();
         }
@@ -893,20 +893,20 @@ $(function () {
         AJAX.scriptHandler
             .load([{ 'name' : 'microhistory.js', 'fire' : 1 }], function () {
                 // The cache primer is set by the footer class
-                if (PMA_MicroHistory.primer.url) {
-                    PMA_MicroHistory.menus.add(
-                        PMA_MicroHistory.primer.menuHash,
+                if (MicroHistory.primer.url) {
+                    MicroHistory.menus.add(
+                        MicroHistory.primer.menuHash,
                         menuContent
                     );
                 }
                 $(function () {
                     // Queue up this event twice to make sure that we get a copy
                     // of the page after all other onload events have been fired
-                    if (PMA_MicroHistory.primer.url) {
-                        PMA_MicroHistory.add(
-                            PMA_MicroHistory.primer.url,
-                            PMA_MicroHistory.primer.scripts,
-                            PMA_MicroHistory.primer.menuHash
+                    if (MicroHistory.primer.url) {
+                        MicroHistory.add(
+                            MicroHistory.primer.url,
+                            MicroHistory.primer.scripts,
+                            MicroHistory.primer.menuHash
                         );
                     }
                 });

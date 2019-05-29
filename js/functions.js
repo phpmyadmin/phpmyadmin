@@ -3014,7 +3014,7 @@ AJAX.registerOnload('functions.js', function () {
                         var argsep = CommonParams.get('arg_separator');
                         var params12 = 'ajax_request=true' + argsep + 'ajax_page_request=true';
                         if (! (history && history.pushState)) {
-                            params12 += PMA_MicroHistory.menus.getRequestParam();
+                            params12 += MicroHistory.menus.getRequestParam();
                         }
                         var tableStructureUrl = 'tbl_structure.php?server=' + data._params.server +
                             argsep + 'db=' + data._params.db + argsep + 'token=' + data._params.token +

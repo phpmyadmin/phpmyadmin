@@ -324,7 +324,7 @@ class Footer
                     $this->_scripts->addCode(
                         sprintf(
                             'if (! (history && history.pushState)) '
-                            . 'PMA_MicroHistory.primer = {'
+                            . 'MicroHistory.primer = {'
                             . ' url: "%s",'
                             . ' scripts: %s,'
                             . ' menuHash: "%s"'
