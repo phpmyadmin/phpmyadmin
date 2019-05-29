@@ -3980,7 +3980,7 @@ Functions.showIndexEditDialog = function ($outer) {
  *                    in the whole body
  **/
 Functions.showHints = function ($div) {
-    if ($div === undefined || ! $div instanceof jQuery || $div.length === 0) {
+    if ($div === undefined || !($div instanceof jQuery) || $div.length === 0) {
         $div = $('body');
     }
     $div.find('.pma_hint').each(function () {
@@ -4332,7 +4332,7 @@ Functions.slidingMessage = function (msg, $obj) {
         // Don't show an empty message
         return false;
     }
-    if ($obj === undefined || ! $obj instanceof jQuery || $obj.length === 0) {
+    if ($obj === undefined || !($obj instanceof jQuery) || $obj.length === 0) {
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length === 0) {
