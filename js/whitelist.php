@@ -1,10 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Exporting of $goto_whitelist from PHP to Javascript
+ * Exporting of Core::$goto_whitelist from PHP to Javascript
  *
  * @package PhpMyAdmin
  */
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\OutputBuffering;
 
 if (!defined('TESTSUITE')) {
     chdir('..');
@@ -25,19 +28,19 @@ if (!defined('TESTSUITE')) {
     session_write_close();
 }
 
-$buffer = PhpMyAdmin\OutputBuffering::getInstance();
+$buffer = OutputBuffering::getInstance();
 $buffer->start();
 if (!defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
-            echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();
+            echo OutputBuffering::getInstance()->getContents();
         }
     );
 }
 
 echo "var PMA_gotoWhitelist = new Array();\n";
-$i = -1;
-foreach ($GLOBALS['goto_whitelist'] as $one_whitelist) {
-    $i++;
+$i = 0;
+foreach (Core::$goto_whitelist as $one_whitelist) {
     echo 'PMA_gotoWhitelist[' , $i , ']="' , $one_whitelist , '";' , "\n";
+    $i++;
 }
