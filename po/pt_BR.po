@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 19:16+0200\n"
-"PO-Revision-Date: 2019-04-24 05:47+0000\n"
+"PO-Revision-Date: 2019-05-29 22:29+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13364,10 +13364,8 @@ msgid "View dump (schema) of databases"
 msgstr "Ver despejos (esquema) dos bancos de dados"
 
 #: server_privileges.php:86
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Permitir apagar dados."
+msgstr "Permite apagar linhas históricas."
 
 #: server_privileges.php:157 server_user_groups.php:47
 msgid "No Privileges"
