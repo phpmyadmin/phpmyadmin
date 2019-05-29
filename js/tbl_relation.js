@@ -163,11 +163,11 @@ AJAX.registerOnload('tbl_relation.js', function () {
             .val('');
 
         // Add foreign field.
-        var $source_elem = $('select[name^="destination_foreign_column[' +
+        var $sourceElem = $('select[name^="destination_foreign_column[' +
             $(this).attr('data-index') + ']"]:last').parent();
-        $source_elem
+        $sourceElem
             .clone(true, true)
-            .insertAfter($source_elem)
+            .insertAfter($sourceElem)
             .find('select')
             .val('');
     });
@@ -179,15 +179,15 @@ AJAX.registerOnload('tbl_relation.js', function () {
         event.preventDefault();
         event.stopPropagation();
 
-        var $prev_row = $(this).closest('tr').prev('tr');
-        var $newRow = $prev_row.clone(true, true);
+        var $prevRow = $(this).closest('tr').prev('tr');
+        var $newRow = $prevRow.clone(true, true);
 
         // Update serial number.
-        var curr_index = $newRow
+        var currIndex = $newRow
             .find('a.add_foreign_key_field')
             .attr('data-index');
-        var new_index = parseInt(curr_index) + 1;
-        $newRow.find('a.add_foreign_key_field').attr('data-index', new_index);
+        var newIndex = parseInt(currIndex) + 1;
+        $newRow.find('a.add_foreign_key_field').attr('data-index', newIndex);
 
         // Update form parameter names.
         $newRow.find('select[name^="foreign_key_fields_name"]:not(:first), ' +
@@ -197,14 +197,14 @@ AJAX.registerOnload('tbl_relation.js', function () {
         });
         $newRow.find('input, select').each(function () {
             $(this).attr('name',
-                $(this).attr('name').replace(/\d/, new_index)
+                $(this).attr('name').replace(/\d/, newIndex)
             );
         });
         $newRow.find('input[type="text"]').each(function () {
             $(this).val('');
         });
         // Finally add the row.
-        $newRow.insertAfter($prev_row);
+        $newRow.insertAfter($prevRow);
     });
 
     /**
@@ -215,15 +215,15 @@ AJAX.registerOnload('tbl_relation.js', function () {
         var $anchor = $(this);
 
         // Object containing reference to the current field's row
-        var $curr_row = $anchor.parents('tr');
+        var $currRow = $anchor.parents('tr');
 
-        var drop_query = Functions.escapeHtml(
-            $curr_row.children('td')
+        var dropQuery = Functions.escapeHtml(
+            $currRow.children('td')
                 .children('.drop_foreign_key_msg')
                 .val()
         );
 
-        var question = Functions.sprintf(Messages.strDoYouReally, drop_query);
+        var question = Functions.sprintf(Messages.strDoYouReally, dropQuery);
 
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             var $msg = Functions.ajaxShowMessage(Messages.strDroppingForeignKey, false);
@@ -241,6 +241,6 @@ AJAX.registerOnload('tbl_relation.js', function () {
         });
     }); // end Drop Foreign key
 
-    var windowwidth = $(window).width();
-    $('.jsresponsive').css('max-width', (windowwidth - 35) + 'px');
+    var windowWidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowWidth - 35) + 'px');
 });
