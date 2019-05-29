@@ -35,13 +35,13 @@ AJAX.registerOnload('server_databases.js', function () {
         /**
          * @var selected_dbs Array containing the names of the checked databases
          */
-        var selected_dbs = [];
+        var selectedDbs = [];
         // loop over all checked checkboxes, except the .checkall_box checkbox
         $form.find('input:checkbox:checked:not(.checkall_box)').each(function () {
             $(this).closest('tr').addClass('removeMe');
-            selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + Functions.escapeHtml($(this).val()) + '`;';
+            selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + Functions.escapeHtml($(this).val()) + '`;';
         });
-        if (! selected_dbs.length) {
+        if (! selectedDbs.length) {
             Functions.ajaxShowMessage(
                 $('<div class="notice"></div>').text(
                     Messages.strNoDatabasesSelected
@@ -54,7 +54,7 @@ AJAX.registerOnload('server_databases.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = Messages.strDropDatabaseStrongWarning + ' ' +
-            Functions.sprintf(Messages.strDoYouReally, selected_dbs.join('<br>'));
+            Functions.sprintf(Messages.strDoYouReally, selectedDbs.join('<br>'));
 
         var argsep = CommonParams.get('arg_separator');
         $(this).confirm(
@@ -116,19 +116,19 @@ AJAX.registerOnload('server_databases.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 Functions.ajaxShowMessage(data.message);
 
-                var $databases_count_object = $('#filter-rows-count');
-                var databases_count = parseInt($databases_count_object.text(), 10) + 1;
-                $databases_count_object.text(databases_count);
+                var $databasesCountObject = $('#filter-rows-count');
+                var databasesCount = parseInt($databasesCountObject.text(), 10) + 1;
+                $databasesCountObject.text(databasesCount);
                 Navigation.reload();
 
                 // make ajax request to load db structure page - taken from ajax.js
-                var dbStruct_url = data.url_query;
-                dbStruct_url = dbStruct_url.replace(/amp;/ig, '');
+                var dbStructUrl = data.url_query;
+                dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
                 var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                 if (! (history && history.pushState)) {
                     params += MicroHistory.menus.getRequestParam();
                 }
-                $.get(dbStruct_url, params, AJAX.responseHandler);
+                $.get(dbStructUrl, params, AJAX.responseHandler);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
