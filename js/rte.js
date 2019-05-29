@@ -31,10 +31,11 @@ var RTE = {
             break;
         }
     },
+
     /**
-     * @var string param_template Template for a row in the routine editor
+     * @var {string} paramTemplate Template for a row in the routine editor
      */
-    param_template: ''
+    paramTemplate: ''
 };
 
 /**
@@ -123,8 +124,8 @@ RTE.COMMON = {
                 error: ''
             };
             // export anchors of all selected rows
-            var export_anchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
-            var count = export_anchors.length;
+            var exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
+            var count = exportAnchors.length;
             var returnCount = 0;
 
             // No routine is exportable (due to privilege issues)
@@ -132,7 +133,7 @@ RTE.COMMON = {
                 Functions.ajaxShowMessage(Messages.NoExportable);
             }
 
-            export_anchors.each(function () {
+            exportAnchors.each(function () {
                 $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
                     returnCount++;
                     if (data.success === true) {
@@ -162,8 +163,8 @@ RTE.COMMON = {
                  * @var button_options Object containing options
                  *                     for jQueryUI dialog buttons
                  */
-                var button_options = {};
-                button_options[Messages.strClose] = function () {
+                var buttonOptions = {};
+                buttonOptions[Messages.strClose] = function () {
                     $(this).dialog('close').remove();
                 };
                 /**
@@ -172,7 +173,7 @@ RTE.COMMON = {
                 data.message = '<textarea cols="40" rows="15" class="all100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                     width: 500,
-                    buttons: button_options,
+                    buttons: buttonOptions,
                     title: data.title
                 });
                 // Attach syntax highlighted editor to export dialog
@@ -187,19 +188,19 @@ RTE.COMMON = {
             }
         } // end showExport()
     },  // end exportDialog()
-    editorDialog: function (is_new, $this) {
+    editorDialog: function (isNew, $this) {
         var that = this;
         /**
          * @var $edit_row jQuery object containing the reference to
          *                the row of the the item being edited
          *                from the list of items
          */
-        var $edit_row = null;
+        var $editRow = null;
         if ($this.hasClass('edit_anchor')) {
             // Remeber the row of the item being edited for later,
             // so that if the edit is successful, we can replace the
             // row with info about the modified item.
-            $edit_row = $this.parents('tr');
+            $editRow = $this.parents('tr');
         }
         /**
          * @var $msg jQuery object containing the reference to
@@ -236,8 +237,8 @@ RTE.COMMON = {
                                 that.$ajaxDialog.dialog('close');
                                 // If we are in 'edit' mode, we must
                                 // remove the reference to the old row.
-                                if (mode === 'edit' && $edit_row !== null) {
-                                    $edit_row.remove();
+                                if (mode === 'edit' && $editRow !== null) {
+                                    $editRow.remove();
                                 }
                                 // Sometimes, like when moving a trigger from
                                 // a table to another one, the new row should
@@ -387,12 +388,12 @@ RTE.COMMON = {
         /**
          * @var $curr_row Object containing reference to the current row
          */
-        var $curr_row = $this.parents('tr');
+        var $currRow = $this.parents('tr');
         /**
          * @var question String containing the question to be asked for confirmation
          */
         var question = $('<div></div>').text(
-            $curr_row.children('td').children('.drop_sql').html()
+            $currRow.children('td').children('.drop_sql').html()
         );
         // We ask for confirmation first here, before submitting the ajax request
         $this.confirm(question, $this.attr('href'), function (url) {
@@ -408,7 +409,7 @@ RTE.COMMON = {
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    var $table = $curr_row.parent();
+                    var $table = $currRow.parent();
                     // Check how many rows will be left after we remove
                     // the one that the user has requested us to remove
                     if ($table.find('tr').length === 3) {
@@ -422,7 +423,7 @@ RTE.COMMON = {
                             $('#nothing2display').show('slow');
                         });
                     } else {
-                        $curr_row.hide('slow', function () {
+                        $currRow.hide('slow', function () {
                             $(this).remove();
                             // Now we have removed the row from the list, but maybe
                             // some row classes are wrong now. So we will itirate
@@ -465,17 +466,17 @@ RTE.COMMON = {
             var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
-            var drop_anchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
+            var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
             var success = true;
-            var count = drop_anchors.length;
+            var count = dropAnchors.length;
             var returnCount = 0;
 
-            drop_anchors.each(function () {
+            dropAnchors.each(function () {
                 var $anchor = $(this);
                 /**
                  * @var $curr_row Object containing reference to the current row
                  */
-                var $curr_row = $anchor.parents('tr');
+                var $currRow = $anchor.parents('tr');
                 var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
@@ -484,7 +485,7 @@ RTE.COMMON = {
                          * @var $table Object containing reference
                          *             to the main list of elements
                          */
-                        var $table = $curr_row.parent();
+                        var $table = $currRow.parent();
                         // Check how many rows will be left after we remove
                         // the one that the user has requested us to remove
                         if ($table.find('tr').length === 3) {
@@ -498,7 +499,7 @@ RTE.COMMON = {
                                 $('#nothing2display').show('slow');
                             });
                         } else {
-                            $curr_row.hide('fast', function () {
+                            $currRow.hide('fast', function () {
                                 $(this).remove();
                                 // Now we have removed the row from the list, but maybe
                                 // some row classes are wrong now. So we will itirate
@@ -582,7 +583,7 @@ RTE.ROUTINE = {
      */
     postDialogShow: function (data) {
         // Cache the template for a parameter table row
-        RTE.param_template = data.param_template;
+        RTE.paramTemplate = data.paramTemplate;
         var that = this;
         // Make adjustments in the dialog to make it AJAX compatible
         $('td.routine_param_remove').show();
@@ -749,13 +750,13 @@ RTE.ROUTINE = {
          *              to an element to be displayed when no
          *              options are available
          */
-        var $no_opts = $text.parent().parent().find('.no_opts');
+        var $noOpts = $text.parent().parent().find('.no_opts');
         /**
          * @var no_len a jQuery object containing the reference
          *             to an element to be displayed when no
          *             "length/values" field is available
          */
-        var $no_len  = $len.parent().parent().find('.no_len');
+        var $noLen  = $len.parent().parent().find('.no_len');
 
         // Process for parameter options
         switch ($type.val()) {
@@ -770,7 +771,7 @@ RTE.ROUTINE = {
         case 'REAL':
             $text.parent().hide();
             $num.parent().show();
-            $no_opts.hide();
+            $noOpts.hide();
             break;
         case 'TINYTEXT':
         case 'TEXT':
@@ -782,12 +783,12 @@ RTE.ROUTINE = {
         case 'ENUM':
             $text.parent().show();
             $num.parent().hide();
-            $no_opts.hide();
+            $noOpts.hide();
             break;
         default:
             $text.parent().hide();
             $num.parent().hide();
-            $no_opts.show();
+            $noOpts.show();
             break;
         }
         // Process for parameter length
@@ -803,7 +804,7 @@ RTE.ROUTINE = {
         case 'LONGTEXT':
             $text.closest('tr').find('a:first').hide();
             $len.parent().hide();
-            $no_len.show();
+            $noLen.show();
             break;
         default:
             if ($type.val() === 'ENUM' || $type.val() === 'SET') {
@@ -812,7 +813,7 @@ RTE.ROUTINE = {
                 $text.closest('tr').find('a:first').hide();
             }
             $len.parent().show();
-            $no_len.hide();
+            $noLen.hide();
             break;
         }
     },
@@ -1033,14 +1034,14 @@ $(function () {
          * @var routine_params_table jQuery object containing the reference
          *                           to the routine parameters table
          */
-        var $routine_params_table = $(this).closest('div.ui-dialog').find('.routine_params_table');
+        var $routineParamsTable = $(this).closest('div.ui-dialog').find('.routine_params_table');
         /**
          * @var new_param_row A string containing the HTML code for the
          *                    new row for the routine parameters table
          */
-        var new_param_row = RTE.param_template.replace(/%s/g, $routine_params_table.find('tr').length - 1);
+        var newParamRow = RTE.paramTemplate.replace(/%s/g, $routineParamsTable.find('tr').length - 1);
         // Append the new row to the parameters table
-        $routine_params_table.append(new_param_row);
+        $routineParamsTable.append(newParamRow);
         // Make sure that the row is correctly shown according to the type of routine
         if ($(this).closest('div.ui-dialog').find('table.rte_table select[name=item_type]').val() === 'FUNCTION') {
             $('tr.routine_return_row').show();

@@ -211,7 +211,7 @@ class Routines
                 if ($response->isAjax()) {
                     $response->addJSON('message', $editor);
                     $response->addJSON('title', $title);
-                    $response->addJSON('param_template', $this->getParameterRow());
+                    $response->addJSON('paramTemplate', $this->getParameterRow());
                     $response->addJSON('type', $routine['item_type']);
                 } else {
                     echo "\n\n<h2>$title</h2>\n\n$editor";
