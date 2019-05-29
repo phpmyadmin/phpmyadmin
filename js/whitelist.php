@@ -7,6 +7,8 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\OutputBuffering;
+
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
@@ -30,19 +32,19 @@ if (! defined('TESTSUITE')) {
     session_write_close();
 }
 
-$buffer = PhpMyAdmin\OutputBuffering::getInstance();
+$buffer = OutputBuffering::getInstance();
 $buffer->start();
 if (! defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
-            echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();
+            echo OutputBuffering::getInstance()->getContents();
         }
     );
 }
 
-echo "var PMA_gotoWhitelist = new Array();\n";
+echo "var GotoWhitelist = [];\n";
 $i = -1;
 foreach ($GLOBALS['goto_whitelist'] as $one_whitelist) {
     $i++;
-    echo 'PMA_gotoWhitelist[' , $i , ']="' , $one_whitelist , '";' , "\n";
+    echo 'GotoWhitelist[' , $i , '] = \'' , $one_whitelist , '\';' , "\n";
 }

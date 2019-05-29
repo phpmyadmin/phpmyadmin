@@ -292,7 +292,7 @@ MicroHistory.setUrlHash = (function (jQuery, window) {
         var questionMarkPosition = urlHash.indexOf('?');
         if (colonPosition !== -1 && questionMarkPosition !== -1 && colonPosition < questionMarkPosition) {
             var hashUrl = urlHash.substring(colonPosition + 1, questionMarkPosition);
-            if (PMA_gotoWhitelist.indexOf(hashUrl) !== -1) {
+            if (GotoWhitelist.indexOf(hashUrl) !== -1) {
                 window.location = urlHash.substring(
                     colonPosition + 1
                 );

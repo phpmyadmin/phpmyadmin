@@ -56,7 +56,7 @@ class FilesTest extends TestCase
         return [
             [
                 'js/whitelist.php',
-                'var PMA_gotoWhitelist',
+                'var GotoWhitelist',
             ],
             [
                 'js/messages.php',
