@@ -139,8 +139,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
         }
         // variables which stores the common attributes
         var params = $.param({
-            ajax_request: 1,
-            server: CommonParams.get('server')
+            'ajax_request': 1,
+            'server': CommonParams.get('server')
         });
         var postData = $link.getPostData();
         if (postData) {
@@ -151,7 +151,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             function scrollToTop () {
                 $('html, body').animate({ scrollTop: 0 });
             }
-            var $temp_div;
+            var $tempDiv;
             if (typeof data !== 'undefined' && data.success === true && data.sql_query !== undefined) {
                 Functions.ajaxShowMessage(data.message);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
@@ -159,9 +159,9 @@ AJAX.registerOnload('tbl_operations.js', function () {
                 Functions.highlightSql($('#page_content'));
                 scrollToTop();
             } else if (typeof data !== 'undefined' && data.success === true) {
-                $temp_div = $('<div id=\'temp_div\'></div>');
-                $temp_div.html(data.message);
-                var $success = $temp_div.find('.result_query .success');
+                $tempDiv = $('<div id=\'temp_div\'></div>');
+                $tempDiv.html(data.message);
+                var $success = $tempDiv.find('.result_query .success');
                 Functions.ajaxShowMessage($success);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.message);
@@ -170,14 +170,14 @@ AJAX.registerOnload('tbl_operations.js', function () {
                 $('.sqlqueryresults').children('fieldset,br').remove();
                 scrollToTop();
             } else {
-                $temp_div = $('<div id=\'temp_div\'></div>');
-                $temp_div.html(data.error);
+                $tempDiv = $('<div id=\'temp_div\'></div>');
+                $tempDiv.html(data.error);
 
                 var $error;
-                if ($temp_div.find('.error code').length !== 0) {
-                    $error = $temp_div.find('.error code').addClass('error');
+                if ($tempDiv.find('.error code').length !== 0) {
+                    $error = $tempDiv.find('.error code').addClass('error');
                 } else {
-                    $error = $temp_div;
+                    $error = $tempDiv;
                 }
 
                 Functions.ajaxShowMessage($error, false);
