@@ -8,13 +8,13 @@
  */
 
 function captureURL (url) {
+    var newUrl = '' + url;
     var URL = {};
-    url = '' + url;
     // Exclude the url part till HTTP
-    url = url.substr(url.search('sql.php'), url.length);
+    newUrl = newUrl.substr(newUrl.search('sql.php'), newUrl.length);
     // The url part between ORDER BY and &session_max_rows needs to be replaced.
-    URL.head = url.substr(0, url.indexOf('ORDER+BY') + 9);
-    URL.tail = url.substr(url.indexOf('&session_max_rows'), url.length);
+    URL.head = newUrl.substr(0, newUrl.indexOf('ORDER+BY') + 9);
+    URL.tail = newUrl.substr(newUrl.indexOf('&session_max_rows'), newUrl.length);
     return URL;
 }
 
@@ -30,8 +30,8 @@ function removeColumnFromMultiSort (target, parent) {
     var begin = target.indexOf('ORDER+BY') + 8;
     var end = target.indexOf(CommonParams.get('arg_separator') + 'session_max_rows');
     // get the names of the columns involved
-    var between_part = target.substr(begin, end - begin);
-    var columns = between_part.split('%2C+');
+    var betweenPart = target.substr(begin, end - begin);
+    var columns = betweenPart.split('%2C+');
     // If the given column is not part of the order clause exit from this function
     var index = parent.find('small').length ? parent.find('small').text() : '';
     if (index === '') {
@@ -50,8 +50,8 @@ function removeColumnFromMultiSort (target, parent) {
         URL.tail += CommonParams.get('arg_separator') + 'discard_remembered_sort=1';
     }
     URL.head = URL.head.substring(URL.head.indexOf('?') + 1);
-    var middle_part = columns.join('%2C+');
-    params = URL.head + middle_part + URL.tail;
+    var middlePart = columns.join('%2C+');
+    params = URL.head + middlePart + URL.tail;
     return params;
 }
 
