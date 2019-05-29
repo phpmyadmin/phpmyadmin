@@ -92,8 +92,8 @@ function loadSVG () {
     var $placeholder = $('#placeholder');
 
     $placeholder.svg({
-        onLoad: function (svg_ref) {
-            svg = svg_ref;
+        onLoad: function (svgRef) {
+            svg = svgRef;
         }
     });
 
@@ -125,7 +125,7 @@ function addZoomPanControllers () {
  */
 function resizeGISVisualization () {
     var $placeholder = $('#placeholder');
-    var old_width = $placeholder.width();
+    var oldWidth = $placeholder.width();
     var visWidth = $('#div_view_options').width() - 48;
 
     // Assign new value for width
@@ -133,7 +133,7 @@ function resizeGISVisualization () {
     $('svg').attr('width', visWidth);
 
     // Assign the offset created due to resizing to defaultX and center the svg.
-    defaultX = (visWidth - old_width) / 2;
+    defaultX = (visWidth - oldWidth) / 2;
     x = defaultX;
     y = 0;
     scale = 1;
