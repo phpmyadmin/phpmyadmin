@@ -1,7 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
-var chart_data = {};
-var temp_chart_title;
+var chartData = {};
+var tempChartTitle;
 
 var currentChart = null;
 var currentSettings = null;
@@ -29,7 +29,7 @@ function extractDate (dateString) {
     return null;
 }
 
-function PMA_queryChart (data, columnNames, settings) {
+function queryChart (data, columnNames, settings) {
     if ($('#querychart').length === 0) {
         return;
     }
@@ -169,7 +169,7 @@ function drawChart () {
         columnNames.push(Functions.escapeHtml($(this).text()));
     });
     try {
-        currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
+        currentChart = queryChart(chartData, columnNames, currentSettings);
         if (currentChart !== null) {
             $('#saveChart').attr('href', currentChart.toImageString());
         }
@@ -208,28 +208,28 @@ function onXAxisChange () {
             currentSettings.type = 'line';
         }
     }
-    var xaxis_title = $xAxisSelect.children('option:selected').text();
-    $('input[name="xaxis_label"]').val(xaxis_title);
-    currentSettings.xaxisLabel = xaxis_title;
+    var xAxisTitle = $xAxisSelect.children('option:selected').text();
+    $('input[name="xaxis_label"]').val(xAxisTitle);
+    currentSettings.xaxisLabel = xAxisTitle;
 }
 
 function onDataSeriesChange () {
     var $seriesSelect = $('select[name="chartSeries"]');
     currentSettings.selectedSeries = getSelectedSeries();
-    var yaxis_title;
+    var yAxisTitle;
     if (currentSettings.selectedSeries.length === 1) {
         $('span.span_pie').show();
-        yaxis_title = $seriesSelect.children('option:selected').text();
+        yAxisTitle = $seriesSelect.children('option:selected').text();
     } else {
         $('span.span_pie').hide();
         if (currentSettings.type === 'pie') {
             $('input#radio_line').prop('checked', true);
             currentSettings.type = 'line';
         }
-        yaxis_title = Messages.strYValues;
+        yAxisTitle = Messages.strYValues;
     }
-    $('input[name="yaxis_label"]').val(yaxis_title);
-    currentSettings.yaxisLabel = yaxis_title;
+    $('input[name="yaxis_label"]').val(yAxisTitle);
+    currentSettings.yaxisLabel = yAxisTitle;
 }
 
 /**
@@ -310,14 +310,14 @@ AJAX.registerOnload('tbl_chart.js', function () {
     // handle changes in chart title
     $('input[name="chartTitle"]')
         .focus(function () {
-            temp_chart_title = $(this).val();
+            tempChartTitle = $(this).val();
         })
         .on('keyup', function () {
             currentSettings.title = $('input[name="chartTitle"]').val();
             drawChart();
         })
         .blur(function () {
-            if ($(this).val() !== temp_chart_title) {
+            if ($(this).val() !== tempChartTitle) {
                 drawChart();
             }
         });
@@ -374,7 +374,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
             if (typeof data !== 'undefined' &&
                     data.success === true &&
                     typeof data.chartData !== 'undefined') {
-                chart_data = JSON.parse(data.chartData);
+                chartData = JSON.parse(data.chartData);
                 drawChart();
                 Functions.ajaxRemoveMessage($msgbox);
             } else {
