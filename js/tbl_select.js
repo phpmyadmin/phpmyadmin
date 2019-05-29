@@ -274,7 +274,7 @@ AJAX.registerOnload('tbl_select.js', function () {
      * Ajax event handler for Range-Search.
      */
     $('body').on('change', 'select[name*="criteriaColumnOperators"]', function () { // Fix for bug #13778, changed 'click' to 'change'
-        $source_select = $(this);
+        var $sourceSelect = $(this);
         // Get the column name.
         var columnName = $(this)
             .closest('tr')
@@ -297,12 +297,12 @@ AJAX.registerOnload('tbl_select.js', function () {
                 url: 'tbl_select.php',
                 type: 'POST',
                 data: {
-                    server: CommonParams.get('server'),
-                    ajax_request: 1,
-                    db: $('input[name="db"]').val(),
-                    table: $('input[name="table"]').val(),
-                    column: columnName,
-                    range_search: 1
+                    'server': CommonParams.get('server'),
+                    'ajax_request': 1,
+                    'db': $('input[name="db"]').val(),
+                    'table': $('input[name="table"]').val(),
+                    'column': columnName,
+                    'range_search': 1
                 },
                 success: function (response) {
                     Functions.ajaxRemoveMessage($msgbox);
@@ -326,7 +326,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                                 finalValue = minValue + ', ' +
                                     maxValue;
                             }
-                            var $targetField = $source_select.closest('tr')
+                            var $targetField = $sourceSelect.closest('tr')
                                 .find('[name*="criteriaValues"]');
 
                             // If target field is a select list.
