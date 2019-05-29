@@ -13,7 +13,7 @@ var RTE = {
      * Construct for the object that provides the
      * functionality for Routines, Triggers and Events
      */
-    object: function (type) {
+    Object: function (type) {
         $.extend(this, RTE.COMMON);
         this.editorType = type;
 
@@ -931,7 +931,7 @@ $(function () {
         } else {
             type = '';
         }
-        var dialog = new RTE.object(type);
+        var dialog = new RTE.Object(type);
         dialog.editorDialog($(this).hasClass('add_anchor'), $(this));
     }); // end $(document).on()
 
@@ -940,7 +940,7 @@ $(function () {
      */
     $(document).on('click', 'a.ajax.exec_anchor', function (event) {
         event.preventDefault();
-        var dialog = new RTE.object('routine');
+        var dialog = new RTE.Object('routine');
         dialog.executeDialog($(this));
     }); // end $(document).on()
 
@@ -949,13 +949,13 @@ $(function () {
      */
     $(document).on('click', 'a.ajax.export_anchor', function (event) {
         event.preventDefault();
-        var dialog = new RTE.object();
+        var dialog = new RTE.Object();
         dialog.exportDialog($(this));
     }); // end $(document).on()
 
     $(document).on('click', '#rteListForm.ajax .mult_submit[value="export"]', function (event) {
         event.preventDefault();
-        var dialog = new RTE.object();
+        var dialog = new RTE.Object();
         dialog.exportDialog($(this));
     }); // end $(document).on()
 
@@ -965,13 +965,13 @@ $(function () {
      */
     $(document).on('click', 'a.ajax.drop_anchor', function (event) {
         event.preventDefault();
-        var dialog = new RTE.object();
+        var dialog = new RTE.Object();
         dialog.dropDialog($(this));
     }); // end $(document).on()
 
     $(document).on('click', '#rteListForm.ajax .mult_submit[value="drop"]', function (event) {
         event.preventDefault();
-        var dialog = new RTE.object();
+        var dialog = new RTE.Object();
         dialog.dropMultipleDialog($(this));
     }); // end $(document).on()
 
@@ -999,7 +999,7 @@ $(function () {
          *          a row in the routine parameters table
          */
         var $row = $(this).parents('tr').first();
-        var rte = new RTE.object('routine');
+        var rte = new RTE.Object('routine');
         rte.setOptionsForParameter(
             $row.find('select[name^=item_param_type]'),
             $row.find('input[name^=item_param_length]'),
@@ -1014,7 +1014,7 @@ $(function () {
      * if any, are shown when changing the function return type type
      */
     $(document).on('change', 'select[name=item_returntype]', function () {
-        var rte = new RTE.object('routine');
+        var rte = new RTE.Object('routine');
         var $table = $(this).closest('table.rte_table');
         rte.setOptionsForParameter(
             $table.find('select[name=item_returntype]'),
@@ -1052,7 +1052,7 @@ $(function () {
          */
         var $newrow = $(this).closest('div.ui-dialog').find('table.routine_params_table').find('tr').has('td').last();
         // Enable/disable the 'options' dropdowns for parameters as necessary
-        var rte = new RTE.object('routine');
+        var rte = new RTE.Object('routine');
         rte.setOptionsForParameter(
             $newrow.find('select[name^=item_param_type]'),
             $newrow.find('input[name^=item_param_length]'),

@@ -9,9 +9,11 @@ CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
         var found = [];
         for (var idx in response) {
             found.push({
+                // eslint-disable-next-line new-cap
                 from: CodeMirror.Pos(
                     response[idx].fromLine, response[idx].fromColumn
                 ),
+                // eslint-disable-next-line new-cap
                 to: CodeMirror.Pos(
                     response[idx].toLine, response[idx].toColumn
                 ),

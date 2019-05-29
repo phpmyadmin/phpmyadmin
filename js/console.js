@@ -322,8 +322,6 @@ var Console = {
         case 'show':
             Console.collapse();
             break;
-        default:
-            ConsoleInitialize();
         }
     },
     /**
@@ -521,6 +519,7 @@ var ConsoleInput = {
         }
         ConsoleInput._inputs = [];
         if (ConsoleInput._codemirror) {
+            // eslint-disable-next-line new-cap
             ConsoleInput._inputs.console = CodeMirror($('#pma_console').find('.console_query_input')[0], {
                 theme: 'pma',
                 mode: 'text/x-sql',
@@ -538,6 +537,7 @@ var ConsoleInput = {
                 ConsoleInput._historyNavigate(event);
             });
             if ($('#pma_bookmarks').length !== 0) {
+                // eslint-disable-next-line new-cap
                 ConsoleInput._inputs.bookmark = CodeMirror($('#pma_console').find('.bookmark_add_input')[0], {
                     theme: 'pma',
                     mode: 'text/x-sql',

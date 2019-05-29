@@ -14,7 +14,7 @@
         "eqeqeq": "error",
         "indent": ["error", 4],
         "keyword-spacing": "error",
-        "new-cap": "warn",
+        "new-cap": "error",
         "no-array-constructor": "error",
         "no-eval": "error",
         "no-loop-func": "error",
