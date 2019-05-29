@@ -12,8 +12,9 @@
  */
 
 var normalizeto = '1nf';
-var primary_key;
-var data_parsed = null;
+var primaryKey;
+var dataParsed = null;
+
 function appendHtmlColumnsList () {
     $.post(
         'normalization.php',
@@ -31,9 +32,11 @@ function appendHtmlColumnsList () {
         }
     );
 }
+
 function goTo3NFStep1 (newTables) {
-    if (Object.keys(newTables).length === 1) {
-        newTables = [CommonParams.get('table')];
+    var tables = newTables;
+    if (Object.keys(tables).length === 1) {
+        tables = [CommonParams.get('table')];
     }
     $.post(
         'normalization.php',
@@ -41,7 +44,7 @@ function goTo3NFStep1 (newTables) {
             'ajax_request': true,
             'db': CommonParams.get('db'),
             'server': CommonParams.get('server'),
-            'tables': newTables,
+            'tables': tables,
             'step': '3.1'
         }, function (data) {
             $('#page_content').find('h3').html(Messages.str3NFNormalization);
@@ -50,10 +53,10 @@ function goTo3NFStep1 (newTables) {
             $('#mainContent').find('p').html(data.subText);
             $('#mainContent').find('#extra').html(data.extra);
             $('#extra').find('form').each(function () {
-                var form_id = $(this).attr('id');
-                var colname = $(this).data('colname');
-                $('#' + form_id + ' input[value=\'' + colname + '\']').next().remove();
-                $('#' + form_id + ' input[value=\'' + colname + '\']').remove();
+                var formId = $(this).attr('id');
+                var colName = $(this).data('colname');
+                $('#' + formId + ' input[value=\'' + colName + '\']').next().remove();
+                $('#' + formId + ' input[value=\'' + colName + '\']').remove();
             });
             $('#mainContent').find('#newCols').html('');
             $('.tblFooters').html('');
@@ -69,6 +72,7 @@ function goTo3NFStep1 (newTables) {
         }
     );
 }
+
 function goTo2NFStep1 () {
     $.post(
         'normalization.php',
@@ -134,8 +138,8 @@ function goToStep4 () {
             $('#mainContent #extra').html(data.extra);
             $('#mainContent #newCols').html('');
             $('.tblFooters').html('');
-            for (var pk in primary_key) {
-                $('#extra input[value=\'' + Functions.escapeJsString(primary_key[pk]) + '\']').attr('disabled','disabled');
+            for (var pk in primaryKey) {
+                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled','disabled');
             }
         }
     );
@@ -157,9 +161,9 @@ function goToStep3 () {
             $('#mainContent #extra').html(data.extra);
             $('#mainContent #newCols').html('');
             $('.tblFooters').html('');
-            primary_key = JSON.parse(data.primary_key);
-            for (var pk in primary_key) {
-                $('#extra input[value=\'' + Functions.escapeJsString(primary_key[pk]) + '\']').attr('disabled','disabled');
+            primaryKey = JSON.parse(data.primary_key);
+            for (var pk in primaryKey) {
+                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled','disabled');
             }
         }
     );
@@ -281,8 +285,10 @@ function goTo3NFFinish (newTables) {
         }
     });
 }
+
 var backup = '';
-function goTo2NFStep2 (pd, primary_key) {
+
+function goTo2NFStep2 (pd, primaryKey) {
     $('#newCols').html('');
     $('#mainContent legend').html(Messages.strStep + ' 2.2 ' + Messages.strConfirmPd);
     $('#mainContent h4').html(Messages.strSelectedPd);
@@ -290,7 +296,7 @@ function goTo2NFStep2 (pd, primary_key) {
     var extra = '<div class="dependencies_box">';
     var pdFound = false;
     for (var dependson in pd) {
-        if (dependson !== primary_key) {
+        if (dependson !== primaryKey) {
             pdFound = true;
             extra += '<p class="displayblock desc">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
         }
@@ -362,9 +368,9 @@ function goTo3NFStep2 (pd, tablesTds) {
             data: datastring,
             async:false,
             success: function (data) {
-                data_parsed = data;
+                dataParsed = data;
                 if (data.success === true) {
-                    extra += data_parsed.html;
+                    extra += dataParsed.html;
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
@@ -377,34 +383,35 @@ function goTo3NFStep2 (pd, tablesTds) {
         if (!pdFound) {
             goTo3NFFinish([]);
         } else {
-            goTo3NFFinish(data_parsed.newTables);
+            goTo3NFFinish(dataParsed.newTables);
         }
     });
 }
-function processDependencies (primary_key, isTransitive) {
+function processDependencies (primaryKey, isTransitive) {
+    var pk = primaryKey;
     var pd = {};
     var tablesTds = {};
     var dependsOn;
-    pd[primary_key] = [];
+    pd[pk] = [];
     $('#extra form').each(function () {
         var tblname;
         if (isTransitive === true) {
             tblname = $(this).data('tablename');
-            primary_key = tblname;
+            pk = tblname;
             if (!(tblname in tablesTds)) {
                 tablesTds[tblname] = [];
             }
-            tablesTds[tblname].push(primary_key);
+            tablesTds[tblname].push(pk);
         }
-        var form_id = $(this).attr('id');
-        $('#' + form_id + ' input[type=checkbox]:not(:checked)').prop('checked', false);
+        var formId = $(this).attr('id');
+        $('#' + formId + ' input[type=checkbox]:not(:checked)').prop('checked', false);
         dependsOn = '';
-        $('#' + form_id + ' input[type=checkbox]:checked').each(function () {
+        $('#' + formId + ' input[type=checkbox]:checked').each(function () {
             dependsOn += $(this).val() + ', ';
             $(this).attr('checked','checked');
         });
         if (dependsOn === '') {
-            dependsOn = primary_key;
+            dependsOn = pk;
         } else {
             dependsOn = dependsOn.slice(0, -2);
         }
@@ -425,7 +432,7 @@ function processDependencies (primary_key, isTransitive) {
     if (isTransitive === true) {
         goTo3NFStep2(pd, tablesTds);
     } else {
-        goTo2NFStep2(pd, primary_key);
+        goTo2NFStep2(pd, pk);
     }
     return false;
 }
@@ -449,7 +456,7 @@ function moveRepeatingGroup (repeatingCols) {
         'repeatingColumns': repeatingCols,
         'newTable':newTable,
         'newColumn':newColumn,
-        'primary_columns':primary_key.toString()
+        'primary_columns':primaryKey.toString()
     };
     $.ajax({
         type: 'POST',
@@ -658,7 +665,7 @@ AJAX.registerOnload('normalization.js', function () {
             repeatingCols = repeatingCols.slice(0, -2);
             var confirmStr = Functions.sprintf(Messages.strMoveRepeatingGroup, Functions.escapeHtml(repeatingCols), Functions.escapeHtml(CommonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + Messages.strNewTablePlaceholder + '">' +
-                '( ' + Functions.escapeHtml(primary_key.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + Messages.strNewColumnPlaceholder + '" value="' + Functions.escapeHtml(newColName) + '">)' +
+                '( ' + Functions.escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + Messages.strNewColumnPlaceholder + '" value="' + Functions.escapeHtml(newColName) + '">)' +
                 '</ol>';
             $('#newCols').html(confirmStr);
 
@@ -679,14 +686,15 @@ AJAX.registerOnload('normalization.js', function () {
     });
     $('#mainContent p').on('click', '#createPrimaryKey', function (event) {
         event.preventDefault();
-        var url = { create_index: 1,
-            server:  CommonParams.get('server'),
-            db: CommonParams.get('db'),
-            table: CommonParams.get('table'),
-            added_fields: 1,
-            add_fields:1,
-            index: { Key_name:'PRIMARY' },
-            ajax_request: true
+        var url = {
+            'create_index': 1,
+            'server':  CommonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'added_fields': 1,
+            'add_fields':1,
+            'index': { 'Key_name':'PRIMARY' },
+            'ajax_request': true
         };
         var title = Messages.strAddPrimaryKey;
         Functions.indexEditorDialog(url, title, function () {
