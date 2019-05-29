@@ -1,12 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Exporting of $goto_whitelist from PHP to Javascript
+ * Exporting of Core::$goto_whitelist from PHP to Javascript
  *
  * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\OutputBuffering;
 
 if (! defined('ROOT_PATH')) {
@@ -43,8 +44,8 @@ if (! defined('TESTSUITE')) {
 }
 
 echo "var GotoWhitelist = [];\n";
-$i = -1;
-foreach ($GLOBALS['goto_whitelist'] as $one_whitelist) {
-    $i++;
+$i = 0;
+foreach (Core::$goto_whitelist as $one_whitelist) {
     echo 'GotoWhitelist[' , $i , '] = \'' , $one_whitelist , '\';' , "\n";
+    $i++;
 }

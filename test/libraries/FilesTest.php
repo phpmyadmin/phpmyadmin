@@ -31,7 +31,6 @@ class FilesTest extends TestCase
     public function testDynamicJs($name, $expected): void
     {
         $GLOBALS['pmaThemeImage'] = '';
-        $GLOBALS['goto_whitelist'] = ['x'];
         $_GET['scripts'] = '["ajax.js"]';
         $cfg = [
             'AllowUserDropDatabase' => true,
