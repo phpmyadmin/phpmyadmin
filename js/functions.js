@@ -1445,348 +1445,249 @@ Functions.pdfPaperSize = function (format, axis) {
     case '4A0':
         if (axis === 'x') {
             return 4767.87;
-        } else {
-            return 6740.79;
         }
-        break;
+        return 6740.79;
     case '2A0':
         if (axis === 'x') {
             return 3370.39;
-        } else {
-            return 4767.87;
         }
-        break;
+        return 4767.87;
     case 'A0':
         if (axis === 'x') {
             return 2383.94;
-        } else {
-            return 3370.39;
         }
-        break;
+        return 3370.39;
     case 'A1':
         if (axis === 'x') {
             return 1683.78;
-        } else {
-            return 2383.94;
         }
-        break;
+        return 2383.94;
     case 'A2':
         if (axis === 'x') {
             return 1190.55;
-        } else {
-            return 1683.78;
         }
-        break;
+        return 1683.78;
     case 'A3':
         if (axis === 'x') {
             return 841.89;
-        } else {
-            return 1190.55;
         }
-        break;
+        return 1190.55;
     case 'A4':
         if (axis === 'x') {
             return 595.28;
-        } else {
-            return 841.89;
         }
-        break;
+        return 841.89;
     case 'A5':
         if (axis === 'x') {
             return 419.53;
-        } else {
-            return 595.28;
         }
-        break;
+        return 595.28;
     case 'A6':
         if (axis === 'x') {
             return 297.64;
-        } else {
-            return 419.53;
         }
-        break;
+        return 419.53;
     case 'A7':
         if (axis === 'x') {
             return 209.76;
-        } else {
-            return 297.64;
         }
-        break;
+        return 297.64;
     case 'A8':
         if (axis === 'x') {
             return 147.40;
-        } else {
-            return 209.76;
         }
-        break;
+        return 209.76;
     case 'A9':
         if (axis === 'x') {
             return 104.88;
-        } else {
-            return 147.40;
         }
-        break;
+        return 147.40;
     case 'A10':
         if (axis === 'x') {
             return 73.70;
-        } else {
-            return 104.88;
         }
-        break;
+        return 104.88;
     case 'B0':
         if (axis === 'x') {
             return 2834.65;
-        } else {
-            return 4008.19;
         }
-        break;
+        return 4008.19;
     case 'B1':
         if (axis === 'x') {
             return 2004.09;
-        } else {
-            return 2834.65;
         }
-        break;
+        return 2834.65;
     case 'B2':
         if (axis === 'x') {
             return 1417.32;
-        } else {
-            return 2004.09;
         }
-        break;
+        return 2004.09;
     case 'B3':
         if (axis === 'x') {
             return 1000.63;
-        } else {
-            return 1417.32;
         }
-        break;
+        return 1417.32;
     case 'B4':
         if (axis === 'x') {
             return 708.66;
-        } else {
-            return 1000.63;
         }
-        break;
+        return 1000.63;
     case 'B5':
         if (axis === 'x') {
             return 498.90;
-        } else {
-            return 708.66;
         }
-        break;
+        return 708.66;
     case 'B6':
         if (axis === 'x') {
             return 354.33;
-        } else {
-            return 498.90;
         }
-        break;
+        return 498.90;
     case 'B7':
         if (axis === 'x') {
             return 249.45;
-        } else {
-            return 354.33;
         }
-        break;
+        return 354.33;
     case 'B8':
         if (axis === 'x') {
             return 175.75;
-        } else {
-            return 249.45;
         }
-        break;
+        return 249.45;
     case 'B9':
         if (axis === 'x') {
             return 124.72;
-        } else {
-            return 175.75;
         }
-        break;
+        return 175.75;
     case 'B10':
         if (axis === 'x') {
             return 87.87;
-        } else {
-            return 124.72;
         }
-        break;
+        return 124.72;
     case 'C0':
         if (axis === 'x') {
             return 2599.37;
-        } else {
-            return 3676.54;
         }
-        break;
+        return 3676.54;
     case 'C1':
         if (axis === 'x') {
             return 1836.85;
-        } else {
-            return 2599.37;
         }
-        break;
+        return 2599.37;
     case 'C2':
         if (axis === 'x') {
             return 1298.27;
-        } else {
-            return 1836.85;
         }
-        break;
+        return 1836.85;
     case 'C3':
         if (axis === 'x') {
             return 918.43;
-        } else {
-            return 1298.27;
         }
-        break;
+        return 1298.27;
     case 'C4':
         if (axis === 'x') {
             return 649.13;
-        } else {
-            return 918.43;
         }
-        break;
+        return 918.43;
     case 'C5':
         if (axis === 'x') {
             return 459.21;
-        } else {
-            return 649.13;
         }
-        break;
+        return 649.13;
     case 'C6':
         if (axis === 'x') {
             return 323.15;
-        } else {
-            return 459.21;
         }
-        break;
+        return 459.21;
     case 'C7':
         if (axis === 'x') {
             return 229.61;
-        } else {
-            return 323.15;
         }
-        break;
+        return 323.15;
     case 'C8':
         if (axis === 'x') {
             return 161.57;
-        } else {
-            return 229.61;
         }
-        break;
+        return 229.61;
     case 'C9':
         if (axis === 'x') {
             return 113.39;
-        } else {
-            return 161.57;
         }
-        break;
+        return 161.57;
     case 'C10':
         if (axis === 'x') {
             return 79.37;
-        } else {
-            return 113.39;
         }
-        break;
+        return 113.39;
     case 'RA0':
         if (axis === 'x') {
             return 2437.80;
-        } else {
-            return 3458.27;
         }
-        break;
+        return 3458.27;
     case 'RA1':
         if (axis === 'x') {
             return 1729.13;
-        } else {
-            return 2437.80;
         }
-        break;
+        return 2437.80;
     case 'RA2':
         if (axis === 'x') {
             return 1218.90;
-        } else {
-            return 1729.13;
         }
-        break;
+        return 1729.13;
     case 'RA3':
         if (axis === 'x') {
             return 864.57;
-        } else {
-            return 1218.90;
         }
-        break;
+        return 1218.90;
     case 'RA4':
         if (axis === 'x') {
             return 609.45;
-        } else {
-            return 864.57;
         }
-        break;
+        return 864.57;
     case 'SRA0':
         if (axis === 'x') {
             return 2551.18;
-        } else {
-            return 3628.35;
         }
-        break;
+        return 3628.35;
     case 'SRA1':
         if (axis === 'x') {
             return 1814.17;
-        } else {
-            return 2551.18;
         }
-        break;
+        return 2551.18;
     case 'SRA2':
         if (axis === 'x') {
             return 1275.59;
-        } else {
-            return 1814.17;
         }
-        break;
+        return 1814.17;
     case 'SRA3':
         if (axis === 'x') {
             return 907.09;
-        } else {
-            return 1275.59;
         }
-        break;
+        return 1275.59;
     case 'SRA4':
         if (axis === 'x') {
             return 637.80;
-        } else {
-            return 907.09;
         }
-        break;
+        return 907.09;
     case 'LETTER':
         if (axis === 'x') {
             return 612.00;
-        } else {
-            return 792.00;
         }
-        break;
+        return 792.00;
     case 'LEGAL':
         if (axis === 'x') {
             return 612.00;
-        } else {
-            return 1008.00;
         }
-        break;
+        return 1008.00;
     case 'EXECUTIVE':
         if (axis === 'x') {
             return 521.86;
-        } else {
-            return 756.00;
         }
-        break;
+        return 756.00;
     case 'FOLIO':
         if (axis === 'x') {
             return 612.00;
-        } else {
-            return 936.00;
         }
-        break;
-    } // end switch
-
+        return 936.00;
+    }
     return 0;
 };
 

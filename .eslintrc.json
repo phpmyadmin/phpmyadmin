@@ -26,6 +26,7 @@
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "error",
         "no-unneeded-ternary": "error",
+        "no-unreachable": "error",
         "no-unsafe-negation": "error",
         "no-useless-escape": "error",
         "object-curly-spacing": ["error", "always"],
