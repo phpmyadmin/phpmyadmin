@@ -86,10 +86,10 @@ function initGISEditorVisualization () {
  * @param value      current value of the geometry field
  * @param field      field name
  * @param type       geometry type
- * @param input_name name of the input field
+ * @param inputName name of the input field
  * @param token      token
  */
-function loadJSAndGISEditor (value, field, type, input_name) {
+function loadJSAndGISEditor (value, field, type, inputName) {
     var head = document.getElementsByTagName('head')[0];
     var script;
 
@@ -113,14 +113,14 @@ function loadJSAndGISEditor (value, field, type, input_name) {
 
     script.onreadystatechange = function () {
         if (this.readyState === 'complete') {
-            loadGISEditor(value, field, type, input_name);
+            loadGISEditor(value, field, type, inputName);
         }
     };
     script.onload = function () {
-        loadGISEditor(value, field, type, input_name);
+        loadGISEditor(value, field, type, inputName);
     };
     script.onerror = function () {
-        loadGISEditor(value, field, type, input_name);
+        loadGISEditor(value, field, type, inputName);
     };
 
     script.src = 'js/vendor/openlayers/OpenLayers.js';
@@ -135,21 +135,21 @@ function loadJSAndGISEditor (value, field, type, input_name) {
  * @param value      current value of the geometry field
  * @param field      field name
  * @param type       geometry type
- * @param input_name name of the input field
+ * @param inputName name of the input field
  */
-function loadGISEditor (value, field, type, input_name) {
-    var $gis_editor = $('#gis_editor');
+function loadGISEditor (value, field, type, inputName) {
+    var $gisEditor = $('#gis_editor');
     $.post('gis_data_editor.php', {
         'field' : field,
         'value' : value,
         'type' : type,
-        'input_name' : input_name,
+        'input_name' : inputName,
         'get_gis_editor' : true,
         'ajax_request': true,
         'server': CommonParams.get('server')
     }, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
-            $gis_editor.html(data.gis_editor);
+            $gisEditor.html(data.gis_editor);
             initGISEditorVisualization();
             prepareJSVersion();
         } else {
@@ -170,13 +170,13 @@ function openGISEditor () {
     var popupOffsetTop = windowHeight / 2 - popupHeight / 2;
     var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
 
-    var $gis_editor = $('#gis_editor');
+    var $gisEditor = $('#gis_editor');
     var $backgrouond = $('#popup_background');
 
-    $gis_editor.css({ 'top': popupOffsetTop, 'left': popupOffsetLeft, 'width': popupWidth, 'height': popupHeight });
+    $gisEditor.css({ 'top': popupOffsetTop, 'left': popupOffsetLeft, 'width': popupWidth, 'height': popupHeight });
     $backgrouond.css({ 'opacity' : '0.7' });
 
-    $gis_editor.append(
+    $gisEditor.append(
         '<div id="gis_data_editor">' +
         '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
         pmaThemeImage + 'ajax_clock_small.gif" alt="">' +
@@ -185,7 +185,7 @@ function openGISEditor () {
 
     // Make it appear
     $backgrouond.fadeIn('fast');
-    $gis_editor.fadeIn('fast');
+    $gisEditor.fadeIn('fast');
 }
 
 /**
@@ -194,12 +194,12 @@ function openGISEditor () {
  */
 function insertDataAndClose () {
     var $form = $('form#gis_data_editor_form');
-    var input_name = $form.find('input[name=\'input_name\']').val();
+    var inputName = $form.find('input[name=\'input_name\']').val();
 
     var argsep = CommonParams.get('arg_separator');
     $.post('gis_data_editor.php', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
-            $('input[name=\'' + input_name + '\']').val(data.result);
+            $('input[name=\'' + inputName + '\']').val(data.result);
         } else {
             Functions.ajaxShowMessage(data.error, false);
         }
@@ -264,13 +264,13 @@ AJAX.registerOnload('gis_data_editor.js', function () {
      * Update the form on change of the GIS type.
      */
     $(document).on('change', '#gis_editor select.gis_type', function (event) {
-        var $gis_editor = $('#gis_editor');
+        var $gisEditor = $('#gis_editor');
         var $form = $('form#gis_data_editor_form');
 
         var argsep = CommonParams.get('arg_separator');
         $.post('gis_data_editor.php', $form.serialize() + argsep + 'get_gis_editor=true' + argsep + 'ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                $gis_editor.html(data.gis_editor);
+                $gisEditor.html(data.gis_editor);
                 initGISEditorVisualization();
                 prepareJSVersion();
             } else {
