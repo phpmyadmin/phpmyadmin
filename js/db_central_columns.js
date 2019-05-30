@@ -48,13 +48,13 @@ AJAX.registerOnload('db_central_columns.js', function () {
     }
     $('#tableslistcontainer').find('button[name="delete_central_columns"]').on('click', function (event) {
         event.preventDefault();
-        var multi_delete_columns = $('.checkall:checkbox:checked').serialize();
-        if (multi_delete_columns === '') {
+        var multiDeleteColumns = $('.checkall:checkbox:checked').serialize();
+        if (multiDeleteColumns === '') {
             Functions.ajaxShowMessage(Messages.strRadioUnchecked);
             return false;
         }
         Functions.ajaxShowMessage();
-        $('#del_col_name').val(multi_delete_columns);
+        $('#del_col_name').val(multiDeleteColumns);
         $('#del_form').submit();
     });
     $('#tableslistcontainer').find('button[name="edit_central_columns"]').on('click', function (event) {
@@ -74,10 +74,10 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.preventDefault();
         event.stopPropagation();
         var argsep = CommonParams.get('arg_separator');
-        var multi_column_edit_data = $('#multi_edit_central_columns').serialize() + argsep + 'multi_edit_central_column_save=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db'));
+        var multiColumnEditData = $('#multi_edit_central_columns').serialize() + argsep + 'multi_edit_central_column_save=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db'));
         Functions.ajaxShowMessage();
         AJAX.source = $(this);
-        $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
+        $.post('db_central_columns.php', multiColumnEditData, AJAX.responseHandler);
     });
     $('#add_new').find('td').each(function () {
         if ($(this).attr('name') !== 'undefined') {
@@ -104,8 +104,8 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $(this).hide();
         $('#f_' + rownum + ' td span').hide();
         $('#f_' + rownum + ' input, #f_' + rownum + ' select, #f_' + rownum + ' .open_enum_editor').show();
-        var attribute_val = $('#f_' + rownum + ' td[name=col_attribute] span').html();
-        $('#f_' + rownum + ' select[name=field_attribute\\[' + rownum + '\\] ] option[value="' + attribute_val + '"]').attr('selected','selected');
+        var attributeVal = $('#f_' + rownum + ' td[name=col_attribute] span').html();
+        $('#f_' + rownum + ' select[name=field_attribute\\[' + rownum + '\\] ] option[value="' + attributeVal + '"]').attr('selected','selected');
         if ($('#f_' + rownum + ' .default_type').val() === 'USER_DEFINED') {
             $('#f_' + rownum + ' .default_type').siblings('.default_value').show();
         } else {
@@ -192,20 +192,20 @@ AJAX.registerOnload('db_central_columns.js', function () {
         });
     });
     $('#table-select').on('change', function (e) {
-        var selectvalue = $(this).val();
-        var default_column_select = $('#column-select').find('option:first');
+        var selectValue = $(this).val();
+        var defaultColumnSelect = $('#column-select').find('option:first');
         var href = 'db_central_columns.php';
         var params = {
             'ajax_request' : true,
             'server' : CommonParams.get('server'),
             'db' : CommonParams.get('db'),
-            'selectedTable' : selectvalue,
+            'selectedTable' : selectValue,
             'populateColumns' : true
         };
         $('#column-select').html('<option value="">' + Messages.strLoading + '</option>');
-        if (selectvalue !== '') {
+        if (selectValue !== '') {
             $.post(href, params, function (data) {
-                $('#column-select').empty().append(default_column_select);
+                $('#column-select').empty().append(defaultColumnSelect);
                 $('#column-select').append(data.message);
             });
         }

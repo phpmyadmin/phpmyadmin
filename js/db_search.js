@@ -121,15 +121,15 @@ AJAX.registerOnload('db_search.js', function () {
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
         $('#table-info').show();
-        var table_name = $(this).data('table-name');
-        $('#table-link').attr({ 'href' : $(this).attr('href') }).text(table_name);
+        var tableName = $(this).data('table-name');
+        $('#table-link').attr({ 'href' : $(this).attr('href') }).text(tableName);
 
         var url = $(this).attr('href') + '#searchresults';
-        var browse_sql = $(this).data('browse-sql');
+        var browseSql = $(this).data('browse-sql');
         var params = {
             'ajax_request': true,
             'is_js_confirmed': true,
-            'sql_query' : browse_sql
+            'sql_query' : browseSql
         };
         $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success) {

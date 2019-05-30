@@ -36,17 +36,17 @@ AJAX.registerOnload('db_operations.js', function () {
     $(document).on('submit', '#rename_db_form.ajax', function (event) {
         event.preventDefault();
 
-        var old_db_name = CommonParams.get('db');
-        var new_db_name = $('#new_db_name').val();
+        var oldDbName = CommonParams.get('db');
+        var newDbName = $('#new_db_name').val();
 
-        if (new_db_name === old_db_name) {
+        if (newDbName === oldDbName) {
             Functions.ajaxShowMessage(Messages.strDatabaseRenameToSameName, false, 'error');
             return false;
         }
 
         var $form = $(this);
 
-        var question = Functions.escapeHtml('CREATE DATABASE ' + new_db_name + ' / DROP DATABASE ' + old_db_name);
+        var question = Functions.escapeHtml('CREATE DATABASE ' + newDbName + ' / DROP DATABASE ' + oldDbName);
 
         Functions.prepareForAjaxRequest($form);
 
