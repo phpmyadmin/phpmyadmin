@@ -75,9 +75,9 @@ class PageSettingsTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "validateField('MaxRows', 'PMA_validatePositiveNumber', true);\n"
-            . "validateField('RepeatCells', 'PMA_validateNonNegativeNumber', true);\n"
-            . "validateField('LimitChars', 'PMA_validatePositiveNumber', true);\n",
+            "registerFieldValidator('MaxRows', 'validatePositiveNumber', true);\n"
+            . "registerFieldValidator('RepeatCells', 'validateNonNegativeNumber', true);\n"
+            . "registerFieldValidator('LimitChars', 'validatePositiveNumber', true);\n",
             $html
         );
     }

@@ -548,10 +548,10 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertEquals(
             [
-                'validateField(\'testID\', \'PMA_\\\';\', true, '
+                'registerFieldValidator(\'testID\', \'\\\';\', true, '
                     . '[\'\\\\r\\\\n\\\\\\\''
                     . '<scrIpt></\\\' + \\\'script>\'])',
-                'validateField(\'testID\', \'PMA_\', true)',
+                'registerFieldValidator(\'testID\', \'\', true)',
             ],
             $js
         );

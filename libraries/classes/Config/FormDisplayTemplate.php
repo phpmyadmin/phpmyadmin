@@ -481,13 +481,12 @@ class FormDisplayTemplate
         foreach ((array) $validators as $validator) {
             $validator = (array) $validator;
             $vName = array_shift($validator);
-            $vName = "PMA_" . $vName;
             $vArgs = [];
             foreach ($validator as $arg) {
                 $vArgs[] = Sanitize::escapeJsString($arg);
             }
             $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
-            $jsArray[] = "validateField('$fieldId', '$vName', true$vArgs)";
+            $jsArray[] = "registerFieldValidator('$fieldId', '$vName', true$vArgs)";
         }
     }
 

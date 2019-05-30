@@ -123,7 +123,7 @@ $(document).on('change', '.autosubmit', function (e) {
 
 $.extend(true, validators, {
     // field validators
-    _field: {
+    field: {
         /**
          * hide_db field
          *
@@ -152,7 +152,7 @@ $.extend(true, validators, {
         }
     },
     // fieldset validators
-    _fieldset: {
+    fieldset: {
         /**
          * Validates Server fieldset
          *
@@ -170,7 +170,7 @@ $.extend(true, validators, {
          * @param {boolean} isKeyUp
          */
         Server_login_options: function (isKeyUp) {
-            return validators._fieldset.Server.apply(this, [isKeyUp]);
+            return validators.fieldset.Server.apply(this, [isKeyUp]);
         },
         /**
          * Validates Server_pmadb fieldset
