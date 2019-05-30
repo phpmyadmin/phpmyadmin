@@ -2,7 +2,7 @@
  * Definition of links to MySQL documentation.
  */
 
-var mysql_doc_keyword = {
+var mysqlDocKeyword = {
     /* Multi word */
     'CHARACTER SET': ['charset'],
     'SHOW AUTHORS': ['show-authors'],
@@ -330,7 +330,7 @@ var mysql_doc_keyword = {
     'NOT_IN': ['comparison-operators', 'function_not-in']
 };
 
-var mysql_doc_builtin = {
+var mysqlDocBuiltin = {
     'TINYINT': ['numeric-types'],
     'SMALLINT': ['numeric-types'],
     'MEDIUMINT': ['numeric-types'],

@@ -2083,12 +2083,12 @@ Functions.catchKeypressesFromSqlInlineEdit = function (event) {
  * Adds doc link to single highlighted SQL element
  */
 Functions.documentationAdd = function ($elm, params) {
-    if (typeof mysql_doc_template === 'undefined') {
+    if (typeof mysqlDocTemplate === 'undefined') {
         return;
     }
 
     var url = Functions.sprintf(
-        decodeURIComponent(mysql_doc_template),
+        decodeURIComponent(mysqlDocTemplate),
         params[0]
     );
     if (params.length > 1) {
@@ -2118,21 +2118,21 @@ Functions.documentationKeyword = function (idx, elm) {
         if ($next2) {
             var next2Keyword = $next2.text().toUpperCase();
             var full2 = full + ' ' + next2Keyword;
-            if (full2 in mysql_doc_keyword) {
-                Functions.documentationAdd($elm, mysql_doc_keyword[full2]);
-                Functions.documentationAdd($next, mysql_doc_keyword[full2]);
-                Functions.documentationAdd($next2, mysql_doc_keyword[full2]);
+            if (full2 in mysqlDocKeyword) {
+                Functions.documentationAdd($elm, mysqlDocKeyword[full2]);
+                Functions.documentationAdd($next, mysqlDocKeyword[full2]);
+                Functions.documentationAdd($next2, mysqlDocKeyword[full2]);
                 return;
             }
         }
-        if (full in mysql_doc_keyword) {
-            Functions.documentationAdd($elm, mysql_doc_keyword[full]);
-            Functions.documentationAdd($next, mysql_doc_keyword[full]);
+        if (full in mysqlDocKeyword) {
+            Functions.documentationAdd($elm, mysqlDocKeyword[full]);
+            Functions.documentationAdd($next, mysqlDocKeyword[full]);
             return;
         }
     }
-    if (keyword in mysql_doc_keyword) {
-        Functions.documentationAdd($elm, mysql_doc_keyword[keyword]);
+    if (keyword in mysqlDocKeyword) {
+        Functions.documentationAdd($elm, mysqlDocKeyword[keyword]);
     }
 };
 
@@ -2142,8 +2142,8 @@ Functions.documentationKeyword = function (idx, elm) {
 Functions.documentationBuiltin = function (idx, elm) {
     var $elm = $(elm);
     var builtin = $elm.text().toUpperCase();
-    if (builtin in mysql_doc_builtin) {
-        Functions.documentationAdd($elm, mysql_doc_builtin[builtin]);
+    if (builtin in mysqlDocBuiltin) {
+        Functions.documentationAdd($elm, mysqlDocBuiltin[builtin]);
     }
 };
 
