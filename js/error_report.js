@@ -227,8 +227,8 @@ var ErrorReport = {
             'url': window.location.href,
             'exception_type': 'js'
         };
-        if (AJAX.scriptHandler._scripts.length > 0) {
-            reportData.scripts = AJAX.scriptHandler._scripts.map(
+        if (AJAX.scriptHandler.scripts.length > 0) {
+            reportData.scripts = AJAX.scriptHandler.scripts.map(
                 function (script) {
                     return script;
                 }

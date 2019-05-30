@@ -3016,9 +3016,9 @@ AJAX.registerOnload('functions.js', function () {
                         if (! (history && history.pushState)) {
                             params12 += MicroHistory.menus.getRequestParam();
                         }
-                        var tableStructureUrl = 'tbl_structure.php?server=' + data._params.server +
-                            argsep + 'db=' + data._params.db + argsep + 'token=' + data._params.token +
-                            argsep + 'goto=db_structure.php' + argsep + 'table=' + data._params.table + '';
+                        var tableStructureUrl = 'tbl_structure.php?server=' + data.params.server +
+                            argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
+                            argsep + 'goto=db_structure.php' + argsep + 'table=' + data.params.table + '';
                         $.get(tableStructureUrl, params12, AJAX.responseHandler);
                     } else {
                         Functions.ajaxShowMessage(
@@ -3276,8 +3276,8 @@ AJAX.registerOnload('functions.js', function () {
                 return;
             }
 
-            if (data._scripts) {
-                AJAX.scriptHandler.load(data._scripts);
+            if (data.scripts) {
+                AJAX.scriptHandler.load(data.scripts);
             }
 
             $('<div id="change_password_dialog"></div>')

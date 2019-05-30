@@ -47,7 +47,7 @@ if (isset($_POST['send_error_report'])
         ) {
             $_SESSION['error_subm_count'] = 0;
             $_SESSION['prev_errors'] = '';
-            $response->addJSON('_stopErrorReportLoop', '1');
+            $response->addJSON('stopErrorReportLoop', '1');
         } else {
             $_SESSION['prev_error_subm_time'] = time();
             $_SESSION['error_subm_count'] = (
@@ -107,7 +107,7 @@ if (isset($_POST['send_error_report'])
             if ($_POST['exception_type'] == 'js') {
                 $response->addJSON('message', $msg);
             } else {
-                $response->addJSON('_errSubmitMsg', $msg);
+                $response->addJSON('errSubmitMsg', $msg);
             }
         } elseif ($_POST['exception_type'] == 'php') {
             $jsCode = 'Functions.ajaxShowMessage("<div class=\"error\">'

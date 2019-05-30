@@ -550,7 +550,7 @@ class ErrorHandler
         if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
             if ($response->isAjax()) {
                 // set flag for automatic report submission.
-                $response->addJSON('_sendErrorAlways', '1');
+                $response->addJSON('sendErrorAlways', '1');
             } else {
                 // send the error reports asynchronously & without asking user
                 $jsCode .= '$("#pma_report_errors_form").submit();'

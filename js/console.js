@@ -1110,8 +1110,8 @@ var ConsoleDebug = {
     initialize: function () {
         // Try to get debug info after every AJAX request
         $(document).ajaxSuccess(function (event, xhr, settings, data) {
-            if (data._debug) {
-                ConsoleDebug.showLog(data._debug, settings.url);
+            if (data.debug) {
+                ConsoleDebug.showLog(data.debug, settings.url);
             }
         });
 

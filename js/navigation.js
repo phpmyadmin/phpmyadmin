@@ -175,10 +175,10 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
                     })
                     .slideDown('slow');
             }
-            if (data._errors) {
-                var $errors = $(data._errors);
+            if (data.errors) {
+                var $errors = $(data.errors);
                 if ($errors.children().length > 0) {
-                    $('#pma_errors').replaceWith(data._errors);
+                    $('#pma_errors').replaceWith(data.errors);
                 }
             }
             if (callback && typeof callback === 'function') {

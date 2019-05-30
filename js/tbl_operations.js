@@ -60,8 +60,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                CommonParams.set('db', data._params.db);
-                CommonParams.set('table', data._params.table);
+                CommonParams.set('db', data.params.db);
+                CommonParams.set('table', data.params.table);
                 CommonActions.refreshMain('tbl_sql.php', function () {
                     Functions.ajaxShowMessage(data.message);
                 });
@@ -110,7 +110,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         function submitOptionsForm () {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    CommonParams.set('table', data._params.table);
+                    CommonParams.set('table', data.params.table);
                     CommonActions.refreshMain(false, function () {
                         $('#page_content').html(data.message);
                         Functions.highlightSql($('#page_content'));

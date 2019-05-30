@@ -384,18 +384,18 @@ class Response
         }
 
         if ($this->_isSuccess) {
-            $this->addJSON('_title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
+            $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
 
             if (isset($GLOBALS['dbi'])) {
                 $menuHash = $this->getHeader()->getMenu()->getHash();
-                $this->addJSON('_menuHash', $menuHash);
+                $this->addJSON('menuHash', $menuHash);
                 $hashes = [];
                 if (isset($_REQUEST['menuHashes'])) {
                     $hashes = explode('-', $_REQUEST['menuHashes']);
                 }
                 if (! in_array($menuHash, $hashes)) {
                     $this->addJSON(
-                        '_menu',
+                        'menu',
                         $this->getHeader()
                             ->getMenu()
                             ->getDisplay()
@@ -403,23 +403,23 @@ class Response
                 }
             }
 
-            $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
-            $this->addJSON('_selflink', $this->getFooter()->getSelfUrl());
-            $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
+            $this->addJSON('scripts', $this->getHeader()->getScripts()->getFiles());
+            $this->addJSON('selflink', $this->getFooter()->getSelfUrl());
+            $this->addJSON('displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->_footer->getDebugMessage();
             if (empty($_REQUEST['no_debug'])
                 && strlen($debug) > 0
             ) {
-                $this->addJSON('_debug', $debug);
+                $this->addJSON('debug', $debug);
             }
 
             $errors = $this->_footer->getErrorMessages();
             if (strlen($errors) > 0) {
-                $this->addJSON('_errors', $errors);
+                $this->addJSON('errors', $errors);
             }
             $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
-            $this->addJSON('_promptPhpErrors', $promptPhpErrors);
+            $this->addJSON('promptPhpErrors', $promptPhpErrors);
 
             if (empty($GLOBALS['error_message'])) {
                 // set current db, table and sql query in the querywindow
@@ -443,9 +443,9 @@ class Response
                     $this->addJSON('_focusQuerywindow', $query);
                 }
                 if (! empty($GLOBALS['reload'])) {
-                    $this->addJSON('_reloadNavigation', 1);
+                    $this->addJSON('reloadNavigation', 1);
                 }
-                $this->addJSON('_params', $this->getHeader()->getJsParams());
+                $this->addJSON('params', $this->getHeader()->getJsParams());
             }
         }
 

@@ -587,26 +587,26 @@ AJAX.registerOnload('sql.js', function () {
                     .html(data.message);
                 Functions.highlightSql($sqlqueryresultsouter);
 
-                if (data._menu) {
+                if (data.menu) {
                     if (history && history.pushState) {
                         history.replaceState({
-                            menu : data._menu
+                            menu : data.menu
                         },
                         null
                         );
-                        AJAX.handleMenu.replace(data._menu);
+                        AJAX.handleMenu.replace(data.menu);
                     } else {
-                        MicroHistory.menus.replace(data._menu);
-                        MicroHistory.menus.add(data._menuHash, data._menu);
+                        MicroHistory.menus.replace(data.menu);
+                        MicroHistory.menus.add(data.menuHash, data.menu);
                     }
-                } else if (data._menuHash) {
+                } else if (data.menuHash) {
                     if (! (history && history.pushState)) {
-                        MicroHistory.menus.replace(MicroHistory.menus.get(data._menuHash));
+                        MicroHistory.menus.replace(MicroHistory.menus.get(data.menuHash));
                     }
                 }
 
-                if (data._params) {
-                    CommonParams.setAll(data._params);
+                if (data.params) {
+                    CommonParams.setAll(data.params);
                 }
 
                 if (typeof data.ajax_reload !== 'undefined') {

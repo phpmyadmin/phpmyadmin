@@ -155,6 +155,6 @@ var CommonActions = {
             .appendTo('body')
             .trigger('click')
             .remove();
-        AJAX._callback = callback;
+        AJAX.callback = callback;
     }
 };
