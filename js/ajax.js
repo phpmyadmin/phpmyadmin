@@ -723,7 +723,7 @@ var AJAX = {
          */
         done: function (script, callback) {
             if (typeof ErrorReport !== 'undefined') {
-                ErrorReport.wrap_global_functions();
+                ErrorReport.wrapGlobalFunctions();
             }
             if ($.inArray(script, this._scriptsToBeFired)) {
                 AJAX.fireOnload(script);

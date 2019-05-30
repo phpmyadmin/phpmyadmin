@@ -8,40 +8,40 @@ var ErrorReport = {
     /**
      * @var object stores the last exception info
      */
-    _last_exception: null,
+    lastException: null,
     /**
      * handles thrown error exceptions based on user preferences
      *
      * @return void
      */
-    error_handler: function (exception) {
+    errorHandler: function (exception) {
         // issue: 14359
-        if (JSON.stringify(ErrorReport._last_exception) === JSON.stringify(exception)) {
+        if (JSON.stringify(ErrorReport.lastException) === JSON.stringify(exception)) {
             return;
         }
         if (exception.name === null || typeof(exception.name) === 'undefined') {
-            exception.name = ErrorReport._extractExceptionName(exception);
+            exception.name = ErrorReport.extractExceptionName(exception);
         }
-        ErrorReport._last_exception = exception;
+        ErrorReport.lastException = exception;
         $.post('error_report.php', {
-            ajax_request: true,
-            server: CommonParams.get('server'),
-            get_settings: true,
-            exception_type: 'js'
+            'ajax_request': true,
+            'server': CommonParams.get('server'),
+            'get_settings': true,
+            'exception_type': 'js'
         }, function (data) {
             if (data.success !== true) {
                 Functions.ajaxShowMessage(data.error, false);
                 return;
             }
             if (data.report_setting === 'ask') {
-                ErrorReport._showErrorNotification();
+                ErrorReport.showErrorNotification();
             } else if (data.report_setting === 'always') {
-                report_data = ErrorReport._get_report_data(exception);
-                post_data = $.extend(report_data, {
-                    send_error_report: true,
-                    automatic: true
+                var reportData = ErrorReport.getReportData(exception);
+                var postData = $.extend(reportData, {
+                    'send_error_report': true,
+                    'automatic': true
                 });
-                $.post('error_report.php', post_data, function (data) {
+                $.post('error_report.php', postData, function (data) {
                     if (data.success === false) {
                         // in the case of an error, show the error message returned.
                         Functions.ajaxShowMessage(data.error, false);
@@ -59,8 +59,8 @@ var ErrorReport = {
      *
      * @return void
      */
-    _showReportDialog: function (exception) {
-        var report_data = ErrorReport._get_report_data(exception);
+    showReportDialog: function (exception) {
+        var reportData = ErrorReport.getReportData(exception);
 
         /* Remove the hidden dialogs if there are*/
         if ($('#error_report_dialog').length !== 0) {
@@ -69,16 +69,16 @@ var ErrorReport = {
         var $div = $('<div id="error_report_dialog"></div>');
         $div.css('z-index', '1000');
 
-        var button_options = {};
+        var buttonOptions = {};
 
-        button_options[Messages.strSendErrorReport] = function () {
+        buttonOptions[Messages.strSendErrorReport] = function () {
             var $dialog = $(this);
-            var post_data = $.extend(report_data, {
-                send_error_report: true,
-                description: $('#report_description').val(),
-                always_send: $('#always_send_checkbox')[0].checked
+            var postData = $.extend(reportData, {
+                'send_error_report': true,
+                'description': $('#report_description').val(),
+                'always_send': $('#always_send_checkbox')[0].checked
             });
-            $.post('error_report.php', post_data, function (data) {
+            $.post('error_report.php', postData, function (data) {
                 $dialog.dialog('close');
                 if (data.success === false) {
                     // in the case of an error, show the error message returned.
@@ -89,11 +89,11 @@ var ErrorReport = {
             });
         };
 
-        button_options[Messages.strCancel] = function () {
+        buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
-        $.post('error_report.php', report_data, function (data) {
+        $.post('error_report.php', reportData, function (data) {
             if (data.success === false) {
                 // in the case of an error, show the error message returned.
                 Functions.ajaxShowMessage(data.error, false);
@@ -105,7 +105,7 @@ var ErrorReport = {
                         title: Messages.strSubmitErrorReport,
                         width: 650,
                         modal: true,
-                        buttons: button_options,
+                        buttons: buttonOptions,
                         close: function () {
                             $(this).remove();
                         }
@@ -118,8 +118,8 @@ var ErrorReport = {
      *
      * @return void
      */
-    _showErrorNotification: function () {
-        ErrorReport._removeErrorNotification();
+    showErrorNotification: function () {
+        ErrorReport.removeErrorNotification();
 
         var $div = $(
             '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
@@ -130,32 +130,32 @@ var ErrorReport = {
 
         var $buttons = $('<div class="floatright"></div>');
 
-        var button_html  = '<button id="show_error_report">';
-        button_html += Messages.strShowReportDetails;
-        button_html += '</button>';
+        var buttonHtml  = '<button id="show_error_report">';
+        buttonHtml += Messages.strShowReportDetails;
+        buttonHtml += '</button>';
 
-        button_html += '<a id="change_error_settings">';
-        button_html += Functions.getImage('s_cog', Messages.strChangeReportSettings);
-        button_html += '</a>';
+        buttonHtml += '<a id="change_error_settings">';
+        buttonHtml += Functions.getImage('s_cog', Messages.strChangeReportSettings);
+        buttonHtml += '</a>';
 
-        button_html += '<a href="#" id="ignore_error">';
-        button_html += Functions.getImage('b_close', Messages.strIgnore);
-        button_html += '</a>';
+        buttonHtml += '<a href="#" id="ignore_error">';
+        buttonHtml += Functions.getImage('b_close', Messages.strIgnore);
+        buttonHtml += '</a>';
 
-        $buttons.html(button_html);
+        $buttons.html(buttonHtml);
 
         $div.append($buttons);
         $div.appendTo(document.body);
-        $(document).on('click', '#change_error_settings', ErrorReport._redirect_to_settings);
-        $(document).on('click', '#show_error_report', ErrorReport._createReportDialog);
-        $(document).on('click', '#ignore_error', ErrorReport._removeErrorNotification);
+        $(document).on('click', '#change_error_settings', ErrorReport.redirectToSettings);
+        $(document).on('click', '#show_error_report', ErrorReport.createReportDialog);
+        $(document).on('click', '#ignore_error', ErrorReport.removeErrorNotification);
     },
     /**
      * Removes the notification if it was displayed before
      *
      * @return void
      */
-    _removeErrorNotification: function (e) {
+    removeErrorNotification: function (e) {
         if (e) {
             // don't remove the hash fragment by navigating to #
             e.preventDefault();
@@ -169,15 +169,15 @@ var ErrorReport = {
      *
      * @return String
      */
-    _extractExceptionName: function (exception) {
+    extractExceptionName: function (exception) {
         if (exception.message === null || typeof(exception.message) === 'undefined') {
             return '';
         }
 
         var reg = /([a-zA-Z]+):/;
-        var regex_result = reg.exec(exception.message);
-        if (regex_result && regex_result.length === 2) {
-            return regex_result[1];
+        var regexResult = reg.exec(exception.message);
+        if (regexResult && regexResult.length === 2) {
+            return regexResult[1];
         }
 
         return '';
@@ -187,9 +187,9 @@ var ErrorReport = {
      *
      * @return void
      */
-    _createReportDialog: function () {
-        ErrorReport._removeErrorNotification();
-        ErrorReport._showReportDialog(ErrorReport._last_exception);
+    createReportDialog: function () {
+        ErrorReport.removeErrorNotification();
+        ErrorReport.showReportDialog(ErrorReport.lastException);
     },
     /**
      * Redirects to the settings page containing error report
@@ -197,7 +197,7 @@ var ErrorReport = {
      *
      * @return void
      */
-    _redirect_to_settings: function () {
+    redirectToSettings: function () {
         window.location.href = 'prefs_forms.php';
     },
     /**
@@ -207,7 +207,7 @@ var ErrorReport = {
      *
      * @return object
      */
-    _get_report_data: function (exception) {
+    getReportData: function (exception) {
         if (exception && exception.stack && exception.stack.length) {
             for (var i = 0; i < exception.stack.length; i++) {
                 var stack = exception.stack[i];
@@ -220,7 +220,7 @@ var ErrorReport = {
                 }
             }
         }
-        var report_data = {
+        var reportData = {
             'server': CommonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
@@ -228,25 +228,25 @@ var ErrorReport = {
             'exception_type': 'js'
         };
         if (AJAX.scriptHandler._scripts.length > 0) {
-            report_data.scripts = AJAX.scriptHandler._scripts.map(
+            reportData.scripts = AJAX.scriptHandler._scripts.map(
                 function (script) {
                     return script;
                 }
             );
         }
-        return report_data;
+        return reportData;
     },
     /**
      * Wraps all global functions that start with PMA_
      *
      * @return void
      */
-    wrap_global_functions: function () {
+    wrapGlobalFunctions: function () {
         for (var key in window) {
             if (key.indexOf('PMA_') === 0) {
                 var global = window[key];
                 if (typeof(global) === 'function') {
-                    window[key] = ErrorReport.wrap_function(global);
+                    window[key] = ErrorReport.wrapFunction(global);
                 }
             }
         }
@@ -258,20 +258,20 @@ var ErrorReport = {
      *
      * @return function
      */
-    wrap_function: function (func) {
+    wrapFunction: function (func) {
         if (!func.wrapped) {
-            var new_func = function () {
+            var newFunc = function () {
                 try {
                     return func.apply(this, arguments);
                 } catch (x) {
                     TraceKit.report(x);
                 }
             };
-            new_func.wrapped = true;
+            newFunc.wrapped = true;
             // Set guid of wrapped function same as original function, so it can be removed
             // See bug#4146 (problem with jquery draggable and sortable)
-            new_func.guid = func.guid = func.guid || new_func.guid || jQuery.guid++;
-            return new_func;
+            newFunc.guid = func.guid = func.guid || newFunc.guid || jQuery.guid++;
+            return newFunc;
         } else {
             return func;
         }
@@ -281,11 +281,11 @@ var ErrorReport = {
      *
      * @return void
      */
-    _wrap_ajax_onload_callback: function () {
+    wrapAjaxOnloadCallback: function () {
         var oldOnload = AJAX.registerOnload;
         AJAX.registerOnload = function (file, func) {
-            func = ErrorReport.wrap_function(func);
-            oldOnload.call(this, file, func);
+            var wrappedFunction = ErrorReport.wrapFunction(func);
+            oldOnload.call(this, file, wrappedFunction);
         };
     },
     /**
@@ -293,12 +293,12 @@ var ErrorReport = {
      *
      * @return void
      */
-    _wrap_$_on_callback: function () {
+    wrapJqueryOnCallback: function () {
         var oldOn = $.fn.on;
         $.fn.on = function () {
             for (var i = 1; i <= 3; i++) {
                 if (typeof(arguments[i]) === 'function') {
-                    arguments[i] = ErrorReport.wrap_function(arguments[i]);
+                    arguments[i] = ErrorReport.wrapFunction(arguments[i]);
                     break;
                 }
             }
@@ -311,16 +311,15 @@ var ErrorReport = {
      *
      * @return void
      */
-    set_up_error_reporting: function () {
-        ErrorReport.wrap_global_functions();
-        ErrorReport._wrap_ajax_onload_callback();
-        ErrorReport._wrap_$_on_callback();
+    setUpErrorReporting: function () {
+        ErrorReport.wrapGlobalFunctions();
+        ErrorReport.wrapAjaxOnloadCallback();
+        ErrorReport.wrapJqueryOnCallback();
     }
-
 };
 
 AJAX.registerOnload('error_report.js', function () {
-    TraceKit.report.subscribe(ErrorReport.error_handler);
-    ErrorReport.set_up_error_reporting();
-    ErrorReport.wrap_global_functions();
+    TraceKit.report.subscribe(ErrorReport.errorHandler);
+    ErrorReport.setUpErrorReporting();
+    ErrorReport.wrapGlobalFunctions();
 });
