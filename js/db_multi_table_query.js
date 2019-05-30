@@ -30,7 +30,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
     $('.CodeMirror-line').css('text-align', 'left');
     editor.setSize(-1, 50);
 
-    var column_count = 3;
+    var columnCount = 3;
     Functions.initSlider();
     addNewColumnCallbacks();
 
@@ -106,8 +106,8 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
 
         query += generateFromBlock(tableAliases, foreignKeys);
 
-        $criteria_col_count = $('.criteria_col:checked').length;
-        if ($criteria_col_count > 0) {
+        var $criteriaColCount = $('.criteria_col:checked').length;
+        if ($criteriaColCount > 0) {
             query += '\nWHERE ';
             query += generateWhereBlock();
         }
@@ -134,31 +134,31 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
             url: 'db_multi_table_query.php',
             data: data,
             success: function (data) {
-                $results_dom = $(data.message);
-                $results_dom.find('.ajax:not(.pageselector)').each(function () {
+                var $resultsDom = $(data.message);
+                $resultsDom.find('.ajax:not(.pageselector)').each(function () {
                     $(this).on('click', function (event) {
                         event.preventDefault();
                     });
                 });
-                $results_dom.find('.autosubmit, .pageselector, .showAllRows, .filter_rows').each(function () {
+                $resultsDom.find('.autosubmit, .pageselector, .showAllRows, .filter_rows').each(function () {
                     $(this).on('change click select focus', function (event) {
                         event.preventDefault();
                     });
                 });
-                $('#sql_results').html($results_dom);
+                $('#sql_results').html($resultsDom);
                 $('#page_content').find('a').first().trigger('click');
             }
         });
     });
 
     $('#add_column_button').on('click', function () {
-        column_count++;
-        $new_column_dom = $($('#new_column_layout').html()).clone();
-        $new_column_dom.find('div').first().find('div').first().attr('id', column_count.toString());
-        $new_column_dom.find('a').first().remove();
-        $new_column_dom.find('.pma_auto_slider').first().unwrap();
-        $new_column_dom.find('.pma_auto_slider').first().attr('title', 'criteria');
-        $('#add_column_button').parent().before($new_column_dom);
+        columnCount++;
+        var $newColumnDom = $($('#new_column_layout').html()).clone();
+        $newColumnDom.find('div').first().find('div').first().attr('id', columnCount.toString());
+        $newColumnDom.find('a').first().remove();
+        $newColumnDom.find('.pma_auto_slider').first().unwrap();
+        $newColumnDom.find('.pma_auto_slider').first().attr('title', 'criteria');
+        $('#add_column_button').parent().before($newColumnDom);
         Functions.initSlider();
         addNewColumnCallbacks();
     });
@@ -186,8 +186,8 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
                     $checkbox = $(this).siblings('.criteria_col').first();
                     $checkbox.prop('checked', !$checkbox.prop('checked'));
                 }
-                $criteria_col_count = $('.criteria_col:checked').length;
-                if ($criteria_col_count > 1) {
+                var $criteriaColCount = $('.criteria_col:checked').length;
+                if ($criteriaColCount > 1) {
                     $(this).siblings('.slide-wrapper').first().find('.logical_operator').first().css('display','table-row');
                 }
             });
@@ -202,17 +202,17 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
 
         $('.criteria_rhs').each(function () {
             $(this).on('change', function () {
-                $rhs_col = $(this).parent().parent().siblings('.rhs_table').first();
-                $rhs_text = $(this).parent().parent().siblings('.rhs_text').first();
+                var $rhsCol = $(this).parent().parent().siblings('.rhs_table').first();
+                var $rhsText = $(this).parent().parent().siblings('.rhs_text').first();
                 if ($(this).val() === 'text') {
-                    $rhs_col.css('display', 'none');
-                    $rhs_text.css('display', 'table-row');
+                    $rhsCol.css('display', 'none');
+                    $rhsText.css('display', 'table-row');
                 } else if ($(this).val() === 'anotherColumn') {
-                    $rhs_text.css('display', 'none');
-                    $rhs_col.css('display', 'table-row');
+                    $rhsText.css('display', 'none');
+                    $rhsCol.css('display', 'table-row');
                 } else {
-                    $rhs_text.css('display', 'none');
-                    $rhs_col.css('display', 'none');
+                    $rhsText.css('display', 'none');
+                    $rhsCol.css('display', 'none');
                 }
             });
         });
