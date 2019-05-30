@@ -616,8 +616,8 @@ $(function () {
             cache: false,
             type: 'POST',
             data: {
-                'favorite_tables': (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
-                    ? window.localStorage.favorite_tables
+                'favoriteTables': (isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
+                    ? window.localStorage.favoriteTables
                     : '',
                 'server': CommonParams.get('server'),
             },
@@ -632,7 +632,7 @@ $(function () {
                     );
                     // Update localStorage.
                     if (isStorageSupported('localStorage')) {
-                        window.localStorage.favorite_tables = data.favorite_tables;
+                        window.localStorage.favoriteTables = data.favoriteTables;
                     }
                 } else {
                     Functions.ajaxShowMessage(data.message);

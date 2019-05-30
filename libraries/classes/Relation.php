@@ -2076,7 +2076,7 @@ class Relation
             // session from the current configuration storage.
             if ($cfgRelation['favoritework']) {
                 $fav_tables = RecentFavoriteTable::getInstance('favorite');
-                $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]
+                $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]
                     = $fav_tables->getFromDb();
             }
 

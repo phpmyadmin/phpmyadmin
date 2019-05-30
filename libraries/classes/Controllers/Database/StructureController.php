@@ -198,8 +198,8 @@ class StructureController extends AbstractController
         global $cfg;
 
         $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
-        if (isset($params['favorite_tables'])) {
-            $favoriteTables = json_decode($params['favorite_tables'], true);
+        if (isset($params['favoriteTables'])) {
+            $favoriteTables = json_decode($params['favoriteTables'], true);
         } else {
             $favoriteTables = [];
         }
@@ -257,7 +257,7 @@ class StructureController extends AbstractController
         ];
 
         $json['user'] = $user;
-        $json['favorite_tables'] = json_encode($favoriteTables);
+        $json['favoriteTables'] = json_encode($favoriteTables);
         $json['list'] = $favoriteInstance->getHtmlList();
         $json['anchor'] = $this->template->render('database/structure/favorite_anchor', [
             'table_name_hash' => md5($favoriteTable),
@@ -813,7 +813,7 @@ class StructureController extends AbstractController
         $favoriteTables[$user] = $favoriteInstance->getTables();
 
         $json = [
-            'favorite_tables' => json_encode($favoriteTables),
+            'favoriteTables' => json_encode($favoriteTables),
             'list' => $favoriteInstance->getHtmlList()
         ];
         $serverId = $GLOBALS['server'];
@@ -832,9 +832,9 @@ class StructureController extends AbstractController
      */
     protected function checkFavoriteTable(string $currentTable): bool
     {
-        // ensure $_SESSION['tmpval']['favorite_tables'] is initialized
+        // ensure $_SESSION['tmpval']['favoriteTables'] is initialized
         RecentFavoriteTable::getInstance('favorite');
-        foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value) {
+        foreach ($_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] as $value) {
             if ($value['db'] == $this->db && $value['table'] == $currentTable) {
                 return true;
             }

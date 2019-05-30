@@ -398,7 +398,7 @@ class StructureControllerTest extends PmaTestCase
             $this->replication
         );
 
-        $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] = [
+        $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [
             [
                 'db' => 'db',
                 'table' => 'table',
@@ -464,7 +464,7 @@ class StructureControllerTest extends PmaTestCase
 
         $json = $method->invokeArgs($controller, [$favoriteInstance, $user, $favoriteTable]);
 
-        $this->assertEquals(json_encode($favoriteTable), $json['favorite_tables']??'');
+        $this->assertEquals(json_encode($favoriteTable), $json['favoriteTables']??'');
         $this->assertArrayHasKey('list', $json);
     }
 

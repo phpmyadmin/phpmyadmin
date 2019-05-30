@@ -238,6 +238,7 @@ Functions.handleRedirectAndReload = function (data) {
  * @param lintOptions additional options for lint
  */
 Functions.getSqlEditor = function ($textarea, options, resize, lintOptions) {
+    var resizeType = resize;
     if ($textarea.length > 0 && typeof CodeMirror !== 'undefined') {
         // merge options for CodeMirror
         var defaults = {
@@ -266,21 +267,21 @@ Functions.getSqlEditor = function ($textarea, options, resize, lintOptions) {
         // create CodeMirror editor
         var codemirrorEditor = CodeMirror.fromTextArea($textarea[0], defaults);
         // allow resizing
-        if (! resize) {
-            resize = 'vertical';
+        if (! resizeType) {
+            resizeType = 'vertical';
         }
         var handles = '';
-        if (resize === 'vertical') {
+        if (resizeType === 'vertical') {
             handles = 's';
         }
-        if (resize === 'both') {
+        if (resizeType === 'both') {
             handles = 'all';
         }
-        if (resize === 'horizontal') {
+        if (resizeType === 'horizontal') {
             handles = 'e, w';
         }
         $(codemirrorEditor.getWrapperElement())
-            .css('resize', resize)
+            .css('resize', resizeType)
             .resizable({
                 handles: handles,
                 resize: function () {
@@ -822,9 +823,11 @@ Functions.emptyCheckTheField = function (theForm, theFieldName) {
  *
  * @return boolean  whether a valid number has been submitted or not
  */
-Functions.checkFormElementInRange = function (theForm, theFieldName, message, min, max) {
+Functions.checkFormElementInRange = function (theForm, theFieldName, message, minimum, maximum) {
     var theField         = theForm.elements[theFieldName];
     var val              = parseInt(theField.value, 10);
+    var min = minimum;
+    var max = maximum;
 
     if (typeof(min) === 'undefined') {
         min = 0;
@@ -1818,8 +1821,9 @@ Functions.loadForeignKeyCheckbox = function () {
     });
 };
 
-Functions.getJsConfirmCommonParam = function (elem, params) {
+Functions.getJsConfirmCommonParam = function (elem, parameters) {
     var $elem = $(elem);
+    var params = parameters;
     var sep = CommonParams.get('arg_separator');
     if (params) {
         // Strip possible leading ?
@@ -2259,6 +2263,8 @@ Functions.updateCode = function ($base, htmlValue, rawValue) {
  *                              to remove the notification
  */
 Functions.ajaxShowMessage = function (message, timeout, type) {
+    var msg = message;
+    var newTimeOut = timeout;
     /**
      * @var self_closing Whether the notification will automatically disappear
      */
@@ -2270,29 +2276,29 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
     var dismissable = true;
     // Handle the case when a empty data.message is passed.
     // We don't want the empty message
-    if (message === '') {
+    if (msg === '') {
         return true;
-    } else if (! message) {
+    } else if (! msg) {
         // If the message is undefined, show the default
-        message = Messages.strLoading;
+        msg = Messages.strLoading;
         dismissable = false;
         selfClosing = false;
-    } else if (message === Messages.strProcessingRequest) {
+    } else if (msg === Messages.strProcessingRequest) {
         // This is another case where the message should not disappear
         dismissable = false;
         selfClosing = false;
     }
     // Figure out whether (or after how long) to remove the notification
-    if (timeout === undefined) {
-        timeout = 5000;
-    } else if (timeout === false) {
+    if (newTimeOut === undefined) {
+        newTimeOut = 5000;
+    } else if (newTimeOut === false) {
         selfClosing = false;
     }
     // Determine type of message, add styling as required
     if (type === 'error') {
-        message = '<div class="error">' + message + '</div>';
+        msg = '<div class="error">' + msg + '</div>';
     } else if (type === 'success') {
-        message = '<div class="success">' + message + '</div>';
+        msg = '<div class="success">' + msg + '</div>';
     }
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length === 0) {
@@ -2314,12 +2320,12 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
     )
         .hide()
         .appendTo('#loading_parent')
-        .html(message)
+        .html(msg)
         .show();
     // If the notification is self-closing we should create a callback to remove it
     if (selfClosing) {
         $retval
-            .delay(timeout)
+            .delay(newTimeOut)
             .fadeOut('medium', function () {
                 if ($(this).is(':data(tooltip)')) {
                     $(this).tooltip('destroy');
@@ -2641,7 +2647,9 @@ Functions.createProfilingChart = function (target, data) {
  * @param  integer    Accuracy, how many numbers right to the comma should be
  * @return string     The formatted number
  */
-Functions.prettyProfilingNum = function (num, acc) {
+Functions.prettyProfilingNum = function (number, accuracy) {
+    var num = number;
+    var acc = accuracy;
     if (!acc) {
         acc = 2;
     }
@@ -2996,9 +3004,9 @@ AJAX.registerOnload('functions.js', function () {
                              */
                             var newLastRowId = 'checkbox_tbl_' + newLastRowIndex;
 
-                            data.new_table_string = data.new_table_string.replace(/checkbox_tbl_/, newLastRowId);
+                            data.newTableString = data.newTableString.replace(/checkbox_tbl_/, newLastRowId);
                             // append to table
-                            $(data.new_table_string)
+                            $(data.newTableString)
                                 .appendTo(tablesTable);
 
                             // Sort the table
@@ -3391,11 +3399,11 @@ Functions.validateDefaultValue = function ($nullCheckbox) {
 Functions.autoPopulate = function (inputId, offset) {
     var db = CommonParams.get('db');
     var table = CommonParams.get('table');
-    inputId = inputId.substring(0, inputId.length - 1);
-    $('#' + inputId + '1').val(centralColumnList[db + '_' + table][offset].col_name);
+    var newInputId = inputId.substring(0, inputId.length - 1);
+    $('#' + newInputId + '1').val(centralColumnList[db + '_' + table][offset].col_name);
     var colType = centralColumnList[db + '_' + table][offset].col_type.toUpperCase();
-    $('#' + inputId + '2').val(colType);
-    var $input3 = $('#' + inputId + '3');
+    $('#' + newInputId + '2').val(colType);
+    var $input3 = $('#' + newInputId + '3');
     $input3.val(centralColumnList[db + '_' + table][offset].col_length);
     if (colType === 'ENUM' || colType === 'SET') {
         $input3.next().show();
@@ -3403,7 +3411,7 @@ Functions.autoPopulate = function (inputId, offset) {
         $input3.next().hide();
     }
     var colDefault = centralColumnList[db + '_' + table][offset].col_default.toUpperCase();
-    var $input4 = $('#' + inputId + '4');
+    var $input4 = $('#' + newInputId + '4');
     if (colDefault !== '' && colDefault !== 'NULL' && colDefault !== 'CURRENT_TIMESTAMP' && colDefault !== 'CURRENT_TIMESTAMP()') {
         $input4.val('USER_DEFINED');
         $input4.next().next().show();
@@ -3412,21 +3420,21 @@ Functions.autoPopulate = function (inputId, offset) {
         $input4.val(centralColumnList[db + '_' + table][offset].col_default);
         $input4.next().next().hide();
     }
-    $('#' + inputId + '5').val(centralColumnList[db + '_' + table][offset].col_collation);
-    var $input6 = $('#' + inputId + '6');
+    $('#' + newInputId + '5').val(centralColumnList[db + '_' + table][offset].col_collation);
+    var $input6 = $('#' + newInputId + '6');
     $input6.val(centralColumnList[db + '_' + table][offset].col_attribute);
     if (centralColumnList[db + '_' + table][offset].col_extra === 'on update CURRENT_TIMESTAMP') {
         $input6.val(centralColumnList[db + '_' + table][offset].col_extra);
     }
     if (centralColumnList[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
-        $('#' + inputId + '9').prop('checked',true).trigger('change');
+        $('#' + newInputId + '9').prop('checked',true).trigger('change');
     } else {
-        $('#' + inputId + '9').prop('checked',false);
+        $('#' + newInputId + '9').prop('checked',false);
     }
     if (centralColumnList[db + '_' + table][offset].col_isNull !== '0') {
-        $('#' + inputId + '7').prop('checked',true);
+        $('#' + newInputId + '7').prop('checked',true);
     } else {
-        $('#' + inputId + '7').prop('checked',false);
+        $('#' + newInputId + '7').prop('checked',false);
     }
 };
 
@@ -3980,10 +3988,11 @@ Functions.showIndexEditDialog = function ($outer) {
  *                    in the whole body
  **/
 Functions.showHints = function ($div) {
-    if ($div === undefined || !($div instanceof jQuery) || $div.length === 0) {
-        $div = $('body');
+    var $newDiv = $div;
+    if ($newDiv === undefined || !($newDiv instanceof jQuery) || $newDiv.length === 0) {
+        $newDiv = $('body');
     }
-    $div.find('.pma_hint').each(function () {
+    $newDiv.find('.pma_hint').each(function () {
         Functions.tooltip(
             $(this).children('img'),
             'img',
@@ -4228,7 +4237,7 @@ AJAX.registerOnload('functions.js', function () {
     if ($updateRecentTables.length) {
         $.get(
             $updateRecentTables.attr('href'),
-            { no_debug: true },
+            { 'no_debug': true },
             function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     $('#pma_recent_list').html(data.list);
@@ -4244,16 +4253,16 @@ AJAX.registerOnload('functions.js', function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
-                    ? window.localStorage.favorite_tables
+                'favoriteTables': (isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
+                    ? window.localStorage.favoriteTables
                     : '',
-                server: CommonParams.get('server'),
-                no_debug: true
+                'server': CommonParams.get('server'),
+                'no_debug': true
             },
             success: function (data) {
                 // Update localStorage.
                 if (isStorageSupported('localStorage')) {
-                    window.localStorage.favorite_tables = data.favorite_tables;
+                    window.localStorage.favoriteTables = data.favoriteTables;
                 }
                 $('#pma_favorite_list').html(data.list);
             }
@@ -4327,7 +4336,8 @@ AJAX.registerTeardown('functions.js', function () {
  *
  * @return bool   True on success, false on failure
  */
-Functions.slidingMessage = function (msg, $obj) {
+Functions.slidingMessage = function (msg, $object) {
+    var $obj = $object;
     if (msg === undefined || msg.length === 0) {
         // Don't show an empty message
         return false;
@@ -4825,20 +4835,23 @@ AJAX.registerOnload('functions.js', function () {
  * @param optional subdecimals the number of digits after the point
  * @param optional pointchar the char to use as decimal point
  */
-Functions.formatBytes = function (bytes, subDecimals, pointChar) {
-    if (!subDecimals) {
-        subDecimals = 0;
+Functions.formatBytes = function (bytesToFormat, subDecimals, pointChar) {
+    var bytes = bytesToFormat;
+    var decimals = subDecimals;
+    var point = pointChar;
+    if (!decimals) {
+        decimals = 0;
     }
-    if (!pointChar) {
-        pointChar = '.';
+    if (!point) {
+        point = '.';
     }
     var units = ['B', 'KiB', 'MiB', 'GiB'];
     for (var i = 0; bytes > 1024 && i < units.length; i++) {
         bytes /= 1024;
     }
-    var factor = Math.pow(10, subDecimals);
+    var factor = Math.pow(10, decimals);
     bytes = Math.round(bytes * factor) / factor;
-    bytes = bytes.toString().split('.').join(pointChar);
+    bytes = bytes.toString().split('.').join(point);
     return bytes + ' ' + units[i];
 };
 
@@ -5040,6 +5053,8 @@ AJAX.registerOnload('functions.js', function () {
  *                                       tag to the given value
  */
 Functions.getImage = function (image, alternate, attributes) {
+    var alt = alternate;
+    var attr = attributes;
     // custom image object, it will eventually be returned by this functions
     var retval = {
         data: {
@@ -5069,34 +5084,34 @@ Functions.getImage = function (image, alternate, attributes) {
         }
     };
     // initialise missing parameters
-    if (attributes === undefined) {
-        attributes = {};
+    if (attr === undefined) {
+        attr = {};
     }
-    if (alternate === undefined) {
-        alternate = '';
+    if (alt === undefined) {
+        alt = '';
     }
     // set alt
-    if (attributes.alt !== undefined) {
-        retval.attr('alt', Functions.escapeHtml(attributes.alt));
+    if (attr.alt !== undefined) {
+        retval.attr('alt', Functions.escapeHtml(attr.alt));
     } else {
-        retval.attr('alt', Functions.escapeHtml(alternate));
+        retval.attr('alt', Functions.escapeHtml(alt));
     }
     // set title
-    if (attributes.title !== undefined) {
-        retval.attr('title', Functions.escapeHtml(attributes.title));
+    if (attr.title !== undefined) {
+        retval.attr('title', Functions.escapeHtml(attr.title));
     } else {
-        retval.attr('title', Functions.escapeHtml(alternate));
+        retval.attr('title', Functions.escapeHtml(alt));
     }
     // set css classes
     retval.attr('class', 'icon ic_' + image);
     // set all other attrubutes
-    for (var i in attributes) {
+    for (var i in attr) {
         if (i === 'src') {
             // do not allow to override the 'src' attribute
             continue;
         }
 
-        retval.attr(i, attributes[i]);
+        retval.attr(i, attr[i]);
     }
 
     return retval;
@@ -5108,19 +5123,13 @@ Functions.getImage = function (image, alternate, attributes) {
  * A configuration value may be set in both browser's local storage and
  * remotely in server's configuration table.
  *
- * If the `only_local` argument is `true`, the value is store is stored only in
- * browser's local storage and may be lost if the user resets his browser's
- * settings.
- *
  * NOTE: Depending on server's configuration, the configuration table may be or
  * not persistent.
  *
  * @param  {string}     key         Configuration key.
  * @param  {object}     value       Configuration value.
- * @param  {boolean}    onlyLocal  Configuration type.
  */
-Functions.configSet = function (key, value, onlyLocal) {
-    onlyLocal = (typeof onlyLocal !== 'undefined') ? onlyLocal : false;
+Functions.configSet = function (key, value) {
     var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
     $.ajax({
@@ -5161,9 +5170,9 @@ Functions.configSet = function (key, value, onlyLocal) {
  * @return {object}                 Configuration value.
  */
 Functions.configGet = function (key, cached) {
-    cached = (typeof cached !== 'undefined') ? cached : true;
+    var isCached = (typeof cached !== 'undefined') ? cached : true;
     var value = localStorage.getItem(key);
-    if (cached && value !== undefined && value !== null) {
+    if (isCached && value !== undefined && value !== null) {
         return JSON.parse(value);
     }
 

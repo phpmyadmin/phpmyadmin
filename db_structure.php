@@ -57,7 +57,7 @@ $response = $container->get(Response::class);
 if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
     $json = $controller->addRemoveFavoriteTablesAction([
         'favorite_table' => $_REQUEST['favorite_table'],
-        'favorite_tables' => $_REQUEST['favorite_tables'] ?? null,
+        'favoriteTables' => $_REQUEST['favoriteTables'] ?? null,
         'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
         'add_favorite' => $_REQUEST['add_favorite'] ?? null,
         'remove_favorite' => $_REQUEST['remove_favorite'] ?? null,
