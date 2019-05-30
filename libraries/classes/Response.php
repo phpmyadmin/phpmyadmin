@@ -432,7 +432,7 @@ class Response
                     $query = $GLOBALS['sql_query'];
                 }
                 $this->addJSON(
-                    '_reloadQuerywindow',
+                    'reloadQuerywindow',
                     [
                         'db' => Core::ifSetOr($GLOBALS['db'], ''),
                         'table' => Core::ifSetOr($GLOBALS['table'], ''),
