@@ -113,25 +113,25 @@ var CommonActions = {
      * Saves the database name when it's changed
      * and reloads the query window, if necessary
      *
-     * @param new_db string new_db The name of the new database
+     * @param newDb string new_db The name of the new database
      *
      * @return void
      */
-    setDb: function (new_db) {
-        if (new_db !== CommonParams.get('db')) {
-            CommonParams.setAll({ 'db': new_db, 'table': '' });
+    setDb: function (newDb) {
+        if (newDb !== CommonParams.get('db')) {
+            CommonParams.setAll({ 'db': newDb, 'table': '' });
         }
     },
     /**
      * Opens a database in the main part of the page
      *
-     * @param new_db string The name of the new database
+     * @param newDb string The name of the new database
      *
      * @return void
      */
-    openDb: function (new_db) {
+    openDb: function (newDb) {
         CommonParams
-            .set('db', new_db)
+            .set('db', newDb)
             .set('table', '');
         this.refreshMain(
             CommonParams.get('opendb_url')
@@ -146,12 +146,13 @@ var CommonActions = {
      * @return void
      */
     refreshMain: function (url, callback) {
-        if (! url) {
-            url = $('#selflink').find('a').attr('href');
-            url = url.substring(0, url.indexOf('?'));
+        var newUrl = url;
+        if (! newUrl) {
+            newUrl = $('#selflink').find('a').attr('href');
+            newUrl = newUrl.substring(0, newUrl.indexOf('?'));
         }
-        url += CommonParams.getUrlQuery();
-        $('<a></a>', { href: url })
+        newUrl += CommonParams.getUrlQuery();
+        $('<a></a>', { href: newUrl })
             .appendTo('body')
             .trigger('click')
             .remove();

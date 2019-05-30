@@ -6,7 +6,7 @@
  * Class to handle PMA Drag and Drop Import
  *      feature
  */
-PMA_DROP_IMPORT = {
+DragDropImport = {
     /**
      * @var int, count of total uploads in this view
      */
@@ -34,19 +34,19 @@ PMA_DROP_IMPORT = {
      *
      * @return string, extension for valid extension, '' otherwise
      */
-    _getExtension: function (file) {
+    getExtension: function (file) {
         var arr = file.split('.');
         ext = arr[arr.length - 1];
 
         // check if compressed
         if (jQuery.inArray(ext.toLowerCase(),
-            PMA_DROP_IMPORT.allowedCompressedExtensions) !== -1) {
+            DragDropImport.allowedCompressedExtensions) !== -1) {
             ext = arr[arr.length - 2];
         }
 
         // Now check for extension
         if (jQuery.inArray(ext.toLowerCase(),
-            PMA_DROP_IMPORT.allowedExtensions) !== -1) {
+            DragDropImport.allowedExtensions) !== -1) {
             return ext;
         }
         return '';
@@ -59,7 +59,7 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _setProgress: function (hash, percent) {
+    setProgress: function (hash, percent) {
         $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
             .children('progress').val(percent);
     },
@@ -71,7 +71,7 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _sendFileToServer: function (formData, hash) {
+    sendFileToServer: function (formData, hash) {
         var uploadURL = './import.php'; // Upload URL
         var extraData = {};
         var jqXHR = $.ajax({
@@ -86,7 +86,7 @@ PMA_DROP_IMPORT = {
                             percent = Math.ceil(position / total * 100);
                         }
                         // Set progress
-                        PMA_DROP_IMPORT._setProgress(hash, percent);
+                        DragDropImport.setProgress(hash, percent);
                     }, false);
                 }
                 return xhrobj;
@@ -98,9 +98,9 @@ PMA_DROP_IMPORT = {
             cache: false,
             data: formData,
             success: function (data) {
-                PMA_DROP_IMPORT._importFinished(hash, false, data.success);
+                DragDropImport.importFinished(hash, false, data.success);
                 if (!data.success) {
-                    PMA_DROP_IMPORT.importStatus[PMA_DROP_IMPORT.importStatus.length] = {
+                    DragDropImport.importStatus[DragDropImport.importStatus.length] = {
                         hash: hash,
                         message: data.error
                     };
@@ -121,12 +121,12 @@ PMA_DROP_IMPORT = {
                 if ($(this).attr('task') === 'cancel') {
                     jqXHR.abort();
                     $(this).html('<span>' + Messages.dropImportMessageAborted + '</span>');
-                    PMA_DROP_IMPORT._importFinished(hash, true, false);
+                    DragDropImport.importFinished(hash, true, false);
                 } else if ($(this).children('span').html() ===
                     Messages.dropImportMessageFailed) {
                     // -- view information
                     var $this = $(this);
-                    $.each(PMA_DROP_IMPORT.importStatus,
+                    $.each(DragDropImport.importStatus,
                         function (key, value) {
                             if (value.hash === hash) {
                                 $('.pma_drop_result:visible').remove();
@@ -147,7 +147,7 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _dragenter : function (event) {
+    dragEnter : function (event) {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
         if ($('.noDragDrop').length !== 0) {
@@ -156,7 +156,7 @@ PMA_DROP_IMPORT = {
 
         event.stopPropagation();
         event.preventDefault();
-        if (!PMA_DROP_IMPORT._hasFiles(event)) {
+        if (!DragDropImport.hasFiles(event)) {
             return;
         }
         if (CommonParams.get('db') === '') {
@@ -173,7 +173,7 @@ PMA_DROP_IMPORT = {
      *
      * @return bool
      */
-    _hasFiles: function (event) {
+    hasFiles: function (event) {
         return !(typeof event.originalEvent.dataTransfer.types === 'undefined' ||
             $.inArray('Files', event.originalEvent.dataTransfer.types) < 0 ||
             $.inArray(
@@ -188,7 +188,7 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _dragover: function (event) {
+    dragOver: function (event) {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
         if ($('.noDragDrop').length !== 0) {
@@ -197,7 +197,7 @@ PMA_DROP_IMPORT = {
 
         event.stopPropagation();
         event.preventDefault();
-        if (!PMA_DROP_IMPORT._hasFiles(event)) {
+        if (!DragDropImport.hasFiles(event)) {
             return;
         }
         $('.pma_drop_handler').fadeIn();
@@ -209,7 +209,7 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _dragleave: function (event) {
+    dragLeave: function (event) {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
         if ($('.noDragDrop').length !== 0) {
@@ -217,10 +217,10 @@ PMA_DROP_IMPORT = {
         }
         event.stopPropagation();
         event.preventDefault();
-        var $pma_drop_handler = $('.pma_drop_handler');
-        $pma_drop_handler.clearQueue().stop();
-        $pma_drop_handler.fadeOut();
-        $pma_drop_handler.html(Messages.dropImportDropFiles);
+        var $dropHandler = $('.pma_drop_handler');
+        $dropHandler.clearQueue().stop();
+        $dropHandler.fadeOut();
+        $dropHandler.html(Messages.dropImportDropFiles);
     },
     /**
      * Called when upload has finished
@@ -231,7 +231,7 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _importFinished: function (hash, aborted, status) {
+    importFinished: function (hash, aborted, status) {
         $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
             .children('progress').hide();
         var icon = 'icon ic_s_success';
@@ -261,8 +261,8 @@ PMA_DROP_IMPORT = {
             icon + '"> ');
 
         // Decrease liveUploadCount by one
-        $('.pma_import_count').html(--PMA_DROP_IMPORT.liveUploadCount);
-        if (!PMA_DROP_IMPORT.liveUploadCount) {
+        $('.pma_import_count').html(--DragDropImport.liveUploadCount);
+        if (!DragDropImport.liveUploadCount) {
             $('.pma_sql_import_status h2 .close').fadeIn();
         }
     },
@@ -274,7 +274,7 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _drop: function (event) {
+    drop: function (event) {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
         if ($('.noDragDrop').length !== 0) {
@@ -296,24 +296,24 @@ PMA_DROP_IMPORT = {
             }
             $('.pma_sql_import_status').slideDown();
             for (var i = 0; i < files.length; i++) {
-                var ext  = (PMA_DROP_IMPORT._getExtension(files[i].name));
-                var hash = AJAX.hash(++PMA_DROP_IMPORT.uploadCount);
+                var ext  = (DragDropImport.getExtension(files[i].name));
+                var hash = AJAX.hash(++DragDropImport.uploadCount);
 
-                var $pma_sql_import_status_div = $('.pma_sql_import_status div');
-                $pma_sql_import_status_div.append('<li data-hash="' + hash + '">' +
+                var $sqlImportStatusDiv = $('.pma_sql_import_status div');
+                $sqlImportStatusDiv.append('<li data-hash="' + hash + '">' +
                     ((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ') +
                     Functions.escapeHtml(files[i].name) + '<span class="filesize" data-filename="' +
                     Functions.escapeHtml(files[i].name) + '">' + (files[i].size / 1024).toFixed(2) +
                     ' kb</span></li>');
 
                 // scroll the UI to bottom
-                $pma_sql_import_status_div.scrollTop(
-                    $pma_sql_import_status_div.scrollTop() + 50
+                $sqlImportStatusDiv.scrollTop(
+                    $sqlImportStatusDiv.scrollTop() + 50
                 );  // 50 hardcoded for now
 
                 if (ext !== '') {
                     // Increment liveUploadCount by one
-                    $('.pma_import_count').html(++PMA_DROP_IMPORT.liveUploadCount);
+                    $('.pma_import_count').html(++DragDropImport.liveUploadCount);
                     $('.pma_sql_import_status h2 .close').fadeOut();
 
                     $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
@@ -341,8 +341,8 @@ PMA_DROP_IMPORT = {
                     fd.append('hash', hash);
 
                     // init uploading
-                    PMA_DROP_IMPORT._sendFileToServer(fd, hash);
-                } else if (!PMA_DROP_IMPORT.liveUploadCount) {
+                    DragDropImport.sendFileToServer(fd, hash);
+                } else if (!DragDropImport.liveUploadCount) {
                     $('.pma_sql_import_status h2 .close').fadeIn();
                 }
             }
@@ -359,12 +359,12 @@ PMA_DROP_IMPORT = {
  * @param object Event data
  * @return void
  */
-$(document).on('dragenter', PMA_DROP_IMPORT._dragenter);
-$(document).on('dragover', PMA_DROP_IMPORT._dragover);
-$(document).on('dragleave', '.pma_drop_handler', PMA_DROP_IMPORT._dragleave);
+$(document).on('dragenter', DragDropImport.dragEnter);
+$(document).on('dragover', DragDropImport.dragOver);
+$(document).on('dragleave', '.pma_drop_handler', DragDropImport.dragLeave);
 
 // when file is dropped to PMA UI
-$(document).on('drop', 'body', PMA_DROP_IMPORT._drop);
+$(document).on('drop', 'body', DragDropImport.drop);
 
 // minimizing-maximising the sql ajax upload status
 $(document).on('click', '.pma_sql_import_status h2 .minimize', function () {
@@ -383,7 +383,7 @@ $(document).on('click', '.pma_sql_import_status h2 .minimize', function () {
 $(document).on('click', '.pma_sql_import_status h2 .close', function () {
     $('.pma_sql_import_status').fadeOut(function () {
         $('.pma_sql_import_status div').html('');
-        PMA_DROP_IMPORT.importStatus = [];  // clear the message array
+        DragDropImport.importStatus = [];  // clear the message array
     });
 });
 

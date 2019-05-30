@@ -30,10 +30,10 @@ CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
         url: 'lint.php',
         dataType: 'json',
         data: {
-            sql_query: text,
-            server: CommonParams.get('server'),
-            options: options.lintOptions,
-            no_history: true,
+            'sql_query': text,
+            'server': CommonParams.get('server'),
+            'options': options.lintOptions,
+            'no_history': true,
         },
         success: handleResponse
     });

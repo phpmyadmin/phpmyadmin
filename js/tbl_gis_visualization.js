@@ -149,6 +149,7 @@ function initGISVisualization () {
     resizeGISVisualization();
     if (typeof OpenLayers !== 'undefined') {
         // Configure OpenLayers
+        // eslint-disable-next-line no-underscore-dangle
         OpenLayers._getScriptLocation = function () {
             return './js/vendor/openlayers/';
         };

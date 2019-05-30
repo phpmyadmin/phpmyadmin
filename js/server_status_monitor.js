@@ -1206,11 +1206,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 var seriesLabel = plot.series[j].label;
                 var seriesColor = plot.series[j].color;
                 // format y value
-                if (plot.series[0]._yaxis.tickOptions.formatter) {
+                if (plot.series[0]._yaxis.tickOptions.formatter) { // eslint-disable-line no-underscore-dangle
                     // using formatter function
+                    // eslint-disable-next-line no-underscore-dangle
                     seriesValue = plot.series[0]._yaxis.tickOptions.formatter('%s', seriesValue);
-                } else if (plot.series[0]._yaxis.tickOptions.formatString) {
+                } else if (plot.series[0]._yaxis.tickOptions.formatString) { // eslint-disable-line no-underscore-dangle
                     // using format string
+                    // eslint-disable-next-line no-underscore-dangle
                     seriesValue = Functions.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
                 }
                 tooltipHtml += '<br><span style="color:' + seriesColor + '">' +
