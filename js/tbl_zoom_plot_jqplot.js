@@ -258,7 +258,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
     $('#togglesearchformlink')
         .html(Messages.strShowSearchCriteria)
-        .bind('click', function () {
+        .on('click', function () {
             var $link = $(this);
             $('#zoom_search_form').slideToggle();
             if ($link.text() === Messages.strHideSearchCriteria) {
@@ -574,14 +574,14 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         });
 
         $('div#resizer').resizable();
-        $('div#resizer').bind('resizestop', function (event, ui) {
+        $('div#resizer').on('resizestop', function (event, ui) {
             // make room so that the handle will still appear
             $('div#querychart').height($('div#resizer').height() * 0.96);
             $('div#querychart').width($('div#resizer').width() * 0.96);
             currentChart.replot({ resetAxes: true });
         });
 
-        $('div#querychart').bind('jqplotDataClick',
+        $('div#querychart').on('jqplotDataClick',
             function (event, seriesIndex, pointIndex, data) {
                 searchedDataKey = data[4]; // key from searchedData (global)
                 var fieldId = 0;
