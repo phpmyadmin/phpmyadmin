@@ -433,7 +433,7 @@ AJAX.registerOnload('sql.js', function () {
             .hide();
 
         // Attach the toggling of the query box visibility to a click
-        $('#togglequerybox').bind('click', function () {
+        $('#togglequerybox').on('click', function () {
             var $link = $(this);
             $link.siblings().slideToggle('fast');
             if ($link.text() === Messages.strHideQueryBox) {

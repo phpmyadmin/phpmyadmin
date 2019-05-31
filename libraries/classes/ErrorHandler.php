@@ -567,18 +567,18 @@ class ErrorHandler
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
                 $jsCode = 'Functions.ajaxShowMessage(Messages.phpErrorsFound);'
-                        . '$("#pma_ignore_errors_popup").bind("click", function() {
+                        . '$("#pma_ignore_errors_popup").on("click", function() {
                             Functions.ignorePhpErrors()
                         });'
-                        . '$("#pma_ignore_all_errors_popup").bind("click",
+                        . '$("#pma_ignore_all_errors_popup").on("click",
                             function() {
                                 Functions.ignorePhpErrors(false)
                             });'
-                        . '$("#pma_ignore_errors_bottom").bind("click", function(e) {
+                        . '$("#pma_ignore_errors_bottom").on("click", function(e) {
                             e.preventDefault();
                             Functions.ignorePhpErrors()
                         });'
-                        . '$("#pma_ignore_all_errors_bottom").bind("click",
+                        . '$("#pma_ignore_all_errors_bottom").on("click",
                             function(e) {
                                 e.preventDefault();
                                 Functions.ignorePhpErrors(false)
