@@ -384,23 +384,7 @@ class DatabaseStructureController extends DatabaseController
     {
         // filtering
         $this->response->addHTML(
-            Template::get('filter')->render(array('filter_value' => ''))
-        );
-        // table form
-        $this->response->addHTML(
-            Template::get('database/structure/table_header')->render([
-                'db' => $this->db,
-                'db_is_system_schema' => $this->_db_is_system_schema,
-                'replication' => $GLOBALS['replication_info']['slave']['status'],
-                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                'is_show_stats' => $GLOBALS['is_show_stats'],
-                'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-                'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-                'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-                'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-                'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-            ])
+            Template::get('filter')->render(['filter_value' => ''])
         );
 
         $i = $sum_entries = 0;
@@ -417,6 +401,7 @@ class DatabaseStructureController extends DatabaseController
 
         $hidden_fields = array();
         $overall_approx_rows = false;
+        $structure_table_rows = [];
         foreach ($this->_tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
 
@@ -616,10 +601,6 @@ class DatabaseStructureController extends DatabaseController
                 $row_count = 1;
 
                 $this->response->addHTML(
-                    '</tr></tbody></table></div></form>'
-                );
-
-                $this->response->addHTML(
                     Template::get('database/structure/table_header')->render([
                         'db' => $this->db,
                         'db_is_system_schema' => $this->_db_is_system_schema,
@@ -632,8 +613,10 @@ class DatabaseStructureController extends DatabaseController
                         'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                         'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
                         'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                        'structure_table_rows' => $structure_table_rows,
                     ])
                 );
+                $structure_table_rows = [];
             }
 
             list($approx_rows, $show_superscript) = $this->isRowCountApproximated(
@@ -642,70 +625,75 @@ class DatabaseStructureController extends DatabaseController
 
             list($do, $ignored) = $this->getReplicationStatus($truename);
 
-            $this->response->addHTML(
-                Template::get('database/structure/structure_table_row')
-                    ->render(
-                        array(
-                            'db'                    => $this->db,
-                            'curr'                  => $i,
-                            'input_class'           => implode(' ', $input_class),
-                            'table_is_view'         => $table_is_view,
-                            'current_table'         => $current_table,
-                            'browse_table_label'    => $browse_table_label,
-                            'tracking_icon'         => $this->getTrackingIcon($truename),
-                            'server_slave_status'   => $GLOBALS['replication_info']['slave']['status'],
-                            'browse_table'          => $browse_table,
-                            'tbl_url_query'         => $tbl_url_query,
-                            'search_table'          => $search_table,
-                            'db_is_system_schema'   => $this->_db_is_system_schema,
-                            'titles'                => $titles,
-                            'empty_table'           => $empty_table,
-                            'drop_query'            => $drop_query,
-                            'drop_message'          => $drop_message,
-                            'collation'             => $collation,
-                            'formatted_size'        => $formatted_size,
-                            'unit'                  => $unit,
-                            'overhead'              => $overhead,
-                            'create_time'           => isset($create_time)
-                                ? $create_time : '',
-                            'update_time'           => isset($update_time)
-                                ? $update_time : '',
-                            'check_time'            => isset($check_time)
-                                ? $check_time : '',
-                            'charset'               => isset($charset)
-                                ? $charset : '',
-                            'is_show_stats'         => $this->_is_show_stats,
-                            'ignored'               => $ignored,
-                            'do'                    => $do,
-                            'approx_rows'           => $approx_rows,
-                            'show_superscript'      => $show_superscript,
-                            'already_favorite'      => $this->checkFavoriteTable(
-                                $current_table['TABLE_NAME']
-                            ),
-                            'num_favorite_tables'   => $GLOBALS['cfg']['NumFavoriteTables'],
-                            'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                            'limit_chars'            => $GLOBALS['cfg']['LimitChars'],
-                            'show_charset'           => $GLOBALS['cfg']['ShowDbStructureCharset'],
-                            'show_comment'           => $GLOBALS['cfg']['ShowDbStructureComment'],
-                            'show_creation'          => $GLOBALS['cfg']['ShowDbStructureCreation'],
-                            'show_last_update'       => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-                            'show_last_check'        => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                        )
-                    )
-            );
+            $structure_table_rows[] = [
+                'db'                    => $this->db,
+                'curr'                  => $i,
+                'input_class'           => implode(' ', $input_class),
+                'table_is_view'         => $table_is_view,
+                'current_table'         => $current_table,
+                'browse_table_label'    => $browse_table_label,
+                'tracking_icon'         => $this->getTrackingIcon($truename),
+                'server_slave_status'   => $GLOBALS['replication_info']['slave']['status'],
+                'browse_table'          => $browse_table,
+                'tbl_url_query'         => $tbl_url_query,
+                'search_table'          => $search_table,
+                'db_is_system_schema'   => $this->_db_is_system_schema,
+                'titles'                => $titles,
+                'empty_table'           => $empty_table,
+                'drop_query'            => $drop_query,
+                'drop_message'          => $drop_message,
+                'collation'             => $collation,
+                'formatted_size'        => $formatted_size,
+                'unit'                  => $unit,
+                'overhead'              => $overhead,
+                'create_time'           => isset($create_time)
+                    ? $create_time : '',
+                'update_time'           => isset($update_time)
+                    ? $update_time : '',
+                'check_time'            => isset($check_time)
+                    ? $check_time : '',
+                'charset'               => isset($charset)
+                    ? $charset : '',
+                'is_show_stats'         => $this->_is_show_stats,
+                'ignored'               => $ignored,
+                'do'                    => $do,
+                'approx_rows'           => $approx_rows,
+                'show_superscript'      => $show_superscript,
+                'already_favorite'      => $this->checkFavoriteTable(
+                    $current_table['TABLE_NAME']
+                ),
+                'num_favorite_tables'   => $GLOBALS['cfg']['NumFavoriteTables'],
+                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'limit_chars'            => $GLOBALS['cfg']['LimitChars'],
+                'show_charset'           => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                'show_comment'           => $GLOBALS['cfg']['ShowDbStructureComment'],
+                'show_creation'          => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                'show_last_update'       => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                'show_last_check'        => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+            ];
 
             $overall_approx_rows = $overall_approx_rows || $approx_rows;
         } // end foreach
 
-        $this->response->addHTML('</tbody>');
-
         $db_collation = $this->dbi->getDbCollation($this->db);
         $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
 
-        // Show Summary
+        // table form
         $this->response->addHTML(
-            Template::get('database/structure/body_for_table_summary')->render(
-                array(
+            Template::get('database/structure/table_header')->render([
+                'db' => $this->db,
+                'db_is_system_schema' => $this->_db_is_system_schema,
+                'replication' => $GLOBALS['replication_info']['slave']['status'],
+                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'is_show_stats' => $GLOBALS['is_show_stats'],
+                'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+                'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+                'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                'structure_table_rows' => $structure_table_rows,
+                'body_for_table_summary' => [
                     'num_tables' => $this->_num_tables,
                     'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
                     'db_is_system_schema' => $this->_db_is_system_schema,
@@ -728,24 +716,18 @@ class DatabaseStructureController extends DatabaseController
                     'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
                     'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                     'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                )
-            )
-        );
-        $this->response->addHTML('</table>');
-
-        //check all
-        $this->response->addHTML(
-            Template::get('database/structure/check_all_tables')->render([
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                'text_dir' => $GLOBALS['text_dir'],
-                'overhead_check' => $overhead_check,
-                'db_is_system_schema' => $this->_db_is_system_schema,
-                'hidden_fields' => $hidden_fields,
-                'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
-                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+                ],
+                'check_all_tables' => [
+                    'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                    'text_dir' => $GLOBALS['text_dir'],
+                    'overhead_check' => $overhead_check,
+                    'db_is_system_schema' => $this->_db_is_system_schema,
+                    'hidden_fields' => $hidden_fields,
+                    'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
+                    'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+                ],
             ])
         );
-        $this->response->addHTML('</form>'); //end of form
     }
 
     /**
