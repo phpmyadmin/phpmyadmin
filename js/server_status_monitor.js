@@ -705,7 +705,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $(this).dialog('close');
         };
         $dialog.dialog({
-            width: 595,
+            width: '60%',
             height: 'auto',
             buttons: dlgBtns
         }).find('img.ajaxIcon').show();

@@ -145,6 +145,7 @@ phpMyAdmin - ChangeLog
 - issue #15287 Fix auto_increment field is too small
 - issue #15283 Fix tries to change collation on views when changing collation on all tables/fields
 - issue        Fixed empty PMA_gotoWhitelist JavaScript array
+- issue #15079 Fixed responsive behaviour of instruction dialog box
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
