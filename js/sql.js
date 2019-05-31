@@ -7,6 +7,11 @@
  *
  */
 
+/* global isStorageSupported */ // js/config.js
+/* global codeMirrorEditor */ // js/functions.js
+/* global MicroHistory */ // js/microhistory.js
+/* global makeGrid */ // js/makegrid.js
+
 var Sql = {};
 
 var prevScrollX = 0;
@@ -248,7 +253,7 @@ AJAX.registerOnload('sql.js', function () {
         var question =  Functions.sprintf(Messages.strDoYouReally, Functions.escapeHtml($(this).closest('td').find('div').text()));
         var $link = $(this);
         $link.confirm(question, $link.attr('href'), function (url) {
-            $msgbox = Functions.ajaxShowMessage();
+            var $msgbox = Functions.ajaxShowMessage();
             var argsep = CommonParams.get('arg_separator');
             var params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
             var postData = $link.getPostData();
@@ -669,7 +674,7 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('submit', 'form[name=\'displayOptionsForm\'].ajax', function (event) {
         event.preventDefault();
 
-        $form = $(this);
+        var $form = $(this);
 
         var $msgbox = Functions.ajaxShowMessage();
         var argsep = CommonParams.get('arg_separator');
@@ -716,10 +721,10 @@ AJAX.registerOnload('sql.js', function () {
         var $form = $(this).parents('form');
 
         if (! $(this).is(':checked')) { // already showing all rows
-            submitShowAllForm();
+            Sql.submitShowAllForm();
         } else {
             $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function (url) {
-                submitShowAllForm();
+                Sql.submitShowAllForm();
             });
         }
 

@@ -3,6 +3,18 @@
         "browser": true,
         "jquery": true
     },
+    "globals": {
+        "AJAX": "readonly",
+        "CodeMirror": "readonly",
+        "CommonActions": "readonly",
+        "CommonParams": "readonly",
+        "Cookies": "readonly",
+        "Functions": "readonly",
+        "Messages": "readonly",
+        "Navigation": "readonly",
+        "OpenLayers": "readonly",
+        "Sql": "readonly"
+    },
     "rules": {
         "array-bracket-spacing": "error",
         "brace-style": "error",

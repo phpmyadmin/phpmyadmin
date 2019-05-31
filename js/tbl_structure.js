@@ -8,6 +8,9 @@
  * @required    js/functions.js
  */
 
+/* global primaryIndexes, indexes, fulltextIndexes, spatialIndexes */ // js/functions.js
+/* global sprintf */ // js/vendor/sprintf.js
+
 /**
  * AJAX scripts for tbl_structure.php
  *
@@ -74,7 +77,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
 
         function submitForm () {
-            $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
             $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();

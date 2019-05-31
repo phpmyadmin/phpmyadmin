@@ -7,6 +7,8 @@
  * @requires    jQueryUI
  */
 
+/* global Console */ // js/console.js
+
 /**
  * Register key events on load
  */

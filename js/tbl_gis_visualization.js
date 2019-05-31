@@ -8,6 +8,8 @@
  * @requires    vendor/jquery/jquery.event.drag-2.2.js
  */
 
+/* global drawOpenLayers */ // templates/table/gis_visualization/gis_visualization.twig
+
 // Constants
 var zoomFactor = 1.5;
 var defaultX = 0;
@@ -284,8 +286,8 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         scale *= zoomFactor;
 
         var $placeholder = $('#placeholder').find('svg');
-        width = $placeholder.attr('width');
-        height = $placeholder.attr('height');
+        var width = $placeholder.attr('width');
+        var height = $placeholder.attr('height');
         // zooming in keeping the center unmoved.
         x = width / 2 - (width / 2 - x) * zoomFactor;
         y = height / 2 - (height / 2 - y) * zoomFactor;
@@ -306,8 +308,8 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         scale /= zoomFactor;
 
         var $placeholder = $('#placeholder').find('svg');
-        width = $placeholder.attr('width');
-        height = $placeholder.attr('height');
+        var width = $placeholder.attr('width');
+        var height = $placeholder.attr('height');
         // zooming out keeping the center unmoved.
         x = width / 2 - (width / 2 - x) / zoomFactor;
         y = height / 2 - (height / 2 - y) / zoomFactor;

@@ -1,6 +1,5 @@
-/** global: AJAX */
-/** global: Messages */
-/** global: u2f */
+/* global u2f */ // js/vendor/u2f-api-polyfill.js
+
 AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');
     if ($inputReg.length > 0) {

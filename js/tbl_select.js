@@ -6,6 +6,9 @@
  * @requires    js/functions.js
  */
 
+/* global changeValueFieldType */ // js/tbl_change.js
+/* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
+
 var TableSelect = {};
 
 /**

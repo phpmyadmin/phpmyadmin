@@ -8,6 +8,9 @@
  *
  */
 
+/* global extendingValidatorMessages */ // js/messages.php
+/* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
+
 /**
  * Modify form controls when the "NULL" checkbox is checked
  *
