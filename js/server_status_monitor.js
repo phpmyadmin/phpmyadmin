@@ -692,7 +692,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var $dialog = $('#monitorInstructionsDialog');
 
         $dialog.dialog({
-            width: 595,
+            width: '60%',
             height: 'auto'
         }).find('img.ajaxIcon').show();
 
