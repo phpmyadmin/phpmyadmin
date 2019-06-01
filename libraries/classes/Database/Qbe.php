@@ -13,6 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -211,7 +212,7 @@ class Qbe
      * Current search
      *
      * @access private
-     * @var \PhpMyAdmin\SavedSearches
+     * @var SavedSearches
      */
     private $_currentSearch = null;
 
@@ -233,12 +234,16 @@ class Qbe
     /**
      * Public Constructor
      *
-     * @param DatabaseInterface         $dbi             DatabaseInterface object
-     * @param string                    $dbname          Database name
-     * @param array                     $savedSearchList List of saved searches
-     * @param \PhpMyAdmin\SavedSearches $currentSearch   Current search id
+     * @param Relation          $relation        Relation object
+     * @param Template          $template        Template object
+     * @param DatabaseInterface $dbi             DatabaseInterface object
+     * @param string            $dbname          Database name
+     * @param array             $savedSearchList List of saved searches
+     * @param SavedSearches     $currentSearch   Current search id
      */
     public function __construct(
+        Relation $relation,
+        Template $template,
         $dbi,
         $dbname,
         array $savedSearchList = [],
@@ -248,8 +253,8 @@ class Qbe
         $this->_savedSearchList = $savedSearchList;
         $this->_currentSearch = $currentSearch;
         $this->dbi = $dbi;
-        $this->relation = new Relation($this->dbi);
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->template = $template;
 
         $this->_loadCriterias();
         // Sets criteria parameters
@@ -279,7 +284,7 @@ class Qbe
     /**
      * Getter for current search
      *
-     * @return \PhpMyAdmin\SavedSearches
+     * @return SavedSearches
      */
     private function _getCurrentSearch()
     {

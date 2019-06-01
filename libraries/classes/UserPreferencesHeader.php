@@ -22,6 +22,7 @@ class UserPreferencesHeader
      * Get HTML content
      *
      * @param Template $template Template object used to render data
+     * @param Relation $relation Relation object
      *
      * @return string
      * @throws \Throwable
@@ -29,11 +30,11 @@ class UserPreferencesHeader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public static function getContent(Template $template): string
+    public static function getContent(Template $template, Relation $relation): string
     {
         return self::displayTabs($template)
             . self::displayConfigurationSavedMessage()
-            . self::sessionStorageWarning();
+            . self::sessionStorageWarning($relation);
     }
 
     /**
@@ -118,12 +119,13 @@ class UserPreferencesHeader
     }
 
     /**
+     * @param Relation $relation Relation instance
+     *
      * @return string|null
      */
-    protected static function sessionStorageWarning(): ?string
+    protected static function sessionStorageWarning(Relation $relation): ?string
     {
         // warn about using session storage for settings
-        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         if (! $cfgRelation['userconfigwork']) {
             $msg = __(

@@ -30,8 +30,11 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$databaseDesigner = new Designer($dbi);
-$designerCommon = new Common($dbi);
+/** @var Designer $databaseDesigner */
+$databaseDesigner = $containerBuilder->get('designer');
+
+/** @var Common $designerCommon */
+$designerCommon = $containerBuilder->get('designer_common');
 
 if (isset($_POST['dialog'])) {
     if ($_POST['dialog'] == 'edit') {

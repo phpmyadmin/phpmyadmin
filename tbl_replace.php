@@ -61,8 +61,10 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-$relation = new Relation($dbi);
-$transformations = new Transformations();
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
+/** @var Transformations $transformations */
+$transformations = $containerBuilder->get('transformations');
 $insertEdit = new InsertEdit($dbi);
 
 // check whether insert row mode, if so include tbl_change.php

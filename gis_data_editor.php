@@ -20,7 +20,8 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 if (! isset($_POST['field'])) {
     Util::checkParameters(['field']);

@@ -47,7 +47,8 @@ $options_array = [
     'NO_ACTION' => 'NO ACTION',
     'RESTRICT' => 'RESTRICT',
 ];
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 $tbl_storage_engine = mb_strtoupper(
     $dbi->getTable($db, $table)->getStatusInfo('Engine')

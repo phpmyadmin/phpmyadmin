@@ -31,7 +31,8 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$normalization = new Normalization($dbi);
+/** @var Normalization $normalization */
+$normalization = $containerBuilder->get('normalization');
 
 if (isset($_POST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'

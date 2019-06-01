@@ -41,14 +41,17 @@ class Normalization
     /**
      * Constructor
      *
-     * @param DatabaseInterface $dbi DatabaseInterface instance
+     * @param DatabaseInterface $dbi             DatabaseInterface instance
+     * @param Relation          $relation        Relation instance
+     * @param Transformations   $transformations Transformations instance
+     * @param Template          $template        Template instance
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi, Relation $relation, Transformations $transformations, Template $template)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation($this->dbi);
-        $this->transformations = new Transformations();
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->transformations = $transformations;
+        $this->template = $template;
     }
 
     /**

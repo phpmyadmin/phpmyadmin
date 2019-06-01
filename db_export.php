@@ -39,7 +39,8 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('export.js');
 
-$export = new Export($dbi);
+/** @var Export $export */
+$export = $containerBuilder->get('export');
 
 // $sub_part is used in Util::getDbInfo() to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']

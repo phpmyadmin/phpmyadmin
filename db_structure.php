@@ -34,8 +34,6 @@ $dbi = $container->get(DatabaseInterface::class);
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
     'db' => $db,
-    'relation' => new Relation($dbi),
-    'replication' => new Replication(),
 ];
 
 /** @var Definition $definition */

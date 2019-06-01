@@ -40,7 +40,8 @@ $scripts->addFile('tbl_structure.js');
 // Check parameters
 Util::checkParameters(['db', 'table']);
 
-$transformations = new Transformations();
+/** @var Transformations $transformations */
+$transformations = $containerBuilder->get('transformations');
 
 /**
  * Defines the url to return to in case of error in a sql statement

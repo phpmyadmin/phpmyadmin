@@ -19,9 +19,15 @@ use PhpMyAdmin\Util;
 class StatusController extends AbstractController
 {
     /**
+     * @param ReplicationGui $replicationGui ReplicationGui instance
+     *
      * @return string
+     * @throws \Throwable
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
-    public function index(): string
+    public function index(ReplicationGui $replicationGui): string
     {
         global $replication_info;
 
@@ -48,7 +54,7 @@ class StatusController extends AbstractController
             if ($replication_info['master']['status']
                 || $replication_info['slave']['status']
             ) {
-                $replication = $this->getReplicationInfo();
+                $replication = $this->getReplicationInfo($replicationGui);
             }
         }
 
@@ -228,13 +234,13 @@ class StatusController extends AbstractController
     }
 
     /**
+     * @param ReplicationGui $replicationGui ReplicationGui instance
+     *
      * @return string
      */
-    private function getReplicationInfo(): string
+    private function getReplicationInfo(ReplicationGui $replicationGui): string
     {
         global $replication_info, $replication_types;
-
-        $replicationGui = new ReplicationGui();
 
         $output = '';
         foreach ($replication_types as $type) {

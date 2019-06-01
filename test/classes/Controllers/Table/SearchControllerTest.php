@@ -98,10 +98,12 @@ class SearchControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'PMA');
         $container->set('table', 'PMA_BookMark');
-        $container->set('template', new Template());
+        $template = new Template();
+        $container->set('template', $template);
         $container->set('dbi', $GLOBALS['dbi']);
         $container->set('response', $this->_response);
         $container->set('searchType', 'replace');
+        $container->set('relation', new Relation($dbi, $template));
     }
 
     /**
@@ -130,7 +132,8 @@ class SearchControllerTest extends PmaTestCase
             $container->get('db'),
             $container->get('table'),
             "zoom",
-            null
+            null,
+            new Relation($container->get('dbi'), $container->get('template'))
         );
         $columnIndex = 0;
         $find = "Field";
@@ -171,7 +174,7 @@ class SearchControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
 
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\SearchController');
+        $class = new ReflectionClass(SearchController::class);
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
         $tableSearch = new SearchController(
@@ -181,7 +184,8 @@ class SearchControllerTest extends PmaTestCase
             $container->get('db'),
             $container->get('table'),
             "zoom",
-            null
+            null,
+            new Relation($container->get('dbi'), $container->get('template'))
         );
 
         $sql = $method->invoke($tableSearch);

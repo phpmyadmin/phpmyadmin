@@ -41,8 +41,10 @@ $scripts = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
-$template = new Template();
-$relation = new Relation($dbi);
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $relationCleanup = new RelationCleanup($dbi, $relation);
 $serverPrivileges = new Privileges($template, $dbi, $relation, $relationCleanup);
 $userPassword = new UserPassword($serverPrivileges);

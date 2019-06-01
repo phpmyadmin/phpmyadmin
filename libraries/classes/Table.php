@@ -86,11 +86,11 @@ class Table
     /**
      * Constructor
      *
-     * @param string            $table_name table name
-     * @param string            $db_name    database name
-     * @param DatabaseInterface $dbi        database interface for the table
+     * @param string                 $table_name table name
+     * @param string                 $db_name    database name
+     * @param DatabaseInterface|null $dbi        database interface for the table
      */
-    public function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
+    public function __construct($table_name, $db_name, ?DatabaseInterface $dbi = null)
     {
         if (empty($dbi)) {
             $dbi = $GLOBALS['dbi'];
@@ -115,13 +115,13 @@ class Table
     /**
      * Table getter
      *
-     * @param string            $table_name table name
-     * @param string            $db_name    database name
-     * @param DatabaseInterface $dbi        database interface for the table
+     * @param string                 $table_name table name
+     * @param string                 $db_name    database name
+     * @param DatabaseInterface|null $dbi        database interface for the table
      *
      * @return Table
      */
-    public static function get($table_name, $db_name, DatabaseInterface $dbi = null)
+    public static function get($table_name, $db_name, ?DatabaseInterface $dbi = null)
     {
         return new Table($table_name, $db_name, $dbi);
     }

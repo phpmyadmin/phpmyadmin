@@ -70,4 +70,4 @@ array_map(
 
 /** @var StructureController $controller */
 $controller = $containerBuilder->get(StructureController::class);
-$controller->indexAction();
+$controller->indexAction($containerBuilder);

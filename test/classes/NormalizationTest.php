@@ -11,7 +11,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Normalization;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
@@ -114,7 +117,8 @@ class NormalizationTest extends TestCase
             ->method('fetchResult')
             ->will($this->returnValue([0]));
 
-        $this->normalization = new Normalization($dbi);
+        $template = new Template();
+        $this->normalization = new Normalization($dbi, new Relation($dbi, $template), new Transformations(), $template);
     }
 
     /**
