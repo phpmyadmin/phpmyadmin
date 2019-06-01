@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 18:51+0200\n"
-"PO-Revision-Date: 2019-04-16 19:05+0000\n"
+"PO-Revision-Date: 2019-06-18 19:00+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6119,7 +6119,7 @@ msgstr "正の値ではありません!"
 #: libraries/classes/Config/FormDisplay.php:100
 #: libraries/classes/Config/Validator.php:546
 msgid "Not a non-negative number!"
-msgstr "負でない値ではありません!"
+msgstr "負の値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:101
 #: libraries/classes/Config/Validator.php:502
@@ -13904,10 +13904,8 @@ msgid "View dump (schema) of databases"
 msgstr "データベースのダンプ (スキーマ) 表示"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "データの削除を許可する。"
+msgstr "実績行の削除を許可する。"
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
