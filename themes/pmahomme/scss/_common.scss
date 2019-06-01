@@ -2067,8 +2067,6 @@ div.sqlvalidate {
   overflow: hidden;
   min-width: 160px;
   padding-top: 1em;
-  padding-#{$left}: 1em;
-  padding-#{$right}: 0.5em;
 }
 
 .group {
@@ -4148,9 +4146,7 @@ body .ui-dialog {
   }
 
   #main_pane_right {
-    padding-top: 0;
-    padding-#{$left}: 1px;
-    padding-#{$right}: 1px;
+    width: 100%;
   }
 
   ul {
