@@ -40,7 +40,8 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('tbl_operations.js');
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 /**
  * Runs common work
@@ -49,7 +50,8 @@ require ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $operations = new Operations($dbi, $relation);
 
 /**

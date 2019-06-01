@@ -97,10 +97,11 @@ class Search
     /**
      * Public Constructor
      *
-     * @param DatabaseInterface $dbi DatabaseInterface object
-     * @param string            $db  Database name
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param string            $db       Database name
+     * @param Template          $template Template object
      */
-    public function __construct(DatabaseInterface $dbi, $db)
+    public function __construct(DatabaseInterface $dbi, $db, Template $template)
     {
         $this->db = $db;
         $this->dbi = $dbi;
@@ -111,7 +112,7 @@ class Search
             '4' => __('the exact phrase as whole field'),
             '5' => __('as regular expression'),
         ];
-        $this->template = new Template();
+        $this->template = $template;
         // Sets criteria parameters
         $this->setSearchParams();
     }

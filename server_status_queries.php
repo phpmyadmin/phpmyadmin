@@ -30,7 +30,6 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$containerBuilder->set('status_data', new Data());
 /** @var QueriesController $controller */
 $controller = $containerBuilder->get(QueriesController::class);
 

@@ -30,25 +30,27 @@ class BrowseForeigners
     /**
      * Constructor
      *
-     * @param int     $limitChars  Maximum number of characters to show
-     * @param int     $maxRows     Number of rows to display
-     * @param int     $repeatCells Repeat the headers every X cells, or 0 to deactivate
-     * @param boolean $showAll     Shows the 'Show all' button or not
-     * @param string  $themeImage  Theme image path
+     * @param int      $limitChars  Maximum number of characters to show
+     * @param int      $maxRows     Number of rows to display
+     * @param int      $repeatCells Repeat the headers every X cells, or 0 to deactivate
+     * @param boolean  $showAll     Shows the 'Show all' button or not
+     * @param string   $themeImage  Theme image path
+     * @param Template $template    Template object
      */
     public function __construct(
         int $limitChars,
         int $maxRows,
         int $repeatCells,
         bool $showAll,
-        string $themeImage
+        string $themeImage,
+        Template $template
     ) {
         $this->limitChars = $limitChars;
         $this->maxRows = $maxRows;
         $this->repeatCells = $repeatCells;
         $this->showAll = $showAll;
         $this->themeImage = $themeImage;
-        $this->template = new Template();
+        $this->template = $template;
     }
 
     /**

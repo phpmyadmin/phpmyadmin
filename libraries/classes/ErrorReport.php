@@ -44,12 +44,14 @@ class ErrorReport
      * Constructor
      *
      * @param HttpRequest $httpRequest HttpRequest instance
+     * @param Relation    $relation    Relation instance
+     * @param Template    $template    Template instance
      */
-    public function __construct(HttpRequest $httpRequest)
+    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template)
     {
         $this->httpRequest = $httpRequest;
-        $this->relation = new Relation($GLOBALS['dbi']);
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->template = $template;
     }
 
     /**

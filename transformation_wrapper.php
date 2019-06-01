@@ -33,8 +33,10 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$transformations = new Transformations();
-$relation = new Relation($dbi);
+/** @var Transformations $transformations */
+$transformations = $containerBuilder->get('transformations');
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 
 /**

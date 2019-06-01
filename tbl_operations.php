@@ -62,7 +62,8 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $operations = new Operations($dbi, $relation);
 
 $cfgRelation = $relation->getRelationsParam();

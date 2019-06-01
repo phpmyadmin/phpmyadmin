@@ -19,15 +19,15 @@ use PhpMyAdmin\SqlQueryForm;
 class SqlController extends AbstractController
 {
     /**
+     * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
+     *
      * @return string HTML
      */
-    public function index(): string
+    public function index(SqlQueryForm $sqlQueryForm): string
     {
         PageSettings::showGroup('Sql');
 
         require_once ROOT_PATH . 'libraries/server_common.inc.php';
-
-        $sqlQueryForm = new SqlQueryForm();
 
         return $sqlQueryForm->getHtml();
     }

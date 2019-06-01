@@ -38,7 +38,8 @@ $dbi = $container->get(DatabaseInterface::class);
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'view_create.php';
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 $view_algorithm_options = [
     'UNDEFINED',

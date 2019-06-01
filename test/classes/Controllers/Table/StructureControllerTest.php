@@ -11,12 +11,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Transformations;
 use ReflectionClass;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Controllers\Table\StructureController;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * TableStructureController_Test class
@@ -61,11 +66,15 @@ class StructureControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'db');
         $container->set('table', 'table');
-        $container->set('template', new Template());
+        $template = new Template();
+        $container->set('template', $template);
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $this->_response);
-        $container->alias('response', 'PhpMyAdmin\Response');
+        $container->set(Response::class, $this->_response);
+        $container->alias('response', Response::class);
+        $container->set('relation', new Relation($dbi, $template));
+        $container->set('transformations', new Transformations());
+        $container->set('createAddField', new CreateAddField($dbi));
     }
 
     /**
@@ -81,16 +90,16 @@ class StructureControllerTest extends PmaTestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(null));
 
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\StructureController');
+        $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\StructureController');
+        $container->factory(StructureController::class);
         $container->alias(
             'StructureController',
-            'PhpMyAdmin\Controllers\Table\StructureController'
+            StructureController::class
         );
         $ctrl = $container->get('StructureController');
         // No primary key in db.table2
@@ -269,16 +278,16 @@ class StructureControllerTest extends PmaTestCase
             "table2",
         ];
         $action = 'db_delete_row';
+        $containerBuilder = new ContainerBuilder();
 
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(
                 $ctrl,
                 [
                     $submit_mult,
-                    $db,
-                    $table,
                     $selected,
                     $action,
+                    $containerBuilder,
                 ]
             );
 
@@ -319,10 +328,9 @@ class StructureControllerTest extends PmaTestCase
                 $ctrl,
                 [
                     $submit_mult,
-                    $db,
-                    $table,
                     $selected,
                     $action,
+                    $containerBuilder,
                 ]
             );
 
