@@ -21,6 +21,7 @@ use PhpMyAdmin\Transformations;
 use ReflectionClass;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * TableStructureController_Test class
@@ -277,16 +278,16 @@ class StructureControllerTest extends PmaTestCase
             "table2",
         ];
         $action = 'db_delete_row';
+        $containerBuilder = new ContainerBuilder();
 
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(
                 $ctrl,
                 [
                     $submit_mult,
-                    $db,
-                    $table,
                     $selected,
                     $action,
+                    $containerBuilder,
                 ]
             );
 
@@ -327,10 +328,9 @@ class StructureControllerTest extends PmaTestCase
                 $ctrl,
                 [
                     $submit_mult,
-                    $db,
-                    $table,
                     $selected,
                     $action,
+                    $containerBuilder,
                 ]
             );
 
