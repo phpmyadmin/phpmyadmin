@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"PO-Revision-Date: 2019-06-02 20:29+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -5792,12 +5792,12 @@ msgstr "サーバ接続の照合順序"
 #: libraries/classes/Config/FormDisplay.php:102
 #: libraries/classes/Config/Validator.php:521
 msgid "Not a positive number!"
-msgstr "正の値ではありません。"
+msgstr "正の値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:543
 msgid "Not a non-negative number!"
-msgstr "負の値ではありません"
+msgstr "負の値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:104
 #: libraries/classes/Config/Validator.php:499
