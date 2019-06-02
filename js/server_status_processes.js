@@ -92,7 +92,7 @@ var processList = {
                 urlParams,
                 function (data) {
                     if (data.hasOwnProperty('success') && data.success) {
-                        $newTable = $(data.message);
+                        var $newTable = $(data.message);
                         $('#tableprocesslist').html($newTable.html());
                         Functions.highlightSql($('#tableprocesslist'));
                     }

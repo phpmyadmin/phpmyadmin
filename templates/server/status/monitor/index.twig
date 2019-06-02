@@ -244,7 +244,7 @@
 <div id="logTable"><br></div>
 
 <script type="text/javascript">
-  variableNames = [
+  var variableNames = [
     {% for variable_name in javascript_variable_names %}
       "{{ variable_name|e('js') }}",
     {% endfor %}

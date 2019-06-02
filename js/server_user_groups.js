@@ -7,6 +7,8 @@
  * @requires    jQueryUI
  */
 
+/* global checkboxesSel */ // js/functions.js
+
 /**
  * Unbind all event handlers before tearing down a page
  */
