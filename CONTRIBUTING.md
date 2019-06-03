@@ -39,6 +39,10 @@ details.
 [3]: https://github.com/phpmyadmin/phpmyadmin/blob/master/DCO
 [4]: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---signoff
 
+## Triage issues [![Open Source Helpers](https://www.codetriage.com/phpmyadmin/phpmyadmin/badges/users.svg)](https://www.codetriage.com/phpmyadmin/phpmyadmin)
+
+You can triage issues which may include reproducing bug reports or asking for vital information, such as version numbers or reproduction instructions. If you would like to start triaging issues, one easy way to get started is to [subscribe to phpmyadmin on CodeTriage](https://www.codetriage.com/phpmyadmin/phpmyadmin).
+
 ## More information
 
 You can find more information on our website:
