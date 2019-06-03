@@ -148,6 +148,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed empty PMA_gotoWhitelist JavaScript array
 - issue #15079 Fixed responsive behaviour of instruction dialog box
 - issue #10846 Fixed javascript error when renaming a table
+- issue        Updated sql-parser to version 4.3.2
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log
