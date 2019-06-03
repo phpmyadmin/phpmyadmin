@@ -148,7 +148,7 @@ var CommonActions = {
     refreshMain: function (url, callback) {
         var newUrl = url;
         if (! newUrl) {
-            newUrl = $('#selflink').find('a').attr('href');
+            newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;
             newUrl = newUrl.substring(0, newUrl.indexOf('?'));
         }
         newUrl += CommonParams.getUrlQuery();
