@@ -147,7 +147,7 @@ var PMA_commonActions = {
      */
     refreshMain: function (url, callback) {
         if (! url) {
-            url = $('#selflink').find('a').attr('href');
+            url = $('#selflink').find('a').attr('href') || window.location.pathname;
             url = url.substring(0, url.indexOf('?'));
         }
         url += PMA_commonParams.getUrlQuery();
