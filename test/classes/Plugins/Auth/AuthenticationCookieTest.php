@@ -42,7 +42,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $_REQUEST['pma_password'] = '';
+        $_POST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
     }
@@ -388,7 +388,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST["g-recaptcha-response"] = '';
-        $_REQUEST['pma_username'] = 'testPMAUser';
+        $_POST['pma_username'] = 'testPMAUser';
 
         $this->assertFalse(
             $this->object->readCredentials()
@@ -462,9 +462,9 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_REQUEST['old_usr'] = '';
-        $_REQUEST['pma_username'] = 'testPMAUser';
+        $_POST['pma_username'] = 'testPMAUser';
         $_REQUEST['pma_servername'] = 'testPMAServer';
-        $_REQUEST['pma_password'] = 'testPMAPSWD';
+        $_POST['pma_password'] = 'testPMAPSWD';
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
 
         $this->assertTrue(
@@ -501,8 +501,8 @@ class AuthenticationCookieTest extends PmaTestCase
     {
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $_REQUEST['pma_servername'] = 'testPMAServer';
-        $_REQUEST['pma_password'] = 'testPMAPSWD';
-        $_REQUEST['pma_username'] = '';
+        $_POST['pma_password'] = 'testPMAPSWD';
+        $_POST['pma_username'] = '';
         $GLOBALS['server'] = 1;
         $_COOKIE['pmaUser-1'] = '';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
@@ -542,7 +542,7 @@ class AuthenticationCookieTest extends PmaTestCase
     {
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
-        $_REQUEST['pma_username'] = '';
+        $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
@@ -580,7 +580,7 @@ class AuthenticationCookieTest extends PmaTestCase
     {
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
-        $_REQUEST['pma_username'] = '';
+        $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pmaAuth-1'] = 'pmaAuth1';
@@ -625,7 +625,7 @@ class AuthenticationCookieTest extends PmaTestCase
     {
         $GLOBALS['server'] = 1;
         $_REQUEST['old_usr'] = '';
-        $_REQUEST['pma_username'] = '';
+        $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
         $_COOKIE['pmaUser-1'] = 'pmaUser1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
@@ -1143,8 +1143,8 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['AllowRoot'] = false;
         $GLOBALS['cfg']['Server']['AllowNoPassword'] = false;
         $_REQUEST['old_usr'] = '';
-        $_REQUEST['pma_username'] = 'testUser';
-        $_REQUEST['pma_password'] = 'testPassword';
+        $_POST['pma_username'] = 'testUser';
+        $_POST['pma_password'] = 'testPassword';
 
         ob_start();
         $this->object->authenticate();
