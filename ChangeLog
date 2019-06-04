@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.8.6 (not yet released)
+4.9.0 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
 - issue #14514 Tables with SYSTEM VERSIONING show up as views instead of tables
 - issue #14515 Values cannot be edited in SYSTEM VERSIONING tables with INVISIBLE timestamps
