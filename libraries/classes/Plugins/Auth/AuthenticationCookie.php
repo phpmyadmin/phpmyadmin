@@ -322,7 +322,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         $this->user = $this->password = '';
         $GLOBALS['from_cookie'] = false;
 
-        if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
+        if (isset($_POST['pma_username']) && strlen($_POST['pma_username']) > 0) {
+
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
@@ -369,8 +370,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
 
             // The user just logged in
-            $this->user = Core::sanitizeMySQLUser($_REQUEST['pma_username']);
-            $this->password = isset($_REQUEST['pma_password']) ? $_REQUEST['pma_password'] : '';
+            $this->user = Core::sanitizeMySQLUser($_POST['pma_username']);
+            $this->password = isset($_POST['pma_password']) ? $_POST['pma_password'] : '';
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
             ) {

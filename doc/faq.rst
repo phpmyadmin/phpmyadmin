@@ -1173,22 +1173,20 @@ name is defined in the config file.
 4.8 Which parameters can I use in the URL that starts phpMyAdmin?
 -----------------------------------------------------------------
 
-When accessing phpMyAdmin, you can use the ``db``, ``pma_username``,
-``pma_password`` and ``server`` :term:`URL` parameters. The "server" parameter  can contain
+When starting phpMyAdmin, you can use the ``db``
+and ``server`` parameters. This last one can contain
 either the numeric host index (from ``$i`` of the configuration file)
-or one of the host names present in the configuration file. Using
-``pma_username`` and ``pma_password`` has been tested with the
-'cookie' ``auth_type``.
+or one of the host names present in the configuration file.
 
-For example, a direct login URL can be constructed as
-``https://example.com/phpmyadmin/?pma_username=user&pma_password=password``.
+For example, to jump directly to a particular database, a URL can be constructed as
+``https://example.com/phpmyadmin/?db=sakila``.
 
 .. seealso:: :ref:`faq1_34`
 
-.. warning::
+.. versionchanged:: 4.9.0
 
-    Passing a password and username in URL is potentially insecure and should not be used in
-    production environments.
+    Support for using the ``pma_username`` and ``pma_password`` parameters was removed
+    in phpMyAdmin 4.9.0 (see `PMASA-2019-4 <https://www.phpmyadmin.net/security/PMASA-2019-4/>`_).
 
 .. _faqbrowsers:
 
