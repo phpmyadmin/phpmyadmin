@@ -765,7 +765,7 @@ DesignerMove.save3 = function (callback) {
 
         var $form = $('<form action="db_designer.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
             .append('<input type="hidden" name="server" value="' + server + '">')
-            .append('<input type="hidden" name="db" value="' + db + '">')
+            .append($('<input type="hidden" name="db" />').val(db))
             .append('<input type="hidden" name="operation" value="savePage">')
             .append('<input type="hidden" name="save_page" value="new">')
             .append('<label for="selected_value">' + Messages.strPageName +
