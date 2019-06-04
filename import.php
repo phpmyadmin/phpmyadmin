@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
@@ -29,12 +31,21 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
     define('PMA_ENABLE_LDI', 1);
 }
 
-/**
- * Get the variables sent or posted to this script and a core script
- */
+global $db, $pmaThemeImage, $table;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$import = new Import();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+/** @var import $import */
+$import = $containerBuilder->get('import');
 
 if (isset($_POST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_POST['show_as_php'];
@@ -45,8 +56,6 @@ if (isset($_POST['simulate_dml'])) {
     $import->handleSimulateDmlRequest();
     exit;
 }
-
-$response = Response::getInstance();
 
 $sql = new Sql();
 
@@ -72,7 +81,7 @@ if (isset($_POST['console_bookmark_add'])) {
         ];
         $isShared = ($_POST['shared'] == 'true' ? true : false);
         $bookmark = Bookmark::createBookmark(
-            $GLOBALS['dbi'],
+            $dbi,
             $GLOBALS['cfg']['Server']['user'],
             $bookmarkFields,
             $isShared
@@ -142,13 +151,13 @@ if (! empty($sql_query)) {
             // making sure that :param does not apply values to :param1
             $sql_query = preg_replace(
                 '/' . $quoted . '([^a-zA-Z0-9_])/',
-                $GLOBALS['dbi']->escapeString($replacement) . '${1}',
+                $dbi->escapeString($replacement) . '${1}',
                 $sql_query
             );
             // for parameters the appear at the end of the string
             $sql_query = preg_replace(
                 '/' . $quoted . '$/',
-                $GLOBALS['dbi']->escapeString($replacement),
+                $dbi->escapeString($replacement),
                 $sql_query
             );
         }
@@ -305,7 +314,7 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
 
 
 if (strlen($db) > 0) {
-    $GLOBALS['dbi']->selectDb($db);
+    $dbi->selectDb($db);
 }
 
 Util::setTimeLimit();
@@ -345,7 +354,7 @@ if (! empty($_POST['id_bookmark'])) {
     switch ($_POST['action_bookmark']) {
         case 0: // bookmarked query that have to be run
             $bookmark = Bookmark::get(
-                $GLOBALS['dbi'],
+                $dbi,
                 $GLOBALS['cfg']['Server']['user'],
                 $db,
                 $id_bookmark,
@@ -381,7 +390,7 @@ if (! empty($_POST['id_bookmark'])) {
             break;
         case 1: // bookmarked query that have to be displayed
             $bookmark = Bookmark::get(
-                $GLOBALS['dbi'],
+                $dbi,
                 $GLOBALS['cfg']['Server']['user'],
                 $db,
                 $id_bookmark
@@ -400,7 +409,7 @@ if (! empty($_POST['id_bookmark'])) {
             break;
         case 2: // bookmarked query that have to be deleted
             $bookmark = Bookmark::get(
-                $GLOBALS['dbi'],
+                $dbi,
                 $GLOBALS['cfg']['Server']['user'],
                 $db,
                 $id_bookmark
@@ -461,6 +470,7 @@ $read_limit = $memory_limit / 8;
 // handle filenames
 if (isset($_FILES['import_file'])) {
     $import_file = $_FILES['import_file']['tmp_name'];
+    $import_file_name = $_FILES['import_file']['name'];
 }
 if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
     // sanitize $local_import_file as it comes from a POST
@@ -519,7 +529,7 @@ if (Encoding::isSupported() && isset($charset_of_file)) {
         $charset_conversion = true;
     }
 } elseif (isset($charset_of_file) && $charset_of_file != 'utf-8') {
-    $GLOBALS['dbi']->query('SET NAMES \'' . $charset_of_file . '\'');
+    $dbi->query('SET NAMES \'' . $charset_of_file . '\'');
     // We can not show query in this case, it is in different charset
     $sql_query_disabled = true;
     $reset_charset = true;
@@ -583,8 +593,8 @@ if ($file_to_unlink != '') {
 
 // Reset charset back, if we did some changes
 if ($reset_charset) {
-    $GLOBALS['dbi']->query('SET CHARACTER SET ' . $GLOBALS['charset_connection']);
-    $GLOBALS['dbi']->setCollationConnection($collation_connection);
+    $dbi->query('SET CHARACTER SET ' . $GLOBALS['charset_connection']);
+    $dbi->setCollation($collation_connection);
 }
 
 // Show correct message
@@ -716,7 +726,7 @@ if ($go_sql) {
         if ($sql->hasNoRightsToDropDatabase(
             $analyzed_sql_results,
             $cfg['AllowUserDropDatabase'],
-            $GLOBALS['dbi']->isSuperuser()
+            $dbi->isSuperuser()
         )) {
             PhpMyAdmin\Util::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),
@@ -769,7 +779,7 @@ if ($go_sql) {
 
     $response->addJSON('ajax_reload', $ajax_reload);
     $response->addHTML($html_output);
-    exit();
+    exit;
 } elseif ($result) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
@@ -799,5 +809,5 @@ if ($go_sql) {
 
 // If there is request for ROLLBACK in the end.
 if (isset($_POST['rollback_query'])) {
-    $GLOBALS['dbi']->query('ROLLBACK');
+    $dbi->query('ROLLBACK');
 }

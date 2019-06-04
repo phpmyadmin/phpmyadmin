@@ -9,12 +9,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -22,7 +23,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class RelationController extends TableController
+class RelationController extends AbstractController
 {
     /**
      * @var array
@@ -62,20 +63,23 @@ class RelationController extends TableController
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\Response $response           Response object
-     * @param DatabaseInterface    $dbi                DatabaseInterface object
-     * @param string               $db                 Database name
-     * @param string               $table              Table name
-     * @param array|null           $options_array      Options
-     * @param array|null           $cfgRelation        Config relation
-     * @param string               $tbl_storage_engine Table storage engine
-     * @param array|null           $existrel           Relations
-     * @param array|null           $existrel_foreign   External relations
-     * @param string               $upd_query          Update query
+     * @param Response          $response           Response object
+     * @param DatabaseInterface $dbi                DatabaseInterface object
+     * @param Template          $template           Template object
+     * @param string            $db                 Database name
+     * @param string            $table              Table name
+     * @param array|null        $options_array      Options
+     * @param array|null        $cfgRelation        Config relation
+     * @param string            $tbl_storage_engine Table storage engine
+     * @param array|null        $existrel           Relations
+     * @param array|null        $existrel_foreign   External relations
+     * @param string            $upd_query          Update query
+     * @param Relation          $relation           Relation instance
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $options_array,
@@ -83,9 +87,10 @@ class RelationController extends TableController
         $tbl_storage_engine,
         $existrel,
         $existrel_foreign,
-        $upd_query
+        $upd_query,
+        Relation $relation
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         $this->options_array = $options_array;
         $this->cfgRelation = $cfgRelation;
@@ -93,7 +98,7 @@ class RelationController extends TableController
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
         $this->upd_query = $upd_query;
-        $this->relation = new Relation($dbi);
+        $this->relation = $relation;
     }
 
     /**
@@ -133,9 +138,7 @@ class RelationController extends TableController
         }
 
         // updates for foreign keys
-        if (isset($_POST['destination_foreign_db'])) {
-            $this->updateForForeignKeysAction();
-        }
+        $this->updateForForeignKeysAction();
 
         // Updates for display field
         if ($this->cfgRelation['displaywork'] && isset($_POST['display_field'])) {
@@ -244,22 +247,28 @@ class RelationController extends TableController
         $multi_edit_columns_name = isset($_POST['foreign_key_fields_name'])
             ? $_POST['foreign_key_fields_name']
             : null;
+        $preview_sql_data = '';
+        $seen_error = false;
 
         // (for now, one index name only; we keep the definitions if the
         // foreign db is not the same)
-        list($html, $preview_sql_data, $display_query, $seen_error)
-            = $this->upd_query->updateForeignKeys(
-                $_POST['destination_foreign_db'],
-                $multi_edit_columns_name,
-                $_POST['destination_foreign_table'],
-                $_POST['destination_foreign_column'],
-                $this->options_array,
-                $this->table,
-                isset($this->existrel_foreign)
-                ? $this->existrel_foreign['foreign_keys_data']
-                : null
-            );
-        $this->response->addHTML($html);
+        if (isset($_POST['destination_foreign_db'])
+            && isset($_POST['destination_foreign_table'])
+            && isset($_POST['destination_foreign_column'])) {
+            list($html, $preview_sql_data, $display_query, $seen_error)
+                = $this->upd_query->updateForeignKeys(
+                    $_POST['destination_foreign_db'],
+                    $multi_edit_columns_name,
+                    $_POST['destination_foreign_table'],
+                    $_POST['destination_foreign_column'],
+                    $this->options_array,
+                    $this->table,
+                    isset($this->existrel_foreign)
+                    ? $this->existrel_foreign['foreign_keys_data']
+                    : null
+                );
+            $this->response->addHTML($html);
+        }
 
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {

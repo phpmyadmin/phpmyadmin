@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -16,20 +18,28 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- *
- */
+global $db, $url_query;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 PageSettings::showGroup('Export');
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('export.js');
 
 // Get the relation settings
-$relation = new Relation($GLOBALS['dbi']);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 
 $displayExport = new Export();

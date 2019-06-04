@@ -25,7 +25,7 @@ class NodeTriggerContainerTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -43,7 +43,7 @@ class NodeTriggerContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_triggers.php',
             $parent->links['text']
         );

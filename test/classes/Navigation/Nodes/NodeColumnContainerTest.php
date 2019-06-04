@@ -25,7 +25,7 @@ class NodeColumnContainerTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -42,7 +42,7 @@ class NodeColumnContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'tbl_structure.php',
             $parent->links['text']
         );

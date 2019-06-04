@@ -34,7 +34,7 @@ class ExportTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -100,16 +100,16 @@ class ExportTest extends TestCase
 
         //validate 1: Url::getHiddenInputs
         //$single_table
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="single_table" value="TRUE"',
             $html
         );
         //$export_type
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="export_type" value="server"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="export_method" value="quick"',
             $html
         );
@@ -176,87 +176,87 @@ class ExportTest extends TestCase
         );
 
         //validate 2: Export::getHtmlForOptionsMethod
-        $this->assertContains(
+        $this->assertStringContainsString(
             $cfg['Export']['method'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="exportoptions" id="quick_or_custom">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Export method:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Custom - display all possible options'),
             $html
         );
 
         //validate 3: Export::getHtmlForOptionsSelection
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="exportoptions" id="databases_and_tables">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<h3>' . __('Databases:') . '</h3>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $multi_values_str,
             $html
         );
 
         //validate 4: Export::getHtmlForOptionsQuickExport
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" name="onserver" value="saveit"',
             $html
         );
         $dir = htmlspecialchars(Util::userDir($cfg['SaveDir']));
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Save on server in the directory <strong>' . $dir . '</strong>',
             $html
         );
 
         //validate 5: Export::getHtmlForAliasModalDialog
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="alias_modal" class="hide" title="'
             . 'Rename exported databases/tables/columns">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Select database',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Select table',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'New database name',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'New table name',
             $html
         );
 
         //validate 6: Export::getHtmlForOptionsOutput
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="exportoptions" id="output">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'user value for test',
             $html
         );
 
         //validate 7: Export::getHtmlForOptionsFormat
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="exportoptions" id="format">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<h3>' . __('Format:') . '</h3>',
             $html
         );
@@ -293,12 +293,12 @@ class ExportTest extends TestCase
 
         $html = $this->export->getHtmlForAliasModalDialog();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="alias_modal" class="hide" title="'
             . 'Rename exported databases/tables/columns">',
             $html
         );
 
-        $this->assertContains('<button class="alias_remove', $html);
+        $this->assertStringContainsString('<button class="alias_remove', $html);
     }
 }

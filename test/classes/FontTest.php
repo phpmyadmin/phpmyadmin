@@ -28,7 +28,7 @@ class FontTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->font = new Font();
     }

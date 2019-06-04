@@ -62,7 +62,7 @@
                     {{ displayed_fields[rownum].icon|raw }}
                 </label>
             </th>
-            <td {{ get_class_for_type(extracted_columnspec['type']) }}>
+            <td{{ 'set' != extracted_columnspec['type'] and 'enum' != extracted_columnspec['type'] ? ' class="nowrap"' }}>
                 <bdo dir="ltr" lang="en">
                     {{ extracted_columnspec['displayed_type']|raw }}
                     {% if relation_commwork and relation_mimework and browse_mime
@@ -372,6 +372,7 @@
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}
+        {% set edit_view_url = 'view_create.php' ~ edit_view_url %}
         {{ link_or_button(
             edit_view_url,
             get_icon('b_edit', 'Edit view'|trans, true)
@@ -379,16 +380,19 @@
     {% endif %}
     <a href="#" id="printView">{{ get_icon('b_print', 'Print'|trans, true) }}</a>
     {% if not tbl_is_view and not db_is_system_schema %}
-        <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
-            {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
-            " style="margin-right: 0;">
-            {{ get_icon(
-                'b_tblanalyse',
-                'Propose table structure'|trans,
-                true
-            ) }}
-        </a>
-        {{ show_mysql_docu('procedure_analyse') }}
+        {# Only display propose table structure for MySQL < 8.0 #}
+        {% if mysql_int_version < 80000 or is_mariadb %}
+          <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
+              {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
+              " style="margin-right: 0;">
+              {{ get_icon(
+                  'b_tblanalyse',
+                  'Propose table structure'|trans,
+                  true
+              ) }}
+          </a>
+          {{ show_mysql_docu('procedure_analyse') }}
+        {% endif %}
         {% if is_active %}
             <a href="tbl_tracking.php{{ url_query|raw }}">
                 {{ get_icon('eye', 'Track table'|trans, true) }}

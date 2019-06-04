@@ -27,7 +27,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new ExportPluginProperties();
     }
@@ -37,7 +37,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

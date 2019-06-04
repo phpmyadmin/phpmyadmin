@@ -53,18 +53,18 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() === 'delete_version') {
-            var question = PMA_messages.strDeleteTrackingVersionMultiple;
-            $button.PMA_confirm(question, $form.attr('action'), function (url) {
-                PMA_ajaxShowMessage();
+            var question = Messages.strDeleteTrackingVersionMultiple;
+            $button.confirm(question, $form.attr('action'), function (url) {
+                Functions.ajaxShowMessage();
                 AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
@@ -76,12 +76,12 @@ AJAX.registerOnload('tbl_tracking.js', function () {
     $('body').on('click', 'a.delete_version_anchor.ajax', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = PMA_messages.strDeleteTrackingVersion;
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage();
+        var question = Messages.strDeleteTrackingVersion;
+        $anchor.confirm(question, $anchor.attr('href'), function (url) {
+            Functions.ajaxShowMessage();
             AJAX.source = $anchor;
-            var argSep = PMA_commonParams.get('arg_separator');
-            var params = getJSConfirmCommonParam(this, $anchor.getPostData());
+            var argSep = CommonParams.get('arg_separator');
+            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });
@@ -93,12 +93,12 @@ AJAX.registerOnload('tbl_tracking.js', function () {
     $('body').on('click', 'a.delete_entry_anchor.ajax', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = PMA_messages.strDeletingTrackingEntry;
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage();
+        var question = Messages.strDeletingTrackingEntry;
+        $anchor.confirm(question, $anchor.attr('href'), function (url) {
+            Functions.ajaxShowMessage();
             AJAX.source = $anchor;
-            var argSep = PMA_commonParams.get('arg_separator');
-            var params = getJSConfirmCommonParam(this, $anchor.getPostData());
+            var argSep = CommonParams.get('arg_separator');
+            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });

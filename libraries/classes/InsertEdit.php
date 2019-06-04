@@ -2310,7 +2310,6 @@ class InsertEdit
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
             . implode('), (', $value_sets) . ')'
         ];
-        unset($insert_command, $query_fields);
         return $query;
     }
 
@@ -2571,7 +2570,7 @@ class InsertEdit
      * @param array  $func_no_param           array of set of string
      * @param string $key                     an md5 of the column name
      *
-     * @return array
+     * @return string
      */
     public function getCurrentValueAsAnArrayForMultipleEdit(
         $multi_edit_funcs,
@@ -3157,9 +3156,6 @@ class InsertEdit
     ) {
         $column = $table_columns[$column_number];
         $readOnly = false;
-        if (! $this->userHasColumnPrivileges($column, $insert_mode)) {
-            $readOnly = true;
-        }
 
         if (! isset($column['processed'])) {
             $column = $this->analyzeTableColumnsArray(
@@ -3475,36 +3471,45 @@ class InsertEdit
             if (isset($mime_map[$table_column['Field']])) {
                 $column_mime = $mime_map[$table_column['Field']];
             }
-            $html_output .= $this->getHtmlForInsertEditFormColumn(
-                $table_columns,
-                $column_number,
-                $comments_map,
-                $timestamp_seen,
-                $current_result,
-                $chg_evt_handler,
-                $jsvkey,
-                $vkey,
-                $insert_mode,
-                $current_row,
-                $o_rows,
-                $tabindex,
-                $columns_cnt,
-                $is_upload,
-                $tabindex_for_function,
-                $foreigners,
-                $tabindex_for_null,
-                $tabindex_for_value,
-                $table,
-                $db,
-                $row_id,
-                $titles,
-                $biggest_max_file_size,
-                $default_char_editing,
-                $text_dir,
-                $repopulate,
-                $column_mime,
-                $where_clause
-            );
+
+            $virtual = [
+                'VIRTUAL',
+                'PERSISTENT',
+                'VIRTUAL GENERATED',
+                'STORED GENERATED',
+            ];
+            if (! in_array($table_column['Extra'], $virtual)) {
+                $html_output .= $this->getHtmlForInsertEditFormColumn(
+                    $table_columns,
+                    $column_number,
+                    $comments_map,
+                    $timestamp_seen,
+                    $current_result,
+                    $chg_evt_handler,
+                    $jsvkey,
+                    $vkey,
+                    $insert_mode,
+                    $current_row,
+                    $o_rows,
+                    $tabindex,
+                    $columns_cnt,
+                    $is_upload,
+                    $tabindex_for_function,
+                    $foreigners,
+                    $tabindex_for_null,
+                    $tabindex_for_value,
+                    $table,
+                    $db,
+                    $row_id,
+                    $titles,
+                    $biggest_max_file_size,
+                    $default_char_editing,
+                    $text_dir,
+                    $repopulate,
+                    $column_mime,
+                    $where_clause
+                );
+            }
         } // end for
         $o_rows++;
         $html_output .= '  </tbody>'
@@ -3512,20 +3517,5 @@ class InsertEdit
             . '<div class="clearfloat"></div>';
 
         return $html_output;
-    }
-
-    /**
-     * Returns whether the user has necessary insert/update privileges for the column
-     *
-     * @param array $table_column array of column details
-     * @param bool  $insert_mode  whether on insert mode
-     *
-     * @return boolean whether user has necessary privileges
-     */
-    private function userHasColumnPrivileges(array $table_column, $insert_mode)
-    {
-        $privileges = $table_column['Privileges'];
-        return ($insert_mode && strstr($privileges, 'insert') !== false)
-            || (! $insert_mode && strstr($privileges, 'update') !== false);
     }
 }

@@ -57,7 +57,7 @@ class Privileges
      */
     public function __construct(
         Template $template,
-        DatabaseInterface $dbi,
+        $dbi,
         Relation $relation,
         RelationCleanup $relationCleanup
     ) {
@@ -470,6 +470,16 @@ class Privileges
                 'Show view_priv',
                 'SHOW VIEW',
                 __('Allows performing SHOW CREATE VIEW queries.'),
+            ],
+            [
+                'Delete_history_priv',
+                'DELETE HISTORY',
+                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+            ],
+            [
+                'Delete versioning rows_priv',
+                'DELETE HISTORY',
+                $GLOBALS['strPrivDescDeleteHistoricalRows'],
             ],
             [
                 'Create_routine_priv',
@@ -1163,6 +1173,9 @@ class Privileges
             } elseif ($current_grant == 'Show view_priv') {
                 $tmp_current_grant = 'ShowView_priv';
                 $current_grant = 'Show_view_priv';
+            } elseif ($current_grant == 'Delete versioning rows_priv') {
+                $tmp_current_grant = 'DeleteHistoricalRows_priv';
+                $current_grant = 'Delete_history_priv';
             } else {
                 $tmp_current_grant = $current_grant;
             }
@@ -3084,7 +3097,7 @@ class Privileges
     ) {
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (preg_match('/(?<!\\\\)(?:_|%)/i', $GLOBALS['dbname'])) {
+            if (preg_match('/(?<!\\\\)(?:_|%)/', $GLOBALS['dbname'])) {
                 $dbname_is_wildcard = true;
             } else {
                 $dbname_is_wildcard = false;
@@ -4165,7 +4178,7 @@ class Privileges
                 // Always use 'authentication_string' column
                 // for MySQL 5.7.6+ since it does not have
                 // the 'password' column at all
-                if (Util::getServerType() == 'MySQL'
+                if (in_array(Util::getServerType(), ['MySQL', 'Percona Server'])
                     && $serverVersion >= 50706
                     && isset($row['authentication_string'])
                 ) {
@@ -4465,11 +4478,11 @@ class Privileges
         // Set the hashing method used by PASSWORD()
         // to be of type depending upon $authentication_plugin
         if ($auth_plugin == 'sha256_password') {
-            $this->dbi->tryQuery('SET `old_passwords` = 2');
+            $this->dbi->tryQuery('SET `old_passwords` = 2;');
         } elseif ($auth_plugin == 'mysql_old_password') {
-            $this->dbi->tryQuery('SET `old_passwords` = 1');
+            $this->dbi->tryQuery('SET `old_passwords` = 1;');
         } else {
-            $this->dbi->tryQuery('SET `old_passwords` = 0');
+            $this->dbi->tryQuery('SET `old_passwords` = 0;');
         }
     }
 
@@ -4579,7 +4592,7 @@ class Privileges
         // check if given $dbname is a wildcard or not
         if (isset($dbname)) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
+            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname)) {
                 $dbname_is_wildcard = true;
             } else {
                 $dbname_is_wildcard = false;
@@ -5375,7 +5388,7 @@ class Privileges
      * @param string $hostname host name
      * @param string $password password
      *
-     * @return array ($create_user_real, $create_user_show,$real_sql_query, $sql_query
+     * @return array ($create_user_real, $create_user_show, $real_sql_query, $sql_query
      *                $password_set_real, $password_set_show, $alter_real_sql_query, $alter_sql_query)
      */
     public function getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
@@ -5599,7 +5612,9 @@ class Privileges
             $password_set_real = null;
             $password_set_show = null;
         } else {
-            $password_set_real .= ";";
+            if ($password_set_real !== null) {
+                $password_set_real .= ";";
+            }
             $password_set_show .= ";";
         }
 

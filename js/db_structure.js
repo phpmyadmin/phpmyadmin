@@ -8,6 +8,8 @@
  * @required    js/functions.js
  */
 
+var DatabaseStructure = {};
+
 /**
  * AJAX scripts for db_structure.php
  *
@@ -36,15 +38,15 @@ AJAX.registerTeardown('db_structure.js', function () {
  * Adjust number of rows and total size in the summary
  * when truncating, creating, dropping or inserting into a table
  */
-function PMA_adjustTotals () {
+DatabaseStructure.adjustTotals = function () {
     var byteUnits = [
-        PMA_messages.strB,
-        PMA_messages.strKiB,
-        PMA_messages.strMiB,
-        PMA_messages.strGiB,
-        PMA_messages.strTiB,
-        PMA_messages.strPiB,
-        PMA_messages.strEiB
+        Messages.strB,
+        Messages.strKiB,
+        Messages.strMiB,
+        Messages.strGiB,
+        Messages.strTiB,
+        Messages.strPiB,
+        Messages.strEiB
     ];
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
@@ -112,15 +114,15 @@ function PMA_adjustTotals () {
         strRowSum = '~' + strRowSum;
     }
     // Calculate the magnitude for the size and overhead values
-    var size_magnitude = 0;
-    var overhead_magnitude = 0;
+    var sizeMagnitude = 0;
+    var overheadMagnitude = 0;
     while (sizeSum >= 1024) {
         sizeSum /= 1024;
-        size_magnitude++;
+        sizeMagnitude++;
     }
     while (overheadSum >= 1024) {
         overheadSum /= 1024;
-        overhead_magnitude++;
+        overheadMagnitude++;
     }
 
     sizeSum = Math.round(sizeSum * 10) / 10;
@@ -128,21 +130,21 @@ function PMA_adjustTotals () {
 
     // Update summary with new data
     var $summary = $('#tbl_summary_row');
-    $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strNTables, tableSum));
+    $summary.find('.tbl_num').text(Functions.sprintf(Messages.strNTables, tableSum));
     if (rowSumApproximated) {
         $summary.find('.row_count_sum').text(strRowSum);
     } else {
         $summary.find('.tbl_rows').text(strRowSum);
     }
-    $summary.find('.tbl_size').text(sizeSum + ' ' + byteUnits[size_magnitude]);
-    $summary.find('.tbl_overhead').text(overheadSum + ' ' + byteUnits[overhead_magnitude]);
-}
+    $summary.find('.tbl_size').text(sizeSum + ' ' + byteUnits[sizeMagnitude]);
+    $summary.find('.tbl_overhead').text(overheadSum + ' ' + byteUnits[overheadMagnitude]);
+};
 
 /**
  * Gets the real row count for a table or DB.
  * @param object $target Target for appending the real count value.
  */
-function PMA_fetchRealRowCount ($target) {
+DatabaseStructure.fetchRealRowCount = function ($target) {
     var $throbber = $('#pma_navigation').find('.throbber')
         .first()
         .clone()
@@ -172,16 +174,16 @@ function PMA_fetchRealRowCount ($target) {
                     $target.parent().text(response.real_row_count);
                 }
                 // Adjust the 'Sum' displayed at the bottom.
-                PMA_adjustTotals();
+                DatabaseStructure.adjustTotals();
             } else {
-                PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+                Functions.ajaxShowMessage(Messages.strErrorRealRowCount);
             }
         },
         error: function () {
-            PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+            Functions.ajaxShowMessage(Messages.strErrorRealRowCount);
         }
     });
-}
+};
 
 AJAX.registerOnload('db_structure.js', function () {
 /**
@@ -195,18 +197,18 @@ AJAX.registerOnload('db_structure.js', function () {
         var dialogObj = $('<div class=\'hide\'>' + msg + '</div>');
         $('body').append(dialogObj);
         var buttonOptions = {};
-        buttonOptions[PMA_messages.strContinue] = function () {
+        buttonOptions[Messages.strContinue] = function () {
             success();
             $(this).dialog('close');
         };
-        buttonOptions[PMA_messages.strCancel] = function () {
+        buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
             $('#tablesForm')[0].reset();
         };
         $(dialogObj).dialog({
             resizable: false,
             modal: true,
-            title: PMA_messages.confirmTitle,
+            title: Messages.confirmTitle,
             buttons: buttonOptions
         });
     };
@@ -219,7 +221,7 @@ AJAX.registerOnload('db_structure.js', function () {
             event.preventDefault();
             event.stopPropagation();
             jqConfirm(
-                PMA_messages.makeConsistentMessage, function () {
+                Messages.makeConsistentMessage, function () {
                     $('#tablesForm').submit();
                 }
             );
@@ -233,13 +235,13 @@ AJAX.registerOnload('db_structure.js', function () {
             var formData = $('#tablesForm').serialize();
             var modalTitle = '';
             if ($(this).val() === 'copy_tbl') {
-                modalTitle = PMA_messages.strCopyTablesTo;
+                modalTitle = Messages.strCopyTablesTo;
             } else if ($(this).val() === 'add_prefix_tbl') {
-                modalTitle = PMA_messages.strAddPrefix;
+                modalTitle = Messages.strAddPrefix;
             } else if ($(this).val() === 'replace_prefix_tbl') {
-                modalTitle = PMA_messages.strReplacePrefix;
+                modalTitle = Messages.strReplacePrefix;
             } else if ($(this).val() === 'copy_tbl_change_prefix') {
-                modalTitle = PMA_messages.strCopyPrefix;
+                modalTitle = Messages.strCopyPrefix;
             }
             $.ajax({
                 type: 'POST',
@@ -251,11 +253,11 @@ AJAX.registerOnload('db_structure.js', function () {
                 var dialogObj = $('<div class=\'hide\'>' + data + '</div>');
                 $('body').append(dialogObj);
                 var buttonOptions = {};
-                buttonOptions[PMA_messages.strContinue] = function () {
+                buttonOptions[Messages.strContinue] = function () {
                     $('#ajax_form').submit();
                     $(this).dialog('close');
                 };
-                buttonOptions[PMA_messages.strCancel] = function () {
+                buttonOptions[Messages.strCancel] = function () {
                     $(this).dialog('close');
                     $('#tablesForm')[0].reset();
                 };
@@ -281,46 +283,46 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var $this_anchor Object  referring to the anchor clicked
          */
-        var $this_anchor = $(this);
+        var $thisAnchor = $(this);
 
         // extract current table name and build the question string
         /**
          * @var curr_table_name String containing the name of the table to be truncated
          */
-        var curr_table_name = $this_anchor.parents('tr').children('th').children('a').text();
+        var currTableName = $thisAnchor.parents('tr').children('th').children('a').text();
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
-            PMA_sprintf(PMA_messages.strDoYouReally, 'TRUNCATE `' + escapeHtml(curr_table_name) + '`') +
-            getForeignKeyCheckboxLoader();
+        var question = Messages.strTruncateTableStrongWarning + ' ' +
+            Functions.sprintf(Messages.strDoYouReally, 'TRUNCATE `' + Functions.escapeHtml(currTableName) + '`') +
+            Functions.getForeignKeyCheckboxLoader();
 
-        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
+            Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
-            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                     // Adjust table statistics
-                    var $tr = $this_anchor.closest('tr');
+                    var $tr = $thisAnchor.closest('tr');
                     $tr.find('.tbl_rows').text('0');
                     $tr.find('.tbl_size, .tbl_overhead').text('-');
                     // Fetch inner span of this anchor
                     // and replace the icon with its disabled version
-                    var span = $this_anchor.html().replace(/b_empty/, 'bd_empty');
+                    var span = $thisAnchor.html().replace(/b_empty/, 'bd_empty');
                     // To disable further attempts to truncate the table,
                     // replace the a element with its inner span (modified)
-                    $this_anchor
+                    $thisAnchor
                         .replaceWith(span)
                         .removeClass('truncate_table_anchor');
-                    PMA_adjustTotals();
+                    DatabaseStructure.adjustTotals();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }, loadForeignKeyCheckbox); // end $.PMA_confirm()
+        }, Functions.loadForeignKeyCheckbox);
     }); // end of Truncate Table Ajax action
 
     /**
@@ -329,51 +331,51 @@ AJAX.registerOnload('db_structure.js', function () {
     $(document).on('click', 'a.drop_table_anchor.ajax', function (event) {
         event.preventDefault();
 
-        var $this_anchor = $(this);
+        var $thisAnchor = $(this);
 
         // extract current table name and build the question string
         /**
          * @var $curr_row    Object containing reference to the current row
          */
-        var $curr_row = $this_anchor.parents('tr');
+        var $currRow = $thisAnchor.parents('tr');
         /**
          * @var curr_table_name String containing the name of the table to be truncated
          */
-        var curr_table_name = $curr_row.children('th').children('a').text();
+        var currTableName = $currRow.children('th').children('a').text();
         /**
          * @var is_view Boolean telling if we have a view
          */
-        var is_view = $curr_row.hasClass('is_view') || $this_anchor.hasClass('view');
+        var isView = $currRow.hasClass('is_view') || $thisAnchor.hasClass('view');
         /**
          * @var question    String containing the question to be asked for confirmation
          */
         var question;
-        if (! is_view) {
-            question = PMA_messages.strDropTableStrongWarning + ' ' +
-                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP TABLE `' + escapeHtml(curr_table_name) + '`');
+        if (! isView) {
+            question = Messages.strDropTableStrongWarning + ' ' +
+                Functions.sprintf(Messages.strDoYouReally, 'DROP TABLE `' + Functions.escapeHtml(currTableName) + '`');
         } else {
             question =
-                PMA_sprintf(PMA_messages.strDoYouReally, 'DROP VIEW `' + escapeHtml(curr_table_name) + '`');
+                Functions.sprintf(Messages.strDoYouReally, 'DROP VIEW `' + Functions.escapeHtml(currTableName) + '`');
         }
-        question += getForeignKeyCheckboxLoader();
+        question += Functions.getForeignKeyCheckboxLoader();
 
-        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
+            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
-            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
+            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxShowMessage(data.message);
-                    $curr_row.hide('medium').remove();
-                    PMA_adjustTotals();
-                    PMA_reloadNavigation();
-                    PMA_ajaxRemoveMessage($msg);
+                    Functions.ajaxShowMessage(data.message);
+                    $currRow.hide('medium').remove();
+                    DatabaseStructure.adjustTotals();
+                    Navigation.reload();
+                    Functions.ajaxRemoveMessage($msg);
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }, loadForeignKeyCheckbox); // end $.PMA_confirm()
+        }, Functions.loadForeignKeyCheckbox);
     }); // end of Drop Table Ajax action
 
     /**
@@ -383,7 +385,7 @@ AJAX.registerOnload('db_structure.js', function () {
         event.preventDefault();
 
         // Take to preview mode
-        printPreview();
+        Functions.printPreview();
     }); // end of Print View action
 
     // Calculate Real End for InnoDB
@@ -397,9 +399,9 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strOperationTakesLongTime;
+        var question = Messages.strOperationTakesLongTime;
 
-        $(this).PMA_confirm(question, '', function () {
+        $(this).confirm(question, '', function () {
             return true;
         });
         return false;
@@ -407,7 +409,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
     // Add tooltip to favorite icons.
     $('.favorite_table_anchor').each(function () {
-        PMA_tooltip(
+        Functions.tooltip(
             $(this),
             'a',
             $(this).attr('title')
@@ -417,11 +419,11 @@ AJAX.registerOnload('db_structure.js', function () {
     // Get real row count via Ajax.
     $('a.real_row_count').on('click', function (event) {
         event.preventDefault();
-        PMA_fetchRealRowCount($(this));
+        DatabaseStructure.fetchRealRowCount($(this));
     });
     // Get all real row count.
     $('a.row_count_sum').on('click', function (event) {
         event.preventDefault();
-        PMA_fetchRealRowCount($(this));
+        DatabaseStructure.fetchRealRowCount($(this));
     });
-}); // end $()
+});

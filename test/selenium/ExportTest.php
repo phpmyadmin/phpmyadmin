@@ -24,7 +24,7 @@ class ExportTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -52,12 +52,12 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testServerExport($plugin, $expected)
+    public function testServerExport($plugin, $expected): void
     {
         $text = $this->_doExport('server', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertContains($str, $text);
+            $this->assertStringContainsString($str, $text);
         }
     }
 
@@ -72,14 +72,14 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testDbExport($plugin, $expected)
+    public function testDbExport($plugin, $expected): void
     {
         $this->navigateDatabase($this->database_name);
 
         $text = $this->_doExport('db', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertContains($str, $text);
+            $this->assertStringContainsString($str, $text);
         }
     }
 
@@ -94,7 +94,7 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testTableExport($plugin, $expected)
+    public function testTableExport($plugin, $expected): void
     {
         $this->dbQuery("INSERT INTO `test_table` (val) VALUES (3);");
 
@@ -103,7 +103,7 @@ class ExportTest extends TestBase
         $text = $this->_doExport('table', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertContains($str, $text);
+            $this->assertStringContainsString($str, $text);
         }
     }
 

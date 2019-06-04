@@ -223,6 +223,7 @@ abstract class GisGeometry
         $points = explode(",", $point_set);
 
         foreach ($points as $point) {
+            $point = str_replace(['(', ')'], '', $point);
             // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 

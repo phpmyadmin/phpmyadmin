@@ -12,11 +12,6 @@ namespace PhpMyAdmin\Rte;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Rte\Export;
-use PhpMyAdmin\Rte\Footer;
-use PhpMyAdmin\Rte\General;
-use PhpMyAdmin\Rte\RteList;
-use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -349,7 +344,7 @@ class Events
      *
      * @param string $name The name of the event.
      *
-     * @return array Data necessary to create the editor.
+     * @return array|bool Data necessary to create the editor.
      */
     public function getDataFromName($name)
     {

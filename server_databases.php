@@ -9,8 +9,10 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -18,32 +20,24 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
+$response = $containerBuilder->get('response', ContainerInterface::NULL_ON_INVALID_REFERENCE) ?? Response::getInstance();
+
 $container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\DatabasesController'
-);
-$container->alias(
-    'DatabasesController',
-    'PhpMyAdmin\Controllers\Server\DatabasesController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->set(Response::class, $response);
+$container->alias('response', Response::class);
 
 /** @var DatabasesController $controller */
-$controller = $container->get(
-    'DatabasesController',
-    []
-);
+$controller = $containerBuilder->get(DatabasesController::class);
 
-/** @var Response $response */
-$response = $container->get('response');
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
 if (isset($_POST['drop_selected_dbs'])
     && $response->isAjax()
-    && ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+    && ($dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
 ) {
     $response->addJSON($controller->dropDatabasesAction([
         'drop_selected_dbs' => $_POST['drop_selected_dbs'],

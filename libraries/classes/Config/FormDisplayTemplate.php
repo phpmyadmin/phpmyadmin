@@ -262,7 +262,7 @@ class FormDisplayTemplate
 
         $htmlOutput = '<tr' . $trClass . '>';
         $htmlOutput .= '<th>';
-        $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . $name
+        $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . htmlspecialchars_decode($name)
             . '</label>';
 
         if (! empty($opts['doc'])) {
@@ -355,14 +355,6 @@ class FormDisplayTemplate
                 $htmlOutput .= '<textarea cols="35" rows="5" ' . $nameId . $fieldClass
                 . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
                 break;
-        }
-        if (isset($opts['comment']) && $opts['comment']) {
-            $class = 'field-comment-mark';
-            if (isset($opts['comment_warning']) && $opts['comment_warning']) {
-                $class .= ' field-comment-warning';
-            }
-            $htmlOutput .= '<span class="' . $class . '" title="'
-                . htmlspecialchars($opts['comment']) . '">i</span>';
         }
         if ($isSetupScript
             && isset($opts['userprefs_comment'])
@@ -489,13 +481,12 @@ class FormDisplayTemplate
         foreach ((array) $validators as $validator) {
             $validator = (array) $validator;
             $vName = array_shift($validator);
-            $vName = "PMA_" . $vName;
             $vArgs = [];
             foreach ($validator as $arg) {
                 $vArgs[] = Sanitize::escapeJsString($arg);
             }
             $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
-            $jsArray[] = "validateField('$fieldId', '$vName', true$vArgs)";
+            $jsArray[] = "registerFieldValidator('$fieldId', '$vName', true$vArgs)";
         }
     }
 

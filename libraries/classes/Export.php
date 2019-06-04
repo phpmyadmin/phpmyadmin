@@ -19,6 +19,20 @@ use PhpMyAdmin\Plugins\ExportPlugin;
 class Export
 {
     /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * Export constructor.
+     * @param DatabaseInterface $dbi DatabaseInterface instance
+     */
+    public function __construct($dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
+    /**
      * Sets a session variable upon a possible fatal error during export
      *
      * @return void
@@ -521,10 +535,10 @@ class Export
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {
                 foreach ($value as $val) {
-                    $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '[]" value="' . urlencode((string) $val) . '">';
+                    $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name) . '[]" value="' . htmlentities((string) $val) . '">';
                 }
             } else {
-                $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '" value="' . urlencode((string) $value) . '">';
+                $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name) . '" value="' . htmlentities((string) $value) . '">';
             }
         }
         $refreshButton .= '</form>';
@@ -582,7 +596,7 @@ class Export
             if (isset($tmp_select)
                 && mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
             ) {
-                $tables = $GLOBALS['dbi']->getTables($current_db);
+                $tables = $this->dbi->getTables($current_db);
                 $this->exportDatabase(
                     $current_db,
                     $tables,
@@ -712,10 +726,10 @@ class Export
                         // This obtains the current table's size
                         $query = 'SELECT data_length + index_length
                               from information_schema.TABLES
-                              WHERE table_schema = "' . $GLOBALS['dbi']->escapeString($db) . '"
-                              AND table_name = "' . $GLOBALS['dbi']->escapeString($table) . '"';
+                              WHERE table_schema = "' . $this->dbi->escapeString($db) . '"
+                              AND table_name = "' . $this->dbi->escapeString($table) . '"';
 
-                        $size = $GLOBALS['dbi']->fetchValue($query);
+                        $size = $this->dbi->fetchValue($query);
                         //Converting the size to MB
                         $size = ($size / 1024) / 1024;
                         if ($size > $table_size) {
@@ -969,7 +983,7 @@ class Export
                     $sql_query = preg_replace('%;\s*$%', '', $sql_query);
                 }
                 $local_query = $sql_query . $add_query;
-                $GLOBALS['dbi']->selectDb($db);
+                $this->dbi->selectDb($db);
             } else {
                 // Data is exported only for Non-generated columns
                 $tableObj = new Table($table, $db);
@@ -1045,7 +1059,7 @@ class Export
             $active_page = 'tbl_export.php';
             include_once ROOT_PATH . 'tbl_export.php';
         }
-        exit();
+        exit;
     }
 
     /**
@@ -1120,7 +1134,7 @@ class Export
         }
 
         $sql = "LOCK TABLES " . implode(", ", $locks);
-        return $GLOBALS['dbi']->tryQuery($sql);
+        return $this->dbi->tryQuery($sql);
     }
 
     /**
@@ -1130,7 +1144,7 @@ class Export
      */
     public function unlockTables()
     {
-        return $GLOBALS['dbi']->tryQuery("UNLOCK TABLES");
+        return $this->dbi->tryQuery("UNLOCK TABLES");
     }
 
     /**
@@ -1204,7 +1218,7 @@ class Export
             Core::fatalError(__('Bad type!'));
         }
 
-        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb($GLOBALS['db']);
         $export_plugin->exportSchema($GLOBALS['db']);
     }
 }

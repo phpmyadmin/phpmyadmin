@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPStan\Testing\TestCase;
@@ -49,42 +50,43 @@ class EnginesControllerTest extends TestCase
     {
         $controller = new EnginesController(
             Response::getInstance(),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new Template()
         );
 
         $actual = $controller->index();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Storage Engine</th>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Description</th>',
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>Federated MySQL storage engine</td>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'FEDERATED',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'server_engines.php?engine=FEDERATED',
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>dummy comment</td>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'dummy',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'server_engines.php?engine=dummy',
             $actual
         );
@@ -102,7 +104,8 @@ class EnginesControllerTest extends TestCase
 
         $controller = new EnginesController(
             Response::getInstance(),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new Template()
         );
 
         $actual = $controller->show([
@@ -112,26 +115,26 @@ class EnginesControllerTest extends TestCase
 
         $enginePlugin = StorageEngine::getEngine('Pbxt');
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($enginePlugin->getTitle()),
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::showMySQLDocu($enginePlugin->getMysqlHelpPage()),
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($enginePlugin->getComment()),
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Variables'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getCommon([
                 'engine' => 'Pbxt',
                 'page' => 'Documentation'
@@ -139,15 +142,15 @@ class EnginesControllerTest extends TestCase
             $actual
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getCommon(['engine' => 'Pbxt']),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $enginePlugin->getSupportInformationMessage(),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'There is no detailed status information available for this '
             . 'storage engine.',
             $actual

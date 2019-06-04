@@ -9,34 +9,48 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $db;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
 
-$databaseDesigner = new Designer($GLOBALS['dbi']);
-$designerCommon = new Common($GLOBALS['dbi']);
+/** @var Response $response */
+$response = $container->get(Response::class);
 
-if (isset($_REQUEST['dialog'])) {
-    if ($_GET['dialog'] == 'edit') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
-    } elseif ($_GET['dialog'] == 'delete') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
-    } elseif ($_GET['dialog'] == 'save_as') {
-        $html = $databaseDesigner->getHtmlForPageSaveAs($GLOBALS['db']);
-    } elseif ($_GET['dialog'] == 'export') {
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+/** @var Designer $databaseDesigner */
+$databaseDesigner = $containerBuilder->get('designer');
+
+/** @var Common $designerCommon */
+$designerCommon = $containerBuilder->get('designer_common');
+
+if (isset($_POST['dialog'])) {
+    if ($_POST['dialog'] == 'edit') {
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage');
+    } elseif ($_POST['dialog'] == 'delete') {
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'deletePage');
+    } elseif ($_POST['dialog'] == 'save_as') {
+        $html = $databaseDesigner->getHtmlForPageSaveAs($db);
+    } elseif ($_POST['dialog'] == 'export') {
         $html = $databaseDesigner->getHtmlForSchemaExport(
-            $GLOBALS['db'],
-            $_GET['selected_page']
+            $db,
+            $_POST['selected_page']
         );
     } elseif ($_POST['dialog'] == 'add_table') {
         $script_display_field = $designerCommon->getTablesInfo();
-        $required = $GLOBALS['db'] . '.' . $GLOBALS['table'];
+        $required = $db . '.' . $GLOBALS['table'];
         $tab_column = $designerCommon->getColumnsInfo();
         $tables_all_keys = $designerCommon->getAllKeys();
         $tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys();
@@ -73,7 +87,7 @@ if (isset($_POST['operation'])) {
         if ($_POST['save_page'] == 'same') {
             $page = $_POST['selected_page'];
         } else { // new
-            $page = $designerCommon->createNewPage($_POST['selected_value'], $GLOBALS['db']);
+            $page = $designerCommon->createNewPage($_POST['selected_value'], $db);
             $response->addJSON('id', $page);
         }
         $success = $designerCommon->saveTablePositions($page);

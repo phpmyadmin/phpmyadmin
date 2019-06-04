@@ -31,7 +31,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $extension = new DbiDummy();
@@ -49,7 +49,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * @test
      * @dataProvider currentUserData
      */
-    public function testGetCurrentUser($value, $string, $expected)
+    public function testGetCurrentUser($value, $string, $expected): void
     {
         Util::cacheUnset('mysql_cur_user');
 
@@ -245,7 +245,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      *
      * @dataProvider connectionParams
      */
-    public function testGetConnectionParams($server_cfg, $mode, $server, $expected)
+    public function testGetConnectionParams($server_cfg, $mode, $server, $expected): void
     {
         $GLOBALS['cfg']['Server'] = $server_cfg;
         $result = $this->_dbi->getConnectionParams($mode, $server);
@@ -406,9 +406,9 @@ class DatabaseInterfaceTest extends PmaTestCase
      *
      * @dataProvider errorData
      */
-    public function testFormatError($error_number, $error_message, $match)
+    public function testFormatError($error_number, $error_message, $match): void
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             $match,
             DatabaseInterface::formatError($error_number, $error_message)
         );
@@ -517,7 +517,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      *
      * @dataProvider versionData
      */
-    public function testVersion($version, $expected, $major, $upgrade)
+    public function testVersion($version, $expected, $major, $upgrade): void
     {
         $ver_int = DatabaseInterface::versionToInt($version);
         $this->assertEquals($expected, $ver_int);

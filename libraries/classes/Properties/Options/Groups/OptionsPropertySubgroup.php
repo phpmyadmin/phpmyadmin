@@ -21,7 +21,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Subgroup Header
      *
-     * @var string
+     * @var \PhpMyAdmin\Properties\PropertyItem
      */
     private $_subgroupHeader;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

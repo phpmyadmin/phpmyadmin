@@ -20,7 +20,8 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 if (! isset($_POST['field'])) {
     Util::checkParameters(['field']);
@@ -84,6 +85,7 @@ $visualizationSettings = [
     'width' => 450,
     'height' => 300,
     'spatialColumn' => 'wkt',
+    'mysqlVersion' => $GLOBALS['dbi']->getVersion(),
 ];
 $data = [
     [
@@ -119,6 +121,8 @@ if ($geom_type == 'GEOMETRYCOLLECTION') {
 }
 
 $templateOutput = $template->render('gis_data_editor_form', [
+    'width' => $visualizationSettings['width'],
+    'height' => $visualizationSettings['height'],
     'pma_theme_image' => $GLOBALS['pmaThemeImage'],
     'field' => $_POST['field'],
     'input_name' => $_POST['input_name'],

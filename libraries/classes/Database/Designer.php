@@ -42,13 +42,15 @@ class Designer
     /**
      * Designer constructor.
      *
-     * @param DatabaseInterface $dbi DatabaseInterface object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Relation          $relation Relation instance
+     * @param Template          $template Template instance
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi, Relation $relation, Template $template)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation($this->dbi);
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->template = $template;
     }
 
     /**
@@ -126,7 +128,7 @@ class Designer
     public function getHtmlForSchemaExport($db, $page)
     {
         /* Scan for schema plugins */
-        /* @var $export_list SchemaPlugin[] */
+        /** @var SchemaPlugin[] $export_list */
         $export_list = Plugins::getPlugins(
             "schema",
             'libraries/classes/Plugins/Schema/',
@@ -263,17 +265,17 @@ class Designer
                     $columns_type[$table_column_name] = 'designer/FieldKey_small';
                 } else {
                     $columns_type[$table_column_name] = 'designer/Field_small';
-                    if (strstr($tab_column[$table_name]['TYPE'][$j], 'char')
-                        || strstr($tab_column[$table_name]['TYPE'][$j], 'text')) {
+                    if (false !== strpos($tab_column[$table_name]['TYPE'][$j], 'char')
+                        || false !== strpos($tab_column[$table_name]['TYPE'][$j], 'text')) {
                         $columns_type[$table_column_name] .= '_char';
-                    } elseif (strstr($tab_column[$table_name]['TYPE'][$j], 'int')
-                        || strstr($tab_column[$table_name]['TYPE'][$j], 'float')
-                        || strstr($tab_column[$table_name]['TYPE'][$j], 'double')
-                        || strstr($tab_column[$table_name]['TYPE'][$j], 'decimal')) {
+                    } elseif (false !== strpos($tab_column[$table_name]['TYPE'][$j], 'int')
+                        || false !== strpos($tab_column[$table_name]['TYPE'][$j], 'float')
+                        || false !== strpos($tab_column[$table_name]['TYPE'][$j], 'double')
+                        || false !== strpos($tab_column[$table_name]['TYPE'][$j], 'decimal')) {
                         $columns_type[$table_column_name] .= '_int';
-                    } elseif (strstr($tab_column[$table_name]['TYPE'][$j], 'date')
-                        || strstr($tab_column[$table_name]['TYPE'][$j], 'time')
-                        || strstr($tab_column[$table_name]['TYPE'][$j], 'year')) {
+                    } elseif (false !== strpos($tab_column[$table_name]['TYPE'][$j], 'date')
+                        || false !== strpos($tab_column[$table_name]['TYPE'][$j], 'time')
+                        || false !== strpos($tab_column[$table_name]['TYPE'][$j], 'year')) {
                         $columns_type[$table_column_name] .= '_date';
                     }
                 }
@@ -346,17 +348,17 @@ class Designer
                     $columnsType[$tableColumnName] = 'designer/FieldKey_small';
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';
-                    if (strstr($tabColumn[$tableName]['TYPE'][$j], 'char')
-                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'text')) {
+                    if (false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'char')
+                        || false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'text')) {
                         $columnsType[$tableColumnName] .= '_char';
-                    } elseif (strstr($tabColumn[$tableName]['TYPE'][$j], 'int')
-                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'float')
-                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'double')
-                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'decimal')) {
+                    } elseif (false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'int')
+                        || false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'float')
+                        || false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'double')
+                        || false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'decimal')) {
                         $columnsType[$tableColumnName] .= '_int';
-                    } elseif (strstr($tabColumn[$tableName]['TYPE'][$j], 'date')
-                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'time')
-                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'year')) {
+                    } elseif (false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'date')
+                        || false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'time')
+                        || false !== strpos($tabColumn[$tableName]['TYPE'][$j], 'year')) {
                         $columnsType[$tableColumnName] .= '_date';
                     }
                 }

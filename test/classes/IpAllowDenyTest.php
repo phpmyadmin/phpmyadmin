@@ -32,7 +32,7 @@ class IpAllowDenyTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['Server']['user'] = "pma_username";
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
@@ -64,7 +64,7 @@ class IpAllowDenyTest extends TestCase
      *
      * @dataProvider proxyIPs
      */
-    public function testGetIp($remote, $header, $expected, $proxyip = null)
+    public function testGetIp($remote, $header, $expected, $proxyip = null): void
     {
         unset($_SERVER['REMOTE_ADDR']);
         unset($_SERVER['TEST_FORWARDED_HEADER']);

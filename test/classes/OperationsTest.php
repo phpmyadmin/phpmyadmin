@@ -32,7 +32,7 @@ class OperationsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['table'] = 'table';
@@ -81,7 +81,7 @@ class OperationsTest extends TestCase
 
         $db_collation = 'db1';
         $html = $this->operations->getHtmlForRenameDatabase("pma", $db_collation);
-        $this->assertContains('db_operations.php', $html);
+        $this->assertStringContainsString('db_operations.php', $html);
         $this->assertRegExp(
             '/.*db_rename.*Rename database to.*/',
             $html

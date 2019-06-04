@@ -35,7 +35,7 @@ class ListDatabaseTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['Server']['only_db'] = ['single\\_db'];
         $this->object = new ListDatabase();

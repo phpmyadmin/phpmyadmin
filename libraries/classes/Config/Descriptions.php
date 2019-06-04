@@ -184,7 +184,7 @@ class Descriptions
             'ExecTimeLimit_name' => __('Maximum execution time'),
             'Export_lock_tables_name' => sprintf(
                 __('Use %s statement'),
-                '<code>LOCK TABLES</code>'
+                htmlspecialchars('<code>LOCK TABLES</code>')
             ),
             'Export_asfile_name' => __('Save as file'),
             'Export_charset_name' => __('Character set of the file'),
@@ -928,9 +928,7 @@ class Descriptions
         ];
 
         $key = $path . '_' . $type;
-        if (array_key_exists($key, $descriptions)) {
-            return $descriptions[$key];
-        }
-        return null;
+
+        return $descriptions[$key] ?? null;
     }
 }

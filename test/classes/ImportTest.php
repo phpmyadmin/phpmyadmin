@@ -32,7 +32,7 @@ class ImportTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';
@@ -158,7 +158,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetColumnAlphaName
      */
-    public function testGetColumnAlphaName($expected, $num)
+    public function testGetColumnAlphaName($expected, $num): void
     {
         $this->assertEquals($expected, $this->import->getColumnAlphaName($num));
     }
@@ -208,7 +208,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetColumnNumberFromName
      */
-    public function testGetColumnNumberFromName($expected, $name)
+    public function testGetColumnNumberFromName($expected, $name): void
     {
         $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
     }
@@ -258,7 +258,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalPrecision
      */
-    public function testGetDecimalPrecision($expected, $size)
+    public function testGetDecimalPrecision($expected, $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
     }
@@ -300,7 +300,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalScale
      */
-    public function testGetDecimalScale($expected, $size)
+    public function testGetDecimalScale($expected, $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalScale($size));
     }
@@ -342,7 +342,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provGetDecimalSize
      */
-    public function testGetDecimalSize($expected, $cell)
+    public function testGetDecimalSize($expected, $cell): void
     {
         $this->assertEquals($expected, $this->import->getDecimalSize($cell));
     }
@@ -399,7 +399,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider provDetectType
      */
-    public function testDetectType($expected, $type, $cell)
+    public function testDetectType($expected, $type, $cell): void
     {
         $this->assertEquals($expected, $this->import->detectType($type, $cell));
     }

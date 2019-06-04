@@ -30,7 +30,7 @@ class NdbclusterTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $this->object = new Ndbcluster('nbdcluster');
@@ -43,7 +43,7 @@ class NdbclusterTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

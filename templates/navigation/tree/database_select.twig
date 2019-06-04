@@ -1,0 +1,22 @@
+{{ quick_warp|raw }}
+
+<div id="pma_navigation_select_database">
+  {{ list_navigator|raw }}
+
+  <div id="pma_navigation_db_select">
+    <form action="index.php">
+      {{ get_hidden_fields({'server': server}) }}
+
+      <select name="db" class="hide" id="navi_db_select">
+        <option value="" dir="{{ text_dir }}">{% trans 'Databases' %}…</option>
+        {{ options|raw }}
+      </select>
+    </form>
+  </div>
+</div>
+
+<div id="pma_navigation_tree_content">
+  <ul>
+    {{ nodes|raw }}
+  </ul>
+</div>

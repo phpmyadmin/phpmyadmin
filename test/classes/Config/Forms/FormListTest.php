@@ -26,7 +26,7 @@ class FormListTest extends PmaTestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
@@ -42,7 +42,7 @@ class FormListTest extends PmaTestCase
      *
      * @dataProvider formObjects
      */
-    public function testForms($class, $prefix)
+    public function testForms($class, $prefix): void
     {
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
 

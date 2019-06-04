@@ -9,10 +9,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\TableController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -20,7 +21,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class IndexesController extends TableController
+class IndexesController extends AbstractController
 {
     /**
      * @var Index
@@ -30,20 +31,22 @@ class IndexesController extends TableController
     /**
      * Constructor
      *
-     * @param Response                      $response Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
-     * @param string                        $db       Database name
-     * @param string                        $table    Table name
-     * @param Index                         $index    Index object
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Template          $template Template object
+     * @param string            $db       Database name
+     * @param string            $table    Table name
+     * @param Index             $index    Index object
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $index
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         $this->index = $index;
     }

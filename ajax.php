@@ -7,9 +7,12 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Controllers\AjaxController;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Core;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -19,8 +22,19 @@ $_GET['ajax_request'] = 'true';
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 $response->setAjax(true);
+
+/** @var AjaxController $controller */
+$controller = $containerBuilder->get(AjaxController::class);
 
 if (empty($_POST['type'])) {
     Core::fatalError(__('Bad type!'));
@@ -28,25 +42,34 @@ if (empty($_POST['type'])) {
 
 switch ($_POST['type']) {
     case 'list-databases':
-        $response->addJSON('databases', $GLOBALS['dblist']->databases);
+        $response->addJSON($controller->databases());
         break;
     case 'list-tables':
         Util::checkParameters(['db'], true);
-        $response->addJSON('tables', $GLOBALS['dbi']->getTables($_POST['db']));
+        $response->addJSON($controller->tables([
+            'db' => $_POST['db'],
+        ]));
         break;
     case 'list-columns':
         Util::checkParameters(['db', 'table'], true);
-        $response->addJSON('columns', $GLOBALS['dbi']->getColumnNames($_POST['db'], $_POST['table']));
+        $response->addJSON($controller->columns([
+            'db' => $_POST['db'],
+            'table' => $_POST['table'],
+        ]));
         break;
     case 'config-get':
         Util::checkParameters(['key'], true);
-        $response->addJSON('value', $GLOBALS['PMA_Config']->get($_POST['key']));
+        $response->addJSON($controller->getConfig([
+            'key' => $_POST['key'],
+        ]));
         break;
     case 'config-set':
         Util::checkParameters(['key', 'value'], true);
-        $result = $GLOBALS['PMA_Config']->setUserValue(null, $_POST['key'], json_decode($_POST['value']));
+        $result = $controller->setConfig([
+            'key' => $_POST['key'],
+            'value' => $_POST['value'],
+        ]);
         if ($result !== true) {
-            $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $result);
         }

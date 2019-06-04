@@ -32,7 +32,7 @@ class ExportOdtTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -52,7 +52,7 @@ class ExportOdtTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -319,11 +319,11 @@ class ExportOdtTest extends PmaTestCase
             $this->object->exportHeader()
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<office:document-content",
             $GLOBALS['odt_buffer']
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             "office:version",
             $GLOBALS['odt_buffer']
         );
@@ -345,12 +345,12 @@ class ExportOdtTest extends PmaTestCase
             $this->object->exportFooter()
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "header",
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "</office:text></office:body></office:document-content>",
             $GLOBALS['odt_buffer']
         );
@@ -369,12 +369,12 @@ class ExportOdtTest extends PmaTestCase
             $this->object->exportDBHeader('d&b')
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "header",
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "Database d&amp;b</text:h>",
             $GLOBALS['odt_buffer']
         );
@@ -417,9 +417,11 @@ class ExportOdtTest extends PmaTestCase
 
         $flags = [];
         $a = new stdClass();
+        $a->type = '';
         $flags[] = $a;
 
         $a = new stdClass();
+        $a->type = '';
         $a->blob = true;
         $flags[] = $a;
 
@@ -677,12 +679,12 @@ class ExportOdtTest extends PmaTestCase
             $this->object->getTableDefStandIn('db', 'v&w', '#')
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table:table table:name="v&amp;w_data">',
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</table:table-row>c1</table:table-row>c2</table:table-row>' .
             '</table:table>',
             $GLOBALS['odt_buffer']
@@ -775,25 +777,25 @@ class ExportOdtTest extends PmaTestCase
             )
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table:table table:name="_structure"><table:table-column ' .
             'table:number-columns-repeated="6"/>',
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table:table-cell office:value-type="string"><text:p>Comments' .
             '</text:p></table:table-cell>',
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table:table-cell office:value-type="string"><text:p>MIME type' .
             '</text:p></table:table-cell>',
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</table:table-row>1<table:table-cell office:value-type="string">' .
             '<text:p></text:p></table:table-cell><table:table-cell office:value-' .
             'type="string"><text:p>Test&lt;</text:p></table:table-cell>' .
@@ -878,7 +880,7 @@ class ExportOdtTest extends PmaTestCase
             )
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<text:p>ftable (ffield)</text:p>',
             $GLOBALS['odt_buffer']
         );
@@ -919,27 +921,27 @@ class ExportOdtTest extends PmaTestCase
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table:table table:name="ta&lt;ble_triggers">',
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<text:p>tna&quot;me</text:p>',
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<text:p>ac&gt;t</text:p>',
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<text:p>manip&amp;</text:p>',
             $GLOBALS['odt_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<text:p>def</text:p>',
             $GLOBALS['odt_buffer']
         );
@@ -1011,7 +1013,7 @@ class ExportOdtTest extends PmaTestCase
             )
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
             'text:is-list-header="true">Table structure for table t&amp;bl</text:h>',
             $GLOBALS['odt_buffer']

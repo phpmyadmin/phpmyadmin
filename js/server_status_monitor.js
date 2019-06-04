@@ -1,16 +1,31 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @fileoverview    Javascript functions used in server status monitor page
+ * @name            Server Status Monitor
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    js/functions.js
+ */
+
+/* global isStorageSupported */ // js/config.js
+/* global codeMirrorEditor */ // js/functions.js
+/* global pmaThemeImage */ // js/messages.php
+/* global variableNames */ // templates/server/status/monitor/index.twig
+
 var runtime = {};
-var server_time_diff;
-var server_os;
-var is_superuser;
-var server_db_isLocal;
+var serverTimeDiff;
+var serverOs;
+var isSuperUser;
+var serverDbIsLocal;
 var chartSize;
+
 AJAX.registerOnload('server_status_monitor.js', function () {
-    var $js_data_form = $('#js_data');
-    server_time_diff  = new Date().getTime() - $js_data_form.find('input[name=server_time]').val();
-    server_os =         $js_data_form.find('input[name=server_os]').val();
-    is_superuser =      $js_data_form.find('input[name=is_superuser]').val();
-    server_db_isLocal = $js_data_form.find('input[name=server_db_isLocal]').val();
+    var $jsDataForm = $('#js_data');
+    serverTimeDiff = new Date().getTime() - $jsDataForm.find('input[name=server_time]').val();
+    serverOs = $jsDataForm.find('input[name=server_os]').val();
+    isSuperUser = $jsDataForm.find('input[name=is_superuser]').val();
+    serverDbIsLocal = $jsDataForm.find('input[name=server_db_isLocal]').val();
 });
 
 /**
@@ -86,10 +101,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('div.tabLinks').show();
     $('#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
-    if (! codemirror_editor) {
+    if (! codeMirrorEditor) {
         var $elm = $('#sqlquery');
         if ($elm.length > 0 && typeof CodeMirror !== 'undefined') {
-            codemirror_editor = CodeMirror.fromTextArea(
+            codeMirrorEditor = CodeMirror.fromTextArea(
                 $elm[0],
                 {
                     lineNumbers: true,
@@ -104,7 +119,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     // Timepicker is loaded on demand so we need to initialize
     // datetime fields from the 'load log' dialog
     $('#logAnalyseDialog').find('.datetimefield').each(function () {
-        PMA_addDatepicker($(this));
+        Functions.addDatepicker($(this));
     });
 
     /** ** Monitor charting implementation ****/
@@ -160,9 +175,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     var presetCharts = {
         // Query cache efficiency
         'qce': {
-            title: PMA_messages.strQueryCacheEfficiency,
+            title: Messages.strQueryCacheEfficiency,
             series: [{
-                label: PMA_messages.strQueryCacheEfficiency
+                label: Messages.strQueryCacheEfficiency
             }],
             nodes: [{
                 dataPoints: [{ type: 'statusvar', name: 'Qcache_hits' }, { type: 'statusvar', name: 'Com_select' }],
@@ -172,9 +187,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         },
         // Query cache usage
         'qcu': {
-            title: PMA_messages.strQueryCacheUsage,
+            title: Messages.strQueryCacheUsage,
             series: [{
-                label: PMA_messages.strQueryCacheUsed
+                label: Messages.strQueryCacheUsed
             }],
             nodes: [{
                 dataPoints: [{ type: 'statusvar', name: 'Qcache_free_memory' }, { type: 'servervar', name: 'query_cache_size' }],
@@ -196,13 +211,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     var tooltipBox;
 
     /* Add OS specific system info charts to the preset chart list */
-    switch (server_os) {
+    switch (serverOs) {
     case 'WINNT':
         $.extend(presetCharts, {
             'cpu': {
-                title: PMA_messages.strSystemCPUUsage,
+                title: Messages.strSystemCPUUsage,
                 series: [{
-                    label: PMA_messages.strAverageLoad
+                    label: Messages.strAverageLoad
                 }],
                 nodes: [{
                     dataPoints: [{ type: 'cpu', name: 'loadavg' }]
@@ -211,13 +226,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             },
 
             'memory': {
-                title: PMA_messages.strSystemMemory,
+                title: Messages.strSystemMemory,
                 series: [{
-                    label: PMA_messages.strTotalMemory,
+                    label: Messages.strTotalMemory,
                     fill: true
                 }, {
                     dataType: 'memory',
-                    label: PMA_messages.strUsedMemory,
+                    label: Messages.strUsedMemory,
                     fill: true
                 }],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'MemTotal' }], valueDivisor: 1024 },
@@ -227,12 +242,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             },
 
             'swap': {
-                title: PMA_messages.strSystemSwap,
+                title: Messages.strSystemSwap,
                 series: [{
-                    label: PMA_messages.strTotalSwap,
+                    label: Messages.strTotalSwap,
                     fill: true
                 }, {
-                    label: PMA_messages.strUsedSwap,
+                    label: Messages.strUsedSwap,
                     fill: true
                 }],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapTotal' }] },
@@ -246,20 +261,20 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     case 'Linux':
         $.extend(presetCharts, {
             'cpu': {
-                title: PMA_messages.strSystemCPUUsage,
+                title: Messages.strSystemCPUUsage,
                 series: [{
-                    label: PMA_messages.strAverageLoad
+                    label: Messages.strAverageLoad
                 }],
                 nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux' }],
                 maxYLabel: 0
             },
             'memory': {
-                title: PMA_messages.strSystemMemory,
+                title: Messages.strSystemMemory,
                 series: [
-                    { label: PMA_messages.strBufferedMemory, fill: true },
-                    { label: PMA_messages.strUsedMemory, fill: true },
-                    { label: PMA_messages.strCachedMemory, fill: true },
-                    { label: PMA_messages.strFreeMemory, fill: true }
+                    { label: Messages.strBufferedMemory, fill: true },
+                    { label: Messages.strUsedMemory, fill: true },
+                    { label: Messages.strCachedMemory, fill: true },
+                    { label: Messages.strFreeMemory, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
@@ -270,11 +285,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 maxYLabel: 0
             },
             'swap': {
-                title: PMA_messages.strSystemSwap,
+                title: Messages.strSystemSwap,
                 series: [
-                    { label: PMA_messages.strCachedSwap, fill: true },
-                    { label: PMA_messages.strUsedSwap, fill: true },
-                    { label: PMA_messages.strFreeSwap, fill: true }
+                    { label: Messages.strCachedSwap, fill: true },
+                    { label: Messages.strUsedSwap, fill: true },
+                    { label: Messages.strFreeSwap, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
@@ -289,9 +304,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     case 'SunOS':
         $.extend(presetCharts, {
             'cpu': {
-                title: PMA_messages.strSystemCPUUsage,
+                title: Messages.strSystemCPUUsage,
                 series: [{
-                    label: PMA_messages.strAverageLoad
+                    label: Messages.strAverageLoad
                 }],
                 nodes: [{
                     dataPoints: [{ type: 'cpu', name: 'loadavg' }]
@@ -299,10 +314,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 maxYLabel: 0
             },
             'memory': {
-                title: PMA_messages.strSystemMemory,
+                title: Messages.strSystemMemory,
                 series: [
-                    { label: PMA_messages.strUsedMemory, fill: true },
-                    { label: PMA_messages.strFreeMemory, fill: true }
+                    { label: Messages.strUsedMemory, fill: true },
+                    { label: Messages.strFreeMemory, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
@@ -311,10 +326,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 maxYLabel: 0
             },
             'swap': {
-                title: PMA_messages.strSystemSwap,
+                title: Messages.strSystemSwap,
                 series: [
-                    { label: PMA_messages.strUsedSwap, fill: true },
-                    { label: PMA_messages.strFreeSwap, fill: true }
+                    { label: Messages.strUsedSwap, fill: true },
+                    { label: Messages.strFreeSwap, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
@@ -329,9 +344,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     // Default setting for the chart grid
     var defaultChartGrid = {
         'c0': {
-            title: PMA_messages.strQuestions,
+            title: Messages.strQuestions,
             series: [
-                { label: PMA_messages.strQuestions }
+                { label: Messages.strQuestions }
             ],
             nodes: [
                 { dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }
@@ -339,10 +354,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             maxYLabel: 0
         },
         'c1': {
-            title: PMA_messages.strChartConnectionsTitle,
+            title: Messages.strChartConnectionsTitle,
             series: [
-                { label: PMA_messages.strConnections },
-                { label: PMA_messages.strProcesses }
+                { label: Messages.strConnections },
+                { label: Messages.strProcesses }
             ],
             nodes: [
                 { dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
@@ -351,10 +366,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             maxYLabel: 0
         },
         'c2': {
-            title: PMA_messages.strTraffic,
+            title: Messages.strTraffic,
             series: [
-                { label: PMA_messages.strBytesSent },
-                { label: PMA_messages.strBytesReceived }
+                { label: Messages.strBytesSent },
+                { label: Messages.strBytesReceived }
             ],
             nodes: [
                 { dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
@@ -365,7 +380,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     };
 
     // Server is localhost => We can add cpu/memory/swap to the default chart
-    if (server_db_isLocal && typeof presetCharts.cpu !== 'undefined') {
+    if (serverDbIsLocal && typeof presetCharts.cpu !== 'undefined') {
         defaultChartGrid.c3 = presetCharts.cpu;
         defaultChartGrid.c4 = presetCharts.memory;
         defaultChartGrid.c5 = presetCharts.swap;
@@ -455,8 +470,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             runtime.gridMaxPoints = Math.round((chartSize.width - 40) / 12);
         }
 
-        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
-        runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        runtime.xmin = new Date().getTime() - serverTimeDiff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmax = new Date().getTime() - serverTimeDiff + monitorSettings.gridRefresh;
 
         if (editMode) {
             $('#chartGrid').sortableTable('refresh');
@@ -474,9 +489,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             runtime.refreshRequest.abort();
         }
 
-        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmin = new Date().getTime() - serverTimeDiff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         // fixing chart shift towards left on refresh rate change
-        // runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        // runtime.xmax = new Date().getTime() - serverTimeDiff + monitorSettings.gridRefresh;
         runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
 
         saveMonitor(); // Save settings
@@ -486,7 +501,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         event.preventDefault();
         var dlgButtons = { };
 
-        dlgButtons[PMA_messages.strAddChart] = function () {
+        dlgButtons[Messages.strAddChart] = function () {
             var type = $('input[name="chartType"]:checked').val();
 
             if (type === 'preset') {
@@ -496,7 +511,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 // each time he adds a series
                 // So here we only warn if he didn't add a series yet
                 if (! newChart || ! newChart.nodes || newChart.nodes.length === 0) {
-                    alert(PMA_messages.strAddOneSeriesWarning);
+                    alert(Messages.strAddOneSeriesWarning);
                     return;
                 }
             }
@@ -512,7 +527,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $(this).dialog('close');
         };
 
-        dlgButtons[PMA_messages.strClose] = function () {
+        dlgButtons[Messages.strClose] = function () {
             newChart = null;
             $('span#clearSeriesLink').hide();
             $('#seriesPreview').html('');
@@ -553,7 +568,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             buttons: dlgButtons
         });
 
-        $('#seriesPreview').html('<i>' + PMA_messages.strNone + '</i>');
+        $('#seriesPreview').html('<i>' + Messages.strNone + '</i>');
 
         return false;
     });
@@ -564,8 +579,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         $.each(runtime.charts, function (key, elem) {
             gridCopy[key] = {};
             gridCopy[key].nodes = elem.nodes;
+            gridCopy[key].series = elem.series;
             gridCopy[key].settings = elem.settings;
             gridCopy[key].title = elem.title;
+            gridCopy[key].maxYLabel = elem.maxYLabel;
         });
         var exportData = {
             monitorCharts: gridCopy,
@@ -573,53 +590,67 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         };
 
         var blob = new Blob([JSON.stringify(exportData)], { type: 'application/octet-stream' });
-        var url = window.URL.createObjectURL(blob);
-        window.location.href = url;
-        window.URL.revokeObjectURL(url);
+        var url = null;
+        var fileName = 'monitor-config.json';
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            window.navigator.msSaveOrOpenBlob(blob, fileName);
+        } else {
+            url = URL.createObjectURL(blob);
+            window.location.href = url;
+        }
+        setTimeout(function () {
+            // For some browsers it is necessary to delay revoking the ObjectURL
+            if (url !== null) {
+                window.URL.revokeObjectURL(url);
+            }
+            url = undefined;
+            blob = undefined;
+        }, 100);
     });
 
     $('a[href="#importMonitorConfig"]').on('click', function (event) {
         event.preventDefault();
-        $('#emptyDialog').dialog({ title: PMA_messages.strImportDialogTitle });
-        $('#emptyDialog').html(PMA_messages.strImportDialogMessage + ':<br><form>' +
+        $('#emptyDialog').dialog({ title: Messages.strImportDialogTitle });
+        $('#emptyDialog').html(Messages.strImportDialogMessage + ':<br><form>' +
             '<input type="file" name="file" id="import_file"> </form>');
 
         var dlgBtns = {};
 
-        dlgBtns[PMA_messages.strImport] = function () {
+        dlgBtns[Messages.strImport] = function () {
             var input = $('#emptyDialog').find('#import_file')[0];
             var reader = new FileReader();
 
             reader.onerror = function (event) {
-                alert(PMA_messages.strFailedParsingConfig + '\n' + event.target.error.code);
+                alert(Messages.strFailedParsingConfig + '\n' + event.target.error.code);
             };
             reader.onload = function (e) {
                 var data = e.target.result;
-
+                var json = null;
                 // Try loading config
                 try {
                     json = JSON.parse(data);
                 } catch (err) {
-                    alert(PMA_messages.strFailedParsingConfig);
+                    alert(Messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
                     return;
                 }
 
                 // Basic check, is this a monitor config json?
                 if (!json || ! json.monitorCharts || ! json.monitorCharts) {
-                    alert(PMA_messages.strFailedParsingConfig);
+                    alert(Messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
                     return;
                 }
 
                 // If json ok, try applying config
                 try {
-                    window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
-                    window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
+                    if (isStorageSupported('localStorage')) {
+                        window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
+                        window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
+                    }
                     rebuildGrid();
                 } catch (err) {
-                    console.log(err);
-                    alert(PMA_messages.strFailedBuildingGrid);
+                    alert(Messages.strFailedBuildingGrid);
                     // If an exception is thrown, load default again
                     if (isStorageSupported('localStorage')) {
                         window.localStorage.removeItem('monitorCharts');
@@ -633,7 +664,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             reader.readAsText(input.files[0]);
         };
 
-        dlgBtns[PMA_messages.strCancel] = function () {
+        dlgBtns[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
@@ -659,9 +690,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         event.preventDefault();
         runtime.redrawCharts = ! runtime.redrawCharts;
         if (! runtime.redrawCharts) {
-            $(this).html(PMA_getImage('play') + PMA_messages.strResumeMonitor);
+            $(this).html(Functions.getImage('play') + Messages.strResumeMonitor);
         } else {
-            $(this).html(PMA_getImage('pause') + PMA_messages.strPauseMonitor);
+            $(this).html(Functions.getImage('pause') + Messages.strPauseMonitor);
             if (! runtime.charts) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
@@ -674,19 +705,26 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         event.preventDefault();
 
         var $dialog = $('#monitorInstructionsDialog');
-
+        var dlgBtns = {};
+        dlgBtns[Messages.strClose] = function () {
+            $(this).dialog('close');
+        };
         $dialog.dialog({
-            width: 595,
-            height: 'auto'
+            width: '60%',
+            height: 'auto',
+            buttons: dlgBtns
         }).find('img.ajaxIcon').show();
 
         var loadLogVars = function (getvars) {
-            var vars = { ajax_request: true, logging_vars: true };
+            var vars = {
+                'ajax_request': true,
+                'logging_vars': true
+            };
             if (getvars) {
                 $.extend(vars, getvars);
             }
 
-            $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), vars,
+            $.post('server_status_monitor.php' + CommonParams.get('common_query'), vars,
                 function (data) {
                     var logVars;
                     if (typeof data !== 'undefined' && data.success === true) {
@@ -694,56 +732,56 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     } else {
                         return serverResponseError();
                     }
-                    var icon = PMA_getImage('s_success');
+                    var icon = Functions.getImage('s_success');
                     var msg = '';
                     var str = '';
 
                     if (logVars.general_log === 'ON') {
                         if (logVars.slow_query_log === 'ON') {
-                            msg = PMA_messages.strBothLogOn;
+                            msg = Messages.strBothLogOn;
                         } else {
-                            msg = PMA_messages.strGenLogOn;
+                            msg = Messages.strGenLogOn;
                         }
                     }
 
                     if (msg.length === 0 && logVars.slow_query_log === 'ON') {
-                        msg = PMA_messages.strSlowLogOn;
+                        msg = Messages.strSlowLogOn;
                     }
 
                     if (msg.length === 0) {
-                        icon = PMA_getImage('s_error');
-                        msg = PMA_messages.strBothLogOff;
+                        icon = Functions.getImage('s_error');
+                        msg = Messages.strBothLogOff;
                     }
 
-                    str = '<b>' + PMA_messages.strCurrentSettings + '</b><br><div class="smallIndent">';
+                    str = '<b>' + Messages.strCurrentSettings + '</b><br><div class="smallIndent">';
                     str += icon + msg + '<br>';
 
                     if (logVars.log_output !== 'TABLE') {
-                        str += PMA_getImage('s_error') + ' ' + PMA_messages.strLogOutNotTable + '<br>';
+                        str += Functions.getImage('s_error') + ' ' + Messages.strLogOutNotTable + '<br>';
                     } else {
-                        str += PMA_getImage('s_success') + ' ' + PMA_messages.strLogOutIsTable + '<br>';
+                        str += Functions.getImage('s_success') + ' ' + Messages.strLogOutIsTable + '<br>';
                     }
 
                     if (logVars.slow_query_log === 'ON') {
                         if (logVars.long_query_time > 2) {
-                            str += PMA_getImage('s_attention') + ' ';
-                            str += PMA_sprintf(PMA_messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
+                            str += Functions.getImage('s_attention') + ' ';
+                            str += Functions.sprintf(Messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
                             str += '<br>';
                         }
 
                         if (logVars.long_query_time < 2) {
-                            str += PMA_getImage('s_success') + ' ';
-                            str += PMA_sprintf(PMA_messages.strLongQueryTimeSet, logVars.long_query_time);
+                            str += Functions.getImage('s_success') + ' ';
+                            str += Functions.sprintf(Messages.strLongQueryTimeSet, logVars.long_query_time);
                             str += '<br>';
                         }
                     }
 
                     str += '</div>';
 
-                    if (is_superuser) {
-                        str += '<p></p><b>' + PMA_messages.strChangeSettings + '</b>';
+                    if (isSuperUser) {
+                        str += '<p></p><b>' + Messages.strChangeSettings + '</b>';
                         str += '<div class="smallIndent">';
-                        str += PMA_messages.strSettingsAppliedGlobal + '<br>';
+                        str += Messages.strSettingsAppliedGlobal + '<br>';
 
                         var varValue = 'TABLE';
                         if (logVars.log_output === 'TABLE') {
@@ -751,26 +789,26 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         }
 
                         str += '- <a class="set" href="#log_output-' + varValue + '">';
-                        str += PMA_sprintf(PMA_messages.strSetLogOutput, varValue);
+                        str += Functions.sprintf(Messages.strSetLogOutput, varValue);
                         str += ' </a><br>';
 
                         if (logVars.general_log !== 'ON') {
                             str += '- <a class="set" href="#general_log-ON">';
-                            str += PMA_sprintf(PMA_messages.strEnableVar, 'general_log');
+                            str += Functions.sprintf(Messages.strEnableVar, 'general_log');
                             str += ' </a><br>';
                         } else {
                             str += '- <a class="set" href="#general_log-OFF">';
-                            str += PMA_sprintf(PMA_messages.strDisableVar, 'general_log');
+                            str += Functions.sprintf(Messages.strDisableVar, 'general_log');
                             str += ' </a><br>';
                         }
 
                         if (logVars.slow_query_log !== 'ON') {
                             str += '- <a class="set" href="#slow_query_log-ON">';
-                            str +=  PMA_sprintf(PMA_messages.strEnableVar, 'slow_query_log');
+                            str +=  Functions.sprintf(Messages.strEnableVar, 'slow_query_log');
                             str += ' </a><br>';
                         } else {
                             str += '- <a class="set" href="#slow_query_log-OFF">';
-                            str +=  PMA_sprintf(PMA_messages.strDisableVar, 'slow_query_log');
+                            str +=  Functions.sprintf(Messages.strDisableVar, 'slow_query_log');
                             str += ' </a><br>';
                         }
 
@@ -780,10 +818,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         }
 
                         str += '- <a class="set" href="#long_query_time-' + varValue + '">';
-                        str += PMA_sprintf(PMA_messages.setSetLongQueryTime, varValue);
+                        str += Functions.sprintf(Messages.setSetLongQueryTime, varValue);
                         str += ' </a><br>';
                     } else {
-                        str += PMA_messages.strNoSuperUser + '<br>';
+                        str += Messages.strNoSuperUser + '<br>';
                     }
 
                     str += '</div>';
@@ -812,7 +850,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('input[name="chartType"]').on('change', function () {
         $('#chartVariableSettings').toggle(this.checked && this.value === 'variable');
         var title = $('input[name="chartTitle"]').val();
-        if (title === PMA_messages.strChartTitle ||
+        if (title === Messages.strChartTitle ||
             title === $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
         ) {
             $('input[name="chartTitle"]')
@@ -838,7 +876,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('a[href="#kibDivisor"]').on('click', function (event) {
         event.preventDefault();
         $('input[name="valueDivisor"]').val(1024);
-        $('input[name="valueUnit"]').val(PMA_messages.strKiB);
+        $('input[name="valueUnit"]').val(Messages.strKiB);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
         return false;
@@ -847,7 +885,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('a[href="#mibDivisor"]').on('click', function (event) {
         event.preventDefault();
         $('input[name="valueDivisor"]').val(1024 * 1024);
-        $('input[name="valueUnit"]').val(PMA_messages.strMiB);
+        $('input[name="valueUnit"]').val(Messages.strMiB);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
         return false;
@@ -855,7 +893,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     $('a[href="#submitClearSeries"]').on('click', function (event) {
         event.preventDefault();
-        $('#seriesPreview').html('<i>' + PMA_messages.strNone + '</i>');
+        $('#seriesPreview').html('<i>' + Messages.strNone + '</i>');
         newChart = null;
         $('#clearSeriesLink').hide();
     });
@@ -894,15 +932,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             serie.unit = $('input[name="valueUnit"]').val();
         }
 
-        var str = serie.display === 'differential' ? ', ' + PMA_messages.strDifferential : '';
-        str += serie.valueDivisor ? (', ' + PMA_sprintf(PMA_messages.strDividedBy, serie.valueDivisor)) : '';
-        str += serie.unit ? (', ' + PMA_messages.strUnit + ': ' + serie.unit) : '';
+        var str = serie.display === 'differential' ? ', ' + Messages.strDifferential : '';
+        str += serie.valueDivisor ? (', ' + Functions.sprintf(Messages.strDividedBy, serie.valueDivisor)) : '';
+        str += serie.unit ? (', ' + Messages.strUnit + ': ' + serie.unit) : '';
 
         var newSeries = {
             label: $('#variableInput').val().replace(/_/g, ' ')
         };
         newChart.series.push(newSeries);
-        $('#seriesPreview').append('- ' + escapeHtml(newSeries.label + str) + '<br>');
+        $('#seriesPreview').append('- ' + Functions.escapeHtml(newSeries.label + str) + '<br>');
         newChart.nodes.push(serie);
         $('#variableInput').val('');
         $('input[name="differentialValue"]').prop('checked', true);
@@ -940,11 +978,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 && typeof window.localStorage.monitorVersion !== 'undefined'
                 && monitorProtocolVersion !== window.localStorage.monitorVersion
             ) {
-                $('#emptyDialog').dialog({ title: PMA_messages.strIncompatibleMonitorConfig });
-                $('#emptyDialog').html(PMA_messages.strIncompatibleMonitorConfigDescription);
+                $('#emptyDialog').dialog({ title: Messages.strIncompatibleMonitorConfig });
+                $('#emptyDialog').html(Messages.strIncompatibleMonitorConfigDescription);
 
                 var dlgBtns = {};
-                dlgBtns[PMA_messages.strClose] = function () {
+                dlgBtns[Messages.strClose] = function () {
                     $(this).dialog('close');
                 };
 
@@ -971,8 +1009,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             runtime.gridMaxPoints = monitorSettings.gridMaxPoints;
         }
 
-        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
-        runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        runtime.xmin = new Date().getTime() - serverTimeDiff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmax = new Date().getTime() - serverTimeDiff + monitorSettings.gridRefresh;
 
         /* Calculate how much spacing there is between each chart */
         $('#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
@@ -1055,7 +1093,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     function addChart (chartObj, initialize) {
         var i;
         var settings = {
-            title: escapeHtml(chartObj.title),
+            title: Functions.escapeHtml(chartObj.title),
             grid: {
                 drawBorder: false,
                 shadow: false,
@@ -1092,25 +1130,25 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
         };
 
-        if (settings.title === PMA_messages.strSystemCPUUsage ||
-            settings.title === PMA_messages.strQueryCacheEfficiency
+        if (settings.title === Messages.strSystemCPUUsage ||
+            settings.title === Messages.strQueryCacheEfficiency
         ) {
             settings.axes.yaxis.tickOptions = {
                 formatString: '%d %%'
             };
-        } else if (settings.title === PMA_messages.strSystemMemory ||
-            settings.title === PMA_messages.strSystemSwap
+        } else if (settings.title === Messages.strSystemMemory ||
+            settings.title === Messages.strSystemSwap
         ) {
             settings.stackSeries = true;
             settings.axes.yaxis.tickOptions = {
                 formatter: $.jqplot.byteFormatter(2) // MiB
             };
-        } else if (settings.title === PMA_messages.strTraffic) {
+        } else if (settings.title === Messages.strTraffic) {
             settings.axes.yaxis.tickOptions = {
                 formatter: $.jqplot.byteFormatter(1) // KiB
             };
-        } else if (settings.title === PMA_messages.strQuestions ||
-            settings.title === PMA_messages.strConnections
+        } else if (settings.title === Messages.strQuestions ||
+            settings.title === Messages.strConnections
         ) {
             settings.axes.yaxis.tickOptions = {
                 formatter: function (format, val) {
@@ -1156,13 +1194,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var tempTooltipContentEditor = function (str, seriesIndex, pointIndex, plot) {
             var j;
             // TODO: move style to theme CSS
-            var tooltipHtml = '<div style="font-size:12px;background-color:#FFFFFF;' +
-                'opacity:0.95;filter:alpha(opacity=95);padding:5px;">';
+            var tooltipHtml = '<div id="tooltip_editor">';
             // x value i.e. time
             var timeValue = str.split(',')[0];
             var seriesValue;
             tooltipHtml += 'Time: ' + timeValue;
-            tooltipHtml += '<span style="font-weight:bold;">';
+            tooltipHtml += '<span id="tooltip_font">';
             // Add y values to the tooltip per series
             for (j in plot.series) {
                 // get y value if present
@@ -1174,12 +1211,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 var seriesLabel = plot.series[j].label;
                 var seriesColor = plot.series[j].color;
                 // format y value
-                if (plot.series[0]._yaxis.tickOptions.formatter) {
+                if (plot.series[0]._yaxis.tickOptions.formatter) { // eslint-disable-line no-underscore-dangle
                     // using formatter function
+                    // eslint-disable-next-line no-underscore-dangle
                     seriesValue = plot.series[0]._yaxis.tickOptions.formatter('%s', seriesValue);
-                } else if (plot.series[0]._yaxis.tickOptions.formatString) {
+                } else if (plot.series[0]._yaxis.tickOptions.formatString) { // eslint-disable-line no-underscore-dangle
                     // using format string
-                    seriesValue = PMA_sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
+                    // eslint-disable-next-line no-underscore-dangle
+                    seriesValue = Functions.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
                 }
                 tooltipHtml += '<br><span style="color:' + seriesColor + '">' +
                     seriesLabel + ': ' + seriesValue + '</span>';
@@ -1236,7 +1275,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             if ($('#selection_box').length) {
                 $('#selection_box').remove();
             }
-            var selectionBox = $('<div id="selection_box" style="z-index:1000;height:205px;position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);pointer-events:none;">');
+            var selectionBox = $('<div id="selection_box" >');
             $(document.body).append(selectionBox);
             selectionStartX = ev.pageX;
             selectionStartY = ev.pageY;
@@ -1263,7 +1302,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             // get date from timestamp
             var min = new Date(Math.ceil(selectionTimeDiff[0]));
             var max = new Date(Math.ceil(selectionTimeDiff[1]));
-            PMA_getLogAnalyseDialog(min, max);
+            getLogAnalyseDialog(min, max);
             selectionTimeDiff = [];
             drawTimeSpan = false;
         });
@@ -1297,7 +1336,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         runtime.chartAI++;
     }
 
-    function PMA_getLogAnalyseDialog (min, max) {
+    function getLogAnalyseDialog (min, max) {
         var $logAnalyseDialog = $('#logAnalyseDialog');
         var $dateStart = $logAnalyseDialog.find('input[name="dateStart"]');
         var $dateEnd = $logAnalyseDialog.find('input[name="dateEnd"]');
@@ -1306,12 +1345,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         var dlgBtns = { };
 
-        dlgBtns[PMA_messages.strFromSlowLog] = function () {
+        dlgBtns[Messages.strFromSlowLog] = function () {
             loadLog('slow', min, max);
             $(this).dialog('close');
         };
 
-        dlgBtns[PMA_messages.strFromGeneralLog] = function () {
+        dlgBtns[Messages.strFromGeneralLog] = function () {
             loadLog('general', min, max);
             $(this).dialog('close');
         };
@@ -1322,12 +1361,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             buttons: dlgBtns
         });
 
-        PMA_addDatepicker($dateStart, 'datetime', {
+        Functions.addDatepicker($dateStart, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
             timeFormat: 'HH:mm:ss'
         });
-        PMA_addDatepicker($dateEnd, 'datetime', {
+        Functions.addDatepicker($dateEnd, 'datetime', {
             showMillisec: false,
             showMicrosec: false,
             timeFormat: 'HH:mm:ss'
@@ -1352,12 +1391,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Called in regular intervals, this function updates the values of each chart in the grid */
     function refreshChartGrid () {
         /* Send to server */
-        runtime.refreshRequest = $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), {
-            ajax_request: true,
-            chart_data: 1,
-            type: 'chartgrid',
-            requiredData: JSON.stringify(runtime.dataList),
-            server: PMA_commonParams.get('server')
+        runtime.refreshRequest = $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
+            'ajax_request': true,
+            'chart_data': 1,
+            'type': 'chartgrid',
+            'requiredData': JSON.stringify(runtime.dataList),
+            'server': CommonParams.get('server')
         }, function (data) {
             var chartData;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -1448,8 +1487,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                                 elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                             }
                         }
-                        if (elem.title === PMA_messages.strSystemMemory ||
-                            elem.title === PMA_messages.strSystemSwap
+                        if (elem.title === Messages.strSystemMemory ||
+                            elem.title === Messages.strSystemSwap
                         ) {
                             total += value;
                         }
@@ -1463,15 +1502,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     (runtime.xmax - tickInterval * 3), (runtime.xmax - tickInterval * 2),
                     (runtime.xmax - tickInterval), runtime.xmax];
 
-                if (elem.title !== PMA_messages.strSystemCPUUsage &&
-                    elem.title !== PMA_messages.strQueryCacheEfficiency &&
-                    elem.title !== PMA_messages.strSystemMemory &&
-                    elem.title !== PMA_messages.strSystemSwap
+                if (elem.title !== Messages.strSystemCPUUsage &&
+                    elem.title !== Messages.strQueryCacheEfficiency &&
+                    elem.title !== Messages.strSystemMemory &&
+                    elem.title !== Messages.strSystemSwap
                 ) {
                     elem.chart.axes.yaxis.max = Math.ceil(elem.maxYLabel * 1.1);
                     elem.chart.axes.yaxis.tickInterval = Math.ceil(elem.maxYLabel * 1.1 / 5);
-                } else if (elem.title === PMA_messages.strSystemMemory ||
-                    elem.title === PMA_messages.strSystemSwap
+                } else if (elem.title === Messages.strSystemMemory ||
+                    elem.title === Messages.strSystemSwap
                 ) {
                     elem.chart.axes.yaxis.max = Math.ceil(total * 1.1 / 100) * 100;
                     elem.chart.axes.yaxis.tickInterval = Math.ceil(total * 1.1 / 5);
@@ -1509,12 +1548,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
             // cur and prev are datapoint arrays, but containing
             // only 1 element for cpu-linux
-            cur = cur[0];
-            prev = prev[0];
+            var newCur = cur[0];
+            var newPrev = prev[0];
 
-            var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
-            var diff_idle = cur.idle - prev.idle;
-            return 100 * (diff_total - diff_idle) / diff_total;
+            var diffTotal = newCur.busy + newCur.idle - (newPrev.busy + newPrev.idle);
+            var diffIdle = newCur.idle - newPrev.idle;
+            return 100 * (diffTotal - diffIdle) / diffTotal;
 
         // Query cache efficiency (%)
         case 'qce':
@@ -1571,13 +1610,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             opts.limitTypes = false;
         }
 
-        $('#emptyDialog').dialog({ title: PMA_messages.strAnalysingLogsTitle });
-        $('#emptyDialog').html(PMA_messages.strAnalysingLogs +
+        $('#emptyDialog').dialog({ title: Messages.strAnalysingLogsTitle });
+        $('#emptyDialog').html(Messages.strAnalysingLogs +
                                 ' <img class="ajaxIcon" src="' + pmaThemeImage +
                                 'ajax_clock_small.gif" alt="">');
         var dlgBtns = {};
 
-        dlgBtns[PMA_messages.strCancelRequest] = function () {
+        dlgBtns[Messages.strCancelRequest] = function () {
             if (logRequest !== null) {
                 logRequest.abort();
             }
@@ -1592,15 +1631,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         logRequest = $.post(
-            'server_status_monitor.php' + PMA_commonParams.get('common_query'),
+            'server_status_monitor.php' + CommonParams.get('common_query'),
             {
-                ajax_request: true,
-                log_data: 1,
-                type: opts.src,
-                time_start: Math.round(opts.start / 1000),
-                time_end: Math.round(opts.end / 1000),
-                removeVariables: opts.removeVariables,
-                limitTypes: opts.limitTypes
+                'ajax_request': true,
+                'log_data': 1,
+                'type': opts.src,
+                'time_start': Math.round(opts.start / 1000),
+                'time_end': Math.round(opts.end / 1000),
+                'removeVariables': opts.removeVariables,
+                'limitTypes': opts.limitTypes
             },
             function (data) {
                 var logData;
@@ -1612,10 +1651,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 }
 
                 if (logData.rows.length === 0) {
-                    $('#emptyDialog').dialog({ title: PMA_messages.strNoDataFoundTitle });
-                    $('#emptyDialog').html('<p>' + PMA_messages.strNoDataFound + '</p>');
+                    $('#emptyDialog').dialog({ title: Messages.strNoDataFoundTitle });
+                    $('#emptyDialog').html('<p>' + Messages.strNoDataFound + '</p>');
 
-                    dlgBtns[PMA_messages.strClose] = function () {
+                    dlgBtns[Messages.strClose] = function () {
                         $(this).dialog('close');
                     };
 
@@ -1626,29 +1665,29 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 runtime.logDataCols = buildLogTable(logData, opts.removeVariables);
 
                 /* Show some stats in the dialog */
-                $('#emptyDialog').dialog({ title: PMA_messages.strLoadingLogs });
-                $('#emptyDialog').html('<p>' + PMA_messages.strLogDataLoaded + '</p>');
+                $('#emptyDialog').dialog({ title: Messages.strLoadingLogs });
+                $('#emptyDialog').html('<p>' + Messages.strLogDataLoaded + '</p>');
                 $.each(logData.sum, function (key, value) {
-                    key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
-                    if (key === 'Total') {
-                        key = '<b>' + key + '</b>';
+                    var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
+                    if (newKey === 'Total') {
+                        newKey = '<b>' + newKey + '</b>';
                     }
-                    $('#emptyDialog').append(key + ': ' + value + '<br>');
+                    $('#emptyDialog').append(newKey + ': ' + value + '<br>');
                 });
 
                 /* Add filter options if more than a bunch of rows there to filter */
                 if (logData.numRows > 12) {
                     $('#logTable').prepend(
                         '<fieldset id="logDataFilter">' +
-                        '    <legend>' + PMA_messages.strFiltersForLogTable + '</legend>' +
+                        '    <legend>' + Messages.strFiltersForLogTable + '</legend>' +
                         '    <div class="formelement">' +
-                        '        <label for="filterQueryText">' + PMA_messages.strFilterByWordRegexp + '</label>' +
-                        '        <input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;">' +
+                        '        <label for="filterQueryText">' + Messages.strFilterByWordRegexp + '</label>' +
+                        '        <input name="filterQueryText" type="text" id="filter_query_text">' +
                         '    </div>' +
-                        ((logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + PMA_messages.strFilter + '</button></div>' : '') +
+                        ((logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + Messages.strFilter + '</button></div>' : '') +
                         '    <div class="formelement">' +
                         '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1"> ' +
-                        '       <label for="noWHEREData"> ' + PMA_messages.strIgnoreWhereAndGroup + '</label>' +
+                        '       <label for="noWHEREData"> ' + Messages.strIgnoreWhereAndGroup + '</label>' +
                         '   </div' +
                         '</fieldset>'
                     );
@@ -1664,7 +1703,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     }
                 }
 
-                dlgBtns[PMA_messages.strJumpToTable] = function () {
+                dlgBtns[Messages.strJumpToTable] = function () {
                     $(this).dialog('close');
                     $(document).scrollTop($('#logTable').offset().top);
                 };
@@ -1704,7 +1743,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             var i = 0;
             var q;
             var noVars = $('#noWHEREData').prop('checked');
-            var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
+            var equalsFilter = /([^=]+)=(\d+|(('|"|).*?[^\\])\4((\s+)|$))/gi;
             var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
             var filteredQueries = {};
             var filteredQueriesLines = {};
@@ -1827,8 +1866,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             // Display some stats at the bottom of the table
             $('#logTable').find('table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' +
-                      PMA_messages.strSumRows + ' ' + rowSum + '<span class="floatright">' +
-                      PMA_messages.strTotal + '</span></th><th class="right">' + totalSum + '</th>');
+                      Messages.strSumRows + ' ' + rowSum + '<span class="floatright">' +
+                      Messages.strTotal + '</span></th><th class="right">' + totalSum + '</th>');
         }
     }
 
@@ -1840,10 +1879,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     /* Turns a number into a timespan (100 into 00:01:40) */
     function secToTime (timeInt) {
-        var hours = Math.floor(timeInt / 3600);
-        timeInt -= hours * 3600;
-        var minutes = Math.floor(timeInt / 60);
-        timeInt -= minutes * 60;
+        var time = timeInt;
+        var hours = Math.floor(time / 3600);
+        time -= hours * 3600;
+        var minutes = Math.floor(time / 60);
+        time -= minutes * 60;
 
         if (hours < 10) {
             hours = '0' + hours;
@@ -1851,11 +1891,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         if (minutes < 10) {
             minutes = '0' + minutes;
         }
-        if (timeInt < 10) {
-            timeInt = '0' + timeInt;
+        if (time < 10) {
+            time = '0' + time;
         }
 
-        return hours + ':' + minutes + ':' + timeInt;
+        return hours + ':' + minutes + ':' + time;
     }
 
     /* Constructs the log table out of the retrieved server data */
@@ -1877,7 +1917,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             if (name === 'user_host') {
                 return value.replace(/(\[.*?\])+/g, '');
             }
-            return escapeHtml(value);
+            return Functions.escapeHtml(value);
         };
 
         for (var i = 0, l = rows.length; i < l; i++) {
@@ -1907,20 +1947,20 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
 
         $table.append('<tfoot>' +
-                    '<tr><th colspan="' + (cols.length - 1) + '">' + PMA_messages.strSumRows +
-                    ' ' + data.numRows + '<span class="floatright">' + PMA_messages.strTotal +
+                    '<tr><th colspan="' + (cols.length - 1) + '">' + Messages.strSumRows +
+                    ' ' + data.numRows + '<span class="floatright">' + Messages.strTotal +
                     '</span></th><th class="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable').find('tr:first th:last').text().indexOf('#') > -1) {
-            $('#logTable').find('tr:first th:last').append('&nbsp;' + PMA_getImage('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
+            $('#logTable').find('tr:first th:last').append('&nbsp;' + Functions.getImage('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
 
-            var tooltipContent = PMA_messages.strCountColumnExplanation;
+            var tooltipContent = Messages.strCountColumnExplanation;
             if (groupInserts) {
-                tooltipContent += '<p>' + PMA_messages.strMoreCountColumnExplanation + '</p>';
+                tooltipContent += '<p>' + Messages.strMoreCountColumnExplanation + '</p>';
             }
 
-            PMA_tooltip(
+            Functions.tooltip(
                 $('img.qroupedQueryInfoIcon'),
                 'img',
                 tooltipContent
@@ -1943,14 +1983,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var rowData = $(this).parent().data('query');
         var query = rowData.argument || rowData.sql_text;
 
-        if (codemirror_editor) {
-            // TODO: somehow PMA_SQLPrettyPrint messes up the query, needs be fixed
-            // query = PMA_SQLPrettyPrint(query);
-            codemirror_editor.setValue(query);
+        if (codeMirrorEditor) {
+            // TODO: somehow Functions.sqlPrettyPrint messes up the query, needs be fixed
+            // query = Functions.sqlPrettyPrint(query);
+            codeMirrorEditor.setValue(query);
             // Codemirror is bugged, it doesn't refresh properly sometimes.
             // Following lines seem to fix that
             setTimeout(function () {
-                codemirror_editor.refresh();
+                codeMirrorEditor.refresh();
             }, 50);
         } else {
             $('#sqlquery').val(query);
@@ -1959,10 +1999,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var profilingChart = null;
         var dlgBtns = {};
 
-        dlgBtns[PMA_messages.strAnalyzeQuery] = function () {
+        dlgBtns[Messages.strAnalyzeQuery] = function () {
             loadQueryAnalysis(rowData);
         };
-        dlgBtns[PMA_messages.strClose] = function () {
+        dlgBtns[Messages.strClose] = function () {
             $(this).dialog('close');
         };
 
@@ -1976,8 +2016,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     profilingChart.destroy();
                 }
                 $('#queryAnalyzerDialog').find('div.placeHolder').html('');
-                if (codemirror_editor) {
-                    codemirror_editor.setValue('');
+                if (codeMirrorEditor) {
+                    codeMirrorEditor.setValue('');
                 } else {
                     $('#sqlquery').val('');
                 }
@@ -1990,16 +2030,17 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var db = rowData.db || '';
 
         $('#queryAnalyzerDialog').find('div.placeHolder').html(
-            PMA_messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
+            Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
-        $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), {
-            ajax_request: true,
-            query_analyzer: true,
-            query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
-            database: db,
-            server: PMA_commonParams.get('server')
-        }, function (data) {
+        $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
+            'ajax_request': true,
+            'query_analyzer': true,
+            'query': codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val(),
+            'database': db,
+            'server': CommonParams.get('server')
+        }, function (responseData) {
+            var data = responseData;
             var i;
             var l;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -2007,7 +2048,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
             if (data.error) {
                 if (data.error.indexOf('1146') !== -1 || data.error.indexOf('1046') !== -1) {
-                    data.error = PMA_messages.strServerLogError;
+                    data.error = Messages.strServerLogError;
                 }
                 $('#queryAnalyzerDialog').find('div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;
@@ -2017,7 +2058,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $('#queryAnalyzerDialog').find('div.placeHolder')
                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
-            var explain = '<b>' + PMA_messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
+            var explain = '<b>' + Messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
             if (data.explain.length > 1) {
                 explain += ' (';
                 for (i = 0; i < data.explain.length; i++) {
@@ -2031,15 +2072,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             explain += '<p></p>';
 
             var tempExplain = function (key, value) {
-                value = (value === null) ? 'null' : escapeHtml(value);
+                var newValue = (value === null) ? 'null' : Functions.escapeHtml(value);
 
-                if (key === 'type' && value.toLowerCase() === 'all') {
-                    value = '<span class="attention">' + value + '</span>';
+                if (key === 'type' && newValue.toLowerCase() === 'all') {
+                    newValue = '<span class="attention">' + newValue + '</span>';
                 }
                 if (key === 'Extra') {
-                    value = value.replace(/(using (temporary|filesort))/gi, '<span class="attention">$1</span>');
+                    newValue = newValue.replace(/(using (temporary|filesort))/gi, '<span class="attention">$1</span>');
                 }
-                explain += key + ': ' + value + '<br>';
+                explain += key + ': ' + newValue + '<br>';
             };
 
             for (i = 0, l = data.explain.length; i < l; i++) {
@@ -2048,7 +2089,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 explain += '</div>';
             }
 
-            explain += '<p><b>' + PMA_messages.strAffectedRows + '</b> ' + data.affectedRows;
+            explain += '<p><b>' + Messages.strAffectedRows + '</b> ' + data.affectedRows;
 
             $('#queryAnalyzerDialog').find('div.placeHolder td.explain').append(explain);
 
@@ -2060,7 +2101,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
             if (data.profiling) {
                 var chartData = [];
-                var numberTable = '<table class="queryNums"><thead><tr><th>' + PMA_messages.strStatus + '</th><th>' + PMA_messages.strTime + '</th></tr></thead><tbody>';
+                var numberTable = '<table class="queryNums"><thead><tr><th>' + Messages.strStatus + '</th><th>' + Messages.strTime + '</th></tr></thead><tbody>';
                 var duration;
                 var otherTime = 0;
 
@@ -2069,7 +2110,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                     totalTime += duration;
 
-                    numberTable += '<tr><td>' + data.profiling[i].state + ' </td><td> ' + PMA_prettyProfilingNum(duration, 2) + '</td></tr>';
+                    numberTable += '<tr><td>' + data.profiling[i].state + ' </td><td> ' + Functions.prettyProfilingNum(duration, 2) + '</td></tr>';
                 }
 
                 // Only put those values in the pie which are > 2%
@@ -2077,22 +2118,22 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     duration = parseFloat(data.profiling[i].duration);
 
                     if (duration / totalTime > 0.02) {
-                        chartData.push([PMA_prettyProfilingNum(duration, 2) + ' ' + data.profiling[i].state, duration]);
+                        chartData.push([Functions.prettyProfilingNum(duration, 2) + ' ' + data.profiling[i].state, duration]);
                     } else {
                         otherTime += duration;
                     }
                 }
 
                 if (otherTime > 0) {
-                    chartData.push([PMA_prettyProfilingNum(otherTime, 2) + ' ' + PMA_messages.strOther, otherTime]);
+                    chartData.push([Functions.prettyProfilingNum(otherTime, 2) + ' ' + Messages.strOther, otherTime]);
                 }
 
-                numberTable += '<tr><td><b>' + PMA_messages.strTotalTime + '</b></td><td>' + PMA_prettyProfilingNum(totalTime, 2) + '</td></tr>';
+                numberTable += '<tr><td><b>' + Messages.strTotalTime + '</b></td><td>' + Functions.prettyProfilingNum(totalTime, 2) + '</td></tr>';
                 numberTable += '</tbody></table>';
 
                 $('#queryAnalyzerDialog').find('div.placeHolder td.chart').append(
-                    '<b>' + PMA_messages.strProfilingResults + ' ' + $('#profiling_docu').html() + '</b> ' +
-                    '(<a href="#showNums">' + PMA_messages.strTable + '</a>, <a href="#showChart">' + PMA_messages.strChart + '</a>)<br>' +
+                    '<b>' + Messages.strProfilingResults + ' ' + $('#profiling_docu').html() + '</b> ' +
+                    '(<a href="#showNums">' + Messages.strTable + '</a>, <a href="#showChart">' + Messages.strChart + '</a>)<br>' +
                     numberTable + ' <div id="queryProfiling"></div>');
 
                 $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showNums"]').on('click', function () {
@@ -2107,7 +2148,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     return false;
                 });
 
-                profilingChart = PMA_createProfilingChart(
+                profilingChart = Functions.createProfilingChart(
                     'queryProfiling',
                     chartData
                 );
@@ -2147,13 +2188,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
 function serverResponseError () {
     var btns = {};
-    btns[PMA_messages.strReloadPage] = function () {
+    btns[Messages.strReloadPage] = function () {
         window.location.reload();
     };
-    $('#emptyDialog').dialog({ title: PMA_messages.strRefreshFailed });
+    $('#emptyDialog').dialog({ title: Messages.strRefreshFailed });
     $('#emptyDialog').html(
-        PMA_getImage('s_attention') +
-        PMA_messages.strInvalidResponseExplanation
+        Functions.getImage('s_attention') +
+        Messages.strInvalidResponseExplanation
     );
     $('#emptyDialog').dialog({ buttons: btns });
 }

@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -27,9 +28,9 @@ class BrowseForeignersTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->browseForeigners = new BrowseForeigners(50, 25, 100, false, '');
+        $this->browseForeigners = new BrowseForeigners(50, 25, 100, false, '', new Template());
     }
 
     /**
@@ -80,7 +81,8 @@ class BrowseForeignersTest extends TestCase
             50,
             100,
             false,
-            ''
+            '',
+            new Template()
         );
 
         $this->assertEquals(
@@ -138,18 +140,18 @@ class BrowseForeignersTest extends TestCase
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select class="pageselector ajax" name="pos"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option selected="selected" '
             . 'style="font-weight: bold" value="0">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option  value="25"',
             $result
         );
@@ -175,7 +177,7 @@ class BrowseForeignersTest extends TestCase
             )
         );
 
-        $browseForeigners = new BrowseForeigners(5, 25, 100, false, '');
+        $browseForeigners = new BrowseForeigners(5, 25, 100, false, '', new Template());
 
         $this->assertEquals(
             [
@@ -215,44 +217,44 @@ class BrowseForeignersTest extends TestCase
             $current_value
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" '
             . 'action="browse_foreigners.php" method="post">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<fieldset>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="field" value="foo">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="fieldkey" value="bar">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="rownumber" value="1">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="formelement">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<label for="input_foreign_filter">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" name="foreign_filter" '
             . 'id="input_foreign_filter" '
             . 'value="5" data-old="5" '
@@ -260,17 +262,17 @@ class BrowseForeignersTest extends TestCase
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="Go">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="formelement">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table width="100%" id="browse_foreign_table">',
             $result
         );
@@ -286,12 +288,12 @@ class BrowseForeignersTest extends TestCase
             $current_value
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table width="100%" id="browse_foreign_table">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>',
             $result
         );

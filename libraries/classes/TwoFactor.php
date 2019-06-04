@@ -10,6 +10,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Plugins\TwoFactor\Invalid;
+use PhpMyAdmin\Plugins\TwoFactorPlugin;
+use Samyoul\U2F\U2FServer\U2FServer;
+use PragmaRX\Google2FAQRCode\Google2FA;
 
 /**
  * Two factor authentication wrapper class
@@ -118,10 +122,10 @@ class TwoFactor
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
             $result[] = 'simple';
         }
-        if (class_exists('PragmaRX\Google2FAQRCode\Google2FA')) {
+        if (class_exists(Google2FA::class)) {
             $result[] = 'application';
         }
-        if (class_exists('Samyoul\U2F\U2FServer\U2FServer')) {
+        if (class_exists(U2FServer::class)) {
             $result[] = 'key';
         }
         return $result;
@@ -135,7 +139,7 @@ class TwoFactor
     public function getMissingDeps()
     {
         $result = [];
-        if (! class_exists('PragmaRX\Google2FAQRCode\Google2FA')) {
+        if (! class_exists(Google2FA::class)) {
             $result[] = [
                 'class' => \PhpMyAdmin\Plugins\TwoFactor\Application::getName(),
                 'dep' => 'pragmarx/google2fa-qrcode',
@@ -147,7 +151,7 @@ class TwoFactor
                 'dep' => 'bacon/bacon-qr-code',
             ];
         }
-        if (! class_exists('Samyoul\U2F\U2FServer\U2FServer')) {
+        if (! class_exists(U2FServer::class)) {
             $result[] = [
                 'class' => \PhpMyAdmin\Plugins\TwoFactor\Key::getName(),
                 'dep' => 'samyoul/u2f-php-server',
@@ -165,11 +169,11 @@ class TwoFactor
      */
     public function getBackendClass($name)
     {
-        $result = 'PhpMyAdmin\\Plugins\\TwoFactorPlugin';
+        $result = TwoFactorPlugin::class;
         if (in_array($name, $this->_available)) {
             $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
         } elseif (! empty($name)) {
-            $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\Invalid';
+            $result = Invalid::class;
         }
         return $result;
     }

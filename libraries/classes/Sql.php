@@ -326,12 +326,7 @@ class Sql
         $i = 1;
         $table = '';
         foreach ($profiling_results as $one_result) {
-            if (isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
-                $states = $profiling_stats['states'];
-                $states[ucwords($one_result['Status'])]['total_time']
-                    += $one_result['Duration'];
-                $states[ucwords($one_result['Status'])]['calls']++;
-            } else {
+            if (! isset($profiling_stats['states'][ucwords($one_result['Status'])])) {
                 $profiling_stats['states'][ucwords($one_result['Status'])] = [
                     'total_time' => $one_result['Duration'],
                     'calls' => 1,
@@ -1067,6 +1062,11 @@ class Sql
             // "Showing rows..." message
             // $_SESSION['tmpval']['max_rows'] = 'all';
             $unlim_num_rows = $num_rows;
+        } elseif ($this->isAppendLimitClause($analyzed_sql_results) && $_SESSION['tmpval']['max_rows'] > $num_rows) {
+            // When user has not defined a limit in query and total rows in
+            // result are less than max_rows to display, there is no need
+            // to count total rows for that query again
+            $unlim_num_rows = $_SESSION['tmpval']['pos'] + $num_rows;
         } elseif ($analyzed_sql_results['querytype'] == 'SELECT'
             || $analyzed_sql_results['is_subquery']
         ) {
@@ -1499,7 +1499,7 @@ class Sql
     {
         $row = $GLOBALS['dbi']->fetchRow($result);
         $field_flags = $GLOBALS['dbi']->fieldFlags($result, 0);
-        if (stristr($field_flags, DisplayResults::BINARY_FIELD)) {
+        if (false !== stripos($field_flags, DisplayResults::BINARY_FIELD)) {
             $row[0] = bin2hex($row[0]);
         }
         $response = Response::getInstance();
@@ -1618,15 +1618,13 @@ class Sql
                 }
 
                 $GLOBALS['dbi']->freeResult($result);
-                unset($result);
             } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
         } else {
             $fields_meta = [];
-            $fields_cnt = 0;
-            if (isset($result) && $result !== false) {
+            if (isset($result) && ! is_bool($result)) {
                 $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-                $fields_cnt  = count($fields_meta);
             }
+            $fields_cnt = count($fields_meta);
             $_SESSION['is_multi_query'] = false;
             $displayResultsObject->setProperties(
                 $unlim_num_rows,
@@ -1650,12 +1648,14 @@ class Sql
                 $browse_dist
             );
 
-            $table_html .= $displayResultsObject->getTable(
-                $result,
-                $displayParts,
-                $analyzed_sql_results,
-                $is_limited_display
-            );
+            if (! is_bool($result)) {
+                $table_html .= $displayResultsObject->getTable(
+                    $result,
+                    $displayParts,
+                    $analyzed_sql_results,
+                    $is_limited_display
+                );
+            }
             $GLOBALS['dbi']->freeResult($result);
         }
 
@@ -1941,7 +1941,7 @@ class Sql
             );
             if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
                 $response->addHTML($tableMaintenanceHtml);
-                exit();
+                exit;
             }
         }
 
@@ -2210,6 +2210,10 @@ class Sql
             isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
             isset($extra_data) ? $extra_data : null
         );
+
+        if ($GLOBALS['dbi']->moreResults()) {
+            $GLOBALS['dbi']->nextResult();
+        }
 
         $warning_messages = $this->operations->getWarningMessagesArray();
 

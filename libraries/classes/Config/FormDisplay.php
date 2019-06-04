@@ -61,7 +61,7 @@ class FormDisplay
     private $_systemPaths = [];
 
     /**
-     * Language strings which will be sent to PMA_messages JS variable
+     * Language strings which will be sent to Messages JS variable
      * Will be looked up in $GLOBALS: str{value} or strSetup{value}
      * @var array
      */
@@ -103,7 +103,7 @@ class FormDisplay
             'error_nan_nneg' => __('Not a non-negative number!'),
             'error_incorrect_port' => __('Not a valid port number!'),
             'error_invalid_value' => __('Incorrect value!'),
-            'error_value_lte' => __('Value must be equal or lower than %s!')
+            'error_value_lte' => __('Value must be less than or equal to %s!')
         ];
         $this->_configFile = $cf;
         // initialize validators
@@ -183,7 +183,7 @@ class FormDisplay
         $paths = [];
         $values = [];
         foreach ($this->_forms as $form) {
-            /* @var $form Form */
+            /** @var Form $form */
             $paths[] = $form->name;
             // collect values and paths
             foreach ($form->fields as $path) {
@@ -239,7 +239,7 @@ class FormDisplay
         $validators = Validator::getValidators($this->_configFile);
 
         foreach ($this->_forms as $form) {
-            /* @var $form Form */
+            /** @var Form $form */
             $formErrors = isset($this->_errors[$form->name])
                 ? $this->_errors[$form->name] : null;
             $htmlOutput .= $this->formDisplayTemplate->displayFieldsetTop(
@@ -318,7 +318,7 @@ class FormDisplay
         // validate only when we aren't displaying a "new server" form
         $isNewServer = false;
         foreach ($this->_forms as $form) {
-            /* @var $form Form */
+            /** @var Form $form */
             if ($form->index === 0) {
                 $isNewServer = true;
                 break;
@@ -351,7 +351,7 @@ class FormDisplay
             foreach ($this->_jsLangStrings as $strName => $strValue) {
                 $jsLang[] = "'$strName': '" . Sanitize::jsFormat($strValue, false) . '\'';
             }
-            $js[] = "$.extend(PMA_messages, {\n\t"
+            $js[] = "$.extend(Messages, {\n\t"
                 . implode(",\n\t", $jsLang) . '})';
         }
 
@@ -612,7 +612,7 @@ class FormDisplay
 
         $this->_errors = [];
         foreach ($forms as $formName) {
-            /* @var $form Form */
+            /** @var Form $form */
             if (isset($this->_forms[$formName])) {
                 $form = $this->_forms[$formName];
             } else {

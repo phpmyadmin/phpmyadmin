@@ -43,7 +43,7 @@ class TransformationPluginsTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         // For Application Octetstream Download plugin
         global $row, $fields_meta;
@@ -68,7 +68,7 @@ class TransformationPluginsTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 
@@ -720,7 +720,7 @@ class TransformationPluginsTest extends PmaTestCase
      * @dataProvider multiDataProvider
      * @group medium
      */
-    public function testGetMulti($object, $method, $expected, $args = [])
+    public function testGetMulti($object, $method, $expected, $args = []): void
     {
         if (method_exists($object, $method)) {
             $reflectionMethod = new ReflectionMethod($object, $method);

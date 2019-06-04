@@ -186,7 +186,7 @@ class IpAllowDeny
             $first_bin = inet_pton($first_ip);
             $first_hex = bin2hex($first_bin);
 
-            $flexbits = 128 - $subnet;
+            $flexbits = 128 - (int) $subnet;
 
             // Build the hexadecimal string of the last address
             $last_hex = $first_hex;

@@ -162,7 +162,11 @@ class Validator
         $newResult = [];
         foreach ($result as $k => $v) {
             $k2 = isset($keyMap[$k]) ? $keyMap[$k] : $k;
-            $newResult[$k2] = $v;
+            if (is_array($v)) {
+                $newResult[$k2] = array_map('htmlspecialchars', $v);
+            } else {
+                $newResult[$k2] = htmlspecialchars($v);
+            }
         }
         return empty($newResult) ? true : $newResult;
     }
@@ -195,10 +199,7 @@ class Validator
         $error = null;
         $host = Core::sanitizeMySQLHost($host);
 
-        if (function_exists('error_clear_last')) {
-            /* PHP 7 only code */
-            error_clear_last();
-        }
+        error_clear_last();
 
         if (DatabaseInterface::checkDbExtension('mysqli')) {
             $socket = empty($socket) ? null : $socket;
@@ -226,7 +227,10 @@ class Validator
             }
         }
         if (! is_null($error)) {
-            $error .= ' - ' . error_get_last();
+            $lastError = error_get_last();
+            if ($lastError !== null) {
+                $error .= ' - ' . $lastError['message'];
+            }
         }
         return is_null($error) ? true : [$errorKey => $error];
     }
@@ -374,16 +378,7 @@ class Validator
             return $result;
         }
 
-        if (function_exists('error_clear_last')) {
-            /* PHP 7 only code */
-            error_clear_last();
-            $lastError = null;
-        } else {
-            // As fallback we trigger another error to ensure
-            // that preg error will be different
-            @strpos();
-            $lastError = error_get_last();
-        }
+        error_clear_last();
 
         $matches = [];
         // in libraries/ListDatabase.php _checkHideDatabase(),
@@ -392,7 +387,7 @@ class Validator
 
         $currentError = error_get_last();
 
-        if ($currentError !== $lastError) {
+        if ($currentError !== null) {
             $error = preg_replace('/^preg_match\(\): /', '', $currentError['message']);
             return [$path => $error];
         }
@@ -562,7 +557,7 @@ class Validator
      * @param array  $values config values
      * @param string $regex  regular expression to match
      *
-     * @return array
+     * @return array|string
      */
     public static function validateByRegex($path, array $values, $regex)
     {
@@ -587,7 +582,7 @@ class Validator
         $result = $values[$path] <= $maxValue;
         return [
             $path => $result ? '' : sprintf(
-                __('Value must be equal or lower than %s!'),
+                __('Value must be less than or equal to %s!'),
                 $maxValue
             ),
         ];

@@ -1,6 +1,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * @fileoverview    Javascript functions used in server status query page
+ * @name            Server Status Query
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    js/functions.js
  */
+
+/* global initTableSorter */ // js/server_status_sorter.js
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -21,7 +29,7 @@ AJAX.registerOnload('server_status_queries.js', function () {
         });
         $('#serverstatusquerieschart').data(
             'queryPieChart',
-            PMA_createProfilingChart(
+            Functions.createProfilingChart(
                 'serverstatusquerieschart',
                 cdata
             )

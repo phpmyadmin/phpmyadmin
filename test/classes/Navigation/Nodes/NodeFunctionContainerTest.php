@@ -25,7 +25,7 @@ class NodeFunctionContainerTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -42,7 +42,7 @@ class NodeFunctionContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_routines.php',
             $parent->links['text']
         );

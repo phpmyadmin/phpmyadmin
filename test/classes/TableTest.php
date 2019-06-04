@@ -29,7 +29,7 @@ class TableTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         /**
          * SET these to avoid undefined index error
@@ -410,7 +410,7 @@ class TableTest extends PmaTestCase
      *
      * @dataProvider dataValidateName
      */
-    public function testValidateName($name, $result, $is_backquoted = false)
+    public function testValidateName($name, $result, $is_backquoted = false): void
     {
         $this->assertEquals(
             $result,
@@ -1410,12 +1410,12 @@ class TableTest extends PmaTestCase
         $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
             . " SELECT `COLUMN_NAME1` FROM "
             . "`PMA`.`PMA_BookMark`";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $sql_query,
             $GLOBALS['sql_query']
         );
         $sql_query = "DROP VIEW `PMA`.`PMA_BookMark`";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $sql_query,
             $GLOBALS['sql_query']
         );
@@ -1439,12 +1439,12 @@ class TableTest extends PmaTestCase
         $sql_query = "INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)"
             . " SELECT `COLUMN_NAME1` FROM "
             . "`PMA`.`PMA_BookMark`";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $sql_query,
             $GLOBALS['sql_query']
         );
         $sql_query = "DROP VIEW `PMA`.`PMA_BookMark`";
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             $sql_query,
             $GLOBALS['sql_query']
         );

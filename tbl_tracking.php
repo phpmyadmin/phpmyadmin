@@ -8,13 +8,15 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
-use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
+
+global $pmaThemeImage, $text_dir, $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
@@ -28,7 +30,8 @@ $scripts->addFile('tbl_tracking.js');
 define('TABLE_MAY_BE_ABSENT', true);
 require ROOT_PATH . 'libraries/tbl_common.inc.php';
 
-$tracking = new Tracking();
+/** @var Tracking $tracking */
+$tracking = $containerBuilder->get('tracking');
 
 if (Tracker::isActive()
     && Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])

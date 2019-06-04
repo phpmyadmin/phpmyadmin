@@ -13,6 +13,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
@@ -30,7 +31,7 @@ class IndexesControllerTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         /**
          * SET these to avoid undefined index error
@@ -40,6 +41,7 @@ class IndexesControllerTest extends PmaTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['url_params'] = [
             'db' => 'db',
             'server' => 1,
@@ -97,6 +99,7 @@ class IndexesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'db');
         $container->set('table', 'table');
+        $container->set('template', new Template());
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $response);
@@ -105,6 +108,7 @@ class IndexesControllerTest extends PmaTestCase
         $ctrl = new IndexesController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $container->get('table'),
             null
@@ -115,7 +119,7 @@ class IndexesControllerTest extends PmaTestCase
         $ctrl->doSaveDataAction();
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
-        $this->assertContains(
+        $this->assertStringContainsString(
             $sql_query,
             $jsonArray['sql_data']
         );
@@ -155,6 +159,7 @@ class IndexesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'db');
         $container->set('table', 'table');
+        $container->set('template', new Template());
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $response);
@@ -164,6 +169,7 @@ class IndexesControllerTest extends PmaTestCase
         $ctrl = new IndexesController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $container->get('table'),
             $index
@@ -175,7 +181,7 @@ class IndexesControllerTest extends PmaTestCase
         $html = $response->getHTMLResult();
 
         //Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs(
                 [
                     'db' => 'db',
@@ -194,33 +200,33 @@ class IndexesControllerTest extends PmaTestCase
                 )
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $doc_html,
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::showMySQLDocu('ALTER_TABLE'),
             $html
         );
 
         // generateIndexSelector
-        $this->assertContains(
+        $this->assertStringContainsString(
             $index->generateIndexChoiceSelector(false),
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             sprintf(__('Add %s column(s) to index'), 1),
             $html
         );
 
         //$field_name & $field_type
-        $this->assertContains(
+        $this->assertStringContainsString(
             "field_name",
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             "field_type",
             $html
         );

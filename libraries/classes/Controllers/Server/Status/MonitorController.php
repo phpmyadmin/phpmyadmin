@@ -9,15 +9,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Template;
 
 /**
  * Class MonitorController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
-class MonitorController extends Controller
+class MonitorController extends AbstractController
 {
     /**
      * @var Monitor
@@ -27,14 +30,15 @@ class MonitorController extends Controller
     /**
      * MonitorController constructor.
      *
-     * @param \PhpMyAdmin\Response          $response Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
-     * @param Data                          $data     Data object
-     * @param Monitor                       $monitor  Monitor object
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Template          $template Template object
+     * @param Data              $data     Data object
+     * @param Monitor           $monitor  Monitor object
      */
-    public function __construct($response, $dbi, $data, $monitor)
+    public function __construct($response, $dbi, Template $template, $data, $monitor)
     {
-        parent::__construct($response, $dbi, $data);
+        parent::__construct($response, $dbi, $template, $data);
         $this->monitor = $monitor;
     }
 
@@ -43,25 +47,6 @@ class MonitorController extends Controller
      */
     public function index(): string
     {
-        $refreshList = Data::getHtmlForRefreshList(
-            'gridChartRefresh',
-            5,
-            [
-                2,
-                3,
-                4,
-                5,
-                10,
-                20,
-                40,
-                60,
-                120,
-                300,
-                600,
-                1200,
-            ]
-        );
-
         $form = [
             'server_time' => microtime(true) * 1000,
             'server_os' => SysInfo::getOs(),
@@ -77,7 +62,6 @@ class MonitorController extends Controller
         }
 
         return $this->template->render('server/status/monitor/index', [
-            'refresh_list' => $refreshList,
             'image_path' => $GLOBALS['pmaThemeImage'],
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,

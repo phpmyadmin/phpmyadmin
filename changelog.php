@@ -7,6 +7,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -17,6 +18,9 @@ if (! defined('ROOT_PATH')) {
  * Gets core libraries and defines some variables
  */
 require ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 $response = Response::getInstance();
 $response->disable();
@@ -84,11 +88,11 @@ $replaces = [
 
     // Highlight releases (with links)
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.0 (\([0-9-]+\))/'
-    => '<a name="\\1_\\2_\\3"></a>'
+    => '<a id="\\1_\\2_\\3"></a>'
         . '<a href="url.php?url=' . $github_url . 'commits/RELEASE_\\1_\\2_\\3">'
         . '\\1.\\2.\\3.0 \\4</a>',
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.([1-9][0-9]*) (\([0-9-]+\))/'
-    => '<a name="\\1_\\2_\\3_\\4"></a>'
+    => '<a id="\\1_\\2_\\3_\\4"></a>'
         . '<a href="url.php?url=' . $github_url . 'commits/RELEASE_\\1_\\2_\\3_\\4">'
         . '\\1.\\2.\\3.\\4 \\5</a>',
 
@@ -102,21 +106,7 @@ $replaces = [
 ];
 
 header('Content-type: text/html; charset=utf-8');
-?>
-<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>phpMyAdmin - ChangeLog</title>
-    <meta charset="utf-8">
-</head>
-<body>
-<h1>phpMyAdmin - ChangeLog</h1>
-<?php
-echo '<pre>';
-echo preg_replace(array_keys($replaces), $replaces, $changelog);
-echo '</pre>';
-?>
-</body>
-</html>
+
+echo $template->render('changelog', [
+    'changelog' => preg_replace(array_keys($replaces), $replaces, $changelog),
+]);

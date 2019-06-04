@@ -748,7 +748,6 @@ div#modalOverlay {
 }
 
 form.login label {
-  float: $left;
   width: 10em;
   font-weight: bolder;
 }
@@ -798,6 +797,10 @@ form.login label {
 
 .max_height_400 {
   max-height: 400px;
+}
+
+.color_red {
+  color: red;
 }
 
 .pma_sliding_message {
@@ -1027,6 +1030,7 @@ div#tablestatistics table {
   background: white;
   font-weight: bold;
   padding-bottom: 0.5em;
+  padding-#{$left}: 2.2em;
   width: 10000px;
   overflow: hidden;
   box-sizing: content-box;
@@ -1270,7 +1274,6 @@ table#chartGrid {
 
   div.monitorChart {
     background: #ebebeb;
-    overflow: hidden;
     border: none;
   }
 }
@@ -2285,6 +2288,10 @@ fieldset {
   margin-#{$left}: 0.5em;
 }
 
+input#auto_increment_opt {
+  width: min-content;
+}
+
 #placeholder {
   .button {
     position: absolute;
@@ -2468,14 +2475,17 @@ fieldset {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table {
-  td {
-    position: static;
-  }
-
+.pma_table,
+.sticky_columns {
   th.draggable span {
     display: block;
     overflow: hidden;
+  }
+}
+
+.pma_table {
+  td {
+    position: static;
   }
 
   tbody td span {
@@ -3726,4 +3736,30 @@ body {
   #serverinfo .item {
     margin: 4px;
   }
+}
+
+#tooltip_editor {
+  font-size: 12px;
+  background-color: #fff;
+  opacity: 0.95;
+  filter: alpha(opacity=95);
+  padding: 5px;
+}
+
+#tooltip_font {
+  font-weight: bold;
+}
+
+#selection_box {
+  z-index: 1000;
+  height: 205px;
+  position: absolute;
+  background-color: #87ceeb;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  pointer-events: none;
+}
+
+#filter_query_text {
+  vertical-align: baseline;
 }

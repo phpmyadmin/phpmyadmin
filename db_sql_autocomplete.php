@@ -7,6 +7,8 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -15,13 +17,22 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
     $db = isset($_POST['db']) ? $_POST['db'] : $GLOBALS['db'];
     $sql_autocomplete = [];
     if ($db) {
-        $tableNames = $GLOBALS['dbi']->getTables($db);
+        $tableNames = $dbi->getTables($db);
         foreach ($tableNames as $tableName) {
-            $sql_autocomplete[$tableName] = $GLOBALS['dbi']->getColumns(
+            $sql_autocomplete[$tableName] = $dbi->getColumns(
                 $db,
                 $tableName
             );
@@ -30,5 +41,5 @@ if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
 } else {
     $sql_autocomplete = true;
 }
-$response = Response::getInstance();
+
 $response->addJSON("tables", json_encode($sql_autocomplete));

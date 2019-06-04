@@ -31,7 +31,7 @@ class GisGeometryTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = $this->getMockForAbstractClass('PhpMyAdmin\Gis\GisGeometry');
     }
@@ -43,7 +43,7 @@ class GisGeometryTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -74,7 +74,7 @@ class GisGeometryTest extends TestCase
      * @dataProvider providerForTestSetMinMax
      * @return void
      */
-    public function testSetMinMax($point_set, $min_max, $output)
+    public function testSetMinMax($point_set, $min_max, $output): void
     {
         $this->assertEquals(
             $output,
@@ -133,7 +133,7 @@ class GisGeometryTest extends TestCase
      * @dataProvider providerForTestGenerateParams
      * @return void
      */
-    public function testGenerateParams($value, $output)
+    public function testGenerateParams($value, $output): void
     {
         $this->assertEquals(
             $output,
@@ -187,7 +187,7 @@ class GisGeometryTest extends TestCase
      * @dataProvider providerForTestExtractPoints
      * @return void
      */
-    public function testExtractPoints($point_set, $scale_data, $linear, $output)
+    public function testExtractPoints($point_set, $scale_data, $linear, $output): void
     {
         $this->assertEquals(
             $output,
@@ -302,7 +302,7 @@ class GisGeometryTest extends TestCase
      * @return void
      * @dataProvider providerForTestGetBoundsForOl
      */
-    public function testGetBoundsForOl($srid, $scale_data, $output)
+    public function testGetBoundsForOl($srid, $scale_data, $output): void
     {
         $this->assertEquals(
             $output,
@@ -354,7 +354,7 @@ class GisGeometryTest extends TestCase
      * @return void
      * @dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
-    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output)
+    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output): void
     {
         $this->assertEquals(
             $output,

@@ -28,7 +28,7 @@ AJAX.registerTeardown('db_qbe.js', function () {
 });
 
 AJAX.registerOnload('db_qbe.js', function () {
-    PMA_getSQLEditor($('#textSqlquery'), {}, 'both');
+    Functions.getSqlEditor($('#textSqlquery'), {}, 'both');
 
     /**
      * Ajax handler to check the corresponding 'show' checkbox when column is selected
@@ -66,7 +66,7 @@ AJAX.registerOnload('db_qbe.js', function () {
      * Ajax event handlers for 'Delete bookmark'
      */
     $(document).on('click', '#deleteSearch', function (event) {
-        var question = PMA_sprintf(PMA_messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
+        var question = Functions.sprintf(Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
         if (!confirm(question)) {
             return false;
         }

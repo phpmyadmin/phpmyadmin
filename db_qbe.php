@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Database\Qbe;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -21,14 +23,23 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * requirements
- */
+global $db, $pmaThemeImage, $url_query;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
-$relation = new Relation($GLOBALS['dbi']);
-$template = new Template();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 // Gets the relation settings
 $cfgRelation = $relation->getRelationsParam();
@@ -42,9 +53,9 @@ if ($cfgRelation['savedsearcheswork']) {
     $scripts->addFile('db_qbe.js');
 
     //Get saved search list.
-    $savedSearch = new SavedSearches($GLOBALS);
+    $savedSearch = new SavedSearches($GLOBALS, $relation);
     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-        ->setDbname($GLOBALS['db']);
+        ->setDbname($db);
 
     if (! empty($_POST['searchId'])) {
         $savedSearch->setId($_POST['searchId']);
@@ -63,16 +74,16 @@ if ($cfgRelation['savedsearcheswork']) {
         } elseif ('delete' === $_POST['action']) {
             $deleteResult = $savedSearch->delete();
             //After deletion, reset search.
-            $savedSearch = new SavedSearches($GLOBALS);
+            $savedSearch = new SavedSearches($GLOBALS, $relation);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-                ->setDbname($GLOBALS['db']);
+                ->setDbname($db);
             $_POST = [];
         } elseif ('load' === $_POST['action']) {
             if (empty($_POST['searchId'])) {
                 //when not loading a search, reset the object.
-                $savedSearch = new SavedSearches($GLOBALS);
+                $savedSearch = new SavedSearches($GLOBALS, $relation);
                 $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-                    ->setDbname($GLOBALS['db']);
+                    ->setDbname($db);
                 $_POST = [];
             } else {
                 $loadResult = $savedSearch->load();
@@ -144,7 +155,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new Qbe($GLOBALS['dbi'], $GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new Qbe($relation, $template, $dbi, $db, $savedSearchList, $savedSearch);
 
 $secondaryTabs = [
     'multi' => [

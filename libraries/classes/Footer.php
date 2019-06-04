@@ -54,10 +54,16 @@ class Footer
     private $relation;
 
     /**
+     * @var Template
+     */
+    private $template;
+
+    /**
      * Creates a new class instance
      */
     public function __construct()
     {
+        $this->template = new Template();
         $this->_isEnabled = true;
         $this->_scripts = new Scripts();
         $this->_isMinimal = false;
@@ -303,12 +309,8 @@ class Footer
      */
     public function getDisplay(): string
     {
-        $retval = '';
         $this->_setHistory();
         if ($this->_isEnabled) {
-            if (! $this->_isAjax) {
-                $retval .= "</div>";
-            }
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 if (Core::getenv('SCRIPT_NAME')
                     && empty($_POST)
@@ -322,7 +324,7 @@ class Footer
                     $this->_scripts->addCode(
                         sprintf(
                             'if (! (history && history.pushState)) '
-                            . 'PMA_MicroHistory.primer = {'
+                            . 'MicroHistory.primer = {'
                             . ' url: "%s",'
                             . ' scripts: %s,'
                             . ' menuHash: "%s"'
@@ -337,28 +339,32 @@ class Footer
                     && ! $this->_isAjax
                 ) {
                     $url = $this->getSelfUrl();
-                    $retval .= $this->_getSelfLink($url);
+                    $selfLink = $this->_getSelfLink($url);
                 }
                 $this->_scripts->addCode(
                     'var debugSQLInfo = ' . $this->getDebugMessage() . ';'
                 );
-                $retval .= '<div class="clearfloat" id="pma_errors">';
-                $retval .= $this->getErrorMessages();
-                $retval .= '</div>';
-                $retval .= $this->_scripts->getDisplay();
+
+                $errorMessages = $this->getErrorMessages();
+                $scripts = $this->_scripts->getDisplay();
+
                 if ($GLOBALS['cfg']['DBG']['demo']) {
-                    $retval .= '<div id="pma_demo">';
-                    $retval .= $this->_getDemoMessage();
-                    $retval .= '</div>';
+                    $demoMessage = $this->_getDemoMessage();
                 }
 
-                $retval .= Config::renderFooter();
+                $footer = Config::renderFooter();
             }
-            if (! $this->_isAjax) {
-                $retval .= "</body></html>";
-            }
+            return $this->template->render('footer', [
+                'is_ajax' => $this->_isAjax,
+                'is_minimal' => $this->_isMinimal,
+                'self_link' => $selfLink ?? '',
+                'error_messages' => $errorMessages ?? '',
+                'scripts' => $scripts ?? '',
+                'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
+                'demo_message' => $demoMessage ?? '',
+                'footer' => $footer ?? '',
+            ]);
         }
-
-        return $retval;
+        return '';
     }
 }

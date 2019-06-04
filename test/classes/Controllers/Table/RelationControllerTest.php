@@ -10,8 +10,11 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
+use PhpMyAdmin\Response;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
@@ -29,12 +32,13 @@ class RelationControllerTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         //$_SESSION
 
         $_POST['foreignDb'] = 'db';
@@ -81,10 +85,13 @@ class RelationControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'db');
         $container->set('table', 'table');
+        $template = new Template();
+        $container->set('template', $template);
+        $container->set('relation', new Relation($dbi, $template));
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $this->_response);
-        $container->alias('response', 'PhpMyAdmin\Response');
+        $container->set(Response::class, $this->_response);
+        $container->alias('response', Response::class);
     }
 
     /**

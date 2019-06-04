@@ -87,7 +87,7 @@ class Operations
             . '<form id="rename_db_form" '
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
         if (! is_null($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
                 . 'value="' . $db_collation
@@ -206,7 +206,7 @@ class Operations
         $html_output .= '<form id="copy_db_form" '
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
 
         if (! is_null($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
@@ -866,7 +866,7 @@ class Operations
         $html_output = '<div>';
         $html_output .= '<form method="post" action="tbl_operations.php"'
             . ' id="moveTableForm" class="ajax"'
-            . ' onsubmit="return emptyCheckTheField(this, \'new_name\')">'
+            . ' onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
         $html_output .= '<input type="hidden" name="reload" value="1">'
@@ -931,7 +931,7 @@ class Operations
      *
      * @param Table  $pma_table          Table object
      * @param string $comment            Comment
-     * @param array  $tbl_collation      table collation
+     * @param string $tbl_collation      table collation
      * @param string $tbl_storage_engine table storage engine
      * @param string $pack_keys          pack keys
      * @param string $auto_increment     value of auto increment
@@ -1083,7 +1083,7 @@ class Operations
      *
      * @param Table  $pma_table          Table object
      * @param string $comment            Comment
-     * @param array  $tbl_collation      table collation
+     * @param string $tbl_collation      table collation
      * @param string $tbl_storage_engine table storage engine
      * @param string $pack_keys          pack keys
      * @param string $delay_key_write    delay key write
@@ -1182,7 +1182,7 @@ class Operations
         } // end if (ARIA)
 
         if (strlen($auto_increment) > 0
-            && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
+            && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
         ) {
             $html_output .= '<tr><td class="vmiddle">'
                 . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
@@ -1290,7 +1290,12 @@ class Operations
         } else {
             $innodb_file_format = '';
         }
-        if ('Barracuda' == $innodb_file_format
+        /**
+         * Newer MySQL/MariaDB always return empty a.k.a '' on $innodb_file_format otherwise
+         * old versions of MySQL/MariaDB must be returning something or not empty.
+         * This patch is to support newer MySQL/MariaDB while also for backward compatibilities.
+         */
+        if (( ('Barracuda' == $innodb_file_format) || ($innodb_file_format == '') )
             && $innodbEnginePlugin->supportsFilePerTable()
         ) {
             $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
@@ -1312,7 +1317,7 @@ class Operations
             . 'name="copyTable" '
             . 'id="copyTable" '
             . ' class="ajax" '
-            . 'onsubmit="return emptyCheckTheField(this, \'new_name\')">'
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
             . '<input type="hidden" name="reload" value="1">';
 
@@ -1906,7 +1911,7 @@ class Operations
             $table_alters[] = 'delay_key_write = ' . $_POST['new_delay_key_write'];
         }
 
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
+        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
             && ! empty($_POST['new_auto_increment'])
             && (! isset($auto_increment)
             || $_POST['new_auto_increment'] !== $auto_increment)

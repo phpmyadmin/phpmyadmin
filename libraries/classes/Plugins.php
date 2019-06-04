@@ -14,6 +14,14 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 
 /**
  * PhpMyAdmin\Plugins class
@@ -283,6 +291,7 @@ class Plugins
     ) {
         $ret = "\n";
 
+        $properties = null;
         if (! $is_subgroup) {
             // for subgroup headers
             if (mb_strpos(get_class($propertyGroup), "PropertyItem")) {
@@ -417,7 +426,7 @@ class Plugins
         $ret = null;
         $property_class = get_class($propertyItem);
         switch ($property_class) {
-            case 'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem':
+            case BoolPropertyItem::class:
                 $ret .= '<li>' . "\n";
                 $ret .= '<input type="checkbox" name="' . $plugin_name . '_'
                 . $propertyItem->getName() . '"'
@@ -444,10 +453,10 @@ class Plugins
                 . $propertyItem->getName() . '">'
                 . self::getString($propertyItem->getText()) . '</label>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\DocPropertyItem':
-                echo 'PhpMyAdmin\Properties\Options\Items\DocPropertyItem';
+            case DocPropertyItem::class:
+                echo DocPropertyItem::class;
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem':
+            case HiddenPropertyItem::class:
                 $ret .= '<li><input type="hidden" name="' . $plugin_name . '_'
                 . $propertyItem->getName() . '"'
                 . ' value="' . self::getDefault(
@@ -456,11 +465,11 @@ class Plugins
                 )
                     . '"' . '></li>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem':
+            case MessageOnlyPropertyItem::class:
                 $ret .= '<li>' . "\n";
                 $ret .= '<p>' . self::getString($propertyItem->getText()) . '</p>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem':
+            case RadioPropertyItem::class:
                 /**
                  * @var \PhpMyAdmin\Properties\Options\Items\RadioPropertyItem $pitem
                  */
@@ -484,7 +493,7 @@ class Plugins
                     . self::getString($val) . '</label></li>';
                 }
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem':
+            case SelectPropertyItem::class:
                 /**
                  * @var \PhpMyAdmin\Properties\Options\Items\SelectPropertyItem $pitem
                  */
@@ -511,7 +520,7 @@ class Plugins
 
                 $ret .= '</select>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\TextPropertyItem':
+            case TextPropertyItem::class:
                 /**
                  * @var \PhpMyAdmin\Properties\Options\Items\TextPropertyItem $pitem
                  */
@@ -536,7 +545,7 @@ class Plugins
                     : '')
                     . '>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\NumberPropertyItem':
+            case NumberPropertyItem::class:
                 $ret .= '<li>' . "\n";
                 $ret .= '<label for="number_' . $plugin_name . '_'
                     . $propertyItem->getName() . '" class="desc">'
@@ -599,7 +608,7 @@ class Plugins
                     // check for hidden properties
                     $no_options = true;
                     foreach ($propertyMainGroup->getProperties() as $propertyItem) {
-                        if (strcmp('PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem', get_class($propertyItem))) {
+                        if (strcmp(HiddenPropertyItem::class, get_class($propertyItem))) {
                             $no_options = false;
                             break;
                         }

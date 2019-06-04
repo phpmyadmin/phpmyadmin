@@ -682,7 +682,7 @@ class Export
         }
 
         /* Scan for plugins */
-        /* @var $exportList ExportPlugin[] */
+        /** @var ExportPlugin[] $exportList */
         $exportList = Plugins::getPlugins(
             "export",
             'libraries/classes/Plugins/Export/',

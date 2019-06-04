@@ -377,7 +377,7 @@ class Bookmark
             $query .= ")";
         }
         $query .= " AND " . Util::backquote($id_field)
-            . " = " . $dbi->escapeString((string) $id) . " LIMIT 1";
+            . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
 
         $result = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
         if (! empty($result)) {

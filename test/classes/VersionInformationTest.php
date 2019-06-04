@@ -28,7 +28,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->_releases = [];
 
@@ -84,7 +84,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @dataProvider dataVersions
      */
-    public function testVersionToInt($version, $numeric)
+    public function testVersionToInt($version, $numeric): void
     {
         $versionInformation = new VersionInformation();
         $this->assertEquals(

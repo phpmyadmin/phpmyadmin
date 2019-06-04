@@ -38,7 +38,7 @@ class ConfigFileTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $this->object = new ConfigFile();
@@ -49,7 +49,7 @@ class ConfigFileTest extends PmaTestCase
      *
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($_SESSION[$this->readAttribute($this->object, "_id")]);
         unset($this->object);

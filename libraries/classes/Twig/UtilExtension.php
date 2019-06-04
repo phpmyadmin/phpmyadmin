@@ -60,11 +60,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_class_for_type',
-                'PhpMyAdmin\Util::getClassForType',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_docu_link',
                 'PhpMyAdmin\Util::getDocuLink',
                 ['is_safe' => ['html']]
@@ -170,8 +165,27 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
+                'get_mysql_docu_url',
+                'PhpMyAdmin\Util::getMySQLDocuURL',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
+                'show_php_docu',
+                'PhpMyAdmin\Util::showPHPDocu',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
                 'sortable_table_header',
                 'PhpMyAdmin\Util::sortableTableHeader',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
+                'timespan_format',
+                'PhpMyAdmin\Util::timespanFormat'
+            ),
+            new TwigFunction(
+                'generate_hidden_max_file_size',
+                'PhpMyAdmin\Util::generateHiddenMaxFileSize',
                 ['is_safe' => ['html']]
             ),
         ];

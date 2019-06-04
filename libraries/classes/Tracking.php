@@ -9,17 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\Tracking class
  *
@@ -38,12 +27,22 @@ class Tracking
     public $template;
 
     /**
-     * Tracking constructor.
+     * @var Relation
      */
-    public function __construct()
+    protected $relation;
+
+    /**
+     * Tracking constructor.
+     *
+     * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
+     * @param Template     $template     Template instance
+     * @param Relation     $relation     Relation instance
+     */
+    public function __construct(SqlQueryForm $sqlQueryForm, Template $template, Relation $relation)
     {
-        $this->sqlQueryForm = new SqlQueryForm();
-        $this->template = new Template();
+        $this->sqlQueryForm = $sqlQueryForm;
+        $this->template = $template;
+        $this->relation = $relation;
     }
 
     /**
@@ -61,7 +60,7 @@ class Tracking
         $filter_ts_from,
         $filter_ts_to,
         array $filter_users
-    ) {
+    ): array {
         $tmp_entries = [];
         $id = 0;
         foreach ($data as $entry) {
@@ -141,7 +140,7 @@ class Tracking
      */
     public function getListOfVersionsOfTable()
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
         $sql_query = " SELECT * FROM " .
             Util::backquote($cfgRelation['db']) . "." .
@@ -234,7 +233,7 @@ class Tracking
      */
     public function getSqlResultForSelectableTables()
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
 
         $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
@@ -911,7 +910,7 @@ class Tracking
         );
         echo $dump;
 
-        exit();
+        exit;
     }
 
     /**
@@ -1186,7 +1185,7 @@ class Tracking
         string $pmaThemeImage,
         string $textDir
     ) {
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
 
         // Prepare statement to get HEAD version

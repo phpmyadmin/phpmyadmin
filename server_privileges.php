@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -21,15 +23,20 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * include common file
- */
+global $db, $pmaThemeImage, $text_dir, $url_query;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
-$relation = new Relation($GLOBALS['dbi']);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 
 /**
@@ -41,9 +48,10 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
-$template = new Template();
-$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
-$serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+$relationCleanup = new RelationCleanup($dbi, $relation);
+$serverPrivileges = new Privileges($template, $dbi, $relation, $relationCleanup);
 
 if ((isset($_GET['viewing_mode'])
     && $_GET['viewing_mode'] == 'server')
@@ -79,6 +87,7 @@ $strPrivDescCreateTmpTable = __('Allows creating temporary tables.');
 $strPrivDescCreateUser = __('Allows creating, dropping and renaming user accounts.');
 $strPrivDescCreateView = __('Allows creating new views.');
 $strPrivDescDelete = __('Allows deleting data.');
+$strPrivDescDeleteHistoricalRows = __('Allows deleting historical rows.');
 $strPrivDescDropDb = __('Allows dropping databases and tables.');
 $strPrivDescDropTbl = __('Allows dropping tables.');
 $strPrivDescEvent = __('Allows to set up events for the event scheduler.');
@@ -139,7 +148,7 @@ list(
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (! $GLOBALS['dbi']->isSuperuser() && ! $GLOBALS['is_grantuser']
+if (! $dbi->isSuperuser() && ! $GLOBALS['is_grantuser']
     && ! $GLOBALS['is_createuser']
 ) {
     $response->addHTML(
@@ -258,7 +267,7 @@ if (! empty($_POST['update_privs'])) {
  * Assign users to user groups
  */
 if (! empty($_POST['changeUserGroup']) && $cfgRelation['menuswork']
-    && $GLOBALS['dbi']->isSuperuser() && $GLOBALS['is_createuser']
+    && $dbi->isSuperuser() && $GLOBALS['is_createuser']
 ) {
     $serverPrivileges->setUserGroup($username, $_POST['userGroup']);
     $message = Message::success();
@@ -354,7 +363,7 @@ if ($response->isAjax()
  * Displays the links
  */
 if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
-    $GLOBALS['db'] = $_REQUEST['db'] = $_GET['checkprivsdb'];
+    $db = $_REQUEST['db'] = $_GET['checkprivsdb'];
 
     $url_query .= '&amp;goto=db_operations.php';
 
@@ -458,7 +467,7 @@ if (isset($_GET['adduser'])) {
         $response->addHTML(
             $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
                 $username,
-                $hostname,
+                $hostname ?? '',
                 $dbname,
                 $routinename,
                 (isset($url_dbname) ? $url_dbname : '')
@@ -476,7 +485,7 @@ if (isset($_GET['adduser'])) {
                 (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
                 (isset($url_dbname) ? $url_dbname : ''),
                 $username,
-                $hostname,
+                $hostname ?? '',
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )

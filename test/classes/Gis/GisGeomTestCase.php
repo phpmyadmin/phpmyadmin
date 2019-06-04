@@ -18,6 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 abstract class GisGeomTestCase extends TestCase
 {
+    protected $object;
 
     /**
      * test generateParams method
@@ -29,7 +30,7 @@ abstract class GisGeomTestCase extends TestCase
      * @dataProvider providerForTestGenerateParams
      * @return void
      */
-    public function testGenerateParams($wkt, $index, $params)
+    public function testGenerateParams($wkt, $index, $params): void
     {
         if ($index == null) {
             $this->assertEquals(
@@ -53,7 +54,7 @@ abstract class GisGeomTestCase extends TestCase
      * @dataProvider providerForTestScaleRow
      * @return void
      */
-    public function testScaleRow($spatial, $min_max)
+    public function testScaleRow($spatial, $min_max): void
     {
         $this->assertEquals(
             $min_max,

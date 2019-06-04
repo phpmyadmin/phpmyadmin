@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Controller;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\StorageEngine;
 
 /**
@@ -17,7 +17,7 @@ use PhpMyAdmin\StorageEngine;
  *
  * @package PhpMyAdmin\Controllers
  */
-class EnginesController extends Controller
+class EnginesController extends AbstractController
 {
     /**
      * Index action

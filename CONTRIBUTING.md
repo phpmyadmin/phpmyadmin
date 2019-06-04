@@ -20,13 +20,15 @@ Please report [bugs on GitHub][1].
 ## Patches submission
 
 Patches are welcome as [pull requests on GitHub][2].  Please include a
-Signed-off-by tag in the commit message (you can do this by passing `--signoff`
+Signed-off-by tag in the commit message (you can do this by passing [`--signoff`][4]
 parameter to Git). 
 
 When creating the commit on GitHub or using some other tool which does not have
 direct support for this, it is the same as adding 
 `Signed-off-by: Your name <email@example.com>`
 as the last line of the commit message.
+
+Example: `Signed-off-by: Jane Smith <jane.smith@example.org>`
 
 Note that by submitting patches with the Signed-off-by tag, you are giving
 permission to license the patch as GPLv2-or-later.  See [the DCO file][3] for
@@ -35,6 +37,7 @@ details.
 
 [2]: https://github.com/phpmyadmin/phpmyadmin/pulls
 [3]: https://github.com/phpmyadmin/phpmyadmin/blob/master/DCO
+[4]: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---signoff
 
 ## More information
 

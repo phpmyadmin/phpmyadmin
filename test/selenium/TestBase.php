@@ -75,7 +75,7 @@ abstract class TestBase extends TestCase
      *
      * @throws \Exception
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         /**
          * Needs to be implemented
@@ -83,10 +83,6 @@ abstract class TestBase extends TestCase
          * @ENV TESTSUITE_FULL
          */
         parent::setUp();
-
-        if (! $this->hasCIConfig()) {
-            echo 'Not configured to run as CI.';
-        }
 
         if (! $this->hasTestSuiteDatabaseServer()) {
             $this->markTestSkipped('Database server is not configured.');
@@ -1010,7 +1006,7 @@ abstract class TestBase extends TestCase
     {
         /* Get current message count */
         $ajax_message_count = $this->webDriver->executeScript(
-            'return ajax_message_count;'
+            'return ajaxMessageCount;'
         );
         /* Ensure the popup is gone */
         $this->waitForElementNotPresent(
@@ -1024,7 +1020,7 @@ abstract class TestBase extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         if ($this->_mysqli != null) {
             $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->database_name);
@@ -1038,11 +1034,11 @@ abstract class TestBase extends TestCase
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      *
-     * @param \Throwable $e Throwable
+     * @param \Throwable $t Throwable
      *
      * @return void
      */
-    public function onNotSuccessfulTest(\Throwable $e)
+    public function onNotSuccessfulTest(\Throwable $t): void
     {
         $SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
         // If this is being run on Browerstack,
@@ -1051,7 +1047,7 @@ abstract class TestBase extends TestCase
             $payload = json_encode(
                 [
                     'status' => 'failed',
-                    'reason' => $e->getMessage(),
+                    'reason' => $t->getMessage(),
                 ]
             );
 
@@ -1108,6 +1104,6 @@ abstract class TestBase extends TestCase
         }
 
         // Call parent's onNotSuccessful to handle everything else
-        parent::onNotSuccessfulTest($e);
+        parent::onNotSuccessfulTest($t);
     }
 }

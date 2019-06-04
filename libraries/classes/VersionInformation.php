@@ -87,19 +87,19 @@ class VersionInformation
         $result = 0;
 
         if (count($parts) >= 1 && is_numeric($parts[0])) {
-            $result += 1000000 * $parts[0];
+            $result += 1000000 * (int) $parts[0];
         }
 
         if (count($parts) >= 2 && is_numeric($parts[1])) {
-            $result += 10000 * $parts[1];
+            $result += 10000 * (int) $parts[1];
         }
 
         if (count($parts) >= 3 && is_numeric($parts[2])) {
-            $result += 100 * $parts[2];
+            $result += 100 * (int) $parts[2];
         }
 
         if (count($parts) >= 4 && is_numeric($parts[3])) {
-            $result += 1 * $parts[3];
+            $result += 1 * (int) $parts[3];
         }
 
         if (! empty($suffix)) {

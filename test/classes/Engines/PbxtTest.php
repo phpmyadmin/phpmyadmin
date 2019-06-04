@@ -32,7 +32,7 @@ class PbxtTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
@@ -45,7 +45,7 @@ class PbxtTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -179,7 +179,7 @@ class PbxtTest extends PmaTestCase
      *
      * @return void
      */
-    public function testResolveTypeSize($formatted_size, $output)
+    public function testResolveTypeSize($formatted_size, $output): void
     {
         $this->assertEquals(
             $this->object->resolveTypeSize($formatted_size),

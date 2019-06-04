@@ -24,7 +24,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['ProxyUrl'] = '';
     }
@@ -153,18 +153,23 @@ class IndexTest extends TestCase
             ],
         ];
 
-        ob_start();
-        SetupIndex::messagesShowHtml();
-        $result = ob_get_clean();
+        $expected = [
+            [
+                'id' => 0,
+                'title' => 'foo',
+                'type' => 'type',
+                'message' => '123',
+                'is_hidden' => true,
+            ],
+            [
+                'id' => 1,
+                'title' => 'bar',
+                'type' => 'type',
+                'message' => '321',
+                'is_hidden' => false,
+            ],
+        ];
 
-        $this->assertContains(
-            '<div class="type hiddenmessage" id="0"><h4>foo</h4>123</div>',
-            $result
-        );
-
-        $this->assertContains(
-            '<div class="type" id="1"><h4>bar</h4>321</div>',
-            $result
-        );
+        $this->assertEquals($expected, SetupIndex::messagesShowHtml());
     }
 }

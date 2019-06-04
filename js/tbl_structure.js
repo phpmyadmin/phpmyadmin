@@ -8,6 +8,9 @@
  * @required    js/functions.js
  */
 
+/* global primaryIndexes, indexes, fulltextIndexes, spatialIndexes */ // js/functions.js
+/* global sprintf */ // js/vendor/sprintf.js
+
 /**
  * AJAX scripts for tbl_structure.php
  *
@@ -22,11 +25,11 @@
  * Reload fields table
  */
 function reloadFieldForm () {
-    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true', function (form_data) {
-        var $temp_div = $('<div id=\'temp_div\'><div>').append(form_data.message);
-        $('#fieldsForm').replaceWith($temp_div.find('#fieldsForm'));
-        $('#addColumns').replaceWith($temp_div.find('#addColumns'));
-        $('#move_columns_dialog').find('ul').replaceWith($temp_div.find('#move_columns_dialog ul'));
+    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true', function (formData) {
+        var $tempDiv = $('<div id=\'temp_div\'><div>').append(formData.message);
+        $('#fieldsForm').replaceWith($tempDiv.find('#fieldsForm'));
+        $('#addColumns').replaceWith($tempDiv.find('#addColumns'));
+        $('#move_columns_dialog').find('ul').replaceWith($tempDiv.find('#move_columns_dialog ul'));
         $('#moveColumns').removeClass('move-active');
     });
     $('#page_content').show();
@@ -55,10 +58,10 @@ AJAX.registerTeardown('tbl_structure.js', function () {
 
 AJAX.registerOnload('tbl_structure.js', function () {
     // Re-initialize variables.
-    primary_indexes = [];
+    primaryIndexes = [];
     indexes = [];
-    fulltext_indexes = [];
-    spatial_indexes = [];
+    fulltextIndexes = [];
+    spatialIndexes = [];
 
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
@@ -70,12 +73,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * @var    the_form    object referring to the export form
          */
         var $form = $(this);
-        var field_cnt = $form.find('input[name=orig_num_fields]').val();
+        var fieldCnt = $form.find('input[name=orig_num_fields]').val();
 
 
         function submitForm () {
-            $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
                 } else if ($('.error:not(.tab)').length !== 0) {
@@ -86,38 +89,38 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         .empty()
                         .append(data.message)
                         .show();
-                    PMA_highlightSQL($('#page_content'));
+                    Functions.highlightSql($('#page_content'));
                     $('.result_query .notice').remove();
                     reloadFieldForm();
                     $form.remove();
-                    PMA_ajaxRemoveMessage($msg);
-                    PMA_init_slider();
-                    PMA_reloadNavigation();
+                    Functions.ajaxRemoveMessage($msg);
+                    Functions.initSlider();
+                    Navigation.reload();
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         }
 
-        function checkIfConfirmRequired ($form, $field_cnt) {
+        function checkIfConfirmRequired ($form, $fieldCnt) {
             var i = 0;
             var id;
             var elm;
             var val;
-            var name_orig;
-            var elm_orig;
-            var val_orig;
+            var nameOrig;
+            var elmOrig;
+            var valOrig;
             var checkRequired = false;
-            for (i = 0; i < field_cnt; i++) {
+            for (i = 0; i < fieldCnt; i++) {
                 id = '#field_' + i + '_5';
                 elm = $(id);
                 val = elm.val();
 
-                name_orig = 'input[name=field_collation_orig\\[' + i + '\\]]';
-                elm_orig = $form.find(name_orig);
-                val_orig = elm_orig.val();
+                nameOrig = 'input[name=field_collation_orig\\[' + i + '\\]]';
+                elmOrig = $form.find(nameOrig);
+                valOrig = elmOrig.val();
 
-                if (val && val_orig && val !== val_orig) {
+                if (val && valOrig && val !== valOrig) {
                     checkRequired = true;
                     break;
                 }
@@ -128,23 +131,23 @@ AJAX.registerOnload('tbl_structure.js', function () {
         /*
          * First validate the form; if there is a problem, avoid submitting it
          *
-         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * Functions.checkTableEditForm() needs a pure element and not a jQuery object,
          * this is why we pass $form[0] as a parameter (the jQuery object
          * is actually an array of DOM elements)
          */
-        if (checkTableEditForm($form[0], field_cnt)) {
+        if (Functions.checkTableEditForm($form[0], fieldCnt)) {
             // OK, form passed validation step
 
-            PMA_prepareForAjaxRequest($form);
-            if (PMA_checkReservedWordColumns($form)) {
+            Functions.prepareForAjaxRequest($form);
+            if (Functions.checkReservedWordColumns($form)) {
                 // User wants to submit the form
 
                 // If Collation is changed, Warn and Confirm
-                if (checkIfConfirmRequired($form, field_cnt)) {
+                if (checkIfConfirmRequired($form, fieldCnt)) {
                     var question = sprintf(
-                        PMA_messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
+                        Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
-                    $form.PMA_confirm(question, $form.attr('action'), function (url) {
+                    $form.confirm(question, $form.attr('action'), function (url) {
                         submitForm();
                     });
                 } else {
@@ -162,32 +165,32 @@ AJAX.registerOnload('tbl_structure.js', function () {
         /**
          * @var curr_table_name String containing the name of the current table
          */
-        var curr_table_name = $(this).closest('form').find('input[name=table]').val();
+        var currTableName = $(this).closest('form').find('input[name=table]').val();
         /**
          * @var curr_row    Object reference to the currently selected row (i.e. field in the table)
          */
-        var $curr_row = $(this).parents('tr');
+        var $currRow = $(this).parents('tr');
         /**
          * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
          */
-        var curr_column_name = $curr_row.children('th').children('label').text().trim();
-        curr_column_name = escapeHtml(curr_column_name);
+        var currColumnName = $currRow.children('th').children('label').text().trim();
+        currColumnName = Functions.escapeHtml(currColumnName);
         /**
          * @var $after_field_item    Corresponding entry in the 'After' field.
          */
-        var $after_field_item = $('select[name=\'after_field\'] option[value=\'' + curr_column_name + '\']');
+        var $afterFieldItem = $('select[name=\'after_field\'] option[value=\'' + currColumnName + '\']');
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
-        var $this_anchor = $(this);
-        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
-            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
-            params += PMA_commonParams.get('arg_separator') + 'ajax_page_request=1';
+        var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + Functions.escapeHtml(currTableName) + '` DROP `' + Functions.escapeHtml(currColumnName) + '`;');
+        var $thisAnchor = $(this);
+        $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
+            var $msg = Functions.ajaxShowMessage(Messages.strDroppingColumn, false);
+            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_ajaxRemoveMessage($msg);
+                    Functions.ajaxRemoveMessage($msg);
                     if ($('.result_query').length) {
                         $('.result_query').remove();
                     }
@@ -195,19 +198,19 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#structure_content');
-                        PMA_highlightSQL($('#page_content'));
+                        Functions.highlightSql($('#page_content'));
                     }
                     // Adjust the row numbers
-                    for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
-                        var new_val = parseInt($row.find('td:nth-child(2)').text(), 10) - 1;
-                        $row.find('td:nth-child(2)').text(new_val);
+                    for (var $row = $currRow.next(); $row.length > 0; $row = $row.next()) {
+                        var newVal = parseInt($row.find('td:nth-child(2)').text(), 10) - 1;
+                        $row.find('td:nth-child(2)').text(newVal);
                     }
-                    $after_field_item.remove();
-                    $curr_row.hide('medium').remove();
+                    $afterFieldItem.remove();
+                    $currRow.hide('medium').remove();
 
                     // Remove the dropped column from select menu for 'after field'
                     $('select[name=after_field]').find(
-                        '[value="' + curr_column_name + '"]'
+                        '[value="' + currColumnName + '"]'
                     ).remove();
 
                     // by default select the (new) last option to add new column
@@ -220,12 +223,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     // refresh the list of indexes (comes from sql.php)
                     $('.index_info').replaceWith(data.indexes_list);
-                    PMA_reloadNavigation();
+                    Navigation.reload();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
-        }); // end $.PMA_confirm()
+        });
     }); // end of Drop Column Anchor action
 
     /**
@@ -235,7 +238,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         event.preventDefault();
 
         // Take to preview mode
-        printPreview();
+        Functions.printPreview();
     }); // end of Print View action
 
     /**
@@ -245,34 +248,34 @@ AJAX.registerOnload('tbl_structure.js', function () {
         event.preventDefault();
 
         var $this = $(this);
-        var curr_table_name = $this.closest('form').find('input[name=table]').val();
-        var curr_column_name = $this.parents('tr').children('th').children('label').text().trim();
+        var currTableName = $this.closest('form').find('input[name=table]').val();
+        var currColumnName = $this.parents('tr').children('th').children('label').text().trim();
 
-        var add_clause = '';
+        var addClause = '';
         if ($this.is('.add_primary_key_anchor')) {
-            add_clause = 'ADD PRIMARY KEY';
+            addClause = 'ADD PRIMARY KEY';
         } else if ($this.is('.add_index_anchor')) {
-            add_clause = 'ADD INDEX';
+            addClause = 'ADD INDEX';
         } else if ($this.is('.add_unique_anchor')) {
-            add_clause = 'ADD UNIQUE';
+            addClause = 'ADD UNIQUE';
         } else if ($this.is('.add_spatial_anchor')) {
-            add_clause = 'ADD SPATIAL';
+            addClause = 'ADD SPATIAL';
         } else if ($this.is('.add_fulltext_anchor')) {
-            add_clause = 'ADD FULLTEXT';
+            addClause = 'ADD FULLTEXT';
         }
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' +
-                escapeHtml(curr_table_name) + '` ' + add_clause + '(`' + escapeHtml(curr_column_name) + '`);');
+        var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' +
+                Functions.escapeHtml(currTableName) + '` ' + addClause + '(`' + Functions.escapeHtml(currColumnName) + '`);');
 
-        var $this_anchor = $(this);
+        var $thisAnchor = $(this);
 
-        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
-            PMA_ajaxShowMessage();
+        $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
+            Functions.ajaxShowMessage();
             AJAX.source = $this;
 
-            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
-            params += PMA_commonParams.get('arg_separator') + 'ajax_page_request=1';
+            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
-        }); // end $.PMA_confirm()
+        });
     }); // end Add key
 
     /**
@@ -289,23 +292,23 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * @var    button_options  Object that stores the options passed to jQueryUI
          *                          dialog
          */
-        var button_options = {};
+        var buttonOptions = {};
 
-        button_options[PMA_messages.strGo] = function (event) {
+        buttonOptions[Messages.strGo] = function (event) {
             event.preventDefault();
-            var $msgbox = PMA_ajaxShowMessage();
+            var $msgbox = Functions.ajaxShowMessage();
             var $this = $(this);
             var $form = $this.find('form');
             var serialized = $form.serialize();
             // check if any columns were moved at all
             if (serialized === $form.data('serialized-unmoved')) {
-                PMA_ajaxRemoveMessage($msgbox);
+                Functions.ajaxRemoveMessage($msgbox);
                 $this.dialog('close');
                 return;
             }
-            $.post($form.prop('action'), serialized + PMA_commonParams.get('arg_separator') + 'ajax_request=true', function (data) {
+            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
-                    PMA_ajaxRemoveMessage($msgbox);
+                    Functions.ajaxRemoveMessage($msgbox);
                     $this
                         .clone()
                         .html(data.error)
@@ -314,23 +317,23 @@ AJAX.registerOnload('tbl_structure.js', function () {
                             height: 230,
                             width: 900,
                             modal: true,
-                            buttons: button_options_error
+                            buttons: buttonOptionsError
                         }); // end dialog options
                 } else {
                     // sort the fields table
-                    var $fields_table = $('table#tablestructure tbody');
+                    var $fieldsTable = $('table#tablestructure tbody');
                     // remove all existing rows and remember them
-                    var $rows = $fields_table.find('tr').remove();
+                    var $rows = $fieldsTable.find('tr').remove();
                     // loop through the correct order
                     for (var i in data.columns) {
-                        var the_column = data.columns[i];
-                        var $the_row = $rows
-                            .find('input:checkbox[value=\'' + the_column + '\']')
+                        var theColumn = data.columns[i];
+                        var $theRow = $rows
+                            .find('input:checkbox[value=\'' + theColumn + '\']')
                             .closest('tr');
                         // append the row for this column to the table
-                        $fields_table.append($the_row);
+                        $fieldsTable.append($theRow);
                     }
-                    var $firstrow = $fields_table.find('tr').eq(0);
+                    var $firstrow = $fieldsTable.find('tr').eq(0);
                     // Adjust the row numbers and colors
                     for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
                         $row
@@ -340,47 +343,47 @@ AJAX.registerOnload('tbl_structure.js', function () {
                             .removeClass('odd even')
                             .addClass($row.index() % 2 === 0 ? 'odd' : 'even');
                     }
-                    PMA_ajaxShowMessage(data.message);
+                    Functions.ajaxShowMessage(data.message);
                     $this.dialog('close');
                 }
             });
         };
-        button_options[PMA_messages.strPreviewSQL] = function () {
+        buttonOptions[Messages.strPreviewSQL] = function () {
             // Function for Previewing SQL
             var $form = $('#move_column_form');
-            PMA_previewSQL($form);
+            Functions.previewSql($form);
         };
-        button_options[PMA_messages.strCancel] = function () {
+        buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
-        var button_options_error = {};
-        button_options_error[PMA_messages.strOK] = function () {
+        var buttonOptionsError = {};
+        buttonOptionsError[Messages.strOK] = function () {
             $(this).dialog('close').remove();
         };
 
         var columns = [];
 
         $('#tablestructure').find('tbody tr').each(function () {
-            var col_name = $(this).find('input:checkbox').eq(0).val();
-            var hidden_input = $('<input>')
+            var colName = $(this).find('input:checkbox').eq(0).val();
+            var hiddenInput = $('<input>')
                 .prop({
                     name: 'move_columns[]',
                     type: 'hidden'
                 })
-                .val(col_name);
+                .val(colName);
             columns[columns.length] = $('<li></li>')
                 .addClass('placeholderDrag')
-                .text(col_name)
-                .append(hidden_input);
+                .text(colName)
+                .append(hiddenInput);
         });
 
-        var col_list = $('#move_columns_dialog').find('ul')
+        var colList = $('#move_columns_dialog').find('ul')
             .find('li').remove().end();
         for (var i in columns) {
-            col_list.append(columns[i]);
+            colList.append(columns[i]);
         }
-        col_list.sortable({
+        colList.sortable({
             axis: 'y',
             containment: $('#move_columns_dialog').find('div'),
             tolerance: 'pointer'
@@ -390,7 +393,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         $('#move_columns_dialog').dialog({
             modal: true,
-            buttons: button_options,
+            buttons: buttonOptions,
             open: function () {
                 if ($('#move_columns_dialog').parents('.ui-dialog').height() > $(window).height()) {
                     $('#move_columns_dialog').dialog('option', 'height', $(window).height());
@@ -409,9 +412,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parents('form');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
-        PMA_ajaxShowMessage();
+        Functions.ajaxShowMessage();
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
@@ -425,19 +428,19 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         function submitPartitionAction (url) {
             var params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
-            PMA_ajaxShowMessage();
+            Functions.ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
         }
 
         if ($link.is('#partition_action_DROP')) {
-            var question = PMA_messages.strDropPartitionWarning;
-            $link.PMA_confirm(question, $link.attr('href'), function (url) {
+            var question = Messages.strDropPartitionWarning;
+            $link.confirm(question, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else if ($link.is('#partition_action_TRUNCATE')) {
-            var question = PMA_messages.strTruncatePartitionWarning;
-            $link.PMA_confirm(question, $link.attr('href'), function (url) {
+            var question = Messages.strTruncatePartitionWarning;
+            $link.confirm(question, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else {
@@ -451,13 +454,13 @@ AJAX.registerOnload('tbl_structure.js', function () {
     $(document).on('click', '#remove_partitioning.ajax', function (e) {
         e.preventDefault();
         var $link = $(this);
-        var question = PMA_messages.strRemovePartitioningWarning;
-        $link.PMA_confirm(question, $link.attr('href'), function (url) {
-            var params = {
+        var question = Messages.strRemovePartitioningWarning;
+        $link.confirm(question, $link.attr('href'), function (url) {
+            var params = Functions.getJsConfirmCommonParam({
                 'ajax_request' : true,
                 'ajax_page_request' : true
-            };
-            PMA_ajaxShowMessage();
+            }, $link.getPostData());
+            Functions.ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
         });

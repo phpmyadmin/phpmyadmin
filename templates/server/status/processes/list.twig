@@ -15,7 +15,7 @@
               {% endif %}
             </a>
             {% if column.has_full_query %}
-              <a href="server_status_processes.php" data-post="{{ get_common(column.is_full ? {} : {'full': 1}, '') }}">
+              <a href="server_status_processes.php" data-post="{{ get_common(refresh_params, '') }}">
                 {% if column.is_full %}
                   {{ get_image(
                     's_partialtext',

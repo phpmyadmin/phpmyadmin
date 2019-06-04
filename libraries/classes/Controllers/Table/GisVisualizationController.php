@@ -9,10 +9,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
@@ -20,7 +22,7 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin\Controllers
  */
-class GisVisualizationController extends TableController
+class GisVisualizationController extends AbstractController
 {
     /**
      * @var array
@@ -45,19 +47,21 @@ class GisVisualizationController extends TableController
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\Response          $response              Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi                   DatabaseInterface object
-     * @param string                        $db                    Database name
-     * @param string                        $table                 Table name
-     * @param string                        $sql_query             SQL query for retrieving GIS data
-     * @param array                         $url_params            array of URL parameters
-     * @param string                        $goto                  goto script
-     * @param string                        $back                  back script
-     * @param array                         $visualizationSettings visualization settings
+     * @param Response          $response              Response object
+     * @param DatabaseInterface $dbi                   DatabaseInterface object
+     * @param Template          $template              Template object
+     * @param string            $db                    Database name
+     * @param string            $table                 Table name
+     * @param string            $sql_query             SQL query for retrieving GIS data
+     * @param array             $url_params            array of URL parameters
+     * @param string            $goto                  goto script
+     * @param string            $back                  back script
+     * @param array             $visualizationSettings visualization settings
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $sql_query,
@@ -66,7 +70,7 @@ class GisVisualizationController extends TableController
         $back,
         array $visualizationSettings
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         require_once ROOT_PATH . 'libraries/common.inc.php';
         require_once ROOT_PATH . 'libraries/db_common.inc.php';
@@ -127,6 +131,9 @@ class GisVisualizationController extends TableController
         if (Core::isValid($_REQUEST['visualizationSettings'], 'array')) {
             $this->visualizationSettings = $_REQUEST['visualizationSettings'];
         }
+
+        // Check mysql version
+        $this->visualizationSettings['mysqlVersion'] = $this->dbi->getVersion();
 
         if (! isset($this->visualizationSettings['labelColumn'])
             && isset($labelCandidates[0])

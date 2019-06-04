@@ -30,7 +30,7 @@ class TemplateTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->template = new Template();
     }
@@ -44,14 +44,14 @@ class TemplateTest extends PmaTestCase
      *
      * @dataProvider providerTestSet
      */
-    public function testSet($data)
+    public function testSet($data): void
     {
         $result = $this->template->render($data, [
             'variable1' => 'value1',
             'variable2' => 'value2',
         ]);
-        $this->assertContains('value1', $result);
-        $this->assertContains('value2', $result);
+        $this->assertStringContainsString('value1', $result);
+        $this->assertStringContainsString('value2', $result);
     }
 
     /**
@@ -77,7 +77,7 @@ class TemplateTest extends PmaTestCase
      *
      * @dataProvider providerTestDynamicRender
      */
-    public function testDynamicRender($templateFile, $key, $value)
+    public function testDynamicRender($templateFile, $key, $value): void
     {
         $this->assertEquals(
             $value,
@@ -122,7 +122,7 @@ class TemplateTest extends PmaTestCase
      *
      * @dataProvider providerTestRender
      */
-    public function testRender($templateFile, $expectedResult)
+    public function testRender($templateFile, $expectedResult): void
     {
         $this->assertEquals(
             $expectedResult,
@@ -156,7 +156,7 @@ class TemplateTest extends PmaTestCase
      *
      * @dataProvider providerTestRenderGettext
      */
-    public function testRenderGettext($templateFile, $renderParams, $expectedResult)
+    public function testRenderGettext($templateFile, $renderParams, $expectedResult): void
     {
         $this->assertEquals(
             $expectedResult,
