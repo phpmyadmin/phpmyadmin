@@ -1989,7 +1989,8 @@ Navigation panel setup
 
     Enter :term:`URL` where logo in the navigation panel will point to.
     For use especially with self made theme which changes this.
-    For external URLs, you should include URL scheme as well.
+    For relative/internal URLs, you need to have leading `` ./ `` or trailing characters `` ? `` such as ``'./sql.php?'``.
+    For external URLs, you should include URL protocol schemes (``http`` or ``https``) with absolute URLs.
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
@@ -2691,7 +2692,7 @@ Web server settings
     want to use rules for IP addresses behind proxy.
 
     The following example specifies that phpMyAdmin should trust a
-    HTTP\_X\_FORWARDED\_FOR (``X -Forwarded-For``) header coming from the proxy
+    HTTP\_X\_FORWARDED\_FOR (``X-Forwarded-For``) header coming from the proxy
     1.2.3.4:
 
     .. code-block:: php

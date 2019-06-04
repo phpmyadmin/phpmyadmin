@@ -133,6 +133,7 @@
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}
+        {% set edit_view_url = 'view_create.php' ~ edit_view_url %}
         {{ Util_linkOrButton(
             edit_view_url,
             Util_getIcon('b_edit', 'Edit view'|trans, true)
@@ -143,7 +144,9 @@
         'tbl_is_view': tbl_is_view,
         'db_is_system_schema': db_is_system_schema,
         'table': table,
-        'is_active': is_active
+        'is_active': is_active,
+        'mysql_int_version': mysql_int_version,
+        'is_mariadb': is_mariadb
     } only %}
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}

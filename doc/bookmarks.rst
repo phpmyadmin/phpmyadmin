@@ -67,10 +67,10 @@ inserted there will be later also inserted as spaces in your query and may lead
 to unexpected results especially when using the variable expansion inside of a
 "LIKE ''" expression.
 
-Browsing table using bookmark
------------------------------
+Browsing a table using a bookmark
+---------------------------------
 
-When bookmark is named same as table, it will be used as query when browsing
+When a bookmark has the same name as the table, it will be used as the query when browsing
 this table.
 
 .. seealso::

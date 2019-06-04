@@ -1025,7 +1025,7 @@ class TableSearchController extends TableController
             return $where;
         } elseif ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
             $where = $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
             return $where;
@@ -1046,7 +1046,7 @@ class TableSearchController extends TableController
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
 
         } elseif (strlen($criteriaValues) > 0) {

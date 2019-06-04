@@ -156,7 +156,11 @@ class Validator
         $new_result = array();
         foreach ($result as $k => $v) {
             $k2 = isset($key_map[$k]) ? $key_map[$k] : $k;
-            $new_result[$k2] = $v;
+            if (is_array($v)) {
+                $new_result[$k2] = array_map('htmlspecialchars', $v);
+            } else {
+                $new_result[$k2] = htmlspecialchars($v);
+            }
         }
         return empty($new_result) ? true : $new_result;
     }
@@ -580,6 +584,6 @@ class Validator
     {
         $result = $values[$path] <= $max_value;
         return array($path => ($result ? ''
-            : sprintf(__('Value must be equal or lower than %s!'), $max_value)));
+            : sprintf(__('Value must be less than or equal to %s!'), $max_value)));
     }
 }

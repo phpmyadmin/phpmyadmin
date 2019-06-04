@@ -2416,6 +2416,9 @@ class ExportSql extends ExportPlugin
                         )
                     )
                     . "'";
+                } elseif ($fields_meta[$j]->type === 'geometry') {
+                    // export GIS types as hex
+                    $values[] = '0x' . bin2hex($row[$j]);
                 } elseif (!empty($GLOBALS['exporting_metadata'])
                     && $row[$j] == '@LAST_PAGE'
                 ) {

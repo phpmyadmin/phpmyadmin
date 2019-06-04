@@ -26,10 +26,10 @@ function nullify (theType, urlField, md5Field, multi_edit) {
     }
 
     // "ENUM" field with more than 20 characters
-    if (theType === 1) {
+    if (Number(theType) === 1) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  ']'][1].selectedIndex = -1;
     // Other "ENUM" field
-    } else if (theType === 2) {
+    } else if (Number(theType) === 2) {
         var elts     = rowForm.elements['fields' + multi_edit + '[' + md5Field + ']'];
         // when there is just one option in ENUM:
         if (elts.checked) {
@@ -41,13 +41,13 @@ function nullify (theType, urlField, md5Field, multi_edit) {
             } // end for
         } // end if
     // "SET" field
-    } else if (theType === 3) {
+    } else if (Number(theType) === 3) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  '][]'].selectedIndex = -1;
     // Foreign key field (drop-down)
-    } else if (theType === 4) {
+    } else if (Number(theType) === 4) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  ']'].selectedIndex = -1;
     // foreign key field (with browsing icon for foreign values)
-    } else if (theType === 6) {
+    } else if (Number(theType) === 6) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field + ']'].value = '';
     // Other field types
     } else /* if (theType === 5)*/ {
@@ -458,236 +458,248 @@ AJAX.registerOnload('tbl_change.js', function () {
     });
 
     /**
+     * Handle ENTER key when press on Continue insert with field
+     */
+    $('#insert_rows').keypress(function (e) {
+        var key = e.which;
+        if (key === 13) {
+            addNewContinueInsertionFiels(e);
+        }
+    });
+
+    /**
      * Continue Insertion form
      */
-    $(document).on('change', '#insert_rows', function (event) {
-        event.preventDefault();
-        /**
-         * @var columnCount   Number of number of columns table has.
-         */
-        var columnCount = $('table.insertRowTable:first').find('tr').has('input[name*=\'fields_name\']').length;
-        /**
-         * @var curr_rows   Number of current insert rows already on page
-         */
-        var curr_rows = $('table.insertRowTable').length;
-        /**
-         * @var target_rows Number of rows the user wants
-         */
-        var target_rows = $('#insert_rows').val();
-
-        // remove all datepickers
-        $('input.datefield, input.datetimefield').each(function () {
-            $(this).datepicker('destroy');
-        });
-
-        if (curr_rows < target_rows) {
-            var tempIncrementIndex = function () {
-                var $this_element = $(this);
-                /**
-                 * Extract the index from the name attribute for all input/select fields and increment it
-                 * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
-                 */
-
-                /**
-                 * @var this_name   String containing name of the input/select elements
-                 */
-                var this_name = $this_element.attr('name');
-                /** split {@link this_name} at [10], so we have the parts that can be concatenated later */
-                var name_parts = this_name.split(/\[\d+\]/);
-                /** extract the [10] from  {@link name_parts} */
-                var old_row_index_string = this_name.match(/\[\d+\]/)[0];
-                /** extract 10 - had to split into two steps to accomodate double digits */
-                var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0], 10);
-
-                /** calculate next index i.e. 11 */
-                new_row_index = old_row_index + 1;
-                /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
-                var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
-
-                var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
-                $this_element.attr('name', new_name);
-
-                /** If element is select[name*='funcs'], update id */
-                if ($this_element.is('select[name*=\'funcs\']')) {
-                    var this_id = $this_element.attr('id');
-                    var id_parts = this_id.split(/\_/);
-                    var old_id_index = id_parts[1];
-                    var prevSelectedValue = $('#field_' + old_id_index + '_1').val();
-                    var new_id_index = parseInt(old_id_index) + columnCount;
-                    var new_id = 'field_' + new_id_index + '_1';
-                    $this_element.attr('id', new_id);
-                    $this_element.find('option').filter(function () {
-                        return $(this).text() === prevSelectedValue;
-                    }).attr('selected','selected');
-
-                    // If salt field is there then update its id.
-                    var nextSaltInput = $this_element.parent().next('td').next('td').find('input[name*=\'salt\']');
-                    if (nextSaltInput.length !== 0) {
-                        nextSaltInput.attr('id', 'salt_' + new_id);
-                    }
-                }
-
-                // handle input text fields and textareas
-                if ($this_element.is('.textfield') || $this_element.is('.char') || $this_element.is('textarea')) {
-                    // do not remove the 'value' attribute for ENUM columns
-                    // special handling for radio fields after updating ids to unique - see below
-                    if ($this_element.closest('tr').find('span.column_type').html() !== 'enum') {
-                        $this_element.val($this_element.closest('tr').find('span.default_value').html());
-                    }
-                    $this_element
-                        .off('change')
-                        // Remove onchange attribute that was placed
-                        // by tbl_change.php; it refers to the wrong row index
-                        .attr('onchange', null)
-                        // Keep these values to be used when the element
-                        // will change
-                        .data('hashed_field', hashed_field)
-                        .data('new_row_index', new_row_index)
-                        .on('change', function () {
-                            var $changed_element = $(this);
-                            verificationsAfterFieldChange(
-                                $changed_element.data('hashed_field'),
-                                $changed_element.data('new_row_index'),
-                                $changed_element.closest('tr').find('span.column_type').html()
-                            );
-                        });
-                }
-
-                if ($this_element.is('.checkbox_null')) {
-                    $this_element
-                        // this event was bound earlier by jQuery but
-                        // to the original row, not the cloned one, so unbind()
-                        .off('click')
-                        // Keep these values to be used when the element
-                        // will be clicked
-                        .data('hashed_field', hashed_field)
-                        .data('new_row_index', new_row_index)
-                        .on('click', function () {
-                            var $changed_element = $(this);
-                            nullify(
-                                $changed_element.siblings('.nullify_code').val(),
-                                $this_element.closest('tr').find('input:hidden').first().val(),
-                                $changed_element.data('hashed_field'),
-                                '[multi_edit][' + $changed_element.data('new_row_index') + ']'
-                            );
-                        });
-                }
-            };
-
-            var tempReplaceAnchor = function () {
-                var $anchor = $(this);
-                var new_value = 'rownumber=' + new_row_index;
-                // needs improvement in case something else inside
-                // the href contains this pattern
-                var new_href = $anchor.attr('href').replace(/rownumber=\d+/, new_value);
-                $anchor.attr('href', new_href);
-            };
-
-            while (curr_rows < target_rows) {
-                /**
-                 * @var $last_row    Object referring to the last row
-                 */
-                var $last_row = $('#insertForm').find('.insertRowTable:last');
-
-                // need to access this at more than one level
-                // (also needs improvement because it should be calculated
-                //  just once per cloned row, not once per column)
-                var new_row_index = 0;
-
-                // Clone the insert tables
-                $last_row
-                    .clone(true, true)
-                    .insertBefore('#actions_panel')
-                    .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
-                    .each(tempIncrementIndex)
-                    .end()
-                    .find('.foreign_values_anchor')
-                    .each(tempReplaceAnchor);
-
-                // Insert/Clone the ignore checkboxes
-                if (curr_rows === 1) {
-                    $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
-                        .insertBefore('table.insertRowTable:last')
-                        .after('<label for="insert_ignore_1">' + PMA_messages.strIgnore + '</label>');
-                } else {
-                    /**
-                     * @var $last_checkbox   Object reference to the last checkbox in #insertForm
-                     */
-                    var $last_checkbox = $('#insertForm').children('input:checkbox:last');
-
-                    /** name of {@link $last_checkbox} */
-                    var last_checkbox_name = $last_checkbox.attr('name');
-                    /** index of {@link $last_checkbox} */
-                    var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/), 10);
-                    /** name of new {@link $last_checkbox} */
-                    var new_name = last_checkbox_name.replace(/\d+/, last_checkbox_index + 1);
-
-                    $('<br/><div class="clearfloat"></div>')
-                        .insertBefore('table.insertRowTable:last');
-
-                    $last_checkbox
-                        .clone()
-                        .attr({ 'id': new_name, 'name': new_name })
-                        .prop('checked', true)
-                        .insertBefore('table.insertRowTable:last');
-
-                    $('label[for^=insert_ignore]:last')
-                        .clone()
-                        .attr('for', new_name)
-                        .insertBefore('table.insertRowTable:last');
-
-                    $('<br/>')
-                        .insertBefore('table.insertRowTable:last');
-                }
-                curr_rows++;
-            }
-            // recompute tabindex for text fields and other controls at footer;
-            // IMO it's not really important to handle the tabindex for
-            // function and Null
-            var tabindex = 0;
-            $('.textfield, .char, textarea')
-                .each(function () {
-                    tabindex++;
-                    $(this).attr('tabindex', tabindex);
-                    // update the IDs of textfields to ensure that they are unique
-                    $(this).attr('id', 'field_' + tabindex + '_3');
-
-                    // special handling for radio fields after updating ids to unique
-                    if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
-                        if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
-                            $(this).prop('checked', true);
-                        } else {
-                            $(this).prop('checked', false);
-                        }
-                    }
-                });
-            $('.control_at_footer')
-                .each(function () {
-                    tabindex++;
-                    $(this).attr('tabindex', tabindex);
-                });
-        } else if (curr_rows > target_rows) {
-            /**
-             * Displays alert if data loss possible on decrease
-             * of rows.
-             */
-            var checkLock = jQuery.isEmptyObject(AJAX.lockedTargets);
-            if (checkLock || confirm(PMA_messages.strConfirmRowChange) === true) {
-                while (curr_rows > target_rows) {
-                    $('input[id^=insert_ignore]:last')
-                        .nextUntil('fieldset')
-                        .addBack()
-                        .remove();
-                    curr_rows--;
-                }
-            } else {
-                document.getElementById('insert_rows').value = curr_rows;
-            }
-        }
-        // Add all the required datepickers back
-        addDateTimePicker();
-    });
+    $(document).on('change', '#insert_rows', addNewContinueInsertionFiels);
 });
+
+function addNewContinueInsertionFiels (event) {
+    event.preventDefault();
+    /**
+     * @var columnCount   Number of number of columns table has.
+     */
+    var columnCount = $('table.insertRowTable:first').find('tr').has('input[name*=\'fields_name\']').length;
+    /**
+     * @var curr_rows   Number of current insert rows already on page
+     */
+    var curr_rows = $('table.insertRowTable').length;
+    /**
+     * @var target_rows Number of rows the user wants
+     */
+    var target_rows = $('#insert_rows').val();
+
+    // remove all datepickers
+    $('input.datefield, input.datetimefield').each(function () {
+        $(this).datepicker('destroy');
+    });
+
+    if (curr_rows < target_rows) {
+        var tempIncrementIndex = function () {
+            var $this_element = $(this);
+            /**
+             * Extract the index from the name attribute for all input/select fields and increment it
+             * name is of format funcs[multi_edit][10][<long random string of alphanum chars>]
+             */
+
+            /**
+             * @var this_name   String containing name of the input/select elements
+             */
+            var this_name = $this_element.attr('name');
+            /** split {@link this_name} at [10], so we have the parts that can be concatenated later */
+            var name_parts = this_name.split(/\[\d+\]/);
+            /** extract the [10] from  {@link name_parts} */
+            var old_row_index_string = this_name.match(/\[\d+\]/)[0];
+            /** extract 10 - had to split into two steps to accomodate double digits */
+            var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0], 10);
+
+            /** calculate next index i.e. 11 */
+            new_row_index = old_row_index + 1;
+            /** generate the new name i.e. funcs[multi_edit][11][foobarbaz] */
+            var new_name = name_parts[0] + '[' + new_row_index + ']' + name_parts[1];
+
+            var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
+            $this_element.attr('name', new_name);
+
+            /** If element is select[name*='funcs'], update id */
+            if ($this_element.is('select[name*=\'funcs\']')) {
+                var this_id = $this_element.attr('id');
+                var id_parts = this_id.split(/\_/);
+                var old_id_index = id_parts[1];
+                var prevSelectedValue = $('#field_' + old_id_index + '_1').val();
+                var new_id_index = parseInt(old_id_index) + columnCount;
+                var new_id = 'field_' + new_id_index + '_1';
+                $this_element.attr('id', new_id);
+                $this_element.find('option').filter(function () {
+                    return $(this).text() === prevSelectedValue;
+                }).attr('selected','selected');
+
+                // If salt field is there then update its id.
+                var nextSaltInput = $this_element.parent().next('td').next('td').find('input[name*=\'salt\']');
+                if (nextSaltInput.length !== 0) {
+                    nextSaltInput.attr('id', 'salt_' + new_id);
+                }
+            }
+
+            // handle input text fields and textareas
+            if ($this_element.is('.textfield') || $this_element.is('.char') || $this_element.is('textarea')) {
+                // do not remove the 'value' attribute for ENUM columns
+                // special handling for radio fields after updating ids to unique - see below
+                if ($this_element.closest('tr').find('span.column_type').html() !== 'enum') {
+                    $this_element.val($this_element.closest('tr').find('span.default_value').html());
+                }
+                $this_element
+                    .off('change')
+                    // Remove onchange attribute that was placed
+                    // by tbl_change.php; it refers to the wrong row index
+                    .attr('onchange', null)
+                    // Keep these values to be used when the element
+                    // will change
+                    .data('hashed_field', hashed_field)
+                    .data('new_row_index', new_row_index)
+                    .on('change', function () {
+                        var $changed_element = $(this);
+                        verificationsAfterFieldChange(
+                            $changed_element.data('hashed_field'),
+                            $changed_element.data('new_row_index'),
+                            $changed_element.closest('tr').find('span.column_type').html()
+                        );
+                    });
+            }
+
+            if ($this_element.is('.checkbox_null')) {
+                $this_element
+                // this event was bound earlier by jQuery but
+                // to the original row, not the cloned one, so unbind()
+                    .off('click')
+                    // Keep these values to be used when the element
+                    // will be clicked
+                    .data('hashed_field', hashed_field)
+                    .data('new_row_index', new_row_index)
+                    .on('click', function () {
+                        var $changed_element = $(this);
+                        nullify(
+                            $changed_element.siblings('.nullify_code').val(),
+                            $this_element.closest('tr').find('input:hidden').first().val(),
+                            $changed_element.data('hashed_field'),
+                            '[multi_edit][' + $changed_element.data('new_row_index') + ']'
+                        );
+                    });
+            }
+        };
+
+        var tempReplaceAnchor = function () {
+            var $anchor = $(this);
+            var new_value = 'rownumber=' + new_row_index;
+            // needs improvement in case something else inside
+            // the href contains this pattern
+            var new_href = $anchor.attr('href').replace(/rownumber=\d+/, new_value);
+            $anchor.attr('href', new_href);
+        };
+
+        while (curr_rows < target_rows) {
+            /**
+             * @var $last_row    Object referring to the last row
+             */
+            var $last_row = $('#insertForm').find('.insertRowTable:last');
+
+            // need to access this at more than one level
+            // (also needs improvement because it should be calculated
+            //  just once per cloned row, not once per column)
+            var new_row_index = 0;
+
+            // Clone the insert tables
+            $last_row
+                .clone(true, true)
+                .insertBefore('#actions_panel')
+                .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
+                .each(tempIncrementIndex)
+                .end()
+                .find('.foreign_values_anchor')
+                .each(tempReplaceAnchor);
+
+            // Insert/Clone the ignore checkboxes
+            if (curr_rows === 1) {
+                $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
+                    .insertBefore('table.insertRowTable:last')
+                    .after('<label for="insert_ignore_1">' + PMA_messages.strIgnore + '</label>');
+            } else {
+                /**
+                 * @var $last_checkbox   Object reference to the last checkbox in #insertForm
+                 */
+                var $last_checkbox = $('#insertForm').children('input:checkbox:last');
+
+                /** name of {@link $last_checkbox} */
+                var last_checkbox_name = $last_checkbox.attr('name');
+                /** index of {@link $last_checkbox} */
+                var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/), 10);
+                /** name of new {@link $last_checkbox} */
+                var new_name = last_checkbox_name.replace(/\d+/, last_checkbox_index + 1);
+
+                $('<br/><div class="clearfloat"></div>')
+                    .insertBefore('table.insertRowTable:last');
+
+                $last_checkbox
+                    .clone()
+                    .attr({ 'id': new_name, 'name': new_name })
+                    .prop('checked', true)
+                    .insertBefore('table.insertRowTable:last');
+
+                $('label[for^=insert_ignore]:last')
+                    .clone()
+                    .attr('for', new_name)
+                    .insertBefore('table.insertRowTable:last');
+
+                $('<br/>')
+                    .insertBefore('table.insertRowTable:last');
+            }
+            curr_rows++;
+        }
+        // recompute tabindex for text fields and other controls at footer;
+        // IMO it's not really important to handle the tabindex for
+        // function and Null
+        var tabindex = 0;
+        $('.textfield, .char, textarea')
+            .each(function () {
+                tabindex++;
+                $(this).attr('tabindex', tabindex);
+                // update the IDs of textfields to ensure that they are unique
+                $(this).attr('id', 'field_' + tabindex + '_3');
+
+                // special handling for radio fields after updating ids to unique
+                if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
+                    if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
+                        $(this).prop('checked', true);
+                    } else {
+                        $(this).prop('checked', false);
+                    }
+                }
+            });
+        $('.control_at_footer')
+            .each(function () {
+                tabindex++;
+                $(this).attr('tabindex', tabindex);
+            });
+    } else if (curr_rows > target_rows) {
+        /**
+         * Displays alert if data loss possible on decrease
+         * of rows.
+         */
+        var checkLock = jQuery.isEmptyObject(AJAX.lockedTargets);
+        if (checkLock || confirm(PMA_messages.strConfirmRowChange) === true) {
+            while (curr_rows > target_rows) {
+                $('input[id^=insert_ignore]:last')
+                    .nextUntil('fieldset')
+                    .addBack()
+                    .remove();
+                curr_rows--;
+            }
+        } else {
+            document.getElementById('insert_rows').value = curr_rows;
+        }
+    }
+    // Add all the required datepickers back
+    addDateTimePicker();
+}
 
 function changeValueFieldType (elem, searchIndex) {
     var fieldsValue = $('select#fieldID_' + searchIndex);

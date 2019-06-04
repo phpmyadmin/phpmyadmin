@@ -260,7 +260,7 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query'  => 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES`'
-            . ' WHERE `TABLE_SCHEMA`=\'pma_test\' AND `TABLE_TYPE`=\'BASE TABLE\'',
+            . ' WHERE `TABLE_SCHEMA`=\'pma_test\' AND `TABLE_TYPE` IN (\'BASE TABLE\', \'SYSTEM VERSIONED\')',
         'result' => array(),
     ),
     array(
@@ -706,7 +706,7 @@ $GLOBALS['dummy_queries'] = array(
         ),
     ),
     array(
-        'query'  => "SHOW FULL TABLES FROM `default` WHERE `Table_type`='BASE TABLE'",
+        'query'  => "SHOW FULL TABLES FROM `default` WHERE `Table_type`IN('BASE TABLE', 'SYSTEM VERSIONED')",
         'result' => array(
             array("test1", "BASE TABLE"),
             array("test2", "BASE TABLE"),
@@ -714,7 +714,7 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query'  => "SHOW FULL TABLES FROM `default` "
-            . "WHERE `Table_type`!='BASE TABLE'",
+            . "WHERE `Table_type`NOT IN('BASE TABLE', 'SYSTEM VERSIONED')",
         'result' => array(),
     ),
     array(

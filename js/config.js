@@ -329,7 +329,9 @@ function validateField (id, type, onKeyUp, params) {
     if (typeof validate[id] === 'undefined') {
         validate[id] = [];
     }
-    validate[id].push([type, params, onKeyUp]);
+    if (validate[id].length === 0) {
+        validate[id].push([type, params, onKeyUp]);
+    }
 }
 
 /**
@@ -418,6 +420,23 @@ function displayErrors (error_list) {
             $errorCnt.remove();
         }
     }
+}
+
+/**
+ * Validates fields and fieldsets and call displayError function as required
+ */
+function setDisplayError() {
+    var elements = $('.optbox input[id], .optbox select[id], .optbox textarea[id]');
+    // run all field validators
+    var errors = {};
+    for (var i = 0; i < elements.length; i++) {
+        validate_field(elements[i], false, errors);
+    }
+    // run all fieldset validators
+    $('fieldset.optbox').each(function () {
+        validate_fieldset(this, false, errors);
+    });
+    displayErrors(errors);
 }
 
 /**
@@ -648,6 +667,7 @@ AJAX.registerOnload('config.js', function () {
         for (var i = 0, imax = fields.length; i < imax; i++) {
             setFieldValue(fields[i], getFieldType(fields[i]), defaultValues[fields[i].id]);
         }
+        setDisplayError();
     });
 });
 

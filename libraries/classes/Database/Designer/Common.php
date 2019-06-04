@@ -164,7 +164,8 @@ class Common
             }
             $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
 
-            if ($row !== false) {
+            // We do not have access to the foreign keys if he user has partial access to the columns
+            if ($row !== false && isset($row['foreign_keys_data'])) {
                 foreach ($row['foreign_keys_data'] as $one_key) {
                     foreach ($one_key['index_list'] as $index => $one_field) {
                         $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
@@ -748,14 +749,14 @@ class Common
     public function saveSetting($index, $value)
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        $cfgDesigner = array(
-            'user'  => $GLOBALS['cfg']['Server']['user'],
-            'db'    => $cfgRelation['db'],
-            'table' => $cfgRelation['designer_settings']
-        );
-
         $success = true;
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
+
+            $cfgDesigner = array(
+                'user'  => $GLOBALS['cfg']['Server']['user'],
+                'db'    => $cfgRelation['db'],
+                'table' => $cfgRelation['designer_settings']
+            );
 
             $orig_data_query = "SELECT settings_data"
                 . " FROM " . Util::backquote($cfgDesigner['db'])

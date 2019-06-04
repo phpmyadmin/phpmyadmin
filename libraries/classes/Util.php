@@ -1000,7 +1000,9 @@ class Util
                     . '$sql = "' . $query_base . '";' . "\n"
                     . '</pre></code>';
             } elseif ($query_too_big) {
-                $query_base = htmlspecialchars($query_base);
+                $query_base = '<code class="sql"><pre>' . "\n" .
+                    htmlspecialchars($query_base) .
+                    '</pre></code>';
             } else {
                 $query_base = self::formatSql($query_base);
             }
@@ -1759,6 +1761,7 @@ class Util
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
             || strpos($url, 'sql_query=') !== false
+            || strpos($url, 'view[as]=') !== false
         ) {
             $parts = explode('?', $url, 2);
             /*
@@ -2254,6 +2257,19 @@ class Util
         return $gotopage;
     } // end function
 
+
+    /**
+     * Calculate page number through position
+     * @param int $pos       position of first item
+     * @param int $max_count number of items per page
+     * @return int $page_num
+     * @access public
+     */
+    public static function getPageFromPosition($pos, $max_count)
+    {
+        return floor($pos / $max_count) + 1;
+    }
+
     /**
      * Prepare navigation for a list
      *
@@ -2273,6 +2289,7 @@ class Util
      *
      * @todo    use $pos from $_url_params
      */
+
     public static function getListNavigator(
         $count, $pos, array $_url_params, $script, $frame, $max_count, $name = 'pos',
         $classes = array()
@@ -2330,7 +2347,7 @@ class Util
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
-                floor(($pos + 1) / $max_count) + 1,
+                self::getPageFromPosition($pos, $max_count),
                 ceil($count / $max_count)
             );
             $list_navigator_html .= '</form>';
@@ -2757,7 +2774,7 @@ class Util
      */
     public static function convertBitDefaultValue($bit_default_value)
     {
-        return rtrim(ltrim($bit_default_value, "b'"), "'");
+        return rtrim(ltrim(htmlspecialchars_decode($bit_default_value, ENT_QUOTES), "b'"), "'");
     }
 
     /**
@@ -2974,9 +2991,15 @@ class Util
     {
         // Convert to WKT format
         $hex = bin2hex($data);
-        $wktsql     = "SELECT ASTEXT(x'" . $hex . "')";
+        $spatialAsText = 'ASTEXT';
+        $spatialSrid = 'SRID';
+        if ($GLOBALS['dbi']->getVersion() >= 50600) {
+            $spatialAsText = 'ST_ASTEXT';
+            $spatialSrid = 'ST_SRID';
+        }
+        $wktsql     = "SELECT $spatialAsText(x'" . $hex . "')";
         if ($includeSRID) {
-            $wktsql .= ", SRID(x'" . $hex . "')";
+            $wktsql .= ", $spatialSrid(x'" . $hex . "')";
         }
 
         $wktresult  = $GLOBALS['dbi']->tryQuery(
@@ -3459,18 +3482,20 @@ class Util
      * Generates GIS data based on the string passed.
      *
      * @param string $gis_string GIS string
+     * @param int $mysqlVersion The mysql version as int
      *
-     * @return string GIS data enclosed in 'GeomFromText' function
+     * @return string GIS data enclosed in 'ST_GeomFromText' or 'GeomFromText' function
      */
-    public static function createGISData($gis_string)
+    public static function createGISData($gis_string, $mysqlVersion)
     {
+        $geomFromText = ($mysqlVersion >= 50600) ? 'ST_GeomFromText' : 'GeomFromText';
         $gis_string = trim($gis_string);
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|'
             . 'POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
-            return 'GeomFromText(' . $gis_string . ')';
+            return $geomFromText . '(' . $gis_string . ')';
         } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $gis_string)) {
-            return "GeomFromText('" . $gis_string . "')";
+            return $geomFromText . "('" . $gis_string . "')";
         }
 
         return $gis_string;
@@ -4233,7 +4258,7 @@ class Util
     {
         $serverType = self::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
-        return $serverType == 'MySQL' && $serverVersion >= 50705
+        return in_array($serverType, array('MySQL', 'Percona Server')) && $serverVersion >= 50705
              || ($serverType == 'MariaDB' && $serverVersion >= 50200);
     }
 
@@ -4469,14 +4494,15 @@ class Util
             if (Core::isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
                 $tblGroupSql .= $whereAdded ? " AND" : " WHERE";
                 if ($_REQUEST['tbl_type'] == 'view') {
-                    $tblGroupSql .= " `Table_type` != 'BASE TABLE'";
+                    $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
                 } else {
-                    $tblGroupSql .= " `Table_type` = 'BASE TABLE'";
+                    $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
                 }
             }
             $db_info_result = $GLOBALS['dbi']->query(
                 'SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql,
-                null, DatabaseInterface::QUERY_STORE
+                DatabaseInterface::CONNECT_USER,
+                DatabaseInterface::QUERY_STORE
             );
             unset($tblGroupSql, $whereAdded);
 

@@ -564,8 +564,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         $.each(runtime.charts, function (key, elem) {
             gridCopy[key] = {};
             gridCopy[key].nodes = elem.nodes;
+            gridCopy[key].series = elem.series;
             gridCopy[key].settings = elem.settings;
             gridCopy[key].title = elem.title;
+            gridCopy[key].maxYLabel = elem.maxYLabel;
         });
         var exportData = {
             monitorCharts: gridCopy,
@@ -573,9 +575,22 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         };
 
         var blob = new Blob([JSON.stringify(exportData)], { type: 'application/octet-stream' });
-        var url = window.URL.createObjectURL(blob);
-        window.location.href = url;
-        window.URL.revokeObjectURL(url);
+        var url = null;
+        var fileName = 'monitor-config.json';
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            window.navigator.msSaveOrOpenBlob(blob, fileName);
+        } else {
+            url = URL.createObjectURL(blob);
+            window.location.href = url;
+        }
+        setTimeout(function () {
+            // For some browsers it is necessary to delay revoking the ObjectURL
+            if (url !== null) {
+                window.URL.revokeObjectURL(url);
+            }
+            url = undefined;
+            blob = undefined;
+        }, 100);
     });
 
     $('a[href="#importMonitorConfig"]').click(function (event) {
@@ -595,7 +610,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             };
             reader.onload = function (e) {
                 var data = e.target.result;
-
+                var json = null;
                 // Try loading config
                 try {
                     json = JSON.parse(data);
@@ -614,11 +629,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                 // If json ok, try applying config
                 try {
-                    window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
-                    window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
+                    if (isStorageSupported('localStorage')) {
+                        window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
+                        window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
+                    }
                     rebuildGrid();
                 } catch (err) {
-                    console.log(err);
                     alert(PMA_messages.strFailedBuildingGrid);
                     // If an exception is thrown, load default again
                     if (isStorageSupported('localStorage')) {
@@ -676,7 +692,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var $dialog = $('#monitorInstructionsDialog');
 
         $dialog.dialog({
-            width: 595,
+            width: '60%',
             height: 'auto'
         }).find('img.ajaxIcon').show();
 

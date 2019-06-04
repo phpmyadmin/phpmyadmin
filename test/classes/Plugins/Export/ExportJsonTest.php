@@ -219,27 +219,41 @@ class ExportJsonTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $flags = array();
+        $a = new \stdClass();
+        $a->blob = false;
+        $a->numeric = false;
+        $a->type = 'string';
+        $a->name = 'f1';
+        $a->length = 20;
+        $flags[] = $a;
+
+        $dbi->expects($this->once())
+            ->method('getFieldsMeta')
+            ->with(null)
+            ->will($this->returnValue($flags));
+
         $dbi->expects($this->once())
             ->method('numFields')
             ->with(null)
             ->will($this->returnValue(1));
 
-        $dbi->expects($this->at(2))
+        $dbi->expects($this->at(3))
             ->method('fieldName')
             ->with(null, 0)
             ->will($this->returnValue('f1'));
 
-        $dbi->expects($this->at(3))
+        $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(null)
             ->will($this->returnValue(array('foo')));
 
-        $dbi->expects($this->at(4))
+        $dbi->expects($this->at(5))
             ->method('fetchRow')
             ->with(null)
             ->will($this->returnValue(array('bar')));
 
-        $dbi->expects($this->at(5))
+        $dbi->expects($this->at(6))
             ->method('fetchRow')
             ->with(null)
             ->will($this->returnValue(null));

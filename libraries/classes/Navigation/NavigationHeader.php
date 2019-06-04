@@ -130,7 +130,11 @@ class NavigationHeader
                 PHP_URL_HOST
             );
             if (empty($host)) {
-                $logoLink .= Url::getCommon();
+                $hasStartChar = strpos($logoLink, '?');
+                $logoLink .= Url::getCommon(
+                    array(),
+                    is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
+                );
             } else {
                 $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
             }

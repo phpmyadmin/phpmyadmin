@@ -437,7 +437,7 @@ class TableStructureController extends TableController
             $data['Expression'] = '';
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
-                $expressions = $this->table->getColumnGenerationExpression($column);
+                $expressions = $this->table_obj->getColumnGenerationExpression($column);
                 $data['Expression'] = $expressions[$column];
             }
 
@@ -969,7 +969,18 @@ class TableStructureController extends TableController
                         $_POST['field_orig'][$i]
                     )
                     . ' ' . Util::backquote($_POST['field_orig'][$i])
-                    . ' BLOB;';
+                    . ' BLOB';
+
+                    if (isset($_POST['field_virtuality'][$i])
+                        && isset($_POST['field_expression'][$i])) {
+                        if ($_POST['field_virtuality'][$i]) {
+                            $secondary_query .= ' AS (' . $_POST['field_expression'][$i] . ') '
+                                . $_POST['field_virtuality'][$i];
+                        }
+                    }
+
+                    $secondary_query .= ';';
+
                     $this->dbi->query($secondary_query);
                     $changedToBlob[$i] = true;
                 } else {
@@ -1220,52 +1231,11 @@ class TableStructureController extends TableController
             'DistinctValues' => Util::getIcon('b_browse', __('Distinct values')),
         );
 
-        /**
-         * Work on the table
-         */
+        $edit_view_url = '';
         if ($this->_tbl_is_view && ! $this->_db_is_system_schema) {
-            $item = $this->dbi->fetchSingleRow(
-                sprintf(
-                    "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,
-                      `SECURITY_TYPE`
-                    FROM `INFORMATION_SCHEMA`.`VIEWS`
-                    WHERE TABLE_SCHEMA='%s'
-                    AND TABLE_NAME='%s';",
-                    $GLOBALS['dbi']->escapeString($this->db),
-                    $GLOBALS['dbi']->escapeString($this->table)
-                )
+            $edit_view_url = Url::getCommon(
+                array('db' => $this->db, 'table' => $this->table)
             );
-
-            $createView = $this->dbi->getTable($this->db, $this->table)
-                ->showCreate();
-            // get algorithm from $createView of the form
-            // CREATE ALGORITHM=<ALGORITHM> DE...
-            $parts = explode(" ", substr($createView, 17));
-            $item['ALGORITHM'] = $parts[0];
-
-            $view = array(
-                'operation' => 'alter',
-                'definer' => $item['DEFINER'],
-                'sql_security' => $item['SECURITY_TYPE'],
-                'name' => $this->table,
-                'as' => $item['VIEW_DEFINITION'],
-                'with' => $item['CHECK_OPTION'],
-                'algorithm' => $item['ALGORITHM'],
-            );
-
-            $edit_view_url = 'view_create.php'
-                . Url::getCommon($url_params) . '&amp;'
-                . implode(
-                    '&amp;',
-                    array_map(
-                        function ($key, $val) {
-                            return 'view[' . urlencode($key) . ']=' . urlencode(
-                                $val
-                            );
-                        },
-                        array_keys($view), $view
-                    )
-                );
         }
 
         /**
@@ -1299,7 +1269,7 @@ class TableStructureController extends TableController
                 'tbl_storage_engine' => $this->_tbl_storage_engine,
                 'primary' => $primary_index,
                 'columns_with_unique_index' => $columns_with_unique_index,
-                'edit_view_url' => isset($edit_view_url) ? $edit_view_url : null,
+                'edit_view_url' => $edit_view_url,
                 'columns_list' => $columns_list,
                 'table_stats' => isset($tablestats) ? $tablestats : null,
                 'fields' => $fields,
@@ -1313,6 +1283,7 @@ class TableStructureController extends TableController
                 'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
                 'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
                 'mysql_int_version' => $GLOBALS['dbi']->getVersion(),
+                'is_mariadb' => $GLOBALS['dbi']->isMariaDB(),
                 'pma_theme_image' => $GLOBALS['pmaThemeImage'],
                 'text_dir' => $GLOBALS['text_dir'],
                 'is_active' => Tracker::isActive(),

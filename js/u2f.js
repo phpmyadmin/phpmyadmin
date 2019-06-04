@@ -6,12 +6,12 @@ AJAX.registerOnload('u2f.js', function () {
     if ($inputReg.length > 0) {
         var $formReg = $inputReg.parents('form');
         $formReg.find('input[type=submit]').hide();
-        setTimeout(function() {
+        setTimeout(function () {
             // A magic JS function that talks to the USB device. This function will keep polling for the USB device until it finds one.
             var request = JSON.parse($inputReg.attr('data-request'));
-            u2f.register(request.appId, [request], JSON.parse($inputReg.attr('data-signatures')), function(data) {
+            u2f.register(request.appId, [request], JSON.parse($inputReg.attr('data-signatures')), function (data) {
                 // Handle returning error data
-                if(data.errorCode && data.errorCode !== 0) {
+                if (data.errorCode && data.errorCode !== 0) {
                     if (data.errorCode === 5) {
                         PMA_ajaxShowMessage(PMA_messages.strU2FTimeout, false);
                     } else {
@@ -32,14 +32,14 @@ AJAX.registerOnload('u2f.js', function () {
     if ($inputAuth.length > 0) {
         var $formAuth = $inputAuth.parents('form');
         $formAuth.find('input[type=submit]').hide();
-        setTimeout(function() {
+        setTimeout(function () {
             // Magic JavaScript talking to your HID
             // appid, challenge, authenticateRequests
             var request = JSON.parse($inputAuth.attr('data-request'));
             var handles = [request[0].keyHandle];
-            u2f.sign(request[0].appId, request[0].challenge, request, function(data) {
+            u2f.sign(request[0].appId, request[0].challenge, request, function (data) {
                 // Handle returning error data
-                if(data.errorCode && data.errorCode !== 0) {
+                if (data.errorCode && data.errorCode !== 0) {
                     if (data.errorCode === 5) {
                         PMA_ajaxShowMessage(PMA_messages.strU2FTimeout, false);
                     } else {

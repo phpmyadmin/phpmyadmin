@@ -1131,7 +1131,7 @@ class Operations
         } // end if (ARIA)
 
         if (strlen($auto_increment) > 0
-            && $pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
+            && $pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'))
         ) {
             $html_output .= '<tr><td class="vmiddle">'
                 . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
@@ -1237,7 +1237,12 @@ class Operations
         } else {
             $innodb_file_format = '';
         }
-        if ('Barracuda' == $innodb_file_format
+        /**
+         * Newer MySQL/MariaDB always return empty a.k.a '' on $innodb_file_format otherwise
+         * old versions of MySQL/MariaDB must be returning something or not empty.
+         * This patch is to support newer MySQL/MariaDB while also for backward compatibilities.
+         */
+        if (( ('Barracuda' == $innodb_file_format) || ($innodb_file_format == '') )
             && $innodbEnginePlugin->supportsFilePerTable()
         ) {
             $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
@@ -1831,7 +1836,7 @@ class Operations
             $table_alters[] = 'delay_key_write = ' . $_POST['new_delay_key_write'];
         }
 
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
+        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'))
             && ! empty($_POST['new_auto_increment'])
             && (! isset($auto_increment)
             || $_POST['new_auto_increment'] !== $auto_increment)

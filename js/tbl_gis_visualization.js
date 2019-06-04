@@ -35,7 +35,7 @@ function zoomAndPan () {
     $('circle.vector').each(function () {
         id = $(this).attr('id');
         circle = svg.getElementById(id);
-        svg.change(circle, {
+        $(svg).change(circle, {
             r : (3 / scale),
             'stroke-width' : (2 / scale)
         });
@@ -45,7 +45,7 @@ function zoomAndPan () {
     $('polyline.vector').each(function () {
         id = $(this).attr('id');
         line = svg.getElementById(id);
-        svg.change(line, {
+        $(svg).change(line, {
             'stroke-width' : (2 / scale)
         });
     });
@@ -54,7 +54,7 @@ function zoomAndPan () {
     $('path.vector').each(function () {
         id = $(this).attr('id');
         polygon = svg.getElementById(id);
-        svg.change(polygon, {
+        $(svg).change(polygon, {
             'stroke-width' : (0.5 / scale)
         });
     });

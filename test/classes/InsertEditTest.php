@@ -3069,6 +3069,7 @@ class InsertEditTest extends TestCase
         $table_columns = array(
             array(
                 'Field' => 'test',
+                'Extra' => '',
                 'Type' => 'longtext',
                 'Null' => 'Yes',
                 'pma_type' => 'longtext',
@@ -3126,6 +3127,7 @@ class InsertEditTest extends TestCase
             array(
                 'Field' => 'foo',
                 'Type' => 'longtext',
+                'Extra' => '',
                 'Null' => 'Yes',
                 'pma_type' => 'longtext',
                 'True_Type' => 'longtext',
@@ -3134,6 +3136,7 @@ class InsertEditTest extends TestCase
             array(
                 'Field' => 'bar',
                 'Type' => 'longtext',
+                'Extra' => '',
                 'Null' => 'Yes',
                 'pma_type' => 'longtext',
                 'True_Type' => 'longtext',
@@ -3160,6 +3163,7 @@ class InsertEditTest extends TestCase
             array(
                 'Field' => 'foo',
                 'Type' => 'longtext',
+                'Extra' => '',
                 'Null' => 'Yes',
                 'Key' => '',
                 'pma_type' => 'longtext',
@@ -3169,6 +3173,7 @@ class InsertEditTest extends TestCase
             array(
                 'Field' => 'bar',
                 'Type' => 'longtext',
+                'Extra' => '',
                 'Null' => 'Yes',
                 'Key' => '',
                 'pma_type' => 'longtext',
@@ -3187,8 +3192,7 @@ class InsertEditTest extends TestCase
             $actual
         );
         $this->assertContains(
-            '<textarea name="fields[37b51d194a7513e45b56f6524f2d51f2]" '
-            .'class="" readonly="readonly"',
+            '<textarea name="fields[37b51d194a7513e45b56f6524f2d51f2]"',
             $actual
         );
     }

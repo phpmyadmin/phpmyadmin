@@ -15,6 +15,10 @@ var ErrorReport = {
      * @return void
      */
     error_handler: function (exception) {
+        // issue: 14359
+        if (JSON.stringify(ErrorReport._last_exception) === JSON.stringify(exception)) {
+            return;
+        }
         if (exception.name === null || typeof(exception.name) === 'undefined') {
             exception.name = ErrorReport._extractExceptionName(exception);
         }
@@ -204,16 +208,29 @@ var ErrorReport = {
      * @return object
      */
     _get_report_data: function (exception) {
+        if (exception && exception.stack && exception.stack.length) {
+            for (var i = 0; i < exception.stack.length; i++) {
+                var stack = exception.stack[i];
+                if (stack.context && stack.context.length) {
+                    for (var j = 0; j < stack.context.length; j++) {
+                        if (stack.context[j].length >  80) {
+                            stack.context[j] = stack.context[j].substring(-1, 75) + '//...';
+                        }
+                    }
+                }
+            }
+        }
         var report_data = {
+            'server': PMA_commonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
-            'current_url': window.location.href,
+            'url': window.location.href,
             'exception_type': 'js'
         };
         if (AJAX.scriptHandler._scripts.length > 0) {
             report_data.scripts = AJAX.scriptHandler._scripts.map(
                 function (script) {
-                    return script.name;
+                    return script;
                 }
             );
         }

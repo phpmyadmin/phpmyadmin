@@ -430,6 +430,16 @@ class Privileges
                 __('Allows performing SHOW CREATE VIEW queries.')
             ),
             array(
+                'Delete_history_priv',
+                'DELETE HISTORY',
+                $GLOBALS['strPrivDescDeleteHistoricalRows']
+            ),
+            array(
+                'Delete versioning rows_priv',
+                'DELETE HISTORY',
+                $GLOBALS['strPrivDescDeleteHistoricalRows']
+            ),
+            array(
                 'Create_routine_priv',
                 'CREATE ROUTINE',
                 __('Allows creating stored routines.')
@@ -1082,6 +1092,9 @@ class Privileges
             } elseif ($current_grant == 'Show view_priv') {
                 $tmp_current_grant = 'ShowView_priv';
                 $current_grant = 'Show_view_priv';
+            } elseif ($current_grant == 'Delete versioning rows_priv') {
+                $tmp_current_grant = 'DeleteHistoricalRows_priv';
+                $current_grant = 'Delete_history_priv';
             } else {
                 $tmp_current_grant = $current_grant;
             }
@@ -4012,7 +4025,7 @@ class Privileges
                 // Always use 'authentication_string' column
                 // for MySQL 5.7.6+ since it does not have
                 // the 'password' column at all
-                if (Util::getServerType() == 'MySQL'
+                if (in_array(Util::getServerType(), array('MySQL', 'Percona Server'))
                     && $serverVersion >= 50706
                     && isset($authentication_string)
                 ) {
@@ -4292,11 +4305,11 @@ class Privileges
         // Set the hashing method used by PASSWORD()
         // to be of type depending upon $authentication_plugin
         if ($auth_plugin == 'sha256_password') {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2');
+            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
         } elseif ($auth_plugin == 'mysql_old_password') {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 1');
+            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 1;');
         } else {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 0');
+            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 0;');
         }
     }
 
@@ -5165,7 +5178,7 @@ class Privileges
      * @param string $hostname host name
      * @param string $password password
      *
-     * @return array ($create_user_real, $create_user_show,$real_sql_query, $sql_query
+     * @return array ($create_user_real, $create_user_show, $real_sql_query, $sql_query
      *                $password_set_real, $password_set_show, $alter_real_sql_query, $alter_sql_query)
      */
     public static function getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
@@ -5388,7 +5401,9 @@ class Privileges
             $password_set_real = null;
             $password_set_show = null;
         } else {
-            $password_set_real .= ";";
+            if ($password_set_real !== null) {
+                $password_set_real .= ";";
+            }
             $password_set_show .= ";";
         }
 

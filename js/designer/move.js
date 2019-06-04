@@ -85,9 +85,6 @@ var grid_size = 10;
 
 // window.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP);
 // ---CROSS
-document.onmousedown = MouseDown;
-document.onmouseup   = MouseUp;
-document.onmousemove = MouseMove;
 
 var isIE = document.all && !window.opera;
 
@@ -561,7 +558,8 @@ function Add_Other_db_tables () {
             'ajax_request' : true,
             'dialog' : 'add_table',
             'db' : db,
-            'table' : table
+            'table' : table,
+            'server': PMA_commonParams.get('server')
         }, function (data) {
             $new_table_dom = $(data.message);
             $new_table_dom.find('a').first().remove();
@@ -593,7 +591,8 @@ function Add_Other_db_tables () {
 
     $.post('sql.php', {
         'ajax_request' : true,
-        'sql_query' : 'SHOW databases;'
+        'sql_query' : 'SHOW databases;',
+        'server': PMA_commonParams.get('server')
     }, function (data) {
         $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
             var val = $(this)[0].innerHTML;
@@ -623,7 +622,8 @@ function Add_Other_db_tables () {
             $.post('sql.php', {
                 'ajax_request' : true,
                 'sql_query': sql_query,
-                'db' : db_name
+                'db' : db_name,
+                'server': PMA_commonParams.get('server')
             }, function (data) {
                 $select_table.html('');
                 $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
@@ -813,9 +813,12 @@ function Edit_pages () {
         };
 
         var $msgbox = PMA_ajaxShowMessage();
-        var argsep = PMA_commonParams.get('arg_separator');
-        var params = 'ajax_request=true' + argsep + 'dialog=edit' + argsep + 'server=' + server + argsep + 'db=' + db;
-        $.get('db_designer.php', params, function (data) {
+        $.post('db_designer.php', {
+            'ajax_request': true,
+            'server': server,
+            'db': db,
+            'dialog': 'edit'
+        }, function (data) {
             if (data.success === false) {
                 PMA_ajaxShowMessage(data.error, false);
             } else {
@@ -893,9 +896,12 @@ function Delete_pages () {
     };
 
     var $msgbox = PMA_ajaxShowMessage();
-    var argsep = PMA_commonParams.get('arg_separator');
-    var params = 'ajax_request=true' + argsep + 'dialog=delete' + argsep + 'server=' + server + argsep + 'db=' + db;
-    $.get('db_designer.php', params, function (data) {
+    $.post('db_designer.php', {
+        'ajax_request': true,
+        'server': server,
+        'db': db,
+        'dialog': 'delete'
+    }, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -992,9 +998,12 @@ function Save_as () {
     };
 
     var $msgbox = PMA_ajaxShowMessage();
-    var argsep = PMA_commonParams.get('arg_separator');
-    var params = 'ajax_request=true' + argsep + 'dialog=save_as' + argsep + 'server=' + server + argsep + 'token=' + argsep + 'db=' + db;
-    $.get('db_designer.php', params, function (data) {
+    $.post('db_designer.php', {
+        'ajax_request': true,
+        'server': server,
+        'db': db,
+        'dialog': 'save_as'
+    }, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -1069,8 +1078,14 @@ function Export_pages () {
     };
     var $msgbox = PMA_ajaxShowMessage();
     var argsep = PMA_commonParams.get('arg_separator');
-    var params = 'ajax_request=true' + argsep + 'dialog=export' + argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'selected_page=' + selected_page;
-    $.get('db_designer.php', params, function (data) {
+
+    $.post('db_designer.php', {
+        'ajax_request': true,
+        'server': server,
+        'db': db,
+        'dialog': 'export',
+        'selected_page': selected_page
+    }, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -1203,7 +1218,7 @@ function Click_field (db, T, f, PK) {
                 alert(PMA_messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }// PK
-            if (j_tabs[db + '.' + T] !== '1') {
+            if (j_tabs[db + '.' + T] !== 1) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             click_field = 1;
@@ -1211,7 +1226,7 @@ function Click_field (db, T, f, PK) {
             document.getElementById('designer_hint').innerHTML = PMA_messages.strSelectForeignKey;
         } else {
             Start_relation(); // hidden hint...
-            if (j_tabs[db + '.' + T] !== '1' || !PK) {
+            if (j_tabs[db + '.' + T] !== 1 || !PK) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             var left = Glob_X - (document.getElementById('layer_new_relation').offsetWidth >> 1);
@@ -1943,6 +1958,9 @@ AJAX.registerTeardown('designer/move.js', function () {
     $('#cancel_close_option').off('click');
     $('#ok_new_rel_panel').off('click');
     $('#cancel_new_rel_panel').off('click');
+    $('#page_content').off('mouseup');
+    $('#page_content').off('mousedown');
+    $('#page_content').off('mousemove');
 });
 
 AJAX.registerOnload('designer/move.js', function () {
@@ -2106,5 +2124,14 @@ AJAX.registerOnload('designer/move.js', function () {
     });
     $('input#cancel_new_rel_panel').click(function () {
         document.getElementById('layer_new_relation').style.display = 'none';
+    });
+    $('#page_content').on('mousedown', function(e) {
+        MouseDown(e);
+    });
+    $('#page_content').on('mouseup', function(e) {
+        MouseUp(e);
+    });
+    $('#page_content').on('mousemove', function(e) {
+        MouseMove(e);
     });
 });

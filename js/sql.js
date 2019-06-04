@@ -114,7 +114,7 @@ function getFieldName ($table_results, $this_field) {
 AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'a.delete_row.ajax');
     $(document).off('submit', '.bookmarkQueryForm');
-    $('input#bkm_label').off('keyup');
+    $('input#bkm_label').off('input');
     $(document).off('makegrid', '.sqlqueryresults');
     $(document).off('stickycolumns', '.sqlqueryresults');
     $('#togglequerybox').off('click');
@@ -227,11 +227,11 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
-    $('input#bkm_label').keyup(function () {
+    $('input#bkm_label').on('input', function () {
         $('input#id_bkm_all_users, input#id_bkm_replace')
             .parent()
             .toggle($(this).val().length > 0);
-    }).trigger('keyup');
+    }).trigger('input');
 
     /**
      * Attach Event Handler for 'Copy to clipbpard
@@ -293,8 +293,8 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
-        	//Don't copy ordering number text within <small> tag
-        	textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
+            // Don't copy ordering number text within <small> tag
+            textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
         });
 
         textArea.value += '\n';
@@ -959,7 +959,7 @@ function initStickyColumns ($table_results) {
     return $('<table class="sticky_columns"></table>')
         .insertBefore($table_results)
         .css('position', 'fixed')
-        .css('z-index', '99')
+        .css('z-index', '98')
         .css('width', $table_results.width())
         .css('margin-left', $('#page_content').css('margin-left'))
         .css('top', $('#floating_menubar').height())

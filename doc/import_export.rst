@@ -347,4 +347,4 @@ YAML
 ----
 
 YAML is a data serialization format which is both human readable and
-computationally powerful ( <http://yaml.org> ).
+computationally powerful ( <https://yaml.org> ).

@@ -520,6 +520,9 @@ class DbiMysqli implements DbiExtension
      */
     public function fieldLen($result, $i)
     {
+        if ($i >= $this->numFields($result)) {
+            return false;
+        }
         return mysqli_fetch_field_direct($result, $i)->length;
     }
 
@@ -533,6 +536,9 @@ class DbiMysqli implements DbiExtension
      */
     public function fieldName($result, $i)
     {
+        if ($i >= $this->numFields($result)) {
+            return false;
+        }
         return mysqli_fetch_field_direct($result, $i)->name;
     }
 
@@ -546,6 +552,9 @@ class DbiMysqli implements DbiExtension
      */
     public function fieldFlags($result, $i)
     {
+        if ($i >= $this->numFields($result)) {
+            return false;
+        }
         $f = mysqli_fetch_field_direct($result, $i);
         $type = $f->type;
         $charsetnr = $f->charsetnr;

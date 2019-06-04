@@ -20,9 +20,8 @@ if (!defined('TESTSUITE')) {
     // non-js-compatible stuff like DOCTYPE
     define('PMA_MINIMUM_COMMON', true);
     define('PMA_PATH_TO_BASEDIR', '../');
+    define('PMA_NO_SESSION' , true);
     require_once './libraries/common.inc.php';
-    // Close session early as we won't write anything there
-    session_write_close();
 }
 
 // But this one is needed for Sanitize::escapeJsString()
@@ -138,6 +137,9 @@ $js_messages['strSQLQuery'] = __('SQL query:');
 /* Charts */
 /* l10n: Default label for the y-Axis of Charts */
 $js_messages['strYValues'] = __('Y values');
+
+/* Database multi-table query */
+$js_messages['strEmptyQuery'] = __('Please enter the SQL query first.');
 
 /* For server_privileges.js */
 $js_messages['strHostEmpty'] = __('The host name is empty!');

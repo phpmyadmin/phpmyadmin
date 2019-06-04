@@ -866,6 +866,7 @@ div#tablestatistics table {
     background: white;
     font-weight:        bold;
     padding-bottom: 0.5em;
+    padding-<?php echo $left; ?>: 2.2em;
     width: 10000px;
     overflow: hidden;
 }
@@ -2113,6 +2114,10 @@ fieldset .disabled-field td {
     -webkit-box-sizing: border-box;
 }
 
+input#auto_increment_opt {
+    width: min-content;
+}
+
 #placeholder {
     position: relative;
     border: 1px solid #aaa;
@@ -2187,6 +2192,7 @@ fieldset .disabled-field td {
 }
 
 .pma_table th.draggable span,
+.sticky_columns th.draggable span,
 .pma_table tbody td span {
     display: block;
     overflow: hidden;

@@ -88,7 +88,8 @@ $result = "'" . $wkt . "'," . $srid;
 $visualizationSettings = array(
     'width' => 450,
     'height' => 300,
-    'spatialColumn' => 'wkt'
+    'spatialColumn' => 'wkt',
+    'mysqlVersion' => $GLOBALS['dbi']->getVersion()
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
 $visualization = GisVisualization::getByData($data, $visualizationSettings)
@@ -134,13 +135,14 @@ if (isset($_POST['input_name'])) {
 echo Url::getHiddenInputs();
 
 echo '<!-- Visualization section -->';
-echo '<div id="placeholder" '
-    , ($srid != 0 ? 'class="hide' : '') , '">';
+echo '<div id="placeholder"'
+    , ($srid != 0 ? 'class="hide"' : '') , '>';
 echo $visualization;
 echo '</div>';
 
-echo '<div id="openlayersmap" '
-    , ($srid == 0 ? 'class="hide' : '') , '">';
+// No not remove inline style or it will cause "Cannot read property 'w' of null" on GIS editor map init
+echo '<div id="openlayersmap" style="width: ' . $visualizationSettings['width'] . 'px; height: ' . $visualizationSettings['height'] . 'px;" '
+    , ($srid == 0 ? 'class="hide"' : '') , '>';
 echo '</div>';
 
 echo '<div class="choice floatright">';
@@ -418,7 +420,7 @@ echo '<div id="gis_data_output">';
 echo '<h3>' , __('Output') , '</h3>';
 echo '<p>';
 echo __(
-    'Choose "GeomFromText" from the "Function" column and paste the'
+    'Choose "ST_GeomFromText" from the "Function" column and paste the'
     . ' string below into the "Value" field.'
 );
 echo '</p>';

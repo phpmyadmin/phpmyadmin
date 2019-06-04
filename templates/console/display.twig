@@ -183,8 +183,8 @@
                     ['action profiling', 'Profiling'|trans],
                     cfg_bookmark is defined ? ['action bookmark', 'Bookmark'|trans] : null,
                     ['text failed', 'Query failed'|trans],
-                    ['text targetdb', 'Database'|trans],
-                    ['text query_time', 'Queried time'|trans]
+                    {0: 'text targetdb', 1: 'Database'|trans, 'extraSpan': ''},
+                    {0: 'text query_time', 1: 'Queried time'|trans, 'extraSpan': ''}
                 ]
             } only %}
         </div>

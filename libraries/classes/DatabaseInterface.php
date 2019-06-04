@@ -326,13 +326,11 @@ class DatabaseInterface
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
+                $warningsCount = '';
                 if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
-                    $tmp = $this->_extension->realQuery('
-                        SHOW COUNT(*) WARNINGS', $this->_links[$link], DatabaseInterface::QUERY_STORE
-                    );
-                    $warnings = $this->fetchRow($tmp);
-                } else {
-                    $warnings = 0;
+                    if (isset($this->_links[$link]->warning_count)) {
+                        $warningsCount = $this->_links[$link]->warning_count;
+                    }
                 }
 
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
@@ -340,7 +338,7 @@ class DatabaseInterface
                 syslog(
                     LOG_INFO,
                     'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
-                    . sprintf('%0.3f', $time) . '(W:' . $warnings[0] . ') > ' . $query
+                    . sprintf('%0.3f', $time) . '(W:' . $warningsCount . ') > ' . $query
                 );
                 closelog();
             }
@@ -470,9 +468,9 @@ class DatabaseInterface
 
         if ($table_type) {
             if ($table_type == 'view') {
-                $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
+                $sql_where_table .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
             } elseif ($table_type == 'table') {
-                $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
+                $sql_where_table .= " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
             }
         }
         return $sql_where_table;
@@ -612,9 +610,9 @@ class DatabaseInterface
                         function ($a, $b) {
                             $aLength = $a['Data_length'] + $a['Index_length'];
                             $bLength = $b['Data_length'] + $b['Index_length'];
-                            return ($aLength == $bLength)
+                            return $aLength == $bLength
                                 ? 0
-                                : ($aLength < $bLength) ? -1 : 1;
+                                : ($aLength < $bLength ? -1 : 1);
                         }
                     );
 

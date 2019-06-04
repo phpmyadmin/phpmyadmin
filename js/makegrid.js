@@ -600,8 +600,12 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         });
                     // fill the cell edit with text from <td>
                     var value = PMA_getCellValue(cell);
-                    if ($cell.attr('data-type') === 'json') {
-                        value = JSON.stringify(JSON.parse(value), null, 4);
+                    if ($cell.attr('data-type') === 'json' && $cell.is('.truncated') === false) {
+                        try {
+                            value = JSON.stringify(JSON.parse(value), null, 4);
+                        } catch (e) {
+                            // Show as is
+                        }
                     }
                     $(g.cEdit).find('.edit_box').val(value);
 
@@ -823,7 +827,14 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                             $checkbox.prop('checked', false);
                         });
                     }
-
+                    // if some text is written in textbox automatically unmark the null checkbox and if it is emptied again mark the checkbox.
+                    $(g.cEdit).find('.edit_box').on('input', function () {
+                        if ($(g.cEdit).find('.edit_box').val() !== '') {
+                            $checkbox.prop('checked', false);
+                        } else {
+                            $checkbox.prop('checked', true);
+                        }
+                    });
                     // if null checkbox is clicked empty the corresponding select/editor.
                     $checkbox.click(function () {
                         if ($td.is('.enum')) {
@@ -996,6 +1007,13 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                             g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
                             if (typeof data !== 'undefined' && data.success === true) {
+                                if ($td.attr('data-type') === 'json') {
+                                    try {
+                                        data.value = JSON.stringify(JSON.parse(data.value), null, 4);
+                                    } catch (e) {
+                                        // Show as is
+                                    }
+                                }
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
                                 $editArea.append('<textarea rows="15"></textarea>');

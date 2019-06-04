@@ -355,6 +355,7 @@ class ErrorHandler
             $retval .= Url::getHiddenFields(array(
                 'exception_type' => 'php',
                 'send_error_report' => '1',
+                'server' => $GLOBALS['server'],
             ));
             $retval .= '<input type="submit" value="'
                     . __('Report')
@@ -564,7 +565,7 @@ class ErrorHandler
                                 PMA_ignorePhpErrors(false)
                             });'
                         . '$("#pma_ignore_errors_bottom").bind("click", function(e) {
-                            e.preventDefaulut();
+                            e.preventDefault();
                             PMA_ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_bottom").bind("click",
