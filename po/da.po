@@ -102,9 +102,6 @@ msgstr "Kolonne"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Datatype"
@@ -125,8 +122,6 @@ msgstr "Datatype"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -148,9 +143,7 @@ msgstr "Nulværdi"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Standardværdi"
 
@@ -1356,7 +1349,6 @@ msgstr "Tilføj mindst en variabel til serien!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Ingen"
 
@@ -3242,7 +3234,6 @@ msgstr "Længde/Værdi*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Tegnsæt (sortering)"
 
@@ -7242,7 +7233,6 @@ msgstr "Komplette tekster"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7256,7 +7246,6 @@ msgstr "Faldende"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7866,8 +7855,6 @@ msgstr "Rediger struktur ved at følge linket \"Struktur\"."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Indstillinger"
 
@@ -8209,8 +8196,6 @@ msgstr "Binær log"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikation"
 
@@ -9837,8 +9822,8 @@ msgstr "Indholdsfortegnelse"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -14689,27 +14674,23 @@ msgstr "Spring over tabeller større end"
 msgid "Rows:"
 msgstr "Rækker:"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Output:"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Hent nogle række(r)"
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Gem på serveren i mappen <b>%s</b>"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+msgid "Number of rows:"
+msgstr "Antal rækker:"
 
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Udtryk"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Begyndelsesrække:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Fold sammen"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Hent alle rækker"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
@@ -15503,17 +15484,17 @@ msgstr "Flyt kolonner"
 msgid "Move the columns by dragging them up and down."
 msgstr "Flyt kolonnerne ved at trække dem op og ned."
 
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Maksimalt antal plottede rækker"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Tabelnavn"
 
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Sessionsværdi"
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "kolonne(r)"
 
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Udvidelsesmodul"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Tegnsæt (sortering):"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
@@ -15558,9 +15539,9 @@ msgstr "Navnebegrænsning"
 msgid "Select page"
 msgstr "Vælg side"
 
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Brug regulært udtryk"
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Startrække:"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15752,365 +15733,11 @@ msgstr "Skabelon for filnavn:"
 msgid "use this for future exports"
 msgstr "brug dette til fremtidige eksports"
 
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "Fil til import:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "Filen kan være komprimeret (%s) eller ukomprimeret."
-
-#: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"En komprimeret fil skal slutte med <b>.[format].[compression]</b>. Eksempel: "
-"<b>.sql.zip</b>"
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "Du kan også trække og slippe en fil på hvilken som helst side."
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "Fil-uploads er ikke tilladte på denne server."
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "Delvis import:"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"Foregående import timede ud, efter genindsendelse vil fortsætte fra position "
-"%d."
-
-#: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"Tillad afbrydelse af import hvis skriptet registrerer, at det er tæt på PHPs "
-"grænse for tidsudløb.<i>( Dette kan være en god metode til at importere "
-"større filer, men kan ødelægge transaktioner.)</i>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Overspring dette antal forespørgsler (til SQL) begyndende med:"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "Andre indstillinger:"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Skabelon for filnavn:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "brug dette til fremtidige eksports"
-
-#: templates/console/display.twig:7
-msgid "History"
-msgstr "Historik"
-
-#: templates/console/display.twig:11 templates/console/display.twig:99
-msgid "Bookmarks"
-msgstr "Bogmærker"
-
-#: templates/console/display.twig:20
-msgid "Press Ctrl+Enter to execute query"
-msgstr "Tast Ctrl+Enter for at udføre forespørgsel"
-
-#: templates/console/display.twig:23
-msgid "Press Enter to execute query"
-msgstr "Tast Enter for at udføre forespørgsel"
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-msgid "Explain"
-msgstr "Forklar"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Bookmark"
-msgstr "Bogmærke"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Query failed"
-msgstr "Forespørgslen mislykkedes"
-
-#: templates/console/display.twig:42 templates/console/display.twig:184
-msgid "Queried time"
-msgstr "Tid på forespørgsel"
-
-#: templates/console/display.twig:47
-msgid "During current session"
-msgstr "Under nuværende session"
-
-#: templates/console/display.twig:64
-msgid "ascending"
-msgstr "Stigende"
-
-#: templates/console/display.twig:64
-msgid "descending"
-msgstr "Faldende"
-
-#: templates/console/display.twig:64
-msgid "Order:"
-msgstr "Rækkefølge:"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-msgid "Count"
-msgstr "Antal"
-
-#: templates/console/display.twig:64
-msgid "Execution order"
-msgstr "Rækkefølge for udførelse"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Time taken"
-msgstr "Tidsforbrug"
-
-#: templates/console/display.twig:64
-msgid "Order by:"
-msgstr "Rækkefølge:"
-
-#: templates/console/display.twig:64
-msgid "Ungroup queries"
-msgstr "Opløs gruppering af SQL-forespørgsler"
-
-#: templates/console/display.twig:84
-msgid "Show trace"
-msgstr "Vis sporing"
-
-#: templates/console/display.twig:84
-msgid "Hide trace"
-msgstr "Skjul sporing"
-
-#: templates/console/display.twig:112
-msgid "Add bookmark"
-msgstr "Tilføj bogmærke"
-
-#: templates/console/display.twig:121
-msgid "Label"
-msgstr "Etikette"
-
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Måldatabase"
-
-#: templates/console/display.twig:127
-msgid "Share this bookmark"
-msgstr "Del dette bogmærke"
-
-#: templates/console/display.twig:140
-msgid "Set default"
-msgstr "Angiv standardværdi"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-"Udfør forespørgsler med Enter og indsæt ny linje med Skift + Enter. For at "
-"gøre dette permanent, så se indstillingerne."
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Indeksnavn;:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-"\"PRIMARY\" <b>skal</b> være navnet på og <b>kun på</b> en primær nøgle!"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "Indeksvalg:"
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "Avancerede indstillinger"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "Blokstørrelse på nøgle:"
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Indekstype:"
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Fortolker:"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Kommentar:"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Træk for at ændre rækkefølge"
-
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Aktive indstillinger"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr "Konfigurere to-faktor autentificering"
-
-#: templates/prefs_twofactor_configure.twig:8
-msgid "Enable two-factor authentication"
-msgstr "Aktiver to-faktor autentificering"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Eksporterer databaser fra den aktuelle server"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Eksporterer tabeller fra database \"%s\""
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Eksporterer rækker fra tabellen \"%s\""
-
-#: templates/database/structure/show_create_row.twig:7
-#, php-format
-msgid "Create %s"
-msgstr "Opret %s"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "VIEW navn"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Kolonnenavne"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "første"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s sammenfald i <strong>%2$s</strong>"
-msgstr[1] "%1$s sammenfald i <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>I alt:</b> <i>%s</i> sammenfald"
-msgstr[1] "<b>I alt</b> <i>%s</i> sammenfald"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Tilføj privileges på følgende tabel:"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Søg og erstat - forhåndsvisning"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Original tekststreng"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Erstattet tekststreng"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Erstat"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Dato"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Brugernavn"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Brug denne værdi"
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Ikke-sporede tabeller"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr "Definer nye aliaser"
-
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "Vælg database:"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Nyt databasenavn"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "Vælg tabel:"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Nyt tabelnavn"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "Vælg kolonne:"
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "Nyt kolonnenavn"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Tilføj til Favoritter"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Ingen"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

@@ -106,9 +106,6 @@ msgstr "Kolom"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Type"
@@ -129,8 +126,6 @@ msgstr "Type"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -152,9 +147,7 @@ msgstr "Leech"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Standert"
 
@@ -1302,7 +1295,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Gjin"
 
@@ -3151,7 +3143,6 @@ msgstr ""
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Kollaasje"
 
@@ -6995,7 +6986,6 @@ msgstr "Folsleine teksten"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7009,7 +6999,6 @@ msgstr "Ofrinnend"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7566,8 +7555,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Opsjes"
 
@@ -7902,8 +7889,6 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikaasje"
 
@@ -9457,8 +9442,8 @@ msgstr "Ynhâldsopjefte"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -14030,19 +14015,22 @@ msgstr ""
 msgid "Dump all rows"
 msgstr ""
 
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Gjin --"
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "No databases"
+msgid "Jump to database '%s'"
+msgstr "Gjin databases"
 
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
 msgstr ""
 
-#: templates/table/secondary_tabs.twig:9
+#: templates/server/databases/table_row.twig:62
 #, fuzzy
-#| msgid "Relational key"
-msgid "Relation view"
-msgstr "Relasjonele kaai"
+#| msgid "Privileges"
+msgid "Check privileges"
+msgstr "Rjochten"
 
 #: templates/export/alias_item.twig:8
 msgid "Remove"
@@ -14161,29 +14149,16 @@ msgstr "Oantal kolommen"
 msgid "first"
 msgstr "earste"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Utfier:"
-
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
+#: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr ""
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabellen"
 
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "Kompresje"
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Som"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -14264,43 +14239,40 @@ msgstr ""
 msgid "Enable statistics"
 msgstr "Databasestatistiken"
 
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
 msgstr ""
 
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
 msgstr ""
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/table/search/options.twig:45
-msgid "Display order:"
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Count"
+msgstr "Oantal"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
 msgstr ""
 
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "Relasjonele kaai"
-
-#: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Add column"
-msgid "Display column for relationships"
-msgstr "Kolom tafoegje"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
 msgstr ""
 
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr ""
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Ferfang"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -14415,9 +14387,9 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
-#| msgid "Value column:"
-msgid "Value Column:"
-msgstr "Weardekolom:"
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "%s tafoegje"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
@@ -14431,9 +14403,9 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:148
 #, fuzzy
-#| msgid "Partition %s"
-msgid "Partitioned by:"
-msgstr "Partysje %s"
+#| msgid "Value column:"
+msgid "Remove this column"
+msgstr "Weardekolom:"
 
 #: templates/database/multi_table_query/form.twig:158
 #: templates/table/relation/foreign_key_row.twig:90
@@ -14442,9 +14414,9 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "Rigelingte"
+#| msgid "Analyze"
+msgid "Update query"
+msgstr "Analysearje"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
@@ -14827,25 +14799,33 @@ msgstr ""
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Nije databasenamme"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Tabelnamme"
 
-#: templates/export/alias_add.twig:23
+#: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
-#| msgid "Relation table"
-msgid "Select table:"
-msgstr "Relaasjetabel"
+#| msgid "Columns"
+msgid "column(s)"
+msgstr "Kolommen"
 
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Nij tabelnamme"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Kollaasje:"
 
-#: templates/export/alias_add.twig:37
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:82
 #, fuzzy
-#| msgid "Value column:"
-msgid "Select column:"
-msgstr "Weardekolom:"
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "Ferbinings"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15426,15 +15406,27 @@ msgstr "Auteur"
 msgid "disabled"
 msgstr "útskeakele"
 
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Change settings"
-msgid "Delete relationship"
-msgstr "Ynstellingen wizigjen"
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Relasjonele kaai"
 
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Rigen:"
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Add column"
+msgid "Display column for relationships"
+msgstr "Kolom tafoegje"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr ""
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96

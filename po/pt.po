@@ -104,9 +104,6 @@ msgstr "Coluna"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tipo"
@@ -127,8 +124,6 @@ msgstr "Tipo"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -150,9 +145,7 @@ msgstr "Nulo"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Predefinido"
 
@@ -1370,7 +1363,6 @@ msgstr "Por favor, adicione pelo menos uma variável às series!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Nenhum"
 
@@ -3266,7 +3258,6 @@ msgstr "Tamanho/Valores*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Agrupamento (Collation)"
 
@@ -7551,7 +7542,6 @@ msgstr "Textos completos"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7565,7 +7555,6 @@ msgstr "Descendente"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8148,8 +8137,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Opções"
 
@@ -8492,8 +8479,6 @@ msgstr "Registo binário"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replicação"
 
@@ -10213,8 +10198,8 @@ msgstr "Índice"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Extra"
 
@@ -14813,8 +14798,6 @@ msgstr "Tempo"
 msgctxt "Chart type"
 msgid "Scatter"
 msgstr ""
-"Faça uma \"pesquisa por formulário\" (carácter universal: \"%\") para duas "
-"colunas diferentes"
 
 #: templates/table/chart/tbl_chart.twig:48
 msgid "Stacked"
@@ -15645,9 +15628,6 @@ msgstr ""
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
-"Permite a interrupção de uma importação quando o script deteta que está "
-"próximo do limite de tempo do PHP. <i>(Esta é uma boa forma de importar "
-"ficheiros grandes, contudo pode interromper transações.)</i>"
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
@@ -15761,9 +15741,9 @@ msgstr "Um índice foi adicionado a %s."
 #: templates/table/structure/actions_in_table_structure.twig:127
 #: templates/table/structure/check_all_table_column.twig:83
 #, fuzzy
-#| msgid "Execute"
-msgid "Execution order"
-msgstr "Executar"
+#| msgid "Remove from Favorites"
+msgid "Remove from central columns"
+msgstr "Remover dos Favoritos"
 
 #: templates/table/structure/actions_in_table_structure.twig:131
 #: templates/table/structure/check_all_table_column.twig:76
@@ -15834,8 +15814,6 @@ msgstr ""
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
 msgstr ""
-"\"PRIMARY\" <b>tem</b> de ser o nome de e <b>apenas de</b> uma chave "
-"primária!"
 
 #: templates/table/structure/row_stats_table.twig:2
 #, fuzzy
@@ -16020,15 +15998,21 @@ msgstr ""
 msgid "Enable two-factor authentication"
 msgstr "Autenticação por config"
 
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Ver resultado como texto"
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s resultado em <strong>%2$s</strong>"
+msgstr[1] "%1$s resultados em <strong>%2$s</strong>"
 
-#: templates/display/export/template_options.twig:1
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select a template"
-msgstr "Seleccionar Tabelas"
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
+msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16143,11 +16127,19 @@ msgstr "Adicionar privilégios na base de dados seguinte"
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:46
+#: templates/table/structure/display_partitions.twig:8
 #, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "Tabelas"
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Nenhum indíce definido!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr ""
 
 #: templates/table/structure/display_partitions.twig:26
 #: templates/columns_definitions/column_virtuality.twig:29
@@ -16158,21 +16150,19 @@ msgstr "Compressão"
 
 #: templates/table/structure/display_partitions.twig:29
 #, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "Nome dos Campos"
+msgid "Data length"
+msgstr "Comprimento de linha"
 
-#: templates/database/multi_table_query/form.twig:50
+#: templates/table/structure/display_partitions.twig:30
 #, fuzzy
-#| msgid "Use this column to label each point"
-msgid "Use this column in criteria"
-msgstr "Use esta coluna para rotular cada ponto"
+msgid "Index length"
+msgstr "Comprimento de linha"
 
-#: templates/database/multi_table_query/form.twig:53
+#: templates/table/structure/display_partitions.twig:135
 #, fuzzy
-#| msgid "Criteria:"
-msgid "criteria"
-msgstr "Critérios:"
+#| msgid "Position"
+msgid "Partition table"
+msgstr "Posição"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
@@ -16498,8 +16488,6 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
-"Por favor aguarde, enquanto o ficheiro e carregado. Não estão disponíveis "
-"mais detalhes."
 
 #: templates/database/structure/favorite_anchor.twig:4
 #, fuzzy
@@ -16754,9 +16742,9 @@ msgstr "Mostrar conteúdo binário"
 msgid "Show BLOB contents"
 msgstr "Exibir conteúdos BLOB"
 
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Linhas:"
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Ocultar transformações do navegador"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96

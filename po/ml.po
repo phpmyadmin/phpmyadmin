@@ -106,9 +106,6 @@ msgstr "നിര"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "തരം"
@@ -129,8 +126,6 @@ msgstr "തരം"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -152,9 +147,7 @@ msgstr "ശൂന്യം"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "സ്വതേ"
 
@@ -1317,7 +1310,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr ""
 
@@ -3172,7 +3164,6 @@ msgstr ""
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "നിബന്ധന"
 
@@ -6998,7 +6989,6 @@ msgstr ""
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7012,7 +7002,6 @@ msgstr "അവരോഹണം"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7575,8 +7564,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr ""
 
@@ -7912,8 +7899,6 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr ""
 
@@ -9495,8 +9480,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr ""
 
@@ -14195,9 +14180,8 @@ msgstr ""
 msgid "Resource limits"
 msgstr ""
 
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 
 #: templates/database/designer/where_query_panel.twig:59
@@ -14270,39 +14254,41 @@ msgstr ""
 msgid "Enable statistics"
 msgstr "പട്ടിക"
 
-#: templates/server/databases/index.twig:24
-msgid "No databases"
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
 msgstr ""
 
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/table/tracking/activate_deactivate.twig:7
+#: templates/display/export/option_header.twig:7
 #, php-format
-msgid "Activate tracking for %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr ""
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+#, fuzzy
+#| msgid "Column"
+msgid "Count"
+msgstr "നിര"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr ""
-
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
 msgstr ""
 
 #: templates/privileges/privileges_summary.twig:20
@@ -14402,8 +14388,7 @@ msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
 #| msgid "Column"
-msgctxt "Chart type"
-msgid "Column"
+msgid "Column alias"
 msgstr "നിര"
 
 #: templates/database/multi_table_query/form.twig:50
@@ -14788,9 +14773,8 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:11
@@ -14839,19 +14823,35 @@ msgstr "നിരകൾ ചേർക്കുക/മായക്കുക"
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
 msgstr ""
 
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:10
+#: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
-#| msgid "Copy database to"
-msgid "Copy table"
-msgstr "വിവരശേഖരം പകർത്തുക"
+#| msgid "Add/Delete columns"
+msgid "column(s)"
+msgstr "നിരകൾ ചേർക്കുക/മായക്കുക"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "നിബന്ധന"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Creation"
+msgid "Connection:"
+msgstr "സൃഷ്‌ടി"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15431,11 +15431,11 @@ msgstr ""
 msgid "disabled"
 msgstr ""
 
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
 msgstr ""
 
-#: templates/database/designer/delete_relation_panel.twig:21
+#: templates/display/results/options_block.twig:30
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Display column for relationships"

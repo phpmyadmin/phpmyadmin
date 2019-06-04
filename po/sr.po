@@ -105,9 +105,6 @@ msgstr "Колона"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Тип"
@@ -128,8 +125,6 @@ msgstr "Тип"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -151,9 +146,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Подразумевано"
 
@@ -1473,7 +1466,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "нема"
 
@@ -3576,7 +3568,6 @@ msgstr "Дужина/Вредност*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Сортирање"
 
@@ -7804,7 +7795,6 @@ msgstr "Пун текст"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7818,7 +7808,6 @@ msgstr "Опадајући"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8428,8 +8417,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Опције"
 
@@ -8782,8 +8769,6 @@ msgstr "Бинарни дневник"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Репликација"
 
@@ -10525,8 +10510,8 @@ msgstr "Садржај"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Додатно"
 
@@ -16281,9 +16266,8 @@ msgstr "се користи"
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:84
 #, fuzzy
-#| msgid "Remove database"
-msgid "Pick from Central Columns"
-msgstr "Уклони базу"
+msgid "Rename to"
+msgstr "Промени име табеле у "
 
 #: templates/database/designer/rename_to_panel.twig:30
 #: templates/database/designer/options_panel.twig:90
@@ -17158,6 +17142,11 @@ msgstr "Шаблон имена датотеке"
 msgid "Template name"
 msgstr "Назив табеле"
 
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Направи"
+
 #: templates/display/export/template_loading.twig:16
 #, fuzzy
 #| msgid "File name template"
@@ -17339,29 +17328,48 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr ""
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/database/create_table.twig:15
+#: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
-#| msgid "Number of fields"
-msgid "Number of columns"
-msgstr "Број поља"
+#| msgid ""
+#| "ld type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: ,'b','c'…<br />If you ever need to put a backslash (\"\\\") a single "
+#| "te (\"'\") amongst those values, precede it with a kslash (for example "
+#| "xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Ако је поље \"enum\" или \"set\", унесите вредности у формату: 'a','b','c'…"
+"<br />Ако вам треба обрнута коса црта (\"\\\") или апостроф (\"'\") "
+"користите их у \"избегнутом\" (escaped) облику (на пример '\\\\xyz' или 'a"
+"\\'b')."
 
-#: templates/privileges/add_privileges_database.twig:1
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"За подразумевану вредност, унесите само једну вредност, без косих црта или "
+"наводника у овом облику: а"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
 #, fuzzy
-#| msgid "Add privileges on the following database"
-msgid "Add privileges on the following database(s):"
-msgstr "Додај привилегије на следећој бази"
+#| msgid "Add/Delete Field Columns"
+msgid "Move column"
+msgstr "Додај/обриши колону"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+#, fuzzy
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "Доступне трансформације"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #, fuzzy

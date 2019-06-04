@@ -104,9 +104,6 @@ msgstr "Stupac"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Vrsta"
@@ -127,8 +124,6 @@ msgstr "Vrsta"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -150,9 +145,7 @@ msgstr "Nula"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Zadano"
 
@@ -272,7 +265,7 @@ msgstr "Tablice nisu pronađene u bazi podataka."
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
-msgstr "Tabele"
+msgstr "Tablice"
 
 #: db_export.php:69 libraries/classes/Config/Forms/User/ExportForm.php:49
 #: libraries/classes/Config/Forms/User/ExportForm.php:93
@@ -1440,7 +1433,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "bez kompresije"
 
@@ -3552,7 +3544,6 @@ msgstr "Duljina/Vrijednosti"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Uspoređivanje"
 
@@ -7810,7 +7801,6 @@ msgstr "Potpuni tekstovi"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7824,7 +7814,6 @@ msgstr "Silazno"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8465,8 +8454,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Opcije"
 
@@ -8820,8 +8807,6 @@ msgstr "Binarni zapisnik"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikacija"
 
@@ -10583,8 +10568,8 @@ msgstr "Sadržaj tablice"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Dodatno"
 
@@ -15796,33 +15781,24 @@ msgstr ""
 msgid "Rows:"
 msgstr "Redaka"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
 msgstr ""
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Spremi na poslužitelju u mapi %s"
-
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
 #, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "Kompresija"
+#| msgid "Number of fields"
+msgid "Number of rows:"
+msgstr "Broj polja"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
@@ -15881,8 +15857,6 @@ msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
-"Napomena: Omogućavanja statistika baze podataka može prouzrokovati izuzetno "
-"velik promet između web poslužitelja i MySQL poslužitelja."
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
@@ -16202,9 +16176,9 @@ msgstr ""
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 #, fuzzy
-#| msgid "partitioned"
-msgid "Partitioned by:"
-msgstr "particionirano"
+#| msgid "in query"
+msgid "Requery"
+msgstr "unutar upita"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -16425,9 +16399,9 @@ msgstr "Indeks je pridodan na %s."
 #: templates/table/structure/actions_in_table_structure.twig:127
 #: templates/table/structure/check_all_table_column.twig:83
 #, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "Importing into the current server"
-msgstr "Prijavljivanje na MySQL poslužitelj nije moguće"
+#| msgid "Remove column(s)"
+msgid "Remove from central columns"
+msgstr "Ukloni stupac / stupce"
 
 #: templates/table/structure/actions_in_table_structure.twig:131
 #: templates/table/structure/check_all_table_column.twig:76
@@ -16695,11 +16669,15 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%s poklapanja unutar tablice <i>%s</i>"
 msgstr[1] "%s poklapanja unutar tablice <i>%s</i>"
 
-#: templates/display/export/template_options.twig:1
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select a template"
-msgstr "Odaberite tablice"
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Ukupno:</b> <i>%s</i> poklapanje"
+msgstr[1] "<b>Ukupno:</b> <i>%s</i> poklapanja"
+msgstr[2] "<b>Ukupno:</b> <i>%s</i> poklapanja"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16851,15 +16829,15 @@ msgstr "Duljina retka"
 
 #: templates/table/structure/display_partitions.twig:30
 #, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "Kriterij"
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Duljina retka"
 
-#: templates/database/multi_table_query/form.twig:67
+#: templates/table/structure/display_partitions.twig:135
 #, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "Dodaj %s"
+#| msgid "partitioned"
+msgid "Partition table"
+msgstr "particionirano"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
@@ -17454,23 +17432,19 @@ msgstr "Relacijski ključ"
 msgid "Display column for relationships"
 msgstr "Onemogući provjere stranih znakova"
 
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
 msgstr ""
-"Napomena: Postavljanje ovih opcija na vrijednost 0 (nula) uklanja "
-"ograničenje."
 
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Delete relationship"
-msgstr "Izbriši relaciju"
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr ""
 
-#: templates/display/export/options_rows.twig:2
+#: templates/display/results/options_block.twig:67
 #, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "Redaka"
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
+msgstr "Pretvaranje preglednika"
 
 #: templates/display/results/options_block.twig:79
 #: templates/display/results/options_block.twig:96

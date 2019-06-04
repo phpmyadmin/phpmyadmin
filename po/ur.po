@@ -112,9 +112,6 @@ msgstr "کالم"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "قِسم"
@@ -135,8 +132,6 @@ msgstr "قِسم"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -158,9 +153,7 @@ msgstr "خالی"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "طے شدہ"
 
@@ -1432,7 +1425,6 @@ msgstr "براہ کرم سیریز کے باب میں کم از کم ایک مت
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "کوئی بھی نہیں"
 
@@ -3490,7 +3482,6 @@ msgstr ""
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "ترتیب"
 
@@ -7935,7 +7926,6 @@ msgstr ""
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7949,7 +7939,6 @@ msgstr "نزولی"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8531,8 +8520,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr ""
 
@@ -8877,8 +8864,6 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "چربہ کاری"
 
@@ -10565,8 +10550,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr ""
 
@@ -15449,18 +15434,13 @@ msgstr ""
 msgid "Number of rows:"
 msgstr ""
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
 msgstr ""
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "%s match inside table <i>%s</i>"
-#| msgid_plural "%s matches inside table <i>%s</i>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "<i>%s</i>جدول کے ساتھ مشابہ%s"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -15504,7 +15484,6 @@ msgstr ""
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
 msgstr ""
-"اپ لوڈ مسل کو بڑھاتے ہوئے نقص ہے, دیکھیں [doc@faq1-11]عمومی سوالات 1.11[/doc]"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
@@ -15550,26 +15529,24 @@ msgstr "صفحہ عنوانات"
 msgid "Page to delete"
 msgstr "ریلیشن حذف ہو گیا"
 
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
+#: templates/table/tracking/activate_deactivate.twig:7
+#, fuzzy, php-format
+#| msgid "Missing data for %s"
+msgid "Activate tracking for %s"
+msgstr "کوائف نہیں ملا برائے %s"
+
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr ""
+#: templates/table/tracking/activate_deactivate.twig:11
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Deactivate tracking for %s"
+msgstr "اس جدول کے لیے کھوج کوائف حذف کریں"
 
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
@@ -15667,8 +15644,10 @@ msgstr "فیلڈ کالمز شامل یا ختم کریں"
 msgid "See table structure"
 msgstr "کوائفیے"
 
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 msgstr ""
 
 #: templates/prefs_autoload.twig:13
@@ -15728,22 +15707,30 @@ msgstr "ڈیٹا بیس میں کوئی ٹیبل نہیں مِلا"
 msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-#| msgid "Query statistics"
-msgid "Enable statistics"
-msgstr "طلب شماریات"
+#| msgid "Command"
+msgid "Count"
+msgstr "کالم"
 
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr ""
-
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/table/search/replace_preview.twig:18
 #, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "صفحہ عنوانات"
+#| msgid "Lines terminated by"
+msgid "Original string"
+msgstr "سطریں کے آخر میں"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Replication"
+msgid "Replaced string"
+msgstr "لپیٹنا"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replicated"
+msgid "Replace"
+msgstr "نقل ہوا"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15850,9 +15837,9 @@ msgstr "جداول"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
-#| msgid "Display PDF schema"
-msgid "Display column for relationships"
-msgstr "دکھائیں PDF schema"
+#| msgid "Comments"
+msgid "Column alias"
+msgstr "آراء-رائے"
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
@@ -15872,9 +15859,9 @@ msgstr "اضافہ کریں %s"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
-#| msgid "Invalid table name"
-msgid "Save to selected page"
-msgstr "غلط جدول نام"
+#| msgid "Add/Delete Field Columns"
+msgid "Another column"
+msgstr "فیلڈ کالمز شامل یا ختم کریں"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
@@ -15882,24 +15869,22 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:148
 #, fuzzy
-#| msgid "Page number:"
-msgid "New page name"
-msgstr "صفحہ نمبر"
+#| msgid "Remove database"
+msgid "Remove this column"
+msgstr "کوائفیہ ہٹائیں"
 
 #: templates/database/multi_table_query/form.twig:158
 #: templates/table/relation/foreign_key_row.twig:90
 #, fuzzy
-#| msgid "Mar"
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "مارچ"
+#| msgid "Add/Delete Field Columns"
+msgid "+ Add column"
+msgstr "فیلڈ کالمز شامل یا ختم کریں"
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Command"
-msgctxt "Chart type"
-msgid "Column"
-msgstr "کالم"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "طلب تازہ کریں"
 
 #: templates/table/relation/common_form.twig:6
 #, fuzzy
@@ -16053,15 +16038,9 @@ msgstr "کوائفیہ ہٹائیں"
 #: templates/table/structure/actions_in_table_structure.twig:131
 #: templates/table/structure/check_all_table_column.twig:76
 #, fuzzy
-#| msgid "Restore default value"
-msgid "Set default"
-msgstr "طے شدہ قدر بحال کریں"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
+#| msgid "CHAR textarea columns"
+msgid "Add to central columns"
+msgstr "CHAR textarea کالم"
 
 #: templates/privileges/delete_user_fieldset.twig:3
 #, fuzzy
@@ -16283,9 +16262,8 @@ msgstr "کھوج غیر فعال ہے۔"
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:11
@@ -16341,28 +16319,34 @@ msgstr "فیلڈ کالمز شامل یا ختم کریں"
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "اوور ہیڈ جداول کی پڑتال کریں"
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Dump table"
-msgid "Copy table"
-msgstr "جدول ڈ٘مپ کریں"
-
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "کلر دکھائیں"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
 msgstr ""
 
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Comments"
+msgid "column(s)"
+msgstr "آراء-رائے"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "ترتیب"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "تعلقات"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
 msgstr ""
 
 #: templates/database/structure/table_header.twig:27
@@ -16402,9 +16386,9 @@ msgstr "سارا منتخب کریں"
 
 #: templates/start_and_number_of_rows_panel.twig:3
 #, fuzzy
-#| msgid "Replace table data with file"
-msgid "Replace table prefix"
-msgstr "جدول کوائف کو مسل سے بدلیں"
+#| msgid "Startup"
+msgid "Start row:"
+msgstr "ابتدائیہ"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -17031,7 +17015,7 @@ msgstr "غیر فعال"
 msgid "Relational key"
 msgstr ""
 
-#: templates/database/designer/delete_relation_panel.twig:21
+#: templates/display/results/options_block.twig:30
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display column for relationships"

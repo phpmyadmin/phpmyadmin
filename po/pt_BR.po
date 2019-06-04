@@ -104,9 +104,6 @@ msgstr "Coluna"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tipo"
@@ -127,8 +124,6 @@ msgstr "Tipo"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -150,9 +145,7 @@ msgstr "Nulo"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Padrão"
 
@@ -1367,7 +1360,6 @@ msgstr "Por favor adicione no mínimo uma variável à série!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Nenhum"
 
@@ -3273,7 +3265,6 @@ msgstr "Tamanho/Valores"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Colação"
 
@@ -7308,7 +7299,6 @@ msgstr "Textos completos"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7322,7 +7312,6 @@ msgstr "Descendente"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7939,8 +7928,6 @@ msgstr "Editar a estrutura seguindo o link \"Estrutura\"."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Opções"
 
@@ -8283,8 +8270,6 @@ msgstr "Log binário"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replicação"
 
@@ -9920,8 +9905,8 @@ msgstr "Tabela de conteúdos"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Extra"
 
@@ -14807,24 +14792,23 @@ msgstr "Salvar saída em um arquivo"
 msgid "Skip tables larger than %s MiB"
 msgstr "Pular tabelas maiores que %s MiB"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Saída:"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Registros:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
 msgstr "Despejar alguma(s) linha(s)"
 
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Expressão"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+msgid "Number of rows:"
+msgstr "Número de linhas:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Recolher"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Começar na linha:"
 
 #: templates/display/export/options_rows.twig:32
 msgid "Dump all rows"
@@ -15595,13 +15579,13 @@ msgstr "Mover campo(s)"
 msgid "Move the columns by dragging them up and down."
 msgstr "Mover o(s) campo(s) arrastando ele(s) para cima e para baixo."
 
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Número máximo de linhas para traçar"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Nome da Tabela"
 
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Valor da sessão"
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "coluna(s)"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
@@ -15650,9 +15634,9 @@ msgstr "Nome da restrição"
 msgid "Select page"
 msgstr "Selecionar página"
 
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Use expressões regulares"
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Linha inicial:"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15847,45 +15831,11 @@ msgstr "Nome do arquivo do modelo:"
 msgid "use this for future exports"
 msgstr "use este para futuras exportações"
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Usar este valor"
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Tabelas não monitoradas"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr "Definir novos apelidos"
-
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "Selecionar base de dados:"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Nome da nova base de dados"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "Selecionar tabela:"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Novo nome da tabela"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "Selecionar campo:"
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "Novo nome da coluna"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Adicionar aos Favoritos"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Nenhum"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

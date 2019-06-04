@@ -104,9 +104,6 @@ msgstr "Oszlop"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Típus"
@@ -127,8 +124,6 @@ msgstr "Típus"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -150,9 +145,7 @@ msgstr "Nulla"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Alapértelmezett"
 
@@ -1361,7 +1354,6 @@ msgstr "Legalább egy változót adjon meg a sorozathoz!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Nincs"
 
@@ -3260,7 +3252,6 @@ msgstr "Hossz/Értékek"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Illesztés"
 
@@ -7364,7 +7355,6 @@ msgstr "Teljes szövegek"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7378,7 +7368,6 @@ msgstr "Csökkenő"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7996,8 +7985,6 @@ msgstr "Szerkezet szerkesztése a „Szerkezet” hivatkozást követve."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Beállítások"
 
@@ -8338,8 +8325,6 @@ msgstr "Bináris napló"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Többszörözés"
 
@@ -9984,8 +9969,8 @@ msgstr "Tartalomjegyzék"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Extra"
 
@@ -15046,51 +15031,25 @@ msgstr "Oszlopok száma"
 msgid "first"
 msgstr "első"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tábla"
+msgstr[1] "%s tábla"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Kimenet:"
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Összesen"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
 msgstr "Erőforrás-korlátozások"
 
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Átnevezés"
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-msgid "New name"
-msgstr "Új név"
-
-#: templates/database/designer/options_panel.twig:99
-#: templates/database/designer/aggregate_query_panel.twig:22
-msgid "Aggregate"
-msgstr "Összegzés"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "új"
-
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "A fájl karakterkészlete:"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
+"Megjegyzés: Ezen beállítások 0-ra (nulla) állítása eltávolítja a korlátozást."
 
 #: templates/database/designer/where_query_panel.twig:59
 #: templates/database/designer/having_query_panel.twig:90
@@ -15114,62 +15073,13 @@ msgstr "Használja ezt az oszlopot az egyes pontok címkézéséhez"
 msgid "Maximum rows to plot"
 msgstr "A megjelenítendő sorok maximális száma"
 
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "Hivatkozó: %s."
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "Oszlopok megjelenítése vagy elrejtése"
 
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Egy idegen kulcs-e."
-
-#: templates/columns_definitions/column_name.twig:40
-msgid "Pick from Central Columns"
-msgstr "Válasszon a központi oszlopokból"
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "%2$s %1$s verziójának készítése"
-
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "%1$s verzió létrehozása"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Kövesse nyomon ezeket az adatmeghatározó utasításokat:"
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Kövesse nyomon ezeket az adatmanipulációs utasításokat:"
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Verzió létrehozása"
-
-#: templates/table/structure/partition_definition_form.twig:6
-#: templates/table/structure/display_partitions.twig:141
-msgid "Edit partitioning"
-msgstr "Particionálás szerkesztése"
-
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "Nincs"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Mint meghatározva:"
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Nincs adatbázis"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr "Ez egy csak olvasható változó és nem szerkeszthető"
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "Táblaszerkezet megtekintése"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15210,39 +15120,40 @@ msgstr ""
 msgid "Enable statistics"
 msgstr "Statisztikák engedélyezése"
 
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "Tábla nyomon követése"
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Adatbázisok exportálása a jelenlegi kiszolgálóról"
 
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
-msgstr ""
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Táblák exportálása a \"%s\" adatbázisból"
 
-#: templates/table/structure/optional_action_links.twig:28
-msgid "Track view"
-msgstr "Nyomkövetés nézet"
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Sorok exportálása a \"%s\" táblából"
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
 msgstr "Keresés és csere - előnézet"
 
-#: templates/display/results/options_block.twig:30
-msgid "Display column for relationships"
-msgstr "Oszlop megjelenítése a kapcsolatokhoz"
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Count"
+msgstr "Számláló"
 
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Bináris tartalom megjelenítése"
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Eredeti szöveg"
 
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "BLOB-tartalom megjelenítése"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Cserélt szöveg"
 
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Böngészőátalakítás elrejtése"
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Csere"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15778,36 +15689,29 @@ msgstr "Oszlopok mozgatása"
 msgid "Move the columns by dragging them up and down."
 msgstr "Oszlopok mozgatása fel és le húzással."
 
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Cél adatbázis"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Tábla neve"
 
-#: templates/console/display.twig:127
-msgid "Share this bookmark"
-msgstr "Könyvjelző megosztása"
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "oszlop(ok)"
 
-#: templates/console/display.twig:140
-msgid "Set default"
-msgstr "Alapértelmezett beállítása"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Illesztés:"
 
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-"Lekérdezések végrehajtása az Enter lenyomásakor, és új sor beszúrása a Shift "
-"+ Enter használatával. Ennek állandóvá tételéhez nézze meg a beállításokat."
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Tárolómotor:"
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Index neve:"
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Kapcsolat:"
 
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-"Az elsődleges kulcs nevének, és <b>csak annak</b> \"PRIMARY\"-nak <b>kell</"
-"b> lennie!"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION definíció:"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -16038,51 +15942,11 @@ msgstr "Fájlnévsablon:"
 msgid "use this for future exports"
 msgstr "használja ezt a későbbi exportálásokhoz"
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Ezen érték használata"
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Nem követett táblák"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select database"
-msgid "Select database:"
-msgstr "Adatbázis kiválasztása"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Új adatbázis neve"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select table"
-msgid "Select table:"
-msgstr "Tábla kiválasztása"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Új tábla neve"
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
-msgid "Select column:"
-msgstr "Válasszon egy oszlopot."
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "Új oszlopnév"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Hozzáadás a kedvencekhez"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Nincs"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

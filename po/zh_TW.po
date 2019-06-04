@@ -102,9 +102,6 @@ msgstr "欄位"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "類型"
@@ -125,8 +122,6 @@ msgstr "類型"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -148,9 +143,7 @@ msgstr "空值(Null)"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "預設值"
 
@@ -1299,7 +1292,6 @@ msgstr "請至少增加一個變數到資料序列！"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "無"
 
@@ -3121,7 +3113,6 @@ msgstr "長度/值"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "編碼與排序"
 
@@ -6941,7 +6932,6 @@ msgstr "完整內容"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -6955,7 +6945,6 @@ msgstr "遞減"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7534,8 +7523,6 @@ msgstr "點選「結構」連結以編輯。"
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "選項"
 
@@ -7870,8 +7857,6 @@ msgstr "二進位記錄"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "備援"
 
@@ -9422,8 +9407,8 @@ msgstr "目錄"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "額外資訊"
 
@@ -14115,10 +14100,9 @@ msgstr[0] "%s 張資料表"
 msgid "Sum"
 msgstr "總計"
 
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-msgid "Relationship operator"
-msgstr "關聯運算子"
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "資源限制"
 
 #: templates/privileges/resource_limits.twig:5
 msgid "Note: Setting these options to 0 (zero) removes the limit."
@@ -14146,15 +14130,13 @@ msgstr "選擇作為資料點標籤的欄位"
 msgid "Maximum rows to plot"
 msgstr "圖表最多顯示列數"
 
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "新增"
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "顯示/隱藏欄位"
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "檔案編碼:"
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "檢視資料表結構"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -14198,7 +14180,7 @@ msgstr "從目前的伺服器匯出資料庫"
 msgid "Exporting tables from \"%s\" database"
 msgstr "正在匯出「%s」資料庫的資料表"
 
-#: templates/table/tracking/activate_deactivate.twig:7
+#: templates/display/export/option_header.twig:9
 #, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr "正在匯出「%s」資料表的資料列"
@@ -14216,14 +14198,13 @@ msgstr "次數"
 msgid "Original string"
 msgstr "原有字串"
 
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr "立即啓用"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "替換字串"
 
-#: templates/table/tracking/activate_deactivate.twig:11
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "停用 %s 的追蹤"
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "替換"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -14717,13 +14698,13 @@ msgstr "移動欄位"
 msgid "Move the columns by dragging them up and down."
 msgstr "請上下拖曳來移動欄位順序。"
 
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "進階選項"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "資料表名稱"
 
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "鍵值區塊大小："
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "欄位"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
@@ -14733,13 +14714,13 @@ msgstr "編碼與排序："
 msgid "Storage Engine:"
 msgstr "儲存引擎："
 
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "使用滑鼠拖曳來重新排序"
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "連線："
 
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "目前選項"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION 定義:"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -14961,10 +14942,11 @@ msgstr "檔案名稱樣版："
 msgid "use this for future exports"
 msgstr "以後匯出時，也使用此設定"
 
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
-msgid "select table"
-msgstr "選擇資料表"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "無"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

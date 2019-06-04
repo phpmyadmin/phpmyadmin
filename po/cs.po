@@ -104,9 +104,6 @@ msgstr "Pole"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Typ"
@@ -127,8 +124,6 @@ msgstr "Typ"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -150,9 +145,7 @@ msgstr "Nulový"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Výchozí"
 
@@ -1353,7 +1346,6 @@ msgstr "Prosím přidejte do série alespoň jednu hodnotu!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Žádná"
 
@@ -3235,7 +3227,6 @@ msgstr "Délka/Množina"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Porovnávání"
 
@@ -7393,7 +7384,6 @@ msgstr "Celé texty"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7407,7 +7397,6 @@ msgstr "Sestupně"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8010,8 +7999,6 @@ msgstr "Strukturu upravíte kliknutím na odkaz „Struktura“."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Nastavení"
 
@@ -8355,8 +8342,6 @@ msgstr "Binární log"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikace"
 
@@ -9993,8 +9978,8 @@ msgstr "Obsah"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Další"
 
@@ -15005,34 +14990,23 @@ msgstr "Stránka k otevření"
 msgid "Page to delete"
 msgstr "Stránka ke smazání"
 
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"Ve vašem prohlížeči je uloženo nastavení phpMyAdmina pro tuto doménu. "
-"Přejete si ho importovat do tohoto sezení?"
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings"
-msgstr "Smazat sledovací data"
-
-#: templates/columns_definitions/column_name.twig:4
+#: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
-msgid "Referenced by %s."
-msgstr "Odkazováno v %s."
+msgid "Activate tracking for %s"
+msgstr "Zapnout sledování pro %s"
 
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Jedná se o cizí klíč."
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr "Zapnout teď"
+
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "Vypnout sledování pro %s"
+
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr "Vypnout teď"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
@@ -15190,14 +15164,13 @@ msgstr "Počet"
 msgid "Original string"
 msgstr "Původní řetězec"
 
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr "Zapnout teď"
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Nahrazený řetězec"
 
-#: templates/table/tracking/activate_deactivate.twig:11
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "Vypnout sledování pro %s"
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Nahradit"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15316,9 +15289,9 @@ msgstr "Použít tento sloupec pro přiřazení názvu každému bodu"
 
 #: templates/database/multi_table_query/form.twig:53
 #, fuzzy
-#| msgid "Display column for relations"
-msgid "Display column for relationships"
-msgstr "Zobrazit sloupec pro relace"
+#| msgid "Criteria:"
+msgid "criteria"
+msgstr "Podmínka:"
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
@@ -15646,9 +15619,6 @@ msgstr "Vlastní - zobrazí všechna nastavení"
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
 msgstr ""
-"phpMyAdmin zjistil chybu. Posbírali jsme informace o této chybě a "
-"souvisejících nastavení aby jsme je mohli odeslat vývojářům phpMyAdmina pro "
-"její opravení."
 
 #: templates/export/alias_add.twig:9
 #, fuzzy
@@ -15721,13 +15691,23 @@ msgstr ""
 msgid "Enable two-factor authentication"
 msgstr "Přihlašování config"
 
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Zobrazit výstup jako text"
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s odpovídající záznam v <strong>%2$s</strong>"
+msgstr[1] "%1$s odpovídající záznamy v <strong>%2$s</strong>"
+msgstr[2] "%1$s odpovídajících záznamů v <strong>%2$s</strong>"
 
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Zvolte šablonu"
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Celkem:</b> <i>%s</i> odpovídající záznam"
+msgstr[1] "<b>Celkem:</b> <i>%s</i> odpovídající záznamy"
+msgstr[2] "<b>Celkem:</b> <i>%s</i> odpovídajících záznamů"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -15828,21 +15808,19 @@ msgstr ""
 "Zástupné znaky _ a % by měly být escapovány pomocí \\ pokud si je přejete "
 "použít jako znak."
 
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
+#: templates/table/structure/display_partitions.twig:8
 #, fuzzy
-#| msgid "Select table"
-msgid "select table"
-msgstr "Vybrat tabulku"
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Není definován žádný klíč!"
 
-#: templates/database/multi_table_query/form.twig:40
-#: templates/database/multi_table_query/form.twig:129
+#: templates/table/structure/display_partitions.twig:11
 #, fuzzy
-#| msgid "Select a column."
-msgid "select column"
-msgstr "Zvolte sloupec."
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "používá oddíly"
 
-#: templates/database/multi_table_query/form.twig:46
+#: templates/table/structure/display_partitions.twig:16
 #, fuzzy
 #| msgid "partitioned"
 msgid "Sub partitioned by:"

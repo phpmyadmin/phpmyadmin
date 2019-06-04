@@ -105,9 +105,6 @@ msgstr "Столбец"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Тип"
@@ -128,8 +125,6 @@ msgstr "Тип"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -151,9 +146,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -1357,7 +1350,6 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Ниодного"
 
@@ -3251,7 +3243,6 @@ msgstr "Длина/Значения"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Сравнение"
 
@@ -7276,7 +7267,6 @@ msgstr "Полные тексты"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7290,7 +7280,6 @@ msgstr "По убыванию"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7909,8 +7898,6 @@ msgstr "Отредактировать структуру, перейдя по �
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Параметры"
 
@@ -8248,8 +8235,6 @@ msgstr "Бинарный журнал"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Репликация"
 
@@ -9889,8 +9874,8 @@ msgstr "Содержание"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Дополнительно"
 
@@ -14950,16 +14935,17 @@ msgstr "Количество столбцов"
 msgid "first"
 msgstr "первый"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s таблица"
+msgstr[1] "%s таблицы"
+msgstr[2] "%s таблиц"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Вывод:"
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Всего"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -15609,29 +15595,29 @@ msgstr "Переместить поля"
 msgid "Move the columns by dragging them up and down."
 msgstr "Переместите поля перетаскивая их вверх и вниз."
 
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "Размер блока ключа:"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Имя таблицы"
 
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Тип индекса&nbsp;:"
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "поле(я)"
 
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Парсер:"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Сравнение:"
 
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Комментарий:"
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Тип таблиц:"
 
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Перетяните для изменения порядка сортировки"
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Соединение:"
 
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Активные параметры"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "Определение разделов (PARTITION):"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15861,9 +15847,11 @@ msgstr "Шаблон имени файла:"
 msgid "use this for future exports"
 msgstr "использовать для будущего экспорта"
 
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Добавить в Избранное"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Нет"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

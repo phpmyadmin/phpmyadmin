@@ -3368,7 +3368,7 @@ class Privileges
 
         $foundRows = array();
         $privileges = array();
-        foreach ($db_rights as $row) {error_log(print_r($row, true));
+        foreach ($db_rights as $row) {
             $onePrivilege = array();
 
             $paramTableName = '';

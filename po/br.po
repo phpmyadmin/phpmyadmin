@@ -113,9 +113,6 @@ msgstr "Bann"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Seurt"
@@ -136,8 +133,6 @@ msgstr "Seurt"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -159,9 +154,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Dre ziouer"
 
@@ -1443,7 +1436,6 @@ msgstr "Ouzhpennit da nebeutañ unan eus an argemennoù d'an heuliad"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Hini"
 
@@ -3470,7 +3462,6 @@ msgstr ""
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Etrerummadiñ"
 
@@ -7690,7 +7681,6 @@ msgstr ""
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7704,7 +7694,6 @@ msgstr "War zigresk"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8288,8 +8277,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr ""
 
@@ -8634,8 +8621,6 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Eilañ"
 
@@ -10301,8 +10286,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr ""
 
@@ -15069,28 +15054,26 @@ msgstr "Anv taolenn direizh"
 msgid "Export tables as separate files"
 msgstr "Doare ezporzhiañ"
 
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr ""
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Klask en diaz roadennoù"
 
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr ""
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Gerioù pe dalvoudoù da glask (Joker: \"%\") :"
 
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr ""
+#: templates/database/search/selection_form.twig:15
+#: templates/table/search/search_and_replace.twig:1
+msgid "Find:"
+msgstr "Kavout :"
 
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "E diabarzh an taolennoù :"
 
-#: templates/table/tracking/activate_deactivate.twig:7
-#, fuzzy, php-format
-#| msgid "Missing data for %s"
-msgid "Activate tracking for %s"
-msgstr "Roadennoù a vank evit %s"
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "Er bann :"
 
 #: templates/database/tracking/untracked_tables.twig:1
 msgid "Untracked tables"
@@ -15116,32 +15099,27 @@ msgstr ""
 msgid "Skip tables larger than %s MiB"
 msgstr ""
 
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
 msgstr ""
 
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
 msgstr ""
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-#, fuzzy
-#| msgid "Query statistics"
-msgid "Enable statistics"
-msgstr "Stadegoù war ar rekedoù"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+msgid "Number of rows:"
 msgstr ""
 
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "Titloù pajennoù"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -15234,29 +15212,24 @@ msgstr "Titloù pajennoù"
 msgid "Page to delete"
 msgstr "Titloù pajennoù"
 
-#: templates/table/chart/tbl_chart.twig:19
-#, fuzzy
-#| msgid "Column"
-msgctxt "Chart type"
-msgid "Column"
-msgstr "Bann"
+#: templates/table/tracking/activate_deactivate.twig:7
+#, fuzzy, php-format
+#| msgid "Missing data for %s"
+msgid "Activate tracking for %s"
+msgstr "Roadennoù a vank evit %s"
 
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:27
-#, fuzzy
-#| msgctxt "Inline edit query"
-#| msgid "Inline"
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "Enlinenn"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Deactivate tracking for %s"
+msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
 
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
@@ -15348,14 +15321,17 @@ msgstr "Ouzhpennañ/Diverkañ bannoù"
 msgid "See table structure"
 msgstr "Diazoù roadennoù"
 
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 msgstr ""
 
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr ""
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Deleting tracking data"
+msgid "Delete settings"
+msgstr "O tiverkañ ar roadennoù heuliañ"
 
 #: templates/database/designer/page_save_as.twig:17
 #, fuzzy
@@ -15398,33 +15374,34 @@ msgstr ""
 msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr ""
-
-#: templates/login/twofactor/invalid.twig:2
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-#| msgid ""
-#| "Tracking of changes made in database. Requires the phpMyAdmin "
-#| "configuration storage."
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
-"Heuliañ ar c'hemmoù graet en diaz roadennoù. Rekis eo kaout ar stokañ "
-"kefluniadurioù phpMyAdmin."
+#| msgid "Column"
+msgid "Count"
+msgstr "Bann"
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr ""
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Linestring"
+msgid "Original string"
+msgstr "Aradennad linennoù"
 
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr ""
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Replace table prefix"
+msgid "Replaced string"
+msgstr "Erlec'hiañ rakger an daolenn"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replicated"
+msgid "Replace"
+msgstr "Eilet"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15512,15 +15489,9 @@ msgstr "Prenestr klask"
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
 #, fuzzy
-#| msgid "Number of inserted rows"
-msgid "at beginning of table"
-msgstr "Niver a linennoù da ensoc'hañ"
-
-#: templates/table/structure/add_column.twig:19
-#: templates/columns_definitions/move_column.twig:12
-#, php-format
-msgid "after %s"
-msgstr ""
+#| msgid "Select All"
+msgid "select table"
+msgstr "Diuzañ pep tra"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
@@ -16613,8 +16584,6 @@ msgstr ""
 #: templates/display/import/import.twig:84
 msgid "You may also drag and drop a file on any page."
 msgstr ""
-"Heuliañ ar c'hemmoù graet en diaz roadennoù. Rekis eo kaout ar stokañ "
-"kefluniadurioù phpMyAdmin."
 
 #: templates/display/import/import.twig:86
 msgid "File uploads are not allowed on this server."
@@ -16703,7 +16672,7 @@ msgstr "Diweredekaet"
 msgid "Relational key"
 msgstr ""
 
-#: templates/database/designer/delete_relation_panel.twig:21
+#: templates/display/results/options_block.twig:30
 #, fuzzy
 #| msgid "Display direction for altering/creating columns"
 msgid "Display column for relationships"

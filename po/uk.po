@@ -105,9 +105,6 @@ msgstr "Стовпець"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Тип"
@@ -128,8 +125,6 @@ msgstr "Тип"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -151,9 +146,7 @@ msgstr "Нуль"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "За замовчуванням"
 
@@ -1354,7 +1347,6 @@ msgstr "Будь ласка, додайте хоча б одну змінну в
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Жодного"
 
@@ -3241,7 +3233,6 @@ msgstr "Довжина/Значення"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Зіставлення"
 
@@ -7257,7 +7248,6 @@ msgstr "Повні тексти"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7271,7 +7261,6 @@ msgstr "За спаданням"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7884,8 +7873,6 @@ msgstr "Відредагувати структуру за посиланням 
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Параметри"
 
@@ -8226,8 +8213,6 @@ msgstr "Бінарний журнал"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Реплікація"
 
@@ -9855,8 +9840,8 @@ msgstr "Зміст"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Додатково"
 
@@ -14729,31 +14714,27 @@ msgstr "Зберегти вивід у файл"
 msgid "Skip tables larger than %s MiB"
 msgstr "Ігнорувати таблиці більші ніж %s MiB"
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Зберегти на сервері в каталозі <strong>%s</strong>"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Рядки:"
 
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Вираз"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Вивантажити частину рядків"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Згорнути"
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+msgid "Number of rows:"
+msgstr "Число рядків:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Розгорнути"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Почати з рядка:"
 
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Повторити запит"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Вивантажити всі рядки"
 
 #: templates/server/databases/table_row.twig:13
 #, php-format
@@ -15525,502 +15506,17 @@ msgstr "Перемістити стовпці"
 msgid "Move the columns by dragging them up and down."
 msgstr "Переміщення стовпців шляхом перетягування їх вгору і вниз."
 
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Максимальна кількість рядків для побудови графіку"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Значення сесії"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Плагін"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Автор"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "відключено"
-
-#: templates/table/search/search_and_replace.twig:3
-msgid "Replace with:"
-msgstr "Замінити на:"
-
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Використувати регулярний вираз"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Стовпчик %s було знищено."
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Змінні сервера та налаштування"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "Механізми зберігання"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Набори символів і співставлення"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Статистика баз даних"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Стискання:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "стиснено"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "стиснено в \"gzip\""
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
-"Налаштована двофакторна автентифікація недоступна, будь ласка, встановіть "
-"відсутні залежності."
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Використано простору"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Ефективність"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Для типів поля \"enum\" або \"set\", введіть значення в такому форматі: "
-"'a','b','c'…<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\") "
-"або поодинокі лапки (\"'\") посеред цих значень, поставте перед ними "
-"зворотню косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Для значень за замовчуванням, введіть лише значення, без використання "
-"зворотніх слешів чи лапок, у такому форматі: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Віртуальність"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Перемістити стовпець"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Перелік доступних перетворень та їх параметри"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Параметри перетворення відображення браузером"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'…<br /"
-">Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у "
-"цих значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\"
-"\\xyz' чи 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Введення параметрів перетворень"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Оглянути/Редагувати точки"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Як використовувати"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Скидання масштабу"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Вибрати двійковий журнал для перегляду"
-
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "Показати/приховати стовпці"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "Дивитися структуру таблиці"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Початковий рядок:"
-
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/results/additional_fields.twig:6
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "Число рядків:"
-
-#: templates/table/structure/add_column.twig:9
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Додати %s стовпець(ів)"
-
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "на початку таблиці"
-
-#: templates/table/structure/add_column.twig:19
-#: templates/columns_definitions/move_column.twig:12
-#, php-format
-msgid "after %s"
-msgstr "після %s"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Немає"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "Конвертувати в Kana"
-
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "Імпортування до поточного сервера"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "Імпортування до бази даних \"%s\""
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "Імпортування до таблиці \"%s\""
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "Файл для імпорту:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "Файл може бути стиснений (%s) або нестиснений."
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"Ім'я стисненого файлу повинно закінчуватися на <strong>.[format]."
-"[compression]</strong>. Приклад: <strong>.sql.zip</strong>"
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "Ви також можете перетягнути файл на будь-якій сторінці."
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "Завантаження файлів на цьому сервері не допускаються."
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "Частковий імпорт:"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"Попередній імпорт прострочений, після повторного надсилання він почнеться з "
-"позиції %d."
-
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"Дозволити переривання імпорту у випадку, коли скрипт виявить наближення до "
-"вичерпання часу очікування PHP. <em>(Це може бути хороший способом "
-"імпортування великих файлів, однак це можу привести до розриву пересилань.)</"
-"em>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Пропустити вказане число запитів (для SQL), починаючи з першого:"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "Інші параметри:"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Шаблон назви файлу:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "використовувати для майбутнього експорту"
-
-#: templates/console/display.twig:7
-msgid "History"
-msgstr "Історія"
-
-#: templates/console/display.twig:11 templates/console/display.twig:99
-msgid "Bookmarks"
-msgstr "Закладки"
-
-#: templates/console/display.twig:20
-msgid "Press Ctrl+Enter to execute query"
-msgstr "Натисніть Ctrl+Enter для виконання запиту"
-
-#: templates/console/display.twig:23
-msgid "Press Enter to execute query"
-msgstr "Натисніть Enter для виконання запиту"
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-msgid "Explain"
-msgstr "Тлумачити"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Bookmark"
-msgstr "Закласти"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Query failed"
-msgstr "Збій виконання запиту"
-
-#: templates/console/display.twig:42 templates/console/display.twig:184
-msgid "Queried time"
-msgstr "Час запиту"
-
-#: templates/console/display.twig:47
-msgid "During current session"
-msgstr "Під час поточного сеансу"
-
-#: templates/console/display.twig:64
-msgid "ascending"
-msgstr "за зростанням"
-
-#: templates/console/display.twig:64
-msgid "descending"
-msgstr "за спаданням"
-
-#: templates/console/display.twig:64
-msgid "Order:"
-msgstr "Порядок:"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-msgid "Count"
-msgstr "Відлік"
-
-#: templates/console/display.twig:64
-msgid "Execution order"
-msgstr "Порядок виконання"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Time taken"
-msgstr "Витрачений час"
-
-#: templates/console/display.twig:64
-msgid "Order by:"
-msgstr "Порядок:"
-
-#: templates/console/display.twig:64
-msgid "Ungroup queries"
-msgstr "Розгрупувати запити"
-
-#: templates/console/display.twig:84
-msgid "Show trace"
-msgstr "Показати трасіровку"
-
-#: templates/console/display.twig:84
-msgid "Hide trace"
-msgstr "Приховати тарсіровку"
-
-#: templates/console/display.twig:112
-msgid "Add bookmark"
-msgstr "Додати закладку"
-
-#: templates/console/display.twig:121
-msgid "Label"
-msgstr "Мітка"
-
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Цільова база даних"
-
-#: templates/console/display.twig:127
-msgid "Share this bookmark"
-msgstr "Поділитися цією закладкою"
-
-#: templates/console/display.twig:140
-msgid "Set default"
-msgstr "Скинути за замовчуванням"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-"Виконати запит по натиснені на Enter і вставити новий рядок по натиснені на "
-"Shift + Enter. Щоб зробити цю опцію постійною, дивіться настройки."
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Назва індекса&nbsp;:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" <b>повинно</b> бути іменем <b>лише</b> первинного ключа!"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "Вибір індексу:"
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "Розширені опції"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "Розмір ключа блоку:"
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Тип індекса:"
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Аналізатор:"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Коментар:"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Перетягніть, щоб змінити порядок"
-
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Активовані опції"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr "Налаштувати двофакторну аутентифікацію"
-
-#: templates/prefs_twofactor_configure.twig:8
-msgid "Enable two-factor authentication"
-msgstr "Увімкнути двофакторну аутентифікацію"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Експортування баз даних із поточного сервера"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Експортування таблиць із бази даних \"%s\""
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Експортування рядків із таблиці \"%s\""
-
-#: templates/database/structure/show_create_row.twig:7
-#, php-format
-msgid "Create %s"
-msgstr "Створити %s"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Назва подання"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Ім'я стовпців"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr "Перевірити"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "перший"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s співпадіння у <strong>%2$s</strong>"
-msgstr[1] "%1$s співпадіння у <strong>%2$s</strong>"
-msgstr[2] "%1$s співпадінь у <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Всього:</strong> <em>%count%</em> збіг"
-msgstr[1] "<strong>Всього:</strong> <em>%count%</em> збіги"
-msgstr[2] "<strong>Всього:</strong> <em>%count%</em> збігів"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-"Будь ласка, підключіть пристрій FIDO U2F до USB-порту комп'ютера. Потім "
-"підтвердіть реєстрацію на пристрої."
-
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Додати привілеї для цієї таблиці:"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-"Ви не використовуєте https для доступу до phpMyAdmin, тому що пристрій FIDO "
-"U2F, найімовірніше, відмовляється перевірити автентичність."
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Знайти і замінити - попередній перегляд"
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Ім'я таблиці"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "стовпець(і)"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Порівняння:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
@@ -16065,9 +15561,9 @@ msgstr "Обмеження зовнішнього ключа"
 msgid "Select page"
 msgstr "Вибрати сторінку"
 
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Дата"
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Початковий рядок:"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -16262,10 +15758,11 @@ msgstr "Шаблон назви файлу:"
 msgid "use this for future exports"
 msgstr "використовувати для майбутнього експорту"
 
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
-msgid "select table"
-msgstr "вибрати таблицю"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Немає"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

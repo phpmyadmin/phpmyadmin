@@ -108,9 +108,6 @@ msgstr "Veerg"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tüüp"
@@ -131,8 +128,6 @@ msgstr "Tüüp"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -154,9 +149,7 @@ msgstr "Tühi"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Vaikimisi"
 
@@ -1355,7 +1348,6 @@ msgstr "Palun lisa seeriasse vähemalt üks muutuja!"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Puudub"
 
@@ -3229,7 +3221,6 @@ msgstr "Pikkus/Väärtused"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Kodeering"
 
@@ -7187,7 +7178,6 @@ msgstr "Täistekstid"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7201,7 +7191,6 @@ msgstr "Kahanev"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7804,8 +7793,6 @@ msgstr "Struktuuri muutmiseks klõpsa lingil \"Struktuur\"."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Valikud"
 
@@ -8147,8 +8134,6 @@ msgstr "Binaarne logi"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Paljundamine"
 
@@ -9772,8 +9757,8 @@ msgstr "Sisu tabel"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Lisaks"
 
@@ -14741,13 +14726,16 @@ msgstr "Veergude arv"
 msgid "first"
 msgstr "esimene"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita meldimine "
-"seadmega."
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabelit"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Summa"
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -15373,160 +15361,25 @@ msgstr "Veergusid saad liigutada nende lohistamisega üles ja alla."
 msgid "Table name"
 msgstr "Tabeli nimi"
 
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Suurim ridade hulk diagrammis"
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "veerg(ud)"
 
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Seansi väärtus"
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Kodeering:"
 
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Plugin"
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Varundusmootor:"
 
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Autor"
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Ühendus:"
 
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "keelatud"
-
-#: templates/table/search/search_and_replace.twig:3
-msgid "Replace with:"
-msgstr "Asenda:"
-
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Kasuta regulaaravaldist"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Veerg %s on kustutatud."
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Serveri muutujad ja sätted"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "Salvestusmootorid"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Märgitabelid ja kodeeringud"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Andmebaaside statistika"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Tihendamine:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zipitud"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzipitud"
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
-"Seadistatud kaheastmeline autentimine pole saadaval; palun paigalda puuduvad "
-"sõltuvused."
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Ruumi kasutus"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Efektiivne"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Kui veeru tüüp on \"enum\" või \"set\", siis palun sisesta väärtused "
-"formaadis: 'a','b','c'…<br />Kui pead nende väärtuste vahele lisama "
-"kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
-"kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Vaikimisi väärtuste jaoks sisesta palun ilma kurakaldkriipsuta või "
-"jutumärkideta lihtsalt üksik väärtus, formaadis: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Virtuaalsus"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Liiguta veergu"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Loetelu kasutatavatest transformatsioonidest ja nende lisavalikutest"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Veebilehitseja kuva transformatsiooni sätted"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Palun sisesta teisenduse valikute jaoks vajalikud väärtused, kasutades "
-"formaati: 'a', 100, b,'c'…<br />Kui pead nende väärtuste vahele lisama "
-"kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
-"kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Sisendi transformatsiooni sätted"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Sirvi/Muuda punkte"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Kuidas kasutada"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Lähtesta suum"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Vali binaarne logi, mida soovid vaadata"
-
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "Kuva/peida veerud"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "Vaata tabeli struktuuri"
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION definitsioon:"
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -15754,9 +15607,11 @@ msgstr "Faili nime mall:"
 msgid "use this for future exports"
 msgstr "kasuta seda edasistel eksportimistel"
 
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Lisa lemmikutesse"
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Puudub"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199

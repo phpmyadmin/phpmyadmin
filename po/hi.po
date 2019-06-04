@@ -102,9 +102,6 @@ msgstr "स्तम्भ"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "प्रकार/किस्म"
@@ -125,8 +122,6 @@ msgstr "प्रकार/किस्म"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -148,9 +143,7 @@ msgstr "शून्य"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "तयशुदा"
 
@@ -1400,7 +1393,6 @@ msgstr "कृपया, श्रृंखला में कम से कम
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "कुछ नहीं"
 
@@ -3449,7 +3441,6 @@ msgstr "लंबाई/अर्थ*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "क्रम में करें"
 
@@ -7941,7 +7932,6 @@ msgstr "पूर्ण पाठ"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7955,7 +7945,6 @@ msgstr "अवरोही"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8545,8 +8534,6 @@ msgstr "इसकी संरचना को संपादित करन�
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "विकल्प"
 
@@ -8892,8 +8879,6 @@ msgstr "बाइनरी लोग"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "प्रतिकृति"
 
@@ -10610,8 +10595,8 @@ msgstr "लेख - सूची"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "अतिरिक्त"
 
@@ -16480,17 +16465,23 @@ msgstr ""
 msgid "Enable two-factor authentication"
 msgstr "विन्यास प्रमाणीकरण"
 
-#: templates/console/display.twig:64
-#, fuzzy
-#| msgid "SQL queries"
-msgid "Ungroup queries"
-msgstr "SQL क्वरी"
+#: templates/database/search/results.twig:12
+#, fuzzy, php-format
+#| msgid "%s match inside table <i>%s</i>"
+#| msgid_plural "%s matches inside table <i>%s</i>"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "<i>%s</i> टेबल के अंदर %s मैच हैं."
+msgstr[1] "<i>%s</i> टेबल के अंदर %s मैच हैं."
 
-#: templates/console/display.twig:84
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "Show color"
-msgid "Show trace"
-msgstr "रंग दिखाओ"
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>कुल:</b> <i>%s</i> मैच"
+msgstr[1] "<b>कुल:</b> <i>%s</i> मैच"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16605,27 +16596,23 @@ msgstr "इन डाटाबेसों के लिये विशेष�
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:18
+#: templates/table/structure/display_partitions.twig:8
 #, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "मूल स्थिति"
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "परिभाषित सूचकांक  नहीं पाए गए!"
 
-#: templates/table/search/replace_preview.twig:19
+#: templates/table/structure/display_partitions.twig:11
 #, fuzzy
-#| msgid "Replication"
-msgid "Replaced string"
-msgstr "पसंबंधित लिंक"
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "विभाजित"
 
-#: templates/table/search/replace_preview.twig:37
+#: templates/table/structure/display_partitions.twig:16
 #, fuzzy
-#| msgid "Replicated"
-msgid "Replace"
-msgstr "दोहराया"
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "विभाजित"
 
 #: templates/table/structure/display_partitions.twig:26
 #: templates/columns_definitions/column_virtuality.twig:29
@@ -16636,21 +16623,21 @@ msgstr "संक्षिप्तीकरण"
 
 #: templates/table/structure/display_partitions.twig:29
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "टेबल चुनिये"
+#| msgid "Row length"
+msgid "Data length"
+msgstr "रौ की लंबाई"
 
-#: templates/export/alias_add.twig:15
+#: templates/table/structure/display_partitions.twig:30
 #, fuzzy
-#| msgid "Database name"
-msgid "New database name"
-msgstr "डेटाबेस नाम"
+#| msgid "Row length"
+msgid "Index length"
+msgstr "रौ की लंबाई"
 
-#: templates/export/alias_add.twig:23
+#: templates/table/structure/display_partitions.twig:135
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "टेबल चुनिये"
+#| msgid "partitioned"
+msgid "Partition table"
+msgstr "विभाजित"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6

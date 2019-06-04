@@ -106,9 +106,6 @@ msgstr "Stulpelis"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tipas"
@@ -129,8 +126,6 @@ msgstr "Tipas"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -152,9 +147,7 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Nutylint"
 
@@ -1416,7 +1409,6 @@ msgstr "Prašome pridėti bent vieną kintamąjį į eilę"
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Ne"
 
@@ -3453,7 +3445,6 @@ msgstr "Ilgis/reikšmės*"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr "Palyginimas"
 
@@ -8140,7 +8131,6 @@ msgstr "Tekstus rodyti pilnai"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -8154,7 +8144,6 @@ msgstr "Mažėjimo tvarka"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8762,8 +8751,6 @@ msgstr "Keisti jo struktūrą spauskite „Struktūra“ nuorodą"
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Nustatymai"
 
@@ -9114,8 +9101,6 @@ msgstr "Dvejetainis log'as"
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "Replikavimas"
 
@@ -10836,8 +10821,8 @@ msgstr "Turinys"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Papildomai"
 
@@ -16781,13 +16766,9 @@ msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
 msgstr[2] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
 msgstr[3] ""
 
-#: templates/table/chart/tbl_chart.twig:27
-#, fuzzy
-#| msgctxt "Inline edit query"
-#| msgid "Inline"
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "Redaguoti čia"
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Naudokite šią reikšmę"
 
 #: templates/table/structure/move_columns_dialog.twig:1
 #: templates/table/structure/optional_action_links.twig:19
@@ -17343,39 +17324,47 @@ msgstr "zip"
 msgid "gzipped"
 msgstr "gzip"
 
-#: templates/console/display.twig:84
+#: templates/display/export/template_loading.twig:2
 #, fuzzy
-#| msgid "Hide indexes"
-msgid "Hide trace"
-msgstr "Nerodyti indeksų"
+#| msgid "Export type"
+msgid "Export templates:"
+msgstr "Eksportavimo tipas"
 
-#: templates/console/display.twig:112
+#: templates/display/export/template_loading.twig:6
 #, fuzzy
-#| msgid "Delete relation"
-msgid "Add bookmark"
-msgstr "Ištrinti sąryšį"
+#| msgid "File name template:"
+msgid "New template:"
+msgstr "Failo pavadinimo šablonas:"
 
-#: templates/console/display.twig:121
+#: templates/display/export/template_loading.twig:8
 #, fuzzy
-#| msgid "Label"
-msgid "Label"
-msgstr "Nuorodos Antraštė"
+#| msgid "Table name"
+msgid "Template name"
+msgstr "Lentelės vardas"
 
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Į duomenų bazę"
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Sukurti"
 
-#: templates/console/display.twig:127
+#: templates/display/export/template_loading.twig:16
 #, fuzzy
-#| msgid "Delete relation"
-msgid "Share this bookmark"
-msgstr "Ištrinti sąryšį"
+#| msgid "File name template:"
+msgid "Existing templates:"
+msgstr "Failo pavadinimo šablonas:"
 
-#: templates/console/display.twig:140
+#: templates/display/export/template_loading.twig:17
 #, fuzzy
-#| msgid "Reset to default"
-msgid "Set default"
-msgstr "Atstatyti numatytąsias reikšmes"
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "Template:"
+msgstr "%s lentelė"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgid "Updated"
+msgid "Update"
+msgstr "Atnaujinta"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -17540,98 +17529,55 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Nesekamos lentelės"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
+#: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "Pasirinkite lenteles"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "Database name"
-msgid "New database name"
-msgstr "Duomenų bazės vardas"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "Pasirinkite lenteles"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New page name: "
-msgid "New table name"
-msgstr "Naujas puslapio vardas: "
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select two columns"
-msgid "Select column:"
-msgstr "Pasirinkite du stulpelius"
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Column names"
-msgid "New column name"
-msgstr "Stulpelių vardai"
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Add this series"
-msgid "Add to Favorites"
-msgstr "Pridėti šią eilę"
-
-#: templates/error/report_form.twig:6
+#| msgid ""
+#| "If column type is \"enum\" or \"set\", please enter the values using this "
+#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
+#| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
 msgstr ""
+"Jeigu laukelio tipas yra \"enum\" arba \"set\", tuomet duomenų reikšmes "
+"reikia įvesti naudojant šį formatą: 'a','b','c'…<br />. Jeigu jums reikia "
+"įrašyti dešininį įžambųjį brūkšnį (\"\\\") arba kabutes(\"'\") tarp šių "
+"reikšmių, tuomet prieš šios simbolius reikia papildomo dešininio įžambaus "
+"brūkšnio (pavyzdžiui: '\\\\xyz' or 'a\\'b')."
 
-#: templates/error/report_form.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Nenaudokite išskyrimo simbolių ar kabučiu, nurodydami reikšmę pagal "
+"nutylėjimą. Naudokitės šiuo formatu: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
 msgstr ""
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Pasirinkite puslapį"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Pažymėti turinčias perteklių"
-
-#: templates/database/structure/check_all_tables.twig:10
+#: templates/columns_definitions/table_fields_definitions.twig:65
 #, fuzzy
-#| msgid "Copy"
-msgid "Copy table"
-msgstr "Kopijuoti"
+#| msgid "Remove column(s)"
+msgid "Move column"
+msgstr "Pašalinti stulpelį(-ius)"
 
-#: templates/database/structure/check_all_tables.twig:11
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
 #, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "Rodyti spalvą"
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "Galimos transformacijos"
 
-#: templates/database/structure/check_all_tables.twig:25
+#: templates/columns_definitions/table_fields_definitions.twig:82
 #, fuzzy
-#| msgid "Add prefix"
-msgid "Prefix"
-msgstr "Pridėti priešdėlį"
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "Naršyklės transformacija"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94

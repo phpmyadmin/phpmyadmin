@@ -110,9 +110,6 @@ msgstr "ಅಂಕಣ"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "ಕೌಟುಂಬಿಕತೆ"
@@ -133,8 +130,6 @@ msgstr "ಕೌಟುಂಬಿಕತೆ"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -156,9 +151,7 @@ msgstr "ಶೂನ್ಯ"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
 
@@ -1292,7 +1285,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr ""
 
@@ -3113,7 +3105,6 @@ msgstr ""
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr ""
 
@@ -6874,7 +6865,6 @@ msgstr ""
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -6888,7 +6878,6 @@ msgstr ""
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -7443,8 +7432,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr ""
 
@@ -7777,8 +7764,6 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr ""
 
@@ -9310,8 +9295,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr ""
 
@@ -13937,15 +13922,12 @@ msgstr[1] "%s ಕೋಷ್ಟಕಗಳು"
 msgid "Sum"
 msgstr ""
 
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings"
-msgstr "ಜಾಡೀಕರಣ ಅಳಿಸು"
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr ""
 
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 
 #: templates/database/designer/where_query_panel.twig:59
@@ -13970,14 +13952,12 @@ msgstr ""
 msgid "Maximum rows to plot"
 msgstr ""
 
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
 msgstr ""
 
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
 msgstr ""
 
 #: templates/prefs_autoload.twig:7
@@ -14601,13 +14581,9 @@ msgstr ""
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr ""
 
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr ""
-
-#: templates/display/import/import.twig:56
+#: templates/table/relation/foreign_key_row.twig:15
 #, php-format
-msgid "File may be compressed (%s) or uncompressed."
+msgid "Foreign key constraint %s has been dropped"
 msgstr ""
 
 #: templates/table/relation/foreign_key_row.twig:38

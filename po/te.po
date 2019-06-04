@@ -107,9 +107,6 @@ msgstr "వరుస"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/database/structure/table_header.twig:32
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "రకం"
@@ -130,8 +127,6 @@ msgstr "రకం"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
@@ -153,9 +148,7 @@ msgstr "శూన్యం"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "అప్రమేయం"
 
@@ -1393,7 +1386,6 @@ msgstr ""
 #: templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/display/export/options_output_compression.twig:7
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "ఏమీలేదు"
 
@@ -3402,7 +3394,6 @@ msgstr "పొడవు/విలువలు"
 #: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/structure/row_stats_table.twig:30
 msgid "Collation"
 msgstr ""
 
@@ -7497,7 +7488,6 @@ msgstr "పూర్తి పాఠ్యాలు"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:63
 #: templates/table/search/options.twig:54
@@ -7511,7 +7501,6 @@ msgstr "అవరోహణ"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 #: templates/database/multi_table_query/form.twig:62
 #: templates/table/search/options.twig:54
@@ -8079,8 +8068,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "ఎంపికలు"
 
@@ -8426,8 +8413,6 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
-#: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr ""
 
@@ -10092,8 +10077,8 @@ msgstr "విషయ సూచిక"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr ""
 
@@ -15056,44 +15041,22 @@ msgstr "పుట శీర్షికలు"
 msgid "Page to delete"
 msgstr "పుట శీర్షికలు"
 
-#: templates/columns_definitions/column_name.twig:4
+#: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
-msgid "Referenced by %s."
+msgid "Activate tracking for %s"
 msgstr ""
 
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
 msgstr ""
 
-# మొదటి అనువాదము
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove database"
-msgid "Pick from Central Columns"
-msgstr "డేటాబేస్ తొలగించండి"
-
-#: templates/table/tracking/create_version.twig:11
-#, fuzzy, php-format
-#| msgid "More settings"
-msgid "Create version %1$s of %2$s"
-msgstr "మరిన్ని అమరికలు"
-
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-#| msgid "More settings"
-msgid "Create version %1$s"
-msgstr "మరిన్ని అమరికలు"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
 msgstr ""
 
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
@@ -15188,10 +15151,10 @@ msgstr "స్పందనలకు చేర్చు"
 msgid "See table structure"
 msgstr "డేటాబేస్"
 
-#: templates/server/databases/databases_footer.twig:65
+#: templates/prefs_autoload.twig:7
 msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 msgstr ""
 
 #: templates/prefs_autoload.twig:13
@@ -15246,15 +15209,33 @@ msgstr ""
 msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/database/designer/edit_delete_pages.twig:6
+# మొదటి అనువాదము
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #, fuzzy
-#| msgid "Page titles"
-msgid "Page to open"
-msgstr "పుట శీర్షికలు"
+#| msgid "Column"
+msgid "Count"
+msgstr "వరుస"
+
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Original position"
+msgid "Original string"
+msgstr "అసలు స్థానం"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "సంబంధాలు"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr ""
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15359,9 +15340,9 @@ msgstr "పట్టికలు"
 
 #: templates/database/multi_table_query/form.twig:47
 #, fuzzy
-#| msgid "Display comments"
-msgid "Display column for relationships"
-msgstr "వ్యాఖ్యలను చూపించు"
+#| msgid "Comments"
+msgid "Column alias"
+msgstr "వ్యాఖ్యలు"
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
@@ -15375,9 +15356,9 @@ msgstr "లక్షణాలు"
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
-#| msgid "Version information"
-msgid "Hide browser transformation"
-msgstr "సంచిక సమాచారం"
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "%s జతచేయి"
 
 #: templates/database/multi_table_query/form.twig:112
 #, fuzzy
@@ -15392,23 +15373,23 @@ msgstr ""
 # మొదటి అనువాదము
 #: templates/database/multi_table_query/form.twig:148
 #, fuzzy
-#| msgid "Table name"
-msgid "Save to selected page"
-msgstr "పట్టిక పేరు"
+#| msgid "Remove database"
+msgid "Remove this column"
+msgstr "డేటాబేస్ తొలగించండి"
 
 # మొదటి అనువాదము
 #: templates/database/multi_table_query/form.twig:158
 #: templates/table/relation/foreign_key_row.twig:90
 #, fuzzy
 #| msgid "Add into comments"
-msgid "Show/hide columns"
+msgid "+ Add column"
 msgstr "స్పందనలకు చేర్చు"
 
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Database"
-msgid "See table structure"
-msgstr "డేటాబేస్"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "క్వెరీ ని మార్చు"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
@@ -15892,11 +15873,11 @@ msgstr "వ్యాఖ్యలు"
 msgid "Select page"
 msgstr ""
 
-#: templates/database/structure/check_all_tables.twig:10
+#: templates/start_and_number_of_rows_panel.twig:3
 #, fuzzy
-#| msgid "Copy database to"
-msgid "Copy table"
-msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
+#| msgid "Start"
+msgid "Start row:"
+msgstr "మొదలుపెట్టు"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -16512,15 +16493,21 @@ msgstr "గణాంకాలని అచేతనంచేయి"
 msgid "Relational key"
 msgstr ""
 
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Display comments"
+msgid "Display column for relationships"
+msgstr "వ్యాఖ్యలను చూపించు"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
 msgstr ""
 
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
 msgstr ""
 
-#: templates/table/structure/row_stats_table.twig:2
+#: templates/display/results/options_block.twig:67
 #, fuzzy
 #| msgid "Version information"
 msgid "Hide browser transformation"
