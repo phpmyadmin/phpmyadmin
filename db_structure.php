@@ -10,13 +10,10 @@ declare(strict_types=1);
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
-use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
-
-global $db;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/db_common.inc.php';
@@ -26,21 +23,6 @@ $response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get(DatabaseInterface::class);
-
-/* Define dependencies for the concerned controller */
-$dependency_definitions = [
-    'db' => $db,
-];
-
-/** @var Definition $definition */
-$definition = $containerBuilder->getDefinition(StructureController::class);
-array_map(
-    static function (string $parameterName, $value) use ($definition) {
-        $definition->replaceArgument($parameterName, $value);
-    },
-    array_keys($dependency_definitions),
-    $dependency_definitions
-);
 
 /** @var StructureController $controller */
 $controller = $containerBuilder->get(StructureController::class);

@@ -73,7 +73,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
       relation: '@relation'
       replication: '@replication'
 
