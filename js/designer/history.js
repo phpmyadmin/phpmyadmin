@@ -445,7 +445,8 @@ function unique (arrayName) {
     var newArray = [];
     uniquetop:
     for (var i = 0; i < arrayName.length; i++) {
-        for (var j = 0; j < newArray.length; j++) {
+        var newArray_length = newArray.length;
+        for (var j = 0; j < newArray_length; j++) {
             if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
             }
