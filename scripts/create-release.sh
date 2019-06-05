@@ -222,11 +222,10 @@ rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
 rm -f README.rst
 
 if [ ! -d libraries/tcpdf ] ; then
-    if [ "$branch" = "QA_4_8" ] ; then
-        PHP_REQ=`sed -n '/"php"/ s/.*">=\([0-9]\.[0-9]\).*/\1/p' composer.json`
-    else
-        PHP_REQ=`sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json`
-    fi
+    case "$branch" in
+      QA_4*) PHP_REQ=$(sed -n '/"php"/ s/.*">=\([0-9]\.[0-9]\).*/\1/p' composer.json) ;;
+      *) PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json) ;;
+    esac
 
     if [ -z "$PHP_REQ" ] ; then
         echo "Failed to figure out required PHP version from composer.json"
@@ -242,11 +241,11 @@ if [ ! -d libraries/tcpdf ] ; then
 
     # Parse the required versions from composer.json
     PACKAGES_VERSIONS=''
-    if [ "$branch" = "QA_4_8" ] ; then
-        PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server"
-    else
-        PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server"
-    fi
+    case "$branch" in
+      QA_4*) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server" ;;
+      *) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server" ;;
+    esac
+
     for PACKAGES in $PACKAGE_LIST
     do
         PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
