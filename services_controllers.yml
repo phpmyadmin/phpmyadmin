@@ -22,8 +22,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      centralColumns: null
+      db: '%db%'
+      centralColumns: '@central_columns'
 
   PhpMyAdmin\Controllers\Database\DataDictionaryController:
     class: 'PhpMyAdmin\Controllers\Database\DataDictionaryController'

@@ -9,6 +9,10 @@ services:
     class: 'PhpMyAdmin\Config'
     arguments: [!php/const CONFIG_FILE]
 
+  central_columns:
+    class: '\PhpMyAdmin\CentralColumns'
+    arguments: ['@dbi']
+
   create_add_field:
     class: 'PhpMyAdmin\CreateAddField'
     arguments: ['@dbi']
