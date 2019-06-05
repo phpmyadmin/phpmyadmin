@@ -31,7 +31,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
       relation: '@relation'
       transformations: '@transformations'
 
