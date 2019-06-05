@@ -258,8 +258,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       searchType: null
       url_query: null
       relation: '@relation'
