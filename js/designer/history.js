@@ -444,10 +444,8 @@ var aggregate = function (noperator) {
 function unique (arrayName) {
     var newArray = [];
     uniquetop:
-    var arrayName_length = arrayName.length;
-    for (var i = 0; i < arrayName_length; i++) {
-        var newArray_length = newArray.length;
-        for (var j = 0; j < newArray_length; j++) {
+    for (var i = 0; i < arrayName.length; i++) {
+        for (var j = 0; j < newArray.length; j++) {
             if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
             }
