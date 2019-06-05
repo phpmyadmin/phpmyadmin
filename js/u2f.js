@@ -1,6 +1,5 @@
-/** global: AJAX */
-/** global: PMA_messages */
-/** global: u2f */
+/* global u2f */ // js/vendor/u2f-api-polyfill.js
+
 AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');
     if ($inputReg.length > 0) {
@@ -13,10 +12,10 @@ AJAX.registerOnload('u2f.js', function () {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {
                     if (data.errorCode === 5) {
-                        PMA_ajaxShowMessage(PMA_messages.strU2FTimeout, false);
+                        Functions.ajaxShowMessage(Messages.strU2FTimeout, false);
                     } else {
-                        PMA_ajaxShowMessage(
-                            PMA_sprintf(PMA_messages.strU2FError, data.errorCode), false
+                        Functions.ajaxShowMessage(
+                            Functions.sprintf(Messages.strU2FError, data.errorCode), false
                         );
                     }
                     return;
@@ -41,10 +40,10 @@ AJAX.registerOnload('u2f.js', function () {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {
                     if (data.errorCode === 5) {
-                        PMA_ajaxShowMessage(PMA_messages.strU2FTimeout, false);
+                        Functions.ajaxShowMessage(Messages.strU2FTimeout, false);
                     } else {
-                        PMA_ajaxShowMessage(
-                            PMA_sprintf(PMA_messages.strU2FError, data.errorCode), false
+                        Functions.ajaxShowMessage(
+                            Functions.sprintf(Messages.strU2FError, data.errorCode), false
                         );
                     }
                     return;

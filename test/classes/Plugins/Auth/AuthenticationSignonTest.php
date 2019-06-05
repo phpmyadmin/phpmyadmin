@@ -27,7 +27,7 @@ class AuthenticationSignonTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -43,7 +43,7 @@ class AuthenticationSignonTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);
@@ -62,7 +62,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->showLoginForm();
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'You must set SignonURL!',
             $result
         );
@@ -280,7 +280,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -307,7 +307,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -333,7 +333,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -361,7 +361,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -397,7 +397,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
             ->setMethods(['showLoginForm'])
             ->getMock();
@@ -420,6 +420,39 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->assertEquals(
             'Cannot log in to the MySQL server',
             $_SESSION['PMA_single_signon_error_message']
+        );
+    }
+
+    /**
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::setCookieParams
+     *
+     * @return void
+     */
+    public function testSetCookieParamsDefaults()
+    {
+        $this->object = $this->getMockBuilder(AuthenticationSignon::class)
+        ->disableOriginalConstructor()
+        ->setMethods(['setCookieParams'])
+        ->getMock();
+
+        $this->object->setCookieParams([]);
+
+        $defaultOptions = [
+            'lifetime' => 0,
+            'path' => '/',
+            'domain' => '',
+            'secure' => false,
+            'httponly' => false,
+            'samesite' => '',
+        ];
+        // php did not set 'samesite' attribute in session_get_cookie_params since not yet implemented
+        if (version_compare(phpversion(), '7.3.0', '<')) {
+            unset($defaultOptions['samesite']);
+        }
+
+        $this->assertSame(
+            $defaultOptions,
+            session_get_cookie_params()
         );
     }
 }

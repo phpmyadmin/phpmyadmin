@@ -12,31 +12,36 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Handles table structure logic
  *
  * @package PhpMyAdmin\Controllers
  */
-class StructureController extends TableController
+class StructureController extends AbstractController
 {
     /**
      * @var Table  The table object
@@ -89,42 +94,38 @@ class StructureController extends TableController
     /**
      * StructureController constructor
      *
-     * @param \PhpMyAdmin\Response          $response            Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi                 DatabaseInterface object
-     * @param string                        $db                  Database name
-     * @param string                        $table               Table name
-     * @param string                        $type                Indicate the db_structure or tbl_structure
-     * @param int                           $num_tables          Number of tables
-     * @param int                           $pos                 Current position in the list
-     * @param bool                          $db_is_system_schema DB is information_schema
-     * @param int                           $total_num_tables    Number of tables
-     * @param array                         $tables              Tables in the DB
-     * @param bool                          $is_show_stats       Whether stats show or not
-     * @param bool                          $tbl_is_view         Table is a view
-     * @param string                        $tbl_storage_engine  Table storage engine
-     * @param int                           $table_info_num_rows Number of rows
-     * @param string                        $tbl_collation       Table collation
-     * @param array                         $showtable           Show table info
+     * @param Response          $response            Response object
+     * @param DatabaseInterface $dbi                 DatabaseInterface object
+     * @param Template          $template            Template object
+     * @param string            $db                  Database name
+     * @param string            $table               Table name
+     * @param bool              $db_is_system_schema DB is information_schema
+     * @param bool              $tbl_is_view         Table is a view
+     * @param string            $tbl_storage_engine  Table storage engine
+     * @param int               $table_info_num_rows Number of rows
+     * @param string            $tbl_collation       Table collation
+     * @param array             $showtable           Show table info
+     * @param Relation          $relation            Relation instance
+     * @param Transformations   $transformations     Transformations instance
+     * @param CreateAddField    $createAddField      CreateAddField instance
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
-        $type,
-        $num_tables,
-        $pos,
         $db_is_system_schema,
-        $total_num_tables,
-        $tables,
-        $is_show_stats,
         $tbl_is_view,
         $tbl_storage_engine,
         $table_info_num_rows,
         $tbl_collation,
-        $showtable
+        $showtable,
+        Relation $relation,
+        Transformations $transformations,
+        CreateAddField $createAddField
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = Url::getCommonRaw(['db' => $db, 'table' => $table]);
@@ -135,18 +136,22 @@ class StructureController extends TableController
         $this->_showtable = $showtable;
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
-        $this->createAddField = new CreateAddField($dbi);
-        $this->relation = new Relation($dbi);
-        $this->transformations = new Transformations();
+        $this->createAddField = $createAddField;
+        $this->relation = $relation;
+        $this->transformations = $transformations;
     }
 
     /**
      * Index action
      *
+     * @param ContainerBuilder $containerBuilder ContainerBuilder instance
+     *
      * @return void
      */
-    public function indexAction()
+    public function indexAction(ContainerBuilder $containerBuilder): void
     {
+        global $sql_query;
+
         PageSettings::showGroup('TableStructure');
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
@@ -208,7 +213,7 @@ class StructureController extends TableController
          * A click on Change has been made for one column
          */
         if (isset($_GET['change_column'])) {
-            $this->displayHtmlForColumnChange(null, 'tbl_structure.php');
+            $this->displayHtmlForColumnChange(null, 'tbl_structure.php', $containerBuilder);
             return;
         }
 
@@ -249,7 +254,8 @@ class StructureController extends TableController
                             = $this->getDataForSubmitMult(
                                 $submit_mult,
                                 $_POST['selected_fld'],
-                                $action
+                                $action,
+                                $containerBuilder
                             );
                     //update the existing variables
                     // todo: refactor mult_submits.inc.php such as
@@ -439,7 +445,7 @@ class StructureController extends TableController
             $data['Expression'] = '';
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
-                $expressions = $this->table->getColumnGenerationExpression($column);
+                $expressions = $this->table_obj->getColumnGenerationExpression($column);
                 $data['Expression'] = $expressions[$column];
             }
 
@@ -507,13 +513,13 @@ class StructureController extends TableController
     /**
      * Displays HTML for changing one or more columns
      *
-     * @param array  $selected the selected columns
-     * @param string $action   target script to call
+     * @param array            $selected         the selected columns
+     * @param string           $action           target script to call
+     * @param ContainerBuilder $containerBuilder Container builder instance (Used in tbl_columns_definition_form.inc.php)
      *
      * @return void
-     *
      */
-    protected function displayHtmlForColumnChange($selected, $action)
+    protected function displayHtmlForColumnChange($selected, $action, ContainerBuilder $containerBuilder)
     {
         // $selected comes from mult_submits.inc.php
         if (empty($selected)) {
@@ -573,7 +579,7 @@ class StructureController extends TableController
             $partitionDetails = $this->_extractPartitionDetails();
         }
 
-        include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
+        $partitionDetails = TablePartitionDefinition::getDetails($partitionDetails);
         $this->response->addHTML(
             $this->template->render('table/structure/partition_definition_form', [
                 'db' => $this->db,
@@ -991,7 +997,18 @@ class StructureController extends TableController
                         $_POST['field_orig'][$i]
                     )
                     . ' ' . Util::backquote($_POST['field_orig'][$i])
-                    . ' BLOB;';
+                    . ' BLOB';
+
+                    if (isset($_POST['field_virtuality'][$i])
+                        && isset($_POST['field_expression'][$i])) {
+                        if ($_POST['field_virtuality'][$i]) {
+                            $secondary_query .= ' AS (' . $_POST['field_expression'][$i] . ') '
+                                . $_POST['field_virtuality'][$i];
+                        }
+                    }
+
+                    $secondary_query .= ';';
+
                     $this->dbi->query($secondary_query);
                     $changedToBlob[$i] = true;
                 } else {
@@ -1257,53 +1274,12 @@ class StructureController extends TableController
             'DistinctValues' => Util::getIcon('b_browse', __('Distinct values')),
         ];
 
-        /**
-         * Work on the table
-         */
+        $edit_view_url = '';
         if ($this->_tbl_is_view && ! $this->_db_is_system_schema) {
-            $item = $this->dbi->fetchSingleRow(
-                sprintf(
-                    "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,
-                      `SECURITY_TYPE`
-                    FROM `INFORMATION_SCHEMA`.`VIEWS`
-                    WHERE TABLE_SCHEMA='%s'
-                    AND TABLE_NAME='%s';",
-                    $this->dbi->escapeString($this->db),
-                    $this->dbi->escapeString($this->table)
-                )
-            );
-
-            $createView = $this->dbi->getTable($this->db, $this->table)
-                ->showCreate();
-            // get algorithm from $createView of the form
-            // CREATE ALGORITHM=<ALGORITHM> DE...
-            $parts = explode(" ", substr($createView, 17));
-            $item['ALGORITHM'] = $parts[0];
-
-            $view = [
-                'operation' => 'alter',
-                'definer' => $item['DEFINER'],
-                'sql_security' => $item['SECURITY_TYPE'],
-                'name' => $this->table,
-                'as' => $item['VIEW_DEFINITION'],
-                'with' => $item['CHECK_OPTION'],
-                'algorithm' => $item['ALGORITHM'],
-            ];
-
-            $edit_view_url = 'view_create.php'
-                . Url::getCommon($url_params) . '&amp;'
-                . implode(
-                    '&amp;',
-                    array_map(
-                        function ($key, $val) {
-                            return 'view[' . urlencode($key) . ']=' . urlencode(
-                                $val
-                            );
-                        },
-                        array_keys($view),
-                        $view
-                    )
-                );
+            $edit_view_url = Url::getCommon([
+                'db' => $this->db,
+                'table' => $this->table,
+            ]);
         }
 
         /**
@@ -1382,7 +1358,7 @@ class StructureController extends TableController
             'tbl_storage_engine' => $this->_tbl_storage_engine,
             'primary' => $primary_index,
             'columns_with_unique_index' => $columns_with_unique_index,
-            'edit_view_url' => isset($edit_view_url) ? $edit_view_url : null,
+            'edit_view_url' => $edit_view_url,
             'columns_list' => $columns_list,
             'table_stats' => isset($tablestats) ? $tablestats : null,
             'fields' => $fields,
@@ -1397,6 +1373,7 @@ class StructureController extends TableController
             'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
             'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
             'mysql_int_version' => $this->dbi->getVersion(),
+            'is_mariadb' => $GLOBALS['dbi']->isMariaDB(),
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
@@ -1451,10 +1428,7 @@ class StructureController extends TableController
                 $decimals
             );
         }
-        // InnoDB returns a huge value in Data_free, do not use it
-        if (! $is_innodb && isset($this->_showtable['Data_free'])
-            && $this->_showtable['Data_free'] > 0
-        ) {
+        if (isset($this->_showtable['Data_free'])) {
             list($free_size, $free_unit) = Util::formatByteDown(
                 $this->_showtable['Data_free'],
                 $max_digits,
@@ -1491,6 +1465,9 @@ class StructureController extends TableController
         } else {
             $avg_size = $avg_unit = '';
         }
+        /** @var Innodb $innodbEnginePlugin */
+        $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
+        $innodb_file_per_table = $innodbEnginePlugin->supportsFilePerTable();
 
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         return $this->template->render('table/structure/display_table_stats', [
@@ -1515,6 +1492,7 @@ class StructureController extends TableController
             'data_unit' => $data_unit,
             'index_size' => isset($index_size) ? $index_size : null,
             'index_unit' => isset($index_unit) ? $index_unit : null,
+            'innodb_file_per_table' => $innodb_file_per_table,
             'free_size' => isset($free_size) ? $free_size : null,
             'free_unit' => isset($free_unit) ? $free_unit : null,
             'effect_size' => $effect_size,
@@ -1551,13 +1529,14 @@ class StructureController extends TableController
     /**
      * Get List of information for Submit Mult
      *
-     * @param string $submit_mult mult_submit type
-     * @param array  $selected    the selected columns
-     * @param string $action      action type
+     * @param string           $submit_mult      mult_submit type
+     * @param array            $selected         the selected columns
+     * @param string           $action           action type
+     * @param ContainerBuilder $containerBuilder Container builder instance
      *
      * @return array
      */
-    protected function getDataForSubmitMult($submit_mult, $selected, $action)
+    protected function getDataForSubmitMult($submit_mult, $selected, $action, ContainerBuilder $containerBuilder)
     {
         $centralColumns = new CentralColumns($this->dbi);
         $what = null;
@@ -1610,12 +1589,13 @@ class StructureController extends TableController
                 break;
             case 'remove_from_central_columns':
                 $centralColsError = $centralColumns->deleteColumnsFromList(
+                    $_POST['db'],
                     $selected,
                     false
                 );
                 break;
             case 'change':
-                $this->displayHtmlForColumnChange($selected, $action);
+                $this->displayHtmlForColumnChange($selected, $action, $containerBuilder);
                 // execution stops here but PhpMyAdmin\Response correctly finishes
                 // the rendering
                 exit;

@@ -18,7 +18,7 @@ function getFormatsText () {
         '<=': ' <= \'%s\'',
         '!=': ' != \'%s\'',
         'LIKE': ' LIKE \'%s\'',
-        'LIKE \%...\%': ' LIKE \'%%%s%%\'',
+        'LIKE %...%': ' LIKE \'%%%s%%\'',
         'NOT LIKE': ' NOT LIKE \'%s\'',
         'BETWEEN': ' BETWEEN \'%s\'',
         'NOT BETWEEN': ' NOT BETWEEN \'%s\'',
@@ -31,15 +31,15 @@ function getFormatsText () {
 }
 
 function generateCondition (criteriaDiv, table) {
-    query = '`' + escapeBacktick(table.val()) + '`.';
-    query += '`' + escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
+    query = '`' + Functions.escapeBacktick(table.val()) + '`.';
+    query += '`' + Functions.escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
         formatsText = getFormatsText();
-        query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+        query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
     } else {
         query += ' ' + criteriaDiv.find('.criteria_op').first().val();
-        query += ' `' + escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
-        query += '`' + escapeBacktick(criteriaDiv.find('.columnNameSelect').first().val()) + '`';
+        query += ' `' + Functions.escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
+        query += '`' + Functions.escapeBacktick(criteriaDiv.find('.columnNameSelect').first().val()) + '`';
     }
     return query;
 }
@@ -67,18 +67,18 @@ function generateWhereBlock () {
 
 function generateJoin (newTable, tableAliases, fk) {
     query = '';
-    query += ' \n\tLEFT JOIN ' + '`' + escapeBacktick(newTable) + '`';
+    query += ' \n\tLEFT JOIN ' + '`' + Functions.escapeBacktick(newTable) + '`';
     if (tableAliases[fk.TABLE_NAME][0] !== '') {
-        query += ' AS `' + escapeBacktick(tableAliases[newTable][0]) + '`';
-        query += ' ON `' + escapeBacktick(tableAliases[fk.TABLE_NAME][0]) + '`';
+        query += ' AS `' + Functions.escapeBacktick(tableAliases[newTable][0]) + '`';
+        query += ' ON `' + Functions.escapeBacktick(tableAliases[fk.TABLE_NAME][0]) + '`';
     } else {
-        query += ' ON `' + escapeBacktick(fk.TABLE_NAME) + '`';
+        query += ' ON `' + Functions.escapeBacktick(fk.TABLE_NAME) + '`';
     }
     query += '.`' + fk.COLUMN_NAME + '`';
     if (tableAliases[fk.REFERENCED_TABLE_NAME][0] !== '') {
-        query += ' = `' + escapeBacktick(tableAliases[fk.REFERENCED_TABLE_NAME][0]) + '`';
+        query += ' = `' + Functions.escapeBacktick(tableAliases[fk.REFERENCED_TABLE_NAME][0]) + '`';
     } else {
-        query += ' = `' + escapeBacktick(fk.REFERENCED_TABLE_NAME) + '`';
+        query += ' = `' + Functions.escapeBacktick(fk.REFERENCED_TABLE_NAME) + '`';
     }
     query += '.`' + fk.REFERENCED_COLUMN_NAME + '`';
     return query;
@@ -106,9 +106,9 @@ function appendTable (table, tableAliases, usedTables, foreignKeys) {
         if (usedTables.length > 0) {
             query += '\n\t, ';
         }
-        query += '`' + escapeBacktick(table) + '`';
+        query += '`' + Functions.escapeBacktick(table) + '`';
         if (tableAliases[table][0] !== '') {
-            query += ' AS `' + escapeBacktick(tableAliases[table][0]) + '`';
+            query += ' AS `' + Functions.escapeBacktick(tableAliases[table][0]) + '`';
         }
     }
     usedTables.push(table);

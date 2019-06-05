@@ -10,14 +10,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Util;
 
 /**
  * Class ProcessesController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
-class ProcessesController extends Controller
+class ProcessesController extends AbstractController
 {
     /**
      * @param array $params Request parameters
@@ -40,29 +39,9 @@ class ProcessesController extends Controller
 
         $serverProcessList = $this->getList($params);
 
-        $refreshList = Data::getHtmlForRefreshList(
-            'refreshRate',
-            5,
-            [
-                2,
-                3,
-                4,
-                5,
-                10,
-                20,
-                40,
-                60,
-                120,
-                300,
-                600,
-                1200,
-            ]
-        );
-
         return $this->template->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $isChecked,
-            'refresh_list' => $refreshList,
             'server_process_list' => $serverProcessList,
         ]);
     }
@@ -119,6 +98,8 @@ class ProcessesController extends Controller
 
         $showFullSql = ! empty($params['full']);
         if ($showFullSql) {
+            $urlParams['full'] = '';
+        } else {
             $urlParams['full'] = 1;
         }
 
@@ -171,6 +152,9 @@ class ProcessesController extends Controller
                 && ! empty($params['sort_order']))
             || ! empty($params['showExecuting'])
         ) {
+            $urlParams['order_by_field'] = $params['order_by_field'];
+            $urlParams['sort_order'] = $params['sort_order'];
+            $urlParams['showExecuting'] = $params['showExecuting'];
             $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
         }
         if (! empty($params['showExecuting'])) {
@@ -250,6 +234,7 @@ class ProcessesController extends Controller
         return $this->template->render('server/status/processes/list', [
             'columns' => $columns,
             'rows' => $rows,
+            'refresh_params' => $urlParams,
         ]);
     }
 }

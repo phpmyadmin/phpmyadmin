@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
@@ -110,6 +111,7 @@ class ProcessesControllerTest extends TestCase
         $controller = new ProcessesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data
         );
 
@@ -121,51 +123,55 @@ class ProcessesControllerTest extends TestCase
             'sort_order' => null,
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Note: Enabling the auto refresh here might cause '
             . 'heavy traffic between the web server and the MySQL server.',
             $html
         );
         // Test tab links
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="tabLinks">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a id="toggleRefresh" href="#">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'play',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Start auto refresh',
             $html
         );
-        $this->assertContains(
-            '<select name="refreshRate"',
+        $this->assertStringContainsString(
+            '<select id="id_refreshRate"',
             $html
         );
-        $this->assertContains(
-            '<option value="5" selected="selected">5 seconds</option>',
+        $this->assertStringContainsString(
+            '<option value="5" selected>',
+            $html
+        );
+        $this->assertStringContainsString(
+            '5 seconds',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table id="tableprocesslist" '
             . 'class="data clearfloat noclick sortable">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Processes</th>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Show full queries',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'server_status_processes.php',
             $html
         );
@@ -178,15 +184,15 @@ class ProcessesControllerTest extends TestCase
             'sort_order' => 'ASC',
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Truncate shown queries',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Database',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'DESC',
             $html
         );
@@ -199,11 +205,11 @@ class ProcessesControllerTest extends TestCase
             'sort_order' => 'DESC',
         ]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Host',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ASC',
             $html
         );
@@ -231,6 +237,7 @@ class ProcessesControllerTest extends TestCase
         $controller = new ProcessesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data
         );
 
@@ -244,57 +251,57 @@ class ProcessesControllerTest extends TestCase
 
         $killProcess = 'href="server_status_processes.php" data-post="'
             . Url::getCommon(['kill' => $process['Id']], '') . '"';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $killProcess,
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ajax kill_process',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Kill'),
             $html
         );
 
         //validate 2: $process['User']
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($process['User']),
             $html
         );
 
         //validate 3: $process['Host']
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($process['Host']),
             $html
         );
 
         //validate 4: $process['db']
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('None'),
             $html
         );
 
         //validate 5: $process['Command']
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($process['Command']),
             $html
         );
 
         //validate 6: $process['Time']
-        $this->assertContains(
+        $this->assertStringContainsString(
             $process['Time'],
             $html
         );
 
         //validate 7: $process['state']
-        $this->assertContains(
+        $this->assertStringContainsString(
             $process['State'],
             $html
         );
 
         //validate 8: $process['info']
-        $this->assertContains(
+        $this->assertStringContainsString(
             $process['Info'],
             $html
         );

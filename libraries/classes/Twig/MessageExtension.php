@@ -42,6 +42,13 @@ class MessageExtension extends AbstractExtension
                 },
                 ['is_safe' => ['html']]
             ),
+            new TwigFilter(
+                'raw_success',
+                function ($string) {
+                    return Message::rawSuccess($string)->getDisplay();
+                },
+                ['is_safe' => ['html']]
+            ),
         ];
     }
 }

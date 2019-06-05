@@ -9,12 +9,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Tests for AdvisorController class
@@ -102,40 +105,42 @@ class AdvisorControllerTest extends TestCase
         $controller = new AdvisorController(
             Response::getInstance(),
             $GLOBALS['dbi'],
-            new Data()
+            new Template(),
+            new Data(),
+            new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
         );
 
         $html = $controller->index();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="#openAdvisorInstructions">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="advisorInstructionsDialog"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The Advisor system can provide recommendations',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Do note however that this system provides recommendations',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="advisorData" class="hide">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars(json_encode('parse')),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars(json_encode('errors')),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars(json_encode('run')),
             $html
         );

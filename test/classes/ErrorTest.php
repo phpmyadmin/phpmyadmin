@@ -33,7 +33,7 @@ class ErrorTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Error(2, 'Compile Error', 'error.txt', 15);
     }
@@ -45,7 +45,7 @@ class ErrorTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -91,7 +91,7 @@ class ErrorTest extends PmaTestCase
      *
      * @dataProvider filePathProvider
      */
-    public function testSetFile($file, $expected)
+    public function testSetFile($file, $expected): void
     {
         $this->object->setFile($file);
         $this->assertEquals($expected, $this->object->getFile());
@@ -140,7 +140,7 @@ class ErrorTest extends PmaTestCase
      */
     public function testGetBacktraceDisplay()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
             $this->object->getBacktraceDisplay()
         );
@@ -153,7 +153,7 @@ class ErrorTest extends PmaTestCase
      */
     public function testGetDisplay()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="error"><strong>Warning</strong>',
             $this->object->getDisplay()
         );

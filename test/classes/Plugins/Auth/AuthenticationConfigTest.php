@@ -28,7 +28,7 @@ class AuthenticationConfigTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -46,7 +46,7 @@ class AuthenticationConfigTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -111,13 +111,13 @@ class AuthenticationConfigTest extends PmaTestCase
         $this->object->showFailure('');
         $html = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .
             'to use the <a href="setup/">setup script</a> to create one.',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
             'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Ferror-messages-server.html"' .
             ' target="mysql_doc">' .
@@ -126,12 +126,12 @@ class AuthenticationConfigTest extends PmaTestCase
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Cannot connect: invalid settings.',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="index.php?server=0&amp;lang=en" '
             . 'class="button disableAjax">Retry to connect</a>',
             $html

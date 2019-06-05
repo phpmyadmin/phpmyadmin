@@ -23,7 +23,26 @@
 <div class="tabLinks">
   <label>
     {% trans 'Refresh rate' %}:
-    {{ refresh_list|raw }}
+
+    <select id="id_refreshRate" class="refreshRate" name="refreshRate">
+      {% for rate in [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200] %}
+        <option value="{{ rate }}"{{ rate == 5 ? ' selected' }}>
+          {% if rate < 60 %}
+            {% if rate == 1 %}
+              {{ '%d second'|trans|format(rate) }}
+            {% else %}
+              {{ '%d seconds'|trans|format(rate) }}
+            {% endif %}
+          {% else %}
+            {% if rate / 60 == 1 %}
+              {{ '%d minute'|trans|format(rate / 60) }}
+            {% else %}
+              {{ '%d minutes'|trans|format(rate / 60) }}
+            {% endif %}
+          {% endif %}
+        </option>
+      {% endfor %}
+    </select>
   </label>
   <a id="toggleRefresh" href="#">
     {{ get_image('play') }}

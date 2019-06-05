@@ -25,8 +25,8 @@ distribution and you will automatically get security updates from your distribut
 
 .. _debian-package:
 
-Debian
-------
+Debian and Ubuntu
+-----------------
 
 Debian's package repositories include a phpMyAdmin package, but be aware that
 the configuration file is maintained in ``/etc/phpmyadmin`` and may differ in
@@ -46,18 +46,6 @@ OpenSUSE
 
 OpenSUSE already comes with phpMyAdmin package, just install packages from
 the `openSUSE Build Service <https://software.opensuse.org/package/phpMyAdmin>`_.
-
-Ubuntu
-------
-
-Ubuntu ships phpMyAdmin package, however if you want to use recent version, you
-can use packages from
-`phpMyAdmin PPA <https://launchpad.net/~nijel/+archive/ubuntu/phpmyadmin>`_.
-
-.. seealso::
-
-    The packages are same as in :ref:`debian-package` please check the documentation
-    there for more details.
 
 Gentoo
 ------
@@ -254,8 +242,8 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
     The credentials you need to log in are stored in the MySQL server, in case
     of Docker image there are various ways to set it (for example
     :samp:`MYSQL_ROOT_PASSWORD` when starting the MySQL container). Please check
-    documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
-    or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
+    documentation for `MariaDB container <https://hub.docker.com/_/mariadb>`_
+    or `MySQL container <https://hub.docker.com/_/mysql>`_.
 
 .. _docker-custom:
 
@@ -278,7 +266,6 @@ configuration file:
 
     <?php
     $cfg['Export']['csv_columns'] = true;
-    ?>
 
 You can also use it to define server configuration instead of using the
 environment variables listed in :ref:`docker-vars`:
@@ -527,8 +514,7 @@ simple configuration may look like this:
     $i++;
     $cfg['Servers'][$i]['auth_type']     = 'cookie';
     // if you insist on "root" having no password:
-    // $cfg['Servers'][$i]['AllowNoPassword'] = true; `
-    ?>
+    // $cfg['Servers'][$i]['AllowNoPassword'] = true;
 
 Or, if you prefer to not be prompted every time you log in:
 
@@ -541,7 +527,6 @@ Or, if you prefer to not be prompted every time you log in:
     $cfg['Servers'][$i]['user']          = 'root';
     $cfg['Servers'][$i]['password']      = 'cbb74bc'; // use here your password
     $cfg['Servers'][$i]['auth_type']     = 'config';
-    ?>
 
 .. warning::
 

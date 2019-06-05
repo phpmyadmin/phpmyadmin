@@ -23,12 +23,12 @@ $(function () {
     $.tablesorter.addParser({
         id: 'fancyNumber',
         is: function (s) {
-            return (/^[0-9]?[0-9,\.]*\s?(k|M|G|T|%)?$/).test(s);
+            return (/^[0-9]?[0-9,\\.]*\s?(k|M|G|T|%)?$/).test(s);
         },
         format: function (s) {
             var num = jQuery.tablesorter.formatFloat(
-                s.replace(PMA_messages.strThousandsSeparator, '')
-                    .replace(PMA_messages.strDecimalSeparator, '.')
+                s.replace(Messages.strThousandsSeparator, '')
+                    .replace(Messages.strDecimalSeparator, '.')
             );
 
             var factor = 1;

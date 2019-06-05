@@ -135,7 +135,7 @@ class DbiDummy implements DbiExtension
      *
      * @param object $result MySQL result
      *
-     * @return array
+     * @return array|bool
      */
     public function fetchAny($result)
     {
@@ -302,9 +302,11 @@ class DbiDummy implements DbiExtension
     /**
      * returns a string that represents the client library version
      *
+     * @param resource $link connection link
+     *
      * @return string MySQL client library version
      */
-    public function getClientInfo()
+    public function getClientInfo($link)
     {
         return '';
     }
@@ -1619,6 +1621,19 @@ class DbiDummy implements DbiExtension
                         'COLUMN_NAME' => 'idtable2',
                         'REFERENCED_TABLE_NAME' => 'table1',
                         'REFERENCED_COLUMN_NAME' => 'idtable1',
+                    ],
+                ],
+            ],
+            [
+                'query' => "SELECT `item_name`, `item_type` FROM `pmadb`.`navigationhiding` WHERE `username`='user' AND `db_name`='db' AND `table_name`=''",
+                'result' => [
+                    [
+                        'item_name' => 'tableName',
+                        'item_type' => 'table',
+                    ],
+                    [
+                        'item_name' => 'viewName',
+                        'item_type' => 'view',
                     ],
                 ],
             ],

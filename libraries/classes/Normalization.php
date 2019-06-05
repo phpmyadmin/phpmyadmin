@@ -41,14 +41,17 @@ class Normalization
     /**
      * Constructor
      *
-     * @param DatabaseInterface $dbi DatabaseInterface instance
+     * @param DatabaseInterface $dbi             DatabaseInterface instance
+     * @param Relation          $relation        Relation instance
+     * @param Transformations   $transformations Transformations instance
+     * @param Template          $template        Template instance
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi, Relation $relation, Transformations $transformations, Template $template)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation($this->dbi);
-        $this->transformations = new Transformations();
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->transformations = $transformations;
+        $this->template = $template;
     }
 
     /**
@@ -234,7 +237,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string HTML contents for step 1.2
+     * @return string[] HTML contents for step 1.2
      */
     public function getHtmlContentsFor1NFStep2($db, $table)
     {
@@ -284,7 +287,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string HTML contents for step 1.4
+     * @return string[] HTML contents for step 1.4
      */
     public function getHtmlContentsFor1NFStep4($db, $table)
     {
@@ -320,7 +323,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string HTML contents for step 1.3
+     * @return string[] HTML contents for step 1.3
      */
     public function getHtmlContentsFor1NFStep3($db, $table)
     {
@@ -365,7 +368,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string HTML contents for 2NF step 2.1
+     * @return string[] HTML contents for 2NF step 2.1
      */
     public function getHtmlFor2NFstep1($db, $table)
     {
@@ -798,7 +801,7 @@ class Normalization
      * @param string $db     current database
      * @param array  $tables tables formed after 2NF and need to process for 3NF
      *
-     * @return string
+     * @return string[]
      */
     public function getHtmlFor3NFstep1($db, array $tables)
     {

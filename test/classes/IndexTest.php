@@ -26,7 +26,7 @@ class IndexTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->_params['Schema'] = "PMA_Schema";
         $this->_params['Table'] = "PMA_Table";
@@ -92,11 +92,11 @@ class IndexTest extends PmaTestCase
             'PMA_Non_unique',
             $index->getNonUnique()
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PMA_Comment',
             $index->getComments()
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PMA_Index_comment',
             $index->getComments()
         );

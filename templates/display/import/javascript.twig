@@ -1,6 +1,6 @@
 $( function() {
     {# Add event when user click on "Go" button #}
-    $("#buttonGo").bind("click", function() {
+    $("#buttonGo").on("click", function() {
         {# Hide form #}
         $("#upload_form_form").css("display", "none");
 
@@ -65,13 +65,13 @@ $( function() {
                             now.getMinutes(),
                             now.getSeconds())
                             + now.getMilliseconds() - 1000;
-                        var statustext = PMA_sprintf(
+                        var statustext = Functions.sprintf(
                             "{{ statustext_str|raw }}",
-                            formatBytes(
-                                complete, 1, PMA_messages.strDecimalSeparator
+                            Functions.formatBytes(
+                                complete, 1, Messages.strDecimalSeparator
                             ),
-                            formatBytes(
-                                total, 1, PMA_messages.strDecimalSeparator
+                            Functions.formatBytes(
+                                total, 1, Messages.strDecimalSeparator
                             )
                         );
 
@@ -87,9 +87,9 @@ $( function() {
                             {# Calculate estimated time #}
                             var used_time = now - import_start;
                             var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
-                            var speed = PMA_sprintf(
+                            var speed = Functions.sprintf(
                                 "{{ second_str|raw }}",
-                                formatBytes(complete / used_time * 1000, 1, PMA_messages.strDecimalSeparator)
+                                Functions.formatBytes(complete / used_time * 1000, 1, Messages.strDecimalSeparator)
                             );
 
                             var minutes = parseInt(seconds / 60);
@@ -137,7 +137,7 @@ $( function() {
                         .html('<img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock"> {{ processed_str|raw }}')
                         .show();
                         $("#import_form_status").load("import_status.php?message=true&{{ import_url|raw }}");
-                        PMA_reloadNavigation();
+                        Navigation.reload();
 
                         {# If finished #}
                     }

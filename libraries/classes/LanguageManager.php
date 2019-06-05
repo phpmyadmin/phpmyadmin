@@ -525,7 +525,7 @@ class LanguageManager
         ],
         'sq' => [
             'sq',
-            'Slbanian',
+            'Albanian',
             'Shqip',
             'sq|albanian',
             'sq_AL',

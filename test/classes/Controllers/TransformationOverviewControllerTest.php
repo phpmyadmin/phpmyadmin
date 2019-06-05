@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\TestCase;
 
@@ -46,40 +47,41 @@ class TransformationOverviewControllerTest extends TestCase
         $controller = new TransformationOverviewController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             new Transformations()
         );
 
         $actual = $controller->indexAction();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Available MIME types'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'id="transformation">' . __('Available browser display transformations'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'id="input_transformation">' . __('Available input transformations'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Text/Plain',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Image/JPEG: Inline',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Displays a clickable thumbnail.',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Image/JPEG: Upload',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Image upload functionality which also displays a thumbnail.',
             $actual
         );

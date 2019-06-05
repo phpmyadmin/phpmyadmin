@@ -33,7 +33,7 @@ class RelationTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -110,11 +110,11 @@ class RelationTest extends TestCase
 
         $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
         //check $cfg['Servers'][$i]['pmadb']
-        $this->assertContains(
+        $this->assertStringContainsString(
             "\$cfg['Servers'][\$i]['pmadb']",
             $retval
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<strong>OK</strong>',
             $retval
         );
@@ -122,20 +122,20 @@ class RelationTest extends TestCase
         //$cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"right\">"
             . "<span class=\"success\"><strong>OK</strong></span>";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         // $cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"right\">"
             . "<span class=\"caution\"><strong>not OK</strong></span>";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         // General relation features
         $result = 'General relation features: <span class="caution">Disabled</span>';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
@@ -143,13 +143,13 @@ class RelationTest extends TestCase
         $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
             . "<td class=\"right\">"
             . "<span class=\"caution\"><strong>not OK</strong></span>";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         // Display Features:
         $result = 'Display Features: <span class="caution">Disabled</span>';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
@@ -158,17 +158,17 @@ class RelationTest extends TestCase
         $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
 
         $result = __('General relation features');
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         $result = 'Configuration of pmadb… ';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         $result = "<strong>not OK</strong>";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );

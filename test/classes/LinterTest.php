@@ -89,7 +89,7 @@ class LinterTest extends PmaTestCase
      *
      * @return void
      */
-    public function testLint($expected, $query)
+    public function testLint($expected, $query): void
     {
         $this->assertEquals($expected, Linter::lint($query));
     }

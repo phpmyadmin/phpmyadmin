@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Display\Error as DisplayError;
+
 /**
  * Core class
  *
@@ -274,7 +276,7 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (! is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
+        if (isset($GLOBALS['dbi']) && ! is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
@@ -293,8 +295,7 @@ class Core
             $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
             $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
 
-            // Displays the error message
-            include ROOT_PATH . 'libraries/error.inc.php';
+            echo DisplayError::display(new Template(), $lang, $dir, $error_header, $error_message);
         }
         if (! defined('TESTSUITE')) {
             exit;
@@ -1250,46 +1251,6 @@ class Core
                 )
             );
         }
-    }
-
-    /**
-     * prints list item for main page
-     *
-     * @param string $name            displayed text
-     * @param string $listId          id, used for css styles
-     * @param string $url             make item as link with $url as target
-     * @param string $mysql_help_page display a link to MySQL's manual
-     * @param string $target          special target for $url
-     * @param string $a_id            id for the anchor,
-     *                                used for jQuery to hook in functions
-     * @param string $class           class for the li element
-     * @param string $a_class         class for the anchor element
-     *
-     * @return void
-     */
-    public static function printListItem(
-        string $name,
-        ?string $listId = null,
-        ?string $url = null,
-        ?string $mysql_help_page = null,
-        ?string $target = null,
-        ?string $a_id = null,
-        ?string $class = null,
-        ?string $a_class = null
-    ): void {
-        $template = new Template();
-        echo $template->render('list/item', [
-            'content' => $name,
-            'id' => $listId,
-            'class' => $class,
-            'url' => [
-                'href' => $url,
-                'target' => $target,
-                'id' => $a_id,
-                'class' => $a_class,
-            ],
-            'mysql_help_page' => $mysql_help_page,
-        ]);
     }
 
     /**

@@ -26,7 +26,7 @@ class EventsTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -56,7 +56,7 @@ class EventsTest extends TestBase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         if (isset($this->_mysqli)) {
             $this->dbQuery("SET GLOBAL event_scheduler=\"OFF\"");

@@ -8,8 +8,8 @@ var ctrlKeyHistory = 0;
   *
   * @param object   event data
   */
-function onKeyDownArrowsHandler (e) {
-    e = e || window.event;
+function onKeyDownArrowsHandler (event) {
+    var e = event || window.event;
 
     var o = (e.srcElement || e.target);
     if (!o) {
@@ -71,7 +71,7 @@ function onKeyDownArrowsHandler (e) {
         return;
     }
 
-    var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox/') > -1;
+    var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox/') > -1;
 
     var id = 'field_' + y + '_' + x;
 
@@ -92,12 +92,12 @@ function onKeyDownArrowsHandler (e) {
 
     nO.focus();
 
-    if (is_firefox) {
+    if (isFirefox) {
         var ffcheck = 0;
         var ffversion;
         for (ffversion = 3 ; ffversion < 25 ; ffversion++) {
-            var is_firefox_v_24 = navigator.userAgent.toLowerCase().indexOf('firefox/' + ffversion) > -1;
-            if (is_firefox_v_24) {
+            var isFirefoxV24 = navigator.userAgent.toLowerCase().indexOf('firefox/' + ffversion) > -1;
+            if (isFirefoxV24) {
                 ffcheck = 1;
                 break;
             }

@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Controllers\Controller;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
@@ -21,7 +21,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class DatabasesController extends Controller
+class DatabasesController extends AbstractController
 {
     /**
      * @var array array of database details
@@ -143,6 +143,13 @@ class DatabasesController extends Controller
     public function createDatabaseAction(array $params): array
     {
         global $cfg, $db;
+
+        // lower_case_table_names=1 `DB` becomes `db`
+        if ($this->dbi->getLowerCaseNames() === '1') {
+            $params['new_db'] = mb_strtolower(
+                $params['new_db']
+            );
+        }
 
         /**
          * Builds and executes the db creation sql query

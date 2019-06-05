@@ -27,7 +27,7 @@ class InsertTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -87,7 +87,7 @@ class InsertTest extends TestBase
         $this->waitAjax();
 
         $ele = $this->waitForElement('className', "success");
-        $this->assertContains("2 rows inserted", $ele->getText());
+        $this->assertStringContainsString("2 rows inserted", $ele->getText());
 
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
@@ -107,7 +107,7 @@ class InsertTest extends TestBase
             'xpath',
             "//div[contains(@class, 'success') and not(contains(@class, 'message'))]"
         );
-        $this->assertContains("1 row inserted", $ele->getText());
+        $this->assertStringContainsString("1 row inserted", $ele->getText());
 
         $this->_assertDataPresent();
     }

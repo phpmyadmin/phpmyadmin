@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
@@ -16,9 +18,21 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $db, $table;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$normalization = new Normalization($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+/** @var Normalization $normalization */
+$normalization = $containerBuilder->get('normalization');
 
 if (isset($_POST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'
@@ -67,8 +81,6 @@ if (isset($_POST['getNewTables2NF'])) {
     echo $html;
     exit;
 }
-
-$response = Response::getInstance();
 
 if (isset($_POST['getNewTables3NF'])) {
     $dependencies = json_decode($_POST['pd']);

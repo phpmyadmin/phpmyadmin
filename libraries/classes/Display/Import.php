@@ -46,7 +46,7 @@ class Import
         ) = ImportAjax::uploadProgressSetup();
 
         /* Scan for plugins */
-        /* @var $importList \PhpMyAdmin\Plugins\ImportPlugin[] */
+        /** @var \PhpMyAdmin\Plugins\ImportPlugin[] $importList */
         $importList = Plugins::getPlugins(
             "import",
             'libraries/classes/Plugins/Import/',

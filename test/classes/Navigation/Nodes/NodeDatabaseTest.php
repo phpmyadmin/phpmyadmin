@@ -25,7 +25,7 @@ class NodeDatabaseTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
@@ -46,11 +46,11 @@ class NodeDatabaseTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_structure.php',
             $parent->links['text']
         );
-        $this->assertContains('database', $parent->classes);
+        $this->assertStringContainsString('database', $parent->classes);
     }
 
     /**

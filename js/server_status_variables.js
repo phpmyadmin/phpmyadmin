@@ -62,7 +62,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
 
     /* Filters the status variables by name/category/alert in the variables tab */
     function filterVariables () {
-        var useful_links = 0;
+        var usefulLinks = 0;
         var section = text;
 
         if (categoryFilter.length > 0) {
@@ -72,7 +72,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
         if (section.length > 1) {
             $('#linkSuggestions').find('span').each(function () {
                 if ($(this).attr('class').indexOf('status_' + section) !== -1) {
-                    useful_links++;
+                    usefulLinks++;
                     $(this).css('display', '');
                 } else {
                     $(this).css('display', 'none');
@@ -80,7 +80,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
             });
         }
 
-        if (useful_links > 0) {
+        if (usefulLinks > 0) {
             $('#linkSuggestions').css('display', '');
         } else {
             $('#linkSuggestions').css('display', 'none');

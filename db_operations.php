@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -29,30 +30,37 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * requirements
- */
+global $cfg, $db, $server, $url_query;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+$checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
-// add a javascript file for jQuery functions to handle Ajax actions
-$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
 
 $sql_query = '';
 
-$relation = new Relation($GLOBALS['dbi']);
-$operations = new Operations($GLOBALS['dbi'], $relation);
-$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
+$operations = new Operations($dbi, $relation);
+$relationCleanup = new RelationCleanup($dbi, $relation);
 
 /**
  * Rename/move or copy database
  */
-if (strlen($GLOBALS['db']) > 0
+if (strlen($db) > 0
     && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))
 ) {
     if (! empty($_POST['db_rename'])) {
@@ -65,7 +73,7 @@ if (strlen($GLOBALS['db']) > 0
         $message = Message::error(__('The database name is empty!'));
     } else {
         // lower_case_table_names=1 `DB` becomes `db`
-        if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
+        if ($dbi->getLowerCaseNames() === '1') {
             $_POST['newname'] = mb_strtolower(
                 $_POST['newname']
             );
@@ -87,15 +95,15 @@ if (strlen($GLOBALS['db']) > 0
             // to avoid selecting alternatively the current and new db
             // we would need to modify the CREATE definitions to qualify
             // the db name
-            $operations->runProcedureAndFunctionDefinitions($GLOBALS['db']);
+            $operations->runProcedureAndFunctionDefinitions($db);
 
             // go back to current db, just in case
-            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+            $dbi->selectDb($db);
 
-            $tables_full = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
+            $tables_full = $dbi->getTablesFull($db);
 
             // remove all foreign key constraints, otherwise we can get errors
-            /* @var $export_sql_plugin ExportSql */
+            /** @var ExportSql $export_sql_plugin */
             $export_sql_plugin = Plugins::getPlugin(
                 "export",
                 "sql",
@@ -110,19 +118,19 @@ if (strlen($GLOBALS['db']) > 0
             $views = $operations->getViewsAndCreateSqlViewStandIn(
                 $tables_full,
                 $export_sql_plugin,
-                $GLOBALS['db']
+                $db
             );
 
             // copy tables
             $sqlConstratints = $operations->copyTables(
                 $tables_full,
                 $move,
-                $GLOBALS['db']
+                $db
             );
 
             // handle the views
             if (! $_error) {
-                $operations->handleTheViews($views, $move, $GLOBALS['db']);
+                $operations->handleTheViews($views, $move, $db);
             }
             unset($views);
 
@@ -132,53 +140,53 @@ if (strlen($GLOBALS['db']) > 0
             }
             unset($sqlConstratints);
 
-            if ($GLOBALS['dbi']->getVersion() >= 50100) {
+            if ($dbi->getVersion() >= 50100) {
                 // here DELIMITER is not used because it's not part of the
                 // language; each statement is sent one by one
 
-                $operations->runEventDefinitionsForDb($GLOBALS['db']);
+                $operations->runEventDefinitionsForDb($db);
             }
 
             // go back to current db, just in case
-            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+            $dbi->selectDb($db);
 
             // Duplicate the bookmarks for this db (done once for each db)
-            $operations->duplicateBookmarks($_error, $GLOBALS['db']);
+            $operations->duplicateBookmarks($_error, $db);
 
             if (! $_error && $move) {
                 if (isset($_POST['adjust_privileges'])
                     && ! empty($_POST['adjust_privileges'])
                 ) {
-                    $operations->adjustPrivilegesMoveDb($GLOBALS['db'], $_POST['newname']);
+                    $operations->adjustPrivilegesMoveDb($db, $_POST['newname']);
                 }
 
                 /**
                  * cleanup pmadb stuff for this db
                  */
-                $relationCleanup->database($GLOBALS['db']);
+                $relationCleanup->database($db);
 
                 // if someday the RENAME DATABASE reappears, do not DROP
                 $local_query = 'DROP DATABASE '
-                    . Util::backquote($GLOBALS['db']) . ';';
+                    . Util::backquote($db) . ';';
                 $sql_query .= "\n" . $local_query;
-                $GLOBALS['dbi']->query($local_query);
+                $dbi->query($local_query);
 
                 $message = Message::success(
                     __('Database %1$s has been renamed to %2$s.')
                 );
-                $message->addParam($GLOBALS['db']);
+                $message->addParam($db);
                 $message->addParam($_POST['newname']);
             } elseif (! $_error) {
                 if (isset($_POST['adjust_privileges'])
                     && ! empty($_POST['adjust_privileges'])
                 ) {
-                    $operations->adjustPrivilegesCopyDb($GLOBALS['db'], $_POST['newname']);
+                    $operations->adjustPrivilegesCopyDb($db, $_POST['newname']);
                 }
 
                 $message = Message::success(
                     __('Database %1$s has been copied to %2$s.')
                 );
-                $message->addParam($GLOBALS['db']);
+                $message->addParam($db);
                 $message->addParam($_POST['newname']);
             } else {
                 $message = Message::error();
@@ -187,13 +195,13 @@ if (strlen($GLOBALS['db']) > 0
 
             /* Change database to be used */
             if (! $_error && $move) {
-                $GLOBALS['db'] = $_POST['newname'];
+                $db = $_POST['newname'];
             } elseif (! $_error) {
                 if (isset($_POST['switch_to_new'])
                     && $_POST['switch_to_new'] == 'true'
                 ) {
                     $_SESSION['pma_switch_to_new'] = true;
-                    $GLOBALS['db'] = $_POST['newname'];
+                    $db = $_POST['newname'];
                 } else {
                     $_SESSION['pma_switch_to_new'] = false;
                 }
@@ -213,7 +221,7 @@ if (strlen($GLOBALS['db']) > 0
             'sql_query',
             Util::getMessage(null, $sql_query)
         );
-        $response->addJSON('db', $GLOBALS['db']);
+        $response->addJSON('db', $db);
         exit;
     }
 }
@@ -228,7 +236,7 @@ $cfgRelation = $relation->getRelationsParam();
  * (must be done before displaying the menu tabs)
  */
 if (isset($_POST['comment'])) {
-    $relation->setDbComment($GLOBALS['db'], $_POST['comment']);
+    $relation->setDbComment($db, $_POST['comment']);
 }
 
 require ROOT_PATH . 'libraries/db_common.inc.php';
@@ -256,15 +264,15 @@ if (isset($message)) {
     unset($message);
 }
 
-$db_collation = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
-$is_information_schema = $GLOBALS['dbi']->isSystemSchema($GLOBALS['db']);
+$db_collation = $dbi->getDbCollation($db);
+$is_information_schema = $dbi->isSystemSchema($db);
 
 if (! $is_information_schema) {
     if ($cfgRelation['commwork']) {
         /**
          * database comment
          */
-        $response->addHTML($operations->getHtmlForDatabaseComment($GLOBALS['db']));
+        $response->addHTML($operations->getHtmlForDatabaseComment($db));
     }
 
     $response->addHTML('<div>');
@@ -274,29 +282,29 @@ if (! $is_information_schema) {
     /**
      * rename database
      */
-    if ($GLOBALS['db'] != 'mysql') {
-        $response->addHTML($operations->getHtmlForRenameDatabase($GLOBALS['db'], $db_collation));
+    if ($db != 'mysql') {
+        $response->addHTML($operations->getHtmlForRenameDatabase($db, $db_collation));
     }
 
     // Drop link if allowed
     // Don't even try to drop information_schema.
     // You won't be able to. Believe me. You won't.
     // Don't allow to easily drop mysql database, RFE #1327514.
-    if (($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+    if (($dbi->isSuperuser() || $cfg['AllowUserDropDatabase'])
         && ! $db_is_system_schema
-        && $GLOBALS['db'] != 'mysql'
+        && $db != 'mysql'
     ) {
-        $response->addHTML($operations->getHtmlForDropDatabaseLink($GLOBALS['db']));
+        $response->addHTML($operations->getHtmlForDropDatabaseLink($db));
     }
     /**
      * Copy database
      */
-    $response->addHTML($operations->getHtmlForCopyDatabase($GLOBALS['db'], $db_collation));
+    $response->addHTML($operations->getHtmlForCopyDatabase($db, $db_collation));
 
     /**
      * Change database charset
      */
-    $response->addHTML($operations->getHtmlForChangeDatabaseCharset($GLOBALS['db'], $db_collation));
+    $response->addHTML($operations->getHtmlForChangeDatabaseCharset($db, $db_collation));
 
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false

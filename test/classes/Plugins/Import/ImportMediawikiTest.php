@@ -31,7 +31,7 @@ class ImportMediawikiTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'database';
@@ -58,7 +58,7 @@ class ImportMediawikiTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -130,23 +130,23 @@ class ImportMediawikiTest extends PmaTestCase
         */
 
         //asset that all databases and tables are imported
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to database: `mediawiki_DB`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `mediawiki_DB`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to table: `pma_bookmarktest`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `pma_bookmarktest`',
             $import_notice
         );

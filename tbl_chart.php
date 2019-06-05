@@ -10,6 +10,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -18,17 +19,28 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
-$container->factory(ChartController::class);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+$container->set(Response::class, Response::getInstance());
+$container->alias('response', Response::class);
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
-    "sql_query" => &$GLOBALS['sql_query'],
-    "url_query" => &$GLOBALS['url_query'],
-    "cfg" => &$GLOBALS['cfg']
+    'db' => $container->get('db'),
+    'table' => $container->get('table'),
+    'sql_query' => &$GLOBALS['sql_query'],
+    'url_query' => &$GLOBALS['url_query'],
+    'cfg' => &$GLOBALS['cfg']
 ];
 
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition(ChartController::class);
+array_map(
+    static function (string $parameterName, $value) use ($definition) {
+        $definition->replaceArgument($parameterName, $value);
+    },
+    array_keys($dependency_definitions),
+    $dependency_definitions
+);
+
 /** @var ChartController $controller */
-$controller = $container->get(ChartController::class, $dependency_definitions);
+$controller = $containerBuilder->get(ChartController::class);
 $controller->indexAction();

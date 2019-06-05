@@ -1,5 +1,6 @@
+dist: xenial
+
 language: php
-dist: trusty
 
 stages:
   - name: "Lint and analyse code"
@@ -33,16 +34,27 @@ after_script:
 
 after_success: bash <(curl -s https://codecov.io/bash)
 
+services:
+  - mysql
+
+cache:
+  pip: true
+  yarn: true
+  directories:
+    - $HOME/.composer/cache/
+    - $HOME/browserstack
+    - node_modules
+
 jobs:
   allow_failures:
     - php: nightly
     - os: windows
     - name: "PHP 7.1 with dbase extension"
+    - name: "PHP 7.4"
 
   include:
     - stage: "Lint and analyse code"
       name: "Lint files"
-      php: 7.1
       before_script: skip
       after_script: skip
       after_success: skip
@@ -54,7 +66,6 @@ jobs:
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
-      php: 7.1
       before_script: skip
       after_script: skip
       after_success: skip
@@ -76,12 +87,20 @@ jobs:
       env: CI_MODE=test
 
     - stage: "PHP Unit tests"
-      php: nightly
-      name: "PHP nightly"
+      php: 7.4snapshot
+      name: "PHP 7.4"
       env: CI_MODE=test
 
     - stage: "PHP Unit tests"
-      name: "PHP 7.3"
+      php: nightly
+      name: "PHP nightly"
+      env: CI_MODE=test
+      install:
+        - composer install --no-interaction --ignore-platform-reqs
+        - yarn install --non-interactive
+
+    - stage: "PHP Unit tests"
+      name: "OSX"
       os: osx
       env: CI_MODE=test
       language: node_js
@@ -98,7 +117,7 @@ jobs:
             - mariadb
 
     - stage: "PHP Unit tests"
-      name: "PHP 7.2"
+      name: "Windows"
       os: windows
       language: node_js
       node_js: 10
@@ -112,8 +131,8 @@ jobs:
         - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
 
     - stage: "PHP Unit tests"
-      name: "PHP 7.1 with dbase extension"
       php: 7.1
+      name: "PHP 7.1 with dbase extension"
       env: CI_MODE=test
       install:
         - pecl channel-update pecl.php.net
@@ -133,7 +152,6 @@ jobs:
 
     - stage: "Documentation"
       name: "Build API docs"
-      php: 7.1
       before_script: skip
       after_script: skip
       after_success: skip
@@ -142,7 +160,6 @@ jobs:
 
     - stage: "Other tests"
       name: "Build release"
-      php: 7.1
       before_script: skip
       after_script: skip
       after_success: skip
@@ -153,7 +170,6 @@ jobs:
 
     - stage: "Other tests"
       name: "Run selenium tests on Google Chrome"
-      php: 7.1
       env:
         - CI_MODE=selenium
         - TESTSUITE_SELENIUM_BROWSER=chrome
@@ -169,11 +185,3 @@ jobs:
         apt:
           packages:
             - nginx
-
-cache:
-  pip: true
-  yarn: true
-  directories:
-    - $HOME/.composer/cache/
-    - $HOME/browserstack
-    - node_modules

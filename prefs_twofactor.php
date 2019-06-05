@@ -8,8 +8,10 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -20,14 +22,17 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-require ROOT_PATH . 'libraries/user_preferences.inc.php';
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
+echo UserPreferencesHeader::getContent($template, $relation);
 
-$template = new Template();
 $two_factor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
 
 if (isset($_POST['2fa_remove'])) {
     if (! $two_factor->check(true)) {
-        echo $template->render('prefs_twofactor_confirm', [
+        echo $template->render('preferences/two_factor/confirm', [
             'form' => $two_factor->render(),
         ]);
         exit;
@@ -37,7 +42,7 @@ if (isset($_POST['2fa_remove'])) {
     }
 } elseif (isset($_POST['2fa_configure'])) {
     if (! $two_factor->configure($_POST['2fa_configure'])) {
-        echo $template->render('prefs_twofactor_configure', [
+        echo $template->render('preferences/two_factor/configure', [
             'form' => $two_factor->setup(),
             'configure' => $_POST['2fa_configure'],
         ]);
@@ -48,7 +53,7 @@ if (isset($_POST['2fa_remove'])) {
 }
 
 $backend = $two_factor->backend;
-echo $template->render('prefs_twofactor', [
+echo $template->render('preferences/two_factor/main', [
     'enabled' => $two_factor->writable,
     'num_backends' => count($two_factor->available),
     'backend_id' => $backend::$id,

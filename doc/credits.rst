@@ -8,7 +8,7 @@ Credits, in chronological order
 
 * Tobias Ratschiller <tobias\_at\_ratschiller.com>
 
-  * creator of the phpmyadmin project
+  * creator of the phpMyAdmin project
 
   * maintainer from 1998 to summer 2000
 

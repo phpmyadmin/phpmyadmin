@@ -24,7 +24,7 @@ class CreateDropDatabaseTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         /* TODO: For now this tests needs superuser for deleting database */

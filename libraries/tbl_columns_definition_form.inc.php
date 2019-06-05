@@ -13,6 +13,7 @@ use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
@@ -36,7 +37,8 @@ Util::checkParameters(
 
 global $db, $table;
 
-$relation = new Relation($GLOBALS['dbi']);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $transformations = new Transformations();
 $template = new Template();
 
@@ -80,9 +82,7 @@ if ($action == 'tbl_create.php') {
     $form_params['table'] = $table;
 }
 
-if (isset($num_fields)) {
-    $form_params['orig_num_fields'] = $num_fields;
-}
+$form_params['orig_num_fields'] = $num_fields;
 
 $form_params = array_merge(
     $form_params,
@@ -478,7 +478,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     ];
 } // end for
 
-include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
+$partitionDetails = TablePartitionDefinition::getDetails();
 $html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,

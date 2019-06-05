@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
@@ -32,9 +34,9 @@ class QbeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->object = new Qbe($GLOBALS['dbi'], 'pma_test');
+        $this->object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma_test';
         //mock DBI
@@ -69,7 +71,7 @@ class QbeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);
@@ -98,21 +100,21 @@ class QbeTest extends PmaTestCase
      */
     public function testGetSortSelectCell()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'style="width:12ex" name="criteriaSort[1]"',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
                 [1]
             )
         );
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             'selected="selected"',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
                 [1]
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="ASC" selected="selected">',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
@@ -131,28 +133,28 @@ class QbeTest extends PmaTestCase
      */
     public function testGetSortRow()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Sort:</th>',
             $this->_callProtectedFunction(
                 '_getSortRow',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaSort[0]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaSort[1]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaSort[2]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
@@ -213,21 +215,21 @@ class QbeTest extends PmaTestCase
      */
     public function testGetFootersOptions()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Add/Delete criteria rows',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
                 ['row']
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaRowAdd"',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
                 ['row']
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="0" selected="selected">0</option>',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
@@ -243,21 +245,21 @@ class QbeTest extends PmaTestCase
      */
     public function testGetTableFooters()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaRowAdd"',
             $this->_callProtectedFunction(
                 '_getTableFooters',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaColumnAdd"',
             $this->_callProtectedFunction(
                 '_getTableFooters',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input class="btn btn-secondary" type="submit" name="modify" value="Update Query">',
             $this->_callProtectedFunction(
                 '_getTableFooters',

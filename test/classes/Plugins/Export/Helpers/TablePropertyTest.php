@@ -26,7 +26,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $row = [
@@ -45,7 +45,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -119,7 +119,7 @@ class TablePropertyTest extends PmaTestCase
      * @return void
      * @dataProvider isNotNullProvider
      */
-    public function testIsNotNull($nullable, $expected)
+    public function testIsNotNull($nullable, $expected): void
     {
         $this->object->nullable = $nullable;
 
@@ -161,7 +161,7 @@ class TablePropertyTest extends PmaTestCase
      * @return void
      * @dataProvider isUniqueProvider
      */
-    public function testIsUnique($key, $expected)
+    public function testIsUnique($key, $expected): void
     {
         $this->object->key = $key;
 
@@ -211,7 +211,7 @@ class TablePropertyTest extends PmaTestCase
      * @return void
      * @dataProvider getDotNetPrimitiveTypeProvider
      */
-    public function testGetDotNetPrimitiveType($type, $expected)
+    public function testGetDotNetPrimitiveType($type, $expected): void
     {
         $this->object->type = $type;
 
@@ -285,7 +285,7 @@ class TablePropertyTest extends PmaTestCase
      * @return void
      * @dataProvider getDotNetObjectTypeProvider
      */
-    public function testGetDotNetObjectType($type, $expected)
+    public function testGetDotNetObjectType($type, $expected): void
     {
         $this->object->type = $type;
 

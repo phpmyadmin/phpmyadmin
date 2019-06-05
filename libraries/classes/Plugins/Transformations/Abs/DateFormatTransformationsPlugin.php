@@ -125,7 +125,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 
         // Reformat a valid timestamp
         if ($timestamp >= 0) {
-            $timestamp -= $options[0] * 60 * 60;
+            $timestamp -= (int) $options[0] * 60 * 60;
             $source = $buffer;
             if ($options[2] == 'local') {
                 $text = Util::localisedDate(

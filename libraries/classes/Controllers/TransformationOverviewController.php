@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 
 /**
@@ -18,7 +19,7 @@ use PhpMyAdmin\Transformations;
  *
  * @package PhpMyAdmin\Controllers
  */
-class TransformationOverviewController extends Controller
+class TransformationOverviewController extends AbstractController
 {
     /**
      * @var Transformations
@@ -30,11 +31,12 @@ class TransformationOverviewController extends Controller
      *
      * @param Response          $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
+     * @param Template          $template        Template object
      * @param Transformations   $transformations Transformations object
      */
-    public function __construct($response, $dbi, $transformations)
+    public function __construct($response, $dbi, Template $template, $transformations)
     {
-        parent::__construct($response, $dbi);
+        parent::__construct($response, $dbi, $template);
 
         $this->transformations = $transformations;
     }

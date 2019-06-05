@@ -13,6 +13,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -72,6 +73,7 @@ class CollationsControllerTest extends TestCase
         $controller = new CollationsController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $charsets,
             $charsetsDescriptions,
             $collations,
@@ -80,43 +82,43 @@ class CollationsControllerTest extends TestCase
 
         $actual = $controller->indexAction();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="div_mysql_charset_collations">',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Collation'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Description'),
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<em>PMA_armscii8_general_ci</em>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>armscii8</td>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>' . Charsets::getCollationDescr('armscii8') . '</td>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<em>PMA_ascii_general_ci</em>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>ascii</td>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<em>PMA_big5_general_ci</em>',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>big5</td>',
             $actual
         );

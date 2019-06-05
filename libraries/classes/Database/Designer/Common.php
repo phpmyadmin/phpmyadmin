@@ -35,12 +35,13 @@ class Common
     /**
      * Common constructor.
      *
-     * @param DatabaseInterface $dbi DatabaseInterface object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Relation          $relation Relation instance
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi, Relation $relation)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation($this->dbi);
+        $this->relation = $relation;
     }
 
     /**
@@ -178,7 +179,8 @@ class Common
             }
             $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
 
-            if ($row !== false) {
+            // We do not have access to the foreign keys if he user has partial access to the columns
+            if ($row !== false && isset($row['foreign_keys_data'])) {
                 foreach ($row['foreign_keys_data'] as $one_key) {
                     foreach ($one_key['index_list'] as $index => $one_field) {
                         $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
@@ -787,14 +789,14 @@ class Common
     public function saveSetting($index, $value)
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        $cfgDesigner = [
-            'user'  => $GLOBALS['cfg']['Server']['user'],
-            'db'    => $cfgRelation['db'],
-            'table' => $cfgRelation['designer_settings'],
-        ];
-
         $success = true;
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
+            $cfgDesigner = [
+                'user'  => $GLOBALS['cfg']['Server']['user'],
+                'db'    => $cfgRelation['db'],
+                'table' => $cfgRelation['designer_settings'],
+            ];
+
             $orig_data_query = "SELECT settings_data"
                 . " FROM " . Util::backquote($cfgDesigner['db'])
                 . "." . Util::backquote($cfgDesigner['table'])

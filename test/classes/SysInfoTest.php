@@ -29,7 +29,7 @@ class SysInfoTest extends TestCase
      *
      * @dataProvider sysInfoOsProvider
      */
-    public function testGetSysInfoOs($os, $expected)
+    public function testGetSysInfoOs($os, $expected): void
     {
         $this->assertEquals(
             $expected,

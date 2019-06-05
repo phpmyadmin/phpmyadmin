@@ -251,13 +251,13 @@ class RecentFavoriteTable
     {
         $html  = '<div class="drop_list">';
         if ($this->_tableType == 'recent') {
-            $html .= '<span title="' . __('Recent tables')
-                . '" class="drop_button">'
-                . __('Recent') . '</span><ul id="pma_recent_list">';
+            $html .= '<button title="' . __('Recent tables')
+                . '" class="drop_button btn">'
+                . __('Recent') . '</button><ul id="pma_recent_list">';
         } else {
-            $html .= '<span title="' . __('Favorite tables')
-                . '" class="drop_button">'
-                . __('Favorites') . '</span><ul id="pma_favorite_list">';
+            $html .= '<button title="' . __('Favorite tables')
+                . '" class="drop_button btn">'
+                . __('Favorites') . '</button><ul id="pma_favorite_list">';
         }
         $html .= $this->getHtmlList();
         $html .= '</ul></div>';
@@ -327,9 +327,6 @@ class RecentFavoriteTable
      */
     public function remove($db, $table)
     {
-        $table_arr = [];
-        $table_arr['db'] = $db;
-        $table_arr['table'] = $table;
         foreach ($this->_tables as $key => $value) {
             if ($value['db'] == $db && $value['table'] == $table) {
                 unset($this->_tables[$key]);

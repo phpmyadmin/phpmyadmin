@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Response;
@@ -20,14 +22,17 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 require_once ROOT_PATH . 'libraries/replication.inc.php';
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
 
-$controller = new MonitorController(
-    $response,
-    $GLOBALS['dbi'],
-    new Data,
-    new Monitor($GLOBALS['dbi'])
-);
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+/** @var MonitorController $controller */
+$controller = $containerBuilder->get(MonitorController::class);
 
 /**
  * Ajax request

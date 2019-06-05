@@ -13,6 +13,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+global $db, $table;
+
 // Check parameters
 PhpMyAdmin\Util::checkParameters(['db', 'table']);
 

@@ -1,0 +1,56 @@
+{% extends 'server/status/base.twig' %}
+{% set active = 'queries' %}
+{% block content %}
+
+{% if is_data_loaded %}
+  <h3 id="serverstatusqueries">
+    {% trans %}
+      Questions since startup:
+    {% notes %}
+      Questions is the name of a MySQL Status variable
+    {% endtrans %}
+    {{ format_number(stats.total, 0) }}
+    {{ show_mysql_docu('server-status-variables', false, null, null, 'statvar_Questions') }}
+  </h3>
+
+  <ul>
+    <li>ø {% trans 'per hour:' %} {{ format_number(stats.per_hour, 0) }}</li>
+    <li>ø {% trans 'per minute:' %} {{ format_number(stats.per_minute, 0) }}</li>
+    {% if stats.per_second >= 1 %}
+      <li>ø {% trans 'per second:' %} {{ format_number(stats.per_second, 0) }}</li>
+    {% endif %}
+  </ul>
+
+  <table id="serverstatusqueriesdetails" class="width100 data sortable noclick">
+    <colgroup>
+      <col class="namecol">
+      <col class="valuecol" span="3">
+    </colgroup>
+
+    <thead>
+      <tr>
+        <th>{% trans 'Statements' %}</th>
+        <th>{% trans %}#{% notes %}# = Amount of queries{% endtrans %}</th>
+        <th>ø {% trans 'per hour' %}</th>
+        <th>%</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for query in queries %}
+        <tr>
+          <th class="name">{{ query.name }}</th>
+          <td class="value">{{ format_number(query.value, 5, 0, true) }}</td>
+          <td class="value">{{ format_number(query.per_hour, 4, 1, true) }}</td>
+          <td class="value">{{ format_number(query.percentage, 0, 2) }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div id="serverstatusquerieschart" class="width100" data-chart="{{ chart|json_encode }}"></div>
+{% else %}
+  {{ 'Not enough privilege to view query statistics.'|trans|error }}
+{% endif %}
+
+{% endblock %}

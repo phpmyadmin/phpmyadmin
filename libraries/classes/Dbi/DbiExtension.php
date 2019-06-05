@@ -155,9 +155,11 @@ interface DbiExtension
     /**
      * returns a string that represents the client library version
      *
+     * @param resource $link mysql link
+     *
      * @return string MySQL client library version
      */
-    public function getClientInfo();
+    public function getClientInfo($link);
 
     /**
      * returns last error message or false if no errors occurred
@@ -210,7 +212,7 @@ interface DbiExtension
      * @param object $result result set identifier
      * @param int    $i      field
      *
-     * @return int length of field
+     * @return int|bool length of field
      */
     public function fieldLen($result, $i);
 

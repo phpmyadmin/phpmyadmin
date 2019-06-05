@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-use Twig\TwigFilter;
 
 /**
  * Class UrlExtension
@@ -47,21 +46,6 @@ class UrlExtension extends AbstractExtension
                 'get_common_raw',
                 'PhpMyAdmin\Url::getCommonRaw',
                 ['is_safe' => ['html']]
-            ),
-        ];
-    }
-
-    /**
-     * Returns a list of filters to add to the existing list.
-     *
-     * @return TwigFilter[]
-     */
-    public function getFilters()
-    {
-        return [
-            new TwigFilter(
-                'link',
-                'PhpMyAdmin\Core::linkURL'
             ),
         ];
     }

@@ -8,6 +8,8 @@
  * @requires    vendor/jquery/jquery.event.drag-2.2.js
  */
 
+/* global drawOpenLayers */ // templates/table/gis_visualization/gis_visualization.twig
+
 // Constants
 var zoomFactor = 1.5;
 var defaultX = 0;
@@ -35,7 +37,7 @@ function zoomAndPan () {
     $('circle.vector').each(function () {
         id = $(this).attr('id');
         circle = svg.getElementById(id);
-        svg.on('change', circle, {
+        $(svg).on('change', circle, {
             r : (3 / scale),
             'stroke-width' : (2 / scale)
         });
@@ -45,7 +47,7 @@ function zoomAndPan () {
     $('polyline.vector').each(function () {
         id = $(this).attr('id');
         line = svg.getElementById(id);
-        svg.on('change', line, {
+        $(svg).on('change', line, {
             'stroke-width' : (2 / scale)
         });
     });
@@ -54,7 +56,7 @@ function zoomAndPan () {
     $('path.vector').each(function () {
         id = $(this).attr('id');
         polygon = svg.getElementById(id);
-        svg.on('change', polygon, {
+        $(svg).on('change', polygon, {
             'stroke-width' : (0.5 / scale)
         });
     });
@@ -92,8 +94,8 @@ function loadSVG () {
     var $placeholder = $('#placeholder');
 
     $placeholder.svg({
-        onLoad: function (svg_ref) {
-            svg = svg_ref;
+        onLoad: function (svgRef) {
+            svg = svgRef;
         }
     });
 
@@ -125,7 +127,7 @@ function addZoomPanControllers () {
  */
 function resizeGISVisualization () {
     var $placeholder = $('#placeholder');
-    var old_width = $placeholder.width();
+    var oldWidth = $placeholder.width();
     var visWidth = $('#div_view_options').width() - 48;
 
     // Assign new value for width
@@ -133,7 +135,7 @@ function resizeGISVisualization () {
     $('svg').attr('width', visWidth);
 
     // Assign the offset created due to resizing to defaultX and center the svg.
-    defaultX = (visWidth - old_width) / 2;
+    defaultX = (visWidth - oldWidth) / 2;
     x = defaultX;
     y = 0;
     scale = 1;
@@ -149,6 +151,7 @@ function initGISVisualization () {
     resizeGISVisualization();
     if (typeof OpenLayers !== 'undefined') {
         // Configure OpenLayers
+        // eslint-disable-next-line no-underscore-dangle
         OpenLayers._getScriptLocation = function () {
             return './js/vendor/openlayers/';
         };
@@ -283,8 +286,8 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         scale *= zoomFactor;
 
         var $placeholder = $('#placeholder').find('svg');
-        width = $placeholder.attr('width');
-        height = $placeholder.attr('height');
+        var width = $placeholder.attr('width');
+        var height = $placeholder.attr('height');
         // zooming in keeping the center unmoved.
         x = width / 2 - (width / 2 - x) * zoomFactor;
         y = height / 2 - (height / 2 - y) * zoomFactor;
@@ -305,8 +308,8 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         scale /= zoomFactor;
 
         var $placeholder = $('#placeholder').find('svg');
-        width = $placeholder.attr('width');
-        height = $placeholder.attr('height');
+        var width = $placeholder.attr('width');
+        var height = $placeholder.attr('height');
         // zooming out keeping the center unmoved.
         x = width / 2 - (width / 2 - x) / zoomFactor;
         y = height / 2 - (height / 2 - y) / zoomFactor;
@@ -341,7 +344,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
      * Detect the mousemove event and show tooltips.
      */
     $('.vector').on('mousemove', function (event) {
-        var contents = $.trim(escapeHtml($(this).attr('name')));
+        var contents = $.trim(Functions.escapeHtml($(this).attr('name')));
         $('#tooltip').remove();
         if (contents !== '') {
             $('<div id="tooltip">' + contents + '</div>').css({

@@ -1092,6 +1092,10 @@ td.disabled {
   font-weight: bold;
 }
 
+.color_red {
+  color: red;
+}
+
 /* specific elements */
 
 /* topmenu */
@@ -1654,7 +1658,6 @@ table#chartGrid {
 
   div.monitorChart {
     background: $th-background;
-    overflow: hidden;
   }
 }
 
@@ -2310,7 +2313,6 @@ input {
 .ajax_notification {
   top: 0;
   position: fixed;
-  width: 100%;
   z-index: 1100;
   text-align: center;
   display: inline;
@@ -2324,7 +2326,6 @@ input {
   color: $main-color;
   padding: 10px !important;
   border: none;
-  height: 19px;
 }
 
 .dismissable {
@@ -2942,6 +2943,10 @@ form {
   margin-#{$left}: 0.5em;
 }
 
+input#auto_increment_opt {
+  width: min-content;
+}
+
 #placeholder {
   .button {
     position: absolute;
@@ -3112,14 +3117,17 @@ form.append_fields_form .tblFooters {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table {
-  td {
-    position: static;
-  }
-
+.pma_table,
+.sticky_columns {
   th.draggable span {
     display: block;
     overflow: hidden;
+  }
+}
+
+.pma_table {
+  td {
+    position: static;
   }
 
   tbody td span {
@@ -4230,4 +4238,30 @@ body {
       }
     }
   }
+}
+
+#tooltip_editor {
+  font-size: 12px;
+  background-color: #fff;
+  opacity: 0.95;
+  filter: alpha(opacity=95);
+  padding: 5px;
+}
+
+#tooltip_font {
+  font-weight: bold;
+}
+
+#selection_box {
+  z-index: 1000;
+  height: 205px;
+  position: absolute;
+  background-color: #87ceeb;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  pointer-events: none;
+}
+
+#filter_query_text {
+  vertical-align: baseline;
 }

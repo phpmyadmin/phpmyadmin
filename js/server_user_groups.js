@@ -1,3 +1,14 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @fileoverview    Javascript functions used in server user groups page
+ * @name            Server User Groups
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ */
+
+/* global checkboxesSel */ // js/functions.js
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -10,29 +21,29 @@ AJAX.registerTeardown('server_user_groups.js', function () {
  */
 AJAX.registerOnload('server_user_groups.js', function () {
     // update the checkall checkbox on Edit user group page
-    $(checkboxes_sel).trigger('change');
+    $(checkboxesSel).trigger('change');
 
     $(document).on('click', 'a.deleteUserGroup.ajax', function (event) {
         event.preventDefault();
         var $link = $(this);
         var groupName = $link.parents('tr').find('td:first').text();
         var buttonOptions = {};
-        buttonOptions[PMA_messages.strGo] = function () {
+        buttonOptions[Messages.strGo] = function () {
             $(this).dialog('close');
             $link.removeClass('ajax').trigger('click');
         };
-        buttonOptions[PMA_messages.strClose] = function () {
+        buttonOptions[Messages.strClose] = function () {
             $(this).dialog('close');
         };
         $('<div></div>')
             .attr('id', 'confirmUserGroupDeleteDialog')
-            .append(PMA_sprintf(PMA_messages.strDropUserGroupWarning, escapeHtml(groupName)))
+            .append(Functions.sprintf(Messages.strDropUserGroupWarning, Functions.escapeHtml(groupName)))
             .dialog({
                 width: 300,
                 minWidth: 200,
                 modal: true,
                 buttons: buttonOptions,
-                title: PMA_messages.strConfirm,
+                title: Messages.strConfirm,
                 close: function () {
                     $(this).remove();
                 }

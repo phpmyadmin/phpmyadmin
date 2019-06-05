@@ -13,12 +13,12 @@
  **/
 function displayHelp () {
     $('<div></div>')
-        .append(PMA_messages.strDisplayHelp)
+        .append(Messages.strDisplayHelp)
         .appendTo('#page_content')
         .dialog({
             width: 450,
             height: 'auto',
-            title: PMA_messages.strHelpTitle
+            title: Messages.strHelpTitle
         });
     return false;
 }
@@ -152,9 +152,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
-            'table' : PMA_commonParams.get('table'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
+            'table' : CommonParams.get('table'),
             'field' : $('#tableid_0').val(),
             'it' : 0
         }, function (data) {
@@ -166,7 +166,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             $('#types_0').val(data.field_type);
             xType = data.field_type;
             $('#collations_0').val(data.field_collations);
-            addDateTimePicker();
+            Functions.addDateTimePicker();
         });
     });
 
@@ -176,9 +176,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
-            'table' : PMA_commonParams.get('table'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
+            'table' : CommonParams.get('table'),
             'field' : $('#tableid_1').val(),
             'it' : 1
         }, function (data) {
@@ -190,7 +190,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             $('#types_1').val(data.field_type);
             yType = data.field_type;
             $('#collations_1').val(data.field_collations);
-            addDateTimePicker();
+            Functions.addDateTimePicker();
         });
     });
 
@@ -199,9 +199,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
-            'table' : PMA_commonParams.get('table'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
+            'table' : CommonParams.get('table'),
             'field' : $('#tableid_2').val(),
             'it' : 2
         }, function (data) {
@@ -211,7 +211,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             $('#tableFieldsId').find('tr:eq(4) td:eq(3)').html(data.field_value);
             $('#types_2').val(data.field_type);
             $('#collations_2').val(data.field_collations);
-            addDateTimePicker();
+            Functions.addDateTimePicker();
         });
     });
 
@@ -220,9 +220,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
-            'table' : PMA_commonParams.get('table'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
+            'table' : CommonParams.get('table'),
             'field' : $('#tableid_3').val(),
             'it' : 3
         }, function (data) {
@@ -232,7 +232,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             $('#tableFieldsId').find('tr:eq(5) td:eq(3)').html(data.field_value);
             $('#types_3').val(data.field_type);
             $('#collations_3').val(data.field_collations);
-            addDateTimePicker();
+            Functions.addDateTimePicker();
         });
     });
 
@@ -241,9 +241,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
      **/
     $('#inputFormSubmitId').on('click', function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
-            PMA_ajaxShowMessage(PMA_messages.strInputNull);
+            Functions.ajaxShowMessage(Messages.strInputNull);
         } else if (xLabel === yLabel) {
-            PMA_ajaxShowMessage(PMA_messages.strSameInputs);
+            Functions.ajaxShowMessage(Messages.strSameInputs);
         }
     });
 
@@ -257,14 +257,14 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         .hide();
 
     $('#togglesearchformlink')
-        .html(PMA_messages.strShowSearchCriteria)
-        .bind('click', function () {
+        .html(Messages.strShowSearchCriteria)
+        .on('click', function () {
             var $link = $(this);
             $('#zoom_search_form').slideToggle();
-            if ($link.text() === PMA_messages.strHideSearchCriteria) {
-                $link.text(PMA_messages.strShowSearchCriteria);
+            if ($link.text() === Messages.strHideSearchCriteria) {
+                $link.text(Messages.strShowSearchCriteria);
             } else {
-                $link.text(PMA_messages.strHideSearchCriteria);
+                $link.text(Messages.strHideSearchCriteria);
             }
             // avoid default click action
             return false;
@@ -277,7 +277,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     /*
      * Handle saving of a row in the editor
      */
-    buttonOptions[PMA_messages.strSave] = function () {
+    buttonOptions[Messages.strSave] = function () {
         // Find changed values by comparing form values with selectedRow Object
         var newValues = {};// Stores the values changed from original
         var sqlTypes = {};
@@ -354,64 +354,64 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
         // Generate SQL query for update
         if (!isEmpty(newValues)) {
-            var sql_query = 'UPDATE `' + PMA_commonParams.get('table') + '` SET ';
+            var sqlQuery = 'UPDATE `' + CommonParams.get('table') + '` SET ';
             for (key in newValues) {
-                sql_query += '`' + key + '`=';
+                sqlQuery += '`' + key + '`=';
                 var value = newValues[key];
 
                 // null
                 if (value === null) {
-                    sql_query += 'NULL, ';
+                    sqlQuery += 'NULL, ';
 
                 // empty
                 } else if ($.trim(value) === '') {
-                    sql_query += '\'\', ';
+                    sqlQuery += '\'\', ';
 
                 // other
                 } else {
                     // type explicitly identified
                     if (sqlTypes[key] !== null) {
                         if (sqlTypes[key] === 'bit') {
-                            sql_query += 'b\'' + value + '\', ';
+                            sqlQuery += 'b\'' + value + '\', ';
                         }
                     // type not explicitly identified
                     } else {
                         if (!isNumeric(value)) {
-                            sql_query += '\'' + value + '\', ';
+                            sqlQuery += '\'' + value + '\', ';
                         } else {
-                            sql_query += value + ', ';
+                            sqlQuery += value + ', ';
                         }
                     }
                 }
             }
             // remove two extraneous characters ', '
-            sql_query = sql_query.substring(0, sql_query.length - 2);
-            sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
+            sqlQuery = sqlQuery.substring(0, sqlQuery.length - 2);
+            sqlQuery += ' WHERE ' + Sql.urlDecode(searchedData[searchedDataKey].where_clause);
 
             // Post SQL query to sql.php
             $.post('sql.php', {
-                'server' : PMA_commonParams.get('server'),
-                'db' : PMA_commonParams.get('db'),
+                'server' : CommonParams.get('server'),
+                'db' : CommonParams.get('db'),
                 'ajax_request' : true,
-                'sql_query' : sql_query,
+                'sql_query' : sqlQuery,
                 'inline_edit' : false
             }, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     $('#sqlqueryresultsouter').html(data.sql_query);
-                    PMA_highlightSQL($('#sqlqueryresultsouter'));
+                    Functions.highlightSql($('#sqlqueryresultsouter'));
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    Functions.ajaxShowMessage(data.error, false);
                 }
             }); // End $.post
         }// End database update
         $('#dataDisplay').dialog('close');
     };
-    buttonOptions[PMA_messages.strCancel] = function () {
+    buttonOptions[Messages.strCancel] = function () {
         $(this).dialog('close');
     };
     $('#dataDisplay').dialog({
         autoOpen: false,
-        title: PMA_messages.strDataPointContent,
+        title: Messages.strDataPointContent,
         modal: true,
         buttons: buttonOptions,
         width: $('#dataDisplay').width() + 80,
@@ -427,8 +427,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     $(document).on('keydown', '#dataDisplay :input', function (e) {
         if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
-            if (typeof buttonOptions[PMA_messages.strSave] === 'function') {
-                buttonOptions[PMA_messages.strSave].call();
+            if (typeof buttonOptions[Messages.strSave] === 'function') {
+                buttonOptions[Messages.strSave].call();
             }
         }
     });
@@ -443,7 +443,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             .slideToggle()
             .hide();
         $('#togglesearchformlink')
-            .text(PMA_messages.strShowSearchCriteria);
+            .text(Messages.strShowSearchCriteria);
         $('#togglesearchformdiv').show();
         var selectedRow;
         var colorCodes = ['#FF0000', '#00FFFF', '#0000FF', '#0000A0', '#FF0080', '#800080', '#FFFF00', '#00FF00', '#FF00FF'];
@@ -574,45 +574,45 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         });
 
         $('div#resizer').resizable();
-        $('div#resizer').bind('resizestop', function (event, ui) {
+        $('div#resizer').on('resizestop', function (event, ui) {
             // make room so that the handle will still appear
             $('div#querychart').height($('div#resizer').height() * 0.96);
             $('div#querychart').width($('div#resizer').width() * 0.96);
             currentChart.replot({ resetAxes: true });
         });
 
-        $('div#querychart').bind('jqplotDataClick',
+        $('div#querychart').on('jqplotDataClick',
             function (event, seriesIndex, pointIndex, data) {
                 searchedDataKey = data[4]; // key from searchedData (global)
-                var field_id = 0;
-                var post_params = {
+                var fieldId = 0;
+                var postParams = {
                     'ajax_request' : true,
                     'get_data_row' : true,
-                    'server' : PMA_commonParams.get('server'),
-                    'db' : PMA_commonParams.get('db'),
-                    'table' : PMA_commonParams.get('table'),
+                    'server' : CommonParams.get('server'),
+                    'db' : CommonParams.get('db'),
+                    'table' : CommonParams.get('table'),
                     'where_clause' : data[3]
                 };
 
-                $.post('tbl_zoom_select.php', post_params, function (data) {
+                $.post('tbl_zoom_select.php', postParams, function (data) {
                     // Row is contained in data.row_info,
                     // now fill the displayResultForm with row values
                     var key;
                     for (key in data.row_info) {
-                        var $field = $('#edit_fieldID_' + field_id);
-                        var $field_null = $('#edit_fields_null_id_' + field_id);
+                        var $field = $('#edit_fieldID_' + fieldId);
+                        var $fieldNull = $('#edit_fields_null_id_' + fieldId);
                         if (data.row_info[key] === null) {
-                            $field_null.prop('checked', true);
+                            $fieldNull.prop('checked', true);
                             $field.val('');
                         } else {
-                            $field_null.prop('checked', false);
+                            $fieldNull.prop('checked', false);
                             if ($field.attr('multiple')) { // when the column is of type SET
                                 $field.val(data.row_info[key].split(','));
                             } else {
                                 $field.val(data.row_info[key]);
                             }
                         }
-                        field_id++;
+                        fieldId++;
                     }
                     selectedRow = data.row_info;
                 });

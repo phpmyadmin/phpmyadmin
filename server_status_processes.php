@@ -8,6 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 
@@ -19,13 +21,17 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 require_once ROOT_PATH . 'libraries/replication.inc.php';
 
-$response = Response::getInstance();
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
 
-$controller = new ProcessesController(
-    $response,
-    $GLOBALS['dbi'],
-    new Data()
-);
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+/** @var ProcessesController $controller */
+$controller = $containerBuilder->get(ProcessesController::class);
 
 if ($response->isAjax() && ! empty($_POST['kill'])) {
     $response->addJSON($controller->kill([

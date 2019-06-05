@@ -70,7 +70,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
                 $newtext = $options[2] . $newtext;
             }
 
-            if (($length + $options[0]) != $baselength) {
+            if (($length + (int) $options[0]) != $baselength) {
                 $newtext .= $options[2];
             }
         }

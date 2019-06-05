@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Types;
@@ -36,7 +37,7 @@ class SearchControllerTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         /**
          * SET these to avoid undefined index error
@@ -97,9 +98,12 @@ class SearchControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->set('db', 'PMA');
         $container->set('table', 'PMA_BookMark');
+        $template = new Template();
+        $container->set('template', $template);
         $container->set('dbi', $GLOBALS['dbi']);
         $container->set('response', $this->_response);
         $container->set('searchType', 'replace');
+        $container->set('relation', new Relation($dbi, $template));
     }
 
     /**
@@ -108,7 +112,7 @@ class SearchControllerTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 
@@ -124,10 +128,12 @@ class SearchControllerTest extends PmaTestCase
         $tableSearch = new SearchController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $container->get('table'),
             "zoom",
-            null
+            null,
+            new Relation($container->get('dbi'), $container->get('template'))
         );
         $columnIndex = 0;
         $find = "Field";
@@ -168,16 +174,18 @@ class SearchControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
 
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\SearchController');
+        $class = new ReflectionClass(SearchController::class);
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
         $tableSearch = new SearchController(
             $container->get('response'),
             $container->get('dbi'),
+            $container->get('template'),
             $container->get('db'),
             $container->get('table'),
             "zoom",
-            null
+            null,
+            new Relation($container->get('dbi'), $container->get('template'))
         );
 
         $sql = $method->invoke($tableSearch);

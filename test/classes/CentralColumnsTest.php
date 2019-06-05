@@ -97,7 +97,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
@@ -313,6 +313,7 @@ class CentralColumnsTest extends TestCase
 
         $this->assertTrue(
             $this->centralColumns->deleteColumnsFromList(
+                $_POST['db'],
                 ["col1"],
                 false
             )
@@ -322,6 +323,7 @@ class CentralColumnsTest extends TestCase
         $this->assertInstanceOf(
             'PhpMyAdmin\Message',
             $this->centralColumns->deleteColumnsFromList(
+                $_POST['db'],
                 ['column1'],
                 false
             )
@@ -330,6 +332,7 @@ class CentralColumnsTest extends TestCase
         $this->assertInstanceOf(
             'PhpMyAdmin\Message',
             $this->centralColumns->deleteColumnsFromList(
+                $_POST['db'],
                 ['PMA_table']
             )
         );
@@ -470,41 +473,41 @@ class CentralColumnsTest extends TestCase
      */
     public function testUpdateMultipleColumn()
     {
-        $_POST['db'] = 'phpmyadmin';
-        $_POST['orig_col_name'] = [
+        $params['db'] = 'phpmyadmin';
+        $params['orig_col_name'] = [
             "col1",
             "col2",
         ];
-        $_POST['field_name'] = [
+        $params['field_name'] = [
             "col1",
             "col2",
         ];
-        $_POST['field_default_type'] = [
+        $params['field_default_type'] = [
             "",
             "",
         ];
-        $_POST['col_extra'] = [
+        $params['col_extra'] = [
             "",
             "",
         ];
-        $_POST['field_length'] = [
+        $params['field_length'] = [
             "",
             "",
         ];
-        $_POST['field_attribute'] = [
+        $params['field_attribute'] = [
             "",
             "",
         ];
-        $_POST['field_type'] = [
+        $params['field_type'] = [
             "",
             "",
         ];
-        $_POST['field_collation'] = [
+        $params['field_collation'] = [
             "",
             "",
         ];
         $this->assertTrue(
-            $this->centralColumns->updateMultipleColumn()
+            $this->centralColumns->updateMultipleColumn($params)
         );
     }
 
@@ -534,7 +537,7 @@ class CentralColumnsTest extends TestCase
             ],
             'phpmyadmin'
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form',
             $result
         );
@@ -548,7 +551,7 @@ class CentralColumnsTest extends TestCase
             __('Null'),
             __('A_I'),
         ];
-        $this->assertContains(
+        $this->assertStringContainsString(
             $this->callProtectedMethod(
                 'getEditTableHeader',
                 [$header_cells]
@@ -563,7 +566,7 @@ class CentralColumnsTest extends TestCase
                 true,
             ]
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $this->callProtectedMethod(
                 'getHtmlForEditTableRow',
                 [
@@ -573,7 +576,7 @@ class CentralColumnsTest extends TestCase
             ),
             $result
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $this->callProtectedMethod('getEditTableFooter'),
             $result
         );
@@ -599,7 +602,7 @@ class CentralColumnsTest extends TestCase
                 $this->returnValue($this->columnData)
             );
         $this->assertEquals(
-            json_encode($this->modifiedColumnData),
+            $this->modifiedColumnData,
             $this->centralColumns->getListRaw(
                 'phpmyadmin',
                 ''
@@ -628,7 +631,7 @@ class CentralColumnsTest extends TestCase
                 $this->returnValue($this->columnData)
             );
         $this->assertEquals(
-            json_encode($this->modifiedColumnData),
+            $this->modifiedColumnData,
             $this->centralColumns->getListRaw(
                 'phpmyadmin',
                 'table1'
@@ -657,21 +660,21 @@ class CentralColumnsTest extends TestCase
             $pmaThemeImage,
             $text_dir
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form action="db_central_columns.php" method="post">',
             $result
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs(
                 'phpmyadmin'
             ),
             $result
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input class="btn btn-secondary ajax" type="submit" name="navig" value="&lt">',
             $result
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::pageselector(
                 'pos',
                 $max_rows,
@@ -680,13 +683,13 @@ class CentralColumnsTest extends TestCase
             ),
             $result
         );
-        $this->assertContains('<span>+', $result);
-        $this->assertContains('class="new_central_col hide"', $result);
-        $this->assertContains(__('Filter rows') . ':', $result);
-        $this->assertContains(__('Add column'), $result);
-        $this->assertContains(__('Click to sort.'), $result);
-        $this->assertContains(Url::getHiddenInputs($db), $result);
-        $this->assertContains(Url::getHiddenInputs($db), $result);
+        $this->assertStringContainsString('<span>+', $result);
+        $this->assertStringContainsString('class="new_central_col hide"', $result);
+        $this->assertStringContainsString(__('Filter rows') . ':', $result);
+        $this->assertStringContainsString(__('Add column'), $result);
+        $this->assertStringContainsString(__('Click to sort.'), $result);
+        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
+        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
         $editSelectedButton = Util::getButtonOrImage(
             'edit_central_columns',
             'mult_submit change_central_columns',
@@ -701,8 +704,8 @@ class CentralColumnsTest extends TestCase
             'b_drop',
             'remove_from_central_columns'
         );
-        $this->assertContains($editSelectedButton, $result);
-        $this->assertContains($deleteSelectedButton, $result);
+        $this->assertStringContainsString($editSelectedButton, $result);
+        $this->assertStringContainsString($deleteSelectedButton, $result);
         // test for empty table
         $total_rows = 0;
         $result = $this->centralColumns->getHtmlForMain(
@@ -712,11 +715,11 @@ class CentralColumnsTest extends TestCase
             $pmaThemeImage,
             $text_dir
         );
-        $this->assertContains('<span>-', $result);
-        $this->assertContains('class="new_central_col"', $result);
-        $this->assertContains(__('Add column'), $result);
-        $this->assertContains(Url::getHiddenInputs($db), $result);
-        $this->assertContains(__('The central list of columns for the current database is empty'), $result);
+        $this->assertStringContainsString('<span>-', $result);
+        $this->assertStringContainsString('class="new_central_col"', $result);
+        $this->assertStringContainsString(__('Add column'), $result);
+        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
+        $this->assertStringContainsString(__('The central list of columns for the current database is empty'), $result);
     }
 
     /**
@@ -774,12 +777,12 @@ class CentralColumnsTest extends TestCase
         $pmaThemeImage = "pmaThemeImage";
         $text_dir = "text_dir";
         $result = $this->centralColumns->getTableFooter($pmaThemeImage, $text_dir);
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" id="tableslistcontainer_checkall" class="checkall_box"',
             $result
         );
-        $this->assertContains("With selected:", $result);
-        $this->assertContains(
+        $this->assertStringContainsString("With selected:", $result);
+        $this->assertStringContainsString(
             '<button class="btn btn-link mult_submit change_central_columns"',
             $result
         );

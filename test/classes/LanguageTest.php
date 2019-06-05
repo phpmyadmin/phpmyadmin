@@ -29,7 +29,7 @@ class LanguageTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (! is_readable($loc)) {
@@ -41,7 +41,7 @@ class LanguageTest extends PmaTestCase
     /**
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         // Ensure we have English locale after tests
         $this->manager->getLanguage('en')->activate();
@@ -164,7 +164,7 @@ class LanguageTest extends PmaTestCase
      *
      * @dataProvider selectDataProvider
      */
-    public function testSelect($lang, $post, $get, $cookie, $accept, $agent, $default, $expect)
+    public function testSelect($lang, $post, $get, $cookie, $accept, $agent, $default, $expect): void
     {
         $GLOBALS['PMA_Config']->set('Lang', $lang);
         $_POST['lang'] = $post;
@@ -298,14 +298,14 @@ class LanguageTest extends PmaTestCase
      * @group large
      * @dataProvider listLocales
      */
-    public function testGettext($locale)
+    public function testGettext($locale): void
     {
         /* We should be able to set the language */
         $this->manager->getLanguage($locale)->activate();
 
         /* Grab some texts */
-        $this->assertContains('%s', _ngettext('%s table', '%s tables', 10));
-        $this->assertContains('%s', _ngettext('%s table', '%s tables', 1));
+        $this->assertStringContainsString('%s', _ngettext('%s table', '%s tables', 10));
+        $this->assertStringContainsString('%s', _ngettext('%s table', '%s tables', 1));
 
         $this->assertEquals(
             $locale,

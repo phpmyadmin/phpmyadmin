@@ -47,6 +47,10 @@
     border: 0;
   }
 
+  #navipanellinks .icon {
+    margin: 0;
+  }
+
   #recentTable,
   #favoriteTable {
     width: 200px;
@@ -475,7 +479,7 @@ html.ie {
   }
 
   .drop_button {
-    padding: 0 0.3em;
+    padding: 0.3em;
     border: 1px solid #ddd;
     border-radius: 0.3em;
     background: #f2f2f2;

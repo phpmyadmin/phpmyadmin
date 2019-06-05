@@ -43,8 +43,9 @@ class ConfigTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
+        $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = new Config();
         $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
@@ -62,7 +63,7 @@ class ConfigTest extends PmaTestCase
      *
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);
@@ -117,7 +118,7 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider userAgentProvider
      */
-    public function testCheckClient($agent, $os, $browser = null, $version = null)
+    public function testCheckClient($agent, $os, $browser = null, $version = null): void
     {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
@@ -322,7 +323,7 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider serverNames
      */
-    public function testCheckWebServer($server, $iis)
+    public function testCheckWebServer($server, $iis): void
     {
         $_SERVER['SERVER_SOFTWARE'] = $server;
         $this->object->checkWebServer();
@@ -495,7 +496,7 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider httpsParams
      */
-    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $port, $expected)
+    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $port, $expected): void
     {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
@@ -652,7 +653,7 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider rootUris
      */
-    public function testGetRootPath($request, $absolute, $expected)
+    public function testGetRootPath($request, $absolute, $expected): void
     {
         $GLOBALS['PMA_PHP_SELF'] = $request;
         $this->object->set('PmaAbsoluteUri', $absolute);
@@ -760,7 +761,7 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider configPaths
      */
-    public function testLoad($source, $result)
+    public function testLoad($source, $result): void
     {
         if ($result) {
             $this->assertTrue($this->object->load($source));
@@ -837,11 +838,8 @@ class ConfigTest extends PmaTestCase
     public function testGetThemeUniqueValue()
     {
         $partial_sum = (
-            Assert::readAttribute($this->object, 'source_mtime') +
-            Assert::readAttribute(
-                $this->object,
-                'default_source_mtime'
-            ) +
+            $this->object->source_mtime +
+            $this->object->default_source_mtime +
             $this->object->get('user_preferences_mtime') +
             $GLOBALS['PMA_Theme']->mtime_info +
             $GLOBALS['PMA_Theme']->filesize_info
@@ -1349,7 +1347,7 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider serverSettingsProvider
      */
-    public function testCheckServers($settings, $expected, $error = false)
+    public function testCheckServers($settings, $expected, $error = false): void
     {
         if ($error) {
             $this->expectException(Exception::class);
@@ -1408,7 +1406,7 @@ class ConfigTest extends PmaTestCase
      * @dataProvider selectServerProvider
      * @depends testCheckServers
      */
-    public function testSelectServer($settings, $request, $expected)
+    public function testSelectServer($settings, $request, $expected): void
     {
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();

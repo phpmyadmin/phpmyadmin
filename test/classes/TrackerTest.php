@@ -29,7 +29,7 @@ class TrackerTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         /**
          * SET these to avoid undefined index error
@@ -64,9 +64,12 @@ class TrackerTest extends PmaTestCase
      */
     public function testEnabled()
     {
+        $reflection = new \ReflectionProperty(Tracker::class, 'enabled');
+        $reflection->setAccessible(true);
+
         Tracker::enable();
         $this->assertTrue(
-            Assert::readAttribute('PhpMyAdmin\Tracker', 'enabled')
+            $reflection->getValue()
         );
     }
 
@@ -119,7 +122,7 @@ class TrackerTest extends PmaTestCase
      * @test
      * @dataProvider getTableNameData
      */
-    public function testGetTableName($string, $expected)
+    public function testGetTableName($string, $expected): void
     {
         $reflection = new ReflectionClass('PhpMyAdmin\Tracker');
         $method = $reflection->getMethod("getTableName");
@@ -591,7 +594,7 @@ class TrackerTest extends PmaTestCase
      * @test
      * @dataProvider getTrackedDataProvider
      */
-    public function testGetTrackedData($fetchArrayReturn, $expectedArray)
+    public function testGetTrackedData($fetchArrayReturn, $expectedArray): void
     {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

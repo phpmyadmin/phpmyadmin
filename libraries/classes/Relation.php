@@ -32,12 +32,13 @@ class Relation
     /**
      * Relation constructor.
      *
-     * @param DatabaseInterface|null $dbi Database interface
+     * @param DatabaseInterface|null $dbi      Database interface
+     * @param Template|null          $template Template instance
      */
-    public function __construct(?DatabaseInterface $dbi)
+    public function __construct(?DatabaseInterface $dbi, ?Template $template = null)
     {
         $this->dbi = $dbi;
-        $this->template = new Template();
+        $this->template = $template ?? new Template();
     }
 
     /**
@@ -841,14 +842,12 @@ class Relation
             && ($source == 'internal' || $source == 'both')
         ) {
             if ($isInformationSchema) {
-                $relations_key = 'information_schema_relations';
-                include_once ROOT_PATH . 'libraries/information_schema_relations.inc.php';
+                $internalRelations = InternalRelations::getInformationSchema();
             } else {
-                $relations_key = 'mysql_relations';
-                include_once ROOT_PATH . 'libraries/mysql_relations.inc.php';
+                $internalRelations = InternalRelations::getMySql();
             }
-            if (isset($GLOBALS[$relations_key][$table])) {
-                foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
+            if (isset($internalRelations[$table])) {
+                foreach ($internalRelations[$table] as $field => $relations) {
                     if ((strlen($column) === 0 || $column == $field)
                         && (! isset($foreign[$field])
                         || strlen($foreign[$field]) === 0)
@@ -1143,7 +1142,7 @@ class Relation
      *
      * @param string $username the username
      *
-     * @return array    list of history items
+     * @return array|bool list of history items
      *
      * @access  public
      */
@@ -1498,7 +1497,7 @@ class Relation
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 
-                $f_query_limit = ! empty($foreign_limit) ?: '';
+                $f_query_limit = ! empty($foreign_limit) ? $foreign_limit : '';
 
                 if (! empty($foreign_filter)) {
                     $the_total = $this->dbi->fetchValue(
@@ -2078,7 +2077,7 @@ class Relation
             // session from the current configuration storage.
             if ($cfgRelation['favoritework']) {
                 $fav_tables = RecentFavoriteTable::getInstance('favorite');
-                $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]
+                $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]
                     = $fav_tables->getFromDb();
             }
 

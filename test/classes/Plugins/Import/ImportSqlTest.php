@@ -31,7 +31,7 @@ class ImportSqlTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
 
@@ -59,7 +59,7 @@ class ImportSqlTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -87,15 +87,15 @@ class ImportSqlTest extends PmaTestCase
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
+        $this->assertStringContainsString(
             'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `pma_bookmark`',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) '
             . 'VALUES',
             $sql_query

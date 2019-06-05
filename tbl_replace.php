@@ -14,6 +14,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\File;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
@@ -28,24 +30,29 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Gets some core libraries
- */
+global $db, $table, $url_params;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-global $url_params;
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
 
 // Check parameters
 Util::checkParameters(['db', 'table', 'goto']);
 
-$GLOBALS['dbi']->selectDb($GLOBALS['db']);
+$dbi->selectDb($db);
 
 /**
  * Initializes some variables
  */
 $goto_include = false;
 
-$response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
@@ -54,9 +61,11 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-$relation = new Relation($GLOBALS['dbi']);
-$transformations = new Transformations();
-$insertEdit = new InsertEdit($GLOBALS['dbi']);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
+/** @var Transformations $transformations */
+$transformations = $containerBuilder->get('transformations');
+$insertEdit = new InsertEdit($dbi);
 
 // check whether insert row mode, if so include tbl_change.php
 $insertEdit->isInsertRow();
@@ -132,19 +141,22 @@ $gis_from_text_functions = [
     'MPolyFromText',
 ];
 
-$gis_from_wkb_functions = [
-    'GeomFromWKB',
-    'GeomCollFromWKB',
-    'LineFromWKB',
-    'MLineFromWKB',
-    'PointFromWKB',
-    'MPointFromWKB',
-    'PolyFromWKB',
-    'MPolyFromWKB',
-];
+$gis_from_wkb_functions = [];
+if ($dbi->getVersion() >= 50600) {
+    $gis_from_wkb_functions = [
+        'ST_GeomFromText',
+        'ST_GeomCollFromText',
+        'ST_LineFromText',
+        'ST_MLineFromText',
+        'ST_PointFromText',
+        'ST_MPointFromText',
+        'ST_PolyFromText',
+        'ST_MPolyFromText',
+    ];
+}
 
 //if some posted fields need to be transformed.
-$mime_map = $transformations->getMime($GLOBALS['db'], $GLOBALS['table']);
+$mime_map = $transformations->getMime($db, $table);
 if ($mime_map === false) {
     $mime_map = [];
 }
@@ -330,7 +342,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . Util::backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . Util::backquote($table)
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
                 . ($_POST['clause_is_unique'] ? '' : ' LIMIT 1');

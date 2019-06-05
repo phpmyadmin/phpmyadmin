@@ -17,13 +17,6 @@ namespace PhpMyAdmin;
 class Menu
 {
     /**
-     * Server id
-     *
-     * @access private
-     * @var int
-     */
-    private $_server;
-    /**
      * Database name
      *
      * @access private
@@ -46,13 +39,11 @@ class Menu
     /**
      * Creates a new instance of Menu
      *
-     * @param int    $server Server id
-     * @param string $db     Database name
-     * @param string $table  Table name
+     * @param string $db    Database name
+     * @param string $table Table name
      */
-    public function __construct($server, $db, $table)
+    public function __construct($db, $table)
     {
-        $this->_server = $server;
         $this->_db = $db;
         $this->_table = $table;
         $this->relation = new Relation($GLOBALS['dbi']);
@@ -103,7 +94,7 @@ class Menu
     {
         $url_params = [];
 
-        if (strlen($this->_table) > 0) {
+        if (strlen((string) $this->_table) > 0) {
             $tabs = $this->_getTableTabs();
             $url_params['db'] = $this->_db;
             $url_params['table'] = $this->_table;
@@ -178,7 +169,7 @@ class Menu
     private function _getBreadcrumbs()
     {
         $retval = '';
-        $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, $this->_table)
+        $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, (string) $this->_table)
             ->isView();
         if (empty($GLOBALS['cfg']['Server']['host'])) {
             $GLOBALS['cfg']['Server']['host'] = '';
@@ -238,7 +229,7 @@ class Menu
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if (strlen($this->_table) > 0
+            if (strlen((string) $this->_table) > 0
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 $table_class_object = $GLOBALS['dbi']->getTable(
@@ -639,6 +630,7 @@ class Menu
             [
                 'prefs_forms.php',
                 'prefs_manage.php',
+                'prefs_twofactor.php',
             ]
         );
 

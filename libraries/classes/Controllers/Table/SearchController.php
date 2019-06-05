@@ -9,10 +9,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -20,7 +21,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin\Controllers
  */
-class SearchController extends TableController
+class SearchController extends AbstractController
 {
     /**
      * Normal search or Zoom search
@@ -89,22 +90,26 @@ class SearchController extends TableController
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\Response $response   Response object
-     * @param DatabaseInterface    $dbi        DatabaseInterface object
-     * @param string               $db         Database name
-     * @param string               $table      Table name
-     * @param string               $searchType Search type
-     * @param string               $url_query  URL query
+     * @param Response          $response   Response object
+     * @param DatabaseInterface $dbi        DatabaseInterface object
+     * @param Template          $template   Template object
+     * @param string            $db         Database name
+     * @param string            $table      Table name
+     * @param string            $searchType Search type
+     * @param string            $url_query  URL query
+     * @param Relation          $relation   Relation instance
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $searchType,
-        $url_query
+        $url_query,
+        Relation $relation
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         $this->url_query = $url_query;
         $this->_searchType = $searchType;
@@ -114,7 +119,7 @@ class SearchController extends TableController
         $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
-        $this->relation = new Relation($dbi);
+        $this->relation = $relation;
         // Loads table's information
         $this->_loadTableInfo();
         $this->_connectionCharSet = $this->dbi->fetchValue(
@@ -160,8 +165,8 @@ class SearchController extends TableController
                 if (! preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace("BINARY", '', $type);
                 }
-                $type = preg_replace('@ZEROFILL@i', '', $type);
-                $type = preg_replace('@UNSIGNED@i', '', $type);
+                $type = str_ireplace("ZEROFILL", '', $type);
+                $type = str_ireplace("UNSIGNED", '', $type);
                 $type = mb_strtolower($type);
             }
             if (empty($type)) {
@@ -478,8 +483,6 @@ class SearchController extends TableController
         /**
          * Add this to ensure following procedures included running correctly.
          */
-        $db = $this->db;
-
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
@@ -697,7 +700,7 @@ class SearchController extends TableController
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return array Array containing original values, replaced values and count
+     * @return array|bool Array containing original values, replaced values and count
      */
     private function _getRegexReplaceRows(
         $columnIndex,
@@ -1095,7 +1098,7 @@ class SearchController extends TableController
             return Util::backquote($names) . " " . $func_type;
         } elseif ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
             return $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
         }
@@ -1114,7 +1117,7 @@ class SearchController extends TableController
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
         } elseif (strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . " "

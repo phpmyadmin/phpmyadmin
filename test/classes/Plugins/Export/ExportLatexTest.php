@@ -30,7 +30,7 @@ class ExportLatexTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -52,7 +52,7 @@ class ExportLatexTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -485,7 +485,7 @@ class ExportLatexTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "\n% Host: localhost:80",
             $result
         );
@@ -653,7 +653,7 @@ class ExportLatexTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '{datalabel} \\\\\\\\ \hlinefoo',
             $result
         );
@@ -883,7 +883,7 @@ class ExportLatexTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '\\textbf{\\textit{name1}} & set(abc) & Yes & NULL & ' .
             'ftable (ffield) &  &  \\\\ \\hline',
             $result
@@ -956,12 +956,12 @@ class ExportLatexTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '\\caption{latexstructure} \\label{latexlabel}',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'caption{latexcontinued}',
             $result
         );

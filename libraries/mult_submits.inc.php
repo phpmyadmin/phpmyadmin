@@ -136,6 +136,7 @@ if (! empty($submit_mult)
                 break;
             case 'delete_unique_columns_central_list':
                 $centralColsError = $centralColumns->deleteColumnsFromList(
+                    $_POST['db'],
                     $selected
                 );
                 break;
@@ -276,6 +277,17 @@ if (! empty($submit_mult) && ! empty($what)) {
         } elseif (! empty($sql_query_views)) {
             $sql_query = $sql_query_views . ';';
             unset($sql_query_views);
+        }
+    }
+
+    // Unset cache values for tables count, issue #14205
+    if ($query_type === 'drop_tbl' && isset($_SESSION['tmpval'])) {
+        if (isset($_SESSION['tmpval']['table_limit_offset'])) {
+            unset($_SESSION['tmpval']['table_limit_offset']);
+        }
+
+        if (isset($_SESSION['tmpval']['table_limit_offset_db'])) {
+            unset($_SESSION['tmpval']['table_limit_offset_db']);
         }
     }
 

@@ -10,6 +10,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -19,18 +21,25 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $text_dir;
 
-/**
- * Runs common work
- */
+require_once ROOT_PATH . 'libraries/common.inc.php';
 require ROOT_PATH . 'libraries/db_common.inc.php';
+
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
+
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'view_create.php';
 
-$response = Response::getInstance();
-
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 $view_algorithm_options = [
     'UNDEFINED',
@@ -112,9 +121,9 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
         }
     }
 
-    if (! $GLOBALS['dbi']->tryQuery($sql_query)) {
+    if (! $dbi->tryQuery($sql_query)) {
         if (! isset($_POST['ajax_dialog'])) {
-            $message = Message::rawError($GLOBALS['dbi']->getError());
+            $message = Message::rawError($dbi->getError());
             return;
         }
 
@@ -122,7 +131,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
             'message',
             Message::error(
                 "<i>" . htmlspecialchars($sql_query) . "</i><br><br>"
-                . $GLOBALS['dbi']->getError()
+                . $dbi->getError()
             )
         );
         $response->setRequestStatus(false);
@@ -135,12 +144,12 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
         $view_columns = explode(',', $_POST['view']['column_names']);
     }
 
-    $column_map = $GLOBALS['dbi']->getColumnMapFromSql(
+    $column_map = $dbi->getColumnMapFromSql(
         $_POST['view']['as'],
         $view_columns
     );
 
-    $systemDb = $GLOBALS['dbi']->getSystemDatabase();
+    $systemDb = $dbi->getSystemDatabase();
     $pma_transformation_data = $systemDb->getExistingTransformationData(
         $GLOBALS['db']
     );
@@ -156,7 +165,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
 
         // Store new transformations
         if ($new_transformations_sql != '') {
-            $GLOBALS['dbi']->tryQuery($new_transformations_sql);
+            $dbi->tryQuery($new_transformations_sql);
         }
     }
     unset($pma_transformation_data);
@@ -178,7 +187,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
     exit;
 }
 
-$sql_query = ! empty($_GET['sql_query']) ? $_GET['sql_query'] : '';
+$sql_query = ! empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 
 // prefill values if not already filled from former submission
 $view = [
@@ -192,6 +201,35 @@ $view = [
     'as' => $sql_query,
     'with' => '',
 ];
+
+// Used to prefill the fields when editing a view
+if (isset($_GET['db']) && isset($_GET['table'])) {
+    $item = $dbi->fetchSingleRow(
+        sprintf(
+            "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,
+            `SECURITY_TYPE`
+            FROM `INFORMATION_SCHEMA`.`VIEWS`
+            WHERE TABLE_SCHEMA='%s'
+            AND TABLE_NAME='%s';",
+            $dbi->escapeString($_GET['db']),
+            $dbi->escapeString($_GET['table'])
+        )
+    );
+    $createView = $dbi->getTable($_GET['db'], $_GET['table'])
+        ->showCreate();
+
+    // CREATE ALGORITHM=<ALGORITHM> DE...
+    $parts = explode(" ", substr($createView, 17));
+    $item['ALGORITHM'] = $parts[0];
+
+    $view['operation'] = 'alter';
+    $view['definer'] = $item['DEFINER'];
+    $view['sql_security'] = $item['SECURITY_TYPE'];
+    $view['name'] = $_GET['table'];
+    $view['as'] = $item['VIEW_DEFINITION'];
+    $view['with'] = $item['CHECK_OPTION'];
+    $view['algorithm'] = $item['ALGORITHM'];
+}
 
 if (Core::isValid($_POST['view'], 'array')) {
     $view = array_merge($view, $_POST['view']);

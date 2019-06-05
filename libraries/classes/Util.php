@@ -25,6 +25,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\KBException;
+use phpseclib\Crypt\Random;
 
 /**
  * Misc functions used all over the scripts.
@@ -119,13 +120,6 @@ class Util
     public static function getImage($image, $alternate = '', array $attributes = [])
     {
         $alternate = htmlspecialchars($alternate);
-
-        // Set $url accordingly
-        if (isset($GLOBALS['pmaThemeImage'])) {
-            $url = $GLOBALS['pmaThemeImage'] . $image;
-        } else {
-            $url = './themes/pmahomme/' . $image;
-        }
 
         if (isset($attributes['class'])) {
             $attributes['class'] = "icon ic_$image " . $attributes['class'];
@@ -1513,17 +1507,26 @@ class Util
         $formatted_size = (string) $formatted_size;
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
-            $return_value = mb_substr($formatted_size, 0, -2)
-                * pow(1024, 3);
+            $return_value = (int) mb_substr(
+                $formatted_size,
+                0,
+                -2
+            ) * pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
-            $return_value = mb_substr($formatted_size, 0, -2)
-                * pow(1024, 2);
+            $return_value = (int) mb_substr(
+                $formatted_size,
+                0,
+                -2
+            ) * pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
-            $return_value = mb_substr($formatted_size, 0, -1)
-                * pow(1024, 1);
+            $return_value = (int) mb_substr(
+                $formatted_size,
+                0,
+                -1
+            ) * pow(1024, 1);
         }
         return $return_value;
-    }// end of the 'extractValueFromFormattedSize' function
+    }
 
     /**
      * Writes localised date
@@ -1789,7 +1792,7 @@ class Util
             $tmp = $tag_params;
             $tag_params = [];
             if (! empty($tmp)) {
-                $tag_params['onclick'] = 'return confirmLink(this, \''
+                $tag_params['onclick'] = 'return Functions.confirmLink(this, \''
                     . Sanitize::escapeJsString($tmp) . '\')';
             }
             unset($tmp);
@@ -1826,6 +1829,7 @@ class Util
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
             || strpos($url, 'sql_query=') !== false
+            || strpos($url, 'view[as]=') !== false
         ) {
             $parts = explode('?', $url, 2);
             /*
@@ -2059,7 +2063,7 @@ class Util
                 ) {
                     $con_val = '= ' . $row[$i];
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
-                    && stristr($field_flags, 'BINARY')
+                    && false !== stripos($field_flags, 'BINARY')
                     && ! empty($row[$i])
                 ) {
                     // hexify only if this is a true not empty BLOB or a BINARY
@@ -2335,6 +2339,19 @@ class Util
         return $gotopage;
     } // end function
 
+
+    /**
+     * Calculate page number through position
+     * @param int $pos       position of first item
+     * @param int $max_count number of items per page
+     * @return int $page_num
+     * @access public
+     */
+    public static function getPageFromPosition($pos, $max_count)
+    {
+        return floor($pos / $max_count) + 1;
+    }
+
     /**
      * Prepare navigation for a list
      *
@@ -2417,7 +2434,7 @@ class Util
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
-                floor(($pos + 1) / $max_count) + 1,
+                self::getPageFromPosition($pos, $max_count),
                 ceil($count / $max_count)
             );
             $list_navigator_html .= '</form>';
@@ -2843,7 +2860,7 @@ class Util
      */
     public static function convertBitDefaultValue($bit_default_value)
     {
-        return rtrim(ltrim($bit_default_value, "b'"), "'");
+        return rtrim(ltrim(htmlspecialchars_decode($bit_default_value, ENT_QUOTES), "b'"), "'");
     }
 
     /**
@@ -2898,7 +2915,7 @@ class Util
             if (false !== strpos($printtype, "binary")
                 && ! preg_match('@binary[\(]@', $printtype)
             ) {
-                $printtype = preg_replace('@binary@', '', $printtype);
+                $printtype = str_replace("binary", '', $printtype);
                 $binary = true;
             } else {
                 $binary = false;
@@ -3073,9 +3090,15 @@ class Util
     {
         // Convert to WKT format
         $hex = bin2hex($data);
-        $wktsql     = "SELECT ASTEXT(x'" . $hex . "')";
+        $spatialAsText = 'ASTEXT';
+        $spatialSrid = 'SRID';
+        if ($GLOBALS['dbi']->getVersion() >= 50600) {
+            $spatialAsText = 'ST_ASTEXT';
+            $spatialSrid = 'ST_SRID';
+        }
+        $wktsql     = "SELECT $spatialAsText(x'" . $hex . "')";
         if ($includeSRID) {
-            $wktsql .= ", SRID(x'" . $hex . "')";
+            $wktsql .= ", $spatialSrid(x'" . $hex . "')";
         }
 
         $wktresult  = $GLOBALS['dbi']->tryQuery(
@@ -3556,19 +3579,21 @@ class Util
     /**
      * Generates GIS data based on the string passed.
      *
-     * @param string $gis_string GIS string
+     * @param string $gis_string   GIS string
+     * @param int    $mysqlVersion The mysql version as int
      *
-     * @return string GIS data enclosed in 'GeomFromText' function
+     * @return string GIS data enclosed in 'ST_GeomFromText' or 'GeomFromText' function
      */
-    public static function createGISData($gis_string)
+    public static function createGISData($gis_string, $mysqlVersion)
     {
+        $geomFromText = ($mysqlVersion >= 50600) ? 'ST_GeomFromText' : 'GeomFromText';
         $gis_string = trim($gis_string);
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|'
             . 'POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
-            return 'GeomFromText(' . $gis_string . ')';
+            return $geomFromText . '(' . $gis_string . ')';
         } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $gis_string)) {
-            return "GeomFromText('" . $gis_string . "')";
+            return $geomFromText . "('" . $gis_string . "')";
         }
 
         return $gis_string;
@@ -4063,27 +4088,13 @@ class Util
             }
         } elseif (! $server['ssl_verify']) {
             $message = __('SSL is used with disabled verification');
-        } elseif (empty($server['ssl_ca']) && empty($server['ssl_ca'])) {
+        } elseif (empty($server['ssl_ca'])) {
             $message = __('SSL is used without certification authority');
         } else {
             $class = '';
             $message = __('SSL is used');
         }
         return '<span class="' . $class . '">' . $message . '</span> ' . self::showDocu('setup', 'ssl');
-    }
-
-
-    /**
-     * Prepare HTML code for display button.
-     *
-     * @return String
-     */
-    public static function getButton()
-    {
-        return '<p class="print_ignore">'
-            . '<input type="button" class="btn btn-secondary button" id="print" value="'
-            . __('Print') . '">'
-            . '</p>';
     }
 
     /**
@@ -4105,9 +4116,7 @@ class Util
         $in_string = false;
         $buffer = '';
 
-        for ($i = 0, $length = mb_strlen($values_string);
-             $i < $length;
-             $i++) {
+        for ($i = 0, $length = mb_strlen($values_string); $i < $length; $i++) {
             $curr = mb_substr($values_string, $i, 1);
             $next = ($i == mb_strlen($values_string) - 1)
                 ? ''
@@ -4467,27 +4476,8 @@ class Util
     {
         $serverType = self::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
-        return $serverType == 'MySQL' && $serverVersion >= 50705
+        return in_array($serverType, ['MySQL', 'Percona Server']) && $serverVersion >= 50705
              || ($serverType == 'MariaDB' && $serverVersion >= 50200);
-    }
-
-    /**
-     * Returns the proper class clause according to the column type
-     *
-     * @param string $type the column type
-     *
-     * @return string the HTML class clause
-     */
-    public static function getClassForType($type)
-    {
-        if ('set' == $type
-            || 'enum' == $type
-        ) {
-            $class_clause = '';
-        } else {
-            $class_clause = ' class="nowrap"';
-        }
-        return $class_clause;
     }
 
     /**
@@ -4714,7 +4704,7 @@ class Util
             }
             $db_info_result = $GLOBALS['dbi']->query(
                 'SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
             unset($tblGroupSql, $whereAdded);
@@ -4801,9 +4791,9 @@ class Util
     public static function generateRandom($length)
     {
         $result = '';
-        if (class_exists('phpseclib\\Crypt\\Random')) {
+        if (class_exists(Random::class)) {
             $random_func = [
-                'phpseclib\\Crypt\\Random',
+                Random::class,
                 'string',
             ];
         } else {

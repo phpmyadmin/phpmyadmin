@@ -27,7 +27,7 @@ class ZipExtensionTest extends PmaTestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->zipExtension = new ZipExtension();
     }
@@ -42,7 +42,7 @@ class ZipExtensionTest extends PmaTestCase
      * @dataProvider provideTestGetContents
      * @return void
      */
-    public function testGetContents($file, $specific_entry, $output)
+    public function testGetContents($file, $specific_entry, $output): void
     {
         $this->assertEquals(
             $this->zipExtension->getContents($file, $specific_entry),
@@ -87,7 +87,7 @@ class ZipExtensionTest extends PmaTestCase
      * @dataProvider provideTestFindFile
      * @return void
      */
-    public function testFindFile($file, $file_regexp, $output)
+    public function testFindFile($file, $file_regexp, $output): void
     {
         $this->assertEquals(
             $this->zipExtension->findFile($file, $file_regexp),

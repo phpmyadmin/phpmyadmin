@@ -15,6 +15,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
@@ -112,90 +113,91 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data,
             new Monitor($GLOBALS['dbi'])
         );
 
         $html = $controller->index();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="tabLinks">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Start Monitor'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Settings'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Done dragging (rearranging) charts'),
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="popupContent settingsPopup">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="#settingsPopup" class="popupLink">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Enable charts dragging'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option>3</option>',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Monitor Instructions'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'monitorInstructionsDialog',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="addChartDialog"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="chartVariableSettings">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option>Processes</option>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option>Connections</option>',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form id="js_data" class="hide">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="server_time"',
             $html
         );
         //validate 2: inputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="is_superuser"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="server_db_isLocal"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="explain_docu" class="hide">',
             $html
         );
@@ -232,6 +234,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data,
             new Monitor($GLOBALS['dbi'])
         );
@@ -303,6 +306,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data,
             new Monitor($GLOBALS['dbi'])
         );
@@ -359,6 +363,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $dbi,
+            new Template(),
             $this->data,
             new Monitor($dbi)
         );
@@ -400,6 +405,7 @@ class MonitorControllerTest extends TestCase
         $controller = new MonitorController(
             Response::getInstance(),
             $dbi,
+            new Template(),
             $this->data,
             new Monitor($dbi)
         );

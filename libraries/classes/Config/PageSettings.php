@@ -115,7 +115,7 @@ class PageSettings
                 Core::sendHeaderLocation(
                     $response->getFooter()->getSelfUrl()
                 );
-                exit();
+                exit;
             } else {
                 $error = $result;
             }

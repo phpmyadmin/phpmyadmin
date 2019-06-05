@@ -7,51 +7,64 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Controllers\Table\SqlController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
+use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- *
- */
+global $db, $table;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-PageSettings::showGroup('Sql');
+$container = Container::getDefaultContainer();
+$container->set(Response::class, Response::getInstance());
 
-/**
- * Runs common work
- */
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+/** @var Response $response */
+$response = $container->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $container->get(DatabaseInterface::class);
+
+/* Define dependencies for the concerned controller */
+$dependency_definitions = [
+    'db' => $container->get('db'),
+    'table' => $container->get('table'),
+];
+
+/** @var Definition $definition */
+$definition = $containerBuilder->getDefinition(SqlController::class);
+array_map(
+    static function (string $parameterName, $value) use ($definition) {
+        $definition->replaceArgument($parameterName, $value);
+    },
+    array_keys($dependency_definitions),
+    $dependency_definitions
+);
+
+/** @var SqlController $controller */
+$controller = $containerBuilder->get(SqlController::class);
+
+/** @var SqlQueryForm $sqlQueryForm */
+$sqlQueryForm = $containerBuilder->get('sql_query_form');
+
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');
 
-require ROOT_PATH . 'libraries/tbl_common.inc.php';
-$url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-
-$err_url   = 'tbl_sql.php' . $err_url;
-// After a syntax error, we return to this script
-// with the typed query in the textarea.
-$goto = 'tbl_sql.php';
-$back = 'tbl_sql.php';
-
-$sqlQueryForm = new SqlQueryForm();
-
-/**
- * Query box, bookmark, insert data from textfile
- */
 $response->addHTML(
-    $sqlQueryForm->getHtml(
-        true,
-        false,
-        isset($_POST['delimiter'])
-        ? htmlspecialchars($_POST['delimiter'])
-        : ';'
+    $controller->index(
+        [
+            'delimiter' => $_POST['delimiter'] ?? null,
+            'sql_query' => $_GET['sql_query'] ?? true,
+        ],
+        $sqlQueryForm
     )
 );
