@@ -206,8 +206,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       sql_query: null
       url_query: null
       cfg: null
