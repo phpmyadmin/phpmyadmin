@@ -165,6 +165,7 @@ $html_output .= $insertEdit->getHtmlForInsertEditFormHeader($has_blob_field, $is
 $html_output .= Url::getHiddenInputs($_form_params);
 
 $titles['Browse'] = Util::getIcon('b_browse', __('Browse foreign values'));
+$titles['Foreign'] = Util::getIcon('b_browse', __('Foreign'));
 
 // user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)
@@ -259,12 +260,18 @@ $html_output .= $insertEdit->getHtmlForGisEditor();
 // end Insert/Edit form
 
 if ($insert_mode) {
+    $relation = new Relation($dbi);
+    $foreigners = $relation->getForeigners(
+        $db,
+        $table
+    );
     //Continue insertion form
     $html_output .= $insertEdit->getContinueInsertionForm(
         $table,
         $db,
         $where_clause_array,
-        $err_url
+        $err_url,
+        $foreigners
     );
 }
 

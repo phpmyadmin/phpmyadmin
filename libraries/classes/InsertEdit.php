@@ -82,7 +82,7 @@ class InsertEdit
             'table'     => $table,
             'goto'      => $GLOBALS['goto'],
             'err_url'   => $err_url,
-            'sql_query' => $_POST['sql_query'],
+            'sql_query' => $_POST['sql_query']
         ];
         if (isset($where_clauses)) {
             foreach ($where_clause_array as $key_id => $where_clause) {
@@ -680,6 +680,7 @@ class InsertEdit
         $idindex,
         $data,
         $special_chars,
+        array $foreigner,
         array $foreignData,
         array $paramTableDbArray,
         $rownumber,
@@ -713,6 +714,13 @@ class InsertEdit
                 $rownumber,
                 $titles,
                 $readOnly
+            );
+            $html_output .= $this->getInsertForeignLink(
+                $column,
+                $data,
+                $paramTableDbArray,
+                $rownumber,
+                $foreigner
             );
         } elseif (is_array($foreignData['disp_row'])) {
             $html_output .= $this->dispRowForeignData(
@@ -895,6 +903,51 @@ class InsertEdit
                 ''
             ) . '">'
             . str_replace("'", "\'", $titles['Browse']) . '</a>';
+        return $html_output;
+    }
+
+    /**
+     * Get HTML for foreign link in insert form
+     *
+     * @param array   $column               description of column in given table
+     * @param string  $backup_field         hidden input field
+     * @param string  $column_name_appendix the name attribute
+     * @param string  $onChangeClause       onchange clause for fields
+     * @param integer $tabindex             tab index
+     * @param integer $tabindex_for_value   offset for the values tabindex
+     * @param integer $idindex              id index
+     * @param string  $data                 data to edit
+     * @param array   $paramTableDbArray    array containing $table and $db
+     * @param integer $rownumber            the row number
+     * @param array   $titles               An HTML IMG tag for a particular icon from
+     *                                      a theme, which may be an actual file or
+     *                                      an icon from a sprite
+     * @param boolean $readOnly             is column read only or not
+     *
+     * @return string                       an html snippet
+     */
+    private function getInsertForeignLink(
+        array $column,
+        $data,
+        array $paramTableDbArray,
+        $rownumber,
+        array $foreigner
+    ) {
+        list($table, $db) = $paramTableDbArray;
+        $html_output = '';
+        $html_output .=  "<h1>Hola</h1>";
+
+        /*$html_output .= '<h1>'+count($foreignData)+'</h1>'+'<a class="ajax" href="tbl_change.php?db=test&table=personas" style="padding-left: 50px;" target="_blank" data-post="'
+            . Url::getCommon(
+                [
+                    'db' => $db,
+                    'table' => $table,
+                    'field' => $column['Field'],
+                    'rownumber' => $rownumber,
+                    'data'      => $data,
+                ],
+                ''
+            ) . '">Table</a>';*/
         return $html_output;
     }
 
@@ -1765,7 +1818,8 @@ class InsertEdit
         $table,
         $db,
         array $where_clause_array,
-        $err_url
+        $err_url,
+        $foreigners
     ) {
         return $this->template->render('table/insert/continue_insertion_form', [
             'db' => $db,
@@ -3373,6 +3427,7 @@ class InsertEdit
                 $idindex,
                 $data,
                 $special_chars,
+                $foreigners,
                 $foreignData,
                 [
                     $table,

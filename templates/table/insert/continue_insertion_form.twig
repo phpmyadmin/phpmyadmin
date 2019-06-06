@@ -1,3 +1,17 @@
+<h1>Hola</h1>
+{% for key in foreigners %}
+    {% for k in key %}
+        {% for a in k %}
+            {% if a is iterable %}
+                {% for b in a %}
+                    <h1>{{ b }}</h1>
+                {% endfor %}
+            {% else %}
+                <h1>{{ a }}</h1>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
 <form id="continueForm" method="post" action="tbl_replace.php" name="continueForm">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="goto" value="{{ goto }}">
