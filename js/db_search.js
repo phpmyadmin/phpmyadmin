@@ -8,6 +8,8 @@
  * @package PhpMyAdmin
  */
 
+/* global makeGrid */ // js/makegrid.js
+
 /**
  * AJAX script for the Database Search page.
  *

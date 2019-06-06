@@ -1,4 +1,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/* global isStorageSupported */ // js/config.js
+/* global ErrorReport */ // js/error_report.js
+/* global MicroHistory */ // js/microhistory.js
+
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
@@ -616,7 +621,7 @@ var AJAX = {
         } else {
             Functions.ajaxShowMessage(data.error, false);
             Functions.ajaxRemoveMessage(AJAX.$msgbox);
-            $ajaxError = $('<div></div>');
+            var $ajaxError = $('<div></div>');
             $ajaxError.attr({ 'id': 'ajaxError' });
             $('#page_content').append($ajaxError);
             $ajaxError.html(data.error);

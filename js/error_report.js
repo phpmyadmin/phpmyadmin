@@ -1,9 +1,11 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/* global TraceKit */ // js/vendor/tracekit.js
+
 /**
  * general function, usually for data manipulation pages
  *
  */
-
 var ErrorReport = {
     /**
      * @var object stores the last exception info

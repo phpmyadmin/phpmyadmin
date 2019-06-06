@@ -6,7 +6,7 @@
  * Class to handle PMA Drag and Drop Import
  *      feature
  */
-DragDropImport = {
+var DragDropImport = {
     /**
      * @var int, count of total uploads in this view
      */
@@ -36,7 +36,7 @@ DragDropImport = {
      */
     getExtension: function (file) {
         var arr = file.split('.');
-        ext = arr[arr.length - 1];
+        var ext = arr[arr.length - 1];
 
         // check if compressed
         if (jQuery.inArray(ext.toLowerCase(),

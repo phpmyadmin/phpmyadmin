@@ -36,7 +36,7 @@
         "no-new-object": "error",
         "no-param-reassign": "error",
         "no-trailing-spaces": "error",
-        "no-undef": "warn",
+        "no-undef": "error",
         "no-underscore-dangle": "error",
         "no-unneeded-ternary": "error",
         "no-unreachable": "error",

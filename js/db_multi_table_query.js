@@ -10,6 +10,8 @@
  *
  */
 
+/* global generateFromBlock, generateWhereBlock */ // js/db_query_generator.js
+
 /**
  * js file for handling AJAX and other events in db_multi_table_query.php
  */
@@ -38,7 +40,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
         var columns = [];
         var tableAliases = {};
         $('.tableNameSelect').each(function () {
-            $show = $(this).siblings('.show_col').first();
+            var $show = $(this).siblings('.show_col').first();
             if ($(this).val() !== '' && $show.prop('checked')) {
                 var tableAlias = $(this).siblings('.table_alias').first().val();
                 var columnAlias = $(this).siblings('.col_alias').first().val();
@@ -82,7 +84,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
             }
         });
 
-        query = 'SELECT ' + '`' + Functions.escapeBacktick(columns[0][0]) + '`.';
+        var query = 'SELECT ' + '`' + Functions.escapeBacktick(columns[0][0]) + '`.';
         if (columns[0][1] === '*') {
             query += '*';
         } else {
@@ -166,7 +168,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
     function addNewColumnCallbacks () {
         $('.tableNameSelect').each(function () {
             $(this).on('change', function () {
-                $sibs = $(this).siblings('.columnNameSelect');
+                var $sibs = $(this).siblings('.columnNameSelect');
                 if ($sibs.length === 0) {
                     $sibs = $(this).parent().parent().find('.columnNameSelect');
                 }
@@ -183,7 +185,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
         $('a.ajax').each(function () {
             $(this).on('click', function (event, from) {
                 if (from === null) {
-                    $checkbox = $(this).siblings('.criteria_col').first();
+                    var $checkbox = $(this).siblings('.criteria_col').first();
                     $checkbox.prop('checked', !$checkbox.prop('checked'));
                 }
                 var $criteriaColCount = $('.criteria_col:checked').length;
@@ -195,7 +197,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
 
         $('.criteria_col').each(function () {
             $(this).on('change', function () {
-                $anchor = $(this).siblings('a.ajax').first();
+                var $anchor = $(this).siblings('a.ajax').first();
                 $anchor.trigger('click', ['Trigger']);
             });
         });

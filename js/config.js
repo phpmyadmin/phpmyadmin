@@ -3,6 +3,9 @@
  * Functions used in configuration forms and on user preferences pages
  */
 
+var configInlineParams;
+var configScriptLoaded;
+
 /**
  * checks whether browser supports web storage
  *
@@ -800,7 +803,7 @@ AJAX.registerOnload('config.js', function () {
  * @param {Element} form
  */
 function savePrefsToLocalStorage (form) {
-    $form = $(form);
+    var $form = $(form);
     var submit = $form.find('input[type=submit]');
     submit.prop('disabled', true);
     $.ajax({
