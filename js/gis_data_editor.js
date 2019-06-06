@@ -6,6 +6,9 @@
  *
  */
 
+/* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/tbl_gis_visualization.js
+/* global pmaThemeImage */ // js/messages.php
+
 var gisEditorLoaded = false;
 
 /**
