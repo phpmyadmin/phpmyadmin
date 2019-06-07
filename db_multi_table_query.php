@@ -55,8 +55,8 @@ if (isset($_POST['sql_query'])) {
     $header = $response->getHeader();
     $scripts = $header->getScripts();
     $scripts->addFile('vendor/jquery/jquery.md5.js');
-    $scripts->addFile('db_multi_table_query.js');
-    $scripts->addFile('db_query_generator.js');
+    $scripts->addFile('database/multi_table_query.js');
+    $scripts->addFile('database/query_generator.js');
 
     $response->addHTML($controller->index($template));
 }

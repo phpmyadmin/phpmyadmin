@@ -385,7 +385,7 @@ $js_messages['strAddingPrimaryKey'] = __('Adding primary key');
 $js_messages['strOK'] = __('OK');
 $js_messages['strDismiss'] = __('Click to dismiss this notification');
 
-/* For db_operations.js */
+/* For database/operations.js */
 $js_messages['strRenamingDatabases'] = __('Renaming databases');
 $js_messages['strCopyingDatabase'] = __('Copying database');
 $js_messages['strChangingCharset'] = __('Changing charset');
@@ -397,7 +397,7 @@ $js_messages['strForeignKeyCheck'] = __('Enable foreign key checks');
 /* For db_stucture.js */
 $js_messages['strErrorRealRowCount'] = __('Failed to get real row count.');
 
-/* For db_search.js */
+/* For database/search.js */
 $js_messages['strSearching'] = __('Searching');
 $js_messages['strHideSearchResults'] = __('Hide search results');
 $js_messages['strShowSearchResults'] = __('Show search results');

@@ -38,7 +38,7 @@ $template = $containerBuilder->get('template');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('db_search.js');
+$scripts->addFile('database/search.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('makegrid.js');
 

@@ -20,7 +20,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('db_search.js', function () {
+AJAX.registerTeardown('database/search.js', function () {
     $('a.browse_results').off('click');
     $('a.delete_results').off('click');
     $('#buttonGo').off('click');
@@ -30,7 +30,7 @@ AJAX.registerTeardown('db_search.js', function () {
     $(document).off('submit', '#db_search_form.ajax');
 });
 
-AJAX.registerOnload('db_search.js', function () {
+AJAX.registerOnload('database/search.js', function () {
     /** Hide the table link in the initial search result */
     var icon = Functions.getImage('s_tbl', '', { 'id': 'table-image' }).toString();
     $('#table-info').prepend(icon).hide();

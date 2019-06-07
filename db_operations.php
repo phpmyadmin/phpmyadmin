@@ -48,7 +48,7 @@ $checkUserPrivileges->getPrivileges();
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('db_operations.js');
+$scripts->addFile('database/operations.js');
 
 $sql_query = '';
 

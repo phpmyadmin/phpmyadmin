@@ -28,7 +28,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('db_tracking.js');
+$scripts->addFile('database/tracking.js');
 
 /** @var Tracking $tracking */
 $tracking = $containerBuilder->get('tracking');

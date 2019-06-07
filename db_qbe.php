@@ -50,7 +50,7 @@ $currentSearchId = null;
 if ($cfgRelation['savedsearcheswork']) {
     $header = $response->getHeader();
     $scripts = $header->getScripts();
-    $scripts->addFile('db_qbe.js');
+    $scripts->addFile('database/qbe.js');
 
     //Get saved search list.
     $savedSearch = new SavedSearches($GLOBALS, $relation);

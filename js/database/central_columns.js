@@ -16,7 +16,7 @@
  *
  */
 
-AJAX.registerTeardown('db_central_columns.js', function () {
+AJAX.registerTeardown('database/central_columns.js', function () {
     $('.edit').off('click');
     $('.edit_save_form').off('click');
     $('.edit_cancel_form').off('click');
@@ -33,7 +33,7 @@ AJAX.registerTeardown('db_central_columns.js', function () {
     $('button[name=\'edit_central_columns\']').off('click');
 });
 
-AJAX.registerOnload('db_central_columns.js', function () {
+AJAX.registerOnload('database/central_columns.js', function () {
     $('#tableslistcontainer input,#tableslistcontainer select,#tableslistcontainer .default_value,#tableslistcontainer .open_enum_editor').hide();
     $('#tableslistcontainer').find('.checkall').show();
     $('#tableslistcontainer').find('.checkall_box').show();

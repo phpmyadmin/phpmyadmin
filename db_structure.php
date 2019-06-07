@@ -73,7 +73,7 @@ if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
     ]));
 } else {
     $response->getHeader()->getScripts()->addFiles([
-        'db_structure.js',
+        'database/structure.js',
         'tbl_change.js',
     ]);
 
