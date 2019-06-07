@@ -24,13 +24,14 @@ var DesignerOfflineDB = (function () {
             var db = e.target.result;
             e.target.transaction.onerror = designerDB.onerror;
 
-            for (var t in designerTables) {
+            var t;
+            for (t in designerTables) {
                 if (db.objectStoreNames.contains(designerTables[t].name)) {
                     db.deleteObjectStore(designerTables[t].name);
                 }
             }
 
-            for (var t in designerTables) {
+            for (t in designerTables) {
                 db.createObjectStore(designerTables[t].name, {
                     keyPath: designerTables[t].key,
                     autoIncrement: designerTables[t].autoIncrement

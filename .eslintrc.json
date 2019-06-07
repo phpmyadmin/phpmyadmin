@@ -37,7 +37,6 @@
         "no-new-func": "error",
         "no-new-object": "error",
         "no-param-reassign": "error",
-        "no-redeclare": "warn",
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "error",
         "no-unneeded-ternary": "error",

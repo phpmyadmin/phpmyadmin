@@ -490,6 +490,8 @@ Functions.suggestPassword = function (passwordForm) {
 
     passwd.value = '';
 
+    var i;
+
     // First we're going to try to use a built-in CSPRNG
     if (window.crypto && window.crypto.getRandomValues) {
         window.crypto.getRandomValues(randomWords);
@@ -498,12 +500,12 @@ Functions.suggestPassword = function (passwordForm) {
         window.msCrypto.getRandomValues(randomWords);
     } else {
         // Fallback to Math.random
-        for (var i = 0; i < passwordlength; i++) {
+        for (i = 0; i < passwordlength; i++) {
             randomWords[i] = Math.floor(Math.random() * pwchars.length);
         }
     }
 
-    for (var i = 0; i < passwordlength; i++) {
+    for (i = 0; i < passwordlength; i++) {
         passwd.value += pwchars.charAt(Math.abs(randomWords[i]) % pwchars.length);
     }
 

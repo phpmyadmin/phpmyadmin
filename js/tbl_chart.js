@@ -81,6 +81,7 @@ function queryChart (data, columnNames, settings) {
     }
 
     var i;
+    var values = [];
     if (settings.seriesColumn === null) {
         $.each(settings.selectedSeries, function (index, element) {
             dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
@@ -91,7 +92,6 @@ function queryChart (data, columnNames, settings) {
         $.each(settings.selectedSeries, function (index, element) {
             columnsToExtract.push(element);
         });
-        var values = [];
         var newRow;
         var row;
         var col;
@@ -146,7 +146,6 @@ function queryChart (data, columnNames, settings) {
             value[seriesNumber] = parseFloat(data[i][valueColumnName]);
         }
 
-        var values = [];
         $.each(valueMap, function (index, value) {
             values.push(value);
         });

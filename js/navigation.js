@@ -761,8 +761,9 @@ Navigation.showCurrent = function () {
     $('#pma_navigation_tree')
         .find('li.selected')
         .removeClass('selected');
+    var $dbItem;
     if (db) {
-        var $dbItem = findLoadedItem(
+        $dbItem = findLoadedItem(
             $('#pma_navigation_tree').find('> div'), db, 'database', !table
         );
         if ($('#navi_db_select').length &&
@@ -801,7 +802,7 @@ Navigation.showCurrent = function () {
             }
         });
 
-        var $dbItem = findLoadedItem(
+        $dbItem = findLoadedItem(
             $('#pma_navigation_tree').find('> div'), dbItemName, 'database', !table
         );
 
@@ -1093,8 +1094,9 @@ Navigation.treePagination = function ($this) {
     $.post(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success) {
             Functions.ajaxRemoveMessage($msgbox);
+            var val;
             if (isDbSelector) {
-                var val = Navigation.FastFilter.getSearchClause();
+                val = Navigation.FastFilter.getSearchClause();
                 $('#pma_navigation_tree')
                     .html(data.message)
                     .children('div')
@@ -1106,7 +1108,7 @@ Navigation.treePagination = function ($this) {
                 }
             } else {
                 var $parent = $this.closest('div.list_container').parent();
-                var val = Navigation.FastFilter.getSearchClause2($this);
+                val = Navigation.FastFilter.getSearchClause2($this);
                 $this.closest('div.list_container').html(
                     $(data.message).children().show()
                 );

@@ -202,13 +202,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
         }
 
         if ($('#partition_operation_DROP').is(':checked')) {
-            var question = Messages.strDropPartitionWarning;
-            $form.confirm(question, $form.attr('action'), function () {
+            $form.confirm(Messages.strDropPartitionWarning, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
         } else if ($('#partition_operation_TRUNCATE').is(':checked')) {
-            var question = Messages.strTruncatePartitionWarning;
-            $form.confirm(question, $form.attr('action'), function () {
+            $form.confirm(Messages.strTruncatePartitionWarning, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
         } else {

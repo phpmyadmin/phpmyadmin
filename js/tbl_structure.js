@@ -435,13 +435,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
         }
 
         if ($link.is('#partition_action_DROP')) {
-            var question = Messages.strDropPartitionWarning;
-            $link.confirm(question, $link.attr('href'), function (url) {
+            $link.confirm(Messages.strDropPartitionWarning, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else if ($link.is('#partition_action_TRUNCATE')) {
-            var question = Messages.strTruncatePartitionWarning;
-            $link.confirm(question, $link.attr('href'), function (url) {
+            $link.confirm(Messages.strTruncatePartitionWarning, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else {

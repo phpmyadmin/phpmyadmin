@@ -631,10 +631,11 @@ DesignerMove.save = function (url) {
 };
 
 DesignerMove.getUrlPos = function (forceString) {
+    var key;
     if (designerTablesEnabled || forceString) {
         var poststr = '';
         var argsep = CommonParams.get('arg_separator');
-        for (var key in jTabs) {
+        for (key in jTabs) {
             poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
             poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
@@ -643,7 +644,7 @@ DesignerMove.getUrlPos = function (forceString) {
         return poststr;
     } else {
         var coords = [];
-        for (var key in jTabs) {
+        for (key in jTabs) {
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
@@ -1681,9 +1682,9 @@ var TargetColors = [];
 DesignerMove.getColorByTarget = function (target) {
     var color = '';  // "rgba(0,100,150,1)";
 
-    for (var a in TargetColors) {
-        if (TargetColors[a][0] === target) {
-            color = TargetColors[a][1];
+    for (var targetColor in TargetColors) {
+        if (TargetColors[targetColor][0] === target) {
+            color = TargetColors[targetColor][1];
             break;
         }
     }

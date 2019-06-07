@@ -382,12 +382,12 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
+            var $div = $('<div></div>');
             if (showDialogLocal) {
                 // Show dialog if the request was successful
                 if ($('#addIndex').length > 0) {
                     $('#addIndex').remove();
                 }
-                var $div = $('<div></div>');
                 $div
                     .append(data.message)
                     .dialog({
@@ -416,7 +416,6 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                         }
                     });
             } else {
-                var $div = $('<div></div>');
                 $div
                     .append(data.message);
                 $div.css({ 'display' : 'none' });
