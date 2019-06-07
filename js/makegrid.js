@@ -1084,8 +1084,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             e.preventDefault();
                             e.stopPropagation();
                             g.saveOrPostEditedCell();
-                        } else if (e.which === 27) {
-                        } else {
+                        } else if (e.which !== 27) {
                             Functions.toggleDatepickerIfInvalid($td, $inputField);
                         }
                     });

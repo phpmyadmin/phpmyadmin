@@ -2196,16 +2196,22 @@ function destroyGrid () {
         $.each(runtime.charts, function (key, value) {
             try {
                 value.chart.destroy();
-            } catch (err) {}
+            } catch (err) {
+                // continue regardless of error
+            }
         });
     }
 
     try {
         runtime.refreshRequest.abort();
-    } catch (err) {}
+    } catch (err) {
+        // continue regardless of error
+    }
     try {
         clearTimeout(runtime.refreshTimeout);
-    } catch (err) {}
+    } catch (err) {
+        // continue regardless of error
+    }
     $('#chartGrid').html('');
     runtime.charts = null;
     runtime.chartAI = 0;
