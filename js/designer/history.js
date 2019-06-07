@@ -89,9 +89,9 @@ DesignerHistory.display = function (init, finit) {
     }
     // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
     str = ''; // string to store Html code for history tab
-    var history_array_length = history_array.length;
-    for (i = 0; i < history_array_length; i++) {
-        temp = history_array[i].get_tab(); // + '.' + history_array[i].get_obj_no(); for Self JOIN
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
+        temp = historyArray[i].getTab(); // + '.' + historyArray[i].getObjNo(); for Self JOIN
         str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
         str += '<div class="toggle_container">\n';
         while ((historyArray[i].getTab()) === temp) { // + '.' + historyArray[i].getObjNo()) === temp) {
@@ -116,7 +116,7 @@ DesignerHistory.display = function (init, finit) {
             }
             str += '</tr></thead>';
             i++;
-            if (i >= history_array_length) {
+            if (i >= historyArrayLength) {
                 break;
             }
             str += '</table></div>';
@@ -154,10 +154,10 @@ DesignerHistory.andOr = function (index) {
 **/
 
 function history_delete (index) {
-    var from_array_length = from_array.length;
-    for (var k = 0; k < from_array_length; k++) {
-        if (from_array[k] === history_array[index].get_tab()) {
-            from_array.splice(k, 1);
+    var fromArrayLength = fromArray.length;
+    for (var k = 0; k < fromArrayLength; k++) {
+        if (fromArray[k] === historyArray[index].getTab()) {
+            fromArray.splice(k, 1);
             break;
         }
     }
@@ -451,13 +451,13 @@ DesignerHistory.unique = function (arrayName) {
     var newArray = [];
     uniquetop:
     for (var i = 0; i < arrayName.length; i++) {
-        var newArray_length = newArray.length;
-        for (var j = 0; j < newArray_length; j++) {
+        var newArrayLength = newArray.length;
+        for (var j = 0; j < newArrayLength; j++) {
             if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
             }
         }
-        newArray[newArray_length] = arrayName[i];
+        newArray[newArrayLength] = arrayName[i];
     }
     return newArray;
 };
@@ -471,8 +471,8 @@ DesignerHistory.unique = function (arrayName) {
  */
 
 function found (arrayName, value) {
-    var arrayName_length = arrayName.length;
-    for (var i = 0; i < arrayName_length; i++) {
+    var arrayNameLength = arrayName.length;
+    for (var i = 0; i < arrayNameLength; i++) {
         if (arrayName[i] === value) {
             return 1;
         }
@@ -487,8 +487,8 @@ function found (arrayName, value) {
  * @params arr array in which elements are added
  */
 function add_array (add, arr) {
-    var add_length = add.length;
-    for (var i = 0; i < add_length; i++) {
+    var addLength = add.length;
+    for (var i = 0; i < addLength; i++) {
         arr.push(add[i]);
     }
     return arr;
@@ -502,10 +502,10 @@ function add_array (add, arr) {
  *
  */
 function remove_array (rem, arr) {
-    var rem_length = rem.length;
-    for (var i = 0; i < rem_length; i++) {
-        var arr_length = arr.length;
-        for (var j = 0; j < arr_length; j++) {
+    var remLength = rem.length;
+    for (var i = 0; i < remLength; i++) {
+        var arrLength = arr.length;
+        for (var j = 0; j < arrLength; j++) {
             if (rem[i] === arr[j]) {
                 arr.splice(j, 1);
             }
@@ -522,10 +522,10 @@ function remove_array (rem, arr) {
 DesignerHistory.queryGroupBy = function () {
     var i;
     var str = '';
-    var history_array_length = history_array.length;
-    for (i = 0; i < history_array_length; i++) {
-        if (history_array[i].get_type() === 'GroupBy') {
-            str += '`' + history_array[i].get_column_name() + '`, ';
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
+        if (historyArray[i].getType() === 'GroupBy') {
+            str += '`' + historyArray[i].getColumnName() + '`, ';
         }
     }
     str = str.substr(0, str.length - 2);
@@ -540,12 +540,12 @@ DesignerHistory.queryGroupBy = function () {
 DesignerHistory.queryHaving = function () {
     var i;
     var and = '(';
-    var history_array_length = history_array.length;
-    for (i = 0; i < history_array_length; i++) {
-        if (history_array[i].get_type() === 'Having') {
-            if (history_array[i].get_obj().get_operator() !== 'None') {
-                and += history_array[i].get_obj().get_operator() + '(`' + history_array[i].get_column_name() + '`) ' + history_array[i].get_obj().getrelation_operator();
-                and += ' ' + history_array[i].get_obj().getquery() + ', ';
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
+        if (historyArray[i].getType() === 'Having') {
+            if (historyArray[i].getObj().getOperator() !== 'None') {
+                and += historyArray[i].getObj().getOperator() + '(`' + historyArray[i].getColumnName() + '`) ' + historyArray[i].getObj().getRelationOperator();
+                and += ' ' + historyArray[i].getObj().getQuery() + ', ';
             } else {
                 and += '`' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ', ';
             }
@@ -568,11 +568,11 @@ DesignerHistory.queryHaving = function () {
 DesignerHistory.queryOrderBy = function () {
     var i;
     var str = '';
-    var history_array_length = history_array.length;
-    for (i = 0; i < history_array_length; i++) {
-        if (history_array[i].get_type() === 'OrderBy') {
-            str += '`' + history_array[i].get_column_name() + '` ' +
-                history_array[i].get_obj().get_order() + ', ';
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
+        if (historyArray[i].getType() === 'OrderBy') {
+            str += '`' + historyArray[i].getColumnName() + '` ' +
+                historyArray[i].getObj().getOrder() + ', ';
         }
     }
     str = str.substr(0, str.length - 2);
@@ -589,11 +589,11 @@ DesignerHistory.queryWhere = function () {
     var i;
     var and = '(';
     var or = '(';
-    var history_array_length = history_array.length;
-    for (i = 0; i < history_array_length; i++) {
-        if (history_array[i].get_type() === 'Where') {
-            if (history_array[i].get_and_or() === 0) {
-                and += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')';
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
+        if (historyArray[i].getType() === 'Where') {
+            if (historyArray[i].getAndOr() === 0) {
+                and += '( `' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ')';
                 and += ' AND ';
             } else {
                 or += '( `' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ')';
@@ -619,11 +619,11 @@ DesignerHistory.queryWhere = function () {
 
 DesignerHistory.checkAggregate = function (idThis) {
     var i;
-    var history_array_length = history_array.length;
-    for (i = 0; i < history_array_length; i++) {
-        var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
-        if (temp === id_this && history_array[i].get_type() === 'Aggregate') {
-            return history_array[i].get_obj().get_operator() + '(' + id_this + ')';
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
+        var temp = '`' + historyArray[i].getTab() + '`.`' + historyArray[i].getColumnName() + '`';
+        if (temp === idThis && historyArray[i].getType() === 'Aggregate') {
+            return historyArray[i].getObj().getOperator() + '(' + idThis + ')';
         }
     }
     return '';
@@ -631,11 +631,11 @@ DesignerHistory.checkAggregate = function (idThis) {
 
 DesignerHistory.checkRename = function (idThis) {
     var i;
-    var history_array_length = history_array.length;
-    for (i = 0; i < history_array_length; i++) {
-        var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
-        if (temp === id_this && history_array[i].get_type() === 'Rename') {
-            return ' AS `' + history_array[i].get_obj().getrename_to() + '`';
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
+        var temp = '`' + historyArray[i].getTab() + '`.`' + historyArray[i].getColumnName() + '`';
+        if (temp === idThis && historyArray[i].getType() === 'Rename') {
+            return ' AS `' + historyArray[i].getObj().getRenameTo() + '`';
         }
     }
     return '';
@@ -669,9 +669,9 @@ DesignerHistory.queryFrom = function () {
     // the constraints that have been used in the LEFT JOIN
     var constraintsAdded = [];
 
-    var history_array_length = history_array.length;
-    for (i = 0; i < history_array_length; i++) {
-        from_array.push(history_array[i].get_tab());
+    var historyArrayLength = historyArray.length;
+    for (i = 0; i < historyArrayLength; i++) {
+        fromArray.push(historyArray[i].getTab());
     }
     fromArray = DesignerHistory.unique(fromArray);
     tabLeft = fromArray;
@@ -768,10 +768,10 @@ DesignerHistory.queryFrom = function () {
 DesignerHistory.buildQuery = function (formTitle, fadin) {
     var qSelect = 'SELECT ';
     var temp;
-    var select_field_length = select_field.length;
-    if (select_field_length > 0) {
-        for (var i = 0; i < select_field_length; i++) {
-            temp = check_aggregate(select_field[i]);
+    var selectFieldLength = selectField.length;
+    if (selectFieldLength > 0) {
+        for (var i = 0; i < selectFieldLength; i++) {
+            temp = DesignerHistory.checkAggregate(selectField[i]);
             if (temp !== '') {
                 qSelect += temp;
                 temp = DesignerHistory.checkRename(selectField[i]);
