@@ -9,7 +9,7 @@
  */
 
 /* global isStorageSupported */ // js/config.js
-/* global codeMirrorEditor */ // js/functions.js
+/* global codeMirrorEditor:writable */ // js/functions.js
 /* global pmaThemeImage */ // js/messages.php
 /* global variableNames */ // templates/server/status/monitor/index.twig
 

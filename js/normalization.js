@@ -7,7 +7,7 @@
  */
 
 // eslint-disable-next-line no-unused-vars
-/* global centralColumnList */ // js/functions.js
+/* global centralColumnList:writable */ // js/functions.js
 
 /**
  * AJAX scripts for normalization.php

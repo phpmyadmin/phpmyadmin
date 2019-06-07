@@ -9,7 +9,7 @@
  */
 
 // eslint-disable-next-line no-unused-vars
-/* global primaryIndexes, indexes, fulltextIndexes, spatialIndexes */ // js/functions.js
+/* global primaryIndexes:writable, indexes:writable, fulltextIndexes:writable, spatialIndexes:writable */ // js/functions.js
 /* global sprintf */ // js/vendor/sprintf.js
 
 /**

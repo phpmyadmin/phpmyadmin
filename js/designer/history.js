@@ -8,7 +8,7 @@
   */
 
 /* global contr */ // js/designer/init.js
-/* global fromArray */ // js/designer/move.js
+/* global fromArray:writable */ // js/designer/move.js
 /* global pmaThemeImage */ // js/messages.php
 
 var DesignerHistory = {};

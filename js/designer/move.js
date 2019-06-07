@@ -5,7 +5,7 @@
 
 /* global DesignerObjects */ // js/designer/objects.js
 /* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
-/* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage, server */ // js/designer/init.js
+/* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage:writable, server */ // js/designer/init.js
 /* global DesignerPage */ // js/designer/page.js
 
 var DesignerMove = {};

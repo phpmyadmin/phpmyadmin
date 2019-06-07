@@ -33,7 +33,6 @@
         "no-empty": "warn",
         "no-eval": "error",
         "no-fallthrough": "warn",
-        "no-global-assign": "warn",
         "no-loop-func": "error",
         "no-multiple-empty-lines": "error",
         "no-new-func": "error",

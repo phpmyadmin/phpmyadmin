@@ -8,7 +8,7 @@
  * @required    js/functions.js
  */
 
-/* global fulltextIndexes, indexes, primaryIndexes, spatialIndexes, uniqueIndexes */ // js/functions.js
+/* global fulltextIndexes:writable, indexes:writable, primaryIndexes:writable, spatialIndexes:writable, uniqueIndexes:writable */ // js/functions.js
 
 var Indexes = {};
 
