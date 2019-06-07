@@ -6,6 +6,7 @@
  * @requires    jQuery
  */
 
+// eslint-disable-next-line no-unused-vars
 /* global centralColumnList */ // js/functions.js
 
 /**
@@ -92,7 +93,7 @@ function goTo2NFStep1 () {
             $('#mainContent #extra').html(data.extra);
             $('#mainContent #newCols').html('');
             if (data.subText !== '') {
-                var doneButton = $('<input>')
+                $('<input>')
                     .attr({ type: 'submit', value: Messages.strDone, })
                     .on('click', function () {
                         processDependencies(data.primary_key);
@@ -124,6 +125,7 @@ function goToFinish1NF () {
     $('.tblFooters').html('');
 }
 
+// eslint-disable-next-line no-unused-vars
 function goToStep4 () {
     $.post(
         'normalization.php',
@@ -527,7 +529,7 @@ AJAX.registerOnload('normalization.js', function () {
                         .attr({ type: 'submit', id: 'saveSplit', value: Messages.strSave })
                         .appendTo('.tblFooters');
 
-                    var cancelSplitButton = $('<input>')
+                    $('<input>')
                         .attr({ type: 'submit', id: 'cancelSplit', value: Messages.strCancel })
                         .on('click', function () {
                             $('#newCols').html('');

@@ -20,6 +20,7 @@ var Functions = {};
 /**
  * @var sqlBoxLocked lock for the sqlbox textarea in the querybox
  */
+// eslint-disable-next-line no-unused-vars
 var sqlBoxLocked = false;
 
 /**
@@ -65,33 +66,38 @@ var centralColumnList = [];
 /**
  * @var {array} primaryIndexes array to hold 'Primary' index columns.
  */
+// eslint-disable-next-line no-unused-vars
 var primaryIndexes = [];
 
 /**
  * @var {array} uniqueIndexes array to hold 'Unique' index columns.
  */
+// eslint-disable-next-line no-unused-vars
 var uniqueIndexes = [];
 
 /**
  * @var {array} indexes array to hold 'Index' columns.
  */
+// eslint-disable-next-line no-unused-vars
 var indexes = [];
 
 /**
  * @var {array} fulltextIndexes array to hold 'Fulltext' columns.
  */
+// eslint-disable-next-line no-unused-vars
 var fulltextIndexes = [];
 
 /**
  * @var {array} spatialIndexes array to hold 'Spatial' columns.
  */
+// eslint-disable-next-line no-unused-vars
 var spatialIndexes = [];
 
 /**
  * Make sure that ajax requests will not be cached
  * by appending a random variable to their parameters
  */
-$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+$.ajaxPrefilter(function (options, originalOptions) {
     var nocache = new Date().getTime() + '' + Math.floor(Math.random() * 1000000);
     if (typeof options.data === 'string') {
         options.data += '&_nocache=' + nocache + '&token=' + encodeURIComponent(CommonParams.get('token'));
@@ -156,7 +162,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
         onSelect: function () {
             $thisElement.data('datepicker').inline = true;
         },
-        onClose: function (dateText, dpInst) {
+        onClose: function () {
             // The value is no more from the date picker
             $thisElement.data('comes_from', '');
             if (typeof $thisElement.data('datepicker') !== 'undefined') {
@@ -627,7 +633,7 @@ Functions.displayGitRevision = function () {
  */
 Functions.displayPasswordGenerateButton = function () {
     var generatePwdRow = $('<tr></tr>').addClass('vmiddle');
-    var titleCell = $('<td></td>').html(Messages.strGeneratePassword).appendTo(generatePwdRow);
+    $('<td></td>').html(Messages.strGeneratePassword).appendTo(generatePwdRow);
     var pwdCell = $('<td></td>').appendTo(generatePwdRow);
     var pwdButton = $('<input>')
         .attr({ type: 'button', id: 'button_generate_password', value: Messages.strGenerate })
@@ -644,7 +650,7 @@ Functions.displayPasswordGenerateButton = function () {
     }
 
     var generatePwdDiv = $('<div></div>').addClass('item');
-    var titleLabel = $('<label></label>').attr({ for: 'button_generate_password' })
+    $('<label></label>').attr({ for: 'button_generate_password' })
         .html(Messages.strGeneratePassword + ':')
         .appendTo(generatePwdDiv);
     var optionsSpan = $('<span></span>').addClass('options')
@@ -1010,7 +1016,7 @@ AJAX.registerOnload('functions.js', function () {
                     if (!$('#modalOverlay').length) {
                         $('fieldset').not(':disabled').attr('disabled', 'disabled').addClass('disabled_for_expiration');
                         $('body').append(data.error);
-                        $('.ui-dialog').each(function (i) {
+                        $('.ui-dialog').each(function () {
                             $('#' + $(this).attr('aria-describedby')).dialog('close');
                         });
                         $('#input_username').focus();
@@ -1798,7 +1804,6 @@ AJAX.registerOnload('functions.js', function () {
         var $form = $(this).prev('form');
         var sqlQuery  = $form.find('input[name=\'sql_query\']').val().trim();
         var $innerSql = $(this).parent().prev().find('code.sql');
-        var oldText   = $innerSql.html();
 
         var newContent = '<textarea name="sql_query_edit" id="sql_query_edit">' + Functions.escapeHtml(sqlQuery) + '</textarea>\n';
         newContent    += Functions.getForeignKeyCheckboxLoader();
@@ -2314,7 +2319,7 @@ Functions.previewSql = function ($form) {
                 buttonOptions[Messages.strClose] = function () {
                     $(this).dialog('close');
                 };
-                var $responseDialog = $dialogContent.dialog({
+                $dialogContent.dialog({
                     minWidth: 550,
                     maxHeight: 400,
                     modal: true,
@@ -2374,7 +2379,7 @@ Functions.confirmPreviewSql = function (sqlData, url, callback) {
             }
         }
     ];
-    var $responseDialog = $dialogContent.dialog({
+    $dialogContent.dialog({
         minWidth: 550,
         maxHeight: 400,
         modal: true,
@@ -2615,7 +2620,6 @@ Functions.sqlPrettyPrint = function (string) {
     var spaceExceptionsAfter = { '.': true };
 
     // Populate tokens array
-    var str = '';
     while (! stream.eol()) {
         stream.start = stream.pos;
         token = mode.token(stream, state);
@@ -2631,8 +2635,6 @@ Functions.sqlPrettyPrint = function (string) {
     }
     // Holds all currently opened code blocks (statement, function or generic)
     var blockStack = [];
-    // Holds the type of block from last iteration (the current is in blockStack[0])
-    var previousBlock;
     // If a new code block is found, newBlock contains its type for one iteration and vice versa for endBlock
     var newBlock;
     var endBlock;
@@ -2646,8 +2648,6 @@ Functions.sqlPrettyPrint = function (string) {
 
     // Iterate through every token and format accordingly
     for (var i = 0; i < tokens.length; i++) {
-        previousBlock = blockStack[0];
-
         // New block => push to stack
         if (tokens[i][1] === '(') {
             if (i < tokens.length - 1 && tokens[i + 1][0] === 'statement-verb') {
@@ -3002,7 +3002,7 @@ AJAX.registerOnload('functions.js', function () {
     /**
      * Attach event handler to manage changes in number of partitions and subpartitions
      */
-    $(document).on('change', 'input[name=partition_count],input[name=subpartition_count],select[name=partition_by]', function (event) {
+    $(document).on('change', 'input[name=partition_count],input[name=subpartition_count],select[name=partition_by]', function () {
         var $this = $(this);
         var $form = $this.parents('form');
         if ($form.is('.create_table_form.ajax')) {
@@ -3205,7 +3205,7 @@ AJAX.registerOnload('functions.js', function () {
                 .dialog({
                     title: Messages.strChangePassword,
                     width: 600,
-                    close: function (ev, ui) {
+                    close: function () {
                         $(this).remove();
                     },
                     buttons: buttonOptions,
@@ -3522,7 +3522,7 @@ AJAX.registerOnload('functions.js', function () {
         return false;
     });
 
-    $(document).on('click', 'a.central_columns_dialog', function (e) {
+    $(document).on('click', 'a.central_columns_dialog', function () {
         var href = 'db_central_columns.php';
         var db = CommonParams.get('db');
         var table = CommonParams.get('table');
@@ -3772,7 +3772,7 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
          * @var    the_form    object referring to the export form
          */
         var $form = $('#index_frm');
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        Functions.ajaxShowMessage(Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
         // User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
@@ -4404,7 +4404,7 @@ Functions.getCellValue = function (td) {
     }
 };
 
-$(window).on('popstate', function (event, data) {
+$(window).on('popstate', function () {
     $('#printcss').attr('media','print');
     return true;
 });
@@ -4434,14 +4434,14 @@ AJAX.registerOnload('functions.js', function () {
     /**
      * Automatic form submission on change.
      */
-    $(document).on('change', '.autosubmit', function (e) {
+    $(document).on('change', '.autosubmit', function () {
         $(this).closest('form').submit();
     });
 
     /**
      * Theme changer.
      */
-    $('a.take_theme').on('click', function (e) {
+    $('a.take_theme').on('click', function () {
         var what = this.name;
         if (window.opener && window.opener.document.forms.setTheme.elements.set_theme) {
             window.opener.document.forms.setTheme.elements.set_theme.value = what;

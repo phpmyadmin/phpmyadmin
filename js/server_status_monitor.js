@@ -204,12 +204,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     var selectionTimeDiff = [];
     var selectionStartX;
     var selectionStartY;
-    var selectionEndX;
-    var selectionEndY;
     var drawTimeSpan = false;
-
-    // chart tooltip
-    var tooltipBox;
 
     /* Add OS specific system info charts to the preset chart list */
     switch (serverOs) {
@@ -430,7 +425,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         /* Reorder all charts that it fills all column cells */
         var numColumns;
         var $tr = $('#chartGrid').find('tr:first');
-        var row = 0;
 
         var tempManageCols = function () {
             if (numColumns > monitorSettings.columns) {
@@ -464,7 +458,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
 
             $tr = $tr.next();
-            row++;
         }
 
         if (monitorSettings.gridMaxPoints === 'auto') {
@@ -1025,7 +1018,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         /* Add all charts - in correct order */
         var keys = [];
-        $.each(runtime.charts, function (key, value) {
+        $.each(runtime.charts, function (key) {
             keys.push(key);
         });
         keys.sort();
@@ -1270,7 +1263,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
 
         // time span selection
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseDown', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseDown', function (ev, gridpos, datapos) {
             drawTimeSpan = true;
             selectionTimeDiff.push(datapos.xaxis);
             if ($('#selection_box').length) {
@@ -1289,7 +1282,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 .fadeIn();
         });
 
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseUp', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseUp', function (ev, gridpos, datapos) {
             if (! drawTimeSpan || editMode) {
                 return;
             }
@@ -1308,7 +1301,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             drawTimeSpan = false;
         });
 
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseMove', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseMove', function (ev) {
             if (! drawTimeSpan || editMode) {
                 return;
             }
@@ -1321,7 +1314,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
         });
 
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseLeave', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseLeave', function () {
             drawTimeSpan = false;
         });
 
@@ -1601,7 +1594,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     /* Loads the log table data, generates the table and handles the filters */
     function loadLogStatistics (opts) {
-        var tableStr = '';
         var logRequest = null;
 
         if (! opts.removeVariables) {
@@ -1721,7 +1713,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
          *                to group queries ignoring data in WHERE clauses
         */
         function filterQueries (varFilterChange) {
-            var cell;
             var textFilter;
             var val = $('#filterQueryText').val();
 
@@ -1910,7 +1901,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         $('#logTable').html($table);
 
-        var tempPushKey = function (key, value) {
+        var tempPushKey = function (key) {
             cols.push(key);
         };
 
@@ -1933,7 +1924,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
 
             $tBody.append($tRow = $('<tr class="noclick"></tr>'));
-            var cl = '';
             for (var j = 0, ll = cols.length; j < ll; j++) {
                 // Assuming the query column is the second last
                 if (j === cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {

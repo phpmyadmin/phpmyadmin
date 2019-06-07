@@ -17,6 +17,7 @@
  *
  * @return boolean  whether the form is validated or not
  */
+// eslint-disable-next-line no-unused-vars
 function checkAddUser (theForm) {
     if (theForm.elements.pred_hostname.value === 'userdefined' && theForm.elements.hostname.value === '') {
         alert(Messages.strHostEmpty);
@@ -399,7 +400,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         }); // end $.get
     }); // end of the paginate users table
 
-    $(document).on('change', 'input[name="ssl_type"]', function (e) {
+    $(document).on('change', 'input[name="ssl_type"]', function () {
         var $div = $('#specified_div');
         if ($('#ssl_type_SPECIFIED').is(':checked')) {
             $div.find('input').prop('disabled', false);
@@ -408,7 +409,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         }
     });
 
-    $(document).on('change', '#checkbox_SSL_priv', function (e) {
+    $(document).on('change', '#checkbox_SSL_priv', function () {
         var $div = $('#require_ssl_div');
         if ($(this).is(':checked')) {
             $div.find('input').prop('disabled', false);

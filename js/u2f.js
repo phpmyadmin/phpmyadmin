@@ -35,7 +35,6 @@ AJAX.registerOnload('u2f.js', function () {
             // Magic JavaScript talking to your HID
             // appid, challenge, authenticateRequests
             var request = JSON.parse($inputAuth.attr('data-request'));
-            var handles = [request[0].keyHandle];
             u2f.sign(request[0].appId, request[0].challenge, request, function (data) {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {

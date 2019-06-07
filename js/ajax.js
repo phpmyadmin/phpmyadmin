@@ -851,7 +851,7 @@ AJAX.registerOnload('functions.js', function () {
      * Note: reset does not bubble in all browser so attach to
      * form directly.
      */
-    $('form.lock-page').on('reset', function (event) {
+    $('form.lock-page').on('reset', function () {
         AJAX.resetLock();
     });
 });
@@ -931,7 +931,7 @@ $(document).on('submit', 'form', AJAX.requestHandler);
  * Gracefully handle fatal server errors
  * (e.g: 500 - Internal server error)
  */
-$(document).ajaxError(function (event, request, settings) {
+$(document).ajaxError(function (event, request) {
     if (AJAX.debug) {
         console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
     }

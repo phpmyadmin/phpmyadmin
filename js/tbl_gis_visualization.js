@@ -257,7 +257,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         dragY = Math.round(dd.offsetY);
     });
 
-    $(document).on('mouseup', 'svg', function (event) {
+    $(document).on('mouseup', 'svg', function () {
         $('#placeholder').removeClass('placeholderDrag');
     });
 
@@ -362,7 +362,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
     /**
      * Detect the mouseout event and hide tooltips.
      */
-    $('.vector').on('mouseout', function (event) {
+    $('.vector').on('mouseout', function () {
         $('#tooltip').remove();
     });
 });

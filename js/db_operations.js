@@ -60,7 +60,7 @@ AJAX.registerOnload('db_operations.js', function () {
                     Navigation.reload(function () {
                         $('#pma_navigation_tree')
                             .find('a:not(\'.expander\')')
-                            .each(function (index) {
+                            .each(function () {
                                 var $thisAnchor = $(this);
                                 if ($thisAnchor.text() === data.newname) {
                                     // simulate a click on the new db name

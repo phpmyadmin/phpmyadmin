@@ -78,7 +78,7 @@ var processList = {
      *
      * @return void
      */
-    refresh: function (event) {
+    refresh: function () {
         // abort any previous pending requests
         // this is necessary, it may go into
         // multiple loops causing unnecessary
@@ -166,7 +166,7 @@ AJAX.registerOnload('server_status_processes.js', function () {
         processList.setRefreshLabel();
     });
     // Bind event handler for change in refresh rate
-    $('#id_refreshRate').on('change', function (event) {
+    $('#id_refreshRate').on('change', function () {
         processList.refreshInterval = $(this).val();
         processList.refresh();
     });

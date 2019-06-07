@@ -41,7 +41,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
         $('#serverstatusvariables').show();
     }).trigger('change');
 
-    $('#filterText').on('keyup', function (e) {
+    $('#filterText').on('keyup', function () {
         var word = $(this).val().replace(/_/g, ' ');
         if (word.length === 0) {
             textFilter = null;

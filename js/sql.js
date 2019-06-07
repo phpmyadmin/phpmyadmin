@@ -253,7 +253,7 @@ AJAX.registerOnload('sql.js', function () {
         var question =  Functions.sprintf(Messages.strDoYouReally, Functions.escapeHtml($(this).closest('td').find('div').text()));
         var $link = $(this);
         $link.confirm(question, $link.attr('href'), function (url) {
-            var $msgbox = Functions.ajaxShowMessage();
+            Functions.ajaxShowMessage();
             var argsep = CommonParams.get('arg_separator');
             var params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
             var postData = $link.getPostData();
@@ -456,7 +456,7 @@ AJAX.registerOnload('sql.js', function () {
      *
      * @memberOf    jQuery
      */
-    $(document).on('click', '#button_submit_query', function (event) {
+    $(document).on('click', '#button_submit_query', function () {
         $('.success,.error').hide();
         // hide already existing error or success message
         var $form = $(this).closest('form');
@@ -492,7 +492,7 @@ AJAX.registerOnload('sql.js', function () {
      * Event handler to show appropiate number of variable boxes
      * based on the bookmarked query
      */
-    $(document).on('change', '#id_bookmark', function (event) {
+    $(document).on('change', '#id_bookmark', function () {
         var varCount = $(this).find('option:selected').data('varcount');
         if (typeof varCount === 'undefined') {
             varCount = 0;
@@ -723,7 +723,7 @@ AJAX.registerOnload('sql.js', function () {
         if (! $(this).is(':checked')) { // already showing all rows
             Sql.submitShowAllForm();
         } else {
-            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function (url) {
+            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function () {
                 Sql.submitShowAllForm();
             });
         }
@@ -799,7 +799,7 @@ AJAX.registerOnload('sql.js', function () {
                     buttonOptions[Messages.strClose] = function () {
                         $(this).dialog('close');
                     };
-                    var $responseDialog = $('<div></div>').append($dialogContent).dialog({
+                    $('<div></div>').append($dialogContent).dialog({
                         minWidth: 540,
                         maxHeight: 400,
                         modal: true,
@@ -816,7 +816,7 @@ AJAX.registerOnload('sql.js', function () {
                     Functions.ajaxShowMessage(response.error);
                 }
             },
-            error: function (response) {
+            error: function () {
                 Functions.ajaxShowMessage(Messages.strErrorProcessingRequest);
             }
         });
@@ -882,7 +882,7 @@ Sql.browseForeignDialog = function ($thisA) {
             width: Math.min($(window).width() - 100, 700),
             maxHeight: $(window).height() - 100,
             dialogClass: 'browse_foreign_modal',
-            close: function (ev, ui) {
+            close: function () {
                 // remove event handlers attached to elements related to dialog
                 $(tableId).off('click', 'td a.foreign_value');
                 $(formId).off('click', showAllId);
@@ -950,10 +950,10 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
-    $(document).on('mouseenter', 'th.column_heading.pointer', function (e) {
+    $(document).on('mouseenter', 'th.column_heading.pointer', function () {
         Sql.changeClassForColumn($(this), 'hover', true);
     });
-    $(document).on('mouseleave', 'th.column_heading.pointer', function (e) {
+    $(document).on('mouseleave', 'th.column_heading.pointer', function () {
         Sql.changeClassForColumn($(this), 'hover', false);
     });
 

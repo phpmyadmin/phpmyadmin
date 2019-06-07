@@ -2,6 +2,7 @@
  * Definition of links to MySQL documentation.
  */
 
+// eslint-disable-next-line no-unused-vars
 var mysqlDocKeyword = {
     /* Multi word */
     'CHARACTER SET': ['charset'],
@@ -330,6 +331,7 @@ var mysqlDocKeyword = {
     'NOT_IN': ['comparison-operators', 'function_not-in']
 };
 
+// eslint-disable-next-line no-unused-vars
 var mysqlDocBuiltin = {
     'TINYINT': ['numeric-types'],
     'SMALLINT': ['numeric-types'],

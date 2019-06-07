@@ -9,6 +9,7 @@
 /* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/tbl_gis_visualization.js
 /* global pmaThemeImage */ // js/messages.php
 
+// eslint-disable-next-line no-unused-vars
 var gisEditorLoaded = false;
 
 /**
@@ -40,7 +41,7 @@ function prepareJSVersion () {
     $('div#gis_data_output p').remove();
 
     // Remove 'add' buttons and add links
-    $('#gis_editor').find('input.add').each(function (e) {
+    $('#gis_editor').find('input.add').each(function () {
         var $button = $(this);
         $button.addClass('addJs').removeClass('add');
         var classes = $button.attr('class');
@@ -92,6 +93,7 @@ function initGISEditorVisualization () {
  * @param inputName name of the input field
  * @param token      token
  */
+// eslint-disable-next-line no-unused-vars
 function loadJSAndGISEditor (value, field, type, inputName) {
     var head = document.getElementsByTagName('head')[0];
     var script;
@@ -164,6 +166,7 @@ function loadGISEditor (value, field, type, inputName) {
 /**
  * Opens up the dialog for the GIS data editor.
  */
+// eslint-disable-next-line no-unused-vars
 function openGISEditor () {
     // Center the popup
     var windowWidth = document.documentElement.clientWidth;
@@ -266,7 +269,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
     /**
      * Update the form on change of the GIS type.
      */
-    $(document).on('change', '#gis_editor select.gis_type', function (event) {
+    $(document).on('change', '#gis_editor select.gis_type', function () {
         var $gisEditor = $('#gis_editor');
         var $form = $('form#gis_data_editor_form');
 

@@ -144,7 +144,7 @@ AJAX.registerOnload('server_databases.js', function () {
     }
 
     var tableRows = $('.server_databases');
-    $.each(tableRows, function (index, item) {
+    $.each(tableRows, function () {
         $(this).on('click', function () {
             CommonActions.setDb($(this).attr('data'));
         });

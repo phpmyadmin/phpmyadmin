@@ -46,6 +46,7 @@ function generateCondition (criteriaDiv, table) {
     return query;
 }
 
+// eslint-disable-next-line no-unused-vars
 function generateWhereBlock () {
     var count = 0;
     var query = '';
@@ -117,6 +118,7 @@ function appendTable (table, tableAliases, usedTables, foreignKeys) {
     return query;
 }
 
+// eslint-disable-next-line no-unused-vars
 function generateFromBlock (tableAliases, foreignKeys) {
     var usedTables = [];
     var query = '';

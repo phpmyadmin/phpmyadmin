@@ -14,6 +14,7 @@
  * @param enableVisib Optional, if false, show/hide column feature will be disabled
  * @param enableGridEdit Optional, if false, grid editing feature will be disabled
  */
+// eslint-disable-next-line no-unused-vars
 var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGridEdit) {
     var isResizeEnabled = enableResize === undefined ? true : enableResize;
     var isReorderEnabled = enableReorder === undefined ? true : enableReorder;
@@ -1717,9 +1718,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                 // create column visibility drop-down arrow(s)
                 $colVisibTh.each(function () {
-                    var $th = $(this);
                     var cd = document.createElement('div'); // column drop-down arrow
-                    var pos = $th.position();
                     $(cd).addClass('coldrop')
                         .on('click', function () {
                             if (g.cList.style.display === 'none') {
@@ -1794,14 +1793,11 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 whereClause = '';
             }
             var found = false;
-            var $foundRow;
             var $prevRow;
-            var j = 0;
 
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
-                    $foundRow = $(this);
                 }
                 if (!found) {
                     $prevRow = $(this);
@@ -1837,14 +1833,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 whereClause = '';
             }
             var found = false;
-            var $foundRow;
             var $nextRow;
             var j = 0;
             var nextRowFound = false;
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
-                    $foundRow = $(this);
                 }
                 if (found) {
                     if (j >= 1 && ! nextRowFound) {
@@ -1885,7 +1879,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             }
             var found = false;
             var $foundRow;
-            var j = 0;
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;

@@ -398,7 +398,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                         Functions.ajaxShowMessage(response.error);
                     }
                 },
-                error: function (response) {
+                error: function () {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest);
                 }
             });

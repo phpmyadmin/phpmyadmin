@@ -126,7 +126,7 @@ function queryChart (data, columnNames, settings) {
             }
         }
 
-        $.each(seriesNames, function (seriesName, seriesNumber) {
+        $.each(seriesNames, function (seriesName) {
             dataTable.addColumn(ColumnType.NUMBER, seriesName);
         });
 
@@ -255,7 +255,7 @@ AJAX.registerTeardown('tbl_chart.js', function () {
 
 AJAX.registerOnload('tbl_chart.js', function () {
     // handle manual resize
-    $('#resizer').on('resizestop', function (event, ui) {
+    $('#resizer').on('resizestop', function () {
         // make room so that the handle will still appear
         $('#querychart').height($('#resizer').height() * 0.96);
         $('#querychart').width($('#resizer').width() * 0.96);
@@ -362,7 +362,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
     });
 
     // handler for ajax form submission
-    $('#tblchartform').submit(function (event) {
+    $('#tblchartform').submit(function () {
         var $form = $(this);
         if (codeMirrorEditor) {
             $form[0].elements.sql_query.value = codeMirrorEditor.getValue();

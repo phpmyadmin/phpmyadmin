@@ -8,6 +8,7 @@
  * @required    js/functions.js
  */
 
+// eslint-disable-next-line no-unused-vars
 /* global primaryIndexes, indexes, fulltextIndexes, spatialIndexes */ // js/functions.js
 /* global sprintf */ // js/vendor/sprintf.js
 
@@ -102,7 +103,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             }); // end $.post()
         }
 
-        function checkIfConfirmRequired ($form, $fieldCnt) {
+        function checkIfConfirmRequired ($form) {
             var i = 0;
             var id;
             var elm;
@@ -143,11 +144,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 // User wants to submit the form
 
                 // If Collation is changed, Warn and Confirm
-                if (checkIfConfirmRequired($form, fieldCnt)) {
+                if (checkIfConfirmRequired($form)) {
                     var question = sprintf(
                         Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
-                    $form.confirm(question, $form.attr('action'), function (url) {
+                    $form.confirm(question, $form.attr('action'), function () {
                         submitForm();
                     });
                 } else {

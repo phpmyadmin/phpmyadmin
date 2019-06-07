@@ -458,7 +458,7 @@ RTE.COMMON = {
 
     dropMultipleDialog: function ($this) {
         // We ask for confirmation here
-        $this.confirm(Messages.strDropRTEitems, '', function (url) {
+        $this.confirm(Messages.strDropRTEitems, '', function () {
             /**
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
@@ -611,7 +611,7 @@ RTE.ROUTINE = {
         $('.routine_params_table tbody').sortable({
             containment: '.routine_params_table tbody',
             handle: '.dragHandle',
-            stop: function (event, ui) {
+            stop: function () {
                 that.reindexParameters();
             },
         });

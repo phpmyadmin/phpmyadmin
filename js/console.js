@@ -973,7 +973,7 @@ var ConsoleMessages = {
             });
         }
     },
-    msgAppend: function (msgId, msgString, msgType) {
+    msgAppend: function (msgId, msgString) {
         var $targetMessage = $('#pma_console').find('.content .console_message_container .message[msgid=' + msgId + ']');
         if ($targetMessage.length === 0 || isNaN(parseInt(msgId)) || typeof(msgString) !== 'string') {
             return false;
@@ -1026,7 +1026,7 @@ var ConsoleMessages = {
  */
 var ConsoleBookmarks = {
     bookmarks: [],
-    addBookmark: function (queryString, targetDb, label, isShared, id) {
+    addBookmark: function (queryString, targetDb, label, isShared) {
         $('#pma_bookmarks').find('.add [name=shared]').prop('checked', false);
         $('#pma_bookmarks').find('.add [name=label]').val('');
         $('#pma_bookmarks').find('.add [name=targetdb]').val('');

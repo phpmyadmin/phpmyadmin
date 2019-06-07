@@ -33,7 +33,7 @@ AJAX.registerOnload('db_qbe.js', function () {
     /**
      * Ajax handler to check the corresponding 'show' checkbox when column is selected
      */
-    $(document).on('change', 'select[name^=criteriaColumn]', function (event) {
+    $(document).on('change', 'select[name^=criteriaColumn]', function () {
         if ($(this).val()) {
             var index = (/\d+/).exec($(this).attr('name'));
             $('input[name=criteriaShow\\[' + index + '\\]]').prop('checked', true);
@@ -43,7 +43,7 @@ AJAX.registerOnload('db_qbe.js', function () {
     /**
      * Ajax event handlers for 'Select saved search'
      */
-    $(document).on('change', '#searchId', function (event) {
+    $(document).on('change', '#searchId', function () {
         $('#action').val('load');
         $('#formQBE').submit();
     });
@@ -58,14 +58,14 @@ AJAX.registerOnload('db_qbe.js', function () {
     /**
      * Ajax event handlers for 'Update bookmark'
      */
-    $(document).on('click', '#updateSearch', function (event) {
+    $(document).on('click', '#updateSearch', function () {
         $('#action').val('update');
     });
 
     /**
      * Ajax event handlers for 'Delete bookmark'
      */
-    $(document).on('click', '#deleteSearch', function (event) {
+    $(document).on('click', '#deleteSearch', function () {
         var question = Functions.sprintf(Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
         if (!confirm(question)) {
             return false;

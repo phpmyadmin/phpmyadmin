@@ -91,7 +91,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             Functions.prepareForAjaxRequest($form);
 
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
-                $form.confirm(question, $form.attr('action'), function (url) {
+                $form.confirm(question, $form.attr('action'), function () {
                     submitOptionsForm();
                 });
             } else {
@@ -99,7 +99,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             }
         } else {
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
-                $form.confirm(question, $form.attr('action'), function (url) {
+                $form.confirm(question, $form.attr('action'), function () {
                     $form.removeClass('ajax').submit().addClass('ajax');
                 });
             } else {
@@ -203,12 +203,12 @@ AJAX.registerOnload('tbl_operations.js', function () {
 
         if ($('#partition_operation_DROP').is(':checked')) {
             var question = Messages.strDropPartitionWarning;
-            $form.confirm(question, $form.attr('action'), function (url) {
+            $form.confirm(question, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
         } else if ($('#partition_operation_TRUNCATE').is(':checked')) {
             var question = Messages.strTruncatePartitionWarning;
-            $form.confirm(question, $form.attr('action'), function (url) {
+            $form.confirm(question, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
         } else {
