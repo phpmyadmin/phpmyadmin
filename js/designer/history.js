@@ -153,7 +153,7 @@ DesignerHistory.andOr = function (index) {
  *
 **/
 
-function history_delete (index) {
+DesignerHistory.historyDelete = function (index) {
     var fromArrayLength = fromArray.length;
     for (var k = 0; k < fromArrayLength; k++) {
         if (fromArray[k] === historyArray[index].getTab()) {
@@ -470,7 +470,7 @@ DesignerHistory.unique = function (arrayName) {
  * @param value  value which is to be searched in the array
  */
 
-function found (arrayName, value) {
+DesignerHistory.found = function (arrayName, value) {
     var arrayNameLength = arrayName.length;
     for (var i = 0; i < arrayNameLength; i++) {
         if (arrayName[i] === value) {
@@ -486,7 +486,7 @@ function found (arrayName, value) {
  * @params add array elements of which are pushed in
  * @params arr array in which elements are added
  */
-function add_array (add, arr) {
+DesignerHistory.addArray = function (add, arr) {
     var addLength = add.length;
     for (var i = 0; i < addLength; i++) {
         arr.push(add[i]);
@@ -501,7 +501,7 @@ function add_array (add, arr) {
  * @params arr array from which elements are removed.
  *
  */
-function remove_array (rem, arr) {
+DesignerHistory.removeArray = function (rem, arr) {
     var remLength = rem.length;
     for (var i = 0; i < remLength; i++) {
         var arrLength = arr.length;
