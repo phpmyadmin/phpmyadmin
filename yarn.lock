@@ -3136,6 +3136,11 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
+u2f-api-polyfill@0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/u2f-api-polyfill/-/u2f-api-polyfill-0.4.4.tgz#5ee8f6483386d684ca8deafcce979027f34272db"
+  integrity sha512-qg3LBBHzN46zNE+ySChra8i9PecrWk83DmEkxxMJ9wAy8wV3FGJi6gtV32L+pCIP+kTaxhIvxQe2k76OMuHe9Q==
+
 unherit@^1.0.4:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/unherit/-/unherit-1.1.1.tgz#132748da3e88eab767e08fabfbb89c5e9d28628c"

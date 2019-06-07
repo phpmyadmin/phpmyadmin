@@ -19,6 +19,7 @@
     "popper.js": "^1.14.6",
     "sass": "^1.20.3",
     "tracekit": "0.4.5",
+    "u2f-api-polyfill": "0.4.4",
     "updated-jqplot": "1.0.9",
     "zxcvbn": "4.4.2"
   },
