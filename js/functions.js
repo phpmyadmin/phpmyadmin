@@ -7,7 +7,7 @@
 /* global Indexes */ // js/indexes.js
 /* global maxInputVars, mysqlDocTemplate, pmaThemeImage */ // js/messages.php
 /* global MicroHistory */ // js/microhistory.js
-/* global checkPasswordStrength */ // js/server_privileges.js
+/* global checkPasswordStrength */ // js/server/privileges.js
 /* global sprintf */ // js/vendor/sprintf.js
 /* global Int32Array */ // ES6
 
@@ -2496,7 +2496,7 @@ Functions.showNoticeForEnum = function (selectElement) {
 
 /**
  * Creates a Profiling Chart. Used in sql.js
- * and in server_status_monitor.js
+ * and in server/status/monitor.js
  */
 Functions.createProfilingChart = function (target, data) {
     // create the chart
@@ -2561,7 +2561,7 @@ Functions.createProfilingChart = function (target, data) {
 
 /**
  * Formats a profiling duration nicely (in us and ms time).
- * Used in server_status_monitor.js
+ * Used in server/status/monitor.js
  *
  * @param  integer    Number to be formatted, should be in the range of microsecond to second
  * @param  integer    Accuracy, how many numbers right to the comma should be

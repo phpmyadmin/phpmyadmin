@@ -85,8 +85,8 @@ if ($response->isAjax() && isset($_POST['chart_data']) && $_POST['type'] === 'ch
     $scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
     $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
 
-    $scripts->addFile('server_status_monitor.js');
-    $scripts->addFile('server_status_sorter.js');
+    $scripts->addFile('server/status/monitor.js');
+    $scripts->addFile('server/status/sorter.js');
 
     $response->addHTML($controller->index());
 }

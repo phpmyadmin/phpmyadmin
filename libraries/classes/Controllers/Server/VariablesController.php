@@ -36,7 +36,7 @@ class VariablesController extends AbstractController
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
-        $scripts->addFile('server_variables.js');
+        $scripts->addFile('server/variables.js');
 
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');

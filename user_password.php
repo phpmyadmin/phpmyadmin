@@ -38,7 +38,7 @@ $dbi = $container->get(DatabaseInterface::class);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('server_privileges.js');
+$scripts->addFile('server/privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
 /** @var Template $template */

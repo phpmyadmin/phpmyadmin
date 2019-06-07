@@ -38,7 +38,7 @@ if (! $GLOBALS['cfgRelation']['menuswork']) {
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('server_user_groups.js');
+$scripts->addFile('server/user_groups.js');
 
 /**
  * Only allowed to superuser

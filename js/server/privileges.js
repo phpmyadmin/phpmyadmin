@@ -83,7 +83,7 @@ function checkPasswordStrength (value, meterObject, meterObjectLabel, username) 
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_privileges.js', function () {
+AJAX.registerTeardown('server/privileges.js', function () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
     $(document).off('click', '#fieldset_delete_user_footer #buttonGo.ajax');
     $(document).off('click', 'a.edit_user_group_anchor.ajax');
@@ -97,7 +97,7 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off('change', '#select_authentication_plugin');
 });
 
-AJAX.registerOnload('server_privileges.js', function () {
+AJAX.registerOnload('server/privileges.js', function () {
     /**
      * Display a warning if there is already a user by the name entered as the username.
      */

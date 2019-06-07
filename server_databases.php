@@ -53,7 +53,7 @@ if (isset($_POST['drop_selected_dbs'])
 } else {
     $header = $response->getHeader();
     $scripts = $header->getScripts();
-    $scripts->addFile('server_databases.js');
+    $scripts->addFile('server/databases.js');
 
     $response->addHTML($controller->indexAction([
         'statistics' => $_REQUEST['statistics'] ?? null,

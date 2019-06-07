@@ -30,7 +30,7 @@ $response = $container->get(Response::class);
 $dbi = $container->get(DatabaseInterface::class);
 
 $scripts = $response->getHeader()->getScripts();
-$scripts->addFile('server_status_advisor.js');
+$scripts->addFile('server/status/advisor.js');
 
 /** @var AdvisorController $controller */
 $controller = $containerBuilder->get(AdvisorController::class);

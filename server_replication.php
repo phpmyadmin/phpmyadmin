@@ -38,7 +38,7 @@ $replicationGui = $containerBuilder->get('replication_gui');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('server_privileges.js');
+$scripts->addFile('server/privileges.js');
 $scripts->addFile('replication.js');
 $scripts->addFile('vendor/zxcvbn.js');
 

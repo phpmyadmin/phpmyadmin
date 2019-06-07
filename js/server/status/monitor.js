@@ -21,7 +21,7 @@ var serverDbIsLocal;
 var chartSize;
 var monitorSettings;
 
-AJAX.registerOnload('server_status_monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     var $jsDataForm = $('#js_data');
     serverTimeDiff = new Date().getTime() - $jsDataForm.find('input[name=server_time]').val();
     serverOs = $jsDataForm.find('input[name=server_os]').val();
@@ -32,7 +32,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_status_monitor.js', function () {
+AJAX.registerTeardown('server/status/monitor.js', function () {
     $('#emptyDialog').remove();
     $('#addChartDialog').remove();
     $('a.popupLink').off('click');
@@ -41,7 +41,7 @@ AJAX.registerTeardown('server_status_monitor.js', function () {
 /**
  * Popup behaviour
  */
-AJAX.registerOnload('server_status_monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     $('<div></div>')
         .attr('id', 'emptyDialog')
         .appendTo('#page_content');
@@ -73,7 +73,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     });
 });
 
-AJAX.registerTeardown('server_status_monitor.js', function () {
+AJAX.registerTeardown('server/status/monitor.js', function () {
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').off('click');
     $('div.popupContent select[name="chartColumns"]').off('change');
     $('div.popupContent select[name="gridChartRefresh"]').off('change');
@@ -97,7 +97,7 @@ AJAX.registerTeardown('server_status_monitor.js', function () {
     destroyGrid();
 });
 
-AJAX.registerOnload('server_status_monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     // Show tab links
     $('div.tabLinks').show();
     $('#loadingMonitorIcon').remove();
@@ -2173,7 +2173,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 });
 
 // Run the monitor once loaded
-AJAX.registerOnload('server_status_monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     $('a[href="#pauseCharts"]').trigger('click');
 });
 

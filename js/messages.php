@@ -145,7 +145,7 @@ $js_messages['strYValues'] = __('Y values');
 /* Database multi-table query */
 $js_messages['strEmptyQuery'] = __('Please enter the SQL query first.');
 
-/* For server_privileges.js */
+/* For server/privileges.js */
 $js_messages['strHostEmpty'] = __('The host name is empty!');
 $js_messages['strUserEmpty'] = __('The user name is empty!');
 $js_messages['strPasswordEmpty'] = __('The password is empty!');
@@ -487,7 +487,7 @@ $js_messages['strConfirmTd'] = __('Confirm transitive dependencies');
 $js_messages['strSelectedTd'] = __('Selected dependencies are as follows:');
 $js_messages['strNoTdSelected'] = __('No dependencies selected!');
 
-/* For server_variables.js */
+/* For server/variables.js */
 $js_messages['strSave'] = __('Save');
 
 /* For tbl_select.js */
