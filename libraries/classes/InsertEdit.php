@@ -935,9 +935,12 @@ class InsertEdit
     ) {
         list($table, $db) = $paramTableDbArray;
         $html_output = '';
-        $html_output .=  "<h1>Hola</h1>";
 
-        /*$html_output .= '<h1>'+count($foreignData)+'</h1>'+'<a class="ajax" href="tbl_change.php?db=test&table=personas" style="padding-left: 50px;" target="_blank" data-post="'
+        $foreigner = $foreigner['foreign_keys_data'][0];
+        /*foreach (array_keys($foreigner) as $a){
+            $html_output .= '<h1>' . $a . '</h1>';
+        }*/
+        $html_output .= '<a class="ajax" href="tbl_change.php?db='.$db.'&table='.$foreigner['ref_table_name'].'" style="padding-left: 50px;" target="_blank" data-post="'
             . Url::getCommon(
                 [
                     'db' => $db,
@@ -947,7 +950,7 @@ class InsertEdit
                     'data'      => $data,
                 ],
                 ''
-            ) . '">Table</a>';*/
+            ) . '">Insert foreign key table</a>';
         return $html_output;
     }
 
