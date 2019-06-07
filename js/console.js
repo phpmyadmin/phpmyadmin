@@ -197,17 +197,16 @@ var Console = {
         case 'collapse':
             Console.collapse();
             break;
-            /* jshint -W086 */// no break needed in default section
-        default:
-            Console.setConfig('Mode', 'info');
         case 'info':
-            /* jshint +W086 */
             Console.info();
             break;
         case 'show':
             Console.show(true);
             Console.scrollBottom();
             break;
+        default:
+            Console.setConfig('Mode', 'info');
+            Console.info();
         }
     },
     /**
@@ -1035,17 +1034,17 @@ var ConsoleBookmarks = {
         $('#pma_bookmarks').find('.add [name=id_bookmark]').val('');
         ConsoleInput.setText('', 'bookmark');
 
-        switch (arguments.length) {
-        case 4:
-            $('#pma_bookmarks').find('.add [name=shared]').prop('checked', isShared);
-        case 3:
-            $('#pma_bookmarks').find('.add [name=label]').val(label);
-        case 2:
-            $('#pma_bookmarks').find('.add [name=targetdb]').val(targetDb);
-        case 1:
+        if (typeof queryString !== 'undefined') {
             ConsoleInput.setText(queryString, 'bookmark');
-        default:
-            break;
+        }
+        if (typeof targetDb !== 'undefined') {
+            $('#pma_bookmarks').find('.add [name=targetdb]').val(targetDb);
+        }
+        if (typeof label !== 'undefined') {
+            $('#pma_bookmarks').find('.add [name=label]').val(label);
+        }
+        if (typeof isShared !== 'undefined') {
+            $('#pma_bookmarks').find('.add [name=shared]').prop('checked', isShared);
         }
     },
     refresh: function () {
