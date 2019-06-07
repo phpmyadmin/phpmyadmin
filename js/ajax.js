@@ -748,7 +748,7 @@ var AJAX = {
             /* We need to wait for last signal (with null) or last script load */
             AJAX.active = (this.scriptsToBeLoaded.length > 0) || ! this.scriptsCompleted;
             /* Run callback on last script */
-            if (! AJAX.active && $.isFunction(callback)) {
+            if (! AJAX.active && typeof callback === 'function') {
                 callback();
             }
         },

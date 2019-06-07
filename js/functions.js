@@ -2743,7 +2743,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
     var confirmState = CommonParams.get('confirm');
     if (! confirmState) {
         // user does not want to confirm
-        if ($.isFunction(callbackFn)) {
+        if (typeof callbackFn === 'function') {
             callbackFn.call(this, url);
             return true;
         }
@@ -2762,7 +2762,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
             'class': 'submitOK',
             click: function () {
                 $(this).dialog('close');
-                if ($.isFunction(callbackFn)) {
+                if (typeof callbackFn === 'function') {
                     callbackFn.call(this, url);
                 }
             }
@@ -4091,7 +4091,7 @@ AJAX.registerOnload('functions.js', function () {
             if (this.complete) {
                 Functions.toggleButton($button);
             } else {
-                $(this).load(function () {
+                $(this).on('load', function () {
                     Functions.toggleButton($button);
                 });
             }
