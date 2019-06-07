@@ -98,7 +98,7 @@ function getType (field) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
+AJAX.registerTeardown('table/zoom_plot_jqplot.js', function () {
     $('#tableid_0').off('change');
     $('#tableid_1').off('change');
     $('#tableid_2').off('change');
@@ -111,7 +111,7 @@ AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
     $('div#querychart').off('jqplotDataClick');
 });
 
-AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
+AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     var currentChart = null;
     var searchedDataKey = null;
     var xLabel = $('#tableid_0').val();

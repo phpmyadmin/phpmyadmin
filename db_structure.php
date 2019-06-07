@@ -74,7 +74,7 @@ if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
 } else {
     $response->getHeader()->getScripts()->addFiles([
         'database/structure.js',
-        'tbl_change.js',
+        'table/change.js',
     ]);
 
     $response->addHTML($controller->index([

@@ -237,7 +237,7 @@ function onDataSeriesChange () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_chart.js', function () {
+AJAX.registerTeardown('table/chart.js', function () {
     $('input[name="chartType"]').off('click');
     $('input[name="barStacked"]').off('click');
     $('input[name="chkAlternative"]').off('click');
@@ -252,7 +252,7 @@ AJAX.registerTeardown('tbl_chart.js', function () {
     $('#tblchartform').off('submit');
 });
 
-AJAX.registerOnload('tbl_chart.js', function () {
+AJAX.registerOnload('table/chart.js', function () {
     // handle manual resize
     $('#resizer').on('resizestop', function () {
         // make room so that the handle will still appear

@@ -46,7 +46,7 @@ function checkFirst () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_structure.js', function () {
+AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', 'a.drop_column_anchor.ajax');
     $(document).off('click', 'a.add_key.ajax');
     $(document).off('click', '#move_columns_anchor');
@@ -57,7 +57,7 @@ AJAX.registerTeardown('tbl_structure.js', function () {
     $(document).off('click', '#remove_partitioning.ajax');
 });
 
-AJAX.registerOnload('tbl_structure.js', function () {
+AJAX.registerOnload('table/structure.js', function () {
     // Re-initialize variables.
     primaryIndexes = [];
     indexes = [];
@@ -471,7 +471,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 });
 
 /** Handler for "More" dropdown in structure table rows */
-AJAX.registerOnload('tbl_structure.js', function () {
+AJAX.registerOnload('table/structure.js', function () {
     var windowwidth = $(window).width();
     if (windowwidth > 768) {
         if (! $('#fieldsForm').hasClass('HideStructureActions')) {

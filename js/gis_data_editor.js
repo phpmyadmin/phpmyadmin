@@ -6,7 +6,7 @@
  *
  */
 
-/* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/tbl_gis_visualization.js
+/* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
 /* global pmaThemeImage */ // js/messages.php
 
 // eslint-disable-next-line no-unused-vars
@@ -102,7 +102,7 @@ function loadJSAndGISEditor (value, field, type, inputName) {
     var smallScripts = ['js/vendor/jquery/jquery.svg.js',
         'js/vendor/jquery/jquery.mousewheel.js',
         'js/vendor/jquery/jquery.event.drag-2.2.js',
-        'js/tbl_gis_visualization.js'];
+        'js/table/gis_visualization.js'];
 
     for (var i = 0; i < smallScripts.length; i++) {
         script = document.createElement('script');

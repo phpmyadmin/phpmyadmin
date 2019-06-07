@@ -1,7 +1,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_operations.js', function () {
+AJAX.registerTeardown('table/operations.js', function () {
     $(document).off('submit', '#copyTable.ajax');
     $(document).off('submit', '#moveTableForm');
     $(document).off('submit', '#tableOptionsForm');
@@ -16,7 +16,7 @@ AJAX.registerTeardown('tbl_operations.js', function () {
  * jQuery coding for 'Table operations'.  Used on tbl_operations.php
  * Attach Ajax Event handlers for Table operations
  */
-AJAX.registerOnload('tbl_operations.js', function () {
+AJAX.registerOnload('table/operations.js', function () {
     /**
      *Ajax action for submitting the "Copy table"
      **/

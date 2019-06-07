@@ -124,7 +124,7 @@ class RelationController extends AbstractController
 
         $this->response->getHeader()->getScripts()->addFiles(
             [
-                'tbl_relation.js',
+                'table/relation.js',
                 'indexes.js',
             ]
         );

@@ -135,7 +135,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
         showAnim: '',
         beforeShow: function (input, inst) {
             // Remember that we came from the datepicker; this is used
-            // in tbl_change.js by verificationsAfterFieldChange()
+            // in table/change.js by verificationsAfterFieldChange()
             $thisElement.data('comes_from', 'datepicker');
             if ($(input).closest('.cEdit').length > 0) {
                 setTimeout(function () {

@@ -306,7 +306,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_change.js', function () {
+AJAX.registerTeardown('table/change.js', function () {
     $(document).off('click', 'span.open_gis_editor');
     $(document).off('click', 'input[name^=\'insert_ignore_\']');
     $(document).off('click', 'input[name=\'gis_data[save]\']');
@@ -322,7 +322,7 @@ AJAX.registerTeardown('tbl_change.js', function () {
  * Submit Data to be inserted into the table.
  * Restart insertion with 'N' rows.
  */
-AJAX.registerOnload('tbl_change.js', function () {
+AJAX.registerOnload('table/change.js', function () {
     if ($('#insertForm').length) {
         // validate the comment form when it is submitted
         $('#insertForm').validate();

@@ -35,7 +35,7 @@ $dbi = $container->get(DatabaseInterface::class);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('tbl_structure.js');
+$scripts->addFile('table/structure.js');
 
 // Check parameters
 Util::checkParameters(['db', 'table']);

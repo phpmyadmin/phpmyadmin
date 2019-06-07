@@ -97,7 +97,7 @@ class ChartController extends AbstractController
         $this->response->getHeader()->getScripts()->addFiles(
             [
                 'chart.js',
-                'tbl_chart.js',
+                'table/chart.js',
                 'vendor/jqplot/jquery.jqplot.js',
                 'vendor/jqplot/plugins/jqplot.barRenderer.js',
                 'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',

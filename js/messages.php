@@ -490,7 +490,7 @@ $js_messages['strNoTdSelected'] = __('No dependencies selected!');
 /* For server/variables.js */
 $js_messages['strSave'] = __('Save');
 
-/* For tbl_select.js */
+/* For table/select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 $js_messages['strRangeSearch'] = __('Range search');
@@ -499,11 +499,11 @@ $js_messages['strColumnMin'] = __('Column minimum:');
 $js_messages['strMinValue'] = __('Minimum value:');
 $js_messages['strMaxValue'] = __('Maximum value:');
 
-/* For tbl_find_replace.js */
+/* For table/find_replace.js */
 $js_messages['strHideFindNReplaceCriteria'] = __('Hide find and replace criteria');
 $js_messages['strShowFindNReplaceCriteria'] = __('Show find and replace criteria');
 
-/* For tbl_zoom_plot_jqplot.js */
+/* For table/zoom_plot_jqplot.js */
 $js_messages['strDisplayHelp'] = '<ul><li>'
     . __('Each point represents a data row.')
     . '</li><li>'
@@ -524,7 +524,7 @@ $js_messages['strSameInputs'] = '<strong>'
     . '</strong>';
 $js_messages['strDataPointContent'] = __('Data point content');
 
-/* For tbl_change.js */
+/* For table/change.js */
 $js_messages['strIgnore'] = __('Ignore');
 $js_messages['strCopy'] = __('Copy');
 $js_messages['strX'] = __('X');

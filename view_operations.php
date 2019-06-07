@@ -38,7 +38,7 @@ $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('tbl_operations.js');
+$scripts->addFile('table/operations.js');
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');

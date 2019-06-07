@@ -539,7 +539,7 @@ if (! empty($return_to_sql_query)) {
 }
 
 $scripts->addFile('vendor/jquery/additional-methods.js');
-$scripts->addFile('tbl_change.js');
+$scripts->addFile('table/change.js');
 
 $active_page = $goto_include;
 

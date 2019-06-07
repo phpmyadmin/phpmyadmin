@@ -50,7 +50,7 @@ $pma_table = new Table($table, $db);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('tbl_operations.js');
+$scripts->addFile('table/operations.js');
 
 /**
  * Runs common work

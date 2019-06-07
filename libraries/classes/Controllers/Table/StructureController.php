@@ -159,7 +159,7 @@ class StructureController extends AbstractController
 
         $this->response->getHeader()->getScripts()->addFiles(
             [
-                'tbl_structure.js',
+                'table/structure.js',
                 'indexes.js',
             ]
         );

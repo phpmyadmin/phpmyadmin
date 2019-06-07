@@ -1,7 +1,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_find_replace.js', function () {
+AJAX.registerTeardown('table/find_replace.js', function () {
     $('#find_replace_form').off('submit');
     $('#toggle_find').off('click');
 });
@@ -9,7 +9,7 @@ AJAX.registerTeardown('tbl_find_replace.js', function () {
 /**
  * Bind events
  */
-AJAX.registerOnload('tbl_find_replace.js', function () {
+AJAX.registerOnload('table/find_replace.js', function () {
     $('<div id="toggle_find_div"><a id="toggle_find"></a></div>')
         .insertAfter('#find_replace_form')
         .hide();
