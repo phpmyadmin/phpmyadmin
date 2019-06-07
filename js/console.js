@@ -182,7 +182,9 @@ var Console = {
                     var data = JSON.parse(xhr.responseText);
                     Console.ajaxCallback(data);
                 } catch (e) {
+                    // eslint-disable-next-line no-console
                     console.trace();
+                    // eslint-disable-next-line no-console
                     console.log('Failed to parse JSON: ' + e.message);
                 }
             });

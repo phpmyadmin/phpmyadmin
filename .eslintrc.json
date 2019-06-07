@@ -29,7 +29,6 @@
         "keyword-spacing": "error",
         "new-cap": "error",
         "no-array-constructor": "error",
-        "no-console": "warn",
         "no-eval": "error",
         "no-fallthrough": "warn",
         "no-loop-func": "error",
