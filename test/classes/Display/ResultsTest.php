@@ -1627,7 +1627,7 @@ class ResultsTest extends PmaTestCase
                 false,
                 [],
                 0,
-                0,
+                '',
                 '<td ' . "\n"
                 . '    data-decimals="0"' . "\n"
                 . '    data-type="string"' . "\n"
@@ -1655,7 +1655,7 @@ class ResultsTest extends PmaTestCase
                 false,
                 [],
                 0,
-                0,
+                '',
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
                 . 'class="grid_edit ">foo bar baz</td>' . "\n",
@@ -1788,8 +1788,15 @@ class ResultsTest extends PmaTestCase
         ];
         $this->object->__set('fields_meta', $fields_meta);
 
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())->method('fieldFlags')
+            ->willReturn('');
+
         // MIME transformations
-        $GLOBALS['dbi']->expects($this->exactly(1))
+        $dbi->expects($this->exactly(1))
             ->method('fetchResult')
             ->willReturn(
                 [
@@ -1803,6 +1810,8 @@ class ResultsTest extends PmaTestCase
                     ],
                 ]
             );
+
+        $GLOBALS['dbi'] = $dbi;
 
         $transformations = new Transformations();
         $this->object->__set(
