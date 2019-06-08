@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.9.1 (not yet released)
+- issue #15313 Added support for Twig 2
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
