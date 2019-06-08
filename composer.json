@@ -52,7 +52,7 @@
         "phpseclib/phpseclib": "^2.0",
         "google/recaptcha": "^1.1",
         "psr/container": "^1.0",
-        "twig/twig": "^1.34",
+        "twig/twig": "^1.34 || ^2.0",
         "twig/extensions": "~1.5.1",
         "symfony/expression-language": "^3.2 || ^2.8",
         "symfony/polyfill-mbstring": "^1.3"
