@@ -242,8 +242,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       options_array: null
       cfgRelation: null
       tbl_storage_engine: null

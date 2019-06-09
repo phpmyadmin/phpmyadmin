@@ -57,8 +57,6 @@ $upd_query = new Table($table, $db, $dbi);
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
-    'db' => $container->get('db'),
-    'table' => $container->get('table'),
     'options_array' => $options_array,
     'cfgRelation' => $cfgRelation,
     'tbl_storage_engine' => $tbl_storage_engine,
