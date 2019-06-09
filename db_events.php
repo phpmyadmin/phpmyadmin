@@ -30,6 +30,12 @@ $_PMA_RTE = 'EVN';
 /** @var EventsController $controller */
 $controller = $containerBuilder->get(EventsController::class);
 
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
 if (! $response->isAjax()) {
     /**
      * Displays the header and tabs

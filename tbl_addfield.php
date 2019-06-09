@@ -7,6 +7,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -36,6 +37,16 @@ Util::checkParameters(['db', 'table']);
 
 /** @var Transformations $transformations */
 $transformations = $containerBuilder->get('transformations');
+
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+/** @var Config $config */
+$config = $containerBuilder->get('config');
+$cfg = $config->settings;
 
 /**
  * Defines the url to return to in case of error in a sql statement

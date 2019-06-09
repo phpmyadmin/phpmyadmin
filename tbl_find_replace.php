@@ -16,6 +16,9 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+/** @var string $url_query Overwritten in tbl_common.inc.php */
+$url_query = null;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 

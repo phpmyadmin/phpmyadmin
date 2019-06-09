@@ -28,6 +28,9 @@ $centralColumns = $containerBuilder->get('central_columns');
 /** @var CentralColumnsController $controller */
 $controller = $containerBuilder->get(CentralColumnsController::class);
 
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
 if (isset($_POST['edit_save'])) {
     echo $controller->editSave([
         'col_name' => $_POST['col_name'] ?? null,

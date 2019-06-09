@@ -26,6 +26,12 @@ $response = $containerBuilder->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get(DatabaseInterface::class);
 
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
 $checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 

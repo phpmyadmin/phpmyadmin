@@ -7,6 +7,7 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
@@ -32,6 +33,16 @@ Util::checkParameters(['db']);
 
 /** @var Transformations $transformations */
 $transformations = $containerBuilder->get('transformations');
+
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+/** @var Config $config */
+$config = $containerBuilder->get('config');
+$cfg = $config->settings;
 
 /* Check if database name is empty */
 if (strlen($db) === 0) {
