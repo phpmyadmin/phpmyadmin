@@ -270,8 +270,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
 
   PhpMyAdmin\Controllers\Table\StructureController:
     class: 'PhpMyAdmin\Controllers\Table\StructureController'
