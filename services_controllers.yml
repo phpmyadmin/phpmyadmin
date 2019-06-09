@@ -65,7 +65,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\Database\StructureController:
     class: 'PhpMyAdmin\Controllers\Database\StructureController'
