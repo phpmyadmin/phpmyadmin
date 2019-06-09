@@ -176,51 +176,43 @@ DesignerHistory.historyEdit = function (index) {
     gIndex = index;
     var type = historyArray[index].getType();
     if (type === 'Where') {
-        $('#eQuery').value = history_array[index].get_obj().getquery();
-        $('#erel_opt').value = history_array[index].get_obj().getrelation_operator();
-        $('#query_where').style.{
-            left: 530px;
-            top: 130px;
-            position: absolute;
-            zIndex: 103;
-            visibility: visible;
-            display: block;
-        }
+        $('#eQuery').value = historyArray[index].get_obj().getquery();
+        $('#erel_opt').value = historyArray[index].get_obj().getrelation_operator();
+        $('#query_where').style.left = '530px';
+        $('#query_where').style.top = '130px';
+        $('#query_where').style.position = 'absolute';
+        $('#query_where').style.zIndex = '103';
+        $('#query_where').style.visibility = 'visible';
+        $('#query_where').style.display = 'block';
     }
     if (type === 'Having') {
         $('#hQuery').value = historyArray[index].getObj().getQuery();
         $('#hrel_opt').value = historyArray[index].getObj().getQuery();
         $('#hoperator').value = historyArray[index].getObj().getOperator();
-        $('#query_having').style.{
-            left: 530px;
-            top: 130px;
-            position: absolute;
-            zIndex: 103;
-            visibility: visible;
-            display: block;
-        }
+        $('#query_having').style.left = '530px';
+        $('#query_having').style.top = '130px';
+        $('#query_having').style.position = 'absolute';
+        $('#query_having').style.zIndex = '103';
+        $('#query_having').style.visibility = 'visible';
+        $('#query_having').style.display = 'block';
     }
     if (type === 'Rename') {
         $('#e_rename').value = historyArray[index].getObj().getRenameTo();
-        $('#query_rename_to').style.{
-            left: 530px;
-            top: 130px;
-            position: absolute;
-            zIndex: 103;
-            visibility: visible;
-            display: block;
-        }
+        $('#query_rename_to').style.left = '530px';
+        $('#query_rename_to').style.top = '130px';
+        $('#query_rename_to').style.position = 'absolute';
+        $('#query_rename_to').style.zIndex = '103';
+        $('#query_rename_to').style.visibility = 'visible';
+        $('#query_rename_to').style.display = 'block';
     }
     if (type === 'Aggregate') {
         $('#e_operator').value = historyArray[index].getObj().getOperator();
-        $('#query_Aggregate').style.{
-            left: 530px;
-            top: 130px;
-            position: absolute;
-            zIndex: 103;
-            visibility: visible;
-            display: block;
-        }
+        $('#query_Aggregate').style.left = '530px';
+        $('#query_Aggregate').style.top = '130px';
+        $('#query_Aggregate').style.position = 'absolute';
+        $('#query_Aggregate').style.zIndex = '103';
+        $('#query_Aggregate').style.visibility = 'visible';
+        $('#query_Aggregate').style.display = 'block';
     }
 };
 
