@@ -32,7 +32,8 @@ $db = $containerBuilder->getParameter('db');
 /** @var string $table */
 $table = $containerBuilder->getParameter('table');
 
-$checkUserPrivileges = new CheckUserPrivileges($dbi);
+/** @var CheckUserPrivileges $checkUserPrivileges */
+$checkUserPrivileges = $containerBuilder->get('check_user_privileges');
 $checkUserPrivileges->getPrivileges();
 
 $_PMA_RTE = 'RTN';
