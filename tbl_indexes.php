@@ -47,8 +47,6 @@ if (isset($_POST['index'])) {
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
-    'db' => $container->get('db'),
-    'table' => $container->get('table'),
     'index' => $index,
 ];
 

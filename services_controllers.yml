@@ -232,8 +232,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       index: null
 
   PhpMyAdmin\Controllers\Table\RelationController:
