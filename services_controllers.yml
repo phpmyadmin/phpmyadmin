@@ -279,8 +279,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       db_is_system_schema: null
       tbl_is_view: null
       tbl_storage_engine: null
