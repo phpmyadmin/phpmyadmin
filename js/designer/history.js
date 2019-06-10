@@ -46,8 +46,7 @@ DesignerHistory.detail = function (index) {
     if (type === 'Having') {
         str = 'Having ';
         if (historyArray[index].getObj().getOperator() !== 'None') {
-            str += historyArray[index].getObj().getOperator() + '( ' + historyArray[index].getColumnName() + ' )';
-            str += historyArray[index].getObj().getRelationOperator() + historyArray[index].getObj().getQuery();
+            str += historyArray[index].getObj().getOperator() + '( ' + historyArray[index].getColumnName() + ' )' + historyArray[index].getObj().getRelationOperator() + historyArray[index].getObj().getQuery();
         } else {
             str = 'Having ' + historyArray[index].getColumnName() + historyArray[index].getObj().getRelationOperator() + historyArray[index].getObj().getQuery();
         }
@@ -92,11 +91,9 @@ DesignerHistory.display = function (init, finit) {
     var historyArrayLength = historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         temp = historyArray[i].getTab(); // + '.' + historyArray[i].getObjNo(); for Self JOIN
-        str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
-        str += '<div class="toggle_container">\n';
+        str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>' + '<div class="toggle_container">\n';
         while ((historyArray[i].getTab()) === temp) { // + '.' + historyArray[i].getObjNo()) === temp) {
-            str += '<div class="block"> <table width ="250">';
-            str += '<thead><tr><td>';
+            str += '<div class="block"> <table width ="250">' + '<thead><tr><td>';
             if (historyArray[i].getAndOr()) {
                 str += '<img src="' + pmaThemeImage + 'designer/or_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="OR"></td>';
             } else {
@@ -541,8 +538,7 @@ DesignerHistory.queryHaving = function () {
     for (i = 0; i < historyArrayLength; i++) {
         if (historyArray[i].getType() === 'Having') {
             if (historyArray[i].getObj().getOperator() !== 'None') {
-                and += historyArray[i].getObj().getOperator() + '(`' + historyArray[i].getColumnName() + '`) ' + historyArray[i].getObj().getRelationOperator();
-                and += ' ' + historyArray[i].getObj().getQuery() + ', ';
+                and += historyArray[i].getObj().getOperator() + '(`' + historyArray[i].getColumnName() + '`) ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ', ';
             } else {
                 and += '`' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ', ';
             }
@@ -590,11 +586,9 @@ DesignerHistory.queryWhere = function () {
     for (i = 0; i < historyArrayLength; i++) {
         if (historyArray[i].getType() === 'Where') {
             if (historyArray[i].getAndOr() === 0) {
-                and += '( `' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ')';
-                and += ' AND ';
+                and += '( `' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ') AND ';
             } else {
-                or += '( `' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ')';
-                or += ' OR ';
+                or += '( `' + historyArray[i].getColumnName() + '` ' + historyArray[i].getObj().getRelationOperator() + ' ' + historyArray[i].getObj().getQuery() + ') OR ';
             }
         }
     }
@@ -687,14 +681,9 @@ DesignerHistory.queryFrom = function () {
                             parts1 = contr[K][key][key2][key3][0].split('.');
                             if (DesignerHistory.found(tabLeft, parts1[1]) > 0) {
                                 if (DesignerHistory.found(constraintsAdded, key) > 0) {
-                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = `' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
                                 } else {
-                                    query += '\n' + 'LEFT JOIN ';
-                                    query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
-                                    query += '`' + parts[1] + '`.`' + key3 + '` ';
-
+                                    query += '\n' + 'LEFT JOIN `' + parts[1] + '` ON `' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = `' + parts[1] + '`.`' + key3 + '` ';
                                     constraintsAdded.push(key);
                                 }
                                 tTabLeft.push(parts[1]);
@@ -718,14 +707,9 @@ DesignerHistory.queryFrom = function () {
                             parts1 = contr[K][key][key2][key3][0].split('.');
                             if (DesignerHistory.found(tabUsed, parts1[1]) > 0) {
                                 if (DesignerHistory.found(constraintsAdded, key) > 0) {
-                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                    query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = `' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
                                 } else {
-                                    query += '\n' + 'LEFT JOIN ';
-                                    query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
-                                    query += '`' + parts[1] + '`.`' + key3 + '` ';
-
+                                    query += '\n' + 'LEFT JOIN `' + parts[1] + '` ON `' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = `' + parts[1] + '`.`' + key3 + '` ';
                                     constraintsAdded.push(key);
                                 }
                                 tTabLeft.push(parts[1]);
