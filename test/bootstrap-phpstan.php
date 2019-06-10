@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\MoTranslator\Loader;
 
 if (! defined('ROOT_PATH')) {
@@ -38,4 +39,6 @@ $GLOBALS['PMA_Config']->enableBc();// Defines constants, phpstan:level=1
 
 Loader::loadFunctions();
 
-DatabaseInterface::load();
+$oldContainer = Container::getDefaultContainer();
+$oldContainer->set(DatabaseInterface::class, DatabaseInterface::load());
+$oldContainer->alias('dbi', DatabaseInterface::class);

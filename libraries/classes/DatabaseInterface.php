@@ -3166,10 +3166,6 @@ class DatabaseInterface
         }
         $dbi = new DatabaseInterface($extension);
 
-        $container = Container::getDefaultContainer();
-        $container->set(DatabaseInterface::class, $dbi);
-        $container->alias('dbi', DatabaseInterface::class);
-
         return $dbi;
     }
 }
