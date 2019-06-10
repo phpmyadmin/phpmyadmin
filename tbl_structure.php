@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Response;
 use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
@@ -23,12 +21,8 @@ global $table_info_num_rows, $tbl_collation, $showtable;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
-
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get('dbi');
 
 /** @var string $db */
 $db = $containerBuilder->getParameter('db');
