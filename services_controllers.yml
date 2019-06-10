@@ -234,7 +234,7 @@ services:
       template: '@template'
       db: '%db%'
       table: '%table%'
-      index: null
+      index: '%index%'
 
   PhpMyAdmin\Controllers\Table\RelationController:
     class: 'PhpMyAdmin\Controllers\Table\RelationController'
