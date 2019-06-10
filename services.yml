@@ -70,6 +70,12 @@ services:
       transformations: '@transformations'
       template: '@template'
 
+  operations:
+    class: 'PhpMyAdmin\Operations'
+    arguments:
+      dbi: '@dbi'
+      relation: '@relation'
+
   relation:
     class: 'PhpMyAdmin\Relation'
     arguments: ['@dbi', '@template']
