@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 19:16+0200\n"
-"PO-Revision-Date: 2019-03-29 17:50+0000\n"
+"PO-Revision-Date: 2019-06-18 19:00+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -6053,6 +6053,7 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"閣下伺服器的控制使用者 (controluser) 正在使用預設密碼 (controlpass)，很容易被入侵；請務必變更密碼 pma，以修復此安全問題。"
 
 #: libraries/classes/Controllers/HomeController.php:414
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -12702,10 +12703,8 @@ msgid "View dump (schema) of databases"
 msgstr "檢視資料庫的傾印資料 (綱要)"
 
 #: server_privileges.php:86
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "允許刪除資料。"
+msgstr "允許刪除歷史資料列。"
 
 #: server_privileges.php:157 server_user_groups.php:47
 msgid "No Privileges"
@@ -12794,20 +12793,14 @@ msgid "Add slave replication user"
 msgstr "新增次要備援伺服器使用者"
 
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "此主機"
 
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "使用主機表"
 
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "無密碼"
 
@@ -12991,10 +12984,8 @@ msgid "Master replication"
 msgstr "主要備援伺服器"
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "沒有權限。"
+msgstr "沒有權限"
 
 #: templates/server/replication/index.twig:16
 #, php-format
@@ -13084,18 +13075,11 @@ msgstr ""
 "新啓動 MySQL 伺服器。"
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
-msgstr ""
-"MySQL 伺服器重新啓動後，請點選「執行」按鈕。您應該看見資訊提示，說明此伺服器"
-"<b>已經</b>設定為主要伺服器。"
+msgstr "MySQL 伺服器重新啓動後，請點選「執行」按鈕。您應該看見資訊提示，說明此伺服器<strong>已經</strong>設定為主要伺服器。"
 
 #: templates/database/designer/edit_delete_pages.twig:6
 msgid "Page to open"
@@ -13298,10 +13282,8 @@ msgid "General settings"
 msgstr "一般設定"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "伺服器連線編碼與排序"
+msgstr "伺服器連線編碼與排序："
 
 #: templates/home/index.twig:58
 msgid "Appearance settings"
@@ -13496,20 +13478,14 @@ msgid "Unhide"
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如果欄位類型為 enum 或 set，請使用以下格式輸入值: 'a','b','c'…<br>如果需要輸"
-"入反斜線(\\)或單引號(')，請在前面加上反斜線(如 '\\\\xyz' 或 'a\\'b')。"
+"如果欄位類型為 enum 或 set，請使用以下格式輸入值: 'a','b','c'…<br>如果需要輸入反斜線(\\"
+")或單引號(')，請在前面加上反斜線(如 '\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -14118,10 +14094,8 @@ msgstr ""
 "式%s 。"
 
 #: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "另存新檔"
+msgstr "另存為 JSON 檔案"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"
@@ -15094,10 +15068,8 @@ msgid "Show form"
 msgstr "顯示資料表單"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "顯示隱藏項目"
+msgstr "顯示隱藏訊息"
 
 #: templates/setup/home/index.twig:72
 msgid "There are no configured servers"
@@ -15266,10 +15238,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "載入導覽頁面時發生錯誤"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "SQL 傾印"
+msgstr "SQL 上載"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
