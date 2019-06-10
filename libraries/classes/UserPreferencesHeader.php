@@ -64,14 +64,15 @@ class UserPreferencesHeader
 
         $content .= self::displayTabsWithIcon();
 
-        return $template->render(
+        return '<div class=container-fluid><div class=row>' .
+        $template->render(
             'list/unordered',
             [
                 'id' => 'topmenu2',
                 'class' => 'user_prefs_tabs',
                 'content' => $content,
             ]
-        ) . '<div class="clearfloat"></div>';
+        ) . '<div class="clearfloat"></div></div>';
     }
 
     /**
