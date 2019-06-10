@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 18:51+0200\n"
-"PO-Revision-Date: 2019-06-10 18:15+0000\n"
+"PO-Revision-Date: 2019-06-18 19:00+0000\n"
 "Last-Translator: Yan Datsiuk <yanek2357111317232931@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "uk/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -14055,7 +14055,7 @@ msgstr ""
 
 #: prefs_manage.php:309
 msgid "Save as JSON file"
-msgstr "Зберегти як  JSON файл"
+msgstr "Зберегти як JSON файл"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -14093,7 +14093,7 @@ msgstr "Переглянути дамп (схему) баз даних"
 
 #: server_privileges.php:74
 msgid "Allows deleting historical rows."
-msgstr "Дозволяє видалення історичних рядків."
+msgstr "Дозволяє видалення історичних рядків"
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
