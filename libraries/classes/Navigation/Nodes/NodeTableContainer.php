@@ -32,16 +32,16 @@ class NodeTableContainer extends NodeDatabaseChildContainer
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;tbl_type=table',
         ];
-        $this->real_name = 'tables';
+        $this->realName = 'tables';
         $this->classes = 'tableContainer subContainer';
 
-        $new_label = _pgettext('Create new table', 'New');
+        $newLabel = _pgettext('Create new table', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_table_add', $new_label);
+        $new->icon = Util::getImage('b_table_add', $newLabel);
         $new->links = [
             'text' => 'tbl_create.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s',

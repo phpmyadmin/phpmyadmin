@@ -46,6 +46,6 @@ class NodeEventContainerTest extends PmaTestCase
             'db_events.php',
             $parent->links['text']
         );
-        $this->assertEquals('events', $parent->real_name);
+        $this->assertEquals('events', $parent->realName);
     }
 }

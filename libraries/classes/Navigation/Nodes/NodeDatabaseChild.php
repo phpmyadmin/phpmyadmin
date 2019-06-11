@@ -39,8 +39,8 @@ abstract class NodeDatabaseChild extends Node
         $ret = '';
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
-            $db = $this->realParent()->real_name;
-            $item = $this->real_name;
+            $db = $this->realParent()->realName;
+            $item = $this->realName;
 
             $params = [
                 'hideNavItem' => true,

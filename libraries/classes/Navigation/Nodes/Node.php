@@ -37,7 +37,7 @@ class Node
      * @var string A non-unique identifier for the node
      *             This will never change after being assigned
      */
-    public $real_name = "";
+    public $realName = "";
     /**
      * @var int May be one of CONTAINER or OBJECT
      */
@@ -46,7 +46,7 @@ class Node
      * @var bool Whether this object has been created while grouping nodes
      *           Only relevant if the node is of type CONTAINER
      */
-    public $is_group;
+    public $isGroup;
     /**
      * @var bool Whether to add a "display: none;" CSS
      *           rule to the node when rendering it
@@ -71,7 +71,7 @@ class Node
      * @var int How many time to recursively apply the grouping function
      *          Only relevant if the node is of type CONTAINER
      */
-    public $separator_depth = 1;
+    public $separatorDepth = 1;
     /**
      * @var string An IMG tag, used when rendering the node
      */
@@ -110,28 +110,28 @@ class Node
     protected $relation;
 
     /**
-     * @var string $disp_name  display name for the navigation tree
+     * @var string $displayName  display name for the navigation tree
      */
-    public $disp_name;
+    public $displayName;
 
     /**
      * Initialises the class by setting the mandatory variables
      *
-     * @param string $name     An identifier for the new node
-     * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
-     * @param bool   $is_group Whether this object has been created
-     *                         while grouping nodes
+     * @param string $name    An identifier for the new node
+     * @param int    $type    Type of node, may be one of CONTAINER or OBJECT
+     * @param bool   $isGroup Whether this object has been created
+     *                        while grouping nodes
      */
-    public function __construct($name, $type = Node::OBJECT, $is_group = false)
+    public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         if (strlen((string) $name)) {
             $this->name = $name;
-            $this->real_name = $name;
+            $this->realName = $name;
         }
         if ($type === Node::CONTAINER) {
             $this->type = Node::CONTAINER;
         }
-        $this->is_group = (bool) $is_group;
+        $this->isGroup = (bool) $isGroup;
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 
@@ -151,18 +151,18 @@ class Node
     /**
      * Returns a child node given it's name
      *
-     * @param string $name      The name of requested child
-     * @param bool   $real_name Whether to use the "real_name"
-     *                          instead of "name" in comparisons
+     * @param string $name     The name of requested child
+     * @param bool   $realName Whether to use the "realName"
+     *                         instead of "name" in comparisons
      *
      * @return false|Node The requested child node or false,
      *                    if the requested node cannot be found
      */
-    public function getChild($name, $real_name = false)
+    public function getChild($name, $realName = false)
     {
-        if ($real_name) {
+        if ($realName) {
             foreach ($this->children as $child) {
-                if ($child->real_name == $name) {
+                if ($child->realName == $name) {
                     return $child;
                 }
             }
@@ -208,14 +208,14 @@ class Node
         $parents = [];
         if ($self
             && ($this->type != Node::CONTAINER || $containers)
-            && (! $this->is_group || $groups)
+            && (! $this->isGroup || $groups)
         ) {
             $parents[] = $this;
         }
         $parent = $this->parent;
         while (! is_null($parent)) {
             if (($parent->type != Node::CONTAINER || $containers)
-                && (! $parent->is_group || $groups)
+                && (! $parent->isGroup || $groups)
             ) {
                 $parents[] = $parent;
             }
@@ -245,15 +245,15 @@ class Node
     /**
      * This function checks if the node has children nodes associated with it
      *
-     * @param bool $count_empty_containers Whether to count empty child
-     *                                     containers as valid children
+     * @param bool $countEmptyContainers Whether to count empty child
+     *                                   containers as valid children
      *
      * @return bool Whether the node has child nodes
      */
-    public function hasChildren($count_empty_containers = true)
+    public function hasChildren($countEmptyContainers = true)
     {
         $retval = false;
-        if ($count_empty_containers) {
+        if ($countEmptyContainers) {
             if (count($this->children)) {
                 $retval = true;
             }
@@ -327,28 +327,28 @@ class Node
     public function getPaths()
     {
         $aPath = [];
-        $aPath_clean = [];
+        $aPathClean = [];
         foreach ($this->parents(true, true, false) as $parent) {
-            $aPath[] = base64_encode($parent->real_name);
-            $aPath_clean[] = $parent->real_name;
+            $aPath[] = base64_encode($parent->realName);
+            $aPathClean[] = $parent->realName;
         }
         $aPath = implode('.', array_reverse($aPath));
-        $aPath_clean = array_reverse($aPath_clean);
+        $aPathClean = array_reverse($aPathClean);
 
         $vPath = [];
-        $vPath_clean = [];
+        $vPathClean = [];
         foreach ($this->parents(true, true, true) as $parent) {
             $vPath[] = base64_encode((string) $parent->name);
-            $vPath_clean[] = $parent->name;
+            $vPathClean[] = $parent->name;
         }
         $vPath = implode('.', array_reverse($vPath));
-        $vPath_clean = array_reverse($vPath_clean);
+        $vPathClean = array_reverse($vPathClean);
 
         return [
             'aPath'       => $aPath,
-            'aPath_clean' => $aPath_clean,
+            'aPath_clean' => $aPathClean,
             'vPath'       => $vPath,
-            'vPath_clean' => $vPath_clean,
+            'vPath_clean' => $vPathClean,
         ];
     }
 
@@ -374,7 +374,7 @@ class Node
             ) {
                 $query = "SELECT `SCHEMA_NAME` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-                $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+                $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
                 $query .= "ORDER BY `SCHEMA_NAME` ";
                 $query .= "LIMIT $pos, $maxItems";
                 $retval = $GLOBALS['dbi']->fetchResult($query);
@@ -385,7 +385,7 @@ class Node
             if ($GLOBALS['dbs_to_test'] === false) {
                 $retval = [];
                 $query = "SHOW DATABASES ";
-                $query .= $this->_getWhereClause('Database', $searchClause);
+                $query .= $this->getWhereClause('Database', $searchClause);
                 $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle === false) {
                     return $retval;
@@ -410,7 +410,7 @@ class Node
 
             $retval = [];
             $count = 0;
-            foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+            foreach ($this->getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
                 $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle === false) {
@@ -418,7 +418,7 @@ class Node
                 }
 
                 while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($this->_isHideDb($arr[0])) {
+                    if ($this->isHideDb($arr[0])) {
                         continue;
                     }
                     if (in_array($arr[0], $retval)) {
@@ -450,12 +450,12 @@ class Node
             $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "', 1) ";
             $query .= "DB_first_level ";
             $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
-            $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+            $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= ") t ";
             $query .= "ORDER BY DB_first_level ASC ";
             $query .= "LIMIT $pos, $maxItems";
             $query .= ") t2 ";
-            $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+            $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= "AND 1 = LOCATE(CONCAT(DB_first_level, ";
             $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "'), ";
             $query .= "CONCAT(SCHEMA_NAME, ";
@@ -468,7 +468,7 @@ class Node
 
         if ($GLOBALS['dbs_to_test'] === false) {
             $query = "SHOW DATABASES ";
-            $query .= $this->_getWhereClause('Database', $searchClause);
+            $query .= $this->getWhereClause('Database', $searchClause);
             $handle = $GLOBALS['dbi']->tryQuery($query);
             $prefixes = [];
             if ($handle !== false) {
@@ -488,7 +488,7 @@ class Node
             }
 
             $query = "SHOW DATABASES ";
-            $query .= $this->_getWhereClause('Database', $searchClause);
+            $query .= $this->getWhereClause('Database', $searchClause);
             $query .= "AND (";
             $subClauses = [];
             foreach ($prefixes as $prefix) {
@@ -506,7 +506,7 @@ class Node
         $retval = [];
         $prefixMap = [];
         $total = $pos + $maxItems;
-        foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+        foreach ($this->getDatabasesToSearch($searchClause) as $db) {
             $query = "SHOW DATABASES LIKE '" . $db . "'";
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle === false) {
@@ -514,7 +514,7 @@ class Node
             }
 
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                if ($this->_isHideDb($arr[0])) {
+                if ($this->isHideDb($arr[0])) {
                     continue;
                 }
                 $prefix = strstr($arr[0], $dbSeparator, true);
@@ -529,7 +529,7 @@ class Node
         }
         $prefixes = array_slice(array_keys($prefixMap), $pos);
 
-        foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+        foreach ($this->getDatabasesToSearch($searchClause) as $db) {
             $query = "SHOW DATABASES LIKE '" . $db . "'";
             $handle = $GLOBALS['dbi']->tryQuery($query);
             if ($handle === false) {
@@ -537,7 +537,7 @@ class Node
             }
 
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                if ($this->_isHideDb($arr[0])) {
+                if ($this->isHideDb($arr[0])) {
                     continue;
                 }
                 if (in_array($arr[0], $retval)) {
@@ -545,11 +545,11 @@ class Node
                 }
 
                 foreach ($prefixes as $prefix) {
-                    $starts_with = strpos(
+                    $startsWith = strpos(
                         $arr[0] . $dbSeparator,
                         $prefix . $dbSeparator
                     ) === 0;
-                    if ($starts_with) {
+                    if ($startsWith) {
                         $retval[] = $arr[0];
                         break;
                     }
@@ -581,7 +581,7 @@ class Node
             ) {
                 $query = "SELECT COUNT(*) ";
                 $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
-                $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+                $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
                 $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
                 return $retval;
@@ -589,7 +589,7 @@ class Node
 
             if ($GLOBALS['dbs_to_test'] === false) {
                 $query = "SHOW DATABASES ";
-                $query .= $this->_getWhereClause('Database', $searchClause);
+                $query .= $this->getWhereClause('Database', $searchClause);
                 $retval = $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
                 );
@@ -598,7 +598,7 @@ class Node
             }
 
             $retval = 0;
-            foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+            foreach ($this->getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
                 $retval += $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
@@ -616,7 +616,7 @@ class Node
             $query .= "'$dbSeparator', 1) ";
             $query .= "DB_first_level ";
             $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
-            $query .= $this->_getWhereClause('SCHEMA_NAME', $searchClause);
+            $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
             $query .= ") t ";
             $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
@@ -625,7 +625,7 @@ class Node
 
         if ($GLOBALS['dbs_to_test'] !== false) {
             $prefixMap = [];
-            foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
+            foreach ($this->getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
                 $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle === false) {
@@ -633,7 +633,7 @@ class Node
                 }
 
                 while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if ($this->_isHideDb($arr[0])) {
+                    if ($this->isHideDb($arr[0])) {
                         continue;
                     }
                     $prefix = strstr($arr[0], $dbSeparator, true);
@@ -650,7 +650,7 @@ class Node
 
         $prefixMap = [];
         $query = "SHOW DATABASES ";
-        $query .= $this->_getWhereClause('Database', $searchClause);
+        $query .= $this->getWhereClause('Database', $searchClause);
         $handle = $GLOBALS['dbi']->tryQuery($query);
         if ($handle !== false) {
             while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
@@ -673,7 +673,7 @@ class Node
      *
      * @return boolean whether to hide
      */
-    private function _isHideDb($db)
+    private function isHideDb($db)
     {
         return ! empty($GLOBALS['cfg']['Server']['hide_db'])
             && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db);
@@ -689,7 +689,7 @@ class Node
      *
      * @return array array of databases
      */
-    private function _getDatabasesToSearch($searchClause)
+    private function getDatabasesToSearch($searchClause)
     {
         $databases = [];
         if (! empty($searchClause)) {
@@ -715,7 +715,7 @@ class Node
      *
      * @return string
      */
-    private function _getWhereClause($columnName, $searchClause = '')
+    private function getWhereClause($columnName, $searchClause = '')
     {
         $whereClause = "WHERE TRUE ";
         if (! empty($searchClause)) {
@@ -740,10 +740,10 @@ class Node
             }
             $whereClause .= "AND (";
             $subClauses = [];
-            foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
+            foreach ($GLOBALS['cfg']['Server']['only_db'] as $eachOnlyDb) {
                 $subClauses[] = " " . Util::backquote($columnName)
                     . " LIKE '"
-                    . $GLOBALS['dbi']->escapeString($each_only_db) . "' ";
+                    . $GLOBALS['dbi']->escapeString($eachOnlyDb) . "' ";
             }
             $whereClause .= implode("OR", $subClauses) . ") ";
         }
@@ -777,7 +777,7 @@ class Node
 
         $result = ['expander'];
 
-        if ($this->is_group || $match) {
+        if ($this->isGroup || $match) {
             $result[] = 'loaded';
         }
         if ($this->type == Node::CONTAINER) {
