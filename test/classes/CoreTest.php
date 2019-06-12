@@ -1182,7 +1182,7 @@ class CoreTest extends PmaTestCase
      */
     function testCheckSqlQuerySignatureFailsNoSession()
     {
-        $_SESSION[' PMA_token '] = null;
+        $_SESSION[' PMA_token '] = 'empty';
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
