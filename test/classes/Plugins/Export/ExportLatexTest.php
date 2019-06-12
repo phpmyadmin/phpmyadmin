@@ -788,7 +788,7 @@ class ExportLatexTest extends PmaTestCase
             ' \\multicolumn{1}{|c|}{\\textbf{Comments}} & \\multicolumn{1}' .
             '{|c|}{\\textbf{MIME}} \\\\ \\hline \\hline' . "\n" .
             '\\endfirsthead' . "\n" . ' \\hline \\multicolumn{1}{|c|}' .
-            '{\\textbf{Column}} & \\multicolumn{1}' . '{|c|}{\\textbf{Type}}' .
+            '{\\textbf{Column}} & \\multicolumn{1}{|c|}{\\textbf{Type}}' .
             ' & \\multicolumn{1}{|c|}{\\textbf{Null}} & \\multicolumn' .
             '{1}{|c|}{\\textbf{Default}} & \\multicolumn{1}{|c|}{\\textbf' .
             '{Comments}} & \\multicolumn{1}{|c|}{\\textbf{MIME}} \\\\ ' .

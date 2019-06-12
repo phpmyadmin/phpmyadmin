@@ -417,7 +417,7 @@ class ExportXml extends ExportPlugin
             && $GLOBALS['xml_export_contents']
         ) {
             $head = '    <!--' . $crlf
-                . '    - ' . __('Database:') . ' ' . '\''
+                . '    - ' . __('Database:') . ' \''
                 . htmlspecialchars($db_alias) . '\'' . $crlf
                 . '    -->' . $crlf . '    <database name="'
                 . htmlspecialchars($db_alias) . '">' . $crlf;

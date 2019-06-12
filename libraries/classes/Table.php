@@ -1354,7 +1354,7 @@ class Table
                     . ($GLOBALS['cfgRelation']['mimework']
                         ? ', mimetype, transformation, transformation_options'
                         : '')
-                    . ') ' . ' VALUES(' . '\'' . $dbi->escapeString($target_db)
+                    . ') VALUES(\'' . $dbi->escapeString($target_db)
                     . '\',\'' . $dbi->escapeString($target_table) . '\',\''
                     . $dbi->escapeString($comments_copy_row['column_name'])
                     . '\',\''
@@ -1364,10 +1364,10 @@ class Table
                         ? ',\'' . $dbi->escapeString(
                             $comments_copy_row['mimetype']
                         )
-                        . '\',' . '\'' . $dbi->escapeString(
+                        . '\',\'' . $dbi->escapeString(
                             $comments_copy_row['transformation']
                         )
-                        . '\',' . '\'' . $dbi->escapeString(
+                        . '\',\'' . $dbi->escapeString(
                             $comments_copy_row['transformation_options']
                         )
                         . '\''

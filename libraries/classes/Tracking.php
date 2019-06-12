@@ -518,7 +518,7 @@ class Tracking
             . Sanitize::escapeJsString(
                 __('This option will replace your table and contained data.')
             )
-            . '\')">' . __('SQL execution') . '</option>' . '</select>';
+            . '\')">' . __('SQL execution') . '</option></select>';
 
         $str_export2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
@@ -897,7 +897,7 @@ class Tracking
             __('Tracking report for table `%s`'),
             $table
         )
-        . "\n" . "# " . date('Y-m-d H:i:s') . "\n";
+        . "\n" . '# ' . date('Y-m-d H:i:s') . "\n";
         foreach ($entries as $entry) {
             $dump .= $entry['statement'];
         }

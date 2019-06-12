@@ -256,7 +256,7 @@ class ExportLatex extends ExportPlugin
         }
         global $crlf;
         $head = '% ' . $crlf
-            . '% ' . __('Database:') . ' ' . '\'' . $db_alias . '\'' . $crlf
+            . '% ' . __('Database:') . ' \'' . $db_alias . '\'' . $crlf
             . '% ' . $crlf;
 
         return $this->export->outputHandler($head);

@@ -422,7 +422,7 @@ class NodeDatabase extends Node
         $sqlQuery = "SELECT `item_name` FROM " . $navTable
             . " WHERE `username`='" . $cfgRelation['user'] . "'"
             . " AND `item_type`='" . $type
-            . "'" . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($db)
+            . "' AND `db_name`='" . $GLOBALS['dbi']->escapeString($db)
             . "'";
         $result = $this->relation->queryAsControlUser($sqlQuery, false);
         $hiddenItems = [];

@@ -269,7 +269,7 @@ class InnodbTest extends PmaTestCase
     public function testGetPageStatus()
     {
         $this->assertEquals(
-            '<pre id="pre_innodb_status">' . "\n" . "\n" . '</pre>' . "\n",
+            '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
             $this->object->getPageStatus()
         );
     }
@@ -287,7 +287,7 @@ class InnodbTest extends PmaTestCase
         );
         $this->object->support = 2;
         $this->assertEquals(
-            '<pre id="pre_innodb_status">' . "\n" . "\n" . '</pre>' . "\n",
+            '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
             $this->object->getPage('Status')
         );
     }

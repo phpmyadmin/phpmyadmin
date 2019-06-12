@@ -1125,7 +1125,7 @@ class Results
                     . 'class="draggable'
                     . ($condition_field ? ' condition"' : '')
                     . '" data-column="' . htmlspecialchars((string) $fields_meta[$i]->name)
-                    . '">' . '        '
+                    . '">        '
                     . htmlspecialchars((string) $fields_meta[$i]->name)
                     . $comments . '    </th>';
             } // end else
@@ -5426,8 +5426,8 @@ class Results
     ) {
         $ret = '';
         if (! empty($edit_url)) {
-            $ret .= '<td class="' . $class . ' center print_ignore" '
-                . ' ><span class="nowrap">'
+            $ret .= '<td class="' . $class . ' center print_ignore">'
+                . '<span class="nowrap">'
                 . Util::linkOrButton($edit_url, $edit_str);
             /*
              * Where clause for selecting this row uniquely is provided as
@@ -5472,7 +5472,7 @@ class Results
                 $ret .= $class . ' ';
             }
 
-            $ret .= 'center print_ignore" ' . ' ><span class="nowrap">'
+            $ret .= 'center print_ignore"><span class="nowrap">'
                . Util::linkOrButton($copy_url, $copy_str);
 
             /*
@@ -5516,7 +5516,7 @@ class Results
             $ret .= $class . ' ';
         }
         $ajax = Response::getInstance()->isAjax() ? ' ajax' : '';
-        $ret .= 'center print_ignore" ' . ' >'
+        $ret .= 'center print_ignore">'
             . Util::linkOrButton(
                 $del_url,
                 $del_str,

@@ -1816,7 +1816,7 @@ class ExportSqlTest extends PmaTestCase
         $result = ob_get_clean();
 
         $this->assertStringContainsString(
-            "-- VIEW  `tbl`\n",
+            "-- VIEW `tbl`\n",
             $result
         );
 

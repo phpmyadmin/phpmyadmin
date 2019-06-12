@@ -464,7 +464,7 @@ class Plugins
                     $section,
                     $plugin_name . '_' . $propertyItem->getName()
                 )
-                    . '"' . '></li>';
+                    . '"></li>';
                 break;
             case MessageOnlyPropertyItem::class:
                 $ret .= '<li>' . "\n";
@@ -489,7 +489,7 @@ class Plugins
                     if ($key == $default) {
                         $ret .= ' checked="checked"';
                     }
-                    $ret .= '>' . '<label for="radio_' . $plugin_name . '_'
+                    $ret .= '><label for="radio_' . $plugin_name . '_'
                     . $pitem->getName() . '_' . $key . '">'
                     . self::getString($val) . '</label></li>';
                 }

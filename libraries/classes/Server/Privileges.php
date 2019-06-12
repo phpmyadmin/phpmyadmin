@@ -2447,11 +2447,11 @@ class Privileges
                 . '</td>'
                 . '<td>' . htmlspecialchars($row['Host'])
                 . '</td>'
-                . '<td>' . 'routine'
+                . '<td>routine'
                 . '</td>'
-                . '<td>' . '<code>' . htmlspecialchars($row['Routine_name']) . '</code>'
+                . '<td><code>' . htmlspecialchars($row['Routine_name']) . '</code>'
                 . '</td>'
-                . '<td>' . 'Yes'
+                . '<td>Yes'
                 . '</td>';
             $current_user = $row['User'];
             $current_host = $row['Host'];

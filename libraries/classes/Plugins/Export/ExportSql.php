@@ -2237,7 +2237,7 @@ class ExportSql extends ExportPlugin
         ) {
             $head = $this->_possibleCRLF()
                 . $this->_exportComment()
-                . $this->_exportComment('VIEW ' . ' ' . $formatted_table_name)
+                . $this->_exportComment('VIEW ' . $formatted_table_name)
                 . $this->_exportComment(__('Data:') . ' ' . __('None'))
                 . $this->_exportComment()
                 . $this->_possibleCRLF();

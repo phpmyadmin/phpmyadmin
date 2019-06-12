@@ -1010,7 +1010,7 @@ class Qbe
             }
             $html_output .= '<td class="center">';
             $html_output .= '<input type="text"'
-                . ' name="Or' . $new_row_index . '[' . $new_column_count . ']' . '"'
+                . ' name="Or' . $new_row_index . '[' . $new_column_count . ']"'
                 . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
                 . ' style="width: ' . $this->_realwidth . '" size="20">';
             $html_output .= '</td>';

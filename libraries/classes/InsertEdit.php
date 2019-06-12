@@ -1271,7 +1271,7 @@ class InsertEdit
         $html_output = $backup_field . "\n";
         $html_output .= '<input type="hidden" name="fields_type'
             . $column_name_appendix . '" value="set">';
-        $html_output .= '<select name="fields' . $column_name_appendix . '[]' . '"'
+        $html_output .= '<select name="fields' . $column_name_appendix . '[]"'
             . ' class="textfield"'
             . ($readOnly ? ' disabled' : '')
             . ' size="' . $select_size . '"'
@@ -1293,7 +1293,7 @@ class InsertEdit
 
         //Add hidden input, as disabled <select> input does not included in POST.
         if ($readOnly) {
-            $html_output .= '<input name="fields' . $column_name_appendix . '[]' . '"'
+            $html_output .= '<input name="fields' . $column_name_appendix . '[]"'
                 . ' type="hidden" value="' . $selected_html . '">';
         }
         return $html_output;
@@ -1542,7 +1542,7 @@ class InsertEdit
                 . __('The directory you set for upload work cannot be reached.') . "\n";
         } elseif (! empty($files)) {
             return "<br>\n"
-                . '<i>' . __('Or') . '</i>' . ' '
+                . '<i>' . __('Or') . '</i> '
                 . __('web server upload directory:') . '<br>' . "\n"
                 . '<select size="1" name="fields_uploadlocal'
                 . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
@@ -3307,7 +3307,7 @@ class InsertEdit
             $match[0] = trim($match[0], '()');
             $no_decimals = $match[0];
         }
-        $html_output .= '<td' . ' data-type="' . $type . '"' . ' data-decimals="'
+        $html_output .= '<td data-type="' . $type . '" data-decimals="'
             . $no_decimals . '">' . "\n";
         // Will be used by js/table/change.js to set the default value
         // for the "Continue insertion" feature

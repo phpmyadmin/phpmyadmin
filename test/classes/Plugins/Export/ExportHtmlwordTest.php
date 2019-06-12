@@ -229,7 +229,7 @@ class ExportHtmlwordTest extends PmaTestCase
             <html>
             <head>
                 <meta http-equiv="Content-type" content="text/html;charset='
-            . 'utf-8' . '" />
+            . 'utf-8" />
             </head>
             <body>';
 
@@ -255,7 +255,7 @@ class ExportHtmlwordTest extends PmaTestCase
             <html>
             <head>
                 <meta http-equiv="Content-type" content="text/html;charset='
-            . 'ISO-8859-1' . '" />
+            . 'ISO-8859-1" />
             </head>
             <body>';
 
