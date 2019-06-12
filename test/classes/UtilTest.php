@@ -1013,7 +1013,7 @@ class UtilTest extends PmaTestCase
                 ],
             ],
             [
-                doubleval(52) + doubleval(2048),
+                floatval(52) + floatval(2048),
                 3,
                 1,
                 [

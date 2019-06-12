@@ -1987,7 +1987,7 @@ class PrivilegesTest extends TestCase
 
         //new_privileges
         $this->assertStringContainsString(
-            join(', ', $this->serverPrivileges->extractPrivInfo(null, true)),
+            implode(', ', $this->serverPrivileges->extractPrivInfo(null, true)),
             $extra_data['new_privileges']
         );
     }
