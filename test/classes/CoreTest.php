@@ -1121,4 +1121,70 @@ class CoreTest extends PmaTestCase
 
         $this->assertGreaterThan(0, mb_strpos($printed, $warn));
     }
+
+    /**
+     * Test for Core::signSqlQuery
+     *
+     * @return void
+     */
+    function testSignSqlQuery()
+    {
+        $_SESSION[' PMA_token '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $signature = Core::signSqlQuery($sqlQuery);
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertSame($hmac, $signature, 'The signature must match the computed one');
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    function testCheckSqlQuerySignature()
+    {
+        $_SESSION[' PMA_token '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    function testCheckSqlQuerySignatureFails()
+    {
+        $_SESSION[' PMA_token '] = hash('sha1', '132654987gguieunofz');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    function testCheckSqlQuerySignatureFailsBadHash()
+    {
+        $_SESSION[' PMA_token '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    function testCheckSqlQuerySignatureFailsNoSession()
+    {
+        $_SESSION[' PMA_token '] = null;
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
 }
