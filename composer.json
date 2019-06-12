@@ -89,7 +89,7 @@
         "samyoul/u2f-php-server": "^1.1",
         "phpmyadmin/coding-standard": "^1.0",
         "phpstan/phpstan": "^0.11.5",
-        "facebook/webdriver": "^1.6"
+        "facebook/webdriver": "~1.6.0"
     },
     "extra": {
         "branch-alias": {
