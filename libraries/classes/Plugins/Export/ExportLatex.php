@@ -344,7 +344,7 @@ class ExportLatex extends ExportPlugin
                     $GLOBALS['latex_data_caption'],
                     [
                         'texEscape',
-                        get_class($this),
+                        static::class,
                     ],
                     [
                         'table' => $table_alias,
@@ -385,7 +385,7 @@ class ExportLatex extends ExportPlugin
                         $GLOBALS['latex_data_continued_caption'],
                         [
                             'texEscape',
-                            get_class($this),
+                            static::class,
                         ],
                         [
                             'table' => $table_alias,
@@ -560,7 +560,7 @@ class ExportLatex extends ExportPlugin
                     $GLOBALS['latex_structure_caption'],
                     [
                         'texEscape',
-                        get_class($this),
+                        static::class,
                     ],
                     [
                         'table' => $table_alias,
@@ -587,7 +587,7 @@ class ExportLatex extends ExportPlugin
                     $GLOBALS['latex_structure_continued_caption'],
                     [
                         'texEscape',
-                        get_class($this),
+                        static::class,
                     ],
                     [
                         'table' => $table_alias,

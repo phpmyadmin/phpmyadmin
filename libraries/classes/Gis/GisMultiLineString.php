@@ -39,8 +39,7 @@ class GisMultiLineString extends GisGeometry
     public static function singleton()
     {
         if (! isset(self::$_instance)) {
-            $class = __CLASS__;
-            self::$_instance = new $class;
+            self::$_instance = new GisMultiLineString();
         }
 
         return self::$_instance;

@@ -268,7 +268,7 @@ abstract class TestBase extends TestCase
          */
         $capabilities->setCapability(
             'name',
-            get_class($this) . '__' . $this->getName()
+            static::class . '__' . $this->getName()
         );
 
         if ($buildLocal) {
