@@ -675,7 +675,7 @@ class Charsets
         }
 
         $result = $name;
-        if (! is_null($variant)) {
+        if ($variant !== null) {
             $result .= ' (' . $variant . ')';
         }
         if (count($suffixes) > 0) {

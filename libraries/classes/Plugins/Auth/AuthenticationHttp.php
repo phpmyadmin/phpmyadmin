@@ -146,7 +146,7 @@ class AuthenticationHttp extends AuthenticationPlugin
             }
         }
         // Sanitize empty password login
-        if (is_null($this->password)) {
+        if ($this->password === null) {
             $this->password = '';
         }
 

@@ -82,7 +82,7 @@ class Key extends TwoFactorPlugin
         $this->_provided = true;
         try {
             $response = json_decode($_POST['u2f_authentication_response']);
-            if (is_null($response)) {
+            if ($response === null) {
                 return false;
             }
             $authentication = U2FServer::authenticate(
@@ -171,7 +171,7 @@ class Key extends TwoFactorPlugin
         $this->_provided = true;
         try {
             $response = json_decode($_POST['u2f_registration_response']);
-            if (is_null($response)) {
+            if ($response === null) {
                 return false;
             }
             $registration = U2FServer::register(

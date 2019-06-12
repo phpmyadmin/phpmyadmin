@@ -88,7 +88,7 @@ class Operations
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
             . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
-        if (! is_null($db_collation)) {
+        if ($db_collation !== null) {
             $html_output .= '<input type="hidden" name="db_collation" '
                 . 'value="' . $db_collation
                 . '">' . "\n";
@@ -208,7 +208,7 @@ class Operations
             . 'method="post" action="db_operations.php" '
             . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
 
-        if (! is_null($db_collation)) {
+        if ($db_collation !== null) {
             $html_output .= '<input type="hidden" name="db_collation" '
             . 'value="' . $db_collation . '">' . "\n";
         }
@@ -314,7 +314,7 @@ class Operations
                 $GLOBALS['cfg']['Server']['DisableIS'],
                 'db_collation',
                 'select_db_collation',
-                ! is_null($db_collation) ? $db_collation : '',
+                $db_collation !== null ? $db_collation : '',
                 false
             )
             . '<br>'

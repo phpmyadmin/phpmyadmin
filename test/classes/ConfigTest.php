@@ -1355,7 +1355,7 @@ class ConfigTest extends PmaTestCase
 
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
-        if (is_null($expected)) {
+        if ($expected === null) {
             $expected = $this->object->default_server;
         } else {
             $expected = array_merge($this->object->default_server, $expected);

@@ -309,7 +309,7 @@ class ExportOdt extends ExportPlugin
                     // export GIS types as hex
                     $row[$j] = '0x' . bin2hex($row[$j]);
                 }
-                if (! isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || $row[$j] === null) {
                     $GLOBALS['odt_buffer']
                         .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'

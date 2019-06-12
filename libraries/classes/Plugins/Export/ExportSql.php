@@ -2426,7 +2426,7 @@ class ExportSql extends ExportPlugin
             $values = [];
             for ($j = 0; $j < $fields_cnt; $j++) {
                 // NULL
-                if (! isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || $row[$j] === null) {
                     $values[] = 'NULL';
                 } elseif ($fields_meta[$j]->numeric
                     && $fields_meta[$j]->type != 'timestamp'

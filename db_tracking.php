@@ -54,7 +54,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
 if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
     Tracker::deleteTracking($db, $_POST['table']);

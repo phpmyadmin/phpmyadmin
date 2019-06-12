@@ -891,7 +891,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function createIV()
     {
         /* Testsuite shortcut only to allow predictable IV */
-        if (! is_null($this->_cookie_iv)) {
+        if ($this->_cookie_iv !== null) {
             return $this->_cookie_iv;
         }
         if ($this->_use_openssl) {

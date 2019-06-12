@@ -2600,7 +2600,7 @@ class Results
             } // end if (1)
 
             // 2. Displays the rows' values
-            if (is_null($this->__get('mime_map'))) {
+            if ($this->__get('mime_map') === null) {
                 $this->_setMimeMap();
             }
             $table_body_html .= $this->_getRowValues(
@@ -3556,7 +3556,7 @@ class Results
         array $transform_options
     ) {
 
-        if (! isset($column) || is_null($column)) {
+        if (! isset($column) || $column === null) {
             $cell = $this->_buildNullDisplay(
                 'right ' . $class,
                 $condition_field,
@@ -3630,7 +3630,7 @@ class Results
         $transform_options,
         array $analyzed_sql_results
     ) {
-        if (! isset($column) || is_null($column)) {
+        if (! isset($column) || $column === null) {
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
             return $cell;
         }
@@ -3809,7 +3809,7 @@ class Results
             $class = str_replace('grid_edit', '', $class);
         }
 
-        if (! isset($column) || is_null($column)) {
+        if (! isset($column) || $column === null) {
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
             return $cell;
         }
@@ -4162,7 +4162,7 @@ class Results
         $sort_expression_nodirection = [];
         $sort_direction = [];
 
-        if (! is_null($statement) && ! empty($statement->order)) {
+        if ($statement !== null && ! empty($statement->order)) {
             foreach ($statement->order as $o) {
                 $sort_expression[] = $o->expr->expr . ' ' . $o->type;
                 $sort_expression_nodirection[] = $o->expr->expr;
@@ -4225,7 +4225,7 @@ class Results
         }
 
         // can the result be sorted?
-        if ($displayParts['sort_lnk'] == '1' && ! is_null($analyzed_sql_results['statement'])) {
+        if ($displayParts['sort_lnk'] == '1' && $analyzed_sql_results['statement'] !== null) {
             // At this point, $sort_expression is an array
             list($unsorted_sql_query, $sort_by_key_html)
                 = $this->_getUnsortedSqlAndSortByKeyDropDown(
@@ -4237,7 +4237,7 @@ class Results
         }
 
         $navigation = '';
-        if ($displayParts['nav_bar'] == '1' && ! is_null($statement) && empty($statement->limit)) {
+        if ($displayParts['nav_bar'] == '1' && $statement !== null && empty($statement->limit)) {
             $navigation = $this->_getTableNavigation(
                 $pos_next,
                 $pos_prev,
@@ -4581,7 +4581,7 @@ class Results
         $message_qt->addParam($this->__get('querytime'));
 
         $message->addMessage($message_qt, '');
-        if (! is_null($sorted_column_message)) {
+        if ($sorted_column_message !== null) {
             $message->addHtml($sorted_column_message, '');
         }
 

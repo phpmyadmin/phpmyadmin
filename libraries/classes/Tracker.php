@@ -82,7 +82,7 @@ class Tracker
 
         $pma_table = self::_getTrackingTable();
 
-        return ! is_null($pma_table);
+        return $pma_table !== null;
     }
 
     /**

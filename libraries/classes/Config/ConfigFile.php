@@ -100,7 +100,7 @@ class ConfigFile
         }
 
         $this->_baseCfg = $baseConfig;
-        $this->_isInSetup = is_null($baseConfig);
+        $this->_isInSetup = $baseConfig === null;
         $this->_id = 'ConfigFile' . $GLOBALS['server'];
         if (! isset($_SESSION[$this->_id])) {
             $_SESSION[$this->_id] = [];

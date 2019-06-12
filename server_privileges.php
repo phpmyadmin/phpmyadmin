@@ -325,7 +325,7 @@ if (isset($_POST['change_copy'])) {
  * Reloads the privilege tables into memory
  */
 $message_ret = $serverPrivileges->updateMessageForReload();
-if (! is_null($message_ret)) {
+if ($message_ret !== null) {
     $message = $message_ret;
     unset($message_ret);
 }
@@ -381,7 +381,7 @@ if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PhpMyAdmin\Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+    ) = PhpMyAdmin\Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
     $content = ob_get_contents();
     ob_end_clean();

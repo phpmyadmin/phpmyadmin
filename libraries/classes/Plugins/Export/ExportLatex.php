@@ -412,8 +412,7 @@ class ExportLatex extends ExportPlugin
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ((! function_exists('is_null')
-                    || ! is_null($record[$columns[$i]]))
+                if ($record[$columns[$i]] !== null
                     && isset($record[$columns[$i]])
                 ) {
                     $column_value = self::texEscape(

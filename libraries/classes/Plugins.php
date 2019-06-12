@@ -331,7 +331,7 @@ class Plugins
                     // each subgroup can have a header, which may also be a form element
                     /** @var OptionsPropertyItem $subgroup_header */
                     $subgroup_header = $propertyItem->getSubgroupHeader();
-                    if (! is_null($subgroup_header)) {
+                    if ($subgroup_header !== null) {
                         $ret .= self::getOneOption(
                             $section,
                             $plugin_name,
@@ -340,7 +340,7 @@ class Plugins
                     }
 
                     $ret .= '<li class="subgroup"><ul';
-                    if (! is_null($subgroup_header)) {
+                    if ($subgroup_header !== null) {
                         $ret .= ' id="ul_' . $subgroup_header->getName() . '">';
                     } else {
                         $ret .= '>';
@@ -604,7 +604,7 @@ class Plugins
             $ret .= '<h3>' . self::getString($text) . '</h3>';
 
             $no_options = true;
-            if (! is_null($options) && count($options) > 0) {
+            if ($options !== null && count($options) > 0) {
                 foreach ($options->getProperties() as $propertyMainGroup) {
                     // check for hidden properties
                     $no_options = true;

@@ -2421,7 +2421,7 @@ class InsertEdit
             $foreigner['foreign_table']
         );
         // Field to display from the foreign table?
-        if (! is_null($display_field) && strlen($display_field) > 0) {
+        if ($display_field !== null && strlen($display_field) > 0) {
             $dispsql = 'SELECT ' . Util::backquote($display_field)
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
@@ -3196,7 +3196,7 @@ class InsertEdit
 
         if ($column['Type'] === 'datetime'
             && ! isset($column['Default'])
-            && ! is_null($column['Default'])
+            && $column['Default'] !== null
             && $insert_mode
         ) {
             $column['Default'] = date('Y-m-d H:i:s', time());

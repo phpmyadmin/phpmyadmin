@@ -58,7 +58,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
 /**
  * Displays the form
@@ -159,7 +159,7 @@ if (! isset($num_tables)) {
 if (! isset($unlim_num_rows)) {
     $unlim_num_rows = 0;
 }
-if (is_null($multi_values)) {
+if ($multi_values === null) {
     $multi_values = '';
 }
 $response = Response::getInstance();

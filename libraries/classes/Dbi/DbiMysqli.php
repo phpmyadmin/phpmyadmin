@@ -115,7 +115,7 @@ class DbiMysqli implements DbiExtension
             $client_flags
         );
 
-        if ($return_value === false || is_null($return_value)) {
+        if ($return_value === false || $return_value === null) {
             /*
              * Switch to SSL if server asked us to do so, unfortunately
              * there are more ways MySQL server can tell this:

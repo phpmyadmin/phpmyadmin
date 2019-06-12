@@ -222,18 +222,18 @@ class Privileges
             $grants = $this->getGrantsArray();
         }
 
-        if (! is_null($row) && isset($row['Table_priv'])) {
+        if ($row !== null && isset($row['Table_priv'])) {
             $this->fillInTablePrivileges($row);
         }
 
         $privs = [];
         $allPrivileges = true;
         foreach ($grants as $current_grant) {
-            if ((! is_null($row) && isset($row[$current_grant[0]]))
-                || (is_null($row) && isset($GLOBALS[$current_grant[0]]))
+            if (($row !== null && isset($row[$current_grant[0]]))
+                || ($row === null && isset($GLOBALS[$current_grant[0]]))
             ) {
-                if ((! is_null($row) && $row[$current_grant[0]] == 'Y')
-                    || (is_null($row)
+                if (($row !== null && $row[$current_grant[0]] == 'Y')
+                    || ($row === null
                     && ($GLOBALS[$current_grant[0]] == 'Y'
                     || (is_array($GLOBALS[$current_grant[0]])
                     && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
@@ -624,7 +624,7 @@ class Privileges
      */
     public function setUserGroup($username, $userGroup)
     {
-        $userGroup = is_null($userGroup) ? '' : $userGroup;
+        $userGroup = $userGroup === null ? '' : $userGroup;
         $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
@@ -4382,7 +4382,7 @@ class Privileges
         if (empty($_POST['change_copy'])) {
             $_error = false;
 
-            if (! is_null($create_user_real)) {
+            if ($create_user_real !== null) {
                 if (! $this->dbi->tryQuery($create_user_real)) {
                     $_error = true;
                 }
@@ -4427,7 +4427,7 @@ class Privileges
             isset($_POST['old_usergroup']) ? $_POST['old_usergroup'] : null;
         $this->setUserGroup($_POST['username'], $old_usergroup);
 
-        if (is_null($create_user_real)) {
+        if ($create_user_real === null) {
             $queries[] = $create_user_real;
         }
         $queries[] = $real_sql_query;

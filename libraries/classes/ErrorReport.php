@@ -101,7 +101,7 @@ class ErrorReport
             "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
             "locale" => $_COOKIE['pma_lang'],
             "configuration_storage" =>
-                is_null($relParams['db']) ? "disabled" : "enabled",
+                $relParams['db'] === null ? "disabled" : "enabled",
             "php_version" => PHP_VERSION
         ];
 

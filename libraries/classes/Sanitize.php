@@ -56,7 +56,7 @@ class Sanitize
             './server_privileges.php?',
             './tbl_structure.php?',
         ];
-        $is_setup = ! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
+        $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {

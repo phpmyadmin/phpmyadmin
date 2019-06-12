@@ -157,7 +157,7 @@ class Export
                 );
             }
             if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
-                if (! is_null($GLOBALS['file_handle'])) {
+                if ($GLOBALS['file_handle'] !== null) {
                     $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 } else {
                     $write_result = false;
@@ -1215,7 +1215,7 @@ class Export
         );
 
         // Check schema export type
-        if (is_null($export_plugin) || ! is_object($export_plugin)) {
+        if ($export_plugin === null || ! is_object($export_plugin)) {
             Core::fatalError(__('Bad type!'));
         }
 

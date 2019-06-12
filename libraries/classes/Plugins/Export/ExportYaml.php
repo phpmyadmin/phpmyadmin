@@ -191,7 +191,7 @@ class ExportYaml extends ExportPlugin
                     continue;
                 }
 
-                if (is_null($record[$i])) {
+                if ($record[$i] === null) {
                     $buffer .= '  ' . $columns[$i] . ': null' . $crlf;
                     continue;
                 }

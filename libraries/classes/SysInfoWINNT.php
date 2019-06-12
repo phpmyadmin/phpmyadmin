@@ -61,7 +61,7 @@ class SysInfoWINNT extends SysInfoBase
      */
     public function supported()
     {
-        return ! is_null($this->_wmi);
+        return $this->_wmi !== null;
     }
 
     /**

@@ -296,7 +296,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         }
         switch ($columnMeta['Default']) {
             case null:
-                if (is_null($columnMeta['Default'])) { // null
+                if ($columnMeta['Default'] === null) {
                     if ($columnMeta['Null'] == 'YES') {
                         $columnMeta['DefaultType'] = 'NULL';
                         $columnMeta['DefaultValue'] = '';

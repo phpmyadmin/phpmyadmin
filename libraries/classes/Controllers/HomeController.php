@@ -468,7 +468,7 @@ class HomeController extends AbstractController
         }
 
         /* Missing template cache */
-        if (is_null($this->config->getTempDir('twig'))) {
+        if ($this->config->getTempDir('twig') === null) {
             trigger_error(
                 sprintf(
                     __(

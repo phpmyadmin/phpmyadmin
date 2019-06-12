@@ -276,7 +276,7 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (isset($GLOBALS['dbi']) && ! is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
+        if (isset($GLOBALS['dbi']) && $GLOBALS['dbi'] !== null && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
@@ -764,7 +764,7 @@ class Core
         parse_str($arr["query"], $vars);
         $query = http_build_query(["url" => $vars["url"]]);
 
-        if (! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
+        if ($GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup')) {
             $url = '../url.php?' . $query;
         } else {
             $url = './url.php?' . $query;

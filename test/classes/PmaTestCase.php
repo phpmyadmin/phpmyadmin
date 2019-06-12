@@ -112,7 +112,7 @@ class PmaTestCase extends TestCase
      */
     protected function tearDown(): void
     {
-        if (! is_null($this->attrInstance) && ! is_null($this->restoreInstance)) {
+        if ($this->attrInstance !== null && $this->restoreInstance !== null) {
             $this->attrInstance->setValue($this->restoreInstance);
             $this->restoreInstance = null;
             $this->attrInstance = null;

@@ -83,7 +83,7 @@ class Sql
      */
     public function parseAndAnalyze($sql_query, $db = null)
     {
-        if (is_null($db) && isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
+        if ($db === null && isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
             $db = $GLOBALS['db'];
         }
         list($analyzed_sql_results,,) = ParseAnalyze::sqlQuery($sql_query, $db);

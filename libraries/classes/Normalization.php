@@ -133,7 +133,7 @@ class Normalization
         if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
             $availableMimeTypes = $this->transformations->getAvailableMimeTypes();
-            if (! is_null($availableMimeTypes)) {
+            if ($availableMimeTypes !== null) {
                 $availableMime = $availableMimeTypes;
             }
         }

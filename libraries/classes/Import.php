@@ -972,13 +972,13 @@ class Import
         $import_notice = null;
 
         /* Take care of the options */
-        if (isset($options['db_collation']) && ! is_null($options['db_collation'])) {
+        if (isset($options['db_collation']) && $options['db_collation'] !== null) {
             $collation = $options['db_collation'];
         } else {
             $collation = "utf8_general_ci";
         }
 
-        if (isset($options['db_charset']) && ! is_null($options['db_charset'])) {
+        if (isset($options['db_charset']) && $options['db_charset'] !== null) {
             $charset = $options['db_charset'];
         } else {
             $charset = "utf8";
@@ -1208,7 +1208,7 @@ class Import
 
         $inTables = false;
 
-        $additional_sql_len = is_null($additional_sql) ? 0 : count($additional_sql);
+        $additional_sql_len = $additional_sql === null ? 0 : count($additional_sql);
         for ($i = 0; $i < $additional_sql_len; ++$i) {
             preg_match($view_pattern, $additional_sql[$i], $regs);
 

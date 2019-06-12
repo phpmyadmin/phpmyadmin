@@ -275,7 +275,7 @@ class ExportXml extends ExportPlugin
                 . '" collation="' . htmlspecialchars($db_collation) . '" charset="' . htmlspecialchars($db_charset)
                 . '">' . $crlf;
 
-            if (is_null($tables)) {
+            if ($tables === null) {
                 $tables = [];
             }
 
@@ -524,7 +524,7 @@ class ExportXml extends ExportPlugin
                     }
                     // If a cell is NULL, still export it to preserve
                     // the XML structure
-                    if (! isset($record[$i]) || is_null($record[$i])) {
+                    if (! isset($record[$i]) || $record[$i] === null) {
                         $record[$i] = 'NULL';
                     }
                     $buffer .= '            <column name="'

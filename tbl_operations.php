@@ -480,7 +480,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
 if (Partition::havePartitioning()) {
     $partition_names = Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition
-    if (! is_null($partition_names[0])) {
+    if ($partition_names[0] !== null) {
         $response->addHTML(
             $operations->getHtmlForPartitionMaintenance($partition_names, $url_params)
         );

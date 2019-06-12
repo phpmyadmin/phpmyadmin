@@ -226,13 +226,13 @@ class Validator
                 \mysqli_close($conn);
             }
         }
-        if (! is_null($error)) {
+        if ($error !== null) {
             $lastError = error_get_last();
             if ($lastError !== null) {
                 $error .= ' - ' . $lastError['message'];
             }
         }
-        return is_null($error) ? true : [$errorKey => $error];
+        return $error === null ? true : [$errorKey => $error];
     }
 
     /**

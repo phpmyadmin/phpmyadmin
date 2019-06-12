@@ -358,7 +358,7 @@ class Advisor
     public function translate(string $str, ?string $param = null): string
     {
         $string = _gettext(self::escapePercent($str));
-        if (! is_null($param)) {
+        if ($param !== null) {
             $params = $this->ruleExprEvaluate('[' . $param . ']');
         } else {
             $params = [];
