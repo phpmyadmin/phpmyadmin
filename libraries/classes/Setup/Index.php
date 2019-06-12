@@ -183,7 +183,7 @@ class Index
                     'notice',
                     $message_id,
                     __('Version check'),
-                    Sanitize::sanitize(sprintf(__('You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
+                    Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
                 );
             } else {
                 self::messagesSet(

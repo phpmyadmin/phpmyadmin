@@ -49,7 +49,7 @@ class Error
                 'lang' => $lang,
                 'dir' => $dir,
                 'error_header' => $errorHeader,
-                'error_message' => Sanitize::sanitize($errorMessage),
+                'error_message' => Sanitize::sanitizeMessage($errorMessage),
             ]
         );
     }

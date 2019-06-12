@@ -1015,9 +1015,9 @@ class Util
             $retval .= $message->getDisplay();
         } else {
             $retval .= '<div class="' . $type . '">';
-            $retval .= Sanitize::sanitize($message);
+            $retval .= Sanitize::sanitizeMessage($message);
             if (isset($GLOBALS['special_message'])) {
-                $retval .= Sanitize::sanitize($GLOBALS['special_message']);
+                $retval .= Sanitize::sanitizeMessage($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
             $retval .= '</div>';

@@ -67,7 +67,7 @@ class HomeController extends AbstractController
                     'notice',
                     uniqid('config_saved'),
                     __('Configuration saved.'),
-                    Sanitize::sanitize(
+                    Sanitize::sanitizeMessage(
                         __(
                             'Configuration saved to file config/config.inc.php in phpMyAdmin '
                             . 'top level directory, copy it to top level one and delete '
@@ -82,7 +82,7 @@ class HomeController extends AbstractController
                     'notice',
                     uniqid('config_not_saved'),
                     __('Configuration not saved!'),
-                    Sanitize::sanitize(
+                    Sanitize::sanitizeMessage(
                         __(
                             'Please create web server writable folder [em]config[/em] in '
                             . 'phpMyAdmin top level directory as described in '

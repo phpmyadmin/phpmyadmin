@@ -638,7 +638,7 @@ class Message
      */
     public static function decodeBB(string $message): string
     {
-        return Sanitize::sanitize($message, false, true);
+        return Sanitize::sanitizeMessage($message, false, true);
     }
 
     /**

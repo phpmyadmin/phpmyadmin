@@ -52,7 +52,7 @@ class Descriptions
             }
         }
 
-        return Sanitize::sanitize($value);
+        return Sanitize::sanitizeMessage($value);
     }
 
     /**

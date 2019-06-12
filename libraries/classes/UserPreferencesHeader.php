@@ -136,7 +136,7 @@ class UserPreferencesHeader
                 'Your preferences will be saved for current session only. Storing them '
                 . 'permanently requires %sphpMyAdmin configuration storage%s.'
             );
-            $msg = Sanitize::sanitize(
+            $msg = Sanitize::sanitizeMessage(
                 sprintf($msg, '[doc@linked-tables]', '[/doc]')
             );
             return Message::notice($msg)

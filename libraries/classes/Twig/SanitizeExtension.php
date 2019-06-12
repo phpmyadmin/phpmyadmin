@@ -40,7 +40,7 @@ class SanitizeExtension extends AbstractExtension
             ),
             new TwigFilter(
                 'sanitize',
-                'PhpMyAdmin\Sanitize::sanitize',
+                'PhpMyAdmin\Sanitize::sanitizeMessage',
                 ['is_safe' => ['html']]
             ),
         ];

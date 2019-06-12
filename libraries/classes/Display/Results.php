@@ -4131,7 +4131,7 @@ class Results
         if ($is_innodb && $sql->isJustBrowsing($analyzed_sql_results, true)) {
             $pre_count = '~';
             $after_count = Util::showHint(
-                Sanitize::sanitize(
+                Sanitize::sanitizeMessage(
                     __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
                 )
             );

@@ -705,7 +705,7 @@ class StructureController extends AbstractController
             ) {
                 $approx_rows = true;
                 $show_superscript = Util::showHint(
-                    Sanitize::sanitize(
+                    Sanitize::sanitizeMessage(
                         sprintf(
                             __(
                                 'This view has at least this number of '

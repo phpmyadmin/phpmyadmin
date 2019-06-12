@@ -156,9 +156,9 @@ class Sanitize
      *
      * Examples:
      *
-     * <p><?php echo Sanitize::sanitize($foo); ?></p>
+     * <p><?php echo Sanitize::sanitizeMessage($foo); ?></p>
      *
-     * <a title="<?php echo Sanitize::sanitize($foo, true); ?>">bar</a>
+     * <a title="<?php echo Sanitize::sanitizeMessage($foo, true); ?>">bar</a>
      *
      * @param string  $message the message
      * @param boolean $escape  whether to escape html in result
@@ -166,7 +166,7 @@ class Sanitize
      *
      * @return string   the sanitized message
      */
-    public static function sanitize($message, $escape = false, $safe = false)
+    public static function sanitizeMessage($message, $escape = false, $safe = false)
     {
         if (! $safe) {
             $message = strtr((string) $message, ['<' => '&lt;', '>' => '&gt;']);
