@@ -1289,4 +1289,28 @@ class Core
             self::fatalError(__('possible exploit'));
         }
     }
+
+    /**
+     * Sign the sql query using hmac using the session token
+     *
+     * @param string $sqlQuery The sql query
+     * @return void
+     */
+    public static function signSqlQuery(string $sqlQuery)
+    {
+        return hash_hmac('sha256', $sqlQuery, $_SESSION[' PMA_token ']);
+    }
+
+    /**
+     * Check that the sql query has a valid hmac signature
+     *
+     * @param string $sqlQuery The sql query
+     * @return void
+     */
+    public static function checkSqlQuerySignature(string $sqlQuery, string $signature)
+    {
+        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' PMA_token ']);
+        return hash_equals($hmac, $signature);
+    }
+
 }
