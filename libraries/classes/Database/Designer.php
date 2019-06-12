@@ -16,6 +16,7 @@ use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use stdClass;
 
 /**
  * Set of functions related to database designer
@@ -365,7 +366,7 @@ class Designer
             }
         }
 
-        $designerConfig = new \stdClass();
+        $designerConfig = new stdClass();
         $designerConfig->db = $db;
         $designerConfig->scriptTables = $scriptTables;
         $designerConfig->scriptContr = $scriptContr;

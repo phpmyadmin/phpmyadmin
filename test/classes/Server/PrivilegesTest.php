@@ -17,6 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * PhpMyAdmin\Tests\Server\PrivilegesTest class
@@ -2548,7 +2549,7 @@ class PrivilegesTest extends TestCase
         );
 
         // Test case 2
-        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist'] = new stdClass();
         $GLOBALS['dblist']->databases = [
             'x',
             'y',

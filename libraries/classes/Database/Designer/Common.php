@@ -28,7 +28,7 @@ class Common
     private $relation;
 
     /**
-     * @var \PhpMyAdmin\DatabaseInterface
+     * @var DatabaseInterface
      */
     private $dbi;
 

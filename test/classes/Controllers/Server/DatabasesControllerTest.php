@@ -16,6 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * Tests for DatabasesController class
@@ -71,7 +72,7 @@ class DatabasesControllerTest extends TestCase
             ],
         ];
 
-        $dblist = new \stdClass();
+        $dblist = new stdClass();
         $dblist->databases = $databases;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\SchemaPlugin;
 
 /**
  * PhpMyAdmin\Export class
@@ -1206,7 +1207,7 @@ class Export
         $export_type = Core::securePath($export_type);
 
         // get the specific plugin
-        /** @var \PhpMyAdmin\Plugins\SchemaPlugin $export_plugin */
+        /** @var SchemaPlugin $export_plugin */
         $export_plugin = Plugins::getPlugin(
             "schema",
             $export_type,

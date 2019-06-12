@@ -2767,7 +2767,7 @@ class ExportSql extends ExportPlugin
                 $flag = true;
             }
 
-            /** @var \PhpMyAdmin\SqlParser\Components\CreateDefinition $field */
+            /** @var CreateDefinition $field */
             foreach ($statement->fields as $field) {
                 // Column name.
                 if (! empty($field->type)) {

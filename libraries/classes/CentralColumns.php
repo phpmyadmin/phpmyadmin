@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Message;
+
 /**
  * PhpMyAdmin\CentralColumns class
  *
@@ -299,7 +301,7 @@ class CentralColumns
      * @param string $table        if $isTable is false, then table name to
      *                             which columns belong
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function syncUniqueColumns(
         array $field_select,
@@ -420,7 +422,7 @@ class CentralColumns
      *                             selected list of columns to remove from central list
      * @param bool   $isTable      if passed array is of tables or columns
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function deleteColumnsFromList(
         string $database,
@@ -506,7 +508,7 @@ class CentralColumns
      * @param string $db              current database
      * @param array  $selected_tables list of selected tables.
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function makeConsistentWithList(
         string $db,
@@ -624,7 +626,7 @@ class CentralColumns
      * @param string $col_extra     new column extra property
      * @param string $col_default   new column default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function updateOneColumn(
         string $db,
@@ -682,7 +684,7 @@ class CentralColumns
      * Update Multiple column in central columns list if a change is requested
      *
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function updateMultipleColumn(array $params)
     {

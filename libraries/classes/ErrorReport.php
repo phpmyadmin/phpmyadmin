@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Error;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**
@@ -144,7 +145,7 @@ class ErrorReport
                 return [];
             }
             foreach ($_SESSION['prev_errors'] as $errorObj) {
-                /** @var \PhpMyAdmin\Error  $errorObj */
+                /** @var Error $errorObj */
                 if ($errorObj->getLine()
                     && $errorObj->getType()
                     && $errorObj->getNumber() != E_USER_WARNING

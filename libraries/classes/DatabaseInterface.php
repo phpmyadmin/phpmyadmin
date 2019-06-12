@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use mysqli_result;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbi\DbiDummy;
 use PhpMyAdmin\Dbi\DbiExtension;
@@ -355,7 +356,7 @@ class DatabaseInterface
      * @param string $multiQuery multi query statement to execute
      * @param int    $linkIndex  index of the opened database link
      *
-     * @return \mysqli_result[]|boolean(false)
+     * @return mysqli_result[]|boolean (false)
      */
     public function tryMultiQuery(
         string $multiQuery = '',

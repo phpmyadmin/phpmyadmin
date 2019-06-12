@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
@@ -23,8 +24,17 @@ use PhpMyAdmin\Twig\TrackerExtension;
 use PhpMyAdmin\Twig\TransformationsExtension;
 use PhpMyAdmin\Twig\UrlExtension;
 use PhpMyAdmin\Twig\UtilExtension;
+use RuntimeException;
+use Throwable;
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
+use Twig_Error_Loader;
+use Twig_Error_Runtime;
+use Twig_Error_Syntax;
+use Twig_TemplateWrapper;
 
 /**
  * Class Template
@@ -51,7 +61,7 @@ class Template
      */
     public function __construct()
     {
-        /** @var \PhpMyAdmin\Config $config */
+        /** @var Config $config */
         $config = $GLOBALS['PMA_Config'];
         if (is_null($this::$twig)) {
             $loader = new FilesystemLoader(static::BASE_PATH);
@@ -88,16 +98,16 @@ class Template
      *
      * @param string $templateName Template path name
      *
-     * @return \Twig_TemplateWrapper
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @return Twig_TemplateWrapper
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
-    public function load(string $templateName): \Twig_TemplateWrapper
+    public function load(string $templateName): Twig_TemplateWrapper
     {
         try {
             $template = $this::$twig->load($templateName . '.twig');
-        } catch (\RuntimeException $e) {
+        } catch (RuntimeException $e) {
             /* Retry with disabled cache */
             $this::$twig->setCache(false);
             $template = $this::$twig->load($templateName . '.twig');
@@ -123,10 +133,10 @@ class Template
      * @param array  $data     Associative array of template variables
      *
      * @return string
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function render(string $template, array $data = []): string
     {

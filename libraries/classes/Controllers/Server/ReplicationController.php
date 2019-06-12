@@ -10,6 +10,10 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\ReplicationGui;
+use Throwable;
+use Twig_Error_Loader;
+use Twig_Error_Runtime;
+use Twig_Error_Syntax;
 
 /**
  * Server replications
@@ -22,10 +26,10 @@ class ReplicationController extends AbstractController
      * @param ReplicationGui $replicationGui ReplicationGui instance
      *
      * @return string HTML
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function index(array $params, ReplicationGui $replicationGui): string
     {

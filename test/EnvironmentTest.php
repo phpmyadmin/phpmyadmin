@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use Exception;
+use PDO;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -44,7 +46,7 @@ class EnvironmentTest extends TestCase
     public function testMySQL()
     {
         try {
-            $pdo = new \PDO(
+            $pdo = new PDO(
                 "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'] . ";port=" . $GLOBALS['TESTSUITE_PORT'],
                 $GLOBALS['TESTSUITE_USER'],
                 $GLOBALS['TESTSUITE_PASSWORD']
@@ -60,7 +62,7 @@ class EnvironmentTest extends TestCase
                 $pdo->errorCode(),
                 'Error trying to show tables for database'
             );
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->markTestSkipped("Error: " . $e->getMessage());
         }
 

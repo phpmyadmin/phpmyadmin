@@ -114,7 +114,7 @@ class UserPreferences
      *
      * @param array $config_array configuration array
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function save(array $config_array)
     {
@@ -218,7 +218,7 @@ class UserPreferences
      * @param mixed  $value         value
      * @param mixed  $default_value default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function persistOption($path, $value, $default_value)
     {

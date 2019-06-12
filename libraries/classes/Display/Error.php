@@ -11,6 +11,10 @@ namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
+use Throwable;
+use Twig_Error_Loader;
+use Twig_Error_Runtime;
+use Twig_Error_Syntax;
 
 /**
  * Displays Error
@@ -27,10 +31,10 @@ class Error
      * @param string   $errorMessage Error message
      *
      * @return string
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public static function display(
         Template $template,

@@ -19,6 +19,8 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\AlterStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 use PhpMyAdmin\Util;
@@ -1139,7 +1141,7 @@ class Table
 
                 /**
                  * The CREATE statement of this structure.
-                 * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
+                 * @var CreateStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1165,7 +1167,7 @@ class Table
 
                 /**
                  * The ALTER statement that generates the constraints.
-                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                 * @var AlterStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1203,7 +1205,7 @@ class Table
                 $GLOBALS['sql_indexes'] = '';
                 /**
                  * The ALTER statement that generates the indexes.
-                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                 * @var AlterStatement $statement
                  */
                 foreach ($parser->statements as $statement) {
                     // Changing the altered table to the destination.
@@ -1243,7 +1245,7 @@ class Table
 
                     /**
                      * The ALTER statement that alters the AUTO_INCREMENT value.
-                     * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                     * @var AlterStatement $statement
                      */
                     $statement = $parser->statements[0];
 
@@ -2679,7 +2681,7 @@ class Table
 
         $parser = new Parser($createTable);
         /**
-         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
+         * @var CreateStatement $stmt
         */
         $stmt = $parser->statements[0];
         $fields = TableUtils::getFields($stmt);

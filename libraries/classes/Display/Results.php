@@ -14,22 +14,23 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
+use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use \stdClass;
-use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json;
-use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
-use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
+use stdClass;
 
 /**
  * Handle all the functionalities related to displaying results
@@ -4105,7 +4106,7 @@ class Results
     ) {
         /**
          * The statement this table is built for.
-         * @var \PhpMyAdmin\SqlParser\Statements\SelectStatement
+         * @var SelectStatement
          */
         if (isset($analyzed_sql_results['statement'])) {
             $statement = $analyzed_sql_results['statement'];

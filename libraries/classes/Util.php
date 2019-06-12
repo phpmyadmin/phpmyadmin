@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Closure;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FileListing;
@@ -23,9 +24,10 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
-use Williamdes\MariaDBMySQLKBS\KBException;
 use phpseclib\Crypt\Random;
+use stdClass;
+use Williamdes\MariaDBMySQLKBS\KBException;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 
 /**
  * Misc functions used all over the scripts.
@@ -1961,7 +1963,7 @@ class Util
      *
      * @param resource       $handle               current query result
      * @param integer        $fields_cnt           number of fields
-     * @param \stdClass[]    $fields_meta          meta information about fields
+     * @param stdClass[]     $fields_meta          meta information about fields
      * @param array          $row                  current row
      * @param boolean        $force_unique         generate condition only on pk
      *                                             or unique
@@ -2764,8 +2766,8 @@ class Util
     /**
      * Gets cached information from the session
      *
-     * @param string   $var      variable name
-     * @param \Closure $callback callback to fetch the value
+     * @param string  $var      variable name
+     * @param Closure $callback callback to fetch the value
      *
      * @return mixed
      */

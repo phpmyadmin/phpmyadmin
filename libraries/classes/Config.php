@@ -10,15 +10,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use DirectoryIterator;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
-use PhpMyAdmin\Config;
 
 /**
  * Indication for error handler (see end of this file).
@@ -1042,7 +1043,7 @@ class Config
      * @param mixed       $new_cfg_value new value
      * @param mixed       $default_value default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function setUserValue(
         ?string $cookie_name,

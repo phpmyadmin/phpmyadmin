@@ -34,6 +34,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use stdClass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -1317,7 +1318,7 @@ class StructureController extends AbstractController
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            $displayed_fields[$rownum] = new \stdClass();
+            $displayed_fields[$rownum] = new stdClass();
             $displayed_fields[$rownum]->text = $field['Field'];
             $displayed_fields[$rownum]->icon = "";
             $row_comments[$rownum] = '';

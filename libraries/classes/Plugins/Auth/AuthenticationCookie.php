@@ -19,11 +19,11 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use phpseclib\Crypt;
-use ReCaptcha;
 use phpseclib\Crypt\Random;
+use ReCaptcha;
 
 /**
  * Remember where to redirect the user

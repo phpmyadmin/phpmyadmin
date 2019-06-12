@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\DatabaseInterface;
+
 /**
  * Class holding type definitions for MySQL and MariaDB.
  *
@@ -17,14 +19,14 @@ namespace PhpMyAdmin;
 class Types
 {
     /**
-     * @var \PhpMyAdmin\DatabaseInterface Database interface
+     * @var DatabaseInterface Database interface
      */
     private $_dbi;
 
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\DatabaseInterface $dbi Database interface instance
+     * @param DatabaseInterface $dbi Database interface instance
      */
     public function __construct($dbi)
     {

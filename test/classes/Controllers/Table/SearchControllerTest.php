@@ -27,7 +27,7 @@ use stdClass;
 class SearchControllerTest extends PmaTestCase
 {
     /**
-     * @var \PhpMyAdmin\Tests\Stubs\Response
+     * @var ResponseStub
      */
     private $_response;
 

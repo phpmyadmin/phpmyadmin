@@ -15,10 +15,13 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Utils\Misc;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -316,12 +319,12 @@ if ($export_type == 'server') {
 // Merge SQL Query aliases with Export aliases from
 // export page, Export page aliases are given more
 // preference over SQL Query aliases.
-$parser = new \PhpMyAdmin\SqlParser\Parser($sql_query);
+$parser = new Parser($sql_query);
 $aliases = [];
 if (! empty($parser->statements[0])
-    && ($parser->statements[0] instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement)
+    && ($parser->statements[0] instanceof SelectStatement)
 ) {
-    $aliases = \PhpMyAdmin\SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
+    $aliases = Misc::getAliases($parser->statements[0], $db);
 }
 if (! empty($_POST['aliases'])) {
     $aliases = $export->mergeAliases($aliases, $_POST['aliases']);

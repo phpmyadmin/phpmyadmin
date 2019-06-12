@@ -15,6 +15,8 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Assert;
 use ReflectionClass;
+use ReflectionMethod;
+use ReflectionProperty;
 
 /**
  * Tests for PhpMyAdmin\Tracker
@@ -64,7 +66,7 @@ class TrackerTest extends PmaTestCase
      */
     public function testEnabled()
     {
-        $reflection = new \ReflectionProperty(Tracker::class, 'enabled');
+        $reflection = new ReflectionProperty(Tracker::class, 'enabled');
         $reflection->setAccessible(true);
 
         Tracker::enable();
@@ -81,7 +83,7 @@ class TrackerTest extends PmaTestCase
      */
     public function testIsActive()
     {
-        $attr = new \ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
+        $attr = new ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
@@ -166,7 +168,7 @@ class TrackerTest extends PmaTestCase
      */
     public function testIsTracked()
     {
-        $attr = new \ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
+        $attr = new ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
@@ -449,7 +451,7 @@ class TrackerTest extends PmaTestCase
         $result = null;
 
         if ($type == null) {
-            $method = new \ReflectionMethod('PhpMyAdmin\Tracker', '_changeTracking');
+            $method = new ReflectionMethod('PhpMyAdmin\Tracker', '_changeTracking');
             $method->setAccessible(true);
             $result = $method->invoke(
                 null,

@@ -14,9 +14,9 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('ROOT_PATH')) {

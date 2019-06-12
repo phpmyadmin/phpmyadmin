@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
-use PhpMyAdmin\DatabaseInterface;
 
 /**
  * Tests for PhpMyAdmin\Tracking

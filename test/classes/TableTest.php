@@ -16,6 +16,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
+use stdClass;
 
 /**
  * Tests behaviour of Table class
@@ -46,7 +47,7 @@ class TableTest extends PmaTestCase
 
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
-        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist'] = new stdClass();
         $GLOBALS['dblist']->databases = new class
         {
             /**

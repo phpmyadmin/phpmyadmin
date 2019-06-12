@@ -15,6 +15,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 /**
  * PhpMyAdmin\Tests\ErrorReportTest class
@@ -233,7 +234,7 @@ class ErrorReportTest extends TestCase
      */
     private function _callPrivateFunction($name, $params)
     {
-        $class = new \ReflectionClass(ErrorReport::class);
+        $class = new ReflectionClass(ErrorReport::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->errorReport, $params);

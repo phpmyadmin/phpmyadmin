@@ -16,6 +16,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
+use Throwable;
+use Twig_Error_Loader;
+use Twig_Error_Runtime;
+use Twig_Error_Syntax;
 
 /**
  * tests for methods under PhpMyAdmin\UserPreferencesHeader class
@@ -43,10 +47,10 @@ class UserPreferencesHeaderTest extends PmaTestCase
      * Test for getContent with selected tab
      *
      * @return void
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function testGetContentWithSelectedTab(): void
     {
@@ -73,10 +77,10 @@ class UserPreferencesHeaderTest extends PmaTestCase
      * Test for getContent with "saved" get parameter
      *
      * @return void
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function testGetContentAfterSave(): void
     {
@@ -98,10 +102,10 @@ class UserPreferencesHeaderTest extends PmaTestCase
      * Test for getContent with session storage
      *
      * @return void
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function testGetContentWithSessionStorage(): void
     {

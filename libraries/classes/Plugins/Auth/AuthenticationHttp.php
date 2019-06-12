@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Response;
 
 /**
  * Handles the HTTP authentication methods

@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;
 
+use Countable;
+
 /**
  * Parents group property items and provides methods to manage groups of
  * properties.
@@ -16,7 +18,7 @@ namespace PhpMyAdmin\Properties\Options;
  * @todo    modify descriptions if needed, when the options are integrated
  * @package PhpMyAdmin
  */
-abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Countable
+abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Countable
 {
     /**
      * Holds a group of properties (PhpMyAdmin\Properties\Options\OptionsPropertyItem instances)

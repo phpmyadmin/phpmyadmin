@@ -200,7 +200,7 @@ class ImportShp extends ImportPlugin
         }
 
         if (isset($gis_type)) {
-            /** @var GisMultiLineString|\PhpMyAdmin\Gis\GisMultiPoint|\PhpMyAdmin\Gis\GisPoint|GisPolygon $gis_obj */
+            /** @var GisMultiLineString|GisMultiPoint|GisPoint|GisPolygon $gis_obj */
             $gis_obj = GisFactory::factory($gis_type);
         } else {
             $gis_obj = null;

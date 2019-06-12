@@ -11,16 +11,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Controllers\Table\StructureController;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**

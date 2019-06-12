@@ -10,8 +10,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
+use PhpMyAdmin\TwoFactor;
+use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
+use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
+use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
 use PragmaRX\Google2FAQRCode\Google2FA;
 
 /**
@@ -68,9 +71,9 @@ class Application extends TwoFactorPlugin
      * Checks authentication, returns true on success
      *
      * @return boolean
-     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
-     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
-     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
+     * @throws IncompatibleWithGoogleAuthenticatorException
+     * @throws InvalidCharactersException
+     * @throws SecretKeyTooShortException
      */
     public function check()
     {
@@ -119,9 +122,9 @@ class Application extends TwoFactorPlugin
      * Performs backend configuration
      *
      * @return boolean
-     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
-     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
-     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
+     * @throws IncompatibleWithGoogleAuthenticatorException
+     * @throws InvalidCharactersException
+     * @throws SecretKeyTooShortException
      */
     public function configure()
     {

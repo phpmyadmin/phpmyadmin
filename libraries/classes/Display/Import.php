@@ -14,6 +14,7 @@ use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Template;
 
 /**
@@ -46,7 +47,7 @@ class Import
         ) = ImportAjax::uploadProgressSetup();
 
         /* Scan for plugins */
-        /** @var \PhpMyAdmin\Plugins\ImportPlugin[] $importList */
+        /** @var ImportPlugin[] $importList */
         $importList = Plugins::getPlugins(
             "import",
             'libraries/classes/Plugins/Import/',

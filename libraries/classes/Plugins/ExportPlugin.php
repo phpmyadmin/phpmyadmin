@@ -28,7 +28,7 @@ abstract class ExportPlugin
      * PhpMyAdmin\Properties\Plugins\ExportPluginProperties object containing
      * the specific export plugin type properties
      *
-     * @var \PhpMyAdmin\Properties\Plugins\ExportPluginProperties
+     * @var ExportPluginProperties
      */
     protected $properties;
 

@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Setup;
 
-use PhpMyAdmin\VersionInformation;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\VersionInformation;
 
 /**
  * PhpMyAdmin\Setup\Index class

@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('ROOT_PATH')) {

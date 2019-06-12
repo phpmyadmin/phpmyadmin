@@ -40,7 +40,7 @@ class GisVisualizationController extends AbstractController
     protected $visualizationSettings;
 
     /**
-     * @var \PhpMyAdmin\Gis\GisVisualization
+     * @var GisVisualization
      */
     protected $visualization;
 

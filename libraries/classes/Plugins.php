@@ -10,18 +10,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
-use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Plugins class
@@ -276,10 +277,10 @@ class Plugins
     /**
      * Returns single option in a list element
      *
-     * @param string                                             $section       name of config section in $GLOBALS['cfg'][$section] for plugin
-     * @param string                                             $plugin_name   unique plugin name
-     * @param \PhpMyAdmin\Properties\Options\OptionsPropertyItem $propertyGroup options property main group instance
-     * @param boolean                                            $is_subgroup   if this group is a subgroup
+     * @param string              $section       name of config section in $GLOBALS['cfg'][$section] for plugin
+     * @param string              $plugin_name   unique plugin name
+     * @param OptionsPropertyItem $propertyGroup options property main group instance
+     * @param boolean             $is_subgroup   if this group is a subgroup
      *
      * @return string  table row with option
      */
@@ -377,7 +378,7 @@ class Plugins
             $doc = $propertyGroup->getDoc();
             if ($doc != null) {
                 if (count($doc) == 3) {
-                    $ret .= \PhpMyAdmin\Util::showMySQLDocu(
+                    $ret .= Util::showMySQLDocu(
                         $doc[1],
                         false,
                         null,
@@ -385,9 +386,9 @@ class Plugins
                         $doc[2]
                     );
                 } elseif (count($doc) == 1) {
-                    $ret .= \PhpMyAdmin\Util::showDocu('faq', $doc[0]);
+                    $ret .= Util::showDocu('faq', $doc[0]);
                 } else {
-                    $ret .= \PhpMyAdmin\Util::showMySQLDocu(
+                    $ret .= Util::showMySQLDocu(
                         $doc[1]
                     );
                 }
@@ -471,7 +472,7 @@ class Plugins
                 break;
             case RadioPropertyItem::class:
                 /**
-                 * @var \PhpMyAdmin\Properties\Options\Items\RadioPropertyItem $pitem
+                 * @var RadioPropertyItem $pitem
                  */
                 $pitem = $propertyItem;
 
@@ -495,7 +496,7 @@ class Plugins
                 break;
             case SelectPropertyItem::class:
                 /**
-                 * @var \PhpMyAdmin\Properties\Options\Items\SelectPropertyItem $pitem
+                 * @var SelectPropertyItem $pitem
                  */
                 $pitem = $propertyItem;
                 $ret .= '<li>' . "\n";
@@ -522,7 +523,7 @@ class Plugins
                 break;
             case TextPropertyItem::class:
                 /**
-                 * @var \PhpMyAdmin\Properties\Options\Items\TextPropertyItem $pitem
+                 * @var TextPropertyItem $pitem
                  */
                 $pitem = $propertyItem;
                 $ret .= '<li>' . "\n";

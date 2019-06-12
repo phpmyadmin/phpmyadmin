@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 
 /**
@@ -824,7 +825,7 @@ class Relation
             if ($show_create_table) {
                 $parser = new Parser($show_create_table);
                 /**
-                 * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
+                 * @var CreateStatement $stmt
                  */
                 $stmt = $parser->statements[0];
                 $foreign['foreign_keys_data'] = TableUtils::getForeignKeys(

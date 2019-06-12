@@ -11,10 +11,11 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Response;
+use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
@@ -44,7 +45,7 @@ class RelationControllerTest extends PmaTestCase
         $_POST['foreignDb'] = 'db';
         $_POST['foreignTable'] = 'table';
 
-        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist'] = new stdClass();
         $GLOBALS['dblist']->databases = new class
         {
             /**
