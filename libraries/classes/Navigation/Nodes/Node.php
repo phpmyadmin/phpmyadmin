@@ -480,7 +480,7 @@ class Node
                         $prefix = $arr[0];
                     }
                     $prefixMap[$prefix] = 1;
-                    if (sizeof($prefixMap) == $total) {
+                    if (count($prefixMap) == $total) {
                         break;
                     }
                 }
@@ -522,7 +522,7 @@ class Node
                     $prefix = $arr[0];
                 }
                 $prefixMap[$prefix] = 1;
-                if (sizeof($prefixMap) == $total) {
+                if (count($prefixMap) == $total) {
                     break 2;
                 }
             }

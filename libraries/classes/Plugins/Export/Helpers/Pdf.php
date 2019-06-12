@@ -820,8 +820,8 @@ class Pdf extends PdfLib
         }
 
         if ($adjustingMode) {
-            $surplus = (sizeof($colFits) * $this->sColWidth) - $totAlreadyFitted;
-            $surplusToAdd = $surplus / ($this->numFields - sizeof($colFits));
+            $surplus = (count($colFits) * $this->sColWidth) - $totAlreadyFitted;
+            $surplusToAdd = $surplus / ($this->numFields - count($colFits));
         } else {
             $surplusToAdd = 0;
         }

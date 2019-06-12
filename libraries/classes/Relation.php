@@ -1897,10 +1897,10 @@ class Relation
             $child_references = $this->getChildReferences($db, $table, $column);
         }
 
-        if (sizeof($child_references, 0) > 0
+        if (count($child_references) > 0
             || $foreigner
         ) {
-            if (sizeof($child_references, 0) > 0) {
+            if (count($child_references) > 0) {
                 $column_status['isReferenced'] = true;
                 foreach ($child_references as $columns) {
                     $column_status['references'][] = Util::backquote($columns['table_schema'])

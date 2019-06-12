@@ -653,7 +653,7 @@ class GisVisualization
 
         // loop through the rows
         foreach ($data as $row) {
-            $index = $color_number % sizeof($this->_settings['colors']);
+            $index = $color_number % count($this->_settings['colors']);
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];

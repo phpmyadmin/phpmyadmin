@@ -286,8 +286,8 @@ class ZipExtension
         $temp_ctrldir = implode('', $ctrl_dir);
         $header = $temp_ctrldir .
             $eof_ctrl_dir .
-            pack('v', sizeof($ctrl_dir)) . //total #of entries "on this disk"
-            pack('v', sizeof($ctrl_dir)) . //total #of entries overall
+            pack('v', count($ctrl_dir)) . //total #of entries "on this disk"
+            pack('v', count($ctrl_dir)) . //total #of entries overall
             pack('V', strlen($temp_ctrldir)) . //size of central dir
             pack('V', $old_offset) . //offset to start of central dir
             "\x00\x00";                         //.zip file comment length
