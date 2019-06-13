@@ -699,7 +699,6 @@ class InsertEdit
         // HTML5 data-* attribute data-type
         $data_type = $this->dbi->types->getTypeClass($column['True_Type']);
         $html_output = '';
-
         if ($foreignData['foreign_link'] == true) {
             $html_output .= $this->getForeignLink(
                 $column,
@@ -715,14 +714,9 @@ class InsertEdit
                 $titles,
                 $readOnly
             );
-            $html_output .= $this->getInsertForeignLink(
-                $column,
-                $data,
-                $paramTableDbArray,
-                $rownumber,
-                $foreigner
-            );
+
         } elseif (is_array($foreignData['disp_row'])) {
+
             $html_output .= $this->dispRowForeignData(
                 $column,
                 $backup_field,
@@ -734,6 +728,14 @@ class InsertEdit
                 $data,
                 $foreignData,
                 $readOnly
+            );
+
+            $html_output .= $this->getInsertForeignLink(
+                $column,
+                $data,
+                $paramTableDbArray,
+                $rownumber,
+                $foreigner
             );
         } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
             && mb_strstr($column['pma_type'], 'longtext')
@@ -834,7 +836,6 @@ class InsertEdit
                 $readOnly
             );
         }
-
         if (in_array($column['pma_type'], $gis_data_types)) {
             $html_output .= $this->getHtmlForGisDataTypes();
         }
@@ -940,7 +941,7 @@ class InsertEdit
         /*foreach (array_keys($foreigner) as $a){
             $html_output .= '<h1>' . $a . '</h1>';
         }*/
-        $html_output .= '<a class="ajax" href="tbl_change.php?db='.$db.'&table='.$foreigner['ref_table_name'].'" style="padding-left: 50px;" target="_blank" data-post="'
+        $html_output .= '<a class="ajax" href="tbl_change.php?db='.$db.'&table='.$foreigner['ref_table_name'].'" style="padding-left: 30px;" target="_blank" data-post="'
             . Url::getCommon(
                 [
                     'db' => $db,
