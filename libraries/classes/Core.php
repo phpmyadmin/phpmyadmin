@@ -1298,7 +1298,7 @@ class Core
      */
     public static function signSqlQuery($sqlQuery)
     {
-        return hash_hmac('sha256', $sqlQuery, $_SESSION[' PMA_token ']);
+        return hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret ']);
     }
 
     /**
@@ -1309,7 +1309,7 @@ class Core
      */
     public static function checkSqlQuerySignature($sqlQuery, $signature)
     {
-        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' PMA_token ']);
+        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret ']);
         return hash_equals($hmac, $signature);
     }
 

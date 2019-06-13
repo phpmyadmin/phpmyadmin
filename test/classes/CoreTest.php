@@ -1129,7 +1129,7 @@ class CoreTest extends PmaTestCase
      */
     function testSignSqlQuery()
     {
-        $_SESSION[' PMA_token '] = hash('sha1', 'test');
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $signature = Core::signSqlQuery($sqlQuery);
         $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
@@ -1143,7 +1143,7 @@ class CoreTest extends PmaTestCase
      */
     function testCheckSqlQuerySignature()
     {
-        $_SESSION[' PMA_token '] = hash('sha1', 'test');
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
@@ -1156,7 +1156,7 @@ class CoreTest extends PmaTestCase
      */
     function testCheckSqlQuerySignatureFails()
     {
-        $_SESSION[' PMA_token '] = hash('sha1', '132654987gguieunofz');
+        $_SESSION[' HMAC_secret '] = hash('sha1', '132654987gguieunofz');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
@@ -1169,7 +1169,7 @@ class CoreTest extends PmaTestCase
      */
     function testCheckSqlQuerySignatureFailsBadHash()
     {
-        $_SESSION[' PMA_token '] = hash('sha1', 'test');
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
@@ -1182,7 +1182,7 @@ class CoreTest extends PmaTestCase
      */
     function testCheckSqlQuerySignatureFailsNoSession()
     {
-        $_SESSION[' PMA_token '] = 'empty';
+        $_SESSION[' HMAC_secret '] = 'empty';
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
@@ -1195,11 +1195,11 @@ class CoreTest extends PmaTestCase
      */
     function testCheckSqlQuerySignatureFailsFromAnotherSession()
     {
-        $_SESSION[' PMA_token '] = hash('sha1', 'firstSession');
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
         $hmac = Core::signSqlQuery($sqlQuery);
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
-        $_SESSION[' PMA_token '] = hash('sha1', 'secondSession');
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'secondSession');
         // Try to use the token (hmac) from the previous session
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
     }
