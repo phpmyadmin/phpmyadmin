@@ -716,18 +716,6 @@ AJAX.registerOnload('sql.js', function () {
     // Filter row handling. --ENDS--
 
     // Filter cols handling. --STARTS--
-    $(document).on('keyup', '.filter_rows', filterByCol);                               // Add another event at Row_Filter to apply filterByCol
-
-    $('.table_results.ajax thead tr th[data-column]').each(function () {
-        $(this).append('<br><input type="text" placeholder="Search in ' + $(this).text() + '" />');
-
-        $('input', this).on('keyup', function () {                                      // Add a 'keyup' event for each Col_Filter input...
-            $('.table_results.ajax tbody').find('tr').show();                           // First, show all rows
-            $('.filter_rows').trigger('keyup');                                         // Then, trigger Row_Filter
-            filterByCol();                                                              // Apply filterByCol
-        });
-    });
-
     /**
      * Filter the result table using each input filter in the header cells
      */
@@ -744,6 +732,18 @@ AJAX.registerOnload('sql.js', function () {
             });
         });
     }
+
+    $(document).on('keyup', '.filter_rows', filterByCol);                               // Add another event at Row_Filter to apply filterByCol
+
+    $('.table_results.ajax thead tr th[data-column]').each(function () {
+        $(this).append('<br><input type="text" placeholder="Search in ' + $(this).text() + '" />');
+
+        $('input', this).on('keyup', function () {                                      // Add a 'keyup' event for each Col_Filter input...
+            $('.table_results.ajax tbody').find('tr').show();                           // First, show all rows
+            $('.filter_rows').trigger('keyup');                                         // Then, trigger Row_Filter
+            filterByCol();                                                              // Apply filterByCol
+        });
+    });
     // Filter cols handling. --ENDS--
 
     // Prompt to confirm on Show All
