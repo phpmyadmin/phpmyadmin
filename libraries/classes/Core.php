@@ -1298,7 +1298,9 @@ class Core
      */
     public static function signSqlQuery($sqlQuery)
     {
-        return hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret ']);
+        /** @var array $cfg */
+        global $cfg;
+        return hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
     }
 
     /**
@@ -1309,7 +1311,9 @@ class Core
      */
     public static function checkSqlQuerySignature($sqlQuery, $signature)
     {
-        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret ']);
+        /** @var array $cfg */
+        global $cfg;
+        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
         return hash_equals($hmac, $signature);
     }
 

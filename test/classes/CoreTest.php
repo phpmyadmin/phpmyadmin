@@ -1203,4 +1203,28 @@ class CoreTest extends PmaTestCase
         // Try to use the token (hmac) from the previous session
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
     }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    function testCheckSqlQuerySignatureFailsBlowfishSecretChanged()
+    {
+        $GLOBALS['cfg']['blowfish_secret'] = '';
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = Core::signSqlQuery($sqlQuery);
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        // Try to use the previous HMAC signature
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+
+        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        // Generate the HMAC signature to check that it works
+        $hmac = Core::signSqlQuery($sqlQuery);
+        // Must work now, (good secret and blowfish_secret)
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
 }
