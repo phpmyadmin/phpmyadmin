@@ -715,6 +715,36 @@ AJAX.registerOnload('sql.js', function () {
     });
     // Filter row handling. --ENDS--
 
+    // Filter cols handling. --STARTS--
+    $(document).on('keyup', '.filter_rows', function () {                               //Add another 'keyup' event to Row_Filter
+        $('.table_results.ajax thead tr th[data-column]').each((i, cell) => {           //Apply each Col_Filter
+            filterByCol(i, $(cell).find('input[type="text"]')[0].value);
+        });
+    });
+
+    $('.table_results.ajax thead tr th[data-column]').each(function () {
+        $(this).append('<br><input type="text" placeholder="Search in ' + $(this).text() + '" />');
+
+        $('input', this).on('keyup', function () {                                      //Add a 'keyup' event for each Col_Filter input...
+            $('.table_results.ajax tbody').find('tr').show();                           //First, show all rows
+            $('.filter_rows').trigger('keyup');                                         //Then, trigger Row_Filter
+
+            $('.table_results.ajax thead tr th[data-column]').each((i, cell) => {       //Finally, apply each Col_Filter
+                filterByCol(i, $(cell).find('input[type="text"]')[0].value);
+            });
+        });
+    });
+
+    function filterByCol(col_index, val) {
+        for (let t_row of $('.table_results.ajax tbody').find('tr:visible')) {          //For each visible row
+            let row = $(t_row);
+            let cell = row.find('td.data:eq(' + col_index + ')')[0];
+
+            row.toggle(cell.innerText.toLowerCase().indexOf(val.toLowerCase()) > -1);   //Toggle the row that contains the cell
+        }
+    }
+    // Filter cols handling. --ENDS--
+
     // Prompt to confirm on Show All
     $('body').on('click', '.navigation .showAllRows', function (e) {
         e.preventDefault();
