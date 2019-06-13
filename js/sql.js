@@ -716,31 +716,31 @@ AJAX.registerOnload('sql.js', function () {
     // Filter row handling. --ENDS--
 
     // Filter cols handling. --STARTS--
-    $(document).on('keyup', '.filter_rows', filterByCol);                               //Add another event at Row_Filter to apply filterByCol
+    $(document).on('keyup', '.filter_rows', filterByCol);                               // Add another event at Row_Filter to apply filterByCol
 
     $('.table_results.ajax thead tr th[data-column]').each(function () {
         $(this).append('<br><input type="text" placeholder="Search in ' + $(this).text() + '" />');
 
-        $('input', this).on('keyup', function () {                                      //Add a 'keyup' event for each Col_Filter input...
-            $('.table_results.ajax tbody').find('tr').show();                           //First, show all rows
-            $('.filter_rows').trigger('keyup');                                         //Then, trigger Row_Filter
-            filterByCol();                                                              //Apply filterByCol
+        $('input', this).on('keyup', function () {                                      // Add a 'keyup' event for each Col_Filter input...
+            $('.table_results.ajax tbody').find('tr').show();                           // First, show all rows
+            $('.filter_rows').trigger('keyup');                                         // Then, trigger Row_Filter
+            filterByCol();                                                              // Apply filterByCol
         });
     });
 
     /**
      * Filter the result table using each input filter in the header cells
      */
-    function filterByCol() {
-        $('.table_results.ajax thead tr th[data-column]').each(function (i, in_cell) {  //For each input header cell
-            var val = $(in_cell).find('input[type="text"]')[0].value.toLowerCase();     //Get the value in lowercase
-            var table_rows = $('.table_results.ajax tbody').find('tr:visible');         //Get all rows
+    function filterByCol () {
+        $('.table_results.ajax thead tr th[data-column]').each(function (i, inCell) {   // For each input header cell
+            var val = $(inCell).find('input[type="text"]')[0].value.toLowerCase();      // Get the value in lowercase
+            var tableRows = $('.table_results.ajax tbody').find('tr:visible');          // Get all rows
 
-            $.each(table_rows, function (t_i, t_row) {                                  //For each row
-                var row = $(t_row);
-                var cell = row.find('td.data:eq(' + i + ')')[0];                        //Get the right cell
+            $.each(tableRows, function (tIndex, tRow) {                                 // For each row
+                var row = $(tRow);
+                var cell = row.find('td.data:eq(' + i + ')')[0];                        // Get the right cell
 
-                row.toggle(cell.innerText.toLowerCase().indexOf(val) > -1);             //Toggle the row that contains that value
+                row.toggle(cell.innerText.toLowerCase().indexOf(val) > -1);             // Toggle the row that contains that value
             });
         });
     }
