@@ -1187,4 +1187,20 @@ class CoreTest extends PmaTestCase
         $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
         $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
     }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    function testCheckSqlQuerySignatureFailsFromAnotherSession()
+    {
+        $_SESSION[' PMA_token '] = hash('sha1', 'firstSession');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = Core::signSqlQuery($sqlQuery);
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+        $_SESSION[' PMA_token '] = hash('sha1', 'secondSession');
+        // Try to use the token (hmac) from the previous session
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
 }
