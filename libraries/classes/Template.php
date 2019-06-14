@@ -64,7 +64,7 @@ class Template
         /** @var Config $config */
         $config = $GLOBALS['PMA_Config'];
         if ($this::$twig === null) {
-            $loader = new FilesystemLoader(static::BASE_PATH);
+            $loader = new FilesystemLoader(self::BASE_PATH);
             $cache_dir = $config->getTempDir('twig');
             /* Twig expects false when cache is not configured */
             if ($cache_dir === null) {
