@@ -672,19 +672,6 @@ class LanguageManager
     private static $instance;
 
     /**
-     * @var Template
-     */
-    public $template;
-
-    /**
-     * LanguageManager constructor.
-     */
-    public function __construct()
-    {
-        $this->template = new Template();
-    }
-
-    /**
      * Returns LanguageManager singleton
      *
      * @return LanguageManager
@@ -945,14 +932,15 @@ class LanguageManager
     /**
      * Returns HTML code for the language selector
      *
-     * @param boolean $use_fieldset whether to use fieldset for selection
-     * @param boolean $show_doc     whether to show documentation links
+     * @param Template $template     Template instance
+     * @param boolean  $use_fieldset whether to use fieldset for selection
+     * @param boolean  $show_doc     whether to show documentation links
      *
      * @return string
      *
      * @access  public
      */
-    public function getSelectorDisplay($use_fieldset = false, $show_doc = true)
+    public function getSelectorDisplay(Template $template, $use_fieldset = false, $show_doc = true)
     {
         $_form_params = [
             'db' => $GLOBALS['db'],
@@ -970,7 +958,7 @@ class LanguageManager
 
         $available_languages = $this->sortedLanguages();
 
-        return $this->template->render('select_lang', [
+        return $template->render('select_lang', [
             'language_title' => $language_title,
             'use_fieldset' => $use_fieldset,
             'available_languages' => $available_languages,

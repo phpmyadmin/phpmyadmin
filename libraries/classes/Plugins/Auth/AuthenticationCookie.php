@@ -175,7 +175,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice()) {
             echo "<div class='hide js-show'>";
             // use fieldset, don't show doc link
-            echo $language_manager->getSelectorDisplay(true, false);
+            echo $language_manager->getSelectorDisplay(new Template(), true, false);
             echo '</div>';
         }
         echo '

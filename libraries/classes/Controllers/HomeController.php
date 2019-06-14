@@ -143,7 +143,7 @@ class HomeController extends AbstractController
 
         $languageSelector = '';
         if (empty($cfg['Lang']) && $languageManager->hasChoice()) {
-            $languageSelector = $languageManager->getSelectorDisplay();
+            $languageSelector = $languageManager->getSelectorDisplay($this->template);
         }
 
         $themeSelection = '';
