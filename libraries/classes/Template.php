@@ -26,6 +26,7 @@ use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
@@ -56,6 +57,8 @@ class Template
      */
     public function __construct()
     {
+        global $cfg;
+
         /** @var Config $config */
         $config = $GLOBALS['PMA_Config'];
         if (static::$twig === null) {
@@ -68,8 +71,11 @@ class Template
             $twig = new Environment($loader, [
                 'auto_reload' => true,
                 'cache' => $cache_dir,
-                'debug' => false,
             ]);
+            if ($cfg['environment'] === 'development') {
+                $twig->enableDebug();
+                $twig->addExtension(new DebugExtension());
+            }
             $twig->addExtension(new CoreExtension());
             $twig->addExtension(new I18nExtension());
             $twig->addExtension(new MessageExtension());
