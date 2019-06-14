@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\InsertEdit;
@@ -26,25 +27,34 @@ $container->set(Response::class, Response::getInstance());
 
 $response = $container->get(Response::class);
 
+$response->disable();
+
 $dbi = $container->get(DatabaseInterface::class);
 
 $insertEdit = new InsertEdit($dbi);
 
 $relation = new Relation($GLOBALS['dbi']);
 
-$foreignData = $relation->getForeigners(
+$foreigners = $relation->getForeigners(
     $_POST['db'],
     $_POST['table']
-)['foreign_keys_data'];
+);
 
-echo "Hola";
-//$response->addHTML('<br/>');
-//echo $foreignData[0]['ref_table_name'];
-/*
-$response->addHTML($relation->foreignDropdown(
+$foreignData = $relation->getForeignData(
+    $foreigners,
+   'id',
+    false,
+    '',
+    ''
+);
+
+echo $relation->foreignDropdown(
     $foreignData['disp_row'],
     $foreignData['foreign_field'],
     $foreignData['foreign_display'],
     "foreing",
     $GLOBALS['cfg']['ForeignKeyMaxLimit']
-));*/
+);
+//echo $foreignData[0]['ref_table_name'];
+
+/*$response->addHTML();*/

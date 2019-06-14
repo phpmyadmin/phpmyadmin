@@ -715,6 +715,14 @@ class InsertEdit
                 $readOnly
             );
 
+            $html_output .= $this->getInsertForeignLink(
+                $column,
+                $data,
+                $paramTableDbArray,
+                $rownumber,
+                $foreigner
+            );
+
         } elseif (is_array($foreignData['disp_row'])) {
 
             $html_output .= $this->dispRowForeignData(
@@ -954,7 +962,8 @@ class InsertEdit
             ) . '">Insert foreign key table</a>';
 
         $html_output .= '<a id="'.$column['Field'].'_foreign" onclick="refreshForeign(this.id)"
-            data-post="refresh_foreing.php" data-db="'.$db.'" data-table="'.$table.'" style="margin-left: 30px;">Refresh</a>';
+            data-post="refresh_foreing.php" data-db="'.$db.'" data-table="'.$table.'" data-field="'.$column['Field'].'" style="margin-left: 30px;">Refresh</a>';
+
         return $html_output;
     }
 
