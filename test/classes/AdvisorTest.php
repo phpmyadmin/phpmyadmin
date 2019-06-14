@@ -305,7 +305,7 @@ class AdvisorTest extends PmaTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
-                    'id' => 'Distribution'
+                    'id' => 'Distribution',
                 ],
                 null,
             ],
@@ -322,7 +322,7 @@ class AdvisorTest extends PmaTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
-                    'id' => 'Distribution'
+                    'id' => 'Distribution',
                 ],
                 null,
             ],
@@ -339,7 +339,7 @@ class AdvisorTest extends PmaTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
-                    'id' => 'Distribution'
+                    'id' => 'Distribution',
                 ],
                 null,
             ],
@@ -356,7 +356,7 @@ class AdvisorTest extends PmaTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
-                    'id' => 'Distribution'
+                    'id' => 'Distribution',
                 ],
                 null,
             ],

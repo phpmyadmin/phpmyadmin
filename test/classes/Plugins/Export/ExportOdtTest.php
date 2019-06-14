@@ -716,7 +716,7 @@ class ExportOdtTest extends PmaTestCase
                     'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
@@ -822,7 +822,7 @@ class ExportOdtTest extends PmaTestCase
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
@@ -902,7 +902,7 @@ class ExportOdtTest extends PmaTestCase
                 'name' => 'tna"me',
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
-                'definition' => 'def'
+                'definition' => 'def',
             ],
         ];
 
@@ -1096,7 +1096,7 @@ class ExportOdtTest extends PmaTestCase
             'Null' => 'Yes',
             'Field' => 'field',
             'Key' => 'PRI',
-            'Type' => 'set(abc)enum123'
+            'Type' => 'set(abc)enum123',
         ];
 
         $col_alias = 'alias';

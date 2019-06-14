@@ -133,7 +133,7 @@ if (isset($_POST['submit_export'])
                 'form_errors' => $form_display->displayErrors(),
                 'json' => $json,
                 'import_merge' => isset($_POST['import_merge']) ? $_POST['import_merge'] : null,
-                'return_url' => $return_url
+                'return_url' => $return_url,
             ]);
             exit;
         }

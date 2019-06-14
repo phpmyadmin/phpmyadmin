@@ -99,7 +99,7 @@ class ErrorReportTest extends TestCase
                     'type' => $_SESSION['prev_errors'][0]->getType(),
                     'msg' => $_SESSION['prev_errors'][0]->getOnlyMessage(),
                     'stackTrace' => $_SESSION['prev_errors'][0]->getBacktrace(5),
-                    'stackhash' => $_SESSION['prev_errors'][0]->getHash()
+                    'stackhash' => $_SESSION['prev_errors'][0]->getHash(),
                 ],
                 1 => [
                     'lineNum' => $_SESSION['prev_errors'][1]->getLine(),
@@ -107,7 +107,7 @@ class ErrorReportTest extends TestCase
                     'type' => $_SESSION['prev_errors'][1]->getType(),
                     'msg' => $_SESSION['prev_errors'][1]->getOnlyMessage(),
                     'stackTrace' => $_SESSION['prev_errors'][1]->getBacktrace(5),
-                    'stackhash' => $_SESSION['prev_errors'][1]->getHash()
+                    'stackhash' => $_SESSION['prev_errors'][1]->getHash(),
                 ],
             ],
         ];
@@ -182,7 +182,7 @@ class ErrorReportTest extends TestCase
                     'context' => $context,
                 ],
             ],
-            'url' => 'http://pma.7.3.local/tbl_sql.php?db=aaaaa&table=a&server=14'
+            'url' => 'http://pma.7.3.local/tbl_sql.php?db=aaaaa&table=a&server=14',
         ];
         $_POST['microhistory'] = '';
         $_POST['description'] = 'description';
@@ -213,7 +213,7 @@ class ErrorReportTest extends TestCase
                         'scriptname' => 'js/vendor/codemirror/addon/hint/show-hint.js',
                     ],
                 ],
-                'uri' => 'tbl_sql.php?'
+                'uri' => 'tbl_sql.php?',
             ],
             'microhistory' => $_POST['microhistory'],
             'steps' => $_POST['description'],

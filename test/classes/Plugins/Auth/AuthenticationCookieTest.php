@@ -679,7 +679,7 @@ class AuthenticationCookieTest extends PmaTestCase
             'port' => 1,
             'socket' => true,
             'ssl' => true,
-            'user' => 'pmaUser2'
+            'user' => 'pmaUser2',
         ];
 
         $GLOBALS['cfg']['Server'] = $arr;
@@ -728,7 +728,7 @@ class AuthenticationCookieTest extends PmaTestCase
             'port' => 1,
             'socket' => true,
             'ssl' => true,
-            'user' => 'pmaUser2'
+            'user' => 'pmaUser2',
         ];
 
         $GLOBALS['cfg']['Server'] = $arr;
@@ -1109,7 +1109,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $payload = [
             'password' => $newPassword,
-            'server' => 'b 2'
+            'server' => 'b 2',
         ];
         $method = new ReflectionMethod(
             'PhpMyAdmin\Plugins\Auth\AuthenticationCookie',

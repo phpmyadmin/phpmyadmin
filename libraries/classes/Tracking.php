@@ -209,7 +209,7 @@ class Tracking
             'type' => $type,
             'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'pmaThemeImage' => $pmaThemeImage,
-            'text_dir' => $textDir
+            'text_dir' => $textDir,
         ]);
     }
 

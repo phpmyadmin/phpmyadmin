@@ -1261,25 +1261,25 @@ class Operations
             'ARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE'
+                'PAGE'      => 'PAGE',
             ],
             'MARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE'
+                'PAGE'      => 'PAGE',
             ],
             'MYISAM' => [
                 'FIXED'    => 'FIXED',
-                'DYNAMIC'  => 'DYNAMIC'
+                'DYNAMIC'  => 'DYNAMIC',
             ],
             'PBXT'   => [
                 'FIXED'    => 'FIXED',
-                'DYNAMIC'  => 'DYNAMIC'
+                'DYNAMIC'  => 'DYNAMIC',
             ],
             'INNODB' => [
                 'COMPACT'  => 'COMPACT',
                 'REDUNDANT' => 'REDUNDANT',
-            ]
+            ],
         ];
 
         /** @var Innodb $innodbEnginePlugin */

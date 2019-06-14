@@ -28,7 +28,7 @@ $dependency_definitions = [
     'table' => $container->get('table'),
     'sql_query' => &$GLOBALS['sql_query'],
     'url_query' => &$GLOBALS['url_query'],
-    'cfg' => &$GLOBALS['cfg']
+    'cfg' => &$GLOBALS['cfg'],
 ];
 
 /** @var Definition $definition */

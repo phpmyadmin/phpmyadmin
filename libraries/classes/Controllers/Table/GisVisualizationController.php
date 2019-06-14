@@ -206,7 +206,7 @@ class GisVisualizationController extends AbstractController
                 [
                     'saveToFile' => true,
                     'session_max_rows' => $rows,
-                    'pos' => $pos
+                    'pos' => $pos,
                 ]
             )
         );

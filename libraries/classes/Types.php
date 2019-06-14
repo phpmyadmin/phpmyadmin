@@ -862,7 +862,7 @@ class Types
                     '-9223372036854775808',
                     '9223372036854775807',
                 ],
-            ]
+            ],
         ];
         $relevantArray = $signed
             ? $min_max_data['signed']

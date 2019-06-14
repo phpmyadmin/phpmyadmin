@@ -89,7 +89,7 @@ class UserPreferences
             return [
                 'config_data' => $_SESSION['userconfig']['db'],
                 'mtime' => $_SESSION['userconfig']['ts'],
-                'type' => 'session'
+                'type' => 'session',
             ];
         }
         // load configuration from pmadb
@@ -105,7 +105,7 @@ class UserPreferences
         return [
             'config_data' => $row ? json_decode($row['config_data'], true) : [],
             'mtime' => $row ? $row['ts'] : time(),
-            'type' => 'db'
+            'type' => 'db',
         ];
     }
 

@@ -1431,7 +1431,7 @@ class Util
             5 => 'P',
             6 => 'E',
             7 => 'Z',
-            8 => 'Y'
+            8 => 'Y',
         ];
         /* l10n: Decimal separator */
         $decimal_sep = __('.');
@@ -2721,7 +2721,7 @@ class Util
             'toggle_on' => $options[1]['label'],
             'toggle_off' => $options[0]['label'],
             'callback' => $callback,
-            'state' => $state
+            'state' => $state,
         ]);
     }
 
@@ -2987,7 +2987,7 @@ class Util
             'zerofill' => $zerofill,
             'attribute' => $attribute,
             'can_contain_collation' => $can_contain_collation,
-            'displayed_type' => $displayed_type
+            'displayed_type' => $displayed_type,
         ];
     }
 
@@ -3628,27 +3628,27 @@ class Util
         // Unary functions common to all geometry types
         $funcs['Dimension']    = [
             'params' => 1,
-            'type' => 'int'
+            'type' => 'int',
         ];
         $funcs['Envelope']     = [
             'params' => 1,
-            'type' => 'Polygon'
+            'type' => 'Polygon',
         ];
         $funcs['GeometryType'] = [
             'params' => 1,
-            'type' => 'text'
+            'type' => 'text',
         ];
         $funcs['SRID']         = [
             'params' => 1,
-            'type' => 'int'
+            'type' => 'int',
         ];
         $funcs['IsEmpty']      = [
             'params' => 1,
-            'type' => 'int'
+            'type' => 'int',
         ];
         $funcs['IsSimple']     = [
             'params' => 1,
-            'type' => 'int'
+            'type' => 'int',
         ];
 
         $geom_type = trim(mb_strtolower((string) $geom_type));
@@ -3660,70 +3660,70 @@ class Util
         if ($geom_type == 'point') {
             $funcs['X'] = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['Y'] = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
         } elseif ($geom_type == 'linestring') {
             $funcs['EndPoint']   = [
                 'params' => 1,
-                'type' => 'point'
+                'type' => 'point',
             ];
             $funcs['GLength']    = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['NumPoints']  = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['StartPoint'] = [
                 'params' => 1,
-                'type' => 'point'
+                'type' => 'point',
             ];
             $funcs['IsRing']     = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
         } elseif ($geom_type == 'multilinestring') {
             $funcs['GLength']  = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['IsClosed'] = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
         } elseif ($geom_type == 'polygon') {
             $funcs['Area']         = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['ExteriorRing'] = [
                 'params' => 1,
-                'type' => 'linestring'
+                'type' => 'linestring',
             ];
             $funcs['NumInteriorRings'] = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
         } elseif ($geom_type == 'multipolygon') {
             $funcs['Area']     = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['Centroid'] = [
                 'params' => 1,
-                'type' => 'point'
+                'type' => 'point',
             ];
             // Not yet implemented in MySQL
             //$funcs['PointOnSurface'] = array('params' => 1, 'type' => 'point');
         } elseif ($geom_type == 'geometrycollection') {
             $funcs['NumGeometries'] = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
         }
 
@@ -3737,70 +3737,70 @@ class Util
             if ($GLOBALS['dbi']->getVersion() < 50601) {
                 $funcs['Crosses']    = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Contains']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Disjoint']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Equals']     = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Intersects'] = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Overlaps']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Touches']    = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Within']     = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
             } else {
                 // If MySQl version is greater than or equal 5.6.1,
                 // use the ST_ prefix.
                 $funcs['ST_Crosses']    = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Contains']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Disjoint']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Equals']     = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Intersects'] = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Overlaps']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Touches']    = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Within']     = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
             }
 
@@ -3810,31 +3810,31 @@ class Util
             // Minimum bounding rectangle functions
             $funcs['MBRContains']   = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBRDisjoint']   = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBREquals']     = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBRIntersects'] = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBROverlaps']   = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBRTouches']    = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBRWithin']     = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
         }
         return $funcs;

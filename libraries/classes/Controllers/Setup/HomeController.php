@@ -194,7 +194,7 @@ class HomeController extends AbstractController
         $eolOptions = [
             'values' => [
                 'unix' => 'UNIX / Linux (\n)',
-                'win' => 'Windows (\r\n)'
+                'win' => 'Windows (\r\n)',
             ],
             'values_escaped' => true,
         ];

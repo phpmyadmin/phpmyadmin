@@ -300,7 +300,7 @@ class Results
                 ],
                 'views' => [
                     'view_definition' => $sql_highlighting_data,
-                ]
+                ],
             ],
             'mysql' => [
                 'event' => [
@@ -315,18 +315,18 @@ class Results
                 ],
                 'help_topic' => [
                     'example' => $sql_highlighting_data,
-                    'url' => $link_data
+                    'url' => $link_data,
                 ],
                 'proc' => [
                     'param_list' => $blob_sql_highlighting_data,
                     'returns' => $blob_sql_highlighting_data,
                     'body' => $blob_sql_highlighting_data,
-                    'body_utf8' => $blob_sql_highlighting_data
+                    'body_utf8' => $blob_sql_highlighting_data,
                 ],
                 'slow_log' => [
                     'sql_text' => $sql_highlighting_data,
-                ]
-            ]
+                ],
+            ],
         ];
 
         $cfgRelation = $this->relation->getRelationsParam();
@@ -346,7 +346,7 @@ class Results
             if (! empty($cfgRelation['tracking'])) {
                 $relDb[$cfgRelation['tracking']] = [
                     'schema_sql' => $sql_highlighting_data,
-                    'data_sql' => $sql_highlighting_data
+                    'data_sql' => $sql_highlighting_data,
                 ];
             }
             if (! empty($cfgRelation['favorite'])) {

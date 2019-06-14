@@ -82,7 +82,7 @@ class CoreTest extends PmaTestCase
                         'b',
                         'c',
                     ], 4,
-                ]
+                ],
             ],
         ];
 
@@ -185,7 +185,7 @@ class CoreTest extends PmaTestCase
                         'b',
                         'c',
                     ], 4,
-                ]
+                ],
             ],
         ];
 
@@ -254,7 +254,7 @@ class CoreTest extends PmaTestCase
                         'b',
                         'c',
                     ], 4,
-                ]
+                ],
             ],
         ];
 

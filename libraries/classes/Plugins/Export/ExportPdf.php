@@ -142,7 +142,7 @@ class ExportPdf extends ExportPlugin
 
         $attr = [
             'titleFontSize' => 18,
-            'titleText' => $pdf_report_title
+            'titleText' => $pdf_report_title,
         ];
         $pdf->setAttributes($attr);
         $pdf->setTopMargin(30);

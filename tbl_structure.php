@@ -55,7 +55,7 @@ $dependency_definitions = [
     'tbl_storage_engine' => $tbl_storage_engine,
     'table_info_num_rows' => $table_info_num_rows,
     'tbl_collation' => $tbl_collation,
-    'showtable' => $GLOBALS['showtable']
+    'showtable' => $GLOBALS['showtable'],
 ];
 
 /** @var Definition $definition */

@@ -32,7 +32,7 @@ $dependency_definitions = [
     'db' => $container->get('db'),
     'table' => $container->get('table'),
     'searchType' => 'zoom',
-    'url_query' => &$url_query
+    'url_query' => &$url_query,
 ];
 
 /** @var Definition $definition */

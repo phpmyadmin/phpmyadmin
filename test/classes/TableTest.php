@@ -144,7 +144,7 @@ class TableTest extends PmaTestCase
                 [
                     [
                         'COLUMN_NAME' => 'COLUMN_NAME',
-                        'DATA_TYPE' => 'DATA_TYPE'
+                        'DATA_TYPE' => 'DATA_TYPE',
                     ],
                 ],
             ],
@@ -206,7 +206,7 @@ class TableTest extends PmaTestCase
                         'Null' => 'NO',
                         'Key' => '',
                         'Default' => null,
-                        'Extra' => ''
+                        'Extra' => '',
                     ],
                     [
                         'Field' => 'COLUMN_NAME2',
@@ -214,7 +214,7 @@ class TableTest extends PmaTestCase
                         'Null' => 'YES',
                         'Key' => '',
                         'Default' => null,
-                        'Extra' => 'STORED GENERATED'
+                        'Extra' => 'STORED GENERATED',
                     ],
                 ],
             ],

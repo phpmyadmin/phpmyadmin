@@ -113,7 +113,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => '',
                     'item_isdeterministic'      => '',
                     'item_securitytype'         => '',
-                    'item_sqldataaccess'        => ''
+                    'item_sqldataaccess'        => '',
                 ],
                 [
                     'item_name'                 => '',
@@ -181,7 +181,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => '',
                     'item_isdeterministic'      => 'ON',
                     'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL'
+                    'item_sqldataaccess'        => 'NO SQL',
                 ],
                 [
                     'item_name'                 => 'proc2',
@@ -267,7 +267,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => 'VARCHAR',
                     'item_isdeterministic'      => '',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => ''
+                    'item_sqldataaccess'        => '',
                 ],
                 [
                     'item_name'                 => 'func2',
@@ -1264,7 +1264,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => '',
                     'item_isdeterministic'      => '',
                     'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL'
+                    'item_sqldataaccess'        => 'NO SQL',
                 ],
                 'CREATE DEFINER=`me`@`home` PROCEDURE `p r o c`() COMMENT \'foo\' '
                 . 'DETERMINISTIC NO SQL SQL SECURITY INVOKER SELECT 0;',
@@ -1307,7 +1307,7 @@ class RoutinesTest extends TestCase
                     ],
                     'item_returntype'           => '',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'foobar'
+                    'item_sqldataaccess'        => 'foobar',
                 ],
                 'CREATE DEFINER=`someuser`@`somehost` PROCEDURE `pr````oc`'
                 . '(IN `pa``ram` INT(10) ZEROFILL, INOUT `par 2` ENUM(\'a\', \'b\')'
@@ -1335,7 +1335,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => 'DECIMAL',
                     'item_isdeterministic'      => 'ON',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'READ SQL DATA'
+                    'item_sqldataaccess'        => 'READ SQL DATA',
                 ],
                 'CREATE FUNCTION `func\\`(`pa``ram` VARCHAR(45) CHARSET latin1) '
                 . 'RETURNS DECIMAL(5,5) UNSIGNED ZEROFILL COMMENT \'foo\\\'s bar\' '
@@ -1355,7 +1355,7 @@ class RoutinesTest extends TestCase
                     'item_num_params'           => '1',
                     'item_returntype'           => 'VARCHAR',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'READ SQL DATA'
+                    'item_sqldataaccess'        => 'READ SQL DATA',
                 ],
                 'CREATE FUNCTION `func`() RETURNS VARCHAR(20) CHARSET utf8 NOT '
                 . 'DETERMINISTIC SQL SECURITY DEFINER SELECT 0;',
@@ -1387,7 +1387,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => '',
                     'item_isdeterministic'      => '',
                     'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL'
+                    'item_sqldataaccess'        => 'NO SQL',
                 ],
                 'CREATE PROCEDURE `proc`() COMMENT \'foo\' DETERMINISTIC '
                 . 'NO SQL SQL SECURITY INVOKER SELECT 0;', // valid query
@@ -1430,7 +1430,7 @@ class RoutinesTest extends TestCase
                     ],
                     'item_returntype'           => '',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'foobar' // invalid, will just be ignored without throwing errors
+                    'item_sqldataaccess'        => 'foobar', // invalid, will just be ignored without throwing errors
                 ],
                 'CREATE PROCEDURE `proc`((10) ZEROFILL, '
                 . 'INOUT `goo` ENUM CHARSET latin1) NOT DETERMINISTIC '
@@ -1456,7 +1456,7 @@ class RoutinesTest extends TestCase
                     'item_param_opts_text'      => ['latin1'],
                     'item_returntype'           => 'VARCHAR',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => ''
+                    'item_sqldataaccess'        => '',
                 ],
                 'CREATE FUNCTION `func`() RETURNS VARCHAR CHARSET utf8 NOT '
                 . 'DETERMINISTIC SQL SECURITY DEFINER SELECT 0;', // invalid query
@@ -1475,7 +1475,7 @@ class RoutinesTest extends TestCase
                     'item_num_params'           => '0',
                     'item_returntype'           => 'FAIL', // invalid return type
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => ''
+                    'item_sqldataaccess'        => '',
                 ],
                 'CREATE FUNCTION `func`()  NOT DETERMINISTIC SQL '
                 . 'SECURITY DEFINER SELECT 0;', // invalid query

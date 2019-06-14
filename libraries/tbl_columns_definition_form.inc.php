@@ -228,7 +228,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                     'index' => 'MUL',
                     'unique' => 'UNI',
                     'fulltext' => 'FULLTEXT',
-                    'spatial' => 'SPATIAL'
+                    'spatial' => 'SPATIAL',
                 ],
                 $parts[0],
                 ''
@@ -474,7 +474,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         'move_columns' => $move_columns,
         'cfg_relation' => $cfgRelation,
         'available_mime' => $available_mime,
-        'mime_map' => isset($mime_map) ? $mime_map : []
+        'mime_map' => isset($mime_map) ? $mime_map : [],
     ];
 } // end for
 

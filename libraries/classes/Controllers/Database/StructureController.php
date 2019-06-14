@@ -641,7 +641,7 @@ class StructureController extends AbstractController
                 'hidden_fields' => $hidden_fields,
                 'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
                 'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
-            ]
+            ],
         ]);
 
         return $html;
@@ -809,7 +809,7 @@ class StructureController extends AbstractController
 
         $json = [
             'favoriteTables' => json_encode($favoriteTables),
-            'list' => $favoriteInstance->getHtmlList()
+            'list' => $favoriteInstance->getHtmlList(),
         ];
         $serverId = $GLOBALS['server'];
         // Set flag when localStorage and pmadb(if present) are in sync.

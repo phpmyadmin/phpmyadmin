@@ -201,7 +201,7 @@ abstract class GisGeometry
 
         return [
             'srid' => $srid,
-            'wkt' => $wkt
+            'wkt' => $wkt,
         ];
     }
 

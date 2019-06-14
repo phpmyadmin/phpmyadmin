@@ -77,7 +77,7 @@ if (isset($_POST['console_bookmark_add'])) {
             'bkm_database' => $_POST['db'],
             'bkm_user'  => $cfgBookmark['user'],
             'bkm_sql_query' => $_POST['bookmark_query'],
-            'bkm_label' => $_POST['label']
+            'bkm_label' => $_POST['label'],
         ];
         $isShared = ($_POST['shared'] == 'true' ? true : false);
         $bookmark = Bookmark::createBookmark(

@@ -42,7 +42,7 @@ class ExportForm extends BaseForm
                 ':group:end',
                 'Export/file_template_table',
                 'Export/file_template_database',
-                'Export/file_template_server'
+                'Export/file_template_server',
             ],
             'Sql' => [
                 'Export/sql_include_comments' => ':group',
@@ -79,10 +79,10 @@ class ExportForm extends BaseForm
                 'Export/sql_insert_syntax',
                 'Export/sql_max_query_size',
                 'Export/sql_hex_for_binary',
-                'Export/sql_utc_time'
+                'Export/sql_utc_time',
             ],
             'CodeGen' => [
-                'Export/codegen_format'
+                'Export/codegen_format',
             ],
             'Csv' => [
                 ':group:' . __('CSV'),

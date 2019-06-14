@@ -133,7 +133,7 @@ class StructureControllerTest extends PmaTestCase
             'TABLE_ROWS' => 5,
             'Data_length' => 16384,
             'Index_length' => 0,
-            'TABLE_NAME' => 'table'
+            'TABLE_NAME' => 'table',
         ];
         list($currentTable,,, $sumSize) = $method->invokeArgs(
             $controller,
@@ -359,7 +359,7 @@ class StructureControllerTest extends PmaTestCase
 
         // Correct parameter
         $tables = [
-            'db.table'
+            'db.table',
         ];
         $this->assertEquals(
             true,
@@ -368,7 +368,7 @@ class StructureControllerTest extends PmaTestCase
 
         // Table not in database
         $tables = [
-            'db.tab1e'
+            'db.tab1e',
         ];
         $this->assertEquals(
             false,

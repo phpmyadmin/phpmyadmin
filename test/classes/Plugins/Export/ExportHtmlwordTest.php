@@ -493,7 +493,7 @@ class ExportHtmlwordTest extends PmaTestCase
                     'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
@@ -589,7 +589,7 @@ class ExportHtmlwordTest extends PmaTestCase
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
@@ -747,7 +747,7 @@ class ExportHtmlwordTest extends PmaTestCase
                 'name' => 'tna"me',
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
-                'definition' => 'def'
+                'definition' => 'def',
             ],
         ];
 
@@ -904,11 +904,11 @@ class ExportHtmlwordTest extends PmaTestCase
             'Null' => 'Yes',
             'Field' => 'field',
             'Key' => 'PRI',
-            'Type' => 'set(abc)enum123'
+            'Type' => 'set(abc)enum123',
         ];
 
         $unique_keys = [
-            'field'
+            'field',
         ];
 
         $this->assertEquals(
@@ -927,7 +927,7 @@ class ExportHtmlwordTest extends PmaTestCase
         ];
 
         $unique_keys = [
-            'field'
+            'field',
         ];
 
         $this->assertEquals(

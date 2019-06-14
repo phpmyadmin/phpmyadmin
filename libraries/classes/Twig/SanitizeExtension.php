@@ -58,7 +58,7 @@ class SanitizeExtension extends AbstractExtension
                 'get_js_value',
                 'PhpMyAdmin\Sanitize::getJsValue',
                 ['is_safe' => ['html']]
-            )
+            ),
         ];
     }
 }

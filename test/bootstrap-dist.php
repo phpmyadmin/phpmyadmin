@@ -54,7 +54,7 @@ $test_defaults = [
     'TESTSUITE_BROWSERSTACK_USER' => '',
     'TESTSUITE_BROWSERSTACK_KEY' => '',
     'TESTSUITE_FULL' => '',
-    'CI_MODE' => ''
+    'CI_MODE' => '',
 ];
 if (PHP_SAPI == 'cli') {
     foreach ($test_defaults as $varname => $defvalue) {

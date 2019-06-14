@@ -1284,7 +1284,7 @@ class Qbe
 
         return [
             'unique' => $unique_columns,
-            'index' => $index_columns
+            'index' => $index_columns,
         ];
     }
 

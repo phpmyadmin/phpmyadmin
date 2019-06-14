@@ -58,7 +58,7 @@ class VariablesControllerTest extends TestCase
 
         $serverGlobalVariables = [
             'auto_increment_increment' => '0',
-            'auto_increment_offset' => '12'
+            'auto_increment_offset' => '12',
         ];
 
         $fetchResult = [

@@ -184,7 +184,7 @@ class TrackingTest extends TestCase
             'db_name' => 'PMA_db',
             'table_name' => 'PMA_table',
             'date_created' => 'date_created',
-            'date_updated' => 'date_updated'
+            'date_updated' => 'date_updated',
         ];
         // return fetchArray for selectable entries
         for ($i = 2; $i < 6; $i++) {
@@ -359,7 +359,7 @@ class TrackingTest extends TestCase
                 "Null" => 'YES',
                 'Extra' => 'Extra1',
                 'Key' => 'PRI',
-                'Comment' => 'Comment1'
+                'Comment' => 'Comment1',
             ],
             [
                 'Field' => 'Field2',
@@ -368,7 +368,7 @@ class TrackingTest extends TestCase
                 "Null" => 'No',
                 'Extra' => 'Extra2',
                 'Key' => 'Key2',
-                'Comment' => 'Comment2'
+                'Comment' => 'Comment2',
             ],
         ];
 
@@ -475,7 +475,7 @@ class TrackingTest extends TestCase
         $data = [
             'tracking' => 'tracking',
             'ddlog' => ['ddlog'],
-            'dmlog' => ['dmlog']
+            'dmlog' => ['dmlog'],
         ];
         $url_params = [];
         $selection_schema = [];
@@ -581,7 +581,7 @@ class TrackingTest extends TestCase
                     'username' => 'username',
                 ],
             ],
-            'ddlog' => ['ddlog']
+            'ddlog' => ['ddlog'],
         ];
         $url_params = [];
         $ddlog_count = 10;
@@ -645,7 +645,7 @@ class TrackingTest extends TestCase
                     'username' => 'username',
                 ],
             ],
-            'dmlog' => ['dmlog']
+            'dmlog' => ['dmlog'],
         ];
         $filter_users = ["*"];
         $filter_ts_to = 9999999999;

@@ -118,7 +118,7 @@ $drop_view_url_params = array_merge(
             __('View %s has been dropped.'),
             $GLOBALS['table']
         ),
-        'table' => $GLOBALS['table']
+        'table' => $GLOBALS['table'],
     ]
 );
 

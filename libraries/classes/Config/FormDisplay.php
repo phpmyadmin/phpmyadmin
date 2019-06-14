@@ -103,7 +103,7 @@ class FormDisplay
             'error_nan_nneg' => __('Not a non-negative number!'),
             'error_incorrect_port' => __('Not a valid port number!'),
             'error_invalid_value' => __('Incorrect value!'),
-            'error_value_lte' => __('Value must be less than or equal to %s!')
+            'error_value_lte' => __('Value must be less than or equal to %s!'),
         ];
         $this->_configFile = $cf;
         // initialize validators
@@ -406,7 +406,7 @@ class FormDisplay
             'doc' => $this->getDocLink($systemPath),
             'show_restore_default' => $showRestoreDefault,
             'userprefs_allow' => $userPrefsAllow,
-            'userprefs_comment' => Descriptions::get($systemPath, 'cmt')
+            'userprefs_comment' => Descriptions::get($systemPath, 'cmt'),
         ];
         if (isset($form->default[$systemPath])) {
             $opts['setvalue'] = (string) $form->default[$systemPath];

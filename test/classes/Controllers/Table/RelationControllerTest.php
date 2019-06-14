@@ -151,7 +151,7 @@ class RelationControllerTest extends PmaTestCase
     public function testGetDropdownValueForTableActionNotView()
     {
         $indexedColumns = [
-            'primaryTableCol'
+            'primaryTableCol',
         ];
         $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
@@ -198,7 +198,7 @@ class RelationControllerTest extends PmaTestCase
                             $count++;
                             return [
                                 'Engine' => 'InnoDB',
-                                'Name' => 'table'
+                                'Name' => 'table',
                             ];
                         }
                         return null;

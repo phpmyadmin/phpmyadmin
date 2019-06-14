@@ -276,7 +276,7 @@ class Monitor
 
         $return = [
             'rows' => [],
-            'sum' => []
+            'sum' => [],
         ];
 
         while ($row = $this->dbi->fetchAssoc($result)) {
@@ -356,7 +356,7 @@ class Monitor
 
         $return = [
             'rows' => [],
-            'sum' => []
+            'sum' => [],
         ];
         $insertTables = [];
         $insertTablesFirst = -1;

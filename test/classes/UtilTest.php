@@ -686,7 +686,7 @@ class UtilTest extends PmaTestCase
                     ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('a', 'b')"
+                    'displayed_type' => "set('a', 'b')",
                 ],
             ],
             [
@@ -704,7 +704,7 @@ class UtilTest extends PmaTestCase
                     ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('\'a', 'b')"
+                    'displayed_type' => "set('\'a', 'b')",
                 ],
             ],
             [
@@ -722,7 +722,7 @@ class UtilTest extends PmaTestCase
                     ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('''a', 'b')"
+                    'displayed_type' => "set('''a', 'b')",
                 ],
             ],
             [
@@ -741,7 +741,7 @@ class UtilTest extends PmaTestCase
                     ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "enum('a&amp;b', 'b''c\\'d', 'e\\\\f')"
+                    'displayed_type' => "enum('a&amp;b', 'b''c\\'d', 'e\\\\f')",
                 ],
             ],
             [
@@ -756,7 +756,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => 'UNSIGNED ZEROFILL',
                     'can_contain_collation' => false,
-                    'displayed_type' => "int"
+                    'displayed_type' => "int",
                 ],
             ],
             [
@@ -771,7 +771,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "varchar(255)"
+                    'displayed_type' => "varchar(255)",
                 ],
             ],
             [
@@ -786,7 +786,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => ' ',
                     'can_contain_collation' => false,
-                    'displayed_type' => "varbinary(255)"
+                    'displayed_type' => "varbinary(255)",
                 ],
             ],
         ];

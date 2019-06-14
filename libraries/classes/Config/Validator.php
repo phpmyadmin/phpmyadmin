@@ -251,7 +251,7 @@ class Validator
             'Server' => '',
             'Servers/1/user' => '',
             'Servers/1/SignonSession' => '',
-            'Servers/1/SignonURL' => ''
+            'Servers/1/SignonURL' => '',
         ];
         $error = false;
         if (empty($values['Servers/1/auth_type'])) {

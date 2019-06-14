@@ -124,7 +124,7 @@ class ConfigGeneratorTest extends PmaTestCase
                 'var_name',
                 [
                     '1a' => 'foo',
-                    'b' => 'bar'
+                    'b' => 'bar',
                 ],
                 "\n"
             )

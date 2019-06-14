@@ -271,7 +271,7 @@ class Privileges
             if ($enableHTML) {
                 $privs = ['<dfn title="'
                     . __('Includes all privileges except GRANT.')
-                    . '">ALL PRIVILEGES</dfn>'
+                    . '">ALL PRIVILEGES</dfn>',
                 ];
             } else {
                 $privs = ['ALL PRIVILEGES'];
@@ -610,7 +610,7 @@ class Privileges
         return $this->template->render('server/privileges/choose_user_group', [
             'all_user_groups' => $allUserGroups,
             'user_group' => $userGroup,
-            'params' => ['username' => $username]
+            'params' => ['username' => $username],
         ]);
     }
 
@@ -4206,7 +4206,7 @@ class Privileges
     {
         if (isset($_POST['change_copy'])) {
             $selected_usr = [
-                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname']
+                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname'],
             ];
         } else {
             $selected_usr = $_POST['selected_usr'];

@@ -157,7 +157,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             [
                 'table_name' => 'meta1_table',
                 'refering_column' => 'meta1_name',
-                'real_column' => 'view_columns1'
+                'real_column' => 'view_columns1',
             ],
             $column_map[0]
         );
@@ -165,7 +165,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             [
                 'table_name' => 'meta2_table',
                 'refering_column' => 'meta2_name',
-                'real_column' => 'view_columns2'
+                'real_column' => 'view_columns2',
             ],
             $column_map[1]
         );

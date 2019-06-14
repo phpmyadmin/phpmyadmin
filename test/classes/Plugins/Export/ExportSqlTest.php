@@ -873,7 +873,7 @@ class ExportSqlTest extends PmaTestCase
                             'Null' => 'NO',
                             'Default' => 'a',
                             'Comment' => 'cmt',
-                            'Field' => 'fname'
+                            'Field' => 'fname',
                         ],
                     ]
                 )
@@ -918,7 +918,7 @@ class ExportSqlTest extends PmaTestCase
                             'Collation' => 'utf-8',
                             'Null' => 'YES',
                             'Comment' => 'cmt',
-                            'Field' => 'fname'
+                            'Field' => 'fname',
                         ],
                     ]
                 )
@@ -1264,7 +1264,7 @@ class ExportSqlTest extends PmaTestCase
                     'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
@@ -1321,7 +1321,7 @@ class ExportSqlTest extends PmaTestCase
                     [
                         [
                             'create' => 'bar',
-                            'drop' => 'foo'
+                            'drop' => 'foo',
                         ],
                     ]
                 )

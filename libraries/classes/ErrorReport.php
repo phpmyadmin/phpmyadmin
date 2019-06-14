@@ -102,7 +102,7 @@ class ErrorReport
             "locale" => $_COOKIE['pma_lang'],
             "configuration_storage" =>
                 $relParams['db'] === null ? "disabled" : "enabled",
-            "php_version" => PHP_VERSION
+            "php_version" => PHP_VERSION,
         ];
 
         if ($exceptionType == 'js') {
@@ -156,7 +156,7 @@ class ErrorReport
                         "type" => $errorObj->getType(),
                         "msg" => $errorObj->getOnlyMessage(),
                         "stackTrace" => $errorObj->getBacktrace(5),
-                        "stackhash" => $errorObj->getHash()
+                        "stackhash" => $errorObj->getHash(),
                     ];
                 }
             }

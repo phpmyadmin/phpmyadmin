@@ -131,7 +131,7 @@ class Data
             'tc'            => __('Transaction coordinator'),
             'files'         => __('Files'),
             'ssl'           => 'SSL',
-            'other'         => __('Other')
+            'other'         => __('Other'),
         ];
     }
 

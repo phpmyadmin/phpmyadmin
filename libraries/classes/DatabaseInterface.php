@@ -2280,7 +2280,7 @@ class DatabaseInterface
                     Url::getCommon(
                         [
                             'engine' => 'InnoDB',
-                            'page' => 'Status'
+                            'page' => 'Status',
                         ]
                     ) . '">' . __('Details…') . '</a>)';
             }

@@ -366,7 +366,7 @@ class SearchController extends AbstractController
                     $row[$_POST['criteriaColumnNames'][0]],
                 $_POST['criteriaColumnNames'][1] =>
                     $row[$_POST['criteriaColumnNames'][1]],
-                'where_clause' => $uniqueCondition[0]
+                'where_clause' => $uniqueCondition[0],
             ];
             $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
             $data[] = $tmpData;
@@ -974,7 +974,7 @@ class SearchController extends AbstractController
             'type' => $type,
             'collation' => $collation,
             'func' => $func,
-            'value' => $value
+            'value' => $value,
         ];
     }
 

@@ -101,7 +101,7 @@ class PrivilegesTest extends TestCase
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
-            'menuswork' => true
+            'menuswork' => true,
         ];
 
         $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
@@ -2632,7 +2632,7 @@ class PrivilegesTest extends TestCase
                     'Host' => 'local',
                     'Password' => '?',
                     'Grant_priv' => 'N',
-                    'privs' => ['USAGE']
+                    'privs' => ['USAGE'],
                 ],
             ],
         ];

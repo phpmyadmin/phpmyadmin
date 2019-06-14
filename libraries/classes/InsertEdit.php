@@ -2308,7 +2308,7 @@ class InsertEdit
             $insert_command . 'INTO '
             . Util::backquote($GLOBALS['table'])
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
-            . implode('), (', $value_sets) . ')'
+            . implode('), (', $value_sets) . ')',
         ];
         return $query;
     }

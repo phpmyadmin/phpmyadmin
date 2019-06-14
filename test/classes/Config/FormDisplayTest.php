@@ -86,7 +86,7 @@ class FormDisplayTest extends PmaTestCase
             "Servers" => [
                 "1" => [
                     'test' => 1,
-                    1 => ':group:end'
+                    1 => ':group:end',
                 ],
             ],
         ];
@@ -184,7 +184,7 @@ class FormDisplayTest extends PmaTestCase
             "foobar" => [
                 'e2',
                 'e3',
-            ]
+            ],
         ];
 
         $sysArr = [

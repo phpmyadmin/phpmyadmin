@@ -137,7 +137,7 @@ class EnginesControllerTest extends TestCase
         $this->assertStringContainsString(
             Url::getCommon([
                 'engine' => 'Pbxt',
-                'page' => 'Documentation'
+                'page' => 'Documentation',
             ]),
             $actual
         );

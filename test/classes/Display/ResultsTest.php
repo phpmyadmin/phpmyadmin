@@ -1028,7 +1028,7 @@ class ResultsTest extends PmaTestCase
                 [
                     'routine_name' => 'circumference',
                     'routine_schema' => 'data',
-                    'routine_type' => 'FUNCTION'
+                    'routine_type' => 'FUNCTION',
                 ],
                 'routine_name',
                 'db_routines.php?item_name=circumference&db=data'
@@ -1041,7 +1041,7 @@ class ResultsTest extends PmaTestCase
                 [
                     'routine_name' => 'area',
                     'routine_schema' => 'data',
-                    'routine_type' => 'PROCEDURE'
+                    'routine_type' => 'PROCEDURE',
                 ],
                 'routine_name',
                 'db_routines.php?item_name=area&db=data'
@@ -1053,7 +1053,7 @@ class ResultsTest extends PmaTestCase
                 'CHARACTER_SET_NAME',
                 [
                     'table_schema' => 'information_schema',
-                    'table_name' => 'CHARACTER_SETS'
+                    'table_name' => 'CHARACTER_SETS',
                 ],
                 'column_name',
                 'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
@@ -1101,7 +1101,7 @@ class ResultsTest extends PmaTestCase
                                 'column_name' => 'routine_type',
                             ],
                         ],
-                        'default_page' => 'db_routines.php'
+                        'default_page' => 'db_routines.php',
                     ],
                 ],
                 'columns' => [
@@ -1123,9 +1123,9 @@ class ResultsTest extends PmaTestCase
                                 ],
                             ],
                         ],
-                        'default_page' => 'index.php'
+                        'default_page' => 'index.php',
                     ],
-                ]
+                ],
             ],
         ];
 
@@ -1188,7 +1188,7 @@ class ResultsTest extends PmaTestCase
                     'host' => 'localhost',
                     'select_privilages' => 'Y',
                     'db' => 'phpmyadmin',
-                    'user' => 'pmauser'
+                    'user' => 'pmauser',
                 ],
             ],
         ];

@@ -153,7 +153,7 @@ class Normalization
                 'move_columns' => [],
                 'cfg_relation' => $cfgRelation,
                 'available_mime' => $availableMime,
-                'mime_map' => $mimeMap
+                'mime_map' => $mimeMap,
             ];
         }
 
@@ -277,7 +277,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'hasPrimaryKey' => $hasPrimaryKey,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -313,7 +313,7 @@ class Normalization
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -562,7 +562,7 @@ class Normalization
             'legendText' => __('End of step'),
             'headText' => $headText,
             'queryError' => $error,
-            'extra' => $message
+            'extra' => $message,
         ];
     }
 
@@ -628,7 +628,7 @@ class Normalization
         return [
             'html' => $html,
             'newTables' => $newTables,
-            'success' => true
+            'success' => true,
         ];
     }
 
@@ -718,7 +718,7 @@ class Normalization
             'legendText' => __('End of step'),
             'headText' => $headText,
             'queryError' => $error,
-            'extra' => $message
+            'extra' => $message,
         ];
     }
 
@@ -791,7 +791,7 @@ class Normalization
         }
         return [
             'queryError' => $error,
-            'message' => $message
+            'message' => $message,
         ];
     }
 
@@ -871,7 +871,7 @@ class Normalization
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -896,7 +896,7 @@ class Normalization
         $choices = [
             '1nf' => __('First step of normalization (1NF)'),
             '2nf'      => __('Second step of normalization (1NF+2NF)'),
-            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')
+            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'),
         ];
 
         $htmlOutput .= Util::getRadioFields(

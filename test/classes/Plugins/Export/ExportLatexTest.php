@@ -700,7 +700,7 @@ class ExportLatexTest extends PmaTestCase
                     'name1' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'testmimetype_'
+                        'mimetype' => 'testmimetype_',
                     ],
                 ]
             );
@@ -710,7 +710,7 @@ class ExportLatexTest extends PmaTestCase
                 'Null' => 'Yes',
                 'Field' => 'name1',
                 'Key' => 'PRI',
-                'Type' => 'set(abc)enum123'
+                'Type' => 'set(abc)enum123',
             ],
             [
                 'Null' => 'NO',
@@ -820,7 +820,7 @@ class ExportLatexTest extends PmaTestCase
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
