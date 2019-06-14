@@ -2084,7 +2084,7 @@ class Relation
 
             if ($cfgRelation['recentwork']) {
                 $recent_tables = RecentFavoriteTable::getInstance('recent');
-                $_SESSION['tmpval']['recent_tables'][$GLOBALS['server']]
+                $_SESSION['tmpval']['recentTables'][$GLOBALS['server']]
                     = $recent_tables->getFromDb();
             }
 

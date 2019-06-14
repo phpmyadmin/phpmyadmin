@@ -60,13 +60,13 @@ class RecentFavoriteTable
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->_tableType = $type;
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
+        if (! isset($_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id])
         ) {
-            $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id]
+            $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id]
                 = $this->_getPmaTable() ? $this->getFromDb() : [];
         }
         $this->_tables
-            =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
+            =& $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id];
     }
 
     /**
