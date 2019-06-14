@@ -952,6 +952,9 @@ class InsertEdit
                 ],
                 ''
             ) . '">Insert foreign key table</a>';
+
+        $html_output .= '<a id="'.$column['Field'].'_foreign" onclick="refreshForeign(this.id)"
+            data-post="refresh_foreing.php" data-db="'.$db.'" data-table="'.$table.'" style="margin-left: 30px;">Refresh</a>';
         return $html_output;
     }
 
