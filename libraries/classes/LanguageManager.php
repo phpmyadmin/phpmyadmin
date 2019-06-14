@@ -778,8 +778,8 @@ class LanguageManager
 
             foreach ($this->availableLocales() as $lang) {
                 $lang = strtolower($lang);
-                if (isset($this::$_language_data[$lang])) {
-                    $data = $this::$_language_data[$lang];
+                if (isset(static::$_language_data[$lang])) {
+                    $data = static::$_language_data[$lang];
                     $this->_available_languages[$lang] = new Language(
                         $data[0],
                         $data[1],

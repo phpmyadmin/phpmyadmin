@@ -63,7 +63,7 @@ class Template
     {
         /** @var Config $config */
         $config = $GLOBALS['PMA_Config'];
-        if ($this::$twig === null) {
+        if (static::$twig === null) {
             $loader = new FilesystemLoader(self::BASE_PATH);
             $cache_dir = $config->getTempDir('twig');
             /* Twig expects false when cache is not configured */
@@ -89,7 +89,7 @@ class Template
             $twig->addExtension(new TransformationsExtension());
             $twig->addExtension(new UrlExtension());
             $twig->addExtension(new UtilExtension());
-            $this::$twig = $twig;
+            static::$twig = $twig;
         }
     }
 
@@ -106,11 +106,11 @@ class Template
     public function load(string $templateName): Twig_TemplateWrapper
     {
         try {
-            $template = $this::$twig->load($templateName . '.twig');
+            $template = static::$twig->load($templateName . '.twig');
         } catch (RuntimeException $e) {
             /* Retry with disabled cache */
-            $this::$twig->setCache(false);
-            $template = $this::$twig->load($templateName . '.twig');
+            static::$twig->setCache(false);
+            $template = static::$twig->load($templateName . '.twig');
             /*
              * The trigger error is intentionally after second load
              * to avoid triggering error when disabling cache does not
