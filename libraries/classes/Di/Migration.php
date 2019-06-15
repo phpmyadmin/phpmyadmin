@@ -25,6 +25,13 @@ class Migration
     /** @var ContainerBuilder */
     protected $containerBuilder;
 
+    /**
+     * Get instance of this class
+     *
+     * @param ContainerBuilder|null $containerBuilder ContainerBuilder object that should be used to store the data
+     *
+     * @return Migration
+     */
     public static function getInstance(?ContainerBuilder $containerBuilder = null): self
     {
         if (null !== self::$instance) {
@@ -38,7 +45,12 @@ class Migration
         return self::$instance = new self($containerBuilder);
     }
 
-    public function __construct(ContainerBuilder $containerBuilder)
+    /**
+     * Migration constructor.
+     *
+     * @param ContainerBuilder $containerBuilder ContainerBuilder object that should be used to store the data
+     */
+    protected function __construct(ContainerBuilder $containerBuilder)
     {
         $this->containerBuilder = $containerBuilder;
     }
@@ -46,8 +58,8 @@ class Migration
     /**
      * Get the instance of the service
      *
-     * @param string $key
-     * @param        $value
+     * @param string $key   Key of data to store
+     * @param mixed  $value Data to store
      *
      * @return void
      */
