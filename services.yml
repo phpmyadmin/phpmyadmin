@@ -9,6 +9,14 @@ services:
     class: 'PhpMyAdmin\Config'
     arguments: [!php/const CONFIG_FILE]
 
+  central_columns:
+    class: '\PhpMyAdmin\CentralColumns'
+    arguments: ['@dbi']
+
+  check_user_privileges:
+    class: '\PhpMyAdmin\CheckUserPrivileges'
+    arguments: ['@dbi']
+
   create_add_field:
     class: 'PhpMyAdmin\CreateAddField'
     arguments: ['@dbi']
@@ -46,6 +54,10 @@ services:
   import:
     class: 'PhpMyAdmin\Import'
 
+  di_migration:
+    factory: 'PhpMyAdmin\Di\Migration::getInstance'
+    arguments: ['@service_container']
+
   navigation:
     class: 'PhpMyAdmin\Navigation\Navigation'
     arguments: ['@template', '@relation', '@dbi']
@@ -57,6 +69,12 @@ services:
       relation: '@relation'
       transformations: '@transformations'
       template: '@template'
+
+  operations:
+    class: 'PhpMyAdmin\Operations'
+    arguments:
+      dbi: '@dbi'
+      relation: '@relation'
 
   relation:
     class: 'PhpMyAdmin\Relation'
@@ -70,6 +88,9 @@ services:
     arguments:
       replication: '@replication'
       template: '@template'
+
+  response:
+    factory: 'PhpMyAdmin\Response::getInstance'
 
   sql_query_form:
     class: 'PhpMyAdmin\SqlQueryForm'
@@ -93,3 +114,9 @@ services:
 
   transformations:
     class: 'PhpMyAdmin\Transformations'
+
+  #Aliases
+
+  PhpMyAdmin\Response: '@response'
+
+  PhpMyAdmin\DatabaseInterface: '@dbi'

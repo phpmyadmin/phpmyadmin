@@ -10,27 +10,20 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\SearchController;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Response;
 use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $url_query;
+/** @var string $url_query Overwritten in tbl_common.inc.php */
+$url_query = null;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
-
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
-    'db' => $container->get('db'),
-    'table' => $container->get('table'),
     'searchType' => 'replace',
     'url_query' => &$url_query,
 ];

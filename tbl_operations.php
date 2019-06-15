@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -23,20 +22,24 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table, $url_query;
+global $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
-$checkUserPrivileges = new CheckUserPrivileges($dbi);
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+/** @var CheckUserPrivileges $checkUserPrivileges */
+$checkUserPrivileges = $containerBuilder->get('check_user_privileges');
 $checkUserPrivileges->getPrivileges();
 
 // lower_case_table_names=1 `DB` becomes `db`
@@ -64,9 +67,10 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
  */
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');
-$operations = new Operations($dbi, $relation);
-
 $cfgRelation = $relation->getRelationsParam();
+
+/** @var Operations $operations */
+$operations = $containerBuilder->get('operations');
 
 // reselect current db (needed in some cases probably due to
 // the calling of PhpMyAdmin\Relation)

@@ -19,14 +19,8 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
-
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
-    'db' => $container->get('db'),
-    'table' => $container->get('table'),
     'sql_query' => &$GLOBALS['sql_query'],
     'url_params' => &$GLOBALS['url_params'],
     'goto' => Util::getScriptNameForOption(

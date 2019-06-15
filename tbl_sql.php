@@ -18,34 +18,16 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table;
-
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->set(Response::class, Response::getInstance());
 
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
-
-/* Define dependencies for the concerned controller */
-$dependency_definitions = [
-    'db' => $container->get('db'),
-    'table' => $container->get('table'),
-];
-
-/** @var Definition $definition */
-$definition = $containerBuilder->getDefinition(SqlController::class);
-array_map(
-    static function (string $parameterName, $value) use ($definition) {
-        $definition->replaceArgument($parameterName, $value);
-    },
-    array_keys($dependency_definitions),
-    $dependency_definitions
-);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var SqlController $controller */
 $controller = $containerBuilder->get(SqlController::class);

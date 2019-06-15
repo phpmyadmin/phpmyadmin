@@ -22,8 +22,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      centralColumns: null
+      db: '%db%'
+      centralColumns: '@central_columns'
 
   PhpMyAdmin\Controllers\Database\DataDictionaryController:
     class: 'PhpMyAdmin\Controllers\Database\DataDictionaryController'
@@ -31,7 +31,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
       relation: '@relation'
       transformations: '@transformations'
 
@@ -41,7 +41,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\Database\MultiTableQueryController:
     class: 'PhpMyAdmin\Controllers\Database\MultiTableQueryController'
@@ -49,7 +49,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\Database\RoutinesController:
     class: 'PhpMyAdmin\Controllers\Database\RoutinesController'
@@ -57,7 +57,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\Database\SqlController:
     class: 'PhpMyAdmin\Controllers\Database\SqlController'
@@ -65,7 +65,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\Database\StructureController:
     class: 'PhpMyAdmin\Controllers\Database\StructureController'
@@ -73,7 +73,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
       relation: '@relation'
       replication: '@replication'
 
@@ -83,7 +83,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
+      db: '%db%'
 
   PhpMyAdmin\Controllers\HomeController:
     class: 'PhpMyAdmin\Controllers\HomeController'
@@ -206,8 +206,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       sql_query: null
       url_query: null
       cfg: null
@@ -218,8 +218,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       sql_query: null
       url_params: null
       goto: null
@@ -232,9 +232,9 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
-      index: null
+      db: '%db%'
+      table: '%table%'
+      index: '%index%'
 
   PhpMyAdmin\Controllers\Table\RelationController:
     class: 'PhpMyAdmin\Controllers\Table\RelationController'
@@ -242,8 +242,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       options_array: null
       cfgRelation: null
       tbl_storage_engine: null
@@ -258,8 +258,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       searchType: null
       url_query: null
       relation: '@relation'
@@ -270,8 +270,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
 
   PhpMyAdmin\Controllers\Table\StructureController:
     class: 'PhpMyAdmin\Controllers\Table\StructureController'
@@ -279,8 +279,8 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
-      db: null
-      table: null
+      db: '%db%'
+      table: '%table%'
       db_is_system_schema: null
       tbl_is_view: null
       tbl_storage_engine: null

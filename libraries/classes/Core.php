@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Di\Migration;
 use PhpMyAdmin\Display\Error as DisplayError;
 
 /**
@@ -905,7 +906,7 @@ class Core
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
                 if (preg_match($one_post_pattern, $post_key)) {
-                    $GLOBALS[$post_key] = $_POST[$post_key];
+                    Migration::getInstance()->setGlobal($post_key, $_POST[$post_key]);
                 }
             }
         }
@@ -920,13 +921,12 @@ class Core
      */
     public static function setGlobalDbOrTable(string $param): void
     {
-        $GLOBALS[$param] = '';
+        $value = '';
         if (self::isValid($_REQUEST[$param])) {
-            // can we strip tags from this?
-            // only \ and / is not allowed in db names for MySQL
-            $GLOBALS[$param] = $_REQUEST[$param];
-            $GLOBALS['url_params'][$param] = $GLOBALS[$param];
+            $value = $_REQUEST[$param];
         }
+        Migration::getInstance()->setGlobal($param, $value);
+        Migration::getInstance()->setGlobal('url_params', [$param => $value] + $GLOBALS['url_params']);
     }
 
     /**

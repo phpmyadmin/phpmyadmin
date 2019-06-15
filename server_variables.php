@@ -8,7 +8,6 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\VariablesController;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -17,15 +16,11 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
-
 /** @var VariablesController $controller */
 $controller = $containerBuilder->get(VariablesController::class);
 
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 if ($response->isAjax()
     && isset($_GET['type']) && $_GET['type'] === 'getval') {
