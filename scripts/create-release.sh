@@ -316,6 +316,8 @@ if [ $do_test -eq 1 ] ; then
     if [ $test_ret -ne 0 ] ; then
         exit $test_ret
     fi
+    # Remove PHPUnit cache file
+    rm -f .phpunit.result.cache
     # Remove libs installed for testing
     rm -rf build
     composer update --no-dev
@@ -340,6 +342,7 @@ for kit in $KITS ; do
         # Testsuite
         rm -rf test/
         rm phpunit.xml.* build.xml
+        rm -f .editorconfig .eslintignore .eslintrc.json .stylelintrc.json phpstan.neon.dist phpcs.xml.dist
         # Gettext po files
         rm -rf po/
         # Documentation source code
