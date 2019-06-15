@@ -25,17 +25,19 @@ class Common
      */
     public function createCommonFile($name)
     {
-        $file = fopen("themes/" . $name . "/css/common.css.php", "w");
-        $txt = "<?php\n";
-        $txt .= 'declare(strict_types=1);';
-        $txt .= 'if (! defined(\'PHPMYADMIN\') && ! defined(\'TESTSUITE\')) {';
-        $txt .= '    exit();';
-        $txt .= '}';
-        $txt .= '?>';
+        $file = fopen("themes/" . $name . "/scss/_common.scss", "w");
+        // $txt = "<?php\n";
+        // $txt .= 'declare(strict_types=1);';
+        // $txt .= 'if (! defined(\'PHPMYADMIN\') && ! defined(\'TESTSUITE\')) {';
+        // $txt .= '    exit();';
+        // $txt .= '}';
+        // $txt .= '';
 
         /******************************************************************************/
+        /* Importing Layout variables */
+        
         /* general tags */
-        $txt .= 'html {';
+        $txt = 'html {';
         $txt .= '    font-size: 82%;';
         $txt .= '}';
 
@@ -46,14 +48,12 @@ class Common
         $txt .= '}';
 
         $txt .= 'body {';
-        $txt .= '<?php if (! empty($GLOBALS[\'cfg\'][\'FontFamily\'])) : ?>';
-        $txt .= '    font-family: <?php echo $GLOBALS[\'cfg\'][\'FontFamily\']; ?>;';
-        $txt .= '<?php endif; ?>';
+        $txt .= '    font-family: $font-family;';
         $txt .= '    padding: 0;';
         $txt .= '    margin: 0;';
-        $txt .= '    margin-<?php echo $left; ?>: 240px;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'MainColor\']; ?>;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'MainBackground\']; ?>;';
+        $txt .= '    margin-left: 240px;';
+        $txt .= '    color: $main-color;';
+        $txt .= '    background: $main-background;';
         $txt .= '}';
 
         $txt .= 'body#loginform {';
@@ -80,14 +80,12 @@ class Common
         $txt .= '    margin: 0 auto;';
         $txt .= '}';
 
-        $txt .= '<?php if (! empty($GLOBALS[\'cfg\'][\'FontFamilyFixed\'])) : ?>';
         $txt .= '    textarea,';
         $txt .= '    tt,';
         $txt .= '    pre,';
         $txt .= '    code {';
-        $txt .= '    font-family: <?php echo $GLOBALS[\'cfg\'][\'FontFamilyFixed\']; ?>;';
+        $txt .= '    font-family: $font-family-fixed;';
         $txt .= '    }';
-        $txt .= '<?php endif; ?>';
 
         $txt .= 'h1 {';
         $txt .= '    font-size: 140%;';
@@ -99,7 +97,7 @@ class Common
         $txt .= '    font-weight: normal;';
         $txt .= '    text-shadow: 0 1px 0 #fff;';
         $txt .= '    padding: 10px 0 10px;';
-        $txt .= '    padding-<?php echo $left; ?>: 3px;';
+        $txt .= '    padding-left: 3px;';
         $txt .= '    color: #777;';
         $txt .= '}';
 
@@ -132,7 +130,7 @@ class Common
         $txt .= 'button.mult_submit,';
         $txt .= '.checkall_box+label {';
         $txt .= '    text-decoration: none;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'Hyperlink\']; ?>;';
+        $txt .= '    color: $hyperlink;';
         $txt .= '    cursor: pointer;';
         $txt .= '    outline: none;';
         $txt .= '}';
@@ -146,7 +144,7 @@ class Common
         $txt .= '}';
 
         $txt .= '#initials_table {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'GroupBg\']; ?>;';
+        $txt .= '    background: $group-bg;';
         $txt .= '    border: 1px solid #aaa;';
         $txt .= '    margin-bottom: 10px;';
         $txt .= '    -moz-border-radius: 5px;';
@@ -165,13 +163,11 @@ class Common
         $txt .= '    -moz-border-radius: 5px;';
         $txt .= '    -webkit-border-radius: 5px;';
         $txt .= '    border-radius: 5px;';
-        $txt .= '    <?php echo $theme->getCssGradient(\'ffffff\', \'e0e0e0\'); ?>';
         $txt .= '}';
 
         $txt .= '#initials_table a.active {';
         $txt .= '    border: 1px solid #666;';
         $txt .= '    box-shadow: 0 0 2px #999;';
-        $txt .= '    <?php echo $theme->getCssGradient(\'bbbbbb\', \'ffffff\'); ?>';
         $txt .= '}';
 
         $txt .= 'dfn {';
@@ -185,8 +181,8 @@ class Common
 
         $txt .= 'th {';
         $txt .= '    font-weight: bold;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'ThColor\']; ?>;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'ThBackground\']; ?>;';
+        $txt .= '    color: $th-color;';
+        $txt .= '    background: $th-background;';
         $txt .= '}';
 
         $txt .= 'a img {';
@@ -194,8 +190,8 @@ class Common
         $txt .= '}';
 
         $txt .= 'hr {';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'MainColor\']; ?>;';
-        $txt .= '    background-color: <?php echo $GLOBALS[\'cfg\'][\'MainColor\']; ?>;';
+        $txt .= '    color: mainColor;';
+        $txt .= '    background-color: mainColor;';
         $txt .= '    border: 0;';
         $txt .= '    height: 1px;';
         $txt .= '}';
@@ -312,7 +308,6 @@ class Common
 
         $txt .= '    text-shadow: 0 1px 0 #fff;';
 
-        $txt .= '    <?php echo $theme->getCssGradient(\'f8f8f8\', \'d8d8d8\'); ?>';
         $txt .= '}';
 
         $txt .= 'input[type=submit]:hover,';
@@ -322,7 +317,6 @@ class Common
         $txt .= 'input[name=submit_reset]:hover,';
         $txt .= 'input.button:hover {';
         $txt .= '    position: relative;';
-        $txt .= '    <?php echo $theme->getCssGradient(\'fff\', \'ddd\'); ?>';
         $txt .= '    cursor: pointer;';
         $txt .= '}';
 
@@ -333,7 +327,6 @@ class Common
         $txt .= 'input[name=submit_reset]:active,';
         $txt .= 'input.button:active {';
         $txt .= '    position: relative;';
-        $txt .= '    <?php echo $theme->getCssGradient(\'eee\', \'ddd\'); ?>';
         $txt .= '    box-shadow: 0 1px 6px -2px #333 inset;';
         $txt .= '    text-shadow: none;';
         $txt .= '}';
@@ -366,11 +359,11 @@ class Common
         $txt .= '    border: #aaa solid 1px;';
         $txt .= '    padding: 0.5em;';
         $txt .= '    background: #eee;';
-        $txt .= '    text-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;';
+    /*    $txt .= '    text-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;';
         $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;';
         $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;';
-        $txt .= '}';
+        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;'; */
+        $txt .= '}'; 
 
         $txt .= 'fieldset fieldset {';
         $txt .= '    margin: .8em;';
@@ -389,9 +382,9 @@ class Common
         $txt .= '    -webkit-border-radius: 2px;';
         $txt .= '    border: 1px solid #aaa;';
         $txt .= '    background-color: #fff;';
-        $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>3px 3px 15px #bbb;';
+     /*   $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>3px 3px 15px #bbb;';
         $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>3px 3px 15px #bbb;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>3px 3px 15px #bbb;';
+        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>3px 3px 15px #bbb;';*/
         $txt .= '    max-width: 100%;';
         $txt .= '}';
 
@@ -452,9 +445,8 @@ class Common
         $txt .= '    margin:6px;';
         $txt .= '}';
 
-        $txt .= 'select[multiple] {';
-        $txt .= '    <?php echo $theme->getCssGradient(\'ffffff\', \'f2f2f2\'); ?>';
-        $txt .= '}';
+        // $txt .= 'select[multiple] {';
+        // $txt .= '}';
 
         /******************************************************************************/
         /* classes */
@@ -463,12 +455,12 @@ class Common
         $txt .= '}';
 
         $txt .= '.floatleft {';
-        $txt .= '    float: <?php echo $left; ?>;';
-        $txt .= '    margin-<?php echo $right; ?>: 1em;';
+        $txt .= '    float: left;';
+        $txt .= '    margin-right: 1em;';
         $txt .= '}';
 
         $txt .= '.floatright {';
-        $txt .= '    float: <?php echo $right; ?>;';
+        $txt .= '    float: right;';
         $txt .= '}';
 
         $txt .= '.center {';
@@ -535,7 +527,7 @@ class Common
         $txt .= '    margin-top: 0;';
         $txt .= '    margin-bottom: .5em;';
         $txt .= '    border-top: 0;';
-        $txt .= '    text-align: <?php echo $right; ?>;';
+        $txt .= '    text-align: right;';
         $txt .= '    float: none;';
         $txt .= '    clear: both;';
         $txt .= '    -webkit-border-radius: 0 0 4px 4px;';
@@ -551,8 +543,8 @@ class Common
         $txt .= '}';
 
         $txt .= 'fieldset .formelement {';
-        $txt .= '    float: <?php echo $left; ?>;';
-        $txt .= '    margin-<?php echo $right; ?>: .5em;';
+        $txt .= '    float: left;';
+        $txt .= '    margin-right: .5em;';
         $txt .= '    white-space: nowrap;';
         $txt .= '}';
 
@@ -571,7 +563,7 @@ class Common
         $txt .= 'table tbody:first-of-type tr:nth-child(odd) th,';
         $txt .= '#table_index tbody:nth-of-type(odd) tr,';
         $txt .= '#table_index tbody:nth-of-type(odd) th {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgOne\']; ?>;';
+        $txt .= '    background: $bg-one;';
         $txt .= '}';
 
         /* even items 2,4,6,8,... */
@@ -579,12 +571,12 @@ class Common
         $txt .= 'table tbody:first-of-type tr:nth-child(even) th,';
         $txt .= '#table_index tbody:nth-of-type(even) tr,';
         $txt .= '#table_index tbody:nth-of-type(even) th {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgTwo\']; ?>;';
+        $txt .= '    background: $bg-two;';
         $txt .= '}';
 
         $txt .= 'table tr th,';
         $txt .= 'table tr {';
-        $txt .= '    text-align: <?php echo $left; ?>;';
+        $txt .= '    text-align: left;';
         $txt .= '}';
 
         /* marked table rows */
@@ -592,31 +584,31 @@ class Common
         $txt .= 'table tr.marked:not(.nomarker) td,';
         $txt .= 'table tbody:first-of-type tr.marked:not(.nomarker) th,';
         $txt .= 'table tr.marked:not(.nomarker) {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgThree\']; ?>;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'BrowseMarkerColor\']; ?>;';
+        $txt .= '    background: $bg-three;';
+        $txt .= '    color: $browse-marker-color;';
         $txt .= '}';
 
         /* hovered items */
         $txt .= 'table tbody:first-of-type tr:not(.nopointer):hover,';
         $txt .= 'table tbody:first-of-type tr:not(.nopointer):hover th,';
         $txt .= '.hover:not(.nopointer) {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgThree\']; ?>;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'BrowsePointerColor\']; ?>;';
+        $txt .= '    background: $bg-three;';
+        $txt .= '    color:  $browse-pointer-color;';
         $txt .= '}';
 
         /* hovered table rows */
         $txt .= '#table_index tbody:hover tr,';
         $txt .= '#table_index tbody:hover th,';
         $txt .= 'table tr.hover:not(.nopointer) th {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgThree\']; ?>;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'BrowsePointerColor\']; ?>;';
+        $txt .= '    background: $bg-three;';
+        $txt .= '    color: $browse-pointer-color;';
         $txt .= '}';
 
         /**
         * marks table rows/cells if the db field is in a where condition
         */
         $txt .= '.condition {';
-        $txt .= '    border-color: <?php echo $GLOBALS[\'cfg\'][\'BrowseMarkerBackground\']; ?> !important;';
+        $txt .= '    border-color: $browse-marker-background !important;';
         $txt .= '}';
 
         $txt .= 'th.condition {';
@@ -633,12 +625,11 @@ class Common
         $txt .= '    border-width: 0 1px 1px 1px;';
         $txt .= '}';
 
-        $txt .= '<?php if ($GLOBALS[\'text_dir\'] === \'ltr\') : ?>';
+        // $txt .= '<?php if ($GLOBALS[\'text_dir\'] === \'ltr\') : 
         $txt .= '    /* for first th which must have right border set (ltr only) */';
         $txt .= '    .before-condition {';
-        $txt .= '    border-right: 1px solid <?php echo $GLOBALS[\'cfg\'][\'BrowseMarkerBackground\']; ?>;';
+        $txt .= '    border-right: 1px solid $browse-marker-background;';
         $txt .= '    }';
-        $txt .= '<?php endif; ?>';
 
         /**
         * cells with the value NULL
@@ -649,11 +640,11 @@ class Common
         $txt .= '}';
 
         $txt .= 'table .valueHeader {';
-        $txt .= '    text-align: <?php echo $right; ?>;';
+        $txt .= '    text-align: right;';
         $txt .= '    white-space: normal;';
         $txt .= '}';
         $txt .= 'table .value {';
-        $txt .= '    text-align: <?php echo $right; ?>;';
+        $txt .= '    text-align: right;';
         $txt .= '    white-space: normal;';
         $txt .= '}';
         /* IE doesnt handles 'pre' right */
@@ -661,11 +652,9 @@ class Common
         $txt .= '    white-space: normal;';
         $txt .= '}';
 
-        $txt .= '<?php if (! empty($GLOBALS[\'cfg\'][\'FontFamilyFixed\'])) : ?>';
         $txt .= '    .value {';
-        $txt .= '    font-family: <?php echo $GLOBALS[\'cfg\'][\'FontFamilyFixed\']; ?>;';
+        $txt .= '    font-family: $font-family-fixed;';
         $txt .= '    }';
-        $txt .= '<?php endif; ?>';
         $txt .= '.attention {';
         $txt .= '    color: red;';
         $txt .= '    font-weight: bold;';
@@ -715,8 +704,8 @@ class Common
         $txt .= '}';
 
         $txt .= '.selectallarrow {';
-        $txt .= '    margin-<?php echo $right; ?>: .3em;';
-        $txt .= '    margin-<?php echo $left; ?>: .6em;';
+        $txt .= '    margin-right: .3em;';
+        $txt .= '    margin-left: .6em;';
         $txt .= '}';
 
         /* message boxes: error, confirmation */
@@ -729,7 +718,7 @@ class Common
         $txt .= 'div.error h1 {';
         $txt .= '    border-bottom: 2px solid;';
         $txt .= '    font-weight: bold;';
-        $txt .= '    text-align: <?php echo $left; ?>;';
+        $txt .= '    text-align: left;';
         $txt .= '    margin: 0 0 .2em 0;';
         $txt .= '}';
 
@@ -739,14 +728,8 @@ class Common
         $txt .= '    margin: .5em 0 0.5em;';
         $txt .= '    border: 1px solid;';
         $txt .= '    background-repeat: no-repeat;';
-        $txt .= '    <?php if ($GLOBALS[\'text_dir\'] === \'ltr\') : ?>';
-        $txt .= '        background-position: 10px 50%;';
-        $txt .= '        padding: 10px 10px 10px 10px;';
-        $txt .= '    <?php else : ?>';
         $txt .= '        background-position: 99% 50%;';
         $txt .= '        padding: 10px 35px 10px 10px;';
-        $txt .= '        <?php';
-        $txt .= '    endif; ?>';
 
         $txt .= '    -moz-border-radius: 5px;';
         $txt .= '    -webkit-border-radius: 5px;';
@@ -810,12 +793,6 @@ class Common
         $txt .= '    background-color: pink;';
         $txt .= '}';
 
-        $txt .= 'fieldset.confirmation {';
-        $txt .= '}';
-
-        $txt .= 'fieldset.confirmation legend {';
-        $txt .= '}';
-
         /* end messageboxes */
 
         $txt .= '.new_central_col{';
@@ -830,15 +807,15 @@ class Common
 
         $txt .= '.tblHeaders {';
         $txt .= '    font-weight: bold;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'ThColor\']; ?>;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'ThBackground\']; ?>;';
+        $txt .= '    color: $th-color;';
+        $txt .= '    background: $th-background;';
         $txt .= '}';
 
         $txt .= 'div.tools,';
         $txt .= '.tblFooters {';
         $txt .= '    font-weight: normal;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'ThColor\']; ?>;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'ThBackground\']; ?>;';
+        $txt .= '    color: $th-color;';
+        $txt .= '    background: $th-background;';
         $txt .= '}';
 
         $txt .= '.tblHeaders a:link,';
@@ -880,7 +857,7 @@ class Common
 
         $txt .= 'tr.disabled td,';
         $txt .= 'td.disabled {';
-        $txt .= '    background-color: <?php echo $GLOBALS[\'cfg\'][\'GroupBg\']; ?>;';
+        $txt .= '    background-color: $group-bg;';
         $txt .= '    color: #aaa;';
         $txt .= '}';
 
@@ -903,13 +880,13 @@ class Common
         $txt .= '}';
 
         $txt .= 'body#loginform div.container {';
-        $txt .= '    text-align: <?php echo $left; ?>;';
+        $txt .= '    text-align: left;';
         $txt .= '    width: 30em;';
         $txt .= '    margin: 0 auto;';
         $txt .= '}';
 
         $txt .= 'form.login label {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    width: 10em;';
         $txt .= '    font-weight: bolder;';
         $txt .= '}';
@@ -992,7 +969,7 @@ class Common
 
         $txt .= 'ul#topmenu li,';
         $txt .= 'ul#topmenu2 li {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    margin: 0;';
         $txt .= '    vertical-align: middle;';
         $txt .= '}';
@@ -1004,7 +981,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.menucontainer {';
-        $txt .= '    <?php echo $theme->getCssGradient(\'dddddd\', \'dcdcdc\'); ?>';
+       /* $txt .= '    <?php echo $theme->getCssGradient(\'dddddd\', \'dcdcdc\'); ?>';*/
         $txt .= '    border-top: 1px solid #aaa;';
         $txt .= '}';
 
@@ -1020,7 +997,7 @@ class Common
         $txt .= 'ul#topmenu2 a {';
         $txt .= '    display: block;';
         $txt .= '    margin: 7px 6px 7px;';
-        $txt .= '    margin-<?php echo $left; ?>: 0;';
+        $txt .= '    margin-left: 0;';
         $txt .= '    padding: 4px 10px;';
         $txt .= '    white-space: nowrap;';
         $txt .= '    border: 1px solid #ddd;';
@@ -1051,13 +1028,13 @@ class Common
         $txt .= '}';
 
         $txt .= 'ul#topmenu ul {';
-        $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 6px #ddd;';
-        $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>2px 2px 3px #666;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>2px 2px 3px #666;';
+        $txt .= '    -moz-box-shadow: 1px 1px 6px #ddd;';
+        $txt .= '    -webkit-box-shadow: 2px 2px 3px #666;';
+        $txt .= '    box-shadow: 2px 2px 3px #666;';
         $txt .= '}';
 
         $txt .= 'ul#topmenu ul.only {';
-        $txt .= '    <?php echo $left; ?>: 0;';
+        $txt .= '    left: 0;';
         $txt .= '}';
 
         $txt .= 'ul#topmenu > li {';
@@ -1100,12 +1077,12 @@ class Common
 
         $txt .= 'ul#topmenu a.tab:hover,';
         $txt .= 'ul#topmenu .tabactive {';
-        $txt .= '    /* background-color: <?php echo $GLOBALS[\'cfg\'][\'MainBackground\']; ?>;  */';
+        $txt .= ' background-color: $main-background;  ';
         $txt .= '}';
 
         $txt .= 'ul#topmenu2 a.tab:hover,';
         $txt .= 'ul#topmenu2 a.tabactive {';
-        $txt .= '    background-color: <?php echo $GLOBALS[\'cfg\'][\'BgOne\']; ?>;';
+        $txt .= '    background-color: $bg-one;';
         $txt .= '    border-radius: .3em;';
         $txt .= '    -moz-border-radius: .3em;';
         $txt .= '    -webkit-border-radius: .3em;';
@@ -1114,7 +1091,7 @@ class Common
 
         /* to be able to cancel the bottom border, use <li class="active"> */
         $txt .= 'ul#topmenu > li.active {';
-        $txt .= '    /* border-bottom: 0pt solid <?php echo $GLOBALS[\'cfg\'][\'MainBackground\']; ?>; */';
+        $txt .= '    /* border-bottom: 0pt solid $main-background; */';
         $txt .= '    border-right: 0;';
         $txt .= '    border-bottom-color: #fff;';
         $txt .= '}';
@@ -1124,7 +1101,7 @@ class Common
         $txt .= 'div#dataDisplay input,';
         $txt .= 'div#dataDisplay select {';
         $txt .= '    margin: 0;';
-        $txt .= '    margin-<?php echo $right; ?>: .5em;';
+        $txt .= '    margin-right: .5em;';
         $txt .= '}';
         $txt .= 'div#dataDisplay th {';
         $txt .= '    line-height: 2em;';
@@ -1166,9 +1143,9 @@ class Common
 
         /* table stats */
         $txt .= 'div#tablestatistics table {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    margin-bottom: .5em;';
-        $txt .= '    margin-<?php echo $right; ?>: 1.5em;';
+        $txt .= '    margin-right: 1.5em;';
         $txt .= '    margin-top: .5em;';
         $txt .= '    min-width: 16em;';
         $txt .= '}';
@@ -1185,14 +1162,14 @@ class Common
 
         /* Heading */
         $txt .= '#topmenucontainer {';
-        $txt .= '    padding-<?php echo $right; ?>: 1em;';
+        $txt .= '    padding-right: 1em;';
         $txt .= '    width: 100%;';
         $txt .= '}';
 
         $txt .= '#serverinfo {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'Header\']; ?>;';
+        $txt .= '    background: $header;';
         $txt .= '    padding: .3em .9em;';
-        $txt .= '    padding-<?php echo $left; ?>: 2.2em;';
+        $txt .= '    padding-left: 2.2em;';
         // $txt .= '    text-shadow: 0 1px 0 #000;';
         $txt .= '    max-width: 100%;';
         $txt .= '    max-height: 16px;';
@@ -1207,14 +1184,14 @@ class Common
         $txt .= '#page_nav_icons {';
         $txt .= '    position: fixed;';
         $txt .= '    top: 0;';
-        $txt .= '    <?php echo $right; ?>: 0;';
+        $txt .= '    right: 0;';
         $txt .= '    z-index: 99;';
         $txt .= '    padding: .25em 0;';
         $txt .= '}';
 
         $txt .= '#goto_pagetop, #lock_page_icon, #page_settings_icon {';
         $txt .= '    padding: .25em;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'Header\']; ?>;;';
+        $txt .= '    background: $header;';
         $txt .= '}';
 
         $txt .= '#page_settings_icon {';
@@ -1241,7 +1218,7 @@ class Common
 
         $txt .= '#serverinfo img {';
         $txt .= '    margin: 0 .1em 0;';
-        $txt .= '    margin-<?php echo $left; ?>: .2em;';
+        $txt .= '    margin-left: .2em;';
         $txt .= '}';
 
         $txt .= '#textSQLDUMP {';
@@ -1272,12 +1249,12 @@ class Common
         $txt .= '}';
 
         $txt .= '#fieldset_add_user_login label {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left; ';
         $txt .= '    display: block;';
         $txt .= '    width: 10em;';
         $txt .= '    max-width: 100%;';
-        $txt .= '    text-align: <?php echo $right; ?>;';
-        $txt .= '    padding-<?php echo $right; ?>: .5em;';
+        $txt .= '    text-align: right;';
+        $txt .= '    padding-right: .5em;';
         $txt .= '}';
 
         $txt .= '#fieldset_add_user_login span.options #select_pred_username,';
@@ -1288,16 +1265,16 @@ class Common
         $txt .= '}';
 
         $txt .= '#fieldset_add_user_login span.options {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    display: block;';
         $txt .= '    width: 12em;';
         $txt .= '    max-width: 100%;';
-        $txt .= '    padding-<?php echo $right; ?>: .5em;';
+        $txt .= '    padding-right: .5em;';
         $txt .= '}';
 
         $txt .= '#fieldset_add_user_login input {';
         $txt .= '    width: 12em;';
-        $txt .= '    clear: <?php echo $right; ?>;';
+        $txt .= '    clear: right;';
         $txt .= '    max-width: 100%;';
         $txt .= '}';
 
@@ -1306,7 +1283,7 @@ class Common
         $txt .= '}';
 
         $txt .= '#fieldset_user_priv div.item {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    width: 9em;';
         $txt .= '    max-width: 100%;';
         $txt .= '}';
@@ -1324,15 +1301,15 @@ class Common
         $txt .= '}';
 
         $txt .= '#fieldset_user_global_rights fieldset {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#fieldset_user_group_rights fieldset {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#fieldset_user_global_rights>legend input {';
-        $txt .= '    margin-<?php echo $left; ?>: 2em;';
+        $txt .= '    margin-left: 2em;';
         $txt .= '}';
         /* end user privileges */
 
@@ -1350,7 +1327,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.buttonlinks {';
-        $txt .= '    float: <?php echo $right; ?>;';
+        $txt .= '    float: right;';
         $txt .= '    white-space: nowrap;';
         $txt .= '}';
 
@@ -1364,19 +1341,19 @@ class Common
         $txt .= '}';
 
         $txt .= 'caption a.top {';
-        $txt .= '    float: <?php echo $right; ?>;';
+        $txt .= '    float: right;';
         $txt .= '}';
 
         $txt .= 'div#serverstatusquerieschart {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    width: 500px;';
         $txt .= '    height: 350px;';
-        $txt .= '    margin-<?php echo $right;?>: 50px;';
+        $txt .= '    margin-right: 50px;';
         $txt .= '}';
 
         $txt .= 'table#serverstatusqueriesdetails,';
         $txt .= 'table#serverstatustraffic {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= 'table#serverstatusqueriesdetails th {';
@@ -1395,8 +1372,8 @@ class Common
         $txt .= '    width: 6em;';
         $txt .= '}';
         $txt .= 'table#serverstatusconnections {';
-        $txt .= '    float: <?php echo $left; ?>;';
-        $txt .= '    margin-<?php echo $left; ?>: 30px;';
+        $txt .= '    float: left;';
+        $txt .= '    margin-left: 30px;';
         $txt .= '}';
 
         $txt .= 'div#serverstatus table tbody td.descr a,';
@@ -1435,7 +1412,7 @@ class Common
 
         $txt .= 'div.tabLinks {';
         $txt .= '    margin-left: 0.3em;';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    padding: 5px 0;';
         $txt .= '}';
 
@@ -1453,9 +1430,9 @@ class Common
         $txt .= '    border: 1px solid #CCC;';
         $txt .= '    margin: 0;';
         $txt .= '    padding: 3px;';
-        $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>2px 2px 3px #666;';
-        $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>2px 2px 3px #666;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>2px 2px 3px #666;';
+        $txt .= '    -moz-box-shadow: 2px 2px 3px #666;';
+        $txt .= '    -webkit-box-shadow:2px 2px 3px #666;';
+        $txt .= '    box-shadow: 2px 2px 3px #666;';
         $txt .= '    background-color: #fff;';
         $txt .= '    z-index: 2;';
         $txt .= '}';
@@ -1492,7 +1469,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.smallIndent {';
-        $txt .= '    padding-<?php echo $left; ?>: 7px;';
+        $txt .= '    padding-left: 7px;';
         $txt .= '}';
 
         /* end serverstatus */
@@ -1505,10 +1482,10 @@ class Common
         $txt .= '    line-height: 2em;';
         $txt .= '}';
         $txt .= '#serverVariables .var-header {';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'ThColor\']; ?>;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'ThBackground\']; ?>;';
+        $txt .= '    color: $th-color;';
+        $txt .= '    background: $th-background;';
         $txt .= '    font-weight: bold;';
-        $txt .= '    text-align: <?php echo $left; ?>;';
+        $txt .= '    text-align: left';
         $txt .= '}';
         $txt .= '#serverVariables .var-row {';
         $txt .= '    padding: 0.5em;';
@@ -1522,17 +1499,17 @@ class Common
         $txt .= '    font-style: italic;';
         $txt .= '}';
         $txt .= '#serverVariables .var-value {';
-        $txt .= '    float: <?php echo $right; ?>;';
-        $txt .= '    text-align: <?php echo $right; ?>;';
+        $txt .= '    float: right;';
+        $txt .= '    text-align: right;';
         $txt .= '}';
         $txt .= '#serverVariables .var-doc {';
         $txt .= '    overflow:visible;';
-        $txt .= '    float: <?php echo $right; ?>;';
+        $txt .= '    float: right;';
         $txt .= '}';
 
         /* server variables editor */
         $txt .= '#serverVariables .editLink {';
-        $txt .= '    padding-<?php echo $right; ?>: 1em;';
+        $txt .= '    padding-right: 1em;';
         $txt .= '    font-family: sans-serif;';
         $txt .= '}';
         $txt .= '#serverVariables .serverVariableEditor {';
@@ -1551,7 +1528,7 @@ class Common
         $txt .= '#serverVariables .serverVariableEditor div {';
         $txt .= '    display: block;';
         $txt .= '    overflow: hidden;';
-        $txt .= '    padding-<?php echo $right; ?>: 1em;';
+        $txt .= '    padding-right: 1em;';
         $txt .= '}';
         $txt .= '#serverVariables .serverVariableEditor a {';
         $txt .= '    margin: 0 0.5em;';
@@ -1563,13 +1540,9 @@ class Common
         $txt .= '    margin: 1.5em 0;';
         $txt .= '    border: 1px solid #000;';
         $txt .= '    background-repeat: no-repeat;';
-        $txt .= '    <?php if ($GLOBALS[\'text_dir\'] === \'ltr\') : ?>';
-        $txt .= '        background-position: 10px 50%;';
-        $txt .= '        padding: 10px 10px 10px 25px;';
-        $txt .= '    <?php else : ?>';
+
         $txt .= '        background-position: 99% 50%;';
-        $txt .= '        padding: 25px 10px 10px 10px';
-        $txt .= '    <?php endif; ?>';
+        $txt .= '        padding: 25px 10px 10px 10px; ';
         $txt .= '    -moz-border-radius: 5px;';
         $txt .= '    -webkit-border-radius: 5px;';
         $txt .= '    border-radius: 5px;';
@@ -1590,7 +1563,7 @@ class Common
         $txt .= 'div#profilingchart {';
         $txt .= '    width: 850px;';
         $txt .= '    height: 370px;';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#profilingchart .jqplot-highlighter-tooltip{';
@@ -1608,8 +1581,8 @@ class Common
         $txt .= '    padding: 10px;';
         $txt .= '}';
         $txt .= '.chartOption {';
-        $txt .= '    float: <?php echo $left; ?>;';
-        $txt .= '    margin-<?php echo $right;?>: 40px;';
+        $txt .= '    float: left;';
+        $txt .= '    margin-right: 40px;';
         $txt .= '}';
         /* end table charting */
 
@@ -1629,7 +1602,7 @@ class Common
         $txt .= '#sectionlinks {';
         $txt .= '    margin-bottom: 15px;';
         $txt .= '    padding: 16px;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'GroupBg\']; ?>;';
+        $txt .= '    background: $group-bg;';
         $txt .= '    border: 1px solid #aaa;';
         $txt .= '    border-radius: 5px;';
         $txt .= '    -webkit-border-radius: 5px;';
@@ -1644,7 +1617,7 @@ class Common
         $txt .= '    font-weight: bold;';
         $txt .= '    text-shadow: 0 1px 0 #fff;';
         $txt .= '    line-height: 35px;';
-        $txt .= '    margin-<?php echo $left; ?>: 7px;';
+        $txt .= '    margin-left: 7px;';
         $txt .= '    border: 1px solid #aaa;';
         $txt .= '    padding: 3px 7px;';
         $txt .= '    color: #111 !important;';
@@ -1654,22 +1627,19 @@ class Common
         $txt .= '    border-radius: 20px;';
         $txt .= '    -webkit-border-radius: 20px;';
         $txt .= '    -moz-border-radius: 20px;';
-        $txt .= '    <?php echo $theme->getCssGradient(\'f8f8f8\', \'d8d8d8\'); ?>';
         $txt .= '}';
         $txt .= '#sectionlinks a:hover,';
         $txt .= '.buttonlinks a:hover,';
-        $txt .= 'a.button:hover {';
-        $txt .= '    <?php echo $theme->getCssGradient(\'ffffff\', \'dddddd\'); ?>';
-        $txt .= '}';
+
 
         $txt .= 'div#sqlquerycontainer {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    width: 69%;';
         $txt .= '    /* height: 15em; */';
         $txt .= '}';
 
         $txt .= 'div#tablefieldscontainer {';
-        $txt .= '    float: <?php echo $right; ?>;';
+        $txt .= '    float: right;';
         $txt .= '    width: 29%;';
         $txt .= '    margin-top: -20px;';
         $txt .= '    /* height: 15em; */';
@@ -1703,14 +1673,14 @@ class Common
 
         /* main page */
         $txt .= '#maincontainer {';
-        $txt .= '    /* background-image: url(<?php echo $theme->getImgPath(\'logo_right.png\');?>); */';
-        $txt .= '    /* background-position: <?php echo $right; ?> bottom; */';
-        $txt .= '    /* background-repeat: no-repeat; */';
+        $txt .= '    background-image: url(\'themes\pmahomme\img\logo_right.png\'); ';
+        $txt .= '    background-position: right bottom; ';
+        $txt .= '    background-repeat: no-repeat; ';
         $txt .= '}';
 
         $txt .= '#mysqlmaininformation,';
         $txt .= '#pmamaininformation {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    width: 49%;';
         $txt .= '}';
 
@@ -1730,7 +1700,7 @@ class Common
         $txt .= '    z-index: 801;';
 
         $txt .= '    border-radius: 3px;';
-        $txt .= '    border: solid 1px <?php echo $GLOBALS[\'cfg\'][\'Header\']; ?>;;';
+        $txt .= '    border: solid 1px $header;';
         $txt .= '    background: #fff;';
 
         $txt .= '}';
@@ -1740,13 +1710,13 @@ class Common
 
         $txt .= 'li.no_bullets {';
         $txt .= '    list-style-type:none !important;';
-        $txt .= '    margin-left: -25px !important;      //align with other list items which have bullets';
+        $txt .= '    margin-left: -25px !important;';
         $txt .= '}';
 
         /* end iconic view for ul items */
 
         $txt .= '#body_browse_foreigners {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'NaviBackground\']; ?>;';
+        $txt .= '    background: $navi-background;';
         $txt .= '    margin: .5em .5em 0 .5em;';
         $txt .= '}';
 
@@ -1765,7 +1735,7 @@ class Common
         $txt .= '}';
 
         $txt .= '#fieldset_select_fields {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#selflink {';
@@ -1774,18 +1744,18 @@ class Common
         $txt .= '    margin-top: 1em;';
         $txt .= '    margin-bottom: 1em;';
         $txt .= '    width: 98%;';
-        $txt .= '    margin-<?php echo $left; ?>: 1%;';
+        $txt .= '    margin-left: 1%;';
         $txt .= '    border-top: .1em solid silver;';
-        $txt .= '    text-align: <?php echo $right; ?>;';
+        $txt .= '    text-align: right;';
         $txt .= '}';
 
         $txt .= '#table_innodb_bufferpool_usage,';
         $txt .= '#table_innodb_bufferpool_activity {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#div_mysql_charset_collations table {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#div_mysql_charset_collations table th,';
@@ -1798,16 +1768,16 @@ class Common
         $txt .= '}';
 
         $txt .= '#qbe_div_table_list {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#qbe_div_sql_query {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= 'label.desc {';
         $txt .= '    width: 30em;';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= 'label.desc sup {';
@@ -1836,8 +1806,8 @@ class Common
         $txt .= '}';
 
         $txt .= '.result_query div.sqlOuter {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgOne\']; ?>;';
-        $txt .= '    text-align: <?php echo $left; ?>;';
+        $txt .= '    background: $bg-one;';
+        $txt .= '    text-align: left';
         $txt .= '}';
 
         $txt .= '.result_query .success, .result_query .error {';
@@ -1850,13 +1820,13 @@ class Common
 
         $txt .= '#PMA_slidingMessage code.sql,';
         $txt .= 'div.sqlvalidate {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgOne\']; ?>;';
+        $txt .= '    background: $bg-one;';
         $txt .= '}';
 
         $txt .= '#main_pane_left {';
         $txt .= '    width: 60%;';
         $txt .= '    min-width: 260px;';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    padding-top: 1em;';
         $txt .= '}';
 
@@ -1864,14 +1834,14 @@ class Common
         $txt .= '    overflow: hidden;';
         $txt .= '    min-width: 160px;';
         $txt .= '    padding-top: 1em;';
-        $txt .= '    padding-<?php echo $left; ?>: 1em;';
-        $txt .= '    padding-<?php echo $right; ?>: .5em;';
+        $txt .= '    padding-left: 1em;';
+        $txt .= '    padding-right: .5em;';
         $txt .= '}';
 
         $txt .= '.group {';
 
         $txt .= '    border: 1px solid #999;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'GroupBg\']; ?>;';
+        $txt .= '    background: $group-bg;';
         $txt .= '    -moz-border-radius: 4px;';
         $txt .= '    -webkit-border-radius: 4px;';
         $txt .= '    border-radius: 4px;';
@@ -1887,14 +1857,11 @@ class Common
         $txt .= '    font-size: 1.6em;';
         $txt .= '    font-weight: normal;';
         $txt .= '    text-shadow: 0 1px 0 #777;';
-        $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 15px #999 inset;';
-        $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 15px #999 inset;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 15px #999 inset;';
         $txt .= '}';
 
         $txt .= '.group-cnt {';
         $txt .= '    padding: 0;';
-        $txt .= '    padding-<?php echo $left; ?>: .5em;';
+        $txt .= '    padding-left: .5em;';
         $txt .= '    display: inline-block;';
         $txt .= '    width: 98%;';
         $txt .= '}';
@@ -1929,17 +1896,17 @@ class Common
         $txt .= '    width: 202px;';
         $txt .= '    position: relative;';
         $txt .= '    margin: 0 auto 1em;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'MainColor\']; ?>;';
+        $txt .= '    color: $main-color;';
         $txt .= '}';
 
         $txt .= 'div.upload_progress_bar_inner';
         $txt .= '{';
-        $txt .= '    background-color: <?php echo $GLOBALS[\'cfg\'][\'NaviPointerBackground\']; ?>;';
+        $txt .= '    background-color: $navi-pointer-background;';
         $txt .= '    width: 0;';
         $txt .= '    height: 12px;';
         $txt .= '    margin: 1px;';
         $txt .= '    overflow: hidden;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'BrowseMarkerColor\']; ?>;';
+        $txt .= '    color: $browse-marker-color;';
         $txt .= '    position: relative;';
         $txt .= '}';
 
@@ -1947,14 +1914,14 @@ class Common
         $txt .= '{';
         $txt .= '    position: absolute;';
         $txt .= '    top: 0;';
-        $txt .= '    <?php echo $left; ?>: 0;';
+        $txt .= '    left: 0;';
         $txt .= '    width: 202px;';
         $txt .= '}';
 
         $txt .= 'div.upload_progress_bar_inner div.percentage';
         $txt .= '{';
         $txt .= '    top: -1px;';
-        $txt .= '    <?php echo $left; ?>: -1px;';
+        $txt .= '    left: -1px;';
         $txt .= '}';
 
         $txt .= 'div#statustext {';
@@ -1965,7 +1932,7 @@ class Common
         $txt .= 'table#serverconnection_trg_remote,';
         $txt .= 'table#serverconnection_src_local,';
         $txt .= 'table#serverconnection_trg_local  {';
-        $txt .= '  float: <?php echo $left; ?>;';
+        $txt .= '  float: left;';
         $txt .= '}';
         /**
         *  Validation error message styles
@@ -1988,7 +1955,7 @@ class Common
         $txt .= '   margin-top: 0;';
         $txt .= '   margin-right: auto;';
         $txt .= '   margin-bottom: 0;';
-        $txt .= '   margin-<?php echo $left; ?>: auto;';
+        $txt .= '   margin-left: auto;';
         $txt .= '   padding: 5px;   /** Keep a little space on the sides of the text */';
         $txt .= '   width: 350px;';
 
@@ -1997,7 +1964,7 @@ class Common
         $txt .= '   display: inline;';
         $txt .= '   left: 0;';
         $txt .= '   right: 0;';
-        $txt .= '   background-image: url(<?php echo $theme->getImgPath(\'ajax_clock_small.gif\');?>);';
+        $txt .= '   background-image: url(\'themes\pmahomme\img\ajax_clock_small.gif\');';
         $txt .= '   background-repeat: no-repeat;';
         $txt .= '   background-position: 2%;';
         $txt .= '   border: 1px solid #e2b709;';
@@ -2010,9 +1977,9 @@ class Common
         $txt .= '    border-radius: 5px;';
         $txt .= '    -moz-border-radius: 5px;';
         $txt .= '    -webkit-border-radius: 5px;';
-        $txt .= '    box-shadow: 0 5px 90px <?php echo $GLOBALS[\'cfg\'][\'Header\']; ?>;;';
-        $txt .= '    -moz-box-shadow: 0 5px 90px <?php echo $GLOBALS[\'cfg\'][\'Header\']; ?>;;';
-        $txt .= '    -webkit-box-shadow: 0 5px 90px <?php echo $GLOBALS[\'cfg\'][\'Header\']; ?>;;';
+        $txt .= '    box-shadow: 0 5px 90px $header ;';
+        $txt .= '    -moz-box-shadow: 0 5px 90px $header;';
+        $txt .= '    -webkit-box-shadow: 0 5px 90px $header;';
         $txt .= '}';
 
         $txt .= '#loading_parent {';
@@ -2081,20 +2048,20 @@ class Common
         $txt .= '#ldi_options label.desc,';
         $txt .= '#latex_options label.desc,';
         $txt .= '#output label.desc {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    width: 15em;';
         $txt .= '}';
 
         $txt .= '.exportoptions,';
         $txt .= '.importoptions {';
         $txt .= '    margin: 20px 30px 30px;';
-        $txt .= '    margin-<?php echo $left; ?>: 10px;';
+        $txt .= '    margin-left: 10px;';
         $txt .= '}';
 
         $txt .= '.exportoptions #buttonGo,';
         $txt .= '.importoptions #buttonGo {';
         $txt .= '    font-weight: bold;';
-        $txt .= '    margin-<?php echo $left; ?>: 14px;';
+        $txt .= '    margin-left: 14px;';
         $txt .= '    border: 1px solid #aaa;';
         $txt .= '    padding: 5px 12px;';
         $txt .= '    color: #111;';
@@ -2106,13 +2073,12 @@ class Common
 
         $txt .= '    text-shadow: 0 1px 0 #fff;';
 
-        $txt .= '    <?php echo $theme->getCssGradient(\'ffffff\', \'cccccc\'); ?>';
         $txt .= '    cursor: pointer;';
         $txt .= '}';
 
         $txt .= '.format_specific_options h3 {';
         $txt .= '    margin: 10px 0 0;';
-        $txt .= '    margin-<?php echo $left; ?>: 10px;';
+        $txt .= '    margin-left: 10px;';
         $txt .= '    border: 0;';
         $txt .= '}';
 
@@ -2136,7 +2102,7 @@ class Common
 
         $txt .= '.export_sub_options {';
         $txt .= '    margin: 20px 0 0;';
-        $txt .= '    margin-<?php echo $left; ?>: 30px;';
+        $txt .= '    margin-left: 30px;';
         $txt .= '}';
 
         $txt .= '.export_sub_options h4 {';
@@ -2188,7 +2154,7 @@ class Common
         $txt .= '    width: 100%;';
         $txt .= '    height: 100%;';
         $txt .= '    top: 0;';
-        $txt .= '    <?php echo $left; ?>: 0;';
+        $txt .= '    left: 0;';
         $txt .= '    background: #000;';
         $txt .= '    z-index: 1000;';
         $txt .= '    overflow: hidden;';
@@ -2203,8 +2169,8 @@ class Common
         $txt .= '    list-style: none;';
         $txt .= '}';
         $txt .= '#fieldsForm ul.table-structure-actions li {';
-        $txt .= '    float: <?php echo $left; ?>;';
-        $txt .= '    margin-<?php echo $right; ?>: 0.3em; /* same as padding of "table td" */';
+        $txt .= '    float: left;';
+        $txt .= '    margin-right: 0.3em; /* same as padding of "table td" */';
         $txt .= '}';
         $txt .= '#fieldsForm ul.table-structure-actions .submenu li {';
         $txt .= '    padding: 0;';
@@ -2215,11 +2181,11 @@ class Common
         $txt .= '    margin: 0.1em;';
         $txt .= '}';
         $txt .= '#structure-action-links a {';
-        $txt .= '    margin-<?php echo $right; ?>: 1em;';
+        $txt .= '    margin-right: 1em;';
         $txt .= '}';
         $txt .= '#addColumns input[type="radio"] {';
         $txt .= '    margin: 3px 0 0;';
-        $txt .= '    margin-<?php echo $left; ?>: 1em;';
+        $txt .= '    margin-left: 1em;';
         $txt .= '}';
         /**
         * Indexes
@@ -2239,22 +2205,22 @@ class Common
         $txt .= '}';
 
         $txt .= '#index_frm .index_info .label {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    min-width: 12em;';
         $txt .= '}';
 
         $txt .= '#index_frm .slider {';
         $txt .= '    width: 10em;';
         $txt .= '    margin: .6em;';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#index_frm .add_fields {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#index_frm .add_fields input {';
-        $txt .= '    margin-<?php echo $left; ?>: 1em;';
+        $txt .= '    margin-left: 1em;';
         $txt .= '}';
 
         $txt .= '#index_frm input {';
@@ -2271,7 +2237,7 @@ class Common
 
         $txt .= 'table#index_columns select {';
         $txt .= '    width: 85%;';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '}';
 
         $txt .= '#move_columns_dialog div {';
@@ -2285,9 +2251,9 @@ class Common
         $txt .= '}';
 
         $txt .= '#move_columns_dialog li {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'ThBackground\']; ?>;';
+        $txt .= '    background: $th-background;';
         $txt .= '    border: 1px solid #aaa;';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'ThColor\']; ?>;';
+        $txt .= '    color: $th-color;';
         $txt .= '    font-weight: bold;';
         $txt .= '    margin: .4em;';
         $txt .= '    padding: .2em;';
@@ -2305,7 +2271,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.config-form ul.tabs li {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    margin-bottom: -1px;';
         $txt .= '}';
 
@@ -2314,7 +2280,7 @@ class Common
         $txt .= '    margin: .1em .2em 0;';
         $txt .= '    white-space: nowrap;';
         $txt .= '    text-decoration: none;';
-        $txt .= '    border: 1px solid <?php echo $GLOBALS[\'cfg\'][\'BgTwo\']; ?>;';
+        $txt .= '    border: 1px solid $bg-two;';
         $txt .= '    border-bottom: 1px solid #aaa;';
         $txt .= '}';
 
@@ -2375,7 +2341,7 @@ class Common
 
         $txt .= '.config-form fieldset .inline_errors { /* field error list */';
         $txt .= '    margin: .3em .3em .3em;';
-        $txt .= '    margin-<?php echo $left; ?>: 0;';
+        $txt .= '    margin-left: 0;';
         $txt .= '    padding: 0;';
         $txt .= '    list-style: none;';
         $txt .= '    color: #9A0000;';
@@ -2384,8 +2350,8 @@ class Common
 
         $txt .= '.config-form fieldset th {';
         $txt .= '    padding: .3em .3em .3em;';
-        $txt .= '    padding-<?php echo $left; ?>: .5em;';
-        $txt .= '    text-align: <?php echo $left; ?>;';
+        $txt .= '    padding-left: .5em;';
+        $txt .= '    text-align: left;';
         $txt .= '    vertical-align: top;';
         $txt .= '    width: 40%;';
         $txt .= '    background: transparent;';
@@ -2394,7 +2360,7 @@ class Common
 
         $txt .= '.config-form fieldset .doc,';
         $txt .= '.config-form fieldset .disabled-notice {';
-        $txt .= '    margin-<?php echo $left; ?>: 1em;';
+        $txt .= '    margin-left: 1em;';
         $txt .= '}';
 
         $txt .= '.config-form fieldset .disabled-notice {';
@@ -2420,12 +2386,12 @@ class Common
 
         $txt .= '.config-form fieldset th,';
         $txt .= '.config-form fieldset td {';
-        $txt .= '    border-top: 1px <?php echo $GLOBALS[\'cfg\'][\'BgTwo\']; ?> solid;';
-        $txt .= '    border-<?php echo $right; ?>: none;';
+        $txt .= '    border-top: 1px $bg-two solid;';
+        $txt .= '    border-right: none;';
         $txt .= '}';
 
         $txt .= 'fieldset .group-header th {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgTwo\']; ?>;';
+        $txt .= '    background: $bg-two;';
         $txt .= '}';
 
         $txt .= 'fieldset .group-header + tr th {';
@@ -2434,16 +2400,16 @@ class Common
 
         $txt .= 'fieldset .group-field-1 th,';
         $txt .= 'fieldset .group-header-2 th {';
-        $txt .= '    padding-<?php echo $left; ?>: 1.5em;';
+        $txt .= '    padding-left: 1.5em;';
         $txt .= '}';
 
         $txt .= 'fieldset .group-field-2 th,';
         $txt .= 'fieldset .group-header-3 th {';
-        $txt .= '    padding-<?php echo $left; ?>: 3em;';
+        $txt .= '    padding-left: 3em;';
         $txt .= '}';
 
         $txt .= 'fieldset .group-field-3 th {';
-        $txt .= '    padding-<?php echo $left; ?>: 4.5em;';
+        $txt .= '    padding-left: 4.5em;';
         $txt .= '}';
 
         $txt .= 'fieldset .disabled-field th,';
@@ -2458,7 +2424,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.config-form .lastrow {';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'ThBackground\']; ?>;';
+        $txt .= '    background: $th-background;';
         $txt .= '    padding: .5em;';
         $txt .= '    text-align: center;';
         $txt .= '}';
@@ -2521,7 +2487,7 @@ class Common
 
         /* error list */
         $txt .= '.config-form dd {';
-        $txt .= '    margin-<?php echo $left; ?>: .5em;';
+        $txt .= '    margin-left: .5em;';
         $txt .= '}';
 
         $txt .= '.config-form dd:before {';
@@ -2533,7 +2499,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.prefsmanage_opts {';
-        $txt .= '    margin-<?php echo $left; ?>: 2em;';
+        $txt .= '    margin-left: 2em;';
         $txt .= '}';
 
         $txt .= '#prefs_autoload {';
@@ -2554,7 +2520,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.wrapper {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    margin-bottom: 1.5em;';
         $txt .= '}';
         $txt .= '.toggleButton {';
@@ -2565,8 +2531,8 @@ class Common
         $txt .= '    line-height: 1.4em;';
         $txt .= '    height: 1.55em;';
         $txt .= '    overflow: hidden;';
-        $txt .= '    border-right: .1em solid <?php echo $GLOBALS[\'cfg\'][\'Header\']; ?>;;';
-        $txt .= '    border-left: .1em solid <?php echo $GLOBALS[\'cfg\'][\'Header\']; ?>;;';
+        $txt .= '    border-right: .1em solid $header;';
+        $txt .= '    border-left: .1em solid $header;';
         $txt .= '    -webkit-border-radius: .3em;';
         $txt .= '    -moz-border-radius: .3em;';
         $txt .= '    border-radius: .3em;';
@@ -2596,17 +2562,17 @@ class Common
 
         $txt .= '.doubleFieldset fieldset {';
         $txt .= '    width: 48%;';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float: left;';
         $txt .= '    padding: 0;';
         $txt .= '}';
         $txt .= '.doubleFieldset fieldset.left {';
-        $txt .= '    margin-<?php echo $right; ?>: 1%;';
+        $txt .= '    margin-right: 1%;';
         $txt .= '}';
         $txt .= '.doubleFieldset fieldset.right {';
-        $txt .= '    margin-<?php echo $left; ?>: 1%;';
+        $txt .= '    margin-left: 1%;';
         $txt .= '}';
         $txt .= '.doubleFieldset legend {';
-        $txt .= '    margin-<?php echo $left; ?>: 1.5em;';
+        $txt .= '    margin-left: 1.5em;';
         $txt .= '}';
         $txt .= '.doubleFieldset div.wrap {';
         $txt .= '    padding: 1.5em;';
@@ -2637,7 +2603,7 @@ class Common
         $txt .= '#placeholder {';
         $txt .= '    position: relative;';
         $txt .= '    border: 1px solid #aaa;';
-        $txt .= '    float: <?php echo $right; ?>;';
+        $txt .= '    float: right;';
         $txt .= '    overflow: hidden;';
         $txt .= '    width: 450px;';
         $txt .= '    height: 300px;';
@@ -2694,13 +2660,13 @@ class Common
         $txt .= '.colborder {';
         $txt .= '    cursor: col-resize;';
         $txt .= '    height: 100%;';
-        $txt .= '    margin-<?php echo $left; ?>: -6px;';
+        $txt .= '    margin-left: -6px;';
         $txt .= '    position: absolute;';
         $txt .= '    width: 5px;';
         $txt .= '}';
 
         $txt .= '.colborder_active {';
-        $txt .= '    border-<?php echo $right; ?>: 2px solid #a44;';
+        $txt .= '    border-right: 2px solid #a44;';
         $txt .= '}';
 
         $txt .= '.pma_table td {';
@@ -2718,11 +2684,11 @@ class Common
         $txt .= '}';
 
         $txt .= '.pma_table th.draggable.right span {';
-        $txt .= '    margin-<?php echo $right; ?>: 0px;';
+        $txt .= '    margin-right: 0px;';
         $txt .= '}';
 
         $txt .= '.pma_table th.draggable span {';
-        $txt .= '    margin-<?php echo $right; ?>: 10px;';
+        $txt .= '    margin-right: 10px;';
         $txt .= '}';
 
         $txt .= '.modal-copy input {';
@@ -2754,9 +2720,9 @@ class Common
         $txt .= '}';
 
         $txt .= '.cPointer {';
-        $txt .= '    background: url(<?php echo $theme->getImgPath(\'col_pointer.png\');?>);';
+      /*  $txt .= '    background: url(<?php echo $theme->getImgPath(\'col_pointer.png\');?>);'; */
         $txt .= '    height: 20px;';
-        $txt .= '    margin-<?php echo $left; ?>: -5px;  /* must be minus half of its width */';
+        $txt .= '    margin-left: -5px;  /* must be minus half of its width */';
         $txt .= '    margin-top: -10px;';
         $txt .= '    position: absolute;';
         $txt .= '    width: 10px;';
@@ -2787,10 +2753,10 @@ class Common
         $txt .= '}';
 
         $txt .= '.coldrop {';
-        $txt .= '    background: url(<?php echo $theme->getImgPath(\'col_drop.png\');?>);';
+        $txt .= '    background: url(\'themes\pmahomme\img\col_drop.png\');';
         $txt .= '    cursor: pointer;';
         $txt .= '    height: 16px;';
-        $txt .= '    margin-<?php echo $left; ?>: .3em;';
+        $txt .= '    margin-left: .3em;';
         $txt .= '    margin-top: .3em;';
         $txt .= '    position: absolute;';
         $txt .= '    width: 16px;';
@@ -2812,7 +2778,7 @@ class Common
 
         $txt .= '.cList .lDiv div {';
         $txt .= '    padding: .2em .5em .2em;';
-        $txt .= '    padding-<?php echo $left; ?>: .2em;';
+        $txt .= '    padding-left: .2em;';
         $txt .= '}';
 
         $txt .= '.cList .lDiv div:hover {';
@@ -2852,7 +2818,6 @@ class Common
         $txt .= '    -webkit-border-radius: 5px;';
         $txt .= '    -moz-border-radius: 5px;';
 
-        $txt .= '    <?php echo $theme->getCssGradient(\'eeeeee\', \'cccccc\'); ?>';
         $txt .= '}';
 
         $txt .= '.navigation td {';
@@ -2890,7 +2855,6 @@ class Common
         $txt .= '    cursor: pointer;';
         $txt .= '    text-shadow: none;';
 
-        $txt .= '    <?php echo $theme->getCssGradient(\'333333\', \'555555\'); ?>';
         $txt .= '}';
 
         $txt .= '.navigation select {';
@@ -2936,12 +2900,12 @@ class Common
         $txt .= '}';
 
         $txt .= '.cEdit .edit_box_posting {';
-        $txt .= '    background: #FFF url(<?php echo $theme->getImgPath(\'ajax_clock_small.gif\');?>) no-repeat right center;';
-        $txt .= '    padding-<?php echo $right; ?>: 1.5em;';
+        $txt .= '    background: #FFF url(\'themes\pmahomme\img\ajax_clock_small.gif\') no-repeat right center;';
+        $txt .= '    padding-right: 1.5em;';
         $txt .= '}';
 
         $txt .= '.cEdit .edit_area_loading {';
-        $txt .= '    background: #FFF url(<?php echo $theme->getImgPath(\'ajax_clock_small.gif\');?>) no-repeat center;';
+        $txt .= '    background: #FFF url(\'themes\pmahomme\img\ajax_clock_small.gif\') no-repeat right center;';
         $txt .= '    height: 10em;';
         $txt .= '}';
 
@@ -2952,8 +2916,8 @@ class Common
         $txt .= '}';
 
         $txt .= '.saving_edited_data {';
-        $txt .= '    background: url(<?php echo $theme->getImgPath(\'ajax_clock_small.gif\');?>) no-repeat left;';
-        $txt .= '    padding-<?php echo $left; ?>: 20px;';
+        $txt .= '    background: url(\'themes\pmahomme\img\ajax_clock_small.gif\') no-repeat left;';
+        $txt .= '    padding-left: 20px;';
         $txt .= '}';
 
         $txt .= '.relationalTable td {';
@@ -2967,7 +2931,7 @@ class Common
 
         /* css for timepicker */
         $txt .= '.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }';
-        $txt .= '.ui-timepicker-div dl { text-align: <?php echo $left; ?>; }';
+        $txt .= '.ui-timepicker-div dl { text-align: left }';
         $txt .= '.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }';
         $txt .= '.ui-timepicker-div dl dd { margin: 0 10px 10px 85px; }';
         $txt .= '.ui-timepicker-div td { font-size: 90%; }';
@@ -3040,12 +3004,12 @@ class Common
         $txt .= '    width: 100%;';
         $txt .= '    position: fixed;';
         $txt .= '    bottom: 0;';
-        $txt .= '    <?php echo $left; ?>: 0;';
+        $txt .= '    left: 0;';
         $txt .= '    z-index: 100;';
         $txt .= '}';
         $txt .= '#pma_console {';
         $txt .= '    position: relative;';
-        $txt .= '    margin-<?php echo $left; ?>: 240px;';
+        $txt .= '    margin-left: 240px;';
         $txt .= '}';
         $txt .= '#pma_console .templates {';
         $txt .= '    display: none;';
@@ -3062,8 +3026,8 @@ class Common
         $txt .= '}';
         $txt .= '#pma_console .toolbar.collapsed:not(:hover) {';
         $txt .= '    display: inline-block;';
-        $txt .= '    border-top-<?php echo $right; ?>-radius: 3px;';
-        $txt .= '    border-<?php echo $right; ?>: solid 1px #aaa;';
+        $txt .= '    border-top-right-radius: 3px;';
+        $txt .= '    border-right: solid 1px #aaa;';
         $txt .= '}';
         $txt .= '#pma_console .toolbar.collapsed {';
         $txt .= '    cursor: default;';
@@ -3095,11 +3059,11 @@ class Common
         $txt .= '}';
         $txt .= '#pma_console .toolbar .button,';
         $txt .= '#pma_console .toolbar .text {';
-        $txt .= '    margin-<?php echo $right; ?>: .4em;';
+        $txt .= '    margin-right: .4em;';
         $txt .= '}';
         $txt .= '#pma_console .toolbar .button,';
         $txt .= '#pma_console .toolbar .text {';
-        $txt .= '    float: <?php echo $right; ?>;';
+        $txt .= '    float: right;';
         $txt .= '}';
         $txt .= '#pma_console .content {';
         $txt .= '    overflow-x: hidden;';
@@ -3212,7 +3176,7 @@ class Common
         $txt .= '    bottom: 100%;';
         $txt .= '    background: #ccc;';
         $txt .= '    border: solid 1px #aaa;';
-        $txt .= '    border-top-<?php echo $left; ?>-radius: 3px;';
+        $txt .= '    border-top-left-radius: 3px;';
         $txt .= '}';
         $txt .= 'html.ie8 #pma_console .message .action_content {';
         $txt .= '    position: relative!important;';
@@ -3272,17 +3236,17 @@ class Common
         $txt .= '    width: 94%;';
         $txt .= '    height: 100%;';
         $txt .= '    min-height: 48px;';
-        $txt .= '    <?php echo $left; ?>: 100%;';
+        $txt .= '    left: 100%;';
         $txt .= '    top: 0;';
-        $txt .= '    border-<?php echo $left; ?>: solid 1px #999;';
+        $txt .= '    border-left: solid 1px #999;';
         $txt .= '    z-index: 300;';
-        $txt .= '    transition: <?php echo $left; ?> 0.2s;';
-        $txt .= '    -ms-transition: <?php echo $left; ?> 0.2s;';
-        $txt .= '    -webkit-transition: <?php echo $left; ?> 0.2s;';
-        $txt .= '    -moz-transition: <?php echo $left; ?> 0.2s;';
+        $txt .= '    transition: left 0.2s;';
+        $txt .= '    -ms-transition: left 0.2s;';
+        $txt .= '    -webkit-transition: left 0.2s;';
+        $txt .= '    -moz-transition: left 0.2s;';
         $txt .= '}';
         $txt .= '#pma_console .card.show {';
-        $txt .= '    <?php echo $left; ?>: 6%;';
+        $txt .= '    left : 6%;';
         $txt .= '    box-shadow: -2px 1px 4px -1px #999;';
         $txt .= '}';
         $txt .= 'html.ie7 #pma_console .query_input {';
@@ -3293,7 +3257,7 @@ class Common
         $txt .= '    padding: 4px 6px;';
         $txt .= '}';
         $txt .= '#pma_bookmarks .content.add_bookmark .options {';
-        $txt .= '    margin-<?php echo $left; ?>: 1.4em;';
+        $txt .= '    margin-left: 1.4em;';
         $txt .= '    padding-bottom: .4em;';
         $txt .= '    margin-bottom: .4em;';
         $txt .= '    border-bottom: solid 1px #ccc;';
@@ -3396,13 +3360,13 @@ class Common
         $txt .= '    right: 25px;';
         $txt .= '    width: 400px;';
         $txt .= '    border: 1px solid #999;';
-        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'GroupBg\']; ?>;';
+        $txt .= '    background: $group-bg;';
         $txt .= '    -moz-border-radius: 4px;';
         $txt .= '    -webkit-border-radius: 4px;';
         $txt .= '    border-radius: 4px;';
-        $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>2px 2px 5px #ccc;';
-        $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>2px 2px 5px #ccc;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>2px 2px 5px #ccc;';
+        $txt .= '    -moz-box-shadow: 2px 2px 5px #ccc;';
+        $txt .= '    -webkit-box-shadow: 2px 2px 5px #ccc;';
+        $txt .= '    box-shadow: 2px 2px 5px #ccc;';
         $txt .= '}';
         $txt .= '.pma_sql_import_status h2,';
         $txt .= '.pma_drop_result h2 {';
@@ -3414,9 +3378,9 @@ class Common
         $txt .= '    font-size: 1.6em;';
         $txt .= '    font-weight: normal;';
         $txt .= '    text-shadow: 0 1px 0 #777;';
-        $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'-\'; ?>1px 1px 15px #999 inset;';
-        $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'-\'; ?>1px 1px 15px #999 inset;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'-\'; ?>1px 1px 15px #999 inset;';
+        $txt .= '    -moz-box-shadow: 1px 1px 15px #999 inset;';
+        $txt .= '    -webkit-box-shadow: 1px 1px 15px #999 inset;';
+        $txt .= '    box-shadow: 1px 1px 15px #999 inset;';
         $txt .= '}';
         $txt .= '.pma_sql_import_status div {';
         $txt .= '    height: 270px;';
@@ -3484,7 +3448,7 @@ class Common
         $txt .= '}';
         $txt .= 'span.drag_icon {';
         $txt .= '    display: inline-block;';
-        $txt .= '    background-image: url(\'<?php echo $theme->getImgPath(\'s_sortable.png\');?>\');';
+        $txt .= '    background-image: url(\'themes\pmahomme\img\s_sortable.png\');';
         $txt .= '    background-position: center center;';
         $txt .= '    background-repeat: no-repeat;';
         $txt .= '    width: 1em;';
@@ -3521,22 +3485,22 @@ class Common
         $txt .= '    float: right;';
         $txt .= '}';
         $txt .= 'th.headerSortUp .sorticon, th.headerSortDown:hover .sorticon {';
-        $txt .= '    background-image: url(<?php echo $theme->getImgPath(\'s_desc.png\');?>);';
+        $txt .= '    background-image: url(\'themes\pmahomme\img\s_desc.png\');';
         $txt .= '}';
         $txt .= 'th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {';
-        $txt .= '    background-image: url(<?php echo $theme->getImgPath(\'s_asc.png\');?>);';
+        $txt .= '    background-image: url(\'themes\pmahomme\img\s_aesc.png\');';
         $txt .= '}';
         /* end of styles of sortable tables */
         /* styles for jQuery-ui to support rtl languages */
         $txt .= 'body .ui-dialog .ui-dialog-titlebar-close {';
-        $txt .= '    <?php echo $right; ?>: .3em;';
-        $txt .= '    <?php echo $left; ?>: initial;';
+        $txt .= '    right: .3em;';
+        $txt .= '    left: initial;';
         $txt .= '}';
         $txt .= 'body .ui-dialog .ui-dialog-title {';
-        $txt .= '    float: <?php echo $left; ?>;';
+        $txt .= '    float:left;';
         $txt .= '}';
         $txt .= 'body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {';
-        $txt .= '    float: <?php echo $right; ?>;';
+        $txt .= '    float: right';
         $txt .= '}';
         /* end of styles for jQuery-ui to support rtl languages */
         $txt .= '@media only screen and (max-width: 768px) {';
@@ -3545,8 +3509,8 @@ class Common
         $txt .= '    }';
         $txt .= '    #main_pane_right {';
         $txt .= '        padding-top: 0;';
-        $txt .= '        padding-<?php echo $left; ?>: 1px;';
-        $txt .= '        padding-<?php echo $right; ?>: 1px;';
+        $txt .= '        padding-left : 1px;';
+        $txt .= '        padding-right : 1px;';
         $txt .= '    }';
 
         $txt .= '    ul#topmenu,';
@@ -3636,7 +3600,7 @@ class Common
             fwrite($file, $txt);
             fclose($file);
         } else {
-            trigger_error("The common.css.php file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
+            trigger_error("The _common.scss file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
         }
         return null;
     }

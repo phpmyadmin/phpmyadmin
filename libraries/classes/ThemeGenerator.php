@@ -15,6 +15,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeGenerator\Common;
 use PhpMyAdmin\ThemeGenerator\Layout;
 use PhpMyAdmin\ThemeGenerator\Navigation;
+use PhpMyAdmin\ThemeGenerator\Variables;
+use PhpMyAdmin\ThemeGenerator\GenerateCss;
 
 /**
  * Set of functions for Automated Theme Generator in phpMyAdmin
@@ -88,19 +90,24 @@ class ThemeGenerator
     {
         $out = array();
         $nav = new Navigation();
+        $var = new Variables();
         $layout = new Layout();
         $common = new Common();
+        $gen = new GenerateCss();
         $post['theme_name'] = Sanitize::sanitizeFilename($post['theme_name'], true);
         $name = $post['theme_name'];
         if (!is_dir("themes/" . $name)) {
             @mkdir("themes/" . $name);
+            @mkdir("themes/" . $name . "/scss");
             @mkdir("themes/" . $name . "/css");
         }
         if (is_dir("themes/" . $name)) {
             $out['json'] = $this->createJsonFile($post);
+            $layout->createLayoutFiles($name);
+            $out['variables'] = $var->createVariablesFile($post);
             $common->createCommonFile($name);
-            $out['layout'] = $layout->createLayoutFile($post);
             $nav->createNavigationFile($name);
+            $gen->GenerateCSSFiles($name);
         }
         return $out;
     }

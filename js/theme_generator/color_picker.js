@@ -11,6 +11,21 @@ var UIColorPicker = (function UIColorPicker () {
 
     var subscribers = [];
     var pickers = [];
+     /**
+     * Include required SCSS file
+     */
+    var head = document.getElementsByTagName('HEAD')[0];
+    var link = document.createElement('link'); 
+
+    // set the attributes for link element  
+    link.rel = 'stylesheet';  
+
+    link.type = 'text/css'; 
+
+    link.href = '/phpmyadmin/themes/pmahomme/scss/theme_generator.scss';  
+
+    // Append link element to HTML head 
+    head.appendChild(link);
 
     /**
      * RGBA Color class

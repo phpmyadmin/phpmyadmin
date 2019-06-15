@@ -26,8 +26,10 @@ if ($GLOBALS['cfg']['ThemeGenerator']) {
     $response->addHTML($theme->tablePreview());
     $response->addHTML($theme->groupPreview());
     if (isset($_POST['Base_Colour'])) {
+        
         $output = $theme->createFileStructure($_POST);
-        if ($output['json'] && $output['layout']) {
+        
+        if ($output['json'] && $output['variables']) {
             $response->addHTML(
                 Message::success(
                     sprintf(

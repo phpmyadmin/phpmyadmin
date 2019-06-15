@@ -26,83 +26,84 @@ class Navigation
      */
     public function createNavigationFile($name)
     {
-        $file = fopen("themes/" . $name . "/css/navigation.css.php", "w");
+        $file = fopen("themes/" . $name . "/scss/_navigation.scss", "w");
 
-        $txt = "<?php\n";
-        $txt .= 'declare(strict_types=1);';
-        $txt .= 'if (! defined(\'PHPMYADMIN\') && ! defined(\'TESTSUITE\')) {';
-        $txt .= '    exit();';
-        $txt .= '}';
-        $txt .= "?>\n";
-        $txt .= '#pma_navigation {';
-        $txt .= '    width: <?php echo $GLOBALS[\'cfg\'][\'NaviWidth\']; ?>px;';
-        $txt .= '    position: fixed;';
-        $txt .= '    top: 0;';
-        $txt .= '    <?php echo $left; ?>: 0;';
-        $txt .= '    height: 100vh;';
-        $txt .= '    background: linear-gradient(to right, <?php echo $GLOBALS[\'cfg\'][\'NaviBackground\']; ?> , <?php echo $GLOBALS[\'cfg\'][\'MainBackground\']; ?>);';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'NaviColor\']; ?>;';
+        $txt = '#pma_navigation {
+                    width: $navi-width;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    height: 100vh;';
+        $txt .= '    background: linear-gradient(to right, $navi-background , $main-background );';
+        $txt .= '    color: $navi-color;';
         $txt .= '    z-index: 800;';
         $txt .= '}';
-        $txt .= '#pma_navigation_header {';
-        $txt .= '    overflow: hidden;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_content {';
-        $txt .= '    width: 100%;';
-        $txt .= '    height: 100%;';
-        $txt .= '    position: absolute;';
-        $txt .= '    top: 0;';
-        $txt .= '    <?php echo $left; ?>: 0;';
-        $txt .= '    z-index: 0;';
-        $txt .= '}';
-        $txt .= '#pma_navigation ul {';
-        $txt .= '    margin: 0;';
-        $txt .= '}';
-        $txt .= '#pma_navigation form {';
-        $txt .= '    margin: 0;';
-        $txt .= '    padding: 0;';
-        $txt .= '    display: inline;';
-        $txt .= '}';
-        $txt .= '#pma_navigation select#select_server,';
-        $txt .= '#pma_navigation select#lightm_db {';
-        $txt .= '    width: 100%;';
-        $txt .= '}';
-        $txt .= '#pma_navigation div.pageselector {';
-        $txt .= '    text-align: center;';
-        $txt .= '    margin: 0;';
-        $txt .= '    margin-<?php echo $left; ?>: 0.75em;';
-        $txt .= '    border-<?php echo $left; ?>: 1px solid #666;';
-        $txt .= '}';
-        $txt .= '#pma_navigation div#pmalogo {';
-        $txt .= '    <?php //better echo $GLOBALS[\'cfg\'][\'logoBGC\']; ?>';
-        $txt .= '}';
-        $txt .= '#pma_navigation #pmalogo,';
-        $txt .= '#pma_navigation #serverChoice,';
-        $txt .= '#pma_navigation #navipanellinks,';
-        $txt .= '#pma_navigation #recentTableList,';
-        $txt .= '#pma_navigation #favoriteTableList,';
-        $txt .= '#pma_navigation #databaseList,';
-        $txt .= '#pma_navigation div.pageselector.dbselector {';
-        $txt .= '    text-align: center;';
-        $txt .= '    padding: 5px 10px 0;';
-        $txt .= '    border: 0;';
-        $txt .= '}';
+
+        $txt .= '#pma_navigation_header {
+                overflow: hidden;
+                }';
+
+        $txt .= '#pma_navigation_content {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 0;
+                }';
+
+        $txt .= '#pma_navigation ul {
+                margin: 0;
+                }';
+
+        $txt .= '#pma_navigation form {
+                margin: 0;
+                padding: 0;
+                display: inline;
+            }';
+
+        $txt .='#pma_navigation select#select_server,
+                #pma_navigation select#lightm_db {
+                    width: 100%;
+                }
+                #pma_navigation div.pageselector {
+                text-align: center;
+                margin: 0;
+                margin-left: 0.75em;
+                border-left: 1px solid #666;
+            }';
+
+        $txt .= '#pma_navigation #pmalogo,
+        #pma_navigation #serverChoice,
+        #pma_navigation #navipanellinks,
+        #pma_navigation #recentTableList,
+        #pma_navigation #favoriteTableList,
+        #pma_navigation #databaseList,
+        #pma_navigation div.pageselector.dbselector {
+            text-align: center;
+            padding: 5px 10px 0;
+            border: 0;
+        }';
+        
         $txt .= '#pma_navigation #recentTable,';
         $txt .= '#pma_navigation #favoriteTable {';
         $txt .= '    width: 200px;';
         $txt .= '}';
+
         $txt .= '#pma_navigation #favoriteTableList select,';
         $txt .= '#pma_navigation #serverChoice select';
         $txt .= ' {';
         $txt .= '    width: 80%;';
         $txt .= '}';
+
         $txt .= '#pma_navigation_content > img.throbber {';
         $txt .= '    display: none;';
         $txt .= '    margin: .3em auto 0;';
         $txt .= '}';
+
         $txt .= '#pma_navigation_tree {';
         $txt .= '    margin: 0;';
-        $txt .= '    margin-<?php echo $left; ?>: 5px;';
+        $txt .= '    margin-left: 5px;';
         $txt .= '    overflow: hidden;';
         $txt .= '    color: #444;';
         $txt .= '    height: 74%;';
@@ -116,10 +117,10 @@ class Navigation
         $txt .= '}';
         $txt .= '#pma_navigation_db_select {';
         $txt .= '    margin-top: 0.5em;';
-        $txt .= '    margin-<?php echo $left; ?>: 0.75em;';
+        $txt .= '    margin-left: 0.75em;';
         $txt .= '}';
         $txt .= '#pma_navigation_db_select select {';
-        $txt .= '    background: url("./themes/pmahomme/img/select_bg.png") repeat scroll 0 0;';
+        $txt .= '    background: url("../../pmahomme/img/select_bg.png") repeat scroll 0 0;';
         $txt .= '    -webkit-border-radius: 2px;';
         $txt .= '    border-radius: 2px;';
         $txt .= '    border: 1px solid #bbb;';
@@ -143,63 +144,66 @@ class Navigation
         $txt .= '    vertical-align: sub;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree a {';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'NaviColor\']; ?>;';
-        $txt .= '}';
+        $txt .= '    color: $navi-color;';
         $txt .= '#pma_navigation_tree a:hover {';
         $txt .= '    text-decoration: underline;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree li.activePointer {';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'NaviPointerColor\']; ?>;';
-        $txt .= '    background-color: <?php echo $GLOBALS[\'cfg\'][\'NaviPointerBackground\']; ?>;';
+        $txt .= '    color: $navi-pointer-color;';
+        $txt .= '    background-color: $navi-pointer-background;';
         $txt .= '}';
+
         $txt .= '#pma_navigation_tree li.selected {';
-        $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'NaviPointerColor\']; ?>;';
-        $txt .= '    background-color: <?php echo $GLOBALS[\'cfg\'][\'NaviPointerBackground\']; ?>;';
+        $txt .= '    color: $navi-pointer-color;';
+        $txt .= '    background-color: $navi-pointer-background;';
         $txt .= '}';
-        $txt .= '#pma_navigation_tree li .dbItemControls {';
-        $txt .= '    padding-left: 4px;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree li .navItemControls {';
-        $txt .= '    display: none;';
-        $txt .= '    padding-left: 4px;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree li.activePointer .navItemControls {';
-        $txt .= '    display: inline;';
-        $txt .= '    opacity: 0.5;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree li.activePointer .navItemControls:hover {';
-        $txt .= '    display: inline;';
-        $txt .= '    opacity: 1.0;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree ul {';
-        $txt .= '    clear: both;';
-        $txt .= '    padding: 0;';
-        $txt .= '    list-style-type: none;';
-        $txt .= '    margin: 0;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree ul ul {';
-        $txt .= '    position: relative;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree li,';
-        $txt .= '#pma_navigation_tree li.fast_filter {';
-        $txt .= '    white-space: nowrap;';
-        $txt .= '    clear: both;';
-        $txt .= '    min-height: 16px;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree img {';
-        $txt .= '    margin: 0;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree i {';
-        $txt .= '    display: block;';
-        $txt .= '}';
-        $txt .= '#pma_navigation_tree div.block {';
-        $txt .= '    position: relative;';
-        $txt .= '    width: 1.5em;';
-        $txt .= '    height: 1.5em;';
-        $txt .= '    min-width: 16px;';
-        $txt .= '    min-height: 16px;';
-        $txt .= '    float: <?php echo $left; ?>;';
-        $txt .= '}';
+
+        $txt .='#pma_navigation_tree li .dbItemControls {
+            padding-left: 4px;
+        }
+        #pma_navigation_tree li .navItemControls {
+            display: none;
+            padding-left: 4px;
+        }
+        #pma_navigation_tree li.activePointer .navItemControls {
+            display: inline;
+            opacity: 0.5;
+        }
+        #pma_navigation_tree li.activePointer .navItemControls:hover {
+            display: inline;
+            opacity: 1.0;
+        }
+        #pma_navigation_tree ul {
+            clear: both;
+            padding: 0;
+            list-style-type: none;
+            margin: 0;
+        }
+        #pma_navigation_tree ul ul {
+            position: relative;
+        }
+        #pma_navigation_tree li,
+        #pma_navigation_tree li.fast_filter {
+            white-space: nowrap;
+            clear: both;
+            min-height: 16px;
+        }
+        #pma_navigation_tree img {
+            margin: 0;
+        }
+        #pma_navigation_tree i {
+            display: block;
+        }
+        #pma_navigation_tree div.block {
+            position: relative;
+            width: 1.5em;
+            height: 1.5em;
+            min-width: 16px;
+            min-height: 16px;
+            float: left;
+        }';
+
+
         $txt .= '#pma_navigation_tree div.block.double {';
         $txt .= '    width: 2.5em;';
         $txt .= '}';
@@ -211,52 +215,52 @@ class Navigation
         $txt .= '    min-height: 8px;';
         $txt .= '    position: absolute;';
         $txt .= '    bottom: 0.7em;';
-        $txt .= '    <?php echo $left; ?>: 0.75em;';
+        $txt .= '    left: 0.75em;';
         $txt .= '    z-index: 0;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.block i { /* Top and right segments for the tree element connections */';
         $txt .= '    display: block;';
-        $txt .= '    border-<?php echo $left; ?>: 1px solid #666;';
+        $txt .= '    border-left: 1px solid #666;';
         $txt .= '    border-bottom: 1px solid #666;';
         $txt .= '    position: relative;';
         $txt .= '    z-index: 0;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.block i.first { /* Removes top segment */';
-        $txt .= '    border-<?php echo $left; ?>: 0;';
+        $txt .= '    border-left: 0;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.block b { /* Bottom segment for the tree element connections */';
         $txt .= '    display: block;';
         $txt .= '    height: 0.75em;';
         $txt .= '    bottom: 0;';
-        $txt .= '    <?php echo $left; ?>: 0.75em;';
-        $txt .= '    border-<?php echo $left; ?>: 1px solid #666;';
+        $txt .= '    left: 0.75em;';
+        $txt .= '    border-left: 1px solid #666;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.block a,';
         $txt .= '#pma_navigation_tree div.block u {';
         $txt .= '    position: absolute;';
-        $txt .= '    <?php echo $left; ?>: 50%;';
+        $txt .= '    left: 50%;';
         $txt .= '    top: 50%;';
         $txt .= '    z-index: 10;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.block a + a {';
-        $txt .= '    <?php echo $left; ?>: 100%;';
+        $txt .= '    left: 100%;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.block.double a,';
         $txt .= '#pma_navigation_tree div.block.double u {';
-        $txt .= '    <?php echo $left; ?>: 33%;';
+        $txt .= '    left: 33%;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.block.double a + a {';
-        $txt .= '    <?php echo $left; ?>: 85%;';
+        $txt .= '    left: 85%;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.block img {';
         $txt .= '    position: relative;';
         $txt .= '    top: -0.6em;';
-        $txt .= '    <?php echo $left; ?>: 0;';
-        $txt .= '    margin-<?php echo $left; ?>: -7px;';
+        $txt .= '    left: 0;';
+        $txt .= '    margin-left: -7px;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree div.throbber img {';
         $txt .= '    top: 2px;';
-        $txt .= '    <?php echo $left; ?>: 2px;';
+        $txt .= '    left: 2px;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree li.last > ul {';
         $txt .= '    background: none;';
@@ -264,22 +268,22 @@ class Navigation
         $txt .= '#pma_navigation_tree li > a, #pma_navigation_tree li > i {';
         $txt .= '    line-height: 1.5em;';
         $txt .= '    height: 1.5em;';
-        $txt .= '    padding-<?php echo $left; ?>: 0.3em;';
+        $txt .= '    padding-left: 0.3em;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree .list_container {';
-        $txt .= '    border-<?php echo $left; ?>: 1px solid #666;';
-        $txt .= '    margin-<?php echo $left; ?>: 0.75em;';
-        $txt .= '    padding-<?php echo $left; ?>: 0.75em;';
+        $txt .= '    border-left: 1px solid #666;';
+        $txt .= '    margin-left: 0.75em;';
+        $txt .= '    padding-left: 0.75em;';
         $txt .= '}';
         $txt .= '#pma_navigation_tree .last > .list_container {';
-        $txt .= '    border-<?php echo $left; ?>: 0 solid #666;';
+        $txt .= '    border-left: 0 solid #666;';
         $txt .= '}';
         $txt .= '';
         $txt .= 'li.fast_filter {';
-        $txt .= '    padding-<?php echo $left; ?>: 0.75em;';
-        $txt .= '    margin-<?php echo $left; ?>: 0.75em;';
-        $txt .= '    padding-<?php echo $right; ?>: 35px;';
-        $txt .= '    border-<?php echo $left; ?>: 1px solid #666;';
+        $txt .= '    padding-left: 0.75em;';
+        $txt .= '    margin-left: 0.75em;';
+        $txt .= '    padding-right: 35px;';
+        $txt .= '    border-left: 1px solid #666;';
         $txt .= '    list-style: none;';
         $txt .= '}';
         $txt .= 'li.fast_filter input {';
@@ -287,13 +291,13 @@ class Navigation
         $txt .= '    font-size: 0.7em;';
         $txt .= '    padding-top: 2px;';
         $txt .= '    padding-bottom: 2px;';
-        $txt .= '    padding-<?php echo $left; ?>: 4px;';
-        $txt .= '    padding-<?php echo $right; ?>: 1.7em;';
+        $txt .= '    padding-left: 4px;';
+        $txt .= '    padding-right: 1.7em;';
         $txt .= '    width: 100%;';
         $txt .= '}';
         $txt .= 'li.fast_filter span {';
         $txt .= '    position: relative;';
-        $txt .= '    <?php echo $right; ?>: 1.5em;';
+        $txt .= '    right: 1.5em;';
         $txt .= '    padding: 0.2em;';
         $txt .= '    cursor: pointer;';
         $txt .= '    font-weight: bold;';
@@ -309,11 +313,11 @@ class Navigation
         $txt .= '    display: auto;';
         $txt .= '}';
         $txt .= 'html.ie li.fast_filter input {';
-        $txt .= '    padding-<?php echo $right; ?>: .2em;';
+        $txt .= '    padding-right: .2em;';
         $txt .= '}';
         $txt .= 'html.ie.ie9 li.fast_filter input,';
         $txt .= 'html.ie.ie8 li.fast_filter input {';
-        $txt .= '    padding-<?php echo $right; ?>: 1.7em;';
+        $txt .= '    padding-right: 1.7em;';
         $txt .= '}';
         $txt .= 'li.fast_filter.db_fast_filter {';
         $txt .= '    border: 0;';
@@ -337,7 +341,7 @@ class Navigation
         $txt .= '    cursor: col-resize;';
         $txt .= '    position: fixed;';
         $txt .= '    top: 0;';
-        $txt .= '    <?php echo $left; ?>: 240px;';
+        $txt .= '    left: 240px;';
         $txt .= '    z-index: 801;';
         $txt .= '}';
         $txt .= '#pma_navigation_collapser {';
@@ -349,7 +353,7 @@ class Navigation
         $txt .= '    font-weight: bold;';
         $txt .= '    position: fixed;';
         $txt .= '    top: 0;';
-        $txt .= '    <?php echo $left; ?>: <?php echo $GLOBALS[\'cfg\'][\'NaviWidth\']; ?>px;';
+        $txt .= '    left: $navi-width;';
         $txt .= '    text-align: center;';
         $txt .= '    cursor: pointer;';
         $txt .= '    z-index: 800;';
@@ -359,12 +363,12 @@ class Navigation
         $txt .= '}';
         $txt .= '.pma_quick_warp {';
         $txt .= '    margin-top: 5px;';
-        $txt .= '    margin-<?php echo $left; ?>: 2px;';
+        $txt .= '    margin-left: 2px;';
         $txt .= '    position: relative;';
         $txt .= '}';
         $txt .= '.pma_quick_warp .drop_list {';
-        $txt .= '    float: <?php echo $left; ?>;';
-        $txt .= '    margin-<?php echo $left; ?>: 3px;';
+        $txt .= '    float: left;';
+        $txt .= '    margin-left: 3px;';
         $txt .= '    padding: 2px 0;';
         $txt .= '}';
         $txt .= '.pma_quick_warp .drop_button {';
@@ -387,12 +391,12 @@ class Navigation
         $txt .= '    background: #fff;';
         $txt .= '    border: 1px solid #ddd;';
         $txt .= '    border-radius: .3em;';
-        $txt .= '    border-top-<?php echo $right; ?>-radius: 0;';
-        $txt .= '    border-bottom-<?php echo $right; ?>-radius: 0;';
+        $txt .= '    border-top-right-radius: 0;';
+        $txt .= '    border-bottom-right-radius: 0;';
         $txt .= '    box-shadow: 0 0 5px #ccc;';
         $txt .= '    top: 100%;';
-        $txt .= '    <?php echo $left; ?>: 3px;';
-        $txt .= '    <?php echo $right; ?>: 0;';
+        $txt .= '    left: 3px;';
+        $txt .= '    right: 0;';
         $txt .= '    display: none;';
         $txt .= '    z-index: 802;';
         $txt .= '}';
@@ -418,14 +422,14 @@ class Navigation
         $txt .= '    clear: left;';
         $txt .= '    float: left;';
         $txt .= '    padding: .1em .3em 0;';
-        $txt .= '}';
+        $txt .= '}}';
 
         // Check if the file is writable as this condition would only occur if files are overwritten.
         if ($file) {
             fwrite($file, $txt);
             fclose($file);
         } else {
-            trigger_error("The navigation.css.php file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
+            trigger_error("The _navigation.css.php file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
         }
         return null;
     }
