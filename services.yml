@@ -54,6 +54,10 @@ services:
   import:
     class: 'PhpMyAdmin\Import'
 
+  insert_edit:
+    class: 'PhpMyAdmin\InsertEdit'
+    arguments: ['@dbi']
+
   di_migration:
     factory: 'PhpMyAdmin\Di\Migration::getInstance'
     arguments: ['@service_container']
