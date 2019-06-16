@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 21:30+0200\n"
-"PO-Revision-Date: 2019-04-29 11:48+0000\n"
+"PO-Revision-Date: 2019-06-18 19:00+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2975,7 +2975,7 @@ msgstr "Секунда"
 
 #: js/messages.php:922
 msgid "This field is required"
-msgstr "Это поле нужно заполнить"
+msgstr "Это поле необходимо"
 
 #: js/messages.php:923
 msgid "Please fix this field"
@@ -2995,7 +2995,7 @@ msgstr "Введите правильную дату"
 
 #: js/messages.php:929
 msgid "Please enter a valid date ( ISO )"
-msgstr "Введите правильную дату ( ISO )"
+msgstr "Введите правильную дату (ISO)"
 
 #: js/messages.php:931
 msgid "Please enter a valid number"
@@ -6156,8 +6156,7 @@ msgstr "Показать текущий запрос на просмотр"
 #: libraries/classes/Config/Descriptions.php:1472
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Выполнить запрос по нажатию Enter и вставить новую строку по нажатию Shift + "
-"Enter"
+"Выполнить запрос по нажатию Enter и вставить новую строку по Shift + Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -11106,7 +11105,7 @@ msgid ""
 "necessary privileges to edit this routine."
 msgstr ""
 "Процедура с именем %1$s не обнаружена в базе данных %2$s. Возможно, у вас "
-"отсутствуют привилегии, необходимые для редактирования этой процедуры."
+"отсутствуют привилегии, необходимые для правки этой процедуры."
 
 #: libraries/classes/Rte/Words.php:44
 #, php-format
@@ -16337,7 +16336,7 @@ msgstr "Выбор отображаемого столбца:"
 
 #: url.php:41
 msgid "Taking you to the target site."
-msgstr "Происходит переадресация."
+msgstr "Переход на целевой сайт."
 
 #: user_password.php:37
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16589,8 +16588,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Документация Percona находится <a href=\"https://www.percona.com/software/"
-"documentation/\">здесь</a>"
+"Документация по Percona находится на <a href=\"https://www.percona.com/"
+"software/documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
