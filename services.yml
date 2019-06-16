@@ -87,6 +87,10 @@ services:
     class: 'PhpMyAdmin\Relation'
     arguments: ['@dbi', '@template']
 
+  relation_cleanup:
+    class: 'PhpMyAdmin\RelationCleanup'
+    arguments: ['@dbi', '@relation']
+
   replication:
     class: 'PhpMyAdmin\Replication'
 
@@ -98,6 +102,10 @@ services:
 
   response:
     factory: 'PhpMyAdmin\Response::getInstance'
+
+  server_privileges:
+    class: 'PhpMyAdmin\Server\Privileges'
+    arguments: ['@template', '@dbi', '@relation', '@relation_cleanup']
 
   sql_query_form:
     class: 'PhpMyAdmin\SqlQueryForm'
@@ -121,6 +129,10 @@ services:
 
   transformations:
     class: 'PhpMyAdmin\Transformations'
+
+  user_password:
+    class: 'PhpMyAdmin\UserPassword'
+    arguments: ['@server_privileges']
 
   #Aliases
 
