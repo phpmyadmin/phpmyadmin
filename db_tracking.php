@@ -30,7 +30,8 @@ $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('db_tracking.js');
 
-$tracking = new Tracking();
+/** @var Tracking $tracking */
+$tracking = $containerBuilder->get('tracking');
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.

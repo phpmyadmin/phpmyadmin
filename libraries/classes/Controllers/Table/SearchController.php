@@ -97,6 +97,7 @@ class SearchController extends AbstractController
      * @param string            $table      Table name
      * @param string            $searchType Search type
      * @param string            $url_query  URL query
+     * @param Relation          $relation   Relation instance
      */
     public function __construct(
         $response,
@@ -105,7 +106,8 @@ class SearchController extends AbstractController
         $db,
         $table,
         $searchType,
-        $url_query
+        $url_query,
+        Relation $relation
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
 
@@ -117,7 +119,7 @@ class SearchController extends AbstractController
         $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
-        $this->relation = new Relation($dbi);
+        $this->relation = $relation;
         // Loads table's information
         $this->_loadTableInfo();
         $this->_connectionCharSet = $this->dbi->fetchValue(

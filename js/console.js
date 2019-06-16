@@ -5,6 +5,8 @@
  * @package phpMyAdmin-Console
  */
 
+/* global debugSQLInfo */ // libraries/classes/Footer.php
+
 /**
  * Console object
  */

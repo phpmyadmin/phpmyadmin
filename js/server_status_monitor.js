@@ -8,12 +8,18 @@
  * @requires    js/functions.js
  */
 
+/* global isStorageSupported */ // js/config.js
+/* global codeMirrorEditor */ // js/functions.js
+/* global pmaThemeImage */ // js/messages.php
+/* global variableNames */ // templates/server/status/monitor/index.twig
+
 var runtime = {};
 var serverTimeDiff;
 var serverOs;
 var isSuperUser;
 var serverDbIsLocal;
 var chartSize;
+var monitorSettings;
 
 AJAX.registerOnload('server_status_monitor.js', function () {
     var $jsDataForm = $('#js_data');
@@ -151,7 +157,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         xmin: -1,
         xmax: -1
     };
-    var monitorSettings = null;
+    monitorSettings = null;
 
     var defaultMonitorSettings = {
         columns: 3,
@@ -1995,7 +2001,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var dlgBtns = {};
 
         dlgBtns[Messages.strAnalyzeQuery] = function () {
-            loadQueryAnalysis(rowData);
+            profilingChart = loadQueryAnalysis(rowData);
         };
         dlgBtns[Messages.strClose] = function () {
             $(this).dialog('close');
@@ -2023,6 +2029,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Loads and displays the analyzed query data */
     function loadQueryAnalysis (rowData) {
         var db = rowData.db || '';
+        var profilingChart = null;
 
         $('#queryAnalyzerDialog').find('div.placeHolder').html(
             Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
@@ -2147,10 +2154,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     'queryProfiling',
                     chartData
                 );
-
-                // $('#queryProfiling').resizable();
             }
         });
+        return profilingChart;
     }
 
     /* Saves the monitor to localstorage */
@@ -2213,5 +2219,5 @@ function destroyGrid () {
     $('#chartGrid').html('');
     runtime.charts = null;
     runtime.chartAI = 0;
-    monitorSettings = null; // TODO:this not global variable
+    monitorSettings = null;
 }

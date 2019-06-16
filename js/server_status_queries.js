@@ -7,6 +7,9 @@
  * @requires    jQueryUI
  * @requires    js/functions.js
  */
+
+/* global initTableSorter */ // js/server_status_sorter.js
+
 /**
  * Unbind all event handlers before tearing down a page
  */

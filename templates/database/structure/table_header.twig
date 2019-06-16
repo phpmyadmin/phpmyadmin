@@ -63,3 +63,16 @@
         </tr>
     </thead>
     <tbody>
+    {% for structure_table_row in structure_table_rows %}
+        {% include 'database/structure/structure_table_row.twig' with structure_table_row only %}
+    {% endfor %}
+    </tbody>
+    {% if body_for_table_summary %}
+        {% include 'database/structure/body_for_table_summary.twig' with body_for_table_summary only %}
+    {% endif %}
+</table>
+</div>
+{% if check_all_tables %}
+    {% include 'database/structure/check_all_tables.twig' with check_all_tables only %}
+{% endif %}
+</form>

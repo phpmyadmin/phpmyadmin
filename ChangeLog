@@ -36,8 +36,11 @@ phpMyAdmin - ChangeLog
 - issue #14927 Show InnoDB table overhead (free space)
 - issue #15072 Add 'Close' button to the Monitor Instructions modal
 - issue #15174 Improved filter method in server variables page
+- issue #15266 Add an external dependency injection system
 
-4.8.6 (not yet released)
+4.9.1 (not yet released)
+
+4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
 - issue #14514 Tables with SYSTEM VERSIONING show up as views instead of tables
 - issue #14515 Values cannot be edited in SYSTEM VERSIONING tables with INVISIBLE timestamps
@@ -146,6 +149,10 @@ phpMyAdmin - ChangeLog
 - issue #15283 Fix tries to change collation on views when changing collation on all tables/fields
 - issue        Fixed empty PMA_gotoWhitelist JavaScript array
 - issue #15079 Fixed responsive behaviour of instruction dialog box
+- issue #10846 Fixed javascript error when renaming a table
+- issue        Updated sql-parser to version 4.3.2
+- issue        [security] SQL injection in Designer (PMASA-2019-3)
+- issue        [security] CSRF attack on 'cookie' login form (PMASA-2019-4)
 
 4.8.5 (2019-01-25)
 - issue        Developer debug data was saved to the PHP error log

@@ -41,7 +41,8 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('export_output.js');
 
-$export = new Export($dbi);
+/** @var Export $export */
+$export = $containerBuilder->get('export');
 
 //check if it's the GET request to check export time out
 if (isset($_GET['check_time_out'])) {
@@ -430,7 +431,8 @@ if ($save_on_server) {
     } // end download
 }
 
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 
 // Fake loop just to allow skip of remain of this code by break, I'd really
 // need exceptions here :-)

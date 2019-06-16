@@ -9,6 +9,9 @@
  *
  */
 
+/* global checkboxesSel */ // js/functions.js
+/* global zxcvbn */ // js/vendor/zxcvbn.js
+
 /**
  * Validates the "add a user" form
  *

@@ -8,6 +8,8 @@
  * @required    js/functions.js
  */
 
+/* global MicroHistory */ // js/microhistory.js
+
 /**
  * Unbind all event handlers before tearing down a page
  */

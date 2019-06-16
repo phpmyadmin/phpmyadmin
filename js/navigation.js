@@ -5,6 +5,9 @@
  * @package phpMyAdmin-Navigation
  */
 
+/* global isStorageSupported, setupConfigTabs, setupRestoreField, setupValidation */ // js/config.js
+/* global RTE */ // js/rte.js
+
 var Navigation = {};
 
 /**
@@ -69,7 +72,7 @@ Navigation.filterStateRestore = function () {
         if (searchClauses.hasOwnProperty('dbFilter')
             && searchClauses.dbFilter.length
         ) {
-            $obj = $('#pma_navigation_tree');
+            var $obj = $('#pma_navigation_tree');
             if (! $obj.data('fastFilter')) {
                 $obj.data(
                     'fastFilter',
@@ -81,7 +84,7 @@ Navigation.filterStateRestore = function () {
                 .trigger('keyup');
         }
         // find all table filters present in the tree
-        $tableFilters = $('#pma_navigation_tree li.database')
+        var $tableFilters = $('#pma_navigation_tree li.database')
             .children('div.list_container')
             .find('li.fast_filter input.searchClause');
         // restore table filters
@@ -602,7 +605,7 @@ $(function () {
     // Add/Remove favorite table using Ajax.
     $(document).on('click', '.favorite_table_anchor', function (event) {
         event.preventDefault();
-        $self = $(this);
+        var $self = $(this);
         var anchorId = $self.attr('id');
         if ($self.data('favtargetn') !== null) {
             if ($('a[data-favtargets="' + $self.data('favtargetn') + '"]').length > 0) {
@@ -942,7 +945,7 @@ Navigation.showCurrent = function () {
 
     function isItemInContainer ($container, name, clazz) {
         var $whichItem = null;
-        $items = $container.find(clazz);
+        var $items = $container.find(clazz);
         var found = false;
         $items.each(function () {
             if ($(this).children('a').text() === name) {

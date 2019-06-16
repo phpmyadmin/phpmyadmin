@@ -35,7 +35,8 @@ $dbi = $container->get(DatabaseInterface::class);
 $checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
-$relation = new Relation($dbi);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 
 /**
@@ -47,7 +48,8 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 $relationCleanup = new RelationCleanup($dbi, $relation);
 $serverPrivileges = new Privileges($template, $dbi, $relation, $relationCleanup);
 

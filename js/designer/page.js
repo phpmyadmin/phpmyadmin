@@ -1,3 +1,8 @@
+/* global DesignerOfflineDB */ // js/designer/database.js
+/* global db, selectedPage */ // js/designer/init.js
+/* global DesignerMove */ // js/designer/move.js
+/* global DesignerObjects */ // js/designer/objects.js
+
 var DesignerPage = {};
 
 DesignerPage.showTablesInLandingPage = function (db) {

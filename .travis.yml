@@ -61,7 +61,7 @@ jobs:
       script:
         - ./test/ci-phplint
         - composer phpcs
-        - yarn run js-lint
+        - yarn run js-lint --quiet
         - yarn run css-lint
 
     - stage: "Lint and analyse code"

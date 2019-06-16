@@ -98,10 +98,8 @@ $loader->load('../services_controllers.yml');
  */
 PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 
-/**
- * initialize the error handler
- */
-$GLOBALS['error_handler'] = new ErrorHandler();
+/** @var ErrorHandler $GLOBALS['error_handler'] */
+$GLOBALS['error_handler'] = $containerBuilder->get('error_handler');
 
 /**
  * Warning about missing PHP extensions.
@@ -126,8 +124,8 @@ Core::cleanupPathInfo();
  * force reading of config file, because we removed sensitive values
  * in the previous iteration
  */
-$GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
-$containerBuilder->set('config', $GLOBALS['PMA_Config']);
+$GLOBALS['PMA_Config'] = $containerBuilder->get('config');
+//$containerBuilder->set('config', $GLOBALS['PMA_Config']);
 
 /**
  * include session handling after the globals, to prevent overwriting
@@ -349,8 +347,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 . ' ' . $cfg['Server']['auth_type']
             );
         }
-        if (isset($_REQUEST['pma_password']) && strlen($_REQUEST['pma_password']) > 256) {
-            $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
+        if (isset($_POST['pma_password']) && strlen($_POST['pma_password']) > 256) {
+            $_POST['pma_password'] = substr($_POST['pma_password'], 0, 256);
         }
         $auth_plugin = new $auth_class();
 

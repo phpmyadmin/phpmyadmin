@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Search;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
@@ -55,7 +56,7 @@ class SearchTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->object = new Search($dbi, 'pma_test');
+        $this->object = new Search($dbi, 'pma_test', new Template());
     }
 
     /**
@@ -101,7 +102,7 @@ class SearchTest extends PmaTestCase
         $_POST['criteriaSearchType'] = $type;
         $_POST['criteriaSearchString'] = 'search string';
 
-        $this->object = new Search($GLOBALS['dbi'], 'pma_test');
+        $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
         $this->assertEquals(
             $expected,
             $this->callProtectedFunction(

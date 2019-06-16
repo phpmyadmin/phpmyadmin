@@ -51,7 +51,7 @@ function removeColumnFromMultiSort (target, parent) {
     }
     URL.head = URL.head.substring(URL.head.indexOf('?') + 1);
     var middlePart = columns.join('%2C+');
-    params = URL.head + middlePart + URL.tail;
+    var params = URL.head + middlePart + URL.tail;
     return params;
 }
 

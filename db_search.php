@@ -13,6 +13,7 @@ use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
@@ -31,6 +32,9 @@ $response = $container->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
+
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
@@ -53,7 +57,7 @@ $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
 
 // Create a database search instance
-$db_search = new Search($dbi, $db);
+$db_search = new Search($dbi, $db, $template);
 
 // Display top links if we are not in an Ajax request
 if (! $response->isAjax()) {

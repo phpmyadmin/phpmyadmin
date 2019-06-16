@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
+use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\DatabaseInterface;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Tests for AdvisorController class
@@ -104,7 +106,8 @@ class AdvisorControllerTest extends TestCase
             Response::getInstance(),
             $GLOBALS['dbi'],
             new Template(),
-            new Data()
+            new Data(),
+            new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
         );
 
         $html = $controller->index();

@@ -3,6 +3,8 @@
  * Functions used in Setup configuration forms
  */
 
+/* global displayErrors, getAllValues, getIdPrefix, validators */ // js/config.js
+
 // show this window in top frame
 if (top !== self) {
     window.top.location.href = location;
@@ -17,30 +19,30 @@ $(function () {
         $('#no_https').remove();
     } else {
         $('#no_https a').on('click', function () {
-            var old_location = window.location;
-            window.location.href = 'https:' + old_location.href.substring(old_location.protocol.length);
+            var oldLocation = window.location;
+            window.location.href = 'https:' + oldLocation.href.substring(oldLocation.protocol.length);
             return false;
         });
     }
 
-    var hiddenmessages = $('.hiddenmessage');
+    var hiddenMessages = $('.hiddenmessage');
 
-    if (hiddenmessages.length > 0) {
-        hiddenmessages.hide();
+    if (hiddenMessages.length > 0) {
+        hiddenMessages.hide();
         var link = $('#show_hidden_messages');
         link.on('click', function (e) {
             e.preventDefault();
-            hiddenmessages.show();
+            hiddenMessages.show();
             $(this).remove();
         });
-        link.html(link.html().replace('#MSG_COUNT', hiddenmessages.length));
+        link.html(link.html().replace('#MSG_COUNT', hiddenMessages.length));
         link.show();
     }
 });
 
 // set document width
 $(document).ready(function () {
-    width = 0;
+    var width = 0;
     $('ul.tabs li').each(function () {
         width += $(this).width() + 10;
     });
@@ -66,25 +68,25 @@ $(document).ready(function () {
  * @param {Object}  values  values hash {element1_id: value, ...}
  */
 function ajaxValidate (parent, id, values) {
-    parent = $(parent);
+    var $parent = $(parent);
     // ensure that parent is a fieldset
-    if (parent.attr('tagName') !== 'FIELDSET') {
-        parent = parent.closest('fieldset');
-        if (parent.length === 0) {
+    if ($parent.attr('tagName') !== 'FIELDSET') {
+        $parent = $parent.closest('fieldset');
+        if ($parent.length === 0) {
             return false;
         }
     }
 
-    if (parent.data('ajax') !== null) {
-        parent.data('ajax').abort();
+    if ($parent.data('ajax') !== null) {
+        $parent.data('ajax').abort();
     }
 
-    parent.data('ajax', $.ajax({
+    $parent.data('ajax', $.ajax({
         url: 'validate.php',
         cache: false,
         type: 'POST',
         data: {
-            token: parent.closest('form').find('input[name=token]').val(),
+            token: $parent.closest('form').find('input[name=token]').val(),
             id: id,
             values: JSON.stringify(values)
         },
@@ -95,9 +97,9 @@ function ajaxValidate (parent, id, values) {
 
             var error = {};
             if (typeof response !== 'object') {
-                error[parent.id] = [response];
+                error[$parent.id] = [response];
             } else if (typeof response.error !== 'undefined') {
-                error[parent.id] = [response.error];
+                error[$parent.id] = [response.error];
             } else {
                 for (var key in response) {
                     var value = response[key];
@@ -107,7 +109,7 @@ function ajaxValidate (parent, id, values) {
             displayErrors(error);
         },
         complete: function () {
-            parent.removeData('ajax');
+            $parent.removeData('ajax');
         }
     }));
 
@@ -129,7 +131,7 @@ $.extend(true, validators, {
          *
          * @param {boolean} isKeyUp
          */
-        hide_db: function (isKeyUp) {
+        hide_db: function (isKeyUp) { // eslint-disable-line camelcase
             if (!isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
@@ -169,7 +171,7 @@ $.extend(true, validators, {
          *
          * @param {boolean} isKeyUp
          */
-        Server_login_options: function (isKeyUp) {
+        Server_login_options: function (isKeyUp) { // eslint-disable-line camelcase
             return validators.fieldset.Server.apply(this, [isKeyUp]);
         },
         /**
@@ -177,7 +179,7 @@ $.extend(true, validators, {
          *
          * @param {boolean} isKeyUp
          */
-        Server_pmadb: function (isKeyUp) {
+        Server_pmadb: function (isKeyUp) { // eslint-disable-line camelcase
             if (isKeyUp) {
                 return true;
             }

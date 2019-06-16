@@ -3,12 +3,20 @@
  * @package PhpMyAdmin-Designer
  */
 
+/* global DesignerObjects */ // js/designer/objects.js
+/* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
+/* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage, server */ // js/designer/init.js
+/* global DesignerPage */ // js/designer/page.js
+
 var DesignerMove = {};
 
 var change = 0; // variable to track any change in designer layout.
 var staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
 var showRelationLines = true;
 var alwaysShowText = false;
+
+var colName;
+var tabName;
 
 AJAX.registerTeardown('designer/move.js', function () {
     $(document).off('fullscreenchange');
@@ -757,7 +765,7 @@ DesignerMove.save3 = function (callback) {
 
         var $form = $('<form action="db_designer.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
             .append('<input type="hidden" name="server" value="' + server + '">')
-            .append('<input type="hidden" name="db" value="' + db + '">')
+            .append($('<input type="hidden" name="db" />').val(db))
             .append('<input type="hidden" name="operation" value="savePage">')
             .append('<input type="hidden" name="save_page" value="new">')
             .append('<label for="selected_value">' + Messages.strPageName +

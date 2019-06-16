@@ -8,6 +8,8 @@
  * @required    js/functions.js
  */
 
+/* global fulltextIndexes, indexes, primaryIndexes, spatialIndexes, uniqueIndexes */ // js/functions.js
+
 var Indexes = {};
 
 /**

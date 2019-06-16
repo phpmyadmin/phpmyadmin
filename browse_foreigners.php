@@ -11,8 +11,8 @@ use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
@@ -32,6 +32,8 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 /* Register BrowseForeignersController dependencies */
 $containerBuilder->set(
     'browse_foreigners',
@@ -40,10 +42,10 @@ $containerBuilder->set(
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['RepeatCells'],
         $GLOBALS['cfg']['ShowAll'],
-        $GLOBALS['pmaThemeImage']
+        $GLOBALS['pmaThemeImage'],
+        $template
     )
 );
-$containerBuilder->set('relations', new Relation($dbi));
 
 /** @var BrowseForeignersController $controller */
 $controller = $containerBuilder->get(BrowseForeignersController::class);

@@ -32,8 +32,8 @@ $response = $container->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $container->get(DatabaseInterface::class);
 
-$relation = new Relation($dbi);
-$navigation = new Navigation(new Template(), $relation, $dbi);
+/** @var Navigation $navigation */
+$navigation = $containerBuilder->get('navigation');
 if (! $response->isAjax()) {
     $response->addHTML(
         Message::error(
@@ -52,6 +52,8 @@ if (isset($_POST['reload'])) {
     Util::cacheSet('dbs_to_test', false);// Empty database list cache, see #14252
 }
 
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 if ($cfgRelation['navwork']) {
     if (isset($_POST['hideNavItem'])) {

@@ -45,7 +45,7 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     var str;
     var even = true;
 
-    data = JSON.parse($('#advisorData').text());
+    var data = JSON.parse($('#advisorData').text());
     $cnt.html('');
 
     if (data.parse.errors.length > 0) {

@@ -7,6 +7,10 @@
   * @version $Id$
   */
 
+/* global contr */ // js/designer/init.js
+/* global fromArray */ // js/designer/move.js
+/* global pmaThemeImage */ // js/messages.php
+
 var DesignerHistory = {};
 
 var historyArray = []; // Global array to store history objects

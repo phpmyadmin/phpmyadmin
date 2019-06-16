@@ -1,4 +1,16 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/* global isStorageSupported */ // js/config.js
+/* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
+/* global DatabaseStructure */ // js/db_structure.js
+/* global mysqlDocBuiltin, mysqlDocKeyword */ // js/doclinks.js
+/* global Indexes */ // js/indexes.js
+/* global maxInputVars, mysqlDocTemplate, pmaThemeImage */ // js/messages.php
+/* global MicroHistory */ // js/microhistory.js
+/* global checkPasswordStrength */ // js/server_privileges.js
+/* global sprintf */ // js/vendor/sprintf.js
+/* global Int32Array */ // ES6
+
 /**
  * general function, usually for data manipulation pages
  *
@@ -101,7 +113,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
 
     var defaultOptions = {
         showOn: 'button',
-        buttonImage: themeCalendarImage, // defined in js/messages.php
+        buttonImage: pmaThemeImage + 'b_calendar.png',
         buttonImageOnly: true,
         stepMinutes: 1,
         stepHours: 1,
@@ -1042,7 +1054,7 @@ AJAX.registerOnload('functions.js', function () {
      */
 
     $(document).on('click', 'input:checkbox.checkall', function (e) {
-        $this = $(this);
+        var $this = $(this);
         var $tr = $this.closest('tr');
         var $table = $this.closest('table');
 
@@ -2991,8 +3003,8 @@ AJAX.registerOnload('functions.js', function () {
      * Attach event handler to manage changes in number of partitions and subpartitions
      */
     $(document).on('change', 'input[name=partition_count],input[name=subpartition_count],select[name=partition_by]', function (event) {
-        $this = $(this);
-        $form = $this.parents('form');
+        var $this = $(this);
+        var $form = $this.parents('form');
         if ($form.is('.create_table_form.ajax')) {
             submitChangesInCreateTableForm('submit_partition_change=1');
         } else {
@@ -4828,14 +4840,15 @@ Functions.checkNumberOfFields = function () {
  *
  */
 Functions.ignorePhpErrors = function (clearPrevErrors) {
-    if (typeof(clearPrevErrors) === 'undefined' ||
-        clearPrevErrors === null
+    var clearPrevious = clearPrevErrors;
+    if (typeof(clearPrevious) === 'undefined' ||
+        clearPrevious === null
     ) {
-        str = false;
+        clearPrevious = false;
     }
     // send AJAX request to error_report.php with send_error_report=0, exception_type=php & token.
     // It clears the prev_errors stored in session.
-    if (clearPrevErrors) {
+    if (clearPrevious) {
         var $pmaReportErrorsForm = $('#pma_report_errors_form');
         $pmaReportErrorsForm.find('input[name="send_error_report"]').val(0); // change send_error_report to '0'
         $pmaReportErrorsForm.submit();
@@ -4891,7 +4904,7 @@ AJAX.registerOnload('functions.js', function () {
      */
     $('form input, form textarea, form select').on('keydown', function (e) {
         if ((e.ctrlKey && e.which === 13) || (e.altKey && e.which === 13)) {
-            $form = $(this).closest('form');
+            var $form = $(this).closest('form');
 
             // There could be multiple submit buttons on the same form,
             // we assume all of them behave identical and just click one.

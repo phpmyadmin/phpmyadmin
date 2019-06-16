@@ -9,6 +9,8 @@
  *
  */
 
+/* global sprintf */ // js/vendor/sprintf.js
+
 function getFormatsText () {
     return {
         '=': ' = \'%s\'',
@@ -31,10 +33,10 @@ function getFormatsText () {
 }
 
 function generateCondition (criteriaDiv, table) {
-    query = '`' + Functions.escapeBacktick(table.val()) + '`.';
+    var query = '`' + Functions.escapeBacktick(table.val()) + '`.';
     query += '`' + Functions.escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
-        formatsText = getFormatsText();
+        var formatsText = getFormatsText();
         query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], Functions.escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
     } else {
         query += ' ' + criteriaDiv.find('.criteria_op').first().val();
@@ -66,7 +68,7 @@ function generateWhereBlock () {
 }
 
 function generateJoin (newTable, tableAliases, fk) {
-    query = '';
+    var query = '';
     query += ' \n\tLEFT JOIN ' + '`' + Functions.escapeBacktick(newTable) + '`';
     if (tableAliases[fk.TABLE_NAME][0] !== '') {
         query += ' AS `' + Functions.escapeBacktick(tableAliases[newTable][0]) + '`';
@@ -117,7 +119,7 @@ function appendTable (table, tableAliases, usedTables, foreignKeys) {
 
 function generateFromBlock (tableAliases, foreignKeys) {
     var usedTables = [];
-    query = '';
+    var query = '';
     for (var table in tableAliases) {
         if (tableAliases.hasOwnProperty(table)) {
             query += appendTable(table, tableAliases, usedTables, foreignKeys);

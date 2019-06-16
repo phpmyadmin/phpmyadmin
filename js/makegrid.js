@@ -327,7 +327,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          */
         getHoveredCol: function (e) {
             var hoveredCol;
-            $headers = $(g.t).find('th.draggable:visible');
+            var $headers = $(g.t).find('th.draggable:visible');
             $headers.each(function () {
                 var left = $(this).offset().left;
                 var right = left + $(this).outerWidth();

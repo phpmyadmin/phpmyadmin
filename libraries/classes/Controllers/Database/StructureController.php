@@ -341,20 +341,6 @@ class StructureController extends AbstractController
 
         // filtering
         $html .= $this->template->render('filter', ['filter_value' => '']);
-        // table form
-        $html .= $this->template->render('database/structure/table_header', [
-            'db' => $this->db,
-            'db_is_system_schema' => $this->dbIsSystemSchema,
-            'replication' => $GLOBALS['replication_info']['slave']['status'],
-            'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-            'is_show_stats' => $GLOBALS['is_show_stats'],
-            'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-            'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-            'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-            'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-            'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-        ]);
 
         $i = $sum_entries = 0;
         $overhead_check = false;
@@ -370,6 +356,7 @@ class StructureController extends AbstractController
 
         $hidden_fields = [];
         $overall_approx_rows = false;
+        $structure_table_rows = [];
         foreach ($this->tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
 
@@ -515,8 +502,6 @@ class StructureController extends AbstractController
             ) {
                 $row_count = 1;
 
-                $html .= '</tr></tbody></table></div></form>';
-
                 $html .= $this->template->render('database/structure/table_header', [
                     'db' => $this->db,
                     'db_is_system_schema' => $this->dbIsSystemSchema,
@@ -529,7 +514,9 @@ class StructureController extends AbstractController
                     'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                     'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
                     'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                    'structure_table_rows' => $structure_table_rows,
                 ]);
+                $structure_table_rows = [];
             }
 
             list($approx_rows, $show_superscript) = $this->isRowCountApproximated(
@@ -539,7 +526,7 @@ class StructureController extends AbstractController
 
             list($do, $ignored) = $this->getReplicationStatus($truename);
 
-            $html .= $this->template->render('database/structure/structure_table_row', [
+            $structure_table_rows[] = [
                 'table_name_hash' => md5($current_table['TABLE_NAME']),
                 'db_table_name_hash' => md5($this->db . '.' . $current_table['TABLE_NAME']),
                 'db' => $this->db,
@@ -600,54 +587,62 @@ class StructureController extends AbstractController
                 'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
                 'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                 'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-            ]);
+            ];
 
             $overall_approx_rows = $overall_approx_rows || $approx_rows;
         } // end foreach
 
-        $html .= '</tbody>';
-
         $db_collation = $this->dbi->getDbCollation($this->db);
         $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
 
-        // Show Summary
-        $html .= $this->template->render('database/structure/body_for_table_summary', [
-            'num_tables' => $this->numTables,
-            'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
+        // table form
+        $html .= $this->template->render('database/structure/table_header', [
+            'db' => $this->db,
             'db_is_system_schema' => $this->dbIsSystemSchema,
-            'sum_entries' => $sum_entries,
-            'db_collation' => $db_collation,
-            'is_show_stats' => $this->isShowStats,
-            'db_charset' => $db_charset,
-            'sum_size' => $sum_size,
-            'overhead_size' => $overhead_size,
-            'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
-            'update_time_all' => $update_time_all ? Util::localisedDate(strtotime($update_time_all)) : '-',
-            'check_time_all' => $check_time_all ? Util::localisedDate(strtotime($check_time_all)) : '-',
-            'approx_rows' => $overall_approx_rows,
-            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-            'db' => $GLOBALS['db'],
+            'replication' => $GLOBALS['replication_info']['slave']['status'],
             'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-            'dbi' => $this->dbi,
+            'is_show_stats' => $GLOBALS['is_show_stats'],
             'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
             'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
             'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
             'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
             'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+            'structure_table_rows' => $structure_table_rows,
+            'body_for_table_summary' => [
+                'num_tables' => $this->numTables,
+                'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
+                'db_is_system_schema' => $this->dbIsSystemSchema,
+                'sum_entries' => $sum_entries,
+                'db_collation' => $db_collation,
+                'is_show_stats' => $this->isShowStats,
+                'db_charset' => $db_charset,
+                'sum_size' => $sum_size,
+                'overhead_size' => $overhead_size,
+                'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
+                'update_time_all' => $update_time_all ? Util::localisedDate(strtotime($update_time_all)) : '-',
+                'check_time_all' => $check_time_all ? Util::localisedDate(strtotime($check_time_all)) : '-',
+                'approx_rows' => $overall_approx_rows,
+                'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                'db' => $GLOBALS['db'],
+                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'dbi' => $this->dbi,
+                'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+                'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+            ],
+            'check_all_tables' => [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'overhead_check' => $overhead_check,
+                'db_is_system_schema' => $this->dbIsSystemSchema,
+                'hidden_fields' => $hidden_fields,
+                'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
+                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+            ]
         ]);
-        $html .= '</table>';
-
-        //check all
-        $html .= $this->template->render('database/structure/check_all_tables', [
-            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-            'text_dir' => $GLOBALS['text_dir'],
-            'overhead_check' => $overhead_check,
-            'db_is_system_schema' => $this->dbIsSystemSchema,
-            'hidden_fields' => $hidden_fields,
-            'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
-            'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
-        ]);
-        $html .= '</form>'; //end of form
 
         return $html;
     }
