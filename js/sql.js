@@ -722,8 +722,11 @@ AJAX.registerOnload('sql.js', function () {
     function filterByCol () {
         $('.table_results.ajax thead tr th[data-column]').each(function (i, inCell) {   // For each input header cell
             var val = $(inCell).find('input[type="text"]')[0].value.toLowerCase();      // Get the value in lowercase
-            var tableRows = $('.table_results.ajax tbody').find('tr:visible');          // Get all rows
+            if (!val) {                                                                 // If empty, return
+                return;
+            }
 
+            var tableRows = $('.table_results.ajax tbody').find('tr:visible');          // Get all rows
             $.each(tableRows, function (tIndex, tRow) {                                 // For each row
                 var row = $(tRow);
                 var cell = row.find('td.data:eq(' + i + ')')[0];                        // Get the right cell
