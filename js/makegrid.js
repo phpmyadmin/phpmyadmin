@@ -617,7 +617,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     $(g.cEdit).find('.edit_box').val(value);
 
                     g.currentEditCell = cell;
-                    $(g.cEdit).find('.edit_box').focus();
+                    $(g.cEdit).find('.edit_box').trigger('focus');
                     moveCursorToEnd($(g.cEdit).find('.edit_box'));
                     $(g.cEdit).find('*').prop('disabled', false);
                 }
@@ -627,7 +627,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 var originalValue = input.val();
                 var originallength = originalValue.length;
                 input.val('');
-                input.blur().focus().val(originalValue);
+                input.trigger('blur').trigger('focus').val(originalValue);
                 input[0].setSelectionRange(originallength, originallength);
             }
         },
@@ -730,7 +730,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             // hide the cell editing area
             $(g.cEdit).hide();
-            $(g.cEdit).find('.edit_box').blur();
+            $(g.cEdit).find('.edit_box').trigger('blur');
             g.isCellEditActive = false;
             g.currentEditCell = null;
             // destroy datepicker in edit area, if exist
@@ -1629,13 +1629,13 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         $(this).css('cursor', 'inherit');
                     }
                 })
-                .mouseleave(function () {
+                .on('mouseleave', function () {
                     g.showReorderHint = false;
                     $(this).tooltip('option', {
                         content: g.updateHint()
                     });
                 })
-                .dblclick(function (e) {
+                .on('dblclick', function (e) {
                     e.preventDefault();
                     $('<div></div>')
                         .prop('title', Messages.strColNameCopyTitle)
@@ -1650,10 +1650,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             resizable: false,
                             modal: true
                         })
-                        .find('input').focus().select();
+                        .find('input').trigger('focus').trigger('select');
                 });
             $(g.t).find('th.draggable a')
-                .dblclick(function (e) {
+                .on('dblclick', function (e) {
                     e.stopPropagation();
                 });
             // restore column order when the restore button is clicked
@@ -2048,7 +2048,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         }
                     }
                 })
-                .dblclick(function (e) {
+                .on('dblclick', function (e) {
                     if ($(e.target).is('.grid_edit a')) {
                         e.preventDefault();
                     } else {
@@ -2058,7 +2058,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             $(g.cEditStd).on('keydown', 'input.edit_box, select', handleCtrlNavigation);
 
-            $(g.cEditStd).find('.edit_box').focus(function () {
+            $(g.cEditStd).find('.edit_box').on('focus', function () {
                 g.showEditArea();
             });
             $(g.cEditStd).on('keydown', '.edit_box, select', function (e) {
@@ -2077,7 +2077,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             $(g.cEditTextarea).on('keydown', 'textarea.edit_box, select', handleCtrlNavigation);
 
-            $(g.cEditTextarea).find('.edit_box').focus(function () {
+            $(g.cEditTextarea).find('.edit_box').on('focus', function () {
                 g.showEditArea();
             });
             $(g.cEditTextarea).on('keydown', '.edit_box, select', function (e) {
@@ -2231,7 +2231,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 content: g.updateHint()
             });
         })
-        .mouseleave(function () {
+        .on('mouseleave', function () {
             g.showSortHint = false;
             g.showMultiSortHint = false;
             $(t).find('th.draggable').tooltip('option', {
@@ -2241,10 +2241,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
     // register events for dragging-related feature
     if (isResizeEnabled || isReorderEnabled) {
-        $(document).mousemove(function (e) {
+        $(document).on('mousemove', function (e) {
             g.dragMove(e);
         });
-        $(document).mouseup(function (e) {
+        $(document).on('mouseup', function (e) {
             $(g.o).removeClass('turnOffSelect');
             g.dragEnd(e);
         });

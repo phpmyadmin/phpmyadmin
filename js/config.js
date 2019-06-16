@@ -879,7 +879,7 @@ function offerPrefsAutoimport () {
             return;
         }
         $cnt.find('input[name=json]').val(window.localStorage.config);
-        $cnt.find('form').submit();
+        $cnt.find('form').trigger('submit');
     });
     $cnt.show();
 }

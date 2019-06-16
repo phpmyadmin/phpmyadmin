@@ -404,7 +404,7 @@ var AJAX = {
             if (data.sendErrorAlways === '1' &&
                 data.stopErrorReportLoop !== '1'
             ) {
-                $('#pma_report_errors_form').submit();
+                $('#pma_report_errors_form').trigger('submit');
                 Functions.ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
                 $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
             } else if (data.promptPhpErrors) {
@@ -599,7 +599,7 @@ var AJAX = {
                     if (data.sendErrorAlways === '1' &&
                         data.stopErrorReportLoop !== '1'
                     ) {
-                        $('#pma_report_errors_form').submit();
+                        $('#pma_report_errors_form').trigger('submit');
                         Functions.ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     } else if (data.promptPhpErrors) {

@@ -479,7 +479,7 @@ AJAX.registerOnload('server/privileges.js', function () {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     };
 
-    $('input.autofocus').focus();
+    $('input.autofocus').trigger('focus');
     $(checkboxesSel).trigger('change');
     Functions.displayPasswordGenerateButton();
     if ($('#edit_user_dialog').length > 0) {

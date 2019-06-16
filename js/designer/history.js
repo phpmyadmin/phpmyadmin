@@ -802,7 +802,7 @@ DesignerHistory.buildQuery = function () {
             vqbEditor.save();
             $elm.val(vqbEditor.getValue());
         }
-        $('#vqb_form').submit();
+        $('#vqb_form').trigger('submit');
     };
 
     var $ajaxDialog = $('#box').dialog({
@@ -826,7 +826,7 @@ DesignerHistory.buildQuery = function () {
         vqbEditor.focus();
     } else {
         $elm.val(qSelect);
-        $elm.focus();
+        $elm.trigger('focus');
     }
 };
 

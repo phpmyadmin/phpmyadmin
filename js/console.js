@@ -428,8 +428,8 @@ var ConsoleResizer = {
         }
         ConsoleResizer.posY = event.pageY;
         ConsoleResizer.height = Console.$consoleContent.height();
-        $(document).mousemove(ConsoleResizer.mouseMove);
-        $(document).mouseup(ConsoleResizer.mouseUp);
+        $(document).on('mousemove', ConsoleResizer.mouseMove);
+        $(document).on('mouseup', ConsoleResizer.mouseUp);
         // Disable text selection while resizing
         $(document).on('selectstart', function () {
             return false;
