@@ -12,7 +12,6 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -153,10 +152,11 @@ class VariablesControllerTest extends TestCase
         $method = $class->getMethod('formatVariable');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-        $container->set('template', new Template());
-        $container->factory(VariablesController::class);
-        $controller = $container->get(VariablesController::class);
+        $controller = new VariablesController(
+            Response::getInstance(),
+            $GLOBALS['dbi'],
+            new Template()
+        );
 
         $nameForValueByte = 'byte_variable';
         $nameForValueNotByte = 'not_a_byte_variable';
