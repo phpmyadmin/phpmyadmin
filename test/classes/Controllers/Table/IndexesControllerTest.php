@@ -96,21 +96,14 @@ class IndexesControllerTest extends PmaTestCase
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($table));
 
-        $container = Container::getDefaultContainer();
-        $container->set('db', 'db');
-        $container->set('table', 'table');
-        $container->set('template', new Template());
-        $container->set('dbi', $GLOBALS['dbi']);
         $response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $response);
-        $container->alias('response', 'PhpMyAdmin\Response');
 
         $ctrl = new IndexesController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
-            $container->get('table'),
+            $response,
+            $GLOBALS['dbi'],
+            new Template(),
+            $GLOBALS['db'],
+            $GLOBALS['table'],
             null
         );
 
@@ -156,22 +149,15 @@ class IndexesControllerTest extends PmaTestCase
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($table));
 
-        $container = Container::getDefaultContainer();
-        $container->set('db', 'db');
-        $container->set('table', 'table');
-        $container->set('template', new Template());
-        $container->set('dbi', $GLOBALS['dbi']);
         $response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $response);
-        $container->alias('response', 'PhpMyAdmin\Response');
         $index = new Index();
 
         $ctrl = new IndexesController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
-            $container->get('table'),
+            $response,
+            $GLOBALS['dbi'],
+            new Template(),
+            $GLOBALS['db'],
+            $GLOBALS['table'],
             $index
         );
 
