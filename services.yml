@@ -107,6 +107,9 @@ services:
     class: 'PhpMyAdmin\Server\Privileges'
     arguments: ['@template', '@dbi', '@relation', '@relation_cleanup']
 
+  sql:
+    class: 'PhpMyAdmin\Sql'
+
   sql_query_form:
     class: 'PhpMyAdmin\SqlQueryForm'
 

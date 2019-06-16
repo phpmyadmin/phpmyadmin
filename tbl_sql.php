@@ -9,19 +9,14 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\SqlController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
-use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
-
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
