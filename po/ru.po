@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-24 02:31-0300\n"
-"PO-Revision-Date: 2019-04-29 11:48+0000\n"
+"PO-Revision-Date: 2019-06-18 19:00+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -2567,7 +2567,7 @@ msgstr "Секунда"
 
 #: js/messages.php:933
 msgid "This field is required"
-msgstr "Это обязательное поле"
+msgstr "Это поле необходимо"
 
 #: js/messages.php:934
 msgid "Please fix this field"
@@ -2587,7 +2587,7 @@ msgstr "Введите правильную дату"
 
 #: js/messages.php:940
 msgid "Please enter a valid date ( ISO )"
-msgstr "Введите правильную дату ( ISO )"
+msgstr "Введите правильную дату (ISO)"
 
 #: js/messages.php:942
 msgid "Please enter a valid number"
@@ -5830,8 +5830,7 @@ msgstr "Показать текущий запрос на просмотр"
 #: libraries/classes/Config/Descriptions.php:920
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Выполнить запрос по нажатию Enter и вставить новую строку по нажатию Shift + "
-"Enter."
+"Выполнить запрос по нажатию Enter и вставить новую строку по Shift + Enter"
 
 #: libraries/classes/Config/Descriptions.php:921
 #: templates/console/display.twig:168
@@ -11419,8 +11418,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
-"Нет процедуры с именем %1$s, найденным в базе данных %2$s. Возможно, вам не "
-"нужны необходимые привилегии для редактирования этой процедуры."
+"Процедура с именем %1$s не обнаружена в базе данных %2$s. Возможно, у вас "
+"отсутствуют привилегии, необходимые для правки этой процедуры."
 
 #: libraries/classes/Rte/Words.php:46
 #, php-format
@@ -11428,8 +11427,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
-"Нет процедуры с именем %1$s, найденным в базе данных %2$s. Возможно, вам не "
-"хватает необходимых привилегий для просмотра/экспорта этой процедуры."
+"Процедура с именем %1$s не обнаружена в базе данных %2$s. Возможно, у вас "
+"отсутствуют привилегии, необходимые для просмотра/экспорта этой процедуры."
 
 #: libraries/classes/Rte/Words.php:49
 #, php-format
@@ -13177,7 +13176,7 @@ msgstr "Клик"
 
 #: libraries/config.values.php:146
 msgid "Double click"
-msgstr "Двойной клик"
+msgstr "Двойное нажатие"
 
 #: libraries/config.values.php:150
 msgid "key"
@@ -15909,7 +15908,7 @@ msgstr "Замена"
 
 #: templates/navigation/main.twig:26 templates/navigation/main.twig:27
 msgid "Home"
-msgstr "К началу"
+msgstr "На главную"
 
 #: templates/navigation/main.twig:31 templates/navigation/main.twig:32
 msgid "Empty session data"
