@@ -154,6 +154,7 @@ class VariablesControllerTest extends TestCase
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
+        $container->set('template', new Template());
         $container->factory(VariablesController::class);
         $controller = $container->get(VariablesController::class);
 
