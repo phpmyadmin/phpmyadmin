@@ -1,9 +1,11 @@
-<div class="container">
-<h2>
-  {{ get_image('s_vars') }}
-  {% trans 'Server variables and settings' %}
-  {{ show_mysql_docu('server_system_variables') }}
-</h2>
+<div class="container-fluid">
+<div class="row">
+  <h2>
+    {{ get_image('s_vars') }}
+    {% trans 'Server variables and settings' %}
+    {{ show_mysql_docu('server_system_variables') }}
+  </h2>
+</div>
 
 {% if variables is not empty %}
   <a href="server_variables.php{{ get_common() }}" class="ajax saveLink hide">
