@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\SqlController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
 
@@ -17,10 +16,9 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder;
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

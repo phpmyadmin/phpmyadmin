@@ -35,7 +35,6 @@ declare(strict_types=1);
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Di\Migration;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\LanguageManager;
@@ -96,9 +95,6 @@ $loader->load('../services.yml');
 $loader->load('../services_controllers.yml');
 /** @var Migration $diMigration */
 $diMigration = $containerBuilder->get('di_migration');
-
-/** @var Container $oldContainer */
-$oldContainer = Container::getDefaultContainer();
 
 /**
  * Load gettext functions.
@@ -333,8 +329,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
         $containerBuilder->setAlias('dbi', DatabaseInterface::class);
-        $oldContainer->set(DatabaseInterface::class, $containerBuilder->get(DatabaseInterface::class));
-        $oldContainer->alias('dbi', DatabaseInterface::class);
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings

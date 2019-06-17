@@ -15,7 +15,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\File;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
@@ -30,18 +29,15 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table, $url_params;
+global $containerBuilder, $db, $table, $url_params;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 // Check parameters
 Util::checkParameters(['db', 'table', 'goto']);
@@ -65,7 +61,8 @@ $scripts->addFile('gis_data_editor.js');
 $relation = $containerBuilder->get('relation');
 /** @var Transformations $transformations */
 $transformations = $containerBuilder->get('transformations');
-$insertEdit = new InsertEdit($dbi);
+/** @var InsertEdit $insertEdit */
+$insertEdit = $containerBuilder->get('insert_edit');
 
 // check whether insert row mode, if so include tbl_change.php
 $insertEdit->isInsertRow();

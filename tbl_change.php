@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -20,18 +19,15 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $cfg, $db, $table, $text_dir;
+global $cfg, $containerBuilder, $db, $table, $text_dir;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 PageSettings::showGroup('Edit');
 
@@ -40,7 +36,8 @@ PageSettings::showGroup('Edit');
  */
 require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 
-$insertEdit = new InsertEdit($dbi);
+/** @var InsertEdit $insertEdit */
+$insertEdit = $containerBuilder->get('insert_edit');
 
 /**
  * Determine whether Insert or Edit and set global variables

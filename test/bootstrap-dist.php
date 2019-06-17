@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Theme;
@@ -80,9 +79,7 @@ define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
 LanguageManager::getInstance()->getLanguage('en')->activate();
 
 /* Load Database interface */
-$oldContainer = Container::getDefaultContainer();
-$oldContainer->set(DatabaseInterface::class, DatabaseInterface::load());
-$oldContainer->alias('dbi', DatabaseInterface::class);
+$GLOBALS['dbi'] = DatabaseInterface::load();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');

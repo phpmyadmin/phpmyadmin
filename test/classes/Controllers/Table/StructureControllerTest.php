@@ -13,9 +13,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
@@ -36,6 +34,11 @@ class StructureControllerTest extends PmaTestCase
      * @var \PhpMyAdmin\Tests\Stubs\Response
      */
     private $_response;
+
+    /**
+     * @var Template
+     */
+    private $template;
 
     /**
      * Prepares environment for the test.
@@ -63,18 +66,8 @@ class StructureControllerTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $container = Container::getDefaultContainer();
-        $container->set('db', 'db');
-        $container->set('table', 'table');
-        $template = new Template();
-        $container->set('template', $template);
-        $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new ResponseStub();
-        $container->set(Response::class, $this->_response);
-        $container->alias('response', Response::class);
-        $container->set('relation', new Relation($dbi, $template));
-        $container->set('transformations', new Transformations());
-        $container->set('createAddField', new CreateAddField($dbi));
+        $this->template = new Template();
     }
 
     /**
@@ -94,14 +87,23 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory(StructureController::class);
-        $container->alias(
-            'StructureController',
-            StructureController::class
+        $ctrl = new StructureController(
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            new Relation($GLOBALS['dbi'], $this->template),
+            new Transformations(),
+            new CreateAddField($GLOBALS['dbi'])
         );
-        $ctrl = $container->get('StructureController');
+
         // No primary key in db.table2
         $this->assertEquals(
             '',
@@ -143,14 +145,23 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\StructureController');
-        $container->alias(
-            'StructureController',
-            'PhpMyAdmin\Controllers\Table\StructureController'
+        $ctrl = new StructureController(
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            new Relation($GLOBALS['dbi'], $this->template),
+            new Transformations(),
+            new CreateAddField($GLOBALS['dbi'])
         );
-        $ctrl = $container->get('StructureController');
+
         // With db.table, it has a primary key `column`
         $this->assertEquals(
             'column, ',
@@ -170,14 +181,22 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\StructureController');
-        $container->alias(
-            'StructureController',
-            'PhpMyAdmin\Controllers\Table\StructureController'
+        $ctrl = new StructureController(
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            new Relation($GLOBALS['dbi'], $this->template),
+            new Transformations(),
+            new CreateAddField($GLOBALS['dbi'])
         );
-        $ctrl = $container->get('StructureController');
 
         $this->assertEquals(
             false,
@@ -197,14 +216,22 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getMultipleFieldCommandType');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\StructureController');
-        $container->alias(
-            'StructureController',
-            'PhpMyAdmin\Controllers\Table\StructureController'
+        $ctrl = new StructureController(
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            new Relation($GLOBALS['dbi'], $this->template),
+            new Transformations(),
+            new CreateAddField($GLOBALS['dbi'])
         );
-        $ctrl = $container->get('StructureController');
 
         $this->assertEquals(
             null,
@@ -261,14 +288,22 @@ class StructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getDataForSubmitMult');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $dbi);
-        $container->factory('PhpMyAdmin\Controllers\Table\StructureController');
-        $container->alias(
-            'StructureController',
-            'PhpMyAdmin\Controllers\Table\StructureController'
+        $ctrl = new StructureController(
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            new Relation($GLOBALS['dbi'], $this->template),
+            new Transformations(),
+            new CreateAddField($GLOBALS['dbi'])
         );
-        $ctrl = $container->get('StructureController');
 
         $submit_mult = "index";
         $db = "PMA_db";
