@@ -1595,6 +1595,13 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
+                'query'  => "SELECT (COUNT(DB_first_level) DIV 100) * 100 from "
+                    . "( SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) "
+                    . "DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA "
+                    . "WHERE `SCHEMA_NAME` < 'pma_test' ) t",
+                'result' => [],
+            ],
+            [
                 'query'  => "SELECT `SCHEMA_NAME` FROM "
                     . "`INFORMATION_SCHEMA`.`SCHEMATA`, "
                     . "(SELECT DB_first_level FROM ( SELECT DISTINCT "
