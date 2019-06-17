@@ -28,7 +28,8 @@ DesignerPage.saveToNewPage = function (db, pageName, tablePositions, callback) {
                     DesignerOfflineDB.addObject('pdf_pages', page);
                 }
             };
-            for (var pos = 0; pos < tablePositions.length; pos++) {
+            var tablePositionsLength = tablePositions.length;
+            for (var pos = 0; pos < tablePositionsLength; pos++) {
                 tablePositions[pos].pdfPgNr = page.pgNr;
                 DesignerPage.saveTablePositions(tablePositions[pos], saveCallback);
             }
@@ -66,11 +67,12 @@ DesignerPage.saveTablePositions = function (positions, callback) {
 DesignerPage.createPageList = function (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var html = '';
-        for (var p = 0; p < pages.length; p++) {
+        var pagesLength = pages.length;
+        for (var p = 0; p < pagesLength; p++) {
             var page = pages[p];
             if (page.dbName === db) {
-                html += '<option value="' + page.pgNr + '">';
-                html += Functions.escapeHtml(page.pageDescr) + '</option>';
+                html += '<option value="' + page.pgNr + '">' +
+                        Functions.escapeHtml(page.pageDescr) + '</option>';
             }
         }
         if (typeof callback !== 'undefined') {
@@ -82,7 +84,8 @@ DesignerPage.createPageList = function (db, callback) {
 DesignerPage.deletePage = function (pageId, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', pageId, function (page) {
         if (page) {
-            for (var i = 0; i < page.tblCords.length; i++) {
+            var pageTblCordsLength = page.tblCords.length;
+            for (var i = 0; i < pageTblCordsLength; i++) {
                 DesignerOfflineDB.deleteObject('table_coords', page.tblCords[i]);
             }
             DesignerOfflineDB.deleteObject('pdf_pages', pageId, callback);
@@ -93,7 +96,8 @@ DesignerPage.deletePage = function (pageId, callback) {
 DesignerPage.loadFirstPage = function (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var firstPage = null;
-        for (var i = 0; i < pages.length; i++) {
+        var pagesLength = pages.length;
+        for (var i = 0; i < pagesLength; i++) {
             var page = pages[i];
             if (page.dbName === db) {
                 // give preference to a page having same name as the db
@@ -113,10 +117,11 @@ DesignerPage.loadFirstPage = function (db, callback) {
 DesignerPage.showNewPageTables = function (check) {
     var allTables = $('#id_scroll_tab').find('td input:checkbox');
     allTables.prop('checked', check);
-    for (var tab = 0; tab < allTables.length; tab++) {
+    var allTablesLength = allTables.length;
+    for (var tab = 0; tab < allTablesLength; tab++) {
         var input = allTables[tab];
         if (input.value) {
-            var element = document.getElementById(input.value);
+            var element = $('#' + input.value);
             element.style.top = DesignerPage.getRandom(550, 20) + 'px';
             element.style.left = DesignerPage.getRandom(700, 20) + 'px';
             DesignerMove.visibleTab(input, input.value);
@@ -132,13 +137,14 @@ DesignerPage.loadHtmlForPage = function (pageId) {
     DesignerPage.loadPageObjects(pageId, function (page, tblCords) {
         $('#name-panel').find('#page_name').text(page.pageDescr);
         DesignerMove.markSaved();
-        for (var t = 0; t < tblCords.length; t++) {
+        var tblCordsLength = tblCords.length;
+        for (var t = 0; t < tblCordsLength; t++) {
             var tbId = db + '.' + tblCords[t].tableName;
-            var table = document.getElementById(tbId);
+            var table = $('#' + tbId);
             table.style.top = tblCords[t].y + 'px';
             table.style.left = tblCords[t].x + 'px';
 
-            var checkbox = document.getElementById('check_vis_' + tbId);
+            var checkbox = $('#check_vis_' + tbId);
             checkbox.checked = true;
             DesignerMove.visibleTab(checkbox, checkbox.value);
         }
