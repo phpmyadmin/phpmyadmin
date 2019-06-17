@@ -10,7 +10,6 @@ declare(strict_types=1);
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import;

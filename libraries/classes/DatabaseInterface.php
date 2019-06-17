@@ -14,7 +14,6 @@ use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbi\DbiDummy;
 use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiMysqli;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\SqlParser\Context;
 
 /**

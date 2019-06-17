@@ -8,8 +8,6 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use Symfony\Component\DependencyInjection\Definition;
 
