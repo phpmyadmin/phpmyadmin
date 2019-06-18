@@ -1081,12 +1081,18 @@ AJAX.registerOnload('functions.js', function () {
                 end = last_clicked_row;
             }
             $tr.parent().find('tr:not(.noclick)')
-                .slice(start, end)
+                .slice(start, end - 1)
                 .addClass('marked')
                 .find(':checkbox')
                 .prop('checked', true)
                 .trigger('change');
 
+            var rowNotMarked = $tr.parent().find('tr:not(.noclick)')
+                .slice(start)
+                .find(':checkbox').parent().parent().prev().first();
+            rowNotMarked.closest('tr').addClass('marked').find(':checkbox')
+                .prop('checked', true)
+                .trigger('change');
             // remember the last shift clicked row
             last_shift_clicked_row = curr_row;
         }
