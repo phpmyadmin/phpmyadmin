@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-19 13:49-0300\n"
-"PO-Revision-Date: 2019-06-18 19:00+0000\n"
+"PO-Revision-Date: 2019-06-19 16:50+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -5802,7 +5802,7 @@ msgstr "正の値ではありません!"
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:547
 msgid "Not a non-negative number!"
-msgstr "負の値ではありません!"
+msgstr "負でない値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:104
 #: libraries/classes/Config/Validator.php:503
@@ -13116,7 +13116,7 @@ msgstr "実績行の削除を許可する。"
 
 #: server_privileges.php:160 server_user_groups.php:44
 msgid "No Privileges"
-msgstr "特権なし"
+msgstr "特権はありません"
 
 #: server_privileges.php:167
 msgid "You do not have the privileges to administrate the users!"
