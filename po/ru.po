@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-19 13:49-0300\n"
-"PO-Revision-Date: 2019-06-18 19:00+0000\n"
+"PO-Revision-Date: 2019-06-21 08:00+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.7\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
@@ -2574,15 +2574,15 @@ msgstr "Это поле необходимо"
 
 #: js/messages.php:930
 msgid "Please fix this field"
-msgstr "Пожалуйста, исправьте это поле"
+msgstr "Исправьте это поле"
 
 #: js/messages.php:931
 msgid "Please enter a valid email address"
-msgstr "Введите правильный email"
+msgstr "Введите правильный адрес э-почты"
 
 #: js/messages.php:932
 msgid "Please enter a valid URL"
-msgstr "Пожалуйста, введите правильный URL"
+msgstr "Введите правильный URL"
 
 #: js/messages.php:933
 msgid "Please enter a valid date"
@@ -2594,15 +2594,15 @@ msgstr "Введите правильную дату (ISO)"
 
 #: js/messages.php:938
 msgid "Please enter a valid number"
-msgstr "Пожалуйста, введите правильное числовое значение"
+msgstr "Введите правильное числовое значение"
 
 #: js/messages.php:941
 msgid "Please enter a valid credit card number"
-msgstr "Пожалуйста, введите правильный номер кредитной карты"
+msgstr "Введите правильный номер кредитной карты"
 
 #: js/messages.php:943
 msgid "Please enter only digits"
-msgstr "Пожалуйста, введите только цифровые символы"
+msgstr "Введите только цифры"
 
 #: js/messages.php:946
 msgid "Please enter the same value again"
@@ -2610,27 +2610,27 @@ msgstr "Введите то же значение еще раз"
 
 #: js/messages.php:950
 msgid "Please enter no more than {0} characters"
-msgstr "Пожалуйста, введите не более {0} символ(ов/а)"
+msgstr "Введите не более {0} символ(а/ов)"
 
 #: js/messages.php:955
 msgid "Please enter at least {0} characters"
-msgstr "Введите не менее {0} символ(ов/а)"
+msgstr "Введите не менее {0} символ(а/ов)"
 
 #: js/messages.php:960
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr "Пожалуйста, введите значение длиной между {0} и {1} символами(ом)"
+msgstr "Введите значение между {0} и {1} символами длиной"
 
 #: js/messages.php:965
 msgid "Please enter a value between {0} and {1}"
-msgstr "Пожалуйста, введите значение между {0} и {1} символами(ом)"
+msgstr "Введите значение между {0} и {1} символами"
 
 #: js/messages.php:970
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Пожалуйста, введите значение меньшее или равное {0}"
+msgstr "Ввведите значение меньшее или равное {0}"
 
 #: js/messages.php:975
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Пожалуйста, введите значение, большее или равное {0}"
+msgstr "Введите значение, большее или равное {0}"
 
 #: js/messages.php:981
 msgid "Please enter a valid date or time"
@@ -2638,7 +2638,7 @@ msgstr "Введите правильную дату или время"
 
 #: js/messages.php:986
 msgid "Please enter a valid HEX input"
-msgstr "Пожалуйста, введите правильное значение HEX"
+msgstr "Введите правильное значение HEX"
 
 #: js/messages.php:991 libraries/classes/Core.php:295
 #: libraries/classes/Import.php:118 libraries/classes/InsertEdit.php:1541
@@ -8950,10 +8950,8 @@ msgstr ""
 "на панели навигации."
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Группы:"
+msgstr "Группы"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -11431,7 +11429,7 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
-"Процедура с именем %1$s не обнаружена в базе данных %2$s. Возможно, у вас "
+"Процедура с именем %1$s не найдена в базе данных %2$s. Возможно, у вас "
 "отсутствуют привилегии, необходимые для правки этой процедуры."
 
 #: libraries/classes/Rte/Words.php:46
@@ -11440,7 +11438,7 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
-"Процедура с именем %1$s не обнаружена в базе данных %2$s. Возможно, у вас "
+"Процедура с именем %1$s не найдена в базе данных %2$s. Возможно, у вас "
 "отсутствуют привилегии, необходимые для просмотра/экспорта этой процедуры."
 
 #: libraries/classes/Rte/Words.php:49
