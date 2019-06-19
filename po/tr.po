@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
+"Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-27 18:51+0200\n"
+"POT-Creation-Date: 2019-06-19 13:37-0300\n"
 "PO-Revision-Date: 2019-04-28 17:19+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
@@ -47,8 +47,8 @@ msgstr "Veritabanı açıklaması"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
+#: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Tablo açıklamaları:"
 
@@ -58,26 +58,26 @@ msgstr "Tablo açıklamaları:"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:291
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:387
 #: libraries/classes/Plugins/Export/ExportLatex.php:526
-#: libraries/classes/Plugins/Export/ExportOdt.php:381
-#: libraries/classes/Plugins/Export/ExportOdt.php:483
+#: libraries/classes/Plugins/Export/ExportOdt.php:385
+#: libraries/classes/Plugins/Export/ExportOdt.php:487
 #: libraries/classes/Plugins/Export/ExportTexytext.php:288
 #: libraries/classes/Plugins/Export/ExportTexytext.php:379
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: templates/table/index_form.twig:115
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/search/table_header.twig:6
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/relation/foreign_key_row.twig:122
 #: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/search/zoom_result_form.twig:34
-#: templates/table/relation/internal_relational_row.twig:24
 #: templates/columns_definitions/column_name.twig:16
-#: templates/table/search/table_header.twig:6
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/index_form.twig:115
+#: templates/table/relation/internal_relational_row.twig:24
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
+#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "Sütun"
 
@@ -87,8 +87,8 @@ msgstr "Sütun"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:294
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:390
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
-#: libraries/classes/Plugins/Export/ExportOdt.php:384
-#: libraries/classes/Plugins/Export/ExportOdt.php:486
+#: libraries/classes/Plugins/Export/ExportOdt.php:388
+#: libraries/classes/Plugins/Export/ExportOdt.php:490
 #: libraries/classes/Plugins/Export/ExportTexytext.php:289
 #: libraries/classes/Plugins/Export/ExportTexytext.php:380
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:514
@@ -100,11 +100,11 @@ msgstr "Sütun"
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2581
 #: templates/database/structure/table_header.twig:32
-#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/table/search/table_header.twig:7
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/structure/table_structure_header.twig:6
-#: templates/table/search/table_header.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Türü"
 
@@ -114,18 +114,18 @@ msgstr "Türü"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:297
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
-#: libraries/classes/Plugins/Export/ExportOdt.php:387
-#: libraries/classes/Plugins/Export/ExportOdt.php:489
+#: libraries/classes/Plugins/Export/ExportOdt.php:391
+#: libraries/classes/Plugins/Export/ExportOdt.php:493
 #: libraries/classes/Plugins/Export/ExportTexytext.php:290
 #: libraries/classes/Plugins/Export/ExportTexytext.php:381
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:516
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
-#: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/search/zoom_result_form.twig:35
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:9
+#: templates/table/structure/table_structure_header.twig:9
+#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
 msgstr "Boş"
 
@@ -134,24 +134,24 @@ msgstr "Boş"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:300
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:396
 #: libraries/classes/Plugins/Export/ExportLatex.php:529
-#: libraries/classes/Plugins/Export/ExportOdt.php:390
-#: libraries/classes/Plugins/Export/ExportOdt.php:492
+#: libraries/classes/Plugins/Export/ExportOdt.php:394
+#: libraries/classes/Plugins/Export/ExportOdt.php:496
 #: libraries/classes/Plugins/Export/ExportTexytext.php:291
 #: libraries/classes/Plugins/Export/ExportTexytext.php:382
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:518
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:633
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165
-#: templates/database/structure/body_for_table_summary.twig:54
-#: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/structure/table_structure_header.twig:10
+#: templates/columns_definitions/table_fields_definitions.twig:20
 msgid "Default"
 msgstr "Varsayılan"
 
 #: db_datadict.php:122 libraries/classes/Plugins/Export/ExportHtmlword.php:400
 #: libraries/classes/Plugins/Export/ExportLatex.php:531
-#: libraries/classes/Plugins/Export/ExportOdt.php:496
+#: libraries/classes/Plugins/Export/ExportOdt.php:500
 #: libraries/classes/Plugins/Export/ExportTexytext.php:384
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:527
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:635
@@ -164,23 +164,23 @@ msgstr "Bağlantı verilen"
 #: libraries/classes/Config/Descriptions.php:393
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:405
 #: libraries/classes/Plugins/Export/ExportLatex.php:534
-#: libraries/classes/Plugins/Export/ExportOdt.php:501
+#: libraries/classes/Plugins/Export/ExportOdt.php:505
 #: libraries/classes/Plugins/Export/ExportTexytext.php:387
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:534
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:646
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:659
-#: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/table/structure/table_structure_header.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:54
 msgid "Comments"
 msgstr "Açıklamalar"
 
 #: db_datadict.php:156
-#: libraries/classes/Controllers/Table/TableStructureController.php:1210
-#: libraries/classes/Controllers/Table/TableStructureController.php:1215
+#: libraries/classes/Controllers/Table/TableStructureController.php:1221
+#: libraries/classes/Controllers/Table/TableStructureController.php:1226
 #: templates/table/structure/display_structure.twig:61
-#: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/check_all_table_column.twig:33
 #: templates/columns_definitions/column_indexes.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
 msgstr "Birincil"
 
@@ -191,7 +191,7 @@ msgstr "Birincil"
 #: libraries/classes/IndexColumn.php:141 libraries/classes/MultSubmits.php:514
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:657
 #: libraries/classes/Plugins/Export/ExportLatex.php:603
-#: libraries/classes/Plugins/Export/ExportOdt.php:795
+#: libraries/classes/Plugins/Export/ExportOdt.php:799
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
 #: libraries/classes/Server/Privileges.php:2757
@@ -199,33 +199,33 @@ msgstr "Birincil"
 #: libraries/classes/Server/Privileges.php:3014
 #: libraries/classes/Server/Privileges.php:3678
 #: libraries/classes/Server/Privileges.php:3707 prefs_manage.php:145
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/prefs_autoload.twig:12
-#: templates/table/structure/table_structure_row.twig:25
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "No"
 msgstr "Hayır"
 
 #: db_datadict.php:166 js/messages.php:532
 #: libraries/classes/CentralColumns.php:998
 #: libraries/classes/Config/FormDisplayTemplate.php:281
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:200
 #: libraries/classes/Controllers/Table/TableStructureController.php:789
-#: libraries/classes/Controllers/Table/TableStructureController.php:1435
-#: libraries/classes/Controllers/Table/TableStructureController.php:1444
-#: libraries/classes/Controllers/Table/TableStructureController.php:1449
-#: libraries/classes/Controllers/Table/TableStructureController.php:1454
-#: libraries/classes/Controllers/Table/TableStructureController.php:1459
+#: libraries/classes/Controllers/Table/TableStructureController.php:1447
+#: libraries/classes/Controllers/Table/TableStructureController.php:1456
+#: libraries/classes/Controllers/Table/TableStructureController.php:1461
+#: libraries/classes/Controllers/Table/TableStructureController.php:1466
+#: libraries/classes/Controllers/Table/TableStructureController.php:1471
 #: libraries/classes/Index.php:595 libraries/classes/IndexColumn.php:144
 #: libraries/classes/MultSubmits.php:413 libraries/classes/MultSubmits.php:446
 #: libraries/classes/MultSubmits.php:475 libraries/classes/MultSubmits.php:512
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:658
 #: libraries/classes/Plugins/Export/ExportLatex.php:603
-#: libraries/classes/Plugins/Export/ExportOdt.php:796
+#: libraries/classes/Plugins/Export/ExportOdt.php:800
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
 #: libraries/classes/Server/Privileges.php:2757
@@ -234,14 +234,15 @@ msgstr "Hayır"
 #: libraries/classes/Server/Privileges.php:3675
 #: libraries/classes/Server/Privileges.php:3707
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
-#: templates/privileges/privileges_summary_row.twig:7
-#: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/prefs_autoload.twig:11
-#: templates/table/structure/table_structure_row.twig:25
+#: prefs_manage.php:143
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/structure/table_structure_row.twig:25
+#: templates/privileges/privileges_summary_row.twig:4
+#: templates/privileges/privileges_summary_row.twig:7
+#: templates/privileges/privileges_summary_row.twig:9
+#: templates/prefs_autoload.twig:11
 msgid "Yes"
 msgstr "Evet"
 
@@ -257,7 +258,7 @@ msgid "No tables found in database."
 msgstr "Veritabanında tablo bulunamadı."
 
 #: db_export.php:68 libraries/classes/Config/Descriptions.php:490
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:338
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:121
@@ -274,14 +275,14 @@ msgstr "Tablolar"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:38
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:288
-#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3043
-#: libraries/classes/Util.php:3053 libraries/classes/Util.php:3059
-#: libraries/classes/Util.php:3339 libraries/classes/Util.php:3995
-#: libraries/classes/Util.php:4012 libraries/config.values.php:38
+#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3049
+#: libraries/classes/Util.php:3059 libraries/classes/Util.php:3065
+#: libraries/classes/Util.php:3345 libraries/classes/Util.php:4003
+#: libraries/classes/Util.php:4020 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
+#: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
 #: templates/database/designer/table_list.twig:24
 msgid "Structure"
@@ -291,7 +292,7 @@ msgstr "Yapı"
 #: libraries/classes/Config/Forms/User/ExportForm.php:101
 #: libraries/classes/Config/Forms/User/ExportForm.php:125
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:348
 #: libraries/classes/Server/Privileges.php:1158
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -404,87 +405,87 @@ msgstr "Sayfayı yenilemek isteyebilirsiniz."
 msgid "Bad parameters!"
 msgstr "Kötü parametreler!"
 
-#: gis_data_editor.php:121
+#: gis_data_editor.php:122
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" sütunu için değer"
 
-#: gis_data_editor.php:150
+#: gis_data_editor.php:151
 #: templates/table/gis_visualization/gis_visualization.twig:38
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Taban Katman olarak OpenStreetMaps kullan"
 
 #. l10n: Spatial Reference System Identifier
-#: gis_data_editor.php:172
+#: gis_data_editor.php:173
 msgid "SRID:"
 msgstr "SRID:"
 
-#: gis_data_editor.php:198
+#: gis_data_editor.php:199
 #, php-format
 msgid "Geometry %d:"
 msgstr "Geometri %d:"
 
-#: gis_data_editor.php:220
+#: gis_data_editor.php:221
 msgid "Point:"
 msgstr "Nokta:"
 
-#: gis_data_editor.php:221 gis_data_editor.php:248 gis_data_editor.php:304
-#: gis_data_editor.php:377 js/messages.php:521
+#: gis_data_editor.php:222 gis_data_editor.php:249 gis_data_editor.php:305
+#: gis_data_editor.php:378 js/messages.php:521
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:224 gis_data_editor.php:252 gis_data_editor.php:308
-#: gis_data_editor.php:383 js/messages.php:522
+#: gis_data_editor.php:225 gis_data_editor.php:253 gis_data_editor.php:309
+#: gis_data_editor.php:384 js/messages.php:522
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:246 gis_data_editor.php:302 gis_data_editor.php:375
+#: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:376
 #: js/messages.php:524
 #, php-format
 msgid "Point %d"
 msgstr "Nokta %d"
 
-#: gis_data_editor.php:259 gis_data_editor.php:315 gis_data_editor.php:393
+#: gis_data_editor.php:260 gis_data_editor.php:316 gis_data_editor.php:394
 #: js/messages.php:530
 msgid "Add a point"
 msgstr "Nokta ekle"
 
-#: gis_data_editor.php:276
+#: gis_data_editor.php:277
 #, php-format
 msgid "Linestring %d:"
 msgstr "Satır dizgisi %d:"
 
-#: gis_data_editor.php:279 gis_data_editor.php:356
+#: gis_data_editor.php:280 gis_data_editor.php:357
 msgid "Outer ring:"
 msgstr "Dış halka:"
 
-#: gis_data_editor.php:281 gis_data_editor.php:358
+#: gis_data_editor.php:282 gis_data_editor.php:359
 #, php-format
 msgid "Inner ring %d:"
 msgstr "İç halka %d:"
 
-#: gis_data_editor.php:318
+#: gis_data_editor.php:319
 msgid "Add a linestring"
 msgstr "Satır dizgisi ekle"
 
-#: gis_data_editor.php:319 gis_data_editor.php:398 js/messages.php:531
+#: gis_data_editor.php:320 gis_data_editor.php:399 js/messages.php:531
 msgid "Add an inner ring"
 msgstr "İç halka ekle"
 
-#: gis_data_editor.php:340
+#: gis_data_editor.php:341
 #, php-format
 msgid "Polygon %d:"
 msgstr "Poligon %d:"
 
-#: gis_data_editor.php:404
+#: gis_data_editor.php:405
 msgid "Add a polygon"
 msgstr "Poligon ekle"
 
-#: gis_data_editor.php:410
+#: gis_data_editor.php:411
 msgid "Add geometry"
 msgstr "Geometri ekle"
 
-#: gis_data_editor.php:416 js/messages.php:354
+#: gis_data_editor.php:417 js/messages.php:354
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:160
 #: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1892
@@ -512,31 +513,35 @@ msgstr "Geometri ekle"
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:323 templates/table/structure/add_column.twig:23
-#: templates/table/index_form.twig:217
+#: server_privileges.php:323 templates/view_create.twig:116
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/header_location.twig:18 templates/view_create.twig:116
-#: templates/database/create_table.twig:21
-#: templates/server/binlog/log_selector.twig:27
-#: templates/table/search/selection_form.twig:99
-#: templates/privileges/privileges_summary.twig:60
-#: templates/privileges/edit_routine_privileges.twig:23
-#: templates/display/import/import.twig:191
+#: templates/display/results/options_block.twig:114
+#: templates/header_location.twig:18
+#: templates/table/structure/add_column.twig:23
 #: templates/database/search/selection_form.twig:58
+#: templates/table/search/selection_form.twig:99
+#: templates/database/create_table.twig:21
+#: templates/start_and_number_of_rows_panel.twig:14
 #: templates/display/export/options_format.twig:18
-#: templates/display/results/options_block.twig:114 view_operations.php:115
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/index_form.twig:217 templates/display/import/import.twig:191
+#: templates/privileges/edit_routine_privileges.twig:23
+#: templates/privileges/privileges_summary.twig:60 view_operations.php:115
 msgid "Go"
 msgstr "Git"
 
-#: gis_data_editor.php:419
+#: gis_data_editor.php:420
 msgid "Output"
 msgstr "Çıktı"
 
-#: gis_data_editor.php:422
+#: gis_data_editor.php:423
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field."
 msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+"Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
 "\"Function\" sütunundan \"GeomFromText\"i seçin ve \"Value\" alanı içinde "
@@ -711,61 +716,61 @@ msgstr "Kullanıcı:"
 msgid "Server charset:"
 msgstr "Sunucu karakter grubu:"
 
-#: index.php:386
+#: index.php:388
 msgid "Web server"
 msgstr "Web sunucusu"
 
-#: index.php:397
+#: index.php:399
 msgid "Database client version:"
 msgstr "Veritabanı istemcisi sürümü:"
 
-#: index.php:401
+#: index.php:403
 msgid "PHP extension:"
 msgstr "PHP uzantısı:"
 
-#: index.php:415
+#: index.php:417
 msgid "PHP version:"
 msgstr "PHP sürümü:"
 
-#: index.php:426
+#: index.php:428
 msgid "Show PHP information"
 msgstr "PHP bilgisini göster"
 
-#: index.php:445
+#: index.php:447
 msgid "Version information:"
 msgstr "Sürüm bilgisi:"
 
-#: index.php:454 libraries/classes/Config/FormDisplayTemplate.php:164
+#: index.php:456 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
 #: libraries/classes/Engines/Pbxt.php:167
-#: libraries/classes/Navigation/NavigationHeader.php:203
+#: libraries/classes/Navigation/NavigationHeader.php:207
 #: libraries/classes/Sanitize.php:191 libraries/classes/Util.php:314
 #: libraries/classes/Util.php:381
 #: templates/server/variables/link_template.twig:7
 msgid "Documentation"
 msgstr "Belgeler"
 
-#: index.php:463
+#: index.php:465
 msgid "Official Homepage"
 msgstr "Resmî phpMyAdmin Anasayfası"
 
-#: index.php:470
+#: index.php:472
 msgid "Contribute"
 msgstr "Katkıda bulun"
 
-#: index.php:477
+#: index.php:479
 msgid "Get support"
 msgstr "Destek al"
 
-#: index.php:484
+#: index.php:486
 msgid "List of changes"
 msgstr "Değişikliklerin listesi"
 
-#: index.php:491 templates/server/plugins/section.twig:13
+#: index.php:493 templates/server/plugins/section.twig:13
 msgid "License"
 msgstr "Lisans"
 
-#: index.php:511
+#: index.php:513
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -775,7 +780,7 @@ msgstr ""
 "görünüyor. Mbstring uzantısı olmadan phpMyAdmin karakter dizgilerini doğru "
 "olarak bölemez ve bu beklenmedik sonuçlar doğurabilir."
 
-#: index.php:526
+#: index.php:528
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -783,7 +788,7 @@ msgstr ""
 "Curl uzantısı bulunamadı ve allow_url_fopen etkisizleştirildi. Bu nedenle "
 "hata raporlama veya sürüm denetleme gibi bazı özellikler etkisizleştirildi."
 
-#: index.php:541
+#: index.php:543
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -796,7 +801,7 @@ msgstr ""
 "bundan dolayı phpMyAdmin içinde yapılandırılmadıkça oturum açmanızın süresi "
 "dolabilir."
 
-#: index.php:560
+#: index.php:562
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -805,17 +810,17 @@ msgstr ""
 "tanımlama bilgisi depolamasından düşük, bundan dolayı oturum açmanızın "
 "süresi phpMyAdmin içinde yapılandırılmadıkça dolacaktır."
 
-#: index.php:575
+#: index.php:577
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Yapılandırma dosyası için gizli bir parola ifadesi gerekiyor "
 "(blowfish_secret)."
 
-#: index.php:582
+#: index.php:584
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr "Yapılandırma (blowfish_secret) içindeki gizli parola çok kısa."
 
-#: index.php:596
+#: index.php:598
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -827,7 +832,7 @@ msgstr ""
 "bunu kaldırmanız son derece önerilir. Yoksa yapılandırmanızı indiren "
 "yetkisiz insanlar tarafından sunucunuzun güvenliği riske atılabilir."
 
-#: index.php:614
+#: index.php:616
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -836,14 +841,14 @@ msgstr ""
 "phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
 "genişletilmiş özellikler devre dışı bırakıldı. %sNedenini bulun%s. "
 
-#: index.php:621
+#: index.php:623
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ya da orada ayarlamak için herhangi bir veritabanının 'İşlemler' sekmesine "
 "dönüşümlü olarak gidin."
 
-#: index.php:646
+#: index.php:648
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -851,7 +856,7 @@ msgid ""
 msgstr ""
 "Sunucu Suhosin ile çalışıyor. Lütfen olası sorunlar için %sbelgelere%s bakın."
 
-#: index.php:660
+#: index.php:662
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -1086,8 +1091,8 @@ msgid "Please select column(s) for the index."
 msgstr "İndeks için lütfen sütun(ları) seçin."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1894
-#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
+#: templates/table/index_form.twig:216
 #: templates/table/relation/common_form.twig:188
 msgid "Preview SQL"
 msgstr "SQL Önizle"
@@ -1271,7 +1276,7 @@ msgid "Connections"
 msgstr "Bağlantılar"
 
 #: js/messages.php:200 libraries/classes/Server/Status/Data.php:431
-#: libraries/classes/Server/Status/Processes.php:140
+#: libraries/classes/Server/Status/Processes.php:128
 msgid "Processes"
 msgstr "İşlemler"
 
@@ -1328,7 +1333,7 @@ msgstr "Trafik"
 
 #: js/messages.php:215 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
-#: libraries/classes/Util.php:3986
+#: libraries/classes/Util.php:3994
 msgid "Settings"
 msgstr "Ayarlar"
 
@@ -1344,14 +1349,14 @@ msgstr "Lütfen diziye en az bir değişken ekleyin!"
 #: libraries/classes/Plugins/Export/ExportSql.php:2195
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
-#: libraries/classes/Server/Status/Processes.php:282
+#: libraries/classes/Server/Status/Processes.php:285
 #: libraries/config.values.php:69
+#: templates/columns_definitions/transformation.twig:4
 #: templates/database/designer/options_panel.twig:177
 #: templates/table/search/rows_zoom.twig:20
-#: templates/table/search/options_zoom.twig:12
 #: templates/display/export/options_output_compression.twig:7
+#: templates/table/search/options_zoom.twig:12
 #: templates/privileges/privileges_summary.twig:30
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Yok"
 
@@ -1547,8 +1552,8 @@ msgstr "Çıktıyı açıkla"
 
 #: js/messages.php:292 libraries/classes/Menu.php:591
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
-#: libraries/classes/Server/Status/Processes.php:101
-#: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3982
+#: libraries/classes/Server/Status/Processes.php:89
+#: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3990
 #: libraries/config.values.php:105
 #: templates/database/tracking/tracked_tables.twig:15
 msgid "Status"
@@ -1556,11 +1561,11 @@ msgstr "Durum"
 
 #: js/messages.php:293 js/messages.php:908
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:487
-#: libraries/classes/Plugins/Export/ExportOdt.php:608
+#: libraries/classes/Plugins/Export/ExportOdt.php:612
 #: libraries/classes/Plugins/Export/ExportTexytext.php:451
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:354
 #: libraries/classes/Rte/RteList.php:105
-#: libraries/classes/Server/Status/Processes.php:97
+#: libraries/classes/Server/Status/Processes.php:85
 #: libraries/classes/Sql.php:277
 msgid "Time"
 msgstr "Süre"
@@ -1666,8 +1671,8 @@ msgstr ""
 #: libraries/classes/Menu.php:391 libraries/classes/Menu.php:500
 #: libraries/classes/Menu.php:621
 #: libraries/classes/Server/Status/Monitor.php:324
-#: libraries/classes/Util.php:3985 libraries/classes/Util.php:4000
-#: libraries/classes/Util.php:4017 prefs_manage.php:228
+#: libraries/classes/Util.php:3993 libraries/classes/Util.php:4008
+#: libraries/classes/Util.php:4025 prefs_manage.php:228
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "İçe aktar"
@@ -1728,15 +1733,14 @@ msgstr "SQL biçimlendiriliyor…"
 msgid "No parameters found!"
 msgstr "Hiç parametre bulunamadı!"
 
-#: js/messages.php:355
+#: js/messages.php:355 templates/server/variables/link_template.twig:5
 #: templates/database/designer/delete_relation_panel.twig:30
 #: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/where_query_panel.twig:85
 #: templates/database/designer/new_relation_panel.twig:90
 #: templates/database/designer/rename_to_panel.twig:45
+#: templates/database/designer/where_query_panel.twig:85
 #: templates/database/designer/having_query_panel.twig:118
-#: templates/server/variables/link_template.twig:5
+#: templates/database/designer/aggregate_query_panel.twig:64
 msgid "Cancel"
 msgstr "İptal"
 
@@ -1788,7 +1792,7 @@ msgstr ""
 "durumunu denetleyin."
 
 #: js/messages.php:373
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
 #: libraries/db_common.inc.php:72 libraries/db_table_exists.inc.php:34
 msgid "No databases selected."
 msgstr "Seçilen veritabanları yok."
@@ -1807,11 +1811,11 @@ msgstr "Birincil anahtar ekleniyor"
 
 #: js/messages.php:377 templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
-#: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/database/designer/where_query_panel.twig:83
 #: templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/where_query_panel.twig:83
 #: templates/database/designer/having_query_panel.twig:114
+#: templates/database/designer/aggregate_query_panel.twig:60
 msgid "OK"
 msgstr "TAMAM"
 
@@ -1878,9 +1882,9 @@ msgstr "Depolanan işlevin tanımı RETURN ifadesi içermek zorunda!"
 #: libraries/classes/Server/Privileges.php:2859
 #: libraries/classes/Server/Privileges.php:3590
 #: libraries/classes/Server/Status/Monitor.php:328
-#: libraries/classes/Util.php:3346 libraries/classes/Util.php:3347
-#: libraries/classes/Util.php:3984 libraries/classes/Util.php:3999
-#: libraries/classes/Util.php:4016 prefs_manage.php:294
+#: libraries/classes/Util.php:3352 libraries/classes/Util.php:3353
+#: libraries/classes/Util.php:3992 libraries/classes/Util.php:4007
+#: libraries/classes/Util.php:4024 prefs_manage.php:294
 #: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
 msgid "Export"
@@ -1933,12 +1937,12 @@ msgstr "Sorgu kutusunu göster"
 #: libraries/classes/Display/Results.php:3336
 #: libraries/classes/Display/Results.php:4693 libraries/classes/Index.php:745
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
-#: libraries/classes/Util.php:1079 libraries/classes/Util.php:3344
-#: libraries/classes/Util.php:3345 setup/frames/index.inc.php:157
+#: libraries/classes/Util.php:1079 libraries/classes/Util.php:3350
+#: libraries/classes/Util.php:3351 setup/frames/index.inc.php:157
 #: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
+#: templates/console/bookmark_content.twig:7
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -1950,9 +1954,9 @@ msgstr "Düzenle"
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:354
 #: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
-#: templates/console/bookmark_content.twig:7
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
+#: templates/console/bookmark_content.twig:7
 msgid "Delete"
 msgstr "Sil"
 
@@ -2125,10 +2129,10 @@ msgstr "Seçilen bağımlılıklar yok!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
+#: templates/server/variables/link_template.twig:2
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/server/variables/link_template.twig:2
 #: templates/table/relation/common_form.twig:189
 msgid "Save"
 msgstr "Kaydet"
@@ -2420,9 +2424,9 @@ msgstr ""
 "Sütunların görünürlüğünü değiştirmek<br />için aşağı açılır okuna tıklayın."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
-#: templates/table/browse_foreigners/show_all.twig:4
-#: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
+#: templates/privileges/initials_row.twig:20
+#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Tümünü göster"
 
@@ -2477,7 +2481,7 @@ msgid "Select database first"
 msgstr "Önce veritabanını seçin"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4884
-#: libraries/classes/Util.php:3877
+#: libraries/classes/Util.php:3885
 #: templates/table/structure/optional_action_links.twig:1
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
@@ -3135,9 +3139,9 @@ msgstr "Anahtar adı"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/collations/charsets.twig:6
 #: templates/server/engines/engines.twig:5
 #: templates/server/plugins/section.twig:10
-#: templates/server/collations/charsets.twig:6
 msgid "Description"
 msgstr "Açıklama"
 
@@ -3192,31 +3196,30 @@ msgstr "HAYIR"
 #: libraries/classes/Server/Privileges.php:3570
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/databases/table_header.twig:37
 #: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/tracked_tables.twig:16
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/table/tracking/report_table.twig:8
-#: templates/privileges/privileges_summary.twig:22
-#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/databases/table_header.twig:37
 #: templates/database/tracking/untracked_tables.twig:10
+#: templates/table/tracking/report_table.twig:8
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/database/tracking/tracked_tables.twig:16
+#: templates/privileges/privileges_summary.twig:22
+#: templates/table/structure/display_partitions.twig:33
 msgid "Action"
 msgstr "Eylem"
 
 #: libraries/classes/CentralColumns.php:742
 #: libraries/classes/CentralColumns.php:1428
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:486
-#: libraries/classes/Plugins/Export/ExportOdt.php:605
+#: libraries/classes/Plugins/Export/ExportOdt.php:609
 #: libraries/classes/Plugins/Export/ExportTexytext.php:450
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:352
 #: libraries/classes/Rte/Routines.php:943
 #: libraries/classes/Rte/Routines.php:1622 libraries/classes/Rte/RteList.php:88
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
-#: setup/frames/index.inc.php:141
-#: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/database/create_table.twig:11
+#: setup/frames/index.inc.php:141 templates/database/create_table.twig:11
 #: templates/table/structure/table_structure_header.twig:5
+#: templates/columns_definitions/table_fields_definitions.twig:9
 msgid "Name"
 msgstr "Adı"
 
@@ -3228,18 +3231,18 @@ msgid "Length/Values"
 msgstr "Uzunluk/Değerler"
 
 #: libraries/classes/CentralColumns.php:750
-#: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:273
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
+#: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:298
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
 #: templates/database/structure/table_header.twig:33
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/server/collations/charsets.twig:5
-#: templates/table/structure/table_structure_header.twig:7
-#: templates/table/search/table_header.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/structure/row_stats_table.twig:30
+#: templates/table/search/table_header.twig:8
+#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/columns_definitions/table_fields_definitions.twig:24
 msgid "Collation"
 msgstr "Karşılaştırma"
 
@@ -3268,281 +3271,281 @@ msgstr "Yeni sütun ekle"
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:654
-#: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/table/structure/table_structure_header.twig:8
+#: templates/columns_definitions/table_fields_definitions.twig:27
 msgid "Attributes"
 msgstr "Öznitelikler"
 
-#: libraries/classes/Charsets.php:219
+#: libraries/classes/Charsets.php:244
 #: templates/database/structure/table_header.twig:44
 msgid "Charset"
 msgstr "Karakter grubu"
 
-#: libraries/classes/Charsets.php:310
+#: libraries/classes/Charsets.php:335
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: libraries/classes/Charsets.php:324
+#: libraries/classes/Charsets.php:349
 msgctxt "Collation"
 msgid "Binary"
 msgstr "İkili Değer"
 
-#: libraries/classes/Charsets.php:336 libraries/classes/Charsets.php:566
+#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:591
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Evrensel Kod"
 
-#: libraries/classes/Charsets.php:346 libraries/classes/Charsets.php:517
+#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:542
 msgctxt "Collation"
 msgid "West European"
 msgstr "Batı Avrupa"
 
-#: libraries/classes/Charsets.php:353
+#: libraries/classes/Charsets.php:378
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Orta Avrupa"
 
-#: libraries/classes/Charsets.php:358
+#: libraries/classes/Charsets.php:383
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusça"
 
-#: libraries/classes/Charsets.php:363
+#: libraries/classes/Charsets.php:388
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Basitleştirilmiş Çince"
 
-#: libraries/classes/Charsets.php:370 libraries/classes/Charsets.php:488
+#: libraries/classes/Charsets.php:395 libraries/classes/Charsets.php:513
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonca"
 
-#: libraries/classes/Charsets.php:375
+#: libraries/classes/Charsets.php:400
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltık dili"
 
-#: libraries/classes/Charsets.php:380
+#: libraries/classes/Charsets.php:405
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Ermenice"
 
-#: libraries/classes/Charsets.php:383
+#: libraries/classes/Charsets.php:408
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Geleneksel Çince"
 
-#: libraries/classes/Charsets.php:386
+#: libraries/classes/Charsets.php:411
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Kiril"
 
-#: libraries/classes/Charsets.php:389
+#: libraries/classes/Charsets.php:414
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arapça"
 
-#: libraries/classes/Charsets.php:392 libraries/classes/Charsets.php:503
+#: libraries/classes/Charsets.php:417 libraries/classes/Charsets.php:528
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korece"
 
-#: libraries/classes/Charsets.php:395
+#: libraries/classes/Charsets.php:420
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "İbranice"
 
-#: libraries/classes/Charsets.php:398
+#: libraries/classes/Charsets.php:423
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gürcüce"
 
-#: libraries/classes/Charsets.php:401
+#: libraries/classes/Charsets.php:426
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Yunanca"
 
-#: libraries/classes/Charsets.php:404
+#: libraries/classes/Charsets.php:429
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Çekçe-Slovakça"
 
-#: libraries/classes/Charsets.php:407 libraries/classes/Charsets.php:558
+#: libraries/classes/Charsets.php:432 libraries/classes/Charsets.php:583
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukraynaca"
 
-#: libraries/classes/Charsets.php:410 libraries/classes/Charsets.php:554
+#: libraries/classes/Charsets.php:435 libraries/classes/Charsets.php:579
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: libraries/classes/Charsets.php:413 libraries/classes/Charsets.php:546
+#: libraries/classes/Charsets.php:438 libraries/classes/Charsets.php:571
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "İsveççe"
 
-#: libraries/classes/Charsets.php:416 libraries/classes/Charsets.php:550
+#: libraries/classes/Charsets.php:441 libraries/classes/Charsets.php:575
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tayca"
 
-#: libraries/classes/Charsets.php:419
+#: libraries/classes/Charsets.php:444
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: libraries/classes/Charsets.php:435
+#: libraries/classes/Charsets.php:460
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgarca"
 
-#: libraries/classes/Charsets.php:440
+#: libraries/classes/Charsets.php:465
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Çince"
 
-#: libraries/classes/Charsets.php:445
+#: libraries/classes/Charsets.php:470
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Hırvatça"
 
-#: libraries/classes/Charsets.php:449
+#: libraries/classes/Charsets.php:474
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Çekçe"
 
-#: libraries/classes/Charsets.php:453
+#: libraries/classes/Charsets.php:478
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Danca"
 
-#: libraries/classes/Charsets.php:457
+#: libraries/classes/Charsets.php:482
 msgctxt "Collation"
 msgid "English"
 msgstr "İngilizce"
 
-#: libraries/classes/Charsets.php:461
+#: libraries/classes/Charsets.php:486
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets.php:465
+#: libraries/classes/Charsets.php:490
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estçe"
 
-#: libraries/classes/Charsets.php:468 libraries/classes/Charsets.php:585
+#: libraries/classes/Charsets.php:493 libraries/classes/Charsets.php:610
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Almanca (sözlük sırası)"
 
-#: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
+#: libraries/classes/Charsets.php:496 libraries/classes/Charsets.php:607
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Almanca (telefon rehberi sırası)"
 
-#: libraries/classes/Charsets.php:480
+#: libraries/classes/Charsets.php:505
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Macarca"
 
-#: libraries/classes/Charsets.php:484
+#: libraries/classes/Charsets.php:509
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "İzlandaca"
 
-#: libraries/classes/Charsets.php:491
+#: libraries/classes/Charsets.php:516
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Klasik Latince"
 
-#: libraries/classes/Charsets.php:495
+#: libraries/classes/Charsets.php:520
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Letonca"
 
-#: libraries/classes/Charsets.php:499
+#: libraries/classes/Charsets.php:524
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litvanyaca"
 
-#: libraries/classes/Charsets.php:507
+#: libraries/classes/Charsets.php:532
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Birmanca"
 
-#: libraries/classes/Charsets.php:510
+#: libraries/classes/Charsets.php:535
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Farsça"
 
-#: libraries/classes/Charsets.php:514
+#: libraries/classes/Charsets.php:539
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Lehçe"
 
-#: libraries/classes/Charsets.php:521
+#: libraries/classes/Charsets.php:546
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumence"
 
-#: libraries/classes/Charsets.php:525
+#: libraries/classes/Charsets.php:550
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Seylanca"
 
-#: libraries/classes/Charsets.php:529
+#: libraries/classes/Charsets.php:554
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovakça"
 
-#: libraries/classes/Charsets.php:533
+#: libraries/classes/Charsets.php:558
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovence"
 
-#: libraries/classes/Charsets.php:536 libraries/classes/Charsets.php:596
+#: libraries/classes/Charsets.php:561 libraries/classes/Charsets.php:621
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "İspanyolca (modern)"
 
-#: libraries/classes/Charsets.php:543 libraries/classes/Charsets.php:593
+#: libraries/classes/Charsets.php:568 libraries/classes/Charsets.php:618
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "İspanyolca (geleneksel)"
 
-#: libraries/classes/Charsets.php:562
+#: libraries/classes/Charsets.php:587
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamca"
 
-#: libraries/classes/Charsets.php:629
+#: libraries/classes/Charsets.php:654
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "büyük-küçük harf duyarsız"
 
-#: libraries/classes/Charsets.php:632
+#: libraries/classes/Charsets.php:657
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "büyük-küçük harf duyarlı"
 
-#: libraries/classes/Charsets.php:635
+#: libraries/classes/Charsets.php:660
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "vurgu duyarsız"
 
-#: libraries/classes/Charsets.php:638
+#: libraries/classes/Charsets.php:663
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "vurgu duyarlı"
 
-#: libraries/classes/Charsets.php:642
+#: libraries/classes/Charsets.php:667
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "çoklu seviye"
 
-#: libraries/classes/Charsets.php:645
+#: libraries/classes/Charsets.php:670
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "ikili değer"
@@ -4057,7 +4060,7 @@ msgstr "Etiket anahtarı"
 #: libraries/classes/Config/Descriptions.php:310
 #: libraries/classes/Config/Descriptions.php:334
 #: libraries/classes/Config/Descriptions.php:399
-#: libraries/classes/Plugins/Export/ExportOdt.php:507
+#: libraries/classes/Plugins/Export/ExportOdt.php:511
 #: templates/columns_definitions/table_fields_definitions.twig:71
 msgid "MIME type"
 msgstr "MIME türü"
@@ -4286,7 +4289,7 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1276
-#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3980
+#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3988
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "Veritabanları"
@@ -4423,9 +4426,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:364
 #: libraries/classes/Menu.php:467 libraries/classes/Menu.php:587
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:3044 libraries/classes/Util.php:3054
-#: libraries/classes/Util.php:3060 libraries/classes/Util.php:3981
-#: libraries/classes/Util.php:3996 libraries/classes/Util.php:4013
+#: libraries/classes/Util.php:3050 libraries/classes/Util.php:3060
+#: libraries/classes/Util.php:3066 libraries/classes/Util.php:3989
+#: libraries/classes/Util.php:4004 libraries/classes/Util.php:4021
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:111 libraries/config.values.php:117
 msgid "SQL"
@@ -5874,7 +5877,7 @@ msgstr "SQL'i açıkla"
 
 #: libraries/classes/Config/Descriptions.php:1333
 #: libraries/classes/Export.php:513
-#: libraries/classes/Server/Status/Processes.php:235
+#: libraries/classes/Server/Status/Processes.php:238
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1124 templates/console/display.twig:99
 msgid "Refresh"
@@ -5949,7 +5952,7 @@ msgstr "Veritabanı seçildiğinde tarayıcı penceresi başlığı."
 #: libraries/classes/Server/Privileges.php:3357
 #: libraries/classes/Server/Privileges.php:3359
 #: libraries/classes/Server/Privileges.php:4565
-#: libraries/classes/Server/Status/Processes.php:89
+#: libraries/classes/Server/Status/Processes.php:77
 #: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/server/databases/table_header.twig:8
 #: templates/console/bookmark_content.twig:7
@@ -5991,10 +5994,10 @@ msgstr "Tablo seçildiğinde tarayıcı penceresi başlığı."
 #: libraries/classes/Server/Privileges.php:3365
 #: libraries/classes/Server/Privileges.php:4579
 #: templates/database/structure/table_header.twig:8
-#: templates/database/tracking/tracked_tables.twig:11
-#: templates/table/relation/foreign_key_row.twig:110
-#: templates/table/relation/internal_relational_row.twig:17
 #: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/database/tracking/tracked_tables.twig:11
+#: templates/table/relation/internal_relational_row.twig:17
 #: templates/table/relation/common_form.twig:33
 msgid "Table"
 msgstr "Tablo"
@@ -6196,28 +6199,28 @@ msgid "Order by"
 msgstr "Sıralama"
 
 #: libraries/classes/Config/FormDisplay.php:99
-#: libraries/classes/Config/Validator.php:524
+#: libraries/classes/Config/Validator.php:528
 msgid "Not a positive number!"
 msgstr "Pozitif bir sayı değil!"
 
 #: libraries/classes/Config/FormDisplay.php:100
-#: libraries/classes/Config/Validator.php:546
+#: libraries/classes/Config/Validator.php:550
 msgid "Not a non-negative number!"
 msgstr "Negatif olmayan bir sayı değil!"
 
 #: libraries/classes/Config/FormDisplay.php:101
-#: libraries/classes/Config/Validator.php:502
+#: libraries/classes/Config/Validator.php:506
 msgid "Not a valid port number!"
 msgstr "Geçerli bir bağlantı noktası numarası değil!"
 
 #: libraries/classes/Config/FormDisplay.php:102
 #: libraries/classes/Config/FormDisplay.php:656
-#: libraries/classes/Config/Validator.php:567
+#: libraries/classes/Config/Validator.php:571
 msgid "Incorrect value!"
 msgstr "Yanlış değer!"
 
 #: libraries/classes/Config/FormDisplay.php:103
-#: libraries/classes/Config/Validator.php:583
+#: libraries/classes/Config/Validator.php:587
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Değer, %s değerinden az ya da eşit olmalıdır!"
@@ -6478,22 +6481,22 @@ msgstr ""
 "%1$sGZip sıkıştırması ve açması%2$s bu sistemde mevcut olmayan işlevleri "
 "(%3$s) gerektiriyor."
 
-#: libraries/classes/Config/Validator.php:210
-#: libraries/classes/Config/Validator.php:217
+#: libraries/classes/Config/Validator.php:214
+#: libraries/classes/Config/Validator.php:221
 msgid "Could not connect to the database server!"
 msgstr "Veritabanı sunucusuna bağlanamadı!"
 
-#: libraries/classes/Config/Validator.php:249
+#: libraries/classes/Config/Validator.php:253
 msgid "Invalid authentication type!"
 msgstr "Geçersiz kimlik doğrulaması türü!"
 
-#: libraries/classes/Config/Validator.php:256
+#: libraries/classes/Config/Validator.php:260
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması yöntemi kullanırken kullanıcı adı "
 "boş!"
 
-#: libraries/classes/Config/Validator.php:264
+#: libraries/classes/Config/Validator.php:268
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -6501,20 +6504,20 @@ msgstr ""
 "[kbd]Oturumu açma[/kbd] kimlik doğrulaması yöntemi kullanırken oturumu açma "
 "oturum adı boş!"
 
-#: libraries/classes/Config/Validator.php:273
+#: libraries/classes/Config/Validator.php:277
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "[kbd]Oturumu açma[/kbd] kimlik doğrulaması yöntemi kullanırken oturumu açma "
 "URL'si boş!"
 
-#: libraries/classes/Config/Validator.php:326
+#: libraries/classes/Config/Validator.php:330
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "phpMyAdmin yapılandırma depolaması kullanırken phpMyAdmin denetim "
 "kullanıcısı boş!"
 
-#: libraries/classes/Config/Validator.php:333
+#: libraries/classes/Config/Validator.php:337
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -6522,11 +6525,11 @@ msgstr ""
 "phpMyAdmin yapılandırma depolaması kullanırken phpMyAdmin denetim kullanıcı "
 "parolası boş!"
 
-#: libraries/classes/Config/Validator.php:431
+#: libraries/classes/Config/Validator.php:435
 msgid "Incorrect value:"
 msgstr "Yanlış değer:"
 
-#: libraries/classes/Config/Validator.php:440
+#: libraries/classes/Config/Validator.php:444
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Yanlış IP adresi: %s"
@@ -6550,25 +6553,25 @@ msgstr "SQL Sorgu Konsolu"
 msgid "Favorite List is full!"
 msgstr "Sık Kullanılan Listesi dolu!"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:582
-#: tbl_operations.php:408
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:567
+#: tbl_operations.php:423
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "%s tablosu boşaltıldı."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:603
-#: tbl_operations.php:426 view_operations.php:130
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:588
+#: tbl_operations.php:441 view_operations.php:130
 #, php-format
 msgid "View %s has been dropped."
 msgstr "%s görünümü kaldırıldı."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:604
-#: tbl_operations.php:427
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:589
+#: tbl_operations.php:442
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "%s tablosu kaldırıldı."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:815
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:797
 #: libraries/classes/Display/Results.php:4538
 #, php-format
 msgid ""
@@ -6577,7 +6580,7 @@ msgid ""
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgelere%s bakın."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:1031
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:1013
 msgid "unknown"
 msgstr "bilinmiyor"
 
@@ -6617,12 +6620,12 @@ msgid "Previous"
 msgstr "Önceki"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:211
-#: libraries/classes/Server/Status/Processes.php:182
+#: libraries/classes/Server/Status/Processes.php:185
 msgid "Truncate Shown Queries"
 msgstr "Gösterilen Sorguları Kısalt"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:215
-#: libraries/classes/Server/Status/Processes.php:185
+#: libraries/classes/Server/Status/Processes.php:188
 msgid "Show Full Queries"
 msgstr "Tüm Sorguları Göster"
 
@@ -6634,28 +6637,28 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Sonraki"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:163
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:169
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Veritabanı %1$s oluşturuldu."
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:202
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:208
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d veritabanı başarılı olarak kaldırıldı."
 msgstr[1] "%1$d veritabanı başarılı olarak kaldırıldı."
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
 #: templates/database/structure/table_header.twig:26
-#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/actions_in_table_structure.twig:114
 #: templates/table/structure/row_stats_table.twig:41
+#: templates/table/structure/display_partitions.twig:28
 msgid "Rows"
 msgstr "Satır"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:347
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:353
 #: libraries/classes/Index.php:695 libraries/classes/Index.php:706
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
@@ -6663,27 +6666,27 @@ msgstr "Satır"
 msgid "Indexes"
 msgstr "İndeksler"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:352
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:358
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Toplam"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:357
-#: templates/table/structure/display_table_stats.twig:32
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:363
 #: templates/database/structure/table_header.twig:40
+#: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Ek Yük"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:424
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:430
 #: templates/database/structure/structure_table_row.twig:15
 msgid "Not replicated"
 msgstr "Kopya edilmedi"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:437
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:443
 #: templates/database/structure/structure_table_row.twig:16
 msgid "Replicated"
 msgstr "Kopya edildi"
@@ -6713,7 +6716,7 @@ msgstr "Görüntülemek için veri yok"
 
 #: libraries/classes/Controllers/Table/TableIndexesController.php:157
 #: libraries/classes/Controllers/Table/TableStructureController.php:750
-#: libraries/classes/Controllers/Table/TableStructureController.php:997
+#: libraries/classes/Controllers/Table/TableStructureController.php:1008
 #: tbl_addfield.php:96
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -6770,49 +6773,49 @@ msgid "Failed to get description of column %s!"
 msgstr "%s sütunu açıklamasını alma başarısız!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:761
-#: libraries/classes/Controllers/Table/TableStructureController.php:1046
+#: libraries/classes/Controllers/Table/TableStructureController.php:1057
 #: libraries/classes/Tracking.php:780
 msgid "Query error"
 msgstr "Sorgu hatası"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:991
+#: libraries/classes/Controllers/Table/TableStructureController.php:1002
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s tablosu başarılı olarak değiştirildi. Yetkiler ayarlandı."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1207
+#: libraries/classes/Controllers/Table/TableStructureController.php:1218
 #: templates/table/structure/check_all_table_column.twig:17
 msgid "Change"
 msgstr "Değiştir"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1208
-#: libraries/classes/Controllers/Table/TableStructureController.php:1209
+#: libraries/classes/Controllers/Table/TableStructureController.php:1219
+#: libraries/classes/Controllers/Table/TableStructureController.php:1220
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1610
-#: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3340
-#: libraries/classes/Util.php:3341
-#: templates/database/structure/check_all_tables.twig:16
-#: templates/table/structure/display_structure.twig:189
+#: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3346
+#: libraries/classes/Util.php:3347
 #: templates/server/databases/databases_footer.twig:55
-#: templates/table/relation/foreign_key_row.twig:30
+#: templates/table/structure/display_structure.twig:191
 #: templates/table/structure/check_all_table_column.twig:24
+#: templates/table/relation/foreign_key_row.twig:30
+#: templates/database/structure/check_all_tables.twig:16
 msgid "Drop"
 msgstr "Kaldır"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1211
-#: libraries/classes/Controllers/Table/TableStructureController.php:1216
+#: libraries/classes/Controllers/Table/TableStructureController.php:1222
+#: libraries/classes/Controllers/Table/TableStructureController.php:1227
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/table/tracking/structure_snapshot_columns.twig:27
 #: templates/table/structure/check_all_table_column.twig:47
 #: templates/columns_definitions/column_indexes.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/display_table_stats.twig:24
+#: templates/columns_definitions/table_fields_definitions.twig:46
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1212
-#: libraries/classes/Controllers/Table/TableStructureController.php:1217
+#: libraries/classes/Controllers/Table/TableStructureController.php:1223
+#: libraries/classes/Controllers/Table/TableStructureController.php:1228
 #: libraries/classes/Index.php:721
 #: templates/table/structure/check_all_table_column.twig:40
 #: templates/columns_definitions/column_indexes.twig:8
@@ -6820,21 +6823,21 @@ msgstr "Index"
 msgid "Unique"
 msgstr "Benzersiz"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1213
-#: libraries/classes/Controllers/Table/TableStructureController.php:1218
+#: libraries/classes/Controllers/Table/TableStructureController.php:1224
+#: libraries/classes/Controllers/Table/TableStructureController.php:1229
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "Uzaysal"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1214
-#: libraries/classes/Controllers/Table/TableStructureController.php:1219
+#: libraries/classes/Controllers/Table/TableStructureController.php:1225
+#: libraries/classes/Controllers/Table/TableStructureController.php:1230
 #: templates/table/structure/check_all_table_column.twig:54
 #: templates/table/structure/check_all_table_column.twig:66
 #: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "Tam metin"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1220
+#: libraries/classes/Controllers/Table/TableStructureController.php:1231
 msgid "Distinct values"
 msgstr "Belirgin değerler"
 
@@ -6844,7 +6847,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı denetleyin."
 
 #: libraries/classes/Core.php:842 libraries/mult_submits.inc.php:340
-#: tbl_operations.php:245 tbl_replace.php:321 templates/preview_sql.twig:3
+#: tbl_operations.php:260 tbl_replace.php:334 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Değişiklik yok"
 
@@ -7039,7 +7042,7 @@ msgstr "düzenli ifade olarak"
 msgid "Words are separated by a space character (\" \")."
 msgstr "Kelimeler boşlukla ayrılır (\" \")."
 
-#: libraries/classes/DatabaseInterface.php:1505
+#: libraries/classes/DatabaseInterface.php:1503
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -7051,11 +7054,11 @@ msgstr ""
 "ayarlarınızı denetleyin. phpMyAdmin, veritabanı sunucusunun şu anki "
 "varsayılan saat dilimini kullanıyor."
 
-#: libraries/classes/DatabaseInterface.php:1552
+#: libraries/classes/DatabaseInterface.php:1550
 msgid "Failed to set configured collation connection!"
 msgstr "Yapılandırılmış karşılaştırma bağlantısı ayarlama başarısız!"
 
-#: libraries/classes/DatabaseInterface.php:2170
+#: libraries/classes/DatabaseInterface.php:2168
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -7063,38 +7066,38 @@ msgstr ""
 "Sunucu yanıt vermiyor (ya da yerel MySQL sunucusunun soketi doğru olarak "
 "yapılandırılmadı)."
 
-#: libraries/classes/DatabaseInterface.php:2175
+#: libraries/classes/DatabaseInterface.php:2173
 msgid "The server is not responding."
 msgstr "Sunucu yanıt vermiyor."
 
-#: libraries/classes/DatabaseInterface.php:2179
+#: libraries/classes/DatabaseInterface.php:2177
 msgid "Logout and try as another user."
 msgstr "Oturumu kapatın ve başka bir kullanıcı olarak deneyin."
 
-#: libraries/classes/DatabaseInterface.php:2185
+#: libraries/classes/DatabaseInterface.php:2183
 msgid "Please check privileges of directory containing database."
 msgstr "Lütfen veritabanını içeren dizinin yetkilerini denetleyin."
 
-#: libraries/classes/DatabaseInterface.php:2196
+#: libraries/classes/DatabaseInterface.php:2194
 msgid "Details…"
 msgstr "Ayrıntılar…"
 
-#: libraries/classes/DatabaseInterface.php:2500
+#: libraries/classes/DatabaseInterface.php:2498
 msgid "Missing connection parameters!"
 msgstr "Eksik bağlantı parametreleri!"
 
-#: libraries/classes/DatabaseInterface.php:2527
+#: libraries/classes/DatabaseInterface.php:2525
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcısı için bağlantı "
 "başarısız oldu."
 
-#: libraries/classes/DatabaseInterface.php:3043
+#: libraries/classes/DatabaseInterface.php:3041
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Daha fazla bilgi için %sbelgelerimize%s bakın."
 
-#: libraries/classes/DatabaseInterface.php:3060
+#: libraries/classes/DatabaseInterface.php:3058
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
@@ -7265,26 +7268,26 @@ msgstr "Tam metinler"
 #: libraries/classes/Display/Results.php:2117
 #: libraries/classes/Display/Results.php:2131
 #: libraries/classes/Operations.php:818
-#: libraries/classes/Server/Status/Processes.php:169
-#: libraries/classes/Util.php:4690 libraries/classes/Util.php:4707
+#: libraries/classes/Server/Status/Processes.php:157
+#: libraries/classes/Util.php:4698 libraries/classes/Util.php:4715
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/database/multi_table_query/form.twig:63
-#: templates/server/databases/databases_header.twig:22
 #: templates/table/search/options.twig:54
+#: templates/server/databases/databases_header.twig:22
 msgid "Descending"
 msgstr "Büyükten Küçüğe"
 
 #: libraries/classes/Display/Results.php:2121
 #: libraries/classes/Display/Results.php:2127
 #: libraries/classes/Operations.php:815
-#: libraries/classes/Server/Status/Processes.php:172
-#: libraries/classes/Util.php:4685 libraries/classes/Util.php:4702
+#: libraries/classes/Server/Status/Processes.php:160
+#: libraries/classes/Util.php:4693 libraries/classes/Util.php:4710
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/database/multi_table_query/form.twig:62
-#: templates/server/databases/databases_header.twig:22
 #: templates/table/search/options.twig:54
+#: templates/server/databases/databases_header.twig:22
 msgid "Ascending"
 msgstr "Küçükten Büyüğe"
 
@@ -7295,7 +7298,7 @@ msgstr "Satır silindi."
 
 #: libraries/classes/Display/Results.php:3429
 #: libraries/classes/Display/Results.php:4677
-#: libraries/classes/Server/Status/Processes.php:276
+#: libraries/classes/Server/Status/Processes.php:279
 msgid "Kill"
 msgstr "Sonlandır"
 
@@ -7325,9 +7328,9 @@ msgstr "Sorgu %01.4f saniye sürdü."
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
+#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Seçilileri:"
 
@@ -7336,10 +7339,10 @@ msgstr "Seçilileri:"
 #: libraries/classes/Server/Privileges.php:1192
 #: libraries/classes/Server/Privileges.php:1193
 #: libraries/classes/Server/UserGroups.php:248
-#: templates/database/structure/check_all_tables.twig:3
-#: templates/database/structure/check_all_tables.twig:4
 #: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
 #: templates/select_all.twig:5
+#: templates/database/structure/check_all_tables.twig:3
+#: templates/database/structure/check_all_tables.twig:4
 msgid "Check all"
 msgstr "Tümünü işaretle"
 
@@ -7891,10 +7894,10 @@ msgstr "Aşağıdaki \"Yapı\" bağlantısıyla yapısını düzenleyin."
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946 templates/console/display.twig:7
-#: templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
+#: libraries/classes/Rte/Routines.php:946
 #: templates/display/results/options_block.twig:10
+#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/table/structure/row_stats_table.twig:19
 #: templates/table/search/options.twig:1
 msgid "Options"
 msgstr "Seçenekler"
@@ -7957,11 +7960,11 @@ msgstr "Önemlilik"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/database/structure/table_header.twig:48
 #: templates/columns_definitions/partitions.twig:85
-#: templates/table/structure/display_partitions.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/database/structure/table_header.twig:48
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/table/structure/display_partitions.twig:31
 msgid "Comment"
 msgstr "Açıklama"
 
@@ -8008,13 +8011,12 @@ msgstr "Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir."
 msgid "Binary - do not edit"
 msgstr "İkili değer - düzenlemeyin"
 
-#: libraries/classes/InsertEdit.php:1498 libraries/classes/Util.php:3306
+#: libraries/classes/InsertEdit.php:1498 libraries/classes/Util.php:3312
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor."
 
-#: libraries/classes/InsertEdit.php:1501
+#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
 #: templates/privileges/column_privileges.twig:17
-#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "Veya"
 
@@ -8072,11 +8074,11 @@ msgstr ""
 #: libraries/classes/Server/Status/Variables.php:229
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
-#: templates/database/designer/where_query_panel.twig:69
-#: templates/table/search/zoom_result_form.twig:36
-#: templates/database/designer/having_query_panel.twig:100
 #: templates/table/search/table_header.twig:10
 #: templates/server/variables/variable_table_head.twig:5
+#: templates/database/designer/where_query_panel.twig:69
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "Değer"
 
@@ -8109,8 +8111,8 @@ msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (<code>%2$s</code> yanına)"
 
 #: libraries/classes/Menu.php:277
-#: libraries/classes/Navigation/Nodes/NodeView.php:30 tbl_operations.php:65
-#: tbl_operations.php:227 tbl_structure.php:36
+#: libraries/classes/Navigation/Nodes/NodeView.php:30 tbl_operations.php:74
+#: tbl_operations.php:242 tbl_structure.php:36
 #: templates/database/structure/structure_table_row.twig:98
 #: templates/database/structure/structure_table_row.twig:163
 msgid "View"
@@ -8123,21 +8125,21 @@ msgstr "“%s”"
 
 #: libraries/classes/Menu.php:350
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Util.php:3047 libraries/classes/Util.php:3057
-#: libraries/classes/Util.php:3333 libraries/classes/Util.php:3334
-#: libraries/classes/Util.php:4011 libraries/config.values.php:42
+#: libraries/classes/Util.php:3053 libraries/classes/Util.php:3063
+#: libraries/classes/Util.php:3339 libraries/classes/Util.php:3340
+#: libraries/classes/Util.php:4019 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/database/search/results.twig:34
 #: templates/table/structure/check_all_table_column.twig:8
+#: templates/database/search/results.twig:34
 msgid "Browse"
 msgstr "Gözat"
 
 #: libraries/classes/Menu.php:367 libraries/classes/Menu.php:470
 #: libraries/classes/Navigation/Nodes/NodeTable.php:291
-#: libraries/classes/Util.php:3045 libraries/classes/Util.php:3055
-#: libraries/classes/Util.php:3061 libraries/classes/Util.php:3335
-#: libraries/classes/Util.php:3336 libraries/classes/Util.php:3997
-#: libraries/classes/Util.php:4014 libraries/config.values.php:40
+#: libraries/classes/Util.php:3051 libraries/classes/Util.php:3061
+#: libraries/classes/Util.php:3067 libraries/classes/Util.php:3341
+#: libraries/classes/Util.php:3342 libraries/classes/Util.php:4005
+#: libraries/classes/Util.php:4022 libraries/config.values.php:40
 #: libraries/config.values.php:48 libraries/config.values.php:112
 #: libraries/config.values.php:118
 msgid "Search"
@@ -8146,9 +8148,9 @@ msgstr "Ara"
 #: libraries/classes/Menu.php:377
 #: libraries/classes/Navigation/Nodes/NodeTable.php:294
 #: libraries/classes/SqlQueryForm.php:290
-#: libraries/classes/SqlQueryForm.php:293 libraries/classes/Util.php:3046
-#: libraries/classes/Util.php:3056 libraries/classes/Util.php:3337
-#: libraries/classes/Util.php:3338 libraries/classes/Util.php:4015
+#: libraries/classes/SqlQueryForm.php:293 libraries/classes/Util.php:3052
+#: libraries/classes/Util.php:3062 libraries/classes/Util.php:3343
+#: libraries/classes/Util.php:3344 libraries/classes/Util.php:4023
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:119
 msgid "Insert"
@@ -8156,37 +8158,37 @@ msgstr "Ekle"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
 #: libraries/classes/Server/Privileges.php:2582
-#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4002
-#: libraries/classes/Util.php:4018 libraries/config.values.php:107
-#: templates/server/sub_page_header.twig:2
+#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4010
+#: libraries/classes/Util.php:4026 libraries/config.values.php:107
 #: templates/privileges/privileges_summary.twig:15
+#: templates/server/sub_page_header.twig:2
 msgid "Privileges"
 msgstr "Yetkiler"
 
 #: libraries/classes/Menu.php:410 libraries/classes/Menu.php:418
-#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3048
-#: libraries/classes/Util.php:3062 libraries/classes/Util.php:4001
-#: libraries/classes/Util.php:4019 libraries/config.values.php:113
+#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3054
+#: libraries/classes/Util.php:3068 libraries/classes/Util.php:4009
+#: libraries/classes/Util.php:4027 libraries/config.values.php:113
 #: view_operations.php:101
 msgid "Operations"
 msgstr "İşlemler"
 
 #: libraries/classes/Menu.php:423 libraries/classes/Menu.php:534
-#: libraries/classes/Relation.php:279 libraries/classes/Util.php:4006
-#: libraries/classes/Util.php:4020
+#: libraries/classes/Relation.php:279 libraries/classes/Util.php:4014
+#: libraries/classes/Util.php:4028
 msgid "Tracking"
 msgstr "İzleme"
 
 #: libraries/classes/Menu.php:435 libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:579
-#: libraries/classes/Plugins/Export/ExportOdt.php:716
+#: libraries/classes/Plugins/Export/ExportOdt.php:720
 #: libraries/classes/Plugins/Export/ExportPdf.php:280
 #: libraries/classes/Plugins/Export/ExportSql.php:2043
 #: libraries/classes/Plugins/Export/ExportTexytext.php:537
 #: libraries/classes/Plugins/Export/ExportXml.php:126
-#: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:4005
-#: libraries/classes/Util.php:4021
+#: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:4013
+#: libraries/classes/Util.php:4029
 msgid "Triggers"
 msgstr "Tetikleyiciler"
 
@@ -8195,12 +8197,12 @@ msgstr "Tetikleyiciler"
 msgid "Database seems to be empty!"
 msgstr "Veritabanı boş olarak görünüyor!"
 
-#: libraries/classes/Menu.php:477 libraries/classes/Util.php:3998
+#: libraries/classes/Menu.php:477 libraries/classes/Util.php:4006
 msgid "Query"
 msgstr "Sorgu"
 
 #: libraries/classes/Menu.php:517 libraries/classes/Rte/Words.php:49
-#: libraries/classes/Util.php:4003
+#: libraries/classes/Util.php:4011
 msgid "Routines"
 msgstr "Yordamlar"
 
@@ -8208,15 +8210,15 @@ msgstr "Yordamlar"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:965
 #: libraries/classes/Plugins/Export/ExportXml.php:106
-#: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4004
+#: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4012
 msgid "Events"
 msgstr "Olaylar"
 
-#: libraries/classes/Menu.php:540 libraries/classes/Util.php:4007
+#: libraries/classes/Menu.php:540 libraries/classes/Util.php:4015
 msgid "Designer"
 msgstr "Tasarımcı"
 
-#: libraries/classes/Menu.php:549 libraries/classes/Util.php:4008
+#: libraries/classes/Menu.php:549 libraries/classes/Util.php:4016
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Merkezi sütunlar"
@@ -8226,34 +8228,34 @@ msgid "User accounts"
 msgstr "Kullanıcı hesapları"
 
 #: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
-#: libraries/classes/Util.php:3987 templates/server/sub_page_header.twig:2
+#: libraries/classes/Util.php:3995 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr "İkili değer günlüğü"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
-#: libraries/classes/Util.php:3988
-#: templates/database/structure/body_for_table_summary.twig:11
+#: libraries/classes/Util.php:3996
 #: templates/database/structure/table_header.twig:10
+#: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Kopya etme"
 
 #: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:194
-#: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3989
+#: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3997
 #: libraries/config.values.php:106 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
 msgstr "Değişkenler"
 
-#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3990
+#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3998
 msgid "Charsets"
 msgstr "Karakter Grupları"
 
-#: libraries/classes/Menu.php:653 libraries/classes/Util.php:3992
+#: libraries/classes/Menu.php:653 libraries/classes/Util.php:4000
 msgid "Engines"
 msgstr "Motorlar"
 
-#: libraries/classes/Menu.php:657 libraries/classes/Util.php:3991
+#: libraries/classes/Menu.php:657 libraries/classes/Util.php:3999
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr "Eklentiler"
@@ -8358,32 +8360,32 @@ msgstr "Görünümler:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/tracking/tracked_tables.twig:17
 #: templates/database/multi_table_query/form.twig:44
+#: templates/database/tracking/tracked_tables.twig:17
 msgid "Show"
 msgstr "Göster"
 
-#: libraries/classes/Navigation/NavigationHeader.php:165
+#: libraries/classes/Navigation/NavigationHeader.php:169
 msgid "Home"
 msgstr "Giriş"
 
-#: libraries/classes/Navigation/NavigationHeader.php:173
+#: libraries/classes/Navigation/NavigationHeader.php:177
 msgid "Log out"
 msgstr "Oturumu kapat"
 
-#: libraries/classes/Navigation/NavigationHeader.php:175
+#: libraries/classes/Navigation/NavigationHeader.php:179
 msgid "Empty session data"
 msgstr "Boş oturum verisi"
 
-#: libraries/classes/Navigation/NavigationHeader.php:193
+#: libraries/classes/Navigation/NavigationHeader.php:197
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin belgeleri"
 
-#: libraries/classes/Navigation/NavigationHeader.php:213
+#: libraries/classes/Navigation/NavigationHeader.php:217
 msgid "Navigation panel settings"
 msgstr "Gezinti paneli ayarları"
 
-#: libraries/classes/Navigation/NavigationHeader.php:224
+#: libraries/classes/Navigation/NavigationHeader.php:228
 msgid "Reload navigation panel"
 msgstr "Gezinti panelini yeniden yükle"
 
@@ -8560,7 +8562,7 @@ msgstr "Birini seçin…"
 msgid "No such column"
 msgstr "Böyle bir sütun yok"
 
-#: libraries/classes/Normalization.php:211 libraries/classes/Types.php:722
+#: libraries/classes/Normalization.php:211 libraries/classes/Types.php:745
 #: normalization.php:25
 msgctxt "string types"
 msgid "String"
@@ -8958,8 +8960,8 @@ msgid "Flush the table (FLUSH)"
 msgstr "Tabloyu temizle (FLUSH)"
 
 #: libraries/classes/Operations.php:1475
-#: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
+#: templates/table/structure/display_table_stats.twig:61
 msgid "Optimize table"
 msgstr "Tabloyu uyarla"
 
@@ -8983,32 +8985,32 @@ msgid "Delete the table (DROP)"
 msgstr "Tabloyu sil (DROP)"
 
 #: libraries/classes/Operations.php:1593
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Analyze"
 msgstr "Çözümle"
 
 #: libraries/classes/Operations.php:1594
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Check"
 msgstr "Seç"
 
 #: libraries/classes/Operations.php:1595
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Optimize"
 msgstr "Uyarla"
 
 #: libraries/classes/Operations.php:1596
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Rebuild"
 msgstr "Yeniden Oluştur"
 
 #: libraries/classes/Operations.php:1597
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Repair"
 msgstr "Onar"
 
 #: libraries/classes/Operations.php:1598
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Truncate"
 msgstr "Kes"
 
@@ -9155,7 +9157,7 @@ msgstr "Bu MySQL sunucusuna oturum açmanıza izin verilmiyor!"
 msgid "Wrong username/password. Access denied."
 msgstr "Yanlış kullanıcı adı/parola girdiniz. Erişim engellendi."
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:83
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:135
 msgid "Can not find signon authentication script:"
 msgstr "Oturumu açma kimlik doğrulaması betiği bulunamıyor:"
 
@@ -9276,7 +9278,7 @@ msgid "Dumping data for table"
 msgstr "Tablo döküm verisi"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:488
-#: libraries/classes/Plugins/Export/ExportOdt.php:611
+#: libraries/classes/Plugins/Export/ExportOdt.php:615
 #: libraries/classes/Plugins/Export/ExportTexytext.php:452
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:356
 #: libraries/classes/Rte/RteList.php:106 libraries/classes/Rte/Triggers.php:379
@@ -9284,7 +9286,7 @@ msgid "Event"
 msgstr "Olay"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:489
-#: libraries/classes/Plugins/Export/ExportOdt.php:614
+#: libraries/classes/Plugins/Export/ExportOdt.php:618
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
 #: libraries/classes/Rte/Events.php:500 libraries/classes/Rte/Routines.php:1010
@@ -9293,21 +9295,21 @@ msgid "Definition"
 msgstr "Tanım"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:561
-#: libraries/classes/Plugins/Export/ExportOdt.php:693
+#: libraries/classes/Plugins/Export/ExportOdt.php:697
 #: libraries/classes/Plugins/Export/ExportSql.php:2012
 #: libraries/classes/Plugins/Export/ExportTexytext.php:517
 msgid "Table structure for table"
 msgstr "Tablo için tablo yapısı"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:586
-#: libraries/classes/Plugins/Export/ExportOdt.php:726
+#: libraries/classes/Plugins/Export/ExportOdt.php:730
 #: libraries/classes/Plugins/Export/ExportSql.php:2082
 #: libraries/classes/Plugins/Export/ExportTexytext.php:542
 msgid "Structure for view"
 msgstr "Görünüm yapısı"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:600
-#: libraries/classes/Plugins/Export/ExportOdt.php:747
+#: libraries/classes/Plugins/Export/ExportOdt.php:751
 #: libraries/classes/Plugins/Export/ExportSql.php:2127
 #: libraries/classes/Plugins/Export/ExportTexytext.php:558
 msgid "Stand-in structure for view"
@@ -10623,7 +10625,7 @@ msgstr "Değişken"
 #: libraries/classes/ReplicationGui.php:626
 #: libraries/classes/ReplicationGui.php:709
 #: libraries/classes/ReplicationGui.php:843
-#: libraries/classes/Server/Status/Processes.php:85
+#: libraries/classes/Server/Status/Processes.php:73
 msgid "Host"
 msgstr "Anamakine"
 
@@ -11504,8 +11506,8 @@ msgstr "Oturum Açma Bilgisi"
 
 #: libraries/classes/Server/Privileges.php:1534
 #: libraries/classes/Server/Privileges.php:1692
-#: templates/privileges/add_privileges_routine.twig:7
 #: templates/privileges/add_privileges_table.twig:7
+#: templates/privileges/add_privileges_routine.twig:7
 msgid "Use text field"
 msgstr "Metin alanını kullan"
 
@@ -11713,7 +11715,7 @@ msgid "Privileges for %s"
 msgstr "%s için yetkiler"
 
 #: libraries/classes/Server/Privileges.php:4476
-#: libraries/classes/Server/Status/Processes.php:81
+#: libraries/classes/Server/Status/Processes.php:69
 #: libraries/classes/Server/UserGroups.php:49
 msgid "User"
 msgstr "Kullanıcı"
@@ -11887,7 +11889,7 @@ msgstr ""
 "iyileştirilme olmadıysa, değişikliği geri almak olacaktır."
 
 #: libraries/classes/Server/Status/Data.php:115
-#: libraries/classes/Server/Status/Processes.php:109
+#: libraries/classes/Server/Status/Processes.php:97
 msgid "SQL query"
 msgstr "SQL sorgusu"
 
@@ -12175,24 +12177,24 @@ msgstr ""
 "Not: Buradaki otomatik yenilemeyi etkinleştirmek web sunucusu ile MySQL "
 "sunucusu arasında yüksek trafiğe yol açabilir."
 
-#: libraries/classes/Server/Status/Processes.php:77
+#: libraries/classes/Server/Status/Processes.php:65
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:93
+#: libraries/classes/Server/Status/Processes.php:81
 msgid "Command"
 msgstr "Komut"
 
-#: libraries/classes/Server/Status/Processes.php:105
+#: libraries/classes/Server/Status/Processes.php:93
 msgid "Progress"
 msgstr "İlerleme"
 
-#: libraries/classes/Server/Status/Processes.php:232
+#: libraries/classes/Server/Status/Processes.php:235
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
 msgid "Filters"
 msgstr "Süzgeçler"
 
-#: libraries/classes/Server/Status/Processes.php:240
+#: libraries/classes/Server/Status/Processes.php:243
 msgid "Show only active"
 msgstr "Sadece aktif olanı göster"
 
@@ -13161,39 +13163,39 @@ msgstr "Bu MySQL sunucusu %s depolama motorunu desteklemez."
 msgid "Unknown table status:"
 msgstr "Bilinmeyen tablo durumu:"
 
-#: libraries/classes/Table.php:893
+#: libraries/classes/Table.php:911
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Kaynak veritabanı `%s` bulunamadı!"
 
-#: libraries/classes/Table.php:901
+#: libraries/classes/Table.php:919
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Hedef veritabanı `%s` bulunamadı!"
 
-#: libraries/classes/Table.php:1444
+#: libraries/classes/Table.php:1462
 msgid "Invalid database:"
 msgstr "Geçersiz veritabanı:"
 
-#: libraries/classes/Table.php:1461
+#: libraries/classes/Table.php:1479
 msgid "Invalid table name:"
 msgstr "Geçersiz tablo adı:"
 
-#: libraries/classes/Table.php:1496
+#: libraries/classes/Table.php:1514
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "%1$s tablo adını %2$s tablo adına değiştirme başarısız!"
 
-#: libraries/classes/Table.php:1515
+#: libraries/classes/Table.php:1533
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tablosu %2$s olarak yeniden adlandırıldı."
 
-#: libraries/classes/Table.php:1746
+#: libraries/classes/Table.php:1767
 msgid "Could not save table UI preferences!"
 msgstr "Tablo KA tercihleri kaydedilemedi!"
 
-#: libraries/classes/Table.php:1776
+#: libraries/classes/Table.php:1797
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13202,7 +13204,7 @@ msgstr ""
 "Tablo KA tercihlerini temizleme başarısız ($cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s bakın)"
 
-#: libraries/classes/Table.php:1929
+#: libraries/classes/Table.php:1950
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13213,19 +13215,19 @@ msgstr ""
 "yenilemenizden sonra kalıcı olmayacaktır. Eğer tablo yapısı değiştirilmişse "
 "lütfen denetleyin."
 
-#: libraries/classes/Table.php:2065
+#: libraries/classes/Table.php:2086
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Birincil anahtarın adı \"PRIMARY\" olmalıdır!"
 
-#: libraries/classes/Table.php:2076
+#: libraries/classes/Table.php:2097
 msgid "Can't rename index to PRIMARY!"
 msgstr "İndeks'i PRIMARY olarak yeniden adlandıramazsınız!"
 
-#: libraries/classes/Table.php:2098
+#: libraries/classes/Table.php:2119
 msgid "No index parts defined!"
 msgstr "Tanımlı indeks kısımları yok!"
 
-#: libraries/classes/Table.php:2406
+#: libraries/classes/Table.php:2427
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s üzerinde dış anahtar oluşturma hatası (veri türlerini denetleyin)"
@@ -13678,17 +13680,17 @@ msgstr ""
 "JSON (JavaScript Nesne Gösterimi) belgelerindeki verilere verimli erişimi "
 "etkinleştirir ve saklar"
 
-#: libraries/classes/Types.php:695
+#: libraries/classes/Types.php:718
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Sayısal"
 
-#: libraries/classes/Types.php:713
+#: libraries/classes/Types.php:736
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Tarih ve saat"
 
-#: libraries/classes/Types.php:743
+#: libraries/classes/Types.php:766
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Uzaysal"
@@ -13777,49 +13779,49 @@ msgstr "“%s” veritabanına git."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s işlevselliği bilinen bir hata tarafından zarar görmüş, bakınız %s"
 
-#: libraries/classes/Util.php:3252 prefs_manage.php:238
+#: libraries/classes/Util.php:3258 prefs_manage.php:238
 msgid "Browse your computer:"
 msgstr "Bilgisayara gözat:"
 
-#: libraries/classes/Util.php:3277
+#: libraries/classes/Util.php:3283
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Web sunucusu gönderme dizininden <b>%s</b> seçin:"
 
-#: libraries/classes/Util.php:3317
+#: libraries/classes/Util.php:3323
 msgid "There are no files to upload!"
 msgstr "Göndermek için hiç dosya yok!"
 
-#: libraries/classes/Util.php:3342 libraries/classes/Util.php:3343
+#: libraries/classes/Util.php:3348 libraries/classes/Util.php:3349
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "Boşalt"
 
-#: libraries/classes/Util.php:3348 libraries/classes/Util.php:3349
+#: libraries/classes/Util.php:3354 libraries/classes/Util.php:3355
 msgid "Execute"
 msgstr "Çalıştır"
 
-#: libraries/classes/Util.php:3852
+#: libraries/classes/Util.php:3860
 msgid "SSL is not being used"
 msgstr "SSL kullanılmamakta"
 
-#: libraries/classes/Util.php:3857
+#: libraries/classes/Util.php:3865
 msgid "SSL is used with disabled verification"
 msgstr "Etkisizleştirilmiş doğrulama ile SSL kullanılmakta"
 
-#: libraries/classes/Util.php:3859
+#: libraries/classes/Util.php:3867
 msgid "SSL is used without certification authority"
 msgstr "Sertifika yetkisi olmadan SSL kullanılmakta"
 
-#: libraries/classes/Util.php:3862
+#: libraries/classes/Util.php:3870
 msgid "SSL is used"
 msgstr "SSL kullanılmakta"
 
-#: libraries/classes/Util.php:3983
+#: libraries/classes/Util.php:3991
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: libraries/classes/Util.php:4677
+#: libraries/classes/Util.php:4685
 #: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "Sırala"
@@ -13986,7 +13988,7 @@ msgstr ""
 "Tercihleriniz sadece şu anki oturum için kaydedilecektir. Bunların kalıcı "
 "olarak saklanması %sphpMyAdmin yapılandırma depolaması%s gerektirir."
 
-#: navigation.php:23
+#: navigation.php:24
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Önemli hata: Gezintiye sadece AJAX aracılığıyla erişilebilir"
 
@@ -14342,7 +14344,7 @@ msgstr "Tablonun dökümünü (şemasını) göster"
 msgid "Invalid table name"
 msgstr "Geçersiz tablo adı"
 
-#: tbl_replace.php:245
+#: tbl_replace.php:258
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Satır: %1$s, Sütun: %2$s, Hata: %3$s"
@@ -14403,46 +14405,281 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Açıklama"
 
-#: templates/table/structure/add_column.twig:9
+#: templates/columns_definitions/partitions.twig:17
+msgid "Partition by:"
+msgstr "Bölümleyen:"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+msgid "Expression or column list"
+msgstr "İfade veya sütun listesi"
+
+#: templates/columns_definitions/partitions.twig:37
+msgid "Partitions:"
+msgstr "Bölümler:"
+
+#: templates/columns_definitions/partitions.twig:45
+msgid "Subpartition by:"
+msgstr "Alt bölümleyen:"
+
+#: templates/columns_definitions/partitions.twig:65
+msgid "Subpartitions:"
+msgstr "Alt bölümler:"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "Bölüm"
+
+#: templates/columns_definitions/partitions.twig:78
+msgid "Values"
+msgstr "Değerler"
+
+#: templates/columns_definitions/partitions.twig:82
+msgid "Subpartition"
+msgstr "Alt bölüm"
+
+#: templates/columns_definitions/partitions.twig:84
+msgid "Engine"
+msgstr "Motor"
+
+#: templates/columns_definitions/partitions.twig:86
+msgid "Data directory"
+msgstr "Veri dizini"
+
+#: templates/columns_definitions/partitions.twig:87
+msgid "Index directory"
+msgstr "İndeks dizini"
+
+#: templates/columns_definitions/partitions.twig:88
+msgid "Max rows"
+msgstr "En fazla satırlar"
+
+#: templates/columns_definitions/partitions.twig:89
+msgid "Min rows"
+msgstr "En az satırlar"
+
+#: templates/columns_definitions/partitions.twig:90
+msgid "Table space"
+msgstr "Tablo alanı"
+
+#: templates/columns_definitions/partitions.twig:91
+msgid "Node group"
+msgstr "Düğüm grubu"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+"Lütfen aşağıdaki QR kodu cihazınızdaki iki etkenli kimlik doğrulaması "
+"uygulaması içinde taratın ve oluşturduğu kimlik doğrulama kodunu girin."
+
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+"Lütfen aşağıdaki gizli/anahtarı cihazınızdaki iki etkenli kimlik doğrulaması "
+"uygulaması içine girin ve oluşturduğu kimlik doğrulama kodunu girin."
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr "OTP url:"
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr "Gizli/anahtar:"
+
+#: templates/login/twofactor/application_configure.twig:21
+#: templates/login/twofactor/application.twig:2
+msgid "Authentication code:"
+msgstr "Kimlik doğrulama kodu:"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Not: Buradaki veritabanı istatistiklerini etkinleştirmek web sunucusu ile "
+"MySQL sunucusu arasında yüksek trafiğe yol açabilir."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+msgid "Enable statistics"
+msgstr "İstatistikleri etkinleştir"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Sık Kullanılanlara ekle"
+
+#: templates/table/structure/display_structure.twig:138
+#: templates/view_create.twig:13
+msgid "Edit view"
+msgstr "Düzenleme görünümü"
+
+#: templates/table/structure/display_structure.twig:194
+#: templates/table/structure/display_partitions.twig:4
+msgid "Partitions"
+msgstr "Bölümler"
+
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Yaklaşık olabilir. Tam sayıyı almak için sayının üzerine tıklayın. "
+"[doc@faq3-11]SSS 3.11[/doc]'e bakın."
+
+#: templates/database/structure/table_header.twig:38
+#: templates/table/index_form.twig:118
+msgid "Size"
+msgstr "Boyut"
+
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "Oluşturma"
+
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "Son güncelleme"
+
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "Son denetleme"
+
+#: templates/privileges/add_privileges_database.twig:1
+msgid "Add privileges on the following database(s):"
+msgstr "Aşağıdaki veritaban(lar)ına yetkileri ekle:"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun."
+
+#: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
-msgid "Add %s column(s)"
-msgstr "%s sütun ekle"
+msgid "A primary key has been added on %s."
+msgstr "%s üzerinde birincil anahtar eklendi."
 
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "tablonun başı"
-
-#: templates/table/structure/add_column.twig:19
-#: templates/columns_definitions/move_column.twig:12
+#: templates/table/structure/actions_in_table_structure.twig:33
+#: templates/table/structure/actions_in_table_structure.twig:51
+#: templates/table/structure/actions_in_table_structure.twig:80
+#: templates/table/structure/actions_in_table_structure.twig:103
 #, php-format
-msgid "after %s"
-msgstr "%s sonrasına"
+msgid "An index has been added on %s."
+msgstr "%s üzerinde bir indeks eklendi."
 
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Satırlar:"
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
+msgid "Remove from central columns"
+msgstr "Merkezi sütunlardan kaldır"
 
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Tüm satırı(ları) dökümle"
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+msgid "Add to central columns"
+msgstr "Merkezi sütunlara ekle"
 
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-msgid "Number of rows:"
-msgstr "Satır sayısı:"
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Sayfa seç"
 
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Başlanacak satır:"
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "GÖRÜNÜM adı"
 
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Tüm satırları dökümle"
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Sütun adları"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "Seçilen sayfaya kaydet"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "Bir sayfa oluştur ve ona kaydet"
+
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "Yeni sayfa adı"
+
+#: templates/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "Seçilen kullanıcı hesaplarını kaldır"
+
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Kullanıcılardan tüm aktif yetkileri geri alır ve sonra da siler."
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Kullanıcılarla aynı isimlerde olan veritabanlarını kaldır."
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "İlişkisel anahtar"
+
+#: templates/display/results/options_block.twig:30
+msgid "Display column for relationships"
+msgstr "Sütun ilişkilerini görüntüle"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "İkili değer içerikleri göster"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "BLOB içerikleri göster"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Tarayıcı dönüşümünü gizle"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "Çok İyi Bilinen Metin"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "Çok İyi Bilinen İkili Değer"
+
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "Bir şablon seçin"
 
 #: templates/database/designer/delete_relation_panel.twig:21
 msgid "Delete relationship"
 msgstr "İlişkiyi sil"
+
+#: templates/table/structure/optional_action_links.twig:8
+msgid "Propose table structure"
+msgstr "Tablo yapısı öner"
+
+#: templates/table/structure/optional_action_links.twig:18
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "Tabloyu izle"
+
+#: templates/table/structure/optional_action_links.twig:22
+#: templates/table/structure/move_columns_dialog.twig:1
+msgid "Move columns"
+msgstr "Sütunları taşı"
+
+#: templates/table/structure/optional_action_links.twig:25
+msgid "Normalize"
+msgstr "Normalleştir"
+
+#: templates/table/structure/optional_action_links.twig:31
+msgid "Track view"
+msgstr "İzleme görünümü"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199
@@ -14480,126 +14717,13 @@ msgstr "Topla"
 
 #: templates/database/designer/options_panel.twig:105
 #: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/table/search/table_header.twig:9
 #: templates/database/designer/where_query_panel.twig:30
 #: templates/database/designer/having_query_panel.twig:30
 #: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
+#: templates/database/designer/aggregate_query_panel.twig:30
 msgid "Operator"
 msgstr "İşletici"
-
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "Sütunları göster/gizle"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "Tablo yapısına bak"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tablo"
-msgstr[1] "%s tablo"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Toplam"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "İndeks adı:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-"\"PRIMARY\" <b>sadece ve sadece</b> bir birincil anahtarın adı <b>olmak "
-"zorundadır</b>!"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "İndeks tercihi:"
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "Gelişmiş Seçenekler"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "Anahtar blok boyutu:"
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "İndeks türü:"
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Ayrıştırıcı:"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Açıklama:"
-
-#: templates/table/index_form.twig:118
-#: templates/database/structure/table_header.twig:38
-msgid "Size"
-msgstr "Boyut"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Yen.düzenleme için sürükleyin"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Sık Kullanılanlara ekle"
-
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Aktif seçenekler"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr "Açmak için sayfa"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "Silmek için bağlantı"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "Sorguları oluşturma gösteriliyor"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Alan kullanımı"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Etkili"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr "ENUM/SET değerlerini düzenle"
-
-#: templates/table/tracking/activate_deactivate.twig:7
-#, php-format
-msgid "Activate tracking for %s"
-msgstr "%s için izlemeyi aktif et"
-
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr "Hemen aktif et"
-
-#: templates/table/tracking/activate_deactivate.twig:11
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "%s için izlemeyi devre dışı bırak"
-
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
-msgstr "Hemen devre dışı bırak"
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -14693,10 +14817,9 @@ msgstr "İzi göster"
 msgid "Hide trace"
 msgstr "İzi gizle"
 
-#: templates/console/display.twig:99
+#: templates/console/display.twig:99 templates/export/alias_add.twig:18
+#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
 #: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
 msgid "Add"
 msgstr "Ekle"
 
@@ -14728,161 +14851,14 @@ msgstr ""
 "Enter tuşuna basıldığında sorguları çalıştır ve Shift + Enter tuşları ile "
 "yeni satır ekle. Bunu kalıcı yapmak için ayarlara bakın."
 
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Bir şablon seçin"
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "Dosyanın karakter grubu:"
 
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Bul ve değiştir - önizleme"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Orijinal satır"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Değiştirilmiş satır"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Değiştir"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Yok"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "Kana'ya dönüştür"
-
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-"Yaklaşık olabilir. Tam sayıyı almak için sayının üzerine tıklayın. "
-"[doc@faq3-11]SSS 3.11[/doc]'e bakın."
-
-#: templates/database/structure/table_header.twig:53
-#: templates/table/structure/row_stats_table.twig:76
-msgid "Creation"
-msgstr "Oluşturma"
-
-#: templates/database/structure/table_header.twig:58
-#: templates/table/structure/row_stats_table.twig:83
-msgid "Last update"
-msgstr "Son güncelleme"
-
-#: templates/database/structure/table_header.twig:63
-#: templates/table/structure/row_stats_table.twig:90
-msgid "Last check"
-msgstr "Son denetleme"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "İlave arama kriteri"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Ek yükü olan tabloları denetle"
-
-#: templates/database/structure/check_all_tables.twig:10
-msgid "Copy table"
-msgstr "Tabloyu kopyala"
-
-#: templates/database/structure/check_all_tables.twig:11
-msgid "Show create"
-msgstr "Oluşturmayı göster"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr "Ön ek"
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "Tabloya ön ek ekle"
-
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "Tablo ön ekini değiştir"
-
-#: templates/database/structure/check_all_tables.twig:33
-msgid "Add columns to central list"
-msgstr "Sütunları merkezi listeye ekle"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr "Sütunları merkezi listeden kaldır"
-
-#: templates/database/structure/check_all_tables.twig:35
-msgid "Make consistent with central list"
-msgstr "Merkezi liste ile uyumlu yap"
-
-#: templates/table/structure/display_structure.twig:138
-#: templates/view_create.twig:13
-msgid "Edit view"
-msgstr "Düzenleme görünümü"
-
-#: templates/table/structure/display_structure.twig:192
-#: templates/table/structure/display_partitions.twig:4
-msgid "Partitions"
-msgstr "Bölümler"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Eğer sütun türü \"enum\" veya \"set\" ise lütfen değerleri bu biçimi "
-"kullanarak girin: 'a','b','c'…<br />Eğer bu değerler arasına hep ters eğik "
-"çizgi (\"\") veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik "
-"çizgi koyun (örneğin '\\\\xyz' veya 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Varsayılan değerler için lütfen sola eğik çizgisiz veya alıntısız sadece tek "
-"değer girin, bu biçimi kullanarak: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Sanallık"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Sütunu taşı"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Mevcut dönüşümler ve seçeneklerinin listesi"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Tarayıcı görüntüleme dönüşümü seçenekleri"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Lütfen dönüşüm seçenekleri için değerleri bu biçimi kullanarak giriniz: 'a', "
-"100, b,'c'…<br />Eğer bu değerler arasına hep ters eğik çizgi (\"\\\") veya "
-"tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik çizgi koyun "
-"(örneğin '\\\\xyz' veya 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Girdi dönüşümü seçenekleri"
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr "Bu, salt okunur bir değişkendir ve düzenlenemez"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -14972,140 +14948,105 @@ msgstr "Değer Sütunu:"
 msgid "Save chart as image"
 msgstr "Çizelgeyi resim olarak kaydet"
 
-#: templates/columns_definitions/partitions.twig:17
-msgid "Partition by:"
-msgstr "Bölümleyen:"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Satırlar:"
 
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-msgid "Expression or column list"
-msgstr "İfade veya sütun listesi"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Tüm satırı(ları) dökümle"
 
-#: templates/columns_definitions/partitions.twig:37
-msgid "Partitions:"
-msgstr "Bölümler:"
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "Satır sayısı:"
 
-#: templates/columns_definitions/partitions.twig:45
-msgid "Subpartition by:"
-msgstr "Alt bölümleyen:"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Başlanacak satır:"
 
-#: templates/columns_definitions/partitions.twig:65
-msgid "Subpartitions:"
-msgstr "Alt bölümler:"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Tüm satırları dökümle"
 
-#: templates/columns_definitions/partitions.twig:76
-#: templates/table/structure/display_partitions.twig:24
-msgid "Partition"
-msgstr "Bölüm"
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Değiştirmek için tıklayın"
 
-#: templates/columns_definitions/partitions.twig:78
-msgid "Values"
-msgstr "Değerler"
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr "Açmak için sayfa"
 
-#: templates/columns_definitions/partitions.twig:82
-msgid "Subpartition"
-msgstr "Alt bölüm"
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "Silmek için bağlantı"
 
-#: templates/columns_definitions/partitions.twig:84
-msgid "Engine"
-msgstr "Motor"
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "Sütunları göster/gizle"
 
-#: templates/columns_definitions/partitions.twig:86
-msgid "Data directory"
-msgstr "Veri dizini"
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "Tablo yapısına bak"
 
-#: templates/columns_definitions/partitions.twig:87
-msgid "Index directory"
-msgstr "İndeks dizini"
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Kaynak sınırları"
 
-#: templates/columns_definitions/partitions.twig:88
-msgid "Max rows"
-msgstr "En fazla satırlar"
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "Not: Bu seçeneklerin 0 (sıfır)'a ayarlanması sınırı kaldırır."
 
-#: templates/columns_definitions/partitions.twig:89
-msgid "Min rows"
-msgstr "En az satırlar"
+#: templates/display/export/options_output.twig:2
+#: templates/display/export/options_quick_export.twig:2
+msgid "Output:"
+msgstr "Çıktı:"
 
-#: templates/columns_definitions/partitions.twig:90
-msgid "Table space"
-msgstr "Tablo alanı"
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Çıktıyı dosyaya kaydet"
 
-#: templates/columns_definitions/partitions.twig:91
-msgid "Node group"
-msgstr "Düğüm grubu"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"Gönderilen dosya muhtemelen en fazla izin verilen boyuttan büyük veya bu "
-"webkit tabanlı (Safari, Google Chrome, Arora vs.) tarayıcılardaki bilinen "
-"bir hatadır."
-
-#: templates/display/import/javascript.twig:16
+#: templates/display/export/options_output.twig:51
 #, php-format
-msgid "%s of %s"
-msgstr "%s / %s"
+msgid "Skip tables larger than %s MiB"
+msgstr "%s MiB'tan büyük tabloları atla"
 
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/san."
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "Aktif seçenekler"
 
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Yaklaşık kalan %MIN dik. %SEC san."
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr "Yok"
 
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "Yaklaşık kalan %SEC san."
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "Tanımlandığı gibi:"
 
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "Dosya işleme alındı, lütfen sabırlı olun."
+#: templates/columns_definitions/column_virtuality.twig:29
+#: templates/table/structure/display_partitions.twig:26
+msgid "Expression"
+msgstr "İfade"
 
-#: templates/display/import/javascript.twig:36
-msgid "Uploading your import file…"
-msgstr "İçe aktarma dosyanız gönderiliyor…"
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Önizleme mevcut değil."
 
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Lütfen sabırlı olun, dosya gönderilmekte. Gönderme ile ilgili ayrıntılar "
-"mevcut değil."
+#: templates/theme_preview.twig:13
+msgid "Take it"
+msgstr "Al"
 
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Bu sütunu her noktayı etiketlemek için kullan"
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+msgid "Create relationship"
+msgstr "İlişki oluştur"
 
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Çizim için en fazla satır"
-
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "İzlenen tablolar"
-
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Son sürüm"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
-msgid "Delete tracking"
-msgstr "İzlemeyi sil"
-
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "Sürümler"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Çıktıyı metin olarak göster"
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "Bir sütun seçin."
 
 #: templates/database/search/results.twig:12
 #, php-format
@@ -15120,164 +15061,97 @@ msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<strong>Toplam:</strong> <em>%count%</em> eşleşme"
 msgstr[1] "<strong>Toplam:</strong> <em>%count%</em> eşleşme"
 
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Değiştirmek için tıklayın"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr "İki etkenli kimlik doğrulamasını yapılandır"
-
-#: templates/prefs_twofactor_configure.twig:8
-msgid "Enable two-factor authentication"
-msgstr "İki etkenli kimlik doğrulamasını etkinleştir"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Eklenti"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Hazırlayan"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "etkisizleştirildi"
-
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Not: Buradaki veritabanı istatistiklerini etkinleştirmek web sunucusu ile "
-"MySQL sunucusu arasında yüksek trafiğe yol açabilir."
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-msgid "Enable statistics"
-msgstr "İstatistikleri etkinleştir"
-
-#: templates/database/structure/show_create_row.twig:7
-#, php-format
-msgid "Create %s"
-msgstr "%s Oluştur"
-
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "Tablo yapısı öner"
-
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "Tabloyu izle"
-
-#: templates/table/structure/optional_action_links.twig:19
-#: templates/table/structure/move_columns_dialog.twig:1
-msgid "Move columns"
-msgstr "Sütunları taşı"
-
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
-msgstr "Normalleştir"
-
-#: templates/table/structure/optional_action_links.twig:28
-msgid "Track view"
-msgstr "İzleme görünümü"
-
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
 msgstr "Sütunları yukarı ve aşağı sürükleyerek taşıyın."
 
-#: templates/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "Seçilen kullanıcı hesaplarını kaldır"
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "İzlenmeyen tablolar"
 
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Kullanıcılardan tüm aktif yetkileri geri alır ve sonra da siler."
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Kullanıcılarla aynı isimlerde olan veritabanlarını kaldır."
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Önizleme mevcut değil."
-
-#: templates/theme_preview.twig:13
-msgid "Take it"
-msgstr "Al"
-
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Çıktı:"
-
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
+#: templates/table/structure/add_column.twig:9
 #, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Sunucuda <strong>%s</strong> dizinine kaydet"
+msgid "Add %s column(s)"
+msgstr "%s sütun ekle"
 
-#: templates/login/twofactor/key.twig:3
+#: templates/table/structure/add_column.twig:14
+msgid "at beginning of table"
+msgstr "tablonun başı"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr "%s sonrasına"
+
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr "Satır istatistikleri"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "sabit"
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "değişken"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "bölüme ayrıldı"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Satır uzunluğu"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Satır boyutu"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr "Sonraki otoindeks"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "Dışa Aktarma İlişkisel Türü Seç"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "İlave arama kriteri"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Veritabanında ara"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Aranacak kelimeler veya değerler (joker: \"%\"):"
+
+#: templates/database/search/selection_form.twig:15
+#: templates/table/search/search_and_replace.twig:1
+msgid "Find:"
+msgstr "Bul:"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "Tablo içindekiler:"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "İç sütun:"
+
+#: templates/login/twofactor/application.twig:4
 msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
 msgstr ""
-"Lütfen FIDO U2F aygıtınızı bilgisayarınızın USB bağlantı noktasına bağlayın. "
-"Ondan sonra aygıta oturum açmayı onaylayın."
+"Kimlik doğrulama kodunuzu görüntülemek ve kimliğinizi doğrulamak için iki "
+"etkenli kimlik doğrulama uygulamasını cihazınızda açın."
 
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Başlangıç satırı:"
-
-#: templates/database/designer/new_relation_panel.twig:22
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-msgid "Create relationship"
-msgstr "İlişki oluştur"
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "Bir sütun seçin."
-
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr "Tanımlı bölümleme yok!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr "Bölüme ayıran:"
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr "Alt bölüme ayıran:"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-msgid "Expression"
-msgstr "İfade"
-
-#: templates/table/structure/display_partitions.twig:29
-msgid "Data length"
-msgstr "Veri uzunluğu"
-
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "İndeks uzunluğu"
-
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "Bölüm tablosu"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-msgid "Edit partitioning"
-msgstr "Bölümlemeyi düzenle"
+#: templates/table/secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "İlişki görünümü"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
@@ -15291,355 +15165,45 @@ msgctxt "None for default"
 msgid "None"
 msgstr "Yok"
 
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "GIS görselleştirmesini görüntüle"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Etiket sütunu"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Yok --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Uzaysal sütun"
-
-#: templates/table/structure/actions_in_table_structure.twig:15
+#: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
-msgid "A primary key has been added on %s."
-msgstr "%s üzerinde birincil anahtar eklendi."
-
-#: templates/table/structure/actions_in_table_structure.twig:33
-#: templates/table/structure/actions_in_table_structure.twig:51
-#: templates/table/structure/actions_in_table_structure.twig:80
-#: templates/table/structure/actions_in_table_structure.twig:103
-#, php-format
-msgid "An index has been added on %s."
-msgstr "%s üzerinde bir indeks eklendi."
-
-#: templates/table/structure/actions_in_table_structure.twig:127
-#: templates/table/structure/check_all_table_column.twig:83
-msgid "Remove from central columns"
-msgstr "Merkezi sütunlardan kaldır"
-
-#: templates/table/structure/actions_in_table_structure.twig:131
-#: templates/table/structure/check_all_table_column.twig:76
-msgid "Add to central columns"
-msgstr "Merkezi sütunlara ekle"
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Dış anahtar kısıtlaması %s kaldırıldı"
-
-#: templates/table/relation/foreign_key_row.twig:38
-msgid "Constraint name"
-msgstr "Kısıtlama adı"
-
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
-msgid "+ Add column"
-msgstr "+ Sütun ekle"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Yeni"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-"phpMyAdmin erişimi için https kullanmıyorsunuz, bu nedenle FIDO U2F aygıtı, "
-"büyük ihtimalle kimlik doğrulaması işleminizi reddedecek."
-
-#: templates/privileges/add_privileges_routine.twig:3
-msgid "Add privileges on the following routine:"
-msgstr "Aşağıdaki yordama yetkileri ekle:"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Tablo adı"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-msgid "column(s)"
-msgstr "sütun(lar)"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Karşılaştırma:"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Depolama Motoru:"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Bağlantı:"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "PARTITION tanımı:"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Dosya adı şablonu:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "ileriki dışa aktarımlar için bunu kullan"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Şu anki sunucudan veritabanları dışa aktarılıyor"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "\"%s\" veritabanından tablolar dışa aktarılıyor"
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "\"%s\" tablosunda satırlar dışa aktarılıyor"
-
-#: templates/server/databases/table_row.twig:13
-#, php-format
-msgid "Jump to database '%s'"
-msgstr "'%s' veritabanına atla"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "\"%s\" veritabanı için yetkileri denetle."
-
-#: templates/server/databases/table_row.twig:62
-msgid "Check privileges"
-msgstr "Yetkileri denetle"
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "Kaldır"
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "kullanımda"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Noktalara gözat/düzenle"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Nasıl kullanılır"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Odaklamayı sıfırla"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr "Doğrula"
-
-#: templates/database/multi_table_query/form.twig:16
-msgid "Query window"
-msgstr "Sorgu penceresi"
-
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
-msgid "select table"
-msgstr "tablo seç"
-
-#: templates/database/multi_table_query/form.twig:40
-#: templates/database/multi_table_query/form.twig:129
-msgid "select column"
-msgstr "sütun seç"
-
-#: templates/database/multi_table_query/form.twig:46
-msgid "Table alias"
-msgstr "Tablo kod adları"
-
-#: templates/database/multi_table_query/form.twig:47
-msgid "Column alias"
-msgstr "Sütun kod adları"
-
-#: templates/database/multi_table_query/form.twig:50
-msgid "Use this column in criteria"
-msgstr "Bu sütunu kriter içinde kullan"
-
-#: templates/database/multi_table_query/form.twig:53
-msgid "criteria"
-msgstr "kriter"
-
-#: templates/database/multi_table_query/form.twig:67
-msgid "Add as"
-msgstr "Farklı ekle"
-
-#: templates/database/multi_table_query/form.twig:112
-msgid "Another column"
-msgstr "Başka bir sütun"
-
-#: templates/database/multi_table_query/form.twig:140
-msgid "Enter criteria as free text"
-msgstr "Kriteri serbest metin olarak girin"
-
-#: templates/database/multi_table_query/form.twig:148
-msgid "Remove this column"
-msgstr "Bu sütunu kaldır"
-
-#: templates/database/multi_table_query/form.twig:175
-msgid "Update query"
-msgstr "Sorguyu güncelle"
-
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "Yok"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Tanımlandığı gibi:"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Bu değeri kullan"
-
-#: templates/table/secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "İlişki görünümü"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"Tarayıcınız bu alan adı için phpMyAdmin yapılandırmasına sahip. Şu anki "
-"oturum için bunu içe aktarmak istiyor musunuz?"
-
-#: templates/prefs_autoload.twig:13
-msgid "Delete settings"
-msgstr "Ayarları sil"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Dışa aktarma yöntemi:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Hızlı - sadece en az seçenekleri göster"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Özel - tüm olası seçenekleri göster"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Sunucu değişkenleri ve ayarları"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "Depolama motorları"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Karakter grupları ve karşılaştırmalar"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Veritabanı istatistikleri"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Sayfa seç"
-
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Aşağıdaki tabloya yetkileri ekle:"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr "Yeni kod adları tanımla"
-
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "Veritabanı seç:"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Yeni veritabanı adı"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "Tablo seç:"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Yeni tablo adı"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "Sütun seç:"
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "Yeni sütun adı"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "%s tarafından kaynak gösterildi."
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Bir dış anahtardır."
-
-#: templates/columns_definitions/column_name.twig:40
-msgid "Pick from Central Columns"
-msgstr "Merkezi Sütunlardan seç"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "GÖRÜNÜM adı"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Sütun adları"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Sıkıştırma:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zip olarak"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzip olarak"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-msgid "Create table"
-msgstr "Tablo oluştur"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Sütun sayısı"
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-"İstemci ve sunucu üzerinde HTTPS arasında gösterilen uyumsuzluk var. Bu, "
-"çalışmayan phpMyAdmin veya bir güvenlik riskine neden olabilir. Lütfen "
-"HTTPS'yi düzgün bir şekilde göstermesi için sunucu yapılandırmanızı düzeltin."
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tablo"
+msgstr[1] "%s tablo"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Toplam"
+
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Dışa aktarma şablonları:"
+
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Yeni şablon:"
+
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Şablon adı"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Oluştur"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Varolan şablonlar:"
+
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Şablon:"
+
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Güncelle"
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
@@ -15665,6 +15229,12 @@ msgstr "Yeni sayfa"
 #: templates/database/designer/side_menu.twig:74
 msgid "Delete pages"
 msgstr "Sayfaları sil"
+
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+#: templates/database/create_table.twig:7
+msgid "Create table"
+msgstr "Tablo oluştur"
 
 #: templates/database/designer/side_menu.twig:99
 #: templates/database/designer/side_menu.twig:102
@@ -15726,35 +15296,177 @@ msgstr "Menüyü taşı"
 msgid "Pin text"
 msgstr "Metni sabitle"
 
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Oturum değeri"
+#: templates/database/multi_table_query/form.twig:16
+msgid "Query window"
+msgstr "Sorgu penceresi"
 
-#: templates/table/structure/table_structure_row.twig:55
+#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:121
+msgid "select table"
+msgstr "tablo seç"
+
+#: templates/database/multi_table_query/form.twig:40
+#: templates/database/multi_table_query/form.twig:129
+msgid "select column"
+msgstr "sütun seç"
+
+#: templates/database/multi_table_query/form.twig:46
+msgid "Table alias"
+msgstr "Tablo kod adları"
+
+#: templates/database/multi_table_query/form.twig:47
+msgid "Column alias"
+msgstr "Sütun kod adları"
+
+#: templates/database/multi_table_query/form.twig:50
+msgid "Use this column in criteria"
+msgstr "Bu sütunu kriter içinde kullan"
+
+#: templates/database/multi_table_query/form.twig:53
+msgid "criteria"
+msgstr "kriter"
+
+#: templates/database/multi_table_query/form.twig:67
+msgid "Add as"
+msgstr "Farklı ekle"
+
+#: templates/database/multi_table_query/form.twig:112
+msgid "Another column"
+msgstr "Başka bir sütun"
+
+#: templates/database/multi_table_query/form.twig:140
+msgid "Enter criteria as free text"
+msgstr "Kriteri serbest metin olarak girin"
+
+#: templates/database/multi_table_query/form.twig:148
+msgid "Remove this column"
+msgstr "Bu sütunu kaldır"
+
+#: templates/database/multi_table_query/form.twig:158
+#: templates/table/relation/foreign_key_row.twig:90
+msgid "+ Add column"
+msgstr "+ Sütun ekle"
+
+#: templates/database/multi_table_query/form.twig:175
+msgid "Update query"
+msgstr "Sorguyu güncelle"
+
+#: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
-msgid "Column %s has been dropped."
-msgstr "%s sütunu kaldırıldı."
+msgid "Activate tracking for %s"
+msgstr "%s için izlemeyi aktif et"
 
-#: templates/login/twofactor/invalid.twig:2
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr "Hemen aktif et"
+
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "%s için izlemeyi devre dışı bırak"
+
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr "Hemen devre dışı bırak"
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Sıkıştırma:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "zip olarak"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "gzip olarak"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "İki farklı sütun için \"örnekle sorgulama\" (joker: \"%\") yap"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "\"Örnekle sorgulama\" yap. (joker: \"%\")"
+
+#: templates/login/twofactor/key_configure.twig:3
 msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
 msgstr ""
-"Yapılandırılmış iki etkenli kimlik doğrulaması kullanılamaz, lütfen eksik "
-"bağımlılıkları yükleyin."
+"Lütfen FIDO U2F aygıtınızı bilgisayarınızın USB bağlantı noktasına bağlayın. "
+"Ondan sonra aygıta kaydolmayı onaylayın."
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Kriter satırı Ekle/Sil"
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"Gönderilen dosya muhtemelen en fazla izin verilen boyuttan büyük veya bu "
+"webkit tabanlı (Safari, Google Chrome, Arora vs.) tarayıcılardaki bilinen "
+"bir hatadır."
 
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Sütun Ekle/Sil"
-
-#: templates/table/insert/continue_insertion_form.twig:18
+#: templates/display/import/javascript.twig:16
 #, php-format
-msgid "Continue insertion with %s rows"
-msgstr "%s satırla eklemeye devam et"
+msgid "%s of %s"
+msgstr "%s / %s"
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/san."
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Yaklaşık kalan %MIN dik. %SEC san."
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "Yaklaşık kalan %SEC san."
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "Dosya işleme alındı, lütfen sabırlı olun."
+
+#: templates/display/import/javascript.twig:36
+msgid "Uploading your import file…"
+msgstr "İçe aktarma dosyanız gönderiliyor…"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Lütfen sabırlı olun, dosya gönderilmekte. Gönderme ile ilgili ayrıntılar "
+"mevcut değil."
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "Bu sütunu her noktayı etiketlemek için kullan"
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "Çizim için en fazla satır"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+"İstemci ve sunucu üzerinde HTTPS arasında gösterilen uyumsuzluk var. Bu, "
+"çalışmayan phpMyAdmin veya bir güvenlik riskine neden olabilir. Lütfen "
+"HTTPS'yi düzgün bir şekilde göstermesi için sunucu yapılandırmanızı düzeltin."
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "ilk"
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "Veritabanı oluştur"
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
@@ -15763,6 +15475,139 @@ msgstr "Tarih"
 #: templates/table/tracking/report_table.twig:6
 msgid "Username"
 msgstr "Kullanıcı adı"
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "kullanımda"
+
+#: templates/privileges/add_privileges_table.twig:3
+msgid "Add privileges on the following table:"
+msgstr "Aşağıdaki tabloya yetkileri ekle:"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr "ENUM/SET değerlerini düzenle"
+
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "Sütunları seç (en az bir):"
+
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Arama koşulları ekle (\"where\" yan tümcesi gövdesi):"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Sayfa başına satır sayısı"
+
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Görünüm düzeni:"
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "%s sütunu kaldırıldı."
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "İzleme aktif."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "İzleme aktif değil."
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "GIS görselleştirmesini görüntüle"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Etiket sütunu"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- Yok --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Uzaysal sütun"
+
+#: templates/table/search/search_and_replace.twig:3
+msgid "Replace with:"
+msgstr "Şununla değiştir:"
+
+#: templates/table/search/search_and_replace.twig:19
+msgid "Use regular expression"
+msgstr "Düzenli ifade kullan"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr "Yeni kod adları tanımla"
+
+#: templates/export/alias_add.twig:9
+msgid "Select database:"
+msgstr "Veritabanı seç:"
+
+#: templates/export/alias_add.twig:15
+msgid "New database name"
+msgstr "Yeni veritabanı adı"
+
+#: templates/export/alias_add.twig:23
+msgid "Select table:"
+msgstr "Tablo seç:"
+
+#: templates/export/alias_add.twig:29
+msgid "New table name"
+msgstr "Yeni tablo adı"
+
+#: templates/export/alias_add.twig:37
+msgid "Select column:"
+msgstr "Sütun seç:"
+
+#: templates/export/alias_add.twig:43
+msgid "New column name"
+msgstr "Yeni sütun adı"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+"phpMyAdmin erişimi için https kullanmıyorsunuz, bu nedenle FIDO U2F aygıtı, "
+"büyük ihtimalle kimlik doğrulaması işleminizi reddedecek."
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Sütun sayısı"
+
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Başlangıç satırı:"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Yeni"
+
+#: templates/display/export/options_format.twig:2
+#: templates/display/import/import.twig:174
+msgid "Format-specific options:"
+msgstr "Biçim-belli seçenekler:"
+
+#: templates/display/export/options_format.twig:4
+#: templates/display/import/import.twig:176
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Seçilen biçimde seçenekleri doldurmak için aşağı kaydırır ve diğer biçimler "
+"için seçenekleri yoksayar."
+
+#: templates/display/export/options_format.twig:12
+#: templates/display/import/import.twig:185
+msgid "Encoding Conversion:"
+msgstr "Kodlama Dönüştürme:"
 
 #: templates/prefs_twofactor_confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
@@ -15780,135 +15625,13 @@ msgstr ""
 msgid "Disable two-factor authentication"
 msgstr "İki etkenli kimlik doğrulamasını etkisizleştir"
 
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Görüntülemek için ikili değer günlüğünü seçin"
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "Veritabanlarını ayrı dosyalar olarak dışa aktar"
 
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "İki farklı sütun için \"örnekle sorgulama\" (joker: \"%\") yap"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "\"Örnekle sorgulama\" yap. (joker: \"%\")"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-msgid "Authentication code:"
-msgstr "Kimlik doğrulama kodu:"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-"Kimlik doğrulama kodunuzu görüntülemek ve kimliğinizi doğrulamak için iki "
-"etkenli kimlik doğrulama uygulamasını cihazınızda açın."
-
-#: templates/privileges/add_privileges_database.twig:1
-msgid "Add privileges on the following database(s):"
-msgstr "Aşağıdaki veritaban(lar)ına yetkileri ekle:"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun."
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Dışa aktarma şablonları:"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Yeni şablon:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Şablon adı"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "Oluştur"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Varolan şablonlar:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Şablon:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Güncelle"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Sütuna özgü yetkiler"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-"Lütfen aşağıdaki QR kodu cihazınızdaki iki etkenli kimlik doğrulaması "
-"uygulaması içinde taratın ve oluşturduğu kimlik doğrulama kodunu girin."
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-"Lütfen aşağıdaki gizli/anahtarı cihazınızdaki iki etkenli kimlik doğrulaması "
-"uygulaması içine girin ve oluşturduğu kimlik doğrulama kodunu girin."
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr "OTP url:"
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr "Gizli/anahtar:"
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "%1$s / %2$s sürümünü oluştur"
-
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "%1$s sürümünü oluştur"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Bu veri tanımlama ifadelerini izle:"
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Bu veri işleme ifadelerini izle:"
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Sürüm oluştur"
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "Tümünü gizle/göster"
-
-#: templates/database/designer/table_list.twig:14
-msgid "Hide/Show tables with no relationship"
-msgstr "İlişkisi olmayan tabloları gizle/göster"
-
-#: templates/database/designer/table_list.twig:55
-msgid "Number of tables:"
-msgstr "Tablo sayısı:"
-
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Yok"
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "Tabloları ayrı dosyalar olarak dışa aktar"
 
 #: templates/error/report_form.twig:6
 msgid ""
@@ -15932,40 +15655,195 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Hata raporundaki verileri inceleyebilirsiniz:"
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Dosyanın karakter grubu:"
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "Eklenti"
 
-#: templates/table/search/search_and_replace.twig:1
-#: templates/database/search/selection_form.twig:15
-msgid "Find:"
-msgstr "Bul:"
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "Hazırlayan"
 
-#: templates/table/search/search_and_replace.twig:3
-msgid "Replace with:"
-msgstr "Şununla değiştir:"
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "etkisizleştirildi"
 
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Düzenli ifade kullan"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Veritabanları:"
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Çıktıyı dosyaya kaydet"
-
-#: templates/display/export/options_output.twig:51
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
 #, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr "%s MiB'tan büyük tabloları atla"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Sunucuda <strong>%s</strong> dizinine kaydet"
 
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr "Bu, salt okunur bir değişkendir ve düzenlenemez"
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Dışa aktarma yöntemi:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Hızlı - sadece en az seçenekleri göster"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Özel - tüm olası seçenekleri göster"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, php-format
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Dış anahtar kısıtlaması %s kaldırıldı"
+
+#: templates/table/relation/foreign_key_row.twig:38
+msgid "Constraint name"
+msgstr "Kısıtlama adı"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Tablo adı"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "sütun(lar)"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Karşılaştırma:"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Depolama Motoru:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Bağlantı:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION tanımı:"
+
+#: templates/prefs_twofactor.twig:3
+msgid "Two-factor authentication status"
+msgstr "İki etkenli kimlik doğrulaması durumu"
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+"İki etkenli kimlik doğrulaması kullanılamaz, lütfen kimlik doğrulaması arka "
+"uçlarını etkinleştirmek için isteğe bağlı bağımlılıklar yükleyin."
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr "Aşağıdaki composer paketleri eksik:"
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+"İki etkenli kimlik doğrulaması kullanılabilir ve bu hesap için "
+"yapılandırılmış."
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+"İki etkenli kimlik doğrulaması kullanılabilir, ancak bu hesap için "
+"yapılandırılmamış."
+
+#: templates/prefs_twofactor.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+"İki etkenli kimlik doğrulaması kullanılamaz, kullanmak için phpMyAdmin "
+"yapılandırma depolamasını etkinleştirin."
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr "İki etkenli kimlik doğrulamasını etkinleştirdiniz."
+
+#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
+#: templates/prefs_twofactor_configure.twig:2
+msgid "Configure two-factor authentication"
+msgstr "İki etkenli kimlik doğrulamasını yapılandır"
+
+#: templates/database/structure/show_create_row.twig:7
+#, php-format
+msgid "Create %s"
+msgstr "%s Oluştur"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr "%s tarafından kaynak gösterildi."
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "Bir dış anahtardır."
+
+#: templates/columns_definitions/column_name.twig:40
+msgid "Pick from Central Columns"
+msgstr "Merkezi Sütunlardan seç"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Bul ve değiştir - önizleme"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Orijinal satır"
+
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Değiştirilmiş satır"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Değiştir"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Görüntülemek için ikili değer günlüğünü seçin"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "İndeks adı:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+"\"PRIMARY\" <b>sadece ve sadece</b> bir birincil anahtarın adı <b>olmak "
+"zorundadır</b>!"
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr "İndeks tercihi:"
+
+#: templates/table/index_form.twig:42
+msgid "Advanced Options"
+msgstr "Gelişmiş Seçenekler"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr "Anahtar blok boyutu:"
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "İndeks türü:"
+
+#: templates/table/index_form.twig:77
+msgid "Parser:"
+msgstr "Ayrıştırıcı:"
+
+#: templates/table/index_form.twig:93
+msgid "Comment:"
+msgstr "Açıklama:"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr "Yen.düzenleme için sürükleyin"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Veritabanı yok"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -16038,220 +15916,111 @@ msgstr "Bu sorgu (SQL için) numaralarını ilkinden başlayarak atla:"
 msgid "Other options:"
 msgstr "Diğer seçenekler:"
 
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr "Biçim-belli seçenekler:"
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "%s satırla eklemeye devam et"
 
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Seçilen biçimde seçenekleri doldurmak için aşağı kaydırır ve diğer biçimler "
-"için seçenekleri yoksayar."
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr "Kaldır"
 
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr "Kodlama Dönüştürme:"
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Ek yükü olan tabloları denetle"
 
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Veritabanında ara"
+#: templates/database/structure/check_all_tables.twig:10
+msgid "Copy table"
+msgstr "Tabloyu kopyala"
 
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Aranacak kelimeler veya değerler (joker: \"%\"):"
+#: templates/database/structure/check_all_tables.twig:11
+msgid "Show create"
+msgstr "Oluşturmayı göster"
 
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "Tablo içindekiler:"
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr "Ön ek"
 
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "İç sütun:"
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "Tabloya ön ek ekle"
 
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Veritabanı yok"
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "Tablo ön ekini değiştir"
 
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-"Lütfen FIDO U2F aygıtınızı bilgisayarınızın USB bağlantı noktasına bağlayın. "
-"Ondan sonra aygıta kaydolmayı onaylayın."
+#: templates/database/structure/check_all_tables.twig:33
+msgid "Add columns to central list"
+msgstr "Sütunları merkezi listeye ekle"
 
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "ilk"
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr "Sütunları merkezi listeden kaldır"
 
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "İzleme aktif."
+#: templates/database/structure/check_all_tables.twig:35
+msgid "Make consistent with central list"
+msgstr "Merkezi liste ile uyumlu yap"
 
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "İzleme aktif değil."
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "%1$s / %2$s sürümünü oluştur"
 
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "Veritabanlarını ayrı dosyalar olarak dışa aktar"
+#: templates/table/tracking/create_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "%1$s sürümünü oluştur"
 
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "Tabloları ayrı dosyalar olarak dışa aktar"
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Bu veri tanımlama ifadelerini izle:"
 
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr "Satır istatistikleri"
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Bu veri işleme ifadelerini izle:"
 
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "sabit"
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "Sürüm oluştur"
 
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "değişken"
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "İzlenen tablolar"
 
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "bölüme ayrıldı"
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Son sürüm"
 
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Satır uzunluğu"
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+msgid "Delete tracking"
+msgstr "İzlemeyi sil"
 
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Satır boyutu"
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "Sürümler"
 
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr "Sonraki otoindeks"
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+msgid "Edit partitioning"
+msgstr "Bölümlemeyi düzenle"
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "İzlenmeyen tablolar"
+#: templates/privileges/add_privileges_routine.twig:3
+msgid "Add privileges on the following routine:"
+msgstr "Aşağıdaki yordama yetkileri ekle:"
 
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "Veritabanı oluştur"
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Yok"
 
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Kaynak sınırları"
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr "Kana'ya dönüştür"
 
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Not: Bu seçeneklerin 0 (sıfır)'a ayarlanması sınırı kaldırır."
-
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "İlişkisel anahtar"
-
-#: templates/display/results/options_block.twig:30
-msgid "Display column for relationships"
-msgstr "Sütun ilişkilerini görüntüle"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "İkili değer içerikleri göster"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "BLOB içerikleri göster"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Tarayıcı dönüşümünü gizle"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Çok İyi Bilinen Metin"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Çok İyi Bilinen İkili Değer"
-
-#: templates/prefs_twofactor.twig:3
-msgid "Two-factor authentication status"
-msgstr "İki etkenli kimlik doğrulaması durumu"
-
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-"İki etkenli kimlik doğrulaması kullanılamaz, lütfen kimlik doğrulaması arka "
-"uçlarını etkinleştirmek için isteğe bağlı bağımlılıklar yükleyin."
-
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr "Aşağıdaki composer paketleri eksik:"
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-"İki etkenli kimlik doğrulaması kullanılabilir ve bu hesap için "
-"yapılandırılmış."
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-"İki etkenli kimlik doğrulaması kullanılabilir, ancak bu hesap için "
-"yapılandırılmamış."
-
-#: templates/prefs_twofactor.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-"İki etkenli kimlik doğrulaması kullanılamaz, kullanmak için phpMyAdmin "
-"yapılandırma depolamasını etkinleştirin."
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr "İki etkenli kimlik doğrulamasını etkinleştirdiniz."
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "Seçilen sayfaya kaydet"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "Bir sayfa oluştur ve ona kaydet"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "Yeni sayfa adı"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "Dışa Aktarma İlişkisel Türü Seç"
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "Sütunları seç (en az bir):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Arama koşulları ekle (\"where\" yan tümcesi gövdesi):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Sayfa başına satır sayısı"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Görünüm düzeni:"
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr "Doğrula"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
@@ -16309,6 +16078,238 @@ msgstr ""
 #: templates/table/relation/common_form.twig:172
 msgid "Choose column to display:"
 msgstr "Görüntülemek için sütun seçin:"
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Şu anki sunucudan veritabanları dışa aktarılıyor"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "\"%s\" veritabanından tablolar dışa aktarılıyor"
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "\"%s\" tablosunda satırlar dışa aktarılıyor"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Oturum değeri"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Bu değeri kullan"
+
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Veritabanları:"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Kriter satırı Ekle/Sil"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Sütun Ekle/Sil"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Dosya adı şablonu:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "ileriki dışa aktarımlar için bunu kullan"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Sütuna özgü yetkiler"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Alan kullanımı"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Etkili"
+
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "Tanımlı bölümleme yok!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "Bölüme ayıran:"
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "Alt bölüme ayıran:"
+
+#: templates/table/structure/display_partitions.twig:29
+msgid "Data length"
+msgstr "Veri uzunluğu"
+
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "İndeks uzunluğu"
+
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "Bölüm tablosu"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Eğer sütun türü \"enum\" veya \"set\" ise lütfen değerleri bu biçimi "
+"kullanarak girin: 'a','b','c'…<br />Eğer bu değerler arasına hep ters eğik "
+"çizgi (\"\") veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik "
+"çizgi koyun (örneğin '\\\\xyz' veya 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Varsayılan değerler için lütfen sola eğik çizgisiz veya alıntısız sadece tek "
+"değer girin, bu biçimi kullanarak: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr "Sanallık"
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "Sütunu taşı"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr "Mevcut dönüşümler ve seçeneklerinin listesi"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr "Tarayıcı görüntüleme dönüşümü seçenekleri"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Lütfen dönüşüm seçenekleri için değerleri bu biçimi kullanarak giriniz: 'a', "
+"100, b,'c'…<br />Eğer bu değerler arasına hep ters eğik çizgi (\"\\\") veya "
+"tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik çizgi koyun "
+"(örneğin '\\\\xyz' veya 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+msgid "Input transformation options"
+msgstr "Girdi dönüşümü seçenekleri"
+
+#: templates/prefs_twofactor_configure.twig:8
+msgid "Enable two-factor authentication"
+msgstr "İki etkenli kimlik doğrulamasını etkinleştir"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"Tarayıcınız bu alan adı için phpMyAdmin yapılandırmasına sahip. Şu anki "
+"oturum için bunu içe aktarmak istiyor musunuz?"
+
+#: templates/prefs_autoload.twig:13
+msgid "Delete settings"
+msgstr "Ayarları sil"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Çıktıyı metin olarak göster"
+
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "Sorguları oluşturma gösteriliyor"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+"Lütfen FIDO U2F aygıtınızı bilgisayarınızın USB bağlantı noktasına bağlayın. "
+"Ondan sonra aygıta oturum açmayı onaylayın."
+
+#: templates/server/databases/table_row.twig:13
+#, php-format
+msgid "Jump to database '%s'"
+msgstr "'%s' veritabanına atla"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "\"%s\" veritabanı için yetkileri denetle."
+
+#: templates/server/databases/table_row.twig:62
+msgid "Check privileges"
+msgstr "Yetkileri denetle"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "Tümünü gizle/göster"
+
+#: templates/database/designer/table_list.twig:14
+msgid "Hide/Show tables with no relationship"
+msgstr "İlişkisi olmayan tabloları gizle/göster"
+
+#: templates/database/designer/table_list.twig:55
+msgid "Number of tables:"
+msgstr "Tablo sayısı:"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Sunucu değişkenleri ve ayarları"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Storage engines"
+msgstr "Depolama motorları"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Character sets and collations"
+msgstr "Karakter grupları ve karşılaştırmalar"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Veritabanı istatistikleri"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Noktalara gözat/düzenle"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Nasıl kullanılır"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Odaklamayı sıfırla"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Yok"
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+"Yapılandırılmış iki etkenli kimlik doğrulaması kullanılamaz, lütfen eksik "
+"bağımlılıkları yükleyin."
 
 #: url.php:41
 msgid "Taking you to the target site."

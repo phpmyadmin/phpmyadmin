@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
+"Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-04-08 23:42-0300\n"
+"POT-Creation-Date: 2019-06-19 13:37-0300\n"
 "PO-Revision-Date: 2019-04-27 16:55+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-8/da/"
@@ -45,8 +45,8 @@ msgstr "Databasekommentar"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
+#: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Tabelkommentarer:"
 
@@ -56,26 +56,26 @@ msgstr "Tabelkommentarer:"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:291
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:387
 #: libraries/classes/Plugins/Export/ExportLatex.php:526
-#: libraries/classes/Plugins/Export/ExportOdt.php:381
-#: libraries/classes/Plugins/Export/ExportOdt.php:483
+#: libraries/classes/Plugins/Export/ExportOdt.php:385
+#: libraries/classes/Plugins/Export/ExportOdt.php:487
 #: libraries/classes/Plugins/Export/ExportTexytext.php:288
 #: libraries/classes/Plugins/Export/ExportTexytext.php:379
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: templates/table/index_form.twig:115
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/search/table_header.twig:6
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/relation/foreign_key_row.twig:122
 #: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/search/zoom_result_form.twig:34
-#: templates/table/relation/internal_relational_row.twig:24
 #: templates/columns_definitions/column_name.twig:16
-#: templates/table/search/table_header.twig:6
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/index_form.twig:115
+#: templates/table/relation/internal_relational_row.twig:24
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
+#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "Kolonne"
 
@@ -85,8 +85,8 @@ msgstr "Kolonne"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:294
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:390
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
-#: libraries/classes/Plugins/Export/ExportOdt.php:384
-#: libraries/classes/Plugins/Export/ExportOdt.php:486
+#: libraries/classes/Plugins/Export/ExportOdt.php:388
+#: libraries/classes/Plugins/Export/ExportOdt.php:490
 #: libraries/classes/Plugins/Export/ExportTexytext.php:289
 #: libraries/classes/Plugins/Export/ExportTexytext.php:380
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:514
@@ -98,11 +98,11 @@ msgstr "Kolonne"
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2581
 #: templates/database/structure/table_header.twig:32
-#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/table/search/table_header.twig:7
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/structure/table_structure_header.twig:6
-#: templates/table/search/table_header.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Datatype"
 
@@ -112,18 +112,18 @@ msgstr "Datatype"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:297
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
-#: libraries/classes/Plugins/Export/ExportOdt.php:387
-#: libraries/classes/Plugins/Export/ExportOdt.php:489
+#: libraries/classes/Plugins/Export/ExportOdt.php:391
+#: libraries/classes/Plugins/Export/ExportOdt.php:493
 #: libraries/classes/Plugins/Export/ExportTexytext.php:290
 #: libraries/classes/Plugins/Export/ExportTexytext.php:381
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:516
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
-#: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/search/zoom_result_form.twig:35
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:9
+#: templates/table/structure/table_structure_header.twig:9
+#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
 msgstr "Nulværdi"
 
@@ -132,24 +132,24 @@ msgstr "Nulværdi"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:300
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:396
 #: libraries/classes/Plugins/Export/ExportLatex.php:529
-#: libraries/classes/Plugins/Export/ExportOdt.php:390
-#: libraries/classes/Plugins/Export/ExportOdt.php:492
+#: libraries/classes/Plugins/Export/ExportOdt.php:394
+#: libraries/classes/Plugins/Export/ExportOdt.php:496
 #: libraries/classes/Plugins/Export/ExportTexytext.php:291
 #: libraries/classes/Plugins/Export/ExportTexytext.php:382
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:518
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:633
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165
-#: templates/database/structure/body_for_table_summary.twig:54
-#: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/structure/table_structure_header.twig:10
+#: templates/columns_definitions/table_fields_definitions.twig:20
 msgid "Default"
 msgstr "Standardværdi"
 
 #: db_datadict.php:122 libraries/classes/Plugins/Export/ExportHtmlword.php:400
 #: libraries/classes/Plugins/Export/ExportLatex.php:531
-#: libraries/classes/Plugins/Export/ExportOdt.php:496
+#: libraries/classes/Plugins/Export/ExportOdt.php:500
 #: libraries/classes/Plugins/Export/ExportTexytext.php:384
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:527
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:635
@@ -162,23 +162,23 @@ msgstr "Linker til"
 #: libraries/classes/Config/Descriptions.php:393
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:405
 #: libraries/classes/Plugins/Export/ExportLatex.php:534
-#: libraries/classes/Plugins/Export/ExportOdt.php:501
+#: libraries/classes/Plugins/Export/ExportOdt.php:505
 #: libraries/classes/Plugins/Export/ExportTexytext.php:387
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:534
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:646
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:659
-#: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/table/structure/table_structure_header.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:54
 msgid "Comments"
 msgstr "Kommentarer"
 
 #: db_datadict.php:156
-#: libraries/classes/Controllers/Table/TableStructureController.php:1210
-#: libraries/classes/Controllers/Table/TableStructureController.php:1215
+#: libraries/classes/Controllers/Table/TableStructureController.php:1221
+#: libraries/classes/Controllers/Table/TableStructureController.php:1226
 #: templates/table/structure/display_structure.twig:61
-#: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/check_all_table_column.twig:33
 #: templates/columns_definitions/column_indexes.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
 msgstr "Primær"
 
@@ -189,7 +189,7 @@ msgstr "Primær"
 #: libraries/classes/IndexColumn.php:141 libraries/classes/MultSubmits.php:514
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:657
 #: libraries/classes/Plugins/Export/ExportLatex.php:603
-#: libraries/classes/Plugins/Export/ExportOdt.php:795
+#: libraries/classes/Plugins/Export/ExportOdt.php:799
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
 #: libraries/classes/Server/Privileges.php:2757
@@ -197,33 +197,33 @@ msgstr "Primær"
 #: libraries/classes/Server/Privileges.php:3014
 #: libraries/classes/Server/Privileges.php:3678
 #: libraries/classes/Server/Privileges.php:3707 prefs_manage.php:145
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/structure/table_structure_row.twig:25
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/prefs_autoload.twig:12
-#: templates/table/structure/table_structure_row.twig:25
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
 msgid "No"
 msgstr "Nej"
 
 #: db_datadict.php:166 js/messages.php:532
 #: libraries/classes/CentralColumns.php:998
 #: libraries/classes/Config/FormDisplayTemplate.php:281
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:200
 #: libraries/classes/Controllers/Table/TableStructureController.php:789
-#: libraries/classes/Controllers/Table/TableStructureController.php:1435
-#: libraries/classes/Controllers/Table/TableStructureController.php:1444
-#: libraries/classes/Controllers/Table/TableStructureController.php:1449
-#: libraries/classes/Controllers/Table/TableStructureController.php:1454
-#: libraries/classes/Controllers/Table/TableStructureController.php:1459
+#: libraries/classes/Controllers/Table/TableStructureController.php:1447
+#: libraries/classes/Controllers/Table/TableStructureController.php:1456
+#: libraries/classes/Controllers/Table/TableStructureController.php:1461
+#: libraries/classes/Controllers/Table/TableStructureController.php:1466
+#: libraries/classes/Controllers/Table/TableStructureController.php:1471
 #: libraries/classes/Index.php:595 libraries/classes/IndexColumn.php:144
 #: libraries/classes/MultSubmits.php:413 libraries/classes/MultSubmits.php:446
 #: libraries/classes/MultSubmits.php:475 libraries/classes/MultSubmits.php:512
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:658
 #: libraries/classes/Plugins/Export/ExportLatex.php:603
-#: libraries/classes/Plugins/Export/ExportOdt.php:796
+#: libraries/classes/Plugins/Export/ExportOdt.php:800
 #: libraries/classes/Plugins/Export/ExportTexytext.php:612
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
 #: libraries/classes/Server/Privileges.php:2757
@@ -232,14 +232,15 @@ msgstr "Nej"
 #: libraries/classes/Server/Privileges.php:3675
 #: libraries/classes/Server/Privileges.php:3707
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
-#: templates/privileges/privileges_summary_row.twig:7
-#: templates/privileges/privileges_summary_row.twig:9
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/prefs_autoload.twig:11
-#: templates/table/structure/table_structure_row.twig:25
+#: prefs_manage.php:143
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/structure/table_structure_row.twig:25
+#: templates/privileges/privileges_summary_row.twig:4
+#: templates/privileges/privileges_summary_row.twig:7
+#: templates/privileges/privileges_summary_row.twig:9
+#: templates/prefs_autoload.twig:11
 msgid "Yes"
 msgstr "Ja"
 
@@ -255,7 +256,7 @@ msgid "No tables found in database."
 msgstr "Ingen tabeller fundet i databasen."
 
 #: db_export.php:68 libraries/classes/Config/Descriptions.php:490
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:338
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:121
@@ -272,14 +273,14 @@ msgstr "Tabeller"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:38
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:288
-#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3043
-#: libraries/classes/Util.php:3053 libraries/classes/Util.php:3059
-#: libraries/classes/Util.php:3339 libraries/classes/Util.php:3995
-#: libraries/classes/Util.php:4012 libraries/config.values.php:38
+#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3049
+#: libraries/classes/Util.php:3059 libraries/classes/Util.php:3065
+#: libraries/classes/Util.php:3345 libraries/classes/Util.php:4003
+#: libraries/classes/Util.php:4020 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:1
+#: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
 #: templates/database/designer/table_list.twig:24
 msgid "Structure"
@@ -289,7 +290,7 @@ msgstr "Struktur"
 #: libraries/classes/Config/Forms/User/ExportForm.php:101
 #: libraries/classes/Config/Forms/User/ExportForm.php:125
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:348
 #: libraries/classes/Server/Privileges.php:1158
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -408,87 +409,87 @@ msgstr "Du skal muligvis genindlæse siden."
 msgid "Bad parameters!"
 msgstr "Forkerte parametre!"
 
-#: gis_data_editor.php:121
+#: gis_data_editor.php:122
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Værdi for kolonnen \"%s\""
 
-#: gis_data_editor.php:150
+#: gis_data_editor.php:151
 #: templates/table/gis_visualization/gis_visualization.twig:38
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Brug OpenStreetMaps som basislag"
 
 #. l10n: Spatial Reference System Identifier
-#: gis_data_editor.php:172
+#: gis_data_editor.php:173
 msgid "SRID:"
 msgstr "SRID:"
 
-#: gis_data_editor.php:198
+#: gis_data_editor.php:199
 #, php-format
 msgid "Geometry %d:"
 msgstr "Geometri %d:"
 
-#: gis_data_editor.php:220
+#: gis_data_editor.php:221
 msgid "Point:"
 msgstr "Punkt:"
 
-#: gis_data_editor.php:221 gis_data_editor.php:248 gis_data_editor.php:304
-#: gis_data_editor.php:377 js/messages.php:521
+#: gis_data_editor.php:222 gis_data_editor.php:249 gis_data_editor.php:305
+#: gis_data_editor.php:378 js/messages.php:521
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:224 gis_data_editor.php:252 gis_data_editor.php:308
-#: gis_data_editor.php:383 js/messages.php:522
+#: gis_data_editor.php:225 gis_data_editor.php:253 gis_data_editor.php:309
+#: gis_data_editor.php:384 js/messages.php:522
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:246 gis_data_editor.php:302 gis_data_editor.php:375
+#: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:376
 #: js/messages.php:524
 #, php-format
 msgid "Point %d"
 msgstr "Punkt %d"
 
-#: gis_data_editor.php:259 gis_data_editor.php:315 gis_data_editor.php:393
+#: gis_data_editor.php:260 gis_data_editor.php:316 gis_data_editor.php:394
 #: js/messages.php:530
 msgid "Add a point"
 msgstr "Tilføj et punkt"
 
-#: gis_data_editor.php:276
+#: gis_data_editor.php:277
 #, php-format
 msgid "Linestring %d:"
 msgstr "Linjestreng %d:"
 
-#: gis_data_editor.php:279 gis_data_editor.php:356
+#: gis_data_editor.php:280 gis_data_editor.php:357
 msgid "Outer ring:"
 msgstr "Ydre ring:"
 
-#: gis_data_editor.php:281 gis_data_editor.php:358
+#: gis_data_editor.php:282 gis_data_editor.php:359
 #, php-format
 msgid "Inner ring %d:"
 msgstr "Indre ring %d:"
 
-#: gis_data_editor.php:318
+#: gis_data_editor.php:319
 msgid "Add a linestring"
 msgstr "Tilføj en linjestreng"
 
-#: gis_data_editor.php:319 gis_data_editor.php:398 js/messages.php:531
+#: gis_data_editor.php:320 gis_data_editor.php:399 js/messages.php:531
 msgid "Add an inner ring"
 msgstr "Tilføj en indre ring"
 
-#: gis_data_editor.php:340
+#: gis_data_editor.php:341
 #, php-format
 msgid "Polygon %d:"
 msgstr "Polygon %d:"
 
-#: gis_data_editor.php:404
+#: gis_data_editor.php:405
 msgid "Add a polygon"
 msgstr "Tilføj polygon"
 
-#: gis_data_editor.php:410
+#: gis_data_editor.php:411
 msgid "Add geometry"
 msgstr "Tilføj geometri"
 
-#: gis_data_editor.php:416 js/messages.php:354
+#: gis_data_editor.php:417 js/messages.php:354
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:160
 #: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1892
@@ -516,31 +517,35 @@ msgstr "Tilføj geometri"
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:323 templates/table/structure/add_column.twig:23
-#: templates/table/index_form.twig:217
+#: server_privileges.php:323 templates/view_create.twig:116
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/header_location.twig:18 templates/view_create.twig:116
-#: templates/database/create_table.twig:21
-#: templates/server/binlog/log_selector.twig:27
-#: templates/table/search/selection_form.twig:99
-#: templates/privileges/privileges_summary.twig:60
-#: templates/privileges/edit_routine_privileges.twig:23
-#: templates/display/import/import.twig:191
+#: templates/display/results/options_block.twig:114
+#: templates/header_location.twig:18
+#: templates/table/structure/add_column.twig:23
 #: templates/database/search/selection_form.twig:58
+#: templates/table/search/selection_form.twig:99
+#: templates/database/create_table.twig:21
+#: templates/start_and_number_of_rows_panel.twig:14
 #: templates/display/export/options_format.twig:18
-#: templates/display/results/options_block.twig:114 view_operations.php:115
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/index_form.twig:217 templates/display/import/import.twig:191
+#: templates/privileges/edit_routine_privileges.twig:23
+#: templates/privileges/privileges_summary.twig:60 view_operations.php:115
 msgid "Go"
 msgstr "Udfør"
 
-#: gis_data_editor.php:419
+#: gis_data_editor.php:420
 msgid "Output"
 msgstr "Resultat"
 
-#: gis_data_editor.php:422
+#: gis_data_editor.php:423
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field."
 msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+"Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
 "Vælg \"GeomFromText\" fra kolonnen \"Function\" og indsæt strengen nedenfor "
@@ -714,61 +719,61 @@ msgstr "Bruger:"
 msgid "Server charset:"
 msgstr "Servers tegnsæt:"
 
-#: index.php:386
+#: index.php:388
 msgid "Web server"
 msgstr "Webserver"
 
-#: index.php:397
+#: index.php:399
 msgid "Database client version:"
 msgstr "Databaseklientversion:"
 
-#: index.php:401
+#: index.php:403
 msgid "PHP extension:"
 msgstr "PHP-udvidelse:"
 
-#: index.php:415
+#: index.php:417
 msgid "PHP version:"
 msgstr "PHP-version:"
 
-#: index.php:426
+#: index.php:428
 msgid "Show PHP information"
 msgstr "Vis PHP-information"
 
-#: index.php:445
+#: index.php:447
 msgid "Version information:"
 msgstr "Versionsinformation:"
 
-#: index.php:454 libraries/classes/Config/FormDisplayTemplate.php:164
+#: index.php:456 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
 #: libraries/classes/Engines/Pbxt.php:167
-#: libraries/classes/Navigation/NavigationHeader.php:203
+#: libraries/classes/Navigation/NavigationHeader.php:207
 #: libraries/classes/Sanitize.php:191 libraries/classes/Util.php:314
 #: libraries/classes/Util.php:381
 #: templates/server/variables/link_template.twig:7
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: index.php:463
+#: index.php:465
 msgid "Official Homepage"
 msgstr "Officiel phpMyAdmin hjemmeside"
 
-#: index.php:470
+#: index.php:472
 msgid "Contribute"
 msgstr "Deltag"
 
-#: index.php:477
+#: index.php:479
 msgid "Get support"
 msgstr "Få support"
 
-#: index.php:484
+#: index.php:486
 msgid "List of changes"
 msgstr "Liste over ændringer"
 
-#: index.php:491 templates/server/plugins/section.twig:13
+#: index.php:493 templates/server/plugins/section.twig:13
 msgid "License"
 msgstr "Licens"
 
-#: index.php:511
+#: index.php:513
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -778,7 +783,7 @@ msgstr ""
 "multibyte tegnsæt. Uden mbstring-udvidelsen er phpMyAdmin ude af stand til "
 "at opdele strenge korrekt og dette kan forårsage uventede resultater."
 
-#: index.php:526
+#: index.php:528
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -786,7 +791,7 @@ msgstr ""
 "Curl-udvidelsen blev ikke fundet og allow_url_fopen er deaktiveret. Derfor "
 "er nogle funktioner, som fejlrapportering og versionskontrol, deaktiveret."
 
-#: index.php:541
+#: index.php:543
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -798,7 +803,7 @@ msgstr ""
 "end cookie-gyldigheden konfigureret i phpMyAdmin; på grund af dette kan din "
 "loginsession udløbe tidligere end det som er konfigureret i phpMyAdmin."
 
-#: index.php:560
+#: index.php:562
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -807,17 +812,17 @@ msgstr ""
 "phpMyAdmin. På grund af dette, vil din login udløbe tidligere end "
 "konfigureret i phpMyAdmin."
 
-#: index.php:575
+#: index.php:577
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Konfigurationsfilen skal nu bruge et hemmeligt kodeord (blowfish_secret)."
 
-#: index.php:582
+#: index.php:584
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 "Det hemmelige password i konfigurationen (blowfish_secret) er for kort."
 
-#: index.php:596
+#: index.php:598
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -830,7 +835,7 @@ msgstr ""
 "din server kompromitteres, ved at personer uden adgangstilladelse henter din "
 "konfiguration."
 
-#: index.php:614
+#: index.php:616
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -839,21 +844,21 @@ msgstr ""
 "phpMyAdmin configuration storage er ikke fuldstændigt konfigureret; nogle "
 "udvidede funktioner er blevet deaktiverede. %sFind ud af hvorfor%s. "
 
-#: index.php:621
+#: index.php:623
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Gå eventuelt til fanen 'Handlinger' tilhørende enhver database for at "
 "opsætte den dér."
 
-#: index.php:646
+#: index.php:648
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "Server med Suhosin.Se %sdocumentation%s for mulige problemer."
 
-#: index.php:660
+#: index.php:662
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -1086,8 +1091,8 @@ msgid "Please select column(s) for the index."
 msgstr "Tilføj venligst kolonne(r) til indekset."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1894
-#: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
+#: templates/table/index_form.twig:216
 #: templates/table/relation/common_form.twig:188
 msgid "Preview SQL"
 msgstr "Forhåndsvis SQL"
@@ -1273,7 +1278,7 @@ msgid "Connections"
 msgstr "Forbindelser"
 
 #: js/messages.php:200 libraries/classes/Server/Status/Data.php:431
-#: libraries/classes/Server/Status/Processes.php:140
+#: libraries/classes/Server/Status/Processes.php:128
 msgid "Processes"
 msgstr "Processer"
 
@@ -1330,7 +1335,7 @@ msgstr "Trafik"
 
 #: js/messages.php:215 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
-#: libraries/classes/Util.php:3986
+#: libraries/classes/Util.php:3994
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -1346,14 +1351,14 @@ msgstr "Tilføj mindst en variabel til serien!"
 #: libraries/classes/Plugins/Export/ExportSql.php:2195
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
-#: libraries/classes/Server/Status/Processes.php:282
+#: libraries/classes/Server/Status/Processes.php:285
 #: libraries/config.values.php:69
+#: templates/columns_definitions/transformation.twig:4
 #: templates/database/designer/options_panel.twig:177
 #: templates/table/search/rows_zoom.twig:20
-#: templates/table/search/options_zoom.twig:12
 #: templates/display/export/options_output_compression.twig:7
+#: templates/table/search/options_zoom.twig:12
 #: templates/privileges/privileges_summary.twig:30
-#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Ingen"
 
@@ -1549,8 +1554,8 @@ msgstr "Forklar output"
 
 #: js/messages.php:292 libraries/classes/Menu.php:591
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
-#: libraries/classes/Server/Status/Processes.php:101
-#: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3982
+#: libraries/classes/Server/Status/Processes.php:89
+#: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3990
 #: libraries/config.values.php:105
 #: templates/database/tracking/tracked_tables.twig:15
 msgid "Status"
@@ -1558,11 +1563,11 @@ msgstr "Status"
 
 #: js/messages.php:293 js/messages.php:908
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:487
-#: libraries/classes/Plugins/Export/ExportOdt.php:608
+#: libraries/classes/Plugins/Export/ExportOdt.php:612
 #: libraries/classes/Plugins/Export/ExportTexytext.php:451
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:354
 #: libraries/classes/Rte/RteList.php:105
-#: libraries/classes/Server/Status/Processes.php:97
+#: libraries/classes/Server/Status/Processes.php:85
 #: libraries/classes/Sql.php:277
 msgid "Time"
 msgstr "Tid"
@@ -1669,8 +1674,8 @@ msgstr ""
 #: libraries/classes/Menu.php:391 libraries/classes/Menu.php:500
 #: libraries/classes/Menu.php:621
 #: libraries/classes/Server/Status/Monitor.php:324
-#: libraries/classes/Util.php:3985 libraries/classes/Util.php:4000
-#: libraries/classes/Util.php:4017 prefs_manage.php:228
+#: libraries/classes/Util.php:3993 libraries/classes/Util.php:4008
+#: libraries/classes/Util.php:4025 prefs_manage.php:228
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "Importér"
@@ -1731,15 +1736,14 @@ msgstr "Formatterer SQL …"
 msgid "No parameters found!"
 msgstr "Ingen parametre fundet!"
 
-#: js/messages.php:355
+#: js/messages.php:355 templates/server/variables/link_template.twig:5
 #: templates/database/designer/delete_relation_panel.twig:30
 #: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/where_query_panel.twig:85
 #: templates/database/designer/new_relation_panel.twig:90
 #: templates/database/designer/rename_to_panel.twig:45
+#: templates/database/designer/where_query_panel.twig:85
 #: templates/database/designer/having_query_panel.twig:118
-#: templates/server/variables/link_template.twig:5
+#: templates/database/designer/aggregate_query_panel.twig:64
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1791,7 +1795,7 @@ msgstr ""
 "netværksforbindelse, og server status."
 
 #: js/messages.php:373
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
 #: libraries/db_common.inc.php:72 libraries/db_table_exists.inc.php:34
 msgid "No databases selected."
 msgstr "Ingen databaser valgt."
@@ -1810,11 +1814,11 @@ msgstr "Tilføj primær nøgle"
 
 #: js/messages.php:377 templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
-#: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/database/designer/where_query_panel.twig:83
 #: templates/database/designer/new_relation_panel.twig:88
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/where_query_panel.twig:83
 #: templates/database/designer/having_query_panel.twig:114
+#: templates/database/designer/aggregate_query_panel.twig:60
 msgid "OK"
 msgstr "OK"
 
@@ -1883,9 +1887,9 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:2859
 #: libraries/classes/Server/Privileges.php:3590
 #: libraries/classes/Server/Status/Monitor.php:328
-#: libraries/classes/Util.php:3346 libraries/classes/Util.php:3347
-#: libraries/classes/Util.php:3984 libraries/classes/Util.php:3999
-#: libraries/classes/Util.php:4016 prefs_manage.php:294
+#: libraries/classes/Util.php:3352 libraries/classes/Util.php:3353
+#: libraries/classes/Util.php:3992 libraries/classes/Util.php:4007
+#: libraries/classes/Util.php:4024 prefs_manage.php:294
 #: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
 msgid "Export"
@@ -1937,12 +1941,12 @@ msgstr "Vis forespørgselsbox"
 #: libraries/classes/Display/Results.php:3336
 #: libraries/classes/Display/Results.php:4693 libraries/classes/Index.php:745
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
-#: libraries/classes/Util.php:1079 libraries/classes/Util.php:3344
-#: libraries/classes/Util.php:3345 setup/frames/index.inc.php:157
+#: libraries/classes/Util.php:1079 libraries/classes/Util.php:3350
+#: libraries/classes/Util.php:3351 setup/frames/index.inc.php:157
 #: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
+#: templates/console/bookmark_content.twig:7
 msgid "Edit"
 msgstr "Ret"
 
@@ -1954,9 +1958,9 @@ msgstr "Ret"
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:354
 #: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
-#: templates/console/bookmark_content.twig:7
 #: templates/database/search/results.twig:43
 #: templates/display/export/template_loading.twig:22
+#: templates/console/bookmark_content.twig:7
 msgid "Delete"
 msgstr "Slet"
 
@@ -2128,10 +2132,10 @@ msgstr "Der er ikke valgt afhængigheder!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
+#: templates/server/variables/link_template.twig:2
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/server/variables/link_template.twig:2
 #: templates/table/relation/common_form.twig:189
 msgid "Save"
 msgstr "Gem"
@@ -2420,9 +2424,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Klik på pilen for valgboks<br />for at skifte kolonnens synlighed."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
-#: templates/table/browse_foreigners/show_all.twig:4
-#: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
+#: templates/privileges/initials_row.twig:20
+#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Vis alle"
 
@@ -2476,7 +2480,7 @@ msgid "Select database first"
 msgstr "Vælg først en database"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4884
-#: libraries/classes/Util.php:3877
+#: libraries/classes/Util.php:3885
 #: templates/table/structure/optional_action_links.twig:1
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
@@ -3136,9 +3140,9 @@ msgstr "Nøglenavn"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/collations/charsets.twig:6
 #: templates/server/engines/engines.twig:5
 #: templates/server/plugins/section.twig:10
-#: templates/server/collations/charsets.twig:6
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -3192,31 +3196,30 @@ msgstr "NEJ"
 #: libraries/classes/Server/Privileges.php:3570
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/server/databases/table_header.twig:37
 #: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/tracked_tables.twig:16
-#: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/table/tracking/report_table.twig:8
-#: templates/privileges/privileges_summary.twig:22
-#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/databases/table_header.twig:37
 #: templates/database/tracking/untracked_tables.twig:10
+#: templates/table/tracking/report_table.twig:8
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/database/tracking/tracked_tables.twig:16
+#: templates/privileges/privileges_summary.twig:22
+#: templates/table/structure/display_partitions.twig:33
 msgid "Action"
 msgstr "Handling"
 
 #: libraries/classes/CentralColumns.php:742
 #: libraries/classes/CentralColumns.php:1428
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:486
-#: libraries/classes/Plugins/Export/ExportOdt.php:605
+#: libraries/classes/Plugins/Export/ExportOdt.php:609
 #: libraries/classes/Plugins/Export/ExportTexytext.php:450
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:352
 #: libraries/classes/Rte/Routines.php:943
 #: libraries/classes/Rte/Routines.php:1622 libraries/classes/Rte/RteList.php:88
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
-#: setup/frames/index.inc.php:141
-#: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/database/create_table.twig:11
+#: setup/frames/index.inc.php:141 templates/database/create_table.twig:11
 #: templates/table/structure/table_structure_header.twig:5
+#: templates/columns_definitions/table_fields_definitions.twig:9
 msgid "Name"
 msgstr "Navn"
 
@@ -3228,18 +3231,18 @@ msgid "Length/Values"
 msgstr "Længde/Værdi*"
 
 #: libraries/classes/CentralColumns.php:750
-#: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:273
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
+#: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:298
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1079
 #: templates/database/structure/table_header.twig:33
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/server/collations/charsets.twig:5
-#: templates/table/structure/table_structure_header.twig:7
-#: templates/table/search/table_header.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/structure/row_stats_table.twig:30
+#: templates/table/search/table_header.twig:8
+#: templates/table/tracking/structure_snapshot_columns.twig:8
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/columns_definitions/table_fields_definitions.twig:24
 msgid "Collation"
 msgstr "Tegnsæt (sortering)"
 
@@ -3268,281 +3271,281 @@ msgstr "Tilføj ny kolonne"
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:654
-#: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/table/structure/table_structure_header.twig:8
+#: templates/columns_definitions/table_fields_definitions.twig:27
 msgid "Attributes"
 msgstr "Attributter"
 
-#: libraries/classes/Charsets.php:219
+#: libraries/classes/Charsets.php:244
 #: templates/database/structure/table_header.twig:44
 msgid "Charset"
 msgstr "Tegnsæt"
 
-#: libraries/classes/Charsets.php:310
+#: libraries/classes/Charsets.php:335
 msgid "Unknown"
 msgstr "Ukendt"
 
-#: libraries/classes/Charsets.php:324
+#: libraries/classes/Charsets.php:349
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binært"
 
-#: libraries/classes/Charsets.php:336 libraries/classes/Charsets.php:566
+#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:591
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets.php:346 libraries/classes/Charsets.php:517
+#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:542
 msgctxt "Collation"
 msgid "West European"
 msgstr "Vesteuropæisk"
 
-#: libraries/classes/Charsets.php:353
+#: libraries/classes/Charsets.php:378
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Centraleuropæisk"
 
-#: libraries/classes/Charsets.php:358
+#: libraries/classes/Charsets.php:383
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Russisk"
 
-#: libraries/classes/Charsets.php:363
+#: libraries/classes/Charsets.php:388
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Kinesisk (Simplificeret)"
 
-#: libraries/classes/Charsets.php:370 libraries/classes/Charsets.php:488
+#: libraries/classes/Charsets.php:395 libraries/classes/Charsets.php:513
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japansk"
 
-#: libraries/classes/Charsets.php:375
+#: libraries/classes/Charsets.php:400
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltisk"
 
-#: libraries/classes/Charsets.php:380
+#: libraries/classes/Charsets.php:405
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armensk"
 
-#: libraries/classes/Charsets.php:383
+#: libraries/classes/Charsets.php:408
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Kinesisk (Traditionelt)"
 
-#: libraries/classes/Charsets.php:386
+#: libraries/classes/Charsets.php:411
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Kyrillisk"
 
-#: libraries/classes/Charsets.php:389
+#: libraries/classes/Charsets.php:414
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabisk"
 
-#: libraries/classes/Charsets.php:392 libraries/classes/Charsets.php:503
+#: libraries/classes/Charsets.php:417 libraries/classes/Charsets.php:528
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Koreansk"
 
-#: libraries/classes/Charsets.php:395
+#: libraries/classes/Charsets.php:420
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebræisk"
 
-#: libraries/classes/Charsets.php:398
+#: libraries/classes/Charsets.php:423
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgisk"
 
-#: libraries/classes/Charsets.php:401
+#: libraries/classes/Charsets.php:426
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Græsk"
 
-#: libraries/classes/Charsets.php:404
+#: libraries/classes/Charsets.php:429
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tjekkisk-Slovakisk"
 
-#: libraries/classes/Charsets.php:407 libraries/classes/Charsets.php:558
+#: libraries/classes/Charsets.php:432 libraries/classes/Charsets.php:583
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainsk"
 
-#: libraries/classes/Charsets.php:410 libraries/classes/Charsets.php:554
+#: libraries/classes/Charsets.php:435 libraries/classes/Charsets.php:579
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Tyrkisk"
 
-#: libraries/classes/Charsets.php:413 libraries/classes/Charsets.php:546
+#: libraries/classes/Charsets.php:438 libraries/classes/Charsets.php:571
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Svensk"
 
-#: libraries/classes/Charsets.php:416 libraries/classes/Charsets.php:550
+#: libraries/classes/Charsets.php:441 libraries/classes/Charsets.php:575
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thai"
 
-#: libraries/classes/Charsets.php:419
+#: libraries/classes/Charsets.php:444
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "ukendt"
 
-#: libraries/classes/Charsets.php:435
+#: libraries/classes/Charsets.php:460
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgarsk"
 
-#: libraries/classes/Charsets.php:440
+#: libraries/classes/Charsets.php:465
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Kinesisk"
 
-#: libraries/classes/Charsets.php:445
+#: libraries/classes/Charsets.php:470
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroatisk"
 
-#: libraries/classes/Charsets.php:449
+#: libraries/classes/Charsets.php:474
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tjekkisk"
 
-#: libraries/classes/Charsets.php:453
+#: libraries/classes/Charsets.php:478
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dansk"
 
-#: libraries/classes/Charsets.php:457
+#: libraries/classes/Charsets.php:482
 msgctxt "Collation"
 msgid "English"
 msgstr "Engelsk"
 
-#: libraries/classes/Charsets.php:461
+#: libraries/classes/Charsets.php:486
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets.php:465
+#: libraries/classes/Charsets.php:490
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estisk"
 
-#: libraries/classes/Charsets.php:468 libraries/classes/Charsets.php:585
+#: libraries/classes/Charsets.php:493 libraries/classes/Charsets.php:610
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Tysk (ordbog orden)"
 
-#: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
+#: libraries/classes/Charsets.php:496 libraries/classes/Charsets.php:607
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Tysk (Telefonbogs orden)"
 
-#: libraries/classes/Charsets.php:480
+#: libraries/classes/Charsets.php:505
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Ungarsk"
 
-#: libraries/classes/Charsets.php:484
+#: libraries/classes/Charsets.php:509
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandsk"
 
-#: libraries/classes/Charsets.php:491
+#: libraries/classes/Charsets.php:516
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Klassisk latin"
 
-#: libraries/classes/Charsets.php:495
+#: libraries/classes/Charsets.php:520
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lettisk"
 
-#: libraries/classes/Charsets.php:499
+#: libraries/classes/Charsets.php:524
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litauisk"
 
-#: libraries/classes/Charsets.php:507
+#: libraries/classes/Charsets.php:532
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Burmesisk"
 
-#: libraries/classes/Charsets.php:510
+#: libraries/classes/Charsets.php:535
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persisk"
 
-#: libraries/classes/Charsets.php:514
+#: libraries/classes/Charsets.php:539
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polsk"
 
-#: libraries/classes/Charsets.php:521
+#: libraries/classes/Charsets.php:546
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumænsk"
 
-#: libraries/classes/Charsets.php:525
+#: libraries/classes/Charsets.php:550
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Singalesisk"
 
-#: libraries/classes/Charsets.php:529
+#: libraries/classes/Charsets.php:554
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovakisk"
 
-#: libraries/classes/Charsets.php:533
+#: libraries/classes/Charsets.php:558
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovensk"
 
-#: libraries/classes/Charsets.php:536 libraries/classes/Charsets.php:596
+#: libraries/classes/Charsets.php:561 libraries/classes/Charsets.php:621
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Spansk (moderne)"
 
-#: libraries/classes/Charsets.php:543 libraries/classes/Charsets.php:593
+#: libraries/classes/Charsets.php:568 libraries/classes/Charsets.php:618
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Spansk (traditionel)"
 
-#: libraries/classes/Charsets.php:562
+#: libraries/classes/Charsets.php:587
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamesisk"
 
-#: libraries/classes/Charsets.php:629
+#: libraries/classes/Charsets.php:654
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "ingen forskel på store/små bogstaver"
 
-#: libraries/classes/Charsets.php:632
+#: libraries/classes/Charsets.php:657
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "forskel på store/små bogstaver"
 
-#: libraries/classes/Charsets.php:635
+#: libraries/classes/Charsets.php:660
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "ingen forskel med/uden accenter"
 
-#: libraries/classes/Charsets.php:638
+#: libraries/classes/Charsets.php:663
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "forskel med/uden accenter"
 
-#: libraries/classes/Charsets.php:642
+#: libraries/classes/Charsets.php:667
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "flere niveauer"
 
-#: libraries/classes/Charsets.php:645
+#: libraries/classes/Charsets.php:670
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binært"
@@ -4055,7 +4058,7 @@ msgstr "Mærke nøgle"
 #: libraries/classes/Config/Descriptions.php:310
 #: libraries/classes/Config/Descriptions.php:334
 #: libraries/classes/Config/Descriptions.php:399
-#: libraries/classes/Plugins/Export/ExportOdt.php:507
+#: libraries/classes/Plugins/Export/ExportOdt.php:511
 #: templates/columns_definitions/table_fields_definitions.twig:71
 msgid "MIME type"
 msgstr "MIME-type"
@@ -4286,7 +4289,7 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1276
-#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3980
+#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3988
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "Databaser"
@@ -4423,9 +4426,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:364
 #: libraries/classes/Menu.php:467 libraries/classes/Menu.php:587
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:3044 libraries/classes/Util.php:3054
-#: libraries/classes/Util.php:3060 libraries/classes/Util.php:3981
-#: libraries/classes/Util.php:3996 libraries/classes/Util.php:4013
+#: libraries/classes/Util.php:3050 libraries/classes/Util.php:3060
+#: libraries/classes/Util.php:3066 libraries/classes/Util.php:3989
+#: libraries/classes/Util.php:4004 libraries/classes/Util.php:4021
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:111 libraries/config.values.php:117
 msgid "SQL"
@@ -5852,7 +5855,7 @@ msgstr "Forklar SQL"
 
 #: libraries/classes/Config/Descriptions.php:1333
 #: libraries/classes/Export.php:513
-#: libraries/classes/Server/Status/Processes.php:235
+#: libraries/classes/Server/Status/Processes.php:238
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1124 templates/console/display.twig:99
 msgid "Refresh"
@@ -5925,7 +5928,7 @@ msgstr "Titel på browservindue, når en database er valgt."
 #: libraries/classes/Server/Privileges.php:3357
 #: libraries/classes/Server/Privileges.php:3359
 #: libraries/classes/Server/Privileges.php:4565
-#: libraries/classes/Server/Status/Processes.php:89
+#: libraries/classes/Server/Status/Processes.php:77
 #: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/server/databases/table_header.twig:8
 #: templates/console/bookmark_content.twig:7
@@ -5967,10 +5970,10 @@ msgstr "Titel på browservindue, når en tabel er valgt."
 #: libraries/classes/Server/Privileges.php:3365
 #: libraries/classes/Server/Privileges.php:4579
 #: templates/database/structure/table_header.twig:8
-#: templates/database/tracking/tracked_tables.twig:11
-#: templates/table/relation/foreign_key_row.twig:110
-#: templates/table/relation/internal_relational_row.twig:17
 #: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/database/tracking/tracked_tables.twig:11
+#: templates/table/relation/internal_relational_row.twig:17
 #: templates/table/relation/common_form.twig:33
 msgid "Table"
 msgstr "Tabel"
@@ -6182,28 +6185,28 @@ msgid "Order by"
 msgstr "Rækkefølge:"
 
 #: libraries/classes/Config/FormDisplay.php:99
-#: libraries/classes/Config/Validator.php:524
+#: libraries/classes/Config/Validator.php:528
 msgid "Not a positive number!"
 msgstr "Ikke et positivt tal!"
 
 #: libraries/classes/Config/FormDisplay.php:100
-#: libraries/classes/Config/Validator.php:546
+#: libraries/classes/Config/Validator.php:550
 msgid "Not a non-negative number!"
 msgstr "Ikke et ikke-negativt tal!"
 
 #: libraries/classes/Config/FormDisplay.php:101
-#: libraries/classes/Config/Validator.php:502
+#: libraries/classes/Config/Validator.php:506
 msgid "Not a valid port number!"
 msgstr "Ikke et gyldigt portnummer!"
 
 #: libraries/classes/Config/FormDisplay.php:102
 #: libraries/classes/Config/FormDisplay.php:656
-#: libraries/classes/Config/Validator.php:567
+#: libraries/classes/Config/Validator.php:571
 msgid "Incorrect value!"
 msgstr "Ukorrekt værdi!"
 
 #: libraries/classes/Config/FormDisplay.php:103
-#: libraries/classes/Config/Validator.php:583
+#: libraries/classes/Config/Validator.php:587
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Værdien skal være mindre end eller lig med %s!"
@@ -6464,37 +6467,37 @@ msgstr ""
 "%1$sGZip komprimering og dekomprimering%2$s kræver funktioner (%3$s) som "
 "ikke er tilgængelige på dette system."
 
-#: libraries/classes/Config/Validator.php:210
-#: libraries/classes/Config/Validator.php:217
+#: libraries/classes/Config/Validator.php:214
+#: libraries/classes/Config/Validator.php:221
 msgid "Could not connect to the database server!"
 msgstr "Kunne ikke forbinde databaseserveren!"
 
-#: libraries/classes/Config/Validator.php:249
+#: libraries/classes/Config/Validator.php:253
 msgid "Invalid authentication type!"
 msgstr "Invalid autentifikationstype!"
 
-#: libraries/classes/Config/Validator.php:256
+#: libraries/classes/Config/Validator.php:260
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Tomt brugernavn ved brug af [kbd]config[/kbd] autentifikation!"
 
-#: libraries/classes/Config/Validator.php:264
+#: libraries/classes/Config/Validator.php:268
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 "Tomt signon sessionsnavn ved brug af [kbd]signon[/kbd] autentifikation!"
 
-#: libraries/classes/Config/Validator.php:273
+#: libraries/classes/Config/Validator.php:277
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Tom signon URL ved brug af [kbd]signon[/kbd] autentifikation!"
 
-#: libraries/classes/Config/Validator.php:326
+#: libraries/classes/Config/Validator.php:330
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Tom phpMyAdmin kontrolbruger ved brug af phpMyAdmin konfiguration lager!"
 
-#: libraries/classes/Config/Validator.php:333
+#: libraries/classes/Config/Validator.php:337
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -6502,11 +6505,11 @@ msgstr ""
 "Tom phpMyAdmin adgangskode for kontrolbruger ved brug af phpMyAdmin "
 "konfiguration lager!"
 
-#: libraries/classes/Config/Validator.php:431
+#: libraries/classes/Config/Validator.php:435
 msgid "Incorrect value:"
 msgstr "Forkert værdi:"
 
-#: libraries/classes/Config/Validator.php:440
+#: libraries/classes/Config/Validator.php:444
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Ukorrekt IP-adresse: %s"
@@ -6530,25 +6533,25 @@ msgstr "SQL Query-konsol"
 msgid "Favorite List is full!"
 msgstr "Favoritliste er fyldt!"
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:582
-#: tbl_operations.php:408
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:567
+#: tbl_operations.php:423
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabel %s blev tømt."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:603
-#: tbl_operations.php:426 view_operations.php:130
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:588
+#: tbl_operations.php:441 view_operations.php:130
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Visning %s er blevet slettet."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:604
-#: tbl_operations.php:427
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:589
+#: tbl_operations.php:442
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabel %s blev slettet."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:815
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:797
 #: libraries/classes/Display/Results.php:4538
 #, php-format
 msgid ""
@@ -6557,7 +6560,7 @@ msgid ""
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
-#: libraries/classes/Controllers/Database/DatabaseStructureController.php:1031
+#: libraries/classes/Controllers/Database/DatabaseStructureController.php:1013
 msgid "unknown"
 msgstr "ukendt"
 
@@ -6597,12 +6600,12 @@ msgid "Previous"
 msgstr "Forrige"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:211
-#: libraries/classes/Server/Status/Processes.php:182
+#: libraries/classes/Server/Status/Processes.php:185
 msgid "Truncate Shown Queries"
 msgstr "Trunker viste forespørgsler"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:215
-#: libraries/classes/Server/Status/Processes.php:185
+#: libraries/classes/Server/Status/Processes.php:188
 msgid "Show Full Queries"
 msgstr "Vis fuldstændige forespørgsler"
 
@@ -6614,28 +6617,28 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Næste"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:163
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:169
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Database %1$s er oprettet."
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:202
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:208
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d databaser er blevet droppet korrekt."
 msgstr[1] "%1$d databaser er blevet droppet korrekt."
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
 #: templates/database/structure/table_header.twig:26
-#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/actions_in_table_structure.twig:114
 #: templates/table/structure/row_stats_table.twig:41
+#: templates/table/structure/display_partitions.twig:28
 msgid "Rows"
 msgstr "Rækker"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:347
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:353
 #: libraries/classes/Index.php:695 libraries/classes/Index.php:706
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
@@ -6643,27 +6646,27 @@ msgstr "Rækker"
 msgid "Indexes"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:352
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:358
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Total"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:357
-#: templates/table/structure/display_table_stats.twig:32
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:363
 #: templates/database/structure/table_header.twig:40
+#: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Overhead"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:424
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:430
 #: templates/database/structure/structure_table_row.twig:15
 msgid "Not replicated"
 msgstr "Ikke replikeret"
 
-#: libraries/classes/Controllers/Server/ServerDatabasesController.php:437
+#: libraries/classes/Controllers/Server/ServerDatabasesController.php:443
 #: templates/database/structure/structure_table_row.twig:16
 msgid "Replicated"
 msgstr "Replikeret"
@@ -6693,7 +6696,7 @@ msgstr "Ingen data til visning"
 
 #: libraries/classes/Controllers/Table/TableIndexesController.php:157
 #: libraries/classes/Controllers/Table/TableStructureController.php:750
-#: libraries/classes/Controllers/Table/TableStructureController.php:997
+#: libraries/classes/Controllers/Table/TableStructureController.php:1008
 #: tbl_addfield.php:96
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -6750,49 +6753,49 @@ msgid "Failed to get description of column %s!"
 msgstr "Kunne ikke hente beskrivelse af kolonne %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:761
-#: libraries/classes/Controllers/Table/TableStructureController.php:1046
+#: libraries/classes/Controllers/Table/TableStructureController.php:1057
 #: libraries/classes/Tracking.php:780
 msgid "Query error"
 msgstr "Forespørgselsfejl"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:991
+#: libraries/classes/Controllers/Table/TableStructureController.php:1002
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabel %1$s er blevet ændret. Rettighederne er justeret."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1207
+#: libraries/classes/Controllers/Table/TableStructureController.php:1218
 #: templates/table/structure/check_all_table_column.twig:17
 msgid "Change"
 msgstr "Ret"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1208
-#: libraries/classes/Controllers/Table/TableStructureController.php:1209
+#: libraries/classes/Controllers/Table/TableStructureController.php:1219
+#: libraries/classes/Controllers/Table/TableStructureController.php:1220
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1610
-#: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3340
-#: libraries/classes/Util.php:3341
-#: templates/database/structure/check_all_tables.twig:16
-#: templates/table/structure/display_structure.twig:189
+#: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3346
+#: libraries/classes/Util.php:3347
 #: templates/server/databases/databases_footer.twig:55
-#: templates/table/relation/foreign_key_row.twig:30
+#: templates/table/structure/display_structure.twig:191
 #: templates/table/structure/check_all_table_column.twig:24
+#: templates/table/relation/foreign_key_row.twig:30
+#: templates/database/structure/check_all_tables.twig:16
 msgid "Drop"
 msgstr "Slet"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1211
-#: libraries/classes/Controllers/Table/TableStructureController.php:1216
+#: libraries/classes/Controllers/Table/TableStructureController.php:1222
+#: libraries/classes/Controllers/Table/TableStructureController.php:1227
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/table/tracking/structure_snapshot_columns.twig:27
 #: templates/table/structure/check_all_table_column.twig:47
 #: templates/columns_definitions/column_indexes.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/display_table_stats.twig:24
+#: templates/columns_definitions/table_fields_definitions.twig:46
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1212
-#: libraries/classes/Controllers/Table/TableStructureController.php:1217
+#: libraries/classes/Controllers/Table/TableStructureController.php:1223
+#: libraries/classes/Controllers/Table/TableStructureController.php:1228
 #: libraries/classes/Index.php:721
 #: templates/table/structure/check_all_table_column.twig:40
 #: templates/columns_definitions/column_indexes.twig:8
@@ -6800,21 +6803,21 @@ msgstr "Indeks"
 msgid "Unique"
 msgstr "Unik"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1213
-#: libraries/classes/Controllers/Table/TableStructureController.php:1218
+#: libraries/classes/Controllers/Table/TableStructureController.php:1224
+#: libraries/classes/Controllers/Table/TableStructureController.php:1229
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "Spatial"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1214
-#: libraries/classes/Controllers/Table/TableStructureController.php:1219
+#: libraries/classes/Controllers/Table/TableStructureController.php:1225
+#: libraries/classes/Controllers/Table/TableStructureController.php:1230
 #: templates/table/structure/check_all_table_column.twig:54
 #: templates/table/structure/check_all_table_column.twig:66
 #: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "Fuldtekst"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1220
+#: libraries/classes/Controllers/Table/TableStructureController.php:1231
 msgid "Distinct values"
 msgstr "Distinkte værdier"
 
@@ -6824,7 +6827,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s-udvidelsen mangler. Tjek din PHP-konfiguration."
 
 #: libraries/classes/Core.php:842 libraries/mult_submits.inc.php:340
-#: tbl_operations.php:245 tbl_replace.php:321 templates/preview_sql.twig:3
+#: tbl_operations.php:260 tbl_replace.php:334 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ingen ændring"
 
@@ -7020,7 +7023,7 @@ msgstr "som regulært udtryk"
 msgid "Words are separated by a space character (\" \")."
 msgstr "Ord adskilles af mellemrumstegn (\" \")."
 
-#: libraries/classes/DatabaseInterface.php:1505
+#: libraries/classes/DatabaseInterface.php:1503
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -7031,11 +7034,11 @@ msgstr ""
 "konfigurationsindstilling for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
 "em]. phpMyAdmin anvender i øjeblikket databaseserverens standardtidszone."
 
-#: libraries/classes/DatabaseInterface.php:1552
+#: libraries/classes/DatabaseInterface.php:1550
 msgid "Failed to set configured collation connection!"
 msgstr "Kunne ikke indstille den konfigurerede sorteringsforbindelse!"
 
-#: libraries/classes/DatabaseInterface.php:2170
+#: libraries/classes/DatabaseInterface.php:2168
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -7043,37 +7046,37 @@ msgstr ""
 "Serveren svarer ikke (eller den lokale servers socket er ikke korrekt "
 "konfigureret)."
 
-#: libraries/classes/DatabaseInterface.php:2175
+#: libraries/classes/DatabaseInterface.php:2173
 msgid "The server is not responding."
 msgstr "Serveren svarer ikke."
 
-#: libraries/classes/DatabaseInterface.php:2179
+#: libraries/classes/DatabaseInterface.php:2177
 msgid "Logout and try as another user."
 msgstr "Logud og prøv en anden bruger."
 
-#: libraries/classes/DatabaseInterface.php:2185
+#: libraries/classes/DatabaseInterface.php:2183
 msgid "Please check privileges of directory containing database."
 msgstr "Tjek venligst privilegier for mappen som indeholder databasen."
 
-#: libraries/classes/DatabaseInterface.php:2196
+#: libraries/classes/DatabaseInterface.php:2194
 msgid "Details…"
 msgstr "Detaljer…"
 
-#: libraries/classes/DatabaseInterface.php:2500
+#: libraries/classes/DatabaseInterface.php:2498
 msgid "Missing connection parameters!"
 msgstr "Manglende forbindelses parametre!"
 
-#: libraries/classes/DatabaseInterface.php:2527
+#: libraries/classes/DatabaseInterface.php:2525
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Forbindelse for kontrolbruger som defineret i din konfiguration slog fejl."
 
-#: libraries/classes/DatabaseInterface.php:3043
+#: libraries/classes/DatabaseInterface.php:3041
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Se %sour documentation%s for yderligere information."
 
-#: libraries/classes/DatabaseInterface.php:3060
+#: libraries/classes/DatabaseInterface.php:3058
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
@@ -7241,26 +7244,26 @@ msgstr "Komplette tekster"
 #: libraries/classes/Display/Results.php:2117
 #: libraries/classes/Display/Results.php:2131
 #: libraries/classes/Operations.php:818
-#: libraries/classes/Server/Status/Processes.php:169
-#: libraries/classes/Util.php:4690 libraries/classes/Util.php:4707
+#: libraries/classes/Server/Status/Processes.php:157
+#: libraries/classes/Util.php:4698 libraries/classes/Util.php:4715
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/database/multi_table_query/form.twig:63
-#: templates/server/databases/databases_header.twig:22
 #: templates/table/search/options.twig:54
+#: templates/server/databases/databases_header.twig:22
 msgid "Descending"
 msgstr "Faldende"
 
 #: libraries/classes/Display/Results.php:2121
 #: libraries/classes/Display/Results.php:2127
 #: libraries/classes/Operations.php:815
-#: libraries/classes/Server/Status/Processes.php:172
-#: libraries/classes/Util.php:4685 libraries/classes/Util.php:4702
+#: libraries/classes/Server/Status/Processes.php:160
+#: libraries/classes/Util.php:4693 libraries/classes/Util.php:4710
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/database/multi_table_query/form.twig:62
-#: templates/server/databases/databases_header.twig:22
 #: templates/table/search/options.twig:54
+#: templates/server/databases/databases_header.twig:22
 msgid "Ascending"
 msgstr "Stigende"
 
@@ -7271,7 +7274,7 @@ msgstr "Rækken er slettet."
 
 #: libraries/classes/Display/Results.php:3429
 #: libraries/classes/Display/Results.php:4677
-#: libraries/classes/Server/Status/Processes.php:276
+#: libraries/classes/Server/Status/Processes.php:279
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
@@ -7301,9 +7304,9 @@ msgstr "Forespørgsel tog %01.4f sekunder."
 
 #: libraries/classes/Display/Results.php:4682
 #: libraries/classes/Display/Results.php:4689 libraries/mult_submits.inc.php:57
+#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Med det markerede:"
 
@@ -7312,10 +7315,10 @@ msgstr "Med det markerede:"
 #: libraries/classes/Server/Privileges.php:1192
 #: libraries/classes/Server/Privileges.php:1193
 #: libraries/classes/Server/UserGroups.php:248
-#: templates/database/structure/check_all_tables.twig:3
-#: templates/database/structure/check_all_tables.twig:4
 #: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
 #: templates/select_all.twig:5
+#: templates/database/structure/check_all_tables.twig:3
+#: templates/database/structure/check_all_tables.twig:4
 msgid "Check all"
 msgstr "Vælg alle"
 
@@ -7863,10 +7866,10 @@ msgstr "Rediger struktur ved at følge linket \"Struktur\"."
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946 templates/console/display.twig:7
-#: templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
+#: libraries/classes/Rte/Routines.php:946
 #: templates/display/results/options_block.twig:10
+#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/table/structure/row_stats_table.twig:19
 #: templates/table/search/options.twig:1
 msgid "Options"
 msgstr "Indstillinger"
@@ -7930,11 +7933,11 @@ msgstr "Kardinalitet"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/database/structure/table_header.twig:48
 #: templates/columns_definitions/partitions.twig:85
-#: templates/table/structure/display_partitions.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/database/structure/table_header.twig:48
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/table/structure/display_partitions.twig:31
 msgid "Comment"
 msgstr "Kommentar"
 
@@ -7981,13 +7984,12 @@ msgstr "På grund af feltets længde,<br /> kan det muligvis ikke ændres."
 msgid "Binary - do not edit"
 msgstr "Binært - må ikke ændres"
 
-#: libraries/classes/InsertEdit.php:1498 libraries/classes/Util.php:3306
+#: libraries/classes/InsertEdit.php:1498 libraries/classes/Util.php:3312
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Mappen du har sat til upload-arbejde kan ikke findes."
 
-#: libraries/classes/InsertEdit.php:1501
+#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
 #: templates/privileges/column_privileges.twig:17
-#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "Eller"
 
@@ -8045,11 +8047,11 @@ msgstr ""
 #: libraries/classes/Server/Status/Variables.php:229
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
-#: templates/database/designer/where_query_panel.twig:69
-#: templates/table/search/zoom_result_form.twig:36
-#: templates/database/designer/having_query_panel.twig:100
 #: templates/table/search/table_header.twig:10
 #: templates/server/variables/variable_table_head.twig:5
+#: templates/database/designer/where_query_panel.twig:69
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "Værdi"
 
@@ -8084,8 +8086,8 @@ msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (nær <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:277
-#: libraries/classes/Navigation/Nodes/NodeView.php:30 tbl_operations.php:65
-#: tbl_operations.php:227 tbl_structure.php:36
+#: libraries/classes/Navigation/Nodes/NodeView.php:30 tbl_operations.php:74
+#: tbl_operations.php:242 tbl_structure.php:36
 #: templates/database/structure/structure_table_row.twig:98
 #: templates/database/structure/structure_table_row.twig:163
 msgid "View"
@@ -8098,21 +8100,21 @@ msgstr "\"%s\""
 
 #: libraries/classes/Menu.php:350
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Util.php:3047 libraries/classes/Util.php:3057
-#: libraries/classes/Util.php:3333 libraries/classes/Util.php:3334
-#: libraries/classes/Util.php:4011 libraries/config.values.php:42
+#: libraries/classes/Util.php:3053 libraries/classes/Util.php:3063
+#: libraries/classes/Util.php:3339 libraries/classes/Util.php:3340
+#: libraries/classes/Util.php:4019 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/database/search/results.twig:34
 #: templates/table/structure/check_all_table_column.twig:8
+#: templates/database/search/results.twig:34
 msgid "Browse"
 msgstr "Vis"
 
 #: libraries/classes/Menu.php:367 libraries/classes/Menu.php:470
 #: libraries/classes/Navigation/Nodes/NodeTable.php:291
-#: libraries/classes/Util.php:3045 libraries/classes/Util.php:3055
-#: libraries/classes/Util.php:3061 libraries/classes/Util.php:3335
-#: libraries/classes/Util.php:3336 libraries/classes/Util.php:3997
-#: libraries/classes/Util.php:4014 libraries/config.values.php:40
+#: libraries/classes/Util.php:3051 libraries/classes/Util.php:3061
+#: libraries/classes/Util.php:3067 libraries/classes/Util.php:3341
+#: libraries/classes/Util.php:3342 libraries/classes/Util.php:4005
+#: libraries/classes/Util.php:4022 libraries/config.values.php:40
 #: libraries/config.values.php:48 libraries/config.values.php:112
 #: libraries/config.values.php:118
 msgid "Search"
@@ -8121,9 +8123,9 @@ msgstr "Søg"
 #: libraries/classes/Menu.php:377
 #: libraries/classes/Navigation/Nodes/NodeTable.php:294
 #: libraries/classes/SqlQueryForm.php:290
-#: libraries/classes/SqlQueryForm.php:293 libraries/classes/Util.php:3046
-#: libraries/classes/Util.php:3056 libraries/classes/Util.php:3337
-#: libraries/classes/Util.php:3338 libraries/classes/Util.php:4015
+#: libraries/classes/SqlQueryForm.php:293 libraries/classes/Util.php:3052
+#: libraries/classes/Util.php:3062 libraries/classes/Util.php:3343
+#: libraries/classes/Util.php:3344 libraries/classes/Util.php:4023
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:119
 msgid "Insert"
@@ -8131,37 +8133,37 @@ msgstr "Indsæt"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
 #: libraries/classes/Server/Privileges.php:2582
-#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4002
-#: libraries/classes/Util.php:4018 libraries/config.values.php:107
-#: templates/server/sub_page_header.twig:2
+#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4010
+#: libraries/classes/Util.php:4026 libraries/config.values.php:107
 #: templates/privileges/privileges_summary.twig:15
+#: templates/server/sub_page_header.twig:2
 msgid "Privileges"
 msgstr "Privilegier"
 
 #: libraries/classes/Menu.php:410 libraries/classes/Menu.php:418
-#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3048
-#: libraries/classes/Util.php:3062 libraries/classes/Util.php:4001
-#: libraries/classes/Util.php:4019 libraries/config.values.php:113
+#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3054
+#: libraries/classes/Util.php:3068 libraries/classes/Util.php:4009
+#: libraries/classes/Util.php:4027 libraries/config.values.php:113
 #: view_operations.php:101
 msgid "Operations"
 msgstr "Operationer"
 
 #: libraries/classes/Menu.php:423 libraries/classes/Menu.php:534
-#: libraries/classes/Relation.php:279 libraries/classes/Util.php:4006
-#: libraries/classes/Util.php:4020
+#: libraries/classes/Relation.php:279 libraries/classes/Util.php:4014
+#: libraries/classes/Util.php:4028
 msgid "Tracking"
 msgstr "Sporing"
 
 #: libraries/classes/Menu.php:435 libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:579
-#: libraries/classes/Plugins/Export/ExportOdt.php:716
+#: libraries/classes/Plugins/Export/ExportOdt.php:720
 #: libraries/classes/Plugins/Export/ExportPdf.php:280
 #: libraries/classes/Plugins/Export/ExportSql.php:2043
 #: libraries/classes/Plugins/Export/ExportTexytext.php:537
 #: libraries/classes/Plugins/Export/ExportXml.php:126
-#: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:4005
-#: libraries/classes/Util.php:4021
+#: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:4013
+#: libraries/classes/Util.php:4029
 msgid "Triggers"
 msgstr "Triggers/udløsere"
 
@@ -8170,12 +8172,12 @@ msgstr "Triggers/udløsere"
 msgid "Database seems to be empty!"
 msgstr "Database ser ud til at være tom!"
 
-#: libraries/classes/Menu.php:477 libraries/classes/Util.php:3998
+#: libraries/classes/Menu.php:477 libraries/classes/Util.php:4006
 msgid "Query"
 msgstr "Foresp. via eks"
 
 #: libraries/classes/Menu.php:517 libraries/classes/Rte/Words.php:49
-#: libraries/classes/Util.php:4003
+#: libraries/classes/Util.php:4011
 msgid "Routines"
 msgstr "Rutiner"
 
@@ -8183,15 +8185,15 @@ msgstr "Rutiner"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:965
 #: libraries/classes/Plugins/Export/ExportXml.php:106
-#: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4004
+#: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4012
 msgid "Events"
 msgstr "Hændelser"
 
-#: libraries/classes/Menu.php:540 libraries/classes/Util.php:4007
+#: libraries/classes/Menu.php:540 libraries/classes/Util.php:4015
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/classes/Menu.php:549 libraries/classes/Util.php:4008
+#: libraries/classes/Menu.php:549 libraries/classes/Util.php:4016
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Centerkolonner"
@@ -8201,34 +8203,34 @@ msgid "User accounts"
 msgstr "Brugerkonti"
 
 #: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
-#: libraries/classes/Util.php:3987 templates/server/sub_page_header.twig:2
+#: libraries/classes/Util.php:3995 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr "Binær log"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
-#: libraries/classes/Util.php:3988
-#: templates/database/structure/body_for_table_summary.twig:11
+#: libraries/classes/Util.php:3996
 #: templates/database/structure/table_header.twig:10
+#: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Replikation"
 
 #: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:194
-#: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3989
+#: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3997
 #: libraries/config.values.php:106 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
 msgstr "Variable"
 
-#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3990
+#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3998
 msgid "Charsets"
 msgstr "Tegnsæt"
 
-#: libraries/classes/Menu.php:653 libraries/classes/Util.php:3992
+#: libraries/classes/Menu.php:653 libraries/classes/Util.php:4000
 msgid "Engines"
 msgstr "Lagring"
 
-#: libraries/classes/Menu.php:657 libraries/classes/Util.php:3991
+#: libraries/classes/Menu.php:657 libraries/classes/Util.php:3999
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr "Udvidelsesmoduler"
@@ -8333,32 +8335,32 @@ msgstr "Views:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/tracking/tracked_tables.twig:17
 #: templates/database/multi_table_query/form.twig:44
+#: templates/database/tracking/tracked_tables.twig:17
 msgid "Show"
 msgstr "Vis"
 
-#: libraries/classes/Navigation/NavigationHeader.php:165
+#: libraries/classes/Navigation/NavigationHeader.php:169
 msgid "Home"
 msgstr "Hjem"
 
-#: libraries/classes/Navigation/NavigationHeader.php:173
+#: libraries/classes/Navigation/NavigationHeader.php:177
 msgid "Log out"
 msgstr "Log af"
 
-#: libraries/classes/Navigation/NavigationHeader.php:175
+#: libraries/classes/Navigation/NavigationHeader.php:179
 msgid "Empty session data"
 msgstr "Ingen session data"
 
-#: libraries/classes/Navigation/NavigationHeader.php:193
+#: libraries/classes/Navigation/NavigationHeader.php:197
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin dokumentation"
 
-#: libraries/classes/Navigation/NavigationHeader.php:213
+#: libraries/classes/Navigation/NavigationHeader.php:217
 msgid "Navigation panel settings"
 msgstr "Navigationspanel indstillinger"
 
-#: libraries/classes/Navigation/NavigationHeader.php:224
+#: libraries/classes/Navigation/NavigationHeader.php:228
 msgid "Reload navigation panel"
 msgstr "Genindlæs navigationspanel"
 
@@ -8536,7 +8538,7 @@ msgstr "Vælg én…"
 msgid "No such column"
 msgstr "Ingen sådan kolonne"
 
-#: libraries/classes/Normalization.php:211 libraries/classes/Types.php:722
+#: libraries/classes/Normalization.php:211 libraries/classes/Types.php:745
 #: normalization.php:25
 msgctxt "string types"
 msgid "String"
@@ -8935,8 +8937,8 @@ msgid "Flush the table (FLUSH)"
 msgstr "Udskriv tabellen (\"FLUSH\")"
 
 #: libraries/classes/Operations.php:1475
-#: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
+#: templates/table/structure/display_table_stats.twig:61
 msgid "Optimize table"
 msgstr "Optimer tabel"
 
@@ -8960,32 +8962,32 @@ msgid "Delete the table (DROP)"
 msgstr "Slet tabellen (DROP)"
 
 #: libraries/classes/Operations.php:1593
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Analyze"
 msgstr "Analyser"
 
 #: libraries/classes/Operations.php:1594
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Check"
 msgstr "Tjek"
 
 #: libraries/classes/Operations.php:1595
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Optimize"
 msgstr "Optimer"
 
 #: libraries/classes/Operations.php:1596
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Rebuild"
 msgstr "Genopbyg"
 
 #: libraries/classes/Operations.php:1597
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Repair"
 msgstr "Reparer"
 
 #: libraries/classes/Operations.php:1598
-#: templates/table/structure/display_structure.twig:180
+#: templates/table/structure/display_structure.twig:182
 msgid "Truncate"
 msgstr "Afkort"
 
@@ -9130,7 +9132,7 @@ msgstr "Du har ikke tilladelse til at logge ind på denne MySQL server!"
 msgid "Wrong username/password. Access denied."
 msgstr "Forkert brugernavn/adgangskode. Adgang nægtet."
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:83
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:135
 msgid "Can not find signon authentication script:"
 msgstr "Kunne ikke finde scriptet til autentifikation af log ind:"
 
@@ -9250,7 +9252,7 @@ msgid "Dumping data for table"
 msgstr "Data dump for tabellen"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:488
-#: libraries/classes/Plugins/Export/ExportOdt.php:611
+#: libraries/classes/Plugins/Export/ExportOdt.php:615
 #: libraries/classes/Plugins/Export/ExportTexytext.php:452
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:356
 #: libraries/classes/Rte/RteList.php:106 libraries/classes/Rte/Triggers.php:379
@@ -9258,7 +9260,7 @@ msgid "Event"
 msgstr "Hændelse"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:489
-#: libraries/classes/Plugins/Export/ExportOdt.php:614
+#: libraries/classes/Plugins/Export/ExportOdt.php:618
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
 #: libraries/classes/Rte/Events.php:500 libraries/classes/Rte/Routines.php:1010
@@ -9267,21 +9269,21 @@ msgid "Definition"
 msgstr "Definition"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:561
-#: libraries/classes/Plugins/Export/ExportOdt.php:693
+#: libraries/classes/Plugins/Export/ExportOdt.php:697
 #: libraries/classes/Plugins/Export/ExportSql.php:2012
 #: libraries/classes/Plugins/Export/ExportTexytext.php:517
 msgid "Table structure for table"
 msgstr "Struktur-dump for tabellen"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:586
-#: libraries/classes/Plugins/Export/ExportOdt.php:726
+#: libraries/classes/Plugins/Export/ExportOdt.php:730
 #: libraries/classes/Plugins/Export/ExportSql.php:2082
 #: libraries/classes/Plugins/Export/ExportTexytext.php:542
 msgid "Structure for view"
 msgstr "Struktur for visning"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:600
-#: libraries/classes/Plugins/Export/ExportOdt.php:747
+#: libraries/classes/Plugins/Export/ExportOdt.php:751
 #: libraries/classes/Plugins/Export/ExportSql.php:2127
 #: libraries/classes/Plugins/Export/ExportTexytext.php:558
 msgid "Stand-in structure for view"
@@ -10589,7 +10591,7 @@ msgstr "Variabel"
 #: libraries/classes/ReplicationGui.php:626
 #: libraries/classes/ReplicationGui.php:709
 #: libraries/classes/ReplicationGui.php:843
-#: libraries/classes/Server/Status/Processes.php:85
+#: libraries/classes/Server/Status/Processes.php:73
 msgid "Host"
 msgstr "Vært"
 
@@ -11463,8 +11465,8 @@ msgstr "Login-information"
 
 #: libraries/classes/Server/Privileges.php:1534
 #: libraries/classes/Server/Privileges.php:1692
-#: templates/privileges/add_privileges_routine.twig:7
 #: templates/privileges/add_privileges_table.twig:7
+#: templates/privileges/add_privileges_routine.twig:7
 msgid "Use text field"
 msgstr "Brug tekstfelt"
 
@@ -11675,7 +11677,7 @@ msgid "Privileges for %s"
 msgstr "Privilegier for %s"
 
 #: libraries/classes/Server/Privileges.php:4476
-#: libraries/classes/Server/Status/Processes.php:81
+#: libraries/classes/Server/Status/Processes.php:69
 #: libraries/classes/Server/UserGroups.php:49
 msgid "User"
 msgstr "Bruger"
@@ -11847,7 +11849,7 @@ msgstr ""
 "ingen klart synlig forskel var."
 
 #: libraries/classes/Server/Status/Data.php:115
-#: libraries/classes/Server/Status/Processes.php:109
+#: libraries/classes/Server/Status/Processes.php:97
 msgid "SQL query"
 msgstr "SQL-forespørgsel"
 
@@ -12133,24 +12135,24 @@ msgstr ""
 "Bemærk: Aktivering af auto-genopfrisk her kan forårsage tung trafik mellem "
 "webserveren og MySQL-serveren."
 
-#: libraries/classes/Server/Status/Processes.php:77
+#: libraries/classes/Server/Status/Processes.php:65
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:93
+#: libraries/classes/Server/Status/Processes.php:81
 msgid "Command"
 msgstr "Kommando"
 
-#: libraries/classes/Server/Status/Processes.php:105
+#: libraries/classes/Server/Status/Processes.php:93
 msgid "Progress"
 msgstr "Fremskridt"
 
-#: libraries/classes/Server/Status/Processes.php:232
+#: libraries/classes/Server/Status/Processes.php:235
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
 msgid "Filters"
 msgstr "Filtre"
 
-#: libraries/classes/Server/Status/Processes.php:240
+#: libraries/classes/Server/Status/Processes.php:243
 msgid "Show only active"
 msgstr "Vis kun aktive"
 
@@ -13124,39 +13126,39 @@ msgstr "Denne MySQL-server understøtter ikke %s datalager."
 msgid "Unknown table status:"
 msgstr "Ukendt tabel status:"
 
-#: libraries/classes/Table.php:893
+#: libraries/classes/Table.php:911
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Kildedatabasen '%s' blev ikke fundet!"
 
-#: libraries/classes/Table.php:901
+#: libraries/classes/Table.php:919
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Mål-databasen '%s' blev ikke fundet!"
 
-#: libraries/classes/Table.php:1444
+#: libraries/classes/Table.php:1462
 msgid "Invalid database:"
 msgstr "Ugyldig database:"
 
-#: libraries/classes/Table.php:1461
+#: libraries/classes/Table.php:1479
 msgid "Invalid table name:"
 msgstr "Ugyldigt tabelnavn:"
 
-#: libraries/classes/Table.php:1496
+#: libraries/classes/Table.php:1514
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Fejl ved omdøbning af tabel %1$s til %2$s!"
 
-#: libraries/classes/Table.php:1515
+#: libraries/classes/Table.php:1533
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabellen %1$s er nu omdøbt til %2$s."
 
-#: libraries/classes/Table.php:1746
+#: libraries/classes/Table.php:1767
 msgid "Could not save table UI preferences!"
 msgstr "Kunne ikke gemme indstillinger af brugergrænseflade for tabel!"
 
-#: libraries/classes/Table.php:1776
+#: libraries/classes/Table.php:1797
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13165,7 +13167,7 @@ msgstr ""
 "Kunne ikke rydde op i indstillinger for tabel-UI (se $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1929
+#: libraries/classes/Table.php:1950
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13176,19 +13178,19 @@ msgstr ""
 "efter at du opfrisker denne side. Undersøg, om tabelstrukturen er blevet "
 "ændret."
 
-#: libraries/classes/Table.php:2065
+#: libraries/classes/Table.php:2086
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Navnet på primærnøglen skal være \"PRIMARY\"!"
 
-#: libraries/classes/Table.php:2076
+#: libraries/classes/Table.php:2097
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan ikke omdøbe indeks til PRIMARY!"
 
-#: libraries/classes/Table.php:2098
+#: libraries/classes/Table.php:2119
 msgid "No index parts defined!"
 msgstr "Ingen dele af indeks er defineret!"
 
-#: libraries/classes/Table.php:2406
+#: libraries/classes/Table.php:2427
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fejl ved dannelse af fremmednøgle på %1$s (tjek datatyper)"
@@ -13636,17 +13638,17 @@ msgstr ""
 "Lagrer og muliggør effektiv tilgang til data i JSON (JavaScript Object "
 "Notation) dokumenter"
 
-#: libraries/classes/Types.php:695
+#: libraries/classes/Types.php:718
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerisk"
 
-#: libraries/classes/Types.php:713
+#: libraries/classes/Types.php:736
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Dato og tid"
 
-#: libraries/classes/Types.php:743
+#: libraries/classes/Types.php:766
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spatial"
@@ -13735,51 +13737,51 @@ msgstr "Hop til database \"%s\"."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten af %s er påvirket af en kendt fejl, se %s"
 
-#: libraries/classes/Util.php:3252 prefs_manage.php:238
+#: libraries/classes/Util.php:3258 prefs_manage.php:238
 msgid "Browse your computer:"
 msgstr "Gennemse din computer:"
 
-#: libraries/classes/Util.php:3277
+#: libraries/classes/Util.php:3283
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Vælg fra <b>%s</b> - webserverens upload-mappe:"
 
-#: libraries/classes/Util.php:3317
+#: libraries/classes/Util.php:3323
 msgid "There are no files to upload!"
 msgstr "Der er ikke nogen filer at uploade!"
 
 # By "Empty", if this is an action, it should translate to "Tøm" but if it's a
 # state it should translate to "Tom".
-#: libraries/classes/Util.php:3342 libraries/classes/Util.php:3343
+#: libraries/classes/Util.php:3348 libraries/classes/Util.php:3349
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "Tøm"
 
-#: libraries/classes/Util.php:3348 libraries/classes/Util.php:3349
+#: libraries/classes/Util.php:3354 libraries/classes/Util.php:3355
 msgid "Execute"
 msgstr "Udfør"
 
-#: libraries/classes/Util.php:3852
+#: libraries/classes/Util.php:3860
 msgid "SSL is not being used"
 msgstr "SSL benyttes ikke"
 
-#: libraries/classes/Util.php:3857
+#: libraries/classes/Util.php:3865
 msgid "SSL is used with disabled verification"
 msgstr "SSL benyttes med deaktiveret verificering"
 
-#: libraries/classes/Util.php:3859
+#: libraries/classes/Util.php:3867
 msgid "SSL is used without certification authority"
 msgstr "SSL benyttes uden certificeringsautoritet"
 
-#: libraries/classes/Util.php:3862
+#: libraries/classes/Util.php:3870
 msgid "SSL is used"
 msgstr "SSL benyttes"
 
-#: libraries/classes/Util.php:3983
+#: libraries/classes/Util.php:3991
 msgid "Users"
 msgstr "Brugere"
 
-#: libraries/classes/Util.php:4677
+#: libraries/classes/Util.php:4685
 #: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "Sortér"
@@ -13946,7 +13948,7 @@ msgstr ""
 "Dine præferencer vil kun blive gemt for den aktuelle session. At gemme dem "
 "permanent kræver %sphpMyAdmin configuration storage%s."
 
-#: navigation.php:23
+#: navigation.php:24
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Kritisk fejl: Navigationen kan kun tilgås via AJAX"
 
@@ -14304,7 +14306,7 @@ msgstr "Vis dump (skema) over tabel"
 msgid "Invalid table name"
 msgstr "Ugyldigt tabelnavn"
 
-#: tbl_replace.php:245
+#: tbl_replace.php:258
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Række: %1$s, kolonne: %2$s, fejl: %3$s"
@@ -14365,46 +14367,279 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: templates/table/structure/add_column.twig:9
+#: templates/columns_definitions/partitions.twig:17
+msgid "Partition by:"
+msgstr "Partition af:"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+msgid "Expression or column list"
+msgstr "Udtryk eller kolonneliste"
+
+#: templates/columns_definitions/partitions.twig:37
+msgid "Partitions:"
+msgstr "Partitioner:"
+
+#: templates/columns_definitions/partitions.twig:45
+msgid "Subpartition by:"
+msgstr "Delpartition af:"
+
+#: templates/columns_definitions/partitions.twig:65
+msgid "Subpartitions:"
+msgstr "Delpartitioner:"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "Partition"
+
+#: templates/columns_definitions/partitions.twig:78
+msgid "Values"
+msgstr "Værdier"
+
+#: templates/columns_definitions/partitions.twig:82
+msgid "Subpartition"
+msgstr "Delpartition"
+
+#: templates/columns_definitions/partitions.twig:84
+msgid "Engine"
+msgstr "Motor"
+
+#: templates/columns_definitions/partitions.twig:86
+msgid "Data directory"
+msgstr "Datamappe"
+
+#: templates/columns_definitions/partitions.twig:87
+msgid "Index directory"
+msgstr "Indeksmappe"
+
+#: templates/columns_definitions/partitions.twig:88
+msgid "Max rows"
+msgstr "Maks. rækker"
+
+#: templates/columns_definitions/partitions.twig:89
+msgid "Min rows"
+msgstr "Min. rækker"
+
+#: templates/columns_definitions/partitions.twig:90
+msgid "Table space"
+msgstr "Tabelplads"
+
+#: templates/columns_definitions/partitions.twig:91
+msgid "Node group"
+msgstr "Nodegruppe"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:21
+#: templates/login/twofactor/application.twig:2
+msgid "Authentication code:"
+msgstr "Autentificeringkode:"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Bemærk: Aktivering af databasestatistikkerne her kan forårsage tung trafik "
+"mellem webserveren og MySQL-serveren."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+msgid "Enable statistics"
+msgstr "Slå statistikker til"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Tilføj til Favoritter"
+
+#: templates/table/structure/display_structure.twig:138
+#: templates/view_create.twig:13
+msgid "Edit view"
+msgstr "Rediger view"
+
+#: templates/table/structure/display_structure.twig:194
+#: templates/table/structure/display_partitions.twig:4
+msgid "Partitions"
+msgstr "Partitioner"
+
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Kan være anslået. Klik på tallet for at få korrekt antal. Se [doc@faq3-11] "
+"FAQ 3.11[/doc]."
+
+#: templates/database/structure/table_header.twig:38
+#: templates/table/index_form.twig:118
+msgid "Size"
+msgstr "Størrelse"
+
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "Oprettelse"
+
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "Sidste opdatering"
+
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "Seneste tjek"
+
+#: templates/privileges/add_privileges_database.twig:1
+msgid "Add privileges on the following database(s):"
+msgstr "Tilføj privilegier på følgende database(r):"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"Jokertegn % og _ skal escapes med en \\ for brug af dem som almindelige tegn."
+
+#: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
-msgid "Add %s column(s)"
-msgstr "Tilføj %s kolonne(r)"
+msgid "A primary key has been added on %s."
+msgstr "En primær nøgle er blevet tilføjet til %s."
 
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "i begyndelsen af tabellen"
-
-#: templates/table/structure/add_column.twig:19
-#: templates/columns_definitions/move_column.twig:12
+#: templates/table/structure/actions_in_table_structure.twig:33
+#: templates/table/structure/actions_in_table_structure.twig:51
+#: templates/table/structure/actions_in_table_structure.twig:80
+#: templates/table/structure/actions_in_table_structure.twig:103
 #, php-format
-msgid "after %s"
-msgstr "efter %s"
+msgid "An index has been added on %s."
+msgstr "Der er tilføjet et indeks til %s."
 
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Rækker:"
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
+msgid "Remove from central columns"
+msgstr "Fjern kolonner"
 
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Hent nogle række(r)"
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+msgid "Add to central columns"
+msgstr "Tilføj kolonner"
 
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-msgid "Number of rows:"
-msgstr "Antal rækker:"
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Vælg side"
 
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Begyndelsesrække:"
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "VIEW navn"
 
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Hent alle rækker"
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Kolonnenavne"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "Gem til valgte side"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "Opret en side og gem i denne"
+
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "Nyt sidenavn"
+
+#: templates/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "Fjern valgte brugere"
+
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr ""
+"Tilbagekald alle aktive privilegier fra brugerne og slet dem efterfølgende."
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Drop databaser der har samme navne som brugernes."
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Relationel nøgle"
+
+#: templates/display/results/options_block.twig:30
+msgid "Display column for relationships"
+msgstr "Vis kolonne for relationer"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "Vis binært indhold"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "Vis indhold af BLOB"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Skjul browser-transformation"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "Velkendt tekst"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "Velkendt binær"
+
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "Vælg en skabelon"
 
 #: templates/database/designer/delete_relation_panel.twig:21
 msgid "Delete relationship"
 msgstr "Slet relation"
+
+#: templates/table/structure/optional_action_links.twig:8
+msgid "Propose table structure"
+msgstr "Foreslå tabelstruktur"
+
+#: templates/table/structure/optional_action_links.twig:18
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "Sporingstabel"
+
+#: templates/table/structure/optional_action_links.twig:22
+#: templates/table/structure/move_columns_dialog.twig:1
+msgid "Move columns"
+msgstr "Flyt kolonner"
+
+#: templates/table/structure/optional_action_links.twig:25
+msgid "Normalize"
+msgstr "Normaliser"
+
+#: templates/table/structure/optional_action_links.twig:31
+msgid "Track view"
+msgstr "Spor visning"
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199
@@ -14442,125 +14677,13 @@ msgstr "Sammenstil"
 
 #: templates/database/designer/options_panel.twig:105
 #: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/table/search/table_header.twig:9
 #: templates/database/designer/where_query_panel.twig:30
 #: templates/database/designer/having_query_panel.twig:30
 #: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
+#: templates/database/designer/aggregate_query_panel.twig:30
 msgid "Operator"
 msgstr "Operatør"
-
-#: templates/database/designer/database_tables.twig:31
-msgid "Show/hide columns"
-msgstr "Vis/Skjul kolonner"
-
-#: templates/database/designer/database_tables.twig:39
-msgid "See table structure"
-msgstr "Se tabelstruktur"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tabel"
-msgstr[1] "%s tabeller"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Sum"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Indeksnavn;:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-"\"PRIMARY\" <b>skal</b> være navnet på og <b>kun på</b> en primær nøgle!"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "Indeksvalg:"
-
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "Avancerede indstillinger"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "Blokstørrelse på nøgle:"
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Indekstype:"
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Fortolker:"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Kommentar:"
-
-#: templates/table/index_form.twig:118
-#: templates/database/structure/table_header.twig:38
-msgid "Size"
-msgstr "Størrelse"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Træk for at ændre rækkefølge"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Tilføj til Favoritter"
-
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Aktive indstillinger"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr "Side som skal åbnes"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "Side som skal slettes"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "Vis oprettelses SQL-forespørgsler"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Pladsforbrug"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Effektiv"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr "Rediger ENUM/SET værdier"
-
-#: templates/table/tracking/activate_deactivate.twig:7
-#, php-format
-msgid "Activate tracking for %s"
-msgstr "Aktivér sporing af %s"
-
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr "Aktivér nu"
-
-#: templates/table/tracking/activate_deactivate.twig:11
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "Deaktiver sporing af %s"
-
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
-msgstr "Deaktiver nu"
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -14654,10 +14777,9 @@ msgstr "Vis sporing"
 msgid "Hide trace"
 msgstr "Skjul sporing"
 
-#: templates/console/display.twig:99
+#: templates/console/display.twig:99 templates/export/alias_add.twig:18
+#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
 #: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
 msgid "Add"
 msgstr "Tilføj"
 
@@ -14689,161 +14811,14 @@ msgstr ""
 "Udfør forespørgsler med Enter og indsæt ny linje med Skift + Enter. For at "
 "gøre dette permanent, så se indstillingerne."
 
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Vælg en skabelon"
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "Tegnsæt for filen:"
 
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Søg og erstat - forhåndsvisning"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Original tekststreng"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Erstattet tekststreng"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Erstat"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Ingen"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "Konverter til Kana"
-
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-"Kan være anslået. Klik på tallet for at få korrekt antal. Se [doc@faq3-11] "
-"FAQ 3.11[/doc]."
-
-#: templates/database/structure/table_header.twig:53
-#: templates/table/structure/row_stats_table.twig:76
-msgid "Creation"
-msgstr "Oprettelse"
-
-#: templates/database/structure/table_header.twig:58
-#: templates/table/structure/row_stats_table.twig:83
-msgid "Last update"
-msgstr "Sidste opdatering"
-
-#: templates/database/structure/table_header.twig:63
-#: templates/table/structure/row_stats_table.twig:90
-msgid "Last check"
-msgstr "Seneste tjek"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "Ekstra søgekriterium"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Tjek tabeller, der har overhead"
-
-#: templates/database/structure/check_all_tables.twig:10
-msgid "Copy table"
-msgstr "Kopier tabel"
-
-#: templates/database/structure/check_all_tables.twig:11
-msgid "Show create"
-msgstr "Vis opret"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr "Præfiks"
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "Tilføj præfiks til tabel"
-
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "Erstat tabel præfiks"
-
-#: templates/database/structure/check_all_tables.twig:33
-msgid "Add columns to central list"
-msgstr "Tilføj kolnner til centerliste"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr "Fjern kolonner fra centerliste"
-
-#: templates/database/structure/check_all_tables.twig:35
-msgid "Make consistent with central list"
-msgstr "Gør konsistent med central liste"
-
-#: templates/table/structure/display_structure.twig:138
-#: templates/view_create.twig:13
-msgid "Edit view"
-msgstr "Rediger view"
-
-#: templates/table/structure/display_structure.twig:192
-#: templates/table/structure/display_partitions.twig:4
-msgid "Partitions"
-msgstr "Partitioner"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Hvis et felt er af typen \"enum\" eller \"set\", skal værdierne angives på "
-"formen: 'a','b','c'…<br />Skulle du få brug for en backslash (\"\") eller et "
-"enkelt anførselstegn (\"'\") blandt disse værdier, så tilføj en ekstra "
-"backslash (fx '\\\\xyz' eller 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"For standardværdier, indtast venligst kun en enkelt værdi, uden backslash "
-"escaping eller quotes, ud fra følgende format: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Virtualitet"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Fjern kolonne"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Oversigt over tilgængelige transformationer og deres tilvalg"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Tilvalg for transformation af browservisning"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Indtast værdier for transformationsindstillinger ud fra følgende format: "
-"'a', 100, b,'c'…<br />Skulle du få brug for at indsætte en backslash (\"\\"
-"\") eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\"
-"\\xyz' eller 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Tilvalg for input-transformation"
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr "Dette er en skrivebeskyttet variabel, som ikke kan redigeres"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -14933,139 +14908,109 @@ msgstr "Værdi for kolonne:"
 msgid "Save chart as image"
 msgstr "Gem tabel som billede"
 
-#: templates/columns_definitions/partitions.twig:17
-msgid "Partition by:"
-msgstr "Partition af:"
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Rækker:"
 
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-msgid "Expression or column list"
-msgstr "Udtryk eller kolonneliste"
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Hent nogle række(r)"
 
-#: templates/columns_definitions/partitions.twig:37
-msgid "Partitions:"
-msgstr "Partitioner:"
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+msgid "Number of rows:"
+msgstr "Antal rækker:"
 
-#: templates/columns_definitions/partitions.twig:45
-msgid "Subpartition by:"
-msgstr "Delpartition af:"
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Begyndelsesrække:"
 
-#: templates/columns_definitions/partitions.twig:65
-msgid "Subpartitions:"
-msgstr "Delpartitioner:"
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Hent alle rækker"
 
-#: templates/columns_definitions/partitions.twig:76
-#: templates/table/structure/display_partitions.twig:24
-msgid "Partition"
-msgstr "Partition"
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Klik for at skifte"
 
-#: templates/columns_definitions/partitions.twig:78
-msgid "Values"
-msgstr "Værdier"
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr "Side som skal åbnes"
 
-#: templates/columns_definitions/partitions.twig:82
-msgid "Subpartition"
-msgstr "Delpartition"
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "Side som skal slettes"
 
-#: templates/columns_definitions/partitions.twig:84
-msgid "Engine"
-msgstr "Motor"
+#: templates/database/designer/database_tables.twig:31
+msgid "Show/hide columns"
+msgstr "Vis/Skjul kolonner"
 
-#: templates/columns_definitions/partitions.twig:86
-msgid "Data directory"
-msgstr "Datamappe"
+#: templates/database/designer/database_tables.twig:39
+msgid "See table structure"
+msgstr "Se tabelstruktur"
 
-#: templates/columns_definitions/partitions.twig:87
-msgid "Index directory"
-msgstr "Indeksmappe"
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Ressourcebegrænsninger"
 
-#: templates/columns_definitions/partitions.twig:88
-msgid "Max rows"
-msgstr "Maks. rækker"
-
-#: templates/columns_definitions/partitions.twig:89
-msgid "Min rows"
-msgstr "Min. rækker"
-
-#: templates/columns_definitions/partitions.twig:90
-msgid "Table space"
-msgstr "Tabelplads"
-
-#: templates/columns_definitions/partitions.twig:91
-msgid "Node group"
-msgstr "Nodegruppe"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
-"Filen som uploades er sandsynligvis større enn den maksimalt tilladte "
-"størrelse, eller dette er en kendt fejl i webkit-baserede browsere (Safari, "
-"Google Chrome, Arora etc.)."
+"Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen."
 
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr "%s af %s"
+#: templates/display/export/options_output.twig:2
+#: templates/display/export/options_quick_export.twig:2
+msgid "Output:"
+msgstr "Output:"
 
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/sek."
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Gem output i en fil"
 
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Omtrent %MIN min. %SEC sek. resterer."
+#: templates/display/export/options_output.twig:51
+#, fuzzy, php-format
+#| msgid "Skip tables larger than"
+msgid "Skip tables larger than %s MiB"
+msgstr "Spring over tabeller større end"
 
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "Omtrent %SEC sek. resterer."
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "Aktive indstillinger"
 
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "Filen behandles, vær tålmodig."
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr "Ingen"
 
-#: templates/display/import/javascript.twig:36
-msgid "Uploading your import file…"
-msgstr "Overfører din importfil …"
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "Som defineret:"
 
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Vær tålmodig; filen uploades. Detaljer om uploaden er ikke tilgængelige."
+#: templates/columns_definitions/column_virtuality.twig:29
+#: templates/table/structure/display_partitions.twig:26
+msgid "Expression"
+msgstr "Udtryk"
 
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Brug denne kolonne til at navngive hvert punkt"
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Intet billede til rådighed."
 
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Maksimalt antal plottede rækker"
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "vælg dette"
 
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "Sporede tabeller"
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+msgid "Create relationship"
+msgstr "Opret relation"
 
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Seneste version"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
-msgid "Delete tracking"
-msgstr "Slet sporing"
-
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "Versioner"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Se output som tekst"
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "Vælg en kolonne."
 
 #: templates/database/search/results.twig:12
 #, php-format
@@ -15083,166 +15028,95 @@ msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<b>I alt:</b> <i>%s</i> sammenfald"
 msgstr[1] "<b>I alt</b> <i>%s</i> sammenfald"
 
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Klik for at skifte"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr "Konfigurere to-faktor autentificering"
-
-#: templates/prefs_twofactor_configure.twig:8
-msgid "Enable two-factor authentication"
-msgstr "Aktiver to-faktor autentificering"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Udvidelsesmodul"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Forfatter"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "slået fra"
-
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Bemærk: Aktivering af databasestatistikkerne her kan forårsage tung trafik "
-"mellem webserveren og MySQL-serveren."
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-msgid "Enable statistics"
-msgstr "Slå statistikker til"
-
-#: templates/database/structure/show_create_row.twig:7
-#, php-format
-msgid "Create %s"
-msgstr "Opret %s"
-
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "Foreslå tabelstruktur"
-
-#: templates/table/structure/optional_action_links.twig:15
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "Sporingstabel"
-
-#: templates/table/structure/optional_action_links.twig:19
-#: templates/table/structure/move_columns_dialog.twig:1
-msgid "Move columns"
-msgstr "Flyt kolonner"
-
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
-msgstr "Normaliser"
-
-#: templates/table/structure/optional_action_links.twig:28
-msgid "Track view"
-msgstr "Spor visning"
-
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
 msgstr "Flyt kolonnerne ved at trække dem op og ned."
 
-#: templates/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "Fjern valgte brugere"
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "Ikke-sporede tabeller"
 
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-"Tilbagekald alle aktive privilegier fra brugerne og slet dem efterfølgende."
+#: templates/table/structure/add_column.twig:9
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Tilføj %s kolonne(r)"
 
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Drop databaser der har samme navne som brugernes."
+#: templates/table/structure/add_column.twig:14
+msgid "at beginning of table"
+msgstr "i begyndelsen af tabellen"
 
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Intet billede til rådighed."
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr "efter %s"
 
-#: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "vælg dette"
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr "Rækkestatistik"
 
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Output:"
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "statisk"
 
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Gem på serveren i mappen <b>%s</b>"
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "dynamisk"
 
-#: templates/login/twofactor/key.twig:3
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "partitioneret"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Rækkelængde"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Rækkestørrelse"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr "Næste autoindeks"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "Vælg Export Relational Type"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "Ekstra søgekriterium"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Søg i databasen"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Ord eller værdier til at søge efter (jokertegn: \"%\"):"
+
+#: templates/database/search/selection_form.twig:15
+#: templates/table/search/search_and_replace.twig:1
+msgid "Find:"
+msgstr "Find:"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "Indeni tabel(ler):"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "Indeni kolonne:"
+
+#: templates/login/twofactor/application.twig:4
 msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
 msgstr ""
 
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Startrække:"
-
-#: templates/database/designer/new_relation_panel.twig:22
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-msgid "Create relationship"
-msgstr "Opret relation"
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "Vælg en kolonne."
-
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr "Ingen partitionering defineret!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr "Partitioneret af:"
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr "Delpartitioneret af:"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-msgid "Expression"
-msgstr "Udtryk"
-
-#: templates/table/structure/display_partitions.twig:29
-msgid "Data length"
-msgstr "Datalængde"
-
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "Indekslængde"
-
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "Partition tabel"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-msgid "Edit partitioning"
-msgstr "Rediger partitionering"
+#: templates/table/secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "Visning af relation"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
@@ -15258,157 +15132,136 @@ msgctxt "None for default"
 msgid "None"
 msgstr "Ingen"
 
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "Vis GIS visualisering"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Tekst for kolonne"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Ingen --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Spatial kolonne"
-
-#: templates/table/structure/actions_in_table_structure.twig:15
+#: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
-msgid "A primary key has been added on %s."
-msgstr "En primær nøgle er blevet tilføjet til %s."
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabeller"
 
-#: templates/table/structure/actions_in_table_structure.twig:33
-#: templates/table/structure/actions_in_table_structure.twig:51
-#: templates/table/structure/actions_in_table_structure.twig:80
-#: templates/table/structure/actions_in_table_structure.twig:103
-#, php-format
-msgid "An index has been added on %s."
-msgstr "Der er tilføjet et indeks til %s."
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Sum"
 
-#: templates/table/structure/actions_in_table_structure.twig:127
-#: templates/table/structure/check_all_table_column.twig:83
-msgid "Remove from central columns"
-msgstr "Fjern kolonner"
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Eksportskabeloner:"
 
-#: templates/table/structure/actions_in_table_structure.twig:131
-#: templates/table/structure/check_all_table_column.twig:76
-msgid "Add to central columns"
-msgstr "Tilføj kolonner"
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Ny skabelon:"
 
-#: templates/table/relation/foreign_key_row.twig:15
-#, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Begrænsning på fremmednøglen %s er blevet droppet"
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Skabelonnavn"
 
-#: templates/table/relation/foreign_key_row.twig:38
-msgid "Constraint name"
-msgstr "Navnebegrænsning"
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Opret"
 
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
-msgid "+ Add column"
-msgstr "+ Tilføj kolonne"
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Eksisterende skabeloner:"
 
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Ny"
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Skabelon:"
 
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Opdater"
 
-#: templates/privileges/add_privileges_routine.twig:3
-msgid "Add privileges on the following routine:"
-msgstr "Tilføj privileger på følgende rutine:"
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+msgid "Show/Hide tables list"
+msgstr "Vis/skjul tabelliste"
 
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Tabelnavn"
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr "Vis i fuldskærmsvisning"
 
-#: templates/columns_definitions/column_definitions_form.twig:40
-msgid "column(s)"
-msgstr "kolonne(r)"
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr "Afslut fuldskærmsvisning"
 
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Tegnsæt (sortering):"
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+msgid "New page"
+msgstr "Nyt side"
 
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Datalager:"
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+msgid "Delete pages"
+msgstr "Slet sider"
 
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Forbindelse:"
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+#: templates/database/create_table.twig:7
+msgid "Create table"
+msgstr "Opret tabel"
 
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "PARTITION-definition:"
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr "Genindlæs"
 
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Skabelon for filnavn:"
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr "Hjælp"
 
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "brug dette til fremtidige eksports"
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr "Angulære links"
 
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Eksporterer databaser fra den aktuelle server"
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr "Direkte links"
 
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Eksporterer tabeller fra database \"%s\""
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr "Snap til gitter"
 
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Eksporterer rækker fra tabellen \"%s\""
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr "Små/store alle"
 
-#: templates/server/databases/table_row.twig:13
-#, php-format
-msgid "Jump to database '%s'"
-msgstr "Gå til database '%s'"
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr "Skift mellem små/store"
 
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Tjek privilegier for databasen \"%s\"."
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+msgid "Toggle relationship lines"
+msgstr "Slå relationslinjer til eller fra"
 
-#: templates/server/databases/table_row.twig:62
-msgid "Check privileges"
-msgstr "Tjek privilegier"
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+msgid "Export schema"
+msgstr "Eksportér skema"
 
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "Fjern/Slet"
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+msgid "Build Query"
+msgstr "Opret forespørgsel"
 
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "i brug"
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr "Flyt Menu"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Bladr gennem/rediger punkterne"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Hvordan man bruger"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Nulstil zoom"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+msgid "Pin text"
+msgstr "Fastgør tekst"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -15474,80 +15327,205 @@ msgstr ""
 msgid "Remove this column"
 msgstr "Fjern redundante kolonner"
 
+#: templates/database/multi_table_query/form.twig:158
+#: templates/table/relation/foreign_key_row.twig:90
+msgid "+ Add column"
+msgstr "+ Tilføj kolonne"
+
 #: templates/database/multi_table_query/form.twig:175
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"
 msgstr "Opdater forespørgsel"
 
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "Ingen"
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
+msgstr "Aktivér sporing af %s"
 
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Som defineret:"
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr "Aktivér nu"
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Brug denne værdi"
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "Deaktiver sporing af %s"
 
-#: templates/table/secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "Visning af relation"
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr "Deaktiver nu"
 
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Komprimering:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "zippet"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "gzippet"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
-"Din browser har phpMyAdmin konfiguration for dette domæne. Vil du importere "
-"den for den aktuelle session?"
+"Kør en \"forespørgsel ved eksempel\" (jokertegn: \"%\") for to forskellige "
+"kolonner"
 
-#: templates/prefs_autoload.twig:13
-msgid "Delete settings"
-msgstr "Slet indstillinger"
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Kør en forespørgsel på felter (jokertegn: \"%\")"
 
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Eksportmetode:"
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
 
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Hurtig - vis kun de minimale indstillinger"
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"Filen som uploades er sandsynligvis større enn den maksimalt tilladte "
+"størrelse, eller dette er en kendt fejl i webkit-baserede browsere (Safari, "
+"Google Chrome, Arora etc.)."
 
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Brugerdefineret - vis alle indstillinger"
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr "%s af %s"
 
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Servervariable og indstillinger"
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/sek."
 
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "Datalagre"
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Omtrent %MIN min. %SEC sek. resterer."
 
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Tegnsæt og kollationer"
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "Omtrent %SEC sek. resterer."
 
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Databasestatistik"
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "Filen behandles, vær tålmodig."
 
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Vælg side"
+#: templates/display/import/javascript.twig:36
+msgid "Uploading your import file…"
+msgstr "Overfører din importfil …"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Vær tålmodig; filen uploades. Detaljer om uploaden er ikke tilgængelige."
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "Brug denne kolonne til at navngive hvert punkt"
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "Maksimalt antal plottede rækker"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+"Der er uoverensstemmelse mellem HTTPS på server og klient. Dette kan medføre "
+"at phpMyAdmin ike virker eller en sikkerhedsrisiko. Ret venligst "
+"serverkonfigurationen til at vise HTTPS korrekt."
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "første"
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "Opret ny database"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Dato"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Brugernavn"
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "i brug"
 
 #: templates/privileges/add_privileges_table.twig:3
 msgid "Add privileges on the following table:"
 msgstr "Tilføj privileges på følgende tabel:"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr "Rediger ENUM/SET værdier"
+
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "Vælg kolonner (mindst én):"
+
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Tilføj søgekriterier (kroppen af \"where\" sætningen):"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Rækker pr. side"
+
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Rækkefølge af visning:"
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "Kolonne %s er slettet."
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Sporing er aktiv."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Sporing er ikke aktiv."
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "Vis GIS visualisering"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Tekst for kolonne"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- Ingen --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Spatial kolonne"
+
+#: templates/table/search/search_and_replace.twig:3
+msgid "Replace with:"
+msgstr "Erstat med:"
+
+#: templates/table/search/search_and_replace.twig:19
+msgid "Use regular expression"
+msgstr "Brug regulært udtryk"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
@@ -15577,183 +15555,43 @@ msgstr "Vælg kolonne:"
 msgid "New column name"
 msgstr "Nyt kolonnenavn"
 
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "Refereret ved %s."
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Vælg fremmednøgle."
-
-#: templates/columns_definitions/column_name.twig:40
-msgid "Pick from Central Columns"
-msgstr "Vælg fra centerkolonner"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "VIEW navn"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Kolonnenavne"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Komprimering:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zippet"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzippet"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-msgid "Create table"
-msgstr "Opret tabel"
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
 
 #: templates/database/create_table.twig:15
 msgid "Number of columns"
 msgstr "Antal kolonner"
 
-#: templates/login/header.twig:12
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Startrække:"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Ny"
+
+#: templates/display/export/options_format.twig:2
+#: templates/display/import/import.twig:174
+msgid "Format-specific options:"
+msgstr "Formatspecifikke indstillinger:"
+
+#: templates/display/export/options_format.twig:4
+#: templates/display/import/import.twig:176
 msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
 msgstr ""
-"Der er uoverensstemmelse mellem HTTPS på server og klient. Dette kan medføre "
-"at phpMyAdmin ike virker eller en sikkerhedsrisiko. Ret venligst "
-"serverkonfigurationen til at vise HTTPS korrekt."
+"Rul ned for at udfylde indstillingerne for det valgte format og ignorer "
+"indstillingerne for andre formater."
 
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
-msgid "Show/Hide tables list"
-msgstr "Vis/skjul tabelliste"
-
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
-msgstr "Vis i fuldskærmsvisning"
-
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr "Afslut fuldskærmsvisning"
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
-msgid "New page"
-msgstr "Nyt side"
-
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
-msgid "Delete pages"
-msgstr "Slet sider"
-
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr "Genindlæs"
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr "Hjælp"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr "Angulære links"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr "Direkte links"
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr "Snap til gitter"
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr "Små/store alle"
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr "Skift mellem små/store"
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-msgid "Toggle relationship lines"
-msgstr "Slå relationslinjer til eller fra"
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
-msgid "Export schema"
-msgstr "Eksportér skema"
-
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-msgid "Build Query"
-msgstr "Opret forespørgsel"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
-msgstr "Flyt Menu"
-
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
-msgid "Pin text"
-msgstr "Fastgør tekst"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Sessionsværdi"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Kolonne %s er slettet."
-
-#: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
-"To-faktor autentificering ikke er til rådighed, aktiverer phpMyAdmin "
-"konfiguration storage til at bruge den."
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Tilføj/Slet kriterie-række"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Tilføj/Slet kolonner"
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Fortsæt indsættelse med %s rækker"
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Dato"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Brugernavn"
+#: templates/display/export/options_format.twig:12
+#: templates/display/import/import.twig:185
+msgid "Encoding Conversion:"
+msgstr "Konvertering af indkodning:"
 
 #: templates/prefs_twofactor_confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
@@ -15769,132 +15607,13 @@ msgstr ""
 msgid "Disable two-factor authentication"
 msgstr "Deaktiver to-faktor autentificering"
 
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Vælg binærlog til gennemsyn"
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "Eksportér databaser som separate filer"
 
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Kør en \"forespørgsel ved eksempel\" (jokertegn: \"%\") for to forskellige "
-"kolonner"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Kør en forespørgsel på felter (jokertegn: \"%\")"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-msgid "Authentication code:"
-msgstr "Autentificeringkode:"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/privileges/add_privileges_database.twig:1
-msgid "Add privileges on the following database(s):"
-msgstr "Tilføj privilegier på følgende database(r):"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-"Jokertegn % og _ skal escapes med en \\ for brug af dem som almindelige tegn."
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Eksportskabeloner:"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Ny skabelon:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Skabelonnavn"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "Opret"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Eksisterende skabeloner:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Skabelon:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Opdater"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Kolonne-specifikke privilegier"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Opret version %1$s af %2$s"
-
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "Opret version %1$s"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Spor disse datadefinitionskommandoer:"
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Spor disse datamanipulations-forespørgsler:"
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Opret version"
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "Skjul/Vis alle"
-
-#: templates/database/designer/table_list.twig:14
-msgid "Hide/Show tables with no relationship"
-msgstr "Skjul/Vis tabeller uden relation"
-
-#: templates/database/designer/table_list.twig:55
-msgid "Number of tables:"
-msgstr "Antal tabeller:"
-
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Ingen"
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "Eksportér tabeller som separate filer"
 
 #: templates/error/report_form.twig:6
 msgid ""
@@ -15918,41 +15637,194 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Du kan gennemse indholdet i fejlrapporten:"
 
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Tegnsæt for filen:"
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "Udvidelsesmodul"
 
-#: templates/table/search/search_and_replace.twig:1
-#: templates/database/search/selection_form.twig:15
-msgid "Find:"
-msgstr "Find:"
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "Forfatter"
 
-#: templates/table/search/search_and_replace.twig:3
-msgid "Replace with:"
-msgstr "Erstat med:"
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "slået fra"
 
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Brug regulært udtryk"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Databaser:"
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Gem output i en fil"
-
-#: templates/display/export/options_output.twig:51
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
 #, fuzzy, php-format
-#| msgid "Skip tables larger than"
-msgid "Skip tables larger than %s MiB"
-msgstr "Spring over tabeller større end"
+#| msgid "Save on server in the directory <b>%s</b>"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Gem på serveren i mappen <b>%s</b>"
 
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr "Dette er en skrivebeskyttet variabel, som ikke kan redigeres"
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Eksportmetode:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Hurtig - vis kun de minimale indstillinger"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Brugerdefineret - vis alle indstillinger"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, php-format
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Begrænsning på fremmednøglen %s er blevet droppet"
+
+#: templates/table/relation/foreign_key_row.twig:38
+msgid "Constraint name"
+msgstr "Navnebegrænsning"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Tabelnavn"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "kolonne(r)"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Tegnsæt (sortering):"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Datalager:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Forbindelse:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION-definition:"
+
+#: templates/prefs_twofactor.twig:3
+msgid "Two-factor authentication status"
+msgstr "To-faktor autentificering status"
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+"To-faktor autentificering er tilgængelig og konfigureret for denne konto."
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+"To-faktor-autentificering er til rådighed, men er ikke konfigureret for "
+"denne konto."
+
+#: templates/prefs_twofactor.twig:24
+#, fuzzy
+#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+"To-faktor autentificering ikke er til rådighed, aktiverer phpMyAdmin "
+"konfiguration storage til at bruge den."
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr "Du har aktiveret to faktor-autentificering."
+
+#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
+#: templates/prefs_twofactor_configure.twig:2
+msgid "Configure two-factor authentication"
+msgstr "Konfigurere to-faktor autentificering"
+
+#: templates/database/structure/show_create_row.twig:7
+#, php-format
+msgid "Create %s"
+msgstr "Opret %s"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr "Refereret ved %s."
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "Vælg fremmednøgle."
+
+#: templates/columns_definitions/column_name.twig:40
+msgid "Pick from Central Columns"
+msgstr "Vælg fra centerkolonner"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Søg og erstat - forhåndsvisning"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Original tekststreng"
+
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Erstattet tekststreng"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Erstat"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Vælg binærlog til gennemsyn"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Indeksnavn;:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+"\"PRIMARY\" <b>skal</b> være navnet på og <b>kun på</b> en primær nøgle!"
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr "Indeksvalg:"
+
+#: templates/table/index_form.twig:42
+msgid "Advanced Options"
+msgstr "Avancerede indstillinger"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr "Blokstørrelse på nøgle:"
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Indekstype:"
+
+#: templates/table/index_form.twig:77
+msgid "Parser:"
+msgstr "Fortolker:"
+
+#: templates/table/index_form.twig:93
+msgid "Comment:"
+msgstr "Kommentar:"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr "Træk for at ændre rækkefølge"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Ingen databaser"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -16033,218 +15905,111 @@ msgstr "Overspring dette antal forespørgsler (til SQL) begyndende med:"
 msgid "Other options:"
 msgstr "Andre indstillinger:"
 
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr "Formatspecifikke indstillinger:"
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "Fortsæt indsættelse med %s rækker"
 
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr "Fjern/Slet"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Tjek tabeller, der har overhead"
+
+#: templates/database/structure/check_all_tables.twig:10
+msgid "Copy table"
+msgstr "Kopier tabel"
+
+#: templates/database/structure/check_all_tables.twig:11
+msgid "Show create"
+msgstr "Vis opret"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr "Præfiks"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "Tilføj præfiks til tabel"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "Erstat tabel præfiks"
+
+#: templates/database/structure/check_all_tables.twig:33
+msgid "Add columns to central list"
+msgstr "Tilføj kolnner til centerliste"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr "Fjern kolonner fra centerliste"
+
+#: templates/database/structure/check_all_tables.twig:35
+msgid "Make consistent with central list"
+msgstr "Gør konsistent med central liste"
+
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Opret version %1$s af %2$s"
+
+#: templates/table/tracking/create_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "Opret version %1$s"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Spor disse datadefinitionskommandoer:"
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Spor disse datamanipulations-forespørgsler:"
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "Opret version"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "Sporede tabeller"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Seneste version"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+msgid "Delete tracking"
+msgstr "Slet sporing"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "Versioner"
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+msgid "Edit partitioning"
+msgstr "Rediger partitionering"
+
+#: templates/privileges/add_privileges_routine.twig:3
+msgid "Add privileges on the following routine:"
+msgstr "Tilføj privileger på følgende rutine:"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Ingen"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr "Konverter til Kana"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
 msgstr ""
-"Rul ned for at udfylde indstillingerne for det valgte format og ignorer "
-"indstillingerne for andre formater."
-
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr "Konvertering af indkodning:"
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Søg i databasen"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Ord eller værdier til at søge efter (jokertegn: \"%\"):"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "Indeni tabel(ler):"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "Indeni kolonne:"
-
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Ingen databaser"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "første"
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "Sporing er aktiv."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "Sporing er ikke aktiv."
-
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "Eksportér databaser som separate filer"
-
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "Eksportér tabeller som separate filer"
-
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr "Rækkestatistik"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "statisk"
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "dynamisk"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "partitioneret"
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Rækkelængde"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Rækkestørrelse"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr "Næste autoindeks"
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Ikke-sporede tabeller"
-
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "Opret ny database"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Ressourcebegrænsninger"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen."
-
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "Relationel nøgle"
-
-#: templates/display/results/options_block.twig:30
-msgid "Display column for relationships"
-msgstr "Vis kolonne for relationer"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Vis binært indhold"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "Vis indhold af BLOB"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Skjul browser-transformation"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Velkendt tekst"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Velkendt binær"
-
-#: templates/prefs_twofactor.twig:3
-msgid "Two-factor authentication status"
-msgstr "To-faktor autentificering status"
-
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-"To-faktor autentificering er tilgængelig og konfigureret for denne konto."
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-"To-faktor-autentificering er til rådighed, men er ikke konfigureret for "
-"denne konto."
-
-#: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-"To-faktor autentificering ikke er til rådighed, aktiverer phpMyAdmin "
-"konfiguration storage til at bruge den."
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr "Du har aktiveret to faktor-autentificering."
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "Gem til valgte side"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "Opret en side og gem i denne"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "Nyt sidenavn"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "Vælg Export Relational Type"
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "Vælg kolonner (mindst én):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Tilføj søgekriterier (kroppen af \"where\" sætningen):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Rækker pr. side"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Rækkefølge af visning:"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
@@ -16303,6 +16068,242 @@ msgstr ""
 #: templates/table/relation/common_form.twig:172
 msgid "Choose column to display:"
 msgstr "Vælg kolonne til visning:"
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Eksporterer databaser fra den aktuelle server"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Eksporterer tabeller fra database \"%s\""
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Eksporterer rækker fra tabellen \"%s\""
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Sessionsværdi"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Brug denne værdi"
+
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Databaser:"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Tilføj/Slet kriterie-række"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Tilføj/Slet kolonner"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Skabelon for filnavn:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "brug dette til fremtidige eksports"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Kolonne-specifikke privilegier"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Pladsforbrug"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Effektiv"
+
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "Ingen partitionering defineret!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "Partitioneret af:"
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "Delpartitioneret af:"
+
+#: templates/table/structure/display_partitions.twig:29
+msgid "Data length"
+msgstr "Datalængde"
+
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "Indekslængde"
+
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "Partition tabel"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Hvis et felt er af typen \"enum\" eller \"set\", skal værdierne angives på "
+"formen: 'a','b','c'…<br />Skulle du få brug for en backslash (\"\") eller et "
+"enkelt anførselstegn (\"'\") blandt disse værdier, så tilføj en ekstra "
+"backslash (fx '\\\\xyz' eller 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"For standardværdier, indtast venligst kun en enkelt værdi, uden backslash "
+"escaping eller quotes, ud fra følgende format: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr "Virtualitet"
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "Fjern kolonne"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr "Oversigt over tilgængelige transformationer og deres tilvalg"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr "Tilvalg for transformation af browservisning"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Indtast værdier for transformationsindstillinger ud fra følgende format: "
+"'a', 100, b,'c'…<br />Skulle du få brug for at indsætte en backslash (\"\\"
+"\") eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\"
+"\\xyz' eller 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+msgid "Input transformation options"
+msgstr "Tilvalg for input-transformation"
+
+#: templates/prefs_twofactor_configure.twig:8
+msgid "Enable two-factor authentication"
+msgstr "Aktiver to-faktor autentificering"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"Din browser har phpMyAdmin konfiguration for dette domæne. Vil du importere "
+"den for den aktuelle session?"
+
+#: templates/prefs_autoload.twig:13
+msgid "Delete settings"
+msgstr "Slet indstillinger"
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Se output som tekst"
+
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "Vis oprettelses SQL-forespørgsler"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/server/databases/table_row.twig:13
+#, php-format
+msgid "Jump to database '%s'"
+msgstr "Gå til database '%s'"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Tjek privilegier for databasen \"%s\"."
+
+#: templates/server/databases/table_row.twig:62
+msgid "Check privileges"
+msgstr "Tjek privilegier"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "Skjul/Vis alle"
+
+#: templates/database/designer/table_list.twig:14
+msgid "Hide/Show tables with no relationship"
+msgstr "Skjul/Vis tabeller uden relation"
+
+#: templates/database/designer/table_list.twig:55
+msgid "Number of tables:"
+msgstr "Antal tabeller:"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Servervariable og indstillinger"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "Datalagre"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Tegnsæt og kollationer"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Databasestatistik"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Bladr gennem/rediger punkterne"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Hvordan man bruger"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Nulstil zoom"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Ingen"
+
+#: templates/login/twofactor/invalid.twig:2
+#, fuzzy
+#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+"To-faktor autentificering ikke er til rådighed, aktiverer phpMyAdmin "
+"konfiguration storage til at bruge den."
 
 #: url.php:41
 msgid "Taking you to the target site."
