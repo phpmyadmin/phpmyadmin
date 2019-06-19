@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-19 13:49-0300\n"
-"PO-Revision-Date: 2019-04-16 19:05+0000\n"
+"PO-Revision-Date: 2019-06-21 08:00+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -2621,7 +2621,7 @@ msgstr "Pro favor inserta un  valide data"
 
 #: js/messages.php:936
 msgid "Please enter a valid date ( ISO )"
-msgstr "Pro favor inserta un nomine valide data (ISO)"
+msgstr "Pro favor inserta un data valide  (ISO)"
 
 #: js/messages.php:938
 msgid "Please enter a valid number"
@@ -8891,10 +8891,8 @@ msgstr ""
 "elementos in le pannello de navigation."
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Gruppos:"
+msgstr "Gruppos"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -12236,7 +12234,7 @@ msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:273
 msgid "Bind parameters"
-msgstr "Liga parametros"
+msgstr "Parametros Bind"
 
 #: libraries/classes/SqlQueryForm.php:321
 msgid "Bookmark this SQL query:"
@@ -13150,10 +13148,8 @@ msgid "View dump (schema) of databases"
 msgstr ""
 
 #: server_privileges.php:89
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Allows deleting historical rows."
-msgstr "Adde/Dele rangos de criterios"
+msgstr "Permitte deler rangos historic."
 
 #: server_privileges.php:160 server_user_groups.php:44
 msgid "No Privileges"
