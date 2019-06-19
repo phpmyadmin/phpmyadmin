@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 19:16+0200\n"
-"PO-Revision-Date: 2019-03-10 11:03+0000\n"
+"PO-Revision-Date: 2019-06-19 16:50+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:43 ajax.php:81 export.php:212 libraries/classes/Export.php:1218
 msgid "Bad type!"
@@ -13465,10 +13465,8 @@ msgid "View dump (schema) of databases"
 msgstr "Visualizza il dump (schema) dei databases"
 
 #: server_privileges.php:86
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Permette di cancellare dati."
+msgstr "Permette di cancellare righe storiche."
 
 #: server_privileges.php:157 server_user_groups.php:47
 msgid "No Privileges"
@@ -13559,22 +13557,16 @@ msgid "Add slave replication user"
 msgstr "Aggiungi un utente per replicazione slave"
 
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
-msgstr "Questo Host"
+msgstr "Questo host"
 
 #: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
-msgstr "Utilizza la Tabella dell'Host"
+msgstr "Utilizza la tabella host"
 
 #: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
-msgstr "Nessuna Password"
+msgstr "Nessuna password"
 
 #: templates/server/replication/master_add_slave_user.twig:70
 msgid "Generate password:"
@@ -13756,10 +13748,8 @@ msgid "Master replication"
 msgstr "Replicazione master"
 
 #: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Nessun privilegio."
+msgstr "Nessun privilegio"
 
 #: templates/server/replication/index.twig:16
 #, php-format
@@ -13855,19 +13845,14 @@ msgstr ""
 "file my.cnf e dopo riavvia is server MySQL."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
-"Dopo aver riavviato il server MySQL, prego clacca sul pulsante Vai. Dovresti "
-"quindi vedere un messaggio che ti informerá che questo server <b>é</b> "
-"configurato come master."
+"Dopo aver riavviato il server MySQL, prego clicca sul pulsante Vai. Dovresti "
+"quindi vedere un messaggio che ti informerà che questo server "
+"<strong>è</strong> configurato come master."
 
 #: templates/database/designer/edit_delete_pages.twig:6
 msgid "Page to open"
@@ -14071,10 +14056,8 @@ msgid "General settings"
 msgstr "Impostazioni generali"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Collation della connessione del server"
+msgstr "Collation della connessione del server:"
 
 #: templates/home/index.twig:58
 msgid "Appearance settings"
@@ -14925,10 +14908,8 @@ msgstr ""
 "via %sGli script di setup%s."
 
 #: templates/preferences/manage/main.twig:70
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Salva con nome"
+msgstr "Salva come file JSON"
 
 #: templates/preferences/manage/main.twig:74
 msgid "Save as PHP file"
@@ -15943,10 +15924,8 @@ msgid "Show form"
 msgstr "Visualizza form"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
-msgstr "Mostra elementi nascosti"
+msgstr "Mostra messaggi nascosti"
 
 #: templates/setup/home/index.twig:72
 msgid "There are no configured servers"
@@ -16118,10 +16097,8 @@ msgstr ""
 "Si è verificato un errore durante il caricamento del display di navigazione"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "Dump SQL"
+msgstr "Upload SQL"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
