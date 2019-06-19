@@ -62,14 +62,19 @@ class UserPreferencesHeaderTest extends PmaTestCase
         $_GET['form'] = 'Features';
 
         $template = new Template();
+        $content = UserPreferencesHeader::getContent($template, new Relation($dbi, $template));
+
         $this->assertStringContainsString(
-            '<li class="active">' . \PHP_EOL
-            . \PHP_EOL
-            . '            <a href="prefs_forms.php?form=Features&amp;server=0&amp;lang=en" class="tabactive">' . \PHP_EOL
-            . '            <img src="themes/dot.gif" title="Features" alt="Features" class="icon ic_b_tblops">&nbsp;Features' . \PHP_EOL
-            . '            </a>' . \PHP_EOL
-            . '        </li>',
-            UserPreferencesHeader::getContent($template, new Relation($dbi, $template))
+            '<li class="active">',
+            $content
+        );
+        $this->assertStringContainsString(
+            '<a href="prefs_forms.php?form=Features&amp;server=0&amp;lang=en" class="tabactive">',
+            $content
+        );
+        $this->assertStringContainsString(
+            '<img src="themes/dot.gif" title="Features" alt="Features" class="icon ic_b_tblops">&nbsp;Features',
+            $content
         );
     }
 
