@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 4.9.1 (not yet released)
 - issue #15313 Added support for Twig 2
 - issue #15315 Fix cannot edit or export column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13
+- issue        Fix a TypeError in Import class with PHP 8
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
