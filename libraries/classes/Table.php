@@ -1798,7 +1798,10 @@ class Table
                     $value = Util::backquote($value);
                 }
 
-                if (strpos($column['Extra'], 'GENERATED') === false && strpos($column['Extra'], 'VIRTUAL') === false) {
+                if ((
+                    strpos($column['Extra'], 'GENERATED') === false
+                    && strpos($column['Extra'], 'VIRTUAL') === false
+                    ) || $column['Extra'] === 'DEFAULT_GENERATED') {
                     $ret[] = $value;
                 }
             }
