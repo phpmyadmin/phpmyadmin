@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 18:51+0200\n"
-"PO-Revision-Date: 2019-03-10 11:03+0000\n"
+"PO-Revision-Date: 2019-06-19 16:37+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -14236,10 +14236,8 @@ msgstr ""
 "via %sGli script di setup%s."
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Salva con nome"
+msgstr "Salva come file JSON"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -14276,10 +14274,8 @@ msgid "View dump (schema) of databases"
 msgstr "Visualizza il dump (schema) dei databases"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Permette di cancellare dati."
+msgstr "Permette di cancellare righe storiche."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
