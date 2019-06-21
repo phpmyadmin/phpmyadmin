@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-19 13:37-0300\n"
-"PO-Revision-Date: 2019-06-20 22:00+0000\n"
+"PO-Revision-Date: 2019-06-22 09:58+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -7219,7 +7219,7 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:571
 msgid "Defined aliases"
-msgstr "Aliases definidos"
+msgstr "Apelidos definidos"
 
 #: libraries/classes/Display/Export.php:627
 #: templates/display/export/options_output.twig:7
@@ -7583,7 +7583,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:70
 msgid "Sort buffer size"
-msgstr "Ordenar tamanho do buffer"
+msgstr "Tamanho do buffer de ordenação"
 
 #: libraries/classes/Engines/Myisam.php:72
 msgid ""
@@ -7595,7 +7595,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:30
 msgid "Index cache size"
-msgstr "Tamanho da cache da chave"
+msgstr "Tamanho do cache de índices"
 
 #: libraries/classes/Engines/Pbxt.php:32
 msgid ""
@@ -7623,7 +7623,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:49
 msgid "Log cache size"
-msgstr "Tamanho da cache do log"
+msgstr "Tamanho do cache do log"
 
 #: libraries/classes/Engines/Pbxt.php:51
 msgid ""
@@ -7659,7 +7659,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:75
 msgid "Checkpoint frequency"
-msgstr "Frequência do checkpoint"
+msgstr "Frequência de checkpoint"
 
 #: libraries/classes/Engines/Pbxt.php:77
 msgid ""
@@ -7775,8 +7775,8 @@ msgstr "Não existe espaço suficiente para gravar o ficheiro %s."
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"O ficheiro  %s já existe no servidor, mude o nome do ficheiro ou verifique a "
-"opção re-escrita."
+"O ficheiro %s já existe no servidor, mude o nome do ficheiro ou verifique a "
+"opção de substituição."
 
 #: libraries/classes/Export.php:363 libraries/classes/Export.php:371
 #, php-format
