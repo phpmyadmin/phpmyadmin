@@ -84,7 +84,6 @@ class Navigation
             padding: 5px 10px 0;
             border: 0;
         }';
-        
         $txt .= '#pma_navigation #recentTable,';
         $txt .= '#pma_navigation #favoriteTable {';
         $txt .= '    width: 200px;';
@@ -202,7 +201,6 @@ class Navigation
             min-height: 16px;
             float: left;
         }';
-
 
         $txt .= '#pma_navigation_tree div.block.double {';
         $txt .= '    width: 2.5em;';

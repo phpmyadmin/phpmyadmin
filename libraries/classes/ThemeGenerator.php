@@ -107,7 +107,7 @@ class ThemeGenerator
             $out['variables'] = $var->createVariablesFile($post);
             $common->createCommonFile($name);
             $nav->createNavigationFile($name);
-            $gen->GenerateCSSFiles($name);
+            $gen->GenerateCssFiles($name);
         }
         return $out;
     }

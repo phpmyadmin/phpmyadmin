@@ -18,8 +18,12 @@ class GenerateCss
 {
     /**
      * Generates theme.css and theme-rtl.css
+     *
+     * @param string $name name of new theme
+     *
+     * @return null
      */
-    public function GenerateCSSFiles($name){
+    public function generateCssFiles($name){
 
         $file = fopen("themes/" . $name . "/scss/theme.scss", "w");
 
@@ -41,22 +45,18 @@ class GenerateCss
             fclose($file);
         } else {
             trigger_error("The theme.scss file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
-            
         }
 
-
         $file = fopen("themes/" . $name . "/scss/theme-rtl.scss", "w");
-
         $txt = '$direction: rtl;
                 @import "theme";';
-
         if ($file) {
             fwrite($file, $txt);
             fclose($file);
         } else {
             trigger_error("The theme\-rtl.scss file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
         }
-        return null; 
+        return null;
     }
-    
-}    
+
+}

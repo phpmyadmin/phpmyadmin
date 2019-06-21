@@ -39,7 +39,7 @@ class Variables
         // foreground (text) color for the navi frame
         $txt .= '$navi-color : #000 ;';
         // background for the navi frame
-        $txt .= '$navi-background           :  '. $post['Navigation_Panel'] .';';
+        $txt .= '$navi-background           :  ' . $post['Navigation_Panel'] . ';';
         // foreground (text) color of the pointer in navi frame
         $txt .= '$navi-pointer-color         : #000;';
         // background of the pointer in navi frame

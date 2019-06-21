@@ -26,16 +26,9 @@ class Common
     public function createCommonFile($name)
     {
         $file = fopen("themes/" . $name . "/scss/_common.scss", "w");
-        // $txt = "<?php\n";
-        // $txt .= 'declare(strict_types=1);';
-        // $txt .= 'if (! defined(\'PHPMYADMIN\') && ! defined(\'TESTSUITE\')) {';
-        // $txt .= '    exit();';
-        // $txt .= '}';
-        // $txt .= '';
 
         /******************************************************************************/
         /* Importing Layout variables */
-        
         /* general tags */
         $txt = 'html {';
         $txt .= '    font-size: 82%;';
@@ -163,11 +156,13 @@ class Common
         $txt .= '    -moz-border-radius: 5px;';
         $txt .= '    -webkit-border-radius: 5px;';
         $txt .= '    border-radius: 5px;';
+        $txt .= '    background:linear-gradient("#ffffff", "#0e0e0e");';
         $txt .= '}';
 
         $txt .= '#initials_table a.active {';
         $txt .= '    border: 1px solid #666;';
         $txt .= '    box-shadow: 0 0 2px #999;';
+        $txt .= '    background:linear-gradient ("#bbbbbb", "#ffffff");';
         $txt .= '}';
 
         $txt .= 'dfn {';
@@ -305,9 +300,8 @@ class Common
         $txt .= '    border-radius: 12px;';
         $txt .= '    -webkit-border-radius: 12px;';
         $txt .= '    -moz-border-radius: 12px;';
-
         $txt .= '    text-shadow: 0 1px 0 #fff;';
-
+        $txt .= '    background:linear-gradient("#f8f8f8", "#d8d8d8");';
         $txt .= '}';
 
         $txt .= 'input[type=submit]:hover,';
@@ -317,6 +311,7 @@ class Common
         $txt .= 'input[name=submit_reset]:hover,';
         $txt .= 'input.button:hover {';
         $txt .= '    position: relative;';
+        $txt .= '    background:linear-gradient("#fff", "#ddd");';
         $txt .= '    cursor: pointer;';
         $txt .= '}';
 
@@ -327,6 +322,7 @@ class Common
         $txt .= 'input[name=submit_reset]:active,';
         $txt .= 'input.button:active {';
         $txt .= '    position: relative;';
+        $txt .= '    background:linear-gradient("#eee", "#ddd");';
         $txt .= '    box-shadow: 0 1px 6px -2px #333 inset;';
         $txt .= '    text-shadow: none;';
         $txt .= '}';
@@ -359,12 +355,18 @@ class Common
         $txt .= '    border: #aaa solid 1px;';
         $txt .= '    padding: 0.5em;';
         $txt .= '    background: #eee;';
-    /*    $txt .= '    text-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;';
-        $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;';
-        $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>1px 1px 2px #fff inset;'; */
-        $txt .= '}'; 
-
+        $txt .= ' @if $direction == "ltr" {
+                    text-shadow: 1px 1px 2px #fff inset;
+                    -moz-box-shadow: 1px 1px 2px #fff inset;
+                    -webkit-box-shadow:1px 1px 2px #fff inset;
+                    box-shadow: 1px 1px 2px #fff inset; }
+                @else {
+                    text-shadow: -1px 1px 2px #fff inset;
+                    -moz-box-shadow: -1px 1px 2px #fff inset;
+                    -webkit-box-shadow:-1px 1px 2px #fff inset;
+                    box-shadow: -1px 1px 2px #fff inset;
+                }; ';
+        $txt .= '}';
         $txt .= 'fieldset fieldset {';
         $txt .= '    margin: .8em;';
         $txt .= '    background: #fff;';
@@ -382,9 +384,6 @@ class Common
         $txt .= '    -webkit-border-radius: 2px;';
         $txt .= '    border: 1px solid #aaa;';
         $txt .= '    background-color: #fff;';
-     /*   $txt .= '    -moz-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>3px 3px 15px #bbb;';
-        $txt .= '    -webkit-box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>3px 3px 15px #bbb;';
-        $txt .= '    box-shadow: <?php echo $GLOBALS[\'text_dir\'] === \'rtl\' ? \'-\' : \'\'; ?>3px 3px 15px #bbb;';*/
         $txt .= '    max-width: 100%;';
         $txt .= '}';
 
@@ -403,7 +402,7 @@ class Common
         $txt .= '    padding: .1em .3em;';
         $txt .= '    margin: .1em;';
         $txt .= '    vertical-align: middle;';
-        // $txt .= '    text-shadow: 0 1px 0 #fff;';
+        $txt .= '    text-shadow: 0 1px 0 #fff;';
         $txt .= '}';
 
         /* 3.4 */
@@ -444,9 +443,9 @@ class Common
         $txt .= '    background: white;';
         $txt .= '    margin:6px;';
         $txt .= '}';
-
-        // $txt .= 'select[multiple] {';
-        // $txt .= '}';
+        $txt .= 'select[multiple] {';
+        $txt .= '    background:linear-gradient("ffffff", "f2f2f2");';
+        $txt .= '}';
 
         /******************************************************************************/
         /* classes */
@@ -625,7 +624,6 @@ class Common
         $txt .= '    border-width: 0 1px 1px 1px;';
         $txt .= '}';
 
-        // $txt .= '<?php if ($GLOBALS[\'text_dir\'] === \'ltr\') : 
         $txt .= '    /* for first th which must have right border set (ltr only) */';
         $txt .= '    .before-condition {';
         $txt .= '    border-right: 1px solid $browse-marker-background;';
@@ -728,13 +726,17 @@ class Common
         $txt .= '    margin: .5em 0 0.5em;';
         $txt .= '    border: 1px solid;';
         $txt .= '    background-repeat: no-repeat;';
-        $txt .= '        background-position: 99% 50%;';
-        $txt .= '        padding: 10px 35px 10px 10px;';
-
+        $txt .= '    @if ($direction == "ltr"){
+                     background-position: 10% 50%;
+                     padding: 10px 10px 10px 10px;
+                    }
+                    else{
+                    background-position: 99% 50%;
+                    padding: 10px 35px 10px 10px;
+                    };';
         $txt .= '    -moz-border-radius: 5px;';
         $txt .= '    -webkit-border-radius: 5px;';
         $txt .= '    border-radius: 5px;';
-
         $txt .= '    -moz-box-shadow: 0 1px 1px #fff inset;';
         $txt .= '    -webkit-box-shadow: 0 1px 1px #fff inset;';
         $txt .= '    box-shadow: 0 1px 1px #fff inset;';
@@ -981,7 +983,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.menucontainer {';
-       /* $txt .= '    <?php echo $theme->getCssGradient(\'dddddd\', \'dcdcdc\'); ?>';*/
+        $txt .= '    background: linear-gradient("#dddddd", "#dcdcdc");';
         $txt .= '    border-top: 1px solid #aaa;';
         $txt .= '}';
 
@@ -1028,9 +1030,9 @@ class Common
         $txt .= '}';
 
         $txt .= 'ul#topmenu ul {';
-        $txt .= '    -moz-box-shadow: 1px 1px 6px #ddd;';
-        $txt .= '    -webkit-box-shadow: 2px 2px 3px #666;';
-        $txt .= '    box-shadow: 2px 2px 3px #666;';
+        $txt .= '    -moz-box-shadow: -1px 1px 6px #ddd;';
+        $txt .= '    -webkit-box-shadow: -2px 2px 3px #666;';
+        $txt .= '    box-shadow: -2px 2px 3px #666;';
         $txt .= '}';
 
         $txt .= 'ul#topmenu ul.only {';
@@ -1170,7 +1172,7 @@ class Common
         $txt .= '    background: $header;';
         $txt .= '    padding: .3em .9em;';
         $txt .= '    padding-left: 2.2em;';
-        // $txt .= '    text-shadow: 0 1px 0 #000;';
+        $txt .= '    text-shadow: 0 1px 0 #000;';
         $txt .= '    max-width: 100%;';
         $txt .= '    max-height: 16px;';
         $txt .= '    overflow: hidden;';
@@ -1430,9 +1432,9 @@ class Common
         $txt .= '    border: 1px solid #CCC;';
         $txt .= '    margin: 0;';
         $txt .= '    padding: 3px;';
-        $txt .= '    -moz-box-shadow: 2px 2px 3px #666;';
-        $txt .= '    -webkit-box-shadow:2px 2px 3px #666;';
-        $txt .= '    box-shadow: 2px 2px 3px #666;';
+        $txt .= '    -moz-box-shadow: -2px 2px 3px #666;';
+        $txt .= '    -webkit-box-shadow: -2px 2px 3px #666;';
+        $txt .= '    box-shadow: -2px 2px 3px #666;';
         $txt .= '    background-color: #fff;';
         $txt .= '    z-index: 2;';
         $txt .= '}';
@@ -1610,6 +1612,7 @@ class Common
         $txt .= '    box-shadow: 0 1px 1px #fff inset;';
         $txt .= '    -webkit-box-shadow: 0 1px 1px #fff inset;';
         $txt .= '    -moz-box-shadow: 0 1px 1px #fff inset;';
+        $txt .= '    background: linear-gradient("#f8f8f8", "#d8d8d8");';
         $txt .= '}';
         $txt .= '#sectionlinks a,';
         $txt .= '.buttonlinks a,';
@@ -1630,8 +1633,9 @@ class Common
         $txt .= '}';
         $txt .= '#sectionlinks a:hover,';
         $txt .= '.buttonlinks a:hover,';
-
-
+        $txt .= 'a.button:hover {';
+        $txt .= '    background: linear-gradient("#ffffff", "#dddddd");';
+        $txt .= '}';
         $txt .= 'div#sqlquerycontainer {';
         $txt .= '    float: left;';
         $txt .= '    width: 69%;';
@@ -1673,7 +1677,7 @@ class Common
 
         /* main page */
         $txt .= '#maincontainer {';
-        $txt .= '    background-image: url(\'themes\pmahomme\img\logo_right.png\'); ';
+        $txt .= '    background-image: url("../../pmahomme/img/logo_right.png"); ';
         $txt .= '    background-position: right bottom; ';
         $txt .= '    background-repeat: no-repeat; ';
         $txt .= '}';
@@ -1964,7 +1968,7 @@ class Common
         $txt .= '   display: inline;';
         $txt .= '   left: 0;';
         $txt .= '   right: 0;';
-        $txt .= '   background-image: url(\'themes\pmahomme\img\ajax_clock_small.gif\');';
+        $txt .= '   background-image: url("../../pmahomme/img/ajax_clock_small.gif");';
         $txt .= '   background-repeat: no-repeat;';
         $txt .= '   background-position: 2%;';
         $txt .= '   border: 1px solid #e2b709;';
@@ -2072,7 +2076,7 @@ class Common
         $txt .= '    -moz-border-radius: 12px;';
 
         $txt .= '    text-shadow: 0 1px 0 #fff;';
-
+        $txt .= '    background:linear-gradient("#ffffff", "#cccccc");';
         $txt .= '    cursor: pointer;';
         $txt .= '}';
 
@@ -2720,7 +2724,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.cPointer {';
-      /*  $txt .= '    background: url(<?php echo $theme->getImgPath(\'col_pointer.png\');?>);'; */
+        $txt .= '    background: url("../../pmahomme/img/col_pointer.png");';
         $txt .= '    height: 20px;';
         $txt .= '    margin-left: -5px;  /* must be minus half of its width */';
         $txt .= '    margin-top: -10px;';
@@ -2753,7 +2757,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.coldrop {';
-        $txt .= '    background: url(\'themes\pmahomme\img\col_drop.png\');';
+        $txt .= '    background: url("../../pmahomme/img/col_drop.png");';
         $txt .= '    cursor: pointer;';
         $txt .= '    height: 16px;';
         $txt .= '    margin-left: .3em;';
@@ -2817,7 +2821,7 @@ class Common
         $txt .= '    border-radius: 5px;';
         $txt .= '    -webkit-border-radius: 5px;';
         $txt .= '    -moz-border-radius: 5px;';
-
+        $txt .= '    background:linear-gradient("#eeeeee", "#cccccc");';
         $txt .= '}';
 
         $txt .= '.navigation td {';
@@ -2854,7 +2858,7 @@ class Common
         $txt .= '    color: #fff;';
         $txt .= '    cursor: pointer;';
         $txt .= '    text-shadow: none;';
-
+        $txt .= '    background:linear-gradient("#333333", "#555555");';
         $txt .= '}';
 
         $txt .= '.navigation select {';
@@ -2900,12 +2904,12 @@ class Common
         $txt .= '}';
 
         $txt .= '.cEdit .edit_box_posting {';
-        $txt .= '    background: #FFF url(\'themes\pmahomme\img\ajax_clock_small.gif\') no-repeat right center;';
+        $txt .= '    background: #FFF url("../../pmahomme/img/ajax_clock_small.gif") no-repeat right center;';
         $txt .= '    padding-right: 1.5em;';
         $txt .= '}';
 
         $txt .= '.cEdit .edit_area_loading {';
-        $txt .= '    background: #FFF url(\'themes\pmahomme\img\ajax_clock_small.gif\') no-repeat right center;';
+        $txt .= '    background: #FFF url("../../pmahomme/img/ajax_clock_small.gif") no-repeat right center;';
         $txt .= '    height: 10em;';
         $txt .= '}';
 
@@ -2916,7 +2920,7 @@ class Common
         $txt .= '}';
 
         $txt .= '.saving_edited_data {';
-        $txt .= '    background: url(\'themes\pmahomme\img\ajax_clock_small.gif\') no-repeat left;';
+        $txt .= '    background: #FFF url("../../pmahomme/img/ajax_clock_small.gif") no-repeat left;';
         $txt .= '    padding-left: 20px;';
         $txt .= '}';
 
@@ -3448,7 +3452,7 @@ class Common
         $txt .= '}';
         $txt .= 'span.drag_icon {';
         $txt .= '    display: inline-block;';
-        $txt .= '    background-image: url(\'themes\pmahomme\img\s_sortable.png\');';
+        $txt .= '    background-image: url("../../pmahomme/img/s_sortable.png");';
         $txt .= '    background-position: center center;';
         $txt .= '    background-repeat: no-repeat;';
         $txt .= '    width: 1em;';
@@ -3485,10 +3489,10 @@ class Common
         $txt .= '    float: right;';
         $txt .= '}';
         $txt .= 'th.headerSortUp .sorticon, th.headerSortDown:hover .sorticon {';
-        $txt .= '    background-image: url(\'themes\pmahomme\img\s_desc.png\');';
+        $txt .= '    background-image: url("../../pmahomme/img/s_desc.png");';
         $txt .= '}';
         $txt .= 'th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {';
-        $txt .= '    background-image: url(\'themes\pmahomme\img\s_aesc.png\');';
+        $txt .= '    background-image: url("../../pmahomme/img/s_aesc.png");';
         $txt .= '}';
         /* end of styles of sortable tables */
         /* styles for jQuery-ui to support rtl languages */
