@@ -1544,7 +1544,6 @@ table {
 
   &#serverstatusconnections {
     float: $left;
-    margin-#{$left}: 30px;
   }
 }
 
@@ -1588,7 +1587,6 @@ table#chartGrid {
 }
 
 div.tabLinks {
-  margin-#{$left}: 0.3em;
   float: $left;
   padding: 5px 0;
 

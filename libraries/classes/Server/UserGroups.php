@@ -74,7 +74,7 @@ class UserGroups
     public static function getHtmlForUserGroupsTable()
     {
         $relation = new Relation($GLOBALS['dbi']);
-        $html_output  = '<h2>' . __('User groups') . '</h2>';
+        $html_output  = '<div class="row"><h2>' . __('User groups') . '</h2></div>';
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['usergroups']);
@@ -157,12 +157,12 @@ class UserGroups
         }
         $GLOBALS['dbi']->freeResult($result);
 
-        $html_output .= '<fieldset id="fieldset_add_user_group">';
+        $html_output .= '<div class="row"><fieldset id="fieldset_add_user_group">';
         $html_output .= '<a href="server_user_groups.php'
             . Url::getCommon(['addUserGroup' => 1]) . '">'
             . Util::getIcon('b_usradd')
             . __('Add user group') . '</a>';
-        $html_output .= '</fieldset>';
+        $html_output .= '</fieldset></div>';
 
         return $html_output;
     }
