@@ -82,6 +82,9 @@ class HomeController extends AbstractController
 
         $syncFavoriteTables = RecentFavoriteTable::getInstance('favorite')
             ->getHtmlSyncFavoriteTables();
+        
+        // $syncFavoriteTables = RecentFavoriteDb::getInstance('favorite_db')
+        //     ->getHtmlSyncFavoriteDatabases();
 
         $hasServer = $server > 0 || count($cfg['Servers']) > 1;
         if ($hasServer) {

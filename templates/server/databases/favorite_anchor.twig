@@ -1,0 +1,7 @@
+<a id="{{ database_name }}_favorite_anchor"
+    class="ajax favorite_database_anchor"
+    href="server_databases.php{{ get_common(fav_params) }}"
+    title="{{ already_favorite ? 'Remove from Favorites'|trans : 'Add to Favorites'|trans }}" 
+    data-favtargets="{{ database_name_hash }}" >
+    {{ already_favorite ? get_icon('b_favorite') : get_icon('b_no_favorite') }}
+</a>

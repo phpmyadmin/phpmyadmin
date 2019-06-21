@@ -668,6 +668,48 @@ $(function () {
     }
 });
 
+    // Add/Remove favorite Database using Ajax.
+    $(document).on('click', '.favorite_database_anchor', function (event) {
+        event.preventDefault();
+        var $self = $(this);
+        var anchorId = $self.attr('id');
+        if ($self.data('favtargetn') !== null) {
+            if ($('a[data-favtargets="' + $self.data('favtargetn') + '"]').length > 0) {
+                $('a[data-favtargets="' + $self.data('favtargetn') + '"]').trigger('click');
+                return;
+            }
+        }
+
+        $.ajax({
+            url: $self.attr('href'),
+            cache: false,
+            type: 'POST',
+            data: {
+                'favoriteDatabases': (isStorageSupported('localStorage') && typeof window.localStorage.favoriteDatabases !== 'undefined')
+                    ? window.localStorage.favoriteDatabases
+                    : '',
+                'server': CommonParams.get('server'),
+            },
+            success: function (data) {
+                if (data.changes) {
+                    $('#pma_favorite_db_list').html(data.list);
+                    $('#' + anchorId).parent().html(data.anchor);
+                    Functions.tooltip(
+                        $('#' + anchorId),
+                        'a',
+                        $('#' + anchorId).attr('title')
+                    );
+                    // Update localStorage.
+                    if (isStorageSupported('localStorage')) {
+                        window.localStorage.favoriteDatabases = data.favoriteDatabases;
+                    }
+                } else {
+                    Functions.ajaxShowMessage(data.message);
+                }
+            }
+        });
+    });
+
 /**
  * Expands a node in navigation tree.
  *

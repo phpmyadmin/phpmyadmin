@@ -13,6 +13,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\FavoriteDatabase;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -247,6 +248,97 @@ class DatabasesController extends AbstractController
         return $json;
     }
 
+        /**
+     * Add or remove favorite databases
+     *
+     * @param array $params Request parameters
+     * @return array|null JSON
+     */
+    public function addRemoveFavoriteDatabaseAction(array $params): ?array
+    {
+        global $cfg;
+
+        $favoriteInstance = FavoriteDatabase::getInstance('favorite_db');
+        if (isset($params['favoriteDatabases'])) {
+            $favoriteDatabases = json_decode($params['favoriteDatabases'], true);
+        } else {
+            $favoriteDatabases = [];
+        }
+        // Required to keep each user's preferences separate.
+        $user = sha1($cfg['Server']['user']);
+
+        $changes = true;
+        $titles = Util::buildActionTitles();
+        $favoriteDatabase = $params['favorite_database'];
+        $alreadyFavorite = $this->checkFavoriteDatabase($favoriteDatabase);
+        
+        if (isset($params['remove_favorite'])) {
+            if ($alreadyFavorite) {
+                // If already in favorite list, remove it.
+                $favoriteInstance->remove($favoriteDatabase);
+                $alreadyFavorite = false; // for favorite_anchor template
+            }
+        } elseif (isset($params['add_favorite'])) {
+            if (! $alreadyFavorite) {
+                // Otherwise add to favorite list.
+
+                $favoriteInstance->add($favoriteDatabase);
+                $alreadyFavorite = true;  // for favorite_anchor template
+                }
+            }
+
+        $favoriteDatabases[$user] = $favoriteInstance->getDatabases();
+
+        $json = [];
+        $json['changes'] = $changes;
+        if (! $changes) {
+            print('hello');
+            die();
+            $json['message'] = $this->template->render('components/error_message', [
+                'msg' => __("Favorite List is full!"),
+            ]);
+            return $json;
+        }
+        // Check if current table is already in favorite list.
+        $favoriteParams = [
+            'favorite_db' => $favoriteDatabase,
+            'ajax_request' => true,
+            ($alreadyFavorite ? 'remove' : 'add') . '_favorite' => true,
+        ];
+
+        $json['user'] = $user;
+        $json['favoriteDatabases'] = json_encode($favoriteDatabases);
+        $json['list'] = $favoriteInstance->getHtmlList();
+        $json['anchor'] = $this->template->render('server/databases/favorite_anchor', [
+            'database_name' => $favoriteDatabase,
+            'database_name_hash' => md5($favoriteDatabase),
+            'already_favorite' => $alreadyFavorite,
+            'fav_params' => $favoriteParams,
+            'titles' => $titles,
+        ]);
+        return $json;
+    }
+
+        /**
+     * Function to check if a table is already in favorite list.
+     *
+     * @param string $currentTable current table
+     *
+     * @return bool
+     */
+    protected function checkFavoriteDatabase(string $currentDatabase): bool
+    {
+        // ensure $_SESSION['tmpval']['favoriteTables'] is initialized
+        $favoriteInstance = FavoriteDatabase::getInstance('favorite_db');
+        $databases = $favoriteInstance->getDatabases();
+        foreach ($databases as $db) {
+            if ($db['db'] == $currentDatabase) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Extracts parameters sort order and sort by
      *
@@ -340,6 +432,7 @@ class DatabasesController extends AbstractController
 
             $databases[] = [
                 'name' => $database['SCHEMA_NAME'],
+                'name_hash' => md5($database['SCHEMA_NAME']),
                 'collation' => [
                     'name' => $database['DEFAULT_COLLATION_NAME'],
                     'description' => Charsets::getCollationDescr(
@@ -352,6 +445,7 @@ class DatabasesController extends AbstractController
                     $database['SCHEMA_NAME'],
                     true
                 ),
+                'already_favorite' => $this->checkFavoriteDatabase($database['SCHEMA_NAME']),
             ];
         }
 

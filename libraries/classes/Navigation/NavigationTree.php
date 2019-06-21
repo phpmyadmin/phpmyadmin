@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FavoriteDatabase;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeTable;
@@ -1570,9 +1571,12 @@ class NavigationTree
                 ->getHtml();
         }
         if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-            $retval .= RecentFavoriteTable::getInstance('favorite')
+            $retval .= RecentFavoriteTable::getInstance('favorite_table')
                 ->getHtml();
         }
+        $retval .= FavoriteDatabase::getInstance('favorite_db')         
+        ->getHtml();
+        
         $retval .= '<div class="clearfloat"></div>';
         $retval .= '</div>';
 

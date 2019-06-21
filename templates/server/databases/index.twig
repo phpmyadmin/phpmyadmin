@@ -110,6 +110,7 @@
                     {% endif %}
                   {% endif %}
                 </a>
+                
               </th>
 
               {% if has_statistics %}
@@ -142,6 +143,7 @@
               {% endif %}
 
               <th>{% trans 'Action' %}</th>
+              
             </tr>
           </thead>
 
@@ -216,6 +218,20 @@
                 {% endif %}
 
                 <td class="tool">
+                  {# Check if current table is already in favorite list #}
+                  {% set fav_params = {
+                      'ajax_request': true,
+                      'favorite_db': database.name,
+                       ((database.already_favorite ? 'remove' : 'add') ~ '_favorite'): true
+                  } %}
+                  {% include 'server/databases/favorite_anchor.twig' with {
+                      'database_name': database.name,
+                      'fav_params': fav_params,
+                      'database_name_hash': database.name_hash,
+                      'already_favorite': database.already_favorite,
+                  } only %}
+                  </td>
+                  <td class="tool">
                   <a class="server_databases" data="
                     {{- database.name|js_format }}" href="server_privileges.php
                     {{- get_common({
@@ -225,6 +241,7 @@
                     {{- 'Check privileges for database "%s".'|trans|format(database.name) }}">
                     {{ get_icon('s_rights', 'Check privileges'|trans) }}
                   </a>
+                  
                 </td>
               </tr>
             {% endfor %}

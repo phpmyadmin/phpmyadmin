@@ -16,6 +16,7 @@
 AJAX.registerTeardown('server/databases.js', function () {
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
+    $(document).off('click', 'a.favorite_database_anchor.ajax');
 });
 
 /**
@@ -149,4 +150,14 @@ AJAX.registerOnload('server/databases.js', function () {
             CommonActions.setDb($(this).attr('data'));
         });
     });
+
+    // Add tooltip to favorite icons.
+    $('.favorite_database_anchor').each(function () {
+        Functions.tooltip(
+            $(this),
+            'a',
+            $(this).attr('title')
+        );
+    });
+
 }); // end $()
