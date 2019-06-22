@@ -196,6 +196,7 @@ class TableGisVisualizationController extends TableController
             array_merge(
                 $this->url_params,
                 array(
+                    'sql_signature' => Core::signSqlQuery($this->sql_query),
                     'saveToFile' => true,
                     'session_max_rows' => $rows,
                     'pos' => $pos
