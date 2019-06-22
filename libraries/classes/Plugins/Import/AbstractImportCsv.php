@@ -29,7 +29,7 @@ abstract class AbstractImportCsv extends ImportPlugin
      * Sets the import plugin properties.
      * Called in the constructor.
      *
-     * @return OptionsPropertyMainGroup PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup object of the plugin
+     * @return \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup|void object of the plugin
      */
     protected function setProperties()
     {

@@ -212,7 +212,7 @@ class Partition extends SubPartition
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return string partition method
+     * @return string|null partition method
      */
     public static function getPartitionMethod($db, $table)
     {

@@ -34,7 +34,7 @@ class ConfigFile
 
     /**
      * Stores original PMA config, not modified by user preferences
-     * @var Config
+     * @var array|null
      */
     private $_baseCfg;
 

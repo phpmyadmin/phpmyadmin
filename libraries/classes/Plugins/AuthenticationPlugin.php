@@ -346,7 +346,7 @@ abstract class AuthenticationPlugin
         $response = Response::getInstance();
         if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
-                return true;
+                return;
             } else {
                 exit;
             }

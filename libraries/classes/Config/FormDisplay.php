@@ -379,7 +379,7 @@ class FormDisplay
      * @param array     $jsDefault          array which stores JavaScript code
      *                                      to be displayed
      *
-     * @return string HTML for input field
+     * @return string|null HTML for input field
      */
     private function _displayFieldInput(
         Form $form,
@@ -514,7 +514,7 @@ class FormDisplay
     /**
      * Displays errors
      *
-     * @return string HTML for errors
+     * @return string|null HTML for errors
      */
     public function displayErrors()
     {

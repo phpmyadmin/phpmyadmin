@@ -65,7 +65,7 @@ class File
     protected $_chunk_size = 32768;
 
     /**
-     * @var resource file handle
+     * @var resource|null file handle
      */
     protected $_handle = null;
 
@@ -462,7 +462,7 @@ class File
             Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name)
         );
         if (@is_link($this->getName())) {
-            $this->_error_message = __('File is a symbolic link');
+            $this->_error_message = Message::error(__('File is a symbolic link'));
             $this->setName(null);
             return false;
         }

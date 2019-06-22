@@ -73,7 +73,7 @@ class RelationController extends AbstractController
      * @param string            $tbl_storage_engine Table storage engine
      * @param array|null        $existrel           Relations
      * @param array|null        $existrel_foreign   External relations
-     * @param string            $upd_query          Update query
+     * @param Table             $upd_query          Update query
      * @param Relation          $relation           Relation instance
      */
     public function __construct(

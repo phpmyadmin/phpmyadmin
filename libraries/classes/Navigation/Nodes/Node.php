@@ -73,7 +73,7 @@ class Node
      */
     public $separatorDepth = 1;
     /**
-     * @var string An IMG tag, used when rendering the node
+     * @var string|array An IMG tag, used when rendering the node, an array for NodeTabl
      */
     public $icon;
     /**
@@ -811,7 +811,7 @@ class Node
     /**
      * Gets the count of hidden elements for each database
      *
-     * @return array array containing the count of hidden elements for each database
+     * @return array|null array containing the count of hidden elements for each database
      */
     public function getNavigationHidingData()
     {

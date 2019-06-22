@@ -383,11 +383,11 @@ class RecentFavoriteTable
     }
 
     /**
-     * Reutrn the name of the configuration storage table
+     * Return the name of the configuration storage table
      *
-     * @return string pma table name
+     * @return string|null pma table name
      */
-    private function _getPmaTable()
+    private function _getPmaTable(): ?string
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! empty($cfgRelation['db'])

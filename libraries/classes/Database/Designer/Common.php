@@ -383,9 +383,9 @@ class Common
      *
      * @param string $db database
      *
-     * @return int id of the default pdf page for the database
+     * @return int|null id of the default pdf page for the database
      */
-    public function getDefaultPage($db)
+    public function getDefaultPage($db): ?int
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {

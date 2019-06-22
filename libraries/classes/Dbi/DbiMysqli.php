@@ -541,7 +541,7 @@ class DbiMysqli implements DbiExtension
      * @param mysqli_result $result result set identifier
      * @param int           $i      field
      *
-     * @return string field flags
+     * @return string|false field flags
      */
     public function fieldFlags($result, $i)
     {

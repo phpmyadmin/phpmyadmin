@@ -95,7 +95,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         //$allowed_programs[1] = '/usr/local/bin/validate';
 
         // no-op when no allowed programs
-        if (count($allowed_programs) == 0) {
+        if (count($allowed_programs) === 0) {
             return $buffer;
         }
 

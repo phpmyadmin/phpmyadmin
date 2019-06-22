@@ -593,7 +593,7 @@ class StructureController extends AbstractController
     /**
      * Extracts partition details from CREATE TABLE statement
      *
-     * @return array[] array of partition details
+     * @return array[]|null array of partition details
      */
     private function _extractPartitionDetails()
     {
@@ -785,7 +785,7 @@ class StructureController extends AbstractController
     /**
      * Function to get the type of command for multiple field handling
      *
-     * @return string
+     * @return string|null
      */
     protected function getMultipleFieldCommandType()
     {

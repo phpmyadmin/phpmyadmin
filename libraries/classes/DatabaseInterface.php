@@ -1058,11 +1058,11 @@ class DatabaseInterface
     /**
      * usort comparison callback
      *
-     * @param string $a first argument to sort
-     * @param string $b second argument to sort
+     * @param array $a first argument to sort
+     * @param array $b second argument to sort
      *
-     * @return integer  a value representing whether $a should be before $b in the
-     *                   sorted array or not
+     * @return int  a value representing whether $a should be before $b in the
+     *              sorted array or not
      *
      * @access  private
      */
