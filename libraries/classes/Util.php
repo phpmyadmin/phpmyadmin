@@ -1301,7 +1301,7 @@ class Util
      * @param int        $limes the sensitiveness
      * @param int        $comma the number of decimals to retain
      *
-     * @return array    the formatted value and its unit
+     * @return array|null the formatted value and its unit
      *
      * @access  public
      */
@@ -2352,7 +2352,7 @@ class Util
      */
     public static function getPageFromPosition($pos, $max_count)
     {
-        return floor($pos / $max_count) + 1;
+        return (int) floor($pos / $max_count) + 1;
     }
 
     /**
@@ -4189,7 +4189,7 @@ class Util
      *
      * @param string $level 'server', 'db' or 'table' level
      *
-     * @return array list of tabs for the menu
+     * @return array|null list of tabs for the menu
      */
     public static function getMenuTabList($level = null)
     {

@@ -211,7 +211,7 @@ class ThemeManager
     /**
      * returns name of theme stored in the cookie
      *
-     * @return string  theme name from cookie
+     * @return string|bool theme name from cookie or false
      * @access public
      */
     public function getThemeCookie()

@@ -4362,8 +4362,7 @@ class Results
      *                                             be displayed
      * @param string  $sort_expression_nodirection sort expression without direction
      *
-     * @return  string                              html content
-     *          null                                if not found sorted column
+     * @return string|null html content, null if not found sorted column
      *
      * @access  private
      *

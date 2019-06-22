@@ -114,7 +114,7 @@ class ZipExtension
      * @param string $file  path to zip file
      * @param string $regex regular expression for the file name to match
      *
-     * @return string the file name of the first file that matches the given regular expression
+     * @return string|false the file name of the first file that matches the given regular expression
      */
     public function findFile($file, $regex)
     {

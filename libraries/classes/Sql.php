@@ -993,9 +993,9 @@ class Sql
      *
      * @param string $db the database in the query
      *
-     * @return int whether to reload the navigation(1) or not(0)
+     * @return bool whether to reload the navigation(1) or not(0)
      */
-    private function hasCurrentDbChanged($db)
+    private function hasCurrentDbChanged($db): bool
     {
         if (strlen($db) > 0) {
             $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
@@ -1291,7 +1291,7 @@ class Sql
      * @param array  $analyzed_sql_results analyzed sql results
      * @param int    $num_rows             number of rows
      *
-     * @return string
+     * @return Message
      */
     private function getMessageForNoRowsReturned(
         $message_to_show,

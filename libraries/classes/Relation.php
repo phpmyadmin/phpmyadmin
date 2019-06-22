@@ -868,7 +868,7 @@ class Relation
      * @param string $db    the name of the db to check for
      * @param string $table the name of the table to check for
      *
-     * @return string   field name
+     * @return string|false field name or false
      *
      * @access  public
      */
@@ -1478,7 +1478,7 @@ class Relation
 
                 $f_query_main = 'SELECT ' . Util::backquote($foreign_field)
                     . (
-                        $foreign_display == false
+                        $foreign_display === false
                             ? ''
                             : ', ' . Util::backquote($foreign_display)
                     );
@@ -1488,13 +1488,13 @@ class Relation
                     . Util::backquote($foreign_field)
                     . ' LIKE "%' . $this->dbi->escapeString($foreign_filter) . '%"'
                     . (
-                    $foreign_display == false
+                    $foreign_display === false
                         ? ''
                         : ' OR ' . Util::backquote($foreign_display)
                         . ' LIKE "%' . $this->dbi->escapeString($foreign_filter)
                         . '%"'
                     );
-                $f_query_order = $foreign_display == false ? '' : ' ORDER BY '
+                $f_query_order = $foreign_display === false ? '' : ' ORDER BY '
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 

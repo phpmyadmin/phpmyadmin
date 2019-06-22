@@ -52,7 +52,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets the force parameter
      *
-     * @return string
+     * @return bool
      */
     public function getForce()
     {

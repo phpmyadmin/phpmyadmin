@@ -22,12 +22,12 @@ use ReflectionProperty;
 class PmaTestCase extends TestCase
 {
     /**
-     * @var Response
+     * @var Response|null
      */
     protected $restoreInstance = null;
+
     /**
-     * class Response
-     * @var ReflectionProperty
+     * @var ReflectionProperty|null
      */
     protected $attrInstance = null;
 

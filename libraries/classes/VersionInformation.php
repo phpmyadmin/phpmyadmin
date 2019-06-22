@@ -138,7 +138,7 @@ class VersionInformation
      *
      * @param array $releases array of information related to each version
      *
-     * @return array containing the version and date of latest compatible version
+     * @return array|null containing the version and date of latest compatible version
      */
     public function getLatestCompatibleVersion(array $releases)
     {
@@ -228,7 +228,7 @@ class VersionInformation
     /**
      * Returns the MySQL version if connected to a database
      *
-     * @return string MySQL version
+     * @return string|null MySQL version
      */
     protected function getMySQLVersion()
     {

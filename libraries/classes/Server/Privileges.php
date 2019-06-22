@@ -4245,7 +4245,7 @@ class Privileges
      *
      * @return Message|null
      */
-    public function updateMessageForReload()
+    public function updateMessageForReload(): ?Message
     {
         $message = null;
         if (isset($_GET['flush_privileges'])) {
@@ -4269,7 +4269,7 @@ class Privileges
      * @param array      $queries             queries array
      * @param array|null $queries_for_display queries array for display
      *
-     * @return null
+     * @return array
      */
     public function getDataForQueries(array $queries, $queries_for_display)
     {

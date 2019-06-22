@@ -273,7 +273,7 @@ class NavigationTree
         }
 
         $navItems = (int) $GLOBALS['cfg']['FirstLevelNavigationItems'];
-        $retval = floor(count($prefixMap) / $navItems) * $navItems;
+        $retval = (int) floor(count($prefixMap) / $navItems) * $navItems;
 
         return $retval;
     }
@@ -348,7 +348,7 @@ class NavigationTree
      * @param int    $pos3  The position for the pagination of
      *                      the branch at the third level of the tree
      *
-     * @return Node|false The active node or false in case of failure
+     * @return Node|bool    The active node or false in case of failure, true if the path contains <= 1 items
      */
     private function buildPathPart(array $path, $type2, $pos2, $type3, $pos3)
     {

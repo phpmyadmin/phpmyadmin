@@ -434,6 +434,8 @@ class FormDisplayTest extends PmaTestCase
         $opts['values']['iconv'] = 'testIconv';
         $opts['values']['recode'] = 'testRecode';
         $opts['values']['mb'] = 'testMB';
+        $opts['comment'] = null;
+        $opts['comment_warning'] = null;
 
         $expect = $opts;
 
