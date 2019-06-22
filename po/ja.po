@@ -6122,7 +6122,7 @@ msgstr "正の値ではありません!"
 #: libraries/classes/Config/FormDisplay.php:100
 #: libraries/classes/Config/Validator.php:550
 msgid "Not a non-negative number!"
-msgstr "負でない値ではありません!"
+msgstr "負の値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:101
 #: libraries/classes/Config/Validator.php:506

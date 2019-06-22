@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -13441,10 +13441,8 @@ msgstr ""
 "式%s 。"
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "另存新檔"
+msgstr "另存為 JSON 檔案"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -13479,10 +13477,8 @@ msgid "View dump (schema) of databases"
 msgstr "檢視資料庫的傾印資料 (綱要)"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "允許刪除資料。"
+msgstr "允許刪除歷史資料列。"
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46

@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -10270,7 +10270,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
-msgstr "Aplicación de autenticación (2FA)"
+msgstr "Solicitud de autenticación (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
 msgid ""
@@ -10295,7 +10295,7 @@ msgstr ""
 # https://www.phpmyadmin.net/documentation/Documentation.html#cfg_Servers_auth_type
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 msgid "Simple two-factor authentication"
-msgstr "factor de doble autentificación"
+msgstr "Autenticación simple de dos factores"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
@@ -10304,11 +10304,11 @@ msgstr "¡Solo para fines de prueba!"
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Fallo del factor de doble autentificación: %s"
+msgstr "La autenticación de dos factores falló%s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
 msgid "Two-factor authentication failed."
-msgstr "factor de doble autentificación fallida."
+msgstr "La autenticación de dos factores ha fallado."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -14155,7 +14155,7 @@ msgstr "Administrar tu configuración"
 
 #: libraries/user_preferences.inc.php:38
 msgid "Two-factor authentication"
-msgstr "Factor de doble autentificación"
+msgstr "Autenticación de dos factores"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
@@ -14271,21 +14271,19 @@ msgstr ""
 
 #: prefs_twofactor.php:29
 msgid "Two-factor authentication has been removed."
-msgstr "El factor de doble autentificación ha sido eliminado."
+msgstr "Se ha eliminado la autenticación de dos factores."
 
 #: prefs_twofactor.php:39
 msgid "Two-factor authentication has been configured."
-msgstr "El factor de doble autentificación ha sido configurado."
+msgstr "Se ha configurado la autenticación de dos factores."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
-msgstr "Ver el volcado (schema) de la base de datos"
+msgstr "Ver volcado (esquema) de bases de datos"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Permite borrar datos."
+msgstr "Permite borrar filas históricas."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46

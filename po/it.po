@@ -14273,7 +14273,7 @@ msgstr "L'autenticazione a due fattori è stata configurata."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
-msgstr "Visualizza il dump (schema) dei databases"
+msgstr "Visualizza il dump (schema) dei database"
 
 #: server_privileges.php:74
 msgid "Allows deleting historical rows."
