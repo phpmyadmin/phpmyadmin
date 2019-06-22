@@ -48,7 +48,6 @@ cache:
 jobs:
   allow_failures:
     - php: nightly
-    - os: windows
     - os: osx
     - name: "PHP 7.1 with dbase extension"
     - name: "PHP 7.4"
@@ -122,7 +121,9 @@ jobs:
       os: windows
       language: node_js
       node_js: 10
-      env: CI_MODE=test
+      env:
+        - CI_MODE=test
+        - YARN_GPG=no
       before_install:
         - choco install php composer mariadb
         - export PATH=/c/tools/php73:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.3"/bin:$PATH
