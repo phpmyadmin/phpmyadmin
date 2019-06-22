@@ -675,8 +675,9 @@ class ExportOdtTest extends PmaTestCase
             ->with(2)
             ->will($this->returnValue('c2'));
 
-        $this->assertTrue(
-            $this->object->getTableDefStandIn('db', 'v&w', '#')
+        $this->assertSame(
+            $this->object->getTableDefStandIn('db', 'v&w', '#'),
+            ''
         );
 
         $this->assertStringContainsString(
