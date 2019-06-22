@@ -1830,7 +1830,8 @@ class Util
         $tag_params_strings = [];
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
-            || strpos($url, 'sql_query=') !== false
+            // Has as sql_query without a signature
+            || ( strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
             || strpos($url, 'view[as]=') !== false
         ) {
             $parts = explode('?', $url, 2);
