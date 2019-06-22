@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-22 12:17+0200\n"
-"PO-Revision-Date: 2019-04-29 11:47+0000\n"
+"POT-Creation-Date: 2019-06-19 13:49-0300\n"
+"PO-Revision-Date: 2019-06-22 10:20+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -7709,7 +7709,7 @@ msgstr "O servidor não está a responder."
 
 #: libraries/classes/DatabaseInterface.php:2264
 msgid "Logout and try as another user."
-msgstr "Efetue logout e tente com outro usuário."
+msgstr "Faça logout e tente novamente com outro utilizador."
 
 #: libraries/classes/DatabaseInterface.php:2270
 msgid "Please check privileges of directory containing database."
@@ -7735,7 +7735,7 @@ msgstr "Veja a %snossa documentação%s para mais informação."
 
 #: libraries/classes/Dbi/DbiMysqli.php:133
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "Conexão SSL imposta pelo servidor, sendo automaticamente habilitada."
+msgstr "Conexão SSL imposta pelo servidor, ativando-a automaticamente."
 
 #: libraries/classes/Display/ChangePassword.php:81
 #: libraries/classes/Server/Privileges.php:1807
@@ -7752,7 +7752,7 @@ msgstr "Palavra-passe:"
 
 #: libraries/classes/Display/ChangePassword.php:92
 msgid "Enter:"
-msgstr "Entrar:"
+msgstr "Introduza:"
 
 #: libraries/classes/Display/ChangePassword.php:100
 #: libraries/classes/Server/Privileges.php:1826
@@ -7807,7 +7807,7 @@ msgstr "Apelidos definidos"
 #: libraries/classes/Display/Export.php:645
 #: templates/display/export/options_output.twig:7
 msgid "Rename exported databases/tables/columns"
-msgstr "Renomear as bases de dados/tabelas/colunas exportadas"
+msgstr "Renomear bases de dados/tabelas/colunas exportadas"
 
 #: libraries/classes/Display/Export.php:702
 msgid "Could not load export plugins, please check your installation!"
@@ -8035,11 +8035,11 @@ msgstr "Páginas para serem vazadas"
 
 #: libraries/classes/Engines/Innodb.php:225
 msgid "Busy pages"
-msgstr "Página ocupadas"
+msgstr "Páginas ocupadas"
 
 #: libraries/classes/Engines/Innodb.php:237
 msgid "Latched pages"
-msgstr "Páginas trancadas"
+msgstr "Páginas bloqueadas"
 
 #: libraries/classes/Engines/Innodb.php:251
 msgid "Buffer Pool Activity"
@@ -8161,7 +8161,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:41
 msgid "Record cache size"
-msgstr "Tamanho de cache de gravação"
+msgstr "Tamanho da cache do registo"
 
 #: libraries/classes/Engines/Pbxt.php:43
 msgid ""
@@ -8176,7 +8176,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:51
 msgid "Log cache size"
-msgstr "Tamanho do cache de log"
+msgstr "Tamanho do cache do log"
 
 #: libraries/classes/Engines/Pbxt.php:53
 msgid ""
@@ -8328,8 +8328,8 @@ msgstr "Não existe espaço suficiente para gravar o ficheiro %s."
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"O ficheiro  %s já existe no servidor, mude o nome do ficheiro ou verifique a "
-"opção de substituição (re-escrita)."
+"O ficheiro %s já existe no servidor, mude o nome do ficheiro ou verifique a "
+"opção de substituição."
 
 #: libraries/classes/Export.php:375 libraries/classes/Export.php:383
 #, php-format
@@ -9005,10 +9005,8 @@ msgstr ""
 "desempenho. Considere desativar agrupamento de itens no painel de navegação."
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Grupos:"
+msgstr "Grupos"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -14439,7 +14437,7 @@ msgstr "Criar %s"
 #: templates/view_create.twig:13
 #: templates/table/structure/display_structure.twig:377
 msgid "Edit view"
-msgstr "Ecrã de edição"
+msgstr "Vista de edição"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
@@ -15535,7 +15533,7 @@ msgstr "Ver em ecrã cheio"
 
 #: templates/database/designer/main.twig:36
 msgid "Exit fullscreen"
-msgstr "Sair da s ecrã cheio"
+msgstr "Sair do ecrã cheio"
 
 #: templates/database/designer/main.twig:50
 #: templates/database/designer/main.twig:54
@@ -17384,7 +17382,7 @@ msgstr "Porcentagem de leituras de índice da memória"
 #: libraries/advisory_rules.txt:303
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr "A porcentagem de índices que usam o buffer de chaves MyISAM é baixa."
+msgstr "A percentagem de índices que usam o buffer de chaves MyISAM é baixa."
 
 #: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
