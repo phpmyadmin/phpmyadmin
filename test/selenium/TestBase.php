@@ -10,29 +10,21 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-use Date;
 use Exception;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Exception\InvalidSelectorException;
 use Facebook\WebDriver\Exception\NoSuchElementException;
 use Facebook\WebDriver\Exception\WebDriverException;
-use Facebook\WebDriver\Firefox\FirefoxDriver;
-use Facebook\WebDriver\Firefox\FirefoxProfile;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\RemoteWebElement;
-use Facebook\WebDriver\Remote\WebDriverCapabilityType;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverElement;
 use Facebook\WebDriver\WebDriverExpectedCondition;
-use Facebook\WebDriver\WebDriverPlatform;
 use Facebook\WebDriver\WebDriverSelect;
-use Facebook\WebDriver\WebDriverWindow;
 use InvalidArgumentException;
 use mysqli;
 use mysqli_result;
-use PHPUnit\Framework\IncompleteTestError;
-use PHPUnit\Framework\SkippedTestError;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 
@@ -1085,27 +1077,31 @@ abstract class TestBase extends TestCase
 
         if ($this->hasBrowserstackConfig()) {
             $ch = curl_init();
-            curl_setopt(
-                $ch,
-                CURLOPT_URL,
-                $SESSION_REST_URL . $this->sessionId . ".json"
-            );
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(
-                $ch,
-                CURLOPT_USERPWD,
-                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
+            if ($ch !== false) {
+                curl_setopt(
+                    $ch,
+                    CURLOPT_URL,
+                    $SESSION_REST_URL . $this->sessionId . ".json"
+                );
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt(
+                    $ch,
+                    CURLOPT_USERPWD,
+                    $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
                     . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
-            );
-            $result = curl_exec($ch);
-            $proj = json_decode($result);
-            if (isset($proj->automation_session)) {
-                echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
+                );
+                $result = curl_exec($ch);
+                $proj = json_decode($result);
+                if (isset($proj->automation_session)) {
+                    echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
+                }
+                if (curl_errno($ch)) {
+                    echo 'Error: ' . curl_error($ch) . PHP_EOL;
+                }
+                curl_close($ch);
+            } else {
+                echo 'Error: curl_init' . PHP_EOL;
             }
-            if (curl_errno($ch)) {
-                echo 'Error: ' . curl_error($ch) . PHP_EOL;
-            }
-            curl_close($ch);
         }
 
         // Call parent's onNotSuccessful to handle everything else
