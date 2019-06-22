@@ -31,6 +31,8 @@ if (isset($_GET['sql_query']) && isset($_GET['sql_signature'])) {
     if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
         $sqlQuery = $_GET['sql_query'];
     }
+} elseif (isset($_POST['sql_query'])) {
+    $sqlQuery = &$GLOBALS['sql_query'];
 }
 
 /* Define dependencies for the concerned controller */
