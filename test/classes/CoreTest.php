@@ -1127,7 +1127,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testSignSqlQuery()
+    public function testSignSqlQuery()
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1141,7 +1141,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testCheckSqlQuerySignature()
+    public function testCheckSqlQuerySignature()
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1154,7 +1154,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testCheckSqlQuerySignatureFails()
+    public function testCheckSqlQuerySignatureFails()
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', '132654987gguieunofz');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1167,7 +1167,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testCheckSqlQuerySignatureFailsBadHash()
+    public function testCheckSqlQuerySignatureFailsBadHash()
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1180,7 +1180,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testCheckSqlQuerySignatureFailsNoSession()
+    public function testCheckSqlQuerySignatureFailsNoSession()
     {
         $_SESSION[' HMAC_secret '] = 'empty';
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1193,7 +1193,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testCheckSqlQuerySignatureFailsFromAnotherSession()
+    public function testCheckSqlQuerySignatureFailsFromAnotherSession()
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
         $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
@@ -1209,7 +1209,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testCheckSqlQuerySignatureFailsBlowfishSecretChanged()
+    public function testCheckSqlQuerySignatureFailsBlowfishSecretChanged()
     {
         $GLOBALS['cfg']['blowfish_secret'] = '';
         $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
@@ -1226,5 +1226,4 @@ class CoreTest extends PmaTestCase
         // Must work now, (good secret and blowfish_secret)
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
     }
-
 }
