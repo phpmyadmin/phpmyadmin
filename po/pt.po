@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-19 13:49-0300\n"
-"PO-Revision-Date: 2019-06-22 10:20+0000\n"
+"PO-Revision-Date: 2019-06-24 14:00+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.7.1-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -8090,8 +8090,8 @@ msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
-"O modo para recuperação automático de tabelas MyISAM danificadas, como "
-"configurado pela opção de recuperação de início do servidor --myisam-recover."
+"O modo de recuperação automática de tabelas MyISAM que travaram, conforme "
+"definido através da opção de inicialização do servidor --myisam-recover."
 
 #: libraries/classes/Engines/Myisam.php:45
 msgid "Maximum size for temporary sort files"
@@ -13347,7 +13347,7 @@ msgstr "nenhuma das acima"
 
 #: libraries/db_common.inc.php:153 tbl_operations.php:243
 msgid "No collation provided."
-msgstr ""
+msgstr "Nenhuma colação fornecida."
 
 #: libraries/mult_submits.inc.php:59 templates/select_all.twig:2
 #: templates/select_all.twig:6
