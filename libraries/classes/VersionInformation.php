@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
 use \stdClass;
 
@@ -146,7 +145,7 @@ class VersionInformation
             $phpVersions = $release->php_versions;
             $phpConditions = explode(",", $phpVersions);
             foreach ($phpConditions as $phpCondition) {
-                if (! $this->evaluateVersionCondition("PHP", $phpCondition)) {
+                if (! $this->evaluateVersionCondition('PHP', $phpCondition)) {
                     continue 2;
                 }
             }
@@ -181,7 +180,7 @@ class VersionInformation
      *
      * @return boolean whether the condition is met
      */
-    public function evaluateVersionCondition($type, $condition)
+    public function evaluateVersionCondition(string $type, string $condition)
     {
         $operator = null;
         $version = null;
@@ -209,7 +208,7 @@ class VersionInformation
             $myVersion = $this->getMySQLVersion();
         }
 
-        if ($myVersion != null && $operator != null) {
+        if ($myVersion !== null && $operator !== null) {
             return version_compare($myVersion, $version, $operator);
         }
         return false;

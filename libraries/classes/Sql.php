@@ -679,7 +679,7 @@ class Sql
         }
 
         $response = Response::getInstance();
-        $response->setRequestStatus($retval == true);
+        $response->setRequestStatus($retval === true);
         exit;
     }
 
@@ -1675,12 +1675,12 @@ class Sql
      */
     private function getHtmlForPreviousUpdateQuery(
         ?string $displayQuery,
-        $showSql,
+        bool $showSql,
         $sqlData,
         $displayMessage
     ): string {
         $output = '';
-        if (isset($displayQuery) && ($showSql == true) && empty($sqlData)) {
+        if (isset($displayQuery) && ($showSql === true) && empty($sqlData)) {
             $output = Util::getMessage(
                 $displayMessage,
                 $displayQuery,
@@ -1956,7 +1956,7 @@ class Sql
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             isset($disp_query) ? $disp_query : null,
-            $GLOBALS['cfg']['ShowSQL'],
+            (bool) $GLOBALS['cfg']['ShowSQL'],
             isset($sql_data) ? $sql_data : null,
             isset($disp_message) ? $disp_message : null
         );

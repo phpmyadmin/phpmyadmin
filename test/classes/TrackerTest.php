@@ -13,7 +13,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\Assert;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -450,7 +449,7 @@ class TrackerTest extends PmaTestCase
 
         $result = null;
 
-        if ($type == null) {
+        if ($type === null) {
             $method = new ReflectionMethod('PhpMyAdmin\Tracker', '_changeTracking');
             $method->setAccessible(true);
             $result = $method->invoke(
