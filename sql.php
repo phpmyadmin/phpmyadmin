@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Core;
 
 /**
  * Gets some core libraries
@@ -71,6 +72,10 @@ if (isset($_POST['bkm_fields']['bkm_sql_query'])) {
     $sql_query = $_POST['bkm_fields']['bkm_sql_query'];
 } elseif (isset($_POST['sql_query'])) {
     $sql_query = $_POST['sql_query'];
+} elseif (isset($_GET['sql_query']) && isset($_GET['sql_signature'])) {
+    if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
+        $sql_query = $_GET['sql_query'];
+    }
 }
 
 // This one is just to fill $db

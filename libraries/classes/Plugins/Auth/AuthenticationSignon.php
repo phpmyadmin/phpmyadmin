@@ -214,6 +214,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Restore our token */
             if (!empty($pma_token)) {
                 $_SESSION[' PMA_token '] = $pma_token;
+                $_SESSION[' HMAC_secret '] = Util::generateRandom(16);
             }
 
             /**

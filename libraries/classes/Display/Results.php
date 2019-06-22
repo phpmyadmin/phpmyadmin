@@ -5313,16 +5313,19 @@ class Results
                     $title = htmlspecialchars($data);
                 }
 
+                $sqlQuery = 'SELECT * FROM '
+                . Util::backquote($map[$meta->name][3]) . '.'
+                . Util::backquote($map[$meta->name][0])
+                . ' WHERE '
+                . Util::backquote($map[$meta->name][1])
+                . $where_comparison;
+
                 $_url_params = array(
                     'db'    => $map[$meta->name][3],
                     'table' => $map[$meta->name][0],
                     'pos'   => '0',
-                    'sql_query' => 'SELECT * FROM '
-                        . Util::backquote($map[$meta->name][3]) . '.'
-                        . Util::backquote($map[$meta->name][0])
-                        . ' WHERE '
-                        . Util::backquote($map[$meta->name][1])
-                        . $where_comparison,
+                    'sql_signature' => Core::signSqlQuery($sqlQuery),
+                    'sql_query' => $sqlQuery,
                 );
 
                 if ($transformation_plugin != $default_function) {
