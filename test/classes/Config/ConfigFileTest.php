@@ -51,7 +51,7 @@ class ConfigFileTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
-        unset($_SESSION[$this->readAttribute($this->object, "_id")]);
+        $this->object->setConfigData([]);
         unset($this->object);
     }
 
