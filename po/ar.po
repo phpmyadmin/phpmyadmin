@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-19 13:37-0300\n"
+"POT-Creation-Date: 2019-06-22 11:54+0200\n"
 "PO-Revision-Date: 2019-05-06 11:48+0000\n"
 "Last-Translator: Ahmed M. Farrag <a.m.farrag@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-8/ar/"
@@ -274,10 +274,10 @@ msgstr "جداول"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:38
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:288
-#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3049
-#: libraries/classes/Util.php:3059 libraries/classes/Util.php:3065
-#: libraries/classes/Util.php:3345 libraries/classes/Util.php:4003
-#: libraries/classes/Util.php:4020 libraries/config.values.php:38
+#: libraries/classes/Server/Privileges.php:1159 libraries/classes/Util.php:3050
+#: libraries/classes/Util.php:3060 libraries/classes/Util.php:3066
+#: libraries/classes/Util.php:3346 libraries/classes/Util.php:4004
+#: libraries/classes/Util.php:4021 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
 #: templates/table/tracking/structure_snapshot_columns.twig:1
@@ -615,7 +615,7 @@ msgstr ""
 "على كل حال عند آخر معالجة لم يتم تحليل أي معلومات، هذا يعني أن phpMyAdmin لا "
 "يستطيع استكمال هذا الاستيراد، ما لم يتم زيادة حد وقت PHP."
 
-#: import.php:706 sql.php:159
+#: import.php:706 sql.php:164
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "أمر \"حذف قاعدة البيانات\" معطل."
 
@@ -1312,7 +1312,7 @@ msgstr "بيانات سير"
 
 #: js/messages.php:215 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
-#: libraries/classes/Util.php:3994
+#: libraries/classes/Util.php:3995
 msgid "Settings"
 msgstr "الإعدادات"
 
@@ -1530,7 +1530,7 @@ msgstr "إشرح الخرج"
 #: js/messages.php:292 libraries/classes/Menu.php:591
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
 #: libraries/classes/Server/Status/Processes.php:89
-#: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3990
+#: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3991
 #: libraries/config.values.php:105
 #: templates/database/tracking/tracked_tables.twig:15
 msgid "Status"
@@ -1645,8 +1645,8 @@ msgstr ""
 #: libraries/classes/Menu.php:391 libraries/classes/Menu.php:500
 #: libraries/classes/Menu.php:621
 #: libraries/classes/Server/Status/Monitor.php:324
-#: libraries/classes/Util.php:3993 libraries/classes/Util.php:4008
-#: libraries/classes/Util.php:4025 prefs_manage.php:228
+#: libraries/classes/Util.php:3994 libraries/classes/Util.php:4009
+#: libraries/classes/Util.php:4026 prefs_manage.php:228
 #: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "استيراد"
@@ -1857,9 +1857,9 @@ msgstr "تعريف الدالة المخزنة يجب أن تحتوي جملة R
 #: libraries/classes/Server/Privileges.php:2859
 #: libraries/classes/Server/Privileges.php:3590
 #: libraries/classes/Server/Status/Monitor.php:328
-#: libraries/classes/Util.php:3352 libraries/classes/Util.php:3353
-#: libraries/classes/Util.php:3992 libraries/classes/Util.php:4007
-#: libraries/classes/Util.php:4024 prefs_manage.php:294
+#: libraries/classes/Util.php:3353 libraries/classes/Util.php:3354
+#: libraries/classes/Util.php:3993 libraries/classes/Util.php:4008
+#: libraries/classes/Util.php:4025 prefs_manage.php:294
 #: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
 msgid "Export"
@@ -1911,8 +1911,8 @@ msgstr "إظهار صندوق الإستعلام"
 #: libraries/classes/Display/Results.php:3336
 #: libraries/classes/Display/Results.php:4693 libraries/classes/Index.php:745
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
-#: libraries/classes/Util.php:1079 libraries/classes/Util.php:3350
-#: libraries/classes/Util.php:3351 setup/frames/index.inc.php:157
+#: libraries/classes/Util.php:1079 libraries/classes/Util.php:3351
+#: libraries/classes/Util.php:3352 setup/frames/index.inc.php:157
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
@@ -2449,7 +2449,7 @@ msgid "Select database first"
 msgstr "حدد قاعدة البيانات أولا"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4884
-#: libraries/classes/Util.php:3885
+#: libraries/classes/Util.php:3886
 #: templates/table/structure/optional_action_links.twig:1
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
@@ -3110,7 +3110,7 @@ msgstr "الوصف"
 #: libraries/classes/Language.php:197 libraries/classes/Pdf.php:74
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:495
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:520
-#: libraries/classes/Util.php:2315
+#: libraries/classes/Util.php:2316
 msgid "Page number:"
 msgstr "رقم الصفحة:"
 
@@ -4281,7 +4281,7 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1276
-#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3988
+#: libraries/classes/Server/Privileges.php:4565 libraries/classes/Util.php:3989
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "قاعدة بيانات"
@@ -4417,9 +4417,9 @@ msgstr "تعقب التغيرات الحاصلة على قاعدة البيان�
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:364
 #: libraries/classes/Menu.php:467 libraries/classes/Menu.php:587
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
-#: libraries/classes/Util.php:3050 libraries/classes/Util.php:3060
-#: libraries/classes/Util.php:3066 libraries/classes/Util.php:3989
-#: libraries/classes/Util.php:4004 libraries/classes/Util.php:4021
+#: libraries/classes/Util.php:3051 libraries/classes/Util.php:3061
+#: libraries/classes/Util.php:3067 libraries/classes/Util.php:3990
+#: libraries/classes/Util.php:4005 libraries/classes/Util.php:4022
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:111 libraries/config.values.php:117
 msgid "SQL"
@@ -6433,20 +6433,20 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:567
-#: tbl_operations.php:423
+#: tbl_operations.php:435
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "تم إفراغ محتويات الجدول %s."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:588
-#: tbl_operations.php:441 view_operations.php:130
+#: tbl_operations.php:453 view_operations.php:130
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "تم إزالة %s  من العرض"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:589
-#: tbl_operations.php:442
+#: tbl_operations.php:454
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -6495,8 +6495,8 @@ msgstr "معلومات"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:198
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:200
-#: libraries/classes/Display/Results.php:1001 libraries/classes/Util.php:2327
-#: libraries/classes/Util.php:2330
+#: libraries/classes/Display/Results.php:1001 libraries/classes/Util.php:2328
+#: libraries/classes/Util.php:2331
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "سابق"
@@ -6513,8 +6513,8 @@ msgstr "اعرض الاستعلامات كاملة"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:232
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:234
-#: libraries/classes/Display/Results.php:1055 libraries/classes/Util.php:2358
-#: libraries/classes/Util.php:2368
+#: libraries/classes/Display/Results.php:1055 libraries/classes/Util.php:2359
+#: libraries/classes/Util.php:2369
 msgctxt "Next page"
 msgid "Next"
 msgstr "التالي"
@@ -6691,8 +6691,8 @@ msgstr "تغيير"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1219
 #: libraries/classes/Controllers/Table/TableStructureController.php:1220
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1610
-#: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3346
-#: libraries/classes/Util.php:3347
+#: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3347
+#: libraries/classes/Util.php:3348
 #: templates/server/databases/databases_footer.twig:55
 #: templates/table/structure/display_structure.twig:191
 #: templates/table/structure/check_all_table_column.twig:24
@@ -6748,7 +6748,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
 #: libraries/classes/Core.php:842 libraries/mult_submits.inc.php:340
-#: tbl_operations.php:260 tbl_replace.php:334 templates/preview_sql.twig:3
+#: tbl_operations.php:272 tbl_replace.php:334 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "لا تغييرات"
 
@@ -7141,14 +7141,14 @@ msgstr "تصفية الصفوف"
 msgid "Search this table"
 msgstr "ابحث في هذا الجدول"
 
-#: libraries/classes/Display/Results.php:998 libraries/classes/Util.php:2326
-#: libraries/classes/Util.php:2329
+#: libraries/classes/Display/Results.php:998 libraries/classes/Util.php:2327
+#: libraries/classes/Util.php:2330
 msgctxt "First page"
 msgid "Begin"
 msgstr "بداية"
 
-#: libraries/classes/Display/Results.php:1085 libraries/classes/Util.php:2359
-#: libraries/classes/Util.php:2369
+#: libraries/classes/Display/Results.php:1085 libraries/classes/Util.php:2360
+#: libraries/classes/Util.php:2370
 msgctxt "Last page"
 msgid "End"
 msgstr "نهاية"
@@ -7175,7 +7175,7 @@ msgstr "نصوص كاملة"
 #: libraries/classes/Display/Results.php:2131
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:157
-#: libraries/classes/Util.php:4698 libraries/classes/Util.php:4715
+#: libraries/classes/Util.php:4699 libraries/classes/Util.php:4716
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/database/multi_table_query/form.twig:63
@@ -7188,7 +7188,7 @@ msgstr "تنازليا"
 #: libraries/classes/Display/Results.php:2127
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:160
-#: libraries/classes/Util.php:4693 libraries/classes/Util.php:4710
+#: libraries/classes/Util.php:4694 libraries/classes/Util.php:4711
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/database/multi_table_query/form.twig:62
@@ -7865,7 +7865,7 @@ msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غ
 msgid "Binary - do not edit"
 msgstr "ثنائي - لاتحرره"
 
-#: libraries/classes/InsertEdit.php:1498 libraries/classes/Util.php:3312
+#: libraries/classes/InsertEdit.php:1498 libraries/classes/Util.php:3313
 msgid "The directory you set for upload work cannot be reached."
 msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل."
 
@@ -7966,7 +7966,7 @@ msgstr "%1$s (بالقرب من <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:277
 #: libraries/classes/Navigation/Nodes/NodeView.php:30 tbl_operations.php:74
-#: tbl_operations.php:242 tbl_structure.php:36
+#: tbl_operations.php:254 tbl_structure.php:36
 #: templates/database/structure/structure_table_row.twig:98
 #: templates/database/structure/structure_table_row.twig:163
 msgid "View"
@@ -7979,9 +7979,9 @@ msgstr "“%s”"
 
 #: libraries/classes/Menu.php:350
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Util.php:3053 libraries/classes/Util.php:3063
-#: libraries/classes/Util.php:3339 libraries/classes/Util.php:3340
-#: libraries/classes/Util.php:4019 libraries/config.values.php:42
+#: libraries/classes/Util.php:3054 libraries/classes/Util.php:3064
+#: libraries/classes/Util.php:3340 libraries/classes/Util.php:3341
+#: libraries/classes/Util.php:4020 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
 #: templates/table/structure/check_all_table_column.twig:8
 #: templates/database/search/results.twig:34
@@ -7990,10 +7990,10 @@ msgstr "استعراض"
 
 #: libraries/classes/Menu.php:367 libraries/classes/Menu.php:470
 #: libraries/classes/Navigation/Nodes/NodeTable.php:291
-#: libraries/classes/Util.php:3051 libraries/classes/Util.php:3061
-#: libraries/classes/Util.php:3067 libraries/classes/Util.php:3341
-#: libraries/classes/Util.php:3342 libraries/classes/Util.php:4005
-#: libraries/classes/Util.php:4022 libraries/config.values.php:40
+#: libraries/classes/Util.php:3052 libraries/classes/Util.php:3062
+#: libraries/classes/Util.php:3068 libraries/classes/Util.php:3342
+#: libraries/classes/Util.php:3343 libraries/classes/Util.php:4006
+#: libraries/classes/Util.php:4023 libraries/config.values.php:40
 #: libraries/config.values.php:48 libraries/config.values.php:112
 #: libraries/config.values.php:118
 msgid "Search"
@@ -8002,9 +8002,9 @@ msgstr "إبحث"
 #: libraries/classes/Menu.php:377
 #: libraries/classes/Navigation/Nodes/NodeTable.php:294
 #: libraries/classes/SqlQueryForm.php:290
-#: libraries/classes/SqlQueryForm.php:293 libraries/classes/Util.php:3052
-#: libraries/classes/Util.php:3062 libraries/classes/Util.php:3343
-#: libraries/classes/Util.php:3344 libraries/classes/Util.php:4023
+#: libraries/classes/SqlQueryForm.php:293 libraries/classes/Util.php:3053
+#: libraries/classes/Util.php:3063 libraries/classes/Util.php:3344
+#: libraries/classes/Util.php:3345 libraries/classes/Util.php:4024
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:119
 msgid "Insert"
@@ -8012,24 +8012,24 @@ msgstr "إدخال"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
 #: libraries/classes/Server/Privileges.php:2582
-#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4010
-#: libraries/classes/Util.php:4026 libraries/config.values.php:107
+#: libraries/classes/Server/Privileges.php:4453 libraries/classes/Util.php:4011
+#: libraries/classes/Util.php:4027 libraries/config.values.php:107
 #: templates/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
 msgid "Privileges"
 msgstr "الإمتيازات"
 
 #: libraries/classes/Menu.php:410 libraries/classes/Menu.php:418
-#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3054
-#: libraries/classes/Util.php:3068 libraries/classes/Util.php:4009
-#: libraries/classes/Util.php:4027 libraries/config.values.php:113
+#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3055
+#: libraries/classes/Util.php:3069 libraries/classes/Util.php:4010
+#: libraries/classes/Util.php:4028 libraries/config.values.php:113
 #: view_operations.php:101
 msgid "Operations"
 msgstr "عمليات"
 
 #: libraries/classes/Menu.php:423 libraries/classes/Menu.php:534
-#: libraries/classes/Relation.php:279 libraries/classes/Util.php:4014
-#: libraries/classes/Util.php:4028
+#: libraries/classes/Relation.php:279 libraries/classes/Util.php:4015
+#: libraries/classes/Util.php:4029
 msgid "Tracking"
 msgstr "تتبع"
 
@@ -8041,8 +8041,8 @@ msgstr "تتبع"
 #: libraries/classes/Plugins/Export/ExportSql.php:2043
 #: libraries/classes/Plugins/Export/ExportTexytext.php:537
 #: libraries/classes/Plugins/Export/ExportXml.php:126
-#: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:4013
-#: libraries/classes/Util.php:4029
+#: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:4014
+#: libraries/classes/Util.php:4030
 msgid "Triggers"
 msgstr "القوادح"
 
@@ -8051,12 +8051,12 @@ msgstr "القوادح"
 msgid "Database seems to be empty!"
 msgstr "قاعدة البيانات فارغة!"
 
-#: libraries/classes/Menu.php:477 libraries/classes/Util.php:4006
+#: libraries/classes/Menu.php:477 libraries/classes/Util.php:4007
 msgid "Query"
 msgstr "استعلام بواسطة مثال"
 
 #: libraries/classes/Menu.php:517 libraries/classes/Rte/Words.php:49
-#: libraries/classes/Util.php:4011
+#: libraries/classes/Util.php:4012
 msgid "Routines"
 msgstr "روتينات"
 
@@ -8064,15 +8064,15 @@ msgstr "روتينات"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:965
 #: libraries/classes/Plugins/Export/ExportXml.php:106
-#: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4012
+#: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4013
 msgid "Events"
 msgstr "أحداث"
 
-#: libraries/classes/Menu.php:540 libraries/classes/Util.php:4015
+#: libraries/classes/Menu.php:540 libraries/classes/Util.php:4016
 msgid "Designer"
 msgstr "المصمم"
 
-#: libraries/classes/Menu.php:549 libraries/classes/Util.php:4016
+#: libraries/classes/Menu.php:549 libraries/classes/Util.php:4017
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "الأعمدة المركزية"
@@ -8082,12 +8082,12 @@ msgid "User accounts"
 msgstr "حسابات المستخدمين"
 
 #: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
-#: libraries/classes/Util.php:3995 templates/server/sub_page_header.twig:2
+#: libraries/classes/Util.php:3996 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr "سجل ثنائي"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
-#: libraries/classes/Util.php:3996
+#: libraries/classes/Util.php:3997
 #: templates/database/structure/table_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
@@ -8095,21 +8095,21 @@ msgid "Replication"
 msgstr "إستنساخ"
 
 #: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:194
-#: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3997
+#: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3998
 #: libraries/config.values.php:106 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
 msgstr "متغيرات"
 
-#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3998
+#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3999
 msgid "Charsets"
 msgstr "مجموعات المحارف"
 
-#: libraries/classes/Menu.php:653 libraries/classes/Util.php:4000
+#: libraries/classes/Menu.php:653 libraries/classes/Util.php:4001
 msgid "Engines"
 msgstr "محركات"
 
-#: libraries/classes/Menu.php:657 libraries/classes/Util.php:3999
+#: libraries/classes/Menu.php:657 libraries/classes/Util.php:4000
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr "القوابس"
@@ -13709,69 +13709,69 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "صباحا"
 
-#: libraries/classes/Util.php:1846
+#: libraries/classes/Util.php:1847
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 
-#: libraries/classes/Util.php:1881
+#: libraries/classes/Util.php:1882
 msgid "Missing parameter:"
 msgstr "مدخلات مفقودة:"
 
-#: libraries/classes/Util.php:2439
+#: libraries/classes/Util.php:2440
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "الذهاب إلى قاعدة البيانات \"%s\"."
 
-#: libraries/classes/Util.php:2464
+#: libraries/classes/Util.php:2465
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "إنّ ال %s الوظيفية هي مصابة بعطل معروف، أنظر إلى %s"
 
-#: libraries/classes/Util.php:3258 prefs_manage.php:238
+#: libraries/classes/Util.php:3259 prefs_manage.php:238
 msgid "Browse your computer:"
 msgstr "تصفح حاسبك:"
 
-#: libraries/classes/Util.php:3283
+#: libraries/classes/Util.php:3284
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
 
-#: libraries/classes/Util.php:3323
+#: libraries/classes/Util.php:3324
 msgid "There are no files to upload!"
 msgstr "لايوجد أي ملفات لرفعها!"
 
-#: libraries/classes/Util.php:3348 libraries/classes/Util.php:3349
+#: libraries/classes/Util.php:3349 libraries/classes/Util.php:3350
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "إفراغ"
 
-#: libraries/classes/Util.php:3354 libraries/classes/Util.php:3355
+#: libraries/classes/Util.php:3355 libraries/classes/Util.php:3356
 msgid "Execute"
 msgstr "تنفيذ"
 
-#: libraries/classes/Util.php:3860
+#: libraries/classes/Util.php:3861
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Util.php:3865
+#: libraries/classes/Util.php:3866
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Util.php:3867
+#: libraries/classes/Util.php:3868
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Util.php:3870
+#: libraries/classes/Util.php:3871
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Util.php:3991
+#: libraries/classes/Util.php:3992
 msgid "Users"
 msgstr "المستخدمون"
 
-#: libraries/classes/Util.php:4685
+#: libraries/classes/Util.php:4686
 #: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "ترتيب"
@@ -13912,6 +13912,10 @@ msgstr "كلاهما"
 #: libraries/config.values.php:204
 msgid "neither of the above"
 msgstr "لاشيء منهم"
+
+#: libraries/db_common.inc.php:151 tbl_operations.php:224
+msgid "No collation provided."
+msgstr ""
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
