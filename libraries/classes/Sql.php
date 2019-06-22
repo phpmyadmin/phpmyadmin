@@ -2178,6 +2178,7 @@ class Sql
         $displayResultsObject = new DisplayResults(
             $GLOBALS['db'],
             $GLOBALS['table'],
+            $GLOBALS['server'],
             $goto,
             $sql_query
         );
