@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - issue #14270 Fix Middle-click on foreign key link broken
 - issue #14363 Fix broken relational links in tables
 - issue #14987 Fix weird error for empty collation
+- issue #15334 Fix export of GIS visualisation not working (PNG, PDF, SVG)
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
