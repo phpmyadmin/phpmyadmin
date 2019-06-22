@@ -2554,7 +2554,7 @@ class Privileges
         }
 
         $response = Response::getInstance();
-        if ($response->isAjax() == true
+        if ($response->isAjax() === true
             && empty($_REQUEST['ajax_page_request'])
         ) {
             $message = Message::success(__('User has been added.'));

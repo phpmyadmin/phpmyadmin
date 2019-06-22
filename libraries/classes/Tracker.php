@@ -188,7 +188,7 @@ class Tracker
         $tablename,
         $version,
         $tracking_set = '',
-        $is_view = false
+        bool $is_view = false
     ) {
         global $sql_backquotes, $export_type;
 
@@ -241,14 +241,14 @@ class Tracker
         $create_sql  = "";
 
         if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true
-            && $is_view == false
+            && $is_view === false
         ) {
             $create_sql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . Util::backquote($tablename) . ";\n";
         }
 
         if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true
-            && $is_view == true
+            && $is_view === true
         ) {
             $create_sql .= self::getLogComment()
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tablename) . ";\n";

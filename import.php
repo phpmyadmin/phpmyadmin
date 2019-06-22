@@ -795,7 +795,7 @@ if ($go_sql) {
         'sql_query',
         PhpMyAdmin\Util::getMessage($msg, $sql_query, 'success')
     );
-} elseif ($result == false) {
+} elseif ($result === false) {
     $response->setRequestStatus(false);
     $response->addJSON('message', PhpMyAdmin\Message::error($msg));
 } else {

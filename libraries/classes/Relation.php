@@ -1470,7 +1470,7 @@ class Relation
             $moreThanLimit = $this->dbi->getTable($foreign_db, $foreign_table)
                 ->checkIfMinRecordsExist($GLOBALS['cfg']['ForeignKeyMaxLimit']);
 
-            if ($override_total == true
+            if ($override_total === true
                 || ! $moreThanLimit
             ) {
                 // foreign_display can be false if no display field defined:

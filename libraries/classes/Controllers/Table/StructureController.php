@@ -1422,7 +1422,7 @@ class StructureController extends AbstractController
             $max_digits,
             $decimals
         );
-        if ($mergetable == false) {
+        if ($mergetable === false) {
             list($index_size, $index_unit) = Util::formatByteDown(
                 $this->_showtable['Index_length'],
                 $max_digits,

@@ -142,7 +142,7 @@ if (isset($_POST['do_save_data'])) {
 /**
  * Displays the form used to define the new field
  */
-if ($abort == false) {
+if ($abort === false) {
     /**
      * Gets tables information
      */

@@ -725,7 +725,7 @@ class NavigationTree
                     if ($sepPos != false
                         && $sepPos != mb_strlen($child->name)
                         && $sepPos != 0
-                        && ($prefixPos == false || $sepPos < $prefixPos)
+                        && ($prefixPos === false || $sepPos < $prefixPos)
                     ) {
                         $prefixPos = $sepPos;
                     }

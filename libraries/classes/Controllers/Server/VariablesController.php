@@ -185,7 +185,7 @@ class VariablesController extends AbstractController
                 $varValue[1]
             );
 
-            if ($isHtmlFormatted == false) {
+            if ($isHtmlFormatted === false) {
                 $json['variable'] = htmlspecialchars($formattedValue);
             } else {
                 $json['variable'] = $formattedValue;
