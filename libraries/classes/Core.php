@@ -1276,7 +1276,7 @@ class Core
      * Sign the sql query using hmac using the session token
      *
      * @param string $sqlQuery The sql query
-     * @return void
+     * @return string
      */
     public static function signSqlQuery($sqlQuery)
     {
@@ -1289,7 +1289,8 @@ class Core
      * Check that the sql query has a valid hmac signature
      *
      * @param string $sqlQuery The sql query
-     * @return void
+     * @param string $signature The Signature to check
+     * @return bool
      */
     public static function checkSqlQuerySignature($sqlQuery, $signature)
     {
@@ -1298,5 +1299,4 @@ class Core
         $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
         return hash_equals($hmac, $signature);
     }
-
 }
