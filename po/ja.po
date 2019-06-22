@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-04-27 18:51+0200\n"
-"PO-Revision-Date: 2019-06-22 09:58+0000\n"
+"PO-Revision-Date: 2019-06-24 14:00+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.7.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6116,7 +6116,7 @@ msgstr "正の値ではありません!"
 #: libraries/classes/Config/FormDisplay.php:100
 #: libraries/classes/Config/Validator.php:550
 msgid "Not a non-negative number!"
-msgstr "負の値ではありません!"
+msgstr "負でない値ではありません!"
 
 #: libraries/classes/Config/FormDisplay.php:101
 #: libraries/classes/Config/Validator.php:506
@@ -13766,7 +13766,7 @@ msgstr "上のどちらでもない"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "照合順序が提供されていません。"
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
